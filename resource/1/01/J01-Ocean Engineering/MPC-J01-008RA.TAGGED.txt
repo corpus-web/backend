@@ -1,0 +1,509 @@
+﻿_NP <title> A_DT meshfree_JJ framework_NN for_IN the_DT numerical_JJ simulation_NN of_IN elasto-plasticity_NN deformation_NN of_IN ship_NN structure_NN </title> <author> Yu-Xiang_NP Peng_NP ;_: A-Man_NP Zhang_NP ;_: Fu-Ren_NP Ming_NP ;_: Shi-Ping_NP Wang_NP </author> <Affiliation> College_NP of_IN Shipbuilding_NP Engineering_NP ,_, Harbin_NP Engineering_NP University_NP ,_, Harbin_NP ,_, 150001_CD ,_, China_NP </Affiliation> <year> 2019_CD </year> <Jounral> Ocean_NP Engineering_NP </Journal> <Publishing_house> ELSEVIER_NP </Publishing_house> <Text_Collector> Zhang_NP San，HEU_NP </Text_Collector> <DOI> 10.1016/j.oceaneng.2019.106507_JJ </DOI> <URL> https://www.sciencedirect.com/science/article/pii/S0029801819306481_NN </URL> A_DT meshfree_JJ framework_NN for_IN the_DT numerical_JJ simulation_NN of_IN elasto-plasticity_NN deformation_NN of_IN ship_NN structure_NN Yu-Xiang_NP Peng_NP ;_: A-Man_NP Zhang_NP ;_: Fu-Ren_NP Ming_NP ;_: Shi-Ping_NP Wang_NP College_NP of_IN Shipbuilding_NP Engineering_NP ,_, Harbin_NP Engineering_NP University_NP ,_, Harbin_NP ,_, 150001_CD ,_, China_NP <Section> Highlights_VVZ </Section> A_DT meshfree_JJ framework_NN for_IN the_DT analysis_NN of_IN engineering_NN shell_NN structures_NNS is_VBZ established_VVN ._SENT 
+A_DT general_JJ elastoplasticity_NN model_NN for_IN RKPM_NN shell_NN formulation_NN is_VBZ derived_VVN ._SENT 
+Elastoplasticity_NN analysis_NN of_IN shell_NN structures_NNS is_VBZ considered_VVN to_TO validate_VV the_DT RKPM_NN scheme_NN ._SENT 
+Elastoplasticity_NN response_NN of_IN a_DT real_JJ ship_NN structure_NN under_IN impact_NN load_NN is_VBZ studied_VVN ._SENT 
+<Section> Abstract_JJ </Section> In_IN present_JJ work_NN ,_, a_DT meshfree_JJ framework_NN for_IN the_DT numerical_JJ simulation_NN of_IN elasto-plasticity_NN deformation_NN of_IN ship_NN structure_NN is_VBZ established_VVN ._SENT 
+The_DT reproducing_VVG kernel_NN particle_NN method_NN (_( RKPM_NP )_) is_VBZ adopted_VVN to_TO discretize_VV the_DT calculation_NN domain_NN ,_, and_CC the_DT meshfree_JJ shell_NN formulation_NN is_VBZ derived_VVN based_VVN on_IN Mindlin_NP shell_NN theory_NN ._SENT 
+Then_RB a_DT general_JJ elasto-plasticity_NN model_NN is_VBZ established_VVN under_IN the_DT meshfree_JJ shell_NN framework_NN ,_, and_CC the_DT stress_NN resultants_NNS are_VBP avoided_VVN since_IN the_DT shell_NN formulation_NN is_VBZ based_VVN on_IN degenerated_VVN continuum_NN approach_NN ._SENT 
+By_IN removing_VVG the_DT normal_JJ stress_NN from_IN the_DT yield_NN function_NN ,_, the_DT zero_CD normal_JJ stress_NN assumption_NN is_VBZ implemented_VVN ._SENT 
+Several_JJ numerical_JJ examples_NNS are_VBP studied_VVN and_CC the_DT accuracy_NN of_IN the_DT present_JJ elasto-plasticity_NN model_NN is_VBZ verified_VVN ._SENT 
+Finally_RB ,_, the_DT dynamic_JJ response_NN of_IN the_DT ship_NN cabin_NN and_CC real_JJ ship_NN structure_NN under_IN impact_NN load_NN are_VBP calculated_VVN ,_, the_DT capability_NN of_IN the_DT present_JJ meshfree_JJ approach_NN applied_VVN in_IN complex_JJ engineering_NN structures_NNS analysis_NN is_VBZ demonstrated_VVN ._SENT 
+Keywords_NNS :_: Elasto-plasticity_NN ;_: Meshfree_JJ methods_NNS ;_: Ship_NN hull_NN ;_: Dynamic_JJ response_NN ;_: Large_JJ deformation_NN <Section> 1._CD Introduction_NN </Section> Shell_NP structures_NNS have_VHP been_VBN widely_RB applied_VVN in_IN many_JJ aspects_NNS of_IN engineering_NN ,_, especially_RB in_IN shipbuilding_NN engineering_NN ,_, since_IN the_DT main_JJ structure_NN of_IN the_DT ship_NN hull_NN is_VBZ built_VVN by_IN stiffened_VVN shell_NN structures_NNS ._SENT 
+Therefore_RB ,_, the_DT response_NN of_IN the_DT stiffened_VVN shell_NN structure_NN under_IN ultimate_JJ load_NN is_VBZ of_IN great_JJ concern_NN to_TO the_DT engineers_NNS ,_, for_IN instance_NN ,_, the_DT car_NN crash_NN (_( Cheng_NP et_NP al_NP ._SENT 
+,_, 2001_CD )_) ,_, ship_NN grounding_NN (_( Simonsen_NP ,_, 1997_CD )_) ,_, and_CC damage_NN of_IN ship_NN hull_NN subjected_VVN to_TO the_DT underwater_JJ explosion_NN (_( Liang_NP and_CC Tai_NP ,_, 2006_CD ;_: Ming_NP et_NP al_NP ._SENT 
+,_, 2016_CD )_) ._SENT 
+All_PDT these_DT cases_NNS contain_VVP large_JJ deformation_NN of_IN the_DT shell_JJ structures_NNS ._SENT 
+In_IN the_DT numerical_JJ simulation_NN of_IN such_JJ problems_NNS ,_, the_DT traditional_JJ finite_JJ element_NN method_NN (_( FEM_NP )_) is_VBZ facing_VVG difficulties_NNS ,_, such_JJ as_IN mesh_NN distortion_NN and_CC dynamic_JJ crack_NN propagation_NN ._SENT 
+However_RB ,_, the_DT meshfree_JJ methods_NNS have_VHP an_DT advantage_NN in_IN handling_VVG these_DT cases_NNS ,_, and_CC they_PP do_VVP not_RB suffer_VV from_IN mesh_NN distortion_NN since_IN their_PP$ discretizations_NNS do_VVP not_RB rely_VV on_IN the_DT finite_JJ mesh_NN (_( Li_NP and_CC Liu_NP ,_, 2002_CD ;_: Nguyen_NP et_NP al_NP ._SENT 
+,_, 2008_CD )_) ._SENT 
+In_IN recent_JJ studies_NNS ,_, the_DT meshfree_JJ methods_NNS have_VHP been_VBN applied_VVN in_IN the_DT dynamic_JJ fracture_NN simulation_NN of_IN thin_JJ shells_NNS ._SENT 
+For_IN instance_NN ,_, Rabczuk_NP et_CC al_NP ._SENT 
+(_( 2007_CD )_) proposed_VVD a_DT meshfree_JJ thin_JJ shell_NN method_NN for_IN the_DT crack_NN propagation_NN in_IN thin_JJ shells_NNS ;_: Rabczuk_NP et_NP al_NP ._SENT 
+(_( 2010_CD )_) using_VVG the_DT meshfree_JJ method_NN dealing_VVG with_IN dynamic_JJ fracture_NN of_IN shells_NNS while_IN the_DT fluid-structure_NN interaction_NN is_VBZ considered_VVN ._SENT 
+For_IN the_DT numerical_JJ simulation_NN of_IN shell_NN structures_NNS ,_, there_EX are_VBP two_CD main_JJ approaches_NNS :_: one_CD is_VBZ the_DT direct_JJ three-dimensional_JJ continuum_NN approach_NN (_( Li_NP et_NP al_NP ._SENT 
+,_, 2000_CD )_) ;_: the_DT other_JJ one_CD is_VBZ the_DT so-called_JJ degenerated_VVN continuum_NN approach_NN (_( Wang_NP and_CC Chen_NP ,_, 2004_CD ;_: Rabczuk_NP and_CC Belytschko_NP ,_, 2004_CD ;_: Areias_NP and_CC Rabczuk_NP ,_, 2013_CD )_) ._SENT 
+The_DT numerical_JJ implementation_NN of_IN the_DT former_JJ approach_NN is_VBZ simpler_JJR than_IN the_DT degenerated_VVN continuum_NN approach_NN and_CC allows_VVZ an_DT implementation_NN of_IN local_JJ three-dimensional_JJ constitutive_JJ model_NN without_IN any_DT modifications_NNS ._SENT 
+However_RB ,_, the_DT former_JJ approach_NN is_VBZ not_RB popular_JJ in_IN practice_NN ,_, since_IN it_PP has_VHZ difficulties_NNS to_TO model_VV the_DT complex_JJ shell_NN structures_NNS and_CC the_DT computational_JJ cost_NN is_VBZ relatively_RB high_JJ ._SENT 
+In_IN contrast_NN ,_, the_DT degenerated_VVN continuum_NN approach_NN is_VBZ not_RB limited_VVN by_IN these_DT problems_NNS and_CC has_VHZ been_VBN widely_RB used_VVN in_IN numerical_JJ simulation_NN (_( Kiendl_NP et_NP al_NP ._SENT 
+,_, 2009_CD ;_: Amiri_NP et_NP al_NP ._SENT 
+,_, 2014_CD ;_: Nguyen-Thanh_NP et_NP al_NP ._SENT 
+,_, 2015_CD ,_, 2017_CD )_) ._SENT 
+Moreover_RB ,_, the_DT deep_JJ neural_JJ network_NN (_( DNN_NP )_) is_VBZ applied_VVN in_IN the_DT bending_VVG analysis_NN of_IN thin_JJ shells_NNS recently_RB ,_, related_JJ work_NN on_IN this_DT reader_NN may_MD refer_VV to_TO Guo_NP et_CC al_NP ._SENT 
+(_( 2019_CD )_) ._SENT 
+In_IN previous_JJ research_NN ,_, the_DT meshfree_JJ methods_NNS have_VHP been_VBN applied_VVN in_IN the_DT simulation_NN of_IN shell_NN structures_NNS ._SENT 
+Caleyron_NP et_NP al_NP ._SENT 
+(_( 2012_CD )_) applied_VVD the_DT Moving_VVG least_JJS squares_NNS particle_NN hydrodynamics_NN (_( MLSPH_NN )_) to_TO the_DT simulation_NN of_IN the_DT dynamic_JJ fracture_NN of_IN shell_NN structures_NNS ._SENT 
+Ren_NP and_CC Li_NP (_( 2012_CD )_) used_VVD the_DT reproducing_VVG kernel_NN particle_NN method_NN (_( RKPM_NP )_) in_IN the_DT simulation_NN of_IN large-scale_JJ ductile_JJ fracture_NN of_IN plates_NNS and_CC shells_NNS ;_: O'Grady_NP and_CC Foster_NP (_( 2014_CD )_) developed_VVD a_DT peridynamics_NN shell_NN formulation_NN to_TO model_VV the_DT bending_VVG deformation_NN ._SENT 
+However_RB ,_, the_DT meshfree_JJ methods_NNS have_VHP seldom_RB been_VBN applied_VVN to_TO the_DT analysis_NN of_IN complex_JJ shell_NN structure_NN ,_, for_IN instance_NN ,_, the_DT meshfree_JJ methods_NNS have_VHP not_RB been_VBN applied_VVN to_TO the_DT simulation_NN of_IN a_DT real_JJ ship_NN structures_NNS ._SENT 
+Focus_NN on_IN the_DT insufficiency_NN of_IN current_JJ research_NN ,_, in_IN the_DT present_JJ work_NN ,_, we_PP established_VVD a_DT meshfree_JJ framework_NN for_IN the_DT numerical_JJ simulation_NN of_IN elastoplasticity_NN response_NN of_IN ship_NN structures_NNS ._SENT 
+In_IN present_JJ work_NN ,_, the_DT RKPM_NP shell_NN formulation_NN based_VVN on_IN Mindlin_NP shell_NN theory_NN Peng_NP et_NP al_NP ._SENT 
+(_( 2018_CD )_) are_VBP adopted_VVN ,_, which_WDT characterized_VVD by_IN the_DT straight_JJ fibers_NNS remain_VVP within_IN the_DT deformation_NN process_NN ._SENT 
+The_DT elastoplastic_JJ constitutive_JJ model_NN applied_VVN in_IN degenerated_VVN shell_NN has_VHZ been_VBN studied_VVN by_IN many_JJ researchers_NNS (_( Simo_NP and_CC Kennedy_NP ,_, 1992_CD ;_: Areias_NP and_CC Belytschko_NP ,_, 2006_CD ;_: Klinkel_NP et_NP al_NP ._SENT 
+,_, 2008_CD )_) ._SENT 
+The_DT model_NN proposed_VVN by_IN Simo_NP and_CC Kennedy_NP (_( 1992_CD )_) is_VBZ efficient_JJ and_CC has_VHZ been_VBN simplified_VVN by_IN Zeng_NP et_CC al_NP ._SENT 
+(_( 2001_CD )_) to_TO further_RBR improve_VV the_DT computational_JJ efficiency_NN ._SENT 
+However_RB ,_, plastic_JJ model_NN based_VVN on_IN stress_NN resultants_NNS is_VBZ less_JJR hardening_NN than_IN the_DT classical_JJ J2_JJ model_NN ._SENT 
+In_IN this_DT work_NN ,_, we_PP draw_VVP on_IN the_DT matrix_NN analysis_NN method_NN which_WDT has_VHZ been_VBN adopted_VVN by_IN Simo_NP and_CC Kennedy_NP (_( 1992_CD )_) ._SENT 
+But_CC the_DT use_NN of_IN stress_NN resultants_NNS is_VBZ avoided_VVN ,_, the_DT stress_NN tensor_NN of_IN the_DT integration_NN point_NN is_VBZ chosen_VVN as_IN the_DT input_NN variable_NN of_IN the_DT plastic_JJ model_NN instead_RB ._SENT 
+The_DT yield_NN criterion_NN is_VBZ derived_VVN from_IN the_DT von_NP Mises_NNS yield_NN criterion_NN ,_, and_CC it_PP can_MD easily_RB combine_VV with_IN the_DT damage_NN model_NN further_RBR ._SENT 
+In_IN addition_NN ,_, since_IN the_DT stress_NN resultants_NNS is_VBZ not_RB adopted_VVN ,_, the_DT dimension_NN of_IN the_DT matrix_NN used_VVN in_IN the_DT return_NN mapping_NN algorithm_NN has_VHZ reduced_VVN from_IN 8_CD to_TO 5_CD ,_, thus_RB the_DT complexity_NN of_IN the_DT numerical_JJ algorithms_NNS is_VBZ decreased_VVN ._SENT 
+Another_DT problem_NN to_TO solve_VV is_VBZ the_DT implementation_NN of_IN the_DT so-called_JJ zero_CD normal_JJ stress_NN condition_NN ,_, which_WDT is_VBZ essential_JJ for_IN the_DT simulation_NN of_IN shell_NN structures_NNS ._SENT 
+In_IN the_DT literature_NN ,_, at_IN the_DT end_NN of_IN each_DT iteration_NN ,_, the_DT thickness_NN is_VBZ changed_VVN to_TO satify_VV the_DT zero_CD normal_JJ stress_NN condition_NN ._SENT 
+In_IN this_DT work_NN ,_, by_IN considering_VVG this_DT condition_NN in_IN the_DT yield_NN criterion_NN and_CC using_VVG the_DT reduced_VVN constitutive_JJ model_NN ,_, the_DT zero_CD normal_JJ stress_NN condition_NN is_VBZ satisfied_VVN ._SENT 
+The_DT shell_NN simulation_NN is_VBZ based_VVN on_IN the_DT RKPM_NP shell_NN formulation_NN proposed_VVN by_IN Peng_NP et_CC al_NP ._SENT 
+(_( 2018_CD )_) ,_, which_WDT has_VHZ been_VBN used_VVN for_IN the_DT dynamic_JJ analysis_NN of_IN stiffened_VVN shell_NN structures_NNS (_( Peng_NP et_NP al_NP ._SENT 
+,_, 2019_CD )_) ._SENT 
+The_DT paper_NN is_VBZ organized_VVN as_RB follows_VVZ ._SENT 
+A_DT brief_JJ introduction_NN of_IN the_DT RKPM_NP shell_NN formulation_NN and_CC the_DT reproducing_VVG kernel_NN function_NN is_VBZ presented_VVN in_IN section_NN 2._CD In_IN section_NN 3_CD ,_, the_DT yield_NN criterion_NN combined_VVN with_IN the_DT zero_CD normal_JJ stress_NN assumption_NN is_VBZ present_JJ ,_, and_CC the_DT return_NN mapping_NN algorithm_NN is_VBZ derived_VVN ._SENT 
+In_IN section_NN 4_CD we_PP present_VVP several_JJ numerical_JJ examples_NNS to_TO verify_VV the_DT reliability_NN of_IN the_DT present_JJ model_NN ._SENT 
+Lastly_RB ,_, a_DT summary_NN of_IN this_DT paper_NN is_VBZ presented_VVN in_IN section_NN 5._CD <Section> 2._CD Outline_NN of_IN RKPM_NN shell_NN formulation_NN </Section> 2.1_CD ._SENT 
+Shell_NP kinematics_NNS Based_VVN on_IN the_DT degenerated_VVN solid_JJ element_NN approach_NN developed_VVN by_IN Hughes_NP and_CC Liu_NP (_( 1981_CD )_) ,_, the_DT kinematics_NN of_IN the_DT shell_NN are_VBP defined_VVN ,_, as_RB shown_VVN in_IN Fig_NN ._SENT 
+1._CD Therefore_RB ,_, the_DT geometric_JJ definition_NN of_IN the_DT shell_NN is_VBZ reduced_VVN ._SENT 
+Specifically_RB ,_, a_DT reference_NN surface_NN and_CC the_DT fiber_NN vectors_VVZ vertical_JJ to_TO it_PP are_VBP chosen_VVN to_TO describe_VV the_DT shell_NN kinematics_NN ._SENT 
+In_IN numerical_JJ practice_NN ,_, only_RB one_CD layer_NN of_IN nodes_NNS on_IN the_DT reference_NN surface_NN is_VBZ needed_VVN to_TO discretize_VV the_DT shell_NN ._SENT 
+For_IN the_DT Galerkin_NP type_NN weak_JJ form_NN ,_, the_DT field_NN variable_NN is_VBZ reproduced_VVN by_IN values_NNS of_IN nodes_NNS in_IN a_DT generally_RB domain_NN Ω0_NN ,_, and_CC the_DT shape_NN function_NN is_VBZ used_VVN to_TO approximate_JJ the_DT field_NN variable_NN ._SENT 
+For_IN instance_NN ,_, in_IN the_DT current_JJ configuration_NN ,_, we_PP can_MD express_VV the_DT position_NN vector_NN of_IN a_DT generic_JJ point_NN as_RB follows_VVZ :_: @(1_JJ )_) where_WRB NI_NP denotes_VVZ the_DT interpolation_NN shape_NN function_NN ,_, x(ξ_NP )_) is_VBZ the_DT current_JJ coordinate_VV vector_NN of_IN a_DT generic_JJ point_NN in_IN the_DT shell_NN ,_, xI_NP is_VBZ the_DT current_JJ position_NN vector_NN of_IN node_NN I_NN on_IN the_DT reference_NN surface_NN ,_, and_CC yI_NP is_VBZ the_DT current_JJ nodal_JJ unit_NN fiber_NN vector_NN ,_, which_WDT is_VBZ not_RB required_VVN to_TO be_VB normal_JJ to_TO the_DT reference_NN surface_NN since_IN the_DT Mindlin-Reissner_NP shell_NN theory_NN is_VBZ adopted_VVN ._SENT 
+Moreover_RB ,_, a_DT rotation_NN operator_NN based_VVN on_IN the_DT quaternion_NN is_VBZ used_VVN to_TO update_VV the_DT fiber_NN vector_NN ._SENT 
+Thus_RB ,_, the_DT velocity_NN of_IN a_DT generic_JJ point_NN in_IN the_DT shell_NN can_MD be_VB obtained_VVN from_IN the_DT time_NN derivative_JJ of_IN the_DT position_NN vector_NN :_: @(2_NP )_) where_WRB N˜I=ζNI_NP ,_, vI_NP is_VBZ the_DT nodal_JJ velocity_NN vector_NN ,_, ωI_NP is_VBZ the_DT fiber_NN rotation_NN angular_JJ velocity_NN ._SENT 
+The_DT local_JJ corotational_NN coordinate_VV system_NN at_IN each_DT stress_NN point_NN ,_, @_SYM ,_, is_VBZ defined_VVN by_IN three_CD mutually_RB orthogonal_JJ unit_NN vectors_NNS :_: @(3_NP )_) @(4_NP )_) @(5_NP )_) where_WRB @_SYM are_VBP the_DT unit_NN tangent_JJ vector_NN of_IN the_DT reference_NN surface_NN ,_, @_SYM is_VBZ the_DT normal_JJ of_IN the_DT reference_NN surface_NN ._SENT 
+The_DT local_JJ coordinate_VV basis_NN vector_NN rotates_VVZ rigidly_RB while_IN the_DT shell_NN deforms_VVZ ._SENT 
+The_DT rotation_NN matrix_NN q_NN that_WDT transform_VV quantities_NNS from_IN the_DT global_JJ coordinate_VV system_NN to_TO the_DT local_JJ coordinate_VV system_NN is_VBZ defined_VVN as@_NN ,_, where_WRB the_DT superscript_JJ 'T_NP '_POS denotes_VVZ transpose_NN ._SENT 
+Fig_NN ._SENT 
+1._CD Kinematic_JJ description_NN and_CC the_DT local_JJ coordinate_VV system_NN of_IN RKPM_NN shell_NN Peng_NP et_NP al_NP ._SENT 
+(_( 2018_CD )_) ._SENT 
+2.2_CD ._SENT 
+RKPM_NP shape_NN function_NN In_IN Eq_NP ._SENT 
+(_( 1_CD )_) ,_, the_DT interpolation_NN shape_NN function_NN NI(ξ_NN )_) is_VBZ introduced_VVN ._SENT 
+In_IN present_JJ work_NN ,_, the_DT reproducing_VVG kernel_NN function_NN is_VBZ adopted_VVN ,_, which_WDT is_VBZ constructed_VVN by_IN correcting_VVG the_DT original_JJ SPH_NN kernel_NN function_NN ._SENT 
+Besides_RB ,_, the_DT shape_NN function_NN only_RB calculated_VVN once_RB at_IN the_DT begin_VVP of_IN the_DT simulation_NN ,_, since_IN the_DT Lagrangian_JJ kernel_NN is_VBZ adopted_VVN ._SENT 
+The_DT shape_NN function_NN used_VVN in_IN RKPM_NP shell_NN formulation_NN can_MD be_VB written_VVN as_RB (_( Peng_NP et_NP al_NP ._SENT 
+,_, 2018_CD )_) :_: @(6_NP )_) where_WRB ξI−ξ=q0⋅(XI−X_NP )_) is_VBZ the_DT relative_JJ position_NN between_IN two_CD neighbor_NN points_NNS in_IN the_DT laminar_JJ coordinate_VV system_NN ,_, where_WRB 0_CD is_VBZ the_DT initial_JJ rotation_NN matrix_NN ._SENT 
+φa(ξI−ξ_NP )_) is_VBZ the_DT so-called_JJ window_NN function_NN ,_, ΔξI_NP denotes_VVZ the_DT area_NN of_IN node_NN I_NN on_IN the_DT reference_NN surface_NN ,_, and_CC C(ξ,ξI−ξ_NN )_) is_VBZ the_DT correction_NN function_NN :_: @(7_JJ )_) where_WRB pT_NN denotes_VVZ the_DT interpolation_NN basis_NN function_NN ,_, and_CC the_DT bilinear_JJ basis_NN function_NN is_VBZ adopted_VVN ._SENT 
+b(a,ξ_NP )_) is_VBZ a_DT coefficient_NN vector_NN ,_, which_WDT is_VBZ determined_VVN by_IN the_DT reproducing_VVG condition_NN (_( Chen_NP et_NP al_NP ._SENT 
+,_, 1996_CD )_) ,_, we_PP have_VHP :_: @(8_NP )_) @(9_NP )_) where_WRB pT(0)=[1,0,0,0_NN ]_SYM ,_, pT(ξ'−ξ)=[1,ξ'−ξ,η'−η,(ξ'−ξ)(η'−η_NP )_) ]_SYM ,_, and_CC ξ_NP '_POS dentoes_NNS and_CC arbitrary_JJ point_NN in_IN the_DT support_NN domain_NN ._SENT 
+When_WRB the_DT shell_NN is_VBZ discretized_VVN into_IN nodes_NNS ,_, the_DT integration_NN of_IN Eq_NP ._SENT 
+(_( 9_CD )_) is_VBZ calculated_VVN by_IN the_DT summation_NN ,_, and_CC the_DT differential_JJ area_NN dξ_NN '_'' is_VBZ changed_VVN to_TO ΔξI_NP ._SENT 
+2.3_CD ._SENT 
+Governing_VVG equation_NN of_IN RKPM_NN shell_NN The_DT linear_JJ momentum_NN equation_NN for_IN a_DT continuum_NN in_IN the_DT reference_NN configuration_NN Ω0_NN is_VBZ :_: @(10_NP )_) where_WRB P_NN is_VBZ the_DT first_JJ Piola-Kirchhoff_NP stress_NN ,_, ρ0_NP denotes_VVZ the_DT initial_JJ density_NN ,_, b_LS denotes_VVZ the_DT body_NN force_NN ,_, and_CC v(x,t_NP )_) denotes_VVZ the_DT velocity_NN field_NN ._SENT 
+Based_VVN on_IN the_DT principle_NN of_IN virtual_JJ power_NN ,_, the_DT weak_JJ form_NN discrete_JJ governing_VVG equations_NNS (_( Peng_NP et_NP al_NP ._SENT 
+,_, 2018_CD )_) are_VBP derived_VVN :_: @(11_JJ )_) @(12_NN )_) where_WRB m_NN and_CC J_NP is_VBZ the_DT mass_NN and_CC rotational_JJ inertia_NN matrix_NN ,_, F_NP ,_, M_NP denote_VVP the_DT force_NN and_CC moment_NN vector_NN respectively_RB ,_, in_IN which_WDT the_DT superscript_JJ 'ext_NN '_'' and_CC 'int_NP '_POS is_VBZ used_VVN to_TO identify_VV the_DT external_JJ or_CC internal_JJ variables_NNS ._SENT 
+A_DT lumped_VVN mass_NN matrix_NN is_VBZ obtained_VVN based_VVN on_IN the_DT row-summing_JJ technique_NN ,_, we_PP have_VHP :_: @(13_NP )_) where_WRB Γ0_NP denotes_VVZ the_DT initial_JJ reference_NN surface_NN ._SENT 
+Similarly_RB ,_, we_PP can_MD obtain_VV the_DT lumped_VVN rotational_JJ inertia_NN matrix_NN ,_, which_WDT can_MD be_VB expressed_VVN as_RB :_: @(14_NP )_) The_DT internal_JJ force_NN and_CC external_JJ force_NN vector_NN in_IN Eq_NP ._SENT 
+(_( 11_CD )_) are_VBP given_VVN as_RB :_: @(15_NP )_) @(16_NP )_) where_WRB dΩ0=hdΓ0_JJ ,_, and_CC t‾0_NP denotes_VVZ the_DT traction_NN force_NN ._SENT 
+And_CC the_DT internal_JJ and_CC external_JJ moment_NN vector_NN in_IN Eq_NP ._SENT 
+(_( 12_CD )_) are_VBP expressed_VVN as_RB follows_VVZ :_: @(17_JJ )_) @(18_NN )_) 2.4_CD ._SENT 
+Time_NN integration_NN scheme_NN and_CC essential_JJ boundary_NN conditions_NNS To_TO update_VV the_DT displacement_NN and_CC rotations_NNS ,_, firstly_RB ,_, the_DT linear_JJ and_CC angular_JJ accelerations_NNS can_MD be_VB calculated_VVN by_IN Eqs_NP ._SENT 
+(_( 11_CD )_) ,_, (_( 12_CD )_) ._SENT 
+Then_RB the_DT Newmark_NP time_NN integration_NN scheme_NN is_VBZ adopted_VVN to_TO update_VV the_DT displacement_NN and_CC rotations_NNS ._SENT 
+For_IN instance_NN ,_, in_IN the_DT linear_JJ momentum_NN equation_NN Eq_NP ._SENT 
+(_( 11_CD )_) ,_, the_DT mass_JJ matrix_NN has_VHZ been_VBN diagonalized_VVN by_IN the_DT row-sum_NN lumped_VVN technique_NN ,_, thus_RB ,_, the_DT linear_JJ acceleration_NN of_IN node_NN I_PP can_MD be_VB calculated_VVN by_IN :_: @(19_NP )_) After_IN the_DT acceleration_NN at_IN t_NN is_VBZ obtained_VVN ,_, the_DT following_VVG formula_NN (_( Peng_NP et_NP al_NP ._SENT 
+,_, 2019_CD )_) is_VBZ employed_VVN to_TO predict_VV the_DT velocity_NN and_CC displacement_NN at_IN t+Δt_NP :_: @(20_NP )_) @(21_JJ )_) where_WRB Δt_NP denotes_VVZ the_DT time_NN increment_NN ,_, β_NP and_CC γ_NP are_VBP parameters_NNS ._SENT 
+In_IN all_DT simulations_NNS ,_, β=0_NP and_CC γ=0.5_NP are_VBP adopted_VVN ._SENT 
+The_DT strain_NN and_CC stress_NN tensor_NN can_MD be_VB calculated_VVN by_IN the_DT predicted_VVN deform_VVP configuration_NN ,_, and_CC the_DT internal_JJ force_NN at_IN t+Δt_NP can_MD be_VB obtained_VVN ._SENT 
+Therefore_RB ,_, the_DT acceleration_NN at_IN t+Δt_NP is_VBZ got_VVN ._SENT 
+Finally_RB ,_, the_DT velocity_NN and_CC displacement_NN at_IN t+Δt_NP is_VBZ corrected_VVN by_IN :_: @(22_NP )_) @(23_NP )_) The_DT same_JJ scheme_NN is_VBZ employed_VVN to_TO update_VV the_DT angular_JJ displacements_NNS and_CC velocities_NNS ._SENT 
+For_IN the_DT enforcement_NN of_IN the_DT essential_JJ boundary_NN conditions_NNS ,_, the_DT D'Alembert_NP 's_POS principle_NN Günther_NP and_CC Liu_NP (_( 1998_CD )_) is_VBZ adopted_VVN ._SENT 
+2.5_CD ._SENT 
+Simulation_NN of_IN stiffened_VVN shells_NNS and_CC fiber_NN update_NN scheme_NN For_IN the_DT simulation_NN of_IN stiffened_VVN shells_NNS ,_, a_DT support_NN domain_NN cutting_VVG scheme_NN is_VBZ developed_VVN ._SENT 
+In_IN this_DT scheme_NN ,_, the_DT support_NN domain_NN of_IN a_DT stress_NN point_NN ,_, not_RB only_RB influenced_VVN by_IN the_DT distance_NN between_IN the_DT two_CD points_NNS but_CC also_RB related_VVN to_TO which_WDT component_NN the_DT two_CD points_NNS located_VVN ._SENT 
+For_IN detail_NN ,_, reader_NN may_MD refer_VV to_TO Peng_NP et_CC al_NP ._SENT 
+(_( 2019_CD )_) ._SENT 
+In_IN present_JJ work_NN ,_, the_DT shell_NN formulation_NN is_VBZ based_VVN on_IN the_DT Mindlin_NP shell_NN theory_NN ,_, therefore_RB ,_, the_DT fiber_NN direction_NN should_MD be_VB updated_VVN explicitly_RB ._SENT 
+The_DT rotation_NN operator_NN based_VVN on_IN the_DT quaternion_NN is_VBZ adopted_VVN ,_, which_WDT can_MD be_VB expressed_VVN as_RB follows_VVZ :_: @(24_NP )_) where_WRB p_NN is_VBZ a_DT pure_JJ quaternion_NN ,_, which_WDT is_VBZ related_VVN to_TO the_DT fiber_NN vector_NN ,_, qθ_NP is_VBZ related_VVN to_TO the_DT rotation_NN angle_NN and_CC is_VBZ a_DT unit_NN quaternion_NN ,_, therefore_RB ,_, its_PP$ inverse_JJ qθ−1_NN can_MD be_VB obtained_VVN simply_RB by_IN changing_VVG the_DT sign_NN of_IN its_PP$ imaginary_JJ components_NNS ._SENT 
+We_PP have_VHP :_: @(25_NP )_) @(26_NP )_) @(27_JJ )_) where_WRB y1_JJ ,_, y2_JJ and_CC y3_JJ denote_VVP the_DT three_CD components_NNS of_IN the_DT fiber_NN vector_NN y_NN ,_, θx_NP ,_, θy_NP and_CC θz_NP denote_VVP the_DT rotation_NN angles_NNS around_IN three_CD axis_NN ,_, and_CC θ=||θ||_NP ,_, i_NP ,_, j_NN ,_, k_NN is_VBZ the_DT unit_NN basis_NN vector_NN of_IN the_DT global_JJ coordinate_VV system_NN ._SENT 
+It_PP should_MD be_VB noticed_VVN that_IN the_DT product_NN of_IN two_CD quaternions_NNS in_IN Eq_NP ._SENT 
+(_( 24_CD )_) is_VBZ different_JJ from_IN both_CC the_DT dot_VVP and_CC cross_VVP product_NN of_IN two_CD vectors_NNS ,_, for_IN detail_NN ,_, readers_NNS may_MD refer_VV to_TO a_DT comprehensive_JJ introduction_NN by_IN Kuipers_NP (_( 1999_CD )_) ._SENT 
+<Section> 3._CD Elastoplastic_JJ model_NN of_IN shell_NN </Section> In_IN present_JJ work_NN ,_, the_DT nonlinear_JJ plasticity_NN model_NN for_IN shell_NN developed_VVN by_IN Simo_NP and_CC Kennedy_NP (_( 1992_CD )_) has_VHZ been_VBN modified_VVN ._SENT 
+The_DT stress_NN tensor_NN of_IN the_DT Gauss_NP point_NN in_IN the_DT shell_JJ thickness_NN direction_NN instead_RB of_IN the_DT stress_NN resultants_NNS is_VBZ chosen_VVN as_IN the_DT input_NN of_IN the_DT constitutive_JJ algorithm_NN ._SENT 
+3.1_CD ._SENT 
+Basic_JJ equations_NNS of_IN the_DT multi-surface_JJ elastoplastic_JJ model_NN Consider_VV that_IN a_DT node_NN inital_JJ located_VVN at_IN X_NP moves_VVZ to_TO x_SYM in_IN the_DT current_JJ configuration_NN ,_, then_RB the_DT deformation_NN gradient_NN tensor_NN is_VBZ calculated_VVN by_IN :_: @(28_NP )_) where_WRB i,j=1,2,3_JJ ._SENT 
+The_DT determinant_NN of_IN F_NN is_VBZ denoted_VVN as_IN J=det(F_NN )_) ._SENT 
+The_DT Almansi_NP strain_NN is_VBZ calculated_VVN by_IN the_DT deformation_NN gradient_NN :_: @(29_NP )_) In_IN present_JJ work_NN ,_, the_DT strain_NN tensor_NN is_VBZ divided_VVN into_IN elastic_JJ and_CC plastic_JJ parts_NNS :_: ε=εe+εp_NN based_VVN on_IN an_DT additive_JJ decomposition_NN (_( Karaoulanis_NP ,_, 2013_CD )_) ,_, where_WRB εe_NNS and_CC εp_NN denote_VVP the_DT elastic_JJ and_CC plastic_JJ part_NN of_IN the_DT strain_NN tensor_NN respectively_RB ._SENT 
+The_DT constitutive_JJ model_NN for_IN the_DT so-called_JJ hyperelastic_JJ material_NN is_VBZ the_DT simplest_JJS ,_, in_IN which_WDT the_DT stress_NN response_NN is_VBZ governed_VVN by_IN a_DT strain_NN energy_NN function_NN W_NP which_WDT depending_VVG on_IN the_DT elastic_JJ deformations_NNS ._SENT 
+Therefore_RB ,_, the_DT Helmholtz_NP free_JJ energy_NN potential_JJ ψ_NN can_MD be_VB decomposed_VVN into_IN the_DT strain_NN energy_NN function_NN W(εe_NNS )_) and_CC the_DT hardening_VVG energy_NN function_NN which_WDT related_VVD to_TO the_DT internal_JJ variable_NN (_( Eberlein_NP and_CC Wriggers_NP ,_, 1999_CD )_) :_: @(30_NP )_) where_WRB r_NN and_CC α_NN denote_VVP the_DT isotropic_JJ and_CC kinematic_JJ hardening_VVG state_NN variable_NN ,_, respectively_RB ._SENT 
+Since_IN the_DT damage_NN of_IN material_NN has_VHZ not_RB been_VBN taken_VVN into_IN account_NN ,_, we_PP have_VHP r=p_NN ,_, where_WRB p_NN denotes_VVZ the_DT accumulate_VVP plastic_JJ strain_NN ._SENT 
+Following_VVG the_DT constraint_NN of_IN isotropy_NN ,_, the_DT local_JJ dissipation_NN inequality_NN is_VBZ obtained_VVN based_VVN on_IN the_DT second_JJ law_NN of_IN thermodynamics_NNS ,_, in_IN the_DT absence_NN of_IN thermal_JJ terms_NNS ,_, the_DT dissipation_NN function_NN can_MD be_VB expressed_VVN :_: @_SYM ,_, and_CC which_WDT can_MD be_VB expanded_VVN as_RB :_: @(31_JJ )_) Then_RB the_DT constitutive_JJ relations_NNS for_IN Cauchy_JJ stress_NN and_CC hardening_NN variable_NN are_VBP derived_VVN from_IN Eq_NP ._SENT 
+(_( 31_CD )_) (_( Truesdell_NP and_CC Noll_NP ,_, 2004_CD )_) :_: @(32_NP )_) where_WRB q_NN denotes_VVZ the_DT isotropic_JJ hardening_NN stress_NN variable_NN ,_, β_NP denotes_VVZ the_DT uniaxial_JJ kinematic_JJ back_NN stress_NN tensor_NN ._SENT 
+Then_RB the_DT Clausius-Planck_NP constitutive_JJ inequality_NN Eq_NP ._SENT 
+(_( 31_CD )_) takes_VVZ the_DT reduced_VVN form_NN :_: @(33_NP )_) By_IN assuming_VVG the_DT principle_NN of_IN maximum_JJ plastic_JJ dissipation_NN ,_, we_PP consider_VVP a_DT maximization_NN problem_NN with_IN inequality_NN constraints_NNS :_: maximize_VV D_NP subject_NN to_TO φ(σ,q,β)≤0_NP ,_, where_WRB �_NP �_NP is_VBZ the_DT yield_NN function_NN of_IN plastic_JJ criterion_NN ._SENT 
+This_DT maximization_NN problem_NN under_IN constraints_NNS can_MD be_VB solved_VVN by_IN constructing_VVG the_DT following_VVG Lagrange_NP function_NN :_: @(34_NP )_) where_WRB γ˙_NP is_VBZ the_DT so-called_JJ plastic_NN multiplier_NN ._SENT 
+According_VVG to_TO the_DT Kuhn-Tucker_NN theorem_NN ,_, maximum_JJ plastic_JJ dissipation_NN can_MD be_VB obtained_VVN if_IN γ˙_JJ satisfies_NNS :_: @(35_NP )_) @(36_NP )_) @(37_JJ )_) @(38_NN )_) where_WRB Eq_NP ._SENT 
+(_( 35_CD )_) is_VBZ the_DT loading/unloading_JJ conditions_NNS ,_, and_CC Eq_NP ._SENT 
+(_( 36_CD )_) ,_, (_( 37_CD )_) ,_, (_( 38_CD )_) is_VBZ the_DT evolution_NN equations_NNS for_IN the_DT rate_NN of_IN plastic_JJ strain_NN ,_, isotropic_JJ and_CC kinematic_JJ hardening_VVG variables_NNS ._SENT 
+3.2_CD ._SENT 
+Yield_NN function_NN under_IN zero_CD normal_JJ stress_NN condition_NN Based_VVN on_IN the_DT general_JJ framework_NN above_RB ,_, we_PP now_RB establish_VV the_DT elastoplastic_JJ model_NN for_IN shell_NN structure_NN ._SENT 
+Since_IN the_DT degenerated_VVN solid_JJ approach_NN is_VBZ adopted_VVN ,_, the_DT variables_NNS in_IN the_DT constitutive_JJ equations_NNS need_VVP to_TO be_VB projected_VVN onto_IN the_DT shell_JJ reference_NN surface_NN ._SENT 
+For_IN instance_NN ,_, the_DT stress_NN tensor_NN has_VHZ to_TO be_VB transformed_VVN into_IN the_DT local_JJ coordinate_VV system_NN σl=qTσgq_NP ._SENT 
+In_IN the_DT sequel_NN ,_, all_PDT the_DT calculations_NNS are_VBP carried_VVN out_RP in_IN the_DT local_JJ coordinate_VV system_NN ,_, for_IN writing_VVG simplicity_NN ,_, superscript_JJ ’l’_NN is_VBZ omitted_VVN ._SENT 
+In_IN present_JJ work_NN ,_, the_DT standard_JJ von_NP Mises_NNS yield_NN criterion_NN is_VBZ adopted_VVN ,_, which_WDT is_VBZ suitable_JJ for_IN many_JJ applications_NNS in_IN metal_NN plasticity_NN ._SENT 
+And_CC the_DT yield_NN function_NN can_MD be_VB expressed_VVN as_RB :_: @(39_NP )_) where_WRB J2_NP is_VBZ the_DT second_JJ deviatoric_JJ stress_NN invariant_NN ,_, σy_NP denotes_VVZ the_DT yield_NN stress_NN and_CC σy=κ(r)=κ0−q_NP ,_, where_WRB κ0_NP denotes_VVZ the_DT initial_JJ yield_NN stress_NN ._SENT 
+To_TO eliminate_VV the_DT square_JJ root_NN ,_, Eq_NP ._SENT 
+(_( 39_CD )_) is_VBZ rewritten_VVN as_RB :_: φ=(3J2−κ2)/κ0_JJ ._SENT 
+By_IN considering_VVG the_DT zero_CD normal_JJ stress_NN condition_NN σ33=0_NN ,_, we_PP have_VHP :_: @(40_NP )_) The_DT equation_NN above_RB can_MD be_VB expressed_VVN into_IN matrix_NN form_NN :_: @(41_JJ )_) where_WRB σ_NP has_VHZ been_VBN rewritten_VVN into_IN a_DT column_NN vector_NN ,_, and_CC A_DT is_VBZ a_DT coefficient_NN matrix_NN ,_, we_PP have_VHP :_: @(42_NP )_) @(43_NP )_) where_WRB In_NP denotes_VVZ the_DT rank-n_NP identity_NN matrix_NN ._SENT 
+If_IN the_DT kinematic_JJ hardening_NN is_VBZ taken_VVN into_IN account_NN ,_, then_RB the_DT back_JJ stress_NN should_MD be_VB considered_VVN :_: @(44_NP )_) To_TO express_VV the_DT stress_NN strain_NN relation_NN into_IN matrix_NN form_NN ,_, similar_JJ to_TO Eq_NP ._SENT 
+(_( 42_CD )_) ,_, the_DT strain_NN tensor_NN is_VBZ rewritten_VVN into_IN column_NN vectors_NNS :_: εT=[ε11,ε22,ε12,ε13,ε23_NN ]_SYM ._SENT 
+Then_RB the_DT strain_NN energy_NN function_NN is_VBZ assumed_VVN to_TO have_VH the_DT following_VVG form_NN :_: @(45_NP )_) where_WRB @_SYM is_VBZ the_DT elastic_JJ tensor_NN ._SENT 
+Since_IN the_DT strain_NN tensor_NN is_VBZ rewritten_VVN into_IN a_DT vector_NN ,_, the_DT elastic_JJ tensor_NN is_VBZ reduced_VVN from_IN a_DT fourth-order_NN tensor_NN to_TO a_DT second-order_NN tensor_NN ._SENT 
+Thus_RB we_PP have_VHP :_: @(46_NP )_) where_WRB E_NP is_VBZ the_DT Young_NP 's_POS modulus_NN ,_, and_CC ν_NP is_VBZ the_DT Poisson_NP 's_POS ratio_NN ._SENT 
+Gs=Gks_NNS ,_, in_IN which_WDT G_NP and_CC ks_NP are_VBP denote_VV the_DT shear_NN modulus_NN and_CC shear_NN correction_NN factor_NN respectively_RB ._SENT 
+Similarly_RB ,_, the_DT hardening_NN potential_NN is_VBZ also_RB assumed_VVN to_TO be_VB quadratic_JJ :_: @(47_JJ )_) where_WRB Ep_JJ and_CC @_SYM denote_VV the_DT isotropic_JJ and_CC kinematic_JJ hardening_VVG modulus_NN ,_, respectively_RB ._SENT 
+Substituting_VVG Eqs_NNS ._SENT 
+(_( 45_CD )_) ,_, (_( 47_CD )_) into_IN Eq_NP ._SENT 
+(_( 32_CD )_) ,_, then_RB we_PP have_VHP :_: @(48_NP )_) 3.3_CD ._SENT 
+Elastoplastic_JJ return_NN mapping_NN algorithm_NN The_DT main_JJ algorithmic_JJ problem_NN to_TO be_VB solved_VVN in_IN this_DT section_NN is_VBZ to_TO update_VV the_DT field_NN {_( εn,εnp,rn,αn_NP }_) at_IN tn_NN to_TO {_( εn+1,εn+1p,rn+1,αn+1_JJ }_) at_IN tn+1_NN ._SENT 
+Firstly_RB ,_, we_PP assumed_VVD that_IN εn+1p=εnp_NP and_CC αn+1=αn_NP ,_, then_RB the_DT trail_NN stress_NN and_CC trial_NN back_NN stress_NN at_IN the_DT n+1_JJ time_NN step_NN are_VBP obtained_VVN :_: @(49_NP )_) @(50_NN )_) Substituting_VVG Eq_NP ._SENT 
+(_( 49_CD )_) into_IN Eq_NP ._SENT 
+(_( 44_CD )_) ,_, we_PP have_VHP :_: @(51_JJ )_) If_IN @_SYM ,_, which_WDT indicates_VVZ that_IN the_DT material_NN is_VBZ in_IN an_DT elastic_JJ loading_NN or_CC unloading_VVG state_NN and_CC there_EX is_VBZ no_DT new_JJ plastic_NN deformation_NN occurs_VVZ ._SENT 
+Then_RB we_PP set_VVP @_SYM ._SENT 
+If_IN the_NP @_SYM ,_, which_WDT indicates_VVZ that_IN the_DT material_NN is_VBZ in_IN the_DT plastic_JJ loading_NN state_NN ._SENT 
+Thus_RB ,_, to_TO make_VV the_DT stress_NN state_NN return_NN to_TO the_DT yield_NN surface_NN ,_, the_DT nonlinear_JJ system_NN of_IN equations_NNS below_RB has_VHZ to_TO be_VB solved_VVN :_: @(52_NP )_) @(53_NP )_) @(54_NP )_) where_WRB Δεn+1p_JJ and_CC Δαn+1_JJ denote_VVP the_DT increment_NN of_IN plastic_JJ strain_NN and_CC hardening_NN variables_NNS in_IN the_DT n+1_JJ time_NN step_NN ,_, respectively_RB ._SENT 
+And_CC they_PP can_MD be_VB calculated_VVN by_IN substituting_VVG Eq_NP ._SENT 
+(_( 44_CD )_) into_IN Eqs_NP ._SENT 
+(_( 36_CD )_) ,_, (_( 38_CD )_) ._SENT 
+Furthermore_RB ,_, we_PP can_MD observe_VV that_IN there_EX is_VBZ only_RB one_CD unknown_NN variable_JJ γn+1bin_NP Eq_NP ._SENT 
+(_( 52_CD )_) ,_, (_( 53_CD )_) ,_, (_( 54_CD )_) ._SENT 
+All_DT of_IN the_DT following_VVG efforts_NNS are_VBP for_IN solving_VVG γn+1_JJ ,_, and_CC the_DT Newton_NP iteration_NN scheme_NN is_VBZ adopted_VVN ._SENT 
+The_DT yield_NN function_NN for_IN the_DT k-th_JJ iteration_NN step_NN is_VBZ expressed_VVN as_RB follows_VVZ :_: @(55_NP )_) where_WRB the_DT stress_NN and_CC back_JJ stress_NN in_IN k_NN iteration_NN step_NN ,_, and_CC can_MD be_VB expressed_VVN as_RB follows_VVZ :_: @(56_NP )_) where_WRB :_: @(57_JJ )_) The_DT matrix_NN C‾_NN and_CC P_NN have_VHP the_DT same_JJ characteristic_JJ subspaces_NNS (_( Simo_NP and_CC Kennedy_NP ,_, 1992_CD )_) ._SENT 
+That_DT is_VBZ @(58_JJ )_) where_WRB Q−1=QT_NP is_VBZ a_DT orthogonal_JJ matrix_NN ,_, the_DT diagonal_JJ matrices_NNS Λp_NN and_CC ΛCn_NN is_VBZ :_: @(59_NP )_) By_IN considering_VVG @_SYM where_WRB @(60_NP )_) then_RB Eq_NP ._SENT 
+(_( 56_CD )_) can_MD be_VB diagonalized_VVN and_CC have_VH a_DT remarkably_RB simple_JJ form_NN :_: @(61_JJ )_) where_WRB S_NP is_VBZ a_DT diagonal_JJ matrix_NN ,_, and_CC can_MD be_VB expressed_VVN as_RB follows_VVZ :_: @(62_NP )_) in_IN which_WDT :_: @(63_NP )_) Substituting_VVG Eq_NP ._SENT 
+(_( 61_CD )_) into_IN the_DT yield_NN function_NN in_IN k_NN iteration_NN step_NN Eq_NP ._SENT 
+(_( 55_CD )_) ,_, we_PP have_VHP :_: @(64_NP )_) where_WRB Ω=Q5TAQ5_NP is_VBZ a_DT constant_JJ matrix_NN ._SENT 
+The_DT trial_NN stress_NN state_NN is_VBZ invariable_JJ during_IN the_DT iterative_JJ algorithm_NN ,_, so_RB the_DT yield_NN function_NN �_NP �_NP is_VBZ a_DT function_NN only_RB related_VVN to_TO γ_NN ._SENT 
+Then_RB we_PP can_MD solve_VV the_DT variable_JJ γ_NN by_IN the_DT Newton_NP iteration_NN :_: @(65_NP )_) The_DT finial_NN stress_NN state_NN is_VBZ obtained_VVN by_IN substituting_VVG the_DT convergence_NN solution_NN of_IN γ_NP into_IN Eqs_NP ._SENT 
+(_( 52_CD )_) ,_, (_( 53_CD )_) ._SENT 
+In_IN the_DT equation_NN above_RB ,_, we_PP have_VHP :_: @(66_NP )_) where_WRB @_SYM ,_, and_CC we_PP have_VHP :_: @(67_JJ )_) Considering_VVG that_IN @_SYM and_CC @_SYM ,_, we_PP have_VHP :_: @(68_NP )_) The_DT main_JJ numerical_JJ algorithm_NN is_VBZ shown_VVN in_IN Algorithm_NN 1._CD Algorithm_NN 1_CD Return_NN mapping_NN algorithm_NN ._SENT 
+<Section> 4._CD Numerical_JJ examples_NNS </Section> To_TO verify_VV the_DT reliability_NN and_CC accuracy_NN of_IN the_DT present_JJ meshfree_JJ model_NN ,_, we_PP studied_VVD several_JJ numerical_JJ examples_NNS in_IN this_DT section_NN ._SENT 
+In_IN the_DT RKPM_NP shell_NN formulation_NN ,_, the_DT bilinear_JJ shape_NN function_NN and_CC one_CD stress_NN point_NN per_IN integration_NN cell_NN are_VBP adopted_VVN Peng_NP et_CC al_NP ._SENT 
+(_( 2018_CD )_) ,_, the_DT illustration_NN of_IN the_DT integration_NN cell_NN is_VBZ shown_VVN in_IN Fig_NN ._SENT 
+2._CD Since_IN the_DT order_NN of_IN the_DT integration_NN scheme_NN is_VBZ less_JJR than_IN the_DT order_NN of_IN the_DT shape_NN function_NN ,_, it_PP shall_MD be_VB regarded_VVN as_IN a_DT “reduced_JJ integration”_NN by_IN which_WDT shear_VVP locking_VVG is_VBZ eliminated_VVN ._SENT 
+Besides_RB ,_, for_IN the_DT integration_NN in_IN the_DT shell_JJ thickness_NN ,_, three_CD Gauss_NP points_NNS are_VBP employed_VVN ._SENT 
+Fig_NN ._SENT 
+2._CD Simply_RB supported_VVN plate_NN loaded_VVN by_IN pressure_NN impulse_NN :_: problem_NN description_NN ._SENT 
+4.1_CD ._SENT 
+A_DT simply_RB supported_VVN plate_NN loaded_VVN by_IN pressure_NN impulse_NN In_IN this_DT section_NN ,_, the_DT elasto-plastic_JJ dynamic_JJ response_NN of_IN a_DT simply_RB supported_VVN plate_NN under_IN uniform_JJ step_NN pressure_NN is_VBZ studied_VVN ._SENT 
+The_DT dimension_NN of_IN the_DT plate_NN and_CC the_DT material_NN parameters_NNS are_VBP shown_VVN in_IN Fig_NN ._SENT 
+2._CD The_DT initial_JJ yield_NN stress_NN is_VBZ @_SYM ,_, and_CC perfect_JJ plasticity_NN without_IN hardening_NN is_VBZ assumed_VVN ._SENT 
+In_IN calculation_NN ,_, uniformly_RB distributed_VVN particles_NNS are_VBP used_VVN to_TO discretize_VV the_DT structure_NN ,_, the_DT total_JJ number_NN of_IN particles_NNS are_VBP :_: 5×5_NP ,_, 9×9_NP and_CC 27_CD ×27_JJ ,_, respectively_RB ._SENT 
+The_DT result_NN calculated_VVN by_IN ABAQUS_NN is_VBZ adopted_VVN as_IN reference_NN ._SENT 
+The_DT displacement_NN histories_NNS of_IN the_DT center_NN point_NN are_VBP shown_VVN in_IN Fig_NN ._SENT 
+3_LS ,_, in_IN which_WDT the_DT results_NNS calculated_VVN by_IN the_DT present_JJ method_NN is_VBZ compared_VVN with_IN the_DT reference_NN result_NN obtained_VVN by_IN ABAQUS_NP ._SENT 
+From_IN which_WDT we_PP can_MD see_VV that_IN the_DT results_NNS calculated_VVN by_IN RKPM_NP converge_VVP to_TO the_DT reference_NN results_NNS very_RB quickly_RB ._SENT 
+The_DT results_NNS obtained_VVN by_IN 27×27_JJ particles_NNS are_VBP almost_RB identical_JJ with_IN the_DT FEM_NP result_NN ,_, which_WDT verifies_VVZ the_DT convergence_NN and_CC accuracy_NN of_IN the_DT present_JJ method_NN ._SENT 
+Due_JJ to_TO the_DT material_NN plastic_NN ,_, the_DT deflection_NN of_IN the_DT center_NN point_NN can_MD not_RB return_VV to_TO its_PP$ initial_JJ state_NN during_IN the_DT vibration_NN ,_, as_RB shown_VVN in_IN Fig_NN ._SENT 
+3._CD Fig_NN ._SENT 
+3._CD Displacement_NN histories_NNS of_IN the_DT center_NN point_NN and_CC convergence_NN to_TO the_DT reference_NN solution_NN ._SENT 
+In_IN RKPM_NN shell_NN ,_, the_DT average_JJ number_NN of_IN nodes_NNS in_IN the_DT support_NN domain_NN is_VBZ about_RB 12_CD ,_, while_IN in_IN the_DT S4R_NP shell_NN element_NN in_IN ABAQUS_NP ,_, the_DT stress_NN point_NN is_VBZ connected_VVN with_IN four_CD nodes_NNS ._SENT 
+So_IN the_DT calculation_NN efficiency_NN of_IN RKPM_NN is_VBZ lower_JJR than_IN that_DT of_IN FEM_NP ._SENT 
+The_DT vibration_NN of_IN the_DT plate_NN in_IN 0.2s_NNS is_VBZ simulated_JJ by_IN RKPM_NP and_CC FEM_NP on_IN one_CD Intel_NP i7-7700k_NN processor_NN ;_: the_DT comparison_NN of_IN the_DT computational_JJ cost_NN of_IN these_DT two_CD methods_NNS is_VBZ shown_VVN in_IN Fig_NN ._SENT 
+4._CD From_IN which_WDT we_PP can_MD see_VV that_IN the_DT time_NN cost_NN by_IN RKPM_NP is_VBZ about_RB four_CD times_NNS than_IN FEM_NP ._SENT 
+Fig_NN ._SENT 
+4._CD Comparison_NN of_IN the_DT computational_JJ cost_NN between_IN RKPM_NP and_CC FEM_NP (_( ABAQUS_NP )_) ._SENT 
+4.2_CD ._SENT 
+Roof_NN loaded_VVD by_IN velocity_NN impulse_NN In_IN this_DT section_NN ,_, the_DT present_JJ plastic_NN model_NN applied_VVN in_IN shell_JJ dynamic_JJ analysis_NN is_VBZ considered_VVN ._SENT 
+A_DT 120∘_JJ cylindrical_JJ panel_NN subjected_VVN to_TO the_DT velocity_NN impulse_NN is_VBZ studied_VVN ,_, an_DT initial_JJ velocity_NN distribution_NN is_VBZ specified_VVN ._SENT 
+The_DT problem_NN dimensions_NNS and_CC material_NN parameters_NNS are_VBP summarized_VVN in_IN Fig_NN ._SENT 
+5._CD The_DT curved_VVN ends_NNS of_IN the_DT roof_NN are_VBP simply-supported_VVN ,_, and_CC the_DT side_NN boundaries_NNS are_VBP clamped_VVN ._SENT 
+An_DT initial_JJ velocity_NN of_IN 143.51  m/s_NNS normal_JJ to_TO the_DT shell_NN surface_NN is_VBZ loaded_VVN on_IN a_DT region_NN marked_VVD in_IN Fig_NN ._SENT 
+5._CD Fig_NN ._SENT 
+5._CD Roof_NP subjected_VVN to_TO the_DT velocity_NN impulse_NN :_: problem_NN description_NN ._SENT 
+Two_CD particle_NN spacing_NN are_VBP used_VVN to_TO solve_VV this_DT problem_NN ._SENT 
+The_DT total_JJ number_NN of_IN particles_NNS is_VBZ 556_CD and_CC 2242_CD respectively_RB ._SENT 
+The_DT displacement_NN histories_NNS of_IN the_DT gauging_VVG point_NN ,_, initially_RB located_VVN at_IN x = 0_NP ,_, y = 0.0762 m_NP ,_, and_CC z = 0.167 m_NP ,_, are_VBP shown_VVN in_IN Fig_NN ._SENT 
+6._CD The_NP results_NNS calculated_VVN by_IN RKPM_NP are_VBP compared_VVN with_IN the_DT reference_NN simulations_NNS using_VVG 224_CD and_CC 4512_CD Belytschko-Tsay_NN elements_NNS respectively_RB (_( Benson_NP et_NP al_NP ._SENT 
+,_, 2010_CD )_) ,_, as_RB well_RB as_IN experimental_JJ data_NNS from_IN Morino_NP et_CC al_NP ._SENT 
+(_( 1971_CD )_) ._SENT 
+Since_IN the_DT bilinear_JJ shape_NN function_NN with_IN one_CD stress_NN point_NN per_IN integration_NN cell_NN is_VBZ applied_VVN ,_, no_DT locking_VVG is_VBZ observed_VVN in_IN the_DT numerical_JJ simulation_NN ._SENT 
+And_CC it_PP was_VBD shown_VVN that_IN the_DT results_NNS obtained_VVN by_IN the_DT present_JJ model_NN are_VBP in_IN good_JJ agreement_NN with_IN the_DT reference_NN results_NNS ._SENT 
+Fig_NN ._SENT 
+7(a_NP )_) gives_VVZ the_DT residual_JJ deformation_NN of_IN the_DT crown_NN line_NN of_IN the_DT roof_NN and_CC Fig_NN ._SENT 
+7(b_NP )_) gives_VVZ the_DT residual_JJ deformation_NN of_IN a_DT radial_JJ cross-section_NN ,_, in_IN which_WDT the_DT experimental_JJ data_NN is_VBZ plotted_VVN as_IN reference_NN ._SENT 
+Fig_NN ._SENT 
+6._CD Displacement_NN history_NN of_IN gauging_VVG point_NN ._SENT 
+Fig_NN ._SENT 
+7._CD Deformed_VVN configuration_NN compared_VVN to_TO experiment_NN (_( Morino_NP et_NP al_NP ._SENT 
+,_, 1971_CD )_) :_: (_( a_DT )_) the_DT cross-section_NN z = 0.167 m_NN ;_: (_( b_LS )_) the_DT crown_NN line_NN ._SENT 
+4.3_CD ._SENT 
+Elastoplastic_JJ response_NN of_IN a_DT simply_RB supported_VVN plate_NN The_DT inflation_NN of_IN a_DT square_JJ plate_NN is_VBZ presented_VVN in_IN this_DT section_NN ._SENT 
+This_DT numerical_JJ example_NN is_VBZ popular_JJ to_TO verify_VV the_DT shell_JJ formulations_NNS within_IN finite_JJ elasto-plastic_JJ strains_NNS and_CC has_VHZ been_VBN considered_VVN by_IN a_DT number_NN of_IN authors_NNS (_( Eberlein_NP and_CC Wriggers_NP ,_, 1999_CD ;_: Betsch_NP and_CC Stein_NP ,_, 1999_CD ;_: Klinkel_NP et_NP al_NP ._SENT 
+,_, 2008_CD )_) ._SENT 
+The_DT geometry_NN of_IN the_DT problem_NN and_CC material_NN data_NNS are_VBP summarized_VVN in_IN Fig_NN ._SENT 
+8._CD The_NP edges_NNS of_IN the_DT plate_NN are_VBP simply_RB supported_VVN that_IN only_RB the_DT vertical_JJ displacements_NNS u3_NN are_VBP restricted_VVN to_TO zero_VV and_CC a_DT constant_JJ pressure_NN load_NN P0=10^4Pa_NN is_VBZ applied_VVN ._SENT 
+Here_RB ,_, perfect_JJ plasticity_NN without_IN hardening_NN is_VBZ assumed_VVN ._SENT 
+In_IN the_DT simulation_NN ,_, the_DT shell_NN is_VBZ discretized_VVN by_IN 49×49_JJ particles_NNS ._SENT 
+Fig_NN ._SENT 
+8._CD Simply_RB supported_VVN plate_NN under_IN uniform_JJ distributed_VVN load_NN ._SENT 
+The_DT load-displacement_NN curve_NN of_IN the_DT center_NN node_NN of_IN the_DT plate_NN is_VBZ shown_VVN in_IN Fig_NN ._SENT 
+9_CD ,_, and_CC the_DT results_NNS obtained_VVN by_IN Eberlein_NP and_CC Wriggers_NP (_( 1999_CD )_) and_CC Betsch_NP and_CC Stein_NP (_( 1999_CD )_) are_VBP adopted_VVN as_IN references_NNS ._SENT 
+In_IN which_WDT the_DT load_NN level_NN denotes_VVZ P/P0_JJ ._SENT 
+It_PP was_VBD shown_VVN that_IN our_PP$ results_NNS are_VBP in_IN agreement_NN with_IN the_DT reference_NN results_NNS ._SENT 
+This_DT example_NN verifies_VVZ the_DT applicability_NN of_IN the_DT present_JJ model_NN to_TO the_DT simulation_NN of_IN extreme_JJ bending_VVG deformations_NNS ._SENT 
+Fig_NN ._SENT 
+9._CD Load_NN level_NN versus_CC deflection_NN at_IN the_DT center_NN of_IN the_DT plate_NN ._SENT 
+The_DT deformed_VVN configuration_NN with_IN a_DT contour_NN plot_NN of_IN the_DT equivalent_JJ plastic_NN strain_NN for_IN a_DT pressure_NN load_NN of_IN P/P0 = 60_NN is_VBZ shown_VVN in_IN Fig_NN ._SENT 
+10_CD ,_, which_WDT shows_VVZ a_DT significant_JJ change_NN of_IN the_DT shell_JJ surface_NN during_IN the_DT deformation_NN ._SENT 
+Fig_NN ._SENT 
+10._CD Deformed_VVN configuration_NN with_IN contours_NNS of_IN the_DT equivalent_JJ plastic_NN strain_NN at_IN load_NN factor_NN P/P0 = 60_NN ._SENT 
+4.4_CD ._SENT 
+Pinched_VVN hemisphere_NN with_IN isotropic_JJ hardening_NN A_DT hemisphere_NN loaded_VVN by_IN two_CD inward_RB and_CC two_CD outward_RB forces_VVZ 90°_NN apart_RB ._SENT 
+The_DT plastic_JJ model_NN with_IN isotropic_JJ hardening_NN is_VBZ adopted_VVN ._SENT 
+The_DT geometry_NN parameters_NNS and_CC material_NN properties_NNS are_VBP shown_VVN in_IN Fig_NN ._SENT 
+11._CD This_DT example_NN has_VHZ been_VBN studied_VVN previously_RB by_IN a_DT number_NN of_IN authors_NNS (_( Simo_NP and_CC Kennedy_NP ,_, 1992_CD ;_: Eberlein_NP and_CC Wriggers_NP ,_, 1999_CD ;_: Betsch_NP and_CC Stein_NP ,_, 1999_CD )_) ._SENT 
+Fig_NN ._SENT 
+11._CD Pinched_VVN hemisphere_NN under_IN concentrate_NN force_NN ._SENT 
+In_IN the_DT simulation_NN ,_, the_DT shell_NN is_VBZ discretized_VVN by_IN 2883_CD particles_NNS ._SENT 
+The_DT applied_VVN loads_NNS F_NN versus_IN the_DT radial_JJ displacement_NN is_VBZ plotted_VVN in_IN Fig_NN ._SENT 
+12_CD ,_, and_CC the_DT results_NNS presented_VVN in_IN previous_JJ literatures_NNS (_( Simo_NP and_CC Kennedy_NP ,_, 1992_CD ;_: Eberlein_NP and_CC Wriggers_NP ,_, 1999_CD ;_: Betsch_NP and_CC Stein_NP ,_, 1999_CD )_) are_VBP chosen_VVN as_IN references_NNS ._SENT 
+From_IN which_WDT ,_, it_PP shows_VVZ that_IN the_DT results_NNS obtained_VVN by_IN the_DT present_JJ plastic_NN model_NN are_VBP in_IN good_JJ agreement_NN with_IN the_DT results_NNS presented_VVN in_IN Eberlein_NP and_CC Wriggers_NP (_( 1999_CD )_) and_CC Betsch_NP and_CC Stein_NP (_( 1999_CD )_) ._SENT 
+Since_IN the_DT stress_NN resultants_NNS plasticity_NN model_NN leads_VVZ to_TO less_JJR hardening_NN when_WRB compared_VVN with_IN J2_JJ model_NN ,_, there_EX is_VBZ a_DT divergence_NN between_IN the_DT present_JJ results_NNS and_CC the_DT results_NNS obtained_VVN by_IN Simo_NP and_CC Kennedy_NP (_( 1992_CD )_) ._SENT 
+Fig_NN ._SENT 
+12._CD Load-displacement_NN curves_NNS (_( Outward_RB Load_NN )_) ._SENT 
+The_DT deformed_VVN configuration_NN of_IN the_DT hemisphere_NN at_IN a_DT load_NN level_NN of_IN F = 30⋅F0_NN is_VBZ shown_VVN in_IN Fig_NN ._SENT 
+13_CD ,_, in_IN which_WDT the_DT contours_NNS of_IN the_DT equivalent_JJ plastic_NN strains_NNS are_VBP included_VVN (_( see_VV Fig_NN ._SENT 
+14_CD )_) ._SENT 
+Fig_NN ._SENT 
+13._CD Load-displacement_NN curves_NNS (_( Inward_RB Load_NN )_) ._SENT 
+Fig_NN ._SENT 
+14._CD Deformed_VVN configuration_NN with_IN contours_NNS of_IN the_DT equivalent_JJ plastic_NN strain_NN at_IN load_NN level_NN F/F0=30_NN ._SENT 
+4.5_CD ._SENT 
+Elastoplastic_JJ deformation_NN of_IN a_DT ship_NN cabin_NN under_IN impact_NN pressure_NN In_IN the_DT previous_JJ sections_NNS ,_, the_DT accuracy_NN and_CC effectiveness_NN of_IN present_JJ elastoplastic_JJ model_NN applied_VVN in_IN simple_JJ shell_NN structures_NNS are_VBP verified_VVN ._SENT 
+In_IN this_DT section_NN ,_, the_DT elastoplastic_JJ response_NN of_IN a_DT ship_NN cabin_NN under_IN impact_NN pressure_NN load_NN is_VBZ studied_VVN ._SENT 
+The_DT calculation_NN model_NN comes_VVZ from_IN the_DT research_NN by_IN Zhu_NP et_CC al_NP ._SENT 
+(_( 2004_CD )_) ,_, the_DT dimensions_NNS of_IN the_DT structure_NN are_VBP illustrated_VVN in_IN Fig_NN ._SENT 
+15_CD ,_, in_IN which_WDT the_DT length_NN unit_NN is_VBZ millimeter_NN ._SENT 
+The_DT defensive_JJ longitudinal_JJ bulkhead_NN and_CC the_DT main_JJ deck_NN are_VBP made_VVN of_IN low_JJ alloy_NN steel_NN and_CC the_DT other_JJ components_NNS are_VBP made_VVN of_IN plain_JJ steel_NN ._SENT 
+The_DT material_NN parameters_NNS of_IN these_DT two_CD steel_NN are_VBP summarized_VVN in_IN Table_NN 1._CD In_IN the_DT simulation_NN ,_, the_DT linear_JJ hardening_NN is_VBZ adopted_VVN and_CC the_DT damage_NN response_NN of_IN the_DT material_NN is_VBZ ignored_VVN ._SENT 
+Since_IN the_DT strain_NN rate_NN effect_NN is_VBZ important_JJ in_IN the_DT impact_NN problem_NN ,_, it_PP can_MD not_RB be_VB neglected_VVN ._SENT 
+In_IN present_JJ study_NN ,_, power_NN law_NN expression_NN is_VBZ adopted_VVN ._SENT 
+Therefore_RB ,_, the_DT yield_NN stress_NN is_VBZ obtained_VVN :_: @(69_NP )_) where_WRB @_SYM denote_VV the_DT equivalent_JJ plastic_NN strain_NN rate_NN ,_, C_NP and_CC p_NN is_VBZ the_DT strain_NN rate_NN hardening_NN coefficients_NNS ._SENT 
+Fig_NN ._SENT 
+15._CD Design_NN drawing_NN of_IN the_DT ship_NN cabin_NN (_( Zhu_NP et_NP al_NP ._SENT 
+,_, 2004_CD )_) (_( a_DT )_) Cross_NP section_NN ;_: (_( b_LS )_) Planform_NN ._SENT 
+Table_NN 1._CD Material_NN parameters_NNS of_IN steel_NN ._SENT 
+In_IN calculation_NN ,_, the_DT water-resistant_JJ longitudinal_JJ bulkhead_NN is_VBZ clamped_VVN ,_, and_CC the_DT impact_NN pressure_NN is_VBZ loaded_VVN on_IN the_DT broadside_NN shell_NN which_WDT is_VBZ represented_VVN in_IN Fig_NN ._SENT 
+15_CD by_IN a_DT red_JJ line_NN ._SENT 
+The_DT temporal_JJ and_CC spatial_JJ distribution_NN of_IN the_DT pressure_NN load_NN are_VBP governed_VVN by_IN the_DT expression_NN (_( Zamyshlyaev_NP and_CC Yakovlev_NP ,_, 1973_CD )_) list_NN below_RB :_: @(70_NP )_) where_WRB x_SYM is_VBZ the_DT coordinate_VV of_IN a_DT stress_NN point_NN on_IN the_DT loading_NN surface_NN ,_, and_CC xc_NP denotes_VVZ the_DT center_NN coordinate_VV which_WDT is_VBZ (_( 0.7,0.25,0.75_CD )_) ._SENT 
+In_IN practice_NN ,_, four_CD different_JJ particle_NN spacings_NNS has_VHZ been_VBN adopted_VVN ._SENT 
+In_IN these_DT four_CD cases_NNS ,_, the_DT total_JJ number_NN of_IN particles_NNS used_VVN to_TO discretize_VV the_DT model_NN are_VBP 23274_CD ,_, 41166_CD ,_, 96595_CD and_CC 145275_CD ,_, respectively_RB ._SENT 
+The_DT particle_NN view_NN of_IN the_DT ship_NN cabin_NN while_IN particle_NN spacing_NN is_VBZ 20 mm_NP is_VBZ shown_VVN in_IN Fig_NN ._SENT 
+16._CD Fig_NN ._SENT 
+16._CD Particle_NN view_NN of_IN the_DT ship_NN cabin_NN while_IN particle_NN spacing_VVG choosen_NP as_IN 0.02 m_NP The_DT fixed_VVN time_NN increment_NN is_VBZ adopted_VVN in_IN simulation_NN ._SENT 
+The_DT models_NNS with_IN different_JJ particle_NN spacing_NN are_VBP calculated_VVN ,_, and_CC the_DT displacement_NN contour_NN of_IN the_DT ship_NN cabin_NN is_VBZ shown_VVN in_IN Fig_NN ._SENT 
+17_CD ,_, while_IN the_DT particle_NN spacing_NN on_IN the_DT left_NN is_VBZ 20 mm_NP and_CC on_IN the_DT right_NN is_VBZ 10 mm_NP ._SENT 
+From_IN the_DT figure_NN ,_, it_PP can_MD be_VB seen_VVN that_IN the_DT displacement_NN of_IN the_DT maximum_JJ load_NN point_NN increases_VVZ rapidly_RB after_IN loading_NN ._SENT 
+And_CC at_IN the_DT initial_JJ moment_NN ,_, due_JJ to_TO the_DT reinforcement_NN of_IN the_DT stiffener_NN ,_, the_DT displacement_NN of_IN the_DT outboard_JJ shell_NN near_IN the_DT stiffener_NN is_VBZ relatively_RB small_JJ ._SENT 
+With_IN the_DT development_NN of_IN deformation_NN ,_, the_DT displacement_NN of_IN the_DT outboard_JJ shell_NN reaches_VVZ the_DT peak_NN ._SENT 
+And_CC because_IN of_IN the_DT influence_NN of_IN plasticity_NN ,_, the_DT displacement_NN of_IN the_DT outboard_JJ stay_NN at_IN the_DT plateau_NN although_IN the_DT pressure_NN load_NN decreased_VVD near_IN to_TO zero_CD ._SENT 
+Fig_NN ._SENT 
+17._CD Contours_NNS of_IN displacement_NN of_IN the_DT shipboard_NN at_IN three_CD typical_JJ time_NN instants_NNS ;_: left_VVD :_: particle_NN spacing_NN is_VBZ 20 mm_NP ;_: right_NN :_: particle_NN spacing_NN is_VBZ 10 mm_NP ._SENT 
+The_DT time_NN history_NN of_IN the_DT displacement_NN at_IN the_DT maximum_JJ loading_NN point_NN is_VBZ shown_VVN in_IN Fig_NN ._SENT 
+19_CD ,_, and_CC the_DT result_NN calculated_VVN by_IN Ls-Dyna©_NN with_IN mesh_NN size_NN equal_JJ to_TO 10 mm_NP is_VBZ adopted_VVN as_IN the_DT reference_NN ._SENT 
+From_IN which_WDT we_PP can_MD see_VV that_IN the_DT displacement_NN of_IN the_DT gauging_VVG point_NN increases_NNS rapidly_RB at_IN the_DT beginning_NN and_CC reaches_VVZ a_DT peak_NN at_IN 1.5 ms_NNS ._SENT 
+Subsequently_RB ,_, the_DT displacement_NN declines_NNS ,_, but_CC due_JJ to_TO the_DT plasticity_NN of_IN the_DT material_NN ,_, there_EX is_VBZ relatively_RB large_JJ residual_JJ displacement_NN exist_VVP and_CC the_DT displacement_NN fluctuates_VVZ near_IN the_DT final_JJ equilibrium_NN state_NN ._SENT 
+By_IN comparing_VVG these_DT curves_NNS ,_, we_PP can_MD see_VV that_IN the_DT displacement_NN of_IN the_DT gauging_VVG point_NN increases_NNS while_IN the_DT particle_NN spacing_NN decreases_NNS ._SENT 
+The_DT calculation_NN converges_VVZ ,_, because_IN of_IN the_DT displacement_NN of_IN the_DT gauging_VVG point_NN almost_RB the_DT same_JJ when_WRB particle_NN spacing_NN is_VBZ 10 mm_NP or_CC 8 mm_NP ._SENT 
+And_CC the_DT result_NN calculated_VVN by_IN RKPM_NN are_VBP in_IN good_JJ agreement_NN with_IN the_DT FEM_NN result_NN ._SENT 
+In_IN Fig_NN ._SENT 
+18_CD ,_, the_DT comparision_NN of_IN the_DT particle_NN views_NNS of_IN the_DT stiffener_NN when_WRB the_DT particle_NN spacings_NNS are_VBP 20 mm_NP and_CC 10 mm_NP is_VBZ given_VVN ._SENT 
+It_PP can_MD be_VB seen_VVN from_IN the_DT figure_NN that_IN there_EX are_VBP only_RB three_CD nodes_NNS in_IN the_DT width_NN direction_NN of_IN panel_NN and_CC web_NN of_IN the_DT stiffeners_NNS when_WRB particle_NN spacing_NN is_VBZ 20 mm_NP ,_, but_CC when_WRB particle_NN spacing_NN is_VBZ 10 mm_NP ,_, there_EX are_VBP at_IN least_JJS five_CD nodes_NNS in_IN the_DT width_NN direction_NN of_IN panel_NN and_CC web_NN of_IN the_DT stiffeners_NNS ._SENT 
+Considering_VVG that_IN the_DT displacement_NN converges_VVZ when_WRB the_DT particle_NN spacing_NN is_VBZ less_JJR than_IN 10 mm_NP ,_, the_DT rule_NN of_IN particle_NN spacing_NN selection_NN can_MD be_VB obtained_VVN ,_, that_WDT is_VBZ ,_, at_IN least_JJS five_CD nodes_NNS are_VBP required_VVN in_IN the_DT smaller_JJR scale_NN direction_NN of_IN the_DT stiffeners_NNS ._SENT 
+Fig_NN ._SENT 
+18._CD Particle_NN view_NN of_IN the_DT stiffener_NN ;_: particle_NN spacing_NN :_: left_VVN 20 mm_NP ;_: right_RB 10 mm_NP ._SENT 
+Fig_NN ._SENT 
+19._CD Load-displacement_NN curves_NNS of_IN the_DT maximum_JJ loading_NN point_NN ._SENT 
+4.6_CD ._SENT 
+Damage_NN response_NN of_IN ship_NN structure_NN under_IN blast_NN shock_NN wave_NN In_IN this_DT section_NN ,_, to_TO verify_VV the_DT applicability_NN of_IN the_DT present_JJ meshfree_JJ approach_NN in_IN the_DT analysis_NN of_IN real_JJ engineering_NN structure_NN ,_, the_DT dynamic_JJ response_NN of_IN the_DT warship_NN under_IN the_DT near-field_NP underwater_JJ shock_NN wave_NN is_VBZ studied_VVN ._SENT 
+In_IN calculation_NN ,_, the_DT average_JJ particle_NN spacing_NN is_VBZ chosen_VVN as_IN 0.4 m_NP ,_, in_IN some_DT specialized_JJ area_NN the_DT particle_NN spacing_NN may_MD little_RB than_IN 0.4 m_NN ,_, and_CC a_DT total_NN of_IN 123990_CD particles_NNS are_VBP used_VVN to_TO discretize_VV the_DT structure_NN ._SENT 
+The_DT particle_NN view_NN of_IN the_DT warship_NN is_VBZ illustrated_VVN in_IN Fig_NN ._SENT 
+20._CD In_IN the_DT modeling_NN of_IN ship_NN structure_NN ,_, only_RB the_DT large_JJ stiffener_NN and_CC main_JJ bulkheads_NNS are_VBP considered_VVN ._SENT 
+Besides_RB ,_, the_DT whole_NN stiffened_VVD shell_JJ structure_NN is_VBZ discretized_VVN by_IN RKPM_NP shell_NN element_NN ._SENT 
+Since_IN the_DT pre-processing_VVG capability_NN of_IN the_DT present_JJ code_NN is_VBZ still_RB weak_JJ ,_, we_PP ignore_VVP the_DT small_JJ stiffener_NN to_TO simplify_VV the_DT modeling_NN procedure_NN ._SENT 
+The_DT thickness_NN of_IN the_DT outboard_JJ shell_NN is_VBZ set_VVN to_TO 12 mm_NP while_IN the_DT others_NNS shell_NN are_VBP set_VVN to_TO 7 mm_NP ._SENT 
+The_DT material_NN of_IN the_DT calculation_NN model_NN is_VBZ Low_NP alloy_NN steel_NN ,_, whose_WP$ material_NN parameters_NNS is_VBZ list_NN in_IN Table_NN 1_CD in_IN the_DT previous_JJ section_NN ._SENT 
+Fig_NN ._SENT 
+20._CD Particle_NN view_NN of_IN the_DT warship_NN ._SENT 
+In_IN the_DT simulation_NN ,_, 100 kg_NP TNT_NP is_VBZ placed_VVN below_IN the_DT amidship_NN ._SENT 
+Considering_VVG that_IN the_DT edge_NN length_NN of_IN 100 kg_NP cubic_JJ TNT_NP is_VBZ about_RB 0.4 m_NN ,_, which_WDT is_VBZ equal_JJ to_TO the_DT average_JJ particle_NN spacing_NN ._SENT 
+If_IN we_PP consider_VVP the_DT fluid-structure_NN interaction_NN (_( FSI_NP )_) ,_, the_DT particle_NN spacing_NN should_MD be_VB shrunk_VVN at_IN least_JJS 4_CD times_NNS ,_, which_WDT will_MD result_VV in_IN a_DT tremendous_JJ increase_NN in_IN the_DT number_NN of_IN particles_NNS ._SENT 
+Since_IN the_DT objective_NN is_VBZ to_TO verify_VV the_DT effectiveness_NN of_IN the_DT structural_JJ algorithm_NN ,_, the_DT FSI_NP effect_NN is_VBZ neglected_VVN and_CC only_RB the_DT underwater_JJ shock_NN wave_NN is_VBZ taken_VVN into_IN account_NN ._SENT 
+Moreover_RB ,_, in_IN the_DT simulation_NN ,_, no_DT essential_JJ boundary_NN conditions_NNS are_VBP applied_VVN ,_, and_CC gravity_NN is_VBZ not_RB considered_VVN ._SENT 
+The_DT temporal_JJ and_CC spatial_JJ distribution_NN of_IN the_DT shock_NN wave_NN are_VBP calculated_VVN using_VVG the_DT empirical_JJ formula_NN (_( Zamyshlyaev_NP and_CC Yakovlev_NP ,_, 1973_CD )_) ._SENT 
+When_WRB the_DT distance_NN between_IN the_DT load_NN point_NN and_CC the_DT center_NN of_IN TNT_NP is_VBZ 2~6_JJ times_NNS to_TO the_DT TNT_NP radius_NN ,_, the_DT magnitude_NN of_IN shock_NN wave_NN is_VBZ calculated_VVN by_IN the_DT formula_NN developed_VVN by_IN Ming_NP et_CC al_NP ._SENT 
+(_( 2016_CD )_) ._SENT 
+In_IN calculation_NN ,_, a_DT fixed_VVN time_NN step_NN of_IN Δt=1.0×10^−5_JJ s_NN is_VBZ adopted_VVN ._SENT 
+The_DT contours_NNS of_IN the_DT Mises_NNS equivalent_NN stress_NN of_IN the_DT warship_NN at_IN several_JJ typical_JJ time_NN are_VBP shown_VVN in_IN Fig_NN ._SENT 
+21._CD From_IN which_WDT ,_, it_PP can_MD be_VB seen_VVN that_IN a_DT local_JJ depression_NN occurred_VVD at_IN the_DT bottom_NN of_IN the_DT amidship_NN as_RB soon_RB as_IN the_DT simulation_NN begins_VVZ ._SENT 
+After_IN that_DT ,_, the_DT deformation_NN of_IN the_DT ship_NN further_JJR increases_NNS ,_, and_CC finally_RB ,_, the_DT depression_NN of_IN the_DT ship_NN hull_NN is_VBZ expanded_VVN to_TO the_DT range_NN of_IN four_CD longitudinal_JJ compartments_NNS ,_, which_WDT can_MD be_VB observed_VVN in_IN Fig_NN ._SENT 
+22._CD Fig_NN ._SENT 
+21._CD Contours_NNS of_IN the_DT Mises_NNS equivalent_NN stress_NN of_IN the_DT warship_NN at_IN five_CD typical_JJ time_NN instants_NNS ._SENT 
+Fig_NN ._SENT 
+22._CD Depression_NN of_IN the_DT ship_NN hull_NN ._SENT 
+The_DT comparison_NN of_IN the_DT deformed_VVN configuration_NN of_IN the_DT ship_NN at_IN t=200_JJ ms_NNS calculated_VVN by_IN the_DT present_JJ method_NN and_CC LS-DYNA_NP is_VBZ shown_VVN in_IN Fig_NN ._SENT 
+23._CD From_IN which_WDT we_PP can_MD see_VV that_IN the_DT results_NNS calculated_VVN by_IN RKPM_NN are_VBP in_IN good_JJ agreement_NN with_IN FEM_NN to_TO some_DT extent_NN ._SENT 
+In_IN the_DT simulation_NN ,_, the_DT computation_NN took_VVD about_IN 304 min_NN on_IN one_CD Intel_NP i7-7700k_NN processor_NN while_IN using_VVG RKPM_NN ._SENT 
+As_IN a_DT contrast_NN ,_, it_PP took_VVD about_IN 3034s_NNS while_IN using_VVG LS-DYNA_NP ,_, which_WDT is_VBZ about_RB six_CD times_NNS less_JJR than_IN RKPM_NP ._SENT 
+The_DT final_JJ contour_NN of_IN the_DT equivalent_JJ plastic_NN strain_NN of_IN the_DT ship_NN hull_NN is_VBZ shown_VVN in_IN Fig_NN ._SENT 
+24._CD From_IN which_WDT ,_, we_PP can_MD see_VV that_IN there_EX is_VBZ a_DT 5.0m×2.67 m_NN rectangular_JJ damage_NN hole_NN is_VBZ finally_RB produced_VVN ._SENT 
+Fig_NN ._SENT 
+23._CD The_DT deformation_NN of_IN ship_NN at_IN t = 200 ms_NNS obtained_VVN by_IN RKPM_NP is_VBZ compared_VVN with_IN the_DT result_NN calculated_VVN by_IN FEM_NP ._SENT 
+Fig_NN ._SENT 
+24._CD Contours_NNS of_IN equivalent_JJ strain_NN of_IN the_DT warship_NN and_CC the_DT size_NN of_IN the_DT crevasse_NN ._SENT 
+<Section> 5._CD Conclusions_NNS </Section> In_IN present_JJ work_NN ,_, a_DT meshfree_JJ approach_NN for_IN the_DT numerical_JJ simulation_NN of_IN the_DT elasto-plasticity_NN response_NN of_IN the_DT real_JJ ship_NN structure_NN is_VBZ established_VVN ._SENT 
+The_DT RKPM_NP shell_NN formulation_NN based_VVN on_IN Mindlin_NP shell_NN theory_NN is_VBZ adopted_VVN ,_, and_CC a_DT general_JJ elasto-plasticity_NN constitutive_JJ model_NN for_IN shell_NN structures_NNS is_VBZ presented_VVN ._SENT 
+The_DT yield_NN criterion_NN is_VBZ derived_VVN directly_RB through_IN the_DT classic_JJ Mises_NNS yield_NN criterion_NN ,_, and_CC the_DT zero_CD normal_JJ stress_NN assumption_NN is_VBZ implemented_VVN by_IN removing_VVG the_DT normal_JJ stress_NN component_NN from_IN the_DT yield_NN function_NN ._SENT 
+In_IN calculation_NN ,_, the_DT yield_NN function_NN is_VBZ put_VVN into_IN matrix_NN format_NN ,_, by_IN diagonalizing_VVG the_DT matrices_NNS and_CC avoid_VV the_DT stress_NN resultants_NNS ,_, the_DT complexity_NN of_IN the_DT return_NN mapping_NN algorithm_NN is_VBZ reduced_VVN ._SENT 
+First_RB ,_, several_JJ numerical_JJ examples_NNS are_VBP presented_VVN to_TO verify_VV the_DT reliability_NN of_IN the_DT proposed_VVN elastoplasticity_NN model_NN ,_, the_DT results_NNS obtained_VVN by_IN RKPM_NN are_VBP in_IN good_JJ agreement_NN with_IN the_DT reference_NN results_NNS ,_, which_WDT demonstrates_VVZ that_IN the_DT present_JJ numerical_JJ model_NN has_VHZ good_JJ accuracy_NN ._SENT 
+Then_RB ,_, the_DT dynamic_JJ responese_NN of_IN a_DT ship_NN cabin_NN under_IN impact_NN load_NN is_VBZ studied_VVN ,_, the_DT applicability_NN of_IN the_DT present_JJ meshfree_JJ approach_NN in_IN dynamic_JJ analysis_NN of_IN complex_JJ shell_NN structure_NN is_VBZ verified_VVN ._SENT 
+And_CC in_IN the_DT simulation_NN ,_, to_TO ensure_VV a_DT reliable_JJ result_NN ,_, there_EX should_MD be_VB at_IN least_JJS 5_CD particles_NNS in_IN the_DT small-scale_JJ direction_NN of_IN the_DT ribs_NNS ._SENT 
+Finally_RB ,_, the_DT damage_NN response_NN of_IN a_DT real_JJ ship_NN structure_NN subjected_VVN to_TO underwater_JJ explosion_NN shock_NN wave_NN is_VBZ studied_VVN ,_, the_DT capability_NN of_IN the_DT present_JJ meshfree_JJ approach_NN applied_VVN in_IN the_DT engineering_NN problem_NN is_VBZ verified_VVN ._SENT 
+Yet_RB ,_, few_JJ researches_NNS have_VHP been_VBN done_VVN on_IN the_DT application_NN of_IN the_DT meshfree_JJ methods_NNS in_IN dynamic_JJ analysis_NN of_IN complex_JJ structure_NN analysis_NN ,_, we_PP believe_VVP that_IN the_DT present_JJ work_NN lays_VVZ a_DT solid_JJ foundation_NN for_IN future_JJ application_NN of_IN the_DT meshfree_JJ method_NN in_IN complex_JJ engineering_NN structures_NNS analysis_NN ._SENT 
+<Section> Acknowledgement_NN </Section> The_DT authors_NNS thank_VVP the_DT National_NP Numerical_JJ Wind_NP Tunnel_NN Project_NP of_IN China_NP (_( 2018-ZT2B05_NP )_) and_CC Industrial_NP Technology_NP Development_NP Program_NP of_IN China_NP (_( JCKY2018604C010_NP ,_, JCKY2017604C002_NP )_) for_IN their_PP$ support_NN ._SENT 
+<Section> References_NNS </Section> F._NP Amiri_NP ,_, D._NP Millán_NP ,_, Y._NP Shen_NP ,_, T._NP Rabczuk_NP ,_, M._NP Arroyo_NP Phase-field_NP modeling_NN of_IN fracture_NN in_IN linear_JJ thin_JJ shells_NNS Theor_NN ._SENT 
+Appl_NN ._SENT 
+Fract_NN ._SENT 
+Mech_NN ._SENT 
+,_, 69_CD (_( 2014_CD )_) ,_, pp_NP ._SENT 
+102-109_CD P._NP Areias_NP ,_, T._NP Rabczuk_NP Finite_JJ strain_NN fracture_NN of_IN plates_NNS and_CC shells_NNS with_IN configurational_JJ forces_NNS and_CC edge_NN rotations_NNS Int_NP ._SENT 
+J._NP Numer_NP ._SENT 
+Methods_NNS Eng_NP ._SENT 
+,_, 94_CD (_( 12_CD )_) (_( 2013_CD )_) ,_, pp_NP ._SENT 
+1099-1122_CD P.M._RB Areias_NP ,_, T._NP Belytschko_NP Analysis_NP of_IN finite_JJ strain_NN anisotropic_JJ elastoplastic_JJ fracture_NN in_IN thin_JJ plates_NNS and_CC shells_NNS J._NP Aerosp_NP ._SENT 
+Eng_NN ._SENT 
+,_, 19_CD (_( 4_LS )_) (_( 2006_CD )_) ,_, pp_NP ._SENT 
+259-270_CD D._NP Benson_NP ,_, Y._NP Bazilevs_NP ,_, M.-C_NP ._SENT 
+Hsu_NP ,_, T._NP Hughes_NP Isogeometric_JJ shell_NN analysis_NN :_: the_DT reissner–mindlin_NP shell_NN Comput_NN ._SENT 
+Methods_NNS Appl_VVP ._SENT 
+Mech_NP ._SENT 
+Eng_NN ._SENT 
+,_, 199_CD (_( 5–8_NP )_) (_( 2010_CD )_) ,_, pp_NP ._SENT 
+276-289_CD P._NP Betsch_NP ,_, E._NP Stein_NP Numerical_JJ implementation_NN of_IN multiplicative_JJ elasto-plasticity_NN into_IN assumed_VVN strain_NN elements_NNS with_IN application_NN to_TO shells_NNS at_IN large_JJ strains_NNS Comput_NN ._SENT 
+Methods_NNS Appl_VVP ._SENT 
+Mech_NP ._SENT 
+Eng_NN ._SENT 
+,_, 179_CD (_( 3–4_NP )_) (_( 1999_CD )_) ,_, pp_NP ._SENT 
+215-245_CD F._NP Caleyron_NP ,_, A._NP Combescure_NP ,_, V._NP Faucher_NP ,_, S._NP Potapov_NP Dynamic_JJ simulation_NN of_IN damage-fracture_NN transition_NN in_IN smoothed_VVN particles_NNS hydrodynamics_NN shells_NNS Int_NP ._SENT 
+J._NP Numer_NP ._SENT 
+Methods_NNS Eng_NP ._SENT 
+,_, 90_CD (_( 6_CD )_) (_( 2012_CD )_) ,_, pp_NP ._SENT 
+707-738_CD J.-S_NNS ._SENT 
+Chen_NP ,_, C._NP Pan_NP ,_, C.-T_NP ._SENT 
+Wu_NP ,_, W.K._NP Liu_NP Reproducing_VVG kernel_NN particle_NN methods_NNS for_IN large_JJ deformation_NN analysis_NN of_IN non-linear_JJ structures_NNS Comput_NN ._SENT 
+Methods_NNS Appl_VVP ._SENT 
+Mech_NP ._SENT 
+Eng_NN ._SENT 
+,_, 139_CD (_( 1–4_NP )_) (_( 1996_CD )_) ,_, pp_NP ._SENT 
+195-227_CD Z._NP Cheng_NP ,_, J._NP Thacker_NP ,_, W._NP Pilkey_NP ,_, W._NP Hollowell_NP ,_, S._NP Reagan_NP ,_, E._NP Sieveka_NP Experiences_VVZ in_IN reverse-engineering_VVG of_IN a_DT finite_JJ element_NN automobile_NN crash_NN model_NN Finite_JJ Elem_NP ._SENT 
+Anal_JJ ._SENT 
+Des_FW ._SENT 
+,_, 37_CD (_( 11_CD )_) (_( 2001_CD )_) ,_, pp_NP ._SENT 
+843-860_CD R._NP Eberlein_NP ,_, P._NP Wriggers_NP Finite_JJ element_NN concepts_NNS for_IN finite_JJ elastoplastic_JJ strains_NNS and_CC isotropic_JJ stress_NN response_NN in_IN shells_NNS :_: theoretical_JJ and_CC computational_JJ analysis_NN Comput_NN ._SENT 
+Methods_NNS Appl_VVP ._SENT 
+Mech_NP ._SENT 
+Eng_NN ._SENT 
+,_, 171_CD (_( 3–4_NP )_) (_( 1999_CD )_) ,_, pp_NP ._SENT 
+243-279_CD F.C._NP Günther_NP ,_, W.K._NP Liu_NP Implementation_NN of_IN boundary_NN conditions_NNS for_IN meshless_JJ methods_NNS Comput_NN ._SENT 
+Methods_NNS Appl_VVP ._SENT 
+Mech_NP ._SENT 
+Eng_NN ._SENT 
+,_, 163_CD (_( 1–4_NP )_) (_( 1998_CD )_) ,_, pp_NP ._SENT 
+205-230_CD H._NP Guo_NP ,_, X._NP Zhuang_NP ,_, T._NP Rabczuk_NP A_DT deep_JJ collocation_NN method_NN for_IN the_DT bending_VVG analysis_NN of_IN Kirchhoff_NP plate_NN CMC-COMPUTERS_NNS MATERIALS_NNS &_CC CONTINUA_NNS ,_, 59_CD (_( 2_LS )_) (_( 2019_CD )_) ,_, pp_NP ._SENT 
+433-456_CD T.J._NP Hughes_NP ,_, W.K._NP Liu_NP Nonlinear_JJ finite_JJ element_NN analysis_NN of_IN shells_NNS :_: Part_NP i._NP three-dimensional_JJ shells_NNS Comput_NN ._SENT 
+Methods_NNS Appl_VVP ._SENT 
+Mech_NP ._SENT 
+Eng_NN ._SENT 
+,_, 26_CD (_( 3_LS )_) (_( 1981_CD )_) ,_, pp_NP ._SENT 
+331-362_CD F.E._NP Karaoulanis_NP Implicit_JJ numerical_JJ integration_NN of_IN nonsmooth_JJ multisurface_JJ yield_NN criteria_NNS in_IN the_DT principal_JJ stress_NN space_NN Arch_NP ._SENT 
+Comput_NN ._SENT 
+Methods_NNS Eng_NP ._SENT 
+,_, 20_CD (_( 3_LS )_) (_( 2013_CD )_) ,_, pp_NP ._SENT 
+263-308_CD J._NP Kiendl_NP ,_, K.-U_NP ._SENT 
+Bletzinger_NP ,_, J._NP Linhard_NP ,_, R._NP Wüchner_NP Isogeometric_JJ shell_NN analysis_NN with_IN Kirchhoff–love_NN elements_NNS Comput_NN ._SENT 
+Methods_NNS Appl_VVP ._SENT 
+Mech_NP ._SENT 
+Eng_NN ._SENT 
+,_, 198_CD (_( 49–52_NP )_) (_( 2009_CD )_) ,_, pp_NP ._SENT 
+3902-3914_CD S._NP Klinkel_NP ,_, F._NP Gruttmann_NP ,_, W._NP Wagner_NP A_DT mixed_JJ shell_NN formulation_NN accounting_NN for_IN thickness_NN strains_NNS and_CC finite_JJ strain_NN 3d_NN material_NN models_NNS Int_NP ._SENT 
+J._NP Numer_NP ._SENT 
+Methods_NNS Eng_NP ._SENT 
+,_, 74_CD (_( 6_CD )_) (_( 2008_CD )_) ,_, pp_NP ._SENT 
+945-970_CD J.B._NP Kuipers_NP Quaternions_NNS and_CC Rotation_NN Sequences_NNS ,_, vol_NP ._SENT 
+66_CD ,_, Princeton_NP university_NN press_NN ,_, Princeton_NP (_( 1999_CD )_) Li_NP et_CC al_NP ._SENT 
+,_, 2000_CD S._NP Li_NP ,_, W._NP Hao_NP ,_, W.K._NP Liu_NP Numerical_JJ simulations_NNS of_IN large_JJ deformation_NN of_IN thin_JJ shell_NN structures_NNS using_VVG meshfree_JJ methods_NNS Comput_NN ._SENT 
+Mech_NN ._SENT 
+,_, 25_CD (_( 2–3_NP )_) (_( 2000_CD )_) ,_, pp_NP ._SENT 
+102-116_CD S._NP Li_NP ,_, W.K._NP Liu_NP Meshfree_NP and_CC particle_NN methods_NNS and_CC their_PP$ applications_NNS Appl_NN ._SENT 
+Mech_NP ._SENT 
+Rev._NP ,_, 55_CD (_( 1_LS )_) (_( 2002_CD )_) ,_, pp_NP ._SENT 
+1-34_CD C.-C_NN ._SENT 
+Liang_NP ,_, Y.-S_NP ._SENT 
+Tai_NP Shock_NP responses_NNS of_IN a_DT surface_NN ship_NN subjected_VVN to_TO noncontact_VV underwater_JJ explosions_NNS Ocean_NP ._SENT 
+Eng_NN ._SENT 
+,_, 33_CD (_( 5–6_NP )_) (_( 2006_CD )_) ,_, pp_NP ._SENT 
+748-772_CD F._NP Ming_NP ,_, A._NP Zhang_NP ,_, Y._NP Xue_NP ,_, S._NP Wang_NP Damage_NN characteristics_NNS of_IN ship_NN structures_NNS subjected_VVN to_TO shockwaves_NNS of_IN underwater_JJ contact_NN explosions_NNS Ocean_NP ._SENT 
+Eng_NN ._SENT 
+,_, 117_CD (_( 2016_CD )_) ,_, pp_NP ._SENT 
+359-382_CD L._NP Morino_NP ,_, J._NP Leech_NP ,_, E._NP Witmer_NP An_DT improved_VVN numerical_JJ calculation_NN technique_NN for_IN large_JJ elastic-plastic_JJ transient_JJ deformations_NNS of_IN thin_JJ shells_NNS :_: Part_NN 2—evaluation_NN and_CC applications_NNS J._NP Appl_NP ._SENT 
+Mech_NN ._SENT 
+,_, 38_CD (_( 2_LS )_) (_( 1971_CD )_) ,_, pp_NP ._SENT 
+429-436_CD V.P._NP Nguyen_NP ,_, T._NP Rabczuk_NP ,_, S._NP Bordas_NP ,_, M._NP Duflot_NP Meshless_JJ methods_NNS :_: a_DT review_NN and_CC computer_NN implementation_NN aspects_NNS Math_NP ._SENT 
+Comput_NN ._SENT 
+Simulat_NN ._SENT 
+,_, 79_CD (_( 3_LS )_) (_( 2008_CD )_) ,_, pp_NP ._SENT 
+763-813_CD N._NP Nguyen-Thanh_NP ,_, N._NP Valizadeh_NP ,_, M._NP Nguyen_NP ,_, H._NP Nguyen-Xuan_NP ,_, X._NP Zhuang_NP ,_, P._NP Areias_NP ,_, G._NP Zi_NP ,_, Y._NP Bazilevs_NP ,_, L._NP De_NP Lorenzis_NP ,_, T._NP Rabczuk_NP An_DT extended_JJ isogeometric_JJ thin_JJ shell_NN analysis_NN based_VVN on_IN Kirchhoff–love_NP theory_NN Comput_NN ._SENT 
+Methods_NNS Appl_VVP ._SENT 
+Mech_NP ._SENT 
+Eng_NN ._SENT 
+,_, 284_CD (_( 2015_CD )_) ,_, pp_NP ._SENT 
+265-291_CD N._NP Nguyen-Thanh_NP ,_, K._NP Zhou_NP ,_, X._NP Zhuang_NP ,_, P._NP Areias_NP ,_, H._NP Nguyen-Xuan_NP ,_, Y._NP Bazilevs_NP ,_, T._NP Rabczuk_NP Isogeometric_JJ analysis_NN of_IN large-deformation_NN thin_JJ shells_NNS using_VVG rht-splines_NNS for_IN multiple-patch_NN coupling_NN Comput_NN ._SENT 
+Methods_NNS Appl_VVP ._SENT 
+Mech_NP ._SENT 
+Eng_NN ._SENT 
+,_, 316_CD (_( 2017_CD )_) ,_, pp_NP ._SENT 
+1157-1178_CD J._NP O'Grady_NP ,_, J._NP Foster_NP Peridynamic_JJ plates_NNS and_CC flat_JJ shells_NNS :_: a_DT non-ordinary_JJ ,_, state-based_JJ model_NN Int_NP ._SENT 
+J._NP Solids_NNS Struct_VVP ._SENT 
+,_, 51_CD (_( 25–26_NP )_) (_( 2014_CD )_) ,_, pp_NP ._SENT 
+4572-4579_CD Y._NP Peng_NP ,_, A._NP Zhang_NP ,_, S._NP Li_NP ,_, F._NP Ming_NP A_DT beam_NN formulation_NN based_VVN on_IN rkpm_NN for_IN the_DT dynamic_JJ analysis_NN of_IN stiffened_VVN shell_NN structures_NNS Comput_NN ._SENT 
+Mech_NN ._SENT 
+,_, 63_CD (_( 1_LS )_) (_( 2019_CD )_) ,_, pp_NP ._SENT 
+35-48_CD Y._NP Peng_NP ,_, A._NP Zhang_NP ,_, F._NP Ming_NP A_DT thick_JJ shell_NN model_NN based_VVN on_IN reproducing_VVG kernel_NN particle_NN method_NN and_CC its_PP$ application_NN in_IN geometrically_RB nonlinear_JJ analysis_NN Comput_NN ._SENT 
+Mech_NN ._SENT 
+,_, 62_CD (_( 3_LS )_) (_( 2018_CD )_) ,_, pp_NP ._SENT 
+309-321_CD T._NP Rabczuk_NP ,_, P._NP Areias_NP ,_, T._NP Belytschko_NP A_DT meshfree_JJ thin_JJ shell_NN method_NN for_IN non-linear_JJ dynamic_JJ fracture_NN Int_NP ._SENT 
+J._NP Numer_NP ._SENT 
+Methods_NNS Eng_NP ._SENT 
+,_, 72_CD (_( 5_LS )_) (_( 2007_CD )_) ,_, pp_NP ._SENT 
+524-548_CD T._NP Rabczuk_NP ,_, T._NP Belytschko_NP Cracking_VVG particles_NNS :_: a_DT simplified_VVN meshfree_JJ method_NN for_IN arbitrary_JJ evolving_VVG cracks_NNS Int_NP ._SENT 
+J._NP Numer_NP ._SENT 
+Methods_NNS Eng_NP ._SENT 
+,_, 61_CD (_( 13_CD )_) (_( 2004_CD )_) ,_, pp_NP ._SENT 
+2316-2343_CD T._NP Rabczuk_NP ,_, R._NP Gracie_NP ,_, J.-H_NP ._SENT 
+Song_NN ,_, T._NP Belytschko_NP Immersed_VVN particle_NN method_NN for_IN fluid–structure_NN interaction_NN Int_NP ._SENT 
+J._NP Numer_NP ._SENT 
+Methods_NNS Eng_NP ._SENT 
+,_, 81_CD (_( 1_LS )_) (_( 2010_CD )_) ,_, pp_NP ._SENT 
+48-71_CD B._NP Ren_NP ,_, S._NP Li_NP Modeling_NN and_CC simulation_NN of_IN large-scale_JJ ductile_JJ fracture_NN in_IN plates_NNS and_CC shells_NNS Int_NP ._SENT 
+J._NP Solids_NNS Struct_VVP ._SENT 
+,_, 49_CD (_( 18_CD )_) (_( 2012_CD )_) ,_, pp_NP ._SENT 
+2373-2393_CD J.C._NP Simo_NP ,_, J.G._NP Kennedy_NP On_IN a_DT stress_NN resultant_JJ geometrically_RB exact_JJ shell_NN model_NN ._SENT 
+part_NN v._CC nonlinear_JJ plasticity_NN :_: formulation_NN and_CC integration_NN algorithms_NNS Comput_NN ._SENT 
+Methods_NNS Appl_VVP ._SENT 
+Mech_NP ._SENT 
+Eng_NN ._SENT 
+,_, 96_CD (_( 2_LS )_) (_( 1992_CD )_) ,_, pp_NP ._SENT 
+133-171_CD B.C._NP Simonsen_NP Mechanics_NNS of_IN Ship_NN Grounding_VVG Ph.D_NNS ._SENT 
+thesis_NN ,_, Technical_NP University_NP of_IN Denmark_NP (_( DTU_NP )_) (_( 1997_CD )_) C._NP Truesdell_NP ,_, W._NP Noll_NP The_DT non-linear_JJ field_NN theories_NNS of_IN mechanics_NNS The_DT Non-linear_JJ Field_NP Theories_NNS of_IN Mechanics_NNS ,_, Springer_NP (_( 2004_CD )_) ,_, pp_NP ._SENT 
+1-579_CD D._NP Wang_NP ,_, J.-S_NP ._SENT 
+Chen_NP Locking-free_NP stabilized_VVD conforming_VVG nodal_JJ integration_NN for_IN meshfree_JJ mindlin–reissner_NP plate_NN formulation_NN Comput_NN ._SENT 
+Methods_NNS Appl_VVP ._SENT 
+Mech_NP ._SENT 
+Eng_NN ._SENT 
+,_, 193_CD (_( 12–14_NP )_) (_( 2004_CD )_) ,_, pp_NP ._SENT 
+1065-1083_CD B.V._NP Zamyshlyaev_NP ,_, Y.S._NP Yakovlev_NP Dynamic_JJ loads_NNS in_IN underwater_JJ explosion_NN Naval_NP Intelligence_NP Support_NN Center_NP Washington_NP Dc_NP Translation_NN Div_NN (_( 1973_CD )_) ,_, pp_NP ._SENT 
+86-120_CD Q._NP Zeng_NP ,_, A._NP Combescure_NP ,_, F._NP Arnaudeau_NP An_DT efficient_JJ plasticity_NN algorithm_NN for_IN shell_JJ elements_NNS application_NN to_TO metal_NN forming_VVG simulation_NN Comput_NN ._SENT 
+Struct_VV ._SENT 
+,_, 79_CD (_( 16_CD )_) (_( 2001_CD )_) ,_, pp_NP ._SENT 
+1525-1540_CD X._NP Zhu_NP ,_, Z.-H_NP ._SENT 
+Zhang_NP ,_, R.-Q_NP ._SENT 
+Liu_NP ,_, Y.-X_NP ._SENT 
+Zhu_NP Experimental_JJ study_NN on_IN the_DT explosion_NN resistance_NN of_IN cabin_NN near_IN shipboard_NN of_IN surface_NN warship_NN subjected_VVN to_TO underwater_JJ contact_NN explosion(in_NP Chinese_NP )_) Explos_NP ._SENT 
+Shock_NN Waves_NNS ,_, 24_CD (_( 2_LS )_) (_( 2004_CD )_) ,_, pp_NP ._SENT 
+133-139_CD 

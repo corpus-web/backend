@@ -1,0 +1,277 @@
+<title>Prediction method for thermal-hydraulic parameters of nuclear reactor system based on deep learning algorithm</title>
+<author>1,QiLu,2,YuanYuan,3,FengchenLi,4,BoYang,5,ZheLi,6,YuMa,7,YiyuGu,8,DingmingLiu</author>
+<Affiliation>1,Science and Technology on Reactor System Design Technology Laboratory, Chengdu 610041, China;2,Nuclear Power Institute of China, Chengdu 610041, China;3,College of Physical Science and Technology, Sichuan University, Chengdu 610065, China;4,School of Mechanical Engineering, Tianjin University, Tianjin 300350, China;5,Sino-French Institute of Nuclear Engineering and Technology, Sun Yat-Sen University, Zhuhai 519082, China</Affiliation>
+<year>2021</year>
+<Jounral>Applied Thermal Engineering</Journal>
+<Publishing_house>Elsevier Ltd.</Publishing_house>
+<Text_Collector>XiaFan，HEU</Text_Collector>
+<DOI>10.1016/j.applthermaleng.2021.117272</DOI>
+<URL>https://www.sciencedirect.com/science/article/pii/S1359431121007080</URL>
+Prediction method for thermal-hydraulic parameters of nuclear reactor system based on deep learning algorithm
+QiLu,YuanYuan,FengchenLi,BoYang,ZheLi,YuMa,YiyuGu,DingmingLiu
+Science and Technology on Reactor System Design Technology Laboratory, Chengdu 610041, China
+Nuclear Power Institute of China, Chengdu 610041, China
+College of Physical Science and Technology, Sichuan University, Chengdu 610065, China
+School of Mechanical Engineering, Tianjin University, Tianjin 300350, China
+Sino-French Institute of Nuclear Engineering and Technology, Sun Yat-Sen University, Zhuhai 519082, China</Affiliation>
+<Section>Highlights</Section>
+A prediction program for thermal-hydraulic parameters of nuclear reactor system was established by deep learning algorithm.
+Deep learning algorithm was mainly composed of neural network, activation function, error function, optimization algorithm and data initialization modules.
+KLT-40S nuclear reactor core and sleeve once-through steam generator were selected as prediction objects with good agreement results.
+<Section>Abstract</Section>
+The nuclear reactor core and the steam generator are the core components of nuclear reactor system, which directly determine the heat releasing and carrying capacity of nuclear reactor system. The traditional thermal-hydraulic design of nuclear reactor system generally selects the linear iterative mode, which requires the repeated “calculation-evaluation-correction”. The whole process is tedious and time-consuming, which also relies on the design experience. In recent years, the successful application of artificial intelligence technology in many fields has brought new enlightenment to the innovation for the thermal-hydraulic design of nuclear reactor system. In this paper, a prediction program for the thermal-hydraulic parameters of nuclear reactor system was established by means of deep learning algorithm, which was mainly composed of the neural network module, the activation function module, the error function module, the optimization algorithm module and the data initialization module. Then, the KLT-40S nuclear reactor core and the tube-in-tube once-through steam generator were selected as the analysis objects, and the corresponding input card of RELAP5/SCDAPSIM program was built. Based on the prediction program, the calculation results of RELAP5/SCDAPSIM program were studied, which could realize the rapid prediction for the thermal-hydraulic parameters of nuclear reactor system, and were in good agreement with the calculation results of RELAP5/SCDAPSIM program.
+Keywords:Nuclear reactor core;Once-through steam generator;Thermal-hydraulic design;Deep learning algorithm;Neural network
+<Section>1. Introduction</Section>
+The nuclear reactor system has the characteristics of complex structure, numerous data volume, strong parameter nonlinearity, and intense parameter coupling. The traditional thermal-hydraulic design of nuclear reactor system selects the linear iterative mode, which requires the repeated “calculation-evaluation-correction”. In general, any input updating can lead to the modifying of nuclear reactor system model and the recalculating of various working conditions. In addition, the mutual restriction among various parameters can also make the thermal-hydraulic design much difficult. For example: 1) by reducing the channel size of fuel assembly, a larger heat exchange area can be obtained, which is beneficial to the improvement of power-flow ratio. However, this can obviously increase the flow resistance of nuclear reactor core, and increase the operation burden of coolant pump. 2) Increasing the average coolant temperature of primary loop system is beneficial to improving the steam quality at the secondary side of steam generator, but it can reduce the coolant sub-cooling at the outlet of nuclear reactor, which may not reserve the enough safety margin for various expected operation and accident conditions. 3) Reducing the coolant flow rate in the primary loop system is conducive to reducing the operation burden of coolant pump, but it may not meet the requirement of various safety criteria, threatening the safety of nuclear reactor system. Generally speaking, the traditional design principle is guided by the local parameters, and the historical iteration information is not fully utilized. More importantly, the whole design process is tedious and time-consuming, which also heavily relies on the design experience.
+Over the years, the artificial intelligence technology has been vigorously developed and successfully applied in many fields [1]. The artificial intelligence technology pays attention to the global goals, emphasizes the existing experience data as well as the environmental interaction information, and adopts the methods suitable for the practical problems [2]. By using various advanced algorithms of artificial intelligence, many scholars have carried out in-depth researches on the parameter prediction and the performance optimization [3]. Based on the deep learning algorithm, Ahn and Lee [4] developed an emergency operation program compliance checking system for the nuclear power plant, and the data of nuclear simulator were used to evaluate the system. In addition, Lin et al. [5] investigated the event recognition and signal reconstruction of nuclear power plant based on the deep learning algorithm. Li et al. [6] conducted the single-objective optimization for the various equipment parameters, such as the pressurizer volume, the condenser volume, the steam generator weight and the shielded motor weight. Ahmadi et al. [7] took the minimization of cost and entropy as the optimization goals, and the compact analysis of plate-fin heat exchanger was carried out with the limited cost. Nasruddin et al. [8] optimized the economy of solar heat pump, and the method of using sustainable energy to transport heat was provided. Hetmaniok et al. [9] applied the immune algorithm to solve the inverse heat conduction problem with the third boundary condition. Chen et al. [10] proposed a hybrid non-dominated sorting genetic algorithm to optimize the design of steam generator and primary loop system of Qinshan No.1 nuclear power plant. To realize the accurate decoupling and disturbance compensation of asynchronous motor, Yin et al. [11] proposed a control method by means of using ant colony algorithm as auto-tuning mechanism. By optimizing the self-learning ability of ant colony algorithm, the optimal solution was obtained, and the dependence on parameters was reduced. Tirkolaee et al. [12] improved the ant colony optimization algorithm to solve the municipal service problems such as the warehouse optimization and the municipal waste collection. Wang et al. [13] applied the ant colony optimization algorithm to optimize parameters such as the core arrangement and the control rod arrangement of boiling water reactor. Pereira et al. [14] took the high-pressure injection system of nuclear reactor as an object, and proposed an optimization method for aperiodic preventive maintenance scheduling by means of using the particle swarm optimization algorithm. Then, Bertram et al. [15] combined the genetic algorithm and the particle swarm optimization, and then applied this heuristic optimization method to the parameter optimization of diesel engine hybrid structure. Hedayat et al. [16] improved the simulated annealing algorithm, and the refueling cycle length as well as the maximum neutron flux of irradiation heat were selected as the optimization objectives. Meanwhile, the peak factor, the shutdown margin, the reactivity safety factor and the maximum allowable excess reactivity were taken as constraints, then the core refueling task was optimized and analyzed. Castillo et al. [17] proposed a new method to solve the coupling optimization problem of fuel loading and control rod scheme. Also, the loading and unloading scheme suitable for boiling water reactor was established. Then, Lin et al. [18] combined this method with the ant colony algorithm. Firstly, the ant colony algorithm was used to generate the refueling mode of pressurized-water reactor, and then the tabu search was used to find a satisfactory scheme, which could accelerate the convergence speed of calculation.
+As one of the most typical artificial intelligence algorithms, the deep learning algorithm was initially put forward by Marton and Saljo [19] in 1976. The deep learning was a deep machine learning model, and the “depth” was reflected in the multiple transformation of object features [20]. The commonly used deep learning model is the multi-layer neural network, and each layer of neural network can map the input nonlinearly. By stacking the multi-layer nonlinear map, the abstract features are calculated in deep neural network to help classification. The core principles of deep learning network structure are shown as follows: 1) using the supervised learning to pre-train each layer of network. The supervised learning refers to training the existing training samples (the known data and the corresponding output) and then getting the optimal model. This optimal model belongs to a set of functions, which present the best performance under a certain evaluation criterion. 2) Only one level is trained by supervised learning at a time, and the output training results are taken as the input of higher level. 3) Adjusting all the levels with top-down supervision algorithm. The “depth” of deep learning refers to the level number from input layer to output layer, namely the layer number of hidden layer, which is proportional to the experienced. Therefore, the problem complexity is also proportional to the level number. Moreover, it can be seen that the deep learning method can establish the intrinsic relationship of various parameters according to the multiple neural network technology.
+According to the above discussion and analysis, it is suggested that the deep learning algorithm has great application potential in subverting the traditional thermal-hydraulic calculation. The nuclear reactor system program of RELAP5/SCDAPSIM generally is applied to predict and analyze the possible impacts and consequences of decision as well as judgment [21]. However, the traditional analysis strategy to carry out the thermal-hydraulic design has the following shortcomings: 1) the reactor system is complex and the modeling workload is huge. 2) The model development cycle is long and the cost is high. 3) The program has a large amount of working conditions and takes a long time to calculate. As one of the most widely used reactor system programs, RELAP5/SCDAPSIM program mainly adopts the modeling method based on the concept of control body. Meanwhile, the calculation speed and accuracy of model are related to the control volume partition method. In general, the partition of control volume is finer, the accuracy of calculation results are better, but the calculation time can significantly increase. After the deep learning algorithm studying the calculation results of RELAP5/SCDAPSIM program, it can transform the tedious modeling work of complex system into the modeling work of simple subsystem or component. Thus, the model development cycle is shortened and the model development cost is reduced. Since the modules and models used by subsystem as well as component have been verified in advance, the corresponding reliability is guaranteed. In this paper, the deep learning algorithm is applied to the home-made program, and the machine learning is conducted on the calculation results of RELAP5/SCDAPSIM program; the prediction of thermal-hydraulic parameters is realized for the KLT-40S nuclear reactor core and the tube-in-tube once-through steam generator, which is in good agreement with the calculation results of RELAP5/SCDAPSIM program.
+<Section>2. Prediction methods</Section>
+The deep learning method is a branch of machine learning, which refers to summarizing the general rules from limited examples, and can be applied to the new unknown data, which is suitable for the rapid prediction of thermal-hydraulic parameters in principle. Different from the traditional machine learning, the model adopted by deep learning method is generally complex, and the data between the original input and output of samples needs to flow through the multiple linear or nonlinear components. In the deep learning method, the “depth” refers to the number of feature transformation for the original data, which means that the original data features are transformed into a new feature representation through the multiple feature transformation, and then input into the prediction function to get the final results. In this process, the components at any level have different effects on the results, which is called the contribution distribution problem, and the neural network model is available for this kind of problem.
+The neural network model is mainly composed of artificial neurons and connections between neurons, which contains two special types of neurons: 1) the neurons receiving external information; 2) the neurons outputting information. In other words, the neural network model can be regarded as an information processing system from input to output. Since the neural network model is generally complex and the information transmission path from input to output is generally long, the machine learning based on complex neural network model can be regarded as a kind of deep machine learning, namely the deep learning. It should be noted that the deep learning is not equivalent to the neural network. The deep learning method can adopt the neural network model or other models. Since neural network model can easily solve the contribution distribution problem by using the error back propagation, the neural network model becomes the main model adopted by the deep learning method. Generally speaking, any neural network model with more than one layer has the contribution distribution problem, so any neural network model with more than one layer can be regarded as the deep learning method. Therefore, the deep learning method developed in this paper mainly includes the following parts: 1) the neural network model; 2) the activate function; 3) the error function; 4) the optimization algorithm.
+2.1. Neural network model
+In this paper, the feedforward neural network is used to develop the model. The feedforward neural network is composed of the multi-layer Logistic regression model (the continuous nonlinear function), and each neuron belongs to different layers [22]. The neurons in each layer can receive the signals from the neurons in the previous layer and generate the signals for output to the next layer. The initial layer is called the input layer, the last layer is called the output layer, and other middle layers are called the hidden layers. There is no feedback in the whole network, and the signal propagates unidirectionally from the input layer to the output layer. The principle is shown in Fig. 1. The feedforward neural network transmits the information through the following equation:
+@(1)
+@(2)
+where y(l) represents the input of l-layer neurons; a(l) represents the output of l-layer neurons; W(l) represents the weight matrix from l-1 layer to l layer; b(l) indicates the bias from l-1 layer to l layer; fl() represents the activation function of l layer neurons, which is described in the section 2.2. The equation 3 and the equation 4 can be obtained by combining the equation 1 and the equation 2:
+@(3)
+@(4)
+Fig. 1. The schematic diagram of multilayer feedforward neural network.
+Therefore, the feed-forward neural network can obtain the final output a(l) of network through the layer-by-layer information transmission. The whole network can be regarded as a composite function ϕ(x, W, b), with the vector × as the input a(0) of the first layer and the output a(l) of l layer as the output of the whole function, as shown in equation 5.
+@(5)
+where W and b represent the weights and biases of all the layers in the network.
+2.2. Activation function
+The activation function generally has the following characteristics: 1) the activation function is generally a continuous and derivable nonlinear function; 2) the activation function and its derivative should be as simple as possible, which is beneficial to improve the calculation efficiency; 3) the value range for the derivative function of activation function should be in a suitable range, neither too big nor too small, otherwise it will affect the training efficiency and stability. Thus, SELU activation function is adopted in this paper [23], which is a piecewise function, and different functions are used for calculation as the input value is less than 0 or greater than 0. The SELU activation function is shown as follows:
+@(6)
+α = 1.673263
+λ = 1.050701
+On the one hand, the SELU activation function gently changes in the negative half axis, so that the gradient can be reduced as the variance of activation function is too large, and the gradient explosion can be prevented. On the other hand, the SELU activation function is greater than 1 on the positive half axis, which can be increased as the variance is too small, but the gradient is simultaneously prevented from disappearing. In this way, the activation function has a fixed point. As the network depth is large, the average value of output at each layer is 0, and the variance is 1. The curve form of SELU activation function is shown in Fig. 2.
+Download : Download high-res image (79KB)Download : Download full-size image
+Fig. 2. The curve form of SELU activation function.
+2.3. Error function
+To obtain the optimal solution of weight W and bias b for all the layers in the network, the error function is defined. The error function is generally defined as the average value of difference between the true value yreal and the predicted value yprediction for all the samples, as shown in the following equation:
+@(7)
+where minimum amount of 1 × 10-12 is used to avoid the denominator of 0.
+A good model should have a relatively small expected error, but it is impossible to calculate the expected risk because of not knowing the real data distribution and mapping function. As for a given training set, the experience risk can be calculated, namely the average loss on the training set. A practical learning criterion is applied to find a set of parameters to minimize the empirical risk, namely the empirical risk minimization criterion. However, two kinds of problems need to be avoided in the fitting process, including the under fitting and the over fitting, which is shown in Fig. 3. As for the under fitting, it means that the model can not fit the training data well, and the error in the training set is relatively high. The under fitting is generally caused by the lack of model ability. As for the over fitting, it means that the error in the training set is much low, but the error in the testing set is much high. The problem of over fitting is often caused by the lack of training data.
+Fig. 3. The examples of under fitting, normal fitting and over fitting.
+2.4. Optimization algorithm
+To obtain the weight W and the bias b of each level in the neural network model to meet the requirement of error function, this paper adopts the adaptive moment estimation (Adam) optimization algorithm [24], which is an extension of the stochastic gradient descent algorithm. Different from the traditional stochastic gradient descent method which uses a single learning rate, the Adam optimization algorithm designs the independent adaptive learning rates for different parameters by calculating the first and second moment estimation of gradient:
+@(8)
+@(9)
+@(10)
+where ft(θ) is the random function under the iteration step t; gt is the gradient of ft(θ) with respect to θ under the iteration step t, namely the partial derivative vector of ft(θ) to θ; Mt is the exponential moving average of gradient; Gt is the square gradient; β1 is the exponential decay rate of the first-order moment estimation; β2 is the exponential decay rate of the second-order moment estimation. The Adam algorithm uses the exponential moving mean and the square gradient, and the parameters β1 as well as β2 control the exponential decay rate of these moving means. It is worth noted that the moving mean is estimated by the first-order moment estimation (mean value) and the second-order moment estimation (square error) of gradient.
+An important feature of updating rule for the Adam algorithm is that it will carefully select the iteration step size, as shown in the following equations:
+@(11)
+@(12)
+@(13)
+where Δt is the iteration step size;is the modified exponential moving mean under the iteration steps t;  is the modified square gradient under the iteration step t; α is the learning rate, and ε is the minimum value to avoid the denominator of zero. Meanwhile, Δt needs to meet the following criteria in the calculation process:
+@(14)
+@(15)
+The main calculation process of Adam algorithm is shown as follows: 1) determining the learning rate α, the exponential decay rate β1, the exponential decay rate β2, and the random objective function ft(θ). In general, α is recommended to be 0.001, β1 is recommended to be 0.9, β2 is recommended to be 0.999, and ε is recommended to be 1 × 10-8. 2) As the parameter θ does not converge, each part is updated by iteration. In other words, the iteration step number t + 1 is used to update the gradient of objective function on the parameter θ at the iteration step number t + 1. In addition, the first and second moment estimations of deviation are updated, and the first and second moment estimations of deviation are re-calculated. Then, the model parameter θ is updated with the above calculated values. It should be noted that θ refers to the error function in section 2.3.
+2.5. Program implementation
+Based on the above model, a home-made prediction program for the thermal-hydraulic parameters of nuclear reactor system is constructed based on the deep learning algorithm. The corresponding solution flow is shown in Fig. 4. It should be noted that there are seven neural network layers with the corresponding neuron number of 9, 10, 10, 10, 10, 10, and 1. Moreover, the Adam learning rate is selected as 0.005.
+1)
+The thermal-hydraulic data set calculated by RELAP5/SCDAPSIM program is randomly split. 70% of data set is taken as the training object to find the solution corresponding to the minimum error function. The remaining 30% of data set is used to evaluate the applicability of model obtained by the deep learning algorithm under the unknown conditions.
+2)
+The initialization of weight W and bias b is helpful to improve the training efficiency. As for the weight W, it is evenly distributed in the interval of [-r, r], and r is calculated according to the neurons number in each layer, as shown in the following equation:
+(8)
+where nl is the neurons number in l layer, and nl−1is the neurons number of in l − 1 layer.
+3)
+The parameters of training set and testing set are preprocessed. Since the magnitude of input parameters varies greatly, that is to say, the distribution range of data varies greatly. If the data is not preprocessed, the parameters with large value range will play a leading role, while other parameters will be weakened. Although the neural network model can adjust the range of different parameters by weight W and bias b, the training efficiency is low. Therefore, it is necessary to preprocess the data set and normalize all kinds of parameters to the same value interval. In this paper, the standard normalization method is used to treat each type of parameter into the standard normal distribution (the mean value is 0 and the standard deviation is 1).
+@(9)
+@(10)
+@(11)
+where x(i) represents each type of parameter, μ represents the mean value and σ represents the variance;  represents the normalized parameters.
+4)
+The neural network is defined. The main contents include: setting the iteration step number, defining the layer number of neural network model, defining the node number of each layer, selecting the SELU activation function, defining the learning rate of Adam optimization algorithm.
+5)
+The error function is defined.
+6)
+The weight W and the bias b is initialized, and then the training is started.
+7)
+As the training is completed, the weight W and the bias b corresponding to the minimum value of error function are obtained, and the over fitting as well as the under fitting of prediction model are judged. If all the requirements are met, the program will be terminated; otherwise, the relevant parameters will be updated for training again.
+Fig. 4. The solution flow chart.
+2.6. RELAP5/SCDAPSIM program
+The RELAP5/SCDAPSIM program [25] is used as the thermal-hydraulic system program in this study, which is a two-fluid program for the transient thermal-hydraulic analysis of light water reactor. The program mainly includes the hydraulic module, the thermal component module and the neutron dynamics module etc. The hydraulics module is the core module of RELAP5/SCDAPSIM program, which includes the basic equation solution, the constitutive model, the component model, and the special process model. The constitutive models mainly includes the flow pattern model, the interphase resistance model, the virtual mass force model, the wall resistance model, the interphase mass transfer model, and the heat transfer model etc. The calculation and analysis of thermal component module will provide the boundary conditions for the hydraulic module. In addition, the solution results of neutron dynamics module will also be reflected in the heat source during the thermal component simulation. The thermal component module mainly includes the solution of the heat conduction equation, the wall heat transfer model, the boundary conditions treatment, and the heat conduction etc. The point reactor neutron dynamics model is used in the calculation, which mainly includes the solution of point reactor equation and reactivity feedback model. Moreover, the vertical flow pattern is used in this study, including nine basic flow patterns, four flow patterns for pre-CHF (Critical Heat Flux) conditions, four flow patterns for post-CHF conditions, and one for vertical stratification. The flow patterns for pre-CHF include bubbly flow, slug flow, annular flow and dispersed flow. The flow patterns for post-CHF include anti-annular flow, anti-slug flow, and dispersed flow. The program uses these flow pattern transition criteria to judge and calculate.
+<Section>3. Modeling objects</Section>
+3.1. Nuclear reactor core modeling
+KLT-40S nuclear reactor was designed by Afrikantov OKBM of Russia [26]. KLT-40S nuclear reactor is a pressurized water reactor, which is cooled by four loops, and connected with steam generator as well as coolant pump according to the sleeves. The main thermal-hydraulic parameters, the nulcear reactor core structural parameters and the fuel rod structural parameters of KLT-40S are shown in Table 1 [27]. The KLT-40S nuclear reactor core consists of 121 rod bundle fuel assemblies, and the hexagonal grid arrangement is adopted. The nuclear reactor core layout is shown in Fig. 5, and the structure of single fuel assembly is shown in Fig. 6.
+Table 1. The main parameters of KLT-40S nuclear reactor core.
+Fig. 5. The layout of KLT-40S nuclear reactor core.
+Fig. 6. The schematic diagram of KLT-40S fuel assembly structure.
+In this paper, RELAP5/SCDAPSIM program is used to model the KLT-40S nuclear reactor core. The specific node division is shown in Fig. 7. There are five types of coolant channels, including the hot channel, the hot point channel, the average channel, the cold channel and the bypass channel, which are established by the tubular hydraulic components. Also, the pressure, the temperature and the flow rate of coolant are determined by simulating the inlet and outlet boundaries of nuclear reactor core by time-dependent control volume and nozzle. The nuclear reactor core is axially divided into 12 control sections, and the detailied power distribution is shown in Table 2 (node 1 is the inlet of core active section, node 12 is the outlet of core active section). The radial direction of fuel rod starts from the center of fuel rod and is divided into 8 sections (9 nodes), as shown in Table 3 (node 1 represents the center of fuel rod and node 9 represents the outer wall of fuel rod). In this paper, the results of thermal-hydraulic calculation based on RELAP5/SCDAPSIM program are shown in Table 4, and the difference between calculation results and reference results is within ± 0.1%. Therefore, it is proved that RELAP5/SCDAPSIM model in this paper can well reflect the thermal-hydraulic characteristics of KLT-40S nuclear reactor core under the steady state operation.
+Fig. 7. The node division diagram of KLT-40S pressure vessel.
+Table 2. The power distribution of nuclear reactor core.
+Table 3. The radial division of fuel rod.
+Table 4. The comparison results between the RELAP5/SCDAPSIM calculation results and the reference results for the thermal-hydraulic parameters of KLT-40S nuclear reactor core.
+3.2. Steam generator modeling
+In this paper, the sleeve once through steam generator is selected as the modeling object [28]. Also, the flow and heat transfer characteristics as well as the cross-section structure of sleeve are shown in Fig. 8. The node division is shown in Fig. 9, and the main parameters are shown in Table 5. The time-dependent control body (1 0 1) simulates the primary-side inlet boundary of steam generator; a time-dependent juntion (1 0 2) controls the inlet mass flow of working medium on the primary side of steam generator; the branch component (1 0 3) is used for determining parameters such as the flow distribution of central flow passage (1 4 1) and outer flow passage (1 4 2); the tubular components (141 and 142) are divided into 30 sections, which simulate two flow passages on the primary side of steam generator; the working medium on the primary side is collected in the branch (1 5 0); the exit boundary is simulated by a time-dependent control body (1 6 0); a time-dependent control body (2 0 0) simulates the secondary-side inlet boundary; a time-dependent junction (2 0 1) controls the mass flow of secondary-side inlet; a single control body (2 0 2) is used for simulating the secondary-side inlet; the tubular component (2 0 3) is divided into 30 sections to simulate the secondary-side flow passage of steam generator; a single control body (2 0 4) simulates the secondary-side outlet, and the outlet boundary is simulated by a time-dependent control body (2 0 5).
+Fig. 8. The schematic diagram of the flow as well as heat transfer characteristics and the cross-section size of sleeve.
+Fig. 9. The node division diagram of tube-in-tube once-through steam generator.
+Table 5. The main paramters of tube-in-tube once-through steam generator.
+The results (under the rated power) of steady-state calculation based on RELAP5/SCDAPSIM program are shown in Table 6. It can be seen that the difference between the calculated results and the reference results is within 0.5%, which proves that the RELAP5/SCDAPSIM model constructed in this paper can well reflect the thermal-hydraulic characteristics of tube-in-tube once-through steam generator in the steady-state operation.
+Table 6. The comparison results between the RELAP5/SCDAPSIM calculation results and the reference results for the thermal-hydraulic parameters of tube-in-tube once-through steam generator.
+<Section>4. Prediction results</Section>
+The input parameters and the variation ranges of KLT-40S nuclear reactor core are shown in Table 7, and the output parameters of calculation working conditions are shown in Table 8. The comparison results between the home-made program and RELAP5/SCDAPSIM program for thermal-hydraulic parameters of KLT-40S nuclear reactor core is shown in Fig. 10, and the corresponding prediction error distribution is shown in Fig. 11. The predicted nuclear reactor core thermal-hydraulic parameters include: the inlet pressure of nuclear reactor core, the quality at the hottest channel outlet, the maximum temperature of cladding surface, the maximum temperature of fuel pellet center, and DNBR. As for the nuclear reactor core inlet pressure, the parameter range is 11.5 MPa-14.0 MPa, and the data are mainly concentrated around 11.75 MPa, 12.75 MPa and 13.75 MPa, as shown in Fig. 10a. In addition, the most of prediction errors are less than 0.06%, which are mainly distributed between 0.01% and 0.05%, and the maximum prediction error is less than 0.16%, as shown in Fig. 11a. Moreover, the comparison results of quality at the hottest channel outlet is shown in Fig. 10b; the distribution ranges from 0.000 to 0.275, and it is evenly distributed within this data range. As shown in Fig. 11b, the most of prediction error for quality is less than 1%, and the maximum prediction error is less than 5%. The comparison results of the highest cladding surface temperature is shown in Fig. 10c, and the corresponding distribution range is between 600 K and 625 K. The corresponding prediction error is shown in Fig. 11c, and the distribution of prediction error is similar to the normal distribution, and the maximum prediction error is less than 0.12%. The maximum temperature of fuel pellet center is shown in Fig. 10d, with the minimum temperature being nearly 1020 K and the maximum temperature not exceeding 3020 K. As shown in Fig. 11d, the most of prediction error for the maximum temperature of fuel pellet center is less than 0.5%. The comparison results of DNBR are shown in Fig. 10e, and the minimum value is close to 1.0, while the maximum value does not exceed 8.0. Also, the prediction error of DNBR is shown in Fig. 11e, and the most of prediction erros are less than 3% with only a few of them exceeding 10%. The relative errors of nuclear reactor core are shown in Table 9.
+Table 7. The input parameters and the variation ranges of KLT-40S nuclear reactor core.
+Note:
+Thermal power of nuclear reactor core: 150.00 MW.
+Inlet temperature of nuclear reactor core: 553.2 °C.
+Total number of calculation working conditions: 5 × 3 × 3 × 5 × 5 × 5 × 4 = 22,500.
+Effective number of calculation working conditions: 13,057.
+Table 8. The output parameters of calculation working conditions.
+Fig. 10. The results comparison between made-home program and RELAP5/SCDAPSIM program for KLT-40S nuclear reactor core.
+Fig. 11. The error distribution of home-made program for KLT-40S nuclear reactor core.
+Table 9. The relative errors of nuclear reactor core.
+The input parameters and the variation ranges of tube-in-tube once-through steam generator are shown in Table 10, and the output parameters of tube-in-tube once-through steam generator are shown in Table 11. The comparison results between the home-made program and RELAP5/SCDAPSIM program for thermal-hydraulic parameters of tube-in-tube once-through steam generator is shown in Fig. 12, and the corresponding prediction error distribution is shown in Fig. 13. Also, the predicted thermal-hydraulic parameters of steam generator include: the primary-side outlet temperature, the secondary-side outlet temperature, the primary side-inlet pressure, the secondary-side inlet pressure, the secondary-side outlet quality and the thermal power of steam generator. As shown in Fig. 12a, the primary-side outlet temperature ranges from 540 K to 560 K; the most of prediction errors are less than 0.6%, and the maximum prediction error is less than 1.0%, as shown in Fig. 13a. The secondary-side outlet temperature is shown in Fig. 12b, which ranges from 520 K to 610 K; and the most of prediction errors are less than 0.5%, and the maximum prediction error is less than 6.0%, as shown in Fig. 13b. The primary-side inlet pressure is shown in Fig. 12c, with the minimum value greater than 11.5 MPa and the maximum value less than 14.0 MPa. The prediction error of primary-side inlet pressure is mostly less than 0.2%, and the maximum prediction error is less than 1.0%, as shown in Fig. 13c. The secondary-side inlet pressure is shown in Fig. 12d, and its distribution range is within 3 MPa-5Mpa. The corresponding prediction error is shown in Fig. 13d, with the most of values less than 0.4% and the maximum value less than 1.0%. The secondary-side outlet quality is shown in Fig. 12e; its distribution range is 0.96–1.16, and the most of prediction errors are less than 0.5%, as shown in Fig. 13e. The thermal power of steam generator is shown in Fig. 12f, with the minimum thermal power greater than 27 MW and the maximum thermal power less than 33 MW. The corresponding prediction error is shown in Fig. 13f, and the most of prediction errors are less than 0.5%. The relative and absolute errors of tube-in-tube once-through steam generator are shown in Table 12.
+Table 10. The input parameters and the variation ranges of tube-in-tube once-through steam generator.
+Note:
+Thermal power of tube-in-tube once-through steam generator: 30.00 MW.
+Secondary-side inlet temperature: 423.2 °C.
+Total number of calculation working conditions: 3 × 3 × 5 × 5 × 5 × 4 × 5 = 22500.
+Effective number of calculation working conditions: 21,750.
+Table 11. The output parameters of tube-in-tube once-through steam generator.
+Fig. 12. The results comparison between made-home program and RELAP5/SCDAPSIM program for tube-in-tube once-through steam generator.
+Fig. 13. The error distribution of home-made program for tube-in-tube once-through steam generator.
+Table 12. The relative and absolute errors of tube-in-tube once-through steam generator.
+<Section>5. Conclusions</Section>
+In this paper, we can accurately predict the thermal-hydraulic parameters calculated by RELAP5/SCDAPSIM program based on the deep learning algorithm, and realize the successful application of artificial intelligence technology in the thermal-hydraulic design of nuclear reactor system. The home-made program in this paper is mainly composed of the neural network module, the activation function module, the error function module, the optimization algorithm module and the data initialization module. The prediction results of thermal-hydraulic parameters for KLT-40S nuclear reactor core and tube-in-tube once-through steam generators are in good agreement with RELAP5/SCDAPSIM program.
+<Section>Declaration of Competing Interest</Section>
+We confirm that this manuscript has not been published elsewhere and is not under consideration by another journal. All authors have approved the manuscript and agree with submission to Applied Thermal Engineering. The study is supported by the National Natural Science Foundation of China (No. 11905212), the Applied Basic Research Program of Sichuan Province (No. 2021YJ0514), and the China National Nuclear Corporation Science Fund for Talented Young Scholars. The authors have no conflicts of interest to declare.
+<Section>Acknowledgement</Section>
+The authors are grateful for the support of the National Natural Science Foundation of China (No. 11905212), the Applied Basic Research Program of Sichuan Province (No. 2021YJ0514), and the China National Nuclear Corporation Science Fund for Talented Young Scholars.
+<Section>References</Section>
+[1]
+N. Muthukrishnan, F. Maleki, K. Ovens, C. Reinhold, B. Forghani, R. Forghani
+Brief History of Artificial Intelligence
+Neuroimaging Clin. N. Am., 30 (4) (2020), pp. 393-399
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+[2]
+L. Lin, X. Wang
+Chapter 23 - New direction of nuclear code development: artificial intelligence
+J. Wang, X. Li, C. Allison, J. Hohorst (Eds.), Nuclear Power Plant Design and Analysis Codes, Woodhead Publishing (2021), pp. 543-551
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+[3]
+S. Suman
+Artificial intelligence in nuclear industry: Chimera or solution?
+J. Cleaner Prod., 278 (2021), Article 124022
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+[4]
+J. Ahn, S.J. Lee
+Deep learning-based procedure compliance check system for nuclear power plant emergency operation
+Nucl. Eng. Des., 370 (2020), Article 110868
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+[5]
+T.-H. Lin, T.-C. Wang, S.-C. Wu
+Deep learning schemes for event identification and signal reconstruction in nuclear power plants with sensor faults
+Ann. Nucl. Energy, 154 (2021), Article 108113
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+[6]
+G. Li, C. Yan, J. Wang
+Optimization of a moisture separator reheater
+Ann. Nucl. Energy, 73 (2014), pp. 537-546
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+[7]
+P. Ahmadi
+Cost and entropy generation minimization of a cross-flow plate fin heat exchanger using multi-objective genetic algorithm
+J. Heat Transfer, 132 (2011), Article 021801
+View Record in ScopusGoogle Scholar
+[8]
+M.I. Nasruddin, N. Alhamid
+Aisyah, Exergetic-Economic analysis and optimization of solar assisted heat pump using Multi-objective Genetic Algorithm
+IOP Conference Series: Earth and Environmental Science, 105 (2018), Article 012064
+CrossRefView Record in ScopusGoogle Scholar
+[9]
+E. Hetmaniok, I. Nowak, D. Słota, A. Zielonka
+Determination of Optimal Parameters for the Immune Algorithm Used for Solving Inverse Heat Conduction Problems with and without a Phase Change
+Numerical Heat Transfer, Part B: Fundamentals, 62 (6) (2012), pp. 462-478
+CrossRefView Record in ScopusGoogle Scholar
+[10]
+L. Chen, C. Yan, Y. Liao, F. Song, Z. Jia
+A hybrid non-dominated sorting genetic algorithm and its application on multi-objective optimal design of nuclear power plant
+Ann. Nucl. Energy, 100 (2017), pp. 150-159
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+[11]
+Z. Yin, C. Du, J. Liu, X. Sun, Y. Zhong, Research on Auto-Disturbance-Rejection Control of Induction Motors Based on Ant Colony Optimization Algorithm, IEEE Transactions on Industrial Electronics, PP (2017) 1-1.
+Google Scholar
+[12]
+E.B. Tirkolaee, M. Alinaghian, A.A.R. Hosseinabadi, M.B. Sasi, A.K. Sangaiah
+An improved ant colony optimization for the multi-trip Capacitated Arc Routing Problem
+Comput. Electr. Eng., 77 (2019), pp. 457-470
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+[13]
+C.-D. Wang, C. Lin
+Automatic boiling water reactor control rod pattern design using ant colony optimization algorithm
+Nuclear Technology: A journal of the American Nuclear Society, 176 (1) (2011), pp. 72-82
+CrossRefView Record in ScopusGoogle Scholar
+[14]
+C.M.N.A. Pereira, C.M.F. Lapa, A.C.A. Mol, A.F.D. Luz
+A Particle Swarm Optimization (PSO) approach for non-periodic preventive maintenance scheduling programming
+Prog. Nucl. Energy, 52 (8) (2010), pp. 710-714
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+[15]
+A. Bertram
+A novel particle swarm and genetic algorithm hybrid method for improved heuristic optimization of diesel engine performance
+Dissertations & Theses - Gradworks (2014)
+Google Scholar
+[16]
+A. Hedayat
+Developing a practical optimization of the refueling program for ordinary research reactors using a modified simulated annealing method
+Prog. Nucl. Energy, 76 (sep.) (2014), pp. 191-205
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+[17]
+A. Castillo, J.J. Ortiz, J.L. Montes, R. Perusquía
+Fuel loading and control rod patterns optimization in a BWR using tabu search
+Ann. Nucl. Energy, 34 (3) (2007), pp. 207-212
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+[18]
+C. Lin, Y.H. Chen
+The max–min ant system and tabu search for pressurized water reactor loading pattern design
+Ann. Nucl. Energy, 71 (sep.) (2014), pp. 388-398
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+[19]
+F. Marton, R. Saljo
+On qualitative differences in learning II: Outcome as a function of the learner’s conception of the task
+Br. J. Educ. Psychol., 46 (1976), pp. 115-127
+CrossRefGoogle Scholar
+[20]
+V.H.C. Pinheiro, M.C.d. Santos, F.S.M.d. Desterro, R. Schirru, C.M.d.N.A. Pereira, Nuclear Power Plant accident identification system with “don’t know” response capability: Novel deep learning-based approaches, Annals of Nuclear Energy, 137 (2020) 107111.
+Google Scholar
+[21]
+Y. Zhao, M. Peng, G. Xia
+Safety evaluation of the flashing-driven natural circulation IPWR against Loss-of-Feedwater accident
+Ann. Nucl. Energy, 142 (2020), Article 107408
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+[22]
+Z. Dong, H. Huang
+A training algorithm with selectable search direction for complex-valued feedforward neural networks
+Neural Networks, 137 (2021), pp. 75-84
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+[23]
+P. Kevin, D.K. Kang
+The Effect of Hyperparameter Choice on ReLU and SELU Activation Function
+International journal of advanced smart convergence, 6 (2017)
+Google Scholar
+[24]
+R. Singarimbun, E. Nababan, O. Sitompul, Adaptive Moment Estimation To Minimize Square Error In Backpropagation Algorithm, 2019.
+Google Scholar
+[25]
+K. Cheng, T. Meng, F. Zhao, S. Tan
+Development and validation of a thermal hydraulic transient analysis code for offshore floating nuclear reactor based on RELAP5/SCDAPSIM/MOD3.4
+Ann. Nucl. Energy, 127 (2019), pp. 215-226
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+[26]
+V. Kuznetsov
+19 - Small modular reactors (SMRs): The case of Russia
+D.T. Ingersoll, M.D. Carelli (Eds.), Handbook of Small Modular Nuclear Reactors (Second Edition), Woodhead Publishing (2021), pp. 467-501
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+[27]
+S.V. Beliavskii, V.N. Nesterov, R.A. Laas, A.V. Godovikh, O.I. Bulakh
+Effect of fuel nuclide composition on the fuel lifetime of reactor KLT-40S
+Nucl. Eng. Des., 360 (2020), Article 110524
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+[28]
+J. Liu
+Research on steady-state operational characterisitics of integrated pressurized water reactor
+Harbin Engineering University (2008)
+Google Scholar

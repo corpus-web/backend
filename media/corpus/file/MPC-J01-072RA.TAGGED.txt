@@ -1,0 +1,335 @@
+<title> Software_NN for_IN real-time_JJ localization_NN of_IN baleen_NN whale_NN calls_VVZ using_VVG directional_JJ sonobuoys_NNS :_: A_DT case_NN study_NN on_IN Antarctic_JJ blue_JJ whales_NNS </title> <author> Miller_NP ,_, BS_NP (_( Miller_NP ,_, Brian_NP S._NP )[_NP 1_CD ]_SYM ;_: Calderan_NP ,_, S_NP (_( Calderan_NP ,_, Susannah)[_NP 1_CD ]_SYM ;_: Gillespie_NP ,_, D_NP (_( Gillespie_NP ,_, Douglas)[_NP 2_CD ]_SYM ;_: Weatherup_NP ,_, G_NP (_( Weatherup_NP ,_, Graham)[_NP 3_CD ]_SYM ;_: Leaper_NP ,_, R_NP (_( Leaper_NP ,_, Russell)[_NP 4_CD ]_SYM ;_: Collins_NP ,_, K_NP (_( Collins_NP ,_, Kym)[_NP 1_CD ]_SYM ;_: Double_NP ,_, MC_NP (_( Double_NP ,_, Michael_NP C._NP )[_NP 1_CD ]_SYM </author> <Affiliation> [_SYM 1_CD ]‎_NN Australian_JJ Marine_NP Mammal_NN Ctr_NN ,_, Australian_JJ Antarct_NN Div_NN ,_, Kingston_NP ,_, Tas_NP ,_, Australia_NP [_SYM 2_CD ]‎_NP Univ_NP St_NP Andrews_NPS ,_, Scottish_NP Oceans_NNS Inst_NP ,_, Sea_NP Mammal_NN Res_NN Unit_NP ,_, St_NP Andrews_NPS ,_, Fife_NP ,_, Scotland_NP [_SYM 3_CD ]‎_NP St_NP Andrews_NPS Instrumentat_NP ,_, St_NP Andrews_NPS ,_, Fife_NP ,_, Scotland_NP [_SYM 4_CD ]‎_NP Univ_NP Aberdeen_NP ,_, Sch_NP Biol_NP Sci_NP ,_, Tillydrone_NP Ave_NP ,_, Aberdeen_NP ,_, Scotland_NP </Affiliation> <year> 2016_CD </year> <Jounral> Journal_NP of_IN the_DT Acoustical_JJ Society_NP of_IN America_NP </Journal> <Publishing_house> ACOUSTICAL_JJ SOC_NP AMER_NP AMER_NP INST_NP PHYSICS_NN ,_, STE_NP 1_CD NO_RB 1_CD ,_, 2_CD HUNTINGTON_NP QUADRANGLE_NN ,_, MELVILLE_NP ,_, NY_NP 11747-4502_CD USA_NP </Publishing_house> <Text_Collector> Wang_NP Shuaiyin，HEU_NP </Text_Collector> <DOI> 10.1121/1.4943627_CD </DOI> <URL> https_NNS :_: //asa-scitation-org-s_NNS ._SENT 
+wvpn_NP ._SENT 
+hrbeu_NP ._SENT 
+edu_NP ._SENT 
+cn/doi/10.1121/1.4943627_JJ </URL> <Section> ABSTRACT_JJ </Section> Directional_JJ frequency_NN analysis_NN and_CC recording_NN (_( DIFAR_NP )_) sonobuoys_NNS can_MD allow_VV real-time_JJ acoustic_JJ localization_NN of_IN baleen_NN whales_NNS for_IN underwater_JJ tracking_NN and_CC remote_JJ sensing_VVG ,_, but_CC limited_JJ availability_NN of_IN hardware_NN and_CC software_NN has_VHZ prevented_VVN wider_JJR usage_NN ._SENT 
+These_DT software_NN limitations_NNS were_VBD addressed_VVN by_IN developing_VVG a_DT module_NN in_IN the_DT open-source_NN software_NN PAMGuard_NN ._SENT 
+A_DT case_NN study_NN is_VBZ presented_VVN demonstrating_VVG that_IN this_DT software_NN provides_VVZ greater_JJR efficiency_NN and_CC accessibility_NN than_IN previous_JJ methods_NNS for_IN detecting_VVG ,_, localizing_VVG ,_, and_CC tracking_VVG Antarctic_JJ blue_JJ whales_NNS in_IN real_JJ time_NN ._SENT 
+Additionally_RB ,_, this_DT software_NN can_MD easily_RB be_VB extended_VVN to_TO track_VV other_JJ low_JJ and_CC mid_JJ frequency_NN sounds_VVZ including_VVG those_DT from_IN other_JJ cetaceans_NNS ,_, pinnipeds_NNS ,_, icebergs_NNS ,_, shipping_VVG ,_, and_CC seismic_JJ airguns_NNS ._SENT 
+<Section> 1._CD Background_NN </Section> Directional_JJ frequency_NN analysis_NN and_CC recording_NN (_( DIFAR_NP )_) sonobuoys_NNS have_VHP been_VBN in_IN use_NN in_IN whale_NN research_NN programs_NNS for_IN the_DT past_JJ two_CD decades_NNS (_( Blackwell_NP et_NP al_NP ._SENT 
+,_, 2012_CD ;_: Blackwell_NP et_NP al_NP ._SENT 
+,_, 2013_CD ;_: Gedamke_NP and_CC Robinson_NP ,_, 2010_CD ;_: Greene_NP et_NP al_NP ._SENT 
+,_, 2004_CD ;_: Guerra_NP et_NP al_NP ._SENT 
+,_, 2011_CD ;_: McDonald_NP and_CC Moore_NP ,_, 2002_CD ;_: McDonald_NP ,_, 2004_CD ;_: McDonald_NP et_NP al_NP ._SENT 
+,_, 2001_CD ;_: Miller_NP et_NP al_NP ._SENT 
+,_, 2014_CD ;_: Miller_NP et_NP al_NP ._SENT 
+,_, 2015_CD ;_: Oleson_NP et_NP al_NP ._SENT 
+,_, 2007_CD ;_: Rankin_NP et_NP al_NP ._SENT 
+,_, 2005_CD ;_: Rivers_NP ,_, 1997_CD ;_: Širović_NP and_CC Hildebrand_NP ,_, 2011_CD ;_: Swartz_NP et_NP al_NP ._SENT 
+,_, 2003_CD ;_: Thode_NP et_NP al_NP ._SENT 
+,_, 2000_CD ;_: Wade_NP et_NP al_NP ._SENT 
+,_, 2006_CD ;_: Wade_NP et_NP al_NP ._SENT 
+,_, 2011_CD )_) ._SENT 
+These_DT studies_NNS indicate_VVP that_IN sonobuoys_NNS comprise_VVP an_DT efficient_JJ means_NN for_IN synoptic-scale_JJ acoustic_JJ monitoring_NN of_IN baleen_NN whales_NNS allowing_VVG for_IN coverage_NN of_IN broad_JJ pelagic_JJ areas_NNS in_IN relatively_RB short_JJ time_NN periods_NNS ._SENT 
+Sonobuoy_NN surveys_VVZ effectively_RB combine_VV the_DT low-frequency_NN performance_NN of_IN fixed_VVN acoustic_JJ sensors_NNS (_( i._NP e._NP ,_, high_JJ signal-to-noise_NN ratio_NN in_IN the_DT 0–4_JJ kHz_NP band_NN ;_: Mellinger_NP et_NP al_NP ._SENT 
+,_, 2007_CD )_) with_IN the_DT broad_JJ spatial_JJ and_CC temporal_JJ coverage_NN and_CC localization_NN ability_NN of_IN a_DT towed_VVN hydrophone_NN array_NN (_( i._NP e._NP ,_, covering_VVG thousands_NNS of_IN kilometers_NNS in_IN days_NNS or_CC weeks_NNS ;_: Van_NP Parijs_NP et_CC al_NP ._SENT 
+,_, 2009_CD )_) ._SENT 
+To_TO localize_VV sounds_NNS ,_, each_DT DIFAR_NP sonobuoy_NN contains_VVZ a_DT compass_NN ,_, azimuthal_JJ acoustic_JJ vector_NN sensor_NN ,_, and_CC an_DT omnidirectional_JJ hydrophone_NN ._SENT 
+Differences_NNS in_IN the_DT phase_NN and_CC amplitude_NN detected_VVN among_IN the_DT vector_NN sensors_NNS and_CC the_DT hydrophone_NN can_MD be_VB used_VVN to_TO estimate_VV the_DT bearing_NN to_TO a_DT sound_JJ source_NN with_IN respect_NN to_TO the_DT magnetic_JJ compass_NN ._SENT 
+The_DT signals_NNS from_IN these_DT sensors_NNS and_CC hydrophone_NN are_VBP typically_RB multiplexed_VVN and_CC transmitted_VVN to_TO a_DT nearby_JJ vessel_NN or_CC aircraft_NN using_VVG VHF_NN radio_NN ._SENT 
+This_DT radio_NN link_NN reduces_VVZ low-frequency_NN noise_NN by_IN allowing_VVG placement_NN of_IN the_DT sonobuoy_NN far_RB from_IN self-noise_NN sources_NNS (_( i._NP e._NP ,_, research_NN vessels_NNS )_) and_CC by_IN eliminating_VVG low-frequency_NN (_( i._NP e._NP ,_, <1_JJ kHz_NP )_) “_NP flow-noise_NP ”_NP prevalent_JJ on_IN towed_VVN hydrophone_NN arrays_NNS ._SENT 
+Bearings_NNS from_IN a_DT single_JJ DIFAR_NN sonobuoy_NN allow_VVP researchers_NNS to_TO home_NN in_IN on_IN vocalising_VVG animals_NNS from_IN tens_NNS to_TO hundreds_NNS of_IN kilometres_NNS away_RB (_( McDonald_NP ,_, 2004_CD ;_: Miller_NP et_NP al_NP ._SENT 
+,_, 2015_CD ;_: Wade_NP et_NP al_NP ._SENT 
+,_, 2006_CD )_) ,_, while_IN bearings_NNS to_TO the_DT same_JJ source_NN received_VVN on_IN multiple_JJ DIFAR_NN sensors_NNS allow_VVP accurate_JJ triangulation_NN of_IN the_DT source_NN 's_POS geographic_JJ position_NN (_( Blackwell_NP et_NP al_NP ._SENT 
+,_, 2012_CD ;_: Greene_NP et_NP al_NP ._SENT 
+,_, 2004_CD ;_: Miller_NP et_NP al_NP ._SENT 
+,_, 2015_CD )_) ._SENT 
+Furthermore_RB ,_, the_DT acoustic_JJ bearings_NNS and_CC calibrated_VVN received_VVN pressure_NN levels_NNS from_IN a_DT single_JJ DIFAR_NN sonobuoy_NN facilitate_VVP identification_NN of_IN the_DT sound_JJ source_NN as_RB well_RB as_IN estimation_NN of_IN the_DT source_NN level_NN (_( Greene_NP et_NP al_NP ._SENT 
+,_, 2004_CD ;_: McDonald_NP et_NP al_NP ._SENT 
+,_, 2001_CD ;_: Rankin_NP et_NP al_NP ._SENT 
+,_, 2005_CD ;_: Thode_NP et_NP al_NP ._SENT 
+,_, 2000_CD )_) ._SENT 
+While_IN DIFAR_JJ sonobuoys_NNS have_VHP seen_VVN limited_JJ use_NN in_IN whale_NN research_NN over_IN the_DT past_JJ two_CD decades_NNS ,_, greater_JJR adoption_NN has_VHZ primarily_RB been_VBN limited_VVN by_IN two_CD factors_NNS :_: availability_NN of_IN military_JJ (_( i._NP e._NP ,_, export-controlled_JJ )_) DIFAR_NN sonobuoys_NNS and_CC availability_NN of_IN integrated_JJ end-user_NN software_NN to_TO process_VV and_CC analyse_VV data_NNS collected_VVN from_IN sonobuoys_NNS in_IN real_JJ time_NN ._SENT 
+Here_RB we_PP address_VV the_DT latter_NN of_IN these_DT limitations_NNS ._SENT 
+To_TO date_NN researchers_NNS have_VHP used_VVN disparate_JJ bespoke_JJ tools_NNS for_IN working_VVG with_IN DIFAR_JJ data_NNS including_VVG the_DT DIFAR_JJ Demultiplexer_NN by_IN Greeneridge_NP Sciences_NPS Inc._NP (_( Greeneridge_NP Sciences_NPS Inc._NP ,_, 2016_CD )_) ,_, beamforming_VVG software_NN from_IN WhaleAcoustics_NP (_( WhaleAcoustics_NP ,_, 2011_CD )_) as_IN well_RB as_IN acquisition_NN and_CC display_NN software_NN such_JJ as_IN PAMGuard_NP (_( PAMGuard_NP ,_, 2016_CD )_) ,_, ishmael_NP (_( ishmael_NP ,_, 2016_CD )_) ,_, and_CC matlab_NN scripts_NNS (_( Mathworks_NP Inc._NP ,_, Natick_NP ,_, MA_NN )_) ._SENT 
+Additional_JJ custom_NN software_NN and_CC extensive_JJ modification_NN of_IN these_DT tools_NNS has_VHZ often_RB been_VBN a_DT requirement_NN in_IN order_NN to_TO accommodate_VV different_JJ survey_NN designs_NNS and/or_NN localize_VVP different_JJ species_NNS or_CC call_NN types_NNS on_IN subsequent_JJ voyages_NNS ;_: thus_RB narrowing_VVG the_DT focus_NN and_CC reducing_VVG the_DT accessibility_NN of_IN these_DT systems_NNS ._SENT 
+Furthermore_RB ,_, the_DT ad_FW hoc_FW nature_NN of_IN these_DT modifications_NNS can_MD lead_VV to_TO a_DT range_NN of_IN problems_NNS including_VVG inefficient_JJ workflow_NN unsuitable_JJ for_IN real-time_JJ operation_NN ,_, cumbersome_JJ (_( and_CC potentially_RB error-prone_JJ )_) management_NN of_IN data_NNS ,_, and_CC software_NN instability_NN that_WDT may_MD ultimately_RB result_VV in_IN unexpected_JJ downtime_NN and/or_NN data_NNS loss_NN ._SENT 
+<Section> 2._CD PAMGuard_NP DIFAR_NP module_NN </Section> In_IN response_NN to_TO these_DT limitations_NNS ,_, DIFAR_JJ localization_NN software_NN was_VBD developed_VVN by_IN the_DT Australian_JJ Marine_NP Mammal_NN Centre_NP and_CC the_DT University_NP of_IN St._NP Andrews_NPS within_IN the_DT open-source_NN framework_NN of_IN PAMGuard_NP (_( Gillespie_NP et_NP al_NP ._SENT 
+,_, 2008_CD ;_: PAMGuard_NP ,_, 2016_CD )_) ._SENT 
+PAMGuard_NP is_VBZ industry_NN standard_JJ software_NN for_IN cetacean_JJ passive_JJ acoustic_JJ monitoring_NN ,_, and_CC its_PP$ flexible_JJ and_CC modular_JJ architecture_NN allows_VVZ it_PP to_TO be_VB used_VVN not_RB only_RB in_IN industry_NN for_IN monitoring_VVG during_IN offshore_JJ development_NN but_CC also_RB by_IN scientists_NNS conducting_VVG marine_JJ acoustic_JJ studies_NNS (_( e._NP g._NP ,_, Gillespie_NP et_CC al_NP ._SENT 
+,_, 2013_CD ;_: Miller_NP et_NP al_NP ._SENT 
+,_, 2013_CD )_) ._SENT 
+The_DT PAMGuard_NP DIFAR_NP Localization_NN module_NN has_VHZ been_VBN built_VVN to_TO work_VV in_IN conjunction_NN with_IN existing_VVG modules_NNS of_IN PAMGuard_NP that_WDT provide_VVP for_IN the_DT acquisition_NN ,_, filtration_NN ,_, resampling_NP ,_, and_CC display_NN of_IN acoustic_JJ data_NNS ;_: the_DT acquisition_NN and_CC mapping_NN of_IN positional/spatial_JJ data_NNS ,_, management_NN of_IN hydrophone_NN deployment_NN metadata_NNS ,_, automated_JJ detection_NN of_IN vocalizations_NNS ,_, measurement_NN of_IN signals_NNS and_CC noise_NN ,_, and_CC data_NNS storage_NN ._SENT 
+The_DT new_JJ DIFAR_NN localization_NN module_NN provides_VVZ for_IN the_DT classification_NN ,_, localization_NN ,_, and_CC tracking_VVG of_IN acoustic_JJ signals_NNS from_IN DIFAR_JJ sonobuoys_NNS ._SENT 
+A_DT typical_JJ DIFAR_NN processing_NN chain_NN within_IN PAMGuard_NP ,_, including_VVG the_DT new_JJ DIFAR_JJ localization_NN modules_NNS ,_, is_VBZ shown_VVN in_IN Fig_NN ._SENT 
+1._CD figure_NN Fig_NN ._SENT 
+1._CD A_DT typical_JJ workflow_NN showing_VVG core_NN modules_NNS and_CC their_PP$ relationship_NN to_TO the_DT DIFAR_JJ localization_NN module_NN within_IN the_DT PAMGuard_NP software_NN ._SENT 
+PPT|High-resolution_NP PAMGuard_NP 's_POS core_NN modules_NNS are_VBP used_VVN to_TO acquire_VV DIFAR_JJ signals_NNS from_IN an_DT analog-to-digital_JJ converter_NN connected_VVN to_TO a_DT sonobuoy_NN radio_NN receiver_NN ._SENT 
+Core_NN modules_NNS are_VBP also_RB used_VVN to_TO display_VV a_DT spectrogram_NN of_IN the_DT multiplexed_JJ DIFAR_NN data_NNS for_IN quality_NN control_NN purposes_NNS and_CC to_TO display_VV a_DT spectrogram_NN of_IN the_DT signal_NN from_IN the_DT omnidirectional_JJ hydrophone_NN on_IN which_WDT the_DT operator_NN can_MD manually_RB mark_VV sounds_NNS of_IN interest_NN or_CC can_MD apply_VV automatic_JJ detectors_NNS ._SENT 
+Multiplexed_JJ data_NNS from_IN manually_RB marked_VVN sounds_NNS and_CC automated_JJ detections_NNS are_VBP then_RB placed_VVN in_IN the_DT DIFAR_NP localization_NN queue_NN for_IN further_JJR analysis_NN ._SENT 
+While_IN waiting_VVG in_IN the_DT queue_NN ,_, the_DT spectrogram_NN of_IN audio_NN from_IN the_DT omnidirectional_JJ hydrophone_NN is_VBZ displayed_VVN with_IN metadata_NP to_TO provide_VV the_DT operator_NN with_IN a_DT visual_JJ overview_NN of_IN the_DT workflow_NN ._SENT 
+The_DT operator_NN can_MD then_RB assign_VV a_DT user-defined_JJ classification_NN to_TO queued_VVN sounds_NNS at_IN which_WDT point_NN the_DT data_NNS will_MD be_VB sent_VVN from_IN the_DT queue_NN for_IN further_JJR DIFAR_NN processing_NN ._SENT 
+This_DT involves_VVZ demultiplexing_VVG the_DT data_NNS from_IN the_DT three_CD sensors_NNS and_CC computation_NN of_IN the_DT DIFAR_NP ambiguity_NN surface_NN using_VVG algorithms_NNS ported_VVN from_IN previous_JJ matlab_NN software_NN (_( Greene_NP et_NP al_NP ._SENT 
+,_, 2004_CD ;_: McDonald_NP ,_, 2004_CD )_) ._SENT 
+To_TO provide_VV full_JJ functionality_NN within_IN the_DT freely_RB distributable_JJ open-source_NN version_NN of_IN PAMGuard_NP ,_, the_DT DIFAR_NP module_NN includes_VVZ an_DT open-source_NN frequency-domain_NN demultiplexer_NN for_IN the_DT extraction_NN of_IN signals_NNS from_IN the_DT directional_JJ sensors_NNS ._SENT 
+However_RB ,_, the_DT PAMGuard_NP DIFAR_NP module_NN can_MD also_RB integrate_VV with_IN the_DT widely_RB used_VVN ,_, well_RB tested_VVN ,_, and_CC faster_RBR performing_VVG time-domain_NN demultiplexer_NN sold_VVN by_IN Greeneridge_NP Science_NP (_( Greeneridge_NP Science_NP Inc._NP ,_, 2016_CD )_) ._SENT 
+After_IN demultiplexing_NN ,_, beamforming_VVG algorithms_NNS are_VBP used_VVN to_TO obtain_VV an_DT estimate_NN of_IN the_DT signal_NN power_NN as_IN a_DT function_NN of_IN tonal_JJ frequency_NN and_CC magnetic_JJ bearing_NN (_( D'Spain_NP ,_, 1994_CD ;_: McDonald_NP ,_, 2004_CD )_) ._SENT 
+For_IN a_DT given_VVN detection_NN ,_, the_DT bearing_NN and_CC frequency_NN with_IN the_DT highest_JJS power_NN will_MD usually_RB represent_VV the_DT direction_NN of_IN the_DT vocalisation_NN ,_, and_CC the_DT DIFAR_NP module_NN can_MD automatically_RB suggest_VV this_DT as_IN the_DT default_NN estimate_NN of_IN bearing_NN ._SENT 
+There_EX is_VBZ also_RB the_DT option_NN to_TO allow_VV the_DT user_NN to_TO select_VV a_DT different_JJ bearing_NN and_CC frequency_NN from_IN that_DT which_WDT has_VHZ been_VBN automatically_RB suggested_VVN ._SENT 
+While_IN the_DT automatically_RB generated_VVN bearings_NNS are_VBP almost_RB invariably_RB the_DT ones_NNS chosen_VVN ,_, a_DT ,_, side-by-side_NN display_NN of_IN the_DT spectrogram_NN and_CC bearing-frequency_NN ambiguity_NN surface_NN enables_VVZ the_DT operator_NN to_TO quickly_RB judge_VV whether_IN a_DT bearing_NN is_VBZ likely_JJ to_TO be_VB unreliable_JJ due_RB to_TO noise_NN (_( Fig_NN ._SENT 
+2_LS )_) ._SENT 
+figure_NN Fig_NN ._SENT 
+2._CD (_( Color_NN online_JJ )_) Screenshot_NN of_IN PAMGuard_NP DIFAR_NP module_NN showing_VVG the_DT spectrogram_NN of_IN a_DT blue_JJ whale_NN FM_NN call_NN (_( left_VVN )_) and_CC the_DT DIFARGram_NN [_SYM i._NP e._NP ,_, bearing-frequency_NN ambiguity_NN surface_NN sensu_NP (_( McDonald_NP ,_, 2004_CD )_) ;_: right_RB ]_SYM ._SENT 
+The_DT green_JJ dashed_VVN lines_NNS indicate_VVP the_DT frequencies_NNS relevant_JJ for_IN this_DT classification_NN ._SENT 
+The_DT red-line_NN on_IN the_DT DIFARGram_NN indicates_VVZ the_DT normalized_VVN sum_NN of_IN energy_NN over_IN the_DT relevant_JJ frequencies_NNS ._SENT 
+Red_JJ circles_NNS indicate_VVP the_DT bearing_NN of_IN highest_JJS energy_NN for_IN each_DT frequency_NN bin_NN ._SENT 
+The_DT frequency_NN and_CC bearing_NN of_IN overall_JJ maximum_JJ energy_NN is_VBZ indicated_VVN with_IN a_DT red_JJ cross_NN ._SENT 
+PPT|High-resolution_NN 2.1_CD Calibration_NN Calibrating_VVG the_DT magnetic_JJ compass_NN in_IN DIFAR_JJ sonobuoys_NNS is_VBZ essential_JJ for_IN obtaining_VVG reliable_JJ localizations_NNS ,_, and_CC this_DT process_NN typically_RB involves_VVZ measuring_VVG several_JJ magnetic_JJ bearings_NNS to_TO sound_VV sources_NNS at_IN known_VVN locations_NNS (_( Greene_NP et_NP al_NP ._SENT 
+,_, 2004_CD ;_: McDonald_NP ,_, 2004_CD ;_: Miller_NP et_NP al_NP ._SENT 
+,_, 2015_CD )_) ._SENT 
+The_DT PAMGuard_NP DIFAR_NP localization_NN software_NN provides_VVZ options_NNS for_IN largely_RB automating_VVG this_DT calibration_NN process_NN ._SENT 
+The_DT module_NN also_RB allows_VVZ easy_JJ creation_NN and_CC modification_NN of_IN sound_JJ classifications_NNS ,_, each_DT with_IN user-definable_JJ durations/bandwidths_NNS ._SENT 
+These_DT classifications_NNS allow_VVP the_DT signal_NN processing_NN to_TO be_VB optimised_VVN with_IN respect_NN to_TO the_DT sound_JJ source_NN (_( e._NP g._NP ,_, the_DT noise_NN from_IN the_DT survey_NN vessel_NN ,_, an_DT upswept_VVN tone_NN played_VVN through_IN an_DT underwater_JJ loudspeaker_NN ,_, shots_NNS from_IN seismic_JJ airguns_NNS ,_, a_DT whale_NN at_IN a_DT known_VVN location_NN ,_, etc._FW )_) ._SENT 
+DIFAR_NP sonobuoys_NNS potentially_RB allow_VVP for_IN calibrated_VVN measurements_NNS of_IN received_VVN sound_JJ pressure_NN levels_NNS ._SENT 
+However_RB ,_, DIFAR_NP hydrophones_NNS have_VHP a_DT shaped_JJ frequency_NN response_NN (_( Greene_NP et_NP al_NP ._SENT 
+,_, 2004_CD )_) ,_, which_WDT must_MD be_VB corrected_VVN along_RP with_IN any_DT shaped_JJ frequency_NN response_NN of_IN the_DT receiving_VVG hardware_NN when_WRB making_VVG measurements_NNS of_IN received_VVN level_NN (_( Merchant_NN et_NP al_NP ._SENT 
+,_, 2015_CD )_) ._SENT 
+Earlier_JJR versions_NNS of_IN PAMGuard_NP included_VVD a_DT single_JJ parameter_NN for_IN the_DT sensitivity_NN of_IN each_DT hydrophone_NN (_( i._NP e._NP ,_, dB_NP V/μPa_NP )_) and_CC could_MD therefore_RB only_RB compute_VV received_VVN levels_NNS for_IN hydrophones_NNS that_WDT had_VHD a_DT flat_JJ frequency_NN response_NN ._SENT 
+The_DT DIFAR_NP module_NN allows_VVZ for_IN the_DT correction_NN of_IN a_DT shaped_JJ frequency_NN response_NN in_IN the_DT recording_NN chain_NN so_IN that_DT calibrated_VVN received_VVN levels_NNS may_MD be_VB calculated_JJ (_( i._NP e._NP ,_, received_VVD levels_NNS reported_VVN in_IN dB_NN re_IN 1_CD μPa_NN )_) ,_, and_CC used_VVN for_IN modelling_VVG acoustic_JJ propagation_NN ._SENT 
+2.2_CD Localization_NN Bearings_NP to_TO the_DT sound_JJ source_NN that_WDT have_VHP been_VBN accepted_VVN by_IN the_DT operator_NN are_VBP displayed_VVN on_IN the_DT PAMGuard_NP map_NN ._SENT 
+The_DT opacity_NN of_IN each_DT bearing_NN line_NN is_VBZ used_VVN to_TO indicate_VV how_WRB recently_RB it_PP was_VBD plotted_VVD with_IN older_JJR bearings_NNS becoming_VVG more_RBR transparent_JJ with_IN time_NN ._SENT 
+Bearing_NN lines_NNS are_VBP color-coded_VVN according_VVG to_TO their_PP$ user-defined_JJ classification_NN ,_, and_CC the_DT length_NN of_IN each_DT bearing_NN line_NN can_MD be_VB adjusted_VVN based_VVN on_IN received_VVN level_NN to_TO give_VV an_DT approximate_JJ indication_NN of_IN the_DT distance_NN to_TO the_DT source_NN ._SENT 
+To_TO do_VV this_DT ,_, two_CD simple_JJ models_NNS of_IN acoustic_JJ propagation_NN loss_NN are_VBP included_VVN in_IN the_DT DIFAR_JJ module_NN to_TO determine_VV the_DT length_NN of_IN plotted_VVN bearings_NNS :_: geometric_JJ inverse_NN spreading_VVG ,_, and_CC a_DT surface_NN duct_NN (_( Urick_NP ,_, 1983_CD )_) ._SENT 
+The_DT module_NN allows_VVZ for_IN simultaneous_JJ recording_NN from_IN multiple_NN buoys_VVZ as_RB well_RB as_IN triangulation_NN of_IN multiple_JJ bearings_NNS to_TO calculate_VV a_DT two-dimensional_JJ georeferenced_JJ location_NN ._SENT 
+The_DT DIFAR_NP module_NN automatically_RB determines_VVZ whether_IN bearings_NNS from_IN multiple_NN buoys_VVZ could_MD have_VH originated_VVN from_IN the_DT same_JJ source_NN based_VVN on_IN time_NN of_IN arrival_NN and_CC type_NN of_IN classification_NN ,_, and_CC if_IN so_RB the_DT intersection_NN point_NN of_IN these_DT bearings_NNS is_VBZ automatically_RB calculated_VVN and_CC displayed_VVN ._SENT 
+A_DT maximum_JJ likelihood_NN approach_NN is_VBZ used_VVN to_TO determine_VV the_DT intersection_NN point_NN and_CC estimate_VV the_DT error_NN bounds_VVZ of_IN the_DT triangulated_VVN position_NN ._SENT 
+Triangulated_VVN positions_NNS and_CC error_NN bars_NNS are_VBP displayed_VVN in_IN the_DT PAMGuard_NP map_NN module_NN and_CC use_VV identical_JJ color-coding_VVG and_CC opacity_NN to_TO the_DT bearings_NNS ._SENT 
+2.3_CD Automation_NN Throughout_IN the_DT process_NN ,_, from_IN sounds_NNS being_VBG marked_VVN to_TO being_VBG classified_VVN and_CC then_RB plotted_VVD as_IN bearings_NNS ,_, the_DT operator_NN can_MD choose_VV to_TO allow_VV PAMGuard_NP to_TO perform_VV the_DT action_NN automatically_RB or_CC to_TO carry_VV it_PP out_RP manually_RB ._SENT 
+PAMGuard_NP 's_POS whistle_VVP and_CC moan_VV detector_NN (_( Gillespie_NP et_NP al_NP ._SENT 
+,_, 2013_CD )_) and_CC other_JJ automated_JJ detectors_NNS can_MD be_VB used_VVN as_IN input_NN in_IN addition_NN to_TO or_CC instead_RB of_IN manual_JJ event_NN selection_NN ;_: the_DT system_NN can_MD be_VB set_VVN to_TO automatically_RB move_VV selected_VVN sounds_NNS from_IN the_DT queue_NN to_TO the_DT processing_NN module_NN and_CC to_TO automatically_RB select_VV and/or_NP plot_VV the_DT strongest_JJS bearing_NN ._SENT 
+While_IN automation_NN can_MD increase_VV the_DT total_JJ number_NN of_IN sounds_NNS localized_VVN ,_, in_IN some_DT situations_NNS ,_, the_DT enhanced_JJ confidence_NN from_IN manual_JJ validation_NN of_IN each_DT step_NN may_MD be_VB preferable_JJ ,_, especially_RB when_WRB making_VVG decisions_NNS based_VVN upon_IN real-time_JJ acoustic_JJ data_NNS ._SENT 
+<Section> 3._CD Case_NN study_NN :_: acoustic_JJ tracking_NN of_IN antarctic_JJ blue_JJ whales_NNS </Section> Recently_RB ,_, the_DT Antarctic_NP Blue_NP Whale_NN Project_NP (_( ABWP_NP )_) of_IN the_DT International_NP Whaling_NN Commission_NP 's_POS Southern_NP Ocean_NP Research_NP Partnership_NP (_( IWC-SORP_NP )_) has_VHZ developed_VVN new_JJ research_NN protocols_NNS that_WDT combine_VVP visual_JJ sightings_NNS and_CC passive_JJ acoustic_JJ techniques_NNS to_TO facilitate_VV the_DT study_NN of_IN Antarctic_JJ blue_JJ whales_NNS (_( Peel_NP et_NP al_NP ._SENT 
+,_, 2014_CD )_) ._SENT 
+These_DT new_JJ protocols_NNS rely_VVP upon_IN using_VVG DIFAR_JJ sonobuoys_NNS to_TO detect_VV and_CC home-in_NN on_IN vocalisations_NNS from_IN groups_NNS of_IN blue_JJ whales_NNS and_CC to_TO track_VV and_CC locate_VV individuals_NNS for_IN the_DT purposes_NNS of_IN photo-identification_NN ,_, biopsy_NN sampling_NN ,_, observation_NN of_IN fine_JJ scale_NN movements_NNS ,_, and_CC investigation_NN of_IN predator-prey_NP relationships_NNS (_( Cox_NP et_NP al_NP ._SENT 
+,_, 2015_CD ;_: Miller_NP et_NP al_NP ._SENT 
+,_, 2015_CD ;_: O'Driscoll_NP and_CC Double_NP ,_, 2015_CD ;_: Peel_NP et_NP al_NP ._SENT 
+,_, 2015_CD )_) ._SENT 
+An_DT IWC-SORP_NP voyage_NN in_IN 2013_CD demonstrated_VVD the_DT viability_NN and_CC efficiency_NN of_IN these_DT techniques_NNS and_CC their_PP$ suitability_NN for_IN increasing_VVG encounter_NN rates_NNS of_IN these_DT rare_JJ ,_, sparsely-distributed_JJ whales_NNS (_( Miller_NP et_NP al_NP ._SENT 
+,_, 2015_CD )_) ._SENT 
+3.1_CD Methods_NNS There_RB have_VHP been_VBN two_CD recent_JJ research_NN voyages_NNS that_WDT have_VHP acoustically_RB tracked_VVN Antarctic_JJ blue_JJ whales_NNS using_VVG DIFAR_JJ sonobuoys_NNS :_: the_DT 2013_CD Antarctic_JJ Blue_NP Whale_NN Voyage_NN and_CC the_DT 2015_CD New_NP Zealand-Australia_NP Antarctic_NP Ecosystem_NN Voyage_NN ._SENT 
+Methods_NNS and_CC results_NNS from_IN acoustic_JJ tracking_NN during_IN the_DT 2013_CD voyage_NN are_VBP described_VVN in_IN detail_NN in_IN Miller_NP et_CC al_NP ._SENT 
+(_( 2015_CD )_) ,_, and_CC almost-identical_JJ methods_NNS and_CC hardware_NN configuration_NN were_VBD employed_VVN during_IN the_DT 2015_CD voyage_NN ._SENT 
+The_DT main_JJ differences_NNS in_IN 2015_CD were_VBD the_DT software_NN used_VVD and_CC the_DT acoustic_JJ monitoring_NN effort_NN ._SENT 
+The_DT 2015_CD voyage_NN was_VBD slightly_RB shorter_JJR in_IN duration—42_JJ vs_NP 48_CD days—and_NN not_RB all_RB of_IN those_DT days_NNS were_VBD available_JJ for_IN whale_NN research_NN ;_: additionally_RB the_DT acoustics_NN team_NN comprised_VVN only_RB four_CD of_IN the_DT five_CD acousticians_NNS from_IN the_DT 2013_CD voyage_NN ._SENT 
+Table_NN 1_CD shows_NNS a_DT summary_NN of_IN the_DT acoustic_JJ effort_NN and_CC results_NNS of_IN the_DT 2015_CD voyage_NN in_IN comparison_NN with_IN those_DT from_IN 2013._CD In_IN relation_NN to_TO data_NN processing_NN ,_, the_DT main_JJ difference_NN between_IN the_DT two_CD voyages_NNS was_VBD the_DT software_NN used_VVD ._SENT 
+Table_NN 1._CD Comparison_NN of_IN acoustic_JJ effort_NN and_CC results_NNS during_IN the_DT 2013_CD Antarctic_JJ Blue_NP Whale_NN Voyage_NN and_CC the_DT 2015_CD New_NP Zealand_NP Australia_NP Antarctic_NP Ecosystems_NNS Voyage_NN ._SENT 
+The_DT DIFAR_NP localization_NN module_NN was_VBD used_VVN exclusively_RB in_IN 2015_CD and_CC enabled_VVD more_JJR efficient_JJ processing_NN of_IN calls_NNS ,_, resulting_VVG in_IN more_JJR localizations_NNS in_IN 2015_CD despite_IN a_DT slight_JJ reduction_NN in_IN acoustic_JJ effort_NN compared_VVN to_TO 2013._CD Only_JJ calls_NNS ,_, triangulations_NNS ,_, encounters_NNS ,_, sightings_NNS ,_, and_CC identifications_NNS of_IN Antarctic_JJ blue_JJ whales_NNS are_VBP reported_VVN here_RB ._SENT 
+The_DT software_NN used_VVN during_IN the_DT 2013_CD Antarctic_JJ Blue_NP Whale_NN Voyage_NN comprised_VVN an_DT assemblage_NN of_IN bespoke_JJ and_CC general_JJ purpose_NN tools_NNS for_IN data_NN acquisition_NN ,_, detection_NN ,_, and_CC localization_NN (_( Miller_NP et_NP al_NP ._SENT 
+,_, 2015_CD )_) ._SENT 
+While_IN this_DT system_NN worked_VVD ,_, it_PP was_VBD fragile_JJ ,_, slow_JJ ,_, and_CC difficult_JJ to_TO use_VV with_IN the_DT operator_NN having_VHG to_TO switch_VV between_IN different_JJ programs_NNS :_: matlab_NP ,_, PAMGuard_NN and_CC excel_VV ._SENT 
+Furthermore_RB ,_, the_DT software_NN could_MD not_RB easily_RB be_VB extended_VVN ,_, modified_VVN ,_, or_CC repaired_VVN in_IN situ_NP by_IN end-users_NNS ,_, thus_RB requiring_VVG the_DT presence_NN of_IN a_DT software_NN developer_NN on_IN the_DT voyage_NN to_TO address_VV any_DT unforeseen_JJ issues_NNS ._SENT 
+On_IN the_DT 2015_CD voyage_NN ,_, the_DT PAMGuard_NP DIFAR_NP localization_NN module_NN was_VBD the_DT sole_JJ software_NN used_VVN for_IN data_NNS acquisition_NN ,_, detection_NN ,_, localization_NN and_CC tracking_NN of_IN whales_NNS and_CC other_JJ sound_JJ sources_NNS ._SENT 
+On_IN both_DT voyages_NNS ,_, during_IN periods_NNS with_IN few_JJ detections_NNS ,_, all_DT calls_NNS from_IN Antarctic_JJ blue_JJ whales_NNS were_VBD localized_VVN ._SENT 
+However_RB ,_, for_IN a_DT large_JJ proportion_NN of_IN both_DT voyages_NNS ,_, Antarctic_JJ blue_JJ whale_NN calls_NNS were_VBD so_RB numerous_JJ that_IN only_RB a_DT subset_NN of_IN the_DT detections_NNS could_MD be_VB localized_VVN in_IN real_JJ time_NN ._SENT 
+This_DT was_VBD due_JJ in_IN part_NN to_TO the_DT speed_NN of_IN the_DT software_NN workflow_NN and_CC in_IN part_NN to_TO the_DT need_NN for_IN the_DT acoustician_NN to_TO interpret_VV the_DT results_NNS ,_, maintain_VV awareness_NN of_IN several_JJ vocalising_VVG groups_NNS ,_, and_CC coordinate_VV actions_NNS based_VVN on_IN the_DT acoustic_JJ data_NNS ._SENT 
+3.2_CD Results_NNS From_IN over_RB 580_CD h_NN of_IN whale_NN recordings_NNS made_VVN during_IN the_DT 2015_CD voyage_NN ,_, 49_CD 167_CD Antarctic_JJ blue_JJ whale_NN calls_NNS were_VBD manually_RB selected_VVN with_IN their_PP$ bearings_NNS plotted_VVD and_CC displayed_VVD on_IN the_DT map_NN ._SENT 
+A_DT large_JJ proportion_NN of_IN this_DT monitoring_NN time_NN occurred_VVD when_WRB only_RB one_CD sonobuoy_NN was_VBD deployed_VVN ,_, yet_CC there_EX was_VBD often_RB a_DT need_NN to_TO compare_VV a_DT set_NN of_IN bearings_NNS from_IN different_JJ buoys_NNS received_VVD several_JJ hours_NNS apart_RB to_TO estimate_VV the_DT direction_NN and_CC proximity_NN to_TO vocal_JJ aggregations_NNS of_IN whales_NNS ._SENT 
+The_DT mapping_NN facilities_NNS and_CC offline_JJ viewing_VVG capabilities_NNS within_IN PAMGuard_NP were_VBD important_JJ for_IN allowing_VVG such_JJ comparisons_NNS [_SYM Fig_NN ._SENT 
+3(a_NP )_) ]_SYM ._SENT 
+figure_NN Fig_NN ._SENT 
+3._CD (_( Color_NN online_JJ )_) PAMGuard_NN Map_NN in_IN Viewer_NN (_( Offline_NP )_) Mode_NP showing_VVG 49_CD 167_CD DIFAR_JJ bearings_NNS (_( a_DT )_) and_CC 7363_CD triangulated_VVN positions_NNS (_( b_LS )_) from_IN the_DT 2015_CD voyage_NN ._SENT 
+The_DT black_JJ line_NN shows_VVZ the_DT ship_NN 's_POS track_NN (_( GPS_NNS )_) ._SENT 
+Red_JJ dots_NNS show_VVP the_DT deployment_NN location_NN of_IN sonobuoys_NNS ._SENT 
+Blue_JJ and_CC green_JJ lines_NNS show_VVP acoustic_JJ bearings_NNS to_TO locations_NNS of_IN Antarctic_JJ blue_JJ whale_NN tonal_JJ and_CC FM_JJ calls_NNS ,_, respectively_RB ._SENT 
+Each_DT bearing_NN and_CC triangulation_NN is_VBZ 98_CD %_NN transparent_JJ ,_, i._NP e._NP ,_, opacity_NN is_VBZ indicative_JJ of_IN the_DT call_NN density_NN ._SENT 
+The_DT length_NN of_IN bearings_NNS are_VBP scaled_VVN based_VVN on_IN measured_JJ received_VVN levels_NNS ,_, a_DT source_NN level_NN of_IN 182_CD dB_NN re_IN 1_CD μPa_NN ,_, and_CC propagation_NN loss_NN in_IN an_DT Antarctic_JJ surface_NN duct_NN with_IN a_DT transition_NN range_NN of_IN 2_CD km_NN :_: PL_NN =_SYM 10_CD log10(r_NN )_) –_NP 10_CD log10(2000_NN )_) ._SENT 
+Plotting_VVG all_DT localizations_NNS reveals_VVZ a_DT vocalizing_VVG aggregation_NN of_IN Antarctic_JJ blue_JJ whales_NNS between_IN 69–70°S_NNS and_CC 178°E–175°W_NNS ._SENT 
+PPT|High-resolution_NN During_IN the_DT voyage_NN ,_, geometric_JJ spreading_VVG was_VBD used_VVN to_TO scale_VV bearing_VVG lines_NNS in_IN temperate_JJ waters_NNS ,_, while_IN the_DT surface_NN duct_NN model_NN was_VBD used_VVN in_IN Antarctic_JJ waters_NNS ._SENT 
+Parameters_NNS for_IN each_DT model_NN were_VBD adjusted_VVN in_IN situ_NP so_RB that_IN the_DT endpoints_NNS of_IN bearing_VVG lines_NNS broadly_RB agreed_VVD with_IN visual_JJ sightings_NNS of_IN blue_JJ whales_NNS ._SENT 
+As_RB in_IN 2013_CD (_( Miller_NP et_NP al_NP ._SENT 
+,_, 2015_CD )_) ,_, both_CC tonal_JJ and_CC FM_JJ calls_NNS of_IN Antarctic_JJ blue_JJ whales_NNS (_( Rankin_NP et_NP al_NP ._SENT 
+,_, 2005_CD )_) were_VBD detected_VVN within_IN and_CC around_IN vocal_JJ aggregations_NNS ._SENT 
+Tones_NNS (_( 26_CD Hz_NP )_) could_MD be_VB heard_VVN at_IN great_JJ distances_NNS from_IN the_DT vocal_JJ aggregations_NNS ,_, while_IN FM_NP and_CC Z_NP calls_NNS were_VBD only_RB detected_VVN much_RB closer_RBR to_TO vocal_JJ aggregations_NNS ._SENT 
+Of_IN the_DT 49_CD 167_CD bearings_NNS to_TO calls_NNS from_IN Antarctic_JJ blue_JJ whales_NNS ,_, 14_CD 726_CD could_MD be_VB paired_VVN as_IN the_DT same_JJ call_NN received_VVD simultaneously_RB on_IN two_CD sonobuoys_NNS ._SENT 
+These_DT were_VBD used_VVN to_TO obtain_VV 7363_CD triangulated_VVN positions_NNS of_IN calling_VVG whales_NNS [_SYM Fig_NN ._SENT 
+3(b_NP )_) ]_SYM ._SENT 
+Despite_IN having_VHG fewer_JJR acousticians_NNS ,_, deploying_VVG fewer_JJR sonobuoys_NNS ,_, and_CC recording_VVG less_RBR total_JJ audio_NN in_IN 2015_CD ,_, the_DT DIFAR_NP localization_NN module_NN facilitated_VVD the_DT acquisition_NN of_IN nearly_RB twice_RB as_IN many_JJ bearings_NNS and_CC more_JJR than_IN double_RB the_DT number_NN of_IN triangulations_NNS compared_VVN to_TO 2013_CD (_( Table_NN 1_CD )_) ._SENT 
+Qualitatively_RB PAMGuard_NP 's_POS DIFAR_NP module_NN was_VBD more_RBR accessible_JJ ,_, easier_JJR to_TO use_VV ,_, and_CC more_RBR stable_JJ than_IN software_NN that_WDT was_VBD used_VVN in_IN 2013._CD Because_IN much_JJ of_IN the_DT functionality_NN in_IN the_DT DIFAR_NP localization_NN module_NN was_VBD automated_VVN ,_, it_PP allowed_VVD more_JJR time_NN for_IN planning_VVG subsequent_JJ deployments_NNS and_CC tracking_VVG strategy_NN ._SENT 
+This_DT was_VBD an_DT important_JJ benefit_NN during_IN real-time_JJ tracking_NN as_IN it_PP facilitated_VVD close_JJ approaches_NNS to_TO whales_NNS for_IN biopsy_NN ,_, photo-identification_NN ,_, and_CC prey_NN surveys_NNS ._SENT 
+It_PP also_RB allowed_VVD for_IN detailed_JJ real-time_JJ localization_NN of_IN whales_NNS during_IN periods_NNS of_IN poor_JJ viewing_NN conditions_NNS ._SENT 
+PAMGuard_NP was_VBD the_DT sole_JJ software_NN program_NN used_VVN to_TO acquire_VV ,_, process_NN ,_, and_CC analyse_VV the_DT acoustic_JJ data_NNS during_IN the_DT 2015_CD voyage_NN ,_, and_CC the_DT DIFAR_NP localization_NN module_NN enabled_VVD a_DT substantially_RB more_RBR efficient_JJ workflow_NN for_IN real-time_JJ localization_NN of_IN Antarctic_JJ blue_JJ whales_NNS ._SENT 
+<Section> 4._CD Conclusion_NN </Section> Integrating_VVG these_DT DIFAR_JJ localization_NN methods_NNS into_IN PAMGuard_NP 's_POS established_JJ framework_NN should_MD increase_VV the_DT uptake_NN of_IN these_DT methods_NNS and_CC ultimately_RB add_VV another_DT tool_NN to_TO complement_VV the_DT growing_VVG toolbox_NN of_IN real-time_JJ marine_JJ mammal_NN monitoring_NN platforms_NNS such_JJ as_IN visual_JJ observations_NNS ,_, towed_VVD hydrophone_NN arrays_NNS ,_, cabled_VVD acoustic_JJ observatories_NNS ,_, and_CC autonomous_JJ underwater_JJ vehicles_NNS ._SENT 
+PAMGuard_NP is_VBZ already_RB widely_RB used_VVN for_IN monitoring_VVG for_IN marine_JJ mammals_NNS during_IN marine_JJ mammal_NN surveys_NNS ,_, research_NN voyages_NNS ,_, and_CC coastal_JJ and_CC offshore_JJ developments_NNS ,_, and_CC the_DT PAMGuard_NP DIFAR_NP localization_NN module_NN described_VVD here_RB integrates_VVZ elegantly_RB with_IN existing_VVG PAMGuard_NN modules_NNS and_CC provides_VVZ a_DT stable_JJ ,_, accessible_JJ framework_NN with_IN a_DT simple_JJ workflow_NN ._SENT 
+Furthermore_RB ,_, the_DT DIFAR_NP module_NN 's_POS ability_NN to_TO make_VV calibrated_VVN intensity_NN measurements_NNS and_CC locate_VV low-frequency_NN tonal_JJ sounds_NNS in_IN real_JJ time_NN may_MD also_RB facilitate_VV in_IN situ_NP validation_NN of_IN models_NNS of_IN anthropogenic_JJ noises_NNS such_JJ as_IN sonar_NN ,_, pile-driving_NP ,_, seismic_JJ airguns_NNS ,_, and_CC shipping_NN that_WDT are_VBP increasingly_RB used_VVN in_IN management_NN of_IN marine_JJ developments_NNS ._SENT 
+The_DT continued_JJ development_NN of_IN this_DT user-friendly_JJ software_NN may_MD decrease_VV the_DT need_NN for_IN large_JJ teams_NNS of_IN specialist_NN acousticians_NNS to_TO conduct_VV real-time_JJ passive_JJ acoustic_JJ monitoring_NN via_IN DIFAR_JJ sonobuoys_NNS ,_, and_CC it_PP is_VBZ hoped_VVN that_IN this_DT software_NN will_MD facilitate_VV standardised_VVN protocols_NNS for_IN real-time_JJ acoustic_JJ localization_NN of_IN low-frequency_NN tonal_JJ calls_NNS of_IN baleen_NN whales_NNS ._SENT 
+The_DT DIFAR_NP module_NN is_VBZ available_JJ in_IN the_DT current_JJ and_CC future_JJ PAMGuard_NN releases_NNS ,_, and_CC an_DT example_NN configuration_NN file_NN is_VBZ available_JJ via_IN the_DT PAMGuard_NP website_NP (_( PAMGuard_NP ,_, 2016_CD )_) ._SENT 
+<Section> Acknowledgments_NNS </Section> Funding_NP for_IN development_NN of_IN the_DT PAMGuard_NP DIFAR_NP module_NN was_VBD provided_VVN by_IN the_DT Australian_JJ Marine_NP Mammal_NN Centre_NP through_IN the_DT Antarctic_NP Blue_NP Whale_NN Project_NN of_IN the_DT Southern_NP Ocean_NP Research_NP Partnership_NP ._SENT 
+We_PP thank_VVP Greeneridge_NP Sciences_NPS Inc._NP for_IN their_PP$ donation_NN of_IN a_DT license_NN to_TO use_VV their_PP$ De-multiplexing_JJ software_NN for_IN the_DT development_NN of_IN the_DT PAMGuard_NP DIFAR_NP module_NN ._SENT 
+We_PP thank_VVP Mark_NP McDonald_NP from_IN WhaleAcoustics_NNS for_IN providing_VVG his_PP$ DIFAR_NP (_( Beamforming_NP )_) software_NN ,_, which_WDT served_VVD as_IN the_DT basis_NN and_CC inspiration_NN for_IN the_DT PAMGuard_NP DIFAR_NP module_NN ._SENT 
+We_PP thank_VVP Shannon_NP Rankin_NP ,_, Jennifer_NP Keating_NP ,_, Melissa_NP Soldevilla_NP ,_, Mariana_NP Melcón_NP ,_, and_CC Fannie_NP Shabangu_NP for_IN patiently_RB testing_VVG and_CC providing_VVG feedback_NN on_IN early_JJ versions_NNS of_IN the_DT PAMGuard_NP DIFAR_NP module_NN ._SENT 
+We_PP thank_VVP the_DT scientists_NNS and_CC crew_NN aboard_IN the_DT FV_NP Amaltal_JJ Explorer_NN and_CC the_DT RV_NN Tangaroa_NN for_IN their_PP$ enormous_JJ contribution_NN to_TO the_DT success_NN of_IN the_DT 2013_CD and_CC 2015_CD research_NN voyages_NNS ._SENT 
+<Section> References_NNS and_CC links_VVZ </Section> 1._CD Blackwell_NP ,_, S._NP B._NP ,_, McDonald_NP ,_, T._NP L._NP ,_, Kim_NP ,_, K._NP H._NP ,_, Aerts_NP ,_, L._NP A._NP M._NP ,_, Richardson_NP ,_, W._NP J._NP ,_, Greene_NP ,_, C._NP R._NP J._NP ,_, and_CC Streever_NP ,_, B._NP (_( 2012_CD )_) ._SENT 
+“_JJ Directionality_NN of_IN bowhead_NN whale_NN calls_NNS measured_VVN with_IN multiple_JJ sensors_NNS ,_, ”_NP Mar_NP ._SENT 
+Mamm_NP ._SENT 
+Sci_NP ._SENT 
+28_CD ,_, 200–212_NP ._SENT 
+https_NNS :_: //doi_NP ._SENT 
+org/10.1111/j.1748-7692.2011.00464_NP ._SENT 
+x_SYM ,_, Google_NP ScholarCrossref_NP 2._CD Blackwell_NP ,_, S._NP B._NP ,_, Nations_NP ,_, C._NP S._NP ,_, McDonald_NP ,_, T._NP L._NP ,_, Greene_NP ,_, C._NP R._NP J._NP ,_, Thode_NP ,_, A._NP M._NP ,_, Guerra_NP ,_, M._NP ,_, and_CC Macrander_NP ,_, A._NP M._NP (_( 2013_CD )_) ._SENT 
+“_JJ Effects_NNS of_IN airgun_NN sounds_NNS on_IN bowhead_NN whale_NN calling_VVG rates_NNS in_IN the_DT Alaskan_JJ Beaufort_NP Sea_NP ,_, ”_NP Mar_NP ._SENT 
+Mamm_NP ._SENT 
+Sci_NP ._SENT 
+29_CD ,_, E342–E365_NP ._SENT 
+https_NNS :_: //doi_NP ._SENT 
+org/10.1111/mms.12001_JJ ,_, Google_JJ ScholarCrossref_NP 3._CD Cox_NP ,_, M._NP J._NP ,_, Miller_NP ,_, B._NP S._NP ,_, Miller_NP ,_, E._NP ,_, and_CC Double_NP ,_, M._NP C._NP (_( 2015_CD )_) ._SENT 
+“_NP A_DT preliminary_JJ investigation_NN of_IN the_DT distribution_NN of_IN krill_NN in_IN the_DT vicinity_NN of_IN Antarctic_JJ blue_JJ whales_NNS ,_, ”_JJ Unpublished_JJ paper_NN submitted_VVN to_TO the_DT Scientific_NP Committee_NP of_IN the_DT International_NP Whaling_NN Commission_NP ,_, SC66A_NP ,_, San_NP Diego_NP ,_, CA_MD ._SENT 
+Google_NP Scholar_NN 4._CD D'Spain_NN ,_, G._NP (_( 1994_CD )_) ._SENT 
+“_JJ Relationship_NN of_IN underwater_JJ acoustic_JJ intensity_NN measurements_NNS to_TO beamforming_NP ,_, ”_NN Can_MD ._SENT 
+Acoust_NP ._SENT 
+2_LS ,_, 157–158_NP ._SENT 
+Google_NP Scholar_NN 5._CD Gedamke_NP ,_, J._NP ,_, and_CC Robinson_NP ,_, S._NP M._NP (_( 2010_CD )_) ._SENT 
+“_JJ Acoustic_JJ survey_NN for_IN marine_JJ mammal_NN occurrence_NN and_CC distribution_NN off_IN East_NP Antarctica_NP (_( 30-80°E_NN )_) in_IN January-February_JJ 2006_CD ,_, ”_NP Deep_NP Sea_NP Res_NNS ._SENT 
+II_NP Top_JJ ._SENT 
+Stud_NN ._SENT 
+Oceanogr_NP ._SENT 
+57_CD ,_, 968–981_JJ ._SENT 
+https_NNS :_: //doi_NP ._SENT 
+org/10.1016/j_NP ._SENT 
+dsr2.2008.10.042_NP ,_, Google_NP ScholarCrossref_NP 6._CD Gillespie_NP ,_, D._NP ,_, Caillat_NP ,_, M._NP ,_, Gordon_NP ,_, J._NP C._NP ,_, and_CC White_NP ,_, P._NP (_( 2013_CD )_) ._SENT 
+“_NP Automatic_NP detection_NN and_CC classification_NN of_IN odontocete_NN whistles_NNS ,_, ”_NP J._NP Acoust_NP ._SENT 
+Soc_NP ._SENT 
+Am_NP ._SENT 
+134_CD ,_, 2427–2437_JJ ._SENT 
+https_NNS :_: //doi_NP ._SENT 
+org/10.1121/1.4816555_NP ,_, Google_NP ScholarScitation_NP 7._CD Gillespie_NP ,_, D._NP ,_, Gordon_NP ,_, J._NP ,_, Mchugh_NP ,_, R._NP ,_, Mclaren_NP ,_, D._NP ,_, Mellinger_NP ,_, D._NP ,_, Redmond_NP ,_, P._NP ,_, Thode_NP ,_, A._NP ,_, Trinder_NP ,_, P._NP ,_, and_CC Deng_NP ,_, X._NP Y._NP (_( 2008_CD )_) ._SENT 
+“_NP PAMGuard_NP :_: Semiautomated_JJ ,_, open_JJ source_NN software_NN for_IN real-time_JJ acoustic_JJ detection_NN and_CC localisation_NN of_IN cetaceans_NNS ,_, ”_NP Proc_NP ._SENT 
+Inst_NP ._SENT 
+Acoust_NP ._SENT 
+30_CD ,_, 54–62_NP ._SENT 
+Google_NP Scholar_NN 8._CD Greene_NP ,_, C._NP R._NP J._NP ,_, McLennan_NP ,_, M._NP W._NP ,_, Norman_NP ,_, R._NP G._NP ,_, McDonald_NP ,_, T._NP L._NP ,_, Jakubczak_NP ,_, R._NP S._NP ,_, and_CC Richardson_NP ,_, W._NP J._NP (_( 2004_CD )_) ._SENT 
+“_JJ Directional_JJ frequency_NN and_CC recording_NN (_( DIFAR_NP )_) sensors_NNS in_IN seafloor_NN recorders_NNS to_TO locate_VV calling_VVG bowhead_NN whales_NNS during_IN their_PP$ fall_NN migration_NN ,_, ”_NP J._NP Acoust_NP ._SENT 
+Soc_NP ._SENT 
+Am_NP ._SENT 
+116_CD ,_, 799–813_NP ._SENT 
+https_NNS :_: //doi_NP ._SENT 
+org/10.1121/1.1765191_JJ ,_, Google_NP ScholarScitation_NP ,_, ISI_NP 9._CD Greeneridge_NP Sciences_NPS Inc._NP (_( 2016_CD )_) ._SENT 
+http_NN :_: //www_NNS ._SENT 
+greeneridge_NP ._SENT 
+com/software_NP ._SENT 
+html_NP (_( Last_JJ viewed_VVD 3/11/2016_CD )_) ._SENT 
+Google_NP Scholar_NN 10._CD Guerra_NP ,_, M._NP ,_, Thode_NP ,_, A._NP M._NP ,_, Blackwell_NP ,_, S._NP B._NP ,_, and_CC Macrander_NP ,_, M._NP A._NP (_( 2011_CD )_) ._SENT 
+“_JJ Quantifying_VVG seismic_JJ survey_NN reverberation_NN off_IN the_DT Alaskan_JJ North_NP Slope_NP ,_, ”_NP J._NP Acoust_NP ._SENT 
+Soc_NP ._SENT 
+Am_NP ._SENT 
+130_CD ,_, 3046–3058_NP ._SENT 
+https_NNS :_: //doi_NP ._SENT 
+org/10.1121/1.3628326_NP ,_, Google_NP ScholarScitation_NP ,_, ISI_NP 11._CD ishmael_NP (_( 2016_CD )_) ._SENT 
+http_NN :_: //www_NNS ._SENT 
+bioacoustics_NNS ._SENT 
+us/ishmael_NP ._SENT 
+html_NP (_( Last_JJ viewed_VVD 3/11/2016_CD )_) ._SENT 
+Google_NP Scholar_NN 12._CD McDonald_NP ,_, M._NP A._NP (_( 2004_CD )_) ._SENT 
+“_NP DIFAR_NP hydrophone_NN usage_NN in_IN whale_NN research_NN ,_, ”_NN Can_MD ._SENT 
+Acoust_NP ._SENT 
+32_CD ,_, 155–160_NP ._SENT 
+Google_NP Scholar_NN 13._CD McDonald_NP ,_, M._NP A._NP ,_, Calambokidis_NP ,_, J._NP ,_, Teranishi_NP ,_, A._NP M._NP ,_, and_CC Hildebrand_NP ,_, J._NP A._NP (_( 2001_CD )_) ._SENT 
+“_NP The_DT acoustic_JJ calls_NNS of_IN blue_JJ whales_NNS off_IN California_NP with_IN gender_NN data_NNS ,_, ”_NP J._NP Acoust_NP ._SENT 
+Soc_NP ._SENT 
+Am_NP ._SENT 
+109_CD ,_, 1728–1735_NP ._SENT 
+https_NNS :_: //doi_NP ._SENT 
+org/10.1121/1.1353593_NP ,_, Google_NP ScholarScitation_NP ,_, ISI_NP 14._CD McDonald_NP ,_, M._NP A._NP ,_, and_CC Moore_NP ,_, S._NP (_( 2002_CD )_) ._SENT 
+“_JJ Calls_NNS recorded_VVN from_IN North_NP Pacific_NP right_JJ whales_NNS (_( Eubalaena_NP japonica_NN )_) in_IN the_DT eastern_JJ Bering_NP Sea_NP ,_, ”_NP J._NP Cetacean_JJ Res_NN ._SENT 
+Manage_VV ._SENT 
+4_LS ,_, 261–266_NP ._SENT 
+Google_NP Scholar_NN 15._CD Mellinger_NP ,_, D._NP K._NP ,_, Stafford_NP ,_, K._NP M._NP ,_, Moore_NP ,_, S._NP E._NP ,_, Dziak_NP ,_, R._NP P._NP ,_, and_CC Matsumoto_NP ,_, H._NP (_( 2007_CD )_) ._SENT 
+“_NP An_DT overview_NN of_IN fixed_VVN passive_JJ acoustic_JJ observation_NN methods_NNS for_IN cetaceans_NNS ,_, ”_JJ Oceanography_NN 20_CD ,_, 36–45_NP ._SENT 
+https_NNS :_: //doi_NP ._SENT 
+org/10.5670/oceanog.2007.03_NP ,_, Google_NP ScholarCrossref_NP 16._CD Merchant_NN ,_, N._NP D._NP ,_, Fristrup_NP ,_, K._NP M._NP ,_, Johnson_NP ,_, M._NP P._NP ,_, Tyack_NP ,_, P._NP L._NP ,_, Witt_NP ,_, M._NP J._NP ,_, Blondel_NP ,_, P._NP ,_, and_CC Parks_NP ,_, S._NP E._NP (_( 2015_CD )_) ._SENT 
+“_JJ Measuring_VVG acoustic_JJ habitats_NNS ,_, ”_JJ Methods_NNS Ecol_NN ._SENT 
+Evol_NN ._SENT 
+6_CD ,_, 257–265_NP ._SENT 
+https_NNS :_: //doi_NP ._SENT 
+org/10.1111/2041-210X.12330_NP ,_, Google_NP ScholarCrossref_NP 17._CD Miller_NP ,_, B._NP S._NP ,_, Barlow_NP ,_, J._NP ,_, Calderan_NP ,_, S._NP ,_, Collins_NP ,_, K._NP ,_, Leaper_NP ,_, R._NP ,_, Olson_NP ,_, P._NP ,_, Ensor_NP ,_, P._NP ,_, Peel_NP ,_, D._NP ,_, Donnelly_NP ,_, D._NP ,_, Andrews-Goff_NP ,_, V._NP ,_, Olavarria_NP ,_, C._NP ,_, Owen_NP ,_, K._NP ,_, Rekdahl_NP ,_, M._NP ,_, Schmitt_NP ,_, N._NP ,_, Wadley_NP ,_, V._NP ,_, Gedmake_NP ,_, J._NP ,_, Gales_NP ,_, N._NP ,_, and_CC Double_NP ,_, M._NP C._NP (_( 2015_CD )_) ._SENT 
+“_JJ Validating_VVG the_DT reliability_NN of_IN passive_JJ acoustic_JJ localisation_NN :_: A_DT novel_NN method_NN for_IN encountering_VVG rare_JJ and_CC remote_JJ Antarctic_JJ blue_JJ whales_NNS ,_, ”_NP Endangered_NP Species_NP Res_NNS ._SENT 
+26_CD ,_, 257–269_NP ._SENT 
+https_NNS :_: //doi_NP ._SENT 
+org/10.3354/esr00642_NP ,_, Google_NP ScholarCrossref_NP 18._CD Miller_NP ,_, B._NP S._NP ,_, Collins_NP ,_, K._NP ,_, Barlow_NP ,_, J._NP ,_, Calderan_NP ,_, S._NP ,_, Leaper_NP ,_, R._NP ,_, McDonald_NP ,_, M._NP ,_, Ensor_NP ,_, P._NP ,_, Olson_NP ,_, P._NP A._NP ,_, Olavarria_NP ,_, C._NP ,_, and_CC Double_NP ,_, M._NP C._NP (_( 2014_CD )_) ._SENT 
+“_NP Blue_NP whale_NN vocalizations_NNS recorded_VVN around_IN New_NP Zealand_NP :_: 1964-2013_CD ,_, ”_NP J._NP Acoust_NP ._SENT 
+Soc_NP ._SENT 
+Am_NP ._SENT 
+135_CD ,_, 1616–1623_NP ._SENT 
+https_NNS :_: //doi_NP ._SENT 
+org/10.1121/1.4863647_JJ ,_, Google_NP ScholarScitation_NP ,_, ISI_NP 19._CD Miller_NP ,_, B._NP S._NP ,_, Growcott_NP ,_, A._NP ,_, Slooten_NP ,_, E._NP ,_, and_CC Dawson_NP ,_, S._NP M._NP (_( 2013_CD )_) ._SENT 
+“_NP Acoustically_RB derived_VVD growth_NN rates_NNS of_IN sperm_NN whales_NNS (_( Physeter_NP macrocephalus_NP )_) in_IN Kaikoura_NP ,_, New_NP Zealand_NP ,_, ”_NP J._NP Acoust_NP ._SENT 
+Soc_NP ._SENT 
+Am_NP ._SENT 
+134_CD ,_, 2438–2445_NP ._SENT 
+https_NNS :_: //doi_NP ._SENT 
+org/10.1121/1.4816564_NP ,_, Google_NP ScholarScitation_NP ,_, ISI_NP 20._CD O'Driscoll_NP ,_, R._NP ,_, and_CC Double_NP ,_, M._NP (_( 2015_CD )_) ._SENT 
+Voyage_NN Report_NP TAN1502_NP New_NP Zealand-Australia_NP Antarctic_NP Ecosystems_NNS Voyage_NN (_( Wellington_NP ,_, New_NP Zealand_NP )_) ._SENT 
+Google_NP Scholar_NN 21._CD Oleson_NP ,_, E._NP M._NP ,_, Calambokidis_NP ,_, J._NP ,_, Barlow_NP ,_, J._NP ,_, and_CC Hildebrand_NP ,_, J._NP A._NP (_( 2007_CD )_) ._SENT 
+“_NP Blue_NP whale_NN visual_JJ and_CC acoustic_JJ encounter_NN rates_NNS in_IN the_DT southern_JJ California_NP bight_NN ,_, ”_NP Marine_NP Mamm_NP ._SENT 
+Sci_NP ._SENT 
+23_CD ,_, 574–597_JJ ._SENT 
+https_NNS :_: //doi_NP ._SENT 
+org/10.1111/j.1748-7692.2007.02303_NP ._SENT 
+x_SYM ,_, Google_NP ScholarCrossref_NP 22._CD PAMGuard_NN (_( 2016_CD )_) ._SENT 
+www_NNS ._SENT 
+pamguard_NP ._SENT 
+org_NP (_( Last_JJ viewed_VVD 3/11/2016_CD )_) ._SENT 
+Google_NP Scholar_NN 23._CD Peel_NP ,_, D._NP ,_, Bravington_NP ,_, M._NP ,_, Kelly_NP ,_, N._NP ,_, and_CC Double_NP ,_, M._NP C._NP (_( 2015_CD )_) ._SENT 
+“_NP Designing_NP an_DT effective_JJ mark–recapture_NN study_NN of_IN Antarctic_JJ blue_JJ whales_NNS ,_, ”_JJ Ecol_NN ._SENT 
+Appl_NN ._SENT 
+25_CD ,_, 1003–1015_NP ._SENT 
+https_NNS :_: //doi_NP ._SENT 
+org/10.1890/14-1169.1_JJ ,_, Google_JJ ScholarCrossref_NP 24._CD Peel_NP ,_, D._NP ,_, Miller_NP ,_, B._NP S._NP ,_, Kelly_NP ,_, N._NP ,_, Dawson_NP ,_, S._NP ,_, Slooten_NP ,_, E._NP ,_, and_CC Double_NP ,_, M._NP C._NP (_( 2014_CD )_) ._SENT 
+“_NP A_NP simulation_NN study_NN of_IN acoustic-assisted_JJ tracking_NN of_IN whales_NNS for_IN mark-recapture_NN surveys_NNS ,_, ”_JJ PloS_NP One_CD 9_CD ,_, e95602_NP ._SENT 
+https_NNS :_: //doi_NP ._SENT 
+org/10.1371/journal_JJ ._SENT 
+pone.0095602_NP ,_, Google_NP ScholarCrossref_NP 25._CD Rankin_NP ,_, S._NP ,_, Ljungblad_NP ,_, D._NP K._NP ,_, Clark_NP ,_, C._NP W._NP ,_, and_CC Kato_NP ,_, H._NP (_( 2005_CD )_) ._SENT 
+“_JJ Vocalisations_NNS of_IN Antarctic_JJ blue_JJ whales_NNS ,_, Balaenoptera_NP musculus_NP intermedia_NP ,_, recorded_VVN during_IN the_DT 2001/2002_CD and_CC 2002/2003_CD IWC/SOWER_NN circumpolar_JJ cruises_VVZ ,_, Area_NP V_NN ,_, Antarctica_NP ,_, ”_NP J._NP Cetacean_JJ Res_NN ._SENT 
+Manage_VV ._SENT 
+7_CD ,_, 13–20_NP ._SENT 
+Google_NP Scholar_NN 26._CD Rivers_NP ,_, J._NP (_( 1997_CD )_) ._SENT 
+“_NP Blue_NP whale_NN ,_, Balaenoptera_NP musculus_NP ,_, vocalizations_NNS from_IN the_DT waters_NNS off_IN central_JJ California_NP ,_, ”_NP Mar_NP ._SENT 
+Mamm_NP ._SENT 
+Sci_NP ._SENT 
+13_CD ,_, 186–195_NP ._SENT 
+https_NNS :_: //doi_NP ._SENT 
+org/10.1111/j.1748-7692.1997_JJ ._SENT 
+tb00626_NP ._SENT 
+x_SYM ,_, Google_NP ScholarCrossref_NP 27._CD Širović_NN ,_, A._NP ,_, and_CC Hildebrand_NP ,_, J._NP A._NP (_( 2011_CD )_) ._SENT 
+“_JJ Using_VVG passive_JJ acoustics_NNS to_TO model_VV blue_JJ whale_NN habitat_NN off_IN the_DT Western_NP Antarctic_NP Peninsula_NP ,_, ”_NP Deep_NP Sea_NP Res_NNS ._SENT 
+II_NP :_: Top_JJ ._SENT 
+Stud_NN ._SENT 
+Oceanogr_NP ._SENT 
+58_CD ,_, 1719–1728_NP ._SENT 
+https_NNS :_: //doi_NP ._SENT 
+org/10.1016/j_NP ._SENT 
+dsr2.2010.08.019_NP ,_, Google_NP ScholarCrossref_NP 28._CD Swartz_NP ,_, S._NP ,_, Cole_NP ,_, T._NP ,_, McDonald_NP ,_, M._NP A._NP ,_, Hildebrand_NP ,_, J._NP A._NP ,_, Oleson_NP ,_, E._NP M._NP ,_, Martinez_NP ,_, A._NP ,_, Clapham_NP ,_, P._NP J._NP ,_, Barlow_NP ,_, J._NP ,_, and_CC Jones_NP ,_, M._NP L._NP (_( 2003_CD )_) ._SENT 
+“_JJ Acoustic_JJ and_CC visual_JJ survey_NN of_IN humpback_NN whale_NN (_( Megaptera_NP novaeangliae_NP )_) distribution_NN in_IN the_DT eastern_JJ and_CC southeastern_JJ Caribbean_NP Sea_NP ,_, ”_NP Carib_NP ._SENT 
+J._NP Sci_NP ._SENT 
+39_CD ,_, 195–208_NP ._SENT 
+Google_NP Scholar_NN 29._CD Thode_NP ,_, A._NP M._NP ,_, D'Spain_NP ,_, G._NP L._NP ,_, and_CC Kuperman_NP ,_, W._NP A._NP (_( 2000_CD )_) ._SENT 
+“_NP Matched-field_NP processing_NN ,_, geoacoustic_JJ inversion_NN ,_, and_CC source_NN signature_NN recovery_NN of_IN blue_JJ whale_NN vocalizations_NNS ,_, ”_NP J._NP Acoust_NP ._SENT 
+Soc_NP ._SENT 
+Am_NP ._SENT 
+107_CD ,_, 1286–1300_NP ._SENT 
+https_NNS :_: //doi_NP ._SENT 
+org/10.1121/1.428417_JJ ,_, Google_NP ScholarScitation_NP ,_, ISI_NP 30._CD Urick_NP ,_, R._NP J._NP (_( 1983_CD )_) ._SENT 
+Principles_NNS of_IN Underwater_JJ Sound_NN ,_, 3rd_NN ed_NNS ._SENT 
+(_( McGraw-Hill_NP ,_, New_NP York_NP )_) ._SENT 
+Google_NP Scholar_NN 31._CD Van_NP Parijs_NP ,_, S._NP M._NP ,_, Clark_NP ,_, C._NP W._NP ,_, Sousa-Lima_NP ,_, R._NP S._NP ,_, Parks_NP ,_, S._NP E._NP ,_, Rankin_NP ,_, S._NP ,_, Risch_NP ,_, D._NP ,_, and_CC Van_NP Opzeeland_NP ,_, I._NP C._NP (_( 2009_CD )_) ._SENT 
+“_NP Management_NP and_CC research_NN applications_NNS of_IN real-time_JJ and_CC archival_JJ passive_JJ acoustic_JJ sensors_NNS over_IN varying_VVG temporal_JJ and_CC spatial_JJ scales_NNS ,_, ”_NP Mar_NP ._SENT 
+Ecol_NP ._SENT 
+Prog_NP ._SENT 
+Ser_NP ._SENT 
+395_CD ,_, 21–36_NP ._SENT 
+https_NNS :_: //doi_NP ._SENT 
+org/10.3354/meps08123_NP ,_, Google_NP ScholarCrossref_NP 32._CD Wade_NP ,_, P._NP ,_, De_NP Robertis_NP ,_, A._NP ,_, Hough_NP ,_, K._NP ,_, Booth_NP ,_, R._NP ,_, Kennedy_NP ,_, A._NP ,_, LeDuc_NP ,_, R._NP G._NP ,_, Munger_NP ,_, L._NP ,_, Napp_NP ,_, J._NP ,_, Shelden_NP ,_, K._NP E._NP W._NP ,_, Rankin_NP ,_, S._NP ,_, Vasquez_NP ,_, O._NP ,_, and_CC Wilson_NP ,_, C._NP (_( 2011_CD )_) ._SENT 
+“_JJ Rare_JJ detections_NNS of_IN North_NP Pacific_NP right_NN whales_NNS in_IN the_DT Gulf_NP of_IN Alaska_NP ,_, with_IN observations_NNS of_IN their_PP$ potential_JJ prey_NN ,_, ”_NP Endang_NP ._SENT 
+Spec_NN ._SENT 
+Res_NNS ._SENT 
+13_CD ,_, 99–109_NP ._SENT 
+https_NNS :_: //doi_NP ._SENT 
+org/10.3354/esr00324_NP ,_, Google_NP ScholarCrossref_NP 33._CD Wade_NP ,_, P._NP ,_, Heide-Jørgensen_NP ,_, M._NP P._NP ,_, Shelden_NP ,_, K._NP ,_, Barlow_NP ,_, J._NP ,_, Carretta_NP ,_, J._NP ,_, Durban_NP ,_, J._NP ,_, Leduc_NP ,_, R._NP ,_, Munger_NP ,_, L._NP ,_, Rankin_NP ,_, S._NP ,_, Sauter_NP ,_, A._NP ,_, and_CC Stinchcomb_NP ,_, C._NP (_( 2006_CD )_) ._SENT 
+“_JJ Acoustic_JJ detection_NN and_CC satellite-tracking_NN leads_NNS to_TO discovery_NN of_IN rare_JJ concentration_NN of_IN endangered_JJ North_NP Pacific_NP right_NN whales_NNS Acoustic_JJ detection_NN and_CC satellite-tracking_NN leads_NNS to_TO discovery_NN of_IN rare_JJ concentration_NN of_IN endangered_JJ North_NP Pacific_NP right_NN whales_NNS ,_, ”_JJ Biol_NN ._SENT 
+Lett_NP ._SENT 
+2_LS ,_, 417–419_NP ._SENT 
+https_NNS :_: //doi_NP ._SENT 
+org/10.1098/rsbl.2006.0460_NP ,_, Google_NP ScholarCrossref_NP 34._CD WhaleAcoustics_NNS (_( 2011_CD )_) ._SENT 
+http_NN :_: //www_NNS ._SENT 
+whaleacoustics_NNS ._SENT 
+com/_NP (_( Last_JJ viewed_VVN December_NP 2011_CD )_) ._SENT 
+Google_NP Scholar_NN 

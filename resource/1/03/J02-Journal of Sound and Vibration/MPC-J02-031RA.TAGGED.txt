@@ -1,0 +1,507 @@
+<title> Topology_NN optimization_NN in_IN acoustics_NNS and_CC elasto-acoustics_NNS via_IN a_DT level-set_NN method_NN </title> <author> Desai_NP ,_, J._NP ;_: Faure_NP ,_, A._NP ;_: Michailidis_NP ,_, G._NP ;_: Parry_NP ,_, G._NP ;_: Estevez_NP ,_, R._NP </author> <Affiliation> 1_CD SIMaP_NN ,_, Université_NP Grenoble-Alpes_NP ,_, BP_NP 53_CD ,_, Grenoble_NP Cedex_NP 9_CD ;_: 38041_CD ,_, France_NP 2_CD BITS_NNS Pilani_NP ,_, Pilani_NP Campus_NP ,_, Vidya_NP Vihar_NP ,_, Pilani_NP ,_, Rajasthan_NP ;_: 333031_CD ,_, India_NP </Affiliation> <year> 2018_CD </year> <Jounral> Journal_NP of_IN Sound_NP and_CC Vibration_NN </Journal> <Publishing_house> Academic_NP Press_NP </Publishing_house> <Text_Collector> Liu_NP Kai，HEU_NP </Text_Collector> <DOI> 10.1016/j_NP ._SENT 
+jsv.2018.01.032_JJ </DOI> <URL> https_NNS :_: //www-sciencedirect-com-443_NN ._SENT 
+wvpn_NP ._SENT 
+hrbeu_NP ._SENT 
+edu_NP ._SENT 
+cn/science/article/pii/S0022460X18300403_NP ?_SENT 
+via%3Dihub_NP </URL> <Section> Abstract_JJ </Section> Optimizing_VVG the_DT shape_NN and_CC topology_NN (_( S&T_NP )_) of_IN structures_NNS to_TO improve_VV their_PP$ acoustic_JJ performance_NN is_VBZ quite_RB challenging_VVG ._SENT 
+The_DT exact_JJ position_NN of_IN the_DT structural_JJ boundary_NN is_VBZ usually_RB of_IN critical_JJ importance_NN ,_, which_WDT dictates_VVZ the_DT use_NN of_IN geometric_JJ methods_NNS for_IN topology_NN optimization_NN instead_RB of_IN standard_JJ density_NN approaches_NNS ._SENT 
+The_DT goal_NN of_IN the_DT present_JJ work_NN is_VBZ to_TO investigate_VV different_JJ possibilities_NNS for_IN handling_VVG topology_NN optimization_NN problems_NNS in_IN acoustics_NNS and_CC elasto-acoustics_NNS via_IN a_DT level-set_JJ method_NN ._SENT 
+From_IN a_DT theoretical_JJ point_NN of_IN view_NN ,_, we_PP detail_VVP two_CD equivalent_JJ ways_NNS to_TO perform_VV the_DT derivation_NN of_IN surface-dependent_JJ terms_NNS and_CC propose_VV a_DT smoothing_VVG technique_NN for_IN treating_VVG problems_NNS of_IN boundary_NN conditions_NNS optimization_NN ._SENT 
+In_IN the_DT numerical_JJ part_NN ,_, we_PP examine_VVP the_DT importance_NN of_IN the_DT surface-dependent_JJ term_NN in_IN the_DT shape_NN derivative_NN ,_, neglected_VVN in_IN previous_JJ studies_NNS found_VVN in_IN the_DT literature_NN ,_, on_IN the_DT optimal_JJ designs_NNS ._SENT 
+Moreover_RB ,_, we_PP test_VVP different_JJ mesh_NN adaptation_NN choices_NNS ,_, as_RB well_RB as_IN technical_JJ details_NNS related_VVN to_TO the_DT implicit_JJ surface_NN definition_NN in_IN the_DT level-set_JJ approach_NN ._SENT 
+We_PP present_VVP results_NNS in_IN two_CD and_CC three-space_NN dimensions_NNS ._SENT 
+Keywords：Topology_NN optimization；Shape_NN optimization；Acoustics；Elasto-acoustics；Level-set_NN method_NN <Section> 1._CD Introduction_NN </Section> Topology_NN optimization_NN has_VHZ become_VVN nowadays_RB a_DT popular_JJ tool_NN in_IN product_NN design_NN ._SENT 
+Novel_NN areas_NNS of_IN applications_NNS constantly_RB appear_VVP ,_, in_IN different_JJ frameworks_NNS of_IN physics_NNS and_CC scales_NNS ranging_VVG from_IN micro-mechanisms_NNS (_( MEMS_NNS )_) to_TO aircraft_NN parts_NNS ._SENT 
+Moreover_RB ,_, the_DT burst_NN of_IN evolution_NN in_IN additive_JJ manufacturing_NN technologies_NNS and_CC the_DT consequent_JJ breakthrough_NN in_IN fabrication_NN capabilities_NNS ,_, permits_VVZ to_TO realize_VV complex_JJ structural_JJ shapes_NNS and_CC thus_RB take_VV full_JJ advantage_NN of_IN topology_NN optimization_NN results_NNS ._SENT 
+Beyond_IN the_DT tangible_JJ benefits_NNS from_IN the_DT incorporation_NN of_IN topology_NN optimization_NN in_IN the_DT product_NN design_NN cycle_NN ,_, such_JJ as_IN performance_NN improvement_NN ,_, mass_JJ reduction_NN and_CC acceleration_NN of_IN the_DT total_JJ design_NN process_NN ,_, its_PP$ contribution_NN in_IN setting_VVG design_NN guidelines_NNS is_VBZ highly_RB acknowledged_VVN ._SENT 
+In_IN problems_NNS involving_VVG elaborate_JJ physics_NNS ,_, such_JJ as_IN computational_JJ fluid_JJ dynamics_NNS (_( CFD_NN )_) ,_, noise-vibration-harshness_NP (_( NVH_NP )_) and_CC non-linear_JJ mechanics_NNS ,_, topology_NN optimization_NN results_NNS are_VBP used_VVN by_IN engineers_NNS to_TO gain_VV knowledge_NN on_IN how_WRB to_TO improve_VV their_PP$ designs_NNS ._SENT 
+Acoustics_NNS belong_VVP to_TO this_DT category_NN of_IN complex_JJ problems_NNS ,_, where_WRB the_DT strong_JJ dependency_NN of_IN the_DT optimal_JJ design_NN on_IN the_DT problem_NN data_NNS (_( excitation_NN frequencies_NNS ,_, boundary_NN conditions_NNS )_) mitigate_VV the_DT efficiency_NN of_IN concepts_NNS based_VVN thoroughly_RB on_IN engineers_NNS '_POS knowledge_NN and_CC intuition_NN and_CC give_VV rise_NN to_TO the_DT potential_JJ gains_NNS from_IN employing_VVG automated_JJ form-finding_NN techniques_NNS ._SENT 
+Primal_JJ topology_NN optimization_NN approaches_NNS were_VBD based_VVN on_IN density_NN methods_NNS ._SENT 
+In_IN this_DT case_NN ,_, the_DT notion_NN of_IN classical_JJ shape_NN is_VBZ dropped_VVN in_IN favor_NN of_IN a_DT density_NN description_NN and_CC one_PP tries_VVZ to_TO find_VV its_PP$ optimal_JJ distribution_NN inside_IN a_DT working_VVG domain_NN ._SENT 
+Consequently_RB ,_, assuming_VVG that_IN we_PP are_VBP not_RB interested_JJ for_IN composite_JJ materials_NNS but_CC for_IN classical_JJ geometric_JJ shapes_NNS characterized_VVN by_IN their_PP$ boundary_NN position_NN ,_, the_DT mechanical_JJ framework_NN needs_VVZ to_TO be_VB modified_VVN in_IN order_NN for_IN the_DT density_NN field_NN to_TO appear_VV in_IN the_DT problem_NN formulation_NN ._SENT 
+Although_IN this_DT is_VBZ classical_JJ in_IN several_JJ problems_NNS ,_, complications_NNS may_MD appear_VV in_IN physics_NN frameworks_NNS where_WRB the_DT precise_JJ boundary_NN position_NN is_VBZ of_IN crucial_JJ importance_NN ._SENT 
+In_IN such_JJ cases_NNS ,_, intermediate_JJ density_NN values_NNS may_MD provide_VV fictituous_JJ mechanical_JJ results_NNS ,_, thus_RB making_VVG the_DT optimization_NN results_NNS questionable_JJ ._SENT 
+Although_IN recent_JJ advances_NNS in_IN projection_NN schemes_NNS have_VHP provided_VVN quite_RB satisfying_JJ results_NNS ,_, geometry-based_JJ methods_NNS for_IN topology_NN optimization_NN seem_VVP to_TO be_VB more_RBR appropriate_JJ to_TO tackle_VV such_JJ cases_NNS ,_, since_IN the_DT mechanical_JJ problem_NN needs_VVZ almost_RB no_DT modification_NN ._SENT 
+Several_JJ works_NNS on_IN optimal_JJ acoustic_JJ design_NN have_VHP been_VBN presented_VVN in_IN the_DT framework_NN of_IN “_JJ fictituous_JJ ”_JJ density_NN methods_NNS ._SENT 
+Yoon_NP et_NP al_NP ._SENT 
+used_VVN a_DT mixed_JJ finite_JJ element_NN formulation_NN in_IN order_NN to_TO eliminate_VV the_DT necessity_NN of_IN an_DT explicit_JJ boundary_NN representation_NN ,_, by_IN choosing_VVG properly_RB the_DT material_NN properties_NNS in_IN the_DT acoustic_JJ domain_NN ._SENT 
+Du_NP and_CC Olhoff_NP minimized_VVN the_DT sound_JJ power_NN radiated_VVN from_IN a_DT bi-material_JJ structural_JJ surface_NN ,_, making_VVG an_DT efficient_JJ approximation_NN of_IN the_DT sound_JJ power_NN flow_NN ._SENT 
+The_DT authors_NNS compared_VVN the_DT results_NNS to_TO those_DT derived_VVN by_IN minimizing_VVG the_DT dynamic_JJ compliance_NN and_CC concluded_VVD that_IN although_IN both_DT methods_NNS improve_VV significantly_RB the_DT sound_JJ performance_NN ,_, differences_NNS in_IN the_DT optimized_VVN topologies_NNS appear_VVP for_IN high_JJ frequencies_NNS ._SENT 
+The_DT use_NN of_IN the_DT dynamic_JJ compliance_NN for_IN optimal_JJ acoustic_JJ design_NN has_VHZ also_RB been_VBN proposed_VVN in_IN Ref_NN ._SENT 
+[_SYM 18_CD ]_SYM ,_, assuming_VVG a_DT one-way_JJ coupled_VVN system_NN ._SENT 
+In_IN Ref_NN ._SENT 
+[_SYM 19_CD ]_SYM Dühring_NP et_CC al_NP ._SENT 
+presented_VVN applications_NNS of_IN optimal_JJ acoustic_JJ design_NN in_IN noise_NN reduction_NN of_IN rooms_NNS and_CC in_IN the_DT design_NN of_IN sound_JJ barriers_NNS ._SENT 
+The_DT optimal_JJ design_NN of_IN elastic_JJ wave_NN barriers_NNS has_VHZ also_RB been_VBN examined_VVN in_IN Ref_NN ._SENT 
+[_SYM 20_CD ]_SYM ._SENT 
+Zhang_NP et_NP al_NP ._SENT 
+worked_VVN on_IN the_DT minimization_NN of_IN the_DT sound_JJ pressure_NN ,_, neglecting_VVG the_DT influence_NN of_IN the_DT acoustic_JJ problem_NN on_IN the_DT structural_JJ system_NN ._SENT 
+Wadbro_NP et_NP al_NP ._SENT 
+worked_VVN on_IN the_DT optimization_NN of_IN an_DT acoustic_JJ horn_NN in_IN Ref_NN ._SENT 
+[_SYM 22_CD ]_SYM and_CC combined_VVN their_PP$ method_NN with_IN shape_NN optimization_NN techniques_NNS for_IN optimizing_VVG an_DT acoustic_JJ horn–lens_NP combination_NN in_IN Ref_NN ._SENT 
+[_SYM 23_CD ]_SYM ._SENT 
+Finally_RB ,_, we_PP highlight_VV the_DT work_NN of_IN Christiansen_NP et_CC al_NP ._SENT 
+in_IN Refs_NNS ._SENT 
+[_SYM [_SYM 24_CD ]_SYM ,_, [_SYM 25_CD ]_SYM ,_, [_SYM 26_CD ]_SYM ]_SYM on_IN the_DT optimal_JJ design_NN and_CC experimental_JJ validation_NN of_IN acoustic_JJ structures_NNS ,_, using_VVG a_DT double_JJ projection_NN filter_NN to_TO create_VV geometrically_RB robust_JJ designs_NNS ._SENT 
+In_IN the_DT framework_NN of_IN the_DT level-set_JJ method_NN for_IN topology_NN optimization_NN ,_, Shu_NP et_CC al_NP ._SENT 
+worked_VVN on_IN the_DT interior_JJ noise_NN reduction_NN considering_VVG a_DT coupled_VVN acoustic-structural_JJ system_NN ._SENT 
+Using_VVG a_DT phase-field_JJ implementation_NN of_IN the_DT level-set_JJ method_NN ,_, Isakari_NP et_CC al_NP ._SENT 
+have_VHP coupled_VVN the_DT level-set_JJ method_NN with_IN the_DT fast_JJ multipole_NN boundary_NN element_NN method_NN and_CC Noguchi_NP et_NP al_NP ._SENT 
+have_VHP used_VVN a_DT mixed_JJ formulation_NN for_IN simultaneous_JJ design_NN of_IN an_DT elastic_JJ structure_NN and_CC a_DT coupled_VVN acoustic_JJ cavity_NN using_VVG a_DT two-phase_JJ material_NN model_NN ._SENT 
+In_IN this_DT work_NN ,_, we_PP focus_VVP on_IN the_DT implementation_NN of_IN the_DT level-set_JJ method_NN for_IN topology_NN optimization_NN in_IN acoustics_NNS and_CC elasto-acoustics_NNS problems_NNS ._SENT 
+Our_PP$ contribution_NN is_VBZ twofold_JJ ._SENT 
+First_RB ,_, from_IN a_DT theory_NN point_NN of_IN view_NN ,_, we_PP highlight_VV some_DT details_NNS on_IN the_DT shape_NN derivation_NN of_IN boundary-dependent_JJ terms_NNS that_WDT have_VHP been_VBN omitted_VVN in_IN Ref_NN ._SENT 
+[_SYM 28_CD ]_SYM ._SENT 
+We_PP present_VVP two_CD equivalent_JJ ways_NNS to_TO perform_VV the_DT shape_NN derivation_NN ._SENT 
+We_PP also_RB propose_VVP an_DT approach_NN for_IN the_DT optimization_NN of_IN the_DT boundary_NN conditions_NNS ._SENT 
+Then_RB ,_, we_PP focus_VVP on_IN the_DT numerical_JJ implementation_NN of_IN the_DT method_NN and_CC test_VV several_JJ possibilities_NNS for_IN the_DT amelioration_NN of_IN its_PP$ precision_NN ,_, concerning_VVG mesh_NN adaptation_NN and_CC approximations_NNS of_IN the_DT boundary_NN terms_NNS in_IN the_DT implicit_JJ level-set_NN description_NN ._SENT 
+More_RBR specifically_RB ,_, after_IN a_DT short_JJ introduction_NN in_IN the_DT shape_NN and_CC topology_NN optimization_NN framework_NN used_VVN herein_RB ,_, we_PP start_VVP in_IN Section_NP 3_CD with_IN purely_RB acoustics_NN problems_NNS ._SENT 
+We_PP use_VVP the_DT Helmholtz_NP equation_NN for_IN the_DT acoustic_JJ problem_NN and_CC Céa_NP 's_POS method_NN to_TO compute_VV a_DT shape_NN derivative_JJ for_IN minimizing_VVG the_DT sound_JJ pressure_NN ._SENT 
+We_PP also_RB propose_VVP a_DT smoothing_VVG technique_NN to_TO avoid_VV the_DT discontinuity_NN in_IN derivating_VVG the_DT position_NN of_IN boundary_NN domains_NNS containing_VVG different_JJ boundary_NN conditions_NNS ._SENT 
+In_IN Section_NP 4_CD we_PP treat_VVP the_DT fully_RB coupled_VVN elasto-acoustics_NN problem_NN ._SENT 
+Details_NNS on_IN the_DT numerical_JJ implementation_NN of_IN the_DT method_NN ,_, directly_RB linked_VVN to_TO the_DT level-set_JJ description_NN are_VBP presented_VVN in_IN Section_NP 5_CD and_CC numerical_JJ results_NNS in_IN two_CD and_CC three_CD space_NN dimensions_NNS are_VBP shown_VVN in_IN Section_NP 6._CD This_DT article_NN ends_VVZ with_IN some_DT general_JJ conclusions_NNS in_IN Section_NP 7._CD <Section> 2._CD S&T_JJ optimization_NN framework_NN </Section> Several_JJ methods_NNS for_IN shape_NN and_CC topology_NN optimization_NN have_VHP been_VBN proposed_VVN in_IN the_DT literature_NN ._SENT 
+Despite_IN the_DT possible_JJ fundamental_JJ differences_NNS between_IN them_PP ,_, they_PP are_VBP all_RB characterized_VVN by_IN two_CD main_JJ ingredients_NNS :_: a_DT way_NN to_TO describe_VV a_DT shape_NN and_CC a_DT method_NN to_TO evolve_VV it_PP during_IN the_DT optimization_NN process_NN ._SENT 
+In_IN this_DT work_NN ,_, we_PP use_VVP the_DT level-set_JJ method_NN for_IN the_DT shape_NN description_NN ,_, coupled_VVN with_IN a_DT shape-sensitivity_NN analysis_NN for_IN computing_VVG a_DT notion_NN of_IN shape_NN gradient_NN and_CC applying_VVG a_DT type_NN of_IN gradient_JJ descent_NN algorithm_NN ._SENT 
+We_PP briefly_RB present_VV these_DT two_CD elements_NNS in_IN this_DT section_NN ._SENT 
+2.1_CD ._SENT 
+Level-set_JJ method_NN The_DT level-set_JJ method_NN ,_, developed_VVN by_IN Osher_NP and_CC Sethian_NP ,_, uses_VVZ an_DT implicit_JJ representation_NN of_IN an_DT evolving_VVG front_NN as_IN the_DT zero_CD level-set_NN of_IN an_DT auxiliary_JJ function_NN ϕ_NN ._SENT 
+More_RBR precisely_RB ,_, assuming_VVG that_IN the_DT domain_NN Ω_NN of_IN interest_NN is_VBZ a_DT subset_NN of_IN a_DT large_JJ working_NN domain_NN D_NP ,_, the_DT level-set_JJ representation_NN of_IN Ω_NN can_MD be_VB defined_VVN as_RB :_: @（1）_NN The_DT advection_NN of_IN the_DT front_NN (_( or_CC shape_NN boundary_NN )_) with_IN a_DT normal_JJ velocity_NN V(x_NN ,_, t_NN )_) is_VBZ described_VVN in_IN the_DT level-set_JJ framework_NN by_IN the_DT well-known_JJ Hamilton-Jacobi_NP transport_NN equation_NN :_: @（2）_NN where_WRB the_DT time_NN t∈R+_NN can_MD be_VB interpreted_VVN ,_, after_IN discretization_NN ,_, as_IN a_DT descent_NN step_NN in_IN our_PP$ optimization_NN setting_NN ._SENT 
+For_IN the_DT numerical_JJ approximation_NN of_IN (_( 2_LS )_) ,_, efficient_JJ explicit_JJ second-order_NN upwind_JJ schemes_NNS for_IN grids_NNS have_VHP been_VBN presented_VVN in_IN Refs_NNS ._SENT 
+[_SYM 34,35_CD ]_SYM ,_, while_IN for_IN unstructured_JJ meshes_NNS ,_, algorithms_NNS using_VVG the_DT method_NN of_IN characteristics_NNS have_VHP been_VBN proposed_VVN in_IN Refs_NNS ._SENT 
+[_SYM 36,37_CD ]_SYM ._SENT 
+When_WRB the_DT implicit_JJ shape_NN description_NN provided_VVN by_IN (_( 1_LS )_) is_VBZ combined_VVN with_IN a_DT fixed_VVN mesh_NN for_IN the_DT shape_NN evolution_NN ,_, the_DT partial_JJ differential_JJ equations_NNS (_( PDEs_NNS )_) involved_VVN in_IN the_DT optimization_NN problem_NN need_VVP to_TO be_VB extended_VVN in_IN the_DT whole_JJ computational_JJ domain_NN ._SENT 
+For_IN this_DT ,_, we_PP use_VVP the_DT classical_JJ “_JJ ersatz_JJ ”_JJ material_NN approach_NN ._SENT 
+2.2_CD ._SENT 
+Shape_NN sensitivity_NN In_IN order_NN to_TO use_VV a_DT gradient-based_JJ optimization_NN method_NN ,_, we_PP need_VVP to_TO compute_VV a_DT notion_NN of_IN derivative_JJ with_IN respect_NN to_TO shape_VV variations_NNS ._SENT 
+The_DT classical_JJ shape_NN sensitivity_NN method_NN of_IN Hadamard_NP provides_VVZ such_PDT a_DT framework_NN Refs_NNS ._SENT 
+[_SYM 1_CD ,_, [_SYM 38_CD ]_SYM ,_, [_SYM 39_CD ]_SYM ,_, [_SYM 40_CD ]_SYM ]_SYM ._SENT 
+Starting_VVG from_IN a_DT smooth_JJ reference_NN open_JJ set_NN Ω_NN ,_, we_PP consider_VVP variations_NNS of_IN the_DT type_NN @_SYM with_IN θ∈W1_NN ,_, ∞(Rd_NP ,_, Rd_NP )_) ._SENT 
+Definition_NN 2.1_CD The_DT shape_NN derivative_JJ of_IN J(Ω_NN )_) at_IN Ω_NN is_VBZ defined_VVN as_IN the_DT Fréchet_NN derivative_JJ in_IN W1_NN ,_, ∞(Rd_NP ,_, Rd_NP )_) at_IN 0_CD of_IN the_DT application_NN θ→J(Id+θ)Ω_NN ,_, i._NP e._NPS @_SYM where_WRB θ→J′(Ω)(θ_NP )_) is_VBZ a_DT continuous_JJ linear_JJ form_NN on_IN W1_NN ,_, ∞(Rd_NP ,_, Rd_NP )_) ._SENT 
+According_VVG to_TO Hadamard_NP 's_POS structure_NN theorem_NN ,_, the_DT shape_NN derivative_JJ J′(Ω)(θ_NN )_) depends_VVZ only_RB on_IN the_DT normal_JJ trace_VV θ⋅n_NN on_IN the_DT boundary_NN ∂Ω_NN ._SENT 
+In_IN fact_NN ,_, for_IN a_DT great_JJ variety_NN of_IN functionals_NNS ,_, the_DT shape_NN derivative_NN can_MD be_VB written_VVN in_IN the_DT form_NN :_: @（3）_NN where_WRB the_DT integrand_NN j_NN depends_VVZ on_IN the_DT specific_JJ objective_NN function_NN and_CC boundary_NN conditions_NNS ._SENT 
+Then_RB ,_, a_DT descent_NN direction_NN can_MD be_VB found_VVN by_IN advecting_VVG the_DT shape_NN in_IN the_DT direction_NN θ(s)=−tj(s)n(s_NNS )_) for_IN a_DT small_JJ enough_JJ descent_NN step_NN t>0_NN ._SENT 
+For_IN the_DT new_JJ shape_NN Ωt=Id+tθΩ_NN ,_, if_IN j≠0_NN ,_, we_PP can_MD formally_RB write_VV @_SYM which_WDT guarantees_VVZ a_DT descent_NN direction_NN ._SENT 
+Throughout_IN this_DT work_NN ,_, we_PP use_VVP the_DT method_NN of_IN Céa_NP for_IN the_DT calculation_NN of_IN shape_NN derivatives_NNS ._SENT 
+For_IN further_JJR details_NNS on_IN this_DT approach_NN we_PP refer_VVP to_TO [_SYM 1,11_CD ]_SYM ._SENT 
+To_TO facilitate_VV the_DT presentation_NN of_IN the_DT principal_JJ results_NNS ,_, we_PP have_VHP placed_VVN several_JJ proofs_NNS concerning_VVG shape_NN derivation_NN at_IN the_DT Appendix_NN part_NN ._SENT 
+<Section> 3._CD S&T_JJ optimization_NN in_IN acoustics_NN problems_NNS </Section> This_DT section_NN deals_NNS with_IN purely_RB acoustics_NN problems_NNS ._SENT 
+The_DT problem_NN formulation_NN and_CC the_DT corresponding_JJ numerical_JJ results_NNS in_IN Section_NP 6_CD are_VBP inspired_VVN from_IN Ref_NN ._SENT 
+[_SYM 19_CD ]_SYM ._SENT 
+3.1_CD ._SENT 
+Problem_NN formulation_NN We_PP first_RB consider_VVP a_DT typical_JJ problem_NN of_IN interior_JJ acoustics_NNS ._SENT 
+The_DT total_JJ working_NN domain_NN D_NP is_VBZ depicted_VVN in_IN Fig_NN ._SENT 
+1._CD We_PP search_VVP to_TO distribute_VV optimally_RB some_DT solid_JJ material_NN inside_IN a_DT design_NN domain_NN Ωd_NNS ,_, in_IN order_NN to_TO minimize_VV the_DT sound_JJ pressure_NN in_IN a_DT target_NN domain_NN Ωtar⊂Ωa_NN due_JJ to_TO acoustic_JJ waves_NNS produced_VVN by_IN the_DT vibration_NN of_IN a_DT body_NN occupying_VVG a_DT small_JJ region_NN U._NN We_PP denote_VVP by_IN Ωa_NP ,_, Ωs⊂Ωd_VVG the_DT parts_NNS of_IN D_NP occupied_VVD by_IN air_NN and_CC solid_JJ correspondingly_RB ._SENT 
+Fig_NN ._SENT 
+1._CD Description_NN of_IN the_DT acoustics_NN problem_NN ._SENT 
+We_PP assume_VVP that_IN the_DT vibration_NN of_IN U_NP is_VBZ time-harmonic_JJ with_IN angular_JJ frequency_NN ω_NN and_CC we_PP search_VVP for_IN the_DT time-harmonic_JJ sound_NN pressure_NN ,_, whose_WP$ complex_JJ amplitude_NN p_NN solves_VVZ the_DT Helmholtz_NP equation_NN (_( we_PP refer_VVP to_TO Appendix_NN A_DT in_IN Ref_NN ._SENT 
+[_SYM 22_CD ]_SYM for_IN a_DT detailed_JJ discussion_NN on_IN the_DT formulation_NN of_IN the_DT acoustics_NN problem_NN )_) :_: @（4）_NN where_WRB :_: •_NP p=pre+ipim_NP is_VBZ the_DT complex_JJ pressure_NN amplitude_NN ,_, •_NN @_SYM where_WRB ρs_NPS ,_, ρa_NP stand_NN for_IN the_DT mass_JJ density_NN of_IN the_DT solid_JJ material_NN and_CC the_DT air_NN correspondingly_RB ,_, •_NN @_SYM where_WRB κs_NPS ,_, κa_NP stand_NN for_IN the_DT bulk_JJ modulus_NN of_IN the_DT solid_JJ material_NN and_CC the_DT air_NN correspondingly_RB ._SENT 
+•_NN @_SYM •_JJ V_NN is_VBZ the_DT vibrating_VVG velocity_NN amplitude_NN of_IN the_DT body_NN U_NP ,_, •_JJ n_NN denotes_VVZ the_DT exterior_JJ normal_JJ vector_NN to_TO the_DT domain_NN Ωa_NN ._SENT 
+The_DT optimization_NN problem_NN reads_VVZ :_: @（5）_NN where_WRB Vol(Ωa_NP )_) stands_VVZ for_IN the_DT volume_NN of_IN the_DT domain_NN Ωa_NN and_CC V0_NN for_IN the_DT volume_NN of_IN the_DT initial_JJ design_NN ._SENT 
+Remark_NN 3.1_CD In_IN fact_NN ,_, (_( 5_CD )_) is_VBZ a_DT bi-material_JJ optimization_NN problem_NN ,_, where_WRB we_PP search_VVP to_TO optimize_VV the_DT intermediate_JJ interface_NN between_IN the_DT materials_NNS occupying_VVG the_DT acoustic_JJ and_CC elastic_JJ domains_NNS ._SENT 
+The_DT discontinuity_NN of_IN the_DT material_NN properties_NNS can_MD make_VV the_DT shape_NN derivation_NN complicated_VVN (_( see_VV [_SYM 32_CD ]_SYM )_) ._SENT 
+However_RB ,_, we_PP can_MD simplify_VV the_DT current_JJ framework_NN since_IN the_DT ratio_NN of_IN the_DT density_NN and_CC the_DT bulk_JJ modulus_NN between_IN the_DT fluid_NN and_CC the_DT solid_JJ phase_NN is_VBZ very_RB small_JJ ._SENT 
+More_RBR specifically_RB ,_, considering_VVG the_DT variational_JJ formulation_NN of_IN equation_NN (_( 4_CD )_) ,_, using_VVG the_DT complex_NN conjugate_JJ of_IN a_DT test_NN function_NN q_NN ,_, we_PP obtain_VVP :_: @（6）_JJ Thus_RB ,_, since_IN ρs>>ρa_NP ,_, κs>>κa_NP ,_, the_DT above_JJ equation_NN can_MD be_VB approximated_VVN as_RB :_: @（7）_NN which_WDT is_VBZ the_DT variational_JJ formulation_NN of_IN the_DT equations_NNS :_: @（8）_NN We_PP prefer_VVP to_TO work_VV with_IN equation_NN (_( 8_CD )_) instead_RB of_IN (_( 4_LS )_) ,_, since_IN its_PP$ solution_NN p_NN is_VBZ sufficiently_RB smooth_JJ for_IN Céa_NP 's_POS shape_NN derivation_NN method_NN to_TO be_VB applied_VVN ._SENT 
+Its_PP$ real_JJ and_CC imaginary_JJ parts_NNS solve_VV the_DT following_VVG equations_NNS :_: @（9）_JJ and_CC @（10）_JJ Remark_NN 3.2_CD From_IN equation_NN (_( 9_CD )_) ,_, it_PP is_VBZ easy_JJ to_TO verify_VV that_DT pre=0_NN ._SENT 
+This_DT is_VBZ due_JJ to_TO the_DT specific_JJ boundary_NN conditions_NNS prescribed_VVN on_IN ∂U_NP ._SENT 
+For_IN the_DT sake_NN of_IN generality_NN ,_, we_PP have_VHP included_VVN pre_NN in_IN the_DT formulation_NN of_IN the_DT problem_NN and_CC in_IN the_DT shape_NN derivation_NN part_NN ,_, since_IN different_JJ choices_NNS can_MD lead_VV to_TO values_NNS of_IN pre_NN different_JJ than_IN zero_CD ._SENT 
+3.2_CD ._SENT 
+Shape_NN derivation_NN Proposition_NP 3.1_CD The_DT shape_NN derivative_JJ of_IN the_DT objective_JJ function_NN in_IN (_( 5_LS )_) reads_VVZ :_: @（11）_NN where_WRB (_( pre_NP ,_, pim_NP )_) solve_VV equations_NNS (_( 9_CD )_) ,_, (_( 10_CD )_) and_CC (_( qre_NP ,_, qim_NP )_) solve_VV the_DT following_VVG adjoint_NN equations_NNS :_: @（12）_NP and_CC @（13）_NP where_WRB χtar_NP denotes_VVZ the_DT characteristic_JJ function_NN of_IN the_DT target_NN domain_NN Ωtar_NN ._SENT 
+Proof_NN ._SENT 
+See_VV Appendix_NN A._NP Remark_NN 3.3_CD In_IN the_DT above_JJ analysis_NN ,_, as_RB well_RB as_IN in_IN the_DT sequel_NN of_IN this_DT work_NN ,_, we_PP have_VHP assumed_VVN that_IN ω̃_NP does_VVZ not_RB coincide_VV with_IN some_DT eigenfrequency_NN of_IN the_DT problem_NN ._SENT 
+Under_IN this_DT assumption_NN ,_, one_PP can_MD prove_VV uniqueness_NN for_IN the_DT solutions_NNS of_IN the_DT involved_VVN PDEs_NNS ._SENT 
+3.3_CD ._SENT 
+Optimization_NN of_IN boundary_NN conditions_NNS Optimizing_VVG the_DT boundary_NN conditions_NNS in_IN an_DT acoustics_NN problem_NN ,_, e._NP g._NP defining_VVG where_WRB to_TO distribute_VV a_DT certain_JJ amount_NN of_IN absorbing_VVG material_NN ,_, is_VBZ of_IN high_JJ interest_NN for_IN practical_JJ applications_NNS ._SENT 
+In_IN Ref_NN ._SENT 
+[_SYM 19_CD ]_SYM ,_, the_DT authors_NNS have_VHP presented_VVN such_PDT an_DT example_NN using_VVG a_DT density_NN method_NN ._SENT 
+In_IN the_DT framework_NN of_IN geometric_JJ methods_NNS ,_, Xia_NP et_CC al_NP ._SENT 
+have_VHP proposed_VVN a_DT methodology_NN for_IN the_DT simultaneous_JJ optimization_NN of_IN the_DT shape_NN and_CC the_DT boundary_NN conditions_NNS ,_, using_VVG additional_JJ level-set_NN functions_NNS to_TO represent_VV the_DT evolving_VVG boundaries_NNS ._SENT 
+In_IN this_DT work_NN ,_, we_PP have_VHP preferred_VVN to_TO follow_VV a_DT different_JJ approach_NN that_WDT will_MD be_VB explained_VVN in_IN the_DT sequel_NN ._SENT 
+In_IN this_DT problem_NN ,_, instead_RB of_IN optimizing_VVG the_DT shape_NN of_IN the_DT acoustic_JJ domain_NN ,_, we_PP search_VVP to_TO optimally_RB distribute_VV a_DT certain_JJ quantity_NN of_IN absorbing_VVG material_NN on_IN some_DT part_NN of_IN the_DT boundary_NN ,_, e._NP g._NP on_IN the_DT lateral_JJ walls_NNS ,_, W1_JJ and_CC W3_JJ (_( see_VV Fig_NN ._SENT 
+2_LS )_) ._SENT 
+The_DT walls_NNS Wk_NN ,_, k=1,3_JJ are_VBP split_VVN into_IN the_DT subdomains_NP Wkr_NP with_IN reflecting_VVG conditions_NNS and_CC Wka_NN with_IN some_DT type_NN of_IN absorbing_VVG conditions_NNS ._SENT 
+Fig_NN ._SENT 
+2._CD Description_NN of_IN the_DT boundary_NN conditions_NNS optimization_NN problem_NN ._SENT 
+The_DT optimization_NN problem_NN now_RB reads_VVZ :_: @（14）_NN where_WRB p=pre+ipim_NP solves_VVZ the_DT following_VVG state_NN equation_NN :_: @（15）_NN In_IN order_NN to_TO avoid_VV the_DT discontinuity_NN of_IN the_DT pressure_NN gradient_NN due_JJ to_TO the_DT change_NN of_IN boundary_NN conditions_NNS on_IN ∂Wk_NN ,_, we_PP have_VHP chosen_VVN to_TO use_VV a_DT smooth_JJ interpolation_NN between_IN reflecting_VVG and_CC absorbing_VVG boundary_NN conditions_NNS ._SENT 
+We_PP propose_VVP the_DT following_VVG state_NN equation_NN :_: @（16）_NN where_WRB :_: @（17）_NP is_VBZ a_DT smoothed_VVN characteristic_JJ function_NN of_IN the_DT domain_NN Wka_NN ._SENT 
+In_IN equation_NN (_( 17_CD )_) ,_, dWka_NP corresponds_VVZ to_TO the_DT signed_VVN distance_NN function_NN of_IN the_DT domain_NN Wka_NN ,_, while_IN the_DT parameter_NN ε_NN defines_VVZ the_DT width_NN of_IN the_DT regularization_NN ._SENT 
+Herein_RB ,_, we_PP have_VHP chosen_VVN ε=2havg_NN ,_, where_WRB havg_NN corresponds_VVZ to_TO the_DT average_JJ mesh_NN size_NN ._SENT 
+The_DT same_JJ smoothing_VVG technique_NN has_VHZ been_VBN applied_VVN in_IN Ref_NN ._SENT 
+[_SYM 32_CD ]_SYM and_CC we_PP refer_VVP to_TO this_DT article_NN for_IN further_JJR details_NNS ._SENT 
+Decomposing_VVG the_DT pressure_NN magnitude_NN into_IN its_PP$ real_JJ and_CC imaginary_JJ parts_NNS ,_, we_PP obtain_VVP the_DT following_VVG set_NN of_IN coupled_VVN equations_NNS :_: @（18）_NP and_CC @（19）_NP Finally_RB ,_, the_DT smoothed_VVN optimization_NN problem_NN reads_VVZ :_: @（20）_NP Proposition_NP 3.2_CD The_DT shape_NN derivative_JJ of_IN the_DT objective_JJ function_NN in_IN (_( 20_CD )_) reads_VVZ :_: @（21）_NN where_WRB @_SYM nWka_NP stands_NNS for_IN the_DT exterior_JJ normal_JJ vector_NN to_TO the_DT domains_NNS Wka_NP ,_, ki_NP are_VBP the_DT principal_JJ curvatures_NNS of_IN the_DT boundary_NN (_( the_DT mean_JJ curvature_NN in_IN 2d_NN )_) and_CC (_( qreε_NP ,_, qimε_NP )_) solve_VV the_DT adjoint_NN equations_NNS @（22）_JJ and_CC @（23）_JJ Proof_NN ._SENT 
+See_VV Appendix_NN B._NP Remark_NN 3.4_CD We_PP emphasize_VVP on_IN the_DT fact_NN that_IN the_DT convergence_NN of_IN pε_NN to_TO p_NN when_WRB ε→0_NN is_VBZ not_RB a_DT standard_JJ result_NN and_CC shall_MD be_VB proved_VVN ._SENT 
+In_IN addition_NN ,_, it_PP is_VBZ possible_JJ that_IN the_DT smoothed_VVN state_NN equation_NN converges_VVZ to_TO the_DT original_JJ one_CD ,_, but_CC the_DT same_JJ does_VVZ not_RB hold_VV true_JJ for_IN its_PP$ shape_NN gradient_NN !_SENT 
+Therefore_RB ,_, in_IN order_NN to_TO substitute_VV the_DT original_JJ optimization_NN problem_NN with_IN its_PP$ smoothed_VVN counterpart_NN ,_, one_PP should_MD also_RB prove_VV the_DT convergence_NN of_IN the_DT shape_NN gradient_NN ,_, as_IN it_PP has_VHZ been_VBN done_VVN in_IN Ref_NN ._SENT 
+[_SYM 32_CD ]_SYM ._SENT 
+Neither_CC of_IN these_DT two_CD elements_NNS has_VHZ been_VBN considered_VVN herein_RB ._SENT 
+<Section> 4._CD S&T_JJ optimization_NN in_IN elasto-acoustics_NN problems_NNS </Section> In_IN this_DT section_NN we_PP deal_VVP with_IN elasto-acoustics_NN problems_NNS ._SENT 
+We_PP prefer_VVP to_TO treat_VV the_DT fully-coupled_JJ problem_NN instead_RB of_IN simplified_VVN cases_NNS ,_, since_IN we_PP are_VBP particularly_RB interested_JJ in_IN the_DT treatment_NN of_IN surface-dependent_JJ terms_NNS which_WDT are_VBP derived_VVN from_IN coupling_NN the_DT elastic_NN with_IN the_DT acoustic_JJ problem_NN ._SENT 
+4.1_CD ._SENT 
+Problem_NN formulation_NN Consider_VV a_DT structure_NN ,_, occupying_VVG a_DT domain_NN Ωs_NNS (_( structural_JJ domain_NN )_) ,_, that_WDT vibrates_VVZ under_IN the_DT application_NN of_IN a_DT periodic_JJ harmonic_JJ load_NN ._SENT 
+Due_JJ to_TO the_DT vibration_NN ,_, acoustic_JJ waves_NNS are_VBP transmitted_VVN inside_IN a_DT domain_NN Ωa_NN (_( acoustic_JJ domain_NN )_) ,_, enclosed_VVN by_IN the_DT structural_JJ domain_NN ._SENT 
+The_DT common_JJ boundary_NN between_IN the_DT structural_JJ and_CC the_DT acoustic_JJ domain_NN is_VBZ denoted_VVN as_IN Γas_NNS ,_, while_IN the_DT exterior_JJ boundary_NN of_IN the_DT structural_JJ domain_NN is_VBZ composed_VVN of_IN three_CD disjoint_JJ sets_NNS (_( see_VV Fig_NN ._SENT 
+3_LS )_) :_: •_JJ ΓD_NNS :_: where_WRB homogeneous_JJ Dirichlet_NN conditions_NNS are_VBP applied_VVN ,_, •_NP ΓN_NP :_: where_WRB non-homogeneous_JJ Neumann_NP conditions_NNS are_VBP applied_VVN (_( external_JJ surface_NN loads_NNS )_) ,_, •_NP Γs_NP :_: where_WRB homogeneous_JJ Neumann_NP conditions_NNS are_VBP applied_VVN (_( traction-free_JJ )_) ._SENT 
+Fig_NN ._SENT 
+3._CD Description_NN of_IN the_DT elasto-acoustics_NN problem_NN ._SENT 
+The_DT exterior_JJ unit_NN normal_JJ vector_NN to_TO the_DT domain_NN Ωs_NN is_VBZ denoted_VVN as_IN ns≡n_NP ,_, while_IN for_IN the_DT acoustic_JJ domain_NN it_PP holds_VVZ na=−ns=−n_NN ._SENT 
+The_DT steady-state_NN equation_NN reads_VVZ :_: @（24）_NN where_WRB u=ure+iuim_NP ,_, p=pre+ipim_NP and_CC f=fre+ifim_NP are_VBP the_DT complex_JJ amplitudes_NNS for_IN the_DT displacement_NN ,_, the_DT pressure_NN and_CC the_DT harmonic_JJ external_JJ load_NN ,_, A_DT is_VBZ the_DT Hooke_NP 's_POS tensor_NN ,_, ρs_NP ,_, ρa_NP are_VBP the_DT densities_NNS of_IN the_DT solid_JJ and_CC acoustic_JJ media_NNS ,_, C_NP denotes_VVZ the_DT damping_VVG function_NN for_IN the_DT structural_JJ domain_NN ,_, e(u)=12∇u+t∇u_NP is_VBZ the_DT linearized_JJ strain_NN tensor_NN and_CC ω_NN is_VBZ the_DT excitation_NN angular_JJ frequency_NN ._SENT 
+Separating_VVG the_DT real_JJ and_CC the_DT imaginary_JJ parts_NNS of_IN the_DT equation_NN ,_, we_PP come_VVP up_RP with_IN the_DT following_VVG two_CD coupled_VVN equations_NNS :_: @（25）_JJ and_CC @（26）_JJ We_PP use_VVP ,_, once_RB more_JJR ,_, the_DT sound_JJ pressure_NN as_IN objective_JJ function_NN ,_, i._NP e._NP the_DT elasto-acoustics_NN optimization_NN problem_NN reads_VVZ :_: @（27）_NP 4.2_CD ._SENT 
+Shape_NN derivation_NN Proposition_NP 4.1_CD The_DT shape_NN derivative_JJ of_IN the_DT objective_JJ function_NN in_IN (_( 27_CD )_) reads_VVZ :_: @（28）_NN where_WRB (_( vre_NP ,_, vim_NN )_) ,_, (_( qre_NP ,_, qim_NP )_) solve_VV the_DT following_VVG coupled_VVN adjoint_NN system_NN :_: @（29）_JJ and_CC @（30）_JJ Proof_NN ._SENT 
+We_PP define_VV the_DT Lagrangian_JJ function_NN @（31）_NN where_WRB ure_NNS ,_, uim_NP ,_, vre_NP ,_, vim_NN ,_, λre_NP ,_, λim∈H1(Rd)d_NN and_CC pre_NN ,_, pim_NP ,_, qre_NP ,_, qim∈H1(Rd_NP )_) ._SENT 
+We_PP fix_VV Ωs_NNS and_CC consider_VV the_DT optimality_NN conditions_NNS for_IN the_DT Lagrangian_JJ L_NP at_IN the_DT optimal_JJ point_NN (_( Ωs_NP ,_, ure∗_NP ,_, uim∗_NP ,_, vre∗_NP ,_, vim∗_NP ,_, pre∗_NP ,_, pim∗_NP ,_, qre∗_NP ,_, qim∗_NP ,_, λre∗_NP ,_, λim∗_NP )_) ._SENT 
+First_RB ,_, setting_VVG the_DT partial_JJ derivatives_NNS of_IN L_NP with_IN respect_NN to_TO vre_NP ,_, vim_NN ,_, qre_NP ,_, qim_NP ,_, λre_NP and_CC λim_NP in_IN an_DT arbitrary_JJ direction_NN ϕ_NN ,_, equal_JJ to_TO zero_VV ,_, it_PP is_VBZ easy_JJ to_TO verify_VV that_IN (_( ure∗_NP ,_, uim∗_NP )_) and_CC (_( pre∗_NP ,_, pim∗_NP )_) are_VBP the_DT unique_JJ solutions_NNS of_IN equations_NNS (_( 25_CD )_) ,_, (_( 26_CD )_) ._SENT 
+Integrating_VVG by_IN parts_NNS ,_, the_DT Lagrangian_JJ L_NP rewrites_NNS as_RB :_: @（32）_JJ Integrating_VVG once_RB more_JJR by_IN parts_NNS ,_, we_PP obtain_VVP :_: @（33）_NP Setting_NP the_DT partial_JJ derivative_NN of_IN L_NP in_IN (_( 33_CD )_) with_IN respect_NN to_TO ure_VV ,_, in_IN an_DT arbitrary_JJ direction_NN ϕ_NN ,_, equal_JJ to_TO zero_VV at_IN the_DT optimal_JJ point_NN ,_, we_PP obtain_VVP the_DT following_VVG equations_NNS :_: @（34）_NP and_CC @（35）_NP Then_RB ,_, setting_VVG the_DT partial_JJ derivative_NN of_IN L_NP with_IN respect_NN to_TO uim_VV equal_JJ to_TO zero_VV ,_, we_PP obtain_VVP :_: @（36）_NP and_CC @（37）_NP Setting_NP the_DT partial_JJ derivative_NN of_IN L_NP with_IN respect_NN to_TO pre_NN ,_, we_PP obtain_VVP :_: @（38）_JJ and_CC ,_, finally_RB ,_, setting_VVG the_DT partial_JJ derivative_NN of_IN L_NP with_IN respect_NN to_TO pim_VV equal_JJ to_TO zero_VV ,_, we_PP get_VVP :_: @（39）_JJ Therefore_RB ,_, from_IN equations_NNS (_( 34_CD )_) ,_, (_( 35_CD )_) ,_, (_( 36_CD )_) ,_, (_( 37_CD )_) ,_, (_( 38_CD )_) ,_, (_( 39_CD )_) ,_, we_PP can_MD verify_VV that_IN (_( vre∗_NP ,_, vim∗_NP )_) and_CC (_( qre∗_NP ,_, qim∗_NP )_) are_VBP the_DT unique_JJ solutions_NNS of_IN the_DT adjoint_NN states_NNS (_( 29_CD )_) ,_, (_( 30_CD )_) ._SENT 
+Starting_VVG from_IN equation_NN (_( 32_CD )_) ,_, we_PP are_VBP ready_JJ now_RB to_TO compute_VV the_DT shape_NN derivative_JJ of_IN (_( 27_CD )_) ._SENT 
+For_IN simplicity_NN of_IN the_DT presentation_NN ,_, we_PP assume_VVP that_IN the_DT parts_NNS ΓD_NN ,_, ΓN_NP and_CC Ωtar_NP are_VBP non-optimizable_JJ ,_, i._NP e._NP θ=0onΓD∪ΓN∪∂Ωtar_NP ._SENT 
+We_PP emphasize_VVP that_IN the_DT integrals_NNS posed_VVN on_IN Γas_NNS in_IN (_( 32_CD )_) contain_VVP shape-dependent_JJ integrands_NNS ,_, due_JJ to_TO the_DT appearance_NN of_IN the_DT exterior_JJ normal_JJ vector_NN n._NN Thus_RB ,_, the_DT shape_NN derivative_JJ of_IN these_DT terms_NNS shall_MD also_RB appear_VV in_IN the_DT shape_NN derivation_NN of_IN these_DT integrals_NNS (_( see_VV [_SYM 1_CD ]_SYM for_IN more_JJR details_NNS )_) ._SENT 
+This_DT detail_NN has_VHZ been_VBN neglected_VVN in_RB [_SYM 28_CD ]_SYM and_CC is_VBZ here_RB accounted_VVN for_IN ._SENT 
+An_DT easy_JJ way_NN to_TO overcome_VV this_DT difficulty_NN is_VBZ to_TO use_VV Green’s_JJ theorem_NN and_CC rewrite_VV the_DT Lagrangian_JJ (_( 32_CD )_) as_IN :_: @（40）_JJ In_IN (_( 40_CD )_) ,_, there_EX is_VBZ no_DT dependence_NN of_IN the_DT involved_VVN integrands_NNS on_IN Ωs_NNS ,_, therefore_RB using_VVG classical_JJ theorems_NNS of_IN shape_NN derivation_NN (_( see_VV [_SYM 11_CD ]_SYM )_) we_PP obtain_VV that_DT :_: @（41）_NN which_WDT concludes_VVZ the_DT Proof_NN ._SENT 
+Remark_NN 4.1_CD There_EX is_VBZ an_DT alternative_JJ way_NN for_IN performing_VVG the_DT shape_NN derivation_NN in_IN (_( 4.2_CD )_) ._SENT 
+In_IN fact_NN ,_, it_PP amounts_VVZ to_TO use_VV the_DT shape_NN derivative_JJ of_IN the_DT exterior_JJ normal_JJ vector_NN ._SENT 
+In_IN this_DT case_NN ,_, starting_VVG from_IN the_DT expression_NN (_( 32_CD )_) ,_, we_PP obtain_VVP :_: @（42）_NN where_WRB H(s_NPS )_) is_VBZ the_DT mean_JJ curvature_NN and_CC ∂n(s)∂Ω(θ(s))=−∇s(θ(s)⋅n(s_NNS )_) )_) ,_, ∀s∈∂Ω_NP ,_, ∇s_NNS denoting_VVG the_DT tangential_JJ gradient_NN ._SENT 
+The_DT expression_NN (_( 42_CD )_) is_VBZ not_RB in_IN the_DT classical_JJ Hadamard_NN form_NN (_( 3_CD )_) and_CC thus_RB a_DT descent_NN direction_NN cannot_MD be_VB directly_RB obtained_VVN ._SENT 
+We_PP refer_VVP to_TO Section_NP 4.3_CD in_RB [_SYM 45_CD ]_SYM about_IN how_WRB to_TO derive_VV a_DT descent_NN direction_NN in_IN a_DT similar_JJ case_NN ._SENT 
+In_IN this_DT work_NN ,_, we_PP have_VHP used_VVN instead_RB the_DT explicit_JJ expression_NN (_( 28_CD )_) ._SENT 
+Of_IN course_NN ,_, the_DT two_CD formulations_NNS are_VBP equivalent_JJ from_IN a_DT theoretical_JJ point_NN of_IN view_NN ,_, as_IN we_PP shall_MD prove_VV in_IN the_DT sequel_NN of_IN this_DT remark_NN ._SENT 
+First_RB ,_, using_VVG an_DT integration_NN by_IN parts_NNS formula_NN ,_, we_PP get_VVP :_: @（43）_NN Using_VVG the_DT identity_NN :_: ∇s⋅()=∇⋅()−∂()∂nn=∇⋅()−∇()n⋅n_NP ,_, we_PP obtain_VVP :_: @（44）_NN Substituting_VVG (_( 44_CD )_) in_IN (_( 43_CD )_) ,_, we_PP get_VVP :_: @（45）_NN Substituting_VVG the_DT expression_NN (_( 45_CD )_) in_IN (_( 42_CD )_) ,_, the_DT expression_NN @_SYM Following_VVG the_DT same_JJ procedure_NN ,_, it_PP is_VBZ easy_JJ to_TO show_VV that_DT :_: @_SYM and_CC thus_RB :_: @_SYM which_WDT concludes_VVZ the_DT Proof_NN of_IN equivalence_NN for_IN the_DT two_CD methods_NNS ._SENT 
+<Section> 5._CD Numerical_JJ implementation_NN </Section> In_IN this_DT section_NN ,_, we_PP provide_VVP some_DT more_RBR detailed_JJ information_NN concerning_VVG the_DT numerical_JJ implementation_NN of_IN the_DT above_JJ methods_NNS that_WDT have_VHP been_VBN used_VVN to_TO obtain_VV the_DT numerical_JJ results_NNS in_IN section_NN 6._CD The_DT mechanical_JJ analysis_NN for_IN both_DT acoustics_NN and_CC elasto-acoustics_NN problems_NNS has_VHZ been_VBN coded_VVN in_IN FreeFem++_NP ._SENT 
+For_IN the_DT level-set_JJ machinery_NN ,_, i._NP e._NP the_DT advection_NN and_CC redistanciation_NN functions_NNS ,_, we_PP have_VHP used_VVN the_DT functions_NNS of_IN C._NP Dapogny_NP and_CC P._NP Frey_NP ,_, freely_RB downloadable_JJ athttp_NN :_: //www-ljk_NN ._SENT 
+imag_NP ._SENT 
+fr/membres/Charles_NP ._SENT 
+Dapogny/software_NP ._SENT 
+html_NP ,_, whose_WP$ kind_NN permission_NN is_VBZ greatly_RB acknowledged_VVN ._SENT 
+5.1_CD ._SENT 
+Optimization_NN algorithm_NN For_IN all_DT examples_NNS herein_RB ,_, a_DT simple_JJ gradient-descent_JJ algorithm_NN with_IN volume_NN projection_NN has_VHZ been_VBN coded_VVN in_IN FreeFem++_NP ._SENT 
+At_IN each_DT iteration_NN k_NN ,_, the_DT current_JJ shape_NN Ωk_NN is_VBZ advected_VVN in_IN the_DT direction_NN of_IN the_DT shape_NN gradient_NN J′(Ωk_NN )_) for_IN a_DT descent_NN step_NN hk_NN ,_, resulting_VVG in_IN a_DT new_JJ test_NN shape_NN Ωk+1_NN ._SENT 
+Then_RB ,_, the_DT shape_NN is_VBZ updated_VVN if_IN J(Ωk+1)<J(Ωk_NP )_) ,_, else_RB the_DT descent_NN step_NN is_VBZ reduced_VVN ._SENT 
+In_IN order_NN to_TO avoid_VV being_VBG stuck_VVN at_IN local_JJ minima_NN ,_, mainly_RB due_JJ to_TO the_DT occurence_NN of_IN topological_JJ changes_NNS that_WDT are_VBP not_RB considered_VVN via_IN the_DT shape_NN sensitivity_NN analysis_NN ,_, we_PP modify_VV the_DT previous_JJ acceptance_NN criterion_NN for_IN the_DT first_JJ iterations_NNS as_IN J(Ωk+1)<(1+δ)J(Ωk_NP )_) ,_, where_WRB δ≈0.1_JJ ._SENT 
+The_DT algorithm_NN stops_VVZ after_IN a_DT maximum_JJ number_NN of_IN iterations_NNS has_VHZ been_VBN exceeded_VVN ._SENT 
+For_IN the_DT volume_NN projection_NN ,_, we_PP have_VHP implemented_VVN a_DT simple_JJ and_CC efficient_JJ idea_NN from_IN Ref_NN ._SENT 
+[_SYM 48_CD ]_SYM for_IN keeping_VVG at_IN each_DT iteration_NN the_DT volume_NN of_IN the_DT initial_JJ shape_NN V0_NN ._SENT 
+After_IN the_DT level-set_JJ advection_NN ,_, having_VHG obtained_VVN a_DT new_JJ level-set_NN function_NN ϕk+1_JJ and_CC thus_RB a_DT new_JJ shape_NN Ωk+1_NN ,_, we_PP create_VVP a_DT sequence_NN of_IN shapes_NNS Ωnk+1_JJ by_IN applying_VVG iteratively_RB the_DT relation_NN ϕn+1k+1=ϕnk+V(Ωnk)−V0P(Ωnk_NN )_) ,_, which_WDT (_( grossly_RB speaking_VVG )_) consists_VVZ of_IN adding_VVG or_CC removing_VVG a_DT strip_NN of_IN thickness_NN V(Ωnk)−V0P(Ωnk_NNS )_) until_IN reaching_VVG a_DT predefined_JJ precision_NN of_IN the_DT order_NN of_IN 1_CD %_NN ._SENT 
+5.2_CD ._SENT 
+Shape_NN gradient_NN extension_NN and_CC regularization_NN The_DT extension_NN and_CC regularization_NN of_IN the_DT shape_NN gradient_NN is_VBZ a_DT classical_JJ element_NN in_IN topology_NN optimization_NN using_VVG sensitivity_NN analysis_NN ._SENT 
+We_PP remind_VVP that_IN the_DT shape_NN gradient_NN is_VBZ a_DT priori_NN defined_VVN only_RB on_IN the_DT boundary_NN ∂Ω_NN ._SENT 
+Keeping_VVG this_DT representation_NN ,_, only_RB small_JJ steps_NNS can_MD be_VB performed_VVN ._SENT 
+Many_JJ ways_NNS have_VHP been_VBN proposed_VVN in_IN the_DT literature_NN so_RB as_RB to_TO extend_VV the_DT velocity_NN in_IN the_DT whole_JJ computational_JJ domain_NN ,_, while_IN also_RB regularizing_VVG it_PP for_IN a_DT better_RBR numerical_JJ performance_NN (_( see_VV Ref_NN ._SENT 
+[_SYM 49_CD ]_SYM )_) ._SENT 
+Considering_VVG only_RB the_DT normal_JJ trace_VV of_IN the_DT shape_NN gradient_NN w=θ⋅n_NP ,_, the_DT general_JJ idea_NN consists_VVZ in_IN solving_VVG the_DT variational_JJ problem_NN :_: @_SYM then_RB choosing_VVG w=θ⋅n=−V_NP ,_, which_WDT still_RB guarantees_VVZ a_DT descent_NN direction_NN since_RB @_SYM Different_JJ choices_NNS can_MD be_VB made_VVN for_IN the_DT approximation_NN of_IN the_DT right-hand_JJ side_NN @（46）_NN A_DT first_JJ choice_NN is_VBZ to_TO reconstruct_VV the_DT level-set_JJ iso-zero_NN from_IN the_DT elements_NNS cut_VVN by_IN the_DT zero_CD level-set_NN ,_, then_RB apply_VV a_DT quadrature_NN formula_NN for_IN the_DT approximation_NN of_IN the_DT surface_NN integral_JJ (_( 46_CD )_) ._SENT 
+Such_PDT a_DT reconstruction_NN is_VBZ standard_JJ in_IN literature_NN ,_, using_VVG for_IN example_NN a_DT type_NN of_IN marching-cubes_NNS algorithm_NN [_SYM 50,51_CD ]_SYM and_CC FreeFem++_NP already_RB provides_VVZ the_DT possibility_NN to_TO integrate_VV on_IN the_DT iso-zero_NN of_IN some_DT function_NN ._SENT 
+A_DT second_JJ choice_NN is_VBZ to_TO approximate_VV the_DT surface_NN integral_JJ with_IN a_DT sort_NN of_IN surface_NN Dirac_NP function_NN ,_, as_RB proposed_VVN in_IN Ref_NN ._SENT 
+[_SYM 11_CD ]_SYM ._SENT 
+In_IN this_DT case_NN ,_, the_DT approximation_NN @（47）_NN is_VBZ used_VVN ,_, which_WDT allows_VVZ for_IN an_DT easier_JJR numerical_JJ computation_NN of_IN the_DT integral_JJ ._SENT 
+Surprisingly_RB enough_RB ,_, we_PP have_VHP observed_VVN that_IN the_DT approximation_NN using_VVG the_DT surface_NN Dirac_NP works_VVZ better_RBR then_RB the_DT surface_NN integral_JJ approximation_NN ,_, although_IN the_DT latter_NN shall_MD be_VB more_RBR accurate_JJ ._SENT 
+However_RB ,_, we_PP have_VHP observed_VVN that_IN even_RB the_DT surface_NN dirac_NN approximation_NN is_VBZ not_RB quite_RB smooth_JJ ,_, giving_VVG rise_NN to_TO surface_VV oscillations_NNS and_CC poor_JJ convergence_NN rate_NN ._SENT 
+Instead_RB ,_, we_PP have_VHP found_VVN that_IN solving_VVG the_DT equation_NN @（48）_NN then_RB choosing_VVG w=θ⋅n=−V_NP ,_, gives_VVZ better_JJR results_NNS in_IN terms_NNS of_IN objective_JJ function_NN and_CC convergence_NN rate_NN ._SENT 
+In_IN Fig_NN ._SENT 
+4_LS ,_, we_PP show_VVP the_DT different_JJ velocities_NNS that_WDT correspond_VV to_TO all_PDT these_DT choices_NNS for_IN the_DT initialization_NN that_WDT appears_VVZ in_IN Fig_NN ._SENT 
+6._CD Fig_NN ._SENT 
+4._CD (_( a_DT )_) :_: shape_VV gradient_NN in_IN D_NP ;_: regularized_VVN gradient_NN using_VVG (_( b_LS )_) :_: the_DT surface_NN integral_JJ computation_NN ;_: (_( c_LS )_) :_: the_DT surface_NN dirac_NN approximation_NN (_( 47_CD )_) ;_: (_( d_LS )_) :_: the_DT volumetric_JJ approximation_NN (_( 48_CD )_) ._SENT 
+5.3_CD ._SENT 
+Mesh_NN adaptation_NN For_IN all_DT examples_NNS herein_RB ,_, we_PP have_VHP used_VVN a_DT fixed_VVN mesh_NN for_IN the_DT shape_NN description_NN throughout_IN the_DT optimization_NN process_NN (_( for_IN an_DT adapted_VVN mesh_NN technique_NN we_PP refer_VVP to_TO [_SYM 10,13_CD ]_SYM )_) ._SENT 
+In_IN order_NN to_TO improve_VV the_DT accuracy_NN in_IN the_DT computation_NN of_IN the_DT direct_JJ and_CC adjoint_NN states_NNS ,_, thus_RB also_RB the_DT accuracy_NN in_IN the_DT computation_NN of_IN the_DT shape_NN gradient_NN ,_, we_PP have_VHP used_VVN the_DT “_NP adaptmesh_NP ”_JJ function_NN of_IN FreeFem++_NP ._SENT 
+After_IN the_DT mesh_NN adaptation_NN and_CC the_DT computation_NN of_IN the_DT direct_JJ and_CC adjoint_NN states_NNS ,_, the_DT solutions_NNS are_VBP back-projected_VVN onto_IN the_DT initial_JJ fixed_VVN mesh_NN ,_, where_WRB the_DT shape_NN gradient_NN is_VBZ finally_RB calculated_VVN ._SENT 
+We_PP have_VHP observed_VVN numerically_RB that_IN this_DT strategy_NN provides_VVZ better_JJR results_NNS in_IN terms_NNS of_IN objective_JJ function_NN than_IN performing_VVG all_DT computations_NNS on_IN the_DT initial_JJ fixed_VVN mesh_NN ._SENT 
+For_IN both_DT acoustics_NN and_CC elasto-acoustics_NN examples_NNS ,_, we_PP prefer_VVP to_TO create_VV a_DT finer_JJR mesh_NN closer_RBR to_TO the_DT level-set_JJ iso-zero_NN ,_, as_RB well_RB as_IN to_TO the_DT boundary_NN of_IN the_DT target_NN area_NN (_( see_VV Fig_NN ._SENT 
+5_LS )_) ._SENT 
+The_DT adaptation_NN closer_RBR to_TO the_DT level-set_NN iso-zero_NN helps_VVZ improving_VVG the_DT shape_NN gradient_NN calculation_NN ,_, while_IN having_VHG a_DT finer_JJR mesh_NN close_NN to_TO the_DT target_NN area_NN ,_, where_WRB the_DT adjoint_NN pseudo-loads_NNS are_VBP applied_VVN ,_, allows_VVZ for_IN a_DT more_RBR accurate_JJ computation_NN of_IN the_DT adjoint_NN ,_, as_RB well_RB as_IN of_IN the_DT objective_JJ function_NN ._SENT 
+Fig_NN ._SENT 
+5._CD (_( a_DT )_) :_: shape_VV (_( in_IN black_JJ )_) ;_: (_( b_LS )_) :_: initial_JJ mesh_NN ;_: (_( c_LS )_) :_: adapted_VVN mesh_NN ._SENT 
+Fig_NN ._SENT 
+6._CD Initialization_NN for_IN the_DT 2d_JJ room_NN ._SENT 
+5.4_CD ._SENT 
+Boundary_NN conditions_NNS optimization_NN The_DT optimization_NN of_IN boundary_NN conditions_NNS in_IN three-dimensions_NNS does_VVZ not_RB involve_VV any_DT specific_JJ difficulty_NN in_IN FreeFem++_NP ._SENT 
+For_IN every_DT optimizable_JJ boundary_NN ,_, we_PP have_VHP defined_VVN a_DT level-set_JJ function_NN in_IN two-dimensions_NNS that_WDT serves_VVZ to_TO separate_VV between_IN the_DT reflecting_VVG and_CC the_DT absorbing_VVG boundaries_NNS ._SENT 
+Then_RB ,_, the_DT solution_NN of_IN the_DT mechanical_JJ problem_NN is_VBZ done_VVN in_IN three-dimensions_NNS ,_, while_IN the_DT operations_NNS related_VVN to_TO the_DT shape_NN gradient_NN and_CC advection_NN take_VVP place_NN in_IN the_DT two-dimensional_JJ boundaries_NNS ._SENT 
+<Section> 6._CD Numerical_JJ results_NNS </Section> We_PP now_RB present_VV a_DT selection_NN of_IN case_NN studies_NNS to_TO illustrate_VV the_DT proposed_VVN methodologies_NNS ._SENT 
+6.1_CD ._SENT 
+Internal_JJ acoustics_NNS 6.1.1_CD ._SENT 
+2D_JJ room_NN The_DT first_JJ example_NN of_IN internal_JJ acoustics_NN problems_NNS is_VBZ a_DT two-dimensional_JJ rectangular_JJ room_NN of_IN dimensions_NNS 18m×9m_NN ._SENT 
+The_DT optimization_NN problem_NN is_VBZ similar_JJ to_TO the_DT one_CD presented_VVN in_IN Fig_NN ._SENT 
+1._CD Acoustic_JJ waves_NNS are_VBP produced_VVN due_RB to_TO the_DT vibration_NN of_IN a_DT source_NN in_IN a_DT small_JJ region_NN at_IN the_DT lower-left_NN part_NN of_IN the_DT room_NN ._SENT 
+We_PP search_VVP to_TO optimize_VV the_DT ceiling_NN in_IN order_NN to_TO reduce_VV the_DT acoustic_JJ pressure_NN at_IN a_DT target_NN region_NN located_VVN at_IN the_DT lower-right_JJ part_NN ._SENT 
+The_DT design_NN domain_NN is_VBZ of_IN dimensions_NNS 18m×1m_NN and_CC all_DT boundaries_NNS are_VBP assumed_VVN to_TO be_VB reflecting_VVG ._SENT 
+The_DT acoustic_JJ domain_NN is_VBZ occupied_VVN by_IN air_NN with_IN density_NN ρa=1.204kg/m3_NN and_CC bulk_NN modulus_NN κa=141.921⋅103N/m2_NN ,_, while_IN for_IN the_DT solid_JJ part_NN the_DT corresponding_JJ values_NNS are_VBP ρs=2643.0kg/m3_JJ ,_, κs=6.87⋅1010N/m2_JJ ._SENT 
+The_DT velocity_NN amplitude_NN of_IN the_DT acoustic_JJ source_NN is_VBZ taken_VVN as_IN V=0.01m/s_NP ._SENT 
+For_IN all_PDT the_DT results_NNS of_IN this_DT example_NN ,_, a_DT half-domain_NP initialization_NN (_( see_VV Fig_NN ._SENT 
+6_CD )_) and_CC a_DT triangular_JJ mesh_NN composed_VVN of_IN 22905_CD P1_JJ elements_NNS have_VHP been_VBN used_VVN ._SENT 
+First_RB ,_, we_PP solve_VV the_DT optimization_NN problem_NN (_( 5_CD )_) for_IN four_CD different_JJ excitation_NN frequencies_NNS of_IN the_DT acoustic_JJ source_NN ._SENT 
+The_DT initial_JJ and_CC optimized_VVN pressure_NN norm_NN distribution_NN ,_, as_RB well_RB as_IN the_DT corresponding_JJ shapes_NNS (_( in_IN dark_JJ black_JJ color_NN )_) ,_, for_IN all_DT frequencies_NNS ,_, are_VBP shown_VVN in_IN Fig_NN ._SENT 
+7._CD One_CD may_MD remark_VV the_DT great_JJ uniform_JJ pressure_NN reduction_NN for_IN the_DT case_NN of_IN f=ω2π=51.84Hz_NP ._SENT 
+In_IN fact_NN ,_, this_DT value_NN is_VBZ very_RB close_JJ to_TO an_DT eigenfrequency_NN of_IN the_DT initial_JJ shape_NN of_IN value_NN 51.881Hz_NP ._SENT 
+During_IN the_DT optimization_NN ,_, the_DT eigenfrequencies_NNS of_IN the_DT shape_NN tend_VVP to_TO depart_VV from_IN the_DT excitation_NN frequency_NN ,_, resulting_VVG in_IN a_DT great_JJ reduction_NN of_IN the_DT pressure_NN norm_NN ._SENT 
+Fig_NN ._SENT 
+7._CD Pressure_NN norm_NN for_IN the_DT initial_JJ (_( left_JJ )_) and_CC optimized_VVN (_( right_NN )_) shapes_VVZ for_IN (_( a_DT )_) :_: f=17.28Hz_NP ;_: (_( b_LS )_) :_: f=34.56Hz_NP ;_: (_( c_LS )_) :_: f=51.84Hz_NP ;_: (_( d_LS )_) :_: f=69.12Hz_NP ._SENT 
+The_DT shape_NN is_VBZ plotted_VVN in_IN dark_JJ black_JJ color_NN ._SENT 
+In_IN addition_NN ,_, as_IN expected_VVN ,_, one_PP observes_VVZ that_IN the_DT optimized_VVN shapes_NNS are_VBP strongly_RB dependent_JJ on_IN the_DT excitation_NN frequency_NN ._SENT 
+One_CD way_NN to_TO obtain_VV more_JJR robust_JJ solutions_NNS is_VBZ to_TO optimize_VV simultaneously_RB for_IN more_JJR than_IN one_CD excitation_NN frequencies_NNS ._SENT 
+In_IN Fig_NN ._SENT 
+8_CD ,_, Fig_NN ._SENT 
+9_CD ,_, we_PP show_VVP the_DT results_NNS for_IN two_CD such_JJ cases_NNS :_: the_DT first_JJ one_CD for_IN f=17.28,34.56Hz_NP and_CC the_DT second_JJ one_CD for_IN f=34.56,69.12Hz_NP ._SENT 
+One_PP can_MD see_VV that_IN the_DT optimized_VVN shapes_NNS contain_VVP features_NNS from_IN both_DT single-frequency_NN solutions_NNS ._SENT 
+The_DT convergence_NN diagrams_VVZ for_IN all_DT cases_NNS are_VBP shown_VVN in_IN Fig_NN ._SENT 
+10._CD Fig_NN ._SENT 
+8._CD Pressure_NN norm_NN for_IN the_DT initial_JJ (_( left_JJ )_) and_CC optimized_VVN (_( right_NN )_) shape_NN for_IN (_( a_DT )_) :_: f=17.28Hz_NP ;_: (_( b_LS )_) :_: f=34.56Hz_NP ._SENT 
+The_DT shape_NN is_VBZ plotted_VVN in_IN dark_JJ black_JJ color_NN ._SENT 
+Fig_NN ._SENT 
+9._CD Pressure_NN norm_NN for_IN the_DT initial_JJ (_( left_JJ )_) and_CC optimized_VVN (_( right_NN )_) shape_NN for_IN (_( a_DT )_) :_: f=34.56Hz_NP ;_: (_( b_LS )_) :_: f=69.12Hz_NP ._SENT 
+The_DT shape_NN is_VBZ plotted_VVN in_IN dark_JJ black_JJ color_NN ._SENT 
+Fig_NN ._SENT 
+10._CD Convergence_NN diagram_NN (_( logarithmic_JJ scale_NN )_) for_IN the_DT results_NNS of_IN Fig_NN ._SENT 
+7_CD ,_, Fig_NN ._SENT 
+8_CD ,_, Fig_NN ._SENT 
+9._CD 6.1.2_CD ._SENT 
+3D_JJ room_NN In_IN this_DT example_NN ,_, we_PP extend_VVP the_DT previous_JJ test-case_NN to_TO three_CD dimensions_NNS ._SENT 
+The_DT working_NN and_CC the_DT design_NN domains_NNS are_VBP of_IN size_NN 18m×9m×9m_NN and_CC 18m×9m×2m_NN correspondingly_RB ._SENT 
+For_IN the_DT acoustics_NN analysis_NN ,_, a_DT symmetry_NN condition_NN has_VHZ been_VBN defined_VVN and_CC the_DT half-domain_NN is_VBZ discretized_VVN by_IN 13452_CD P1_JJ tetrahedra_NN ._SENT 
+All_DT input_NN parameters_NNS are_VBP the_DT same_JJ as_RB in_IN the_DT two-dimensional_JJ case_NN ._SENT 
+The_DT initialization_NN and_CC the_DT optimized_VVN shapes_NNS for_IN four_CD excitation_NN frequencies_NNS (_( same_JJ as_IN before_RB )_) are_VBP shown_VVN in_IN Fig_NN ._SENT 
+11_CD ,_, Fig_NN ._SENT 
+12_CD (_( the_DT shapes_NNS are_VBP plotted_VVN upside-down_RB for_IN a_DT better_JJR view_NN )_) ._SENT 
+The_DT convergence_NN diagrams_NNS are_VBP shown_VVN in_IN Fig_NN ._SENT 
+13._CD Remark_NN 6.1_CD In_IN this_DT “_JJ 3D_NN room_NN ”_JJ test_NN case_NN ,_, we_PP use_VVP a_DT symmetry_NN to_TO reduce_VV the_DT size_NN of_IN the_DT computational_JJ domain_NN ,_, and_CC thus_RB the_DT CPU_NN cost_NN ._SENT 
+Of_IN course_NN ,_, this_DT simplification_NN eliminates_VVZ all_DT eigenmodes_NNS which_WDT are_VBP antisymmetric_JJ in_IN the_DT full_JJ domain_NN and_CC ,_, furthermore_RB ,_, induces_VVZ the_DT symmetry_NN of_IN the_DT solutions_NNS of_IN the_DT PDEs_NNS involved_VVD ._SENT 
+The_DT optimal_JJ structures_NNS may_MD have_VH been_VBN different_JJ if_IN we_PP did_VVD not_RB use_VV such_PDT a_DT symmetry_NN assumption_NN ._SENT 
+Fig_NN ._SENT 
+11._CD Initialization_NN for_IN the_DT 3d_JJ room_NN ._SENT 
+Fig_NN ._SENT 
+12._CD Optimized_VVN shapes_NNS for_IN the_DT 3d_JJ room_NN :_: (_( a_DT )_) :_: f=17.28Hz_NP ;_: (_( b_LS )_) :_: f=34.56Hz_NP ;_: (_( c_LS )_) :_: f=51.84Hz_NP ;_: (_( d_LS )_) :_: f=69.12Hz_NP ._SENT 
+Fig_NN ._SENT 
+13._CD Convergence_NN diagram_NN (_( logarithmic_JJ scale_NN )_) for_IN the_DT results_NNS of_IN Fig_NN ._SENT 
+12._CD 6.2_CD ._SENT 
+Optimization_NN of_IN boundary_NN conditions_NNS We_PP consider_VVP now_RB the_DT same_JJ three-dimensional_JJ room_NN ,_, but_CC instead_RB of_IN optimizing_VVG the_DT shape_NN of_IN its_PP$ ceiling_NN ,_, we_PP search_VVP to_TO distribute_VV a_DT specific_JJ quantity_NN of_IN absorbing_VVG material_NN on_IN its_PP$ upper_JJ surface_NN ._SENT 
+More_RBR specifically_RB ,_, we_PP suppose_VVP that_IN the_DT upper_JJ surface_NN is_VBZ divided_VVN into_IN two_CD parts_NNS :_: one_CD part_NN (_( in_IN white_JJ )_) on_IN which_WDT acoustic_JJ waves_NNS are_VBP reflected_VVN and_CC another_DT part_NN (_( in_IN black_JJ )_) having_VHG a_DT non-zero_NP acoustic_JJ impedance_NN (_( see_VV equation_NN (_( 15_CD )_) )_) ._SENT 
+The_DT optimization_NN problem_NN as_RB well_RB as_IN all_DT parameters_NNS are_VBP the_DT same_JJ with_IN section_NN 6.1.2_CD ._SENT 
+For_IN the_DT shape_NN derivative_JJ ,_, we_PP have_VHP used_VVN the_DT Jacobian-free_JJ expression_NN of_IN (_( 21_CD )_) ,_, which_WDT consists_VVZ in_IN the_DT following_VVG approximation_NN (_( see_VV Ref_NN ._SENT 
+[_SYM 32_CD ]_SYM )_) :_: Jε′(Wka)(θ)≈∫∂Wka−θ⋅nWka∫rays(s)hε′(dWka)preεqimε−pimεqreεdxds_NNS ._SENT 
+Starting_VVG from_IN an_DT initial_JJ distribution_NN of_IN this_DT absorbing_VVG material_NN that_WDT appears_VVZ in_IN Fig_NN ._SENT 
+14_CD (_( a_DT )_) ,_, the_DT optimized_VVN distributions_NNS for_IN two_CD different_JJ excitation_NN frequencies_NNS appear_VVP in_IN Fig_NN ._SENT 
+14_CD (_( b_LS )_) and_CC (_( c_LS )_) ._SENT 
+The_DT convergence_NN diagrams_NNS are_VBP plotted_VVN in_IN Fig_NN ._SENT 
+15._CD Fig_NN ._SENT 
+14._CD Optimization_NP of_IN boundary_NN conditions_NNS in_IN a_DT three-dimensional_JJ room_NN :_: (_( a_DT )_) :_: initialization_NN ;_: optimized_VVN shapes_NNS for_IN (_( b_LS )_) :_: f=20Hz_NP ;_: (_( c_LS )_) :_: f=34.56Hz_NP ._SENT 
+Fig_NN ._SENT 
+15._CD Convergence_NN diagram_NN for_IN the_DT results_NNS of_IN Fig_NN ._SENT 
+14._CD 6.3_CD ._SENT 
+External_JJ acoustics_NNS We_PP consider_VVP now_RB a_DT test-case_NN for_IN external_JJ acoustics_NNS ,_, similar_JJ to_TO the_DT one_CD presented_VVN in_IN Ref_NN ._SENT 
+[_SYM 19_CD ]_SYM ._SENT 
+We_PP search_VVP to_TO optimally_RB design_VV a_DT two-dimensional_JJ sound-barrier_NN ,_, so_RB as_RB to_TO minimize_VV the_DT acoustic_JJ pressure_NN at_IN a_DT target_NN region_NN on_IN its_PP$ right_JJ side_NN ,_, due_JJ to_TO acoustic_JJ waves_NNS produced_VVN by_IN an_DT acoustic_JJ source_NN on_IN its_PP$ left_JJ side_NN ._SENT 
+The_DT working_VVG domain_NN is_VBZ a_DT semi-circular_JJ disc_NN of_IN radius_NN 7m_NN ,_, discretized_VVN with_IN 12413_CD triangles_NNS ._SENT 
+The_DT bottom_JJ surface_NN is_VBZ assumed_VVN to_TO be_VB reflecting_VVG ,_, while_IN for_IN the_DT external_JJ boundary_NN a_DT relation_NN that_WDT respects_VVZ the_DT Sommerfield_NP radiation_NN condition_NN has_VHZ been_VBN considered_VVN (_( n⋅∇p=iω̃p_NN )_) ._SENT 
+The_DT acoustic_JJ source_NN vibrates_VVZ with_IN velocity_NN amplitude_NN V=0.01m/s_NNS ._SENT 
+The_DT material_NN properties_NNS of_IN the_DT acoustic_JJ and_CC solid_JJ domains_NNS are_VBP the_DT same_JJ as_RB in_IN the_DT previous_JJ examples_NNS ._SENT 
+The_DT initial_JJ and_CC optimized_VVN shapes_NNS and_CC pressure_NN fields_NNS ,_, for_IN four_CD different_JJ excitation_NN frequencies_NNS ,_, are_VBP shown_VVN in_IN Fig_NN ._SENT 
+16._CD Fig_NN ._SENT 
+16._CD Pressure_NN norm_NN for_IN the_DT initial_JJ (_( left_JJ )_) and_CC optimized_VVN (_( right_NN )_) shapes_VVZ for_IN (_( a_DT )_) :_: f=60Hz_NP ;_: (_( b_LS )_) :_: f=125Hz_NP ;_: (_( c_LS )_) :_: f=183Hz_NP ;_: (_( d_LS )_) :_: f=300Hz_NP ._SENT 
+The_DT shape_NN is_VBZ plotted_VVN in_IN dark_JJ black_JJ color_NN ._SENT 
+6.4_CD ._SENT 
+Elasto-acoustics_NNS 6.4.1_CD ._SENT 
+2D_JJ dome_NN In_IN this_DT example_NN ,_, we_PP consider_VVP a_DT fully-coupled_JJ elasto-acoustics_NN problem_NN ._SENT 
+The_DT dimensions_NNS of_IN the_DT working_VVG domain_NN and_CC its_PP$ subregions_NNS appear_VVP in_IN Fig_NN ._SENT 
+17._CD A_DT harmonic_JJ unit_NN force_NN is_VBZ applied_VVN on_IN the_DT top_NN of_IN the_DT dome_NN ,_, which_WDT is_VBZ fixed_VVN on_IN some_DT parts_NNS of_IN its_PP$ lower-right_NN and_CC lower-left_NN side_NN ._SENT 
+We_PP search_VVP to_TO optimize_VV the_DT shape_NN of_IN the_DT dome_NN ,_, so_RB as_RB to_TO reduce_VV the_DT acoustic_JJ noise_NN in_IN a_DT target_NN region_NN Ωtar_NN ._SENT 
+The_DT lower_JJR edge_NN of_IN the_DT working_VVG domain_NN is_VBZ assumed_VVN to_TO reflect_VV the_DT acoustic_JJ waves_NNS ,_, while_IN for_IN the_DT rest_NN of_IN its_PP$ boundaries_NNS the_DT same_JJ absorbing_VVG condition_NN as_IN in_IN the_DT example_NN 6.3_CD has_VHZ been_VBN considered_VVN ._SENT 
+The_DT density_NN and_CC bulk_NN modulus_NN of_IN the_DT air_NN are_VBP normalized_VVN as_IN ρa=κa=1_JJ ,_, the_DT density_NN and_CC the_DT Young_NP mundulus_NN of_IN the_DT solid_JJ are_VBP set_VVN to_TO ρs=1_JJ ,_, E=200_JJ and_CC the_DT Poisson_NP 's_POS ratio_NN to_TO ν=0.3_NN ._SENT 
+No_DT structural_JJ damping_VVG is_VBZ considered_VVN ._SENT 
+Fig_NN ._SENT 
+17._CD Problem_NN description_NN for_IN the_DT 2D_JJ dome_NN example_NN ._SENT 
+Optimizing_VVG only_RB for_IN acoustic_JJ criteria_NNS is_VBZ possible_JJ to_TO lead_VV to_TO disconnected_JJ structures_NNS ,_, as_IN it_PP appears_VVZ in_IN Fig_NN ._SENT 
+18._CD In_IN order_NN to_TO obtain_VV shapes_NNS that_WDT are_VBP also_RB structurally_RB coherent_JJ ,_, we_PP minimize_VV instead_RB the_DT objective_JJ function_NN :_: @（49）_NN where_WRB @_SYM is_VBZ the_DT norm_NN of_IN the_DT acoustic_JJ pressure_NN inside_IN the_DT target_NN region_NN Ωtar_NP and_NP @_SYM denotes_VVZ the_DT static_JJ compliance_NN when_WRB the_DT force_NN f_SYM is_VBZ no_RB more_RBR time-dependent_JJ and_CC the_DT acoustic_JJ interaction_NN is_VBZ neglected_VVN ._SENT 
+Fig_NN ._SENT 
+18._CD Considering_VVG only_RB acoustic_JJ criteria_NNS :_: initial_JJ (_( left_JJ )_) and_CC optimized_VVN (_( right_NN )_) pressure_NN norm_NN distribution_NN for_IN ω=4rad/s_NP ._SENT 
+The_DT shape_NN is_VBZ plotted_VVN in_IN dark_JJ black_JJ color_NN ._SENT 
+The_DT initial_JJ as_RB well_RB as_IN the_DT optimized_VVN shapes_NNS and_CC the_DT corresponding_JJ pressure_NN norm_NN distribution_NN for_IN different_JJ excitation_NN frequencies_NNS appear_VVP in_IN Fig_NN ._SENT 
+19._CD The_DT convergence_NN diagrams_VVZ for_IN the_DT objective_JJ function_NN J(Ωs_NNS )_) and_CC the_DT pressure_NN norm_NN P(Ωs_NNS )_) are_VBP plotted_VVN in_IN Fig_NN ._SENT 
+21._CD Fig_NN ._SENT 
+19._CD Initial_JJ (_( left_JJ )_) and_CC optimized_VVN (_( right_NN )_) pressure_NN norm_NN distribution_NN for_IN :_: (_( a_DT )_) :_: ω=4rad/s_NP ;_: (_( b_LS )_) :_: ω=7rad/s_NP ;_: (_( c_LS )_) :_: ω=14rad/s_NP ;_: (_( d_LS )_) :_: ω=21rad/s_NNS ._SENT 
+The_DT shape_NN is_VBZ plotted_VVN in_IN dark_JJ black_JJ color_NN ._SENT 
+Fig_NN ._SENT 
+20._CD Initial_JJ (_( left_JJ )_) and_CC optimized_VVN (_( right_NN )_) pressure_NN norm_NN distribution_NN for_IN :_: (_( a_DT )_) :_: ω=4rad/s_NP ;_: (_( b_LS )_) :_: ω=7rad/s_NP ;_: (_( c_LS )_) :_: ω=14rad/s_NP ;_: (_( d_LS )_) :_: ω=21rad/s_NP ,_, neglecting_VVG the_DT derivative_NN of_IN the_DT surface-dependent_JJ terms_NNS ._SENT 
+The_DT shape_NN is_VBZ plotted_VVN in_IN dark_JJ black_JJ color_NN ._SENT 
+Fig_NN ._SENT 
+21._CD Convergence_NN diagrams_NNS for_IN the_DT results_NNS of_IN Fig_NN ._SENT 
+19._CD Fig_NN ._SENT 
+22._CD Convergence_NN diagrams_NNS for_IN the_DT results_NNS of_IN Fig_NN ._SENT 
+20._CD At_IN this_DT point_NN ,_, we_PP search_VVP to_TO compare_VV the_DT results_NNS of_IN Fig_NN ._SENT 
+19_CD with_IN the_DT ones_NNS obtained_VVN by_IN neglecting_VVG the_DT shape-dependent_JJ term_NN in_IN the_DT shape_NN derivative_JJ of_IN J(Ωs_NP )_) ._SENT 
+We_PP denote_VVP this_DT term_NN Jas_NP and_CC it_PP reads_VVZ :_: @_SYM The_DT corresponding_JJ optimized_VVN shapes_NNS and_CC convergence_NN diagrams_NNS are_VBP shown_VVN in_IN Fig_NN ._SENT 
+20_CD ,_, Fig_NN ._SENT 
+22._CD Table_NN 1_CD collects_VVZ all_PDT the_DT results_NNS ._SENT 
+Surprisingly_RB enough_RB ,_, all_DT results_NNS containing_VVG the_DT term_NN Jas_NP are_VBP worse_JJR than_IN the_DT corresponding_JJ results_NNS with_IN the_DT incomplete_JJ gradient_NN ._SENT 
+We_PP attribute_VVP this_DT effect_NN to_TO the_DT sensitivity_NN of_IN computing_VVG Jas_NP ,_, which_WDT introduces_VVZ more_JJR error_NN in_IN the_DT shape_NN derivative_JJ than_IN improving_VVG the_DT efficiency_NN of_IN the_DT descent_NN direction_NN ._SENT 
+As_IN we_PP have_VHP proved_VVN in_IN Remark_NN 4.1_CD ,_, this_DT term_NN is_VBZ equivalent_JJ to_TO a_DT term_NN including_VVG the_DT shape_NN derivative_JJ of_IN the_DT exterior_JJ normal_JJ vector_NN ,_, which_WDT is_VBZ known_VVN to_TO include_VV highly_RB sensitive_JJ terms_NNS ._SENT 
+Table_NN 1._CD Values_NNS for_IN the_DT pressure_NN norm_NN (_( P(Ωs_NP )_) )_) and_CC the_DT objective_JJ function_NN (_( J(Ωs_NP )_) )_) for_IN the_DT optimized_VVN shapes_NNS of_IN Fig_NN ._SENT 
+19_CD ,_, Fig_NN ._SENT 
+20._CD <Section> 7._CD Conclusions_NNS </Section> In_IN this_DT article_NN ,_, we_PP focused_VVD on_IN theoretical_JJ and_CC numerical_JJ aspects_NNS related_VVN to_TO the_DT application_NN of_IN the_DT level-set_JJ method_NN in_IN topology_NN optimization_NN problems_NNS of_IN acoustics_NNS and_CC elasto-acoustics_NNS ._SENT 
+For_IN the_DT acoustics_NN part_NN ,_, we_PP used_VVD the_DT Helmhotz_NP equation_NN and_CC presented_VVD a_DT simplified_VVN framework_NN using_VVG one_CD single_JJ phase_NN ._SENT 
+Moreover_RB ,_, we_PP proposed_VVD a_DT method_NN for_IN optimizing_VVG the_DT boundary_NN conditions_NNS using_VVG a_DT smoothing_VVG technique_NN based_VVN on_IN the_DT signed-distance_NN function_NN ._SENT 
+The_DT obtained_VVN results_NNS are_VBP quite_RB convincing_VVG in_IN terms_NNS of_IN performance_NN improvement_NN and_CC convergence_NN rate_NN ._SENT 
+Concerning_VVG elasto-acoustics_NNS ,_, we_PP presented_VVD a_DT detailed_JJ shape_NN derivation_NN of_IN a_DT fully-coupled_JJ elasto-acoustics_NN problem_NN and_CC explained_VVD the_DT difference_NN with_IN previous_JJ works_NNS on_IN the_DT shape_NN topic_NN ,_, where_WRB some_DT terms_NNS are_VBP missing_VVG from_IN the_DT shape_NN derivative_NN ._SENT 
+However_RB ,_, our_PP$ numerical_JJ examples_NNS show_VVP that_IN the_DT obtained_VVN results_NNS are_VBP better_JJR without_IN these_DT additional_JJ terms_NNS ._SENT 
+We_PP believe_VVP that_IN this_DT is_VBZ due_JJ to_TO poor_JJ numerical_JJ approximation_NN ._SENT 
+In_IN future_JJ work_NN ,_, we_PP shall_MD address_VV the_DT coupling_NN of_IN the_DT above_JJ framework_NN with_IN methods_NNS for_IN dealing_VVG with_IN sensitivity_NN to_TO imperfect_JJ realizations_NNS in_IN geometric_JJ methods_NNS ._SENT 
+<Section> Acknowledgements_NNS </Section> Part_NN of_IN this_DT work_NN has_VHZ been_VBN supported_VVN by_IN the_DT OptArch_NN project_NN (_( H2020-MSCA-RISE-2015_NP )_) ._SENT 
+The_DT authors_NNS acknowledge_VVP fruitful_JJ discussions_NNS with_IN F._NP Simon_NP (_( ONERA_NP )_) and_CC G._NP Allaire_NP (_( CMAP_NP ,_, Ecole_NP Polytechnique_NP )_) ._SENT 
+<Section> Appendix_NN A._NP Proof_NN of_IN Proposal_NN (_( 3.1_CD )_) </Section> We_PP define_VV the_DT Lagrangian_JJ function_NN :_: @（A.1）_NN where_WRB pre_NP ,_, pim_NP ,_, qre_NP ,_, qim_NNS are_VBP assumed_VVN to_TO be_VB H1(Rd_NN )_) functions_NNS ,_, independent_JJ of_IN Ωa_NP ._SENT 
+We_PP fix_VV Ωa_NN and_CC consider_VV the_DT optimality_NN conditions_NNS for_IN L_NP at_IN the_DT optimal_JJ point_NN (_( Ωa_NP ,_, pre∗_NP ,_, pim∗_NP ,_, qre∗_NP ,_, qim∗_NP )_) ._SENT 
+Setting_VVG the_DT partial_JJ derivatives_NNS of_IN L_NP with_IN respect_NN to_TO qre_NP and_CC qim_NP ,_, in_IN an_DT arbitrary_JJ direction_NN ϕ_NN ,_, equal_JJ to_TO zero_CD ,_, i._NP e._NPS @_SYM @_SYM it_PP is_VBZ easy_JJ to_TO verify_VV that_IN (_( pre∗_NP ,_, pim∗_NP )_) are_VBP the_DT unique_JJ solutions_NNS of_IN equations_NNS (_( 9_CD )_) ,_, (_( 10_CD )_) ._SENT 
+Integrating_VVG by_IN parts_NNS equation_NN (_( A.1_JJ )_) gives_VVZ @（A.2）_NN and_CC performing_VVG one_CD more_JJR integration_NN by_IN parts_NNS ,_, the_DT Lagrangian_JJ is_VBZ written_VVN as_IN @（A.3）_NP Setting_NP the_DT partial_JJ derivatives_NNS of_IN L_NP in_IN (_( A.3_NP )_) with_IN respect_NN to_TO pre_NP and_CC pim_NP ,_, in_IN an_DT arbitrary_JJ direction_NN ϕ_NN ,_, equal_JJ to_TO zero_CD ,_, i._NP e._NPS @_SYM @_SYM it_PP is_VBZ easy_JJ to_TO verify_VV that_IN (_( qre∗_NP ,_, qim∗_NP )_) are_VBP the_DT unique_JJ solutions_NNS of_IN the_DT adjoint_NN equations_NNS (_( 12_CD )_) ,_, (_( 13_CD )_) ._SENT 
+Finally_RB ,_, starting_VVG from_IN equation_NN (_( A.2_NP )_) ,_, it_PP 's_VBZ a_DT classical_JJ result_NN (_( see_VV Refs_NNS ._SENT 
+[_SYM 1,11_CD ]_SYM )_) that_IN the_DT shape_NN derivative_JJ of_IN the_DT objective_JJ function_NN J_NP at_IN Ωa_NP in_IN a_DT direction_NN θ_NN equals_VVZ the_DT one_CD of_IN the_DT Lagrangian_JJ function_NN L_NP at_IN the_DT optimal_JJ point_NN (_( Ωa_NP ,_, pre∗_NP ,_, pim∗_NP ,_, qre∗_NP ,_, qim∗_NP )_) ._SENT 
+Since_IN the_DT regions_NNS Ωtar_NP and_CC U_NP are_VBP non-optimizable_JJ ,_, i._NP e._NP θ=0onΩtar∪U_NP ,_, we_PP obtain_VVP @（A.4）_NN which_WDT concludes_VVZ the_DT Proof_NN ._SENT 
+Appendix_NN B._NP Proof_NN of_IN Proposal_NN (_( 3.2_CD )_) We_PP define_VV the_DT Lagrangian_JJ function_NN :_: @（B.1）_NN where_WRB preε_NP ,_, pimε_NP ,_, qreε_NP ,_, qimε_JJ are_VBP assumed_VVN to_TO be_VB H1(Rd_NN )_) functions_NNS ,_, independent_JJ of_IN Wka_NP ._SENT 
+We_PP fix_VV Wka_NP and_CC consider_VV the_DT optimality_NN conditions_NNS at_IN the_DT optimal_JJ point_NN (_( Wka_NP ,_, preε∗_NP ,_, pimε∗_NP ,_, qreε∗_NP ,_, qimε∗_NP )_) ._SENT 
+Setting_VVG the_DT partial_JJ derivatives_NNS of_IN L_NP with_IN respect_NN to_TO qreε_NP and_CC qimε_NP ,_, in_IN an_DT arbitrary_JJ direction_NN ϕ_NN ,_, equal_JJ to_TO zero_CD ,_, i._NP e._NPS @_SYM @_SYM we_PP easily_RB conclude_VVP that_IN (_( preε∗_NP ,_, pimε∗_NP )_) are_VBP the_DT unique_JJ solutions_NNS of_IN equations_NNS (_( 18_CD )_) ,_, (_( 19_CD )_) ._SENT 
+Integrating_VVG by_IN parts_NNS ,_, equation_NN (_( B.1_JJ )_) reads_VVZ :_: @（B.2）_JJ Integrating_VVG by_IN parts_NNS once_RB more_RBR ,_, we_PP obtain_VVP :_: @（B.3）_NP Setting_NP the_DT partial_JJ derivatives_NNS of_IN L_NP in_IN (_( B.3_NP )_) with_IN respect_NN to_TO preε_NP and_CC pimε_NP ,_, in_IN an_DT arbitrary_JJ direction_NN ϕ_NN ,_, equal_JJ to_TO zero_CD ,_, i._NP e._NPS @_SYM @_SYM it_PP is_VBZ easy_JJ to_TO verify_VV that_IN (_( qreε∗_NP ,_, qimε∗_NP )_) are_VBP the_DT unique_JJ solutions_NNS of_IN the_DT adjoint_NN equations_NNS (_( 22_CD )_) ,_, (_( 23_CD )_) ._SENT 
+Finally_RB ,_, starting_VVG from_IN equation_NN (_( B.2_NP )_) ,_, the_DT shape_NN derivative_JJ of_IN Jε_NN with_IN respect_NN to_TO variations_NNS of_IN Wka_NP in_IN a_DT direction_NN θ_NN ,_, at_IN the_DT optimal_JJ point_NN (_( Wka_NP ,_, preε∗_NP ,_, pimε∗_NP ,_, qreε∗_NP ,_, qimε∗_NP )_) reads_VVZ :_: @（B.4）_NN Using_VVG the_DT co-area_NN formula_NN (_( see_VV Ref_NN ._SENT 
+[_SYM 32_CD ]_SYM )_) ,_, the_DT shape_NN derivative_NN (_( B.4_NP )_) finally_RB reads_VVZ :_: @（B.5）_NN which_WDT concludes_VVZ the_DT Proof_NN ._SENT 
+<Section> References_NNS </Section> G._NP Allaire_NP Conception_NP optimale_NP de_NP structures_NNS ,_, Vol_NP ._SENT 
+58_CD of_IN Mathématiques_NP &_CC Applications_NP (_( Berlin_NP )_) Springer-Verlag_NP ,_, Berlin_NP (_( 2007_CD )_) M._NP Bendsøe_VVZ Optimal_JJ shape_NN design_NN as_IN a_DT material_NN distribution_NN problem_NN Struct_NN ._SENT 
+Multidiscip_NN ._SENT 
+Optim_NNS ._SENT 
+,_, 1_CD (_( 4_LS )_) (_( 1989_CD )_) ,_, pp_NP ._SENT 
+193-202_CD M._NP Bendsoe_NP ,_, E._NP Lund_NP ,_, N._NP Olhoff_NP ,_, O._NP Sigmund_NP Topology_NN optimization-broadening_VVG the_DT areas_NNS of_IN application_NN Contr_NN ._SENT 
+Cybern_NN ._SENT 
+,_, 34_CD (_( 1_LS )_) (_( 2005_CD )_) ,_, p._NP 7_CD M._NP Bendsøe_NNS ,_, N._NP Kikuchi_NP Generating_VVG optimal_JJ topologies_NNS in_IN structural_JJ design_NN using_VVG a_DT homogenization_NN method_NN Comput_NN ._SENT 
+Meth_NP ._SENT 
+Appl_NP ._SENT 
+Mech_NP ._SENT 
+Eng_NN ._SENT 
+,_, 71_CD (_( 2_LS )_) (_( 1988_CD )_) ,_, pp_NP ._SENT 
+197-224_CD F._NP Murat_NP ,_, L._NP Tartar_NP Calcul_NP des_NP variations_NNS et_CC homogénéisation_NN ,_, Les_NP méthodes_NP de_NP l’homogénéisation_NN :_: théorie_NP et_NP applications_NNS en_IN physique_NN (_( 57_CD )_) (_( 1985_CD )_) ,_, pp_NP ._SENT 
+319-369_CD M._NP Bendsoe_NP ,_, O._NP Sigmund_NP Topology_NN Optimization_NP :_: Theory_NN ,_, Methods_NNS and_CC Applications_NP Springer_NP (_( 2004_CD )_) Q._NP Xia_NP ,_, M._NP Wang_NP ,_, T._NP Shi_NP Topology_NN optimization_NN with_IN pressure_NN load_NN through_IN a_DT level_NN set_VVD method_NN Comput_NN ._SENT 
+Methods_NNS Appl_VVP ._SENT 
+Mech_NP ._SENT 
+Eng_NN ._SENT 
+,_, 283_CD (_( 2015_CD )_) ,_, pp_NP ._SENT 
+177-195_CD J._NP Guest_NP ,_, J._NP Prévost_NP ,_, T._NP Belytschko_NP Achieving_VVG minimum_JJ length_NN scale_NN in_IN topology_NN optimization_NN using_VVG nodal_JJ design_NN variables_NNS and_CC projection_NN functions_NNS Int_NP ._SENT 
+J._NP Numer_NP ._SENT 
+Methods_NNS Eng_NP ._SENT 
+,_, 61_CD (_( 2_LS )_) (_( 2004_CD )_) ,_, pp_NP ._SENT 
+238-254_CD F._NP Wang_NP ,_, B._NP Lazarov_NP ,_, O._NP Sigmund_NP On_IN projection_NN methods_NNS ,_, convergence_NN and_CC robust_JJ formulations_NNS in_IN topology_NN optimization_NN Struct_NN ._SENT 
+Multidiscip_NN ._SENT 
+Optim_NNS ._SENT 
+,_, 43_CD (_( 6_CD )_) (_( 2011_CD )_) ,_, pp_NP ._SENT 
+767-784_CD G._NP Allaire_NP ,_, C._NP Dapogny_NP ,_, P._NP Frey_NP Topology_NN and_CC geometry_NN optimization_NN of_IN elastic_JJ structures_NNS by_IN exact_JJ deformation_NN of_IN simplicial_JJ mesh_NN Compt_NNS ._SENT 
+Rendus_NP Math_NP ._SENT 
+,_, 349_CD (_( 17_CD )_) (_( 2011_CD )_) ,_, pp_NP ._SENT 
+999-1003_CD G._NP Allaire_NP ,_, F._NP Jouve_NP ,_, A._NP -M_NP ._SENT 
+Toader_NP Structural_NP optimization_NN using_VVG sensitivity_NN analysis_NN and_CC a_DT level-set_NN method_NN J._NP Comput_NN ._SENT 
+Phys_NPS ._SENT 
+,_, 194_CD (_( 1_LS )_) (_( 2004_CD )_) ,_, pp_NP ._SENT 
+363-393_CD A._NP Christiansen_NP ,_, M._NP Nobel-Jørgensen_NP ,_, N._NP Aage_NP ,_, O._NP Sigmund_NP ,_, J._NP Bærentzen_NP Topology_NN optimization_NN using_VVG an_DT explicit_JJ interface_NN representation_NN Struct_NN ._SENT 
+Multidiscip_NN ._SENT 
+Optim_NP ._SENT 
+(_( 2013_CD )_) ,_, pp_NP ._SENT 
+1-13_CD C._NP Dapogny_NP ,_, C._NP Dobrzynski_NP ,_, P._NP Frey_NP Three-dimensional_JJ adaptive_JJ domain_NN remeshing_NN ,_, implicit_JJ domain_NN meshing_VVG ,_, and_CC applications_NNS to_TO free_JJ and_CC moving_VVG boundary_NN problems_NNS J._NP Comput_NN ._SENT 
+Phys_NPS ._SENT 
+,_, 262_CD (_( 2014_CD )_) ,_, pp_NP ._SENT 
+358-378_CD M._NP Wang_NP ,_, X._NP Wang_NP ,_, D._NP Guo_NP A_DT level_NN set_VVD method_NN for_IN structural_JJ topology_NN optimization_NN Comput_NN ._SENT 
+Meth_NP ._SENT 
+Appl_NP ._SENT 
+Mech_NP ._SENT 
+Eng_NN ._SENT 
+,_, 192_CD (_( 1_LS )_) (_( 2003_CD )_) ,_, pp_NP ._SENT 
+227-246_CD G._NP Yoon_NP ,_, J._NP Jensen_NP ,_, O._NP Sigmund_NP Topology_NN optimization_NN for_IN acoustic-structure_NN interaction_NN problems_NNS IUTAM_NN Symposium_NN on_IN Topological_JJ Design_NP Optimization_NP of_IN Structures_NNS ,_, Machines_NPS and_CC Materials_NPS ,_, Springer_NP (_( 2006_CD )_) ,_, pp_NP ._SENT 
+355-364_CD O._NP Sigmund_NP ,_, P._NP Clausen_NP Topology_NN optimization_NN using_VVG a_DT mixed_JJ formulation_NN :_: an_DT alternative_JJ way_NN to_TO solve_VV pressure_NN load_NN problems_NNS Comput_NN ._SENT 
+Methods_NNS Appl_VVP ._SENT 
+Mech_NP ._SENT 
+Eng_NN ._SENT 
+,_, 196_CD (_( 13_CD )_) (_( 2007_CD )_) ,_, pp_NP ._SENT 
+1874-1889_CD J._NP Du_NP ,_, N._NP Olhoff_NP Minimization_NN of_IN sound_JJ radiation_NN from_IN vibrating_VVG bi-material_JJ structures_NNS using_VVG topology_NN optimization_NN Struct_NN ._SENT 
+Multidiscip_NN ._SENT 
+Optim_NNS ._SENT 
+,_, 33_CD (_( 4–5_NP )_) (_( 2007_CD )_) ,_, pp_NP ._SENT 
+305-321_CD A._NP Nandy_NP ,_, C._NP Jog_NN Optimization_NP of_IN vibrating_VVG structures_NNS to_TO reduce_VV radiated_VVN noise_NN Struct_NN ._SENT 
+Multidiscip_NN ._SENT 
+Optim_NNS ._SENT 
+,_, 45_CD (_( 5_LS )_) (_( 2012_CD )_) ,_, pp_NP ._SENT 
+717-728_CD M._NP Dühring_NP ,_, J._NP Jensen_NP ,_, O._NP Sigmund_NP Acoustic_JJ design_NN by_IN topology_NN optimization_NN J._NP Sound_NP Vib_NN ._SENT 
+,_, 317_CD (_( 3_LS )_) (_( 2008_CD )_) ,_, pp_NP ._SENT 
+557-575_CD O._NP Sigmund_NP ,_, M._NP Schevenels_NP ,_, B._NP Lazarov_NP ,_, G._NP Lombaert_NP ,_, et_NP al_NP ._SENT 
+Topology_NN optimization_NN of_IN two-dimensional_JJ elastic_JJ wave_NN barriers_NNS J._NP Sound_NP Vib_NN ._SENT 
+,_, 376_CD (_( 2016_CD )_) ,_, pp_NP ._SENT 
+95-111_CD X._NP Zhang_NP ,_, Z._NP Kang_NP Topology_NN optimization_NN of_IN damping_VVG layers_NNS for_IN minimizing_VVG sound_JJ radiation_NN of_IN shell_NN structures_NNS J._NP Sound_NP Vib_NN ._SENT 
+,_, 332_CD (_( 10_CD )_) (_( 2013_CD )_) ,_, pp_NP ._SENT 
+2500-2519_CD E._NP Wadbro_NP ,_, M._NP Berggren_NP Topology_NN optimization_NN of_IN an_DT acoustic_JJ horn_NN Comput_NN ._SENT 
+Meth_NP ._SENT 
+Appl_NP ._SENT 
+Mech_NP ._SENT 
+Eng_NN ._SENT 
+,_, 196_CD (_( 1_LS )_) (_( 2006_CD )_) ,_, pp_NP ._SENT 
+420-436_CD E._NP Wadbro_NP ,_, R._NP Udawalpola_NP ,_, M._NP Berggren_NP Shape_NP and_CC topology_NN optimization_NN of_IN an_DT acoustic_JJ horn–lens_NP combination_NN J._NP Comput_NN ._SENT 
+Appl_NN ._SENT 
+Math_NN ._SENT 
+,_, 234_CD (_( 6_CD )_) (_( 2010_CD )_) ,_, pp_NP ._SENT 
+1781-1787_CD R._NP Christiansen_NP ,_, O._NP Sigmund_NP ,_, E._NP Fernandez-Grande_NP Experimental_JJ validation_NN of_IN a_DT topology_NN optimized_VVD acoustic_JJ cavity_NN J._NP Acoust_NP ._SENT 
+Soc_NP ._SENT 
+Am_RB ._SENT 
+,_, 138_CD (_( 6_CD )_) (_( 2015_CD )_) ,_, pp_NP ._SENT 
+3470-3474_CD R._NP Christiansen_NP ,_, O._NP Sigmund_NP Experimental_JJ validation_NN of_IN systematically_RB designed_VVN acoustic_JJ hyperbolic_JJ meta_NP material_NN slab_NN exhibiting_VVG negative_JJ refraction_NN Appl_NN ._SENT 
+Phys_NPS ._SENT 
+Lett_NP ._SENT 
+,_, 109_CD (_( 10_CD )_) (_( 2016_CD )_) ,_, p._NP 101905_CD R._NP Christiansen_NP ,_, O._NP Sigmund_NP Designing_NP meta_NP material_NN slabs_NNS exhibiting_VVG negative_JJ refraction_NN using_VVG topology_NN optimization_NN Struct_NN ._SENT 
+Multidiscip_NN ._SENT 
+Optim_NNS ._SENT 
+,_, 54_CD (_( 3_LS )_) (_( 2016_CD )_) ,_, pp_NP ._SENT 
+469-482_CD R._NP Christiansen_NP ,_, B._NP Lazarov_NP ,_, J._NP Jensen_NP ,_, O._NP Sigmund_NP Creating_VVG geometrically_RB robust_JJ designs_NNS for_IN highly_RB sensitive_JJ problems_NNS using_VVG topology_NN optimization_NN Struct_NN ._SENT 
+Multidiscip_NN ._SENT 
+Optim_NNS ._SENT 
+,_, 52_CD (_( 4_LS )_) (_( 2015_CD )_) ,_, pp_NP ._SENT 
+737-754_CD L._NP Shu_NP ,_, M._NP Wang_NP ,_, Z._NP Fang_NP ,_, Z._NP Ma_NP Level_NP set_VVD based_VVN structural_JJ topology_NN optimization_NN for_IN coupled_VVN acoustic-structural_JJ system_NN Proceeding_NN of_IN the_DT 9th_JJ World_NP Congress_NP on_IN Structural_NP and_CC Multidisciplinary_JJ Optimization_NP ,_, Shizuoka_NP ,_, Japan_NP (_( 2011_CD )_) H._NP Isakari_NP ,_, K._NP Kuriyama_NP ,_, S._NP Harada_NP ,_, T._NP Yamada_NP ,_, T._NP Takahashi_NP ,_, T._NP Matsumoto_NP A_DT topology_NN optimisation_NN for_IN three-dimensional_JJ acoustics_NNS with_IN the_DT level_NN set_VVD method_NN and_CC the_DT fast_JJ multipole_NN boundary_NN element_NN method_NN Mech_NP ._SENT 
+Eng_NP ._SENT 
+J._NP ,_, 1_CD (_( 4_LS )_) (_( 2014_CD )_) ,_, p._NP CM0039_NP Y._NP Noguchi_NP ,_, T._NP Yamamoto_NP ,_, T._NP Yamada_NP ,_, K._NP Izui_NP ,_, S._NP Nishiwaki_NP A_DT level_NN set-based_JJ topology_NN optimization_NN method_NN for_IN simultaneous_JJ design_NN of_IN elastic_JJ structure_NN and_CC coupled_VVN acoustic_JJ cavity_NN using_VVG a_DT two-phase_JJ material_NN model_NN J._NP Sound_NP Vib_NN ._SENT 
+,_, 404_CD (_( 2017_CD )_) ,_, pp_NP ._SENT 
+15-30_CD J._NP Sethian_NP ,_, A._NP Wiegmann_NP Structural_NP boundary_NN design_NN via_IN level_NN set_VVN and_CC immersed_VVN interface_NN methods_NNS J._NP Comput_NN ._SENT 
+Phys_NPS ._SENT 
+,_, 163_CD (_( 2_LS )_) (_( 2000_CD )_) ,_, pp_NP ._SENT 
+489-528_CD G._NP Allaire_NP ,_, C._NP Dapogny_NP ,_, G._NP Delgado_NP ,_, G._NP Michailidis_NP Multi-phase_NP structural_JJ optimization_NN via_IN a_DT level-set_NN method_NN ESAIM_NP Control_NP Optim_NP ._SENT 
+Calc_NP ._SENT 
+Var_NN ._SENT 
+,_, 20_CD (_( 2014_CD )_) ,_, pp_NP ._SENT 
+576-611_CD ,_, 10.1051/cocv/2013076_NP S._NP Osher_NP ,_, J._NP Sethian_NP Fronts_NNS propagating_VVG with_IN curvature-dependent_JJ speed_NN :_: algorithms_NNS based_VVN on_IN Hamilton-Jacobi_NP formulations_NNS J._NP Comput_NN ._SENT 
+Phys_NPS ._SENT 
+,_, 79_CD (_( 1_LS )_) (_( 1988_CD )_) ,_, pp_NP ._SENT 
+12-49_CD S._NP Osher_NP ,_, R._NP Fedkiw_NP Level_NP Set_VVD Methods_NNS and_CC Dynamic_JJ Implicit_JJ Surfaces_VVZ ,_, Vol_NP ._SENT 
+153_CD of_IN Applied_NP Mathematical_JJ Sciences_NPS Springer-Verlag_NP ,_, New_NP York_NP (_( 2003_CD )_) ,_, 10.1007/b98879_NP J._NP Sethian_NP Level_NP Set_VVD Methods_NNS and_CC Fast_JJ Marching_VVG Methods_NNS :_: Evolving_VVG Interfaces_NNS in_IN Computational_JJ Geometry_NN ,_, Fluid_JJ Mechanics_NNS ,_, Computer_NP Vision_NP ,_, and_CC Materials_NPS Science_NP Cambridge_NP university_NN press_NN (_( 1999_CD )_) C._NP Dapogny_NP Optimisation_NN de_NP formes_NNS ,_, méthode_NP des_NP lignes_NP de_NP niveaux_NP sur_NP maillages_VVZ non_JJ structurés_NPS et_CC évolution_NP de_NP maillages_VVZ Ph._NP D._NP thesis_NN Université_NP Pierre_NP et_CC Marie_NP Curie-Paris_NP VI_NP (_( 2013_CD )_) available_JJ at_IN :_: http_NP :_: //tel_NP ._SENT 
+archives-ouvertes_NNS ._SENT 
+fr/tel-00916224_NP C._NP Dapogny_NP ,_, P._NP Frey_NP Computation_NN of_IN the_DT signed_VVN distance_NN function_NN to_TO a_DT discrete_JJ contour_NN on_IN adapted_VVN triangulation_NN Calcolo_NN ,_, 49_CD (_( 3_LS )_) (_( 2012_CD )_) ,_, pp_NP ._SENT 
+193-219_CD A._NP Henrot_NP ,_, M._NP Pierre_NP Variation_NN et_CC optimisation_NN de_FW formes_NNS :_: une_NP analyse_VVP géométrique_NN ,_, vol_NP ._SENT 
+48_CD ,_, Springer_NP (_( 2005_CD )_) J._NP Simon_NP ,_, F._NP Murat_NP Sur_NP le_FW contrôle_NP par_NN un_VVZ domaine_NP géométrique_NP ,_, Publication_NN 76015_CD du_NP Laboratoire_NP d'Analyse_VVZ Numérique_NP de_NP l'Université_NP Paris_NP VI_NP (_( 76015_CD )_) (_( 1976_CD )_) ,_, p._NP 222_CD J._NP Sokołowski_NP ,_, J._NP -P_NP ._SENT 
+Zolésio_NP Introduction_NN to_TO Shape_NP Optimization_NP ,_, Vol_NP ._SENT 
+16_CD of_IN Springer_NP Series_NP in_IN Computational_JJ Mathematics_NN Springer-Verlag_NN ,_, Berlin_NP (_( 1992_CD )_) ,_, 10.1007/978-3-642-58106-9_CD shape_NN sensitivity_NN analysis_NN J._NP Céa_NP Conception_NP optimale_NP ou_NP identification_NN de_NP formes_NNS :_: calcul_NP rapide_NP de_FW la_FW dérivée_JJ directionnelle_NP de_FW la_FW fonction_NP coűt_NP Modélisation_NN mathématique_NN et_CC analyse_VV numérique_NN ,_, 20_CD (_( 3_LS )_) (_( 1986_CD )_) ,_, pp_NP ._SENT 
+371-402_CD Q._NP Xia_NP ,_, M._NP Wang_NP ,_, T._NP Shi_NP A_DT level_NN set_VVD method_NN for_IN shape_NN and_CC topology_NN optimization_NN of_IN both_DT structure_NN and_CC support_NN of_IN continuum_NN structures_NNS Comput_NN ._SENT 
+Methods_NNS Appl_VVP ._SENT 
+Mech_NP ._SENT 
+Eng_NN ._SENT 
+,_, 272_CD (_( 2014_CD )_) ,_, pp_NP ._SENT 
+340-353_CD Q._NP Xia_NP ,_, T._NP Shi_NP Optimization_NP of_IN structures_NNS with_IN thin-layer_NP functional_JJ device_NN on_IN its_PP$ surface_NN through_IN a_DT level_NN set_VVD based_VVN multiple-type_NN boundary_NN method_NN Comput_NN ._SENT 
+Methods_NNS Appl_VVP ._SENT 
+Mech_NP ._SENT 
+Eng_NN ._SENT 
+,_, 311_CD (_( 2016_CD )_) ,_, pp_NP ._SENT 
+56-70_CD Q._NP Xia_NP ,_, T._NP Shi_NP Topology_NN optimization_NN of_IN compliant_JJ mechanism_NN and_CC its_PP$ support_NN through_IN a_DT level_NN set_VVD method_NN Comput_NN ._SENT 
+Methods_NNS Appl_VVP ._SENT 
+Mech_NP ._SENT 
+Eng_NN ._SENT 
+,_, 305_CD (_( 2016_CD )_) ,_, pp_NP ._SENT 
+359-375_CD G._NP Michailidis_NP Manufacturing_NP Constraints_NNS and_CC Multi-phase_NP Shape_NP and_CC Topology_NN Optimization_NP via_IN a_DT Level-set_NN Method_NN Ph._NP D._NP thesis_NN Ecole_NP Polytechnique_NP X_NP (_( 2014_CD )_) available_JJ at_IN :_: http_NP :_: //pastel_NP ._SENT 
+archives-ouvertes_NNS ._SENT 
+fr/pastel-00937306_NP O._NP Pironneau_NP ,_, F._NP Hecht_NP ,_, A._NP Le_NP Hyaric_NP ,_, Freefem++_JJ version_NN 2.15-1_CD ._SENT 
+G._NP Allaire_NP ,_, O._NP Pantz_NP Structural_NP optimization_NN with_IN FreeFem++_JJ Struct_NN ._SENT 
+Multidiscip_NN ._SENT 
+Optim_NNS ._SENT 
+,_, 32_CD (_( 3_LS )_) (_( 2006_CD )_) ,_, pp_NP ._SENT 
+173-181_CD M._NP Theillard_NP ,_, L._NP Djodom_NP ,_, J._NP -L_NP ._SENT 
+Vié_NP ,_, F._NP Gibou_NP ,_, A_DT second-order_NN sharp_JJ numerical_JJ method_NN for_IN solving_VVG the_DT linear_JJ elasticity_NN equations_NNS on_IN irregular_JJ domains_NNS and_CC adaptive_JJ grids-application_NN to_TO shape_VV optimization_NN ,_, Journal_NP of_IN Computational_JJ Physics_NNS ._SENT 
+F._NP de_NP Gournay_NP Velocity_NN extension_NN for_IN the_DT level-set_JJ method_NN and_CC multiple_JJ eigenvalues_NNS in_IN shape_NN optimization_NN SIAM_NP J._NP Control_NP Optim_NN ._SENT 
+,_, 45_CD (_( 1_LS )_) (_( 2006_CD )_) ,_, pp_NP ._SENT 
+343-367_CD P._NP Frey_NP ,_, H._NP Borouchaki_NP ,_, Texel_NP :_: triangulation_NN de_NP surfaces_VVZ implicites(partie_NP ii_NP ,_, exemples_NP d’applications_NNS )_) ,_, Rapports_NNS de_NP recherche-_NP INRIA_NP ._SENT 
+C._NP Min_NP ,_, F._NP Gibou_NP Geometric_JJ integration_NN over_IN irregular_JJ domains_NNS with_IN application_NN to_TO level-set_NN methods_NNS J._NP Comput_NN ._SENT 
+Phys_NPS ._SENT 
+,_, 226_CD (_( 2_LS )_) (_( 2007_CD )_) ,_, pp_NP ._SENT 
+1432-1443_CD G._NP Allaire_NP ,_, C._NP Dapogny_NP A_DT linearized_VVN approach_NN to_TO worst-case_JJ design_NN in_IN parametric_JJ and_CC geometric_JJ shape_NN optimization_NN Math_NP ._SENT 
+Model_NN Methods_NNS Appl_NN ._SENT 
+Sci_NNS ._SENT 
+,_, 24_CD (_( 11_CD )_) (_( 2014_CD )_) ,_, pp_NP ._SENT 
+2199-2257_CD G._NP Allaire_NP ,_, C._NP Dapogny_NP ,_, A_DT deterministic_JJ approximation_NN method_NN in_IN shape_NN optimization_NN under_IN random_JJ uncertainties_NNS ._SENT 

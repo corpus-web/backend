@@ -1,0 +1,457 @@
+﻿_JJ <title> Three-Dimensional_JJ Waterway_NN System_NP for_IN Ship_NP Navigation_NP Based_VVN on_IN Integrated_NP Virtual_JJ Waterway_NN and_CC Flow_NP Simulation_NP </title> <author> 1_CD ,_, Shanghong_NP Zhang_NP ,_, 1_CD ,_, Tianxiang_NP Zhang_NP ,_, 1_CD ,_, Yu_NP Wu_NP ,_, 2_CD ,_, Yujun_NP Yi_NP </author> <Affiliation> 1_CD ,_, Renewable_JJ Energy_NP School_NP ,_, North_NP China_NP Electric_NP Power_NP Univ_NP ._SENT 
+,_, Beijing_NP 102206_CD ,_, China_NP ,_, 2_CD ,_, State_NP Key_NP Laboratory_NP of_IN Water_NP Environment_NP Simulation_NP and_CC Pollution_NN Control_NP ,_, School_NP of_IN Environment_NP ,_, Beijing_NP Normal_JJ Univ_NP ._SENT 
+,_, Beijing_NP 100875_CD ,_, China_NP ._SENT 
+</Affiliation> <year> 2017_CD </year> <Jounral> Journal_NP of_IN Waterway_NN ,_, Port_NP ,_, Coastal_NP ,_, and_CC Ocean_NP Engineering_NP </Journal> <Publishing_house> Elsevier_NP </Publishing_house> <Text_Collector> Zhang_NP San，HEU_NP </Text_Collector> <DOI> https://doi.org/10.1061/(ASCE)WW.1943-5460.0000354_NP </DOI> <URL> https://ascelibrary-org/doi/10.1061/%28ASCE%29WW.1943-5460.0000354_NP </URL> Three-Dimensional_JJ Waterway_NN System_NP for_IN Ship_NP Navigation_NP Based_VVN on_IN Integrated_NP Virtual_JJ Waterway_NN and_CC Flow_NP Simulation_NP Shanghong_NP Zhang_NP ,_, Tianxiang_NP Zhang_NP ,_, Yu_NP Wu_NP ,_, Yujun_NP Yi_NP Renewable_JJ Energy_NP School_NP ,_, North_NP China_NP Electric_NP Power_NP Univ_NP ._SENT 
+,_, Beijing_NP 102206_CD ,_, China_NP State_NP Key_NP Laboratory_NP of_IN Water_NP Environment_NP Simulation_NP and_CC Pollution_NN Control_NP ,_, School_NP of_IN Environment_NP ,_, Beijing_NP Normal_JJ Univ_NP ._SENT 
+,_, Beijing_NP 100875_CD ,_, China_NP ._SENT 
+<Section> Abstract_JJ </Section> Proper_NP exploitation_NN of_IN information_NN technology_NN and_CC the_DT strengthening_NN of_IN the_DT construction_NN of_IN waterway_NN information_NN are_VBP important_JJ ways_NNS to_TO improve_VV shipping_VVG efficiency_NN and_CC security_NN ._SENT 
+Considering_VVG the_DT upstream_JJ reaches_NNS of_IN the_DT Yangtze_NP River_NP from_IN Jiangjin_NP to_TO Chongqing_NP (_( China_NP )_) as_IN a_DT case_NN study_NN ,_, a_DT three-dimensional_JJ (_( 3D_JJ )_) digital_JJ waterway_NN system_NN has_VHZ been_VBN developed_VVN ._SENT 
+The_DT system_NN ,_, which_WDT comprises_VVZ a_DT server_NN and_CC a_DT client_NN ,_, was_VBD designed_VVN to_TO provide_VV navigational_JJ and_CC early_JJ warning_VVG services_NNS to_TO shipping_NN ._SENT 
+In_IN this_DT paper_NN ,_, both_CC the_DT system_NN architecture_NN and_CC the_DT key_JJ methods_NNS of_IN each_DT module_NN are_VBP presented_VVN ._SENT 
+The_DT functions_NNS and_CC mutual_JJ relationships_NNS of_IN the_DT data_NNS input_NN ,_, database_NN ,_, 3D_JJ visualization_NN ,_, flow_NN simulation_NN ,_, and_CC early_JJ warning_NN modules_NNS are_VBP described_VVN ,_, and_CC the_DT key_JJ methods_NNS of_IN the_DT 3D_JJ digital_JJ waterway_NN modeling_NN ,_, real-time_JJ simulation_NN of_IN waterway_NN flow_NN ,_, and_CC early_JJ warnings_NNS in_IN navigation_NN are_VBP discussed_VVN ._SENT 
+The_DT advantages_NNS of_IN this_DT system_NN mainly_RB concern_VV the_DT following_VVG aspects_NNS ._SENT 
+(_( 1_CD )_) The_DT 3D_JJ digital_JJ waterway_NN model_NN was_VBD established_VVN and_CC integrated_VVN with_IN virtual_JJ navigational_JJ elements_NNS ,_, such_JJ as_IN beacons_NNS ,_, the_DT water_NN depth–contour_NN surface_NN ,_, and_CC navigable_JJ area_NN ,_, to_TO enhance_VV the_DT intuitiveness_NN of_IN the_DT digital_JJ waterway_NN system_NN and_CC the_DT comprehensiveness_NN of_IN its_PP$ information_NN ._SENT 
+(_( 2_LS )_) Based_VVN on_IN real-time_JJ hydrological_JJ data_NNS and_CC a_DT 2D_JJ hydrodynamic_JJ model_NN ,_, the_DT waterway_NN flow_NN conditions_NNS with_IN present-day_JJ inflow_NN were_VBD simulated_JJ ._SENT 
+The_DT water_NN depth_NN distribution_NN of_IN a_DT traditional_JJ inland_RB electronic_JJ navigational_JJ chart_NN (_( IENC_NP )_) was_VBD provided_VVN ,_, together_RB with_IN information_NN on_IN flow_NN velocity_NN and_CC distribution_NN ,_, to_TO improve_VV the_DT resolution_NN and_CC timeliness_NN of_IN the_DT information_NN acquisition_NN ._SENT 
+(_( 3_LS )_) According_VVG to_TO Chinese_JJ inland_RB navigational_JJ standards_NNS and_CC the_DT simulation_NN of_IN waterway_NN flow_NN conditions_NNS ,_, the_DT navigable_JJ area_NN for_IN shipping_NN was_VBD zoned_VVN dynamically_RB ._SENT 
+In_IN combination_NN with_IN the_DT Global_JJ Positioning_NN System_NP (_( GPS_NP )_) and_CC networked_VVD ship-monitoring_VVG technologies_NNS ,_, this_DT system_NN can_MD provide_VV early_JJ warnings_NNS for_IN the_DT safe_JJ navigation_NN of_IN shipping_NN ._SENT 
+<Section> 1._CD Introduction_NN </Section> It_PP is_VBZ important_JJ for_IN the_DT development_NN of_IN inland_RB waterway_NN navigation_NN to_TO ensure_VV the_DT safety_NN of_IN shipping_NN and_CC to_TO improve_VV its_PP$ efficiency_NN (_( McCartney_NP 1986_CD ;_: Zhang_NP et_NP al_NP ._SENT 
+2013_CD ;_: Wu_NP et_NP al_NP ._SENT 
+2015_CD )_) ._SENT 
+With_IN the_DT development_NN of_IN computer_NN hardware_NN and_CC software_NN ,_, modern_JJ information_NN technology_NN is_VBZ gradually_RB being_VBG applied_VVN in_IN the_DT construction_NN and_CC development_NN of_IN inland_RB waterway_NN navigational_JJ systems_NNS ._SENT 
+Full_JJ exploitation_NN of_IN modern_JJ information_NN technology_NN and_CC the_DT strengthening_NN of_IN the_DT construction_NN of_IN waterway_NN information_NN have_VHP become_VVN important_JJ ways_NNS to_TO improve_VV shipping_VVG efficiency_NN and_CC security_NN ._SENT 
+The_DT existing_JJ study_NN of_IN waterway_NN information_NN construction_NN focused_VVN on_IN two_CD aspects_NNS :_: the_DT inland_RB electronic_JJ navigational_JJ chart_NN (_( IENC_NP )_) and_CC navigational_JJ flow_NN conditions_NNS ._SENT 
+Regarding_VVG the_DT IENC_NN ,_, existing_VVG research_NN has_VHZ focused_VVN mainly_RB on_IN the_DT two-dimensional_JJ (_( 2D_NN )_) IENC_NN system_NN ,_, which_WDT has_VHZ a_DT relatively_RB mature_JJ development_NN and_CC application_NN technology_NN ._SENT 
+The_DT 2D_JJ IENC_NN ,_, used_VVN in_IN the_DT Electronic_JJ Chart_NN Display_NN and_CC Information_NP System_NP (_( ECDIS_NP )_) ,_, is_VBZ a_DT type_NN of_IN map_NN generalization_NN based_VVN on_IN abstract_JJ symbols_NNS that_WDT are_VBP representative_JJ of_IN the_DT true_JJ waterway_NN environment_NN ._SENT 
+It_PP can_MD accurately_RB describe_VV various_JJ waterway_NN elements_NNS ,_, and_CC it_PP is_VBZ widely_RB applied_VVN to_TO ship_VV navigation_NN and_CC waterway_NN management_NN (_( Nilsson_NP et_NP al_NP ._SENT 
+2009_CD ;_: Porathe_NP et_NP al_NP ._SENT 
+2013_CD )_) ._SENT 
+Pecar-Ilic_JJ and_CC Ruzic_JJ (_( 2006_CD )_) applied_VVD a_DT 2D_JJ IENC_NN for_IN the_DT management_NN of_IN Danube_NP waterway_NN data_NNS in_IN Croatia_NP ._SENT 
+Gould_NP et_NP al_NP ._SENT 
+(_( 2009_CD )_) examined_VVD the_DT mental_JJ workload_NN and_CC performance_NN in_IN a_DT simulation_NN of_IN high-speed_JJ ship_NN navigation_NN using_VVG ECDIS_NP ._SENT 
+Ma_NP et_NP al_NP ._SENT 
+(_( 2015_CD )_) proposed_VVD an_DT improved_VVN Fuzzy_JJ C-Means_NNS method_NN to_TO classify_VV marine_JJ targets_NNS using_VVG automatic_JJ radar_NN plotting_VVG aids_NNS in_IN the_DT IENC_NN ._SENT 
+Despite_IN its_PP$ wide_JJ application_NN ,_, there_EX are_VBP limitations_NNS regarding_VVG the_DT existing_JJ 2D_NN IENC_NN system_NN ._SENT 
+For_IN example_NN ,_, it_PP uses_VVZ abstract_JJ symbols_NNS to_TO illustrate_VV waterway_NN information_NN ,_, and_CC it_PP cannot_MD display_VV the_DT real_JJ waterway_NN environment_NN and_CC elements_NNS ._SENT 
+Because_IN it_PP might_MD be_VB difficult_JJ to_TO understand_VV the_DT meanings_NNS of_IN the_DT symbols_NNS ,_, navigators_NNS should_MD be_VB allowed_VVN more_JJR training_NN time_NN to_TO master_VV the_DT system_NN ._SENT 
+In_IN addition_NN ,_, the_DT viewshed_VVN of_IN the_DT navigator_NN cannot_MD be_VB calculated_VVN in_IN the_DT 2D_JJ IENC_NN because_IN of_IN the_DT lack_NN of_IN height_NN information_NN ._SENT 
+Thus_RB ,_, when_WRB planning_VVG a_DT route_NN in_IN an_DT unfamiliar_JJ waterway_NN ,_, navigators_NNS cannot_MD be_VB aware_JJ in_IN advance_NN of_IN buildings_NNS that_WDT might_MD obstruct_VV navigation_NN ._SENT 
+The_DT application_NN of_IN three-dimensional_JJ (_( 3D_NN )_) visualization_NN technology_NN has_VHZ made_VVN navigational_JJ simulation_NN easier_JJR ,_, and_CC with_IN improved_VVN levels_NNS of_IN spatial_JJ waterway_NN information_NN ,_, 3D_JJ IENCs_NNS have_VHP increasingly_RB become_VVN used_VVN for_IN inland_RB navigation_NN (_( Li_NP et_NP al_NP ._SENT 
+2008_CD ;_: Peng_NP et_NP al_NP ._SENT 
+2008_CD )_) ._SENT 
+Two_CD approaches_NNS are_VBP generally_RB used_VVN in_IN the_DT development_NN of_IN 3D_JJ IENCs_NNS ._SENT 
+One_CD ,_, on_IN the_DT macroscopic_JJ scale_NN ,_, is_VBZ based_VVN on_IN 3D_JJ Geographic_NP Information_NP System_NP technology_NN (_( 3D-GIS_NP )_) ,_, and_CC the_DT other_JJ ,_, on_IN the_DT microscopic_JJ scale_NN ,_, is_VBZ based_VVN on_IN the_DT visual_JJ scene_NN of_IN a_DT ship_NN simulator_NN ._SENT 
+Under_IN the_DT former_JJ approach_NN ,_, Fu_NP et_CC al_NP ._SENT 
+(_( 2011_CD )_) designed_VVD a_DT virtual_JJ reality_NN simulation_NN system_NN for_IN predictions_NNS regarding_VVG the_DT safety_NN of_IN the_DT navigational_JJ environment_NN based_VVN on_IN 3D-GIS_NP technology_NN ,_, and_CC Gao_NP and_CC Shiotani_NP (_( 2013_CD )_) used_VVD an_DT automatic_JJ identification_NN system_NN and_CC 3D-GIS_NNS to_TO present_VV navigational_JJ information_NN for_IN the_DT prevention_NN of_IN maritime_JJ disasters_NNS ._SENT 
+Under_IN the_DT latter_JJ approach_NN ,_, X._NP Zhang_NP et_CC al_NP ._SENT 
+(_( 2004_CD )_) simulated_JJ and_CC modeled_VVN ships_NNS based_VVN on_IN virtual_JJ reality_NN techniques_NNS ,_, Ueng_NP et_CC al_NP ._SENT 
+(_( 2008_CD )_) presented_VVD computational_JJ models_NNS for_IN ship_NN motions_NNS to_TO simulate_VV ship_NN movements_NNS in_IN real_JJ time_NN ,_, and_CC Varela_NP and_CC Guedes_NP Soares_NP (_( 2015_CD )_) presented_VVD a_DT software_NN system_NN for_IN interactive_JJ 3D_JJ simulations_NNS of_IN off-loading_VVG operations_NNS commonly_RB executed_VVN in_IN offshore_JJ scenarios_NNS ._SENT 
+In_IN addition_NN to_TO 3D_VV waterway_NN visualization_NN ,_, the_DT development_NN of_IN the_DT 3D_JJ IENC_NN system_NN still_RB faces_VVZ many_JJ challenges_NNS ._SENT 
+Conventional_JJ 3D_JJ waterway_NN models_NNS are_VBP true_JJ reflections_NNS of_IN the_DT real_JJ world_NN that_WDT contain_VVP only_RB some_DT 3D_JJ models_NNS (_( such_JJ as_IN beacons_NNS and_CC bridges_NNS )_) on_IN the_DT waterway_NN surface_NN (_( Kaufmann_NP and_CC Eaton_NP 1994_CD )_) ._SENT 
+They_PP lack_VVP the_DT corresponding_JJ descriptions_NNS and_CC performance_NN information_NN of_IN artificial_JJ virtual_JJ space_NN elements_NNS (_( such_JJ as_IN the_DT water_NN depth–contour_NN surface_NN and_CC the_DT navigability_NN ,_, prohibited_VVN ,_, and_CC mooring_NN areas_NNS )_) ,_, which_WDT form_VVP an_DT important_JJ integral_JJ part_NN of_IN the_DT IENC_NN ._SENT 
+Therefore_RB ,_, the_DT problem_NN of_IN integration_NN of_IN 2D_NNS and_CC 3D_JJ IENCs_NNS in_IN a_DT digital_JJ waterway_NN system_NN and_CC the_DT production_NN flow_NN requires_VVZ further_JJR research_NN ._SENT 
+In_IN addition_NN ,_, the_DT development_NN of_IN technologies_NNS for_IN the_DT integration_NN of_IN real-time_JJ flow_NN conditions_NNS ,_, ship_NN localization_NN information_NN ,_, and_CC the_DT 3D_JJ virtual_JJ environment_NN represents_VVZ a_DT further_JJR challenge_NN to_TO be_VB overcome_VVN in_IN the_DT improvement_NN of_IN 3D_JJ waterway_NN systems_NNS ._SENT 
+Regarding_VVG the_DT navigational_JJ flow_NN conditions_NNS ,_, the_DT existing_JJ IENCs_NNS lack_VVP information_NN on_IN real-time_JJ flow_NN conditions_NNS (_( such_JJ as_IN real-time_JJ water_NN depth_NN and_CC flow_NN velocity_NN distribution_NN )_) ;_: water-level_NN data_NNS collected_VVN from_IN hydrological_JJ stations_NNS along_IN the_DT river_NN are_VBP used_VVN to_TO provide_VV a_DT navigable_JJ water_NN depth–contour_NN surface_NN based_VVN on_IN linear_JJ interpolation_NN combined_VVN with_IN the_DT waterway_NN terrain_NN (_( Pecar-Ilic_JJ and_CC Ruzic_JJ 2006_CD )_) ._SENT 
+However_RB ,_, the_DT use_NN of_IN linear_JJ interpolation_NN in_IN calculating_VVG the_DT water_NN level_NN reduces_VVZ the_DT accuracy_NN and_CC timeliness_NN of_IN the_DT calculation_NN ,_, resulting_VVG in_IN low-resolution_NN spatiotemporal_JJ information_NN of_IN the_DT waterway_NN depth_NN ._SENT 
+Furthermore_RB ,_, water_NN depth_NN is_VBZ only_RB one_CD of_IN the_DT main_JJ factors_NNS that_WDT affect_VVP navigation_NN ;_: the_DT characteristics_NNS of_IN the_DT flow_NN velocity_NN distribution_NN (_( such_JJ as_IN flow_NN velocity_NN ,_, cross-flow_NP ,_, and_CC vortex_NN flow_NN )_) also_RB affect_VV navigational_JJ safety_NN and_CC efficiency_NN and_CC should_MD not_RB be_VB ignored_VVN (_( Bravo_NP and_CC Jain_NP 1991_CD ;_: Cao_NP et_NP al_NP ._SENT 
+2008_CD ;_: Chen_NP et_NP al_NP ._SENT 
+2010_CD ,_, 2013_CD ;_: McCartney_NP 1986_CD )_) ._SENT 
+However_RB ,_, the_DT existing_JJ digital_JJ waterway_NN systems_NNS lack_VVP a_DT velocity_NN distribution_NN display_NN ,_, and_CC they_PP generally_RB show_VVP water_NN depth_NN based_VVN on_IN hydrological_JJ monitoring_NN data_NNS from_IN observing_VVG stations_NNS ,_, both_CC of_IN which_WDT make_VVP it_PP difficult_JJ for_IN the_DT ship_NN navigator_NN to_TO be_VB sure_JJ of_IN the_DT magnitude_NN of_IN the_DT flow_NN velocity_NN and_CC its_PP$ direction_NN ._SENT 
+In_IN addition_NN ,_, recent_JJ studies_NNS on_IN navigational_JJ flow_NN simulation_NN have_VHP focused_VVN on_IN the_DT evaluation_NN of_IN waterway_NN regulation_NN engineering_NN (_( Gharbi_NP et_NP al_NP ._SENT 
+2008_CD ;_: Hua_NP and_CC Yang_NP 2011_CD ;_: Pan_NP and_CC Ge_NP 2011_CD ;_: Weber_NP et_NP al_NP ._SENT 
+2012_CD ;_: Heibaum_NP 2014_CD )_) but_CC have_VHP not_RB provided_VVN real-time_JJ distributions_NNS of_IN water_NN depth_NN and_CC flow_NN velocity_NN for_IN navigation_NN ._SENT 
+In_IN this_DT study_NN ,_, a_DT 3D_JJ digital_JJ waterway_NN system_NN was_VBD developed_VVN to_TO display_VV integrated_JJ navigational_JJ information_NN in_IN a_DT 3D_JJ mode_NN ,_, and_CC the_DT hydrological_JJ data–monitoring_NN module_NN was_VBD combined_VVN with_IN a_DT 2D_JJ hydrodynamic_JJ model_NN to_TO provide_VV a_DT real-time_JJ distribution_NN of_IN the_DT water_NN depth_NN and_CC flow_NN velocity_NN for_IN navigational_JJ and_CC early_JJ warning_NN purposes_NNS ._SENT 
+Using_VVG the_DT stretch_NN of_IN the_DT Yangtze_NP River_NP from_IN Jiangjin_NP to_TO Chongqing_NP as_IN a_DT case_NN study_NN ,_, the_DT overall_JJ architecture_NN behind_IN the_DT development_NN and_CC integration_NN of_IN the_DT system_NN and_CC its_PP$ key_JJ methods_NNS ,_, functions_NNS ,_, and_CC application_NN are_VBP discussed_VVN ._SENT 
+The_DT main_JJ contribution_NN of_IN this_DT study_NN is_VBZ the_DT integration_NN of_IN the_DT digital_JJ waterway_NN system_NN ,_, including_VVG 2D/3D_JJ waterway_NN ,_, real-time_JJ flow_NN simulation_NN ,_, Global_JJ Positioning_NN System_NP (_( GPS_NP )_) data_NNS ,_, and_CC navigable_JJ area_NN ._SENT 
+<Section> 2._CD Study_NP System_NP </Section> The_DT Yangtze_NP River_NP ,_, which_WDT is_VBZ the_DT longest_JJS river_NN in_IN China_NP and_CC third_JJ longest_JJS river_NN in_IN the_DT world_NN ,_, flows_VVZ from_IN west_NN to_TO east_JJ through_IN western_JJ ,_, central_JJ ,_, and_CC eastern_JJ China_NP ._SENT 
+The_DT mainstream_NN of_IN the_DT Yangtze_NP River_NP ,_, known_VVN as_IN the_DT “golden_NP waterway,”_NP is_VBZ over_IN 6,300 km_NN in_IN length_NN ._SENT 
+The_DT navigable_JJ waterway_NN length_NN of_IN the_DT river_NN and_CC its_PP$ freight_NN volume_NN are_VBP over_IN 2,800 km_NN and_CC 1.92_CD billion_CD tons_NNS ,_, respectively_RB ._SENT 
+The_DT stretch_NN of_IN river_NN from_IN Jiangjin_NP to_TO Chongqing_NP on_IN the_DT upper_JJ reaches_NNS of_IN the_DT Yangtze_NP River_NP ,_, which_WDT includes_VVZ the_DT Jiangjin_NP ,_, Banan_NP ,_, Dadukou_NP ,_, Jiulongpo_NP ,_, Nanan_NP ,_, and_CC Yuzhong_NP districts_NNS in_IN Chongqing_NP ,_, was_VBD selected_VVN for_IN the_DT study_NN area_NN (_( Fig_NN ._SENT 
+1_LS )_) ._SENT 
+The_DT river_NN reach_NN ,_, which_WDT has_VHZ a_DT minimum_NN dredged_VVD depth_NN of_IN 2.7_CD m_NN in_IN the_DT dry_JJ season_NN and_CC 3.0_CD m_NN in_IN the_DT rainy_JJ season_NN ,_, reaches_VVZ the_DT Level_NP III_NP waterway_NN standard_NN (_( MTPRC_NP 2004_CD )_) ._SENT 
+This_DT river_NN reach_NN connects_VVZ western_JJ and_CC central_JJ China_NP and_CC ,_, because_IN it_PP is_VBZ the_DT main_JJ channel_NN for_IN the_DT transportation_NN of_IN goods_NNS within_IN the_DT Yangtze_NP River_NP basin_NN ,_, it_PP plays_VVZ an_DT indispensable_JJ role_NN in_IN the_DT economic_JJ development_NN of_IN western_JJ China_NP ._SENT 
+The_DT river_NN reach_NN has_VHZ a_DT complex_JJ navigational_JJ environment_NN and_CC a_DT large_JJ volume_NN of_IN shipping_NN ._SENT 
+Therefore_RB ,_, to_TO ensure_VV shipping_VVG safety_NN and_CC to_TO improve_VV the_DT efficiency_NN of_IN navigation_NN ,_, a_DT 3D_JJ digital_JJ waterway_NN system_NN was_VBD developed_VVN based_VVN on_IN navigational_JJ standards_NNS ,_, 3D_JJ visualization_NN ,_, and_CC flow_NN simulation_NN technology_NN ._SENT 
+<Section> 3._CD System_NP Architecture_NP </Section> The_DT development_NN of_IN the_DT 3D_JJ digital_JJ waterway_NN system_NN involved_VVD numerical_JJ simulation_NN ,_, database_NN ,_, network_NN ,_, and_CC 3D_JJ visualization_NN technologies_NNS ._SENT 
+In_IN accordance_NN with_IN the_DT differing_VVG characteristics_NNS of_IN each_DT module_NN ,_, the_DT C++_JJ programming_NN language_NN was_VBD applied_VVN to_TO the_DT development_NN of_IN the_DT database_NN and_CC network_NN modules_NNS ._SENT 
+The_DT Qt_NP cross-platform_NN application_NN framework_NN (_( Qt_NP Company_NP 2016_CD )_) ,_, which_WDT is_VBZ widely_RB used_VVN for_IN developing_VVG application_NN software_NN ,_, was_VBD applied_VVN to_TO the_DT development_NN of_IN the_DT graphical_JJ user_NN interface_NN ,_, and_CC the_DT osgEarth_NP terrain-rendering_NN software_NN development_NN kit_NN (_( Gwaldron_NP 2016_CD )_) was_VBD applied_VVN to_TO the_DT development_NN of_IN the_DT visualization_NN module_NN ._SENT 
+According_VVG to_TO the_DT processing_NN of_IN inland_RB waterway_NN management_NN information_NN ,_, the_DT 3D_JJ digital_JJ waterway_NN system_NN could_MD be_VB divided_VVN into_IN five_CD parts_NNS :_: (_( 1_LS )_) data_NN input_NN module_NN ;_: (_( 2_LS )_) database_NN module_NN ;_: (_( 3_LS )_) 3D_JJ visualization_NN module_NN ;_: (_( 4_LS )_) water_NN flow_NN simulation_NN module_NN ;_: and_CC (_( 5_LS )_) early_JJ warning_NN module_NN ._SENT 
+The_DT architecture_NN of_IN the_DT 3D_JJ digital_JJ waterway_NN system_NN is_VBZ shown_VVN in_IN Fig_NN ._SENT 
+2._CD The_DT data_NN input_NN module_NN is_VBZ used_VVN to_TO input_NN data_NNS into_IN the_DT system_NN ._SENT 
+The_DT input_NN data_NNS can_MD be_VB divided_VVN into_IN static_JJ and_CC dynamic_JJ data_NNS ._SENT 
+Static_JJ data_NNS include_VVP spatial_JJ information_NN (_( such_JJ as_IN details_NNS of_IN the_DT riverbed_NN terrain_NN ,_, bridges_NNS ,_, docks_NNS ,_, riverside_NN buildings_NNS ,_, and_CC beacons_NNS )_) ,_, ship_NN attributes_NNS [_SYM such_JJ as_IN the_DT ship_NN identification_NN number_NN (_( IMO_NP )_) and_CC details_NNS of_IN its_PP$ length_NN ,_, width_NN ,_, height_NN ,_, draft_NN ,_, deadweight_NP (_( DWT_NP )_) ,_, and_CC maximum_JJ displacement_NN (_( MDT_NP )_) ]_SYM ,_, and_CC the_DT artificial_JJ 2D_JJ IENC_NN elements_NNS (_( such_JJ as_IN details_NNS regarding_VVG the_DT navigability_NN ,_, prohibited_VVN ,_, and_CC mooring_NN areas_NNS )_) ._SENT 
+Static_JJ data_NNS are_VBP used_VVN mainly_RB for_IN establishing_VVG 3D_JJ models_NNS in_IN the_DT visualization_NN module_NN ,_, and_CC because_IN they_PP change_VVP little_RB over_IN time_NN ,_, frequent_JJ updates_NNS are_VBP unnecessary_JJ ._SENT 
+Dynamic_JJ data_NNS include_VVP the_DT ship’s_JJ locational_JJ information_NN (_( such_JJ as_IN position_NN ,_, speed_NN ,_, and_CC heading_VVG )_) and_CC hydrologic_JJ data_NNS (_( such_JJ as_IN water_NN depth_NN and_CC flow_NN velocity_NN )_) ._SENT 
+Ship_VV locational_JJ data_NNS are_VBP obtained_VVN from_IN GPS_NP positioning_NN terminals_NNS installed_VVD onboard_JJ the_DT ships_NNS ,_, and_CC the_DT hydrological_JJ and_CC meteorological_JJ data_NNS are_VBP obtained_VVN from_IN monitoring_VVG terminals_NNS installed_VVN in_IN hydrological_JJ stations_NNS ._SENT 
+The_DT database_NN module_NN represents_VVZ the_DT data_NNS transfer_NN station_NN of_IN the_DT entire_JJ system_NN ,_, within_IN which_WDT all_DT the_DT waterway_NN data_NNS are_VBP received_VVN ,_, stored_VVD ,_, and_CC managed_VVN ._SENT 
+The_DT database_NN module_NN can_MD be_VB divided_VVN into_IN the_DT client_NN and_CC network_NN databases_NNS ._SENT 
+Because_IN of_IN the_DT large_JJ volume_NN of_IN static_JJ data_NNS and_CC slow_JJ update_NN speed_NN ,_, they_PP are_VBP stored_VVN mainly_RB in_IN the_DT client_NN database_NN to_TO ensure_VV sufficient_JJ display_NN speed_NN of_IN the_DT 3D_JJ virtual_JJ waterway_NN environment_NN ._SENT 
+Dynamic_JJ data_NNS vary_VVP frequently_RB over_IN time_NN ,_, therefore_RB ,_, they_PP are_VBP transmitted_VVN to_TO the_DT network_NN database_NN via_IN the_DT general_JJ packet_NN radio_NN service_NN (_( GPRS_NNS )_) network_NN in_IN real_JJ time_NN in_IN which_WDT they_PP are_VBP stored_VVN and_CC managed_VVN ._SENT 
+If_IN a_DT client_NN issues_NNS a_DT data_NN request_NN ,_, the_DT network_NN database_NN in_IN the_DT sever_VV responds_VVZ immediately_RB and_CC helps_VVZ the_DT client_NN update_VV the_DT ship’s_JJ navigational_JJ status_NN and_CC the_DT input_NN parameters_NNS of_IN the_DT hydrodynamic_JJ model_NN ._SENT 
+The_DT visualization_NN module_NN ,_, which_WDT is_VBZ the_DT core_NN of_IN the_DT 3D_JJ digital_JJ waterway_NN system_NN ,_, is_VBZ used_VVN mainly_RB to_TO build_VV the_DT 3D_JJ waterway_NN environment_NN and_CC to_TO integrate_VV and_CC display_VV the_DT various_JJ elements_NNS of_IN the_DT real_JJ waterway_NN ,_, presenting_VVG the_DT spatial_JJ information_NN of_IN the_DT waterway_NN in_IN an_DT intuitive_JJ manner_NN ._SENT 
+Users_NNS can_MD adjust_VV arbitrarily_RB the_DT viewpoint_NN position_NN ,_, angle_NN of_IN view_NN ,_, and_CC focal_JJ distance_NN of_IN the_DT virtual_JJ waterway_NN environment_NN to_TO see_VV all_PDT the_DT elements_NNS of_IN the_DT waterway_NN ._SENT 
+Furthermore_RB ,_, the_DT system_NN extracts_VVZ elements_NNS of_IN the_DT 2D_JJ IENC_NN and_CC displays_VVZ them_PP in_IN the_DT virtual_JJ environment_NN to_TO implement_VV the_DT combination_NN of_IN the_DT 2D_NN and_CC 3D_NN IENCs_NNS ._SENT 
+In_IN addition_NN ,_, the_DT visualization_NN module_NN can_MD simulate_VV the_DT ships_NNS based_VVN on_IN their_PP$ locational_JJ information_NN to_TO show_VV traffic_NN conditions_NNS in_IN nearby_JJ waters_NNS and_CC to_TO provide_VV navigational_JJ services_NNS for_IN each_DT ship_NN ._SENT 
+The_DT flow_NN simulation_NN module_NN ,_, which_WDT is_VBZ another_DT core_JJ element_NN of_IN the_DT 3D_JJ digital_JJ waterway_NN system_NN ,_, is_VBZ used_VVN mainly_RB for_IN the_DT simulation_NN of_IN the_DT navigational_JJ flow_NN conditions_NNS ._SENT 
+The_DT flow_NN simulation_NN module_NN is_VBZ established_VVN on_IN a_DT 2D_JJ hydrodynamic_JJ model_NN ._SENT 
+The_DT hydrologic_JJ data_NNS ,_, which_WDT are_VBP measured_VVN at_IN the_DT hydrological_JJ stations_NNS on_IN the_DT river_NN ,_, are_VBP used_VVN as_IN inputs_NNS into_IN the_DT hydrodynamic_JJ model_NN ._SENT 
+Then_RB ,_, the_DT river_NN reach_NN is_VBZ divided_VVN into_IN an_DT unstructured_JJ grid_NN ,_, and_CC the_DT water_NN depth_NN and_CC velocity_NN of_IN each_DT grid_NN point_NN is_VBZ calculated_VVN by_IN the_DT hydrodynamic_JJ model_NN ._SENT 
+Using_VVG these_DT results_NNS ,_, the_DT real-time_JJ water_NN depth_NN and_CC velocity_NN distribution_NN of_IN the_DT waterway_NN can_MD be_VB displayed_VVN as_IN a_DT contour_NN surface_NN and_CC dynamic_JJ flow_NN field_NN to_TO show_VV the_DT real_JJ flow_NN conditions_NNS ._SENT 
+Moreover_RB ,_, to_TO ensure_VV the_DT timeliness_NN of_IN the_DT simulation_NN of_IN the_DT flow_NN conditions_NNS ,_, parallel_JJ computing_NN technology_NN and_CC a_DT simulated-solution_NN library_NN are_VBP used_VVN in_IN the_DT flow_NN simulation_NN module_NN to_TO accelerate_VV the_DT numerical_JJ modeling_NN process_NN ._SENT 
+The_DT early_JJ warning_NN module_NN is_VBZ the_DT output_NN module_NN of_IN the_DT 3D_JJ digital_JJ waterway_NN system_NN ._SENT 
+Based_VVN on_IN the_DT locational_JJ information_NN of_IN a_DT ship_NN and_CC the_DT calculated_VVN results_NNS of_IN the_DT hydrodynamic_JJ model_NN ,_, the_DT early_JJ warning_NN module_NN depicts_VVZ the_DT ship’s_JJ navigable_JJ area_NN via_IN the_DT visualization_NN module_NN ,_, with_IN reference_NN to_TO the_DT navigational_JJ standards_NNS of_IN inland_RB waterways_NNS (_( MTPRC_NP 2004_CD )_) ._SENT 
+Then_RB ,_, it_PP analyzes_VVZ the_DT possibility_NN of_IN the_DT occurrence_NN of_IN a_DT water-traffic_JJ accident_NN ,_, such_JJ as_IN a_DT ship_NN collision_NN ,_, stranding_VVG ,_, or_CC grounding_NN ,_, to_TO provide_VV a_DT timely_JJ and_CC accurate_JJ early_JJ warning_NN service_NN to_TO the_DT ships_NNS (_( Zhang_NP et_NP al_NP ._SENT 
+2015_CD )_) ._SENT 
+In_IN addition_NN ,_, all_PDT the_DT early_JJ warning_NN information_NN is_VBZ added_VVN to_TO the_DT ship’s_NP navigation_NN label_NN to_TO enhance_VV the_DT capability_NN of_IN the_DT 3D_JJ digital_JJ waterway_NN system_NN as_IN a_DT navigational_JJ aid_NN ._SENT 
+The_DT development_NN process_NN of_IN the_DT 3D_JJ digital_JJ waterway_NN system_NN mainly_RB includes_VVZ the_DT following_VVG steps_NNS ,_, as_RB shown_VVN in_IN Fig_NN ._SENT 
+3_LS :_: 1.The_JJ 3D_JJ waterway_NN terrain_NN model_NN is_VBZ built_VVN based_VVN on_IN the_DT integration_NN of_IN the_DT waterway_NN image_NN [_SYM Fig_NN ._SENT 
+3(a_NP )_) ]_SYM and_CC waterway_NN digital_JJ elevation_NN data_NNS [_SYM Fig_NN ._SENT 
+3(b_NP )_) ]_SYM ,_, as_IN shown_VVN in_IN Fig_NN ._SENT 
+3(c_NP )_) ._SENT 
+2.By_RB importing_VVG the_DT model_NN of_IN waterway_NN buildings_NNS (_( including_VVG bridges_NNS ,_, docks_NNS ,_, riverside_NN buildings_NNS ,_, and_CC beacons_NNS )_) [_SYM Fig_NN ._SENT 
+3(d_VVN )_) ]_SYM ,_, the_DT 3D_JJ virtual_JJ waterway_NN environment_NN is_VBZ constructed_VVN to_TO implement_VV the_DT visualization_NN of_IN the_DT waterway_NN ,_, as_RB shown_VVN in_IN Fig_NN ._SENT 
+3(e_NN )_) ._SENT 
+3.The_JJ 2D_NN IENC_NN is_VBZ shown_VVN in_IN the_DT 3D_JJ waterway_NN environment_NN by_IN integrating_VVG the_DT elements_NNS of_IN the_DT 2D_NN and_CC 3D_NN IENCs_NNS ,_, as_RB shown_VVN in_IN Fig_NN ._SENT 
+3(f_NP )_) ._SENT 
+4.Using_VVG the_DT hydrologic_JJ data_NNS from_IN the_DT hydrological_JJ stations_NNS along_IN the_DT river_NN as_IN input_NN data_NNS [_SYM Fig_NN ._SENT 
+3(g_NP )_) ]_SYM ,_, the_DT hydrodynamic_JJ model_NN is_VBZ established_VVN to_TO calculate_VV the_DT flow_NN conditions_NNS [_SYM Fig_NN ._SENT 
+3(h_NP )_) ]_SYM ,_, simulate_VVP the_DT flow_NN conditions_NNS ,_, and_CC predict_VVP the_DT water_NN depth_NN and_CC velocity_NN distribution_NN of_IN the_DT waterway_NN ,_, as_RB shown_VVN in_IN Fig_NN ._SENT 
+3(i_NP )_) ._SENT 
+5.According_VVG to_TO the_DT navigational_JJ standards_NNS of_IN inland_RB waterways_NNS ,_, the_DT ship’s_NP navigable_JJ area_NN is_VBZ calculated_VVN to_TO analyze_VV the_DT navigational_JJ capacity_NN of_IN the_DT waterway_NN ,_, and_CC the_DT water_NN depth_NN and_CC velocity_NN distribution_NN of_IN the_DT waterway_NN are_VBP displayed_VVN using_VVG flow_NN field_NN visualization_NN technology_NN ,_, as_RB shown_VVN in_IN Fig_NN ._SENT 
+3(j_NP )_) ._SENT 
+6.Ships_NNS are_VBP imported_VVN into_IN the_DT 3D_JJ waterway_NN environment_NN [_SYM Fig_NN ._SENT 
+3(k_NP )_) ]_SYM based_VVN on_IN their_PP$ locational_JJ data_NNS to_TO simulate_VV the_DT real-time_JJ navigational_JJ state_NN ,_, as_RB shown_VVN in_IN Fig_NN ._SENT 
+3(l_NP )_) ._SENT 
+7.by_RB integrating_VVG all_PDT the_DT available_JJ information_NN of_IN shipping_VVG within_IN the_DT waterway_NN ,_, the_DT traffic_NN conditions_NNS of_IN the_DT waterway_NN can_MD be_VB displayed_VVN to_TO provide_VV navigational_JJ services_NNS for_IN all_PDT the_DT ships_NNS ,_, as_RB shown_VVN in_IN Fig_NN ._SENT 
+3(n_NP )_) ._SENT 
+8.the_JJ combination_NN of_IN the_DT simulated_JJ navigable_JJ area_NN and_CC ship_VV navigational_JJ information_NN means_VVZ that_IN the_DT possibility_NN of_IN dangerous_JJ situations_NNS arising_VVG can_MD be_VB predicted_VVN and_CC timely_JJ early_JJ warning_NN information_NN issued_VVN to_TO the_DT ships_NNS ,_, as_RB shown_VVN in_IN Fig_NN ._SENT 
+3(m_NP )_) ._SENT 
+<Section> 4._CD Key_JJ Methods_NNS </Section> Digital_NP Waterway_NN Modeling_VVG 3D_JJ Waterway_NN Modeling_VVG To_TO implement_VV the_DT 3D_JJ visualization_NN of_IN the_DT waterway_NN ,_, 3D_VVG digital_JJ waterway_NN modeling_NN was_VBD a_DT necessary_JJ requirement_NN ._SENT 
+Based_VVN on_IN real_JJ data_NNS ,_, the_DT 3D_JJ digital_JJ waterway_NN modeling_NN integrates_VVZ a_DT regional_JJ image_NN with_IN details_NNS of_IN terrain_NN and_CC buildings_NNS to_TO implement_VV the_DT 3D_JJ digital_JJ waterway_NN construction_NN ._SENT 
+This_DT then_RB displays_VVZ the_DT virtual_JJ scene_NN ,_, which_WDT includes_VVZ the_DT river_NN terrain_NN ,_, docks_NNS ,_, bridges_NNS ,_, ships_NNS ,_, beacons_NNS ,_, and_CC riverside_NN buildings_NNS ,_, directly_RB in_IN the_DT computer_NN ._SENT 
+However_RB ,_, because_IN of_IN the_DT large_JJ volume_NN of_IN waterway_NN terrain_NN and_CC image_NN data_NNS ,_, loading_VVG the_DT entire_JJ channel_NN image_NN or_CC all_PDT the_DT terrain_NN data_NNS directly_RB into_IN the_DT 3D_JJ visualization_NN module_NN would_MD impose_VV a_DT considerable_JJ rendering_NN burden_NN ,_, which_WDT would_MD make_VV virtual_JJ roaming_VVG and_CC real-time_JJ data_NNS interaction_NN impractical_JJ ._SENT 
+To_TO accelerate_VV the_DT speed_NN of_IN data_NN loading_NN ,_, the_DT 3D_JJ digital_JJ waterway_NN modeling_NN can_MD be_VB divided_VVN into_IN in-waterway_NN modeling_NN and_CC out-waterway_NN modeling_NN ,_, according_VVG to_TO the_DT necessary_JJ modeling_NN precision_NN ._SENT 
+The_DT in-waterway_NP modeling_NN constitutes_VVZ the_DT main_JJ content_NN of_IN the_DT 3D_JJ digital_JJ waterway_NN modeling_NN ._SENT 
+The_DT models_NNS in_IN the_DT waterway_NN consist_VVP of_IN the_DT riverbed_NN terrain_NN ,_, bridges_NNS ,_, docks_NNS ,_, beacons_NNS ,_, and_CC ships_NNS ._SENT 
+Riverbed_NN terrain_NN modeling_NN is_VBZ performed_VVN based_VVN on_IN elevation_NN and_CC image_NN data_NNS ._SENT 
+This_DT uses_VVZ 2.5-m_NN resolution_NN data_NNS of_IN the_DT riverbed_NN terrain_NN ,_, obtained_VVN by_IN the_DT Chinese_JJ Waterway_NN Management_NP Department_NP instead_RB of_IN from_IN satellites_NNS (_( Hostache_NP et_NP al_NP ._SENT 
+2015_CD )_) ,_, from_IN which_WDT a_DT digital_JJ elevation_NN network_NN is_VBZ built_VVN in_IN the_DT 3D_JJ virtual_JJ space_NN to_TO simulate_VV the_DT real_JJ riverbed_NN terrain_NN ._SENT 
+Then_RB ,_, the_DT real_JJ texture_NN map_NN ,_, derived_VVN from_IN riverbed_NN image_NN data_NNS ,_, is_VBZ textured_JJ onto_IN the_DT surface_NN of_IN the_DT riverbed_NN terrain_NN model_NN to_TO provide_VV a_DT more_RBR intuitive_JJ expression_NN of_IN the_DT waterway_NN flow_NN images_NNS ._SENT 
+The_DT bridges_NNS ,_, docks_NNS ,_, beacons_NNS ,_, and_CC ships_NNS represent_VVP the_DT core_JJ elements_NNS of_IN the_DT 3D_JJ digital_JJ waterway_NN system_NN ._SENT 
+The_DT models_NNS of_IN these_DT elements_NNS are_VBP intended_VVN to_TO retain_VV as_IN much_JJ detail_NN as_IN possible_JJ to_TO remain_VV vivid_JJ in_IN their_PP$ appearance_NN ._SENT 
+Therefore_RB ,_, some_DT 3D_JJ modeling_NN tools_NNS (_( such_JJ as_IN MultiGen_NN Creator_NN ,_, AutoCAD_NP ,_, 3D_NP MAX_NP ,_, and_CC Maya_NP )_) were_VBD adopted_VVN to_TO create_VV the_DT fine_JJ structure_NN and_CC material_NN characteristics_NNS of_IN these_DT models_NNS ._SENT 
+The_DT out-waterway_NN modeling_NN is_VBZ used_VVN mainly_RB to_TO create_VV the_DT virtual_JJ environment_NN around_IN the_DT waterway_NN as_IN an_DT effective_JJ supplement_NN to_TO the_DT waterway_NN modeling_NN ._SENT 
+Because_IN the_DT external_JJ environment_NN of_IN the_DT waterway_NN has_VHZ no_DT direct_JJ influence_NN on_IN ship_NN navigation_NN and_CC flow_NN conditions_NNS ,_, the_DT description_NN of_IN the_DT external_JJ environment_NN in_IN the_DT traditional_JJ 2D_NN IENC_NN is_VBZ rarely_RB reported_VVN ._SENT 
+However_RB ,_, in_IN the_DT construction_NN of_IN the_DT 3D_JJ digital_JJ waterway_NN ,_, the_DT external_JJ environment_NN is_VBZ indispensable_JJ and_CC its_PP$ representation_NN is_VBZ closely_RB related_VVN to_TO the_DT overall_JJ realism_NN of_IN the_DT waterway_NN model_NN ._SENT 
+Moreover_RB ,_, as_IN the_DT reference_NN of_IN the_DT in-waterway_NN model_NN ,_, the_DT out-waterway_NP model_NN can_MD express_VV a_DT variety_NN of_IN waterway_NN information_NN more_RBR intuitively_RB and_CC realistically_RB ._SENT 
+The_DT out-waterway_NN model_NN mainly_RB includes_VVZ the_DT riverside_NN terrain_NN and_CC buildings_NNS ._SENT 
+The_DT method_NN for_IN modeling_VVG the_DT riverside_NN terrain_NN is_VBZ similar_JJ to_TO that_DT of_IN the_DT riverbed_NN terrain_NN ._SENT 
+To_TO reduce_VV the_DT requirement_NN for_IN computer_NN memory_NN and_CC accelerate_VV the_DT loading_NN process_NN ,_, the_DT riverside_NN terrain_NN model_NN adopts_VVZ low-precision_NN terrain_NN data_NNS ._SENT 
+In_IN this_DT study_NN ,_, the_DT resolution_NN of_IN waterway_NN terrain_NN data_NNS was_VBD 30_CD m_NN and_CC that_IN of_IN other_JJ global_JJ terrain_NN data_NNS was_VBD 90_CD m._NN In_IN addition_NN ,_, the_DT riverside_NN terrain_NN model_NN also_RB includes_VVZ some_DT vector_NN elements_NNS ,_, which_WDT represent_VVP surface_VV cultural_JJ characteristics_NNS ,_, such_JJ as_IN place_NN names_NNS and_CC regional_JJ boundaries_NNS that_WDT improve_VVP the_DT 3D_JJ waterway_NN scenario_NN ._SENT 
+The_DT riverside_NN buildings_NNS ,_, which_WDT represent_VVP the_DT main_JJ content_NN of_IN the_DT out-waterway_NN modeling_NN ,_, are_VBP used_VVN to_TO express_VV the_DT characteristics_NNS of_IN the_DT external_JJ environment_NN ._SENT 
+Because_IN of_IN the_DT number_NN of_IN riverside_NN buildings_NNS to_TO be_VB loaded_VVN ,_, the_DT simulation_NN of_IN the_DT 3D_JJ waterway_NN environment_NN must_MD consider_VV the_DT effects_NNS of_IN realism_NN and_CC loading_NN speed_NN ._SENT 
+Therefore_RB ,_, the_DT structure_NN of_IN the_DT buildings_NNS is_VBZ simplified_VVN as_RB far_RB as_IN possible_JJ according_VVG to_TO their_PP$ importance_NN in_IN the_DT simulation_NN of_IN the_DT 3D_JJ virtual_JJ environment_NN ._SENT 
+Riverside_NN buildings_NNS can_MD be_VB divided_VVN into_IN landmark_JJ buildings_NNS (_( such_JJ as_IN theaters_NNS ,_, squares_NNS ,_, skyscrapers_NNS ,_, stadiums_NNS ,_, and_CC museums_NNS )_) and_CC ordinary_JJ buildings_NNS ._SENT 
+A_DT 3D_JJ modeling_NN tool_NN is_VBZ adopted_VVN to_TO preserve_VV the_DT detail_NN of_IN landmark_NN buildings_NNS ,_, whereas_IN ordinary_JJ buildings_NNS are_VBP represented_VVN by_IN bulk-building_VVG modeling_NN methods_NNS ._SENT 
+The_DT bulk-building_JJ model_NN is_VBZ established_VVN by_IN stretching_VVG the_DT vector_NN top_JJ surface_NN of_IN a_DT building_NN with_IN the_DT building_NN height_NN ._SENT 
+Thus_RB ,_, building_VVG height_NN is_VBZ an_DT important_JJ parameter_NN in_IN the_DT application_NN of_IN the_DT bulk-building_JJ modeling_NN ._SENT 
+Based_VVN on_IN various_JJ high-resolution_NN satellite_NN images_NNS ,_, the_DT shadows_NNS of_IN buildings_NNS can_MD be_VB used_VVN to_TO obtain_VV building_VVG height_NN data_NNS ._SENT 
+The_DT required_JJ modeling_NN precision_NN of_IN the_DT heights_NNS of_IN ordinary_JJ riverside_NN buildings_NNS is_VBZ not_RB high_JJ ,_, therefore_RB ,_, a_DT new_JJ fast-access_NN method_NN based_VVN on_IN a_DT 2D_JJ image_NN is_VBZ used_VVN to_TO derive_VV building_NN height_NN in_IN the_DT bulk-building_JJ modeling_NN ._SENT 
+The_DT basic_JJ steps_NNS of_IN this_DT process_NN are_VBP as_RB follows_VVZ :_: (_( 1_LS )_) based_VVN on_IN high-precision_JJ 2D_JJ image_NN data_NNS ,_, the_DT altitude_NN of_IN the_DT satellite_NN and_CC angle_NN of_IN the_DT sun_NN are_VBP derived_VVN based_VVN on_IN the_DT shadow_NN imaging_NN principle_NN and_CC known_VVN building_NN heights_NNS (_( Wegner_NP et_NP al_NP ._SENT 
+2009_CD )_) ;_: (_( 2_LS )_) the_DT heights_NNS of_IN other_JJ buildings_NNS are_VBP derived_VVN from_IN the_DT obtained_VVN sun_NN and_CC satellite_NN data_NNS ;_: and_CC (_( 3_LS )_) according_VVG to_TO their_PP$ heights_NNS ,_, the_DT 3D_JJ models_NNS of_IN the_DT ordinary_JJ buildings_NNS are_VBP established_VVN by_IN stretching_VVG the_DT vector_NN top_NN surfaces_VVZ of_IN the_DT buildings_NNS ,_, as_RB shown_VVN in_IN Fig_NN ._SENT 
+4._CD Waterway_NN Information_NP Integration_NP The_DT 3D_JJ digital_JJ waterway_NN model_NN can_MD reflect_VV the_DT real_JJ waterway_NN scene_NN and_CC fully_RB express_VV its_PP$ spatial_JJ information_NN ;_: however_RB ,_, some_DT flaws_NNS remain_VVP ._SENT 
+In_IN the_DT 2D_JJ IENC_NN ,_, some_DT virtual_JJ spatial_JJ elements_NNS such_JJ as_IN the_DT water_NN depth–contour_NN surface_NN and_CC the_DT prohibited_VVN ,_, navigability_NN ,_, and_CC mooring_NN areas_NNS are_VBP zoned_VVN artificially_RB to_TO support_VV the_DT aid_NN to_TO navigation_NN and_CC management_NN of_IN the_DT waterway_NN ._SENT 
+These_DT virtual_JJ spatial_JJ elements_NNS are_VBP important_JJ information_NN in_IN all_DT IENCs_NNS ;_: however_RB ,_, they_PP are_VBP not_RB mentioned_VVN in_IN the_DT 3D_JJ IENC_NN ._SENT 
+Therefore_RB ,_, the_DT integration_NN of_IN the_DT elements_NNS in_IN the_DT 2D_NN and_CC 3D_NN IENCs_NNS would_MD fully_RB exploit_VV the_DT advantages_NNS offered_VVD ._SENT 
+However_RB ,_, the_DT 2D_NN and_CC 3D_NN elements_NNS conflict_NN in_IN terms_NNS of_IN performance_NN ;_: the_DT 2D_JJ elements_NNS are_VBP usually_RB represented_VVN by_IN abstract_JJ vector_NN symbols_NNS ,_, whereas_IN the_DT 3D_JJ elements_NNS are_VBP usually_RB represented_VVN by_IN 3D_JJ models_NNS ._SENT 
+If_IN the_DT 2D_JJ elements_NNS were_VBD textured_JJ directly_RB onto_IN the_DT surface_NN of_IN the_DT 3D_JJ waterway_NN environment_NN ,_, the_DT description_NN of_IN waterway_NN information_NN would_MD be_VB difficult_JJ because_IN the_DT size_NN of_IN the_DT 2D_JJ elements_NNS cannot_MD be_VB adjusted_VVN to_TO the_DT screen_NN ._SENT 
+Furthermore_RB ,_, the_DT 2D_JJ elements_NNS would_MD be_VB out_RP of_IN shape_NN in_IN different_JJ perspectives_NNS and_CC affect_VV the_DT sense_NN of_IN reality_NN of_IN the_DT entire_JJ virtual_JJ environment_NN ._SENT 
+In_IN this_DT study_NN ,_, the_DT following_VVG two_CD methods_NNS were_VBD applied_VVN to_TO the_DT 3D_JJ digital_JJ waterway_NN system_NN to_TO integrate_VV the_DT elements_NNS of_IN the_DT 2D_NN and_CC 3D_NN IENCs_NNS :_: 1.Outside_RB the_DT waterway_NN ,_, vector_NN elements_NNS ,_, such_JJ as_IN roads_NNS ,_, place_NN names_NNS ,_, and_CC administrative_JJ boundaries_NNS ,_, need_VVP to_TO be_VB displayed_VVN ._SENT 
+the_DT 2D_JJ layer_NN is_VBZ loaded_VVN as_IN a_DT texture_NN to_TO establish_VV a_DT level_NN of_IN detail_NN model_NN that_WDT can_MD show_VV the_DT 2D_JJ map_NN at_IN different_JJ levels_NNS of_IN precision_NN ,_, depending_VVG on_IN the_DT height_NN of_IN the_DT viewpoint_NN ,_, to_TO ensure_VV the_DT sizes_NNS of_IN the_DT 2D_JJ elements_NNS adjust_VVP to_TO the_DT screen_NN ._SENT 
+In_IN this_DT way_NN ,_, the_DT 2D-layer_NN and_CC 3D-layer_NN information_NN can_MD be_VB displayed_VVN by_IN switching_VVG the_DT layers_NNS ._SENT 
+In_IN addition_NN ,_, to_TO avoid_VV deformation_NN of_IN the_DT 2D_JJ elements_NNS ,_, the_DT perspective_NN view_NN in_IN the_DT 2D_JJ mode_NN is_VBZ limited_VVN to_TO the_DT vertical_JJ ,_, as_RB shown_VVN in_IN Fig_NN ._SENT 
+5._CD 2.In_NN the_DT waterway_NN ,_, the_DT system_NN not_RB only_RB needs_VVZ to_TO display_VV static_JJ dot_VVP elements_NNS such_JJ as_IN beacons_NNS ,_, lighthouses_NNS ,_, docks_NNS ,_, and_CC place_NN names_NNS ,_, but_CC it_PP also_RB needs_VVZ to_TO display_VV dynamic_JJ planar_JJ elements_NNS such_JJ as_IN the_DT water_NN depth–contour_NN surface_NN and_CC the_DT prohibited_VVN and_CC navigable_JJ areas_NNS ._SENT 
+Static_JJ dot_VVP elements_NNS are_VBP represented_VVN in_IN the_DT IENCs_NNS by_IN universal_JJ symbols_NNS ,_, the_DT visibility_NN of_IN which_WDT is_VBZ ensured_VVN at_IN different_JJ viewpoint_NN heights_NNS by_IN fixing_VVG the_DT display_NN scale_NN of_IN the_DT icons_NNS on_IN the_DT screen_NN ._SENT 
+Dynamic_JJ planar_JJ elements_NNS vary_VVP with_IN flow_NN conditions_NNS ,_, thus_RB ,_, they_PP cannot_MD be_VB expressed_VVN using_VVG a_DT static_JJ texture_NN map_NN ._SENT 
+Therefore_RB ,_, the_DT dynamic_JJ water-surface_NN model_NN is_VBZ established_VVN for_IN the_DT display_NN in_IN the_DT 3D_JJ virtual_JJ waterway_NN ,_, the_DT shape_NN and_CC height_NN of_IN which_WDT are_VBP determined_VVN by_IN the_DT hydrodynamic_JJ model_NN calculations_NNS ._SENT 
+Hydrological_JJ Monitoring_NN and_CC Flow_NP Simulation_NP The_DT navigational_JJ flow_NN conditions_NNS have_VHP significant_JJ impact_NN on_IN the_DT navigational_JJ environment_NN ._SENT 
+Unlike_IN the_DT spatial_JJ information_NN of_IN the_DT waterway_NN ,_, the_DT flow_NN conditions_NNS vary_VVP over_IN time_NN ._SENT 
+The_DT waterway_NN model_NN in_IN the_DT 3D_JJ visualization_NN module_NN is_VBZ a_DT static_JJ model_NN that_WDT is_VBZ unable_JJ to_TO simulate_VV the_DT movement_NN of_IN the_DT river_NN flow_NN in_IN real_JJ time_NN ._SENT 
+Therefore_RB ,_, an_DT independent_JJ flow_NN simulation_NN module_NN is_VBZ developed_VVN in_IN the_DT 3D_JJ digital_JJ waterway_NN system_NN to_TO strengthen_VV the_DT visualization_NN module_NN ,_, such_JJ that_IN real-time_JJ changes_NNS in_IN the_DT water_NN level_NN and_CC flow_NN field_NN of_IN the_DT waterway_NN can_MD be_VB shown_VVN ._SENT 
+Hydrological_JJ Monitoring_NN The_DT 3D_JJ digital_JJ waterway_NN system_NN can_MD provide_VV dynamic_JJ navigational_JJ flow_NN conditions_NNS ,_, such_JJ as_IN the_DT water_NN depth_NN ,_, flow_NN velocity_NN ,_, and_CC width_NN of_IN the_DT navigable_JJ waterway_NN ._SENT 
+The_DT extraction_NN of_IN the_DT navigational_JJ flow_NN conditions_NNS depends_VVZ mainly_RB on_IN the_DT obtained_VVN hydrological_JJ monitoring_NN data_NNS and_CC the_DT simulation_NN by_IN the_DT hydrodynamic_JJ model_NN ._SENT 
+The_DT hydrological_JJ data_NNS that_WDT mainly_RB include_VVP information_NN on_IN water_NN level_NN ,_, flow_NN discharge_NN ,_, warning_VVG water_NN level_NN ,_, and_CC safety_NN water_NN level_NN are_VBP important_JJ factors_NNS for_IN shipping_NN and_CC constitute_VV the_DT basis_NN of_IN the_DT navigation_NN monitoring_NN and_CC early_JJ warning_NN systems_NNS ._SENT 
+The_DT hydrological_JJ data_NNS are_VBP mainly_RB measured_VVN and_CC sorted_VVN by_IN the_DT Hydrological_JJ Monitoring_NN Department_NP and_CC then_RB issued_VVN via_IN the_DT Internet_NN ._SENT 
+The_DT 3D_JJ digital_JJ waterway_NN system_NN accesses_VVZ the_DT hydrological_JJ data_NNS from_IN the_DT Internet_NN and_CC stores_VVZ them_PP on_IN a_DT web_NN server_NN ._SENT 
+The_DT hydrological_JJ data_NNS on_IN the_DT server_NN are_VBP updated_VVN in_IN tandem_NN with_IN the_DT hydrological_JJ monitoring_NN to_TO ensure_VV timeliness_NN ._SENT 
+Moreover_RB ,_, the_DT hydrological_JJ data_NN analysis_NN module_NN ,_, integrated_VVN in_IN the_DT client’s_NNS 3D_VVP digital_JJ waterway_NN system_NN ,_, is_VBZ developed_VVN to_TO access_VV the_DT web_NN server_NN and_CC to_TO query_VV the_DT historical_JJ and_CC real-time_JJ hydrological_JJ data_NNS ._SENT 
+Flow_NP Simulation_NP The_DT main_JJ work_NN of_IN the_DT flow_NN simulation_NN module_NN is_VBZ to_TO build_VV a_DT hydrodynamic_JJ model_NN ,_, simulate_VVP the_DT movement_NN of_IN river_NN flow_NN based_VVN on_IN the_DT hydrological_JJ monitoring_NN data_NNS ,_, and_CC obtain_VV the_DT navigational_JJ flow_NN conditions_NNS ._SENT 
+The_DT flow_NN simulation_NN module_NN adopts_VVZ the_DT shallow_JJ water_NN equation_NN to_TO build_VV a_DT 2D_JJ waterway_NN numerical_JJ model_NN ,_, and_CC then_RB it_PP solves_VVZ the_DT model_NN to_TO obtain_VV the_DT change_NN process_NN of_IN waterway_NN flow_NN using_VVG the_DT finite-volume_JJ method_NN ._SENT 
+The_DT conservative_JJ form_NN of_IN the_DT 2D_JJ shallow_JJ water_NN equation_NN is_VBZ as_RB follows_VVZ :_: @(1_JJ )_) where_WRB h_NN =_SYM water_NN depth_NN ;_: u_NN and_CC v_NN =_SYM flow_NN velocities_NNS in_IN the_DT x-_NN and_CC y-directions_NNS ,_, respectively_RB ;_: SOx=−∂Zb/∂x_NP and_CC SOy=−∂Zb/∂y_NP are_VBP the_DT bottom_JJ slope_NN source_NN terms_NNS in_IN the_DT x-_NN and_CC y-directions_NNS ,_, respectively_RB ;_: Sfx=n2uu2+v2−−−−−−√h−4/3_NP and_CC Sfy=n2vu2+v2−−−−−−√h−4/3_NP represent_VVP the_DT loss_NN gradient_NN of_IN friction_NN in_IN the_DT x-_NN and_CC y-directions_NNS ,_, respectively_RB ;_: Zb_NP =_SYM bottom_JJ elevation_NN ;_: and_CC n_NN is_VBZ the_DT Manning_NP coefficient_NN ._SENT 
+The_DT effects_NNS of_IN the_DT Coriolis_NN and_CC wind_NN forces_NNS are_VBP not_RB considered_VVN ._SENT 
+The_DT model_NN can_MD simulate_VV the_DT process_NN of_IN unsteady_JJ flow_NN according_VVG to_TO the_DT input_NN hydrological_JJ data_NNS ._SENT 
+In_IN the_DT numerical_JJ simulation_NN of_IN the_DT hydrodynamic_JJ model_NN ,_, the_DT slow_JJ flow_NN boundary_NN condition_NN is_VBZ generally_RB adopted_VVN ._SENT 
+In_IN this_DT study_NN ,_, the_DT boundary_NN of_IN the_DT unit_NN flow_NN upstream_RB and_CC the_DT water_NN level_NN downstream_JJ were_VBD given_VVN ,_, i.e._FW ,_, the_DT flow_NN at_IN Zhutuo_NP station_NN upstream_RB ,_, the_DT flow_NN at_IN Beibei_NP station_NN in_IN the_DT Jialing_NP River_NP (_( a_DT tributary_NN of_IN the_DT Yangtze_NP River_NP )_) ,_, and_CC the_DT water_NN level_NN at_IN Cuntan_JJ station_NN downstream_JJ ._SENT 
+Because_IN of_IN the_DT irregular_JJ shape_NN of_IN the_DT river_NN reach_NN ,_, an_DT unstructured_JJ grid_NN is_VBZ used_VVN to_TO discretize_VV the_DT waterway_NN to_TO solve_VV the_DT 2D_JJ shallow_JJ water_NN equations_NNS ._SENT 
+By_IN considering_VVG the_DT speed_NN and_CC precision_NN of_IN the_DT calculation_NN of_IN the_DT numerical_JJ model_NN comprehensively_RB ,_, a_DT quadrilateral_JJ grid_NN ,_, with_IN 260,579_CD grid_NN points_NNS and_CC 253,161_CD quadrangles_NNS ,_, is_VBZ adopted_VVN for_IN zoning_VVG the_DT waterway_NN ,_, with_IN an_DT average_JJ grid_NN size_NN of_IN 20_CD m._NP Simulation_NP precision_NN and_CC speed_NN are_VBP the_DT two_CD principal_JJ factors_NNS that_WDT control_VVP the_DT efficacy_NN of_IN the_DT hydrodynamic_JJ model_NN ._SENT 
+The_DT model_NN approach_NN was_VBD used_VVN to_TO simulate_VV different_JJ flow_NN regimes_NNS (_( Bladé_NP et_NP al_NP ._SENT 
+2012_CD ;_: Zhang_NP et_NP al_NP ._SENT 
+2014_CD )_) ._SENT 
+In_IN this_DT case_NN study_NN ,_, three_CD levels_NNS of_IN discharge_NN (_( 4480_CD ,_, 22,700_CD ,_, and_CC 35,300_CD m3/s_NNS )_) ,_, which_WDT represented_VVD small_JJ ,_, medium_JJ ,_, and_CC large_JJ flow_NN levels_NNS on_IN the_DT river_NN reach_NN ,_, and_CC the_DT corresponding_JJ measurements_NNS of_IN water_NN level_NN and_CC velocity_NN at_IN observation_NN points_NNS were_VBD used_VVN to_TO verify_VV the_DT simulation_NN accuracy_NN ._SENT 
+The_DT verification_NN results_NNS showed_VVD that_IN the_DT deviation_NN of_IN the_DT water_NN depth_NN was_VBD between_IN −0.07_JJ and_CC 0.08_CD m_NN ,_, the_DT deviation_NN of_IN the_DT flow_NN velocity_NN was_VBD between_IN −0.09_NN and_CC 0.09_CD m/s_NNS ,_, and_CC the_DT relative_JJ deviation_NN was_VBD between_IN −3.8_NN and_CC 4.2_CD %_NN ._SENT 
+Thus_RB ,_, the_DT simulation_NN results_NNS were_VBD in_IN good_JJ agreement_NN with_IN the_DT measured_VVN data_NNS ._SENT 
+For_IN calculation_NN speed_NN ,_, using_VVG the_DT serial_JJ computational_JJ method_NN to_TO calculate_VV the_DT model_NN takes_VVZ about_RB 70_CD min_NN ,_, which_WDT is_VBZ too_RB long_JJ for_IN a_DT real-time_JJ warning_NN system_NN ._SENT 
+Therefore_RB ,_, the_DT following_VVG two_CD methods_NNS are_VBP used_VVN to_TO accelerate_VV the_DT model_NN calculation_NN to_TO ensure_VV the_DT timeliness_NN of_IN the_DT results_NNS :_: 1.The_VVG parallel_JJ mode_NN ,_, based_VVN on_IN shared_VVN memory_NN (_( OpenMP_NP )_) ,_, is_VBZ used_VVN to_TO improve_VV the_DT serial_JJ model_NN by_IN implementing_VVG parallel_JJ computing_NN on_IN a_DT multicore_JJ processor_NN to_TO accelerate_VV the_DT speed_NN of_IN the_DT model_NN calculation_NN (_( Zhang_NP et_NP al_NP ._SENT 
+2014_CD )_) ._SENT 
+In_IN this_DT study_NN ,_, this_DT system_NN obtained_VVD an_DT acceleration_NN rate_NN of_IN 17.8_CD using_VVG a_DT 20-core_JJ workstation_NN ,_, and_CC the_DT calculation_NN time_NN decreased_VVD to_TO 4_CD min_NN ._SENT 
+2.A_NP simulated-solution_NN library_NN is_VBZ established_VVN in_IN advance_NN to_TO store_VV simulated_JJ solutions_NNS based_VVN on_IN different_JJ waterway_NN inflows_NNS ._SENT 
+During_IN the_DT system_NN operation_NN ,_, corresponding_JJ simulated_JJ solutions_NNS can_MD be_VB extracted_VVN from_IN the_DT solution_NN library_NN in_IN accordance_NN with_IN the_DT real-time_JJ inflow_NN to_TO obtain_VV the_DT existing_JJ flow_NN distribution_NN based_VVN on_IN linear_JJ interpolation_NN ._SENT 
+Because_IN the_DT interpolation_NN time_NN is_VBZ far_RB less_JJR than_IN the_DT calculation_NN time_NN ,_, the_DT system_NN ensures_VVZ real-time_JJ flow_NN status_NN ._SENT 
+During_IN normal_JJ system_NN operation_NN ,_, using_VVG the_DT solution_NN library_NN to_TO obtain_VV the_DT existing_JJ flow_NN conditions_NNS is_VBZ preferred_JJ ._SENT 
+However_RB ,_, if_IN no_DT solution_NN exists_VVZ within_IN the_DT solution_NN library_NN for_IN a_DT given_VVN existing_JJ inflow_NN ,_, the_DT parallel_JJ calculation_NN method_NN is_VBZ used_VVN and_CC the_DT generated_VVN solution_NN added_VVD to_TO the_DT solution_NN library_NN ._SENT 
+<Section> 5._CD Early_RB Warning_NP System_NP </Section> To_TO ensure_VV navigational_JJ safety_NN and_CC improve_VV the_DT efficiency_NN of_IN shipping_NN ,_, the_DT early_JJ warning_NN system_NN is_VBZ designed_VVN to_TO cope_VV with_IN water-traffic_JJ accidents_NNS ,_, such_JJ as_IN ship_NN collisions_NNS ,_, strandings_NNS ,_, and_CC groundings_NNS ._SENT 
+The_DT early_JJ warning_NN system_NN comprises_VVZ the_DT ship_NN information_NN extraction_NN ,_, ship_NN navigation_NN ,_, navigational_JJ capacity_NN analysis_NN ,_, and_CC early_JJ warning_NN modules_NNS ._SENT 
+During_IN system_NN operation_NN ,_, the_DT ship_NN information_NN extraction_NN module_NN ,_, whose_WP$ data-collecting_JJ terminals_NNS are_VBP installed_VVN in_IN the_DT ships_NNS ,_, collects_VVZ information_NN on_IN the_DT ship’s_NP position_NN and_CC navigational_JJ status_NN using_VVG GPS_NNS technology_NN ._SENT 
+Then_RB ,_, based_VVN on_IN the_DT ship’s_NP positions_NNS ,_, the_DT ship_NN navigation_NN module_NN displays_VVZ the_DT near-traffic_JJ condition_NN to_TO provide_VV a_DT navigational_JJ service_NN ._SENT 
+Subsequently_RB ,_, the_DT navigational_JJ capacity_NN analysis_NN module_NN analyzes_VVZ the_DT navigational_JJ status_NN and_CC draws_VVZ the_DT navigable_JJ area_NN of_IN the_DT ship_NN based_VVN on_IN the_DT results_NNS of_IN the_DT flow_NN simulation_NN ._SENT 
+Finally_RB ,_, according_VVG to_TO the_DT ship’s_NP position_NN and_CC navigable_JJ area_NN ,_, the_DT early_JJ warning_NN module_NN predicts_VVZ the_DT possibility_NN of_IN accidents_NNS and_CC issues_NNS an_DT early_JJ warning_NN to_TO the_DT ships_NNS as_IN appropriate_JJ ._SENT 
+<Section> 6._CD Ship_NP Information_NP Extraction_NN and_CC Ship_NP Navigation_NP </Section> The_DT ship_NN information_NN extraction_NN module_NN is_VBZ composed_VVN of_IN the_DT data-collecting_VVG terminal_NN ,_, transfer_NN database_NN ,_, and_CC data_NNS receiving_VVG and_CC displaying_VVG terminal_NN ._SENT 
+The_DT data-collecting_VVG terminal_NN and_CC the_DT data_NNS receiving_VVG and_CC displaying_VVG terminal_NN are_VBP installed_VVN in_IN the_DT ships_NNS ,_, and_CC the_DT transfer_NN database_NN is_VBZ installed_VVN on_IN the_DT web_NN server_NN ._SENT 
+The_DT data-collecting_VVG terminal_NN ,_, which_WDT consists_VVZ of_IN a_DT GPS_NNS receiver_NN ,_, GPRS_NNS data-transmission_JJ module_NN ,_, antenna_NN ,_, and_CC power_NN supply_NN ,_, transmits_VVZ a_DT signal_NN to_TO the_DT GPS_NNS satellites_NNS based_VVN on_IN which_WDT the_DT GPS_NNS receiver_NN determines_VVZ the_DT latitude_NN ,_, longitude_NN ,_, speed_NN ,_, and_CC heading_VVG of_IN the_DT ship_NN ._SENT 
+Then_RB ,_, these_DT data_NNS are_VBP transmitted_VVN to_TO the_DT database_NN on_IN the_DT web_NN server_NN via_IN the_DT GPRS_NNS network_NN and_CC Internet_NN ._SENT 
+The_DT interface_NN program_NN in_IN the_DT server_NN parses_VVZ these_DT data_NNS and_CC stores_NNS them_PP in_IN the_DT database_NN ._SENT 
+The_DT data_NNS receiving_VVG and_CC displaying_VVG terminal_NN ,_, integrated_VVN within_IN the_DT visualization_NN module_NN ,_, accesses_VVZ the_DT web_NN server_NN via_IN the_DT Internet_NN and_CC extracts_VVZ the_DT parsed_VVN ship_NN data_NNS ,_, which_WDT are_VBP ultimately_RB used_VVN in_IN the_DT ship_NN navigation_NN and_CC for_IN early_JJ warnings_NNS ._SENT 
+To_TO implement_VV ship_NN navigation_NN ,_, the_DT most_RBS important_JJ element_NN is_VBZ the_DT determination_NN of_IN nearby_JJ water_NN traffic_NN ._SENT 
+The_DT navigation_NN module_NN ,_, which_WDT is_VBZ based_VVN on_IN the_DT extraction_NN of_IN the_DT ship’s_NP positional_JJ information_NN ,_, searches_NNS for_IN other_JJ ships_NNS in_IN nearby_JJ waters_NNS and_CC establishes_VVZ their_PP$ relative_JJ positions_NNS ,_, speeds_NNS ,_, and_CC headings_NNS in_IN real_JJ time_NN ._SENT 
+Thus_RB ,_, each_DT ship_NN can_MD be_VB guided_VVN along_IN specific_JJ routes_NNS and_CC the_DT risk_NN of_IN ship_NN collisions_NNS avoided_VVN effectively_RB ._SENT 
+Furthermore_RB ,_, the_DT ship_NN navigation_NN module_NN also_RB provides_VVZ the_DT relative_JJ position_NN ,_, clear_JJ span_NN (_( minimum_JJ horizontal_JJ distance_NN between_IN two_CD piers_NNS )_) ,_, and_CC clear_JJ height_NN (_( minimum_JJ vertical_JJ distance_NN between_IN the_DT bottom_NN of_IN a_DT bridge_NN and_CC the_DT river_NN surface_NN under_IN the_DT designed_VVN highest_JJS navigable_JJ water_NN level_NN )_) of_IN nearby_JJ bridges_NNS to_TO prevent_VV ships_NNS from_IN colliding_VVG with_IN them_PP ._SENT 
+All_PDT the_DT navigation_NN information_NN is_VBZ gathered_VVN in_IN the_DT navigational_JJ label_NN of_IN each_DT ship_NN ._SENT 
+For_IN any_DT ship_NN model_NN on_IN the_DT screen_NN that_WDT is_VBZ selected_VVN ,_, its_PP$ label_NN is_VBZ presented_VVN immediately_RB ,_, as_IN shown_VVN in_IN Fig_NN ._SENT 
+6._CD <Section> 7._CD Navigational_JJ Capacity_NN Analysis_NN and_CC Early_RB Warning_NP </Section> There_EX are_VBP many_JJ factors_NNS that_WDT influence_VVP the_DT waterway_NN navigational_JJ capacity_NN and_CC the_DT navigational_JJ safety_NN of_IN ships_NNS ,_, such_JJ as_IN the_DT grade_NN of_IN the_DT waterway_NN ,_, waterway_NN environment_NN ,_, weather_NN conditions_NNS ,_, navigation_NN route_NN ,_, and_CC human_JJ factors_NNS ._SENT 
+The_DT early_JJ warning_NN provided_VVN by_IN the_DT 3D_JJ digital_JJ waterway_NN system_NN is_VBZ implemented_VVN by_IN showing_VVG waterway_NN depth_NN ,_, waterway_NN width_NN ,_, waterway_NN curvature_NN radius_NN ,_, clear_JJ span_NN and_CC clear_JJ height_NN of_IN bridges_NNS ,_, flow_NN velocity_NN ,_, and_CC distribution_NN features_NNS of_IN the_DT flow_NN field_NN ._SENT 
+The_DT required_VVN minima_NN of_IN these_DT parameters_NNS for_IN a_DT specific_JJ ship_NN can_MD be_VB calculated_VVN in_IN accordance_NN with_IN the_DT Navigation_NP Standards_NPS of_IN Inland_NP Waterways_NNS (_( MTPRC_NP 2004_CD )_) ._SENT 
+For_IN example_NN ,_, the_DT minimum_JJ waterway_NN depth_NN can_MD be_VB calculated_VVN according_VVG to_TO the_DT following_VVG standard_NN :_: @(2_NP )_) where_WRB H_NP =_SYM minimum_JJ waterway_NN depth_NN ;_: T_NN =_SYM ship_NN draft_NN ;_: and_CC ΔH_NP =_SYM underkeel_JJ clearance_NN that_WDT varies_VVZ according_VVG to_TO the_DT waterway_NN classification_NN ._SENT 
+The_DT underkeel_JJ clearance_NN includes_VVZ the_DT effects_NNS of_IN ship_NN motion_NN on_IN waterway_NN depth_NN ._SENT 
+Here_RB ,_, we_PP consider_VVP only_RB the_DT characteristics_NNS of_IN a_DT static_JJ ship_NN ,_, and_CC the_DT details_NNS of_IN the_DT motion_NN of_IN the_DT ship_NN are_VBP not_RB calculated_VVN in_IN the_DT module_NN ._SENT 
+However_RB ,_, the_DT influences_NNS of_IN ship_NN motion_NN are_VBP included_VVN in_IN the_DT margins_NNS of_IN safety_NN ,_, such_JJ as_IN ΔH_NP in_IN the_DT waterway_NN depth_NN calculation_NN ._SENT 
+Based_VVN on_IN these_DT calculations_NNS ,_, the_DT developed_JJ navigational_JJ capacity_NN analysis_NN module_NN is_VBZ established_VVN ,_, as_RB shown_VVN in_IN Fig_NN ._SENT 
+7._CD When_WRB analyzing_VVG the_DT navigational_JJ capacity_NN ,_, a_DT target_NN ship_NN in_IN the_DT database_NN is_VBZ selected_VVN and_CC its_PP$ position_NN ,_, speed_NN ,_, and_CC heading_VVG calculated_VVN by_IN the_DT GPS_NNS in_IN real_JJ time_NN ._SENT 
+Based_VVN on_IN the_DT real-time_JJ flow_NN conditions_NNS of_IN the_DT ship_NN ,_, the_DT threshold_NN of_IN the_DT flow_NN velocity_NN and_CC minimum_JJ waterway_NN dimensions_NNS are_VBP calculated_VVN ._SENT 
+A_DT comparison_NN of_IN the_DT results_NNS with_IN the_DT actual_JJ waterway_NN depth_NN ,_, flow_NN velocity_NN ,_, waterway_NN width_NN ,_, waterway_NN curvature_NN radius_NN ,_, and_CC clear_JJ span_NN and_CC clear_JJ height_NN of_IN bridges_NNS allows_VVZ the_DT navigable_JJ area_NN of_IN the_DT ship_NN to_TO be_VB determined_VVN ,_, as_RB shown_VVN in_IN Fig_NN ._SENT 
+8._CD Thus_RB ,_, in_IN combination_NN with_IN the_DT navigable_JJ area_NN of_IN the_DT ship_NN ,_, the_DT system_NN can_MD issue_VV early_JJ warnings_NNS in_IN real_JJ time_NN to_TO avoid_VV water-traffic_JJ accidents_NNS ._SENT 
+Compared_VVN with_IN the_DT 2D_JJ IENC_NN ,_, the_DT navigable_JJ area_NN in_IN the_DT 3D_JJ system_NN considers_VVZ the_DT level_NN and_CC velocity_NN of_IN the_DT water_NN ,_, and_CC the_DT draught_NN ,_, length_NN ,_, width_NN ,_, height_NN ,_, and_CC speed_NN of_IN the_DT ship_NN ._SENT 
+Moreover_RB ,_, the_DT characteristics_NNS of_IN the_DT flow_NN field_NN distribution_NN are_VBP illustrated_VVN using_VVG a_DT dynamic_JJ arrow-based_JJ particle_NN system_NN to_TO display_VV adverse_JJ flow_NN conditions_NNS such_JJ as_IN vortices_NNS and_CC reflow_NN ,_, which_WDT helps_VVZ with_IN the_DT planning_NN of_IN the_DT ship’s_NP route_NN and_CC ensures_VVZ the_DT ship’s_NP safety_NN (_( S._NP Zhang_NP et_CC al_NP ._SENT 
+2004_CD ;_: Weiskopf_NP et_NP al_NP ._SENT 
+2005_CD )_) ._SENT 
+<Section> 8._CD System_NP Application_NN </Section> The_DT system_NN was_VBD used_VVN in_IN the_DT river_NN stretch_NN from_IN Jiangjin_NP to_TO Chongqing_NP on_IN the_DT upper_JJ reaches_NNS of_IN the_DT Yangtze_NP River_NP in_IN August_NP 2015._CD A_DT server_NN side_NN and_CC a_DT client_NN side_NN were_VBD established_VVN for_IN this_DT application_NN ._SENT 
+The_DT applied_VVN system_NN framework_NN is_VBZ shown_VVN in_IN Fig_NN ._SENT 
+9._CD The_DT server_NN side_NN was_VBD established_VVN in_IN the_DT Shipping_NP Management_NP Department_NP for_IN massive_JJ data_NNS storage_NN and_CC real-time_JJ flow_NN condition_NN calculations_NNS ._SENT 
+The_DT hydrological_JJ data_NNS stored_VVN on_IN the_DT server_NN side_NN were_VBD acquired_VVN by_IN local_JJ hydrological_JJ stations_NNS ._SENT 
+Based_VVN on_IN the_DT latest_JJS hydrological_JJ data_NNS (_( updated_VVN hourly_JJ )_) ,_, the_DT server_NN side_NN could_MD calculate_VV related_JJ solutions_NNS for_IN the_DT real-time_JJ waterway_NN depth_NN and_CC velocity_NN distribution_NN ._SENT 
+Then_RB ,_, all_PDT the_DT calculated_JJ solutions_NNS were_VBD stored_VVN in_IN the_DT flow_NN solution_NN library_NN to_TO accelerate_VV the_DT calculation_NN ._SENT 
+The_DT client_NN side_NN ,_, which_WDT comprised_VVN the_DT GPS_NNS information_NN collection_NN terminals_NNS and_CC the_DT installed_JJ computer_NN system_NN of_IN the_DT 3D_JJ digital_JJ waterway_NN system_NN ,_, was_VBD established_VVN onboard_JJ a_DT ship_NN ._SENT 
+The_DT ship_NN characteristics_NNS ,_, such_JJ as_IN its_PP$ name_NN ,_, size_NN ,_, weight_NN ,_, and_CC GPS_NNS information_NN ,_, were_VBD registered_VVN in_IN the_DT database_NN after_IN entering_VVG the_DT managed_VVN river_NN stretch_NN ._SENT 
+The_DT real-time_JJ positioning_NN information_NN was_VBD collected_VVN by_IN GPS_NNS terminals_NNS and_CC transmitted_VVD to_TO the_DT server_NN database_NN via_IN the_DT GPRS_NNS network_NN ._SENT 
+In_IN the_DT meantime_NN ,_, the_DT 3D_JJ virtual_JJ environment_NN of_IN the_DT river_NN stretch_NN was_VBD displayed_VVN by_IN the_DT computer_NN ,_, showing_VVG ship_NN models_NNS to_TO simulate_VV real-time_JJ ship_NN navigation_NN ._SENT 
+In_IN addition_NN ,_, the_DT waterway_NN depth_NN and_CC velocity_NN distribution_NN were_VBD obtained_VVN from_IN the_DT network_NN database_NN and_CC displayed_VVN via_IN the_DT water_NN depth–contour_NN surface_NN and_CC dynamic_JJ flow_NN field_NN ._SENT 
+Based_VVN on_IN the_DT combination_NN of_IN the_DT navigation_NN specification_NN and_CC the_DT attributes_NNS and_CC positioning_NN information_NN of_IN the_DT ship_NN ,_, the_DT prohibited_VVN and_CC navigable_JJ areas_NNS of_IN the_DT ship_NN were_VBD displayed_VVN in_IN the_DT system_NN to_TO provide_VV an_DT early_JJ warning_NN service_NN and_CC to_TO ensure_VV ship_NN safety_NN ._SENT 
+In_IN addition_NN to_TO the_DT general_JJ functions_NNS of_IN the_DT common_JJ 2D_NN IENC_NN ,_, the_DT new_JJ system_NN has_VHZ two_CD principal_JJ advantages_NNS ._SENT 
+The_DT first_JJ is_VBZ that_IN it_PP can_MD provide_VV real-time_JJ information_NN on_IN the_DT flow_NN condition_NN and_CC navigable_JJ area_NN to_TO aid_VV navigation_NN ._SENT 
+The_DT spatial_JJ characteristics_NNS of_IN the_DT flow_NN field_NN are_VBP a_DT novel_NN feature_NN ,_, and_CC the_DT degree_NN of_IN navigability_NN of_IN a_DT specific_JJ ship_NN is_VBZ displayed_VVN together_RB with_IN the_DT physical_JJ characteristics_NNS of_IN the_DT ship_NN and_CC the_DT navigation_NN rules_NNS ,_, which_WDT makes_VVZ the_DT early_JJ warning_NN module_NN much_RB more_RBR comprehensive_JJ ._SENT 
+For_IN example_NN ,_, the_DT flow_NN velocity_NN magnitude_NN ,_, lateral_JJ flow_NN ,_, and_CC vortices_NNS might_MD all_RB affect_VV navigational_JJ safety_NN ,_, thus_RB ,_, the_DT detailed_JJ flow_NN field_NN visualization_NN (_( Fig_NN ._SENT 
+10_CD )_) can_MD help_VV navigators_NNS make_VV effective_JJ decisions_NNS according_VVG to_TO the_DT power_NN and_CC characteristics_NNS of_IN the_DT ship_NN ._SENT 
+In_IN contrast_NN to_TO the_DT real-time_JJ flow_NN conditions_NNS ,_, the_DT beacons_NNS in_IN traditional_JJ navigation_NN systems_NNS are_VBP unable_JJ to_TO update_VV information_NN on_IN potentially_RB complex_JJ flow_NN regimes_NNS in_IN a_DT timely_JJ manner_NN ,_, which_WDT could_MD pose_VV hidden_JJ safety_NN problems_NNS once_IN bad_JJ weather_NN occurs_VVZ ._SENT 
+The_DT second_JJ advantage_NN of_IN the_DT system_NN is_VBZ that_IN it_PP not_RB only_RB shows_VVZ the_DT waterway_NN environment_NN and_CC elements_NNS in_IN a_DT vivid_JJ manner_NN ,_, which_WDT could_MD reduce_VV training_NN time_NN ,_, but_CC it_PP also_RB simulates_VVZ the_DT navigator_NN viewshed_NN ,_, which_WDT helps_VVZ the_DT navigator_NN plan_NN a_DT route_NN and_CC avoid_VV collisions_NNS ._SENT 
+Fig_NN ._SENT 
+11_CD shows_NNS the_DT viewshed_NN of_IN the_DT navigator_NN ._SENT 
+Based_VVN on_IN the_DT visibility_NN range_NN ,_, the_DT navigator_NN can_MD plan_VV an_DT appropriate_JJ route_NN for_IN the_DT ship_NN and_CC be_VB prepared_VVN to_TO whistle_VV to_TO avoid_VV collisions_NNS ._SENT 
+<Section> 9._CD Conclusions_NNS </Section> As_IN the_DT navigational_JJ environment_NN of_IN inland_RB rivers_NNS becomes_VVZ increasingly_RB complex_JJ ,_, the_DT management_NN of_IN shipping_NN is_VBZ becoming_VVG increasingly_RB difficult_JJ ._SENT 
+Digital_NP waterway_NN systems_NNS are_VBP intelligent_JJ information_NN tools_NNS that_WDT can_MD play_VV an_DT important_JJ role_NN in_IN both_DT improving_VVG the_DT efficiency_NN of_IN navigation_NN and_CC maintaining_VVG the_DT safety_NN of_IN shipping_NN ._SENT 
+In_IN this_DT study_NN ,_, a_DT 3D_JJ digital_JJ waterway_NN system_NN was_VBD developed_VVN to_TO provide_VV navigation_NN and_CC early_JJ warning_VVG services_NNS for_IN shipping_NN ,_, based_VVN on_IN ship_NN monitoring_NN and_CC a_DT 2D_JJ hydrodynamic_JJ model_NN ._SENT 
+Compared_VVN with_IN the_DT current_JJ widely_RB used_VVN 2D_JJ IENCs_NNS ,_, the_DT 3D_JJ digital_JJ waterway_NN system_NN has_VHZ five_CD principal_JJ advantages_NNS :_: 1.The_JJ use_NN of_IN 3D_JJ visualization_NN technology_NN allows_VVZ the_DT realistic_JJ representation_NN of_IN the_DT established_JJ 3D_NN waterway_NN model_NN ._SENT 
+It_PP can_MD illustrate_VV the_DT environment_NN in_IN and_CC around_IN the_DT waterway_NN and_CC express_VV a_DT variety_NN of_IN waterway-related_JJ information_NN such_JJ that_IN users_NNS can_MD gain_VV a_DT clear_JJ understanding_NN of_IN the_DT navigable_JJ waterway_NN environment_NN quickly_RB ,_, which_WDT enhances_VVZ the_DT applicability_NN of_IN the_DT digital_JJ waterway_NN system_NN ._SENT 
+In_IN addition_NN ,_, based_VVN on_IN 3D_JJ viewshed_JJ analysis_NN ,_, navigators_NNS can_MD preliminarily_RB simulate_VVP the_DT visibility_NN range_NN in_IN an_DT unfamiliar_JJ waterway_NN to_TO avoid_VV collision_NN ._SENT 
+2.The_JJ 2D_NNS and_CC 3D_NN IENCs_NNS are_VBP integrated_VVN by_IN initially_RB building_VVG virtual_JJ 3D_JJ models_NNS of_IN ships_NNS ,_, bridges_NNS ,_, and_CC beacons_VVZ to_TO reflect_VV the_DT real_JJ navigational_JJ environment_NN and_CC then_RB embedding_VVG the_DT virtual_JJ artificial_JJ waterway_NN elements_NNS ,_, such_JJ as_IN the_DT water_NN depth–contour_NN surface_NN and_CC prohibited_VVN and_CC navigable_JJ areas_NNS ,_, within_IN the_DT scene_NN ._SENT 
+In_IN this_DT way_NN ,_, the_DT advantages_NNS of_IN the_DT 2D_JJ IENC_NN are_VBP exploited_VVN ._SENT 
+3.GPS_NNS technology_NN is_VBZ applied_VVN to_TO monitor_VV the_DT real-time_JJ navigation_NN state_NN ._SENT 
+a_DT remote_JJ web_NN server_NN is_VBZ established_VVN to_TO store_VV and_CC manage_VV the_DT ship_NN ,_, water_NN ,_, and_CC riverbed_NN data_NNS to_TO provide_VV an_DT open_JJ and_CC interactive_JJ data-sharing_VVG platform_NN ._SENT 
+This_DT allows_VVZ ship_NN helmsmen_NNS and_CC inland_RB waterway_NN navigation_NN administrators_NNS to_TO query_VV and_CC analyze_VV the_DT shipping_NN situation_NN ,_, simulate_VVP the_DT waterway_NN navigational_JJ environment_NN ,_, and_CC obtain_VV early_JJ warning_NN services_NNS via_IN the_DT client_NN ._SENT 
+4.The_JJ navigational_JJ flow_NN condition_NN is_VBZ simulated_JJ using_VVG a_DT 2D_JJ hydrodynamic_JJ model_NN to_TO provide_VV the_DT ship_NN with_IN dynamic_JJ navigational_JJ flow_NN conditions_NNS such_JJ as_IN water_NN depth_NN ,_, flow_NN velocity_NN ,_, and_CC waterway_NN width_NN ,_, to_TO meet_VV the_DT demands_NNS for_IN safe_JJ navigation_NN ._SENT 
+Furthermore_RB ,_, the_DT flow_NN field_NN environment_NN is_VBZ displayed_VVN to_TO express_VV the_DT flow_NN regime_NN ._SENT 
+5.According_VVG to_TO the_DT Chinese_JJ navigational_JJ standards_NNS of_IN inland_RB waterways_NNS and_CC the_DT simulation_NN of_IN the_DT navigational_JJ flow_NN conditions_NNS ,_, a_DT ship’s_NP navigable_JJ area_NN is_VBZ defined_VVN to_TO implement_VV the_DT early_JJ warning_NN function_NN of_IN the_DT system_NN ._SENT 
+However_RB ,_, a_DT number_NN of_IN limitations_NNS remain_VVP in_IN the_DT application_NN of_IN the_DT 3D_JJ digital_JJ waterway_NN system_NN regarding_VVG waterway_NN management_NN and_CC need_VVP further_JJR research_NN :_: 1.The_JJ 3D_JJ visualization_NN technology_NN demands_VVZ high_JJ computer_NN performance_NN because_IN of_IN the_DT large_JJ volume_NN of_IN data_NNS required_VVN for_IN the_DT 3D_JJ electronic_JJ navigation_NN charts_NNS ._SENT 
+Generally_RB ,_, the_DT display_NN of_IN the_DT 3D_JJ IENC_NN cannot_MD be_VB as_RB fluid_JJ as_IN that_DT of_IN the_DT 2D_JJ IENC_NN on_IN an_DT ordinary_JJ computer_NN ._SENT 
+In_IN further_JJR studies_NNS ,_, the_DT simulation_NN of_IN the_DT 3D_JJ waterway_NN terrain_NN model_NN and_CC calculation_NN of_IN the_DT river_NN flow_NN model_NN should_MD be_VB arranged_VVN on_IN the_DT server_NN side_NN to_TO reduce_VV the_DT computing_NN tasks_NNS demanded_VVD of_IN the_DT client_NN ._SENT 
+2.The_NNS obtained_VVD flow_NN conditions_NNS depend_VVP on_IN the_DT simulation_NN of_IN the_DT 2D_JJ hydrodynamic_JJ model_NN ._SENT 
+The_DT precision_NN and_CC speed_NN of_IN the_DT simulation_NN have_VHP considerable_JJ influence_NN on_IN the_DT performance_NN of_IN the_DT navigational_JJ capacity_NN analysis_NN and_CC early_JJ warning_VVG services_NNS for_IN shipping_NN ._SENT 
+The_DT model_NN precision_NN is_VBZ restricted_VVN by_IN the_DT input_NN data_NNS (_( river_NN terrain_NN and_CC hydrological_JJ monitoring_NN data_NNS )_) and_CC the_DT method_NN used_VVN to_TO solve_VV the_DT hydrodynamic_JJ model_NN ._SENT 
+In_IN this_DT study_NN ,_, waterway_NN sediment_NN was_VBD not_RB considered_VVN in_IN the_DT system_NN development_NN ,_, which_WDT might_MD lead_VV to_TO certain_JJ errors_NNS in_IN the_DT flow_NN simulation_NN ._SENT 
+Therefore_RB ,_, waterway_NN sediment_NN should_MD be_VB considered_VVN in_IN further_JJR studies_NNS ,_, including_VVG methods_NNS for_IN real-time_JJ corrections_NNS ,_, to_TO improve_VV the_DT simulation_NN precision_NN ._SENT 
+In_IN addition_NN ,_, the_DT waterway_NN in_IN this_DT case_NN study_NN is_VBZ a_DT no-tidal_JJ waterway_NN ,_, and_CC the_DT flow_NN regime_NN is_VBZ simpler_JJR than_IN that_DT of_IN the_DT tidal_JJ waterway_NN ;_: the_DT expansion_NN of_IN the_DT system_NN into_IN the_DT more_RBR hydraulically_RB complicated_VVN tidal_JJ waterways_NNS should_MD be_VB further_RBR studied_VVN ._SENT 
+3.The_JJ thresholds_NNS of_IN the_DT navigational_JJ flow_NN conditions_NNS used_VVN in_IN the_DT early_JJ warning_NN module_NN are_VBP calculated_VVN based_VVN on_IN navigational_JJ management_NN specifications_NNS ,_, which_WDT are_VBP not_RB currently_RB standardized_JJ ._SENT 
+As_IN there_EX are_VBP no_DT clear_JJ standards_NNS regarding_VVG the_DT influence_NN of_IN flow_NN velocity_NN and_CC distribution_NN on_IN navigation_NN ,_, it_PP will_MD be_VB necessary_JJ to_TO perform_VV actual_JJ engineering_NN tests_NNS to_TO determine_VV these_DT thresholds_NNS ._SENT 
+Furthermore_RB ,_, detailed_JJ vessel_NN motion_NN should_MD be_VB considered_VVN in_IN calculation_NN of_IN the_DT margin_NN of_IN safety_NN of_IN the_DT thresholds_NNS ._SENT 
+<Section> Acknowledgments_NNS <Section> This_DT study_NN was_VBD supported_VVN by_IN the_DT 12th_JJ Five-Year_JJ National_NP Key_NP Technology_NP R&D_NP Program_NP (_( 2012BAB05B05_NP )_) and_CC the_DT National_NP Natural_NP Science_NP Foundation_NP of_IN China_NP (_( 51379076_CD )_) ._SENT 
+Fig_NN ._SENT 
+1._CD Study_NN area_NN :_: the_DT Jiangjin_NP to_TO Chongqing_NP reach_VV of_IN the_DT Yangtze_NP River_NP ,_, China_NP Fig_NN ._SENT 
+2._CD Architecture_NP of_IN the_DT 3D_JJ digital_JJ waterway_NN system_NN ;_: schematic_NN depicting_VVG the_DT interconnections_NNS of_IN the_DT five_CD modules_NNS (_( Note_VV :_: GPRS_NNS =_SYM general_JJ packet_NN radio_NN service_NN )_) Fig_NN ._SENT 
+3._CD 3D_JJ digital_JJ waterway_NN system_NN ;_: the_DT sequence_NN of_IN the_DT process_NN leading_VVG to_TO the_DT provision_NN of_IN navigational_JJ services_NNS Fig_VVP ._SENT 
+4._CD 3D_JJ model_NN of_IN the_DT digital_JJ waterway_NN ;_: riverside_NN buildings_NNS of_IN various_JJ heights_NNS are_VBP shown_VVN Fig_NN ._SENT 
+5._CD 2D_NNS inland_RB IENC_NN in_IN the_DT 3D_JJ digital_JJ waterway_NN system_NN ;_: the_DT viewpoint_NN is_VBZ limited_VVN to_TO the_DT vertical_JJ Fig_NN ._SENT 
+6._CD Ship_NN navigation_NN module_NN ;_: the_DT navigational_JJ label_NN of_IN the_DT selected_JJ ship_NN is_VBZ displayed_VVN on_IN the_DT screen_NN Fig_NN ._SENT 
+7._CD Navigational_JJ capacity_NN analysis_NN module_NN ;_: the_DT graphical_JJ user_NN interface_NN (_( GUI_NP )_) displays_VVZ ship_NN information_NN and_CC real-time_JJ flow_NN conditions_NNS Fig_VVP ._SENT 
+8._CD Navigable_JJ area_NN of_IN a_DT ship_NN ;_: the_DT shallow_JJ areas_NNS represent_VVP water_NN depths_NNS less_RBR than_IN the_DT water_NN depth_NN threshold_NN ;_: the_DT water_NN depth_NN band_NN represents_VVZ different_JJ water_NN depths_NNS ,_, the_DT high-flow_NP areas_NNS represent_VVP flow_NN velocities_NNS greater_JJR than_IN the_DT velocity_NN threshold_NN ,_, and_CC the_DT arrows_NNS represent_VVP the_DT flow_NN field_NN Fig_NN ._SENT 
+9._CD Applied_NP framework_NN of_IN the_DT 3D_JJ digital_JJ waterway_NN system_NN ;_: the_DT system_NN comprises_VVZ two_CD main_JJ parts_NNS ,_, client_NN side_NN and_CC server_NN side_NN ,_, which_WDT are_VBP connected_VVN via_IN the_DT Internet_NN Fig_NN ._SENT 
+10._CD Flow_NP field_NN visualization_NN effects_NNS with_IN flow_NN magnitude_NN and_CC flow_NN regime_NN attribute_NN Fig_NN ._SENT 
+11._CD Viewshed_VVN of_IN the_DT navigator_NN ;_: the_DT solid_JJ lines_NNS represent_VVP in-sight_NP and_CC out-sight_NP ,_, the_DT dashed_VVN lines_NNS represent_VVP ship_NN routes_NNS ,_, and_CC Point_NP A_NP is_VBZ the_DT potential_JJ collision_NN position_NN <Section> Reference_NN </Section> 3D_NN MAX_NP ._SENT 
+[_SYM Computer_NP software_NN ]_SYM ._SENT 
+Autodesk_NP ,_, San_NP Rafael_NP ,_, CA_MD ._SENT 
+AutoCAD_NP ._SENT 
+[_SYM Computer_NP software_NN ]_SYM ._SENT 
+Autodesk_NP ,_, San_NP Rafael_NP ,_, CA_MD ._SENT 
+Bladé_NP ,_, E._NP ,_, Gómez-Valentín_NP ,_, M._NP ,_, Dolz_NP ,_, J._NP ,_, Aragón-Hernández_NP ,_, J._NP L._NP ,_, Corestein_NP ,_, G._NP ,_, and_CC Sánchez-Juny_NP ,_, M._NP (_( 2012_CD )_) ._SENT 
+“Integration_NN of_IN 1D_NNS and_CC 2D_JJ finite_JJ volume_NN schemes_NNS for_IN computations_NNS of_IN water_NN flow_NN in_IN natural_JJ channels.”_NP Adv_NP ._SENT 
+Water_NN Resour_NN ._SENT 
+,_, 42_CD ,_, 17–29_NP ._SENT 
+Bravo_NP ,_, H._NP ,_, and_CC Jain_NP ,_, S._NP (_( 1991_CD )_) ._SENT 
+“Flow_JJ fields_NNS in_IN lower_JJR lock_NN approaches_NNS induced_VVN by_IN hydro-plant_NP releases.”_NP J._NP Waterway_NN ,_, Port_NP ,_, Coastal_NP ,_, Ocean_NP Eng_NP ._SENT 
+,_, 10.1061/(ASCE)0733-950X(1991)117:4(369_NP )_) ,_, 369–389_NP ._SENT 
+Cao_NP ,_, M._NP ,_, Ma_NP ,_, A._NP ,_, Wang_NP ,_, X._NP ,_, and_CC Cai_NP ,_, G._NP (_( 2008_CD )_) ._SENT 
+“Influence_NN of_IN cross_NN current_JJ on_IN ship_NN navigation_NN in_IN inland_RB waterway.”_JJ J._NP Traffic_NP Transp_NP ._SENT 
+Eng_NN ._SENT 
+,_, 16_CD ,_, 61–67_JJ (_( in_IN Chinese_JJ )_) ._SENT 
+Chen_NP ,_, C._NP ,_, Shiotani_NP ,_, S._NP ,_, and_CC Sasa_NP ,_, K._NP (_( 2013_CD )_) ._SENT 
+“Numerical_JJ ship_NN navigation_NN based_VVN on_IN weather_NN and_CC ocean_NN simulation.”_NN Ocean_NP Eng_NP ._SENT 
+,_, 69_CD ,_, 44–53_NP ._SENT 
+Chen_NP ,_, M._NP ,_, Zheng_NP ,_, D._NP ,_, and_CC Cheng_NP ,_, G._NP (_( 2010_CD )_) ._SENT 
+“Impact_JJ speed_NN of_IN vessel_NN collision_NN considering_VVG inland_RB river_NN channel_NN characteristics.”_NP J._NP Hydrodyn_NP ._SENT 
+Ser_NP ._SENT 
+B_NP ,_, 22(5_NP )_) ,_, 692–695_NP ._SENT 
+Fu_NP ,_, Y._NP ,_, Chen_NP ,_, S._NP ,_, and_CC Cai_NP ,_, J._NP (_( 2011_CD )_) ._SENT 
+“Research_NN on_IN virtual_JJ reality_NN simulation_NN system_NN of_IN safe_JJ navigation_NN environment_NN in_IN Three_CD Gorges_NNS Reservoir_NN Area.”_NN Procedia_NNS Environ_VVP ._SENT 
+Sci_NNS ._SENT 
+,_, 10_CD ,_, 331–336_NP ._SENT 
+Gao_NP ,_, X._NP ,_, and_CC Shiotani_NP ,_, S._NP (_( 2013_CD )_) ._SENT 
+“An_JJ effective_JJ presentation_NN of_IN navigation_NN information_NN for_IN prevention_NN of_IN maritime_JJ disaster_NN using_VVG AIS_NNS and_CC 3D-GIS.”_JJ Proc_NN ._SENT 
+,_, Oceans_NNS ,_, IEEE_NP ,_, New_NP York_NP ,_, 1–6_NP ._SENT 
+Gharbi_NP ,_, S._NP ,_, Hamdi_NP ,_, S._NP ,_, Valkov_NP ,_, G._NP ,_, and_CC Nistor_NP ,_, I._NP (_( 2008_CD )_) ._SENT 
+“Field_NP measurements_NNS of_IN ship_NN waves_NNS along_IN the_DT St._NP Lawrence_NP river_NN waterway.”_NN Proc_NN ._SENT 
+,_, Canada_NP Oceans_NNS ,_, IEEE_NP ,_, New_NP York_NP ,_, 1–10_NP ._SENT 
+Gould_NP ,_, K._NP S._NP ,_, Røed_NP ,_, B._NP K._NP ,_, Saus_NP ,_, E._NP R._NP ,_, Koeford_NP ,_, V._NP F._NP ,_, Bridger_NP ,_, R._NP S._NP ,_, and_CC Moen_NP ,_, B._NP E._NP (_( 2009_CD )_) ._SENT 
+“Effects_NNS of_IN navigation_NN method_NN on_IN workload_NN and_CC performance_NN in_IN simulated_JJ high-speed_JJ ship_NN navigation.”_NN Appl_NN ._SENT 
+Ergon_NN ._SENT 
+,_, 40(1_JJ )_) ,_, 103–114_NP ._SENT 
+Gwaldron_NP ,_, G._NP (_( 2016_CD )_) ._SENT 
+“osgEarth_NP documentation.”_NP 〈http://docs.osgearth.org/en/latest/�_NP �_NP (_( June_NP 4_CD ,_, 2016_CD )_) ._SENT 
+Heibaum_NP ,_, M._NP (_( 2014_CD )_) ._SENT 
+“Geosynthetics_NNS for_IN waterways_NNS and_CC flood_NN protection_NN structures–controlling_VVG the_DT interaction_NN of_IN water_NN and_CC soil.”_JJ Geotext_NN ._SENT 
+Geomembr_NN ._SENT 
+,_, 42(4_NP )_) ,_, 374–393_NP ._SENT 
+Hostache_NP ,_, R._NP ,_, et_NP al_NP ._SENT 
+(_( 2015_CD )_) ._SENT 
+“A_NP drifting_VVG GPS_NNS buoy_VV for_IN retrieving_VVG effective_JJ riverbed_NN bathymetry.”_NP J._NP Hydrol_NN ._SENT 
+,_, 520_CD ,_, 397–406_NP ._SENT 
+Hua_NP ,_, F._NP ,_, and_CC Yang_NP ,_, Y._NP (_( 2011_CD )_) ._SENT 
+“Study_NN on_IN the_DT erosion_NN and_CC deposition_NN characteristics_NNS of_IN Jiulongpo_NP reach_VVP after_IN the_DT Three_CD Gorges_NNS Reservoir_NN filling_VVG at_IN 172_CD m.”_NN Proc_NN ._SENT 
+,_, Materials_NPS for_IN Renewable_JJ Energy_NP &_CC Environment_NP (_( ICMREE_NP )_) ,_, Int_NP ._SENT 
+Conf_NN ._SENT 
+,_, IEEE_NP ,_, New_NP York_NP ,_, 1942–1945_NP ._SENT 
+Kaufmann_NP ,_, R._NP ,_, and_CC Eaton_NP ,_, R._NP M._NP (_( 1994_CD )_) ._SENT 
+“User_NN trials_NNS on_IN the_DT colours_NNS and_CC symbols_NNS for_IN electronic_JJ charts.”_JJ Appl_NN ._SENT 
+Ergon_NN ._SENT 
+,_, 25(6_NP )_) ,_, 366–372_NP ._SENT 
+Li_NP ,_, H._NP ,_, Xing_NP ,_, S._NP ,_, and_CC Zhang_NP ,_, Y._NP (_( 2008_CD )_) ._SENT 
+“Inland_NP waterway_NN three-dimensional_JJ visualization_NN based_VVN on_IN 3D-GIS_NP technology.”_NP Proc_NN ._SENT 
+,_, Service_NP Operations_NP and_CC Logistics_NP ,_, and_CC Informatics_NNS ,_, IEEE/SOLI_NP ,_, IEEE_NP ,_, New_NP York_NP ,_, 564–5685_NP ._SENT 
+Ma_NP ,_, F._NP ,_, Wu_NP ,_, Q._NP ,_, Yan_NP ,_, X._NP ,_, Chu_NP ,_, X._NP ,_, and_CC Zhang_NP ,_, D._NP (_( 2015_CD )_) ._SENT 
+“Classification_NN of_IN automatic_JJ radar_NN plotting_VVG aid_NN targets_NNS based_VVN on_IN improved_VVN fuzzy_JJ C-means.”_JJ Transp_NN ._SENT 
+Res_NNS ._SENT 
+Part_NP C_NP :_: Emerging_VVG Technol_NN ._SENT 
+,_, 51_CD ,_, 180–195_NP ._SENT 
+Maya_NP ._SENT 
+[_SYM Computer_NP software_NN ]_SYM ._SENT 
+Autodesk_NP ,_, San_NP Rafael_NP ,_, CA_MD ._SENT 
+McCartney_NP ,_, B._NP (_( 1986_CD )_) ._SENT 
+“Inland_NP waterway_NN navigation_NN project_NN design.”_NP J._NP Waterway_NN ,_, Port_NP ,_, Coastal_NP ,_, Ocean_NP Eng_NP ._SENT 
+,_, 10.1061/(ASCE)0733-950X(1986)112:6(645_NP )_) ,_, 645–657_JJ ._SENT 
+MTPRC_NP (_( Ministry_NP of_IN Transport_NP of_IN the_DT People’s_NP Republic_NP of_IN China_NP )_) ._SENT 
+(_( 2004_CD )_) ._SENT 
+“Navigation_NN standard_NN of_IN inland_RB waterway.”_JJ GB_NP 50139-2004_CD ,_, Beijing_NP ._SENT 
+MultiGen_NP Creator_NN ._SENT 
+[_SYM Computer_NP software_NN ]_SYM ._SENT 
+Presagis_NP ,_, Montreal_NP ,_, QC_NP ,_, Canada_NP ._SENT 
+Nilsson_NP ,_, R._NP ,_, Gärling_NP ,_, T._NP ,_, and_CC Lützhöft_NP ,_, M._NP (_( 2009_CD )_) ._SENT 
+“An_JJ experimental_JJ simulation_NN study_NN of_IN advanced_JJ decision_NN support_NN system_NN for_IN ship_NN navigation.”_NN Transp_NN ._SENT 
+Res_NNS ._SENT 
+Part_NN F_NN :_: Traffic_NN Psychol_NN ._SENT 
+Behav_NP ._SENT 
+,_, 12(3_NP )_) ,_, 188–197_JJ ._SENT 
+OpenMP_NP ._SENT 
+[_SYM Computer_NP software_NN ]_SYM ._SENT 
+〈http://openmp.org/�_NP �_NP (_( June_NP 4_CD ,_, 2016_CD )_) ._SENT 
+Pan_NP ,_, L._NP ,_, and_CC Ge_NP ,_, J._NP (_( 2011_CD )_) ._SENT 
+“Analysis_NN of_IN the_DT influence_NN of_IN deep_JJ waterway_NN project_NN on_IN morphological_JJ evolution_NN in_IN the_DT North_NP Passage_NP of_IN the_DT Changjiang_NP Estuary.”_NN Proc_NN ._SENT 
+,_, Remote_JJ Sensing_VVG Environment_NP and_CC Transportation_NP Engineering_NP (_( RSETE_NP )_) Int_NP ._SENT 
+Conf_NN ._SENT 
+,_, IEEE_NP ,_, New_NP York_NP ,_, 1957–1963_NP ._SENT 
+Pecar-Ilic_JJ ,_, J._NP ,_, and_CC Ruzic_NP ,_, I._NP (_( 2006_CD )_) ._SENT 
+“Application_NN of_IN GIS_NP and_CC Web_NP technologies_NNS for_IN Danube_NP waterway_NN data_NNS management_NN in_IN Croatia.”_NP Environ_VVP ._SENT 
+Modell_NP ._SENT 
+Software_NN ,_, 21(11_JJ )_) ,_, 1562–1571_JJ ._SENT 
+Peng_NP ,_, G._NP ,_, Ke_NP ,_, R._NP ,_, and_CC Shao_NP ,_, J._NP (_( 2008_CD )_) ._SENT 
+“Research_NN on_IN 3D_JJ simulation_NN technology_NN applied_VVN in_IN navigation-aid_NN management.”_NN Proc_NN ._SENT 
+,_, Cyberworlds_NP ,_, Int_NP ._SENT 
+Conf_NN ._SENT 
+,_, IEEE_NP ,_, New_NP York_NP ,_, 597–600_NP ._SENT 
+Porathe_RB ,_, T._NP ,_, Lützhöft_NP ,_, M._NP ,_, and_CC Praetorius_NP ,_, G._NP (_( 2013_CD )_) ._SENT 
+“Communicating_VVG intended_VVN routes_NNS in_IN ECDIS_NNS :_: Evaluating_VVG technological_JJ change.”_JJ Accid_NN ._SENT 
+Anal_JJ ._SENT 
+Prev_NP ._SENT 
+,_, 60_CD ,_, 366–370_NP ._SENT 
+Qt_NP Company_NP ._SENT 
+(_( 2016_CD )_) ._SENT 
+“Qt_NP documentation.”_NP 〈http://doc.qt.io/qt-4.8/�_NP �_NP (_( June_NP 4_CD ,_, 2016_CD )_) ._SENT 
+Ueng_NP ,_, S._NP K._NP ,_, Lin_NP ,_, D._NP ,_, and_CC Liu_NP ,_, C._NP H._NP (_( 2008_CD )_) ._SENT 
+“A_NP ship_NN motion_NN simulation_NN system.”_JJ Virtual_JJ Reality,”_NN 12(1_NN )_) ,_, 65–76_NP ._SENT 
+Varela_NP ,_, J._NP M._NP ,_, and_CC Guedes_NP Soares_NP ,_, C._NP (_( 2015_CD )_) ._SENT 
+“Interactive_JJ 3D_JJ desktop_NN ship_NN simulator_NN for_IN testing_NN and_CC training_NN offloading_VVG manoeuvres.”_JJ Appl_NN ._SENT 
+Ocean_NN Res_NNS ._SENT 
+,_, 51_CD ,_, 367–380_NP ._SENT 
+Weber_NP ,_, A._NP ,_, Lautenbach_NP ,_, S._NP ,_, and_CC Wolter_NP ,_, C._NP (_( 2012_CD )_) ._SENT 
+“Improvement_NN of_IN aquatic_JJ vegetation_NN in_IN urban_JJ waterways_NNS using_VVG protected_VVN artificial_JJ shallows.”_JJ Ecol_NN ._SENT 
+Eng_NN ._SENT 
+,_, 42_CD ,_, 160–167_JJ ._SENT 
+Wegner_NP ,_, J._NP D._NP ,_, Auer_NP ,_, S._NP ,_, and_CC Soergel_NP ,_, U._NP (_( 2009_CD )_) ._SENT 
+“Accuracy_NN assessment_NN of_IN building_VVG height_NN estimation_NN from_IN a_DT high_JJ resolution_NN optical_JJ image_NN combined_VVN with_IN a_DT simulated_JJ SAR_NN image.”_NN Proc_NN ._SENT 
+,_, ISPRS_NP Hannover_NP Workshop_NN 2009—High_NP Resolution_NP Earth_NP Imaging_NP For_IN Geospatial_NP Information_NP ,_, ISPRS_NP ,_, Vol_NP ._SENT 
+38_CD ,_, 1–4_NP ._SENT 
+Weiskopf_NP ,_, D._NP ,_, Schramm_NP ,_, F._NP ,_, Erlebacher_NP ,_, G._NP ,_, and_CC Ertl_NP ,_, T._NP (_( 2005_CD )_) ._SENT 
+“Particle_NN and_CC texture_NN based_VVN spatiotemporal_JJ visualization_NN of_IN time-dependent_JJ vector_NN fields.”_NN Proc_NN ._SENT 
+,_, IEE_NN Visualization_NN Conf_NN ._SENT 
+Vis_NP ‘05_NP ,_, IEEE_NP ,_, New_NP York_NP ,_, 639–646_NP ._SENT 
+Wu_NP ,_, B._NP ,_, Wang_NP ,_, Y._NP ,_, Zhang_NP ,_, J._NP ,_, Savan_NP ,_, E._NP E._NP ,_, and_CC Yan_NP ,_, X._NP (_( 2015_CD )_) ._SENT 
+“Effectiveness_NN of_IN maritime_JJ safety_NN control_NN in_IN different_JJ navigation_NN zones_NNS using_VVG a_DT spatial_JJ sequential_JJ DEA_NP model_NN :_: Yangtze_NP River_NP case.”_NP Accid_NP ._SENT 
+Anal_JJ ._SENT 
+Prev_NP ._SENT 
+,_, 81_CD ,_, 232–242_NP ._SENT 
+Zhang_NP ,_, D._NP ,_, Yan_NP ,_, X._NP ,_, Yang_NP ,_, Z._NP ,_, Wall_NP ,_, A._NP ,_, and_CC Wang_NP ,_, J._NP (_( 2013_CD )_) ._SENT 
+“Incorporation_NN of_IN formal_JJ safety_NN assessment_NN and_CC Bayesian_JJ network_NN in_IN navigational_JJ risk_NN estimation_NN of_IN the_DT Yangtze_NP River.”_NP Reliab_NP ._SENT 
+Eng_NP ._SENT 
+Syst_NN ._SENT 
+Saf_NN ._SENT 
+,_, 118_CD ,_, 93–105_NP ._SENT 
+Zhang_NP ,_, S._NP ,_, Chen_NP ,_, L._NP ,_, Zhao_NP ,_, D._NP ,_, and_CC Wang_NP ,_, X._NP (_( 2004_CD )_) ._SENT 
+“Real-time_JJ simulation_NN of_IN flow_NN field_NN based_VVN on_IN particle_NN system.”_NP Water_NP Resour_NP ._SENT 
+Hydropower_NN Eng_NP ._SENT 
+,_, 35(9_NP )_) ,_, 47–50_NP (_( in_IN Chinese_JJ )_) ._SENT 
+Zhang_NP ,_, S._NP ,_, Xia_NP ,_, Z._NP ,_, Yuan_NP ,_, R._NP ,_, and_CC Jiang_NP ,_, X._NP (_( 2014_CD )_) ._SENT 
+“Parallel_NP computation_NN of_IN a_DT dam-break_NN flow_NN model_NN using_VVG OpenMP_NN on_IN a_DT multi-core_JJ computer.”_NP J._NP Hydrol_NN ._SENT 
+,_, 512_CD ,_, 126–133_NP ._SENT 
+Zhang_NP ,_, W._NP ,_, Goerlandt_NP ,_, F._NP ,_, Montewka_NP ,_, J._NP ,_, and_CC Kujala_NP ,_, P._NP (_( 2015_CD )_) ._SENT 
+“A_NP method_NN for_IN detecting_VVG possible_JJ near_IN miss_VV ship_NN collisions_NNS from_IN AIS_NNS data.”_JJ Ocean_NP Eng_NP ._SENT 
+,_, 107_CD ,_, 60–69_NP ._SENT 
+Zhang_NP ,_, X._NP ,_, Jin_NP ,_, Y._NP ,_, Yin_NP ,_, Y._NP ,_, and_CC Li_NP ,_, Z._NP (_( 2004_CD )_) ._SENT 
+“Ship_NN simulation_NN using_VVG virtual_JJ reality_NN technique.”_NN Proc_NN ._SENT 
+,_, 2004_CD ACM_NP SIGGRAPH_NP Int_NP ._SENT 
+Conf_NP ._SENT 
+on_IN Virtual_JJ Reality_NN Continuum_NN and_CC Its_PP$ Applications_NP in_IN Industry_NP ,_, ACM_NP ,_, New_NP York_NP ,_, 282–285_NP ._SENT 

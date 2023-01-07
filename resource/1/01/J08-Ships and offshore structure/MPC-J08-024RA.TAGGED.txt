@@ -1,0 +1,316 @@
+﻿_NP <title> A_NP module_NN configuration_NN and_CC valuation_NN model_NN for_IN operational_JJ flexibility_NN in_IN ship_NN design_NN using_VVG contract_NN scenarios_NNS </title> <author> Minjoo_NP Choi_NP ,_, Stein_NP Ove_NP Erikstad_NP </author> <Affiliation> Department_NP of_IN Marine_NP Technology_NP ,_, Norwegian_NP University_NP of_IN Science_NP and_CC Technology_NP ,_, Trondheim_NP ,_, Norway_NP </Affiliation> <year> 2017_CD </year> <Jounral> Ships_NNS and_CC offshore_JJ structure_NN </Journal> <Publishing_house> Taylor_NP &_CC Francis_NP </Publishing_house> <Text_Collector> Zhang_NP San，HEU_NP </Text_Collector> <DOI> https://doi.org/10.1080/17445302.2017.1316559_NP </DOI> <URL> https://www.tandfonline.com/doi/full/10.1080/17445302.2017.1316559_NP </URL> A_DT module_NN configuration_NN and_CC valuation_NN model_NN for_IN operational_JJ flexibility_NN in_IN ship_NN design_NN using_VVG contract_NN scenarios_NNS Minjoo_NP Choi_NP ,_, Stein_NP Ove_NP Erikstad_NP Department_NP of_IN Marine_NP Technology_NP ,_, Norwegian_NP University_NP of_IN Science_NP and_CC Technology_NP ,_, Trondheim_NP ,_, Norway_NP <Section> Abstract_JJ </Section> Modularity_NN allows_VVZ for_IN affordable_JJ reconfiguration_NN in_IN operation_NN ._SENT 
+Thus_RB ,_, a_DT single_JJ modular_JJ ship_NN has_VHZ flexibility_NN and_CC stakeholders_NNS have_VHP the_DT option_NN to_TO delay_VV investment_NN decisions_NNS until_IN more_JJR information_NN and_CC technology_NN become_VVP available_JJ ._SENT 
+However_RB ,_, previous_JJ design_NN methods_NNS for_IN modular_JJ ships_NNS have_VHP not_RB considered_VVN the_DT economic_JJ benefits_NNS of_IN such_JJ operational_JJ flexibility_NN ._SENT 
+We_PP therefore_RB present_VV an_DT optimization_NN model_NN that_WDT involves_VVZ both_DT design_NN and_CC operation_NN decisions_NNS related_VVN to_TO modules_NNS ._SENT 
+In_IN creating_VVG design_NN alternatives_NNS ,_, we_PP use_VVP component_NN swapping_VVG modularity_NN ,_, in_IN which_WDT designs_NNS are_VBP created_VVN by_IN configuring_VVG modules_NNS to_TO a_DT main_JJ body_NN through_IN non-identical_JJ interfaces_NNS ._SENT 
+In_IN evaluation_NN ,_, we_PP represent_VVP an_DT operating_VVG context_NN based_VVN on_IN a_DT set_NN of_IN contracts_NNS ._SENT 
+We_PP implemented_VVD the_DT model_NN in_IN a_DT case_NN study_NN in_IN which_WDT both_DT modular_JJ and_CC non-modular_JJ ships_NNS were_VBD designed_VVN ,_, evaluated_VVN ,_, and_CC compared_VVN ._SENT 
+Moreover_RB ,_, a_DT sensitivity_NN analysis_NN was_VBD performed_VVN for_IN different_JJ contract_NN scenarios_NNS ._SENT 
+The_DT case_NN study_NN shows_VVZ that_IN reconfiguration_NN options_NNS are_VBP influential_JJ factors_NNS on_IN the_DT value_NN robustness_NN of_IN ships_NNS under_IN high_JJ uncertainty_NN ._SENT 
+KEYWORDS_NNS :_: Modularity_NN ,_, ship_NN design_NN ,_, operational_JJ flexibility_NN ,_, component_NN swapping_VVG modularity_NN <Section> 1._CD Introduction_NN </Section> Since_IN Simon_NP (_( 1969_CD )_) addressed_VVD the_DT concept_NN of_IN ‘hierarchical_JJ and_CC nearly_RB decomposable_JJ structures’_NN ,_, modularity_NN has_VHZ been_VBN studied_VVN extensively_RB in_IN diverse_JJ fields_NNS of_IN product_NN design_NN (_( Campagnolo_NP and_CC Camuffo_NP 2010_CD )_) ._SENT 
+According_VVG to_TO Baldwin_NP and_CC Clark_NP (_( 2000_CD )_) ,_, modularity_NN is_VBZ ‘a_NP particular_JJ design_NN structure_NN ,_, in_IN which_WDT parameters_NNS and_CC tasks_NNS are_VBP interdependent_JJ within_IN modules_NNS and_CC independent_JJ across_IN them’_NP ._SENT 
+Modularity_NN has_VHZ been_VBN used_VVN to_TO make_VV complexity_NN manageable_JJ ,_, enable_VVP parallel_RB work_VV and_CC accommodate_VV future_JJ uncertainty_NN from_IN an_DT engineering_NN perspective_NN (_( Baldwin_NP and_CC Clark_NP 2006_CD )_) ._SENT 
+The_DT functional_JJ capabilities_NNS of_IN a_DT modular_JJ adaptable_JJ ship_NN (_( MAS_NNS )_) can_MD be_VB changed_VVN by_IN reconfiguring_VVG modules_NNS for_IN adaptation_NN to_TO a_DT changing_VVG environment_NN ._SENT 
+Modules_NNS can_MD be_VB developed_VVN ,_, tested_VVN and_CC configured_VVN independently_RB ,_, which_WDT allows_VVZ decision-makers_NNS to_TO invest_VV in_IN modules_NNS and_CC choose_VV configurations_NNS at_IN multiple_JJ points_NNS over_IN the_DT lifetime_NN of_IN the_DT ship_NN and_CC to_TO mitigate_VV risk_NN ._SENT 
+This_DT strategy_NN is_VBZ referred_VVN to_TO as_IN ‘evolutionary_NP acquisition’_NP (_( Abbott_NP et_NP al_NP ._SENT 
+2003_CD )_) ._SENT 
+Figure_NP 1(a,b_NP )_) compares_VVZ an_DT evolutionary_JJ acquisition_NN process_NN with_IN a_DT one-point_JJ decision-making_NN process_NN for_IN ship_NN design_NN ._SENT 
+The_DT ship_NN in_IN Figure_NP 1(a_NP )_) indicates_VVZ a_DT robust_JJ ship_NN that_WDT is_VBZ designed_VVN to_TO have_VH all_PDT the_DT necessary_JJ capabilities_NNS from_IN the_DT development_NN phase_NN ._SENT 
+The_DT ship_NN in_IN Figure_NP 1(b_NP )_) indicates_VVZ an_DT MAS_NNS ._SENT 
+The_DT independent_JJ modules_NNS A_NP ,_, B_NP and_CC C_NP allow_VVP for_IN investments_NNS and_CC configuration_NN decisions_NNS to_TO be_VB delayed_VVN until_IN the_DT need_NN arises_VVZ ._SENT 
+Although_IN the_DT MAS_NNS has_VHZ an_DT interface_NN for_IN the_DT module_NN C_NP configuration_NN ,_, investment_NN in_IN this_DT module_NN is_VBZ not_RB required_VVN if_IN the_DT need_NN is_VBZ not_RB realised_VVN during_IN the_DT ship_NN 's_POS lifetime_NN ._SENT 
+Figure_NN 1._CD (_( a_DT )_) One-point_JJ decision-making_NN process_NN ._SENT 
+(_( b_LS )_) Evolutionary_JJ acquisition_NN process_NN ._SENT 
+An_DT MAS_NNS allows_VVZ for_IN mission_NN flexibility_NN ._SENT 
+For_IN instance_NN ,_, a_DT cable-laying_VVG (_( CBL_NP )_) vessel_NN can_MD be_VB used_VVN for_IN diving_JJ support_NN (_( DVS_NP )_) by_IN replacing_VVG CBL_NN modules_NNS with_IN DVS_NP modules_NNS ,_, such_JJ as_IN saturation_NN systems_NNS ._SENT 
+Of_IN course_NN ,_, mission_NN flexibility_NN can_MD be_VB achieved_VVN without_IN reconfiguration_NN ._SENT 
+For_IN example_NN ,_, robust_JJ ships_NNS can_MD also_RB operate_VV in_IN multiple_JJ missions_NNS ._SENT 
+The_DT mission_NN switching_VVG of_IN robust_JJ ships_NNS is_VBZ fast_JJ and_CC affordable_JJ because_IN they_PP have_VHP versatility_NN without_IN reconfiguration_NN ._SENT 
+However_RB ,_, there_EX is_VBZ higher_JJR risk_NN in_IN the_DT initial_JJ investment_NN ._SENT 
+Hence_RB ,_, both_DT modular_JJ adaptability_NN and_CC robustness_NN have_VHP their_PP$ own_JJ advantages_NNS and_CC disadvantages_NNS ,_, and_CC their_PP$ suitability_NN is_VBZ case_NN dependent_JJ ._SENT 
+Figure_NN 2_CD illustrates_VVZ the_DT mission_NN flexibility_NN of_IN the_DT two_CD different_JJ strategies_NNS ._SENT 
+Figure_NN 2._CD Mission_NP flexibility_NN of_IN modular_JJ adaptability_NN vs._IN robustness_NN ._SENT 
+‘Reconfigurable_JJ product_NN design’_NN is_VBZ one_CD approach_NN related_VVN to_TO MAS_NNS design_NN ._SENT 
+Siddiqi_NP et_NP al_NP ._SENT 
+(_( 2006_CD )_) identify_VVP three_CD main_JJ reasons_NNS to_TO design_VV reconfigurable_JJ products_NNS and_CC applied_VVD the_DT concept_NN to_TO designing_VVG a_DT planetary_JJ surface_NN vehicle_NN in_IN a_DT case_NN study_NN ._SENT 
+Ferguson_NP et_NP al_NP ._SENT 
+(_( 2009_CD )_) present_VV a_DT product_NN platform_NN design_NN model_NN that_WDT determines_VVZ the_DT design_NN of_IN multiple_JJ reconfigurable_JJ products_NNS simultaneously_RB to_TO maximise_VV the_DT overall_JJ performance_NN by_IN increasing_VVG commonality_NN ._SENT 
+Haldaman_NP (_( 2010_CD )_) categorises_VVZ reconfiguration_NN into_IN four_CD types_NNS and_CC provides_VVZ a_DT list_NN of_IN commercially_RB available_JJ examples_NNS ._SENT 
+Another_DT approach_NN is_VBZ ‘adaptable_JJ product_NN design’_NN ._SENT 
+Gu_NP et_NP al_NP ._SENT 
+(_( 2004_CD )_) present_VV the_DT concept_NN of_IN adaptable_JJ products_NNS and_CC provide_VV related_JJ concepts_NNS ,_, methods_NNS and_CC applications_NNS ._SENT 
+Li_NP et_NP al_NP ._SENT 
+(_( 2008_CD )_) present_VV an_DT evaluation_NN method_NN for_IN adaptable_JJ products_NNS that_WDT considers_VVZ measures_NNS of_IN extendibility_NN ,_, upgradeability_NN and_CC customisability_NN ._SENT 
+Koren_NP et_NP al_NP ._SENT 
+(_( 2013_CD )_) address_VV the_DT needs_NNS for_IN open_JJ architectures_NNS for_IN adaptable_JJ products_NNS ._SENT 
+Zhang_NP et_NP al_NP ._SENT 
+(_( 2015_CD )_) consider_VVP uncertainty_NN in_IN adaptable_JJ product_NN design_NN for_IN robust_JJ performance_NN ._SENT 
+There_EX have_VHP been_VBN various_JJ projects_NNS for_IN MAS_NNS development_NN in_IN the_DT maritime_JJ sector_NN since_IN the_DT German_JJ shipyard_NN Blohm+Voss_NN developed_VVD the_DT first_JJ MAS_NNS in_IN the_DT late_JJ 1970s_NNS ._SENT 
+Several_JJ technical_JJ papers_NNS were_VBD recently_RB published_VVN through_IN the_DT Architectures_NNS ,_, Interfaces_NNS ,_, and_CC Modular_JJ Systems_NPS (_( AIMS_NNS )_) program_NN ,_, which_WDT is_VBZ a_DT series_NN of_IN U.S._NP Navy_NP projects_NNS for_IN MAS_NNS development_NN (_( Marcantonio_NP et_NP al_NP ._SENT 
+2007_CD ;_: Abbott_NP et_NP al_NP ._SENT 
+2008_CD ;_: Doerry_NP ,_, 2014_CD )_) ._SENT 
+Important_JJ issues_NNS include_VVP designing_VVG an_DT interface_NN standard_NN and_CC determining_VVG the_DT proper_JJ degree_NN of_IN modularity_NN ._SENT 
+Doerry_NP (_( 2014_CD )_) investigates_VVZ state-of-the-art_JJ technology_NN for_IN MAS_NNS development_NN and_CC finds_VVZ that_IN there_EX is_VBZ lack_NN of_IN design_NN methods_NNS to_TO consider_VV the_DT potential_JJ effect_NN of_IN modularity_NN on_IN the_DT lifecycle_NN value_NN of_IN MASs_NN ,_, although_IN hardware_NN technology_NN is_VBZ already_RB sufficiently_RB mature_VV based_VVN on_IN previous_JJ projects_NNS ._SENT 
+Design_NN building_NN blocks_NNS (_( DBBs_NP )_) (_( Andrews_NPS and_CC Pawling_NP 2004_CD ;_: Andrews_NPS 2011_CD )_) are_VBP one_CD design_NN synthesis_NN approach_NN that_WDT is_VBZ readily_RB applicable_JJ to_TO MASs_NN ._SENT 
+DBB_NP allows_VVZ for_IN fast_JJ validation_NN and_CC visualisation_NN from_IN the_DT early_JJ stages_NNS of_IN design_NN ._SENT 
+Rework_VVP can_MD thus_RB be_VB avoided_VVN ,_, and_CC ship_NN designers_NNS and_CC stakeholders_NNS gain_VVP more_JJR insight_NN into_IN such_JJ designs_NNS ._SENT 
+Another_DT similar_JJ approach_NN is_VBZ the_DT packing_VVG approach_NN (_( Van_NP Oers_NP 2011_CD )_) ._SENT 
+Like_IN DBB_NP ,_, the_DT packing_NN approach_NN also_RB emphasises_VVZ the_DT visualisation_NN and_CC validation_NN of_IN design_NN alternatives_NNS in_IN the_DT early_JJ stages_NNS ._SENT 
+This_DT approach_NN aims_VVZ to_TO minimise_VV human_JJ intervention_NN in_IN ship_NN design_NN ,_, which_WDT enables_VVZ investigation_NN of_IN a_DT number_NN of_IN design_NN alternatives_NNS computationally_RB ._SENT 
+Both_DT approaches_NNS can_MD provide_VV guidelines_NNS for_IN modular_JJ ship_NN design_NN ._SENT 
+However_RB ,_, the_DT methods_NNS are_VBP meant_VVN for_IN a_DT static_JJ operating_VVG context_NN and_CC have_VHP not_RB been_VBN used_VVN to_TO consider_VV the_DT flexible_JJ operation_NN of_IN modular_JJ ships_NNS in_IN response_NN to_TO changes_NNS in_IN the_DT operating_VVG environment_NN ._SENT 
+Valuation_NN for_IN operational_JJ flexibility_NN has_VHZ received_VVN growing_VVG attention_NN in_IN the_DT maritime_JJ industry_NN ._SENT 
+Real_JJ options_NNS analysis_NN (_( ROA_NN )_) is_VBZ one_CD of_IN the_DT actively_RB applied_VVN valuation_NN methods_NNS ._SENT 
+ROA_NP can_MD quantitatively_RB evaluate_VV various_JJ types_NNS of_IN flexibility_NN by_IN representing_VVG flexibility_NN as_IN a_DT set_NN of_IN measurable_JJ options_NNS ._SENT 
+Gregor_NP (_( 2003_CD )_) and_CC Page_NP (_( 2012_CD )_) apply_VVP ROA_NN to_TO a_DT naval_JJ vessel_NN design_NN and_CC acquisition_NN process_NN ,_, and_CC Bendall_NP and_CC Stent_NP (_( 2005_CD )_) use_NN ROA_NN to_TO valuate_VV vessel_NN investment_NN strategies_NNS ._SENT 
+Sødal_NP et_NP al_NP ._SENT 
+(_( 2008_CD )_) use_NN ROA_NN to_TO determine_VV the_DT economic_JJ value_NN of_IN the_DT flexibility_NN provided_VVN by_IN an_DT ore-bulk-oil_JJ carrier_NN as_IN opposed_VVN to_TO using_VVG a_DT specialised_VVN bulk_NN carrier_NN and_CC an_DT oil_NN tanker_NN ._SENT 
+We_PP have_VHP seen_VVN both_DT approaches_NNS for_IN module_NN configuration_NN using_VVG a_DT static_JJ context_NN ,_, and_CC approaches_NNS for_IN the_DT lifecycle_NN valuation_NN of_IN a_DT given_VVN design_NN towards_IN a_DT dynamic_JJ operating_VVG context_NN ._SENT 
+In_IN order_NN to_TO combine_VV these_DT two_CD approaches_NNS ,_, we_PP present_VVP an_DT optimisation_NN model_NN that_WDT determines_VVZ the_DT optimal_JJ module_NN configuration_NN while_IN considering_VVG the_DT operational_JJ flexibility_NN of_IN MASs_NN in_IN a_DT dynamic_JJ context_NN ._SENT 
+Section_NN 2_CD discusses_VVZ the_DT difference_NN between_IN modular_JJ and_CC conventional_JJ design_NN methods_NNS ,_, and_CC Section_NP 3_CD discusses_VVZ ROA_NN in_IN more_JJR detail_NN ._SENT 
+Section_NN 4_CD describes_VVZ the_DT optimisation_NN model_NN and_CC its_PP$ mathematical_JJ form_NN ._SENT 
+Section_NN 5_CD demonstrates_VVZ the_DT model_NN in_IN a_DT case_NN study_NN ,_, and_CC Section_NP 6_CD reports_NNS the_DT results_NNS and_CC sensitivity_NN ._SENT 
+Finally_RB ,_, Section_NN 7_CD concludes_VVZ the_DT paper_NN and_CC discusses_VVZ possible_JJ applications_NNS of_IN this_DT approach_NN ._SENT 
+<Section> 2._CD Modular_JJ ship_NN design_NN process_NN </Section> The_DT prime_JJ difference_NN between_IN a_DT modular_JJ ship_NN design_NN process_NN and_CC a_DT conventional_JJ ship_NN design_NN process_NN is_VBZ the_DT way_NN the_DT design_NN space_NN is_VBZ explored_VVN ._SENT 
+In_IN conventional_JJ ship_NN design_NN ,_, ship_NN designers_NNS explore_VVP the_DT design_NN space_NN by_IN repeatedly_RB improving_VVG options_NNS for_IN a_DT benchmark_JJ ship_NN ,_, and_CC they_PP determine_VVP a_DT design_NN at_IN the_DT end_NN of_IN the_DT process_NN ._SENT 
+This_DT process_NN is_VBZ a_DT top-down_NN approach_NN in_IN which_WDT the_DT designers_NNS directly_RB determine_VVP the_DT values_NNS of_IN design_NN parameters_NNS ._SENT 
+However_RB ,_, a_DT modular_JJ ship_NN design_NN process_NN is_VBZ a_DT bottom-up_JJ approach_NN in_IN which_WDT ship_NN designers_NNS explore_VVP the_DT design_NN space_NN for_IN differently_RB configured_VVN modules_NNS ,_, and_CC the_DT design_NN parameters_NNS are_VBP indirectly_RB determined_VVN according_VVG to_TO the_DT module_NN configuration_NN ._SENT 
+Figure_NN 3_CD provides_VVZ an_DT example_NN ._SENT 
+Figure_VV 3._CD Modular_JJ ship_NN design_NN process_NN ._SENT 
+To_TO maximise_VV the_DT benefit_NN of_IN using_VVG modules_NNS ,_, designers_NNS can_MD use_VV a_DT design_NN strategy_NN called_VVD platform-based_JJ design_NN ._SENT 
+This_DT strategy_NN uses_VVZ product_NN platforms_NNS to_TO obtain_VV the_DT benefits_NNS of_IN mass_JJ customisation_NN ,_, which_WDT provides_VVZ sufficient_JJ variety_NN for_IN the_DT market_NN while_IN maintaining_VVG economies_NNS of_IN scale_NN (_( Simpson_NP 2004_CD )_) ._SENT 
+In_IN a_DT modular_JJ approach_NN ,_, a_DT product_NN platform_NN indicates_VVZ a_DT set_NN of_IN common_JJ modules_NNS and_CC interfaces_NNS designed_VVN for_IN multiple_JJ products_NNS ,_, from_IN which_WDT modular_JJ designs_NNS are_VBP created_VVN by_IN configuring_VVG modules_NNS ._SENT 
+Using_VVG modular_JJ product_NN platforms_NNS increases_VVZ the_DT reusability_NN of_IN modules_NNS because_IN the_DT design_NN task_NN for_IN a_DT product_NN platform_NN involves_VVZ the_DT systematic_JJ planning_NN of_IN modularity_NN and_CC commonality_NN (_( Jiao_NP and_CC Tseng_NP 1999_CD )_) ._SENT 
+In_IN designing_VVG product_NN platforms_NNS ,_, there_EX are_VBP two_CD important_JJ tasks_NNS :_: (_( 1_LS )_) identifying_VVG a_DT group_NN of_IN similar_JJ products_NNS that_WDT have_VHP the_DT potential_NN to_TO share_VV common_JJ modules_NNS and_CC (_( 2_LS )_) designing_VVG common_JJ modules_NNS with_IN regard_NN to_TO the_DT trade-off_NN between_IN commonality_NN and_CC individual_JJ product_NN performance_NN ._SENT 
+Although_IN ships_NNS have_VHP been_VBN perceived_VVN as_IN unique_JJ products_NNS ,_, modules_NNS can_MD potentially_RB provide_VV for_IN commonality_NN between_IN ships_NNS ._SENT 
+For_IN instance_NN ,_, the_DT mission_NN systems_NNS of_IN offshore_JJ support_NN vessels_NNS have_VHP been_VBN developed_VVN as_IN module_NN packages_NNS ,_, such_JJ as_IN crane_NN systems_NNS ,_, ROVs_NNS ,_, light_JJ well_RB intervention_NN towers_NNS and_CC saturation_NN systems_NNS ._SENT 
+These_DT modules_NNS do_VVP not_RB need_VV to_TO be_VB customised_VVN for_IN a_DT specific_JJ ship_NN ._SENT 
+In_IN some_DT cases_NNS ,_, a_DT hull_NN can_MD be_VB designed_VVN for_IN multiple_JJ ships_NNS if_IN they_PP have_VHP similar_JJ requirements_NNS such_JJ as_IN the_DT main_JJ ship_NN dimensions_NNS ,_, required_VVN deck_NN space_NN and_CC deadweight_NN tonnage_NN ._SENT 
+According_VVG to_TO Ulrich_NP (_( 1995_CD )_) ,_, the_DT different_JJ interface_NN types_NNS of_IN modularity_NN are_VBP sectional_JJ ,_, bus_NN and_CC slot_NN modularity_NN ._SENT 
+Salvador_NP et_NP al_NP ._SENT 
+(_( 2002_CD )_) further_JJR divide_NN slot-type_NN modularity_NN into_IN combinatorial_JJ modularity_NN and_CC component_NN swapping_VVG modularity_NN ._SENT 
+The_DT four_CD types_NNS of_IN modularity_NN can_MD be_VB differentiated_VVN from_IN each_DT other_JJ based_VVN on_IN interface_NN diversity_NN and_CC the_DT use_NN of_IN a_DT main_JJ body_NN (_( see_VV Figure_NP 4_CD )_) ._SENT 
+Figure_NN 4._CD Four_CD types_NNS of_IN modularity_NN based_VVN on_IN interface_NN diversity_NN and_CC main_JJ body_NN use_NN ._SENT 
+In_IN sectional_JJ modularity_NN ,_, modules_NNS interface_NN with_IN each_DT other_JJ through_IN identical_JJ interfaces_NNS ,_, whereas_IN in_IN bus_NN modularity_NN ,_, modules_NNS interface_NN with_IN a_DT main_JJ body_NN using_VVG identical_JJ interfaces_NNS in_IN what_WP is_VBZ known_VVN as_IN a_DT bus_NN interface_NN ._SENT 
+In_IN both_DT combinatorial_JJ modularity_NN and_CC component-swapping_VVG modularity_NN ,_, there_EX is_VBZ no_DT identical_JJ interface_NN that_IN all_DT modules_NNS share_NN globally_RB ._SENT 
+However_RB ,_, some_DT modules_NNS share_VVP a_DT common_JJ interface_NN locally_RB ,_, which_WDT is_VBZ called_VVN a_DT slot_NN ._SENT 
+Each_DT module_NN in_IN combinatorial_JJ modularity_NN has_VHZ its_PP$ own_JJ slots_NNS and_CC can_MD be_VB connected_VVN to_TO other_JJ modules_NNS that_WDT have_VHP the_DT same_JJ type_NN of_IN slot_NN ._SENT 
+Alternatively_RB ,_, in_IN component-swapping_VVG modularity_NN ,_, modules_NNS interface_NN with_IN a_DT main_JJ body_NN through_IN slots_NNS ._SENT 
+This_DT paper_NN adopts_VVZ component-swapping_VVG modularity_NN since_IN the_DT hull_NN serves_VVZ as_IN the_DT main_JJ body_NN of_IN a_DT ship_NN design_NN ._SENT 
+This_DT approach_NN is_VBZ a_DT more_RBR general_JJ case_NN of_IN bus_NN modularity_NN in_IN that_DT component-swapping_VVG modularity_NN does_VVZ not_RB require_VV identical_JJ interfaces_NNS ._SENT 
+<Section> 3._CD Valuation_NN for_IN operational_JJ flexibility_NN </Section> ROA_NN has_VHZ been_VBN used_VVN for_IN valuating_VVG the_DT operational_JJ flexibility_NN of_IN ships_NNS ._SENT 
+The_DT flexibility_NN is_VBZ represented_VVN as_IN a_DT collection_NN of_IN options_NNS ._SENT 
+By_IN defining_VVG flexibility_NN using_VVG measurable_JJ options_NNS ,_, it_PP can_MD be_VB addressed_VVN more_RBR explicitly_RB and_CC its_PP$ value_NN can_MD be_VB evaluated_VVN quantitatively_RB ._SENT 
+Table_NN 1_CD presents_VVZ common_JJ types_NNS of_IN options_NNS identified_VVN in_IN previous_JJ studies_NNS ._SENT 
+A_DT MAS_NNS can_MD have_VH multiple_JJ types_NNS of_IN options_NNS ._SENT 
+Its_PP$ independent_JJ modules_NNS allow_VVP for_IN the_DT option_NN to_TO wait_VV and_CC option_NN to_TO expand_VV in_IN investment_NN ._SENT 
+The_DT modules_NNS also_RB allow_VVP for_IN the_DT option_NN to_TO switch_VV their_PP$ configuration_NN ._SENT 
+Since_IN the_DT MAS_NNS can_MD change_VV its_PP$ functional_JJ capability_NN ,_, the_DT ship_NN can_MD have_VH the_DT option_NN to_TO switch_VV in_IN mission_NN selection_NN ._SENT 
+Other_JJ options_NNS could_MD also_RB be_VB considered_VVN in_IN valuation_NN ,_, such_JJ as_IN option_NN to_TO contract_NN and_CC option_NN to_TO abandon_VV ._SENT 
+Table_NN 1._CD Common_JJ types_NNS of_IN options_NNS (_( Perlitz_NP et_NP al_NP ._SENT 
+,_, 1999_CD )_) ._SENT 
+<Section> 4._CD Module_NN configuration_NN and_CC valuation_NN model_NN </Section> This_DT section_NN presents_VVZ an_DT optimisation_NN model_NN for_IN module_NN configuration_NN and_CC valuation_NN ._SENT 
+In_IN this_DT model_NN ,_, the_DT value_NN of_IN an_DT MAS_NNS is_VBZ defined_VVN as_IN the_DT net_JJ present_JJ value_NN (_( NPV_NP )_) ,_, which_WDT should_MD be_VB maximised_VVN ._SENT 
+Component-swapping_VVG modularity_NN is_VBZ used_VVN ,_, and_CC the_DT capabilities_NNS of_IN design_NN alternatives_NNS are_VBP determined_VVN by_IN linear_JJ summation_NN of_IN the_DT configured_VVN modules’_NN capabilities_NNS ._SENT 
+In_IN valuation_NN ,_, it_PP is_VBZ assumed_VVN that_IN module_NN cost_NN scenarios_NNS for_IN acquisition_NN ,_, configuration_NN ,_, operation_NN and_CC removal_NN have_VHP already_RB been_VBN analysed_VVN ._SENT 
+Module_NN cost_NN scenarios_NNS can_MD be_VB analysed_VVN using_VVG their_PP$ historical_JJ data_NNS or_CC estimated_JJ using_VVG module_NN parameters_NNS if_IN there_EX are_VBP no_DT historical_JJ data_NNS ._SENT 
+For_IN example_NN ,_, Bole_NP (_( 2007_CD )_) estimates_VVZ module_NN costs_NNS and_CC identifies_VVZ required_VVN production_NN processes_NNS from_IN the_DT module_NN parameters_NNS ._SENT 
+The_DT market_NN scenario_NN is_VBZ represented_VVN as_IN a_DT set_NN of_IN contracts_NNS in_IN this_DT model_NN ._SENT 
+Non-cargo_NP vessels_NNS have_VHP the_DT potential_NN to_TO be_VB used_VVN for_IN multiple_JJ purposes_NNS such_JJ as_IN offshore_JJ support_NN vessels_NNS ,_, and_CC they_PP are_VBP likely_JJ to_TO create_VV value_NN by_IN operating_VVG for_IN contracts_NNS ._SENT 
+The_DT NPV_NP maximisation_NN problem_NN using_VVG contract_NN scenarios_NNS can_MD be_VB considered_VVN as_IN the_DT longest_JJS path_NN problem_NN (_( LPP_NP )_) ._SENT 
+In_IN the_DT LPP_NP ,_, the_DT contract_NN scenario_NN can_MD be_VB represented_VVN as_IN a_DT graph_NN in_IN which_WDT each_DT node_NN indicates_VVZ a_DT contract_NN and_CC each_DT edge_NN indicates_VVZ a_DT possible_JJ contract_NN transition_NN (_( Erikstad_NP et_NP al_NP ._SENT 
+2011_CD )_) ._SENT 
+The_DT length_NN of_IN edges_NNS indicates_VVZ revenue_NN from_IN contracts_NNS and_CC depends_VVZ on_IN predetermined_VVN decisions_NNS in_IN module_NN investment_NN and_CC configuration_NN ._SENT 
+For_IN example_NN ,_, the_DT edge_NN length_NN between n3 and n4 in_NN Figure_NN 5_CD indicates_VVZ the_DT revenue_NN from_IN contract_NN 2_CD if_IN its_PP$ last_JJ operation_NN was_VBD in_IN contract_NN 1._CD The_DT revenue_NN can_MD vary_VV depending_VVG on_IN the_DT selected_JJ main_JJ body_NN (_( hull_NN )_) and_CC the_DT status_NN of_IN module_NN investment_NN and_CC configuration_NN in_IN contract_NN 1._CD Section_NN 4.1_CD describes_VVZ the_DT mathematical_JJ model_NN for_IN the_DT LPP_NP ._SENT 
+Figure_NN 5._CD Graph_NN representation_NN of_IN a_DT single_JJ contract_NN scenario_NN :_: n1_JJ and_CC n2_JJ indicate_VVP the_DT starting_VVG node_NN and_CC terminating_VVG node_NN of_IN the_DT graph_NN ,_, respectively_RB ._SENT 
+Although_IN n1_JJ and_CC n2_JJ do_VVP not_RB indicate_VV any_DT contract_NN ,_, they_PP are_VBP used_VVN in_IN the_DT mathematical_JJ model_NN for_IN the_DT LPP_NP ._SENT 
+4.1_CD ._SENT 
+Mathematical_JJ model_NN Sets_NNS :_: Table_NN Parameters_NNS :_: Table_NN Variables_NNS :_: Table_NN Model_NP :_: @(1_JJ )_) @(2_NP )_) @(3_NP )_) @(4_NP )_) @(5_NP )_) @(6_NP )_) @(7_JJ )_) @(8_NP )_) @(9_NP )_) @(10_NP )_) @(11_NN )_) @(12_NP )_) @(13_NP )_) @(14_NP )_) @(15_NP )_) @(16_NP )_) @(17_JJ )_) Equation_NN (_( 1_CD )_) is_VBZ the_DT objective_JJ function_NN ._SENT 
+The_DT first_JJ term_NN ,_, the_DT aggregation_NN of_IN   Rfj_NP ·_NP yfij_NP ,_, indicates_VVZ revenue_NN from_IN the_DT operation_NN in_IN the_DT contract_NN scenario_NN ._SENT 
+The_DT decision_NN variables_NNS  yfij_NN represent_VVP the_DT selected_JJ contract_NN ._SENT 
+For_IN example_NN ,_, yfij_NP =_SYM  1_NN indicates_VVZ that_IN contract i and_NP contract j are_NP selected_VVD for_IN operation_NN ,_, and_CC the_DT sequence_NN is_VBZ from_IN contract i to_NP contract j_NP ._SENT 
+The_DT revenue_NN  Rf_NP ,_, n�_NP �_NP is_VBZ an_DT adjusted_JJ revenue_NN with_IN regard_NN to_TO the_DT operation_NN cost_NN and_CC time_NN value_NN of_IN the_DT selected_JJ main_JJ body_NN ._SENT 
+The_DT revenue_NN Rf2_NN of_IN the_DT terminating_VVG node_NN is_VBZ zero_CD ._SENT 
+The_DT second_JJ term_NN ,_, the_DT aggregation_NN of_IN  CPAf_NP ·_NP bf_NP ,_, indicates_VVZ the_DT main_JJ body_NN 's_POS acquisition_NN cost_NN ,_, and_CC the_DT third_JJ term_NN ,_, the_DT aggregation_NN of_IN   CMAfsmt_NP ·_NP kfsmt_NP ,_, indicates_VVZ the_DT modules’_JJ acquisition_NN cost_NN during_IN the_DT lifetime_NN ._SENT 
+The_DT fourth_JJ term_NN ,_, the_DT aggregation_NN of_IN CMCfsm0_NP ·_NP xfsm0_NP ,_, indicates_VVZ the_DT module_NN configuration_NN cost_NN in_IN the_DT initial_JJ time_NN period_NN (_( t = 0_NP )_) ,_, and_CC the_DT fifth_JJ term_NN ,_, the_DT aggregation_NN of_IN  CMOfsmt_NP ·_NP xfsmt_NP ,_, indicates_VVZ the_DT module_NN operation_NN cost_NN during_IN the_DT lifetime_NN ._SENT 
+The_DT final_JJ term_NN ,_, the_DT aggregation_NN of_IN  CRCfsijt_NP ·_NP zfsijt_NP ,_, indicates_VVZ the_DT ship_NN reconfiguration_NN cost_NN during_IN the_DT operation_NN time_NN (_( t_NN >_SYM 0_CD )_) ._SENT 
+Equation_NN (_( 2_LS )_) ensures_VVZ that_IN only_RB one_CD main_JJ body_NN is_VBZ selected_VVN ._SENT 
+In_IN the_DT design_NN of_IN multiple_JJ ships_NNS ,_, the_DT constraint_NN is_VBZ removed_VVN ._SENT 
+Equation_NN (_( 3_LS )_) ensures_VVZ that_IN every_DT slot_NN of_IN the_DT main_JJ body_NN is_VBZ assigned_VVN one_CD module_NN ._SENT 
+Empty_JJ slots_NNS are_VBP represented_VVN by_IN assigning_VVG an_DT empty_JJ dummy_JJ module_NN to_TO the_DT slots_NNS ._SENT 
+Equation_NN (_( 4_LS )_) allows_VVZ only_RB pre-invested_JJ modules_NNS to_TO be_VB configured_VVN ._SENT 
+These_DT constraints_NNS are_VBP based_VVN on_IN the_DT assumption_NN that_IN the_DT module_NN acquisition_NN time_NN is_VBZ short_RB enough_JJ to_TO be_VB neglected_VVN ._SENT 
+Equation_NN (_( 5_LS )_) allows_VVZ modules_NNS to_TO be_VB acquired_VVN only_RB when_WRB their_PP$ main_JJ body_NN is_VBZ selected_VVN ._SENT 
+Equation_NN (_( 6_CD )_) ensures_VVZ that_IN every_DT solution_NN includes_VVZ the_DT starting_VVG node_NN in_IN the_DT LPP_NP ._SENT 
+Equation_NN (_( 7_CD )_) ensures_VVZ that_IN every_DT solution_NN includes_VVZ the_DT terminating_VVG node_NN in_IN the_DT LPP_NP ._SENT 
+Equation_NN (_( 8_CD )_) ensures_VVZ continuity_NN in_IN the_DT LPP_NP ._SENT 
+Equation_NN (_( 9_CD )_) constrains_VVZ ships_NNS to_TO operate_VV during_IN the_DT full_JJ contract_NN period_NN when_WRB the_DT ships_NNS can_MD satisfy_VV the_DT required_VVN capabilities_NNS of_IN the_DT contracts_NNS ._SENT 
+Equation_NN (_( 10_CD )_) allows_VVZ for_IN only_RB feasible_JJ node_NN transition_NN from_IN a_DT time_NN perspective_NN ._SENT 
+Aij indicates_VVZ the_DT feasibility_NN of_IN node_NN transition_NN from_IN node i to j and_NN is_VBZ defined_VVN as_IN Aij_NP =_SYM  1 if STj_NP >_SYM TMi_NP ,_, or_CC 0_CD otherwise_RB ._SENT 
+The_DT feasible_JJ node_NN transition_NN constraints_NNS ensure_VVP that_IN a_DT node_NN can_MD be_VB visited_VVN only_RB once_RB ._SENT 
+Like_IN other_JJ nodes_NNS ,_, the_DT starting_VVG node_NN and_CC terminating_VVG node_NN have_VHP a_DT starting_VVG time_NN period_NN and_CC terminating_VVG time_NN period_NN that_WDT satisfy_VV  STn|n_NP ≠_NP 1_CD >_SYM TM1 and TMn|n_NP ≠_NP 2_CD <_SYM ST2_NN ._SENT 
+Equations_NNS (_( 11_CD )_) and_CC (_( 12_CD )_) ensure_VV consistency_NN in_IN the_DT reconfiguration_NN variables_NNS ._SENT 
+Equations_NNS (_( 13)–(17_JJ )_) define_VV the_DT decision_NN variables_NNS as_IN binary_JJ variables_NNS ._SENT 
+<Section> 5._CD Case_NN study_NN </Section> This_DT section_NN demonstrates_VVZ the_DT model_NN in_IN a_DT case_NN study_NN ._SENT 
+To_TO design_VV an_DT MAS_NNS ,_, we_PP consider_VVP two_CD main_JJ bodies_NNS ._SENT 
+Each_DT main_JJ body_NN has_VHZ eight_CD slots_NNS ,_, each_DT of_IN which_WDT has_VHZ a_DT set_NN of_IN compatible_JJ modules_NNS ._SENT 
+Figure_NP 6(a,b_NP )_) illustrates_VVZ the_DT main_JJ bodies_NNS and_CC modules_NNS ._SENT 
+Each_DT one_CD has_VHZ different_JJ types_NNS and_CC levels_NNS of_IN capabilities_NNS ._SENT 
+We_PP consider_VVP 10_CD types_NNS of_IN capabilities_NNS and_CC represent_VV the_DT capability_NN levels_NNS on_IN a_DT normalised_VVN scale_NN of_IN 0–10_NP ._SENT 
+Table_NN 2_CD indicates_VVZ the_DT capability_NN types_NNS and_CC scale_NN ranges_NNS ._SENT 
+Table_NN 3_CD presents_VVZ the_DT main_JJ body_NN data_NNS ,_, and_CC Table_NN 4_CD presents_NNS the_DT module_NN data_NNS ._SENT 
+Figure_NN 6._CD (_( a_DT )_) Illustration_NN of_IN main_JJ body_NN 1_CD and_CC its_PP$ compatible_JJ modules_NNS ._SENT 
+(_( b_LS )_) Illustration_NN of_IN main_JJ body_NN 2_CD and_CC its_PP$ compatible_JJ modules_NNS ._SENT 
+Table_NN 2._CD Capability_NN descriptions_NNS ._SENT 
+Table_NN 3._CD Main-body_NN data_NNS ._SENT 
+Table_NN 4._CD Module_NN data_NNS ._SENT 
+As_IN an_DT example_NN the_DT data_NNS in_IN the_DT fifth_JJ row_NN of_IN Table_NN 4_CD are_VBP for_IN a_DT module_NN alternative_NN 2_CD (_( m = 2_NN )_) of_IN slot_NN 3_CD (_( s = 3_NP )_) and_CC main_JJ body_NN 1_CD (_( f = 1_JJ )_) ._SENT 
+Its_PP$ acquisition_NN cost_NN  CMA1320�_NP �_NP is_VBZ 20,000,000_CD dollars_NNS ,_, and_CC its_PP$ operation_NN cost_NN  CMO1320�_NP �_NP is_VBZ 400,000_CD dollars_NNS at_IN present_JJ value_NN ._SENT 
+The_DT configuration_NN cost_NN  CMC1320�_JJ �_NN and_CC removal_NN cost_NN  CMC1320�_NP �_NP are_VBP 1,000,000_CD dollars_NNS at_IN present_JJ value_NN ._SENT 
+The_DT module_NN allows_VVZ for_IN ROV_NP operation_NN in_IN water_NN depths_NNS of_IN up_IN to_TO 3000_CD m_NN (_( VA1323_NN =_SYM  10_NN )_) ._SENT 
+In_IN this_DT case_NN study_NN ,_, we_PP assume_VVP that_IN every_DT module_NN acquisition_NN cost_NN decreases_NNS annually_RB (_( CMAfsmt_NP =_SYM (_( 1_LS �_NP �_NP 0.04) *Cfsmt_NP �_NP �_NP 1MA_NP )_) because_IN the_DT module_NN becomes_VVZ obsolete_JJ ._SENT 
+Vessel_NN reconfiguration_NN costs_VVZ  CRCfsijt�_JJ �_NN in_IN Equation_NN (_( 1_CD )_) are_VBP calculated_VVN based_VVN on_IN the_DT module_NN configuration_NN costs_VVZ  CMCfsmt�_JJ �_NN and_CC removal_NN cost_NN  CMRfsmt_NN ._SENT 
+The_DT operating_VVG context_NN is_VBZ represented_VVN as_IN a_DT set_NN of_IN 30_CD contracts_NNS ._SENT 
+Each_DT contract_NN has_VHZ a_DT different_JJ value_NN and_CC requires_VVZ different_JJ functional_JJ capabilities_NNS ._SENT 
+The_DT contract_NN data_NNS are_VBP given_VVN in_IN Table_NN 5._CD Table_NN 5._CD Contract_NN (_( node_NN )_) data_NNS ._SENT 
+We_PP compare_VVP one_CD MAS_NNS with_IN three_CD robust_JJ ships_NNS ._SENT 
+All_PDT the_DT ships_NNS are_VBP created_VVN based_VVN on_IN the_DT given_VVN modules_NNS in_IN Figure_NP 6(a,b_NP )_) ._SENT 
+The_DT robust_JJ ships_NNS do_VVP not_RB have_VH reconfiguration_NN options_NNS ._SENT 
+Instead_RB ,_, we_PP assume_VVP that_IN the_DT robust_JJ ships_NNS have_VHP cost_VVN reduction_NN benefits_NNS ._SENT 
+We_PP consider_VVP 10_CD %_NN ,_, 20_CD %_NN or_CC 30_CD %_NN cost_NN reduction_NN scenarios_NNS in_IN development_NN costs_NNS (_( all_PDT the_DT coefficients_NNS related_VVN to_TO development_NN costs_NNS ,_, CPAf, CMAfsm0_NP and_CC  CMCfsm0_NP ,_, have_VHP a_DT reduced_VVN value_NN )_) ._SENT 
+These_DT constraints_NNS are_VBP applied_VVN to_TO the_DT optimisation_NN model_NN using_VVG Equation_NN (_( 18_CD )_) :_: @(18_NP )_) The_DT robust_JJ ships_NNS have_VHP these_DT benefits_NNS due_JJ to_TO the_DT price_NN of_IN the_DT setting_VVG up_RP the_DT reconfiguration_NN option_NN ._SENT 
+For_IN example_NN ,_, a_DT deck_NN space_NN designed_VVN to_TO have_VH a_DT tower_NN installation_NN option_NN requires_VVZ more_RBR structural_JJ support_NN for_IN higher_JJR strength_NN ,_, which_WDT increases_VVZ the_DT acquisition_NN cost_NN of_IN the_DT hull_NN ._SENT 
+<Section> 6._CD Optimisation_NN results_NNS </Section> CPLEX_NP 's_POS LP_NP solver_NN (_( IBM_NP ILOG_NP ._SENT 
+V12_NP ._SENT 
+1_CD ,_, 2009_CD )_) was_VBD used_VVN to_TO solve_VV the_DT LPP_NP ._SENT 
+This_DT solver_NN determines_VVZ the_DT optimal_JJ module_NN configuration_NN within_IN 1.22_CD sec_NN on_IN an_DT Intel(R_NP )_) Core(TM_NP )_) i7-2600_NP 3.40-GHz_NP CPU_NN with_IN 16.0_CD GB_NN of_IN RAM_NN ._SENT 
+The_DT optimisation_NN results_NNS are_VBP presented_VVN in_IN Table_NN 6._CD The_DT optimal_JJ MAS_NNS has_VHZ better_JJR NPV_NN than_IN any_DT optimal_JJ robust_JJ ships_NNS ,_, even_RB with_IN the_DT different_JJ cost_NN reduction_NN benefits_NNS in_IN development_NN costs_NNS ._SENT 
+This_DT occurs_VVZ because_IN the_DT reconfiguration_NN options_NNS are_VBP more_RBR influential_JJ than_IN the_DT cost_NN benefits_NNS in_IN the_DT LPP_NP ._SENT 
+As_IN expected_VVN ,_, the_DT MAS_NNS has_VHZ more_JJR options_NNS in_IN contract_NN selection_NN with_IN its_PP$ reconfigurability_NN than_IN the_DT robust_JJ ships_NNS ._SENT 
+Table_NN 6._CD Optimisation_NN results_NNS ._SENT 
+To_TO analyse_VV the_DT sensitivity_NN of_IN the_DT solutions_NNS ,_, we_PP evaluated_VVD them_PP in_IN using_VVG 100_CD different_JJ scenarios_NNS ._SENT 
+Each_DT contract_NN scenario_NN is_VBZ generated_VVN by_IN randomly_RB picking_VVG contracts_NNS in_IN Table_NN 5._CD When_WRB a_DT contract_NN is_VBZ selected_VVN ,_, its_PP$ revenue_NN is_VBZ maintained_VVN ,_, but_CC its_PP$ starting_VVG time_NN and_CC terminating_VVG time_NN are_VBP modified_VVN randomly_RB ._SENT 
+Table_NN 7_CD presents_VVZ the_DT results_NNS of_IN the_DT sensitivity_NN analysis_NN ._SENT 
+Compared_VVN to_TO the_DT value_NN robustness_NN of_IN flexible_JJ designs_NNS from_IN other_JJ papers_NNS (_( e.g._FW Sødal_NP et_FW al_NP ._SENT 
+2008_CD ,_, the_DT sensitivity_NN results_NNS show_VVP that_IN the_DT model_NN is_VBZ less_RBR affected_VVN by_IN scenario_NN changes_NNS ._SENT 
+Moreover_RB ,_, the_DT expected_VVN NPV_NN of_IN the_DT MAS_NNS is_VBZ even_RB higher_JJR than_IN the_DT original_JJ NPV_NN calculated_VVN for_IN the_DT initial_JJ contract_NN scenario_NN by_IN considering_VVG opportunities_NNS with_IN high_JJ uncertainty_NN ._SENT 
+In_IN contrast_NN ,_, the_DT NPV_NP of_IN the_DT robust_JJ ships_NNS is_VBZ sensitive_JJ to_TO scenario_NN changes_NNS ,_, and_CC the_DT expected_VVN NPV_NN is_VBZ lower_JJR than_IN the_DT original_JJ NPV_NP ._SENT 
+This_DT result_NN clearly_RB shows_VVZ that_IN reconfiguration_NN options_NNS increase_VVP the_DT value_NN robustness_NN of_IN ships_NNS under_IN uncertainty_NN ._SENT 
+Table_NN 7._CD Result_NN of_IN sensitivity_NN analysis_NN from_IN 100_CD simulations_NNS by_IN varying_VVG starting_VVG and_CC terminating_VVG times_NNS ._SENT 
+<Section> 7._CD Conclusions_NNS </Section> In_IN this_DT paper_NN ,_, we_PP described_VVD the_DT need_NN to_TO combine_VV module_NN configuration_NN and_CC lifecycle_NN valuation_NN into_IN one_CD problem_NN to_TO evaluate_VV modular_JJ designs_NNS for_IN their_PP$ operational_JJ flexibility_NN in_IN a_DT dynamic_JJ context_NN ._SENT 
+We_PP then_RB presented_VVD an_DT optimisation_NN model_NN for_IN the_DT problem_NN where_WRB component-swapping_VVG modularity_NN was_VBD used_VVN with_IN hull_NN as_IN the_DT main_JJ body_NN ._SENT 
+We_PP demonstrated_VVD the_DT model_NN in_IN a_DT case_NN study_NN investigating_VVG one_CD modular_JJ adaptable_JJ design_NN and_CC three_CD robust_JJ designs_NNS ._SENT 
+We_PP also_RB carried_VVD out_RP a_DT sensitivity_NN analysis_NN on_IN the_DT value_NN robustness_NN by_IN varying_VVG starting_VVG and_CC terminating_VVG times_NNS of_IN contracts_NNS ._SENT 
+Reconfiguration_NN options_NNS improved_VVD the_DT expected_VVN NPV_NN and_CC value_NN robustness_NN ,_, but_CC the_DT analysis_NN did_VVD not_RB indicate_VV that_IN having_VHG more_JJR options_NNS always_RB results_VVZ in_IN a_DT positive_JJ outcome_NN ._SENT 
+In_IN a_DT static_JJ context_NN ,_, a_DT dedicated_JJ design_NN that_WDT is_VBZ optimised_VVN for_IN the_DT context_NN without_IN any_DT reconfiguration_NN options_NNS can_MD be_VB a_DT better_JJR solution_NN than_IN reconfigurable_JJ designs_NNS because_IN having_VHG options_NNS often_RB requires_VVZ additional_JJ costs_NNS ._SENT 
+Hence_RB ,_, decision-makers_NNS should_MD invest_VV in_IN an_DT option_NN based_VVN on_IN the_DT investigation_NN of_IN the_DT option_NN value_NN from_IN a_DT lifecycle_NN perspective_NN ._SENT 
+The_DT optimisation_NN model_NN was_VBD based_VVN on_IN two_CD assumptions_NNS ._SENT 
+First_RB ,_, the_DT model_NN assumes_VVZ that_IN the_DT functional_JJ capabilities_NNS of_IN modular_JJ ships_NNS can_MD be_VB determined_VVN by_IN linear_JJ aggregation_NN of_IN the_DT functional_JJ capabilities_NNS of_IN a_DT configured_VVN module_NN ._SENT 
+This_DT assumption_NN can_MD be_VB reasonable_JJ in_IN the_DT early_JJ design_NN stages_NNS because_IN a_DT module_NN is_VBZ a_DT subsystem_NN that_WDT performs_VVZ an_DT independent_JJ function_NN ._SENT 
+However_RB ,_, ships_NNS have_VHP functional_JJ capabilities_NNS that_WDT should_MD be_VB analysed_VVN in_IN more_JJR detail_NN using_VVG high-fidelity_NN methods_NNS ,_, such_JJ as_IN computational_JJ fluid_JJ dynamics_NNS or_CC finite_JJ element_NN method_NN (_( FEM_NP )_) ._SENT 
+Such_JJ functional_JJ capabilities_NNS must_MD be_VB analysed_VVN further_RBR in_IN the_DT later_JJR design_NN stages_NNS as_IN the_DT number_NN of_IN design_NN alternatives_NNS decreases_NNS ._SENT 
+Second_RB ,_, the_DT model_NN assumes_VVZ that_IN there_EX are_VBP given_VVN candidates_NNS for_IN the_DT main_JJ body_NN and_CC modules_NNS ._SENT 
+However_RB ,_, ships_NNS and_CC modules_NNS are_VBP often_RB developed_VVN in_IN parallel_NN ._SENT 
+In_IN this_DT case_NN ,_, module_NN design_NN decisions_NNS would_MD need_VV to_TO be_VB included_VVN in_IN the_DT model_NN ._SENT 
+We_PP used_VVD realistic_JJ test_NN module_NN data_NNS and_CC contract_NN scenarios_NNS in_IN the_DT case_NN study_NN ._SENT 
+However_RB ,_, the_DT model_NN needs_VVZ to_TO be_VB investigated_VVN further_RBR for_IN validation_NN using_VVG industry_NN data_NNS ._SENT 
+This_DT data_NNS can_MD be_VB collected_VVN by_IN managing_VVG ship_NN data_NNS at_IN a_DT module_NN level_NN ._SENT 
+The_DT model_NN can_MD be_VB further_RBR extended_VVN to_TO more_JJR complex_JJ models_NNS ._SENT 
+For_IN example_NN ,_, uncertainties_NNS may_MD be_VB considered_VVN by_IN modifying_VVG the_DT model_NN into_IN a_DT multi-stage_JJ stochastic_JJ model_NN or_CC by_IN using_VVG the_DT model_NN in_IN a_DT stochastic_JJ framework_NN ,_, such_JJ as_IN a_DT Monte_NP Carlo_NP simulation_NN ._SENT 
+The_DT model_NN could_MD also_RB be_VB used_VVN to_TO make_VV only_RB operational_JJ decisions_NNS by_IN adding_VVG constraints_NNS that_WDT fix_VV the_DT initial_JJ design_NN ._SENT 
+The_DT model_NN could_MD also_RB be_VB used_VVN to_TO design_VV other_JJ types_NNS of_IN ocean_NN systems_NNS ,_, such_JJ as_IN floating_VVG production_NN storage_NN and_CC offloading_VVG systems_NNS ._SENT 
+<Section> Disclosure_NN statement_NN </Section> No_DT potential_JJ conflict_NN of_IN interest_NN was_VBD reported_VVN by_IN the_DT authors_NNS ._SENT 
+<Section> References_NNS </Section> Abbott_NP J_NP ,_, Devries_NP R_NP ,_, Schoenster_NP W_NP ,_, Vasilakos_NP J_NP ,_, Firebaugh_NP M_NP ,_, Malchiodi_NP A_NP ,_, Goddard_NP C._NP 2003._CD The_DT impact_NN of_IN evolutionary_JJ acquisition_NN on_IN naval_JJ ship_NN design_NN ._SENT 
+Trans_NP Soc_NP Naval_NP Arch_NP MarEng_NP (_( SNAME_NN )_) ._SENT 
+111:259–286_NP ._SENT 
+Abbott_NP JW_NP ,_, Levine_NP A_NP ,_, Vasilakos_NP J._NP 2008._CD Modular/open_NN systems_NNS to_TO support_VV ship_NN acquisition_NN strategies_NNS ._SENT 
+Am_NP Soc_NP Naval_NP Eng_NP (_( ASNE_NP )_) Day_NP ._SENT 
+23–25_NP ._SENT 
+Andrews_NPS DJ_NP ._SENT 
+2011._CD Marine_NP requirements_NNS elucidation_NN and_CC the_DT nature_NN of_IN preliminary_JJ ship_NN design_NN ._SENT 
+IJME_NP RINA_NP ._SENT 
+153:23_CD ._SENT 
+Andrews_NP DJ_NP ,_, Pawling_NP R._NP 2004._CD Fast_NP motherships-a_NP design_NN challenge.RINA_NP Warship_NN Conference_NN ;_: London_NP ;_: June_NP 2004._CD Baldwin_NP CY_NP ,_, Clark_NP KB_NP ._SENT 
+2000._CD Design_NP rules_NNS :_: the_DT power_NN of_IN modularity_NN (_( Vol_NP ._SENT 
+1_LS )_) ._SENT 
+Cambridge_NP (_( MA_NN )_) :_: MIT_NP Press_NP ._SENT 
+Baldwin_NP ,_, CY_NP ,_, Clark_NP KB_NP ._SENT 
+2006._CD Modularity_NN in_IN the_DT design_NN of_IN complex_JJ engineering_NN systems_NNS ._SENT 
+In_RB :_: Braha_NP ,_, D_NP ,_, Minai_NP AA_NN ,_, Bar-Yam_NP Y_NP ,_, editors_NNS ._SENT 
+Complex_JJ engineered_JJ systems_NNS ._SENT 
+Berlin_NP ,_, Heidelberg_NP :_: Springer_NP ;_: p._NP 175–205_NP ._SENT 
+Bole_NP M._NP 2007._CD Cost_NN assessment_NN at_IN concept_NN stage_NN design_NN using_VVG parametrically_RB generated_VVN production_NN product_NN models_NNS ._SENT 
+International_NP Conference_NP on_IN Computer_NP Applications_NP in_IN Shipbuilding_NP (_( ICCAS_NP )_) ;_: 2007_CD September_NP 18–20_NP ;_: Portsmouth_NP ,_, UK_NP ._SENT 
+Bendall_NP HB_NP ,_, Stent_JJ AF_NNS ._SENT 
+2005._CD Ship_NN investment_NN under_IN uncertainty_NN :_: valuing_VVG a_DT real_JJ option_NN on_IN the_DT maximum_NN of_IN several_JJ strategies_NNS ._SENT 
+Maritime_NP Econ_NP Logist_NN ._SENT 
+7:19–35_NP ._SENT 
+Campagnolo_NP D_NP ,_, Camuffo_NP A._NP 2010._CD The_DT concept_NN of_IN modularity_NN in_IN management_NN studies_NNS :_: a_DT literature_NN review_NN ._SENT 
+Int_NP J_NP Manage_VVP Rev._NP 12:259–283_NP ._SENT 
+CPLEX_NP ,_, IBM_NP ILOG_NP ._SENT 
+2009._CD V12_NN ._SENT 
+1_LS :_: User_NN 's_VBZ manual_JJ for_IN CPLEX_NP ._SENT 
+Int_NP Bus_NP Mach_NP Corpor_NP ._SENT 
+46:157_CD ._SENT 
+Doerry_NP NH_NP ._SENT 
+2014._CD Institutionalizing_VVG modular_JJ adaptable_JJ ship_NN technologies_NNS ._SENT 
+J_NP Ship_NP Prod_VV Des_NP ._SENT 
+30:126–141_JJ ._SENT 
+Erikstad_NP SO_RB ,_, Fagerholt_NP K_NP ,_, Solem_NP S._NP 2011._CD A_DT ship_NN design_NN and_CC deployment_NN model_NN for_IN non-cargo_NP vessels_NNS using_VVG contract_NN scenarios_NNS ._SENT 
+Ship_NN Technol_NN Res_NNS ._SENT 
+58:132–141_JJ ._SENT 
+Ferguson_NP S_NP ,_, Kasprzak_NP E_NP ,_, Lewis_NP K._NP 2009._CD Designing_NP a_DT family_NN of_IN reconfigurable_JJ vehicles_NNS using_VVG multilevel_JJ multidisciplinary_JJ design_NN optimization_NN ._SENT 
+Structural_JJ and_CC Multidisciplinary_JJ Optimization_NP ._SENT 
+39:171–186_NP ._SENT 
+Gregor_NP JA_NP ._SENT 
+2003._CD Real_JJ options_NNS for_IN naval_JJ ship_NN design_NN and_CC acquisition_NN :_: a_DT method_NN for_IN valuing_VVG flexibility_NN under_IN uncertainty_NN [_SYM Master_NP 's_POS thesis_NN ]_SYM ._SENT 
+Cambridge_NP :_: Massachusetts_NP Institute_NP of_IN Technology_NP ._SENT 
+Gu_NP P_NN ,_, Hashemian_NP M_NP ,_, Nee_NP AYC_NP ._SENT 
+2004._CD Adaptable_JJ design_NN ._SENT 
+CIRP_NP Ann_NP Manufact_NP Technol_NN ._SENT 
+53:539–557_JJ ._SENT 
+Haldaman_NP J._NP 2010._CD Study_NN of_IN reconfigurability_NN and_CC reconfigurable_JJ products_NNS for_IN use_NN in_IN design_NN [_SYM Master_NP 's_POS thesis_NN ]_SYM ._SENT 
+Pennsylvania_NP :_: Pennsylvania_NP State_NP University_NP ._SENT 
+Jiao_NP J_NP ,_, Tseng_NP MM_NP ._SENT 
+1999._CD A_DT methodology_NN of_IN developing_VVG product_NN family_NN architecture_NN for_IN mass_JJ customization_NN ._SENT 
+J_NP Intell_NP Manufact_NP ._SENT 
+10:3–20_NP ._SENT 
+Koren_NP Y_NP ,_, Hu_NP SJ_NP ,_, Gu_NP P_NN ,_, Shpitalni_NP M._NP 2013._CD Open-architecture_NN products_NNS ._SENT 
+CIRP_NP Ann_NP Manufact_NP Technol_NN ._SENT 
+62:719–729_NP ._SENT 
+Li_NP Y_NP ,_, Xue_NP D_NP ,_, Gu_NP P._NP 2008._CD Design_NN for_IN product_NN adaptability_NN ._SENT 
+Concurr_NP Eng_NP ._SENT 
+16:221–232_NP ._SENT 
+Marcantonio_NP RT_NP ,_, Sanford_NP EG_NN ,_, Levine_NP DSTAJ_NP ._SENT 
+2007._CD Addressing_VVG the_DT design_NN challenges_NNS of_IN open_JJ system_NN architecture_NN systems_NNS on_IN US_NP Navy_NP Ships_NNS �_JJ �_NN building_VVG out_RP of_IN the_DT box.MAST_NN 2007_CD Conference_NN ;_: 2007_CD Nov_NP 14–15_NP ;_: Genoa_NP (_( Italy_NP )_) ._SENT 
+Page_NP J._NP 2012._CD Flexibility_NN in_IN early_JJ stage_NN design_NN of_IN US_NP Navy_NP ships_NNS :_: an_DT analysis_NN of_IN options_NNS ._SENT 
+J_NP Ship_NP Product_NP Des_NP ._SENT 
+28:128–133_NP ._SENT 
+Perlitz_NP M_NP ,_, Peske_NP T_NN ,_, Schrank_NP R._NP 1999._CD Real_JJ options_NNS valuation_NN :_: the_DT new_JJ frontier_NN in_IN R&D_NP project_NN evaluation_NN ?_SENT 
+R&D_NNS Manage_VVP ._SENT 
+29:255–270_NP ._SENT 
+Salvador_NP F_NP ,_, Forza_NP C_NP ,_, Rungtusanatham_NP M._NP 2002._CD Modularity_NN ,_, product_NN variety_NN ,_, production_NN volume_NN ,_, and_CC component_NN sourcing_VVG :_: theorizing_VVG beyond_IN generic_JJ prescriptions_NNS ._SENT 
+J_NP Oper_NP Manage_VV ._SENT 
+20:549–575_NP ._SENT 
+Siddiqi_NP A_NP ,_, de_NP Weck_NP OL_NN ,_, Iagnemma_NN K._NP 2006._CD Reconfigurability_NN in_IN planetary_JJ surface_NN vehicles_NNS :_: Modeling_VVG approaches_NNS and_CC case_NN study_NN ._SENT 
+J_NP Brit_NP Interplanet_NP Soc_NP ._SENT 
+59:450–460_NP ._SENT 
+Simon_NP HA_NP ._SENT 
+1969._CD The_NP sciences_NNS of_IN the_DT artificial_NN ._SENT 
+Cambridge_NP (_( MA_NN )_) :_: MIT_NP Press_NP ._SENT 
+Simpson_NP TW_NP ._SENT 
+2004._CD Product_NN platform_NN design_NN and_CC customization_NN :_: Status_NN and_CC promise_NN ._SENT 
+AI_VVP EDAM_NN :_: Artificial_JJ Intell_NP Eng_NP Des_NP ,_, Anal_JJ Manufact_NP ._SENT 
+18:3–20_NP ._SENT 
+Sødal_NP S_NP ,_, Koekebakker_NP S_NP ,_, Aadland_NP R._NP 2008._CD Market_NN switching_VVG in_IN shipping_VVG �_JJ �_NN a_DT real_JJ option_NN model_NN applied_VVN to_TO the_DT valuation_NN of_IN combination_NN carriers_NNS ._SENT 
+Rev_NP Fin_NP Econ_NP ._SENT 
+17:183–203_NP ._SENT 
+Ulrich_NP K._NP 1995._CD The_DT role_NN of_IN product_NN architecture_NN in_IN the_DT manufacturing_NN firm_NN ._SENT 
+Res_NN Policy_NN ._SENT 
+24:419–440_NP ._SENT 
+Van_NP Oers_NP BJ_NP ._SENT 
+2011._CD A_DT packing_NN approach_NN for_IN the_DT early_JJ stage_NN design_NN of_IN service_NN vessels_NNS [_SYM PhD_JJ dissertation_NN ]_SYM ._SENT 
+Delft_NN :_: Delft_NN University_NP of_IN Technology_NP ._SENT 
+Zhang_NP J_NP ,_, Xue_NP D_NP ,_, Gu_NP P._NP 2015._CD Adaptable_JJ design_NN of_IN open_JJ architecture_NN products_NNS with_IN robust_JJ performance_NN ._SENT 
+J_NP Eng_NP Des_NP ._SENT 
+26:1–23_NP ._SENT 

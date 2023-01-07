@@ -1,0 +1,254 @@
+<title>Assessment and analysis of hydrogen and electricity production from a Generation IV lead‐cooled nuclear reactor integrated with a copper‐chlorine thermochemical cycle</title>
+<author>Maan Al‐Zareer; Ibrahim Dincer; Marc A. Rosen</author>
+<Affiliation>Clean Energy Research Laboratory, Faculty of Engineering and Applied Science, University of Ontario Institute of Technology, 2000 Simcoe Street North, Oshawa, Ontario, L1H 7K4 Canada</Affiliation>
+<year>2018</year>
+<Jounral>International Journal of Energy Research</Journal>
+<Publishing_house>John Wiley & Sons Inc. </Publishing_house>
+<Text_Collector>Gao Shengman，HEU</Text_Collector>
+<DOI>10.1002/er.3819</DOI>
+<URL>https://onlinelibrary.wiley.com/doi/full/10.1002/er.3819</URL>
+Summary
+An integrated system for compressed hydrogen and electrical power production based on a Generation IV nuclear reactor (a lead-cooled reactor) is proposed. The hydrogen is produced by the integrated system through a hybrid thermochemical and electrical water decomposition cycle. The water decomposition cycle is based on copper and chlorine compounds and decomposes water through four main steps. The electrical power is produced by the Rankine cycle, which also contributes to cooling the compressed hydrogen between the compression stages as well as providing the electrical power required by the electrolysis step in the water decomposition cycle. In the proposed system, a heat recovery network is incorporated within the water decomposition cycle so that only the hydrolysis and the oxygen production reactors in the cycle receive thermal energy from the lead-cooled nuclear reactor. The integrated system is modeled and simulated by using engineering process simulation software (Aspen Plus). The performance of the integrated system is assessed with energy and exergy analyses, and the overall energy and exergy efficiencies are found to be 25.4% and 40.6%, respectively. The integrated system produces 3.45 g/s of compressed hydrogen ready for shipping and 467.2 kW of electrical power.
+Nomenclature
+cp
+specific heat capacity at constant pressure (kJ/kg K)
+ex
+specific exergy (kJ/kg)
+urn:x-wiley:0363907X:media:er3819:er3819-math-0073
+exergy rate (kW)
+h
+specific enthalpy (kJ/kg)
+urn:x-wiley:0363907X:media:er3819:er3819-math-0074
+mass flow rate (kg/s)
+P
+pressure (kPa)
+urn:x-wiley:0363907X:media:er3819:er3819-math-0075
+heat rate (kW)
+R
+universal gas constant (kJ/mol K)
+s
+specific entropy (kJ/kg K)
+T
+temperature (°C)
+urn:x-wiley:0363907X:media:er3819:er3819-math-0076
+work rate (kW)
+Greek letters
+η
+energy efficiency
+ψ
+exergy efficiency
+Subscripts
+Cu-Cl
+copper-chlorine cycle
+C
+compressor
+d
+destruction
+e
+electrical
+f
+formation
+gen
+generation
+H2
+hydrogen
+HCS
+hydrogen compression system
+is
+isentropic
+in
+input (flowing into system boundary)
+max
+maximum
+net
+net result
+ov
+overall
+out
+output (flowing out of system boundary)
+o
+reference environment conditions
+urn:x-wiley:0363907X:media:er3819:er3819-math-0077
+heat flow rate
+SRC
+supporting Rankine cycle
+ST
+steam turbine
+bs
+boundary where heat transfer occurs
+W
+work
+P&T
+at pressure P and temperature T
+Superscripts
+urn:x-wiley:0363907X:media:er3819:er3819-math-0078
+rate
+Acronyms
+HCS
+hydrogen compression system
+IHRC
+internal heart recovery circuit
+SRC
+supporting Rankine cycle
+LFR
+lead fast cooled reactor
+1 INTRODUCTION
+Maintaining good comfort and living standards is linked to providing services such as electricity, hot and cold water, air conditioning, and various chemicals. A high percentage of the processes to produce these commodities use fossil fuels, which are one of the main contributors to global warming and increases in atmospheric concentrations of carbon dioxide. Rising energy demands have increased the use of fossil fuels.1 The US Department of Energy forecasted that by 2025, 250 GW of additional electrical generation will be required compared with that in 2005.2 The International Energy Agency estimates that 80 GW of the 250 GW will come from coal-fired power plants.3 The current energy situation makes efficient resource utilization in producing electrical energy plus other commodities an important engineering challenge.4 Past studies focused on improving the energy utilization efficiency of conventional power production systems such as coal-fired systems and on reducing the carbon emissions of such systems.4, 5 However, in recent years, many studies have focused on developing integrated production systems for electrical power and other commodities. Many efforts are ongoing to replace fossil fuel-based systems with systems based on sustainable resources.
+Nuclear energy has the capacity to replace conventional fossil fuel-based energy production systems, with the advantage of zero carbon emissions during the power production stage. Hydrogen production from the renewable and noncarbon fuel can reduce carbon emissions.6 Hydrogen is carbon-free energy carrier when its source is a renewable or noncarbon fuel.7 Hydrogen, which can be viewed as a chemical energy storage medium, can be directly converted to other forms of energy such as thermal energy by combustion and electrical energy through fuel cells and can be converted into other useful chemicals, such as ammonia. To show the benefits of hydrogen as a clean energy carrier, Dincer and Zamfirescu8 performed a comparative lifecycle assessment of a hydrogen-fueled vehicle (fuel cell) and a conventional vehicle and showed that reducing carbon emissions in the hydrogen production process results in hydrogen fuel cell vehicles having the lowest carbon footprint, even compared with electrical vehicles. The electrical production curve can be matched with the demand curve through producing hydrogen, which can act as a type of chemical energy storage. Hydrogen production from nuclear energy can also increase its cost competitiveness, especially when hydrogen is produced through water decomposition thermochemical cycles integrated with the nuclear plant.1 Other methods of producing hydrogen from nuclear energy include electrolysis, thermochemical water decomposition, and hybrid thermochemical water decomposition. Hybrid thermochemical water decomposition cycles have attracted interest due to their low operating temperatures compared with other thermal water decomposition cycles. Hybrid thermochemical and thermochemical water decomposition cycles vary depending on the types of the chemical compounds used and on the number of steps in the cycle. In all cases, the net result is the splitting of water molecules into oxygen and hydrogen.1
+The performance of hybrid thermochemical water decomposition cycles for hydrogen production and improvement efforts has been investigated. Ozcan and Dincer9, 10 investigated hydrogen production with a hybrid thermochemical water decomposition cycle based on magnesium and chlorine compounds (Mg-Cl cycle). Ozcan and Dincer10 concluded that Mg-Cl cycles have competitive energy and exergy efficiencies compared with other hybrid thermochemical water decomposition cycles such as copper- and chlorine-based cycles. Ozcan and Dincer11 proposed an integrated system that is nuclear energy based on hydrogen produced through 4 main reactions from an Mg-Cl cycle that decomposes water. Ozcan and Dincer11 considered a particular Generation IV nuclear reactor; the supercritical water cooled reactor and reported energy and exergy efficiencies are 18.6% and 31.4%, respectively, for the system.11 The cycle economics was analyzed through an exergy viewpoint, via exergoeconomic analysis.12
+Another type of hybrid thermochemical water decomposition cycle is based on copper and chlorine compounds (Cu-Cl cycle). Cu-Cl cycles have received more attention than the Mg-Cl cycle, in part because of their low temperature requirements.6, 13, 14 Several integrated systems have been proposed for hydrogen production utilizing nuclear energy from the supercritical water cooled nuclear reactor.6, 13, 14 Most of the research on integrating a Cu-Cl cycle with a nuclear reactor have considered the supercritical water cooled reactor, even though other fourth generation reactors are capable of providing the thermal energy needed by the Cu-Cl cycle. Despite many systems being examined, there is still a gap in processes for delivering the required thermal energy while accounting for energy and exergy losses as well as limitations in the process.
+The aim of this study is to propose an integrated system for hydrogen and electricity production that utilizes the 4-step Cu-Cl cycle and a Generation IV nuclear reactor, the lead cooled fast reactor (LFR). The proposed integrated system produces hydrogen ready for storage and transport based on available technology. This study is part of the research program on the 4-step Cu-Cl cycle being carried out in the Clean Energy Research Laboratory at the University of Ontario Institute of Technology. Due to nature of the thermal energy temperature requirements of the Cu-Cl cycle reactors, a realistic heat transfer fluid circuit is proposed here to deliver the thermal energy to the cycle reactors. The integrated system consists of an LFR, Cu-Cl cycle, supporting Rankine cycle (SRC), and compression system (CS). The minimum amount of electrical power produced by the SRC should be sufficient for the requirements of the Cu-Cl cycle and the CS.
+2 SYSTEM DESCRIPTION
+The proposed nuclear-based integrated system is shown in Figure 1, which contains a 4-step Cu-Cl cycle that is combined with the LFR through receiving thermal energy by supercritical carbon dioxide (S-CO2). The integrated system is modeled and simulated with process simulation software, Aspen Plus. The Aspen Plus flow sheet of the proposed integrated system is shown in Figure 2. The 4-step Cu-Cl cycle is a hybrid thermochemical cycle, so it requires electrical and thermal energies. Because the energy output of the LFR is thermal, a Rankine cycle is used to generate more than the electrical energy needed by the integrated system. Note that the SRC function is used not only to generate electrical energy but also to increase the overall efficiency of the system because the Cu-Cl cycle reactors require the thermal energy at a high temperature and the remaining thermal energy is needed at slightly lower temperatures than the reactors used to produce steam for the SRC.
+Figure 1
+Nuclear-based integrated system for electrical power and hydrogen production. The produced hydrogen is compressed in a 4-stage hydrogen compression system, and the electrical power requirements of the integrated system are fulfilled by the supporting Rankine cycle [Colour figure can be viewed at wileyonlinelibrary.com]
+Figure 2
+Aspen Plus flow sheet for simulation of the integrated nuclear-based electrical power and hydrogen production plant [Colour figure can be viewed at wileyonlinelibrary.com]
+The LFR is a Generation IV International Forum and features a fast neutron spectrum and a closed fuel cycle to achieve high conversion of the fertile uranium. An advantage of the LFR is enhanced safety, due to selecting a relatively inert coolant.15 The design of the LFR considered in the integrated system is a reactor with a 20 MW electrical power production capacity, known as a small, secure transportable autonomous reactor (SSTAR-US).15 The main parameters of the SSTAR-US reactor used in the integrated system are presented in Table 1, based on reports in the literature.15 The thermal energy generated by the LFR is used to produce hydrogen through the 4-step Cu-Cl cycle. Atomic Energy of Canada Limited (now Canada Nuclear Laboratories) identified the Cu-Cl cycle as a promising technology for hydrogen production through electrochemical and thermal water decompositions,18, 19 in part because of its advantages: hydrogen production at relatively low-temperature requirements and the cycle material costs that are projected are lower than for competitive cycles. There are various types of the Cu-Cl cycles to decompose water, differing in the number of main steps that are required and the type of reaction that takes place in each of these steps. A 4-step Cu-Cl cycle type under the development in the Clean Energy Research Laboratory at the University of Ontario Institute of Technology is considered in this study.
+Table 1. Main parameters in the proposed integrated system, consisting of lead cooled fast reactor (LFR), Cu-Cl cycle, supporting combined cycle, and hydrogen compression system (Aspen Plus blocks or stream names are listed in parentheses and referred to in the Aspen Plus model in Figure 3)
+Subsystem	Parameter	Value
+LFR 15	Based on SSTAR-US
+Temperature of S-CO2 exiting reactor (S43) [°C]	567
+Temperature of S-CO2 returning to reactor (S48) [°C]	420
+Operating pressure of nuclear reactor [MPa]	20
+Thermal energy output [MW]	45
+Supercritical steam mass flow rate [kg/s]	22.4
+Cu-Cl cycle 14, 16	Four-step hybrid thermochemical water decomposition cycle that is based on copper and chlorine compounds
+Hydrolysis reactor (B1)	Operating temperature [°C]	400
+Operating pressure [bar]	1
+(Cu2OCl2 decomposition reactor) (B6)	Operating temperature [°C]	530
+Operating pressure [bar]	1
+Electrolysis reactor (B11)	Operating temperature [°C]	25
+Operating pressure [bar]	1
+Electrical energy requirements [kJ/mol H2]	55.0
+Water requirements [mol/mol H2]	20
+Dryer (B14)	Operating temperature [°C]	110
+Drying temperature [°C]	100
+Operating pressure [bar]	1
+Hydrogen compression system	Hydrogen product pressure [bar] 17	250
+Compression stages	4
+Pressure ratio of each stage	4
+ηis , C 13	0.72
+Supporting Rankine cycle	Inlet pressure [bar]	20
+Discharge pressure [bar]	0.1
+ηis , ST 13	0.72
+The main reactions in the 4-step cycle considered here follow20:
+Hydrolysis reaction, which takes place at a temperature of around 370 to 400°C:
+@(1)
+2Copper oxychloride (Cu2OCl2) decomposition reaction, which takes place at 500 to 530°C:
+@(2)
+3HCl electrolysis, which requires 41.6 kJ/mol H2 of electricity,20 and the electrochemical reaction is as follows:
+@(3)
+4Drying the aqueous solution of CuCl2, which occurs at 80 to 100°C range:
+@(4)
+Two of the 4-step Cu-Cl cycle reactors in Figure 2 receive thermal energy via the S-CO2 generated by the LFR, which is sent to the heating jacket of the Cu2OCl2 decomposition reactor (B6) (stream S43 in Figure 2). The S-CO2 exiting the heating jacket of the Cu2OCl2 decomposition reactor (stream S44) enters the heating jacket of the hydrolysis reactor, which provides the required thermal energy for the reactions. Then, the S-CO2 exits the heating jacket of the hydrolysis reactor (stream S46) and heads to the steam generator of the SRC. Note that in Figure 1, the S-CO2 exiting the temperature of LFR becomes very close to the temperature of the steam generator and then heads to the heating jacket of the Cu2OCl2 decomposition reactor. The S-CO2 can primarily be directed to the steam generator when more electrical energy is required to be produced. Then, the S-CO2 exits the steam generator and returns to the LFR. The heat required for the remaining 2 reactors in the 4-step cycle and by the heat exchangers required to heat other flows in the cycle is provided by the internal heat recovery circuit (IHRC) by recovering thermal energy from other parts of the cycle.
+The IHRC recovers thermal energy mainly from the solidification of the CuCl and its cooling to the relatively low operating temperature of the electrolysis reactor. Then, the IHRC provides the required thermal energy mainly to heating the Cu2OCl2 stream and H2O before entering the Cu2OCl2 decomposition reactor and the hydrolysis reactor. The heat transfer fluid used in the IHRC is water. The required electrical energy in the system is provided by the SRC, as mentioned earlier. The SRC compressed liquid exiting the pump is used first to cool the compressed hydrogen in the intercooler that the hydrogen CS (HCS) uses after each compression stage. Then, the heated compressed water goes to the steam generator, where the generated system energy is extracted in the form of mechanical work via the steam turbine (ST1) of the SRC. The hydrogen produced by the Cu-Cl cycle is at ambient pressure, and storing or transporting it in that conditions is industrially infeasible; so, the hydrogen produced by the system is compressed to 250 bar by using the HCS, which has 4 compression stages, each with a compression ratio of 4. After each compression stage, the hydrogen exiting the compressor enters the intercooler, where its temperature is reduced to reduce the work required to compress the hydrogen further.
+3 ANALYSIS
+Various assumptions are made in modeling and simulating the proposed integrated system:
+The present integrated system operates at steady state.
+The startup period is not considered.
+The kinetic and gravitation energies of the fluids and solids in the system are negligible.
+The efficiency of the electricity generator is 95%.
+The heat exchangers, turbines, and compressors in the system are insulated.
+The reference environment conditions are taken to be 25°C and 1 atm. The property methods selected for in the Aspen Plus simulation software for simulation of the integrated system are as follows:
+Solid is selected to simulate the streams and materials that are in solid phase.
+Thermophysical properties of the materials in the Cu-Cl cycle when they are in the solid phase are based on the correlation published by Zamfirescu et al.21
+Steamnbs is selected for water.
+Nrtlsac is selected for gases.
+Mass, energy, and exergy rate balance equations respectively for systems under steady-state operating conditions can be written as follows22:
+@(5)
+@(6)
+@(7)
+where urn:x-wiley:0363907X:media:er3819:er3819-math-0008 denotes mass flow rate; the subscripts in and out refer to input and output, respectively; urn:x-wiley:0363907X:media:er3819:er3819-math-0009 denotes heat transfer rate; urn:x-wiley:0363907X:media:er3819:er3819-math-0010 denotes work rate; h denotes specific enthalpy; and the subscripts @PT, o, and f refer to the temperature and pressure for which the enthalpy is selected, at the reference environment conditions, and formation, respectively. Also, urn:x-wiley:0363907X:media:er3819:er3819-math-0011 denotes the exergy rate associated with the heat transfer rate urn:x-wiley:0363907X:media:er3819:er3819-math-0012, urn:x-wiley:0363907X:media:er3819:er3819-math-0013 denotes the exergy rate associated with the work rate urn:x-wiley:0363907X:media:er3819:er3819-math-0014, and urn:x-wiley:0363907X:media:er3819:er3819-math-0015 denotes exergy destruction rate.
+The exergy rate associated with the heat transfer rate is calculated as follows:
+@(8)
+where Tbs is the temperature of the boundary where the heat transfer occurs. Note that if Tbs is constant, then Equation 8 can be written as follows:
+@(9)
+The mass, energy, and exergy rate balance equations relate to the energy efficiency, exergy efficiency, and exergy destruction rate expressions for the integrated system and its components. These are described below.
+The 4-step Cu-Cl cycle energy efficiency, exergy efficiency, and exergy destruction rate equations can be written as follows:
+@(10)
+@(11)
+@(12)
+where the subscripts refer to the streams and components in Figure 2. The exergy efficiency and the exergy destruction rate of each component in the 4-step Cu-Cl cycle are presented in Table 2. Note that, when the heat exchanger and other components that share the same thermal energy or where both components make a single device, alphanumeric indicators are associated with each other. For example, the heat exchanger B22 presents the thermal jacket of the dryer B14.
+Table 2. Exergy efficiency and exergy destruction rate for the 4-step Cu-Cl cycle reactors, water jackets, and heat exchangers (internal heat recovery network)
+Device	Description	Exergy Efficiency	Exergy Destruction Rate
+B1	Hydrolysis reactor	urn:x-wiley:0363907X:media:er3819:er3819-math-0021	urn:x-wiley:0363907X:media:er3819:er3819-math-0022
+B6	Cu2OCl2 decomposition reactor	urn:x-wiley:0363907X:media:er3819:er3819-math-0023	urn:x-wiley:0363907X:media:er3819:er3819-math-0024
+B11	Electrolysis reactor	urn:x-wiley:0363907X:media:er3819:er3819-math-0025	urn:x-wiley:0363907X:media:er3819:er3819-math-0026
+B14	Dryer	urn:x-wiley:0363907X:media:er3819:er3819-math-0027	urn:x-wiley:0363907X:media:er3819:er3819-math-0028
+B22	Water jacket for the dryer B14	urn:x-wiley:0363907X:media:er3819:er3819-math-0029	urn:x-wiley:0363907X:media:er3819:er3819-math-0030
+B26	Heat exchanger for the hydrolysis reactor	urn:x-wiley:0363907X:media:er3819:er3819-math-0031	urn:x-wiley:0363907X:media:er3819:er3819-math-0032
+B24	Heat exchanger for the Cu2OCl2 decomposition reactor	urn:x-wiley:0363907X:media:er3819:er3819-math-0033	urn:x-wiley:0363907X:media:er3819:er3819-math-0034
+B18	Water jacket for the CuCl solidifier	urn:x-wiley:0363907X:media:er3819:er3819-math-0035	urn:x-wiley:0363907X:media:er3819:er3819-math-0036
+B15B5	Heat exchanger between Cu2OCl2 entering the oxygen production reactor and the internal heat recovery network	urn:x-wiley:0363907X:media:er3819:er3819-math-0037	urn:x-wiley:0363907X:media:er3819:er3819-math-0038
+B16B2	Super heating steam to the hydrolysis reaction temperature	urn:x-wiley:0363907X:media:er3819:er3819-math-0039	urn:x-wiley:0363907X:media:er3819:er3819-math-0040
+B39B40	Recovering thermal energy from generated steam from the dryer	urn:x-wiley:0363907X:media:er3819:er3819-math-0041	urn:x-wiley:0363907X:media:er3819:er3819-math-0042
+B20B3	Heating CuCl2 to the hydrolysis reaction temperature	urn:x-wiley:0363907X:media:er3819:er3819-math-0043	urn:x-wiley:0363907X:media:er3819:er3819-math-0044
+B17B10	Recovering thermal energy from the molten CuCl and heat water in the thermal energy recovery network	urn:x-wiley:0363907X:media:er3819:er3819-math-0045	urn:x-wiley:0363907X:media:er3819:er3819-math-0046
+The SRC provides the electrical energy required by the CS and the electrolysis reactor in the Cu-Cl cycle, and the compressed water exiting the pump is used as the cooling fluid in the HCS intercooler. The energy efficiency, exergy efficiency, and exergy destruction rate of the SRC can be written as follows:
+@(13)
+@(14)
+The expressions used to measure the performance of each component in the SRC are provided in Table 3.
+Table 3. Exergy efficiency and exergy destruction rate for devices in the power supporting Rankine cycle
+Device	Description	Exergy Efficiency	Exergy Destruction Rate
+P1	Pump	urn:x-wiley:0363907X:media:er3819:er3819-math-0050	urn:x-wiley:0363907X:media:er3819:er3819-math-0051
+B25	Steam generator	urn:x-wiley:0363907X:media:er3819:er3819-math-0052	urn:x-wiley:0363907X:media:er3819:er3819-math-0053
+ST1	Steam turbine	urn:x-wiley:0363907X:media:er3819:er3819-math-0054	urn:x-wiley:0363907X:media:er3819:er3819-math-0055
+Cond1	Condenser	urn:x-wiley:0363907X:media:er3819:er3819-math-0056	urn:x-wiley:0363907X:media:er3819:er3819-math-0057
+Hx1	Intercooler	urn:x-wiley:0363907X:media:er3819:er3819-math-0058	urn:x-wiley:0363907X:media:er3819:er3819-math-0059
+The HCS compresses the hydrogen in 4 stages. After each compression stage, the compressed hydrogen is cooled, and then the cooled hydrogen enters the next compression stage. The energy efficiency, exergy efficiency, and exergy destruction rate of the HCS system can be written as follows:
+@(16)
+@(17)
+@(18)
+The exergy efficiency and exergy destruction rate expressions of the all the components in the HCS are provided in Table 4.
+Table 4. Exergy efficiency and exergy destruction rate for the devices in the hydrogen compression system
+Group	Device	Exergy Efficiency	Exergy Destruction Rate
+Compressors	C1	urn:x-wiley:0363907X:media:er3819:er3819-math-0063	urn:x-wiley:0363907X:media:er3819:er3819-math-0064
+C2	urn:x-wiley:0363907X:media:er3819:er3819-math-0065	urn:x-wiley:0363907X:media:er3819:er3819-math-0066
+C3	urn:x-wiley:0363907X:media:er3819:er3819-math-0067	urn:x-wiley:0363907X:media:er3819:er3819-math-0068
+C4	urn:x-wiley:0363907X:media:er3819:er3819-math-0069	urn:x-wiley:0363907X:media:er3819:er3819-math-0070
+For the overall performance of the integrated system based on the selected parameters and design proposed, both energy and exergy efficiencies for performance assessment are calculated as follows:
+@(19)
+@(20)
+4 RESULTS AND DISCUSSION
+The main results of the modeling, simulation, and analysis of the integrated hydrogen production system are presented in Table 5. The results are presented when the nuclear reactor SSTAR-US is integrated into the system. The main results are presented in hydrogen and electrical power production rates, overall and main subsystem energy and exergy efficiencies, and the overall exergy destruction rate. It was found that the 20 MW electrical energy generated by SSTAR will be replaced by 3.45 g/s of highly compressed hydrogen and a power output of 0.467 MW, but the option exists for changing these values based on the electrical demand curve. The integrated system overall energy and exergy efficiencies are 25.4% and 40.6%. Table 5 shows that the main subsystem with the highest unit exergy destruction is the power SRC. This is expected due to the relatively low temperature input to the steam turbine compared with the maximum it can handle, and it destroys most of the exergy it receives from the intercooler of the HCS.
+Table 5. The proposed integrated system performance
+Parameter	Value
+Overall hydrogen production rate [g/s]	3.45
+Temperature of product hydrogen [°C]	28
+Pressure of product hydrogen [bar]	256
+Overall net power produced [kW]	467.2
+Integrated system overall energy efficiency [%]	25.4
+Integrated system overall exergy efficiency [%]	40.6
+Integrated system overall exergy destruction rate [MW]	1.28
+Four-step Cu-Cl cycle energy efficiency [%]	41.1
+Four-step Cu-Cl cycle exergy efficiency [%]	60.9
+Four-step Cu-Cl cycle unit exergy destruction [kJ/mol H2]	151.9
+Power supporting Rankine cycle energy efficiency [%]	22.9
+Power supporting Rankine cycle exergy efficiency [%]	37.6
+Power supporting Rankine cycle unit exergy destruction [kJ/mol H2]	566.3
+Hydrogen compression system energy efficiency [%]	95.0
+Hydrogen compression system exergy efficiency [%]	55.3
+Hydrogen compression system unit exergy destruction [kJ/mol H2]	11.7
+The overall performance of the hydrogen producing subsystem, the Cu-Cl cycle, is as in Table 5. The values are very close to those of Orhan23 for the same 4-step Cu-Cl cycle, who obtained energy and exergy efficiencies of 40.1% and 70%. In this study, the method of delivering the thermal energy to the reactors is considered, which results in additional exergy destruction that lowered the exergy efficiency compared with that found by Orhan.23 The amount of thermal energy that is associated with the reactors and heat exchangers making up the Cu-Cl cycle and integrating it with the LFR and other supporting system is presented in Figure 3. The unit thermal energy refers to the thermal energy required by a component in the system to complete the Cu-Cl cycle and produce 1 mol of highly compressed hydrogen. In Figure 3, a negative unit of thermal energy means the component releases thermal energy, and a positive value means it absorbs thermal energy. Figure 3 shows that the component that consumes the largest unit thermal energy in the Cu-Cl cycle is the dryer, at 950 kJ/mol H2. This result is due to a large amount of water required by the electrolysis reactor to dissolve the CuCl. This produces an aqueous CuCl2 solution, and all the initially added water now must be removed in the dryer. The amount of water in the aqueous CuCl2 solution determines the amount of thermal energy required to produce dry CuCl2. However, because the drying process requires thermal energy at a relatively low temperature (around 100°C), as shown in Figure 4, the dryer does not consume the highest unit thermal exergy in the Cu-Cl cycle. The component that consumes the highest unit thermal exergy is the Cu2OCl2 decomposition reactor, at 274 kJ/mol H2. This is due to the required high thermal energy to decompose Cu2OCl2 and produce oxygen, which is required at a high operating temperature of 530°C. However, the solidification of the CuCl releases thermal energy at high temperature, resulting in recovering around 80% of the total recovered thermal exergy within the Cu-Cl cycle. Figures 3 and 4 show that the electrolysis reactor consumes no thermal energy, even though it uses electrical energy. The ratio of the electricity requirements of the 4-step Cu-Cl cycle to its thermal requirements is 7.7% in energy and 12.0% in exergy. This is for the situation where all the electrical energy that the Cu-Cl cycle receives is consumed by the electrolysis reactor and the thermal energy is distributed to the cycle reactors and heat exchangers as shown in Figure 3.
+Figure 3
+Unit thermal energy interactions within the Cu-Cl cycle and associated heat exchangers presented by the value of each bar and the associated component referred to with the alphanumeric indicator [Colour figure can be viewed at wileyonlinelibrary.com]
+Figure 4
+Unit thermal exergy interactions within the Cu-Cl cycle and associated heat exchangers presented by the value of each bar and the associated component referred to with the alphanumeric indicator [Colour figure can be viewed at wileyonlinelibrary.com]
+Figure 5 shows the exergy efficiency and unit exergy destruction by the Cu-Cl cycle and associated heat exchangers. Figure 5 shows that, although the Cu2OCl2 decomposition reactor uses more thermal exergy than the dryer, the decomposition reactor has a lower unit exergy destruction. The reason for the low dryer exergy efficiency, which is one of the lowest in the cycle, is that the thermal energy is provided to the dryer at high temperature, although the dryer uses it to perform drying process at a low temperature, resulting in a large exergy destruction. That is a result of the design of the proposed IHRC. The CuCl solidification reactor water jacket, which is a part of the IHRC, has one of the highest unit exergy destructions. This is the result of using high temperature thermal energy (at 530°C) to heat the thermal energy absorbing water at around 100°C, resulting in high-temperature thermal energy being downgraded to low-temperature thermal energy.
+Figure 5
+Unit exergy destruction and the exergy efficiency of the Cu-Cl cycle and associated heat exchangers [Colour figure can be viewed at wileyonlinelibrary.com]
+The overall energy and exergy efficiencies of the SRC and HCS are presented in Table 5. The high-energy efficiency of the HCS (around 95%) is due to the concept of integrating the SRC with the HCS, where the thermal energy removed from the compressed hydrogen is used in the SRC. The SRC and the HCS component exergy efficiencies and unit exergy destruction rates are shown in Figure 6. The 4 compressors of the HCS have similar exergy efficiencies, of around 78%; however, the unit exergy destruction increases as the inlet pressure to the compressor increases. The intercooler has a low exergy efficiency because the relatively high temperature heat released by the compressed hydrogen around 220°C is absorbed by the water. This heats it to around 50°C, resulting in downgrading the thermal energy and destroying a large portion of the received thermal exergy.
+Figure 6
+Unit exergy destruction and the exergy efficiency of the supporting Rankine cycle and the hydrogen compression system [Colour figure can be viewed at wileyonlinelibrary.com]
+The unit work rates of all work-consuming devices in the integrated system are shown in Figure 7. It is seen that, as the pressure of the hydrogen entering the compressor increases, more work is required to compress the hydrogen at the same compression ratio. Note that in Figure 7, the negative sign refers to unit work rate produced by that specific component. The overall energy and exergy efficiencies are relatively low for the Rankine cycle, which is the result of having low temperature output of the nuclear reactor plus having that temperature reduced because it was used to provide thermal energy to the Cu-Cl cycle.
+Figure 7
+Breakdown of unit work rate consumption by all work-consuming devices in the integrated system (the electrolysis electricity consumed is divided by the electricity generator). Values presented are in kJ/mol H2, and the alphanumeric indicator shows the names of the components [Colour figure can be viewed at wileyonlinelibrary.com]
+5 CONCLUSIONS
+A novel hydrogen and electricity production nuclear-based integrated system is proposed, where the hydrogen produced is at high pressure. The hydrogen is produced by using the thermal energy of Generation IV nuclear reactor, a lead fast cooled reactor, and is fed to a 4-step Cu-Cl cycle, which, in turn, decomposes water to produce hydrogen. The nuclear thermal energy is delivered to the Cu-Cl cycle and other components in the system via the supercritical heat transfer fluid (CO2). The hydrogen produced is required to be at high pressure for storage and transport, so the integrated system compresses the hydrogen produced through a 4-stage CS with intercooler integrated with a SRC. The SRC produces more than the electrical requirements of the integrated system. Aspen Plus is used to simulate the proposed integrated system, and the performance of the proposed system was measured through energy and exergy analyses. The main results are as follows:
+The overall energy and exergy efficiencies of the proposed integrated system are 25.4% and 40.6%, respectively.
+The lead fast cooled reactor (SSTAR-US)-based integrated system is able to produce 3.45 g/s of hydrogen at 250 bar and 467.2 kW of electrical power.
+The main subsystem with the highest unit exergy destruction is the SRC, at a value of 566.3 kJ/mol H2.
+Based on the performance of the nuclear-based integrated system, it is concluded that the lead fast cooled reactor integrated with the Cu-Cl cycle for hydrogen production is a promising system, which is supported by the reasonable energy and exergy efficiencies. The exergy analysis results suggest that the SRC should be replaced with a more efficient system, although replacing it requires changing the heat circuit and the recovery circuit within the Cu-Cl cycle. The heating circuit and the IHRC proposed in this paper demonstrate concentrated exergy destructions at specific locations in the system, suggesting that further investigation of other thermal energy delivery and recovery systems are merited.
+ACKNOWLEDGEMENT
+The authors acknowledge the support provided by the Natural Sciences and Engineering Research Council of Canada.

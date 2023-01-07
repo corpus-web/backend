@@ -1,0 +1,196 @@
+<title>Full-range steam generator's water level model and analysis method based on cross-calculation</title>
+<author>1,YongweiChen,2,YongjingXie,3,YonggangLi,4,JunLing,5,XinxingZhou</author>
+<Affiliation>1,School of Automation, Central South University, Changsha, Hunan, China;2,South China University of Technology, China;3,College of Automation, Central South University, China;4,State Key Laboratory of Nuclear Power Safety Monitoring Technology and Equipment, Shenzhen, GuangDong, 518172, China;5,China Nuclear Power Operation Co., Ltd, China</Affiliation>
+<year>2021</year>
+<Jounral>Progress in Nuclear Energy</Journal>
+<Publishing_house>ELSEVIER</Publishing_house>
+<Text_Collector>XiaFan，HEU</Text_Collector>
+<DOI>10.1016/j.pnucene.2021.103635</DOI>
+<URL>https://www.sciencedirect.com/science/article/pii/S014919702100007X</URL>
+Full-range steam generator's water level model and analysis method based on cross-calculation
+YongweiChen,YongjingXie,YonggangLi,JunLing,XinxingZhou
+School of Automation, Central South University, Changsha, Hunan, China
+South China University of Technology, China
+College of Automation, Central South University, China
+State Key Laboratory of Nuclear Power Safety Monitoring Technology and Equipment, Shenzhen, GuangDong, 518172, China
+China Nuclear Power Operation Co., Ltd, China
+<Section>Highlights</Section>
+It proposes an accurate steam generator water level computational model.
+•
+It calculates the water density of full-range steam generator.
+•
+It can perform the real-time water level under various operating conditions.
+•
+The uncertainty analysis is carried out for the water level correction value.
+<Section>Abstract</Section>
+The steam generator is a vertical natural circulation device that produces saturated steam. It is difficult to accurately measure the water level of the steam generator because there are different forms of boiling states and dynamics under different operating conditions. The existing measuring methods for the water level of the steam generator are calibrated under specific operating conditions, and deviations from the calibration conditions may result in large deviations in the measurements. Based on the design and installation characteristics of the existing wide/narrow range water level transmitter, this paper proposes an accurate steam generator water level computational model. The model calculates the water density of full-range steam generator. Moreover, the model can perform the real-time calculations of the steam generator water level under various operating conditions. According to the statistical data of the CPR1000 nuclear power plant, the model and accurate analysis method based on the cross-calculation (A method of comparing and calculating parameters measured by different measurement elements of the same measurement object.) are simple and can provide effective solutions for the water levels of the full-range steam generator.
+Graphical abstract
+Image 1
+Keywords:Cross-calculation;Steam generator water level;Steam generator water density;Pressure difference calculation;Energy conservation;Uncertainty
+<Section>1. Introduction</Section>
+The steam generator of a nuclear power plant is a vertical natural circulation facility that produces saturated steam. During hot standby and power operation of the reactor, the reactor coolant flows in the heat transfer tubes and transfers heat to the secondary loop water outside the tubes. The secondary loop water circulates naturally in the steam generator. When water flows outside the heat transfer tube, a portion of the water becomes saturated steam. The feed water of the steam generator flows through the inverted J-tube into the descending channel and then enters the bottom of the ascending channel. In the ascending channel, the secondary loop water absorbs heat transferred from the primary loop water to the U- tube. Its temperature rises and generates forms of boiling (Shi et al., 2017). Thus, under operating conditions the steam generator is in a dynamic process, which makes it difficult to accurately measure the water level of the steam generator.
+A lot of useful work has been conducted on the water level of the steam generator. The studies focused on how to effectively control the water level of the steam generator or the performance assessment of the water level control system, such as adaptive control theory (Zhang and Hu, 2012), dynamic sliding mode control (Ansarifar et al., 2011, 2012; Ansarifar, 2016), model-free adaptive control law (Dong et al., 2017) and adaptive predict controller (Na et al., 2003). Some researches focused on controlling the water level of the steam generator based on artificial intelligence or machine learning. Shen and Doster (2009) developed a neural network-based feedwater controller suitable for the helical steam generators. Fakhrazari and Boroushaki (2008) designed an adaptive critic-based neuro-fuzzy controller for the water level of the steam generator. Munasinghe et al. (2005) proposed an adaptive neuro-fuzzy controller to regulate UTSG water level of nuclear power plants. Other researches focused on the characteristic analysis and prediction of the steam generator water level. Marseguerra and Avogadri (Marseguerra et al., 2004) applied model identification techniques to predict the water level in a steam generator of a PWR. Zhao et al. (2000) described the simulation of the water level process of the nuclear steam generator of Qinshan Nuclear Power Plant. Kavaklioglu (2014) proposed a predictive control algorithm using support vector regression-based models for controlling the water level of the U-tube steam generators of the pressurized water reactors.
+However, few researches focus on how to accurately measure or correct the water level of a steam generator. The accuracy of process measurement is the basis for steam generator water level control and protection. The value of the steam generator water level is one of the most important process parameters, which affects the control and keeping of the steam generator water level. In this paper, a model and an accurate analysis method for the water level of the full-range steam generator is proposed. The steam generator water level can be accurately measured under full-range conditions.
+<Section>2. Theory analysis</Section>
+CPR1000 nuclear power unit (China's improved 1000 MW pressurized water reactor) adopts the principle of differential pressure (Xin et al., 2014), which reflects the change of water level in steam generator by measuring the change of water pressure in steam generator. In order to ensure the accuracy of water level measurement, the wide/narrow range level transmitters are used in the field, which are suitable for different working conditions (Chen et al., 2019a). The actual installation diagram of transmitters is shown in Fig. 1. MN is the level transmitter of steam generator. Each steam generator includes four narrow range level transmitters and one wide range level transmitter. MP is the steam pressure transmitter of steam generator, each steam generator includes three steam pressure transmitters.
+Fig. 1
+Fig. 1. Schematic of wide/narrow range level transmitter.
+The physical basis of the working conditions is that the mediums inside the steam generator are saturated steam and saturated water. Under certain conditions, the mediums in the steam generator may deviate from the saturated steam and saturated water under operating conditions, but this has little influence on the actual water level. The water level is still calculated from the mediums of saturated steam and saturated water, as shown in Fig. 2.
+Fig. 2
+Fig. 2. Analysis of the steam generator level transmitter under working conditions.
+According to the measuring principle of steam generator level transmitter, the real water level L of steam generator can be obtained, as shown in formula (1)
+@(1)
+Where:@is the actual measured difference pressure of steam generator level transmitter (wide/narrow range level transmitters are denoted as 、 respectively);@and@are the corresponding water level of@and@respectively(wide/narrow range level transmitters are denoted as 、 respectively).
+However, the operating working condition of wide/narrow range level transmitters of CPR1000 nuclear unit are different, the operating condition of narrow range level transmitter is 100% FP (full power), while the operating condition of wide range level transmitter is the hot shutdown state (The primary temperature and pressure are 291 °C and 15.5 MPa, respectively) of CPR1000 nuclear unit (Chen et al., 2019b). Wide/narrow range water level transmitters under non-standard operating conditions will have a large measurement error, which will affect the accuracy of steam generator level measurement. For example, at 50% FP, it is neither a narrow range nor a wide range of operating conditions. Both wide and narrow range water level transmitters will have large measurement errors. When FP is at 100%, it is a narrow range of operating conditions, so the measurement of narrow range has higher accuracy.
+<Section>3. Mathematical model</Section>
+3.1. Calculation procedure
+The existing measurement transmitter (wide/narrow range level transmitter) is applied to establish the accurate calculation model for the full-range steam generator water level. The numerical procedures are shown in Fig. 3. The calculation model is based on the following assumptions:
+1)
+The steam generator space is saturated steam under normal working conditions;
+2)
+The steam generator water level is within the measurement range of the wide/narrow range level transmitter;
+3)
+The boiling state in the steam generator is complex, and the densities of different boiling layers are different. The water density in the steam generator can be approximated by the average density.
+Fig. 3
+Fig. 3. Calculation model for the full-range steam generator water level.
+The measurement value of the wide-range level transmitter LW is obtained by filtering the process value of the wide-range level transmitter (the reason to adopt filter processing is that the process value fluctuates frequently. A filtering module is added after these signals to eliminate short-term fluctuation signals to ensure the reliability and validity of the calculation. The filtering time can be set.), and the measurement value of narrow-range level transmitter LN is obtained by filtering the process value of narrow-range level transmitter. The wide/narrow-range differential ΔPW and ΔPN water level can then be obtained. The real time differential pressure ΔPHP between HP sides of the wide/narrow level transmitter is obtained by cross-calculation from the inherent height difference during the design and installation of the wide/narrow level transmitter, so that the water density in the steam generator ρD can be obtained. At the same time, the measured value of the saturated steam pressure PS is calculated by filtering the process value of the steam pressure in the steam generator, and the saturated steam density ρv can be obtained by linear interpolation.
+The differential pressure of a wide-range ΔPW, the differential pressure of a narrow-range ΔPN, the water density in a steam generator ρD and the saturated steam density ρv are input to the differential pressure calculation module, and the actual level L of the full-range steam generator can be obtained (wide/narrow range level transmitters are denoted as L’W and L’N, respectively). The expected correction values of@and@are infinitely close to the true value of the SG level.
+3.2. Algorithm implementation
+The implementation process of the algorithm based on accurate analysis method for the water level of full-range steam generator is as follows.
+The measurement range of the wide-range level transmitter LW is from LW0 to LW100, which corresponds to the differential pressure from ΔPW0 to ΔPW100. The differential pressure of a wide-range ΔPW can be obtained as:
+@(2)
+The measurement value of a narrow-range level transmitter LW can be taken as the redundant mean value LN, and the measurement range is from LN0 to LN100, corresponding to the differential pressure from ΔPN0 to ΔPN100. The differential pressure of the narrow-range ΔPN can be obtained as:
+@(3)
+The measurement value of the saturated steam pressure PS can be used as the redundant mean . According to the correspondence between the saturated steam pressure@and the saturated steam density , linear interpolation is performed to obtain the saturated steam density ρv.
+The differential pressure between the HP sides of the wide/narrow level transmitter is ΔPHP, and the condensation tank height difference is . In theory, the installation of the wide/narrow-range level transmitter satisfies the following equations:
+@(4)
+@(5)
+@(6)
+@(7)
+The differential pressure of the wide/narrow-range ΔPW and ΔPN can be obtained as:
+@(8)
+@(9)
+The gravitational differential pressure between the HP sides of the wide/narrow level transmitter ΔPHP can be calculated from the differential pressure of the wide/narrow-range ΔPW and ΔPN. The hidden information is obtained after cross-calculation of the wide/narrow range level transmitter and can show the dynamic change of the gravitational differential pressure in the steam generator. The differential pressure between the HP sides of the wide/narrow level transmitter@can be expressed as:
+@(10)
+It is reasonable to neglect the friction pressure drop of the descending channel as its value is relatively small. The gravitational differential pressure between HP sides of the wide/narrow level transmitter ΔPHP can be expressed as:
+@(11)
+The height between the HP sides of the wide/narrow level transmitter is a constant which is fixed at the beginning of the installation and the average water density in the steam generator can be obtained. During the actual measurement process, the gradient of@varies with the height inside the steam generator. Here, the average density is used to simplify and approximate the water density@and can be expressed as:
+@(12)
+The correction values of the water level@and@can be calculated using the water density@and the saturated steam density ρv. As the actual level L is assumed to be unique, the calculated result should satisfy .
+@(13)
+@(14)
+3.3. Uncertainty analysis
+The uncertainty analysis is carried out for the water level correction value, and the analysis method is based on the mature uncertainty propagation law. The uncertainty of each variable consists of the product of the sensitivity coefficient and the standard uncertainty of the variable. The uncertainty of the water density in the steam generator is , where@is the sensitivity coefficient, and@is the standard uncertainty. Due to the water density of the sampling tube , the steam density in the steam generator , the water density in the steam generator@and other related variables are not related. According to the uncertainty propagation law, the total uncertainty of the water level correction value can be expressed as:
+@(15)
+The relative uncertainty of the water level correction value can be expressed as:
+@(16)
+Since@and@are fixed,@and@are relatively limited, so the smaller , the higher measurement accuracy the correction value of the steam generator water level. The standard uncertainty of the water density in the steam generator@has a great influence on the measurement accuracy of the water level correction value . Since the above-mentioned cross-calculation based method considers the variation of the real-time working conditions of the steam generator, the calculation of@is more accurate, and the standard uncertainty of the water density@is effectively reduced, thereby improving the measurement accuracy of the water level correction value .
+<Section>4. Engineering application</Section>
+4.1. Full-range trend analysis
+According to the statistical data of different CPR1000 nuclear power units (The data are analyzed from two dimensions: the first dimension is the same unit in different time periods; the second dimension is different nuclear power units in different nuclear power bases.), the water density trend analysis of a steam generator@under load is obtained, as shown in Fig. 4. From the trend analysis, samples 1, 2, 3 and 4 show consistency. Since the water density@varies greatly with load,@is an important factor affecting the accurate measurement of the steam generator water level.
+Fig. 4
+Fig. 4
+Fig. 4. Trend analysis between water density@in steam generator and loading.
+The trends between the water level correction value and the load for different nuclear power units are shown in Fig. 5. From the trend analysis, samples 1, 2, 3 and 4 show consistency. Under relatively low load, the water level correction value@is lower than the measurement values of the wide/narrow range level transmitter@and ; Under relatively high load, the water level correction value@is higher than the measurement values of the wide/narrow range level transmitter@and .
+Fig. 5
+Fig. 5
+Fig. 5. Trend analysis between the correction value of water level of steam generator and loading.
+4.2. Comparison of correction methods
+Using the energy conservation correction method based on the energy conservation and mass conservation equations, the water level of the steam generator can be obtained accurately, and the deviation of the water level measurement value can be corrected to some extent. Table 1 show the water level correction values of the wide/narrow-range@and (correction values of SG level) under different working conditions based on the energy conservation equations.@and@are calculated by 6-point curve fitting method.
+Table 1. The correction value of water level of wide-range and narrow-range.
+As shown in Fig. 6, the comparison results of the cross-calculation and the energy conservation correction method show good consistency in the change trends. It shows the correction values of the SG level calculated by the two methods. The main characteristics and differences are as follows:
+1)
+The energy conservation correction method involves the circulating water ratio , the internal water temperature of the steam generator@and the water density . The values of the circulating water ratio R and the internal water temperature of the steam generator@cannot be obtained by the measuring methods. The cross-calculation correction method can calculate the water density of the steam generator@by the real-time gravitational differential pressure . Since the gravitational differential pressure@is a real-time measurement process value, the correction accuracy is higher.
+2)
+The energy conservation correction method has been obtained under certain working conditions. The internal operation conditions of the steam generator are complex, and the changes in feedwater flow, steam density, feedwater temperature, steam pressure or primary side temperature are variable, which may cause great disturbance to the steam generator water level. This method does not respond in real time to the changes in the internal condition of the steam generator. The cross-calculation correction method enables accurate measurement under any working condition.
+Fig. 6
+Fig. 6. Comparison result between cross-calculation and energy conservation correction method.
+<Section>5. Conclusions</Section>
+In this paper, an accurate computational model for analyzing the water level of the full-range steam generator is proposed, based on the cross-calculation and the design and the installation characteristics of existing wide/narrow range level transmitter. It is recommended to use this model to calculate the water density of 0%~100% FP full-range steam generator. In addition, the model provides a more accurate steam generator water level under varying operating conditions. This method has been widely used in different CPR1000 nuclear power units and has achieved good application results. However, there is still room for improvement in the correction value of the water level. Further research can focus on the effects of the frictional pressure drop of the real-time gravitational differential pressure between the HP sides of the wide/narrow level transmitter@and the water density@as a function of the water height.
+<Section>Credit author statement</Section>
+Yongwei Chen: Conceptualization, Methodology. Yongjing Xie: Data curation, Writing – original draft preparation. Yonggang Li: Supervision. Jun Ling: Writing – review & editing. Xinxing Zhou: Writing – review & editing.
+<Section>Declaration of competing interest</Section>
+The authors declare that they have no known competing financial interests or personal relationships that could have appeared to influence the work reported in this paper.
+<Section>Acknowledgement</Section>
+This work is supported by Young Elite Scientists Sponsorship Program by CAST (China Association for science and technology),Project Code: 2018QNRC001, which is gratefully acknowledged.
+<Section>References</Section>
+Ansarifar, 2016
+G.R. Ansarifar
+Control of the nuclear steam generators using adaptive dynamic sliding mode method based on the nonlinear model
+Ann. Nucl. Energy, 88 (2016), pp. 280-300
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+Ansarifar et al., 2011
+G.R. Ansarifar, H. Davilu, H.A. Talebi
+Gain scheduled dynamic sliding mode control for nuclear steam generators
+Prog. Nucl. Energy, 53 (2011), pp. 651-663
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+Ansarifar et al., 2012
+G.R. Ansarifar, H.A. Talebi, H. Davilu
+Adaptive estimator-based dynamic sliding mode control for the water level of nuclear steam generators
+Prog. Nucl. Energy, 56 (2012), pp. 61-70
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+Chen et al., 2019a
+Yongwei Chen, Yongjing Xie, Meijun Liu, Zeyong Zhang
+Establishment and application of cross-comparison model on redundancy differential pressure type flow channels
+Ann. Nucl. Energy (125) (2019), pp. 132-137
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+Chen et al., 2019b
+Yongwei Chen, Yongjing Xie, Renhu Zhou, Hewen Qiu, Weiwen Bao
+Construction and application of a multivariable comparison model for steam generator level transmitters
+Nucl. Eng. Des. (344) (2019), pp. 153-158
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+Dong et al., 2017
+Zhe Dong, Yifei Pan, Zuoyi Zhang
+Model-free adaptive control law for nuclear superheated-steam supply systems
+Energy, 135 (2017), pp. 53-67
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+Fakhrazari and Boroushaki, 2008
+A. Fakhrazari, M. Boroushaki
+Adaptive critic-based neurofuzzy controller for the steam generator water level
+IEEE Trans. Nucl. Sci., 55 (3) (2008), pp. 1678-1685
+View Record in ScopusGoogle Scholar
+Kavaklioglu, 2014
+Kadir Kavaklioglu
+Support vector regression model based predictive control of water level of U-tube steam generators
+Nucl. Eng. Des. (278) (2014), pp. 651-660
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+Marseguerra et al., 2004
+M. Marseguerra, E. Zio, P. Avogadri
+Model identification by neuro-fuzzy techniques: predicting the water level in a steam generator of a PWR
+Prog. Nucl. Energy (44) (2004), pp. 237-252
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+Munasinghe et al., 2005
+S.R. Munasinghe, M.S. Kim, J.J. Lee
+Adaptive neurofuzzy controller to regulate UTSG water level in nuclear power plants
+IEEE Trans. Nucl. Sci., 52 (1) (2005), pp. 421-429
+View Record in ScopusGoogle Scholar
+Na et al., 2003
+M.G. Na, Y.R. Sim, Y.J. Lee
+Design of an adaptive predictive controller for steam generators
+IEEE Trans. Nucl. Sci., 50 (1) (2003), pp. 186-193
+CrossRefView Record in ScopusGoogle Scholar
+Shen and Doster, 2009
+H. Shen, J.M. Doster
+Application of a neural network-based feedwater controller to helical steam generators
+Nucl. Eng. Des., 239 (2009), pp. 1056-1065
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+Shi et al., 2017
+Jianxin Shi, Baozhi Sun, Yu Xiang, Peng Zhang, Fuyuan Song
+Modeling the full-range thermal-hydraulic characteristics and postdryout deviation from thermodynamic equilibrium in once-through steam generators
+Int. J. Heat Mass Tran. (109) (2017), pp. 266-277
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+Xin et al., 2014
+Penghao Xin, Yongke Li, Lianwen Yang
+Design of NPP steam generator water-level alternate measuring system based on PLC
+China International Conference on Electricity Distribution (CICED 2014). Shenzhen, 23-26 Sep. 2014 (2014)
+Google Scholar
+Zhang and Hu, 2012
+Zhi Zhang, Li-Sheng Hu
+Performance assessment for the water level control system in steam generator of the nuclear power plant
+Ann. Nucl. Energy (45) (2012), pp. 94-105
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+Zhao et al., 2000
+Futao Zhao, Jing Ou, Wei Du
+Simulation modeling of nuclear steam generator water level process Ð a case study
+ISA (Instrum. Soc. Am.) Trans. (39) (2000), pp. 143-151
+ArticleDownload PDFView Record in ScopusGoogle Scholar

@@ -1,0 +1,182 @@
+<title>Dynamic models and control system design for heated channels in a Canadian SCWR</title>
+<author>1,HuiruiHan,2,ChaoZhang,3,JinJiang</author>
+<Affiliation>1,Karlsruhe Institute of Technology, Institute of Neutron Physics and Reactor Technology, Hermann-von-Helmholtz-Platz 1, 76344 Eggenstein-Leopoldshafen, Germany;2,VTT Technical Research Centre of Finland Ltd., P.O. Box 1000, FI-02044 VTT, FinlandDepartment of Mechanical & Materials Engineering, The University of Western Ontario, 1151 Richmond Street, London, ON N6A5B9, Canada;2,Department of Electrical & Computer Engineering, The University of Western Ontario, 1151 Richmond Street, London, ON N6A5B9, Canada</Affiliation>
+<year>2020</year>
+<Jounral>Annals of Nuclear Energy</Journal>
+<Publishing_house>ELSEVIER</Publishing_house>
+<Text_Collector>XiaFan，HEU</Text_Collector>
+<DOI>10.1016/j.anucene.2020.107973</DOI>
+<URL>https://www.sciencedirect.com/science/article/pii/S0306454920306691</URL>
+Dynamic models and control system design for heated channels in a Canadian SCWR
+HuiruiHan,ChaoZhang,JinJiang
+Department of Mechanical & Materials Engineering, The University of Western Ontario, 1151 Richmond Street, London, ON N6A5B9, Canada
+Department of Electrical & Computer Engineering, The University of Western Ontario, 1151 Richmond Street, London, ON N6A5B9, Canada
+<Section>Highlights</Section>
+Transient CFD simulations are used to obtain the relation between inputs & outputs.
+Linear dynamic control models are constructed based on the relations obtained.
+Linear dynamic models are validated by the results from nonlinear CFD simulations.
+A closed-loop control system is designed.
+The performance evaluation of the proposed control system is carried out.
+<Section>Abstract</Section>
+The proposed Canadian SCWR is based on the concept of the CANDU reactor. However, the dynamic characteristics of the SCWR significantly differ from the CANDU reactor because of the special heat transfer phenomenon of the supercritical water in the fuel bundle. Thus, it is important to design a control system to maintain the SCWR operating at the required operating point when it is subjected to disturbances. The transient CFD simulations of the heated channels in a Canadian SCWR are conducted in order to obtain the dynamic relationship between the inputs and outputs of the SCWR. Then, the linear dynamic control models are constructed by the system identification technique based on the dynamic relationship between the inputs and outputs obtained from the CFD simulations. The linear dynamic models are validated using the results from the full scale non-linear CFD simulations. Based on the linear dynamic models, a closed-loop control system, which consists two PID controllers, is designed. The performance evaluation of the proposed control system is also carried in this work.
+Keywords：SCWR;CFD simulation;Linear dynamic model;PID controller
+<Section>1. Introduction</Section>
+The Supercritical Water-Cooled Reactor (SCWR) was proposed as one of the six Generation IV nuclear reactor in 2002 (USNERC, 2002). Compared with the existing reactors, the size of the SCWR system is smaller. Also, since the water is heated by the reactor core to the supercritical steam, the SCWR can have the thermal efficiency up to 44% (Chow & Khartabil, 2008). There is no boiling crisis and steam generators or dryers, so the SCWR nuclear power plant can be simpler with fewer major components (USNERC, 2002). The proposed Canadian SCWR is based on the CANDU reactor, which is a thermal spectrum reactor and the reactor is one of the pressure tube type, i.e., the tube arrangement is surrounded by the moderator. The moderator is a heavy water while the coolant is a light water.
+Because of the abrupt properties change of the supercritical water around the pseudo-critical point, the heat transfer deterioration might occur, which will result in a higher cladding surface temperature. This will affect the safety of the reactor system. Therefore, it is important to have a reliable control system for the SCWR. In order to design a control system, the dynamic relationship between the system inputs and outputs is required. Since the Canadian SCWR is still in conceptual design stage, there are no experimental data available. Numerical method can be used to predict the fluid flow and heat transfer of the supercritical water in the fuel bundle under different input conditions. So, the input and output relationship can be obtained from the numerical simulations. Previous numerical studies on the SCWR are mainly focused on the flow and heat transfer phenomenon of supercritical fluids in circle channels. Zeng et al. (2013) conducted the computational fluid dynamics simulation of the supercritical flow and heat transfer in a circular channel. Zhang et al. (2015) proposed a new supercritical fluid flow model to better deal with the physical instability for the supercritical fluid around the pseudo-critical point. Maitri (2014) also simulated the heat transfer of the supercritical water in circular channels using different turbulence models. And the results were compared with the experimental data to validate the numerical models. Zhang et al. (2011) simulated the heat transfer and flow of the supercritical water in a 37-element horizontal arranged SCWR under steady state conditions using the CFD models validated from the circular channel flows. In this work, the study of the fluid flow and heat transfer of the supercritical water in vertical fuel bundle used in the SCWR under the transient condition is carried to generate the dynamic relationship between the inputs and outputs, which will be used for the control system design.
+In the previous studies on the control system for the SCWR by Nakatsuka et al., 1998, Ishiwatari et al., 2003, the dynamic behaviors of the supercritical fast cooled reactor were analyzed by adding perturbances on three selected parameters: the control rod position, feedwater flow rate, and turbine control valve opening, respectively. Then, the input and output pairings for the reactor were found: the main steam pressure was controlled by the turbine control valves, the main steam temperature was controlled by the feedwater flow rate, and the core power was controlled by the fuel rods. Parameters of the control system are adjusted to satisfy both fast convergence and stability criteria. Then those parameters were optimized for reducing the overshoot with fast response. The results showed that the control system can maintain the supercritical water fast cooled reactor operating at the design point when the system is subjected to perturbances. Later, Ishitawari et al. (2003) used Nakatsuka's method in the control system design for the supercritical high temperature light water reactors.
+Sun (2012) simulated the thermo-hydraulic behavior of the Canadian SCWR using a simple 1D model. The direct Niquist array method was used to decouple the system and pre-compensators were used to convert the system to a diagonally dominant form. However, although the control system design was able to keep the system at stable condition when there were perturbances, the model used for the simulation of the reactor was too simple. Then, Sun et al. (2015) included a feed-forward control method in the control system design to reduce the effect of the reactor power on the steam temperature. The results showed that the steam temperature variation due to the disturbances on the reactor power could be significantly suppressed. Later, Sun et al. (2017) found that the response magnitude of the steam temperature to the same amount of feedwater flow rate disturbance at a high power level was smaller than that at a low power level. Then, the original control system design will be not effective when the working conditions changed. A linear parameter-varying strategy was proposed to solve such problems. The results showed that the linear parameter-varying (LPV) controller not only stabilized the steam temperature under different disturbances but also efficiently suppressed the steam temperature variation at different power levels. Maitri et al. (2017) used the results from CFD simulations of the supercritical water flow in a circular tube to derive the linear dynamic models around the operating point based on the system identification techniques. Then the linear dynamic models were validated with the CFD results in the 2D tube flows.
+To design a control system for the SCWR, accurate models are needed to describe dynamic behaviors of the Canadian SCWR. Heat transfer and fluid flow behaviors of supercritical water are complicated in reactor fuel bundles. Although the Canadian SCWR is a multi-input and multi-output system, the coupling of inputs and outputs can be ignored when SCWRs work around the desired operating point. An effective approach for the controller design is to linearize the nonlinear process. There are many different methods to linearize a nonlinear process. The approach used in this work is “small signal models”, i.e., a low amplitude disturbance is applied to the normal input in order to obtain the respective output. Then a linear dynamic model of the input and the output can be obtained by system identification techniques. Based on the linear dynamic model, controllers can be designed.
+In this work, the linear dynamic models are derived from inputs and outputs data from full-scale transient CFD simulations where small perturbances are applied due to lack of the experimental data. The CFD models used in this work for the simulations of the supercritical fluid flow and heat transfer were validated in the previous works by Zhang et al., 2011, Dutta et al., 2015.
+<Section>2. Configuration and operating conditions of the Canadian SCWR</Section>
+The Canadian SCWR system is shown in Fig. 1 (Leung, 2013). The moderator for the reactor is the heavy water and the coolant is the light water, which is the supercritical water. The specifications for the simulation of the Canadian SCWR fuel bundle is shown in Table 1 (Zhang et al., 2011). Based on the 2002 Canadian SCWR design (Heavy Water Reactors, 2002), the fuel bundle consists of 37 fuel rods, which are evenly distributed, as shown in Fig. 2. The fuel bundle is vertically arranged. The geometrical parameters for the fuel bundle are given in Table 2 (Zhang et al., 2011). The first, second, and third rings of the fuel rods shown in Table 2 are marked in the cross-section view in Fig. 2. The properties of supercritical water, such as density, specific heat, thermal conductivity, viscosity, are from Wagner & Kruse (1998). The pseudo-critical point is about 384.9℃ for 25 MPa (Pioro & Mokry, 2011).
+Fig. 1. Typical Canadian SCWR system (Leung, 2013).
+Table 1. Operating parameters of the Canadian SCWR (Zhang et al., 2011).
+Fig. 2. 37-element Canadian SCWR fuel bundle (Zhang et al., 2011).
+Table 2. Geometrical parameters for the fuel bundle simulation (Zhang et al., 2011).
+<Section>3. Governing equations</Section>
+The fluid flow and heat transfer of the supercritical water can be described by the conservation equation of mass, conservation equation of momentum, and conservation equation of energy as shown below (Ansys, 2012):
+∂(ρui¯)∂xi=0
+∂(ρui¯uj¯)∂xj=-∂p¯∂xi+∂∂xj(μ∂ui¯∂xj-ρui′uj′¯)
+∂∂xi(ui′¯ρCpT)=∂∂xi[(λ+CpμtPrt)∂T∂xi]+S
+where u is the velocity, T is the temperature, μ is the dynamic viscosity, ρ is the density, λ is the thermal conductivity, Cp is the specific heat, μt is the turbulent viscosity, Prt is the turbulent Prandtl number. Zhang et al., 2011, Dutta et al., 2015 found the numerical results obtained by Reynolds Stress Model (RSM) agree well with experimental data for the supercritical water flows in vertical tubes. Thus, the RSM with the enhancement wall function is used for solving the Reynolds stress term in this simulation, which includes the thermal and full buoyancy effects, and the viscous heating. The transportation equation of the RSM is shown as follows (Ansys, 2012):
+∂∂t(ρui′uj′¯)⏟Local Time Derivative+∂∂xk(ρukui′uj′¯)⏟Cij=-∂∂xk[ρui′uj′uk′¯+p′(δkjui′+δikuj′)¯]⏟DT,ij+∂∂xk[μ∂∂xk(ui′uj′¯)]⏟DL,ij
+-ρ(ui′uk′¯∂uj∂xk+uj′uk′¯∂ui∂xk)⏟Pij-ρβ(giuj′θ¯+gjui′θ¯)⏟Gij
++p′(∂ui′∂xj+∂uj′∂xi)¯⏟ϕij-2μ∂ui′∂xk∂uj′∂xk¯⏟εij+Suser⏟User defined source term
+<Section>4. Full-scale CFD simulations of the heated channels in a Canadian SCWR</Section>
+In the CFD simulation, the governing equations are solved by a discretization method based on the control volume concept. ANSYS FLUENT 15.0 is used to solve those equations to produce inputs and outputs of the system, which show the dynamic characteristics of the fluid flow and heat transfer process of the supercritical water in the Canadian SCWR fuel bundle. The SIMPLEC scheme is selected for pressure correction, and QUICK method is used for conducting spatial discretization. The convergence criteria for the mass balance is 10-3 , for the momentum and turbulence equations are both 10-5, and for the energy equation is 10-6. The supercritical water flows upward along the fuel bundle. And the heated length is reduced to 1 m to save simulation time.
+This work can be considered as the first step to develop a CFD assisted control system design methodlogy for the Canadian SCWR, while the reactor kinetics is not included in the CFD model. Therefore, no internal temperature feedback is considered and a uniform heat flux is applied to each tube based on the total power at the design point.
+Boundary conditions are as follows:
+Inlet: The inlet velocity is 1.18 m/s and the inlet temperature is 623.15 K. Turbulence intensity at the inlet is assumed to be 6%. The hydraulic diameter is 7.42 mm based on the fuel bundle parameters shown in Table 2.
+Outlet: Outflow is selected.
+Walls: No-slip smooth wall condition is used.
+A simplified nuclear reactor channel model is used in this study. The simulation is carried out for a quarter of the fuel bundle due to the symmetrical geometry of the fuel bundle. The computational domain and the coarse mesh are shown in Fig. 3 and Fig. 4, respectively. The information of the three meshes used in the grid independent tests is shown in Table 3 and the results of the grid independent tests are presented in Table 4. Based on the results of the grid independence tests, the mesh with 334,290 nodes is used for simulations in this work. The time step independent tests are shown in Fig. 5, Fig. 6. It can be seen the differences in the results from those three tests are small. Thus, the time step size 0.01 s is employed in the transient simulations. And the maximum number of iterations for each time step is 20.
+Fig. 3. Cross-section view of the computational domain of the fuel bundle.
+Fig. 4. Cross-section view of the mesh of the fuel bundle.
+Table 3. Meshes used in the grid independent test.
+Table 4. Comparisons of the outlet bulk temperatures and outlet mass flow rates using different meshes.
+Fig. 5. Comparison of the outlet mass flow rates using different time steps.
+Fig. 6. Comparison of the outlet bulk temperatures using different time steps.
+<Section>5. Linear dynamic models construction</Section>
+The governing equations for the fluid flow and heat transfer of the supercritical water in the fuel bundles cannot be used for the design of the feedback control system directly. To design a control system, the dynamic relationship between the inputs and outputs of the system is required. So, the linear dynamic control models can be constructed. Due to the lack of the experimental data, the dynamic relationship between the inputs and outputs of the SCWR fuel bundle will be obtained by the full-scale CFD simulations of the SCWR fuel bundle. And then these linear dynamic models can be used to design the controllers.
+5.1. Construction of transfer functions
+The fluid flow and heat transfer process in the reactor fuel bundle can be treated as a dynamic process with two inputs and two outputs. The dynamic process in the SCWR fuel bundle is demonstrated in Fig. 7. The input variables are the inlet mass flow rate of the supercritical water and heat flux from the fuel rods. The output variables are the outlet mass flow rate and the outlet bulk temperature of the supercritical water. The control system is used to keep the system operated at the design point.
+Fig. 7. Dynamic process in the Canadian SCWR fuel bundle.
+To obtain the dynamic relationship between the inputs and outputs, a 10% step change for each input variable is applied separately, which means only one of these two inputs is changed at once and another one is kept at the design value. The disturbances are introduced after the steady state has reached, which is at t = 1 s. The output responses are recorded from the CFD simulations, and they are shown in Fig. 8, Fig. 9 when the inlet mass flow rate has a 10% step decrease, and Fig. 10, Fig. 11 when the heat flux has a 10% step decrease.
+Fig. 8. Inlet and outlet mass flow rate variations when the inlet mass flow rate has a 10% step decrease.
+Fig. 9. Outlet bulk temperature of the fuel bundle variations when the inlet mass flow rate has a 10% step decrease.
+Fig. 10. Inlet and outlet mass flow rate variations when the wall heat flux has a 10% step decrease.
+Fig. 11. Outlet bulk temperature of the fuel bundle variations when the wall heat flux has a 10% step decrease.
+The system identification technique then is used to obtain the transfer functions between the inputs and outputs. The relevant transfer functions for the linear dynamic models are shown in the Laplace form as:
+G11(s)=3289s9+61830s8+(1.126×106)s7+(1.235×107)s6+(9.781×107s5)+(5.716×108)s4+(2.327×109)s3+(6.496×109)s2+(1.127×1010)s+8.836×109s10+3270s9+63080s8+(1.114×106)s7+(1.257×107)s6+(9.67×107)s5+(5.804×108)s4+(2.302×109)s3+(6.613×109)s2+1.1×1010s+8.836×109G12(s)=(1.423×106)s2+(3.829×106)s+6.138×106s3+9216s2+15120s+5155
+G21(s)=0.001456s+0.001528s8+8.624s7+67.97s6+334.2s5+1216s4+3073s3+4881s2+4780s+2150
+G22(s)=0.4332s+0.1323s7+9.696s6+60.95s5+245.7s4+602.2s3+894.3s2+819.2s+177.5
+where:
+G11 is the transfer function for the inlet mass flow rate and the outlet mass flow rate;
+G12 is the transfer function for the inlet mass flow rate and the outlet bulk temperature;
+G21 is the transfer function for the wall heat flux and the outlet mass flow rate;
+G22 is the transfer function for the wall heat flux and the outlet bulk temperature.
+5.2. Validation of the transfer functions
+The transfer functions derived from the data sets of CFD simulations need to be validated to make sure they can truly represent the dynamic characteristics of the process in the SCWR fuel bundle. Fig. 12, Fig. 13, Fig. 14, Fig. 15 show the comparisons of the results from the linear dynamic models with those from the non-linear CFD simulations for the responses of the output variables when step changes are applied on input variables.
+Fig. 12. Comparisons of the responses of the outlet mass flow rate between the linear dynamic model and non-linear CFD simulations when the inlet mass flow rate decreases 10%
+Fig. 13. Comparisons of the responses of the outlet bulk temperature between the linear dynamic model and non-linear CFD simulations when the inlet mass flow rate decreases 10%
+Fig. 14. Comparisons of the responses of the outlet mass flow rate between the linear dynamic model and non-linear CFD simulations when the wall heat flux decreases 10%
+Fig. 15. Comparisons of the responses of the outlet bulk temperature between the linear dynamic model and non-linear CFD simulations when the wall heat flux decreases 10%
+As these figures show, the results from linear dynamic models agree well with the responses from the CFD simulations generally except for the discrepancy between the linear dynamic model and CFD results shown in Fig. 15 where the results predicted by the linear dynamic model show some dramatic changes rather than the smooth results predicted by CFD. It can be concluded that these linear dynamic models can represent the non-linear dynamic behaviors of the Canadian SCWR fuel bundle reasonally well when the disturbance on the input variables is low (10%).
+<Section>6. Control system design</Section>
+The Canadian SCWR system can be subjected to different disturbances during the normal operation. Thus, an appropriate control system is needed to regulate the inputs to make sure the reactor can return to the design point quickly after a disturbance. If all the couplings among all inputs and outputs are included, the control system design will be very complicated. To simplify the controller design process, an input that has the most influence on a particular output is identified and the two are grouped together. So, the reactor system can be treated as a multiple single-input–single-output (SISO) system. Since the outlet mass flow rate mainly depends on the inlet mass flow rate, the outlet bulk temperature primarily depends on the input heat flux, two PID controllers can be used to control the Canadian SCWR system. The architecture of the closed-loop control system can be shown in Fig. 16.
+Fig. 16. Closed-loop control system for the Canadian SCWR.
+The closed-loop feedback control system is designed to maintain the controlled variables within the design point as much as possible in the presence of disturbances by adjusting the input parameters till the deviation becomes zero. The transfer function used in the PID controller takes the following form (Nise, 2000):
+C(s)=KP+KIs+KDs
+where KP, KI and KD are the controller parameters and they are tuned in succession by trial and error method from proportional to integral to derivative gains for shorter settling time and less overshoot (Nise, 2000), which are shown in Table 5, Table 6 for this 37-element Canadian SCWR under the full-load condition. The controller parameters are selected based on the requirements that the rise time is less than 1 s and the settling time is less than 10 s. Besides, the overshoot is less than 10% at the same time. It can be seen from Table 5 that KD is not needed for the first PID controller.
+Table 5. Parameters for the controllers.
+Table 6. Control system characteristics.
+<Section>7. Performance evaluation of the control system</Section>
+The control system based on the linear dynamic models are used to bring the reactor to the desired operating point when it is subjected to disturbances. Thus, the performance evaluation for the control system under the nonlinear environment is very important. In this work, the performance evaluation procedure is as follows. First, a small disturbance (10% of the design value) is applied on the full-scale nonlinear CFD simulation and the linear dynamic models from the desired point till t = 10 s simultaneously. Then the controller is activated to bring the reactor to the design point. This can be achieved by combining the control system into the CFD simulation process. The output data by the CFD simulations at each time step are used as the control system outputs. And then the controllers adjust the input variables accordingly in the next time step. Actually, the CFD simulation and the controllers are operating in a closed-loop mode. The time step for CFD simulation and the sampling interval for the control system are both 0.05 s. The results for the outlet mass flow rate and the outlet bulk temperature from the CFD simulations are shown in Fig. 17, Fig. 18, respectively. The system can return to its design point in 20 s. It can be seen the designed controller works well to keep the reactor working at the design point when there are small disturbances.
+Fig. 17. Closed-loop responses under 10% perturbances of the inlet mass flow rate using the CFD model.
+Fig. 18. Closed-loop response under 10% perturbances of the wall heat flux using the CFD model.
+<Section>8. Conclusions</Section>
+It is important to maintain the Canadian SCWR working safely. Thus, the dynamic relationships of inputs and outputs are needed for the control system design. In this work, the transfer functions used for the linear dynamic models of the Canadian SCWR are constructed based on the data from the full-scale CFD simulation using the system identification technique. These linear dynamic models are then fully validated by comparing with results from full-scale nonlinear CFD simulations. A closed-loop control system is designed to return the reactor to the design point when there are perturbances. The control system consists of two PID controllers which are synthesized based on the linear dynamic models. And the performance evaluation of the control system for the Canadian SCWR is performed. The results show that the proposed control system is able to return the Canadian SCWR system to the design point when perturbances are introduced. It is worth to mention that the present study is only regarded as the first step in the development of the control system for the SCWR based on the uniform heat flux assumption in the reactor channel. A kinetics model will be added to the current model to investigate the effect of temperature feedback imposed by the fission process.
+<Section>Declaration of Competing Interest</Section>
+The authors declare that they have no known competing financial interests or personal relationships that could have appeared to influence the work reported in this paper.
+<Section>Acknowledgements</Section>
+This work was supported by the Natural Sciences and Engineering Research Council of Canada (NSERC) Discovery grant [grant number #04757].
+<Section>References</Section>
+Ansys, 2012
+Ansys, 2012. ANSYS FLUENT 14.5 Theory Guide. ANSYS, Inc., Canonsburg, PA.
+Google Scholar
+Chow & Khartabil, 2008
+K. Chow, C. , & F. Khartabil, H. (2008). Conceptual fuel channel designs fro CANDU - SCWR. Nuclear Engineering and Technology, 40(2), 139–146.
+Google Scholar
+Dutta et al., 2015
+G. Dutta, R.V. Maitri, C. Zhang, J. Jiang
+Numerical models to predict steady and unsteady thermal-hydraulic behaviour of supercritical water flow in circular tubes
+Nucl. Eng. Des., 289 (2015), pp. 155-165
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+Heavy Water Reactors, 2002
+Heavy Water Reactors. (2002). Status and Projected Development, Technical Report Series No. 407.
+Google Scholar
+Ishiwatari et al., 2003
+Y. Ishiwatari, Y. Oka, S. Koshizuka
+Control of a High Temperature Supercritical Pressure Light Water Cooled and Moderated Reactor with Water Rods
+J. Nucl. Sci. Technol., 40 (5) (2003), pp. 298-306
+View Record in ScopusGoogle Scholar
+Leung, 2013
+Leung, L. (2013). Overview of SCWR Concepts.
+Google Scholar
+Maitri, 2014
+R.V. Maitri A CFD assisted control system design for supercritical water cooled reactor (Doctoral dissertation) Retrieved from 2014 http://ir.lib.uwo.ca/etd/2169/
+Google Scholar
+Maitri et al., 2017
+R.V. Maitri, C. Zhang, J. Jiang
+Computational fluid dynamic assisted control system design methodology using system identification technique for CANDU supercritical water cooled reactor (SCWR)
+Appl. Therm. Eng., 118 (2017), pp. 17-22
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+Nakatsuka et al., 1998
+T. Nakatsuka, Y. Oka, S. Koshizuka
+Control of a Fast Reactor Cooled by Supercritical Light Water
+Nucl. Technol., 121 (1) (1998), pp. 81-92
+CrossRefGoogle Scholar
+Pioro and Mokry, 2011
+Pioro, I., & Mokry, S. (2011). Thermophysical Properties at Critical and Supercritical Pressures. In Heat Transfer - Theoretical Analysis, Experimental Investigations and Industrial Systems (pp. 573–592).
+Google Scholar
+Nise and N. , 2000
+S. Nise, N.
+Control Systems Engineering
+John Wiley, New York (2000)
+Google Scholar
+Sun, 2012
+P. Sun Dynamic Model Construction and Control System Design for Canadian Supercritical Water-cooled Reactors (Doctoral dissertation) Retrieved from https://ir.lib.uwo.ca/etd/896 2012
+Google Scholar
+Sun et al., 2015
+P. Sun, B. Wang, J. Zhang, G. Su
+Control of Canadian once-through direct cycle supercritical water-cooled reactors
+Ann. Nucl. Energy, 81 (2015), pp. 6-17
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+Sun et al., 2017
+P. Sun, J. Zhang, G. Su
+Linear parameter-varying modeling and control of the steam temperature in a Canadian SCWR
+Nucl. Eng. Des., 313 (2017), pp. 225-235
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+USNERC, 2002
+USNERC A Technology Roadmap for Generation IV Nuclear Energy Systems 2002
+Google Scholar
+Wagner and Kruse, 1998
+Wolfgang Wagner, A. Kruse
+Properties of Water and Steam
+Springer (1998)
+Google Scholar
+Zeng et al., 2013
+X.K. Zeng, Y.L. Li, X. Yan, Z.J. Xiao, Y.P. Huang
+Application of CFD Methods in research of SCWR thermo-hydraulics
+Nucl. Power Eng., 34 (1) (2013), pp. 114-120
+View Record in ScopusGoogle Scholar
+Zhang et al., 2015
+Y.F. Zhang, H.X. Li, L.X. Li, T. Wang, Q. Zhang, X.L. Lei
+A new model for studying the density wave instabilities of supercritical water flows in tubes
+Appl. Therm. Eng., 75 (2015), pp. 397-409
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+Zhang et al., 2011
+Y.N. Zhang, C. Zhang, J. Jiang
+Numerical Simulation of Fluid Flow and Heat Transfer of Supercritical Fluids in Fuel Bundles
+J. Nucl. Sci. Technol., 48 (6) (2011), pp. 929-935
+CrossRefView Record in ScopusGoogle Scholar

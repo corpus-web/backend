@@ -1,0 +1,553 @@
+<title> Estimating_VVG the_DT acoustical_JJ properties_NNS of_IN locally_RB reactive_JJ finite_JJ materials_NNS using_VVG the_DT boundary_NN element_NN method_NN </title> <author> Luo_NP ,_, Zhong-Wei_NP ;_: Zheng_NP ,_, Chang-Jun_NP ;_: Zhang_NP ,_, Yong-Bin_NP ;_: Bi_NP ,_, Chuan-Xing_VVG </author> <Affiliation> Institute_NP of_IN Sound_NP and_CC Vibration_NN Research_NP ,_, Hefei_NP University_NP of_IN Technology_NP ,_, 193_CD Tunxi_NP Road_NP ,_, Hefei_NP ;_: 230009_CD ,_, China_NP </Affiliation> <year> 2020_CD </year> <Jounral> Journal_NP of_IN the_DT Acoustical_JJ Society_NP of_IN America_NP </Journal> <Publishing_house> Acoustical_JJ Society_NP of_IN America_NP </Publishing_house> <Text_Collector> Wang_NP Shuaiyin，HEU_NP </Text_Collector> <DOI> 10.1121/10.0001393_CD </DOI> <URL> https_NNS :_: //asa-scitation-org-s_NNS ._SENT 
+wvpn_NP ._SENT 
+hrbeu_NP ._SENT 
+edu_NP ._SENT 
+cn/doi/10.1121/10.0001393_JJ </URL> <Section> ABSTRACT_JJ </Section> The_DT finite_JJ size_NN of_IN a_DT sound-absorbing_VVG material_NN may_MD lead_VV to_TO inaccurate_JJ results_NNS when_WRB measuring_VVG the_DT acoustical_JJ properties_NNS of_IN the_DT material_NN using_VVG the_DT free-field_NP measurement_NN methods_NNS ._SENT 
+In_IN this_DT study_NN ,_, a_DT method_NN of_IN estimating_VVG the_DT acoustical_JJ properties_NNS of_IN locally_RB reactive_JJ finite_JJ materials_NNS is_VBZ proposed_VVN by_IN combining_VVG a_DT sound_JJ field_NN model_NN established_VVN by_IN the_DT boundary_NN element_NN method_NN with_IN an_DT iteration_NN algorithm_NN ._SENT 
+The_DT proposed_VVN method_NN takes_VVZ the_DT finiteness_NN of_IN the_DT material_NN into_IN account_NN ,_, meaning_VVG that_IN the_DT size_NN effect_NN is_VBZ removed_VVN and_CC accurate_JJ results_NNS can_MD be_VB obtained_VVN ._SENT 
+Numerical_JJ simulations_NNS and_CC experiments_NNS of_IN two_CD kinds_NNS of_IN materials_NNS ,_, including_VVG a_DT rigid_JJ floor_NN and_CC a_DT porous_JJ material_NN ,_, are_VBP carried_VVN out_RP to_TO verify_VV the_DT validity_NN of_IN the_DT proposed_VVN method_NN ._SENT 
+Results_NNS demonstrate_VVP that_IN the_DT proposed_VVN method_NN is_VBZ effective_JJ in_IN estimating_VVG the_DT acoustical_JJ properties_NNS of_IN these_DT two_CD kinds_NNS of_IN materials_NNS ._SENT 
+Besides_RB ,_, a_DT detailed_JJ analysis_NN of_IN the_DT influences_NNS of_IN the_DT sample_NN size_NN ,_, the_DT source_NN location_NN ,_, and_CC the_DT receiving_VVG point_NN position_NN is_VBZ done_VVN in_IN the_DT simulations_NNS ._SENT 
+Keywords_NNS :_: free-field_JJ measurement_NN methods；acoustical_JJ properties_NNS ；locally_RB reactive_JJ finite_JJ materials_NNS <Section> I._NN INTRODUCTION_NN </Section> Noise_NN pollution_NN has_VHZ become_VVN an_DT important_JJ issue_NN in_IN modern_JJ society_NN over_IN the_DT past_JJ few_JJ decades_NNS (_( Goines_NP and_CC Hagler_NP ,_, 2007_CD )_) ._SENT 
+In_IN practical_JJ applications_NNS ,_, sound-absorbing_VVG materials_NNS have_VHP been_VBN widely_RB used_VVN to_TO control_NN noise_NN (_( Crocker_NP and_CC Arenas_NP ,_, 2007_CD )_) ._SENT 
+To_TO make_VV use_NN of_IN the_DT sound-absorbing_VVG materials_NNS effectively_RB ,_, it_PP is_VBZ necessary_JJ to_TO know_VV the_DT acoustical_JJ properties_NNS of_IN them_PP ,_, which_WDT can_MD be_VB generally_RB characterized_VVN by_IN the_DT surface_NN normal_JJ impedance_NN ,_, reflection_NN coefficient_NN ,_, and_CC absorption_NN coefficient_NN ._SENT 
+Nowadays_RB ,_, many_JJ methods_NNS have_VHP been_VBN developed_VVN to_TO measure_VV these_DT parameters_NNS ._SENT 
+Among_IN them_PP ,_, the_DT impedance_NN tube_NN method_NN (_( ISO_NP ,_, 1998_CD )_) and_CC the_DT reverberation_NN chamber_NN method_NN (_( ISO_NP ,_, 2004_CD )_) are_VBP two_CD well-known_JJ standardized_JJ methods_NNS ._SENT 
+However_RB ,_, both_DT methods_NNS have_VHP some_DT drawbacks_NNS ._SENT 
+The_DT impedance_NN tube_NN method_NN requires_VVZ different_JJ kinds_NNS of_IN tubes_NNS with_IN different_JJ dimensions_NNS to_TO broaden_VV the_DT effective_JJ frequency_NN range_NN ,_, which_WDT leads_VVZ to_TO high_JJ cost_NN ,_, and_CC it_PP can_MD only_RB provide_VV the_DT acoustical_JJ properties_NNS of_IN the_DT material_NN for_IN normal_JJ incidence_NN ._SENT 
+A_DT main_JJ problem_NN with_IN the_DT reverberation_NN chamber_NN method_NN is_VBZ the_DT lack_NN of_IN a_DT diffuse_JJ sound_JJ field_NN in_IN the_DT test_NN chambers_NNS ,_, which_WDT could_MD lead_VV to_TO the_DT non-validity_NN of_IN the_DT Sabine_NP formula_NN ,_, and_CC the_DT use_NN of_IN a_DT finite-size_JJ material_NN could_MD lead_VV to_TO an_DT unreasonable_JJ result_NN ._SENT 
+In_IN addition_NN to_TO the_DT standardized_JJ methods_NNS ,_, various_JJ free-field_NP measurement_NN methods_NNS (_( Brandão_NP et_NP al_NP ._SENT 
+,_, 2015_CD )_) have_VHP been_VBN developed_VVN in_IN the_DT literature_NN ._SENT 
+These_DT free-field_NP measurement_NN methods_NNS can_MD be_VB mainly_RB classified_VVN into_IN two_CD categories_NNS ._SENT 
+(_( 1_LS )_) Temporal_JJ separation_NN methods_NNS that_WDT separate_VVP the_DT reflected_VVN pressure_NN component_NN from_IN the_DT incident_NN component_NN ._SENT 
+According_VVG to_TO the_DT different_JJ types_NNS of_IN the_DT sound_JJ source_NN ,_, these_DT methods_NNS can_MD be_VB further_RBR divided_VVN into_IN two_CD sub-categories_NNS ,_, i._NP e._NP ,_, the_DT impulsive_JJ sound_JJ source_NN separation_NN techniques_NNS ,_, which_WDT use_VVP an_DT impulsive_JJ sound_NN source_NN (_( Cramond_NP and_CC Don_NP ,_, 1984_CD ;_: Davies_NP and_CC Mulholland_NP ,_, 1979_CD ;_: Yuzawa_NP ,_, 1975_CD )_) and_CC signal_VV processing_NN techniques_NNS ,_, which_WDT use_VVP a_DT broadband_NP stationary_JJ sound_NN source_NN (_( Barry_NP ,_, 1974_CD ;_: Bolton_NP and_CC Gold_NP ,_, 1984_CD ;_: Garai_NP ,_, 1993_CD ;_: Kimura_NP and_CC Yamamoto_NP ,_, 2002_CD ;_: Lin_NP et_NP al_NP ._SENT 
+,_, 2016a_NP ;_: Mommertz_NP ,_, 1995_CD )_) ._SENT 
+(_( 2_LS )_) Acoustic_JJ field_NN methods_NNS that_WDT use_VVP a_DT mathematical_JJ formulation_NN of_IN the_DT sound_JJ field_NN above_IN the_DT sample_NN whose_WP$ properties_NNS are_VBP measured_VVN ._SENT 
+According_VVG to_TO different_JJ types_NNS of_IN the_DT mathematical_JJ model_NN of_IN the_DT sound_JJ field_NN ,_, these_DT methods_NNS can_MD be_VB further_RBR divided_VVN into_IN three_CD groups_NNS ,_, i._NP e._NP ,_, the_DT plane_NN wave_NN group_NN that_WDT assumes_VVZ that_IN the_DT sound_JJ field_NN is_VBZ formed_VVN by_IN plane_NN waves_NNS (_( Allard_NP and_CC Aknine_NP ,_, 1985_CD ;_: Allard_NP and_CC Sieben_NP ,_, 1985_CD ;_: Champoux_NP et_NP al_NP ._SENT 
+,_, 1988_CD ;_: Ingård_NP and_CC Bolt_NP ,_, 1951_CD ;_: Lin_NP et_NP al_NP ._SENT 
+,_, 2016b_NP ;_: Minten_NP et_NP al_NP ._SENT 
+,_, 1988_CD ;_: Nolan_NP ,_, 2020_CD ;_: Richard_NP and_CC Fernandez-Grande_NP ,_, 2019_CD ;_: Takahashi_NP et_NP al_NP ._SENT 
+,_, 2005_CD ;_: Tamura_NP ,_, 1990_CD )_) ,_, the_DT spherical_JJ to_TO plane_NN wave_NN approximation_NN group_NN that_WDT considers_VVZ that_IN the_DT sound_JJ field_NN is_VBZ composed_VVN of_IN spherical_JJ waves_NNS reflecting_VVG as_IN plane_NN waves_NNS (_( Allard_NP et_NP al_NP ._SENT 
+,_, 1989_CD ;_: Brandão_NP et_NP al_NP ._SENT 
+,_, 2011b_NP ;_: Champoux_NP et_NP al_NP ._SENT 
+,_, 1988_CD ;_: Hirosawa_NP et_NP al_NP ._SENT 
+,_, 2009_CD ;_: Lanoye_NP et_NP al_NP ._SENT 
+,_, 2004_CD ;_: Li_NP and_CC Hodgson_NP ,_, 1997_CD )_) ,_, and_CC the_DT spherical_JJ wave_NN group_NN that_WDT assumes_VVZ that_IN the_DT sound_JJ field_NN is_VBZ formed_VVN by_IN spherical_JJ waves_NNS (_( Alvarez_NP and_CC Jacobsen_NP ,_, 2008_CD ;_: Attenborough_NP ,_, 1994_CD ;_: Brandão_NP et_NP al_NP ._SENT 
+,_, 2011b_NP ;_: Brandão_NP et_NP al_NP ._SENT 
+,_, 2012_CD ;_: Champoux_NP and_CC Richarz_NP ,_, 1990_CD ;_: Hess_NP et_NP al_NP ._SENT 
+,_, 1990_CD ;_: Lanoye_NP et_NP al_NP ._SENT 
+,_, 2006_CD ;_: Richard_NP et_NP al_NP ._SENT 
+,_, 2017_CD )_) ._SENT 
+A_DT common_JJ characteristic_NN of_IN most_JJS of_IN the_DT free-field_NP measurement_NN methods_NNS is_VBZ that_IN they_PP are_VBP based_VVN on_IN the_DT assumption_NN of_IN an_DT infinite_JJ sample_NN size_NN ._SENT 
+However_RB ,_, in_IN practice_NN ,_, measurements_NNS are_VBP generally_RB carried_VVN out_RP with_IN a_DT finite_JJ sample_NN ._SENT 
+This_DT disparity_NN between_IN the_DT theoretical_JJ assumption_NN and_CC the_DT practical_JJ condition_NN may_MD lead_VV to_TO inaccurate_JJ results_NNS ._SENT 
+The_DT effect_NN of_IN the_DT finite_JJ size_NN of_IN the_DT material_NN to_TO the_DT measured_VVN results_NNS is_VBZ usually_RB called_VVN the_DT size_NN effect_NN ._SENT 
+Many_JJ researchers_NNS have_VHP paid_VVN attention_NN to_TO the_DT size_NN effect_NN ._SENT 
+In_IN the_DT early_JJ 1970s_NNS ,_, de_NP Bruijn_NP (_( 1973_CD )_) first_RB attributed_VVD the_DT overestimation_NN of_IN the_DT absorption_NN coefficient_NN to_TO the_DT size_NN effect_NN ._SENT 
+And_CC this_DT effect_NN was_VBD studied_VVN by_IN Thomasson_NP (_( 1980_CD )_) later_RBR ._SENT 
+Kimura_NP and_CC Yamamoto_NP (_( 2002_CD )_) investigated_VVD the_DT problem_NN experimentally_RB by_IN measuring_VVG several_JJ samples_NNS with_IN different_JJ sizes_NNS and_CC they_PP successfully_RB found_VVD the_DT smallest_JJS area_NN for_IN which_WDT the_DT measurement_NN could_MD be_VB considered_VVN reliable_JJ ._SENT 
+Hirosawa_NP et_NP al_NP ._SENT 
+(_( 2009_CD )_) compared_VVD three_CD measurement_NN techniques_NNS in_IN relation_NN to_TO the_DT sample_NN size_NN and_CC indicated_VVD that_IN the_DT method_NN that_WDT measures_VVZ the_DT acoustic_JJ impedance_NN by_IN a_DT combined_JJ pressure_NN and_CC particle_NN velocity_NN probe_NN (_( PU_NP probe_NN )_) is_VBZ the_DT most_RBS stable_JJ against_IN the_DT effect_NN of_IN the_DT specimen_NN area_NN ._SENT 
+Otsuru_NP et_NP al_NP ._SENT 
+(_( 2009_CD )_) combined_VVD a_DT two-microphone_JJ technique_NN with_IN the_DT so-called_JJ ensemble_NN average_NN method_NN to_TO minimize_VV the_DT size_NN effect_NN ._SENT 
+Brandão_NP et_NP al_NP ._SENT 
+(_( 2012_CD )_) investigated_VVD the_DT influences_NNS of_IN several_JJ parameters_NNS ,_, such_JJ as_IN the_DT sample_NN size_NN ,_, the_DT sensor_NN position_NN ,_, and_CC the_DT sound_JJ source_NN height_NN by_IN numerical_JJ simulations_NNS and_CC tried_VVD to_TO find_VV strategies_NNS to_TO minimize_VV the_DT error_NN caused_VVN by_IN the_DT size_NN effect_NN ._SENT 
+Ottink_NP et_NP al_NP ._SENT 
+(_( 2016_CD )_) proposed_VVD a_DT finite_JJ surface_NN method_NN to_TO measure_VV the_DT acoustic_JJ properties_NNS of_IN finite-size_JJ materials_NNS at_IN oblique_JJ incidence_NN using_VVG a_DT microphone_NN array_NN ,_, but_CC large_JJ errors_NNS were_VBD found_VVN at_IN low_JJ frequencies_NNS due_JJ to_TO the_DT limitation_NN of_IN the_DT plane_NN wave_NN assumption_NN and_CC the_DT big_JJ computational_JJ bias_NN of_IN the_DT reconstructed_JJ sound_JJ pressure_NN by_IN the_DT statistically_RB optimized_VVN near-field_NP acoustic_JJ holography_NN ._SENT 
+It_PP can_MD be_VB seen_VVN that_IN all_PDT the_DT above_JJ studies_NNS were_VBD trying_VVG to_TO minimize_VV the_DT error_NN due_JJ to_TO the_DT size_NN effect_NN ._SENT 
+However_RB ,_, the_DT size_NN effect_NN has_VHZ not_RB been_VBN completely_RB taken_VVN into_IN account_NN ,_, which_WDT means_VVZ that_IN the_DT acoustical_JJ properties_NNS of_IN finite-size_JJ materials_NNS cannot_MD be_VB accurately_RB measured_VVN ,_, especially_RB for_IN small-size_JJ samples_NNS ._SENT 
+In_IN this_DT study_NN ,_, a_DT method_NN is_VBZ proposed_VVN to_TO remove_VV the_DT size_NN effect_NN of_IN locally_RB reactive_JJ finite_JJ materials_NNS by_IN taking_VVG the_DT finiteness_NN of_IN the_DT material_NN into_IN account_NN under_IN a_DT flush-mounted_JJ condition_NN ._SENT 
+First_RB ,_, a_DT half-space_NP sound_NN field_NN model_NN based_VVN on_IN the_DT boundary_NN element_NN method_NN (_( BEM_NP )_) is_VBZ used_VVN to_TO establish_VV the_DT relationship_NN between_IN the_DT normalized_VVN normal_JJ surface_NN impedance_NN of_IN a_DT flush-mounted_JJ finite_JJ material_NN and_CC the_DT acoustic_JJ impedance_NN at_IN a_DT receiving_VVG point_NN above_IN the_DT material_NN ._SENT 
+Second_RB ,_, the_DT acoustic_JJ impedance_NN at_IN the_DT receiving_VVG point_NN is_VBZ acquired_VVN by_IN a_DT PU_NP probe_NN ,_, and_CC the_DT normalized_VVN normal_JJ surface_NN impedance_NN of_IN the_DT material_NN is_VBZ estimated_VVN via_IN an_DT iteration_NN algorithm_NN in_IN an_DT inverse_JJ manner_NN ._SENT 
+Finally_RB ,_, the_DT reflection_NN coefficient_NN and_CC the_DT absorption_NN coefficient_NN of_IN the_DT material_NN can_MD be_VB obtained_VVN according_VVG to_TO the_DT relationships_NNS between_IN the_DT normalized_VVN normal_JJ surface_NN impedance_NN and_CC them_PP ._SENT 
+The_DT paper_NN is_VBZ organized_VVN as_RB follows_VVZ ._SENT 
+Section_NP II_NP introduces_VVZ the_DT basic_JJ theory_NN of_IN the_DT proposed_VVN method_NN ._SENT 
+In_IN Secs_NNS ._SENT 
+III_NP and_CC IV_NP ,_, the_DT proposed_VVN method_NN is_VBZ validated_VVN by_IN numerical_JJ simulations_NNS and_CC experiments_NNS ,_, respectively_RB ._SENT 
+Conclusions_NNS are_VBP summarized_VVN in_IN Sec_NN ._SENT 
+V._NP <Section> II_NP ._SENT 
+BASIC_JJ THEORY_NN </Section> A._NP Half-space_NP sound_JJ field_NN model_NN based_VVN on_IN the_DT BEM_NP This_DT study_NN aims_VVZ to_TO propose_VV an_DT approach_NN to_TO estimate_VV the_DT acoustical_JJ properties_NNS of_IN locally_RB reactive_JJ finite_JJ materials_NNS by_IN taking_VVG the_DT finiteness_NN of_IN the_DT material_NN into_IN account_NN ._SENT 
+To_TO avoid_VV the_DT influence_NN of_IN the_DT sides_NNS of_IN the_DT material_NN ,_, the_DT material_NN is_VBZ flush-mounted_VVN on_IN a_DT rigid_JJ infinite_NN baffle_VVP in_IN the_DT plane_NN z_SYM =_SYM 0_CD ,_, as_RB shown_VVN in_IN Fig_NN ._SENT 
+1(a_NP )_) ._SENT 
+This_DT problem_NN can_MD be_VB simplified_VVN as_IN a_DT half-space_NP sound_NN field_NN model_NN ,_, as_RB shown_VVN in_IN Fig_NN ._SENT 
+1(b_NP )_) ._SENT 
+It_PP is_VBZ equivalent_JJ to_TO the_DT case_NN that_IN the_DT sound_JJ waves_NNS emitted_VVN from_IN a_DT point_NN source_NN are_VBP scattered_VVN by_IN an_DT absorbent_JJ surface_NN embedded_VVN into_IN a_DT rigid_JJ infinite_JJ plane_NN ._SENT 
+FIG_NN ._SENT 
+1._CD It_PP is_VBZ well-known_JJ that_IN the_DT BEM_NP has_VHZ advantages_NNS in_IN dealing_VVG with_IN the_DT wave_NN propagation_NN problems_NNS in_IN infinite_NN or_CC semi-infinite_NN domains_NNS ._SENT 
+According_VVG to_TO Appendix_NN A_NP ,_, the_DT sound_JJ pressure_NN at_IN a_DT receiving_VVG point_NN R_NN can_MD be_VB calculated_VVN by_IN the_DT following_VVG integral_JJ equation_NN :_: @（1）_NN where_WRB P(R_NP )_) is_VBZ the_DT sound_JJ pressure_NN at_IN R_NP ,_, M_NP is_VBZ the_DT top_JJ surface_NN of_IN the_DT material_NN ,_, Q_NP is_VBZ the_DT integration_NN point_NN on_IN M_NP ,_, P(Q_NP )_) is_VBZ the_DT sound_JJ pressure_NN at_IN Q_NP ,_, n(Q_NP )_) is_VBZ the_DT unit_NN normal_JJ vector_NN at_IN Q_NP ,_, S_NP is_VBZ the_DT point_NN source_NN ,_, G(R_NP ,_, Q)=eikr/4πr+eikr′/4πr′_NP is_VBZ the_DT half-space_NP Green_NP 's_POS function_NN between_IN R_NP and_CC Q_NP ,_, G(R_NP ,_, S)=eikr1/4πr1+eikr2/4πr2_NP is_VBZ the_DT half-space_NP Green_NP 's_POS function_NN between_IN R_NP and_CC S_NP ,_, r_NN is_VBZ the_DT distance_NN between_IN R_NP and_CC Q_NP ,_, r′_NP is_VBZ the_DT distance_NN between_IN R′_NP and_CC Q_NP ,_, r1_NN is_VBZ the_DT distance_NN between_IN S_NP and_CC R_NP ,_, r2_NP is_VBZ the_DT distance_NN between_IN S_NP and_CC R′_NP ,_, R′_NP is_VBZ the_DT image_NN point_NN of_IN R_NP ,_, the_DT upright_JJ “_NP i_NP ”_NP is_VBZ the_DT imaginary_JJ unit_NN ,_, and_CC q_NN is_VBZ the_DT strength_NN of_IN the_DT point_NN source_NN ._SENT 
+The_DT time_NN factor_NN e−iωt_NN is_VBZ omitted_VVN throughout_IN the_DT paper_NN ._SENT 
+According_VVG to_TO Euler_NP 's_POS equation_NN ∂P(Q)/∂n(Q)=iρckV(Q_NP )_) and_CC the_DT impedance_NN boundary_NN condition_NN on_IN M_NP ,_, Eq_NP ._SENT 
+(_( 1_CD )_) can_MD be_VB rewritten_VVN as_IN @（2）_NP where_WRB Z=Zs/ρc_NP is_VBZ the_DT normalized_VVN normal_JJ surface_NN impedance_NN ,_, Zs=P(Q)/V(Q_NP )_) is_VBZ the_DT normal_JJ surface_NN impedance_NN of_IN the_DT material_NN that_WDT is_VBZ backed_VVN by_IN a_DT rigid_JJ baffle_VVP ,_, ρ_NP is_VBZ the_DT density_NN of_IN the_DT air_NN ,_, c_LS is_VBZ sound_JJ speed_NN in_IN the_DT air_NN ,_, k_NN is_VBZ the_DT wave_NN number_NN ,_, and_CC V(Q_NP )_) is_VBZ the_DT normal_JJ velocity_NN at_IN Q._NP It_PP should_MD be_VB noted_VVN that_IN the_DT above_JJ integral_JJ equations_NNS are_VBP valid_JJ when_WRB the_DT receiving_VVG point_NN R_NN is_VBZ located_VVN either_RB above_IN M_NP or_CC on_IN M._NP If_IN M_NP is_VBZ discretized_VVN into_IN N_NP constant_JJ boundary_NN elements_NNS and_CC the_DT normalized_VVN normal_JJ surface_NN impedance_NN Z_NN is_VBZ constant_JJ along_IN the_DT whole_JJ surface_NN M_NP ,_, Eq_NP ._SENT 
+(_( 2_LS )_) can_MD be_VB recast_VVN into_IN @（3）_NP where_WRB Qj_NP is_VBZ the_DT center_NN point_NN of_IN the_DT jth_JJ element_NN ._SENT 
+Placing_VVG R_NN at_IN Qi_NP and_CC varying_VVG i_NP from_IN 1_CD to_TO N_NP ,_, one_PP can_MD obtain_VV the_DT following_NN rearranged_VVD system_NN of_IN equations_NNS :_: @（4）_NN where_WRB PM_NP is_VBZ the_DT column_NN vector_NN of_IN the_DT sound_JJ pressure_NN on_IN M_NP with_IN its_PP$ entries_NNS of_IN P(Qi_NP )_) ,_, Tinc_NP is_VBZ a_DT column_NN vector_NN with_IN its_PP$ entries_NNS of_IN eikr1/2πr1_JJ (_( r1=r2_NN is_VBZ the_DT distance_NN between_IN S_NP and_CC Qi_NP when_WRB R_NP is_VBZ located_VVN at_IN Qi_NP )_) ,_, and_CC A_DT is_VBZ the_DT coefficient_NN matrix_NN with_IN its_PP$ entries_NNS defined_VVN as_IN @（5）_NP where_WRB δij_NP is_VBZ the_DT Kronecker_NN delta_NN with_IN δij=0_NP for_IN i_NP ≠_NP j_NN and_CC δij=1_JJ for_IN i_NP =_SYM j._JJ It_PP should_MD be_VB noted_VVN that_IN ,_, when_WRB i≠j_NP ,_, the_DT integral_JJ in_IN Eq_NP ._SENT 
+(_( 5_CD )_) can_MD be_VB calculated_VVN by_IN the_DT Gaussian_JJ quadrature_NN formula_NN ._SENT 
+However_RB ,_, when_WRB i_NP =_SYM j_NN ,_, the_DT integral_JJ becomes_VVZ singular_JJ ._SENT 
+In_IN this_DT work_NN ,_, this_DT singular_NN integral_JJ is_VBZ calculated_VVN by_IN the_DT method_NN given_VVN in_IN Matsumoto_NP et_CC al_NP ._SENT 
+(_( 2010_CD )_) ._SENT 
+The_DT unknown_JJ sound_JJ pressure_NN on_IN M_NP can_MD be_VB obtained_VVN by_IN solving_VVG Eq_NP ._SENT 
+(_( 4_CD )_) ._SENT 
+Here_RB it_PP is_VBZ denoted_VVN by_IN @（6）_NN Once_IN the_DT sound_JJ pressure_NN on_IN M_NP is_VBZ known_VVN ,_, the_DT sound_JJ pressure_NN and_CC particle_NN velocity_NN at_IN any_DT exterior_JJ receiving_VVG point_NN R_NN can_MD be_VB obtained_VVN by_IN Eq_NP ._SENT 
+(_( 3_CD )_) and_CC its_PP$ derivative_JJ equation_NN as_RB follows_VVZ :_: @（7）_JJ Equations_NNS (_( 3_CD )_) and_CC (_( 7_CD )_) can_MD be_VB rewritten_VVN as_IN @（8）_JJ @（9）_NN where_WRB B_NP and_CC C_NP are_VBP row_NN vectors_NNS with_IN their_PP$ entries_NNS defined_VVN as_IN @（10）_JJ @（11）_NN Finally_RB ,_, the_DT acoustic_JJ impedance_NN at_IN the_DT exterior_JJ receiving_VVG point_NN R_NN ,_, Zm(R_NP )_) ,_, can_MD be_VB obtained_VVN by_IN @（12）_NN It_PP should_MD be_VB noted_VVN that_IN the_DT entries_NNS of_IN matrices_NNS A_NP ,_, B_NP ,_, and_CC C_NP include_VVP the_DT integrals_NNS on_IN the_DT surface_NN of_IN the_DT material_NN M_NP and_CC the_DT normalized_VVN normal_JJ surface_NN impedance_NN of_IN the_DT material_NN ,_, Z._NP It_PP can_MD be_VB seen_VVN that_IN the_DT strength_NN of_IN the_DT point_NN source_NN ,_, q_NN ,_, has_VHZ vanished_VVN in_IN Eq_NP ._SENT 
+(_( 12_CD )_) and_CC the_DT acoustic_JJ impedance_NN at_IN R_NN is_VBZ only_RB related_VVN to_TO the_DT spatial_JJ location_NN of_IN the_DT source_NN ,_, the_DT mesh_NN information_NN of_IN M_NP ,_, and_CC the_DT normalized_VVN normal_JJ surface_NN impedance_NN of_IN the_DT material_NN ._SENT 
+Thus_RB ,_, once_RB the_DT location_NN of_IN the_DT source_NN and_CC the_DT mesh_NN information_NN is_VBZ known_VVN ,_, the_DT acoustic_JJ impedance_NN at_IN R_NN can_MD be_VB obtained_VVN with_IN a_DT given_VVN Z._NP B._NP Estimating_VVG the_DT normalized_VVN normal_JJ surface_NN impedance_NN via_IN an_DT iteration_NN algorithm_NN With_IN the_DT help_NN of_IN the_DT model_NN described_VVN in_IN the_DT above_JJ subsection_NN ,_, the_DT acoustic_JJ impedance_NN at_IN a_DT receiving_VVG point_NN can_MD be_VB calculated_VVN with_IN a_DT given_VVN normalized_VVD normal_JJ surface_NN impedance_NN of_IN the_DT material_NN ._SENT 
+However_RB ,_, the_DT aim_NN of_IN this_DT paper_NN is_VBZ to_TO estimate_VV the_DT normalized_VVN normal_JJ surface_NN impedance_NN of_IN the_DT material_NN by_IN using_VVG the_DT acoustic_JJ impedance_NN at_IN the_DT receiving_VVG point_NN in_IN an_DT inverse_JJ manner_NN ._SENT 
+Since_IN the_DT relationship_NN between_IN these_DT two_CD physical_JJ quantities_NNS is_VBZ nonlinear_JJ ,_, an_DT iteration_NN algorithm_NN is_VBZ applied_VVN to_TO achieve_VV this_DT goal_NN ._SENT 
+The_DT flow_NN chart_NN of_IN the_DT iteration_NN algorithm_NN is_VBZ shown_VVN in_IN Fig_NN ._SENT 
+2._CD The_NP procedures_NNS of_IN the_DT iteration_NN algorithm_NN are_VBP as_RB follows_VVZ :_: (_( 1)A_NP locally_RB reactive_JJ finite_JJ material_NN is_VBZ flush-mounted_VVN on_IN a_DT rigid_JJ infinite_NN baffle_VVP and_CC a_DT point_NN source_NN emits_VVZ sound_JJ waves_NNS above_IN the_DT material_NN ._SENT 
+The_DT acoustic_JJ impedance_NN Zm(R_NN )_) at_IN a_DT receiving_VVG point_NN above_IN the_DT material_NN is_VBZ measured_VVN by_IN a_DT PU_NP probe_NN ._SENT 
+(_( 2)An_NP initial_JJ normalized_VVD normal_JJ surface_NN impedance_NN of_IN the_DT material_NN Z(0_NN )_) is_VBZ calculated_VVN by_IN a_DT simpler_JJR method_NN ,_, named_VVD the_DT mirror_NN source_NN method_NN (_( Lanoye_NP et_NP al_NP ._SENT 
+,_, 2006_CD )_) ._SENT 
+It_PP should_MD be_VB noted_VVN that_IN although_IN the_DT mirror_NN source_NN method_NN is_VBZ only_RB valid_JJ for_IN infinite_JJ samples_NNS ,_, it_PP is_VBZ used_VVN to_TO calculate_VV the_DT initial_JJ value_NN for_IN finite-size_JJ samples_NNS here_RB ._SENT 
+Details_NNS of_IN the_DT mirror_NN source_NN method_NN can_MD be_VB found_VVN in_IN Appendix_NN B._NP Since_IN the_DT secant_NN method_NN mentioned_VVN later_RBR requires_VVZ two_CD previous_JJ values_NNS ,_, another_DT initial_JJ impedance_NN should_MD be_VB manually_RB generated_VVN ._SENT 
+In_IN this_DT study_NN ,_, the_DT second_JJ initial_JJ value_NN is_VBZ generated_VVN by_IN Z(1)=0.9Z(0_NN )_) to_TO make_VV sure_JJ that_IN it_PP is_VBZ close_JJ to_TO the_DT first_JJ one_CD ._SENT 
+Under_IN this_DT circumstance_NN ,_, the_DT iteration_NN can_MD be_VB converged_VVN fast_RB ._SENT 
+(_( 3)Z(1_JJ )_) is_VBZ introduced_VVN into_IN the_DT model_NN described_VVN in_IN Sec_NN ._SENT 
+II_NP A_NP ,_, and_CC an_DT acoustic_JJ impedance_NN Z⎯⎯⎯(R_NN )_) at_IN the_DT receiving_VVG point_NN is_VBZ calculated_VVN ._SENT 
+(_( 4)Compare_NP Zm(R_NP )_) and_CC Z⎯⎯⎯(R_NP )_) ,_, and_CC stop_VV the_DT iteration_NN when_WRB the_DT absolute_JJ difference_NN between_IN them_PP is_VBZ sufficiently_RB small_JJ ._SENT 
+The_DT absolute_JJ difference_NN between_IN Zm(R_NP )_) and_CC Z⎯⎯⎯(R_NP )_) can_MD be_VB expressed_VVN as_RB follows_VVZ :_: @（13）_NN where_WRB Z(a_NP )_) is_VBZ the_DT ath_JJ calculated_JJ surface_NN impedance_NN and_CC δ(Z(a_NN )_) )_) is_VBZ the_DT absolute_JJ value_NN of_IN the_DT difference_NN ._SENT 
+If_IN δ(Z(a))<10−6_NP ,_, the_DT iteration_NN is_VBZ stopped_VVN ._SENT 
+(_( 5)If_NP the_DT absolute_JJ difference_NN is_VBZ equal_JJ or_CC larger_JJR than_IN the_DT convergence_NN value_NN ,_, i._NP e._NP ,_, if_IN δ(Z(a))≥10−6_NP ,_, a_DT new_JJ normalized_VVN normal_JJ surface_NN impedance_NN is_VBZ generated_VVN by_IN the_DT secant_NN method_NN using_VVG the_DT following_VVG equation_NN :_: @（14）_JJ It_PP can_MD be_VB seen_VVN that_IN two_CD previous_JJ values_NNS are_VBP required_VVN to_TO generate_VV a_DT new_JJ value_NN ._SENT 
+Let_VV a_DT =_SYM a_DT +_SYM 1_CD ,_, then_RB the_DT value_NN of_IN the_DT normalized_VVN normal_JJ surface_NN impedance_NN of_IN the_DT material_NN is_VBZ updated_VVN by_IN Z(a)=Z(a+1_JJ )_) ._SENT 
+(_( 6)The_VV new_JJ impedance_NN Z(a_NN )_) is_VBZ introduced_VVN into_IN the_DT model_NN described_VVN in_IN Sec_NN ._SENT 
+II_NP A_NP ,_, and_CC steps_VVZ 4_CD and_CC 5_CD are_VBP repeated_VVN until_IN the_DT convergence_NN criterion_NN is_VBZ satisfied_VVN or_CC a_DT predefined_JJ maximum_JJ number_NN of_IN iterations_NNS is_VBZ reached_VVN ._SENT 
+Finally_RB ,_, the_DT normalized_VVN normal_JJ surface_NN impedance_NN of_IN the_DT material_NN ,_, Z_NP ,_, is_VBZ obtained_VVN ._SENT 
+Usually_RB ,_, the_DT algorithm_NN can_MD be_VB convergence_NN within_IN ten_CD iterations_NNS ._SENT 
+FIG_NN ._SENT 
+2._CD Actually_RB ,_, a_DT similar_JJ iteration_NN algorithm_NN is_VBZ also_RB used_VVN in_IN another_DT free-field_NP measurement_NN method_NN ,_, which_WDT is_VBZ named_VVN q-term_JJ method_NN (_( Brandão_NP et_NP al_NP ._SENT 
+,_, 2012_CD )_) ._SENT 
+The_DT difference_NN between_IN the_DT proposed_VVN method_NN and_CC the_DT q-term_JJ method_NN is_VBZ the_DT way_NN of_IN the_DT calculation_NN of_IN Z⎯⎯⎯(R_NP )_) ._SENT 
+In_IN the_DT proposed_VVN method_NN ,_, the_DT acoustic_JJ impedance_NN at_IN the_DT receiving_VVG point_NN is_VBZ calculated_VVN by_IN the_DT formulation_NN derived_VVN in_IN Sec_NN ._SENT 
+II_NP A._NP While_IN in_IN the_DT q-term_JJ method_NN ,_, the_DT acoustic_JJ impedance_NN at_IN the_DT receiving_VVG point_NN is_VBZ calculated_VVN by_IN the_DT formulation_NN of_IN Di_NP and_CC Gilbert_NP (_( 1993_CD )_) ._SENT 
+In_IN the_DT following_VVG simulations_NNS and_CC experiments_NNS ,_, these_DT two_CD methods_NNS will_MD be_VB compared_VVN ._SENT 
+C._NP Calculation_NN of_IN the_DT reflection_NN coefficient_NN and_CC absorption_NN coefficient_NN With_IN the_DT help_NN of_IN the_DT iteration_NN algorithm_NN described_VVN in_IN the_DT above_JJ subsection_NN ,_, the_DT normalized_VVN normal_JJ surface_NN impedance_NN of_IN the_DT material_NN can_MD be_VB estimated_VVN ._SENT 
+For_IN a_DT locally_RB reactive_JJ material_NN ,_, the_DT angle-dependent_JJ reflection_NN coefficient_NN can_MD be_VB obtained_VVN by_IN @（15）_NP where_WRB φ_NP is_VBZ the_DT angle_NN of_IN incidence_NN ._SENT 
+The_DT angle-dependent_JJ absorption_NN coefficient_NN can_MD be_VB further_RBR calculated_VVN by_IN @（16）_NN It_PP should_MD be_VB noted_VVN that_IN the_DT angle_NN of_IN incidence_NN φ_NN has_VHZ no_DT relationship_NN with_IN the_DT locations_NNS of_IN the_DT point_NN source_NN and_CC the_DT receiving_VVG point_NN ,_, and_CC the_DT surface_NN impedance_NN is_VBZ always_RB estimated_VVN for_IN normal_JJ incidence_NN ._SENT 
+When_WRB the_DT angle_NN of_IN incidence_NN equals_VVZ zero_CD ,_, Re_NP is_VBZ named_VVN as_IN the_DT normal_JJ reflection_NN coefficient_NN and_CC α_NN is_VBZ named_VVN as_IN the_DT normal_JJ absorption_NN coefficient_NN ._SENT 
+<Section> III_NP ._SENT 
+NUMERICAL_JJ SIMULATIONS_NNS </Section> In_IN order_NN to_TO validate_VV the_DT effectiveness_NN of_IN the_DT proposed_VVN method_NN ,_, numerical_JJ simulations_NNS of_IN two_CD kinds_NNS of_IN materials_NNS ,_, including_VVG a_DT rigid_JJ floor_NN and_CC a_DT porous_JJ material_NN ,_, are_VBP presented_VVN in_IN this_DT section_NN ._SENT 
+Moreover_RB ,_, the_DT influences_NNS of_IN the_DT sample_NN size_NN ,_, the_DT source_NN location_NN ,_, and_CC the_DT receiving_VVG point_NN position_NN are_VBP further_RBR analyzed_VVN for_IN the_DT case_NN of_IN the_DT porous_JJ material_NN ._SENT 
+The_DT procedures_NNS of_IN the_DT simulations_NNS are_VBP as_RB follows_VVZ :_: (_( 1_LS )_) the_DT sound_JJ field_NN model_NN is_VBZ built_VVN in_IN a_DT commercial_JJ finite_JJ element_NN software_NN named_VVN COMSOL_NP (_( COMSOL_NP ,_, 2017_CD )_) ;_: (_( 2_LS )_) the_DT theoretical_JJ boundary_NN condition_NN of_IN the_DT material_NN surface_NN is_VBZ given_VVN (_( rigid_JJ boundary_NN for_IN the_DT case_NN of_IN the_DT rigid_JJ floor_NN and_CC impedance_NN boundary_NN for_IN the_DT case_NN of_IN the_DT porous_JJ material_NN )_) and_CC the_DT acoustic_JJ impedance_NN at_IN the_DT receiving_VVG point_NN is_VBZ calculated_VVN by_IN COMSOL_NN ;_: (_( 3_LS )_) the_DT normalized_VVN normal_JJ surface_NN impedance_NN ,_, reflection_NN coefficient_NN ,_, and_CC absorption_NN coefficient_NN of_IN the_DT material_NN are_VBP estimated_VVN by_IN the_DT proposed_VVN method_NN and_CC the_DT q-term_JJ method_NN ,_, and_CC those_DT results_NNS are_VBP compared_VVN with_IN the_DT theoretical_JJ values_NNS ._SENT 
+The_DT analysis_NN frequency_NN ranges_NNS from_IN 100_CD to_TO 3000_CD Hz_NP with_IN an_DT interval_NN of_IN 100_CD Hz_NP in_IN all_PDT the_DT simulation_NN cases_NNS ._SENT 
+Since_IN the_DT focus_NN of_IN this_DT paper_NN is_VBZ on_IN the_DT comparison_NN of_IN the_DT proposed_VVN method_NN and_CC the_DT existing_JJ method_NN ,_, additive_JJ noises_NNS are_VBP not_RB considered_VVN in_IN all_PDT the_DT simulations_NNS ._SENT 
+It_PP should_MD be_VB noted_VVN that_IN ,_, in_IN the_DT proposed_VVN method_NN ,_, the_DT acoustic_JJ impedance_NN at_IN the_DT receiving_VVG point_NN is_VBZ obtained_VVN via_IN finite_JJ element_NN method_NN (_( FEM_NP )_) in_IN a_DT forward_JJ manner_NN ,_, while_IN the_DT normalized_VVN normal_JJ surface_NN impedance_NN is_VBZ estimated_VVN via_IN BEM_NP in_IN an_DT inverse_JJ manner_NN ._SENT 
+In_IN both_DT FEM_NP and_CC BEM_NP calculations_NNS ,_, the_DT boundary_NN conditions_NNS of_IN the_DT finite_JJ material_NN and_CC the_DT surrounding_VVG rigid_JJ baffle_VVP are_VBP considered_VVN ,_, which_WDT means_VVZ that_IN the_DT diffraction_NN phenomena_NNS evoked_VVN by_IN the_DT discontinuity_NN in_IN impedance_NN at_IN the_DT edges_NNS of_IN the_DT sample_NN are_VBP taken_VVN into_IN account_NN in_IN both_DT models_NNS ._SENT 
+A._NP Validation_NN of_IN the_DT proposed_VVN method_NN 1._CD Rigid_JJ floor_NN The_DT case_NN of_IN a_DT finite-size_JJ ,_, rigid_JJ floor_NN is_VBZ presented_VVN first_RB to_TO validate_VV the_DT effectiveness_NN of_IN the_DT proposed_VVN method_NN ._SENT 
+The_DT rigid_JJ floor_NN is_VBZ an_DT ideal_NN ,_, perfectly_RB reflective_JJ material_NN ,_, and_CC its_PP$ theoretical_JJ normal_JJ reflection_NN coefficient_NN equals_VVZ one_CD ._SENT 
+It_PP should_MD be_VB noted_VVN that_IN the_DT acoustical_JJ properties_NNS of_IN the_DT rigid_JJ floor_NN are_VBP the_DT same_JJ as_IN those_DT of_IN the_DT rigid_JJ baffle_VVP ,_, which_WDT means_VVZ that_IN it_PP can_MD also_RB be_VB seen_VVN as_IN an_DT infinite-size_JJ material_NN ._SENT 
+As_IN shown_VVN in_IN Fig_NN ._SENT 
+3_LS ,_, a_DT square_JJ rigid_JJ floor_NN with_IN the_DT size_NN of_IN 0.2×0.2_JJ m2_NN and_CC centered_VVN at_IN (_( 0_CD ,_, 0_CD ,_, 0_CD )_) is_VBZ flush-mounted_VVN on_IN a_DT rigid_JJ infinite_NN baffle_VV (_( the_DT baffle_VVP is_VBZ not_RB displayed_VVN in_IN the_DT figure_NN )_) ,_, the_DT sound_JJ source_NN and_CC the_DT receiving_VVG point_NN are_VBP positioned_VVN above_IN the_DT center_NN of_IN the_DT rigid_JJ floor_NN with_IN the_DT coordinates_VVZ (_( 0_CD ,_, 0_CD ,_, 0.31_CD )_) m_NN and_CC (_( 0_CD ,_, 0_CD ,_, 0.04_CD )_) m_NN ,_, respectively_RB ._SENT 
+The_DT surface_NN of_IN the_DT material_NN M_NP is_VBZ discretized_VVN into_IN 248_CD Lagrangian_JJ elements_NNS with_IN an_DT element_NN size_NN of_IN about_RB 1.8_CD cm_NN for_IN the_DT proposed_VVN method_NN ._SENT 
+In_IN the_DT elements_NNS ,_, the_DT geometry_NN is_VBZ approximated_VVN by_IN linear_JJ triangular_JJ elements_NNS and_CC the_DT sound_JJ pressure_NN is_VBZ supposed_VVN to_TO be_VB constant_JJ ._SENT 
+The_DT element_NN size_NN satisfies_VVZ the_DT rule_NN of_IN thumb_NN to_TO ensure_VV at_IN least_JJS six_CD elements_NNS per_IN wavelength_NN for_IN all_PDT the_DT frequencies_NNS (_( Marburg_NP ,_, 2018a_NN ,_, b_LS )_) ._SENT 
+The_DT theoretical_JJ boundary_NN condition_NN of_IN the_DT material_NN surface_NN is_VBZ given_VVN (_( rigid_JJ boundary_NN for_IN this_DT case_NN )_) and_CC the_DT acoustic_JJ impedance_NN at_IN the_DT receiving_VVG point_NN is_VBZ calculated_VVN by_IN FEM_NN simulation_NN using_VVG COMSOL_NN ._SENT 
+In_IN the_DT FEM_NP simulation_NN ,_, the_DT perfectly_RB matched_VVN layer_NN (_( PML_NP )_) ,_, i._NP e._NP ,_, a_DT half-spherical_JJ layer_NN of_IN virtual_JJ domains_NNS surrounding_VVG the_DT physical_JJ region_NN of_IN interest_NN ,_, is_VBZ used_VVN to_TO absorb_VV all_DT outgoing_JJ sound_NN waves_NNS ._SENT 
+To_TO ensure_VV all_PDT the_DT sound_JJ waves_NNS can_MD be_VB absorbed_VVN ,_, the_DT inner_JJ and_CC outer_JJ radii_NNS of_IN the_DT PML_NN are_VBP set_VVN as_IN 0.8_CD and_CC 2.5_CD m_NN ,_, respectively_RB ._SENT 
+The_DT calculation_NN domain_NN is_VBZ discretized_VVN into_IN 3_CD 452_CD 283_CD elements_NNS in_IN the_DT FEM_NP simulation_NN ,_, where_WRB the_DT mesh_NN size_NN is_VBZ the_DT same_JJ as_IN the_DT element_NN size_NN used_VVN in_IN the_DT BEM_NP discretization_NN with_IN at_IN least_JJS six_CD elements_NNS per_IN wavelength_NN (_( Langer_NP et_NP al_NP ._SENT 
+,_, 2017_CD )_) ._SENT 
+FIG_NN ._SENT 
+3._CD For_IN the_DT rigid_JJ floor_NN case_NN ,_, the_DT normal_JJ reflection_NN coefficients_NNS are_VBP calculated_VVN ._SENT 
+Figure_NN 4_CD shows_NNS the_DT comparison_NN among_IN the_DT magnitudes_NNS of_IN the_DT reflection_NN coefficient_NN of_IN the_DT theoretical_JJ values_NNS and_CC those_DT estimated_VVN by_IN the_DT proposed_VVN method_NN and_CC the_DT q-term_JJ method_NN ._SENT 
+The_DT frequency_NN resolution_NN is_VBZ 100_CD Hz_NP and_CC the_DT frequency_NN axis_NN is_VBZ displayed_VVN in_IN log_NN scale_NN ,_, which_WDT is_VBZ the_DT same_JJ for_IN all_PDT the_DT following_VVG figures_NNS ._SENT 
+It_PP can_MD be_VB seen_VVN that_IN the_DT estimated_JJ values_NNS are_VBP quite_RB close_JJ to_TO the_DT theoretical_JJ values_NNS at_IN all_DT frequencies_NNS for_IN all_PDT the_DT methods_NNS ,_, which_WDT indicates_VVZ that_IN the_DT proposed_VVN method_NN ,_, as_RB well_RB as_IN the_DT q-term_JJ method_NN ,_, are_VBP effective_JJ in_IN estimating_VVG the_DT reflection_NN coefficient_NN of_IN a_DT rigid_JJ floor_NN ._SENT 
+The_DT reason_NN for_IN these_DT results_NNS is_VBZ that_IN on_IN the_DT one_CD hand_NN ,_, the_DT rigid_JJ floor_NN can_MD be_VB seen_VVN as_IN a_DT finite-size_JJ material_NN flush-mounted_VVN on_IN a_DT rigid_JJ baffle_VVP ,_, but_CC on_IN the_DT other_JJ hand_NN ,_, it_PP can_MD also_RB be_VB seen_VVN as_IN an_DT infinite-size_JJ material_NN since_IN the_DT whole_JJ surface_NN has_VHZ the_DT same_JJ acoustical_JJ properties_NNS ._SENT 
+FIG_NN ._SENT 
+4._CD 2._CD Porous_JJ material_NN To_TO further_RBR demonstrate_VV the_DT feasibility_NN and_CC effectiveness_NN of_IN the_DT proposed_VVN method_NN ,_, the_DT case_NN of_IN a_DT porous_JJ material_NN is_VBZ studied_VVN in_IN this_DT subsection_NN ._SENT 
+In_IN the_DT following_VVG simulations_NNS ,_, the_DT results_NNS of_IN the_DT absorption_NN coefficient_NN will_MD be_VB presented_VVN ._SENT 
+To_TO keep_VV consistent_JJ with_IN the_DT experiment_NN ,_, a_DT similar_JJ simulation_NN case_NN of_IN a_DT different_JJ kind_NN of_IN porous_JJ material_NN is_VBZ studied_VVN first_RB ._SENT 
+Similar_JJ to_TO the_DT model_NN displayed_VVN in_IN Fig_NN ._SENT 
+3_LS ,_, a_DT square_JJ porous_JJ material_NN with_IN the_DT size_NN of_IN 0.2×0.2_JJ m2_NN and_CC centered_VVN at_IN (_( 0_CD ,_, 0_CD ,_, 0_CD )_) is_VBZ flush-mounted_VVN on_IN a_DT rigid_JJ infinite_NN baffle_VVP and_CC the_DT sound_JJ source_NN and_CC the_DT receiving_VVG point_NN are_VBP positioned_VVN above_IN the_DT center_NN of_IN the_DT material_NN with_IN the_DT coordinates_VVZ (_( 0_CD ,_, 0_CD ,_, 0.31_CD )_) m_NN and_CC (_( 0_CD ,_, 0_CD ,_, 0.04_CD )_) m_NN ,_, respectively_RB ._SENT 
+The_DT porous_JJ material_NN under_IN study_NN is_VBZ assumed_VVN to_TO satisfy_VV the_DT so-called_JJ Delany_NP and_CC Bazley_NP model_NN (_( Delany_NP and_CC Bazley_NP ,_, 1970_CD )_) ,_, which_WDT means_VVZ that_IN the_DT theoretical_JJ normalized_VVN normal_JJ surface_NN impedance_NN can_MD be_VB calculated_VVN from_IN the_DT thickness_NN and_CC flow_NN resistivity_NN of_IN the_DT material_NN ._SENT 
+And_CC the_DT theoretical_JJ absorption_NN coefficient_NN can_MD be_VB further_RBR obtained_VVN ._SENT 
+In_IN this_DT study_NN ,_, the_DT thickness_NN and_CC flow_NN resistivity_NN of_IN the_DT material_NN under_IN study_NN are_VBP assumed_VVN to_TO be_VB 5_CD cm_NN and_CC 12_CD 000_CD N⋅s/m4_NN ,_, respectively_RB ._SENT 
+Other_JJ simulation_NN parameters_NNS are_VBP the_DT same_JJ as_IN the_DT rigid_JJ floor_NN case_NN ._SENT 
+Figure_NP 5(a_NP )_) shows_VVZ the_DT theoretical_JJ normal_JJ absorption_NN coefficients_NNS and_CC those_DT estimated_VVN by_IN the_DT proposed_VVN method_NN and_CC the_DT q-term_JJ method_NN ._SENT 
+It_PP can_MD be_VB found_VVN that_IN ,_, compared_VVN to_TO the_DT theoretical_JJ normal_JJ absorption_NN coefficients_NNS ,_, the_DT normal_JJ absorption_NN coefficients_NNS estimated_VVN by_IN the_DT q-term_JJ method_NN are_VBP underestimated_VVN ,_, especially_RB at_IN middle-low_JJ frequencies_NNS ._SENT 
+This_DT phenomenon_NN is_VBZ usually_RB referred_VVN to_TO as_IN the_DT size_NN effect_NN ._SENT 
+On_IN the_DT contrary_NN ,_, it_PP can_MD be_VB seen_VVN that_IN the_DT proposed_VVN method_NN is_VBZ always_RB effective_JJ in_IN estimating_VVG the_DT absorption_NN coefficient_NN in_IN the_DT whole_JJ frequency_NN range_NN ._SENT 
+FIG_NN ._SENT 
+5._CD Figure_NN 5(b_NN )_) shows_VVZ the_DT angle-dependent_JJ absorption_NN coefficients_NNS at_IN 1000_CD Hz_NP ._SENT 
+It_PP can_MD be_VB seen_VVN that_IN the_DT absorption_NN coefficients_NNS estimated_VVN by_IN the_DT proposed_VVN method_NN are_VBP nearly_RB the_DT same_JJ as_IN the_DT theoretical_JJ values_NNS at_IN all_DT angles_NNS ._SENT 
+While_IN the_DT absorption_NN coefficients_NNS estimated_VVN by_IN the_DT q-term_JJ method_NN are_VBP underestimated_VVN ,_, especially_RB at_IN small_JJ angles_NNS ._SENT 
+At_IN the_DT same_JJ time_NN ,_, it_PP can_MD be_VB seen_VVN that_IN the_DT deviation_NN decreases_VVZ as_IN the_DT angle_NN of_IN incidence_NN increases_NNS ._SENT 
+The_DT reason_NN for_IN this_DT phenomenon_NN is_VBZ that_IN the_DT value_NN of_IN the_DT term_NN Z_NN cos_NN φ_NN tends_VVZ to_TO zero_VV when_WRB φ_NP tends_VVZ to_TO 90_CD degrees_NNS ._SENT 
+Consequently_RB ,_, the_DT impedance_NN (_( constant_JJ for_IN every_DT angle_NN )_) has_VHZ less_JJR contribution_NN to_TO the_DT reflection_NN coefficient_NN and_CC absorption_NN coefficient_NN at_IN large_JJ angles_NNS ._SENT 
+After_IN all_DT ,_, it_PP can_MD be_VB concluded_VVN that_IN the_DT proposed_VVN method_NN is_VBZ effective_JJ in_IN estimating_VVG the_DT absorption_NN coefficient_NN of_IN a_DT porous_JJ material_NN while_IN the_DT q-term_JJ method_NN fails_VVZ ._SENT 
+B._NP Influences_VVZ of_IN parameters_NNS To_TO further_RBR evaluate_VV the_DT performance_NN of_IN the_DT proposed_VVN method_NN ,_, in_IN this_DT subsection_NN ,_, the_DT influences_NNS of_IN the_DT sample_NN size_NN ,_, the_DT source_NN location_NN ,_, and_CC the_DT receiving_VVG point_NN position_NN to_TO the_DT estimated_JJ results_NNS of_IN the_DT porous_JJ material_NN case_NN are_VBP analyzed_VVN ._SENT 
+The_DT porous_JJ material_NN studied_VVD here_RB is_VBZ the_DT same_JJ as_IN the_DT one_CD used_VVN in_IN Sec_NN ._SENT 
+III_NP A._NP For_IN the_DT sake_NN of_IN simplicity_NN ,_, the_DT normal_JJ absorption_NN coefficients_NNS are_VBP given_VVN in_IN this_DT section_NN ._SENT 
+1._CD Sample_NP size_NN The_DT influence_NN of_IN the_DT sample_NN size_NN is_VBZ investigated_VVN first_RB ._SENT 
+For_IN the_DT sake_NN of_IN simplicity_NN ,_, square_JJ samples_NNS with_IN side_NN length_NN Lx_NP =_SYM Ly_NP =_SYM L_NP are_VBP considered_VVN ._SENT 
+Four_CD samples_NNS with_IN sizes_NNS of_IN 0.2×0.2_NP m2_NP ,_, 0.4×0.4_NP m2_NP ,_, 0.6×0.6_NP m2_NP ,_, and_CC 0.8×0.8_NP m2_NP are_VBP studied_VVN here_RB ._SENT 
+The_DT sound_JJ source_NN and_CC the_DT receiving_VVG point_NN are_VBP fixed_VVN at_IN (_( 0_CD ,_, 0_CD ,_, 0.31_CD )_) m_NN and_CC (_( 0_CD ,_, 0_CD ,_, 0.04_CD )_) m_NN ,_, respectively_RB ._SENT 
+Figure_NN 6_CD shows_NNS the_DT theoretical_JJ normal_JJ absorption_NN coefficients_NNS and_CC those_DT estimated_VVN by_IN the_DT proposed_VVN method_NN and_CC the_DT q-term_JJ method_NN of_IN four_CD samples_NNS with_IN different_JJ side_NN lengths_NNS ._SENT 
+It_PP can_MD be_VB found_VVN that_IN the_DT difference_NN between_IN the_DT theoretical_JJ absorption_NN coefficients_NNS and_CC those_DT estimated_VVN by_IN the_DT q-term_JJ method_NN decreases_VVZ when_WRB the_DT sample_NN size_NN increases_NNS ._SENT 
+However_RB ,_, it_PP is_VBZ obvious_JJ that_IN the_DT q-term_JJ method_NN suffers_VVZ from_IN the_DT size_NN effect_NN ,_, which_WDT makes_VVZ the_DT estimated_JJ results_NNS inaccurate_JJ at_IN low_JJ frequencies_NNS for_IN the_DT small-size_JJ cases_NNS ._SENT 
+On_IN the_DT contrary_NN ,_, the_DT absorption_NN coefficients_NNS estimated_VVN by_IN the_DT proposed_VVN method_NN are_VBP always_RB close_JJ to_TO the_DT theoretical_JJ ones_NNS for_IN all_PDT the_DT cases_NNS in_IN the_DT whole_JJ frequency_NN range_NN ._SENT 
+This_DT phenomenon_NN indicates_VVZ that_IN for_IN small-size_JJ samples_NNS ,_, the_DT q-term_JJ method_NN fails_VVZ to_TO estimate_VV the_DT acoustic_JJ properties_NNS of_IN the_DT material_NN due_JJ to_TO the_DT size_NN effect_NN ,_, while_IN the_DT proposed_VVN method_NN is_VBZ valid_JJ ._SENT 
+FIG_NN ._SENT 
+6._CD 2._CD Source_NN location_NN Instead_RB of_IN the_DT sample_NN size_NN ,_, the_DT influence_NN of_IN the_DT source_NN location_NN is_VBZ investigated_VVN in_IN this_DT subsection_NN ._SENT 
+For_IN the_DT sake_NN of_IN simplicity_NN ,_, a_DT square_JJ sample_NN with_IN side_NN length_NN L_NP =_SYM 0.2_CD m_NN is_VBZ considered_VVN and_CC the_DT receiving_VVG point_NN is_VBZ fixed_VVN at_IN (_( 0_CD ,_, 0_CD ,_, 0.04_CD )_) m._NP As_IN shown_VVN in_IN Fig_NN ._SENT 
+7_CD ,_, six_CD source_NN set-ups_NNS are_VBP considered_VVN with_IN S1_JJ (_( 0_CD ,_, 0_CD ,_, 0.2_CD )_) m_NN ,_, S2_NP (_( 0_CD ,_, 0_CD ,_, 0.3_CD )_) m_NN ,_, S3_NP (_( 0_CD ,_, 0_CD ,_, 0.4_CD )_) m_NN ,_, S4_NP (_( 0.1_CD ,_, 0_CD ,_, 0.3)m_NP ,_, S5_NP (_( –_NP 0.05_CD ,_, 0.05_CD ,_, 0.3_CD )_) m_NN and_CC S6_JJ (_( –_NP 0.1_CD ,_, 0.1_CD ,_, 0.3_CD )_) m._NP It_PP can_MD be_VB seen_VVN that_IN three_CD of_IN them_PP (_( S1_JJ ,_, S2_JJ ,_, and_CC S3_JJ )_) are_VBP located_VVN vertically_RB with_IN x_SYM =_SYM y_NP =_SYM 0_CD to_TO investigate_VV the_DT influence_NN of_IN the_DT height_NN of_IN the_DT source_NN ,_, and_CC four_CD of_IN them_PP (_( S2_NP ,_, S4_NP ,_, S5_NP ,_, and_CC S6_JJ )_) are_VBP located_VVN in_IN a_DT plane_NN with_IN z_SYM =_SYM 0.3_CD m_NN to_TO investigate_VV the_DT influence_NN of_IN the_DT horizontal_JJ position_NN of_IN the_DT source_NN ._SENT 
+FIG_NN ._SENT 
+7._CD Figure_NN 8_CD shows_NNS the_DT theoretical_JJ normal_JJ absorption_NN coefficients_NNS and_CC those_DT estimated_VVN by_IN the_DT proposed_VVN method_NN and_CC the_DT q-term_JJ method_NN with_IN six_CD source_NN set-ups_NNS ._SENT 
+It_PP can_MD be_VB found_VVN that_IN when_WRB the_DT height_NN of_IN the_DT source_NN increases_VVZ (_( S1_JJ ,_, S2_JJ ,_, and_CC S3_NP )_) ,_, the_DT difference_NN between_IN the_DT theoretical_JJ absorption_NN coefficients_NNS and_CC those_DT estimated_VVN by_IN the_DT q-term_JJ method_NN also_RB increases_VVZ ._SENT 
+As_IN the_DT source_NN moves_VVZ away_RB from_IN the_DT surface_NN ,_, the_DT sound_JJ field_NN scattered_VVN by_IN the_DT material_NN and_CC the_DT rigid_JJ baffle_VV gains_NNS more_JJR importance_NN relative_JJ to_TO the_DT sound_JJ field_NN directly_RB caused_VVN by_IN the_DT source_NN ,_, which_WDT means_VVZ that_IN the_DT influence_NN of_IN the_DT size_NN effect_NN increases_NNS ._SENT 
+For_IN the_DT cases_NNS of_IN different_JJ horizontal_JJ positions_NNS (_( S2_NP ,_, S4_NP ,_, S5_NP ,_, and_CC S6_NP )_) ,_, it_PP can_MD be_VB seen_VVN that_IN the_DT differences_NNS between_IN the_DT results_NNS for_IN these_DT cases_NNS are_VBP small_JJ ,_, which_WDT means_VVZ that_IN the_DT influence_NN of_IN the_DT horizontal_JJ position_NN of_IN the_DT source_NN is_VBZ not_RB significant_JJ ._SENT 
+After_IN all_DT ,_, it_PP can_MD be_VB concluded_VVN that_IN the_DT absorption_NN coefficients_NNS estimated_VVN by_IN the_DT q-term_JJ method_NN are_VBP always_RB underestimated_VVN and_CC the_DT difference_NN gets_VVZ larger_JJR when_WRB the_DT height_NN of_IN the_DT source_NN increases_NNS ._SENT 
+However_RB ,_, it_PP can_MD be_VB seen_VVN that_IN the_DT absorption_NN coefficients_NNS estimated_VVN by_IN the_DT proposed_VVN method_NN are_VBP always_RB close_JJ to_TO the_DT theoretical_JJ values_NNS for_IN all_PDT the_DT cases_NNS ,_, which_WDT means_VVZ that_IN the_DT proposed_VVN method_NN is_VBZ effective_JJ in_IN estimating_VVG the_DT absorption_NN coefficient_NN of_IN the_DT porous_JJ material_NN and_CC it_PP would_MD not_RB be_VB affected_VVN by_IN the_DT source_NN location_NN ._SENT 
+FIG_NN ._SENT 
+8._CD 3._CD Receiving_NP point_NN position_NN To_TO investigate_VV the_DT influence_NN of_IN the_DT receiving_VVG point_NN position_NN ,_, six_CD receiving_VVG point_NN set-ups_NNS are_VBP considered_VVN with_IN R1_JJ (_( 0_CD ,_, 0_CD ,_, 0.04_CD )_) m_NN ,_, R2_NP (_( 0_CD ,_, 0_CD ,_, 0.08_CD )_) m_NN ,_, R3_NP (_( 0_CD ,_, 0_CD ,_, 0.12_CD )_) m_NN ,_, R4_NP (_( 0.1_CD ,_, 0_CD ,_, 0.04_CD )_) m_NN ,_, R5_NP (_( –_NP 0.05_CD ,_, 0.05_CD ,_, 0.04_CD )_) m_NN ,_, and_CC R6_NP (_( –_NP 0.1_CD ,_, 0.1_CD ,_, 0.04_CD )_) m_NN ,_, as_RB shown_VVN in_IN Fig_NN ._SENT 
+9._CD It_PP can_MD be_VB seen_VVN that_IN three_CD of_IN them_PP (_( R1_JJ ,_, R2_JJ ,_, and_CC R3_JJ )_) are_VBP located_VVN vertically_RB with_IN x_SYM =_SYM y_NP =_SYM 0_CD to_TO investigate_VV the_DT influence_NN of_IN the_DT height_NN of_IN the_DT receiving_VVG point_NN ,_, and_CC four_CD of_IN them_PP (_( R1_JJ ,_, R4_NP ,_, R5_NP ,_, and_CC R6_JJ )_) are_VBP located_VVN in_IN a_DT plane_NN with_IN z_SYM =_SYM 0.04_CD m_NN to_TO investigate_VV the_DT influence_NN of_IN the_DT horizontal_JJ position_NN of_IN the_DT receiving_VVG point_NN ._SENT 
+For_IN the_DT sake_NN of_IN simplicity_NN ,_, a_DT square_JJ sample_NN with_IN side_NN length_NN L_NP =_SYM 0.2_CD m_NN is_VBZ considered_VVN and_CC the_DT source_NN is_VBZ fixed_VVN at_IN (_( 0_CD ,_, 0_CD ,_, 0.31_CD )_) m._NP FIG_NN ._SENT 
+9._CD Figure_NN 10_CD shows_NNS the_DT theoretical_JJ normal_JJ absorption_NN coefficients_NNS and_CC those_DT estimated_VVN by_IN the_DT proposed_VVN method_NN and_CC the_DT q-term_JJ method_NN with_IN six_CD receiving_VVG point_NN set-ups_NNS ._SENT 
+For_IN the_DT cases_NNS of_IN different_JJ heights_NNS (_( R1_JJ ,_, R2_JJ ,_, and_CC R3_NP )_) ,_, it_PP can_MD be_VB found_VVN that_IN when_WRB the_DT receiving_VVG point_NN gets_VVZ higher_JJR ,_, the_DT difference_NN between_IN the_DT theoretical_JJ absorption_NN coefficients_NNS and_CC those_DT estimated_VVN by_IN the_DT q-term_JJ method_NN increases_NNS ._SENT 
+The_DT reason_NN is_VBZ that_IN the_DT influence_NN of_IN the_DT finite_JJ size_NN of_IN the_DT sample_NN will_MD increase_VV when_WRB the_DT height_NN of_IN the_DT receiving_VVG point_NN increases_NNS ,_, which_WDT is_VBZ similar_JJ to_TO the_DT results_NNS referred_VVD to_TO in_IN Brandão_NP et_CC al_NP ._SENT 
+(_( 2012_CD )_) ._SENT 
+For_IN the_DT cases_NNS of_IN different_JJ horizontal_JJ positions_NNS (_( R1_JJ ,_, R4_NP ,_, R5_NP ,_, and_CC R6_NP )_) ,_, it_PP can_MD be_VB seen_VVN that_IN when_WRB the_DT receiving_VVG point_NN is_VBZ located_VVN above_IN the_DT edge_NN (_( R4_NP )_) or_CC the_DT corner_NN (_( R6_NP )_) of_IN the_DT sample_NN ,_, the_DT results_NNS estimated_VVN by_IN the_DT q-term_JJ method_NN are_VBP seriously_RB underestimated_VVN ,_, even_RB at_IN high_JJ frequencies_NNS ._SENT 
+The_DT reason_NN for_IN this_DT phenomenon_NN is_VBZ that_IN the_DT sound_JJ field_NN at_IN the_DT receiving_VVG point_NN is_VBZ highly_RB affected_VVN by_IN the_DT properties_NNS of_IN the_DT rigid_JJ baffle_VVP ._SENT 
+As_RB for_IN the_DT results_NNS of_IN Fig_NN ._SENT 
+10(e_NN )_) ,_, i._NP e._NP ,_, when_WRB the_DT receiving_VVG point_NN is_VBZ located_VVN at_IN R5_NN ,_, it_PP can_MD be_VB seen_VVN that_IN the_DT results_NNS estimated_VVN by_IN the_DT q-term_JJ method_NN are_VBP slightly_RB better_RBR than_IN those_DT results_NNS of_IN Fig_NN ._SENT 
+10(a_NP )_) ,_, i._NP e._NP ,_, when_WRB the_DT receiving_VVG point_NN is_VBZ located_VVN above_IN the_DT center_NN of_IN the_DT sample_NN ,_, at_IN most_JJS of_IN the_DT frequencies_NNS ._SENT 
+This_DT phenomenon_NN may_MD be_VB explained_VVN by_IN the_DT so-called_JJ “_JJ confidence_NN region_NN ”_NN referred_VVD to_TO in_IN Brandão_NP et_CC al_NP ._SENT 
+(_( 2012_CD )_) ,_, in_IN which_WDT if_IN the_DT receiving_VVG point_NN is_VBZ located_VVN inside_IN a_DT special_JJ circle_NN around_IN the_DT center_NN of_IN the_DT material_NN ,_, the_DT measurement_NN can_MD be_VB taken_VVN with_IN “_JJ confidence_NN ._SENT 
+”_NN After_IN all_DT ,_, it_PP can_MD be_VB concluded_VVN that_IN the_DT receiving_VVG point_NN position_NN has_VHZ a_DT significant_JJ influence_NN on_IN the_DT results_NNS estimated_VVN by_IN the_DT q-term_JJ method_NN and_CC those_DT values_NNS are_VBP always_RB underestimated_VVN for_IN a_DT small-size_JJ sample_NN ._SENT 
+However_RB ,_, similar_JJ to_TO the_DT results_NNS at_IN the_DT previous_JJ subsections_NNS ,_, it_PP can_MD be_VB seen_VVN that_IN the_DT absorption_NN coefficients_NNS estimated_VVN by_IN the_DT proposed_VVN method_NN are_VBP always_RB close_JJ to_TO the_DT theoretical_JJ values_NNS ,_, which_WDT means_VVZ that_IN the_DT proposed_VVN method_NN is_VBZ always_RB effective_JJ in_IN estimating_VVG the_DT absorption_NN coefficient_NN of_IN the_DT porous_JJ material_NN and_CC not_RB affected_VVN by_IN the_DT receiving_VVG point_NN position_NN ._SENT 
+FIG_NN ._SENT 
+10._CD <Section> IV_NP ._SENT 
+EXPERIMENTAL_JJ VALIDATION_NN </Section> To_TO further_RBR validate_VV the_DT proposed_VVN method_NN ,_, two_CD experiments_NNS were_VBD performed_VVN in_IN a_DT semi-anechoic_JJ room_NN (_( with_IN a_DT width_NN of_IN 8_CD m_NN ,_, depth_NN of_IN 9_CD m_NN ,_, height_NN of_IN 7_CD m_NN ,_, and_CC a_DT cutoff_NN frequency_NN of_IN 70_CD Hz_NP )_) ._SENT 
+The_DT first_JJ experiment_NN was_VBD carried_VVN out_RP on_IN the_DT rigid_JJ floor_NN of_IN the_DT semi-anechoic_JJ room_NN and_CC the_DT second_JJ experiment_NN on_IN a_DT practical_JJ porous_JJ material_NN whose_WP$ acoustical_JJ properties_NNS were_VBD unknown_JJ ._SENT 
+A_DT piston-on-a-sphere_NN loudspeaker_NN box_NN was_VBD used_VVN as_IN the_DT sound_JJ source_NN (_( Tijs_NP et_NP al_NP ._SENT 
+,_, 2009_CD )_) ._SENT 
+This_DT special_JJ loudspeaker_NN acts_NNS like_IN a_DT point-source_NN with_IN an_DT effective_JJ frequency_NN ranging_VVG from_IN 300_CD Hz_NP to_TO 10_CD kHz_NN ._SENT 
+A_DT PU-mini_NP probe_NN produced_VVN by_IN Microflown_JJ Technologies_NPS was_VBD connected_VVN with_IN the_DT loudspeaker_NN by_IN a_DT suspension_NN system_NN ,_, the_DT distance_NN between_IN them_PP was_VBD 0.27_CD m._NPS The_DT loudspeaker_NN was_VBD driven_VVN by_IN a_DT sweep_NN signal_NN with_IN the_DT frequency_NN range_NN from_IN 300_CD to_TO 3000_CD Hz_NP ._SENT 
+To_TO keep_VV consistent_JJ with_IN the_DT frequency_NN resolution_NN of_IN the_DT numerical_JJ simulation_NN ,_, the_DT interval_NN of_IN the_DT analysis_NN frequency_NN was_VBD set_VVN to_TO 100_CD Hz_NP in_IN all_PDT the_DT experiments_NNS ._SENT 
+A._NP Rigid_JJ floor_NN The_DT case_NN of_IN the_DT rigid_JJ floor_NN was_VBD studied_VVN first_RB ._SENT 
+The_DT experimental_JJ set-ups_NNS were_VBD shown_VVN in_IN Fig_NN ._SENT 
+11._CD In_IN this_DT study_NN ,_, the_DT real_JJ acoustic_JJ impedance_NN at_IN a_DT receiving_VVG point_NN was_VBD acquired_VVN by_IN a_DT so-called_JJ free-field_NP calibration_NN method_NN ,_, as_RB described_VVN in_IN Appendix_NN C._NP First_NP ,_, the_DT probe_NN and_CC the_DT source_NN were_VBD placed_VVN above_IN the_DT tested_VVN material_NN (_( rigid_JJ floor_NN in_IN this_DT case_NN )_) with_IN the_DT heights_NNS of_IN 0.04_CD m_NN and_CC 0.31_CD m_NN ,_, respectively_RB ,_, to_TO acquire_VV the_DT uncalibrated_JJ acoustic_JJ impedance_NN at_IN a_DT receiving_VVG point_NN ,_, as_RB shown_VVN in_IN Fig_NN ._SENT 
+11(a_NP )_) ._SENT 
+Then_RB ,_, an_DT additional_JJ measurement_NN in_IN the_DT free-field_NN was_VBD performed_VVN to_TO acquire_VV the_DT uncalibrated_JJ acoustic_JJ impedance_NN at_IN a_DT reference_NN point_NN ,_, as_RB shown_VVN in_IN Fig_NN ._SENT 
+11(b_NP )_) ._SENT 
+It_PP should_MD be_VB noted_VVN that_IN the_DT reference_NN point_NN should_MD be_VB located_VVN in_IN a_DT free-field_NP ,_, i._NP e._NP ,_, without_IN any_DT reflective_JJ surfaces_VVZ and_CC other_JJ sources_NNS ._SENT 
+In_IN this_DT study_NN ,_, the_DT equipment_NN was_VBD placed_VVN far_RB away_RB from_IN the_DT floor_NN of_IN the_DT semi-anechoic_JJ chamber_NN to_TO avoid_VV the_DT sound_JJ reflections_NNS of_IN the_DT floor_NN for_IN the_DT measurement_NN of_IN the_DT uncalibrated_JJ acoustic_JJ impedance_NN at_IN the_DT reference_NN point_NN ._SENT 
+Finally_RB ,_, the_DT calibrated_VVN acoustic_JJ impedance_NN at_IN the_DT receiving_VVG point_NN above_IN the_DT rigid_JJ floor_NN was_VBD obtained_VVN according_VVG to_TO Eq_NP ._SENT 
+(_( C3_NP )_) ._SENT 
+This_DT free-field_NP calibration_NN method_NN was_VBD also_RB used_VVN in_IN the_DT following_VVG experiments_NNS ._SENT 
+FIG_NN ._SENT 
+11._CD Figure_NN 12_CD shows_NNS the_DT comparison_NN among_IN magnitudes_NNS of_IN the_DT normal_JJ reflection_NN coefficient_NN of_IN the_DT theoretical_JJ values_NNS and_CC those_DT estimated_VVN by_IN the_DT proposed_VVN method_NN and_CC the_DT q-term_JJ method_NN ._SENT 
+A_DT square_JJ part_NN of_IN the_DT rigid_JJ floor_NN with_IN the_DT size_NN of_IN 0.2×0.2_JJ m2_NN and_CC centered_VVN at_IN the_DT projection_NN of_IN the_DT probe_NN on_IN the_DT ground_NN was_VBD selected_VVN as_IN the_DT calculation_NN surface_NN M_NP in_IN the_DT BEM_NP model_NN ._SENT 
+Note_NN that_IN the_DT rigid_JJ floor_NN can_MD be_VB considered_VVN as_IN a_DT perfectly_RB reflecting_VVG plane_NN ,_, and_CC thus_RB the_DT theoretical_JJ reflection_NN coefficient_NN for_IN the_DT rigid_JJ floor_NN should_MD be_VB one_CD ._SENT 
+It_PP can_MD be_VB seen_VVN that_IN the_DT deviations_NNS between_IN the_DT estimated_JJ values_NNS and_CC the_DT theoretical_JJ values_NNS in_IN the_DT experiment_NN are_VBP larger_JJR than_IN those_DT in_IN the_DT simulation_NN ._SENT 
+This_DT can_MD be_VB explained_VVN by_IN that_IN the_DT uncertainty_NN regarding_VVG positioning_NN of_IN the_DT source_NN and_CC sensor_NN may_MD affect_VV the_DT quality_NN of_IN the_DT measurement_NN (_( Brandão_NP et_NP al_NP ._SENT 
+,_, 2011a_NP )_) and_CC that_IN the_DT acoustic_JJ impedance_NN at_IN the_DT receiving_VVG point_NN measured_VVN by_IN the_DT probe_NN was_VBD polluted_JJ by_IN measurement_NN noise_NN ._SENT 
+However_RB ,_, the_DT estimated_JJ values_NNS are_VBP very_RB close_JJ to_TO each_DT other_JJ and_CC they_PP are_VBP close_JJ to_TO the_DT theoretical_JJ values_NNS at_IN most_JJS of_IN the_DT frequencies_NNS ._SENT 
+After_IN all_DT ,_, it_PP can_MD be_VB concluded_VVN that_IN the_DT proposed_VVN method_NN ,_, as_RB well_RB as_IN the_DT q-term_JJ method_NN ,_, can_MD effectively_RB estimate_VV the_DT reflection_NN coefficient_NN of_IN the_DT rigid_JJ floor_NN ._SENT 
+FIG_NN ._SENT 
+12._CD B._NP Porous_JJ material_NN Besides_IN the_DT rigid_JJ floor_NN ,_, a_DT practical_JJ porous_JJ material_NN with_IN a_DT thickness_NN of_IN 5_CD cm_NN and_CC an_DT approximate_JJ density_NN of_IN 32_CD kg/m3_NN was_VBD also_RB investigated_VVN ._SENT 
+It_PP should_MD be_VB noted_VVN that_IN for_IN a_DT practical_JJ material_NN ,_, the_DT theoretical_JJ values_NNS of_IN the_DT acoustical_JJ properties_NNS are_VBP unknown_JJ ._SENT 
+It_PP has_VHZ been_VBN pointed_VVN out_RP in_IN Brandão_NP et_CC al_NP ._SENT 
+(_( 2011b_NP )_) that_IN the_DT absorption_NN coefficient_NN of_IN a_DT material_NN can_MD be_VB effectively_RB measured_VVN by_IN the_DT q-term_JJ method_NN for_IN a_DT squared_VVN sample_NN area_NN with_IN a_DT size_NN of_IN 1×1_JJ m2_NN ._SENT 
+In_IN this_DT study_NN ,_, the_DT absorption_NN coefficients_NNS of_IN the_DT material_NN were_VBD measured_VVN by_IN the_DT q-term_JJ method_NN with_IN a_DT big-size_JJ sample_NN first_JJ and_CC those_DT values_NNS were_VBD referred_VVN to_TO herein_RB as_IN the_DT reference_NN ._SENT 
+After_IN that_DT ,_, the_DT absorption_NN coefficient_NN of_IN a_DT small-size_JJ sample_NN was_VBD estimated_VVN by_IN the_DT proposed_VVN method_NN and_CC the_DT q-term_JJ method_NN ._SENT 
+Finally_RB ,_, those_DT results_NNS were_VBD compared_VVN ._SENT 
+Figure_NP 13(a_NP )_) shows_VVZ the_DT experimental_JJ set-up_NN of_IN a_DT big-size_JJ sample_NN ._SENT 
+The_DT big_JJ sample_NN with_IN the_DT size_NN of_IN 1×1_JJ m2_NN was_VBD placed_VVN on_IN the_DT rigid_JJ floor_NN of_IN the_DT semi-anechoic_JJ room_NN ._SENT 
+Figure_NP 13(b_NP )_) shows_VVZ the_DT experimental_JJ set-up_NN of_IN a_DT small-size_JJ sample_NN ._SENT 
+The_DT small_JJ sample_NN with_IN the_DT size_NN of_IN 0.2×0.2_NP m2_NP was_VBD flush-mounted_VVN on_IN an_DT acoustical_JJ rigid-like_JJ baffle_VVP (_( a_DT glass_NN with_IN the_DT area_NN of_IN 1.5×1.5_JJ m2_NN and_CC thickness_NN of_IN 1.2_CD cm_NN )_) ._SENT 
+In_IN both_DT measurements_NNS ,_, the_DT probe_NN and_CC source_NN were_VBD placed_VVN above_IN the_DT center_NN of_IN the_DT sample_NN with_IN the_DT heights_NNS of_IN 0.04_CD and_CC 0.31_CD m_NN ,_, respectively_RB ._SENT 
+FIG_NN ._SENT 
+13._CD Figure_NP 14(a_NP )_) shows_VVZ the_DT reference_NN normal_JJ absorption_NN coefficients_NNS obtained_VVN by_IN the_DT q-term_JJ method_NN with_IN the_DT big-size_JJ sample_NN and_CC the_DT normal_JJ absorption_NN coefficients_NNS estimated_VVN by_IN the_DT proposed_VVN method_NN and_CC the_DT q-term_JJ method_NN with_IN the_DT small-size_JJ sample_NN ._SENT 
+As_RB is_VBZ shown_VVN ,_, due_JJ to_TO the_DT size_NN effect_NN ,_, the_DT absorption_NN coefficients_NNS estimated_VVN by_IN the_DT q-term_JJ method_NN with_IN the_DT small-size_JJ sample_NN have_VHP a_DT big_JJ difference_NN with_IN the_DT reference_NN values_NNS ._SENT 
+On_IN the_DT contrary_NN ,_, the_DT absorption_NN coefficients_NNS estimated_VVN by_IN the_DT proposed_VVN method_NN with_IN the_DT small-size_JJ sample_NN are_VBP close_JJ to_TO the_DT reference_NN absorption_NN coefficients_NNS ._SENT 
+Figure_NP 14(b_NP )_) shows_VVZ angle-dependent_JJ absorption_NN coefficients_NNS at_IN 1000_CD Hz_NP ._SENT 
+It_PP can_MD be_VB seen_VVN that_IN the_DT absorption_NN coefficients_NNS estimated_VVN by_IN the_DT proposed_VVN method_NN are_VBP close_JJ to_TO the_DT reference_NN values_VVZ at_IN all_DT angles_NNS of_IN incidence_NN ._SENT 
+While_IN the_DT absorption_NN coefficients_NNS estimated_VVN by_IN the_DT q-term_JJ method_NN have_VHP a_DT big_JJ difference_NN with_IN the_DT reference_NN values_NNS ,_, especially_RB at_IN small_JJ angles_NNS ._SENT 
+The_DT deviations_NNS between_IN the_DT results_NNS obtained_VVN by_IN the_DT proposed_VVN method_NN and_CC the_DT reference_NN values_NNS may_MD also_RB be_VB introduced_VVN by_IN the_DT measurement_NN uncertainty_NN and_CC noise_NN ._SENT 
+After_IN all_DT ,_, it_PP can_MD be_VB concluded_VVN that_IN the_DT proposed_VVN method_NN is_VBZ effective_JJ in_IN estimating_VVG the_DT absorption_NN coefficient_NN of_IN a_DT practical_JJ finite_JJ porous_JJ material_NN ._SENT 
+FIG_NN ._SENT 
+14._CD <Section> V._NP CONCLUSIONS_NNS </Section> A_DT method_NN to_TO estimate_VV the_DT acoustical_JJ properties_NNS of_IN locally_RB reactive_JJ finite_JJ materials_NNS is_VBZ proposed_VVN in_IN this_DT study_NN ._SENT 
+First_RB ,_, the_DT half-space_NP sound_NN field_NN above_IN a_DT flush-mounted_JJ finite_JJ material_NN is_VBZ modeled_VVN by_IN the_DT BEM_NP ,_, which_WDT can_MD take_VV the_DT finiteness_NN of_IN the_DT material_NN into_IN account_NN ._SENT 
+Second_RB ,_, by_IN combining_VVG the_DT half-space_NN sound_NN field_NN model_NN with_IN an_DT iteration_NN algorithm_NN ,_, the_DT normalized_VVN normal_JJ surface_NN impedance_NN of_IN a_DT finite_JJ material_NN can_MD be_VB estimated_VVN ._SENT 
+Finally_RB ,_, the_DT reflection_NN coefficient_NN and_CC absorption_NN coefficient_NN of_IN the_DT material_NN can_MD be_VB obtained_VVN ._SENT 
+The_DT effectiveness_NN of_IN the_DT proposed_VVN method_NN was_VBD validated_VVN by_IN numerical_JJ simulations_NNS and_CC experiments_NNS of_IN two_CD kinds_NNS of_IN materials_NNS ,_, including_VVG a_DT rigid_JJ floor_NN and_CC a_DT porous_JJ material_NN ._SENT 
+The_DT results_NNS of_IN the_DT case_NN of_IN the_DT rigid_JJ floor_NN indicate_VVP that_IN the_DT proposed_VVN method_NN ,_, as_RB well_RB as_IN an_DT existing_JJ method_NN named_VVN as_IN the_DT q-term_JJ method_NN ,_, are_VBP effective_JJ in_IN estimating_VVG the_DT reflection_NN coefficient_NN of_IN rigid-like_JJ materials_NNS ._SENT 
+However_RB ,_, for_IN the_DT case_NN of_IN a_DT fairly_RB small_JJ finite_JJ porous_JJ material_NN ,_, it_PP can_MD be_VB seen_VVN that_IN the_DT q-term_JJ method_NN fails_VVZ to_TO estimate_VV the_DT absorption_NN coefficient_NN of_IN the_DT material_NN ,_, while_IN the_DT proposed_VVN method_NN is_VBZ still_RB valid_JJ ._SENT 
+Moreover_RB ,_, it_PP can_MD be_VB concluded_VVN that_IN the_DT results_NNS estimated_VVN by_IN the_DT proposed_VVN method_NN are_VBP not_RB affected_VVN by_IN the_DT sample_NN size_NN ,_, the_DT source_NN location_NN ,_, and_CC the_DT receiving_VVG point_NN position_NN ._SENT 
+On_IN the_DT contrary_NN ,_, the_DT results_NNS of_IN the_DT q-term_JJ method_NN are_VBP highly_RB affected_VVN by_IN these_DT parameters_NNS ._SENT 
+In_IN this_DT study_NN ,_, the_DT conventional_JJ BEM_NP was_VBD used_VVN to_TO build_VV the_DT sound_JJ field_NN model_NN and_CC this_DT model_NN was_VBD substituted_VVN into_IN each_DT iteration_NN of_IN the_DT iteration_NN algorithm_NN ._SENT 
+Due_JJ to_TO the_DT characteristic_NN of_IN the_DT conventional_JJ BEM_NP ,_, the_DT computational_JJ process_NN could_MD be_VB time-consuming_JJ ._SENT 
+In_IN future_JJ research_NN ,_, the_DT fast_JJ multipole_NP BEM_NP can_MD be_VB used_VVN instead_RB of_IN the_DT conventional_JJ one_CD to_TO improve_VV computational_JJ efficiency_NN ._SENT 
+Moreover_RB ,_, the_DT tested_VVN material_NN should_MD be_VB installed_VVN in_IN a_DT specific_JJ measurement_NN condition_NN in_IN the_DT proposed_VVN method_NN ,_, which_WDT may_MD limit_VV its_PP$ applicability_NN in_IN practical_JJ environments_NNS ._SENT 
+This_DT limitation_NN is_VBZ expected_VVN to_TO be_VB removed_VVN in_IN the_DT future_NN ._SENT 
+<Section> ACKNOWLEDGMENTS_NNS </Section> This_DT work_NN was_VBD supported_VVN by_IN the_DT National_NP Natural_NP Science_NP Foundation_NP of_IN China_NP (_( Grant_NP Nos._NP 11674082_CD ,_, 51675149_CD ,_, and_CC 11872168_CD )_) ._SENT 
+The_DT authors_NNS would_MD like_VV to_TO thank_VV Microflown_JJ Technologies_NPS and_CC Landtop_NP Technologies_NPS for_IN their_PP$ supports_NNS in_IN performing_VVG the_DT experiments_NNS ._SENT 
+<Section> APPENDIX_NN A_DT :_: THE_DT BOUNDARY_NN INTEGRAL_JJ EQUATION_NN FOR_IN A_DT LOCALLY_RB REACTIVE_JJ FINITE_JJ MATERIAL_NN FLUSH-MOUNTED_VVN ON_IN A_DT RIGID_JJ INFINITE_NN BAFFLE_VV </Section> When_WRB a_DT locally_RB reactive_JJ finite_JJ material_NN is_VBZ flush-mounted_VVN on_IN a_DT rigid_JJ infinite_NN baffle_VVP ,_, the_DT problem_NN can_MD be_VB simplified_VVN to_TO a_DT half-space_NN sound_NN field_NN model_NN ,_, as_RB shown_VVN in_IN Fig_NN ._SENT 
+1(b_NP )_) ._SENT 
+To_TO derive_VV the_DT boundary_NN integral_JJ equation_NN that_WDT can_MD be_VB used_VVN to_TO describe_VV this_DT problem_NN ,_, we_PP first_RB assume_VVP that_IN the_DT impedance_NN boundary_NN has_VHZ a_DT thickness_NN of_IN ε_NP and_CC the_DT top_JJ surface_NN and_CC side_NN surfaces_VVZ of_IN it_PP are_VBP denoted_VVN by_IN M_NP and_CC Mε_NP ,_, as_RB shown_VVN in_IN Fig_NN ._SENT 
+15._CD According_VVG to_TO the_DT theory_NN of_IN the_DT half-space_NP BEM_NP ,_, if_IN a_DT point_NN source_NN S_NP exists_VVZ above_IN the_DT infinite_NN baffle_VVP ,_, the_DT sound_JJ pressure_NN at_IN a_DT receiving_VVG point_NN R_NN can_MD be_VB calculated_VVN by_IN the_DT following_VVG integral_JJ equation_NN :_: @（A1）_NN where_WRB P(R_NP )_) is_VBZ the_DT sound_JJ pressure_NN at_IN R_NP ,_, Q_NP is_VBZ the_DT integration_NN point_NN on_IN M_NP ,_, G(R_NP ,_, Q)=eikr/4πr+eikr′/4πr′_NP is_VBZ the_DT half-space_NP Green_NP 's_POS function_NN ,_, the_DT upright_JJ “_NP i_NP ”_NP is_VBZ the_DT imaginary_JJ unit_NN ,_, P(Q_NP )_) is_VBZ the_DT sound_JJ pressure_NN at_IN Q_NP ,_, n(Q_NP )_) is_VBZ the_DT unit_NN normal_JJ vector_NN at_IN Q_NP ,_, the_DT last_JJ two_CD terms_NNS of_IN the_DT equation_NN are_VBP the_DT incident_NN sound_NN pressure_NN at_IN R_NP and_CC its_PP$ mirror_NN point_NN R′_NN ,_, r_NN is_VBZ the_DT distance_NN between_IN R_NP and_CC Q_NP ,_, r′_NP is_VBZ the_DT distance_NN between_IN R′_NP and_CC Q_NP ,_, r1_NN is_VBZ the_DT distance_NN between_IN S_NP and_CC R_NP ,_, r2_NP is_VBZ the_DT distance_NN between_IN S_NP and_CC R′_NP ,_, and_CC q_NN is_VBZ the_DT strength_NN of_IN the_DT point_NN source_NN ._SENT 
+FIG_NN ._SENT 
+15._CD Then_RB ,_, letting_VVG the_DT thickness_NN ε_JJ turn_NN to_TO zero_CD ,_, the_DT integral_JJ on_IN the_DT boundary_NN Mε_NN will_MD disappear_VV ._SENT 
+Thus_RB ,_, Eq_NP ._SENT 
+(_( A1_JJ )_) can_MD be_VB simplified_VVN as_IN @(A2_NN )_) Considering_VVG that_IN ∂G(R_NP ,_, Q)/∂n(Q)=0_NN on_IN M_NP according_VVG to_TO the_DT symmetry_NN property_NN of_IN the_DT half-space_NP Green_NP 's_POS function_NN when_WRB ε_NN tends_VVZ to_TO be_VB zero_CD ,_, Eq_NP ._SENT 
+(_( A2_NP )_) can_MD be_VB further_RBR simplified_VVN as_IN @(A3_NP )_) @(A4_NP )_) <Section> APPENDIX_NN B_NN :_: THE_DT MIRROR_NN SOURCE_NN METHOD_NN </Section> The_DT mirror_NN source_NN method_NN (_( Lanoye_NP et_NP al_NP ._SENT 
+,_, 2006_CD )_) is_VBZ a_DT simple_JJ method_NN used_VVN to_TO estimate_VV the_DT acoustical_JJ properties_NNS of_IN infinite_JJ materials_NNS ._SENT 
+It_PP belongs_VVZ to_TO the_DT spherical_JJ to_TO plane_NN wave_NN approximation_NN group_NN of_IN the_DT acoustic_JJ field_NN methods_NNS ._SENT 
+In_IN some_DT literature_NN ,_, this_DT method_NN is_VBZ also_RB called_VVN as_IN the_DT plane_NN wave_NN approximation_NN method_NN (_( Brandão_NP et_NP al_NP ._SENT 
+,_, 2011b_NP ;_: Brandão_NP et_NP al_NP ._SENT 
+,_, 2012_CD )_) ._SENT 
+Figure_NN 16_CD shows_NNS the_DT model_NN of_IN the_DT mirror_NN source_NN method_NN ._SENT 
+As_RB is_VBZ shown_VVN ,_, a_DT point_NN source_NN S_NP is_VBZ emitting_VVG sound_NN above_IN an_DT infinite-size_JJ material_NN M._NP First_NP ,_, according_VVG to_TO the_DT basic_JJ idea_NN of_IN the_DT mirror_NN source_NN method_NN ,_, the_DT sound_JJ pressure_NN and_CC particle_NN velocity_NN at_IN a_DT receiving_VVG point_NN R_NN can_MD be_VB expressed_VVN by_IN the_DT superposition_NN of_IN the_DT sound_NN radiated_VVN by_IN the_DT point_NN source_NN S_NP and_CC its_PP$ mirror_NN source_NN S′_NN as_RB follows_VVZ :_: @(B1_JJ )_) @(B2_NN )_) where_WRB q_NN is_VBZ the_DT strength_NN of_IN the_DT points_NNS source_NN ,_, r1_NN is_VBZ the_DT distance_NN between_IN S_NP and_CC R_NP ,_, r2_NP is_VBZ the_DT distance_NN between_IN S′_NP and_CC R_NP ,_, cos_NN (_( θ0)=(hs−hr)/r1_NN is_VBZ the_DT angle_NN between_IN r1_JJ and_CC the_DT z-axis_NN ,_, cos_NN (_( θ)=(hs+hr)/r2_NN is_VBZ the_DT angle_NN between_IN r2_NP and_CC the_DT z-axis_NN ,_, hs_NN is_VBZ the_DT height_NN of_IN the_DT source_NN (_( z_SYM coordinate_VV of_IN S_NP )_) ,_, and_CC hr_NP is_VBZ the_DT height_NN of_IN the_DT receiving_VVG point_NN (_( z_SYM coordinate_VV of_IN R_NN )_) ._SENT 
+FIG_NN ._SENT 
+16._CD Then_RB ,_, the_DT acoustic_JJ impedance_NN at_IN R_NN can_MD be_VB expressed_VVN by_IN the_DT following_VVG equation_NN :_: @(B3_NP )_) If_IN the_DT acoustic_JJ impedance_NN at_IN R_NN is_VBZ acquired_VVN by_IN measurement_NN ,_, the_DT angle-dependent_JJ plane-wave_NN reflection_NN coefficient_NN can_MD be_VB obtained_VVN by_IN @(B4_NN )_) Once_IN the_DT reflection_NN coefficient_NN is_VBZ known_VVN ,_, the_DT absorption_NN coefficient_NN can_MD be_VB further_RBR calculated_VVN by_IN Eq_NP ._SENT 
+(_( 16_CD )_) ,_, and_CC the_DT normal_JJ surface_NN impedance_NN can_MD be_VB determined_VVN from_IN Eq_NP ._SENT 
+(_( B3_NP )_) with_IN hr_NP =_SYM 0_CD ,_, @(B5_NP )_) It_PP should_MD be_VB noted_VVN that_IN when_WRB hr_NP =_SYM 0_CD ,_, r1=r2=d_RB ,_, where_WRB d_SYM is_VBZ the_DT distance_NN between_IN the_DT point_NN source_NN and_CC the_DT projection_NN point_NN of_IN R_NN onto_IN the_DT material_NN surface_NN ._SENT 
+The_DT above_JJ equation_NN can_MD be_VB simplified_VVN as_IN @(B6_NP )_) Finally_RB ,_, the_DT normalized_VVN normal_JJ surface_NN impedance_NN can_MD be_VB obtained_VVN by_IN @(B7_JJ )_) <Section> APPENDIX_NN C_NP :_: THE_DT FREE-FIELD_NP CALIBRATION_NN METHOD_NN </Section> Usually_RB ,_, the_DT pressure_NN sensor_NN and_CC velocity_NN sensor_NN should_MD be_VB calibrated_VVN before_IN the_DT measurement_NN to_TO obtain_VV the_DT real_JJ sound_JJ pressure_NN and_CC particle_NN velocity_NN ._SENT 
+However_RB ,_, in_IN this_DT study_NN ,_, the_DT required_JJ quantity_NN is_VBZ the_DT acoustic_JJ impedance_NN (_( the_DT ratio_NN of_IN sound_JJ pressure_NN and_CC particle_NN velocity_NN )_) at_IN the_DT receiving_VVG point_NN ,_, which_WDT means_VVZ that_IN we_PP can_MD directly_RB calibrate_VV the_DT impedance_NN ._SENT 
+This_DT calibration_NN method_NN is_VBZ called_VVN the_DT free-field_NP calibration_NN (_( Lanoye_NP et_NP al_NP ._SENT 
+,_, 2006_CD )_) ._SENT 
+Assume_VV that_IN the_DT sensitivities_NNS of_IN sound_JJ pressure_NN and_CC particle_NN velocity_NN are_VBP λP_NP and_CC λV_NP at_IN a_DT frequency_NN f_SYM ,_, respectively_RB ._SENT 
+First_RB ,_, the_DT PU_NP probe_NN and_CC the_DT source_NN are_VBP placed_VVN above_IN the_DT tested_VVN material_NN ,_, the_DT uncalibrated_JJ acoustic_JJ impedance_NN Z′(R_NN )_) at_IN the_DT receiving_VVG point_NN R_NN can_MD be_VB expressed_VVN by_IN @(C1_JJ )_) where_WRB P′(R_NP )_) and_CC V′(R_NP )_) are_VBP the_DT directly_RB measured_VVN pressure_NN and_CC velocity_NN at_IN R_NN ,_, respectively_RB ,_, P(R_NP )_) ,_, V(R_NP )_) ,_, and_CC Zm(R_NP )_) are_VBP the_DT real_JJ pressure_NN ,_, velocity_NN ,_, and_CC impedance_NN at_IN R_NN ,_, respectively_RB ,_, and_CC λZ=λP/λV_NP is_VBZ the_DT sensitivity_NN of_IN the_DT impedance_NN ._SENT 
+Then_RB the_DT probe_NN and_CC the_DT source_NN are_VBP placed_VVN in_IN the_DT free-field_NP ,_, i._NP e._NP ,_, without_IN any_DT reflective_JJ surfaces_VVZ and_CC other_JJ sources_NNS ,_, the_DT uncalibrated_JJ acoustic_JJ impedance_NN at_IN a_DT reference_NN point_NN in_IN the_DT free-field_NN can_MD be_VB expressed_VVN by_IN @(C2_NN )_) where_WRB P′ref_NP and_CC V′ref_NP are_VBP the_DT directly_RB measured_VVN pressure_NN and_CC velocity_NN at_IN the_DT reference_NN point_NN ,_, respectively_RB ,_, Z0=ρc_NP is_VBZ the_DT characteristic_JJ acoustic_JJ impedance_NN of_IN the_DT air_NN ,_, k0=2πf/c_NP is_VBZ the_DT wave_NN number_NN ,_, and_CC d_LS is_VBZ the_DT distance_NN between_IN the_DT source_NN and_CC the_DT probe_NN ._SENT 
+Finally_RB ,_, divide_VVP Eq_NP ._SENT 
+(_( C1_JJ )_) by_IN Eq_NP ._SENT 
+(_( C2_NP )_) ;_: the_DT calibrated_VVN acoustic_JJ impedance_NN at_IN the_DT receiving_VVG point_NN R_NN can_MD be_VB obtained_VVN by_IN @(C3_NN )_) <Section> REFERENCES_NNS </Section> 1._CD Allard_NP ,_, J._NP F._NP ,_, and_CC Aknine_NP ,_, A._NP (_( 1985_CD )_) ._SENT 
+“_JJ Acoustic_JJ impedance_NN measurements_NNS with_IN a_DT sound_JJ intensity_NN meter_NN ,_, ”_NP Appl_NP ._SENT 
+Acoust_NP ._SENT 
+18_CD ,_, 69–75_NP ._SENT 
+https_NNS :_: //doi_NP ._SENT 
+org/10.1016/0003-682X(85)90007-6_NP ,_, Google_NP ScholarCrossref_NP 2._CD Allard_NP ,_, J._NP F._NP ,_, Depollier_NP ,_, C._NP ,_, and_CC Lauriks_NP ,_, W._NP (_( 1989_CD )_) ._SENT 
+“_JJ Measurement_NN and_CC prediction_NN of_IN surface_NN impedance_NN at_IN oblique_JJ incidence_NN of_IN a_DT plastic_JJ foam_NN of_IN high_JJ flow_NN resistivity_NN ,_, ”_NP J._NP Sound_NP Vib_NP ._SENT 
+132_CD ,_, 51–60_NP ._SENT 
+https_NNS :_: //doi_NP ._SENT 
+org/10.1016/0022-460X(89)90870-5_NP ,_, Google_NP ScholarCrossref_NP 3._CD Allard_NP ,_, J._NP F._NP ,_, and_CC Sieben_NP ,_, B._NP (_( 1985_CD )_) ._SENT 
+“_JJ Measurements_NNS of_IN acoustic_JJ impedance_NN in_IN a_DT free_JJ field_NN with_IN two_CD microphones_NNS and_CC a_DT spectrum_NN analyzer_NN ,_, ”_NP J._NP Acoust_NP ._SENT 
+Soc_NP ._SENT 
+Am_NP ._SENT 
+77_CD ,_, 1617–1618_NP ._SENT 
+https_NNS :_: //doi_NP ._SENT 
+org/10.1121/1.392008_NP ,_, Google_NP ScholarScitation_NP ,_, ISI_NP 4._CD Alvarez_NP ,_, J._NP ,_, and_CC Jacobsen_NP ,_, F._NP (_( 2008_CD )_) ._SENT 
+“_NP An_DT iterative_JJ method_NN for_IN determining_VVG the_DT surface_NN impedance_NN of_IN acoustic_JJ materials_NNS in_IN situ_NP ,_, ”_NN in_IN Proceedings_NNS of_IN the_DT 37th_JJ International_NP Congress_NP and_CC Exhibit_NN on_IN Noise_NN Control_NP Engineering_NP ,_, October_NP 26–29_NP ,_, Shanghai_NP ,_, China_NP ._SENT 
+Google_NP Scholar_NN 5._CD Attenborough_NP ,_, K._NP (_( 1994_CD )_) ._SENT 
+“_NP A_DT note_NN on_IN short-range_JJ ground_NN characterization_NN ,_, ”_NP J._NP Acoust_NP ._SENT 
+Soc_NP ._SENT 
+Am_NP ._SENT 
+95_CD ,_, 3103–3108_NP ._SENT 
+https_NNS :_: //doi_NP ._SENT 
+org/10.1121/1.410001_JJ ,_, Google_NP ScholarScitation_NP ,_, ISI_NP 6._CD Barry_NP ,_, T._NP M._NP (_( 1974_CD )_) ._SENT 
+“_JJ Measurement_NN of_IN the_DT absorption_NN spectrum_NN using_VVG correlation/spectral_JJ density_NN techniques_NNS ,_, ”_NP J._NP Acoust_NP ._SENT 
+Soc_NP ._SENT 
+Am_NP ._SENT 
+55_CD ,_, 1349–1351_JJ ._SENT 
+https_NNS :_: //doi_NP ._SENT 
+org/10.1121/1.1914711_JJ ,_, Google_NP ScholarScitation_NP ,_, ISI_NP 7._CD Bolton_NP ,_, J._NP S._NP ,_, and_CC Gold_NP ,_, E._NP (_( 1984_CD )_) ._SENT 
+“_NP The_DT application_NN of_IN cepstral_JJ techniques_NNS to_TO the_DT measurement_NN of_IN transfer_NN functions_NNS and_CC acoustical_JJ reflection_NN coefficients_NNS ,_, ”_NP J._NP Sound_NP Vib_NP ._SENT 
+93_CD ,_, 217–233_NP ._SENT 
+https_NNS :_: //doi_NP ._SENT 
+org/10.1016/0022-460X(84)90309-2_NP ,_, Google_NP ScholarCrossref_NP 8._CD Brandão_NP ,_, E._NP ,_, Flesch_NP ,_, R._NP C._NP C._NP ,_, Lenzi_NP ,_, A._NP ,_, and_CC Flesch_NP ,_, C._NP A._NP (_( 2011a_NP )_) ._SENT 
+“_JJ Estimation_NN of_IN pressure-particle_NN velocity_NN impedance_NN measurement_NN uncertainty_NN using_VVG the_DT Monte_NP Carlo_NP method_NN ,_, ”_NP J._NP Acoust_NP ._SENT 
+Soc_NP ._SENT 
+Am_NP ._SENT 
+130_CD ,_, EL25–EL31_JJ ._SENT 
+https_NNS :_: //doi_NP ._SENT 
+org/10.1121/1.3601882_NP ,_, Google_NP ScholarScitation_NP ,_, ISI_NP 9._CD Brandão_NP ,_, E._NP ,_, Lenzi_NP ,_, A._NP ,_, and_CC Cordioli_NP ,_, J._NP (_( 2012_CD )_) ._SENT 
+“_JJ Estimation_NN and_CC minimization_NN of_IN errors_NNS caused_VVN by_IN sample_NN size_NN effect_NN in_IN the_DT measurement_NN of_IN the_DT normal_JJ absorption_NN coefficient_NN of_IN a_DT locally_RB reactive_JJ surface_NN ,_, ”_NP Appl_NP ._SENT 
+Acoust_NP ._SENT 
+73_CD ,_, 543–556_NP ._SENT 
+https_NNS :_: //doi_NP ._SENT 
+org/10.1016/j_NP ._SENT 
+apacoust.2011.09.010_NP ,_, Google_NP ScholarCrossref_NP 10._CD Brandão_NP ,_, E._NP ,_, Lenzi_NP ,_, A._NP ,_, and_CC Paul_NP ,_, S._NP (_( 2015_CD )_) ._SENT 
+“_NP A_DT review_NN of_IN the_DT in_IN situ_NP impedance_NN and_CC sound_JJ absorption_NN measurement_NN techniques_NNS ,_, ”_NP Acta_NP Acust_NP ._SENT 
+united_VVN Ac_NN ._SENT 
+101_CD ,_, 443–463_NP ._SENT 
+https_NNS :_: //doi_NP ._SENT 
+org/10.3813/AAA.918840_NP ,_, Google_NP ScholarCrossref_NP 11._CD Brandão_NP ,_, E._NP ,_, Tijs_NP ,_, E._NP ,_, Lenzi_NP ,_, A._NP ,_, and_CC de_NP Bree_NP ,_, H._NP E._NP (_( 2011b_NP )_) ._SENT 
+“_NP A_DT comparison_NN of_IN three_CD methods_NNS to_TO calculate_VV the_DT surface_NN impedance_NN and_CC absorption_NN coefficient_NN from_IN measurements_NNS under_IN free_JJ field_NN or_CC in_IN situ_NP conditions_NNS ,_, ”_NP Acta_NP Acust_NP ._SENT 
+united_VVN Ac_NN ._SENT 
+97_CD ,_, 1025–1033_NP ._SENT 
+https_NNS :_: //doi_NP ._SENT 
+org/10.3813/AAA.918482_NP ,_, Google_NP ScholarCrossref_NP 12._CD Champoux_NP ,_, Y._NP ,_, Nicolas_NP ,_, J._NP ,_, and_CC Allard_NP ,_, J._NP F._NP (_( 1988_CD )_) ._SENT 
+“_JJ Measurement_NN of_IN acoustic_JJ impedance_NN in_IN a_DT free_JJ field_NN at_IN low_JJ frequencies_NNS ,_, ”_NP J._NP Sound_NP Vib_NP ._SENT 
+125_CD ,_, 313–323_NP ._SENT 
+https_NNS :_: //doi_NP ._SENT 
+org/10.1016/0022-460X(88)90286-6_NP ,_, Google_NP ScholarCrossref_NP 13._CD Champoux_NP ,_, Y._NP ,_, and_CC Richarz_NP ,_, W._NP G._NP (_( 1990_CD )_) ._SENT 
+“_NP An_DT aid_NN in_IN the_DT numerical_JJ integration_NN for_IN in_IN situ_NP acoustic_JJ impedance_NN and_CC absorption_NN coefficient_NN measurements_NNS ,_, ”_NP J._NP Acoust_NP ._SENT 
+Soc_NP ._SENT 
+Am_NP ._SENT 
+87_CD ,_, 1809–1812_NP ._SENT 
+https_NNS :_: //doi_NP ._SENT 
+org/10.1121/1.399378_NP ,_, Google_NP ScholarScitation_NP ,_, ISI_NP 14._CD COMSOL_NN (_( 2017_CD )_) ._SENT 
+Comsol_NP Multiphysics_NP User_NP 's_POS Guide_NP ,_, Version_NP 5.3a_NP (_( COMSOL_NP ,_, Inc._NP Burlington_NP ,_, MA_NN )_) ._SENT 
+Google_NP Scholar_NN 15._CD Cramond_NP ,_, A._NP J._NP ,_, and_CC Don_NP ,_, C._NP G._NP (_( 1984_CD )_) ._SENT 
+“_JJ Reflection_NN of_IN impulses_NNS as_IN a_DT method_NN of_IN determining_VVG acoustic_JJ impedance_NN ,_, ”_NP J._NP Acoust_NP ._SENT 
+Soc_NP ._SENT 
+Am_NP ._SENT 
+75_CD ,_, 382–389_NP ._SENT 
+https_NNS :_: //doi_NP ._SENT 
+org/10.1121/1.390482_NP ,_, Google_NP ScholarScitation_NP ,_, ISI_NP 16._CD Crocker_NP ,_, M._NP J._NP ,_, and_CC Arenas_NP ,_, J._NP P._NP (_( 2007_CD )_) ._SENT 
+“_NP Use_NP of_IN sound-absorbing_VVG materials_NNS ,_, ”_NN in_IN Handbook_NN of_IN Noise_NN and_CC Vibration_NN Control_NN ,_, edited_VVN by_IN M._NP J._NP Crocker_NP (_( Wiley_NP ,_, New_NP York_NP )_) ,_, pp_NP ._SENT 
+696–713_NP ._SENT 
+Google_NP ScholarCrossref_NP 17._CD Davies_NP ,_, J._NP C._NP ,_, and_CC Mulholland_NP ,_, K._NP A._NP (_( 1979_CD )_) ._SENT 
+“_NP An_DT impulse_NN method_NN of_IN measuring_VVG normal_JJ impedance_NN at_IN oblique_JJ incidence_NN ,_, ”_NP J._NP Sound_NP Vib_NP ._SENT 
+67_CD ,_, 135–149_NP ._SENT 
+https_NNS :_: //doi_NP ._SENT 
+org/10.1016/0022-460X(79)90508-X_NP ,_, Google_NP ScholarCrossref_NP 18._CD de_NP Bruijn_NP ,_, A._NP (_( 1973_CD )_) ._SENT 
+“_NP A_DT mathematical_JJ analysis_NN concerning_VVG the_DT edge_NN effect_NN of_IN sound_JJ absorbing_VVG materials_NNS ,_, ”_NP Acta_NP Acust_NP ._SENT 
+united_VVN Ac_NN ._SENT 
+28_CD ,_, 33–44_NP ._SENT 
+Google_NP Scholar_NN 19._CD Delany_NP ,_, M._NP E._NP ,_, and_CC Bazley_NP ,_, E._NP N._NP (_( 1970_CD )_) ._SENT 
+“_JJ Acoustical_JJ properties_NNS of_IN fibrous_JJ absorbent_JJ materials_NNS ,_, ”_JJ Appl_NN ._SENT 
+Acoust_NP ._SENT 
+3_LS ,_, 105–116_NP ._SENT 
+https_NNS :_: //doi_NP ._SENT 
+org/10.1016/0003-682X(70)90031-9_NP ,_, Google_NP ScholarCrossref_NP 20._CD Di_NP ,_, X._NP ,_, and_CC Gilbert_NP ,_, K._NP E._NP (_( 1993_CD )_) ._SENT 
+“_NP An_DT exact_JJ Laplace_NP transform_VV formulation_NN for_IN a_DT point_NN source_NN above_IN a_DT ground_NN surface_NN ,_, ”_NP J._NP Acoust_NP ._SENT 
+Soc_NP ._SENT 
+Am_NP ._SENT 
+93_CD ,_, 714–720_NP ._SENT 
+https_NNS :_: //doi_NP ._SENT 
+org/10.1121/1.405435_NP ,_, Google_NP ScholarScitation_NP ,_, ISI_NP 21._CD Garai_NP ,_, M._NP (_( 1993_CD )_) ._SENT 
+“_JJ Measurement_NN of_IN the_DT sound-absorption_NN coefficient_NN in_IN situ_NP :_: The_DT reflection_NN method_NN using_VVG periodic_JJ pseudo-random_NN sequences_NNS of_IN maximum_JJ length_NN ,_, ”_NP Appl_NP ._SENT 
+Acoust_NP ._SENT 
+39_CD ,_, 119–139_NP ._SENT 
+https_NNS :_: //doi_NP ._SENT 
+org/10.1016/0003-682X(93)90032-2_NP ,_, Google_NP ScholarCrossref_NP 22._CD Goines_NP ,_, L._NP ,_, and_CC Hagler_NP ,_, L._NP (_( 2007_CD )_) ._SENT 
+“_JJ Noise_NN pollution_NN :_: A_DT modern_JJ plague_NN ,_, ”_NP South_NP ._SENT 
+Med_NP ._SENT 
+J._NP 100_CD ,_, 287–294_NP ._SENT 
+https_NNS :_: //doi_NP ._SENT 
+org/10.1097/SMJ.0b013e3180318be5_NP ,_, Google_NP ScholarCrossref_NP 23._CD Hess_NP ,_, H._NP M._NP ,_, Attenborough_NP ,_, K._NP ,_, and_CC Heap_NP ,_, N._NP W._NP (_( 1990_CD )_) ._SENT 
+“_NP Ground_NP characterization_NN by_IN short-range_JJ propagation_NN measurements_NNS ,_, ”_NP J._NP Acoust_NP ._SENT 
+Soc_NP ._SENT 
+Am_NP ._SENT 
+87_CD ,_, 1975–1986_NP ._SENT 
+https_NNS :_: //doi_NP ._SENT 
+org/10.1121/1.399325_NP ,_, Google_NP ScholarScitation_NP ,_, ISI_NP 24._CD Hirosawa_NP ,_, K._NP ,_, Takashima_NP ,_, K._NP ,_, Nakagawa_NP ,_, H._NP ,_, Kon_NP ,_, M._NP ,_, Yamamoto_NP ,_, A._NP ,_, and_CC Lauriks_NP ,_, W._NP (_( 2009_CD )_) ._SENT 
+“_JJ Comparison_NN of_IN three_CD measurement_NN techniques_NNS for_IN the_DT normal_JJ absorption_NN coefficient_NN of_IN sound_JJ absorbing_VVG materials_NNS in_IN the_DT free_JJ field_NN ,_, ”_NP J._NP Acoust_NP ._SENT 
+Soc_NP ._SENT 
+Am_NP ._SENT 
+126_CD ,_, 3020–3027_JJ ._SENT 
+https_NNS :_: //doi_NP ._SENT 
+org/10.1121/1.3242355_NP ,_, Google_NP ScholarScitation_NP ,_, ISI_NP 25._CD Ingård_NN ,_, U._NP ,_, and_CC Bolt_NP ,_, R._NP H._NP (_( 1951_CD )_) ._SENT 
+“_NP A_DT free_JJ field_NN method_NN of_IN measuring_VVG the_DT absorption_NN coefficient_NN of_IN acoustic_JJ materials_NNS ,_, ”_NP J._NP Acoust_NP ._SENT 
+Soc_NP ._SENT 
+Am_NP ._SENT 
+23_CD ,_, 509–516_NP ._SENT 
+https_NNS :_: //doi_NP ._SENT 
+org/10.1121/1.1906796_NP ,_, Google_NP ScholarScitation_NP ,_, ISI_NP 26._CD ISO_NP (_( 1998_CD )_) ._SENT 
+ISO_NP 10534-2_CD ,_, “_JJ Acoustic–Determination_NN of_IN sound_JJ absorption_NN coefficient_NN and_CC impedance_NN in_IN impedance_NN tubes–Part_NN 2_CD :_: Transfer-functions_NNS method_NN ”_NP (_( ISO_NP ,_, Geneva_NP ,_, Switzerland_NP )_) ._SENT 
+Google_NP Scholar_NN 27._CD ISO_NP (_( 2004_CD )_) ._SENT 
+ISO_NP 354_CD ,_, “_JJ Acoustics–Measurement_NN of_IN sound_JJ absorption_NN in_IN a_DT reverberation_NN room_NN ”_NP (_( ISO_NP ,_, Geneva_NP ,_, Switzerland_NP )_) ._SENT 
+Google_NP Scholar_NN 28._CD Kimura_NP ,_, K._NP ,_, and_CC Yamamoto_NP ,_, K._NP (_( 2002_CD )_) ._SENT 
+“_NP The_DT required_JJ sample_NN size_NN in_IN measuring_VVG oblique_JJ incidence_NN absorption_NN coefficient_NN experimental_JJ study_NN ,_, ”_NP Appl_NP ._SENT 
+Acoust_NP ._SENT 
+63_CD ,_, 567–578_NP ._SENT 
+https_NNS :_: //doi_NP ._SENT 
+org/10.1016/S0003-682X(01)00055-X_NP ,_, Google_NP ScholarCrossref_NP 29._CD Langer_NP ,_, P._NP ,_, Maeder_NP ,_, M._NP ,_, Guist_NP ,_, C._NP ,_, Krause_NP ,_, M._NP ,_, and_CC Marburg_NP ,_, S._NP (_( 2017_CD )_) ._SENT 
+“_NN More_JJR than_IN six_CD elements_NNS per_IN wavelength_NN :_: The_DT practical_JJ use_NN of_IN structural_JJ finite_JJ element_NN models_NNS and_CC their_PP$ accuracy_NN ,_, ”_NP J._NP Comput_NN ._SENT 
+Acoust_NP ._SENT 
+25_CD ,_, 1–23_NP ._SENT 
+https_NNS :_: //doi_NP ._SENT 
+org/10.1142/S0218396X17500254_NP ,_, Google_NP ScholarCrossref_NP 30._CD Lanoye_NN ,_, R._NP ,_, de_NP Bree_NP ,_, H._NP E._NP ,_, Lauriks_NP ,_, W._NP ,_, and_CC Vermeir_NP ,_, G._NP (_( 2004_CD )_) ._SENT 
+“_NP A_DT practical_JJ device_NN to_TO determine_VV the_DT reflection_NN coefficient_NN of_IN acoustic_JJ materials_NNS in-situ_NN based_VVN on_IN a_DT Microflown_JJ and_CC microphone_NN sensor_NN ,_, ”_NN in_IN Proceedings_NNS of_IN the_DT International_NP Conference_NP on_IN Noise_NN Vibration_NN and_CC Engineering_NP ,_, September_NP 20–22_NP ,_, Leuven_NP ,_, Belgium_NP ,_, pp_NP ._SENT 
+2665–2675_NP ._SENT 
+Google_NP Scholar_NN 31._CD Lanoye_NN ,_, R._NP ,_, Vermeir_NP ,_, G._NP ,_, Lauriks_NP ,_, W._NP ,_, Kruse_NP ,_, R._NP ,_, and_CC Mellert_NP ,_, V._NP (_( 2006_CD )_) ._SENT 
+“_JJ Measuring_VVG the_DT free_JJ field_NN acoustic_JJ impedance_NN and_CC absorption_NN coefficient_NN of_IN sound_JJ absorbing_VVG materials_NNS with_IN a_DT combined_JJ particle_NN velocity-pressure_NN sensor_NN ,_, ”_NP J._NP Acoust_NP ._SENT 
+Soc_NP ._SENT 
+Am_NP ._SENT 
+119_CD ,_, 2826–2831_JJ ._SENT 
+https_NNS :_: //doi_NP ._SENT 
+org/10.1121/1.2188821_JJ ,_, Google_NP ScholarScitation_NP ,_, ISI_NP 32._CD Li_NP ,_, J._NP F._NP ,_, and_CC Hodgson_NP ,_, M._NP (_( 1997_CD )_) ._SENT 
+“_JJ Use_NN of_IN pseudo-random_NN sequences_NNS and_CC a_DT single_JJ microphone_NN to_TO measure_VV surface_NN impedance_NN at_IN oblique_JJ incidence_NN ,_, ”_NP J._NP Acoust_NP ._SENT 
+Soc_NP ._SENT 
+Am_NP ._SENT 
+102_CD ,_, 2200–2210_NP ._SENT 
+https_NNS :_: //doi_NP ._SENT 
+org/10.1121/1.419634_NP ,_, Google_NP ScholarScitation_NP ,_, ISI_NP 33._CD Lin_NP ,_, W._NP L._NP ,_, Bi_NP ,_, C._NP X._NP ,_, Vorländer_NP ,_, M._NP ,_, Zhang_NP ,_, Y._NP B._NP ,_, and_CC Opdam_NP ,_, R._NP (_( 2016a_NP )_) ._SENT 
+“_NP In_IN situ_NP measurement_NN of_IN the_DT absorption_NN coefficient_NN based_VVN on_IN a_DT time-domain_NP subtraction_NN technique_NN with_IN a_DT particle_NN velocity_NN transducer_NN ,_, ”_NP Acta_NP Acust_NP ._SENT 
+united_VVN Ac_NN ._SENT 
+102_CD ,_, 945–954_NP ._SENT 
+https_NNS :_: //doi_NP ._SENT 
+org/10.3813/AAA.919009_NP ,_, Google_NP ScholarCrossref_NP 34._CD Lin_NP ,_, W._NP L._NP ,_, Bi_NP ,_, C._NP X._NP ,_, and_CC Zhang_NP ,_, Y._NP B._NP (_( 2016b_NP )_) ._SENT 
+“_JJ Measurement_NN of_IN reflection_NN factor_NN at_IN oblique_JJ incidence_NN with_IN pressure-velocity_NN transducers_NNS ,_, ”_JJ Noise_NN Control_NP Eng_NP ._SENT 
+J._NP 64_CD ,_, 379–387_JJ ._SENT 
+https_NNS :_: //doi_NP ._SENT 
+org/10.3397/1/376387_JJ ,_, Google_JJ ScholarCrossref_NP 35._CD Marburg_NP ,_, S._NP (_( 2018a_NP )_) ._SENT 
+“_NP A_NP pollution_NN effect_NN in_IN the_DT boundary_NN element_NN method_NN for_IN acoustic_JJ problems_NNS ,_, ”_NP J._NP Theor_NP ._SENT 
+Comput_NN ._SENT 
+Acoust_NP ._SENT 
+26_CD ,_, 1–18_NP ._SENT 
+https_NNS :_: //doi_NP ._SENT 
+org/10.1142/S2591728518500184_NP ,_, Google_NP ScholarCrossref_NP 36._CD Marburg_NP ,_, S._NP (_( 2018b_NP )_) ._SENT 
+“_NP Boundary_NP element_NN method_NN for_IN time-harmonic_JJ acoustic_JJ problems_NNS ,_, ”_JJ in_IN Computational_JJ Acoustics_NNS ,_, edited_VVN by_IN M._NP Kaltenbacher_NP (_( Springer_NP ,_, Vienna_NP )_) ,_, pp_NP ._SENT 
+69–158_NP ._SENT 
+Google_NP ScholarCrossref_NP 37._CD Matsumoto_NP ,_, T._NP ,_, Zheng_NP ,_, C._NP ,_, Harada_NP ,_, S._NP ,_, and_CC Takahashi_NP ,_, T._NP (_( 2010_CD )_) ._SENT 
+“_JJ Explicit_JJ evaluation_NN of_IN hypersingular_JJ boundary_NN integral_JJ equation_NN for_IN 3-D_JJ Helmholtz_NP equation_NN discretized_VVN with_IN constant_JJ triangular_JJ element_NN ,_, ”_NP J._NP Comput_NN ._SENT 
+Sci_NP ._SENT 
+Technol_NN ._SENT 
+4_LS ,_, 194–206_NP ._SENT 
+https_NNS :_: //doi_NP ._SENT 
+org/10.1299/jcst.4.194_NP ,_, Google_NP ScholarCrossref_NP 38._CD Minten_NP ,_, M._NP ,_, Cops_VVZ ,_, A._NP ,_, and_CC Lauriks_NP ,_, W._NP (_( 1988_CD )_) ._SENT 
+“_JJ Absorption_NN characteristics_NNS of_IN an_DT acoustic_JJ material_NN at_IN oblique_JJ incidence_NN measured_VVN with_IN the_DT two-microphone_NN technique_NN ,_, ”_NP J._NP Sound_NP Vib_NP ._SENT 
+120_CD ,_, 499–510_NP ._SENT 
+https_NNS :_: //doi_NP ._SENT 
+org/10.1016/S0022-460X(88)80222-0_NP ,_, Google_NP ScholarCrossref_NP 39._CD Mommertz_NP ,_, E._NP (_( 1995_CD )_) ._SENT 
+“_NP Angle-dependent_NP in-situ_NP measurements_NNS of_IN reflection_NN coefficients_NNS using_VVG a_DT subtraction_NN technique_NN ,_, ”_NP Appl_NP ._SENT 
+Acoust_NP ._SENT 
+46_CD ,_, 251–263_NP ._SENT 
+https_NNS :_: //doi_NP ._SENT 
+org/10.1016/0003-682X(95)00027-7_JJ ,_, Google_JJ ScholarCrossref_NP 40._CD Nolan_NP ,_, M._NP (_( 2020_CD )_) ._SENT 
+“_JJ Estimation_NN of_IN angle-dependent_JJ absorption_NN coefficients_NNS from_IN spatially_RB distributed_VVN in_IN situ_NP measurements_NNS ,_, ”_NP J._NP Acoust_NP ._SENT 
+Soc_NP ._SENT 
+Am_NP ._SENT 
+147_CD ,_, EL119–EL124_NP ._SENT 
+https_NNS :_: //doi_NP ._SENT 
+org/10.1121/10.0000716_NP ,_, Google_NP ScholarScitation_NP ,_, ISI_NP 41._CD Otsuru_NP ,_, T._NP ,_, Tomiku_NP ,_, R._NP ,_, Din_NP ,_, N._NP B._NP C._NP ,_, Okamoto_NP ,_, N._NP ,_, and_CC Murakami_NP ,_, M._NP (_( 2009_CD )_) ._SENT 
+“_JJ Ensemble_NN averaged_VVD surface_VV normal_JJ impedance_NN of_IN material_NN using_VVG an_DT in-situ_NP technique_NN :_: Preliminary_JJ study_NN using_VVG boundary_NN element_NN method_NN ,_, ”_NP J._NP Acoust_NP ._SENT 
+Soc_NP ._SENT 
+Am_NP ._SENT 
+125_CD ,_, 3784–3791_JJ ._SENT 
+https_NNS :_: //doi_NP ._SENT 
+org/10.1121/1.3125327_JJ ,_, Google_NP ScholarScitation_NP ,_, ISI_NP 42._CD Ottink_NN ,_, M._NP ,_, Brunskog_NP ,_, J._NP ,_, Jeong_NP ,_, C._NP -H_NP ._SENT 
+,_, Fernandez-Grande_NP ,_, E._NP ,_, Trojgaard_NP ,_, P._NP ,_, and_CC Tiana-Roig_NP ,_, E._NP (_( 2016_CD )_) ._SENT 
+“_NP In_IN situ_NP measurements_NNS of_IN the_DT oblique_JJ incidence_NN sound_NN absorption_NN coefficient_NN for_IN finite_JJ sized_VVD absorbers_NNS ,_, ”_NP J._NP Acoust_NP ._SENT 
+Soc_NP ._SENT 
+Am_NP ._SENT 
+139_CD ,_, 41–52_NP ._SENT 
+https_NNS :_: //doi_NP ._SENT 
+org/10.1121/1.4938225_NP ,_, Google_NP ScholarScitation_NP ,_, ISI_NP 43._CD Richard_NP ,_, A._NP ,_, and_CC Fernandez-Grande_NP ,_, E._NP (_( 2019_CD )_) ._SENT 
+“_JJ Comparison_NN of_IN two_CD microphone_NN array_NN geometries_NNS for_IN surface_NN impedance_NN estimation_NN ,_, ”_NP J._NP Acoust_NP ._SENT 
+Soc_NP ._SENT 
+Am_NP ._SENT 
+146_CD ,_, 501–504_NP ._SENT 
+https_NNS :_: //doi_NP ._SENT 
+org/10.1121/1.5116705_NP ,_, Google_NP ScholarScitation_NP ,_, ISI_NP 44._CD Richard_NP ,_, A._NP ,_, Fernandez-Grande_NP ,_, E._NP ,_, Brunskog_NP ,_, J._NP ,_, and_CC Jeong_NP ,_, C._NP -H_NP ._SENT 
+(_( 2017_CD )_) ._SENT 
+“_JJ Estimation_NN of_IN surface_NN impedance_NN at_IN oblique_JJ incidence_NN based_VVN on_IN sparse_JJ array_NN processing_NN ,_, ”_NP J._NP Acoust_NP ._SENT 
+Soc_NP ._SENT 
+Am_NP ._SENT 
+141_CD ,_, 4115–4125_NP ._SENT 
+https_NNS :_: //doi_NP ._SENT 
+org/10.1121/1.4983756_NP ,_, Google_NP ScholarScitation_NP ,_, ISI_NP 45._CD Takahashi_NP ,_, Y._NP ,_, Otsuru_NP ,_, T._NP ,_, and_CC Tomiku_NP ,_, R._NP (_( 2005_CD )_) ._SENT 
+“_NP In_IN situ_NP measurements_NNS of_IN surface_NN impedance_NN and_CC absorption_NN coefficients_NNS of_IN porous_JJ materials_NNS using_VVG two_CD microphones_NNS and_CC ambient_JJ noise_NN ,_, ”_NP Appl_NP ._SENT 
+Acoust_NP ._SENT 
+66_CD ,_, 845–865_NP ._SENT 
+https_NNS :_: //doi_NP ._SENT 
+org/10.1016/j_NP ._SENT 
+apacoust.2004.11.004_NP ,_, Google_NP ScholarCrossref_NP 46._CD Tamura_NP ,_, M._NP (_( 1990_CD )_) ._SENT 
+“_JJ Spatial_JJ Fourier_NN transform_VV method_NN of_IN measuring_VVG reflection_NN coefficients_NNS at_IN oblique_JJ incidence_NN ._SENT 
+I_NN :_: Theory_NN and_CC numerical_JJ examples_NNS ,_, ”_NP J._NP Acoust_NP ._SENT 
+Soc_NP ._SENT 
+Am_NP ._SENT 
+88_CD ,_, 2259–2264_NP ._SENT 
+https_NNS :_: //doi_NP ._SENT 
+org/10.1121/1.400068_NP ,_, Google_NP ScholarScitation_NP ,_, ISI_NP 47._CD Thomasson_NP ,_, S._NP I._NP (_( 1980_CD )_) ._SENT 
+“_NN On_IN the_DT absorption_NN coefficient_NN ,_, ”_NP Acta_NP Acust_NP ._SENT 
+united_VVN Ac_NN ._SENT 
+44_CD ,_, 265–273_NP ._SENT 
+Google_NP Scholar_NN 48._CD Tijs_NNS ,_, E._NP ,_, de_NP Bree_NP ,_, H._NP E._NP ,_, and_CC Brandão_NP ,_, E._NP (_( 2009_CD )_) ._SENT 
+“_NP In_IN situ_NP PU_NP surface_NN impedance_NN measurements_NNS for_IN quality_NN control_NN at_IN the_DT end_NN of_IN an_DT assembly_NN line_NN ,_, ”_NP SAE_NP International_NP Paper_NP No._NN 2009-01-2142_CD ._SENT 
+Google_NP Scholar_NN 49._CD Yuzawa_NP ,_, M._NP (_( 1975_CD )_) ._SENT 
+“_NP A_DT method_NN of_IN obtaining_VVG the_DT oblique_JJ incident_NN sound_NN absorption_NN coefficient_NN through_IN an_DT on-the-spot_JJ measurement_NN ,_, ”_NP Appl_NP ._SENT 
+Acoust_NP ._SENT 
+8_CD ,_, 27–41_JJ ._SENT 
+https_NNS :_: //doi_NP ._SENT 
+org/10.1016/0003-682X(75)90004-3_NP ,_, Google_NP ScholarCrossref_NP 

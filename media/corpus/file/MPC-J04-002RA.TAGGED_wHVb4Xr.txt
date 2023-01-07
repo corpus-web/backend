@@ -1,0 +1,215 @@
+<title> MVDR_NP beamformer_NP with_IN subband_NP peak_NN energy_NN detector_NN for_IN detection_NN and_CC tracking_VVG of_IN fast_RB moving_VVG underwater_JJ targets_NNS using_VVG towed_VVN array_NN sonars_NNS </title> <author> Jomon_NN ,_, George_NP ;_: Jojish_NP ,_, Joseph_NP V._NP ;_: Santhanakrishnan_NP ,_, T._NP </author> <Affiliation> 1_CD NPOL_NP ,_, Thrikkakara_NP PO_NN ,_, Kochi_NP ;_: Kerala_NP ;_: 682021_CD ,_, India_NP </Affiliation> <year> 2019_CD </year> <Jounral> Acta_NP Acustica_NP united_VVN with_IN Acustica_NP </Journal> <Publishing_house> S._NP Hirzel_NP Verlag_NP GmbH_NP </Publishing_house> <Text_Collector> Liu_NP Kai，HEU_NP </Text_Collector> <DOI> 10.3813/AAA.919302_NP </DOI> <URL> https_VVZ :_: //chinesesites-library-ingentaconnect-com-s_NNS ._SENT 
+wvpn_NP ._SENT 
+hrbeu_NP ._SENT 
+edu_NP ._SENT 
+cn/content/dav/aaua/2019/00000105/00000001/art00024_NN ;_: jsessionid=541nchu1pi2p5_NN ._SENT 
+x-ic-live-03_JJ </URL> <Section> Summary_NN </Section> Detection_NN and_CC tracking_VVG of_IN fast_RB moving_VVG underwater_JJ targets_NNS like_IN torpedoes_NNS within_IN cluttered_JJ acoustic_JJ environment_NN is_VBZ a_DT challenging_JJ task_NN in_IN anti-submarine_JJ warfare_NN ._SENT 
+Adaptive_JJ Minimum_NP Variance_NN Distortion_NN less_CC Response_NP (_( MVDR_NP )_) beamformer_NP with_IN Subband_NP Peak_NP Energy_NP Detector_NN (_( SPED_VVN )_) oﬀers_VVZ narrow_JJ beam_NN width_NN and_CC low_JJ side_NN lobe_NN levels_NNS ,_, which_WDT is_VBZ an_DT essential_JJ requirement_NN for_IN torpedo_VV detection_NN and_CC tracking_NN ._SENT 
+A_DT novel_NN algorithm_NN for_IN torpedo_VV detection_NN and_CC tracking_VVG using_VVG MVDR_NN with_IN SPED_VVN for_IN towed_VVN array_NN sonar_NN is_VBZ presented_VVN in_IN this_DT paper_NN ._SENT 
+Measures_NNS to_TO make_VV the_DT adaptive_JJ beamformer_NN more_RBR robust_JJ to_TO any_DT array_NN perturbations_NNS are_VBP discussed_VVN ._SENT 
+These_DT algorithms_NNS are_VBP tested_VVN and_CC validated_VVN using_VVG simulated_JJ and_CC towed_VVN array_NN experimental_JJ data_NNS ._SENT 
+Hardware_NN implementation_NN of_IN a_DT real-time_JJ broad_JJ band_NN adaptive_JJ MVDR_NP beamformer_NN with_IN SPED_VVN for_IN uniform_JJ linear_JJ array_NN is_VBZ presented_VVN ._SENT 
+Various_JJ computational_JJ aspects_NNS of_IN real_JJ time_NN implementation_NN are_VBP looked_VVN at_IN and_CC an_DT eﬃcient_JJ and_CC parallel_JJ implementation_NN scheme_NN is_VBZ proposed_VVN ._SENT 
+<Section> 1._CD Introduction_NN </Section> Passive_NP Sonars_NNS use_VVP beamforming_VVG techniques_NNS to_TO detect_VV pres-_NN ence_NNS and_CC direction_NN of_IN arrival_NN of_IN underwater_JJ sound_JJ sources_NNS ._SENT 
+Conventional_JJ beamforming_JJ technique_NN is_VBZ the_DT delay_NN summing_VVG technique_NN where_WRB the_DT data_NNS obtained_VVN from_IN an_DT array_NN of_IN elements_NNS is_VBZ delayed_VVN and_CC summed_VVD so_RB that_IN waves_NNS incident_NN from_IN a_DT particular_JJ direction_NN are_VBP made_VVN to_TO the_DT same_JJ phase_NN and_CC summed_VVD up_RP ._SENT 
+A_DT number_NN of_IN such_JJ beams_NNS are_VBP simultane-_JJ ously_RB formed_VVN and_CC a_DT bearing_NN versus_CC time_NN graph_NN is_VBZ plotted_VVD ._SENT 
+A_DT marked_JJ intensity_NN line_NN in_IN the_DT bearing_NN versus_CC time_NN graph_NN indicates_VVZ the_DT presence_NN of_IN a_DT target_NN ._SENT 
+The_DT exact_JJ bearing_NN of_IN the_DT target_NN is_VBZ then_RB obtained_VVN by_IN a_DT tracking_NN mechanism_NN ,_, which_WDT follows_VVZ the_DT target_NN trajectory_NN ._SENT 
+Beam_NN former_JJ is_VBZ a_DT spatial_JJ ﬁlter_NN ,_, which_WDT enhances_VVZ the_DT am-_NN plitude_NN of_IN the_DT signal_NN wavefront_NN from_IN a_DT given_VVN direction_NN with_IN respect_NN to_TO background_NN noise_NN by_IN operating_VVG on_IN the_DT data_NNS ob-_NN tained_VVN from_IN an_DT array_NN of_IN sensors_NNS ._SENT 
+Sonar_NN systems_NNS use_VVP the_DT beamforming_JJ technique_NN to_TO estimate_VV the_DT direction_NN of_IN arrival_NN of_IN the_DT target_NN signal_NN by_IN digital_JJ processing_NN of_IN the_DT signals_NNS obtained_VVN from_IN a_DT uniform_JJ linear_JJ array_NN of_IN hydrophones_NNS ._SENT 
+Con-_NP ventional_NP beamforming_VVG techniques_NNS for_IN linear_JJ arrays_NNS give_VVP a_DT phase_NN delay_NN to_TO the_DT sampled_VVN array_NN vector_NN so_RB that_IN all_DT el-_NN ements_NNS add_VVP up_RP in_IN phase_NN for_IN the_DT speciﬁed_JJ look_NN direction_NN ._SENT 
+Thus_RB the_DT delay_NN vectors_VVZ for_IN speciﬁed_JJ look_NN directions_NNS or_CC the_DT steering_NN vectors_VVZ themselves_PP act_VV as_IN the_DT weight_NN vectors_VVZ for_IN beamforming_VVG ._SENT 
+These_DT weight_NN vectors_NNS are_VBP constant_JJ and_CC are_VBP independent_JJ of_IN the_DT incoming_JJ data_NNS ._SENT 
+Conventional_JJ beamforming_JJ results_NNS in_IN relatively_RB large_JJ beam_NN widths_NNS and_CC limits_VVZ the_DT resolution_NN of_IN the_DT beamformer_NN to_TO distinguish_VV between_IN closely_RB spaced_VVN targets_NNS ._SENT 
+Adaptive_JJ beamformers_NNS give_VVP minimum_JJ beamwidth_NN independent_JJ of_IN the_DT number_NN of_IN sensors_NNS ._SENT 
+Here_RB the_DT weight_NN vector_NN is_VBZ adaptively_RB estimated_VVN from_IN the_DT incoming_JJ data_NNS so_RB as_RB to_TO obtain_VV high-resolution_NN detection_NN in_IN a_DT noisy_JJ environment_NN ._SENT 
+Minimum_JJ Variance_NN Distortion_NN less_CC Response_NP (_( MVDR_NP )_) is_VBZ an_DT adaptive_JJ algorithm_NN ,_, which_WDT minimizes_VVZ the_DT output_NN power_NN in_IN all_DT directions_NNS subject_JJ to_TO the_DT condition_NN that_IN gain_NN in_IN the_DT steering_NN direction_NN is_VBZ unity_NN ._SENT 
+This_DT algorithm_NN gives_VVZ opti-_JJ mum_JJ performance_NN by_IN steering_VVG nulls_NNS in_IN the_DT direction_NN of_IN in-_NN terferences_NNS and_CC other_JJ correlated_VVN noise_NN sources_NNS ._SENT 
+Detection_NN of_IN fast-moving_JJ torpedoes_NNS under_IN cluttered_JJ acoustic_JJ environment_NN is_VBZ diﬃcult_VVN with_IN conventional_JJ beam-_NN forming_VVG and_CC detection_NN algorithms_NNS ._SENT 
+Narrow_JJ beamwidth_NN and_CC low_JJ sidelobe_NN levels_NNS are_VBP essential_JJ for_IN eﬃcient_JJ detection_NN and_CC tracking_NN of_IN such_JJ targets_NNS with_IN fast_JJ maneuvering_NN capability_NN ._SENT 
+An_DT adaptive_JJ MVDR_NN with_IN Subband_NP Peak_NP Energy_NP Detec-_NN tor_NN (_( SPED_VVN )_) is_VBZ presented_VVN here_RB for_IN this_DT purpose_NN ._SENT 
+MVDR_NP and_CC SPED_VVN are_VBP two_CD well-known_JJ algorithms_NNS ._SENT 
+This_DT paper_NN presents_VVZ a_DT novel_JJ processing_NN method_NN for_IN torpedo_VV detection_NN and_CC track-_NN ing_NNS using_VVG a_DT combination_NN of_IN these_DT algorithms_NNS ._SENT 
+<Section> 2._CD MVDR_NP Beamformer_NP with_IN Energy_NP Detector_NN </Section> Consider_VV a_DT frequency-domain_NN beamformer_NN with_IN maximum_JJ response_NN at_IN angle_NN θ_NN ._SENT 
+A_DT planar_JJ wavefront_NN is_VBZ assumed_VVN for_IN the_DT target_NN signal_NN and_CC the_DT receiver_NN sensors_NNS are_VBP in_IN a_DT uniform_JJ linear_JJ towed_VVN array_NN ._SENT 
+The_DT signals_NNS from_IN the_DT M_NP sensors_NNS are_VBP transformed_VVN into_IN the_DT frequency_NN domain_NN using_VVG the_DT discrete_JJ Fourier_NN transform_VV ._SENT 
+Let_VV this_DT input_NN vector_NN for_IN kth_JJ frequency_NN bin_NN be_VB Xk_NN =_SYM [_SYM xk1_JJ ,_, xk2_NP ,_, xk3_NP ,_, ..._: ,_, xkm_NN ]_SYM ._SENT 
+The_DT beamformer_NP out-_NN put_VVD for_IN direction_NN θ_NN and_CC for_IN kth_JJ frequency_NN bin_NN can_MD be_VB ex-_NN pressed_VVN as_IN @（1）_NP where_WRB wk_NP is_VBZ the_DT complex-weight_JJ vector_NN for_IN kth_JJ frequency_NN bin_NN and_CC wH_NP denotes_VVZ its_PP$ complex-conjugate_JJ transposition_NN ._SENT 
+The_DT power_NN at_IN the_DT beamformer_NN output_NN for_IN direction_NN θ_NN is_VBZ given_VVN by_IN @（2）_NP where_WRB Rk_NN is_VBZ the_DT Cross_NP Spectral_JJ density_NN Matrix_NN (_( CSM_NN )_) of_IN the_DT incoming_JJ data_NNS and_CC is_VBZ deﬁned_VVN as_IN @（3）_NN The_DT steering_NN vector_NN corresponding_JJ to_TO the_DT direction_NN θ_NN and_CC for_IN kth_JJ frequency_NN bin_NN is_VBZ given_VVN by_IN Equation_NN (_( 4_CD )_) ._SENT 
+@（4）_NP where_WRB d_SYM is_VBZ the_DT distance_NN between_IN individual_JJ sensors_NNS of_IN the_DT linear_JJ array_NN ,_, m_NN is_VBZ the_DT number_NN of_IN sensors_NNS and_CC ω_NN =_SYM 2πf_NP ,_, the_DT angular_JJ frequency_NN of_IN the_DT signal_NN ,_, where_WRB f_SYM is_VBZ the_DT frequency_NN corresponding_JJ to_TO the_DT kth_JJ frequency_NN bin_NN ._SENT 
+The_DT optimum_JJ MVDR_NN weights_NNS are_VBP given_VVN by_IN minimizing_VVG the_DT power_NN output_NN under_IN the_DT constraint_NN wH_NP =_SYM 1_CD ,_, for_IN the_DT given_VVN direction_NN ._SENT 
+The_DT MVDR_NP weight_NN vectors_NNS are_VBP obtained_VVN by_IN the_DT Lagrange_NP Multiplier_NN method_NN as_IN @（5）_NN The_DT optimum_JJ MVDR_NN weight_NN calculated_VVN in_IN Equation_NN (_( 5_CD )_) is_VBZ for_IN a_DT narrow-band_NN source_NN with_IN frequency_NN corresponding_JJ to_TO kth_JJ frequency_NN bin_NN ._SENT 
+For_IN broadband_NP beamformer_NP the_DT narrow-_NN band_NN output_NN for_IN each_DT frequency_NN bin_NN of_IN interest_NN needs_VVZ to_TO be_VB computed_VVN and_CC the_DT power_NN is_VBZ added_VVN over_IN all_PDT the_DT frequency_NN bins_NNS in_IN the_DT band_NN for_IN the_DT desired_VVN direction_NN as_IN shown_VVN in_IN Figure_NP 1._CD Broadband_NP MVDR_NP beamformer_NP with_IN Energy_NP Detec-_NP tor_NN (_( MVDR-ED_JJ )_) output_NN along_IN a_DT given_VVN direction_NN θ_NN can_MD be_VB calculated_VVN as_IN @（6）_JJ Figure_NP 1._CD Broadband_NP MVDR_NP with_IN Energy_NP Detector_NN ._SENT 
+The_DT computation_NN of_IN the_DT CSM_NN inverse_NN is_VBZ the_DT most_JJS compu-_NN tationally_RB challenging_VVG part_NN of_IN broadband_NP MVDR_NP ._SENT 
+Depend-_NN ing_NNS on_IN the_DT number_NN of_IN bins_NNS to_TO be_VB processed_VVN ,_, many_JJ CSM_NN matrices_NNS need_VVP to_TO be_VB averaged_VVN and_CC updated_VVN for_IN every_DT snap-shot_NN of_IN input_NN data_NNS ._SENT 
+After_IN exponentially_RB averaging_VVG for_IN the_DT desired_VVN integration_NN time_NN the_DT matrices_NNS need_VVP to_TO be_VB inverted_VVN for_IN finding_VVG the_DT optimum_JJ weight_NN vectors_NNS ._SENT 
+The_DT Gauss_NP Jordan_NP elimination_NN method_NN is_VBZ used_VVN for_IN finding_VVG the_DT inverse_NN of_IN the_DT complex_JJ CSM_NN matrix_NN ._SENT 
+<Section> 3._CD SPED_VVN for_IN Torpedo_NN Detection_NN </Section> Subband_NP Peak_NP Energy_NP Detection_NN (_( SPED_VVN )_) is_VBZ an_DT important_JJ processing_NN method_NN that_WDT provides_VVZ improved_VVN performance_NN to_TO sonar_NN systems_NNS ._SENT 
+SPED_VVN can_MD provide_VV thinner_JJR target_NN traces_NNS ,_, improved_VVN bearing_NN resolution_NN ,_, and_CC better_JJR detection_NN advantage_NN in_IN cluttered_JJ acoustic_JJ environments_NNS ,_, which_WDT is_VBZ an_DT essential_JJ requirement_NN for_IN torpedo_VV detection_NN ._SENT 
+In_IN a_DT multi-_NN beam_NN towed_VVD array_NN sonar_NN system_NN ,_, SPED_VVD broadband_NP pro-_NN cessor_NN block_NN diagram_NN is_VBZ given_VVN in_IN Figure_NP 2._CD The_DT output_NN of_IN MVDR_NP beamformer_NP for_IN every_DT frequency_NN bin_NN is_VBZ processed_VVN using_VVG a_DT Square_NP Law_NP Detector_NN (_( SLD_NP )_) function_NN ._SENT 
+After_IN that_DT ,_, the_DT outputs_NNS are_VBP Time_NP Averaged_VVD (_( TA_NP )_) and_CC then_RB normal-_NN ized_NNS ._SENT 
+Averaging_VVG time_NN is_VBZ selected_VVN based_VVN on_IN the_DT the_DT obser-_NN vation_NN time_NN and_CC the_DT signal_NN stationarity_NN ._SENT 
+For_IN a_DT fast_RB moving_VVG torpedo_VV target_NN ,_, multiple_JJ averaging_NN times_NNS are_VBP provided_VVN to_TO account_VV for_IN diﬀerent_JJ target_NN movement_NN regimes_NNS ._SENT 
+The_DT nor-_NN malization_NN is_VBZ accomplished_VVN in_IN the_DT frequency_NN domain_NN sep-_NN arately_RB at_IN each_DT beam_NN ._SENT 
+Subsequently_RB ,_, the_DT output_NN data_NNS are_VBP summed_VVN over_IN frequencies_NNS for_IN each_DT single_JJ azimuth_NN bin_NN to_TO provide_VV an_DT energy_NN estimate_NN ._SENT 
+The_DT data_NNS from_IN the_DT beam-_NN former_JJ for_IN each_DT frequency_NN bin_NN is_VBZ just_RB the_DT same_JJ with_IN ED_NP while_IN in_IN SPED_VVN the_DT energy_NN detection_NN algorithm_NN is_VBZ diﬀerent_JJ ._SENT 
+Figure_NN 2._CD SPED_VVN Implementation_NN ._SENT 
+Acoustic_JJ energy_NN from_IN a_DT target_NN signal_NN or_CC random_JJ noise_NN features_VVZ “_JJ peaks_NNS ”_JJ and_CC “_JJ valleys_NNS ”_JJ in_IN both_DT time_NN and_CC frequency_NN ._SENT 
+Looking_VVG at_IN the_DT frequency_NN spectrum_NN of_IN a_DT target_NN with_IN low_JJ Signal_NP to_TO Noise_NN Ratio_NN (_( SNR_NP )_) ,_, the_DT background_NN noise_NN occa-_NN sionally_RB drops_VVZ below_IN the_DT level_NN of_IN the_DT target_NN signal_NN ._SENT 
+When_WRB this_DT happens_VVZ ,_, there_EX is_VBZ a_DT peak_NN due_JJ to_TO the_DT target_NN signal_NN ._SENT 
+Now_RB ,_, looking_VVG at_IN one_CD frequency_NN bin_NN of_IN the_DT beam_NN noise_NN versus_IN az-_NP imuth_NP spectrum_NN there_RB may_MD be_VB several_JJ peaks_NNS due_JJ to_TO the_DT sig-_NN nal_NN but_CC still_RB many_RB more_RBR due_JJ to_TO noise_NN ._SENT 
+Instead_RB of_IN summing_VVG the_DT energy_NN in_IN a_DT single_JJ azimuth_NN bin_NN for_IN all_DT frequency_NN bins_NNS ,_, SPED_VVN utilizes_VVZ only_RB the_DT “_JJ peak_NN ”_NN in-_NN formation_NN to_TO estimate_VV the_DT detection_NN probability_NN ._SENT 
+It_PP looks_VVZ for_IN peaks_NNS through_IN peak_NN picking_VVG in_IN the_DT azimuth_NN spectrum_NN for_IN every_DT single_JJ frequency_NN bin_NN ._SENT 
+Ultimately_RB ,_, sum_NN of_IN the_DT ‘_JJ energy_NN ’_NN values_NNS of_IN the_DT peaks_NNS is_VBZ calculated_VVN over_IN all_DT frequency_NN bins_NNS for_IN each_DT azimuth_NN bin_NN ._SENT 
+Peaks_NNS due_JJ to_TO the_DT directional_JJ source_NN will_MD occur_VV in_IN the_DT same_JJ azimuth_NN bin_NN for_IN each_DT frequency_NN bin_NN ._SENT 
+These_DT peaks_NNS have_VHP spatial_JJ coherence_NN and_CC can_MD add_VV “_JJ construc-_NN tively_RB ”_JJ when_WRB summed_VVD over_IN the_DT entire_JJ range_NN of_IN frequency_NN bins_NNS ._SENT 
+In_IN SPED_VVN ,_, the_DT peak-picking_NN eﬀectively_RB reduces_VVZ the_DT bearing_NN ambiguity_NN between_IN adjacent_JJ beams_VVZ and_CC provides_VVZ sharper_JJR ,_, more_RBR clearly_RB deﬁned_VVN target_NN traces_NNS thus_RB improved_VVN spatial_JJ resolution_NN of_IN the_DT acoustic_JJ targets_NNS ._SENT 
+Bearing_VVG Time_NP Record_NP (_( BTR_NP )_) plotted_VVD for_IN conventional_JJ frequency_NN domain_NN beamformer_NN ,_, MVDR-ED_VVN and_CC MVDR-SPED_VVN beamformer_NN for_IN a_DT linear_JJ array_NN are_VBP shown_VVN in_IN Figure_NP 3._CD In_IN BTR_NP display_NN ,_, x-axis_NN represents_VVZ the_DT bearing_NN and_CC y-axis_NN represent_VVP time_NN his-_NN tory_NN ._SENT 
+The_DT current_JJ time_NN is_VBZ marked_VVN on_IN top_NN of_IN the_DT display_NN and_CC the_DT history_NN is_VBZ on_IN the_DT bottom_NN ._SENT 
+Target_NN energy_NN is_VBZ marked_VVN as_IN intensity_NN levels_NNS on_IN the_DT display_NN ._SENT 
+Figure_NN 3._CD BTR_NP plot_NN of_IN (_( a_DT )_) Frequency_NN domain_NN ,_, (_( b_LS )_) MVDR-ED_VVN and_CC (_( c_LS )_) MVDR-SPED_VVN beamformer_NN ._SENT 
+The_DT experimental_JJ data_NNS was_VBD collected_VVN during_IN sea_NN trials_NNS using_VVG a_DT towed_VVN array_NN of_IN 32_CD hydrophones_NNS spaced_VVN for_IN 2-kHz_NP frequency_NN ,_, and_CC sampled_VVN at_IN 10_CD kHz_NN using_VVG a_DT 12-bit_JJ quantiser_NN ._SENT 
+It_PP was_VBD collected_VVN while_IN the_DT array_NN and_CC the_DT noise_NN source_NN were_VBD both_DT on_IN the_DT move_NN :_: the_DT towing_VVG ship_NN sailed_VVD at_IN 12_CD knots_NNS and_CC the_DT target_NN wasa_NN torpedo_VV ﬁred_VVN from_IN a_DT submarine_NN ._SENT 
+The_DT array_NN was_VBD towed_VVN 750_CD m_NN behind_IN the_DT ship_NN at_IN a_DT 30-m_NN depth_NN ._SENT 
+The_DT experiment_NN was_VBD conducted_VVN under_IN a_DT sea-state_NN of_IN 2_CD ,_, on_IN an_DT ocean_NN area_NN deeper_JJR than_IN 1000_CD m._NN The_DT same_JJ data_NN is_VBZ used_VVN for_IN comparing_VVG the_DT performance_NN of_IN diﬀerent_JJ algorithms_NNS ._SENT 
+Narrow_JJ target_NN traces_NNS on_IN the_DT display_NN indicate_VVP better_JJR target_NN bearing_VVG resolution_NN and_CC bearing_NN accu-_NN racy_JJ ._SENT 
+The_DT BTR_NP plot_NN clearly_RB indicates_VVZ sharper_JJR detection_NN for_IN MVDR-SPED_NN compared_VVN to_TO conventional_JJ and_CC MVDR-ED_JJ beamformer_NN ._SENT 
+<Section> 4._CD MVDR_NN with_IN SPED_VVN for_IN Torpedo_NN Tracking_NN </Section> After_IN estimating_VVG the_DT direction_NN of_IN arrival_NN of_IN the_DT target_NN ,_, the_DT target_NN is_VBZ tracked_VVN continuously_RB in_IN bearing_VVG to_TO estimate_VV tar-_NP get_VV motion_NN parameters_NNS ._SENT 
+Conventional_JJ tracking_NN methods_NNS use_VVP the_DT split-beam_NP correlation_NN technique_NN by_IN forming_VVG two_CD half-_NN beams_VVZ and_CC correlating_VVG between_IN them_PP to_TO detect_VV the_DT path_NN de-_NN lay_VVD between_IN the_DT two_CD beams_VVZ and_CC then_RB estimate_VVP the_DT accu-_NN rate_NN bearing_NN ._SENT 
+This_DT scheme_NN does_VVZ not_RB oﬀer_JJ good_JJ per-_NN formance_NN at_IN low_JJ SNRs_NNS ._SENT 
+A_DT novel_NN tracking_VVG algorithm_NN using_VVG MVDR_NN with_IN SPED_VVN for_IN tracking_VVG fast_RB moving_VVG torpedo_VV tar-_NP get_VV is_VBZ shown_VVN in_IN Figure_NP 4._CD This_DT algorithm_NN provides_VVZ suﬃcient_JJ track_NN accuracy_NN required_VVN by_IN the_DT ﬁre_NP control_NN system_NN for_IN com-_NN puting_NN torpedo_VV target_NN motion_NN parameters_NNS ._SENT 
+Unlike_IN conven-_JJ tional_JJ Anti-Submarine_JJ warfare_NN ,_, where_WRB target_NN is_VBZ persistent_JJ ,_, in_IN Torpedo_VV defence_NN systems_NNS ,_, the_DT target_NN appears_VVZ suddenly_RB and_CC is_VBZ alive_JJ for_IN very_RB short_JJ time_NN ,_, either_CC achieving_VVG its_PP$ mis-_NN sion_NN or_CC failing_VVG ._SENT 
+This_DT demands_NNS that_IN the_DT system_NN detects_VVZ and_CC initiates_VVZ torpedo_VV tracking_VVG automatically_RB instead_RB of_IN relying_VVG on_IN a_DT human_JJ operator_NN ._SENT 
+Target_NN tracking_NN is_VBZ done_VVN by_IN ﬁnding_VVG the_DT SPED_VVN power_NN output_NN in_IN a_DT window_NN around_IN the_DT designated_VVN target_NN direc-_NN tion_NN at_IN close_JJ spacing_NN and_CC then_RB choosing_VVG the_DT direction_NN with_IN the_DT maximum_JJ beam_NN power_NN ._SENT 
+At_IN the_DT next_JJ iteration_NN a_DT window_NN with_IN the_DT previous_JJ selected_JJ maximum_JJ power_NN direc-_NN tion_NN as_IN the_DT center_NN is_VBZ chosen_VVN and_CC again_RB the_DT peak_NN position_NN is_VBZ obtained_VVN ._SENT 
+Each_DT time_NN the_DT weights_NNS are_VBP updated_VVN using_VVG the_DT MVDR_NP scheme_NN so_RB as_RB to_TO get_VV the_DT optimum_JJ result_NN ._SENT 
+For_IN a_DT fast_JJ moving_VVG target_NN we_PP need_VVP to_TO consider_VV a_DT window_NN width_NN which_WDT would_MD cover_VV its_PP$ angle_NN range_NN in_IN the_DT given_VVN integration_NN time_NN ._SENT 
+The_DT accuracy_NN or_CC the_DT required_VVN resolution_NN of_IN the_DT tracked_VVN tar-_NN get_VVP bearing_NN decides_VVZ how_WRB closely_RB spaced_VVN the_DT beams_VVZ should_MD be_VB or_CC how_WRB many_JJ beams_NNS should_MD be_VB formed_VVN in_IN a_DT given_VVN win-_NNS dow_VVP ._SENT 
+Typically_RB for_IN an_DT integration_NN time_NN of_IN 1s_NNS we_PP need_VVP to_TO form_VV a_DT window_NN of_IN 3◦_NN around_IN the_DT designated_VVN direction_NN ._SENT 
+Fora_NP bearing_NN resolution_NN of_IN 0.1◦_NP ,_, beams_VVZ are_VBP formed_VVN at_IN 0.10_CD separation_NN ,_, giving_VVG a_DT total_JJ number_NN of_IN 6/0.1_CD =_SYM 60_CD beams_VVZ per_IN target_NN ._SENT 
+These_DT 60_CD beams_NNS are_VBP formed_VVN for_IN every_DT new_JJ update_NN of_IN the_DT target_NN bearing_NN ._SENT 
+Figure_NN 4._CD Tracking_NN using_VVG MVDR_NN with_IN SPED_VVN ._SENT 
+4.1_CD ._SENT 
+Bearing_VVG accuracy_NN for_IN track_NN output_NN Accuracy_NN of_IN the_DT bearing_NN values_NNS computed_VVN by_IN track_NN proces-_NN sor_NN is_VBZ an_DT important_JJ parameter_NN in_IN quantifying_VVG the_DT performance_NN of_IN a_DT tracking_NN processor_NN ._SENT 
+Target_NN track_NN bearings_NNS computed_VVD using_VVG MVDR-SPED_NN were_VBD extensively_RB evaluated_VVN us-_NN ing_VVG a_DT calibrated_VVN signal_NN and_CC noise_NN simulator_NN ._SENT 
+The_DT simula-_NN tor_NN is_VBZ capable_JJ of_IN generating_VVG sensor_NN level_NN signals_NNS at_IN various_JJ SNRs_NNS for_IN a_DT linear_JJ array_NN of_IN 32_CD sensors_NNS spaced_VVN for_IN 2_CD kHz_NP ._SENT 
+Broadband_NP acoustic_JJ targets_NNS were_VBD simulated_JJ for_IN diﬀerent_JJ SNRs_NNS and_CC at_IN diﬀerent_JJ bearings_NNS ._SENT 
+The_DT standard_JJ deviation_NN of_IN the_DT error_NN in_IN the_DT track_NN output_NN is_VBZ computed_VVN for_IN diﬀerent_JJ target_NN bearings_NNS relative_JJ to_TO the_DT linear_JJ array_NN and_CC at_IN diﬀerent_JJ SNRs_NNS ._SENT 
+The_DT results_NNS are_VBP plotted_VVN in_IN Figure_NP 5._CD The_DT bearing_NN error_NN is_VBZ observed_VVN to_TO be_VB minimum_JJ for_IN target_NN at_IN 0◦_NP (_( Broadside_NN )_) and_CC increases_NNS as_IN target_NN move_NN towards_IN 90◦_NP (_( End-ﬁre_NP )_) ._SENT 
+Bearing_VVG error_NN increases_NNS as_IN SNR_NP goes_VVZ down_RP ._SENT 
+The_DT graph_NN indicates_VVZ that_IN the_DT bearing_VVG errors_NNS for_IN track_NN processor_NN using_VVG MVDR-_NN SPED_VVN is_VBZ well_RB within_IN the_DT acceptable_JJ limit_NN of_IN 2◦_JJ rms_NNS under_IN most-conditions_NNS ,_, meeting_VVG the_DT requirements_NNS of_IN a_DT ﬁre_NP con-_NP trol_NP system_NN computing_NN target_NN motion_NN parameters_NNS using_VVG these_DT bearings_NNS ._SENT 
+Figure_NN 5._CD Standard_NP Deviation_NN of_IN bearing_NN error_NN vs_NP SNR_NP of_IN MVDRSPED_JJ based_VVN track_NN output_NN ._SENT 
+4.2_CD ._SENT 
+Hough_NN Transform_VV for_IN Contact_NN Designation_NN Target_NP tracking_NN is_VBZ initiated_VVN either_RB manually_RB by_IN the_DT opera-_NN tor_NN from_IN BTR_NP display_NN or_CC automatically_RB using_VVG the_DT Hough_NP Transform_VV (_( HT_NP )_) ._SENT 
+Initiated_VVN target_NN bearing_VVG θi_NP will_MD be_VB used_VVN by_IN track_NN beamformer_NN to_TO compute_VV the_DT center_NN bearing_NN of_IN the_DT track_NN window_NN ._SENT 
+For_IN automatic_JJ track_NN initiation_NN ,_, the_DT HT_NP uses_VVZ N_NP recent_JJ updates_NNS of_IN normalized_VVN SPED_VVN output_NN vs._IN bearing_VVG plots_NNS to_TO form_VV a_DT history_NN matrix_NN ._SENT 
+The_DT columns_NNS and_CC rows_NNS of_IN the_DT matrix_NN represent_VVP bearing_NN and_CC time_NN respectively_RB ._SENT 
+A_DT pri-_NN mary_NN threshold_NN is_VBZ set_VVN on_IN the_DT History_NN Matrix_NN ,_, all_PDT the_DT points_NNS above_IN this_DT threshold_NN are_VBP mapped_VVN into_IN points_NNS in_IN the_DT Hough_NP plane_NN using_VVG Equation_NN (_( 7_CD )_) and_CC the_DT corresponding_JJ cell_NN in_IN the_DT accumulator_NN is_VBZ incremented_VVN ._SENT 
+@（7）_NN where_WRB θ_NN is_VBZ the_DT angle_NN of_IN the_DT line_NN from_IN the_DT origin_NN orthogonal_JJ to_TO the_DT line_NN and_CC ρ_NN is_VBZ the_DT perpendicular_JJ distance_NN from_IN the_DT origin_NN to_TO the_DT line_NN as_IN shown_VVN in_IN Figure_NP 6._CD After_IN mapping_VVG all_PDT the_DT points_NNS above_IN the_DT primary_JJ threshold_NN ,_, a_DT secondary_JJ threshold_NN is_VBZ applied_VVN on_IN the_DT accumulator_NN to_TO get_VV the_DT polar_JJ parameters_NNS (_( ρ_NP and_CC θ_NP )_) of_IN the_DT lines_NNS detected_VVD ._SENT 
+After_IN mapping_VVG ρ_NN to_TO bear-_NN ing_NN axis_NN ,_, estimate_NN target_NN bearing_VVG θi_NP at_IN regular_JJ intervals_NNS for_IN initiating_VVG the_DT track_NN ._SENT 
+Figure_NN 6._CD ρ_NN and_CC θ_JJ representation_NN of_IN a_DT straight_JJ line_NN ._SENT 
+4.3_CD ._SENT 
+Bearing_VVG Rate_NP Computation_NN The_DT bearing_NN rate_NN of_IN the_DT detected_VVN contact_NN is_VBZ an_DT essential_JJ input_NN for_IN classiﬁcation_NN of_IN torpedo_VV targets_NNS ._SENT 
+Bearing_NN rate_NN is_VBZ computed_VVN with_IN least_JJS square_JJ ﬁt_NN of_IN the_DT target_NN bearing_NN history_NN ._SENT 
+The_DT target_NN bearing_NN is_VBZ computed_VVN using_VVG the_DT HT_NP in_IN contact_NN identiﬁcation_NN and_CC the_DT history_NN of_IN HT_NP output_NN is_VBZ maintained_VVN in_IN the_DT information_NN processor_NN ._SENT 
+The_DT least_JJS square_JJ ﬁt_NN is_VBZ done_VVN on_IN the_DT bearing_VVG history_NN of_IN 5_CD recent_JJ measures_NNS to_TO ﬁnd_NP the_DT bearing_NN rate_NN ._SENT 
+Let_VV θ[i_NP ]_SYM be_VB the_DT ith_JJ bearing_NN update_NN and_CC t[i_NNS ]_SYM the_DT corre-_NN sponding_VVG time_NN stamp_NN ,_, the_DT bearing_NN rate_NN can_MD be_VB computed_VVN as_IN @（8）_NN Here_RB θ[i_NP ]_SYM represents_VVZ ith_JJ bearing_NN in_IN the_DT bearing_NN history_NN and_CC t[i_NNS ]_SYM represents_VVZ the_DT corresponding_JJ time_NN stamp_NN and_CC n_NN =_SYM 5._CD When_WRB a_DT new_JJ contact_NN is_VBZ detected_VVN it_PP takes_VVZ n_NN times_NNS the_DT update_NN rate_NN to_TO compute_VV θ∗_NN ._SENT 
+Subsequently_RB the_DT latest_JJS ﬁve_NN θ_NN values_NNS are_VBP used_VVN to_TO compute_VV θ∗_JJ so_RB that_IN θ∗_NP is_VBZ updated_VVN at_IN the_DT display_NN update_NN rate_NN ._SENT 
+4.4_CD ._SENT 
+Steps_NNS to_TO build_VV a_DT robust_JJ R_NN matrix_NN The_DT Cross_NP Spectral_JJ density_NN matrix_NN of_IN the_DT input_NN data_NN vector_NN is_VBZ estimated_VVN as_IN the_DT exponentially_RB averaged_VVN matrix_NN of_IN the_DT input_NN cross_NN spectral_NN matrix_NN averaged_VVD over_IN successive_JJ snap-_NN shots_NNS in_IN time_NN ._SENT 
+@（9）_NN where_WRB i_NP is_VBZ the_DT iteration_NN number_NN and_CC α_NN is_VBZ an_DT exponential_JJ forgetting_VVG factor_NN which_WDT determines_VVZ the_DT exponential_JJ averaging_NN time_NN and_CC is_VBZ bounded_VVN as_IN 0_CD <_SYM α_NP <_SYM 1._CD The_DT integration_NN time_NN of_IN the_DT CSM_NN matrix_NN is_VBZ an_DT important_JJ parameter_NN which_WDT needs_VVZ to_TO be_VB ﬁne-tuned_VVN for_IN optimum_JJ detection_NN ._SENT 
+Integration_NN time_NN for_IN a_DT fast-moving_JJ target_NN likea_NP torpedo_NN needs_VVZ to_TO be_VB ﬁxed_VVN by_IN considering_VVG the_DT presence_NN time_NN of_IN the_DT target_NN within_IN a_DT beam_NN ._SENT 
+Typical_JJ integration_NN time_NN for_IN torpedo_NN detection_NN can_MD be_VB 1_CD s._NN Purely_RB adaptive_JJ beamformers_NNS are_VBP extremely_RB sensitive_JJ to_TO even_RB small_JJ perturbations_NNS in_IN the_DT array_NN characteristics_NNS ,_, espe-_NP cially_RB errors_NNS in_IN look_NN direction_NN ._SENT 
+When_WRB the_DT direction_NN of_IN the_DT signal_NN source_NN does_VVZ not_RB exactly_RB coincide_VV with_IN the_DT steering_VVG angle_NN the_DT signal_NN tends_VVZ to_TO be_VB suppressed_VVN at_IN the_DT output_NN of_IN the_DT beamformer_NN ._SENT 
+A_DT small_JJ diagonal_JJ loading_NN of_IN the_DT cross_NN spec-_NN tral_JJ density_NN matrix_NN is_VBZ used_VVN to_TO make_VV the_DT beamformer_NN less_RBR susceptible_JJ to_TO look_VV direction_NN errors_NNS ._SENT 
+The_DT choice_NN of_IN the_DT diag-_JJ onal_JJ loading_NN factor_NN represents_VVZ a_DT tradeoﬀ_NN between_IN sharper_JJR beams_NNS and_CC robustness_NN ._SENT 
+So_RB before_IN the_DT CSM_NN inverse_NN is_VBZ found_VVN out_IN the_DT CSM_NN matrix_NN is_VBZ diagonally_RB loaded_VVN with_IN a_DT factor_NN ε_NN and_CC the_DT weights_NNS are_VBP calculated_VVN using_VVG (_( R_NN +_SYM εI_NP )_) instead_RB of_IN R._NP For_IN ε_NP =_SYM 0_CD ,_, the_DT beamformer_NN is_VBZ purely_RB adaptive_JJ and_CC large_JJ values_NNS of_IN ε_NP make_VVP it_PP identical_JJ to_TO conventional_JJ beamformer_NN ._SENT 
+The_DT CSM_NN matrix_NN may_MD also_RB become_VV ill-conditioned_JJ or_CC rank-deﬁcient_JJ owing_VVG to_TO sensor_NN failures_NNS ._SENT 
+Fora_NP rank_JJ deﬁcient_JJ matrix_NN the_DT inversion_NN process_NN will_MD fail_VV ,_, leading_VVG to_TO erroneous_JJ results_NNS ._SENT 
+So_RB it_PP is_VBZ imperative_JJ to_TO take_VV a_DT precaution_NN against_IN the_DT matrix_NN being_VBG non-invertible_JJ ._SENT 
+Spatial_JJ averaging_NN is_VBZ a_DT tech-_NN nique_NN used_VVN to_TO make_VV the_DT array_NN robust_JJ for_IN beamforming_VVG ap-_NN plications_NNS ._SENT 
+A_DT simple_JJ ﬁrst-order_NN spatial_JJ averaging_NN is_VBZ done_VVN in_IN the_DT following_VVG manner_NN ._SENT 
+Consider_VV an_DT N_NP element_NN array_NN ._SENT 
+Us-_NP ing_VVD the_DT ﬁrst_NP (_( N_1_JJ )_) sensors_NNS a_DT CSM_NN matrix_NN is_VBZ obtained_VVN ._SENT 
+Then_RB using_VVG the_DT last_JJ N_1_JJ elements_NNS another_DT CSM_NN matrix_NN is_VBZ computed_VVN ._SENT 
+These_DT two_CD matrices_NNS are_VBP averaged_VVN to_TO give_VV a_DT CSM_NN matrix_NN of_IN order_NN (_( N_1_JJ ,_, N_1_JJ )_) ._SENT 
+If_IN we_PP had_VHD not_RB gone_VVN for_IN spatial_JJ averaging_VVG the_DT CSM_NN matrix_NN would_MD have_VH been_VBN of_IN the_DT order_NN of_IN (_( N_NP ,_, N_NP )_) ._SENT 
+The_DT CSM_NN matrix_NN obtained_VVN after_IN spa-_JJ tial_JJ averaging_NN is_VBZ robust_JJ to_TO random_JJ sensor_NN failures_NNS and_CC any_DT other_JJ array_NN perturbations_NNS ._SENT 
+But_CC since_IN spatial_JJ averaging_NN reduces_VVZ the_DT eﬀective_JJ length_NN of_IN the_DT array_NN there_EX will_MD be_VB a_DT small_JJ increase_NN in_IN the_DT beamwidth_NN obtained_VVD ._SENT 
+<Section> 5._CD Hardware_NN implementation_NN </Section> Hardware_NN realisation_NN of_IN MVDR_NN with_IN SPED_VVN is_VBZ presented_VVN in_IN this_DT section_NN ._SENT 
+Hardware_NN conﬁguration_NN presented_VVD here_RB is_VBZ designed_VVN and_CC developed_VVN for_IN the_DT real_JJ time_NN data_NNS processing_VVG of_IN the_DT experimental_JJ array_NN described_VVN in_IN Section_NP 3._CD Array_NN data_NNS is_VBZ received_VVN in_IN the_DT form_NN of_IN Ethernet_NP packets_NNS and_CC the_DT processed_JJ output_NN is_VBZ send_VV to_TO display_VV processor_NN ._SENT 
+Adaptive_JJ beamforming_NN for_IN uniform_JJ linear_JJ arrays_NNS require_VVP enormous_JJ amount_NN of_IN computation_NN power_NN ._SENT 
+For_IN a_DT broadband_NP beamformer_NP implementation_NN a_DT highly_RB parallel_JJ implemen-_NN tation_NN strategy_NN is_VBZ envisaged_VVN ._SENT 
+The_DT algorithm_NN uses_VVZ the_DT prop-_NN erties_NNS of_IN the_DT Cross-Spectral-Matrix_NP (_( CSM_NN )_) to_TO eliminate_VV all_DT interferences_NNS ._SENT 
+The_DT inversion_NN of_IN the_DT complex_JJ CSM_NN matrix_NN is_VBZ the_DT most_RBS computationally_RB demanding_VVG task_NN of_IN MVDR_NP im-_NP plementation_NN ._SENT 
+It_PP is_VBZ often_RB found_VVN that_IN the_DT matrix_NN inversion_NN fails_VVZ when_WRB the_DT estimated_JJ CSM_NN matrix_NN is_VBZ rank_JJ deﬁcient_NN ._SENT 
+So_IN some_DT methods_NNS of_IN making_VVG the_DT MVDR_NN more_RBR robust_JJ to_TO illconditioned_JJ CSM_NN matrices_NNS are_VBP also_RB implemented_VVN in_IN the_DT system_NN ._SENT 
+The_DT processing_NN is_VBZ done_VVN on_IN individual_JJ frequency_NN subbands_NNS of_IN the_DT sensor_NN data_NNS in_IN a_DT parallel_JJ fashion_NN ._SENT 
+The_DT data_NNS path_NN which_WDT includes_VVZ estimation_NN of_IN the_DT CSM_NN ,_, inverse_JJ com-_NN putation_NN ,_, weight_NN computation_NN and_CC beamforming_NN are_VBP de-_NN signed_VVD to_TO run_VV in_IN parallel_NN and_CC the_DT output_NN beams_VVZ are_NN summed_VVD together_RB to_TO produce_VV the_DT ﬁnal_JJ high_JJ resolution_NN detection_NN out-_NN put_VVD ._SENT 
+The_DT data_NN paths_NNS corresponding_JJ to_TO diﬀerent_JJ bins_NNS are_VBP segregated_JJ and_CC implemented_VVN on_IN diﬀerent_JJ processing_NN nodes_NNS in_IN a_DT highly_RB parallel_JJ structure_NN ._SENT 
+The_DT array_NN snapshots_NNS are_VBP sent_VVN from_IN the_DT array_NN to_TO the_DT sig-_NN nal_VVZ processing_NN modules_NNS over_IN the_DT Ethernet_NP format_NN ._SENT 
+The_DT front-end_NN interface_NN of_IN the_DT signal_NN processing_NN module_NN is_VBZ the_DT Ethernet_NP reception_NN module_NN ._SENT 
+The_DT signal_NN processing_NN func-_NN tions_NNS which_WDT include_VVP the_DT Fourier_NN transform_VV ,_, CSM_NN compu-_NN tation_NN and_CC updation_NN ,_, CSM_NN inversion_NN ,_, weight_NN computation_NN and_CC beamforming_NN ,_, peak_NN picking_VVG and_CC summing_VVG are_VBP imple-_NN mented_VVN on_IN ADSP_NP 21062_CD based_VVN signal_NN processing_NN cards_NNS ._SENT 
+The_DT SPED_VVN output_NN is_VBZ sent_VVN out_RP to_TO the_DT ﬁnal_JJ BTR_NP dis-_NN play_NN system_NN over_IN Ethernet_NP link_NN ._SENT 
+The_DT incoming_JJ array_NN vector_NN is_VBZ collected_VVN and_CC split_VVN into_IN dif-_JJ ferent_JJ frequency_NN bins_NNS using_VVG the_DT discrete_JJ Fourier_NN transform_VV ._SENT 
+The_DT observation_NN time_NN of_IN the_DT array_NN should_MD be_VB greater_JJR than_IN the_DT array_NN transit_NN time_NN for_IN the_DT acoustic_JJ wave_NN ._SENT 
+This_DT condition_NN will_MD give_VV the_DT length_NN of_IN the_DT Fourier_NP transform_VV to_TO be_VB taken_VVN ._SENT 
+Once_RB the_DT signal_NN is_VBZ split_VVN into_IN diﬀerent_JJ frequency_NN bins_NNS ,_, the_DT CSM_NN matrix_NN is_VBZ formed_VVN for_IN all_PDT the_DT bins_NNS ._SENT 
+This_DT CSM_NN for-_NN mation_NN and_CC consequent_JJ CSM_NN inversion_NN is_VBZ done_VVN in_IN paral-_NP lel_NP for_IN all_PDT the_DT frequency_NN bins_NNS using_VVG parallel_JJ signal_NN process-_NN ing_NN modules_NNS leading_VVG to_TO real_JJ time_NN performance_NN ._SENT 
+The_DT weight_NN vectors_NNS are_VBP computed_VVN and_CC depending_VVG on_IN the_DT weight_NN vectors_VVZ the_DT beamformer_NN output_NN is_VBZ obtained_VVN for_IN each_DT bin_NN and_CC direc-_NN tion_NN ._SENT 
+The_DT ﬁnal_JJ SPED_VVN output_NN is_VBZ obtained_VVN by_IN peak_NN picking_VVG and_CC summing_VVG up_RP all_DT bins_NNS along_IN one_CD direction_NN for_IN detection_NN ._SENT 
+For_IN tracking_VVG with_IN a_DT typical_JJ case_NN of_IN eight_CD targets_NNS ,_, with_IN each_DT target_NN being_VBG monitored_VVN in_IN a_DT window_NN of_IN 6◦_JJ width_NN with_IN a_DT 0.1◦_JJ resolution_NN ,_, we_PP need_VVP to_TO form_VV 60_CD beams_VVZ for_IN each_DT target_NN and_CC 480_CD beams_VVZ for_IN all_PDT the_DT eight_CD targets_NNS ._SENT 
+The_DT input_NN vectors_NNS are_VBP the_DT same_JJ for_IN all_PDT the_DT targets_NNS ,_, only_RB the_DT weights_NNS are_VBP changed_VVN depending_VVG on_IN the_DT look_NN directions_NNS ._SENT 
+Hence_RB this_DT again_RB oﬀers_VVZ a_DT chance_NN to_TO execute_VV in_IN parallel_RB the_DT tracking_VVG operations_NNS for_IN all_DT eight_CD targets_NNS ._SENT 
+This_DT parallelism_NN is_VBZ exploited_VVN in_IN the_DT implementation_NN scheme_NN for_IN both_CC the_DT CSM_NN computation_NN and_CC inversion_NN processing_NN as_RB well_RB as_IN beam_NN forming_VVG and_CC SPED_VVN processing_NN ._SENT 
+So_IN identical_JJ code_NN running_VVG on_IN parallel_JJ processors_NNS will_MD minimize_VV the_DT system_NN software_NN overheads_NNS ._SENT 
+Block_NN diagram_NN of_IN the_DT hardware_NN implementation_NN scheme_NN is_VBZ given_VVN in_IN Figure_NP 7._CD Each_DT rectangular_JJ block_NN in_IN the_DT figure_NN represents_VVZ an_DT embedded_VVN Digital_NP Signal_NP Processor_NP (_( DSP_NP )_) board_NN which_WDT houses_VVZ a_DT cluster_NN of_IN six_CD SHARC_NN processors_NNS ._SENT 
+Total_VV five_CD such_JJ boards_NNS (_( 5×6=30_NP SHARC_NP processors_NNS )_) are_VBP required_VVN for_IN real-time_JJ processing_NN of_IN the_DT data_NNS from_IN a_DT linear_JJ array_NN of_IN 32_CD sensors_NNS ._SENT 
+Each_DT DSP_NP board_NN is_VBZ designed_VVN for_IN parallel_JJ data_NNS processing_VVG applications_NNS ._SENT 
+Figure_NN 7._CD Hardware_NN Implementation_NN Scheme_NN ._SENT 
+The_DT typical_JJ parallel_JJ dataflow_NN through_IN a_DT DSP_NP board_NN is_VBZ schematically_RB shown_VVN in_IN Figure_NP 8._CD Each_DT bubble_NN indicates_VVZ one_CD SHARC_NN processor_NN ._SENT 
+The_DT first_JJ processor_NN P1_NN receives_VVZ the_DT input_NN data_NNS ,_, distributes_VVZ it_PP to_TO four_CD processing_NN nodes_NNS P2−P5_JJ and_CC finally_RB the_DT processed_JJ data_NN is_VBZ collected_VVN and_CC send_VV to_TO next_JJ stage_NN by_IN the_DT sixth_JJ processing_NN node_NN P6_NN ._SENT 
+Input_NN and_CC output_NN data_NNS transfer_NN is_VBZ done_VVN through_IN Ethernet_NP and_CC the_DT data_NNS transfer_VVP between_IN SHARC_NN processors_NNS within_IN a_DT cluster_NN is_VBZ through_IN custom_NN link_NN port_NN interface_NN provided_VVN with_IN the_DT SHARC_NN processors_NNS ._SENT 
+Figure_NN 8._CD Data_NP Flow_NP through_IN DSP_NP cluster_NN ._SENT 
+Prototype_NN processing_NN system_NN developed_VVD using_VVG DSP_NP boards_NNS for_IN processing_VVG the_DT data_NNS from_IN the_DT experimental_JJ array_NN described_VVN in_IN section_NN 3_CD was_VBD successfully_RB tested_VVN during_IN sea_NN trials_NNS ._SENT 
+Real-time_JJ processed_JJ output_NN is_VBZ presented_VVN in_IN display_NN as_IN shown_VVN in_IN Figure_NP 3_CD by_IN display_NN processor_NN after_IN normalization_NN and_CC quantization_NN by_IN the_DT display_NN processor_NN ._SENT 
+<Section> 6._CD Conclusion_NN </Section> An_DT algorithm_NN using_VVG broadband_NP adaptive_JJ MVDR_NN beamformer_NN with_IN SPED_VVN for_IN torpedo_NN detection_NN and_CC tracking_VVG using_JJ towed_VVN array_NN has_VHZ been_VBN successfully_RB implemented_VVN and_CC tested_VVN ._SENT 
+The_DT scheme_NN is_VBZ suitable_JJ for_IN torpedo_VV detection_NN in_IN cluttered_JJ acoustic_JJ environments_NNS ._SENT 
+The_DT new_JJ tracking_NN scheme_NN was_VBD evaluated_VVN using_VVG a_DT simulator_NN set-_NN up_RB for_IN different_JJ signal_NN to_TO noise_NN ratio_NN levels_NNS ._SENT 
+Targets_NNS at_IN various_JJ speeds_NNS and_CC under_IN different_JJ ranges_NNS were_VBD successfully_RB tracked_VVN and_CC the_DT track_NN was_VBD consistently_RB holding_VVG for_IN high-speed_JJ maneuvers_NNS ._SENT 
+It_PP was_VBD found_VVN to_TO perform_VV better_JJR than_IN the_DT conventional_JJ splitbeam_NN based_VVN tracking_NN methods_NNS ._SENT 
+Efficient_JJ methods_NNS are_VBP suggested_VVN and_CC implemented_VVN for_IN making_VVG the_DT adaptive_JJ beamformer_NN more_RBR robust_JJ to_TO array_NN perturbations_NNS ._SENT 
+The_DT various_JJ computational_JJ aspects_NNS of_IN MVDR_NP beamformer_NP with_IN SPED_VVN are_VBP looked_VVN at_IN and_CC an_DT efficient_JJ and_CC parallel_JJ implementation_NN strategy_NN is_VBZ proposed_VVN ._SENT 
+Prototype_NN system_NN was_VBD successfully_RB implemented_VVN for_IN data_NN processing_NN using_VVG ADSP_NP 21062_CD based_VVN signal_NN processing_NN cards_NNS ._SENT 
+Kalman_NP filter_NN based_VVD smoothing_VVG and_CC prediction_NN algorithm_NN along_IN with_IN MVDR-SPED_VVN for_IN tracking_VVG under_IN extremely_RB low_JJ SNRs_NNS and_CC for_IN tracking_VVG while_IN target_NN crossing_VVG are_VBP the_DT areas_NNS for_IN future_JJ research_NN ._SENT 
+<Section> References_NNS </Section> [_SYM 1_CD ]_SYM A._NP D._NP Waite_NP :_: SONAR_NN for_IN Practising_VVG Engineers_NNS ._SENT 
+John_NP Wiley&_NP Sons_NP ,_, Ltd_NP ,_, 3rd_NN Edition_NN ,_, 2002._CD [_SYM 2_CD ]_SYM Barry_NP D._NP Van_NP Veen_NP ,_, Kevin_NP M._NP Buckley_NP :_: Beamforming_NP :_: A_DT versatile_JJ approach_NN to_TO spatial_JJ filtering_VVG ._SENT 
+IEEE_NP ASSCP_NP Magazine_NP ,_, April_NP 1998._CD [_SYM 3_CD ]_SYM H._NP Krim_NP ,_, M._NP Viberg_NP :_: Two_CD Decades_NNS of_IN Array_NN Signal_NP Processing_NP Research_NP ._SENT 
+IEEE_NP Signal_NP Processing_NP Magazine_NP ,_, pp.67-94_NP ._SENT 
+July_NP 1996._CD [_SYM 4_CD ]_SYM Ronald_NP A._NP Mucci_NP :_: Comparison_NN of_IN efficient_JJ beamforming_JJ Algorithms_NNS ._SENT 
+IEEE_NN Transactions_NNS on_IN acoustics_NNS ,_, Speech_NN and_CC Signal_NP Processing_NP ASSP-32_NP (_( 1984_CD )_) 548–557_JJ ._SENT 
+[_SYM 5_CD ]_SYM M._NP Zhang_NP ,_, M._NP H._NP Er_UH :_: Robust_JJ Adaptive_JJ Beamforming_NN for_IN Broadband_NN Arrays_NNS ._SENT 
+Circuits_NNS ,_, Systems_NP ,_, and_CC Signal_NP Processing_NP 16_CD (_( 1997_CD )_) 207–216_NP ._SENT 
+[_SYM 6_CD ]_SYM Kumar_NP K._NP Ajith_NP ,_, George_NP Jomon_NP ,_, V._NP P._NP Jagathyraj_NP :_: Requirements_NP Analysis_NP of_IN an_DT Integrated_NP Sonar_NN Suite_NP for_IN Surface_NP Ships_NNS :_: Systems_NP Engineering_NP Perspective_NP ._SENT 
+Defence_NN Science_NN Journal_NP 64_CD (_( 201_CD )_) 366–3704_NP ._SENT 
+[_SYM 7_CD ]_SYM Priyabrata_NP Sinha_NP ,_, Alan_NP D._NP George_NP ,_, Keonwook_NP Kim_NP :_: Parallel_NN Algorithm_NN for_IN robust_JJ broadband_NP MVDR_NP beamforming_NP ._SENT 
+Journal_NP of_IN Computational_JJ Acoustics_NN 10_CD (_( 2002_CD )_) 69–96_NP ._SENT 
+[_SYM 8_CD ]_SYM James_NP Stewart_NP :_: Calculus_NN early_JJ transcendentals_NNS ,_, Thomson_NP Brooks/Cole_NP ,_, 6th_JJ Edition_NN ,_, Section_NP 14.8_CD ,_, 2008._CD [_SYM 9_CD ]_SYM A._NP George_NP ,_, J._NP Garcia_NP ,_, K._NP Kim_NP ,_, P._NP Sinha_NP ._SENT 
+Distributed_VVN Parallel_JJ Processing_VVG Techniques_NNS for_IN Adaptive_JJ Sonar_NN Beamforming_NN ._SENT 
+Journal_NP of_IN Computational_JJ Acoustics_NN 10_CD (_( 200_CD )_) 1–232_NP ._SENT 
+[_SYM 10_CD ]_SYM Shefeng_NP Yan_NP ,_, Yuanliang_NP Ma_NP :_: High-resolution_NN broadband_NN beamforming_NN and_CC detection_NN methods_NNS with_IN real_JJ data_NNS ._SENT 
+Acoust_NP ._SENT 
+Sci_NP ._SENT 
+&_CC Tech_NP ._SENT 
+25_CD (_( 2004_CD )_) 73–76_NP ._SENT 
+[_SYM 11_CD ]_SYM T._NP Suojoki_NP ,_, I._NP Tabus_VVZ :_: A_DT novel_JJ efficient_JJ normalization_NN technique_NN for_IN sonar_NN detection_NN ._SENT 
+Proc_NP ._SENT 
+Int_NP ._SENT 
+Symp_NP ._SENT 
+Underwater_JJ Technology_NP ,_, 2002_CD ,_, 296–301_JJ ._SENT 
+[_SYM 12_CD ]_SYM C._NP H._NP Knapp_NP and_CC G._NP C._NP Carter_NP :_: The_DT generalized_VVN correlation_NN method_NN for_IN estimation_NN of_IN time_NN delayŤ_NN ,_, IEEE_NP Trans_NP ._SENT 
+Acoust_NP ._SENT 
+,Speech_NP ,_, Signal_NP Processing_NP ASSP-24_NP (_( 1976_CD )_) 320–327_JJ ._SENT 
+[_SYM 13_CD ]_SYM Ravindra_NP V._NP Asundi_NP ,_, Anusha_NP L._NP Narayanan_NP ,_, Archana_NP B._NP ,Ananya_NP H._NP A._NP ,_, C._NP Shrunga_NP Divakara_NP :_: Sonar_NN Interface_NP with_IN FCS_NN and_CC Target_NP Detection_NN ._SENT 
+International_NP Journal_NP of_IN Engineering_NP &_CC Technology_NP 7_CD (_( 201_CD )_) 541–5448_NP ._SENT 
+[_SYM 14_CD ]_SYM ADS_NP P_NN 2106X_NN Reference_NN Manual_NP ,_, Analog_NP Devices_NPS ,_, 2013._CD 

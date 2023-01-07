@@ -1,0 +1,410 @@
+<title> Numerical_JJ analysis_NN of_IN methane_NN slip_NN source_NN distribution_NN in_IN a_DT four-stroke_JJ dual-fuel_NN marine_NN engine_NN </title> <author> Jensen_NP ,_, MV_NP (_( Jensen_NP ,_, Michael_NP Vincent)[_NP 1_CD ]_SYM ;_: Cordtz_NP ,_, RF_NP (_( Cordtz_NP ,_, Rasmus_NP Faurskov)[_NP 1_CD ]_SYM ;_: Schramm_NP ,_, J_NP (_( Schramm_NP ,_, Jesper)[_NP 1_CD ]_SYM </author> <Affiliation> [_SYM 1_CD ]‎_NP Tech_NP Univ_NP Denmark_NP ,_, Dept_NP Mech_NP Engn_NN ,_, Nils_NP Koppels_NP Alle_NP 403_CD ,_, DK-2800_NP Lyngby_NP ,_, Denmark_NP </Affiliation> <year> 2020_CD </year> <Jounral> Journal_NP of_IN Marine_NP Science_NP and_CC Technology_NP </Journal> <Publishing_house> SPRINGER_NN JAPAN_NN KK_NP ,_, SHIROYAMA_NP TRUST_NP TOWER_NN 5F_NN ,_, 4-3-1_CD TORANOMON_NN ,_, MINATO-KU_NP ,_, TOKYO_NP ,_, 105-6005_CD ,_, JAPAN_JJ </Publishing_house> <Text_Collector> Wang_NP Shuaiyin，HEU_NP </Text_Collector> <DOI> 10.1007/s00773-020-00760-3_NP </DOI> <URL> https_NP :_: //link_NP ._SENT 
+springer_NN ._SENT 
+com/article/10.1007%2Fs00773-020-00760-3_JJ </URL> <Section> Abstract_JJ </Section> We_PP present_VVP the_DT results_NNS of_IN a_DT numerical_JJ model_NN which_WDT has_VHZ been_VBN developed_VVN for_IN estimating_VVG the_DT contribution_NN to_TO the_DT methane_NN slip_NN from_IN different_JJ sources_NNS in_IN a_DT four-stroke_JJ dual-fuel_NN marine_JJ engine_NN running_VVG on_IN natural_JJ gas_NN ._SENT 
+The_DT model_NN is_VBZ a_DT thermodynamic_JJ three-zone_NN zero-dimensional_JJ full_JJ engine_NN cycle_NN model_NN and_CC considers_VVZ methane_NN slip_NN contributions_NNS from_IN short-circuiting_VVG ,_, crevices_NNS and_CC wall_NN quenching_VVG ._SENT 
+The_DT model_NN is_VBZ applied_VVN to_TO analyze_VV the_DT methane_NN slip_NN from_IN a_DT four-stroke_JJ dual-fuel_NN medium_NN speed_NN marine_JJ engine_NN using_VVG natural_JJ gas_NN as_IN primary_JJ fuel_NN ._SENT 
+At_IN low_JJ loads_NNS ,_, wall_NN quenching_VVG is_VBZ found_VVN to_TO be_VB the_DT dominant_JJ contribution_NN to_TO the_DT methane_NN slip_NN ._SENT 
+At_IN full_JJ load_NN ,_, the_DT wall_NN quenching_VVG contribution_NN is_VBZ comparable_JJ to_TO the_DT level_NN of_IN the_DT short-circuiting_VVG and_CC crevice_NN contributions_NNS which_WDT only_RB vary_VVP relatively_RB little_RB with_IN load_NN ._SENT 
+At_IN 75_CD %_NN load_NN ,_, the_DT contribution_NN from_IN short-circuiting_VVG is_VBZ highest_JJS ._SENT 
+In_IN addition_NN ,_, we_PP found_VVD that_IN in-cylinder_NN post-oxidation_NN of_IN unburned_JJ fuel_NN remaining_VVG after_IN the_DT main_JJ combustion_NN is_VBZ negligible_JJ ._SENT 
+Keywords_NNS :_: Methane_NN slip_NN ;_: Dual-fuel_NN engine_NN ;_: Marine_NP engine_NN ;_: Four-stroke_JJ engine_NN ;_: Natural_JJ gas_NN ;_: Numerical_JJ model_NN <Section> Introduction_NN </Section> Due_JJ to_TO increasing_VVG environmental_JJ concern_NN ,_, the_DT maritime_JJ emission_NN limits_NNS for_IN nitrogen_NN oxides_NNS (_( NOx_NP )_) and_CC sulfur_NN oxides_NNS (_( SOx_NNS )_) (_( via_IN fuel_NN sulfur_NN content_NN limitation_NN )_) have_VHP been_VBN tightened_VVN in_IN recent_JJ years_NNS through_IN the_DT International_NP Maritime_NP Organization’s_NP (_( IMO_NP )_) MARPOL_NP treaty_NN Annex_NN VI_NP [_SYM 1_CD ,_, 2_CD ]_SYM ._SENT 
+Further_RBR tightening_VVG of_IN the_DT fuel_NN sulfur_NN content_NN limitation_NN will_MD enter_VV into_IN force_NN in_IN 2020_CD ,_, and_CC further_JJR limitations_NNS on_IN maritime_JJ emissions_NNS may_MD be_VB expected_VVN in_IN the_DT future_NN ._SENT 
+Consequently_RB ,_, marine_JJ engine_NN manufactures_NNS are_VBP currently_RB highly_RB focused_VVN at_IN further_JJR improving_VVG the_DT marine_JJ engine_NN technology_NN to_TO meet_VV these_DT emission_NN limits_NNS ._SENT 
+A_DT way_NN to_TO comply_VV with_IN the_DT SOx_NNS emission_NN limit_NN is_VBZ to_TO use_VV liquefied_VVN natural_JJ gas_NN (_( LNG_NP )_) as_IN a_DT primary_JJ fuel_NN instead_RB of_IN fuel_NN oils_NNS since_IN LNG_NP has_VHZ virtually_RB no_DT sulfur_NN content_NN ,_, contrary_JJ to_TO fuel_VV oils_NNS ,_, resulting_VVG in_IN significantly_RB less_JJR SOx_NNS emissions_NNS [_SYM 3_CD ]_SYM ._SENT 
+LNG_NP is_VBZ also_RB seen_VVN as_IN a_DT promising_JJ marine_JJ fuel_NN for_IN the_DT future_NN due_JJ to_TO the_DT large_JJ natural_JJ gas_NN world_NN reserves_NNS [_SYM 3_CD ,_, 4_CD ]_SYM ._SENT 
+When_WRB applied_VVN in_IN four-stroke_JJ dual-fuel_NN marine_NN engines_NNS ,_, LNG_NP is_VBZ evaporated_VVN and_CC injected_VVN as_IN a_DT gas_NN into_IN the_DT charge_NN air_NN in_IN the_DT intake_NN manifold_NN to_TO form_VV a_DT premixed_JJ charge_NN in_IN the_DT engine_NN cylinder_NN ,_, which_WDT is_VBZ ignited_VVN by_IN a_DT pilot_NN injection_NN of_IN diesel_JJ fuel_NN in_IN the_DT end_NN of_IN the_DT compression_NN stroke_NN ._SENT 
+The_DT premixed_JJ charge_NN is_VBZ typically_RB lean_JJ which_WDT lowers_VVZ the_DT combustion_NN temperature_NN and_CC accordingly_RB the_DT NOx_JJ formation_NN ,_, beneficial_JJ for_IN meeting_VVG the_DT reduced_VVN NOx_NN emission_NN limit_NN as_IN well_RB [_SYM 5,6,7_CD ]_SYM ._SENT 
+The_DT emissions_NNS of_IN particulate_JJ matter_NN (_( PM_NP )_) from_IN the_DT engines_NNS are_VBP also_RB lowered_VVN significantly_RB when_WRB using_VVG LNG_NP as_IN primary_JJ fuel_NN due_JJ to_TO the_DT simple_JJ hydrocarbons_NNS ,_, primarily_RB methane_NN ,_, which_WDT constitutes_VVZ LNG_NP and_CC the_DT absence_NN of_IN sulfur_NN [_SYM 5_CD ,_, 8_CD ]_SYM ._SENT 
+However_RB ,_, LNG_NP fueled_VVD four-stroke_JJ dual-fuel_NN marine_NN engines_NNS experience_VVP undesirable_JJ emissions_NNS of_IN methane_NN ._SENT 
+These_DT emissions_NNS are_VBP due_JJ to_TO fuel_VV passing_VVG through_IN the_DT engine_NN without_IN being_VBG burned_VVN ._SENT 
+Two_CD recent_JJ studies_NNS report_VVP the_DT methane_NN emission_NN level_NN for_IN present_JJ four-stroke_JJ dual-fuel_NN marine_NN engines_NNS to_TO be_VB in_IN the_DT order_NN of_IN 7–9_NP g/kWh_NP [_SYM 9_CD ,_, 10_CD ]_SYM ._SENT 
+The_DT methane_NN slip_NN is_VBZ problematic_JJ due_RB to_TO the_DT high_JJ global_JJ warming_NN potential_NN of_IN methane_NN ,_, which_WDT is_VBZ 28_CD on_IN a_DT 100_CD years_NNS basis_NN (_( GWP100_JJ )_) [_SYM 11_CD ]_SYM ,_, and_CC because_IN the_DT slip_NN of_IN methane_NN represents_VVZ an_DT increase_NN in_IN fuel_NN consumption_NN ._SENT 
+The_DT methane_NN slip_NN is_VBZ caused_VVN by_IN different_JJ mechanisms_NNS which_WDT are_VBP :_: fuel_NN slip_NN through_IN the_DT engine_NN during_IN the_DT gas_NN exchange_NN process_NN due_JJ to_TO intake_NN and_CC exhaust_NN valve_NN overlap_VVP ,_, fuel_NN trapped_VVN in_IN crevices_NNS where_WRB the_DT flame_NN cannot_MD reach_VV ,_, flame_NN quenching_VVG near_IN cylinder_NN walls_NNS which_WDT leaves_VVZ fuel_NN unburned_JJ ,_, and_CC finally_RB ,_, incomplete_JJ combustion_NN in_IN local_JJ zones_NNS with_IN very_RB lean_JJ mixtures_NNS [_SYM 12_CD ]_SYM ._SENT 
+Although_IN these_DT methane_NN slip_NN mechanisms_NNS have_VHP been_VBN identified_VVN as_IN occurring_VVG in_IN four-stroke_JJ dual-fuel_NN marine_NN engines_NNS ,_, the_DT distribution_NN of_IN the_DT contribution_NN to_TO the_DT overall_JJ methane_NN slip_NN from_IN the_DT different_JJ sources_NNS is_VBZ not_RB clear_JJ ._SENT 
+Königsson_NP et_NP al_NP ._SENT 
+[_SYM 13_CD ]_SYM performed_VVD a_DT study_NN of_IN the_DT contribution_NN from_IN the_DT crevice_NN mechanism_NN to_TO the_DT total_JJ hydrocarbon_NN emissions_NNS in_IN a_DT single_JJ cylinder_NN heavy_JJ duty_NN dual-fuel_NN engine_NN with_IN methane_NN as_IN primary_JJ fuel_NN ._SENT 
+They_PP found_VVD that_IN the_DT contribution_NN from_IN crevices_NNS to_TO the_DT total_JJ hydrocarbon_NN emissions_NNS may_MD be_VB up_RB to_TO about_RB 75_CD %_NN but_CC noted_VVD that_IN for_IN excess_JJ air_NN ratios_NNS above_IN 1.6_CD the_DT quenching_VVG contribution_NN starts_VVZ to_TO overtake_VV the_DT crevice_NN contribution_NN ._SENT 
+We_PP did_VVD not_RB find_VV other_JJ investigations_NNS focused_VVN at_IN the_DT distribution_NN between_IN the_DT contributions_NNS from_IN the_DT different_JJ sources_NNS in_IN dual-fuel_NN engines_NNS and_CC none_NN performed_VVN on_IN dual-fuel_NN marine_JJ engines_NNS ._SENT 
+To_TO reduce_VV the_DT methane_NN slip_NN from_IN four-stroke_JJ dual-fuel_NN marine_NN engines_NNS ,_, it_PP is_VBZ ,_, however_RB ,_, valuable_JJ to_TO obtain_VV insights_NNS into_IN the_DT distribution_NN of_IN the_DT different_JJ contributions_NNS at_IN various_JJ operating_VVG conditions_NNS ._SENT 
+With_IN such_JJ information_NN it_PP is_VBZ possible_JJ to_TO obtain_VV indications_NNS of_IN which_WDT contributions_NNS it_PP would_MD be_VB most_RBS beneficial_JJ to_TO reduce_VV at_IN different_JJ conditions_NNS ._SENT 
+In_IN this_DT work_NN ,_, we_PP present_VVP a_DT numerical_JJ model_NN developed_VVN with_IN the_DT aim_NN to_TO investigate_VV the_DT methane_NN slip_NN from_IN four-stroke_JJ dual-fuel_NN marine_NN engines_NNS ._SENT 
+The_DT model_NN is_VBZ a_DT thermodynamic_JJ three-zone_NN zero-dimensional_JJ engine_NN cycle_NN model_NN which_WDT simulates_VVZ the_DT full_JJ engine_NN cycle_NN ._SENT 
+After_IN a_DT description_NN of_IN the_DT numerical_JJ model_NN ,_, we_PP present_VVP the_DT results_NNS of_IN an_DT investigation_NN performed_VVN with_IN the_DT model_NN of_IN the_DT methane_NN slip_NN from_IN a_DT four-stroke_JJ dual-fuel_NN marine_JJ engine_NN ._SENT 
+<Section> Numerical_JJ model_NN </Section> The_DT developed_JJ numerical_JJ model_NN is_VBZ a_DT thermodynamic_JJ three-zone_NN zero-dimensional_JJ full_JJ engine_NN cycle_NN model_NN ._SENT 
+It_PP is_VBZ described_VVN in_IN this_DT section_NN ._SENT 
+During_IN the_DT combustion_NN phase_NN of_IN the_DT engine_NN cycle_NN ,_, the_DT model_NN divides_VVZ the_DT cylinder_NN volume_NN into_IN a_DT burned_VVN and_CC an_DT unburned_JJ gas_NN zone_NN ._SENT 
+For_IN the_DT rest_NN of_IN the_DT engine_NN cycle_NN ,_, the_DT cylinder_NN volume_NN is_VBZ treated_VVN as_IN one_CD zone_NN ._SENT 
+In_IN addition_NN to_TO the_DT cylinder_NN volume_NN zones_NNS ,_, crevice_NN volumes_NNS in_IN the_DT cylinder_NN are_VBP modeled_VVN as_IN one_CD zone_NN connected_VVN to_TO the_DT cylinder_NN volume_NN zone_NN (_( during_IN combustion_NN it_PP is_VBZ connected_VVN to_TO the_DT unburned_JJ zone_NN )_) ._SENT 
+The_DT zones_NNS are_VBP indicated_VVN in_IN Fig_NN ._SENT 
+1._CD An_DT energy_NN and_CC mass_NN balance_NN is_VBZ formulated_VVN for_IN each_DT of_IN the_DT zones_NNS ,_, expect_VVP for_IN the_DT crevice_NN zone_NN where_WRB only_RB a_DT mass_JJ balance_NN is_VBZ considered_VVN ._SENT 
+Methane_NN is_VBZ used_VVN as_IN surrogate_JJ fuel_NN for_IN LNG_NP ,_, since_IN the_DT methane_NN content_NN in_IN LNG_NP typically_RB is_VBZ above_IN 90_CD %_NN by_IN volume_NN [_SYM 8_CD ]_SYM ._SENT 
+The_DT gas_NN species_NN considered_VVN in_IN the_DT model_NN for_IN the_DT current_JJ investigation_NN are_VBP CH4_JJ ,_, O2_NP ,_, N2_NP ,_, CO2_NP and_CC H2O_NP ._SENT 
+The_DT ideal_JJ gas_NN law_NN is_VBZ used_VVN as_IN equation_NN of_IN state_NN ,_, thermochemical_JJ properties_NNS are_VBP determined_VVN using_VVG data_NNS derived_VVN by_IN Westbrook_NP et_CC al_NP ._SENT 
+[_SYM 14_CD ]_SYM ,_, and_CC transport_NN properties_NNS are_VBP calculated_VVN based_VVN on_IN data_NNS from_IN Wang_NP et_CC al_NP ._SENT 
+[_SYM 15_CD ]_SYM ._SENT 
+Fig_NN ._SENT 
+1_CD figure1_JJ Zones_NNS in_IN the_DT engine_NN model_NN Full_JJ size_NN image_NN Energy_NN and_CC mass_NN balances_VVZ Equations_NNS 1_CD and_CC 2_CD show_NN the_DT general_JJ form_NN of_IN the_DT applied_VVN energy_NN and_CC mass_NN balances_NNS ,_, respectively_RB ._SENT 
+dTdθ=(Q˙c−Q˙w−p_NP dVdθ+∑m˙_NP h−∑i=1n(ui_NP dmidθ))1m_NP cv_NP ,_, (_( 1_LS )_) dmidθ=∑m˙_NP yi+Si_NP ._SENT 
+(_( 2_LS )_) T_NN ,_, h_NN and_CC cv_NP are_VBP mass_RB averaged_VVN temperature_NN ,_, specific_JJ enthalpy_NN and_CC specific_JJ heat_NN capacity_NN at_IN constant_JJ volume_NN ,_, respectively_RB ._SENT 
+m_NN is_VBZ mass_JJ ,_, p_NN and_CC V_NN are_VBP pressure_NN and_CC volume_NN ._SENT 
+Index_NP i_NP represents_VVZ gas_NN species_NNS i_NP out_IN of_IN n_NN species_NNS ._SENT 
+Q˙_NP is_VBZ heat_NN transfer_NN rate_NN and_CC m˙_NN is_VBZ mass_JJ flow_NN rate_NN ,_, both_CC with_IN respect_NN to_TO crank_VV angle_NN θ_NN ._SENT 
+Indices_NN c_SYM and_CC w_NN are_VBP short_JJ for_IN combustion_NN and_CC wall_NN ,_, respectively_RB ._SENT 
+u_NN is_VBZ specific_JJ internal_JJ energy_NN ,_, y_NP is_VBZ mass_JJ fraction_NN ,_, and_CC S_NP represents_VVZ a_DT source_NN term_NN due_JJ to_TO chemical_NN reactions_NNS ._SENT 
+Cylinder_NN volume_NN The_DT cylinder_NN volume_NN is_VBZ given_VVN by_IN Eq_NP ._SENT 
+3._CD Vcy=Vc+π4_JJ B2_NN (_( L+r−(r_NP cosθ+L2−(rsinθ)2−√_NP )_) )_) ._SENT 
+(_( 3_LS )_) Vc_NN is_VBZ the_DT compression_NN volume_NN ,_, B_NP is_VBZ the_DT cylinder_NN bore_NN ,_, L_NP is_VBZ the_DT connecting_VVG rod_NN length_NN ,_, and_CC r_NN is_VBZ the_DT crank_JJ shaft_NN arm_NN length_NN ._SENT 
+Wall_NP heat_NN transfer_VV The_DT heat_NN transfer_NN rate_NN from_IN gas_NN to_TO wall_NN ,_, Q˙w_RB ,_, is_VBZ calculated_VVN using_VVG Newton’s_JJ law_NN of_IN cooling_NN ,_, Eq_NP ._SENT 
+4._CD Q˙w=Aw_NN h_NN (_( Tg−Tw_NN )_) ._SENT 
+(_( 4_LS )_) Aw_NN is_VBZ the_DT wall_NN surface_NN area_NN with_IN temperature_NN Tw_NNS in_IN contact_NN with_IN the_DT gas_NN with_IN temperature_NN Tg_NN ._SENT 
+The_DT piston_NN surface_NN and_CC cylinder_NN head_NN are_VBP assumed_VVN to_TO be_VB flat_JJ in_IN the_DT calculation_NN of_IN Aw_NNS for_IN simplicity_NN ._SENT 
+During_IN combustion_NN ,_, when_WRB two_CD zones_NNS are_VBP present_JJ in_IN the_DT cylinder_NN ,_, the_DT wall_NN surface_NN area_NN in_IN contact_NN with_IN each_DT zone_NN has_VHZ to_TO be_VB determined_VVN ._SENT 
+It_PP is_VBZ assumed_VVN that_IN the_DT burned_JJ gas_NN zone_NN has_VHZ the_DT shape_NN of_IN an_DT expanding_VVG hemisphere_NN with_IN initial_JJ point_NN at_IN the_DT center_NN of_IN the_DT cylinder_NN head_NN ._SENT 
+It_PP is_VBZ furthermore_RB assumed_VVN that_IN the_DT flame_NN front_NN quenches_VVZ when_WRB reaching_VVG the_DT vicinity_NN of_IN the_DT cylinder_NN wall_NN and_CC the_DT piston_NN surface_NN ._SENT 
+Unburned_JJ gas_NN is_VBZ then_RB present_JJ in_IN a_DT boundary_NN layer_NN between_IN the_DT burned_VVN gas_NN and_CC those_DT surfaces_VVZ ._SENT 
+Hence_RB ,_, the_DT burned_JJ gas_NN zone_NN is_VBZ assumed_VVN only_RB to_TO be_VB in_IN contact_NN with_IN the_DT cylinder_NN head_NN ._SENT 
+The_DT surface_NN area_NN in_IN contact_NN with_IN the_DT burned_JJ gas_NN zone_NN is_VBZ given_VVN by_IN Eq_NP ._SENT 
+5_LS where_WRB rbg_NP is_VBZ the_DT burned_JJ gas_NN zone_NN radius_NN ._SENT 
+Aw_RB ,_, bg=π_NP r2bg_NP ._SENT 
+(_( 5_CD )_) rbg_NN is_VBZ replaced_VVN with_IN half_NN of_IN the_DT engine_NN bore_VVD when_WRB the_DT flame_NN front_NN has_VHZ reached_VVN the_DT cylinder_NN wall_NN ._SENT 
+The_DT combustion_NN chamber_NN surface_NN area_NN in_IN contact_NN with_IN the_DT unburned_JJ gas_NN is_VBZ given_VVN by_IN Eq_NP ._SENT 
+6_CD where_WRB Acy_NP is_VBZ the_DT total_JJ combustion_NN chamber_NN surface_NN area_NN ._SENT 
+Aw_RB ,_, ubg=Acy−Aw_NP ,_, bg_NP ._SENT 
+(_( 6_CD )_) The_DT heat_NN transfer_NN coefficient_NN h_NN in_IN Eq_NP ._SENT 
+4_CD is_VBZ determined_VVN using_VVG the_DT Woschni_NP heat_NN transfer_NN correlation_NN [_SYM 16_CD ]_SYM ._SENT 
+It_PP is_VBZ used_VVN in_IN the_DT form_NN shown_VVN in_IN Eq_NP ._SENT 
+7_CD [_SYM 17_CD ]_SYM ._SENT 
+w_NN is_VBZ a_DT representative_JJ in-cylinder_NN flow_NN velocity_NN given_VVN by_IN Eq_NP ._SENT 
+8._CD h=3.26_NP B−0.2_NP p0.8_NP Tg−0.55_NP w0.8_NP ,_, (_( 7_CD )_) w=C1_JJ Sp_NN +_SYM C2_JJ Vd_NN Trpr_NP Vr(p−pm_NP )_) ._SENT 
+(_( 8_CD )_) Sp_NP is_VBZ the_DT mean_JJ piston_NN speed_NN and_CC Vd_VVG the_DT displacement_NN volume_NN ._SENT 
+Subscript_NN r_SYM denotes_VVZ a_DT reference_NN state_NN for_IN the_DT gas_NN which_WDT is_VBZ chosen_VVN to_TO be_VB just_RB before_IN start_NN of_IN combustion_NN ._SENT 
+pm_NN is_VBZ the_DT motoring_VVG pressure_NN which_WDT is_VBZ estimated_VVN by_IN assuming_VVG an_DT isentropic_JJ process_NN with_IN an_DT ideal_JJ gas_NN and_CC constant_JJ heat_NN capacity_NN ratio_NN γ_NN ,_, see_VVP Eq_NP ._SENT 
+9._CD pm=pr(VrVcy)γr_NP ._SENT 
+(_( 9_CD )_) C1_JJ and_CC C2_JJ in_IN Eq_NP ._SENT 
+8_CD are_VBP coefficients_NNS which_WDT values_NNS depend_VVP on_IN the_DT engine_NN cycle_NN phase_NN ._SENT 
+We_PP use_VVP the_DT values_NNS recommended_VVN in_IN Ref_NN ._SENT 
+[_SYM 16_CD ]_SYM ._SENT 
+For_IN the_DT gas_NN exchange_NN phase_NN of_IN the_DT engine_NN cycle_NN ,_, C1=6.18_NP ._SENT 
+For_IN the_DT rest_NN of_IN the_DT cycle_NN C1=2.28_NN ._SENT 
+During_IN combustion_NN and_CC expansion_NN ,_, C2=3.24×10−3_NN and_CC for_IN the_DT remaining_VVG part_NN of_IN the_DT cycle_NN C2=0_NN ._SENT 
+Heat_NN transfer_NN from_IN the_DT burned_VVN gas_NN to_TO the_DT unburned_JJ gas_NN is_VBZ not_RB considered_VVN in_IN the_DT present_JJ model_NN as_IN it_PP is_VBZ assumed_VVN that_IN the_DT flame_NN speed_NN is_VBZ faster_RBR than_IN the_DT heat_NN diffusion_NN into_IN the_DT unburned_JJ gas_NN and_CC heat_NN exchange_NN between_IN the_DT burned_JJ and_CC unburned_JJ gas_NN during_IN combustion_NN in_IN regions_NNS where_WRB the_DT flame_NN is_VBZ extinguished_VVN is_VBZ not_RB modeled_VVN ._SENT 
+Mass_NP flows_VVZ The_DT mass_JJ flow_NN rates_NNS through_IN the_DT intake_NN and_CC exhaust_NN ports_NNS during_IN the_DT gas_NN exchange_NN process_NN are_VBP calculated_VVN according_VVG to_TO Eq_NP ._SENT 
+10_CD assuming_VVG a_DT one-dimensional_JJ quasi-steady_JJ compressible_JJ flow_NN of_IN an_DT ideal_JJ gas_NN with_IN constant_JJ heat_NN capacity_NN ratio_NN [_SYM 18_CD ]_SYM ._SENT 
+If_IN the_DT flow_NN is_VBZ choked_VVN Eq_NP ._SENT 
+11_CD is_VBZ applied_VVN ._SENT 
+Choked_VVN condition_NN occurs_VVZ if_IN the_DT pressure_NN ratio_NN over_IN the_DT ports_NNS exceeds_VVZ the_DT critical_JJ pressure_NN ratio_NN rc_NN determined_VVN by_IN Eq_NP ._SENT 
+12._CD m˙=CD_JJ Ar_NP p0R_NP T0−√(p1p0)1γ⎡⎣2γγ−1⎛⎝1−(p1p0)γ−1γ⎞⎠⎤⎦12_NP ,_, (_( 10_CD )_) m˙=CD_VVZ Ar_NP p0R_NP T0√_NP γ12(2γ+1)γ+12(γ−1_NN )_) ,_, (_( 11_CD )_) rc=(γ+12)γγ−1_JJ ._SENT 
+(_( 12_CD )_) In_IN the_DT flow_NN rate_NN equations_NNS ,_, indices_NN 0_CD and_CC 1_CD refer_VVP to_TO upstream_JJ and_CC port_JJ conditions_NNS ,_, respectively_RB ._SENT 
+R_SYM is_VBZ the_DT specific_JJ gas_NN constant_JJ of_IN the_DT gas_NN ._SENT 
+Ar_NP is_VBZ the_DT minimum_JJ geometric_JJ flow_NN area_NN (_( reference_NN area_NN )_) which_WDT is_VBZ ,_, depending_VVG on_IN the_DT actual_JJ valve_NN lift_NN ,_, either_CC the_DT port_JJ area_NN Ap_NNS (_( Eq_NP ._SENT 
+13_CD )_) or_CC the_DT valve_NN curtain_NN area_NN Avc_NP (_( Eq_NP ._SENT 
+14_CD )_) ._SENT 
+Dv_NP and_CC Dvs_NP are_VBP valve_NN and_CC valve_NN stem_NN diameter_NN ,_, respectively_RB ._SENT 
+l_NN is_VBZ the_DT actual_JJ valve_NN lift_NN ._SENT 
+Ap=π4(Dv2−Dvs2_NP )_) ,_, (_( 13_CD )_) Avc=π_NP Dv_NP l._NP (_( 14_CD )_) The_DT discharge_NN coefficient_NN CD_NN in_IN the_DT flow_NN equations_NNS is_VBZ defined_VVN as_IN the_DT ratio_NN between_IN the_DT effective_JJ minimum_JJ flow_NN area_NN Ae_NP and_CC the_DT minimum_JJ geometric_JJ flow_NN area_NN Ar_NP (_( Eq_NP ._SENT 
+15_CD )_) ._SENT 
+The_DT effective_JJ minimum_JJ flow_NN area_NN is_VBZ smaller_JJR than_IN the_DT minimum_JJ geometric_JJ flow_NN area_NN due_JJ to_TO separation_NN of_IN the_DT flow_NN from_IN the_DT valve_NN surfaces_VVZ [_SYM 17_CD ]_SYM ._SENT 
+CD=AeAr_NP ._SENT 
+(_( 15_CD )_) The_DT mass_JJ flow_NN rate_NN of_IN gas_NN exchanged_VVN between_IN the_DT cylinder_NN and_CC the_DT crevice_NN zone_NN is_VBZ calculated_VVN based_VVN on_IN the_DT crevice_NN mass_NN flow_NN rate_NN calculation_NN in_IN Refs_NNS ._SENT 
+[_SYM 19_CD ,_, 20_CD ]_SYM ._SENT 
+It_PP is_VBZ assumed_VVN that_IN the_DT crevice_NN volume_NN Vcr_NN is_VBZ constant_JJ and_CC that_IN the_DT temperature_NN of_IN the_DT gas_NN entering_VVG the_DT crevice_NN zone_NN immediately_RB reaches_VVZ the_DT crevice_NN wall_NN temperature_NN due_JJ to_TO a_DT small_JJ crevice_NN volume/surface_NN area_NN ratio_NN ._SENT 
+The_DT crevice_NN wall_NN temperature_NN is_VBZ considered_VVN constant_JJ throughout_IN the_DT engine_NN cycle_NN ._SENT 
+It_PP is_VBZ furthermore_RB assumed_VVN that_IN the_DT crevice_NN pressure_NN equals_VVZ that_IN in_IN the_DT cylinder_NN ._SENT 
+The_DT rate_NN of_IN change_NN of_IN mass_NN in_IN the_DT crevice_NN zone_NN is_VBZ determined_VVN by_IN differentiation_NN of_IN the_DT ideal_JJ gas_NN law_NN applied_VVN to_TO the_DT crevice_NN gas_NN ._SENT 
+A_DT mass_JJ balance_NN for_IN the_DT crevice_NN zone_NN then_RB gives_VVZ the_DT mass_JJ flow_NN rate_NN in_IN Eq_NP ._SENT 
+16_CD assuming_VVG no_DT blow-by_NN ._SENT 
+m˙cr=VcrRcr_NP Tcr_NP dpdθ_NP ._SENT 
+(_( 16_CD )_) Combustion_NP During_IN the_DT combustion_NN phase_NN ,_, the_DT cylinder_NN volume_NN is_VBZ divided_VVN into_IN a_DT burned_VVN and_CC an_DT unburned_JJ gas_NN zone_NN ._SENT 
+The_DT division_NN into_IN two_CD zones_NNS takes_VVZ place_VV when_WRB the_DT main_JJ fuel_NN combustion_NN starts_VVZ ,_, i._NP e._NP the_DT methane_NN combustion_NN ._SENT 
+The_DT pilot_NN fuel_NN combustion_NN is_VBZ modeled_VVN as_IN a_DT heat_NN release_NN to_TO the_DT single_JJ cylinder_NN zone_NN prior_RB to_TO the_DT main_JJ combustion_NN and_CC to_TO the_DT unburned_JJ zone_NN during_IN the_DT main_JJ combustion_NN ._SENT 
+The_DT heat_NN release_NN rate_NN is_VBZ based_VVN on_IN the_DT Wiebe_NP function_NN [_SYM 21_CD ]_SYM and_CC given_VVN by_IN Eq_NP ._SENT 
+17._CD Q˙c=Qc_NN a_DT (_( m+1)θd_NN (_( θ−θsθd)mexp(−a(θ−θsθd)m+1_JJ )_) ._SENT 
+(_( 17_CD )_) Qc_NP is_VBZ the_DT total_JJ heat_NN released_VVD ._SENT 
+θs_NNS and_CC θd_NNS denote_VVP the_DT crank_VV angle_NN for_IN start_NN of_IN combustion_NN and_CC the_DT combustion_NN duration_NN ,_, respectively_RB ._SENT 
+a_DT and_CC m_NN are_VBP the_DT so-called_JJ efficiency_NN parameter_NN and_CC shape_NN factor_NN ,_, respectively_RB ,_, which_WDT may_MD be_VB adjusted_VVN to_TO fit_VV a_DT certain_JJ heat_NN release_NN rate_NN profile_NN ._SENT 
+Pilot_NN fuel_NN combustion_NN products_NNS are_VBP not_RB considered_VVN in_IN the_DT model_NN ._SENT 
+The_DT modeling_NN of_IN the_DT main_JJ fuel_NN combustion_NN is_VBZ described_VVN next_JJ ._SENT 
+The_DT main_JJ fuel_NN combustion_NN reactions_NNS are_VBP assumed_VVN to_TO take_VV place_NN in_IN an_DT infinitely_RB thin_JJ flame_NN sheet_NN between_IN the_DT two_CD zones_NNS ._SENT 
+Unburned_JJ gas_NN enters_VVZ the_DT flame_NN sheet_NN and_CC combustion_NN products_NNS exit_NN as_IN the_DT flame_NN propagates_VVZ through_IN the_DT combustion_NN chamber_NN ._SENT 
+The_DT products_NNS are_VBP assumed_VVN in_IN chemical_JJ equilibrium_NN at_IN the_DT adiabatic_JJ flame_NN temperature_NN for_IN a_DT constant_JJ pressure_NN reaction_NN as_IN they_PP exit_VV the_DT flame_NN sheet_NN ._SENT 
+The_DT rate_NN at_IN which_WDT gas_NN exits_VVZ the_DT unburned_JJ gas_NN zone_NN and_CC enters_VVZ the_DT flame_NN sheet_NN equals_VVZ the_DT rate_NN at_IN which_WDT gas_NN exits_VVZ the_DT flame_NN sheet_NN and_CC enters_VVZ the_DT burned_JJ gas_NN zone_NN ._SENT 
+The_DT rate_NN is_VBZ the_DT main_JJ combustion_NN mass_NN burn_VVP rate_NN and_CC is_VBZ based_VVN on_IN the_DT main_JJ combustion_NN heat_NN release_NN rate_NN modeled_VVN by_IN a_DT Wiebe_NP function_NN (_( Eq_NP ._SENT 
+17_CD )_) divided_VVN by_IN the_DT heat_NN released_VVN pr_NP ._SENT 
+burned_JJ mass_NN ,_, see_VVP Eq_NP ._SENT 
+18._CD dmbdθ=Q˙c∑ni=1hf_NN ,_, i_NP (_( yR_NP ,_, i−yP_NP ,_, i_NP )_) ._SENT 
+(_( 18_CD )_) hf_NP is_VBZ enthalpy_NN of_IN formation_NN at_IN the_DT reference_NN temperature_NN for_IN the_DT applied_VVN thermochemical_JJ data_NNS (_( 298.15_CD K_NP )_) ,_, and_CC y_NP is_VBZ mass_JJ fraction_NN ._SENT 
+Subscripts_NNS R_NN and_CC P_NN are_VBP short_JJ for_IN reactants_NNS and_CC products_NNS ,_, and_CC index_NN i_NP denotes_VVZ species_NN i_NP out_IN of_IN n_NN species_NNS ._SENT 
+It_PP is_VBZ assumed_VVN that_IN the_DT pressure_NN in_IN the_DT cylinder_NN is_VBZ uniform_JJ at_IN any_DT time_NN during_IN the_DT engine_NN cycle_NN ,_, and_CC thus_RB that_IN the_DT pressure_NN in_IN the_DT burned_JJ and_CC unburned_JJ zone_NN are_VBP equal_JJ ._SENT 
+Furthermore_RB ,_, the_DT sum_NN of_IN the_DT zone_NN volumes_NNS are_VBP constrained_VVN to_TO equal_VV to_TO the_DT cylinder_NN volume_NN ._SENT 
+The_DT gas_NN temperature_NN and_CC volume_NN of_IN the_DT zones_NNS and_CC the_DT cylinder_NN pressure_NN are_VBP determined_VVN by_IN combining_VVG these_DT constraints_NNS with_IN the_DT energy_NN and_CC mass_NN balances_NNS and_CC the_DT equation_NN of_IN state_NN for_IN each_DT zone_NN ._SENT 
+Post-oxidation_NN Unburned_JJ fuel_NN remaining_VVG in_IN the_DT crevices_NNS when_WRB the_DT combustion_NN ends_VVZ may_MD exit_VV the_DT crevices_NNS afterwards_RB and_CC mix_NN with_IN the_DT hot_JJ gas_NN in_IN the_DT cylinder_NN volume_NN ,_, together_RB with_IN any_DT unburned_JJ fuel_NN from_IN the_DT wall_NN quench_VVP layer_NN ._SENT 
+Due_JJ to_TO the_DT elevated_JJ temperature_NN of_IN the_DT cylinder_NN gas_NN ,_, the_DT unburned_JJ fuel_NN may_MD subsequently_RB be_VB oxidized_VVN ._SENT 
+After_IN the_DT combustion_NN has_VHZ ended_VVN ,_, the_DT burned_VVN and_CC the_DT unburned_JJ gas_NN zone_NN are_VBP merged_VVN into_IN one_CD zone_NN as_IN shown_VVN in_IN Fig_NN ._SENT 
+1b_NP ._SENT 
+Any_DT gas_NN exiting_VVG the_DT crevices_NNS will_MD enter_VV into_IN this_DT zone_NN where_WRB post-oxidation_NN may_MD take_VV place_NN ._SENT 
+Likewise_RB ,_, any_DT remaining_VVG gas_NN in_IN the_DT unburned_JJ zone_NN at_IN the_DT end_NN of_IN combustion_NN ,_, i._NP e._NP the_DT wall_NN quench_VVP layer_NN ,_, will_MD subsequently_RB be_VB present_JJ in_IN the_DT single_JJ cylinder_NN volume_NN zone_NN due_JJ to_TO the_DT merging_VVG of_IN the_DT burned_JJ and_CC unburned_JJ zone_NN after_IN combustion_NN ._SENT 
+The_DT potential_JJ post-oxidation_NN is_VBZ accounted_VVN for_IN by_IN a_DT source_NN term_NN in_IN the_DT mass_JJ balance_NN for_IN the_DT zone_NN ._SENT 
+The_DT source_NN term_NN is_VBZ given_VVN by_IN Eq_NP ._SENT 
+19._CD Si=V_NP Mi_NP ω˙i_NP ._SENT 
+(_( 19_CD )_) Mi_NP is_VBZ the_DT molar_JJ mass_NN and_CC ω˙i_NP the_DT production_NN rate_NN of_IN species_NN i_NP ,_, respectively_RB ._SENT 
+V_NN is_VBZ the_DT zone_NN volume_NN ._SENT 
+The_DT production_NN rate_NN calculation_NN is_VBZ based_VVN on_IN the_DT global_JJ reaction_NN in_IN Eq_NP ._SENT 
+20_CD using_VVG values_NNS by_IN Westbrook_NP and_CC Dryer_NP [_SYM 22_CD ]_SYM for_IN the_DT reaction_NN rate_NN parameters_NNS in_IN the_DT expression_NN for_IN the_DT reaction_NN rate_NN r_NN ,_, Eq_NP ._SENT 
+21._CD CH4+2_NP O2_NP →_NP CO2+2_NP H2O_NP ,_, (_( 20_CD )_) r=A_NP exp(−EaR_NP T_NN )_) [_SYM Fuel]a_NP [_SYM Oxidizer]b_NP ._SENT 
+(_( 21_CD )_) The_DT applied_VVN values_NNS for_IN the_DT rate_NN parameters_NNS ,_, i._NP e._NP the_DT activation_NN energy_NN Ea_NP (_( in_IN cal/mol_NN )_) ,_, the_DT pre-exponential_JJ factor_NN A_DT ,_, and_CC the_DT concentration_NN exponents_NNS a_DT and_CC b_LS for_IN methane_NN oxidation_NN are_VBP given_VVN in_IN Table_NN 1_CD together_RB with_IN rate_NN parameter_NN values_NNS for_IN octane_NN oxidation_NN ._SENT 
+Table_NN 1_CD Reaction_NN rate_NN parameter_NN values_VVZ Full_JJ size_NN table_NN How_WRB far_RB the_DT crevice_NN and_CC wall_NN boundary_NN layer_NN gases_NNS will_MD reach_VV into_IN the_DT cylinder_NN during_IN the_DT mixing_VVG is_VBZ not_RB known_VVN ._SENT 
+It_PP is_VBZ assumed_VVN that_IN they_PP will_MD stay_VV in_IN the_DT vicinity_NN of_IN the_DT cylinder_NN walls_NNS and_CC that_IN any_DT post-oxidation_NN will_MD accordingly_RB take_VV place_NN in_IN this_DT area_NN ._SENT 
+Hence_RB ω˙i_NP is_VBZ evaluated_VVN at_IN the_DT wall_NN film_NN temperature_NN Tf=12(Tg+Tw_NNS )_) ._SENT 
+This_DT assumption_NN was_VBD also_RB used_VVN by_IN Schramm_NP and_CC Sorenson_NP [_SYM 19_CD ]_SYM ,_, and_CC Dent_NP and_CC Lakshminarayanan_NP [_SYM 23_CD ]_SYM ._SENT 
+For_IN simplicity_NN ,_, it_PP is_VBZ assumed_VVN though_RB that_IN the_DT gas_NN composition_NN used_VVN in_IN the_DT post-oxidation_NN evaluation_NN is_VBZ that_IN of_IN the_DT single_JJ cylinder_NN volume_NN zone_NN where_WRB the_DT burned_JJ and_CC unburned_JJ gases_NNS are_VBP completely_RB mixed_VVN ._SENT 
+Friction_NN Engine_NN friction_NN is_VBZ modeled_VVN by_IN the_DT empirical_JJ expression_NN in_IN Eq_NP ._SENT 
+22._CD fmep=347.45_JJ S×N+48263_NN ._SENT 
+(_( 22_CD )_) fmep_NN is_VBZ the_DT friction_NN mean_VV effective_JJ pressure_NN in_IN Pa._NP S_NP and_CC N_NP are_VBP engine_NN stroke_NN and_CC speed_NN ,_, respectively_RB ,_, given_VVN in_IN meters_NNS and_CC rpm_NN ._SENT 
+Methane_NN slip_NN source_NN distribution_NN To_TO quantify_VV the_DT contribution_NN to_TO the_DT methane_NN slip_NN from_IN the_DT different_JJ sources_NNS considered_VVN in_IN this_DT work_NN ,_, i._NP e._NP short-circuiting_VVG ,_, crevices_NNS and_CC wall_NN quenching_VVG ,_, mass_JJ balance_NN equations_NNS for_IN the_DT cylinder_NN content_NN of_IN methane_NN from_IN the_DT crevices_NNS and_CC the_DT intake_NN manifold_NN are_VBP implemented_VVN in_IN the_DT model_NN ._SENT 
+The_DT mass_JJ balance_NN for_IN the_DT cylinder_NN content_NN of_IN methane_NN from_IN the_DT crevices_NNS is_VBZ given_VVN in_IN Eq_NP ._SENT 
+23._CD dmcrf_NP ,_, cydθ=−m˙cr_NP ycrf_NP ,_, cy−dmbdθ_NP ycrf_NP ,_, ubg−(m˙out−m˙in_NP )_) ycrf_NP ,_, cy+Vcy_NP Mf_NP ω˙f_NP ,_, pox_NN mcrf_NP ,_, cymf_NP ,_, cy_NP ._SENT 
+(_( 23_CD )_) mcrf_NP ,_, cy_NN is_VBZ mass_JJ of_IN fuel_NN ,_, i._NP e._NP methane_NN ,_, in_IN the_DT cylinder_NN coming_VVG from_IN the_DT crevices_NNS (_( indicated_VVN by_IN superscript_JJ cr_NN )_) ._SENT 
+m˙cr_NP is_VBZ mass_JJ flow_NN rate_NN of_IN gas_NN flowing_VVG from_IN the_DT cylinder_NN to_TO the_DT crevices_NNS and_CC is_VBZ calculated_VVN according_VVG to_TO Eq_NP ._SENT 
+16._CD ycrf_NP ,_, cy_NN is_VBZ mass_JJ fraction_NN of_IN fuel_NN in_IN the_DT cylinder_NN from_IN crevices_NNS ._SENT 
+If_IN m˙cr_NP is_VBZ negative_JJ ,_, i._NP e._NP gas_NN flows_VVZ out_RP of_IN the_DT crevices_NNS ,_, then_RB ycrf_NP ,_, cy_NN is_VBZ replaced_VVN by_IN the_DT mass_JJ fraction_NN of_IN fuel_NN in_IN the_DT crevices_NNS ycrf_NP ,_, cr_NP ._SENT 
+The_DT second_JJ term_NN on_IN the_DT right_JJ hand_NN side_NN of_IN Eq_NP ._SENT 
+23_CD accounts_NNS for_IN the_DT consumption_NN of_IN fuel_NN from_IN the_DT crevices_NNS in_IN the_DT main_JJ combustion_NN ._SENT 
+ycrf_NP ,_, ubg_NP is_VBZ mass_JJ fraction_NN of_IN fuel_NN from_IN the_DT crevices_NNS in_IN the_DT unburned_JJ gas_NN during_IN combustion_NN ._SENT 
+For_IN the_DT mass_NN burn_VVP rate_NN ,_, see_VVP Eq_NP ._SENT 
+18._CD m˙out_NN and_CC m˙in_NN are_VBP mass_JJ flow_NN rates_NNS of_IN gas_NN flowing_VVG out_RP of_IN the_DT cylinder_NN through_IN the_DT exhaust_NN port_NN and_CC into_IN the_DT cylinder_NN through_IN the_DT intake_NN port_NN ,_, respectively_RB ._SENT 
+Both_DT are_VBP determined_VVN by_IN Eqs_NP ._SENT 
+10_CD or_CC 11._CD m˙in_NN is_VBZ however_RB only_RB included_VVN if_IN it_PP is_VBZ negative_JJ ,_, i._NP e._NP if_IN backflow_NP into_IN the_DT manifold_NN occurs_VVZ ._SENT 
+The_DT last_JJ term_NN on_IN the_DT right_JJ hand_NN side_NN of_IN Eq_NP ._SENT 
+23_CD accounts_NNS for_IN a_DT potential_JJ decrease_NN in_IN the_DT cylinder_NN content_NN of_IN fuel_NN from_IN the_DT crevices_NNS due_JJ to_TO post-oxidation_NN ._SENT 
+ω˙f_NP ,_, pox_NN is_VBZ the_DT production_NN rate_NN of_IN fuel_NN during_IN the_DT potential_JJ post-oxidation_NN (_( and_CC is_VBZ hence_RB negative_JJ )_) ,_, and_CC is_VBZ evaluated_VVN as_IN described_VVN in_IN Sect_NN ._SENT 
+2.6_CD ._SENT 
+mf_NP ,_, cy_NN is_VBZ the_DT mass_NN of_IN fuel_NN in_IN the_DT cylinder_NN ,_, Vcy_NN is_VBZ the_DT cylinder_NN volume_NN ,_, and_CC Mf_NP is_VBZ the_DT fuel_NN molar_NN mass_NN ._SENT 
+mcrf_NP ,_, cy_NN is_VBZ initialized_VVN to_TO zero_CD ,_, and_CC integration_NN of_IN Eq_NP ._SENT 
+23_CD is_VBZ performed_VVN from_IN the_DT moment_NN during_IN combustion_NN where_WRB mass_NN starts_VVZ to_TO flow_VV out_RP of_IN the_DT crevices_NNS ._SENT 
+The_DT contribution_NN to_TO the_DT methane_NN slip_NN from_IN the_DT crevices_NNS is_VBZ then_RB given_VVN by_IN Eq_NP ._SENT 
+24_CD where_WRB the_DT integration_NN is_VBZ performed_VVN over_IN the_DT exhaust_NN phase_NN of_IN the_DT engine_NN cycle_NN ,_, i._NP e._NP the_DT period_NN with_IN open_JJ exhaust_NN valve_NN ._SENT 
+mcrf_NP ,_, out=∫exm˙out_NP ycrf_NP ,_, cy_NP ._SENT 
+(_( 24_CD )_) The_DT mass_JJ balance_NN for_IN the_DT cylinder_NN content_NN of_IN methane_NN from_IN the_DT intake_NN manifold_NN during_IN the_DT gas_NN exchange_NN process_NN is_VBZ given_VVN in_IN Eq_NP ._SENT 
+25._CD dmscf_NN ,_, cydθ=m˙in_NP yscf_NP ,_, in−m˙out_NP yscf_NP ,_, cy−m˙cr_NP yscf_NP ,_, cy_NP ._SENT 
+(_( 25_CD )_) mscf_NP ,_, cy_NN is_VBZ the_DT mass_NN of_IN fuel_NN in_IN the_DT cylinder_NN from_IN the_DT intake_NN manifold_NN (_( indicated_VVN by_IN superscript_JJ sc_NN )_) ._SENT 
+yscf_NP ,_, in_IN is_VBZ mass_JJ fraction_NN of_IN fuel_NN in_IN the_DT intake_NN manifold_NN and_CC is_VBZ replaced_VVN by_IN the_DT mass_JJ fraction_NN of_IN fuel_NN in_IN the_DT cylinder_NN from_IN the_DT intake_NN manifold_NN yscf_NN ,_, cy_NN if_IN m˙in_NP becomes_VVZ negative_JJ ,_, i._NP e._NP backflow_NP occurs_VVZ ._SENT 
+If_IN gas_NN flows_VVZ out_RP of_IN the_DT crevices_NNS ,_, i._NP e._NP m˙cr_NP is_VBZ negative_JJ in_IN the_DT last_JJ term_NN on_IN the_DT right_JJ hand_NN side_NN of_IN Eq_NP ._SENT 
+25_CD ,_, then_RB the_DT corresponding_JJ yscf_NN ,_, cy_NN is_VBZ replaced_VVN by_IN zero_CD ._SENT 
+mscf_NP ,_, cy_NN is_VBZ initialized_VVN to_TO zero_CD ,_, and_CC integration_NN of_IN Eq_NP ._SENT 
+25_CD is_VBZ performed_VVN over_IN the_DT gas_NN exchange_NN phase_NN of_IN the_DT engine_NN cycle_NN ._SENT 
+The_DT contribution_NN to_TO the_DT methane_NN slip_NN from_IN short-circuiting_VVG is_VBZ then_RB ,_, similar_JJ to_TO mcrf_NP ,_, out_RB ,_, given_VVN by_IN Eq_NP ._SENT 
+26._CD mscf_NN ,_, out=∫exm˙out_NP yscf_NP ,_, cy_NP ._SENT 
+(_( 26_CD )_) The_DT total_JJ methane_NN slip_NN from_IN the_DT engine_NN ,_, mf_NP ,_, out_RB ,_, is_VBZ calculated_VVN by_IN replacing_VVG yscf_NN ,_, cy_NN in_IN Eq_NP ._SENT 
+26_CD with_IN the_DT mass_JJ fraction_NN of_IN the_DT total_JJ amount_NN of_IN fuel_NN in_IN the_DT cylinder_NN yf_NN ,_, cy_NN ._SENT 
+The_DT relative_JJ contributions_NNS to_TO the_DT methane_NN slip_NN from_IN the_DT different_JJ sources_NNS in_IN terms_NNS of_IN mass_JJ fractions_NNS are_VBP then_RB given_VVN by_IN Eqs_NP ._SENT 
+27_CD to_TO 29._CD ycrf_NP ,_, out=mcrf_NP ,_, outmf_NP ,_, out_RB ,_, (_( 27_CD )_) yscf_NP ,_, out=mscf_NP ,_, outmf_NP ,_, out_RB ,_, (_( 28_CD )_) yquf_NP ,_, out=1−ycrf_NP ,_, out−yscf_NP ,_, out_RB ._SENT 
+(_( 29_CD )_) yquf_NP ,_, out_IN is_VBZ the_DT relative_JJ contribution_NN to_TO the_DT methane_NN slip_NN from_IN wall_NN quenching_VVG ._SENT 
+As_IN indicated_VVN by_IN Eq_NP ._SENT 
+29_CD ,_, it_PP is_VBZ assumed_VVN that_IN methane_NN emissions_NNS which_WDT are_VBP not_RB caused_VVN by_IN short-circuiting_VVG or_CC crevices_NNS are_VBP due_JJ to_TO wall_VV quenching_VVG ._SENT 
+They_PP may_MD ,_, however_RB ,_, also_RB be_VB partly_RB due_JJ to_TO incomplete_JJ combustion_NN (_( bulk_NN quenching_VVG or_CC misfire_VV )_) ,_, as_RB mentioned_VVN in_IN Sect_NN ._SENT 
+1_CD ,_, but_CC this_DT is_VBZ not_RB modeled_VVN in_IN the_DT present_JJ model_NN ._SENT 
+Cycle_NN simulation_NN and_CC convergence_NN The_DT model_NN integrates_VVZ the_DT energy_NN and_CC mass_NN balances_NNS for_IN the_DT different_JJ zones_NNS over_IN a_DT full_JJ engine_NN cycle_NN starting_VVG at_IN the_DT start_NN of_IN compression_NN ._SENT 
+Mass_NN fractions_NNS and_CC mass_NN averaged_VVD gas_NN properties_NNS in_IN each_DT zone_NN are_VBP updated_VVN after_IN each_DT integration_NN step_NN ._SENT 
+After_IN completion_NN of_IN one_CD cycle_NN ,_, initial_JJ conditions_NNS are_VBP compared_VVN to_TO the_DT end_NN values_VVZ of_IN the_DT same_JJ parameters_NNS ,_, and_CC cycle_NN simulations_NNS are_VBP continued_VVN until_IN a_DT periodic_JJ steady_JJ state_NN is_VBZ achieved_VVN ._SENT 
+The_DT parameters_NNS considered_VVN for_IN the_DT convergence_NN check_NN are_VBP the_DT cylinder_NN gas_NN temperature_NN ,_, pressure_NN and_CC mass_NN ._SENT 
+<Section> Model_NN calibration_NN </Section> An_DT analysis_NN of_IN the_DT methane_NN slip_NN from_IN a_DT four-stroke_JJ dual-fuel_NN marine_JJ engine_NN is_VBZ performed_VVN using_VVG the_DT model_NN described_VVN in_IN Sect_NN ._SENT 
+2._CD The_DT engine_NN cycle_NN simulations_NNS are_VBP conducted_VVN in_IN the_DT MATLAB_NP computing_NN environment_NN version_NN R2015a_NN in_IN combination_NN with_IN the_DT open_JJ source_NN software_NN Cantera_NN version_NN 2.2.1_CD for_IN calculation_NN of_IN chemical_NN kinetics_NNS ,_, thermochemical_JJ properties_NNS and_CC transport_VV properties_NNS [_SYM 24_CD ]_SYM ._SENT 
+The_DT engine_NN considered_VVN is_VBZ a_DT MAN_NN L28/32DF_NN engine_NN (_( 2014_CD test_NN version_NN )_) with_IN the_DT main_JJ specifications_NNS given_VVN in_IN Table_NN 2._CD The_DT engine_NN is_VBZ fueled_VVN with_IN LNG_NP as_IN main_JJ fuel_NN and_CC marine_JJ gas_NN oil_NN (_( MGO_NP )_) as_IN pilot_NN fuel_NN ._SENT 
+The_DT gas_NN injection_NN is_VBZ controlled_VVN by_IN a_DT Solenoid_NN Operated_VVN Gas_NP Admission_NN Valve_NN (_( SOGAV_NP )_) with_IN the_DT gas_NN injection_NN pressure_NN kept_VVN at_IN a_DT constant_JJ difference_NN to_TO the_DT charge_NN air_NN pressure_NN ._SENT 
+The_DT gas_NN injection_NN start_NN time_NN is_VBZ independent_JJ of_IN engine_NN load_NN ,_, whereas_IN the_DT injection_NN pulse_NN length_NN is_VBZ controlled_VVN according_VVG to_TO the_DT requirement_NN by_IN load_NN ._SENT 
+The_DT analysis_NN is_VBZ performed_VVN for_IN 100_CD %_NN ,_, 75_CD %_NN ,_, 50_CD %_NN and_CC 25_CD %_NN load_NN ,_, respectively_RB ._SENT 
+Table_NN 2_CD MAN_NN L28/32DF_NN engine_NN specifications_NNS (_( 2014_CD test_NN version_NN )_) Full_JJ size_NN table_NN Heat_NP release_NN rates_NNS As_IN described_VVN in_IN Sect_NN ._SENT 
+2.5_CD ,_, the_DT combustion_NN modeling_NN is_VBZ based_VVN on_IN Wiebe_NP functions_NNS to_TO represent_VV the_DT heat_NN release_NN rates_NNS ._SENT 
+The_DT Wiebe_NP functions_NNS are_VBP determined_VVN by_IN fits_NNS to_TO measured_JJ relative_JJ heat_NN release_NN rates_NNS ._SENT 
+The_DT relative_JJ rates_NNS are_VBP obtained_VVN as_IN the_DT measured_VVN absolute_JJ heat_NN release_NN rate_NN divided_VVN by_IN the_DT heat_NN release_NN rate_NN integrated_VVN over_IN the_DT combustion_NN period_NN ,_, i._NP e._NP the_DT energy_NN released_VVN during_IN combustion_NN ._SENT 
+Figure_NN 2_CD shows_NNS the_DT measured_VVN and_CC modeled_VVN relative_JJ heat_NN release_NN curves_NNS ._SENT 
+Fig_NN ._SENT 
+2_CD figure2_NN Measured_VVN and_CC modeled_VVN relative_JJ heat_NN release_NN rates_NNS Full_JJ size_NN image_NN The_DT modeled_VVN relative_JJ heat_NN release_NN curve_NN is_VBZ the_DT sum_NN of_IN the_DT curves_NNS modeling_VVG the_DT main_JJ fuel_NN and_CC pilot_NN fuel_NN combustion_NN ._SENT 
+The_DT start_NN of_IN the_DT main_JJ fuel_NN combustion_NN and_CC the_DT end_NN of_IN the_DT pilot_NN fuel_NN combustion_NN are_VBP unknown_JJ ._SENT 
+Hence_RB ,_, the_DT modeled_VVN curves_NNS are_VBP based_VVN on_IN a_DT best_JJS fit_NN of_IN the_DT sum_NN of_IN the_DT curves_NNS to_TO the_DT measured_VVN relative_JJ curve_NN ._SENT 
+The_DT absolute_JJ heat_NN release_NN rates_NNS for_IN the_DT main_JJ fuel_NN and_CC pilot_NN fuel_NN combustion_NN are_VBP obtained_VVN by_IN multiplying_VVG the_DT relative_JJ heat_NN release_NN rates_NNS by_IN the_DT accumulated_VVN energy_NN released_VVN during_IN combustion_NN of_IN the_DT main_JJ fuel_NN and_CC pilot_NN fuel_NN ,_, respectively_RB ._SENT 
+The_DT energy_NN released_VVN during_IN the_DT main_JJ fuel_NN combustion_NN is_VBZ estimated_VVN by_IN subtracting_VVG the_DT measured_VVN hydrocarbon_NN emissions_NNS (_( assumed_VVN to_TO be_VB unburned_JJ main_JJ fuel_NN )_) from_IN the_DT main_JJ fuel_NN consumption_NN and_CC multiplying_VVG by_IN the_DT fuel_NN heating_NN value_NN ._SENT 
+The_DT energy_NN released_VVN during_IN the_DT pilot_NN fuel_NN combustion_NN is_VBZ estimated_VVN by_IN assuming_VVG that_IN all_DT pilot_NN fuel_NN is_VBZ burned_VVN ._SENT 
+The_DT increase_NN in_IN the_DT ratio_NN between_IN the_DT pilot_NN and_CC main_JJ fuel_NN quantity_NN indicated_VVN in_IN Fig_NN ._SENT 
+2_CD at_IN 25_CD %_NN load_NN is_VBZ to_TO ensure_VV ignition_NN and_CC a_DT stable_JJ combustion_NN ._SENT 
+The_DT minimum_JJ ratio_NN is_VBZ at_IN about_RB 75_CD %_NN load_NN in_IN accordance_NN with_IN the_DT point_NN for_IN optimized_VVN engine_NN performance_NN ._SENT 
+Charge_NN gas_NN composition_NN The_DT composition_NN of_IN the_DT charge_NN gas_NN entering_VVG the_DT engine_NN cylinder_NN is_VBZ modeled_VVN by_IN specifying_VVG the_DT fuel/air_JJ ratio_NN in_IN the_DT gas_NN ._SENT 
+The_DT considered_VVN engine_NN applies_VVZ port_JJ fuel_NN injection_NN of_IN the_DT main_JJ fuel_NN ._SENT 
+Hence_RB the_DT fuel/air_JJ ratio_NN in_IN the_DT charge_NN gas_NN entering_VVG the_DT cylinder_NN varies_VVZ with_IN crank_VV angle_NN ._SENT 
+This_DT variation_NN in_IN combination_NN with_IN the_DT valve_NN overlap_VVP timing_NN and_CC duration_NN has_VHZ an_DT important_JJ impact_NN on_IN the_DT short-circuiting_VVG of_IN fuel_NN through_IN the_DT engine_NN during_IN the_DT gas_NN exchange_NN process_NN ._SENT 
+Calculations_NNS are_VBP performed_VVN to_TO estimate_VV the_DT start_NN and_CC end_NN time_NN for_IN main_JJ fuel_NN entering_VVG the_DT cylinder_NN ._SENT 
+Within_IN this_DT period_NN ,_, the_DT fuel/air_JJ ratio_NN in_IN the_DT charge_NN gas_NN is_VBZ calibrated_VVN so_IN the_DT simulated_JJ fuel_NN flow_NN rate_NN to_TO the_DT engine_NN matches_VVZ the_DT measured_VVN flow_NN rate_NN ._SENT 
+The_DT fuel/air_JJ ratio_NN in_IN the_DT charge_NN gas_NN entering_VVG the_DT cylinder_NN is_VBZ set_VVN to_TO zero_VV outside_IN this_DT period_NN ._SENT 
+The_DT engine_NN has_VHZ pr_NN ._SENT 
+cylinder_NN one_CD gas_NN injector_NN and_CC two_CD intake_NN valves_NNS ._SENT 
+The_DT pipe_NN length_NN between_IN injector_NN and_CC valve_NN is_VBZ different_JJ for_IN the_DT two_CD valves_NNS due_JJ to_TO a_DT non-symmetrical_JJ intake_NN manifold_NN ._SENT 
+Hence_RB ,_, the_DT fuel_NN arrival_NN time_NN at_IN the_DT two_CD intake_NN valves_NNS differs_VVZ ._SENT 
+This_DT is_VBZ taken_VVN into_IN account_NN in_IN the_DT simulations_NNS by_IN specifying_VVG that_IN in_IN the_DT period_NN from_IN fuel_NN arrival_NN at_IN the_DT cylinder_NN via_IN the_DT short_JJ pipe_NN to_TO fuel_VV arrival_NN via_IN the_DT long_JJ pipe_NN ,_, the_DT fuel/air_JJ ratio_NN in_IN the_DT entering_VVG charge_NN gas_NN is_VBZ half_JJ of_IN the_DT fuel/air_JJ ratio_NN after_IN the_DT fuel_NN has_VHZ arrived_VVN at_IN the_DT cylinder_NN via_IN the_DT long_JJ pipe_NN ._SENT 
+The_DT fuel_NN arrival_NN time_NN at_IN the_DT cylinder_NN tFAC_NN is_VBZ estimated_VVN according_VVG to_TO Eq_NP ._SENT 
+(_( 30_CD )_) ._SENT 
+L=∫tFACtSFIm˙inρin_NP Ain_NN dt_NP ._SENT 
+(_( 30_CD )_) tSFI_NP is_VBZ the_DT time_NN for_IN start_NN of_IN main_JJ fuel_NN injection_NN ,_, and_CC L_NP is_VBZ the_DT pipe_NN length_NN between_IN injector_NN and_CC intake_NN valve_NN ._SENT 
+The_DT integrand_NN represents_VVZ the_DT flow_NN velocity_NN in_IN the_DT pipe_NN between_IN injector_NN and_CC valve_NN ._SENT 
+It_PP is_VBZ assumed_VVN that_IN it_PP is_VBZ constant_JJ along_IN the_DT pipe_NN and_CC equal_JJ in_IN the_DT two_CD pipes_NNS ._SENT 
+The_DT flow_NN velocity_NN is_VBZ based_VVN on_IN the_DT total_JJ mass_NN flow_NN rate_NN to_TO the_DT cylinder_NN m˙in_NN ,_, the_DT instantaneous_JJ density_NN of_IN the_DT charge_NN gas_NN entering_VVG the_DT cylinder_NN ρin_NN ,_, and_CC the_DT sum_NN of_IN the_DT average_JJ cross-sectional_JJ areas_NNS of_IN the_DT pipes_NNS Ain_NN ._SENT 
+This_DT area_NN is_VBZ assumed_VVN to_TO equal_VV the_DT sum_NN of_IN the_DT two_CD intake_NN valve_NN areas_NNS calculated_VVN from_IN the_DT intake_NN valve_NN diameters_NNS ._SENT 
+The_DT mass_JJ flow_NN rate_NN m˙in_NN and_CC density_NN ρin_NNS vary_VVP with_IN crank_VV angle_NN and_CC makes_VVZ the_DT determination_NN of_IN tFAC_NP an_DT iterative_JJ process_NN ._SENT 
+Estimation_NN of_IN the_DT end_NN time_NN for_IN fuel_NN entering_VVG the_DT cylinder_NN tFEC_NN is_VBZ performed_VVN similarly_RB by_IN using_VVG Eq_NP ._SENT 
+(_( 30_CD )_) with_IN tSFI_NP and_CC tFAC_NP replaced_VVD by_IN tEFI_NP and_CC tFEC_NP ,_, respectively_RB ,_, where_WRB tEFI_NP is_VBZ the_DT end_NN time_NN for_IN main_JJ fuel_NN injection_NN ._SENT 
+tEFI_NP has_VHZ only_RB been_VBN available_JJ for_IN 100_CD %_NN load_NN and_CC is_VBZ therefore_RB estimated_VVN for_IN the_DT other_JJ load_NN cases_NNS based_VVN on_IN Eq_NP ._SENT 
+31._CD mf=m˙f_NN ,_, i(tEFI−tSFI_NP )_) ._SENT 
+(_( 31_CD )_) mf_NP is_VBZ the_DT mass_NN of_IN main_JJ fuel_NN injected_VVN pr_NP ._SENT 
+cycle_NN ._SENT 
+m˙f_NP ,_, i_NP is_VBZ the_DT fuel_NN mass_NN flow_NN rate_NN out_IN of_IN the_DT injector_NN ,_, which_WDT is_VBZ assumed_VVN constant_JJ over_IN the_DT injection_NN period_NN ,_, and_CC is_VBZ calculated_VVN according_VVG to_TO Eqs_NNS ._SENT 
+10_CD or_CC 11._CD For_IN all_DT load_NN cases_NNS ,_, the_DT manifold_NN and_CC injection_NN pressure_NN ,_, the_DT fuel_NN injection_NN temperature_NN ,_, the_DT injected_VVN fuel_NN mass_NN pr_NN ._SENT 
+cycle_NN ,_, and_CC the_DT start_NN time_NN for_IN fuel_NN injection_NN are_VBP available_JJ ._SENT 
+As_IN the_DT end_NN time_NN for_IN fuel_NN injection_NN is_VBZ available_JJ for_IN 100_CD %_NN load_NN ,_, the_DT product_NN of_IN CD_NN and_CC Ar_NP in_IN Eq_NP ._SENT 
+10_CD (_( or_CC Eq_NP ._SENT 
+11_CD )_) can_MD then_RB be_VB determined_VVN for_IN this_DT load_NN case_NN ._SENT 
+tEFI_NNS for_IN other_JJ loads_NNS is_VBZ determined_VVN by_IN assuming_VVG that_IN the_DT variation_NN in_IN this_DT product_NN with_IN load_NN is_VBZ sufficiently_RB small_JJ to_TO be_VB neglected_VVN ._SENT 
+Discharge_NN coefficients_NNS In_IN the_DT flow_NN calculations_NNS ,_, the_DT two_CD inlet_NN valves_NNS are_VBP modeled_VVN as_IN one_CD single_JJ valve_NN with_IN an_DT equivalent_JJ flow_NN area_NN ,_, and_CC similarly_RB for_IN the_DT exhaust_NN valves_NNS ._SENT 
+The_DT intake_NN and_CC exhaust_NN valve_NN discharge_NN coefficients_NNS ,_, CD_NN ,_, IV_NP and_CC CD_NN ,_, EV_NP ,_, are_VBP calibrated_VVN by_IN matching_VVG model_NN predictions_NNS to_TO measured_VVN values_NNS for_IN air_NN and_CC fuel_NN mass_NN flow_NN rates_NNS to_TO the_DT engine_NN ._SENT 
+The_DT calibration_NN of_IN the_DT discharge_NN coefficients_NNS and_CC the_DT fuel/air_JJ ratio_NN of_IN the_DT charge_NN gas_NN is_VBZ performed_VVN simultaneously_RB for_IN 100_CD %_NN load_NN and_CC is_VBZ an_DT iterative_JJ process_NN ._SENT 
+The_DT obtained_VVN discharge_NN coefficients_NNS are_VBP CD_NN ,_, IV=0.61_NN and_CC CD_NN ,_, EV=0.61_JJ ._SENT 
+This_DT seems_VVZ reasonable_JJ since_IN discharge_NN coefficients_NNS typically_RB lie_VVP in_IN the_DT range_NN from_IN 0.55_CD to_TO 0.75_CD for_IN a_DT valve_NN lift_NN to_TO valve_NN diameter_NN ratio_NN up_RB to_TO 0.17_CD ,_, which_WDT is_VBZ the_DT case_NN for_IN the_DT present_JJ engine_NN [_SYM 25_CD ]_SYM ._SENT 
+For_IN simulations_NNS at_IN other_JJ loads_NNS ,_, the_DT same_JJ discharge_NN coefficients_NNS are_VBP applied_VVN while_IN the_DT fuel/air_JJ ratio_NN in_IN the_DT charge_NN gas_NN is_VBZ again_RB calibrated_VVN to_TO obtain_VV agreement_NN between_IN predicted_VVN and_CC measured_VVN fuel_NN flow_NN rates_NNS ._SENT 
+Exhaust_VV manifold_JJ pressure_NN The_DT exhaust_NN manifold_NN pressure_NN for_IN 75_CD %_NN ,_, 50_CD %_NN and_CC 25_CD %_NN load_NN are_VBP estimated_VVN since_IN pressure_NN data_NNS for_IN the_DT exhaust_NN manifold_NN are_VBP only_RB available_JJ for_IN 100_CD %_NN load_NN ._SENT 
+The_DT estimations_NNS are_VBP based_VVN on_IN simplified_VVN turbocharger_NN calculations_NNS according_VVG to_TO Eq_NP ._SENT 
+32_CD which_WDT links_VVZ the_DT pressure_NN ratio_NN over_IN compressor_NN and_CC turbine_NN [_SYM 26_CD ]_SYM ._SENT 
+(_( pc_NP ,_, opc_NP ,_, i)γc−1γc=1+ηt_NP ηc_NP ηm_NP Tt_NP ,_, i_NP cp_NP ,_, t_NN m˙tTc_NN ,_, i_NP cp_NN ,_, c_LS m˙c_NN ⎛⎝1−(pt_NNS ,_, opt_VVP ,_, i)γt−1γt⎞⎠_NP ._SENT 
+(_( 32_CD )_) p_NN ,_, T_NN and_CC m˙_NN denote_VVP pressure_NN ,_, temperature_NN and_CC mass_NN flow_NN rate_NN ,_, respectively_RB ._SENT 
+cp_NP is_VBZ specific_JJ heat_NN capacity_NN at_IN constant_JJ pressure_NN ,_, and_CC γ_NP denotes_VVZ heat_NN capacity_NN ratio_NN ._SENT 
+They_PP are_VBP assumed_VVN constant_JJ during_IN the_DT compression_NN and_CC expansion_NN process_NN ._SENT 
+ηc_NP and_CC ηt_NP are_VBP the_DT isentropic_JJ efficiencies_NNS of_IN the_DT compressor_NN and_CC turbine_NN ,_, respectively_RB ,_, and_CC ηm_NP is_VBZ the_DT mechanical_JJ efficiency_NN of_IN the_DT turbocharger_NN which_WDT is_VBZ assumed_VVN to_TO be_VB 1._CD Indices_NN c_SYM and_CC t_NN are_VBP short_JJ for_IN compressor_NN and_CC turbine_NN ,_, while_IN i_NP and_CC o_NN indicate_VVP conditions_NNS at_IN inlet_NN and_CC outlet_NN ._SENT 
+Using_VVG Eq_NP ._SENT 
+32_CD ,_, the_DT isentropic_JJ turbine_NN efficiency_NN is_VBZ estimated_VVN at_IN 100_CD %_NN load_NN where_WRB sufficient_JJ data_NNS are_VBP available_JJ ._SENT 
+At_IN part_NN load_NN the_DT pressure_NN in_IN the_DT exhaust_NN manifold_NN is_VBZ obtained_VVN by_IN assuming_VVG the_DT same_JJ turbine_NN efficiency_NN ,_, although_IN it_PP may_MD be_VB lower_JJR ._SENT 
+With_IN the_DT available_JJ data_NNS at_IN part_NN load_NN ,_, this_DT assumption_NN gives_VVZ a_DT minimum_JJ value_NN for_IN the_DT estimated_JJ pressure_NN ,_, i._NP e._NP a_DT lower_JJR efficiency_NN would_MD give_VV a_DT higher_JJR exhaust_NN manifold_NN pressure_NN ._SENT 
+At_IN 25_CD %_NN load_NN the_DT exhaust_NN manifold_NN pressure_NN is_VBZ estimated_VVN to_TO 1.23_CD bar_NN which_WDT seems_VVZ unrealistic_JJ since_IN the_DT intake_NN manifold_NN pressure_NN is_VBZ 1.20_CD bar_NN ._SENT 
+Instead_RB ,_, the_DT exhaust_NN manifold_NN pressure_NN is_VBZ set_VVN to_TO 1.10_CD bar_NN at_IN 25_CD %_NN load_NN ._SENT 
+Operating_VVG conditions_NNS The_DT engine_NN operating_VVG conditions_NNS at_IN the_DT different_JJ load_NN cases_NNS are_VBP given_VVN in_IN Table_NN 3._CD In_IN the_DT simulations_NNS ,_, it_PP is_VBZ assumed_VVN that_IN the_DT combustion_NN chamber_NN surfaces_VVZ have_VH a_DT uniform_JJ temperature_NN of_IN 180_CD ∘C_NN at_IN all_DT loads_NNS ,_, and_CC that_IN the_DT crevice_NN volume_NN is_VBZ 2_CD %_NN of_IN the_DT clearance_NN volume_NN ._SENT 
+Table_NN 3_CD Engine_NN operating_VVG conditions_NNS Full_JJ size_NN table_NN <Section> Results_NNS </Section> Validation_NN Fig_NN ._SENT 
+3_CD figure3_JJ Comparison_NN between_IN model_NN predictions_NNS and_CC measurements_NNS Full_JJ size_NN image_NN Results_NNS from_IN the_DT engine_NN cycle_NN simulations_NNS are_VBP shown_VVN in_IN Fig_NN ._SENT 
+3_CD together_RB with_IN measured_VVN data_NNS for_IN validation_NN of_IN the_DT numerical_JJ results_NNS ._SENT 
+The_DT relative_JJ difference_NN between_IN the_DT model_NN predictions_NNS and_CC the_DT measured_VVN data_NNS are_VBP indicated_VVN in_IN the_DT figure_NN ._SENT 
+The_DT modeled_VVN fuel_NN mass_NN flow_NN rate_NN closely_RB matches_VVZ the_DT measurements_NNS due_JJ to_TO the_DT calibration_NN of_IN the_DT fuel/air_JJ ratio_NN in_IN the_DT charge_NN gas_NN entering_VVG the_DT cylinder_NN at_IN each_DT load_NN case_NN ._SENT 
+The_DT modeled_VVN charge_NN air_NN mass_NN flow_NN rate_NN at_IN 100_CD %_NN load_NN is_VBZ similarly_RB close_JJ to_TO the_DT measured_VVN value_NN since_IN the_DT calibration_NN of_IN the_DT valve_NN discharge_NN coefficients_NNS is_VBZ performed_VVN for_IN this_DT load_NN case_NN ._SENT 
+At_IN lower_JJR loads_NNS ,_, the_DT model_NN is_VBZ seen_VVN to_TO predict_VV the_DT air_NN mass_NN flow_NN rate_NN well_RB ,_, except_IN at_IN 25_CD %_NN load_NN where_WRB some_DT deviation_NN is_VBZ observed_VVN ._SENT 
+The_DT deviation_NN may_MD be_VB caused_VVN by_IN the_DT challenge_NN ,_, mentioned_VVN in_IN Sect_NN ._SENT 
+3.4_CD ,_, in_IN estimating_VVG the_DT exhaust_NN manifold_NN pressure_NN at_IN this_DT load_NN ._SENT 
+The_DT trapped_JJ relative_JJ air/fuel_NN ratios_NNS (_( excess_JJ air_NN ratio_NN of_IN the_DT gas_NN in_IN the_DT combustion_NN chamber_NN )_) obtained_VVN in_IN the_DT simulations_NNS are_VBP somewhat_RB too_RB high_JJ ._SENT 
+With_IN the_DT data_NNS available_JJ it_PP has_VHZ not_RB been_VBN possible_JJ to_TO determine_VV if_IN this_DT is_VBZ due_JJ to_TO too_RB little_JJ fuel_NN trapped_VVN or_CC too_RB much_JJ air_NN trapped_VVN in_IN the_DT simulations_NNS ._SENT 
+Too_RB little_JJ fuel_NN trapped_VVN may_MD cause_VV model_NN predictions_NNS of_IN the_DT methane_NN slip_NN from_IN wall_NN quenching_VVG to_TO be_VB too_RB low_JJ ._SENT 
+The_DT trend_NN in_IN the_DT model_NN results_NNS with_IN load_NN corresponds_VVZ however_RB well_RB with_IN that_DT in_IN the_DT measured_VVN values_NNS ._SENT 
+The_DT model_NN predictions_NNS of_IN maximum_JJ pressure_NN ,_, brake_NN power_NN and_CC specific_JJ total_JJ hydrocarbon_NN (_( THC_NN )_) emissions_NNS are_VBP in_IN good_JJ agreement_NN with_IN the_DT measurements_NNS as_RB are_VBP the_DT relative_JJ THC_NN emissions_NNS ,_, i._NP e._NP the_DT mass_NN of_IN THC_NN emissions_NNS relative_JJ to_TO the_DT mass_NN of_IN main_JJ fuel_NN supplied_VVN to_TO the_DT engine_NN ._SENT 
+This_DT is_VBZ ,_, however_RB ,_, expected_VVN since_IN a_DT heat_NN release_NN rate_NN corresponding_JJ to_TO measurements_NNS is_VBZ imposed_VVN in_IN the_DT simulations_NNS for_IN each_DT load_NN case_NN ,_, and_CC the_DT fuel_NN flow_NN rate_NN to_TO the_DT engine_NN is_VBZ at_IN the_DT same_JJ time_NN adjusted_VVN to_TO fit_VV the_DT measured_VVN values_NNS ._SENT 
+It_PP is_VBZ noticed_VVN that_IN the_DT THC_NN emission_NN levels_NNS are_VBP high_JJ which_WDT is_VBZ due_JJ to_TO an_DT early_JJ version_NN of_IN the_DT engine_NN not_RB yet_RB fully_RB optimized_VVN for_IN dual-fuel_NN operation_NN ._SENT 
+It_PP is_VBZ also_RB observed_VVN that_IN the_DT lowest_JJS THC_NN emission_NN level_NN is_VBZ at_IN about_RB 75_CD %_NN load_NN consistent_JJ with_IN lowest_JJS fuel_NN consumption_NN at_IN about_RB this_DT load_NN ._SENT 
+The_DT exhaust_NN gas_NN temperature_NN is_VBZ in_IN the_DT model_NN calculated_VVN as_IN the_DT mass_NN averaged_VVD temperature_NN of_IN the_DT gas_NN passing_VVG the_DT exhaust_NN valves_NNS pr_NN ._SENT 
+cycle_NN ._SENT 
+The_DT predicted_VVN temperatures_NNS are_VBP too_RB high_RB compared_VVN to_TO the_DT measurements_NNS ._SENT 
+At_IN 25_CD %_NN load_NN ,_, a_DT better_JJR agreement_NN is_VBZ observed_VVN ._SENT 
+This_DT may_MD be_VB due_JJ to_TO the_DT high_JJ charge_NN air_NN mass_NN flow_NN rate_NN predicted_VVD at_IN this_DT load_NN since_IN it_PP would_MD lower_VV the_DT average_JJ exhaust_NN gas_NN temperature_NN ._SENT 
+The_DT deviation_NN between_IN the_DT measured_VVN and_CC predicted_VVN temperatures_NNS is_VBZ considered_VVN by_IN the_DT authors_NNS to_TO be_VB mainly_RB influenced_VVN by_IN the_DT temperature_NN measurement_NN location_NN in_IN the_DT exhaust_NN manifold_NN downstream_JJ of_IN the_DT exhaust_NN valve_NN where_WRB the_DT temperature_NN of_IN the_DT exhaust_NN gas_NN has_VHZ dropped_VVN compared_VVN to_TO at_IN the_DT exhaust_NN valve_NN due_JJ to_TO wall_VV heat_NN losses_NNS ._SENT 
+However_RB ,_, although_IN the_DT predicted_VVN temperatures_NNS may_MD be_VB too_RB high_JJ ,_, the_DT trend_NN in_IN the_DT exhaust_NN gas_NN temperature_NN with_IN load_NN is_VBZ well_RB predicted_VVN by_IN the_DT model_NN ._SENT 
+It_PP is_VBZ concluded_VVN that_IN the_DT model_NN predictions_NNS shown_VVN in_IN Fig_NN ._SENT 
+3_LS represent_VV well_RB the_DT measured_VVN values_NNS ,_, except_IN for_IN the_DT exhaust_NN gas_NN temperature_NN and_CC the_DT trapped_JJ relative_JJ air/fuel_NN ratio_NN ._SENT 
+For_IN all_PDT the_DT parameters_NNS shown_VVN ,_, the_DT trend_NN in_IN the_DT model_NN predictions_NNS with_IN load_NN follows_VVZ the_DT trend_NN in_IN the_DT measurements_NNS ._SENT 
+Methane_NN slip_NN source_NN distribution_NN Fig_NN ._SENT 
+4_CD figure4_JJ Methane_NN slip_NN source_NN distribution_NN Full_JJ size_NN image_NN Model_NP predictions_NNS of_IN the_DT distribution_NN between_IN the_DT methane_NN slip_NN sources_NNS for_IN the_DT different_JJ load_NN cases_NNS are_VBP presented_VVN in_IN Fig_NN ._SENT 
+4_CD for_IN the_DT considered_VVN engine_NN ._SENT 
+The_DT predicted_VVN contribution_NN to_TO the_DT total_JJ methane_NN slip_NN from_IN short-circuiting_VVG is_VBZ between_IN 8.0_CD and_CC 10.3_CD g/kWh_NN and_CC is_VBZ hence_RB relatively_RB constant_JJ with_IN load_NN ._SENT 
+The_DT contribution_NN from_IN crevices_NNS is_VBZ predicted_VVN to_TO be_VB between_IN 5.2_CD and_CC 9.0_CD g/kWh_NN and_CC is_VBZ slightly_RB increasing_VVG with_IN decreasing_VVG load_NN ._SENT 
+The_DT contribution_NN at_IN full_JJ load_NN is_VBZ however_RB a_DT little_RB higher_JJR than_IN at_IN 75_CD %_NN load_NN ._SENT 
+The_DT same_JJ trend_NN is_VBZ predicted_VVN in_IN the_DT contribution_NN from_IN quenching_VVG which_WDT increases_VVZ significantly_RB with_IN decreasing_VVG load_NN ._SENT 
+At_IN full_JJ load_NN though_RB ,_, the_DT contribution_NN is_VBZ also_RB here_RB observed_VVN to_TO be_VB higher_JJR than_IN at_IN 75_CD %_NN load_NN ._SENT 
+This_DT was_VBD observed_VVN too_RB in_IN the_DT experimental_JJ THC_NN emission_NN data_NNS (_( see_VV Fig_NN ._SENT 
+3_LS )_) but_CC the_DT cause_NN is_VBZ not_RB known_VVN ._SENT 
+The_DT predicted_VVD quenching_VVG contribution_NN varies_VVZ between_IN 1.3_CD and_CC 54.1_CD g/kWh_NN and_CC is_VBZ hence_RB highly_RB influenced_VVN by_IN the_DT load_NN ._SENT 
+The_DT overall_JJ trend_NN in_IN the_DT quenching_VVG and_CC crevice_NN contributions_NNS with_IN load_NN indicates_VVZ that_IN more_JJR trapped_JJ fuel_NN is_VBZ left_VVN unburned_JJ as_IN the_DT load_NN decreases_VVZ ._SENT 
+The_DT cause_NN was_VBD not_RB determined_VVN in_IN this_DT study_NN but_CC may_MD be_VB due_JJ to_TO an_DT increase_NN in_IN the_DT quenching_VVG distance_NN with_IN decreasing_VVG load_NN ._SENT 
+It_PP should_MD be_VB noted_VVN as_RB well_RB that_IN a_DT part_NN of_IN the_DT estimated_JJ quenching_VVG contribution_NN may_MD be_VB due_JJ to_TO incomplete_JJ combustion_NN ,_, as_RB mentioned_VVN below_IN Eq_NP ._SENT 
+29._CD Post-oxidation_NN The_DT in-cylinder_NN post-oxidation_NN of_IN unburned_JJ fuel_NN remaining_VVG after_IN the_DT main_JJ combustion_NN was_VBD investigated_VVN with_IN the_DT model_NN ._SENT 
+Figure_NN 5_CD shows_NNS the_DT post-oxidized_JJ fraction_NN of_IN the_DT remaining_VVG unburned_JJ fuel_NN in_IN the_DT cylinder_NN and_CC crevices_NNS ,_, respectively_RB ._SENT 
+The_DT post-oxidized_JJ fraction_NN of_IN the_DT total_JJ amount_NN of_IN remaining_VVG unburned_JJ fuel_NN is_VBZ also_RB shown_VVN ,_, i._NP e._NP the_DT post-oxidized_JJ fraction_NN of_IN the_DT sum_NN of_IN remaining_VVG unburned_JJ fuel_NN in_IN the_DT cylinder_NN and_CC crevices_NNS ._SENT 
+The_DT degree_NN of_IN post-oxidation_NN is_VBZ very_RB low_JJ ._SENT 
+At_IN 75_CD %_NN load_NN ,_, about_RB 2_CD %_NN of_IN the_DT unburned_JJ in-cylinder_NN fuel_NN is_VBZ predicted_VVN to_TO be_VB post-oxidized_VVN whereas_IN for_IN the_DT other_JJ load_NN cases_NNS the_DT fraction_NN is_VBZ below_RB 0.5_CD %_NN ._SENT 
+Hence_RB ,_, post-oxidation_NN is_VBZ suggested_VVN to_TO be_VB negligible_JJ in_IN the_DT considered_VVN engine_NN under_IN the_DT investigated_VVN operating_VVG conditions_NNS ._SENT 
+Fig_NN ._SENT 
+5_CD figure5_JJ In-cylinder_NN post-oxidized_VVD fraction_NN of_IN remaining_VVG fuel_NN after_IN main_JJ combustion_NN Full_JJ size_NN image_NN For_IN comparison_NN ,_, we_PP performed_VVD the_DT above_JJ simulations_NNS again_RB but_CC where_WRB the_DT post-oxidation_NN of_IN the_DT unburned_JJ fuel_NN remaining_VVG after_IN the_DT main_JJ combustion_NN was_VBD modeled_VVN as_RB if_IN the_DT fuel_NN was_VBD octane_NN instead_RB of_IN methane_NN ._SENT 
+That_DT was_VBD done_VVN by_IN changing_VVG the_DT values_NNS for_IN the_DT reaction_NN rate_NN parameters_NNS in_IN the_DT rate_NN expression_NN ,_, Eq_NP ._SENT 
+21_CD ,_, to_TO values_NNS for_IN octane_NN oxidation_NN as_IN given_VVN in_IN Table_NN 1_CD during_IN the_DT post-oxidation_NN phase_NN ._SENT 
+Figure_NN 6_CD shows_NNS the_DT predicted_VVN degree_NN of_IN post-oxidation_NN in_IN this_DT case_NN at_IN the_DT different_JJ loads_NNS ._SENT 
+The_DT post-oxidation_NN is_VBZ seen_VVN to_TO be_VB significant_JJ when_WRB modeled_VVN as_IN being_VBG for_IN octane_NN ,_, contrary_JJ to_TO the_DT previous_JJ case_NN for_IN methane_NN ._SENT 
+At_IN 25_CD %_NN load_NN the_DT gas_NN temperature_NN is_VBZ however_RB too_RB low_JJ to_TO achieve_VV an_DT efficient_JJ post-oxidation_NN of_IN the_DT unburned_JJ fuel_NN ,_, but_CC it_PP is_VBZ still_RB substantially_RB higher_JJR than_IN for_IN the_DT methane_NN case_NN ._SENT 
+The_DT corresponding_JJ predicted_VVN unburned_JJ fuel_NN emissions_NNS are_VBP shown_VVN in_IN Fig_NN ._SENT 
+7._CD The_DT fuel_NN slip_NN from_IN crevices_NNS and_CC quenching_VVG is_VBZ now_RB observed_VVN to_TO be_VB very_RB low_JJ due_RB to_TO the_DT significant_JJ in-cylinder_NN post-oxidation_NN ,_, except_IN at_IN low_JJ load_NN where_WRB the_DT post-oxidation_NN is_VBZ inefficient_JJ ._SENT 
+Comparing_VVG the_DT post-oxidation_NN results_NNS for_IN the_DT methane_NN and_CC octane_NN cases_NNS indicates_VVZ a_DT potential_JJ issue_NN of_IN a_DT very_RB low_JJ post-oxidation_NN degree_NN when_WRB using_VVG natural_JJ gas_NN as_IN fuel_NN with_IN consequently_RB higher_JJR unburned_JJ fuel_NN emissions_NNS ._SENT 
+Fig_NN ._SENT 
+6_CD figure6_JJ In-cylinder_NN post-oxidized_VVD fraction_NN of_IN remaining_VVG fuel_NN after_IN main_JJ combustion_NN if_IN remaining_VVG fuel_NN was_VBD octane_NN Full_JJ size_NN image_NN Fig_NN ._SENT 
+7_CD figure7_JJ Source_NN distribution_NN for_IN unburned_JJ fuel_NN emissions_NNS if_IN remaining_VVG fuel_NN after_IN main_JJ combustion_NN was_VBD octane_NN Full_JJ size_NN image_NN <Section> Conclusion_NN </Section> We_PP have_VHP developed_VVN a_DT thermodynamic_JJ engine_NN cycle_NN model_NN with_IN the_DT aim_NN of_IN investigating_VVG the_DT methane_NN slip_NN from_IN four-stroke_JJ dual-fuel_NN marine_NN engines_NNS ._SENT 
+The_DT model_NN enables_VVZ an_DT analysis_NN of_IN the_DT methane_NN slip_NN with_IN an_DT estimation_NN of_IN the_DT distribution_NN between_IN the_DT contributions_NNS from_IN the_DT different_JJ slip_NN sources_NNS ._SENT 
+The_DT model_NN was_VBD applied_VVN to_TO analyze_VV the_DT methane_NN slip_NN from_IN a_DT four-stroke_JJ dual-fuel_NN marine_JJ engine_NN ._SENT 
+At_IN low_JJ loads_NNS ,_, the_DT contribution_NN from_IN quenching_VVG was_VBD dominant_JJ ,_, whereas_IN at_IN full_JJ load_NN ,_, it_PP was_VBD found_VVN to_TO be_VB comparable_JJ to_TO the_DT short-circuiting_VVG contribution_NN which_WDT only_RB varied_VVD little_RB with_IN load_NN ._SENT 
+The_DT contribution_NN from_IN crevices_NNS was_VBD also_RB influenced_VVN by_IN load_NN similarly_RB to_TO the_DT quenching_VVG contribution_NN ,_, however_RB ,_, to_TO a_DT much_RB lesser_JJR degree_NN ._SENT 
+At_IN 75_CD %_NN load_NN ,_, the_DT total_JJ methane_NN slip_NN was_VBD lowest_JJS ._SENT 
+In-cylinder_NP post-oxidation_NP was_VBD found_VVN to_TO be_VB negligible_JJ since_IN less_JJR than_IN 2_CD %_NN of_IN the_DT unburned_JJ fuel_NN left_VVN after_IN the_DT main_JJ combustion_NN was_VBD post-oxidized_VVN ,_, contrary_JJ to_TO a_DT case_NN where_WRB post-oxidation_NN of_IN octane_NN was_VBD considered_VVN ._SENT 
+In_IN this_DT case_NN ,_, with_IN the_DT same_JJ operating_VVG conditions_NNS ,_, most_JJS of_IN the_DT unburned_JJ fuel_NN was_VBD post-oxidized_VVN ._SENT 
+Post-oxidation_NN in_IN natural_JJ gas_NN fueled_VVD engines_NNS are_VBP hence_RB expected_VVN to_TO be_VB low_JJ ,_, and_CC this_DT is_VBZ suggested_VVN to_TO be_VB an_DT important_JJ cause_NN for_IN methane_NN slip_NN from_IN the_DT engines_NNS ._SENT 
+<Section> References_NNS </Section> 1._CD The_DT Internatioal_JJ Maritime_NP Organization_NP (_( IMO_NP )_) ,_, Nitrogen_NN Oxides_NNS (_( NOx_NP )_) Regulation_NP 13._CD www_NN ._SENT 
+imo_NP ._SENT 
+org_NP ._SENT 
+Accessed_VVN :_: 13_CD Dec_NP 2018_CD 2._CD The_DT Internatioal_JJ Maritime_NP Organization_NP (_( IMO_NP )_) ,_, Sulphur_NN Oxides_NNS (_( SOx_NNS )_) and_CC Particulate_JJ matter_NN (_( PM_NP )_) regulation_NN 14._CD www_NNS ._SENT 
+imo_NP ._SENT 
+org_NP ._SENT 
+Accessed_VVN 13_CD Dec_NP 2018_CD 3._CD Burel_NP F_NP ,_, Taccani_NP R_NP ,_, Zuliani_NP N_NP (_( 2013_CD )_) Improving_VVG sustainability_NN of_IN maritime_JJ transport_NN through_IN utilization_NN of_IN Liquefied_VVN Natural_NP Gas_NP (_( LNG_NP )_) for_IN propulsion_NN ._SENT 
+Energy_NP 57:412–420_NP ._SENT 
+https_NNS :_: //doi_NP ._SENT 
+org/10.1016/j_NP ._SENT 
+energy.2013.05.002_NP Article_NP Google_NP Scholar_NN 4._CD The_DT International_NP Energy_NP Agency_NP (_( IEA_NP )_) (_( 2016_CD )_) World_NP Energy_NP Outlook_NN 2016_CD ,_, IEA_NP Publications_NPS 5._CD Anderson_NP M_NP ,_, Salo_NP K_NP ,_, Fridell_NP E_NP (_( 2015_CD )_) Particle-_NN and_CC gaseous_JJ emissions_NNS from_IN an_DT LNG_NP powered_VVN ship_NN ._SENT 
+Environ_VV Sci_NP Technol_NN 49(20):12568–12575_NN ._SENT 
+https_NNS :_: //doi_NP ._SENT 
+org/10.1021/acs_NNS ._SENT 
+est.5b02678_NP Article_NP Google_NP Scholar_NN 6._CD Æsøy_NN V_NN ,_, Einang_NP PM_NP ,_, Stenersen_NP D_NP ,_, Hennie_NP E_NP ,_, Valberg_NP I._NP LNG-fuelled_VVD engines_NNS and_CC fuel_NN systems_NNS for_IN medium-speed_NN engines_NNS in_IN maritime_JJ applications_NNS ._SENT 
+SAE_NP Technical_NP Papers_NP ._SENT 
+https_NNS :_: //doi_NP ._SENT 
+org/10.4271/2011-01-1998_NP 7._CD Woodyard_NP D_NP (_( 2009_CD )_) Pounder’s_NP marine_JJ diesel_NN engines_NNS and_CC gas_NN turbines_NNS ._SENT 
+Butterworth-Heinemann_NP ,_, Oxford_NP Google_NP Scholar_NN 8._CD The_DT International_NP Group_NP of_IN Liquefied_VVN Natural_NP Gas_NP Importers_NNS (_( GIIGNL_NP )_) ,_, GIIGNL_NP Annual_NP Report_NP 2017_CD (_( 2017_CD )_) 9._CD Ushakov_NP S_NP ,_, Stenersen_NP D_NP ,_, Einang_NP PM_NP (_( 2019_CD )_) Methane_NN slip_NN from_IN gas_NN fuelled_VVN ships_NNS :_: a_DT comprehensive_JJ summary_NN based_VVN on_IN measurement_NN data_NNS ._SENT 
+J_NP Mar_NP Sci_NP Technol_NN 24(4):1308–1325_NN ._SENT 
+https_NNS :_: //doi_NP ._SENT 
+org/10.1007/s00773-018-00622-z_NP Article_NP Google_NP Scholar_NN 10._CD Schramm_NP J_NP (_( ed_NP )_) (_( 2019_CD )_) IEA_NP AMF_NP Annex_NN 51_CD :_: methane_NN emission_NN control_NN ,_, IEA_NP Advanced_NP Motor_NP Fuels_NNS 11._CD The_DT Intergovernmental_NP Panel_NN on_IN Climate_NN Change_NP (_( IPCC_NP )_) (_( 2013_CD )_) Climate_NN Change_NP 2013_CD :_: the_DT physical_JJ science_NN basis_NN ._SENT 
+Cambridge_NP University_NP Press_NP ,_, Cambridge_NP 12._CD CIMAC_NN (_( 2014_CD )_) Methane_NN and_CC formaldehyde_NN emissions_NNS of_IN gas_NN engines_NNS ,_, CIMAC_JJ position_NN paper_NN 13._CD Königsson_NP F_NP ,_, Kuyper_NP J_NP ,_, Stalhammar_NP P_NN ,_, Angstrom_NN HE_PP (_( 2013_CD )_) The_DT influence_NN of_IN crevices_NNS on_IN hydrocarbon_NN emissions_NNS from_IN a_DT diesel-methane_NN dual_JJ fuel_NN engine_NN ._SENT 
+SAE_NP Int_NP J_NP Eng_NP 6(2):751–765_NP ._SENT 
+https_NNS :_: //doi_NP ._SENT 
+org/10.4271/2013-01-0848_NP Article_NP Google_NP Scholar_NN 14._CD Westbrook_NP CK_NP ,_, Pitz_NP WJ_NP ,_, Herbinet_NP O_NP ,_, Curran_NP HJ_NP ,_, Silke_NP EJ_NP (_( 2009_CD )_) A_DT comprehensive_JJ detailed_JJ chemical_NN kinetic_JJ reaction_NN mechanism_NN for_IN combustion_NN of_IN n-alkane_JJ hydrocarbons_NNS from_IN n-octane_NN to_TO n-hexadecane_NN ._SENT 
+Combust_JJ Flame_NN 156(1):181–199_NN ._SENT 
+https_NNS :_: //doi_NP ._SENT 
+org/10.1016/j_NP ._SENT 
+combustflame.2008.07.014_NP Article_NP Google_NP Scholar_NN 15._CD Wang_NP H_NP ,_, You_PP X_NP ,_, Joshi_NP AV_NP ,_, Davis_NP SG_NP ,_, Laskin_NP A_NP ,_, Egolfopoulos_NP F_NP ,_, Law_NP CK_NP (_( 2007_CD )_) USC_NP Mech_NP Version_NP II_NP ._SENT 
+High-temperature_NN combustion_NN reaction_NN model_NN of_IN H2/CO/C1-C4_JJ compounds_NNS ._SENT 
+http_NN :_: //ignis_NP ._SENT 
+usc_NP ._SENT 
+edu/Mechanisms/USC-Mech%20II/USC_Mech%20II_NP ._SENT 
+htm_NP ._SENT 
+Accessed_VVN 09_CD Jan_NP 2019_CD 16._CD Woschni_NP G_NP (_( 1967_CD )_) A_DT universally_RB applicable_JJ equation_NN for_IN the_DT instantaneous_JJ heat_NN transfer_NN coefficient_NN in_IN the_DT internal_JJ combustion_NN engine_NN ._SENT 
+SAE_NP Technical_NP Paper_NP 670931._CD https_NNS :_: //doi_NP ._SENT 
+org/10.4271/670931_JJ 17._CD Heywood_NP JB_NP (_( 1988_CD )_) Internal_NP combustion_NN engine_NN fundamentals_NNS ._SENT 
+McGraw-Hill_NP ,_, New_NP York_NP Google_NP Scholar_NN 18._CD Ferguson_NP CR_NN ,_, Kirkpatrick_NP AT_IN (_( 2001_CD )_) Internal_NP combustion_NN engines_NNS ._SENT 
+Wiley_NP ,_, Hoboken_NP Google_NP Scholar_NN 19._CD Schramm_NP J_NP ,_, Sorenson_NP SC_NP (_( 1990_CD )_) A_DT model_NN for_IN hydrocarbon_NN emissions_NNS from_IN SI_NP engines_NNS ._SENT 
+SAE_NP Technical_NP Paper_NP 902169._CD https_NNS :_: //doi_NP ._SENT 
+org/10.4271/902169_NP 20._CD Jensen_NP TK_NP ,_, Schramm_NP J_NP (_( 2000_CD )_) A_DT three-zone_JJ heat_NN release_NN model_NN for_IN combustion_NN analysis_NN in_IN a_DT natural_JJ gas_NN SI_NP engine—effects_VVZ of_IN cervices_NNS and_CC cyclic_JJ variations_NNS on_IN UHC_NN emissions_NNS ._SENT 
+SAE_NP Technical_NP Paper_NP 2000-01-2802_CD ._SENT 
+https_NNS :_: //doi_NP ._SENT 
+org/10.4271/2000-01-2802_NP 21._CD Ghojel_NP JI_NP (_( 2010_CD )_) Review_NP of_IN the_DT development_NN and_CC applications_NNS of_IN the_DT Wiebe_NP function_NN :_: a_DT tribute_NN to_TO the_DT contribution_NN of_IN Ivan_NP Wiebe_NP to_TO engine_NN research_NN ._SENT 
+Int_NP J_NP Eng_NP Res_NN 11(4):296–312_NN ._SENT 
+https_NNS :_: //doi_NP ._SENT 
+org/10.1243/14680874JER06510_NP Article_NP Google_NP Scholar_NN 22._CD Westbrook_NP CK_NP ,_, Dryer_NP FL_NP (_( 1981_CD )_) Simplified_VVN reaction_NN mechanisms_NNS for_IN the_DT oxidation_NN of_IN hydrocarbon_NN fuels_NNS in_IN flames_NNS ._SENT 
+Combust_JJ Sci_NP Technol_NN 27(1–2):31–43_NP Article_NP Google_NP Scholar_NN 23._CD Dent_NP JC_NP ,_, Lakshminarayanan_NP PA_NN (_( 1983_CD )_) A_DT model_NN for_IN absorption_NN and_CC desorption_NN of_IN fuel_NN vapour_NN by_IN cylinder_NN lubricating_VVG oil_NN films_NNS and_CC its_PP$ contribution_NN to_TO hydrocarbon_NN emissions_NNS ._SENT 
+SAE_NP Technical_NP Paper_NP 830652._CD https_NNS :_: //doi_NP ._SENT 
+org/10.4271/830652_NP 24._CD Goodwin_NP DG_NP ,_, Moffat_NP HK_NP ,_, Speth_NP RL_NP (_( 2016_CD )_) Cantera_NN :_: an_DT object-oriented_JJ software_NN toolkit_NN for_IN chemical_NN kinetics_NNS ,_, thermodynamics_NNS ,_, and_CC transport_NN processes_NNS ._SENT 
+http_NN :_: //www_NNS ._SENT 
+cantera_NP ._SENT 
+org_NP ,_, version_NN 2.2.1_CD 25._CD Annand_NP WJD_NNS ,_, Roe_NP GE_NP (_( 1974_CD )_) Gas_NP flow_NN in_IN the_DT internal_JJ combustion_NN engine_NN ._SENT 
+G._NP T._NP Foulis_NP 26._CD Sorenson_NP SC_NP (_( 2017_CD )_) Internal_NP combustion_NN engine_NN principles_NNS ._SENT 
+Automatic_JJ Press/VIP_NN Download_NN references_NNS <Section> Acknowledgements_NNS </Section> The_DT authors_NNS gratefully_RB acknowledge_VVP funding_NN from_IN Innovation_NN Fund_NP Denmark_NP and_CC The_DT Danish_JJ Maritime_NP Fund_NP through_IN the_DT Blue_NP INNOship_NN project_NN ._SENT 
+Contributions_NNS to_TO this_DT work_NN from_IN MAN_NN Energy_NN Solutions_NNS in_IN form_NN of_IN data_NNS and_CC valuable_JJ discussions_NNS are_VBP also_RB acknowledged_VVN ._SENT 

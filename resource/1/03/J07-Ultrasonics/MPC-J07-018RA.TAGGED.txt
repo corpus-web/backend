@@ -1,0 +1,396 @@
+<title> Acoustic_JJ source_NN localization_NN in_IN a_DT highly_RB anisotropic_JJ plate_NN with_IN unknown_JJ orientation_NN of_IN its_PP$ axes_NNS of_IN symmetry_NN and_CC material_NN properties_NNS with_IN numerical_JJ verification_NN </title> <author> Sen_NP ,_, Novonil_NP ;_: Kundu_NP ,_, Tribikram_NP </author> <Affiliation> 1_CD Department_NP of_IN Aerospace_NP and_CC Mechanical_NP Engineering_NP ,_, University_NP of_IN Arizona_NP ,_, Tucson_NP ;_: AZ_NP ;_: 85721_CD ,_, United_NP States_NPS 2_CD Department_NP of_IN Civil_NP and_CC Architectural_JJ Engineering_NP and_CC Mechanics_NNS ,_, University_NP of_IN Arizona_NP ,_, Tucson_NP ;_: AZ_NP ;_: 85721_CD ,_, United_NP States_NPS </Affiliation> <year> 2020_CD </year> <Jounral> Ultrasonics_NP </Journal> <Publishing_house> Elsevier_NP B._NP V._NP </Publishing_house> <Text_Collector> Liu_NP Kai，HEU_NP </Text_Collector> <DOI> 10.1016/j_NP ._SENT 
+ultras.2019.105977_JJ </DOI> <URL> https_NNS :_: //www-sciencedirect-com-443_NN ._SENT 
+wvpn_NP ._SENT 
+hrbeu_NP ._SENT 
+edu_NP ._SENT 
+cn/science/article/pii/S0041624X19302033_NP ?_SENT 
+via%3Dihub_NP </URL> <Section> Highlights_VVZ </Section> •_JJ Acoustic_JJ source_NN localization_NN in_IN an_DT anisotropic_JJ plate_NN with_IN unknown_JJ orientation_NN of_IN axis_NN of_IN symmetry_NN is_VBZ presented_VVN ._SENT 
+•_NP This_DT technique_NN requires_VVZ neither_DT material_NN properties_NNS nor_CC axis_NN of_IN symmetry_NN information_NN ._SENT 
+•_NP It_PP does_VVZ not_RB require_VV any_DT simplifying_VVG assumption_NN of_IN straight_JJ line_NN propagation_NN of_IN waves_NNS from_IN source_NN to_TO sensor_NN ._SENT 
+<Section> Abstract_JJ </Section> Development_NP of_IN acoustic_JJ source_NN localization_NN techniques_NNS in_IN anisotropic_JJ plates_NNS has_VHZ gained_VVN attention_NN in_IN the_DT recent_JJ past_NN and_CC still_RB has_VHZ scope_NN of_IN improvement_NN ._SENT 
+Most_JJS of_IN such_JJ techniques_NNS existing_VVG in_IN the_DT literature_NN either_CC require_VV known_VVN material_NN properties_NNS or_CC assume_VV a_DT straight_JJ line_NN propagation_NN of_IN wave_NN energy_NN from_IN the_DT acoustic_JJ source_NN to_TO a_DT sensor_NN ._SENT 
+These_DT limitations_NNS have_VHP been_VBN overcome_VVN in_IN recent_JJ years_NNS by_IN employing_VVG wave_NN front_JJ shape-based_JJ techniques_NNS ._SENT 
+However_RB ,_, the_DT existing_JJ wave_NN front_NN shape-based_JJ techniques_NNS are_VBP applicable_JJ in_IN situations_NNS where_WRB the_DT orientation_NN of_IN the_DT axes_NNS of_IN symmetry_NN of_IN the_DT anisotropic_JJ plate_NN is_VBZ known_VVN beforehand_RB ._SENT 
+In_IN the_DT present_JJ study_NN ,_, a_DT modified_JJ version_NN of_IN these_DT techniques_NNS ,_, namely_RB ,_, elliptical_JJ and_CC parametric_JJ curve-based_JJ techniques_NNS ,_, is_VBZ proposed_VVN ._SENT 
+This_DT new_JJ version_NN is_VBZ useful_JJ when_WRB the_DT angle_NN between_IN the_DT axes_NNS of_IN symmetry_NN and_CC the_DT reference_NN Cartesian_JJ coordinate_NN system_NN is_VBZ unknown_JJ ._SENT 
+In_IN the_DT new_JJ definition_NN of_IN the_DT objective_JJ function_NN ,_, the_DT orientation_NN of_IN the_DT axes_NNS of_IN symmetry_NN of_IN the_DT anisotropic_JJ plate_NN is_VBZ treated_VVN as_IN an_DT input_NN in_IN the_DT objective_JJ function_NN in_IN addition_NN to_TO the_DT other_JJ unknowns_NNS like_IN the_DT source_NN coordinates_VVZ and_CC the_DT curve_NN parameters_NNS ._SENT 
+A_DT numerical_JJ study_NN illustrates_VVZ how_WRB the_DT modified_JJ new_JJ techniques_NNS can_MD localize_VV the_DT acoustic_JJ source_NN with_IN sufficient_JJ accuracy_NN in_IN an_DT anisotropic_JJ plate_NN with_IN unknown_JJ orientation_NN of_IN the_DT axes_NNS of_IN symmetry_NN and_CC its_PP$ material_NN properties_NNS ._SENT 
+Keywords：Acoustic_JJ source_NN localization；Wave_NN front_NN shape-based_JJ techniques；Elliptical_JJ wave_NN front；Parametric_JJ curve_NN wave_NN front；Axes_NNS of_IN material_NN symmetry_NN <Section> 1._CD Introduction_NN </Section> A_DT structure_NN may_MD suffer_VV damage_NN at_IN any_DT point_NN during_IN its_PP$ lifetime_NN ._SENT 
+By_IN constantly_RB monitoring_VVG the_DT current_JJ health_NN of_IN the_DT structure_NN ,_, commonly_RB known_VVN as_IN structural_JJ health_NN monitoring_NN (_( SHM_NP )_) ,_, the_DT damage_NN may_MD be_VB detected_VVN and_CC mitigated_VVN at_IN an_DT early_JJ stage_NN after_IN its_PP$ initiation_NN ._SENT 
+In_IN order_NN to_TO be_VB able_JJ to_TO predict_VV the_DT location_NN of_IN the_DT potential_JJ damage_NN initiation_NN ,_, acoustic_JJ source_NN localization_NN is_VBZ an_DT effective_JJ tool_NN whereby_WRB the_DT location_NN of_IN the_DT acoustic_JJ source_NN in_IN a_DT structure_NN ,_, caused_VVN by_IN various_JJ events_NNS such_JJ as_IN impact_NN of_IN a_DT foreign_JJ object_NN ,_, crack_NN formation_NN ,_, failure_NN of_IN a_DT structural_JJ element_NN ,_, etc._FW ,_, can_MD be_VB estimated_VVN by_IN applying_VVG suitable_JJ techniques_NNS ._SENT 
+These_DT techniques_NNS ,_, commonly_RB referred_VVD to_TO as_IN the_DT acoustic_JJ source_NN localization_NN techniques_NNS ,_, typically_RB require_VV recording_NN of_IN the_DT source-generated_JJ wave-signals_NNS by_IN several_JJ ultrasonic_JJ sensors_NNS mounted_VVN at_IN specific_JJ locations_NNS of_IN the_DT structure_NN ._SENT 
+By_IN analyzing_VVG the_DT recorded_VVN signal_NN data_NNS ,_, the_DT acoustic_JJ source_NN location_NN is_VBZ estimated_VVN ._SENT 
+For_IN anisotropic_JJ plates_NNS ,_, the_DT acoustic_JJ source_NN localization_NN becomes_VVZ challenging_VVG owing_VVG to_TO the_DT fact_NN that_IN the_DT elastic_JJ waves_NNS propagate_VVP with_IN different_JJ speeds_NNS along_IN different_JJ directions_NNS ._SENT 
+Development_NN of_IN suitable_JJ acoustic_JJ source_NN localization_NN techniques_NNS in_IN anisotropic_JJ plates_NNS has_VHZ received_VVN attention_NN of_IN the_DT researchers_NNS only_RB in_IN the_DT recent_JJ past_NN and_CC therefore_RB has_VHZ scope_NN of_IN further_JJR improvement_NN ._SENT 
+Nakatani_NP et_NP al_NP ._SENT 
+improved_VVN the_DT beamforming_JJ method_NN ,_, commonly_RB applicable_JJ to_TO isotropic_JJ plates_NNS ,_, by_IN incorporating_VVG the_DT direction-dependent_JJ wave_NN speed_NN in_IN the_DT formulation_NN ._SENT 
+Meo_NP et_NP al_NP ._SENT 
+proposed_VVN an_DT acoustic_JJ source_NN localization_NN technique_NN in_IN an_DT anisotropic_JJ plate_NN by_IN first_RB estimating_VVG the_DT wave_NN propagation_NN speeds_NNS along_IN different_JJ directions_NNS and_CC then_RB incorporating_VVG this_DT information_NN in_IN a_DT number_NN of_IN simultaneous_JJ nonlinear_JJ equations_NNS to_TO be_VB solved_VVN to_TO estimate_VV the_DT source_NN location_NN ._SENT 
+Kundu_NP et_NP al_NP ._SENT 
+proposed_VVN an_DT acoustic_JJ source_NN localization_NN technique_NN in_IN anisotropic_JJ plates_NNS by_IN minimizing_VVG an_DT objective_JJ function_NN consisting_VVG of_IN the_DT time_NN difference_NN of_IN arrival_NN (_( TDOA_NP )_) of_IN the_DT elastic_JJ waves_NNS at_IN several_JJ sensors_NNS and_CC the_DT direction-dependent_JJ speed_NN information_NN ._SENT 
+This_DT approach_NN was_VBD later_RBR modified_VVN by_IN Hajzargerbashi_NP et_CC al_NP ._SENT 
+and_CC Koabaz_NP et_NP al_NP ._SENT 
+to_TO improve_VV the_DT source_NN localization_NN accuracy_NN and_CC to_TO simplify_VV the_DT optimization_NN procedure_NN by_IN considering_VVG a_DT different_JJ objective_NN function_NN ._SENT 
+For_IN anisotropic_JJ plates_NNS with_IN unknown_JJ material_NN properties_NNS ,_, Kundu_NP and_CC Kundu_NP et_NP al_NP ._SENT 
+proposed_VVN a_DT technique_NN which_WDT performs_VVZ acoustic_JJ source_NN localization_NN by_IN acquiring_VVG and_CC analyzing_VVG the_DT signal_NN data_NNS at_IN several_JJ sensors_NNS mounted_VVN on_IN a_DT plate_NN in_IN right-angled_JJ L-shaped_JJ clusters_NNS ._SENT 
+Their_PP$ method_NN requires_VVZ sufficiently_RB accurate_JJ estimation_NN of_IN TDOA_NN of_IN waves_NNS at_IN the_DT sensors_NNS of_IN a_DT cluster_NN ,_, which_WDT was_VBD performed_VVN by_IN cross-correlating_VVG the_DT signal_NN amplitudes_NNS ._SENT 
+This_DT concept_NN was_VBD later_RBR extended_VVN by_IN Yin_NP et_CC al_NP ._SENT 
+and_CC Z-shaped_JJ clusters_NNS were_VBD introduced_VVN ,_, thus_RB requiring_VVG less_JJR sensors_NNS than_IN that_DT required_VVN in_IN for_IN achieving_VVG similar_JJ degree_NN of_IN source_NN localization_NN accuracy_NN ._SENT 
+An_DT improvement_NN of_IN the_DT technique_NN in_IN was_VBD suggested_VVN by_IN Nakatani_NP et_CC al_NP ._SENT 
+where_WRB the_DT TDOA_NN was_VBD proposed_VVN to_TO be_VB estimated_VVN more_RBR accurately_RB by_IN disregarding_VVG the_DT later_JJR parts_NNS of_IN the_DT recorded_VVN signals_NNS and_CC by_IN installing_VVG the_DT sensors_NNS in_IN a_DT sensor_NN cluster_NN as_IN densely_RB as_RB possible_JJ ._SENT 
+Ciampa_NP and_CC Meo_NP and_CC Ciampa_NP et_NP al_NP ._SENT 
+proposed_VVN an_DT acoustic_JJ source_NN localization_NN technique_NN in_IN anisotropic_JJ plates_NNS with_IN unknown_JJ material_NN properties_NNS where_WRB the_DT time_NN of_IN arrival_NN (_( TOA_NP )_) of_IN the_DT elastic_JJ waves_NNS was_VBD estimated_VVN using_VVG continuous_JJ wavelet_NN transform_VV ._SENT 
+For_IN similar_JJ problems_NNS ,_, time_NN reversal_NN approaches_NNS were_VBD proposed_VVN by_IN Ciampa_NP and_CC Meo_NP and_CC Park_NP et_NP al_NP ._SENT 
+Kundu_NP et_NP al_NP ._SENT 
+proposed_VVN a_DT technique_NN that_WDT uses_VVZ the_DT source_NN location_NN obtained_VVN by_IN the_DT method_NN in_IN as_IN an_DT initial_JJ guess_NN for_IN minimizing_VVG an_DT objective_JJ function_NN to_TO arrive_VV at_IN a_DT more_RBR accurate_JJ prediction_NN than_IN the_DT initial_JJ guess_NN ._SENT 
+A_DT linearized_JJ algorithm_NN was_VBD proposed_VVN by_IN Simone_NP et_CC al_NP ._SENT 
+in_IN a_DT composite_JJ plate_NN using_VVG four_CD sensors_NNS ._SENT 
+Sabzevari_NP and_CC Moavenian_NP proposed_VVD an_DT attenuation_NN analysis-based_JJ technique_NN which_WDT also_RB uses_VVZ four_CD sensors_NNS ._SENT 
+Xiao_NP et_NP al_NP ._SENT 
+proposed_VVN a_DT source_NN localization_NN technique_NN by_IN using_VVG the_DT beamforming_JJ approach_NN with_IN two_CD arrays_NNS of_IN sensors_NNS oriented_VVN along_IN mutually_RB perpendicular_JJ directions_NNS ._SENT 
+Jang_NP and_CC Kim_NP extended_VVD the_DT triangulation_NN method_NN ,_, commonly_RB applicable_JJ to_TO isotropic_JJ plates_NNS ,_, to_TO be_VB applicable_JJ to_TO anisotropic_JJ plates_NNS by_IN using_VVG neural_JJ network_NN training_NN ._SENT 
+Most_JJS of_IN the_DT studies_NNS mentioned_VVD above_RB assume_VV that_IN the_DT elastic_JJ waves_NNS propagate_VVP along_IN a_DT straight_JJ line_NN from_IN the_DT acoustic_JJ source_NN to_TO a_DT receiving_VVG sensor_NN ,_, which_WDT is_VBZ an_DT unrealistic_JJ assumption_NN for_IN anisotropic_JJ materials_NNS ._SENT 
+Baxter_NP et_NP al_NP ._SENT 
+proposed_VVN an_DT acoustic_JJ source_NN localization_NN technique_NN in_IN a_DT complex_JJ structure_NN where_WRB the_DT elastic_JJ waves_NNS are_VBP unable_JJ to_TO follow_VV a_DT straight_JJ line_NN path_NN due_JJ to_TO the_DT complexity_NN in_IN the_DT structural_JJ configuration_NN ._SENT 
+This_DT technique_NN ,_, which_WDT requires_VVZ the_DT structure_NN to_TO be_VB trained_VVN by_IN a_DT set_NN of_IN training_NN data_NNS ,_, was_VBD later_RBR modified_VVN by_IN Hensman_NP et_CC al_NP ._SENT 
+such_PDT that_DT less_JJR amount_NN of_IN training_NN data_NNS was_VBD needed_VVN and_CC by_IN Al-Jumaili_NP et_CC al_NP ._SENT 
+to_TO make_VV the_DT technique_NN fully_RB automatic_JJ ._SENT 
+Gollob_NP et_NP al_NP ._SENT 
+proposed_VVN a_DT technique_NN based_VVN on_IN a_DT modified_JJ Dijkstra_NN algorithm_NN ._SENT 
+Although_IN their_PP$ approach_NN does_VVZ not_RB make_VV the_DT assumption_NN of_IN the_DT straight_JJ line_NN wave_NN propagation_NN ,_, it_PP needs_VVZ the_DT knowledge_NN of_IN the_DT direction-dependent_JJ wave_NN speed_NN ._SENT 
+Park_NP et_NP al_NP ._SENT 
+proposed_VVN a_DT wave_NN front_NN shape-based_JJ approach_NN to_TO acoustic_JJ source_NN localization_NN in_IN anisotropic_JJ plates_NNS with_IN unknown_JJ material_NN properties_NNS ,_, where_WRB no_DT assumption_NN of_IN the_DT straight_JJ line_NN wave_NN propagation_NN was_VBD needed_VVN ._SENT 
+Their_PP$ method_NN assumes_VVZ different_JJ non-circular_JJ geometric_JJ shapes_NNS of_IN the_DT propagating_VVG wave_NN fronts_NNS and_CC predicts_VVZ the_DT source_NN location_NN by_IN analyzing_VVG those_DT shapes_NNS and_CC incorporating_VVG the_DT signal_NN data_NNS ._SENT 
+Sen_NP and_CC Kundu_NP modified_VVN the_DT elliptical_JJ wave_NN front-based_JJ method_NN proposed_VVN by_IN Park_NP et_CC al_NP ._SENT 
+to_TO properly_RB relate_VV the_DT wave_NN front_NN geometry_NN with_IN the_DT recorded_VVN signal_NN data_NNS ,_, and_CC also_RB proposed_VVN a_DT more_RBR general_JJ parametric_JJ curve-based_JJ approach_NN ._SENT 
+The_DT wave_NN front_NN shape-based_JJ techniques_NNS in_IN ,_, were_VBD later_RBR verified_VVN experimentally_RB by_IN Sen_NP et_CC al_NP ._SENT 
+The_DT existing_JJ elliptical_JJ and_CC parametric_JJ curve-based_JJ techniques_NNS for_IN acoustic_JJ source_NN localization_NN in_IN an_DT anisotropic_JJ plate_NN are_VBP applicable_JJ to_TO the_DT situations_NNS where_WRB the_DT orientation_NN of_IN the_DT axes_NNS of_IN symmetry_NN of_IN the_DT anisotropic_JJ plates_NNS is_VBZ known_VVN a_DT priori_NN ,_, so_RB that_IN the_DT axes_NNS of_IN the_DT reference_NN coordinate_VV system_NN for_IN the_DT plate_NN geometry_NN can_MD be_VB taken_VVN parallel_RB to_TO the_DT axes_NNS of_IN symmetry_NN of_IN the_DT plate_NN ._SENT 
+However_RB ,_, in_IN an_DT anisotropic_JJ plate_NN ,_, the_DT axes_NNS of_IN symmetry_NN may_MD not_RB be_VB known_VVN beforehand_RB and_CC hence_RB the_DT existing_JJ elliptical_JJ and_CC parametric_JJ curve-based_JJ approaches_NNS need_VVP to_TO be_VB modified_VVN before_IN applying_VVG them_PP to_TO such_JJ more_JJR general_JJ situations_NNS ._SENT 
+In_IN this_DT paper_NN ,_, both_CC these_DT techniques_NNS are_VBP modified_VVN such_JJ that_IN they_PP can_MD be_VB applied_VVN to_TO the_DT situations_NNS where_WRB the_DT orientation_NN of_IN the_DT axes_NNS of_IN symmetry_NN is_VBZ unknown_JJ ._SENT 
+Hence_RB ,_, the_DT proposed_VVN approach_NN enables_VVZ one_CD to_TO choose_VV the_DT reference_NN coordinate_VV system_NN axes_NNS along_IN any_DT convenient_JJ directions_NNS without_IN requiring_VVG any_DT information_NN on_IN the_DT orientation_NN of_IN the_DT axes_NNS of_IN symmetry_NN ._SENT 
+In_IN the_DT following_VVG sections_NNS ,_, the_DT method_NN of_IN estimating_VVG the_DT angle_NN of_IN the_DT elastic_JJ wave_NN incidence_NN at_IN a_DT sensor_NN cluster_NN is_VBZ first_RB described_VVN briefly_RB ._SENT 
+Next_RB ,_, the_DT modified_JJ wave_NN front_NN shape-based_JJ formulations_NNS for_IN the_DT acoustic_JJ source_NN localization_NN are_VBP presented_VVN ._SENT 
+Finally_RB ,_, the_DT proposed_VVN source_NN localization_NN techniques_NNS are_VBP verified_VVN through_IN a_DT numerical_JJ example_NN ._SENT 
+<Section> 2._CD Estimation_NN of_IN angle_NN of_IN incidence_NN using_VVG time_NN difference_NN of_IN arrival_NN </Section> Kundu_NP and_CC Kundu_NP et_NP al_NP ._SENT 
+introduced_VVN a_DT sensor_NN cluster_NN configuration_NN where_WRB three_CD closely-spaced_JJ sensors_NNS are_VBP mounted_VVN on_IN a_DT plate_NN in_IN an_DT L-shaped_JJ cluster_NN ._SENT 
+The_DT distance_NN between_IN two_CD sensors_NNS in_IN such_PDT a_DT cluster_NN is_VBZ sufficiently_RB small_JJ compared_VVN to_TO the_DT distance_NN of_IN the_DT sensor_NN cluster_NN from_IN the_DT acoustic_JJ source_NN in_IN order_NN to_TO ensure_VV that_DT planar_JJ wave_NN fronts_NNS pass_VVP through_IN the_DT cluster_NN propagating_VVG in_IN the_DT same_JJ direction_NN with_IN a_DT constant_JJ speed_NN despite_IN the_DT anisotropic_JJ nature_NN of_IN the_DT material_NN ._SENT 
+Park_NP et_NP al_NP ._SENT 
+and_CC Sen_NP and_CC Kundu_NP employed_VVN this_DT sensor_NN cluster_NN configuration_NN to_TO estimate_VV the_DT angle_NN of_IN incidence_NN of_IN the_DT elastic_JJ waves_NNS at_IN the_DT position_NN of_IN the_DT cluster_NN and_CC then_RB incorporated_VVN this_DT angle_NN of_IN incidence_NN in_IN the_DT formulation_NN of_IN the_DT wave_NN front_NN shape-based_JJ techniques_NNS for_IN the_DT acoustic_JJ source_NN localization_NN ._SENT 
+In_IN the_DT present_JJ study_NN ,_, the_DT same_JJ L-shaped_JJ sensor_NN cluster_NN configuration_NN ,_, as_RB shown_VVN in_IN Fig_NN ._SENT 
+1_LS ,_, is_VBZ utilized_VVN ._SENT 
+Fig_NN ._SENT 
+1._CD (_( a_DT )_) Type-a_NP and_CC (_( b_LS )_) Type-b_NN sensor_NN clusters_NNS (_( adapted_VVN from_IN Sen_NP and_CC Kundu_NP )_) ._SENT 
+Depending_VVG on_IN the_DT relative_JJ positions_NNS of_IN the_DT three_CD sensors_NNS in_IN a_DT cluster_NN and_CC on_IN the_DT directions_NNS of_IN the_DT wave_NN arrival_NN ,_, the_DT cluster_NN is_VBZ denoted_VVN by_IN Type-a_NP or_CC Type-b_NN cluster_NN ,_, as_RB shown_VVN in_IN Fig_NN ._SENT 
+1._CD The_DT coordinate_VV system_NN in_IN the_DT plate_NN is_VBZ assumed_VVN such_JJ that_IN the_DT x_NN and_CC y-axes_NNS are_VBP parallel_JJ to_TO the_DT sides_NNS OA_NN and_CC OB_NN ,_, respectively_RB ._SENT 
+If_IN tO_NN ,_, tA_NN and_CC tB_NN denote_VVP the_DT TOAs_NNS (_( time_NN of_IN arrivals_NNS )_) of_IN the_DT elastic_JJ waves_NNS at_IN sensors_NNS O_NN ,_, A_NP and_CC B_NP ,_, respectively_RB ,_, in_IN a_DT cluster_NN ,_, the_DT tangent_NN of_IN the_DT angle_NN of_IN incidence_NN θ_NN (_( see_VV Fig_NN ._SENT 
+1_LS )_) can_MD be_VB expressed_VVN as_IN @（1）_NP for_IN Type-a_NP sensor_NN clusters_NNS ,_, and_CC @（2）_NN for_IN Type-b_NN sensor_NN clusters_NNS ._SENT 
+The_DT reader_NN is_VBZ referred_VVN to_TO for_IN the_DT detailed_JJ derivations_NNS of_IN Eqs_NP ._SENT 
+(_( 1_CD )_) ,_, (_( 2_LS )_) ._SENT 
+Since_IN the_DT accuracy_NN of_IN the_DT estimation_NN of_IN θ_JJ using_VVG Eqs_NNS ._SENT 
+(_( 1_CD )_) ,_, (_( 2_LS )_) is_VBZ significantly_RB dictated_VVN by_IN the_DT accuracy_NN of_IN the_DT estimation_NN of_IN the_DT TOAs_NNS ,_, it_PP is_VBZ important_JJ to_TO measure_VV the_DT TOAs_NNS as_IN accurately_RB as_RB possible_JJ ._SENT 
+In_IN the_DT present_JJ study_NN ,_, the_DT TOAs_NNS are_VBP estimated_VVN using_VVG Akaike_NP Information_NP Criterion_NN (_( AIC_JJ )_) given_VVN by_IN @（3）_NP where_WRB k_NN is_VBZ the_DT sample_NN number_NN corresponding_JJ to_TO time_NN t_NN in_IN the_DT signal_NN recorded_VVN by_IN a_DT sensor_NN ,_, K_NP is_VBZ the_DT total_JJ number_NN of_IN samples_NNS recorded_VVN ,_, U_NP is_VBZ the_DT amplitude_NN of_IN the_DT signal_NN and_CC var{U(r_NN :_: s_NNS )_) }_) is_VBZ the_DT variance_NN of_IN all_DT signal_NN amplitude_NN values_VVZ between_IN (_( and_CC including_VVG )_) rth_NN and_CC sth_NN samples_NNS ._SENT 
+k_NN can_MD be_VB varied_VVN between_IN 1_CD and_CC K-1_JJ and_CC AIC_JJ can_MD be_VB calculated_VVN from_IN Eq_NP ._SENT 
+(_( 3_CD )_) at_IN all_PDT these_DT values_NNS of_IN k._NP The_DT AIC_NN can_MD then_RB be_VB plotted_VVN against_IN t_NN and_CC two_CD distinct_JJ valleys_NNS are_VBP observed_VVN in_IN the_DT plot_NN ._SENT 
+The_DT time_NN instants_NNS corresponding_JJ to_TO the_DT first_JJ and_CC second_JJ valleys_NNS are_VBP the_DT TOAs_NNS of_IN the_DT first_JJ and_CC second_JJ groups_NNS of_IN waves_NNS ,_, respectively_RB ._SENT 
+<Section> 3._CD Wave_NP front_JJ shape-based_JJ approaches_NNS for_IN acoustic_JJ source_NN localization_NN </Section> In_IN this_DT section_NN ,_, the_DT existing_JJ ellipse_NN and_CC the_DT parametric_JJ curve-based_JJ source_NN localization_NN techniques_NNS are_VBP modified_VVN by_IN considering_VVG the_DT angle_NN between_IN the_DT axes_NNS of_IN symmetry_NN of_IN the_DT anisotropic_JJ plate_NN and_CC the_DT reference_NN coordinate_VV system_NN axes_NNS as_IN an_DT unknown_JJ variable_NN in_IN the_DT objective_JJ function_NN formulation_NN ._SENT 
+These_DT modified_VVN versions_NNS of_IN the_DT source_NN localization_NN techniques_NNS are_VBP presented_VVN in_IN Sub-sections_NP 3.1_CD and_CC 3.2_CD for_IN elliptical_JJ and_CC parametric-curve_VV based_VVN approaches_NNS ,_, respectively_RB ._SENT 
+It_PP may_MD be_VB noted_VVN that_IN since_IN the_DT ellipses_NNS and_CC the_DT parametric_JJ curves_NNS are_VBP the_DT idealizations_NNS of_IN the_DT wave_NN fronts_NNS resulting_VVG from_IN the_DT propagation_NN of_IN the_DT second_JJ groups_NNS of_IN waves_NNS corresponding_JJ to_TO the_DT fundamental_JJ antisymmetric_JJ mode_NN ,_, the_DT TOAs_NNS corresponding_JJ to_TO these_DT wave_NN fronts_NNS are_VBP used_VVN in_IN this_DT study_NN ._SENT 
+3.1_CD ._SENT 
+Modified_VVN elliptical_JJ wave_NN front_NN shape-based_JJ approach_NN Let_VV xy_RB be_VB the_DT axes_NNS of_IN the_DT coordinate_JJ system_NN considered_VVN in_IN the_DT plate_NN ,_, x'y_NN '_'' be_VB the_DT axes_NNS of_IN symmetry_NN and_CC η_NN be_VB the_DT counter-clockwise_RB angle_NN that_IN x'y_NP '_POS makes_VVZ with_IN xy_NN ,_, as_RB shown_VVN in_IN Fig_NN ._SENT 
+2._CD Since_IN x'y_NP '_POS are_VBP the_DT axes_NNS of_IN symmetry_NN ,_, the_DT major_JJ and_CC minor_JJ axes_NNS of_IN an_DT elliptical_JJ wave_NN front_NN are_VBP parallel_JJ to_TO the_DT x_NN '_POS and_CC y'-axes_NNS ,_, respectively_RB (_( see_VV Fig_NN ._SENT 
+2_LS )_) ._SENT 
+Fig_NN ._SENT 
+2._CD Elliptical_JJ wave_NN front_NN of_IN semi-major_NP axis_NN length_NN a_DT ,_, semi-minor_JJ axis_NN length_NN b_SYM along_IN with_IN the_DT plate_NN coordinate_VV system_NN xy_NNS ,_, axes_NNS of_IN symmetry_NN x'y_NP '_POS ,_, acoustic_JJ source_NN and_CC its_PP$ coordinates_NNS in_IN xy_NP and_CC x'y_NP '_POS systems_NNS and_CC the_DT angle_NN η_NN between_IN xy_NP and_CC x'y_NP '_POS shown_VVN ._SENT 
+Download_NN :_: Download_NP high-res_NP image_NN (_( 118KB)Download_NP :_: Download_NP full-size_JJ image_NN Fig_NN ._SENT 
+2._CD Elliptical_JJ wave_NN front_NN of_IN semi-major_NP axis_NN length_NN a_DT ,_, semi-minor_JJ axis_NN length_NN b_SYM along_IN with_IN the_DT plate_NN coordinate_VV system_NN xy_NNS ,_, axes_NNS of_IN symmetry_NN x'y_NP '_POS ,_, acoustic_JJ source_NN and_CC its_PP$ coordinates_NNS in_IN xy_NP and_CC x'y_NP '_POS systems_NNS and_CC the_DT angle_NN η_NN between_IN xy_NP and_CC x'y_NP '_POS shown_VVN ._SENT 
+The_DT equation_NN of_IN the_DT elliptical_JJ wave_NN front_NN shown_VVN in_IN Fig_NN ._SENT 
+2_CD in_IN the_DT x'y_NN '_POS coordinate_JJ system_NN is_VBZ given_VVN by_IN @（4）_NP where_WRB (_( x_SYM '_POS ,_, y_NP '_POS )_) are_VBP the_DT coordinates_VVZ of_IN a_DT point_NN on_IN the_DT ellipse_NN in_IN the_DT x'y_NN '_POS system_NN ,_, (_( Cx_NP '_POS ,_, Cy_NP '_POS )_) are_VBP the_DT coordinates_VVZ of_IN the_DT acoustic_JJ source_NN in_IN the_DT x'y_NN '_POS system_NN ,_, and_CC a_DT and_CC b_LS are_VBP the_DT semi-major_NP and_CC semi-minor_NP axes_VVZ lengths_NNS of_IN the_DT ellipse_NN ,_, respectively_RB ._SENT 
+It_PP may_MD be_VB noted_VVN here_RB that_IN a_DT is_VBZ not_RB necessarily_RB greater_JJR than_IN b._NP If_IN the_DT coordinates_VVZ of_IN the_DT same_JJ point_NN on_IN the_DT ellipse_NN in_IN the_DT plate_NN coordinate_VV system_NN xy_NNS are_VBP (_( x_LS ,_, y_NP )_) ,_, x_SYM '_'' and_CC y_NP '_POS can_MD be_VB expressed_VVN in_IN terms_NNS of_IN x_NN ,_, y_NP and_CC η_NP as_IN @（5）_NP @（6）_NP Similarly_RB ,_, if_IN (_( Cx_NP ,_, Cy_NP )_) are_VBP the_DT coordinates_VVZ of_IN the_DT acoustic_JJ source_NN in_IN the_DT plate_NN coordinate_VV system_NN xy_NN ,_, we_PP can_MD write_VV @（7）_JJ @（8）_NN By_IN substituting_VVG x_SYM '_POS ,_, y_NP '_POS ,_, Cx_NP '_POS and_CC Cy_NP '_POS from_IN Eqs_NP ._SENT 
+(_( 5_CD )_) ,_, (_( 6_CD )_) ,_, (_( 7_CD )_) ,_, (_( 8_CD )_) into_IN (_( 4_LS )_) ,_, the_DT following_VVG expression_NN is_VBZ obtained_VVN for_IN the_DT elliptical_JJ wave_NN front_NN in_IN the_DT xy_JJ system_NN :_: @（9）_NN Multiplying_VVG Eq_NP ._SENT 
+(_( 9_CD )_) with_IN b2_NN and_CC recognizing_VVG that_IN the_DT ratio_NN (_( b2/a2_NP )_) can_MD be_VB considered_VVN as_IN a_DT constant_JJ (_( λ_NP )_) since_IN the_DT elliptical_JJ wave_NN fronts_NNS can_MD be_VB assumed_VVN as_IN concentric_JJ ,_, Eq_NP ._SENT 
+(_( 9_CD )_) becomes_VVZ @（10）_NN with_IN c=b2_NP ._SENT 
+Taking_VVG derivative_JJ of_IN both_DT sides_NNS of_IN Eq_NP ._SENT 
+(_( 10_CD )_) with_IN respect_NN to_TO x_SYM leads_VVZ to_TO @（11）_NN where_WRB m=dydx_NN ._SENT 
+Since_IN the_DT wave_NN fronts_NNS pass_VVP through_IN the_DT sensor_NN clusters_NNS ,_, for_IN the_DT ith_JJ cluster_NN ,_, we_PP can_MD write_VV from_IN Eq_NP ._SENT 
+(_( 11_CD )_) :_: @（12）_NN where_WRB (_( xi_NN ,_, yi_NP )_) are_VBP the_DT coordinates_VVZ of_IN the_DT ith_JJ cluster_NN in_IN the_DT plate_NN coordinate_VV system_NN xy_NN and_CC mi_NN is_VBZ m_NN at_IN that_DT cluster_NN ._SENT 
+It_PP may_MD be_VB noted_VVN here_RB that_IN since_IN the_DT three_CD sensors_NNS are_VBP closely-spaced_VVN in_IN a_DT cluster_NN ,_, the_DT coordinates_VVZ of_IN any_DT one_CD of_IN the_DT three_CD sensors_NNS in_IN a_DT cluster_NN can_MD be_VB taken_VVN as_IN the_DT coordinates_VVZ of_IN that_DT cluster_NN ._SENT 
+In_IN this_DT paper_NN ,_, the_DT coordinates_VVZ of_IN sensor_NN O_NN (_( see_VV Fig_NN ._SENT 
+1_LS )_) in_IN a_DT cluster_NN are_VBP considered_VVN as_IN the_DT coordinates_VVZ of_IN that_DT cluster_NN ._SENT 
+mi_NN is_VBZ related_VVN to_TO the_DT tangent_NN of_IN the_DT angle_NN of_IN incidence_NN at_IN the_DT ith_JJ cluster_NN as_IN (_( see_VV Fig_NN ._SENT 
+1_LS and_CC [_SYM 29_CD ]_SYM )_) @（13）_NP where_WRB tanθi_NP is_VBZ obtained_VVN from_IN Eqs_NP ._SENT 
+(_( 1_CD )_) ,_, (_( 2_LS )_) ,_, depending_VVG on_IN whether_IN the_DT ith_JJ cluster_NN is_VBZ of_IN Type-a_NP or_CC of_IN Type-b_NN ,_, respectively_RB ._SENT 
+If_IN a_DT total_NN of_IN n_NN number_NN of_IN sensor_NN clusters_NNS are_VBP considered_VVN ,_, n_NN simultaneous_JJ nonlinear_JJ equations_NNS are_VBP followed_VVN from_IN Eq_NP ._SENT 
+(_( 12_CD )_) ._SENT 
+The_DT four_CD unknowns_NNS ,_, namely_RB ,_, λ_NP ,_, Cx_NP ,_, Cy_NP and_CC η_NP ,_, can_MD be_VB obtained_VVN in_IN the_DT least_JJS squares_NNS sense_VVP by_IN minimizing_VVG the_DT following_VVG residual_JJ function_NN ,_, i._NP e._NP ,_, the_DT objective_JJ function_NN @（14）_NN Φ_NN given_VVN by_IN Eq_NP ._SENT 
+(_( 14_CD )_) can_MD be_VB minimized_VVN by_IN using_VVG a_DT Nelder-Mead_JJ simplex_JJ algorithm_NN ._SENT 
+The_DT version_NN of_IN this_DT algorithm_NN given_VVN in_RP was_VBD used_VVN by_IN Sen_NP and_CC Kundu_NP [_SYM 29_CD ]_SYM for_IN parametric_JJ curve-based_JJ technique_NN and_CC is_VBZ described_VVN in_IN Appendix_NN A_DT in_IN the_DT context_NN of_IN the_DT formulation_NN proposed_VVN in_IN this_DT sub-section_NN so_RB far_RB ._SENT 
+Thus_RB ,_, after_IN minimizing_VVG the_DT objective_JJ function_NN ,_, the_DT predicted_VVN source_NN coordinates_NNS are_VBP given_VVN by_IN (_( Cx_NP ,_, Cy_NP )_) ._SENT 
+In_IN addition_NN ,_, one_PP also_RB obtains_VVZ the_DT ellipse_NN parameter_NN λ_NN and_CC the_DT angle_NN η_NN which_WDT gives_VVZ an_DT estimate_NN of_IN the_DT orientation_NN of_IN the_DT axes_NNS of_IN symmetry_NN with_IN respect_NN to_TO the_DT plate_NN coordinate_VV system_NN ._SENT 
+3.2_CD ._SENT 
+Modified_VVN parametric_JJ curve_NN wave_NN front_NN shape-based_JJ approach_NN Sen_NP and_CC Kundu_NP proposed_VVD an_DT idealized_VVN wave_NN front_NN of_IN more_JJR general_JJ shape_NN than_IN an_DT elliptical_JJ wave_NN front_NN by_IN introducing_VVG additional_JJ parameters_NNS to_TO the_DT curve_NN ._SENT 
+Since_IN as_RB in_IN the_DT case_NN of_IN the_DT elliptical_JJ wave_NN front_NN ,_, the_DT parametric_JJ curve_NN is_VBZ also_RB symmetric_JJ with_IN respect_NN to_TO the_DT axes_NNS of_IN symmetry_NN of_IN the_DT plate_NN ,_, we_PP can_MD write_VV the_DT following_VVG expression_NN for_IN the_DT parametric_JJ curve_NN in_IN the_DT x'y_NN '_POS system_NN :_: @（15）_NN where_WRB γ_NP ,_, p_NN and_CC q_NN are_VBP the_DT positive_JJ curve_NN parameters_NNS and_CC c_LS '_'' is_VBZ an_DT arbitrary_JJ constant_JJ ._SENT 
+To_TO facilitate_VV the_DT convergence_NN of_IN the_DT optimization_NN algorithm_NN ,_, Sen_NP and_CC Kundu_NP [_SYM 29_CD ]_SYM proposed_VVN to_TO hold_VV the_DT parameter_NN q_NN constant_JJ at_IN a_DT value_NN of_IN 1.0_CD ._SENT 
+Hence_RB ,_, Eq_NP ._SENT 
+(_( 15_CD )_) becomes_VVZ @（16）_JJ By_IN substituting_VVG x_SYM '_POS ,_, y_NP '_POS ,_, Cx_NP '_POS and_CC Cy_NP '_POS from_IN Eqs_NP ._SENT 
+(_( 5_CD )_) ,_, (_( 6_CD )_) ,_, (_( 7_CD )_) ,_, (_( 8_CD )_) into_IN (_( 16_CD )_) ,_, we_PP obtain_VVP the_DT following_VVG expression_NN for_IN the_DT parametric_JJ curve_NN in_IN the_DT plate_NN coordinate_VV system_NN xy_NN :_: @（17）_JJ Taking_VVG derivative_NN of_IN both_DT sides_NNS of_IN Eq_NP ._SENT 
+(_( 17_CD )_) with_IN respect_NN to_TO x_NN ,_, @（18）_NN where_WRB g_NN is_VBZ defined_VVN as_RB :_: @（19）_JJ Thus_RB ,_, for_IN the_DT ith_JJ sensor_NN cluster_NN ,_, we_PP can_MD write_VV from_IN Eq_NP ._SENT 
+(_( 18_CD )_) :_: @（20）_NN where_WRB gi_NP is_VBZ g_NN given_VVN by_IN Eq_NP ._SENT 
+(_( 19_CD )_) for_IN the_DT ith_JJ cluster_NN ._SENT 
+Therefore_RB ,_, for_IN a_DT total_NN of_IN n_NN sensor_NN clusters_NNS ,_, Eq_NP ._SENT 
+(_( 20_CD )_) gives_VVZ n_NN simultaneous_JJ nonlinear_JJ equations_NNS with_IN five_CD unknowns_NNS :_: p_NN ,_, γ_NP ,_, Cx_NP ,_, Cy_NP and_CC η_NP ._SENT 
+To_TO solve_VV for_IN these_DT unknowns_NNS in_IN the_DT least_JJS squares_NNS sense_NN ,_, the_DT following_VVG residual_JJ function_NN (_( i._NP e._NP ,_, the_DT objective_JJ function_NN )_) can_MD be_VB minimized_VVN using_VVG a_DT Nelder-Mead_JJ simplex_JJ algorithm_NN @（21）_NN The_DT version_NN of_IN the_DT Nelder-Mead_JJ algorithm_NN in_IN is_VBZ used_VVN in_IN this_DT study_NN to_TO minimize_VV S_NP and_CC is_VBZ described_VVN in_IN Appendix_NN B._NP Thus_RB ,_, minimization_NN of_IN S_NP gives_VVZ the_DT source_NN coordinates_VVZ (_( Cx_NP ,_, Cy_NP )_) along_IN with_IN the_DT curve_NN parameters_NNS and_CC the_DT angle_NN η_NN that_WDT gives_VVZ an_DT estimate_NN of_IN the_DT orientation_NN of_IN the_DT axes_NNS of_IN symmetry_NN with_IN respect_NN to_TO the_DT plate_NN coordinate_VV system_NN ._SENT 
+<Section> 4._CD Numerical_JJ study_NN </Section> In_IN this_DT section_NN ,_, the_DT acoustic_JJ source_NN localization_NN techniques_NNS proposed_VVN in_IN the_DT previous_JJ section_NN are_VBP verified_VVN for_IN their_PP$ effectiveness_NN in_IN predicting_VVG the_DT source_NN location_NN through_IN a_DT numerical_JJ example_NN ._SENT 
+For_IN this_DT purpose_NN ,_, the_DT same_JJ anisotropic_JJ plate_NN considered_VVN by_IN Park_NP et_CC al_NP ._SENT 
+and_CC Sen_NP and_CC Kundu_NP is_VBZ taken_VVN in_IN this_DT study_NN as_IN well_RB ._SENT 
+The_DT material_NN properties_NNS ,_, the_DT information_NN on_IN the_DT plate_NN geometry_NN ,_, acoustic_JJ source_NN generation_NN ,_, details_NNS of_IN the_DT numerical_JJ modeling_NN ,_, actual_JJ location_NN of_IN the_DT source_NN and_CC the_DT locations_NNS of_IN the_DT sensor_NN clusters_NNS can_MD be_VB found_VVN in_IN Park_NP et_CC al_NP ._SENT 
+Fig_NN ._SENT 
+3_LS shows_VVZ the_DT schematic_JJ diagram_NN of_IN the_DT plate_NN along_IN with_IN the_DT location_NN of_IN the_DT source_NN and_CC the_DT six_CD sensor_NN clusters_NNS ._SENT 
+This_DT figure_NN indicates_VVZ that_IN the_DT sensor_NN clusters_NNS 1–3_NN are_VBP of_IN Type-a_NP and_CC 4–6_NP are_VBP of_IN Type-b_NN ._SENT 
+Fig_NN ._SENT 
+3._CD Schematic_JJ diagram_NN of_IN the_DT plate_NN along_IN with_IN the_DT source_NN and_CC the_DT six_CD sensor_NN cluster_NN locations_NNS (_( adapted_VVN from_IN [_SYM 28_CD ]_SYM ,_, [_SYM 29_CD ]_SYM )_) ._SENT 
+The_DT coordinates_NNS are_VBP in_IN mm_NP ._SENT 
+It_PP may_MD be_VB noted_VVN that_IN for_IN this_DT plate_NN the_DT axes_NNS of_IN symmetry_NN lie_NN along_IN the_DT axes_NNS of_IN the_DT reference_NN coordinate_VV system_NN x-y_NN ,_, i._NP e._NP ,_, the_DT actual_JJ value_NN of_IN the_DT angle_NN η_NN is_VBZ zero_CD or_CC (_( positive_JJ or_CC negative_JJ )_) integer_NN multiples_NNS of_IN 90°_NN ._SENT 
+However_RB ,_, this_DT angle_NN is_VBZ treated_VVN as_IN an_DT unknown_JJ parameter_NN during_IN the_DT optimization_NN process_NN ._SENT 
+The_DT TOAs_NNS at_IN all_DT sensors_NNS in_IN all_PDT the_DT six_CD sensor_NN clusters_NNS are_VBP estimated_VVN following_VVG the_DT procedure_NN described_VVN in_IN Section_NP 2._CD Eqs_NNS ._SENT 
+(_( 1_CD )_) ,_, (_( 2_LS )_) then_RB gives_VVZ the_DT values_NNS of_IN tanθ’s_NNS at_IN the_DT six_CD clusters_NNS ._SENT 
+Following_VVG this_DT ,_, the_DT values_NNS of_IN m’s_NNS can_MD be_VB calculated_VVN from_IN Eq_NP ._SENT 
+(_( 13_CD )_) ._SENT 
+These_DT values_NNS of_IN m’s_NNS are_VBP obtained_VVN as_IN -1.500_CD ,_, -0.473_CD ,_, -4.000_CD ,_, 2.882_CD ,_, 0.603_CD and_CC 1.500_CD at_IN clusters_NNS 1_CD ,_, 2_CD ,_, 3_CD ,_, 4_CD ,_, 5_CD and_CC 6_CD ,_, respectively_RB ._SENT 
+It_PP may_MD be_VB noted_VVN that_IN for_IN the_DT proposed_VVN elliptical_JJ wave_NN front_NN shape-based_JJ approach_NN (_( see_VV Sub-section_NP 3.1_CD )_) ,_, the_DT number_NN of_IN unknowns_NNS is_VBZ four_CD ,_, whereas_IN for_IN the_DT parametric_JJ curve-based_JJ approach_NN (_( see_VV Sub-section_NP 3.2_CD )_) ,_, the_DT number_NN of_IN unknowns_NNS is_VBZ five_CD ._SENT 
+Hence_RB ,_, the_DT number_NN of_IN sensor_NN clusters_NNS (_( i._NP e._NP ,_, n_NN as_IN defined_VVN in_IN Section_NP 3_CD )_) needs_VVZ to_TO be_VB at_IN least_JJS four_CD and_CC five_CD for_IN the_DT ellipse_NN and_CC the_DT parametric_JJ curve-based_JJ approaches_NNS ,_, respectively_RB ._SENT 
+In_IN order_NN to_TO ensure_VV a_DT good_JJ convergence_NN of_IN the_DT optimization_NN algorithm_NN ,_, in_IN this_DT paper_NN ,_, n_NN is_VBZ taken_VVN as_IN at_IN least_JJS 5_CD for_IN the_DT ellipse-based_JJ approach_NN and_CC at_IN least_JJS 6_CD for_IN the_DT parametric_JJ curve-based_JJ approach_NN ._SENT 
+Since_IN there_EX are_VBP total_JJ six_CD sensor_NN clusters_NNS ,_, when_WRB n=5_NP ,_, six_CD different_JJ combinations_NNS of_IN five_CD sensor_NN clusters_NNS can_MD be_VB obtained_VVN from_IN the_DT six_CD clusters_NNS ,_, as_RB shown_VVN in_IN Table_NN 1._CD The_DT elliptical_JJ wave_NN front_NN shape-based_JJ technique_NN is_VBZ employed_VVN first_RB for_IN all_PDT these_DT combinations_NNS and_CC the_DT optimum_JJ values_NNS of_IN the_DT four_CD unknowns_NNS are_VBP shown_VVN in_IN Table_NN 1_CD ,_, along_RB with_IN the_DT errors_NNS (_( E_NP )_) in_IN localizing_VVG the_DT acoustic_JJ source_NN ,_, computed_VVN as_IN @（22）_NP where_WRB (_( Cx_NP ,_, actual_JJ ,_, Cy_NP ,_, actual_JJ )_) are_VBP the_DT actual_JJ coordinates_VVZ of_IN the_DT acoustic_JJ source_NN ._SENT 
+It_PP follows_VVZ from_IN Fig_NN ._SENT 
+3_LS that_IN in_IN this_DT study_NN ,_, Cx_NP ,_, actual=Cy_NP ,_, actual=250_NP mm_NP ._SENT 
+The_DT optimum_JJ value_NN of_IN η_NP ,_, as_RB mentioned_VVN previously_RB in_IN this_DT section_NN ,_, is_VBZ expected_VVN to_TO be_VB close_JJ to_TO zero_VV or_CC (_( positive_JJ or_CC negative_JJ )_) integer_NN multiples_NNS of_IN 90°_NN ._SENT 
+Hence_RB ,_, Table_NN 1_CD also_RB lists_VVZ the_DT deviation_NN of_IN η_NN from_IN zero_NN or_CC (_( positive_JJ or_CC negative_JJ )_) integer_NN multiples_NNS of_IN 90°_NP ,_, whichever_WDT is_VBZ closer_JJR to_TO the_DT optimum_JJ η_NN ._SENT 
+It_PP may_MD be_VB observed_VVN from_IN Table_NN 1_CD that_WDT the_DT values_NNS of_IN E_NN are_VBP within_IN 50_CD mm_NP for_IN all_DT six_CD sensor_NN cluster_NN combinations_NNS ,_, the_DT maximum_JJ error_NN being_VBG 46.29_CD mm_NP when_WRB Combination_NN No._NN 4_CD is_VBZ considered_VVN ._SENT 
+Also_RB ,_, η_NP is_VBZ sufficiently_RB close_JJ to_TO either_DT zero_NN or_CC (_( positive_JJ or_CC negative_JJ )_) integer_NN multiples_NNS of_IN 90°_NP ,_, the_DT maximum_JJ deviation_NN being_VBG 13.7°_NN for_IN Combination_NN No._NN 3._CD These_DT results_NNS are_VBP also_RB shown_VVN graphically_RB in_IN Fig_NN ._SENT 
+4_LS ,_, Fig_VV ._SENT 
+5_LS ,_, Fig_VV ._SENT 
+6_CD ,_, Fig_NN ._SENT 
+7_CD ,_, Fig_NN ._SENT 
+8_CD ,_, Fig_NN ._SENT 
+9_CD ,_, where_WRB the_DT elliptical_JJ wave_NN fronts_NNS passing_VVG through_IN the_DT five_CD sensor_NN clusters_NNS are_VBP also_RB shown_VVN ._SENT 
+To_TO compute_VV these_DT elliptical_JJ shapes_NNS ,_, the_DT optimum_JJ values_NNS of_IN the_DT unknowns_NNS are_VBP used_VVN ._SENT 
+In_IN these_DT figures_NNS ,_, “_JJ boundary_NN ”_NN indicates_VVZ the_DT boundary_NN of_IN the_DT plate_NN ,_, and_CC “_JJ actual_JJ ”_NN and_CC “_NN predicted_VVD ”_NP indicate_VVP the_DT actual_JJ and_CC the_DT predicted_VVN locations_NNS of_IN the_DT acoustic_JJ source_NN ,_, respectively_RB ._SENT 
+Table_NN 1._CD Acoustic_JJ source_NN localization_NN results_NNS with_IN n=5_NN using_VVG elliptical_JJ wave_NN front_NN shape-based_JJ technique_NN ._SENT 
+Fig_NN ._SENT 
+4._CD Predicted_VVD (_( using_VVG ellipse-based_JJ approach_NN )_) and_CC actual_JJ source_NN locations_NNS considering_VVG sensor_NN clusters_NNS 1_CD ,_, 2_CD ,_, 3_CD ,_, 6_CD and_CC 5_CD along_IN with_IN the_DT elliptical_JJ wave_NN fronts_NNS passing_VVG through_IN these_DT five_CD clusters_NNS ;_: also_RB the_DT average_JJ source_NN location_NN obtained_VVD using_VVG the_DT conventional_JJ method_NN (_( introduced_VVN in_RB [_SYM 10_CD ]_SYM )_) is_VBZ shown_VVN ._SENT 
+Fig_NN ._SENT 
+5._CD Predicted_VVD (_( using_VVG ellipse-based_JJ approach_NN )_) and_CC actual_JJ source_NN locations_NNS considering_VVG sensor_NN clusters_NNS 1_CD ,_, 2_CD ,_, 3_CD ,_, 4_CD and_CC 6_CD along_IN with_IN the_DT elliptical_JJ wave_NN fronts_NNS passing_VVG through_IN these_DT five_CD clusters_NNS ;_: also_RB the_DT average_JJ source_NN location_NN obtained_VVD using_VVG the_DT conventional_JJ method_NN (_( introduced_VVN in_RB [_SYM 10_CD ]_SYM )_) is_VBZ shown_VVN ._SENT 
+Fig_NN ._SENT 
+6._CD Predicted_VVD (_( using_VVG ellipse-based_JJ approach_NN )_) and_CC actual_JJ source_NN locations_NNS considering_VVG sensor_NN clusters_NNS 1_CD ,_, 2_CD ,_, 3_CD ,_, 4_CD and_CC 5_CD along_IN with_IN the_DT elliptical_JJ wave_NN fronts_NNS passing_VVG through_IN these_DT five_CD clusters_NNS ;_: also_RB the_DT average_JJ source_NN location_NN obtained_VVD using_VVG the_DT conventional_JJ method_NN (_( introduced_VVN in_RB [_SYM 10_CD ]_SYM )_) is_VBZ shown_VVN ._SENT 
+Fig_NN ._SENT 
+7._CD Predicted_VVD (_( using_VVG ellipse-based_JJ approach_NN )_) and_CC actual_JJ source_NN locations_NNS considering_VVG sensor_NN clusters_NNS 1_CD ,_, 2_CD ,_, 4_CD ,_, 5_CD and_CC 6_CD along_IN with_IN the_DT elliptical_JJ wave_NN fronts_NNS passing_VVG through_IN these_DT five_CD clusters_NNS ;_: also_RB the_DT average_JJ source_NN location_NN obtained_VVD using_VVG the_DT conventional_JJ method_NN (_( introduced_VVN in_RB [_SYM 10_CD ]_SYM )_) is_VBZ shown_VVN ._SENT 
+Fig_NN ._SENT 
+8._CD Predicted_VVD (_( using_VVG ellipse-based_JJ approach_NN )_) and_CC actual_JJ source_NN locations_NNS considering_VVG sensor_NN clusters_NNS 1_CD ,_, 3_CD ,_, 4_CD ,_, 5_CD and_CC 6_CD along_IN with_IN the_DT elliptical_JJ wave_NN fronts_NNS passing_VVG through_IN these_DT five_CD clusters_NNS ;_: also_RB the_DT average_JJ source_NN location_NN obtained_VVD using_VVG the_DT conventional_JJ method_NN (_( introduced_VVN in_RB [_SYM 10_CD ]_SYM )_) is_VBZ shown_VVN ._SENT 
+Fig_NN ._SENT 
+9._CD Predicted_VVD (_( using_VVG ellipse-based_JJ approach_NN )_) and_CC actual_JJ source_NN locations_NNS considering_VVG sensor_NN clusters_NNS 2_CD ,_, 3_CD ,_, 4_CD ,_, 5_CD and_CC 6_CD along_IN with_IN the_DT elliptical_JJ wave_NN fronts_NNS passing_VVG It_PP is_VBZ desirable_JJ to_TO compare_VV the_DT performance_NN of_IN the_DT proposed_VVN technique_NN with_IN a_DT pre-existing_VVG acoustic_JJ source_NN localization_NN method_NN that_WDT is_VBZ well-established_JJ in_IN the_DT literature_NN ._SENT 
+For_IN this_DT purpose_NN ,_, the_DT acoustic_JJ source_NN localization_NN is_VBZ also_RB performed_VVN following_VVG the_DT L-shaped_JJ sensor_NN cluster-based_JJ technique_NN developed_VVN by_IN Kundu_NP et_CC al_NP ._SENT 
+[_SYM 10_CD ]_SYM (_( described_VVN briefly_RB in_IN Appendix_NN C_NP )_) ._SENT 
+Since_IN the_DT method_NN in_RB [_SYM 10_CD ]_SYM has_VHZ an_DT underlying_VVG assumption_NN of_IN a_DT straight_JJ line_NN wave_NN propagation_NN ,_, whereas_IN the_DT wave_NN front_NN shape-based_JJ approach_NN proposed_VVN in_IN the_DT present_JJ study_NN is_VBZ free_JJ from_IN such_PDT an_DT assumption_NN ,_, the_DT conventional_JJ method_NN in_RB [_SYM 10_CD ]_SYM is_VBZ more_RBR suitable_JJ for_IN isotropic_JJ or_CC mildly_RB anisotropic_JJ plates_NNS and_CC hence_RB is_VBZ expected_VVN to_TO be_VB outperformed_VVN by_IN the_DT proposed_VVN wave_NN front-shape_NN based_VVN approach_NN for_IN highly_RB anisotropic_JJ plates_NNS in_IN terms_NNS of_IN the_DT source_NN localization_NN accuracy_NN ._SENT 
+The_DT approach_NN in_RB [_SYM 10_CD ]_SYM requires_VVZ two_CD sensor_NN clusters_NNS in_IN order_NN to_TO obtain_VV the_DT necessary_JJ number_NN of_IN equations_NNS involving_VVG the_DT unknown_JJ source_NN coordinates_VVZ ._SENT 
+A_DT total_NN of_IN 15_CD combinations_NNS of_IN two_CD sensor_NN clusters_NNS can_MD be_VB obtained_VVN out_RP of_IN six_CD clusters_NNS considered_VVN here_RB ._SENT 
+Table_NN 2_CD lists_NNS the_DT source_NN coordinates_VVZ predicted_VVN from_IN all_PDT these_DT combinations_NNS ._SENT 
+Comparing_VVG the_DT results_NNS in_IN Table_NN 2_CD with_IN those_DT in_IN Table_NN 1_CD ,_, it_PP can_MD be_VB concluded_VVN that_IN in_IN most_JJS cases_NNS ,_, the_DT method_NN in_RB [_SYM 10_CD ]_SYM yields_NNS more_RBR erroneous_JJ source_NN location_NN estimates_NNS than_IN the_DT approach_NN proposed_VVN in_IN the_DT present_JJ paper_NN ._SENT 
+Also_RB ,_, Table_NN 2_CD indicates_VVZ that_IN depending_VVG on_IN the_DT choice_NN of_IN the_DT two_CD sensor_NN clusters_NNS ,_, the_DT source_NN coordinates_VVZ obtained_VVN using_VVG the_DT conventional_JJ method_NN in_RB [_SYM 10_CD ]_SYM can_MD vary_VV significantly_RB ,_, implying_VVG that_IN the_DT conventional_JJ method_NN in_RB [_SYM 10_CD ]_SYM may_MD not_RB be_VB reliable_JJ for_IN the_DT task_NN at_IN hand_NN ._SENT 
+To_TO show_VV the_DT results_NNS obtained_VVD using_VVG the_DT conventional_JJ method_NN in_RB [_SYM 10_CD ]_SYM graphically_RB ,_, the_DT average_NN of_IN the_DT predicted_VVN source_NN coordinates_VVZ in_IN Table_NN 2_CD (_( disregarding_VVG Combination_NN No._NN 14_CD that_WDT gives_VVZ a_DT negative_JJ value_NN for_IN Cx_NP )_) is_VBZ computed_VVN and_CC included_VVN in_IN Fig_NN ._SENT 
+4_LS ,_, Fig_VV ._SENT 
+5_LS ,_, Fig_VV ._SENT 
+6_CD ,_, Fig_NN ._SENT 
+7_CD ,_, Fig_NN ._SENT 
+8_CD ,_, Fig_NN ._SENT 
+9_CD and_CC marked_VVD as_IN “_JJ conventional_JJ ”_NN ._SENT 
+These_DT figures_NNS also_RB indicate_VVP that_IN the_DT proposed_VVN wave_NN front_JJ shape-based_JJ techniques_NNS perform_VVP better_RBR and_CC more_RBR consistently_RB than_IN the_DT conventional_JJ method_NN in_RB [_SYM 10_CD ]_SYM for_IN most_JJS cases_NNS ._SENT 
+Table_NN 2._CD Acoustic_JJ source_NN localization_NN results_NNS using_VVG the_DT conventional_JJ method_NN [_SYM 10_CD ]_SYM ._SENT 
+When_WRB n=6_NP ,_, only_RB one_CD combination_NN is_VBZ possible_JJ from_IN the_DT six_CD sensor_NN clusters_NNS since_IN all_PDT the_DT six_CD clusters_NNS are_VBP to_TO be_VB considered_VVN in_IN the_DT objective_JJ function_NN ._SENT 
+Both_DT elliptical_JJ and_CC parametric_JJ curve-based_JJ techniques_NNS are_VBP followed_VVN with_IN n=6_NN ,_, and_CC the_DT source_NN localization_NN results_NNS are_VBP shown_VVN in_IN Table_NN 3_CD ,_, Table_NN 4._CD It_PP may_MD be_VB observed_VVN that_IN the_DT values_NNS of_IN E_NN are_VBP within_IN 30_CD mm_NP for_IN both_DT elliptical_JJ and_CC parametric_JJ curve-based_JJ techniques_NNS ._SENT 
+The_DT results_NNS are_VBP also_RB shown_VVN graphically_RB in_IN Fig_NN ._SENT 
+10_CD ,_, Fig_NN ._SENT 
+11_CD for_IN the_DT two_CD techniques_NNS ._SENT 
+In_IN addition_NN to_TO the_DT source_NN coordinates_VVZ ,_, these_DT two_CD figures_NNS also_RB show_VVP the_DT elliptical_JJ and_CC parametric_JJ wave_NN fronts_NNS computed_VVD using_VVG the_DT optimum_JJ values_NNS of_IN the_DT unknowns_NNS ._SENT 
+Comparing_VVG the_DT results_NNS in_IN Table_NN 3_CD ,_, Table_NN 4_CD with_IN those_DT reported_VVN in_IN Table_NN 2_CD ,_, again_RB it_PP is_VBZ observed_JJ that_IN the_DT proposed_VVN approach_NN generally_RB outperforms_VVZ the_DT conventional_JJ method_NN in_RB [_SYM 10_CD ]_SYM in_IN terms_NNS of_IN source_NN localization_NN accuracy_NN ,_, and_CC the_DT same_JJ conclusion_NN can_MD be_VB drawn_VVN from_IN Fig_NN ._SENT 
+10_CD ,_, Fig_NN ._SENT 
+11_CD where_WRB the_DT average_NN of_IN the_DT predicted_VVN source_NN coordinates_VVZ in_IN Table_NN 2_CD (_( disregarding_VVG Combination_NN No._NN 14_CD that_WDT gives_VVZ a_DT negative_JJ value_NN for_IN Cx_NP )_) is_VBZ included_VVN as_IN “_JJ conventional_JJ ”_NN ._SENT 
+Table_NN 3._CD Acoustic_JJ source_NN localization_NN results_NNS with_IN n=6_NN using_VVG elliptical_JJ wave_NN front_NN shape-based_JJ technique_NN ._SENT 
+Table_NN 4._CD Acoustic_JJ source_NN localization_NN results_NNS with_IN n=6_NN using_VVG parametric_JJ curve_NN wave_NN front_NN shape-based_JJ technique_NN ._SENT 
+Fig_NN ._SENT 
+10._CD Predicted_VVD (_( using_VVG ellipse-based_JJ approach_NN )_) and_CC actual_JJ source_NN locations_NNS considering_VVG sensor_NN clusters_NNS 1_CD ,_, 2_CD ,_, 3_CD ,_, 4_CD ,_, 5_CD and_CC 6_CD along_IN with_IN the_DT elliptical_JJ wave_NN fronts_NNS passing_VVG through_IN these_DT six_CD clusters_NNS ;_: also_RB the_DT average_JJ source_NN location_NN obtained_VVD using_VVG the_DT conventional_JJ method_NN (_( introduced_VVN in_RB [_SYM 10_CD ]_SYM )_) is_VBZ shown_VVN ._SENT 
+Fig_NN ._SENT 
+11._CD Predicted_VVD (_( using_VVG parametric_JJ curve-based_JJ approach_NN )_) and_CC actual_JJ source_NN locations_NNS considering_VVG sensor_NN clusters_NNS 1_CD ,_, 2_CD ,_, 3_CD ,_, 4_CD ,_, 5_CD and_CC 6_CD along_IN with_IN the_DT parametric_JJ wave_NN fronts_NNS passing_VVG through_IN these_DT six_CD clusters_NNS ;_: also_RB the_DT average_JJ source_NN location_NN obtained_VVD using_VVG the_DT conventional_JJ method_NN (_( introduced_VVN in_RB [_SYM 10_CD ]_SYM )_) is_VBZ shown_VVN ._SENT 
+It_PP may_MD be_VB observed_VVN from_IN Table_NN 1_CD that_IN when_WRB n=5_NP ,_, the_DT ellipse-based_JJ approach_NN yields_VVZ an_DT average_JJ value_NN of_IN 25.58_CD mm_NP for_IN error_NN E_NN considering_VVG all_DT possible_JJ combinations_NNS ,_, whereas_IN Table_NN 3_CD indicates_VVZ that_IN when_WRB n=6_NP ,_, the_DT same_JJ approach_NN yields_NNS a_DT value_NN of_IN 19.85_CD mm_NP for_IN E_NP ,_, implying_VVG that_IN the_DT accuracy_NN of_IN the_DT ellipse-based_JJ source_NN localization_NN technique_NN tends_VVZ to_TO improve_VV as_IN the_DT number_NN of_IN sensor_NN clusters_NNS increases_NNS ._SENT 
+The_DT similar_JJ comparison_NN for_IN the_DT parametric_JJ curve-based_JJ technique_NN ,_, however_RB ,_, could_MD not_RB be_VB presented_VVN in_IN this_DT paper_NN since_IN only_RB the_DT case_NN of_IN n=6_NN is_VBZ considered_VVN for_IN this_DT technique_NN to_TO ensure_VV a_DT good_JJ convergence_NN of_IN the_DT optimization_NN algorithm_NN (_( see_VV Table_NN 4_CD )_) ,_, while_IN the_DT maximum_JJ number_NN of_IN sensor_NN clusters_NNS installed_VVN on_IN the_DT plate_NN considered_VVN for_IN the_DT numerical_JJ study_NN is_VBZ also_RB 6._CD The_DT source_NN localization_NN results_NNS discussed_VVD so_RB far_RB in_IN this_DT section_NN have_VHP been_VBN obtained_VVN starting_VVG with_IN the_DT initial_JJ vertices_NN required_VVN in_IN the_DT Nelder-Mead_JJ algorithm_NN (_( see_VV Appendices_NNS A_NP and_CC B_NP )_) as_RB listed_VVN in_IN Table_NN 5._CD The_DT source_NN coordinates_VVZ are_VBP given_VVN in_IN this_DT table_NN in_IN “_NP mm_NP ”_NP units_NNS and_CC η_NN is_VBZ in_IN degree_NN ._SENT 
+It_PP is_VBZ desirable_JJ to_TO know_VV how_WRB sensitive_JJ the_DT results_NNS are_VBP to_TO the_DT choice_NN of_IN different_JJ initial_JJ vertices_NN ._SENT 
+For_IN this_DT purpose_NN ,_, five_CD more_JJR sets_NNS of_IN initial_JJ vertices_NN (_( different_JJ from_IN those_DT listed_VVN in_IN Table_NN 5_CD )_) are_VBP considered_VVN and_CC the_DT elliptical_JJ and_CC parametric_JJ curve-based_JJ techniques_NNS are_VBP then_RB applied_VVN for_IN each_DT of_IN these_DT five_CD sets_NNS of_IN initial_JJ vertices_NN (_( denoted_VVN in_IN Table_NN 6_CD by_IN IVE1–5_NN for_IN the_DT ellipse_NN and_CC IVP1–5_NN for_IN the_DT parametric_JJ curve-based_JJ techniques_NNS )_) ._SENT 
+Table_NN 7_CD lists_NNS the_DT values_NNS of_IN E_NN and_CC η_JJ considering_VVG n=5_NN with_IN IVE1–5_NN for_IN the_DT ellipse-based_JJ technique_NN ._SENT 
+In_IN this_DT table_NN ,_, the_DT column_NN “_JJ Combination_NN No._NN ”_NN is_VBZ same_JJ as_RB that_IN in_IN Table_NN 1._CD The_DT values_NNS of_IN E_NN listed_VVN in_IN Table_NN 7_CD are_VBP also_RB shown_VVN graphically_RB in_IN Fig_NN ._SENT 
+12._CD Similarly_RB ,_, considering_VVG n=6_NP ,_, the_DT values_NNS of_IN E_NP and_CC η_NP are_VBP shown_VVN in_IN Table_NN 8_CD ,_, Table_NN 9_CD for_IN the_DT ellipse_NN (_( with_IN IVE1–5_NN )_) and_CC for_IN the_DT parametric_JJ curve_NN (_( with_IN IVP1–5)-based_JJ techniques_NNS ,_, respectively_RB ._SENT 
+The_DT values_NNS of_IN E_NN listed_VVN in_IN Table_NN 8_CD ,_, Table_NN 9_CD are_VBP also_RB shown_VVN graphically_RB in_IN Fig_NN ._SENT 
+13_CD ,_, Fig_NN ._SENT 
+14_CD ,_, respectively_RB ._SENT 
+It_PP may_MD be_VB observed_VVN by_IN comparing_VVG the_DT results_NNS in_IN Table_NN 7_CD ,_, Table_NN 8_CD ,_, Table_NN 9_CD with_IN those_DT in_IN Table_NN 1_CD ,_, Table_NN 3_CD ,_, Table_NN 4_CD that_WDT the_DT change_NN of_IN the_DT initial_JJ vertices_NN leads_VVZ to_TO a_DT change_NN in_IN the_DT source_NN prediction_NN errors_NNS in_IN a_DT few_JJ cases_NNS ,_, although_IN in_IN most_JJS cases_NNS this_DT change_NN is_VBZ not_RB significant_JJ ._SENT 
+Also_RB ,_, the_DT values_NNS of_IN η_NP appear_VVP to_TO be_VB different_JJ in_IN several_JJ cases_NNS ._SENT 
+For_IN example_NN ,_, in_IN Table_NN 7_CD ,_, for_IN Combination_NN No._NN 4_CD ,_, IVE1_JJ and_CC IVE2_JJ lead_NN to_TO the_DT same_JJ source_NN prediction_NN errors_NNS ,_, although_IN η_NN is_VBZ −80.1°_JJ for_IN IVE1_JJ and_CC 99.9°_JJ for_IN IVE2_NP ._SENT 
+However_RB ,_, −80.1°_NP is_VBZ deviated_VVN from_IN −90°_NP by_IN 9.9°_NP ,_, and_CC 99.9°_NP is_VBZ deviated_VVN from_IN 90°_NP by_IN 9.9°_NP ,_, i._NP e._NP ,_, the_DT deviations_NNS in_IN the_DT angle_NN are_VBP the_DT same_JJ ,_, implying_VVG the_DT same_JJ prediction_NN of_IN the_DT axes_NNS of_IN symmetry_NN orientation_NN ._SENT 
+Table_NN 5._CD Initial_JJ vertices_NN considered_VVN for_IN the_DT two_CD techniques_NNS to_TO obtain_VV the_DT predicted_VVN results_NNS ._SENT 
+Table_NN 6._CD Five_CD sets_NNS of_IN initial_JJ vertices_NN (_( different_JJ from_IN those_DT in_IN Table_NN 5_CD )_) considered_VVN for_IN the_DT two_CD techniques_NNS ._SENT 
+Table_NN 7._CD Source_NN localization_NN results_NNS with_IN n=5_NN using_VVG ellipse-based_JJ approach_NN with_IN five_CD sets_NNS of_IN initial_JJ vertices_NN IVE1–5_NN listed_VVN in_IN Table_NN 6._CD Fig_NN ._SENT 
+12._CD Comparison_NN of_IN the_DT values_NNS of_IN E_NN listed_VVN in_IN Table_NN 7_CD for_IN different_JJ combinations_NNS of_IN sensor_NN clusters_NNS and_CC sets_NNS of_IN initial_JJ vertices_NN IVE1–5_NN for_IN ellipse-based_JJ approach_NN with_IN n=5_NP ._SENT 
+Table_NN 8._CD Source_NN localization_NN results_NNS with_IN n=6_NN using_VVG ellipse-based_JJ approach_NN with_IN five_CD sets_NNS of_IN initial_JJ vertices_NN IVE1–5_NN listed_VVN in_IN Table_NN 6._CD Table_NN 9._CD Source_NN localization_NN results_NNS with_IN n=6_NN using_VVG parametric_JJ curve-based_JJ approach_NN with_IN five_CD sets_NNS of_IN initial_JJ vertices_NN IVP1–5_NN listed_VVN in_IN Table_NN 6._CD Fig_NN ._SENT 
+13._CD Comparison_NN of_IN the_DT values_NNS of_IN E_NN listed_VVN in_IN Table_NN 8_CD for_IN different_JJ sets_NNS of_IN initial_JJ vertices_NN IVE1–5_NN for_IN ellipse-based_JJ approach_NN with_IN n=6_NP ._SENT 
+Fig_NN ._SENT 
+14._CD Comparison_NN of_IN the_DT values_NNS of_IN E_NN listed_VVN in_IN Table_NN 9_CD for_IN different_JJ sets_NNS of_IN initial_JJ vertices_NN IVP1–5_NN for_IN parametric_JJ curve-based_JJ approach_NN with_IN n=6_NP ._SENT 
+It_PP may_MD be_VB noted_VVN that_IN in_IN this_DT study_NN the_DT ellipse-based_JJ approach_NN appears_VVZ to_TO give_VV better_JJR prediction_NN than_IN the_DT parametric_JJ curve-based_JJ approach_NN for_IN localizing_VVG the_DT acoustic_JJ source_NN ._SENT 
+It_PP may_MD be_VB due_JJ to_TO the_DT fact_NN that_IN the_DT ellipse-based_JJ formulation_NN involves_VVZ one_CD fewer_JJR unknown_JJ variable_NN ._SENT 
+It_PP is_VBZ well-known_JJ that_IN as_IN the_DT number_NN of_IN unknowns_NNS is_VBZ reduced_VVN the_DT optimization_NN schemes_NNS like_IN simplex_JJ algorithm_NN give_VV more_RBR reliable_JJ predictions_NNS ._SENT 
+<Section> 5._CD Conclusions_NNS </Section> In_IN this_DT study_NN ,_, acoustic_JJ source_NN localization_NN techniques_NNS in_IN an_DT anisotropic_JJ plate_NN with_IN unknown_JJ orientation_NN of_IN the_DT axes_NNS of_IN symmetry_NN and_CC the_DT material_NN properties_NNS have_VHP been_VBN proposed_VVN ._SENT 
+One_PP may_MD implement_VV this_DT approach_NN to_TO localize_VV the_DT acoustic_JJ source_NN in_IN an_DT anisotropic_JJ plate_NN with_IN sufficient_JJ accuracy_NN without_IN requiring_VVG any_DT information_NN on_IN the_DT position_NN of_IN the_DT axes_NNS of_IN symmetry_NN relative_JJ to_TO the_DT reference_NN coordinate_VV system_NN ._SENT 
+The_DT proposed_VVN source_NN localization_NN algorithm_NN gives_VVZ an_DT estimate_NN of_IN the_DT source_NN coordinates_VVZ as_RB well_RB as_IN the_DT orientation_NN of_IN the_DT axes_NNS of_IN symmetry_NN ._SENT 
+The_DT proposed_VVN techniques_NNS can_MD be_VB used_VVN to_TO localize_VV the_DT acoustic_JJ source_NN in_IN an_DT anisotropic_JJ plate_NN without_IN requiring_VVG any_DT knowledge_NN of_IN the_DT material_NN properties_NNS and_CC are_VBP free_JJ from_IN the_DT unrealistic_JJ assumption_NN that_IN the_DT elastic_JJ waves_NNS propagate_VVP in_IN an_DT anisotropic_JJ plate_NN along_IN a_DT straight_JJ line_NN from_IN the_DT acoustic_JJ source_NN to_TO a_DT receiving_VVG sensor_NN ._SENT 
+The_DT L-shaped_JJ sensor_NN cluster_NN configuration_NN has_VHZ been_VBN used_VVN to_TO estimate_VV the_DT incidence_NN angle_NN of_IN the_DT waves_NNS at_IN a_DT sensor_NN cluster_NN ._SENT 
+The_DT proposed_VVN source_NN localization_NN techniques_NNS are_VBP based_VVN on_IN the_DT analysis_NN of_IN the_DT idealized_VVN shape_NN of_IN the_DT wave_NN fronts_NNS typically_RB observed_VVD during_IN the_DT propagation_NN of_IN the_DT elastic_JJ waves_NNS through_IN the_DT plate_NN ._SENT 
+Two_CD wave_NN front_JJ shape-based_JJ techniques_NNS ,_, namely_RB ,_, elliptical_JJ and_CC parametric_JJ curve-based_JJ techniques_NNS ,_, have_VHP been_VBN modified_VVN by_IN taking_VVG into_IN account_NN the_DT unknown_JJ angle_NN of_IN orientation_NN of_IN the_DT axes_NNS of_IN symmetry_NN with_IN respect_NN to_TO the_DT reference_NN coordinate_VV system_NN in_IN the_DT formulation_NN ._SENT 
+The_DT unknown_JJ variables_NNS ,_, which_WDT include_VVP the_DT source_NN coordinates_VVZ ,_, the_DT curve_NN parameters_NNS and_CC the_DT angle_NN of_IN orientation_NN of_IN the_DT axes_NNS of_IN symmetry_NN ,_, have_VHP been_VBN obtained_VVN by_IN performing_VVG an_DT unconstrained_JJ optimization_NN using_VVG a_DT Nelder-Mead_JJ simplex_JJ algorithm_NN ._SENT 
+A_DT numerical_JJ study_NN has_VHZ been_VBN conducted_VVN to_TO illustrate_VV the_DT effectiveness_NN of_IN the_DT proposed_VVN techniques_NNS ._SENT 
+Since_IN the_DT numbers_NNS of_IN unknowns_NNS are_VBP four_CD and_CC five_CD for_IN the_DT ellipse_NN and_CC the_DT parametric_JJ curve-based_JJ techniques_NNS ,_, respectively_RB ,_, it_PP is_VBZ recommended_VVN to_TO use_VV at_IN least_JJS five_CD and_CC six_CD sensor_NN clusters_NNS ,_, respectively_RB ,_, for_IN these_DT two_CD techniques_NNS to_TO ensure_VV a_DT good_JJ convergence_NN of_IN the_DT optimization_NN algorithm_NN ,_, and_CC the_DT same_JJ has_VHZ been_VBN followed_VVN in_IN this_DT study_NN ._SENT 
+It_PP has_VHZ been_VBN observed_VVN that_IN in_IN all_DT cases_NNS considered_VVN here_RB the_DT predicted_VVN source_NN locations_NNS are_VBP not_RB too_RB far_RB from_IN the_DT actual_JJ source_NN position_NN ._SENT 
+Also_RB ,_, the_DT source_NN localization_NN accuracy_NN of_IN the_DT ellipse-based_JJ technique_NN tends_VVZ to_TO improve_VV as_IN the_DT number_NN of_IN considered_VVN sensor_NN clusters_NNS in_IN the_DT objective_JJ function_NN increases_NNS ._SENT 
+Between_IN the_DT two_CD techniques_NNS ,_, the_DT ellipse-based_JJ technique_NN gave_VVD slightly_RB better_JJR prediction_NN than_IN the_DT parametric_JJ curve-based_JJ technique_NN since_IN it_PP used_VVD one_CD fewer_JJR unknown_JJ parameter_NN ._SENT 
+It_PP is_VBZ worth_JJ investigating_VVG in_IN future_JJ studies_NNS as_IN to_TO how_WRB the_DT proposed_VVN parametric_JJ curve-based_JJ approach_NN performs_VVZ when_WRB more_JJR than_IN six_CD sensor_NN clusters_NNS are_VBP available_JJ ._SENT 
+How_WRB different_JJ choices_NNS of_IN the_DT initial_JJ vertices_NN in_IN the_DT Nelder-Mead_JJ algorithm_NN influence_NN the_DT source_NN localization_NN results_NNS has_VHZ also_RB been_VBN investigated_VVN ._SENT 
+To_TO this_DT end_NN ,_, five_CD different_JJ sets_NNS of_IN initial_JJ vertices_NN have_VHP been_VBN considered_VVN for_IN each_DT of_IN the_DT two_CD techniques_NNS and_CC the_DT source_NN localization_NN procedure_NN has_VHZ been_VBN repeated_VVN ._SENT 
+It_PP has_VHZ been_VBN observed_VVN that_IN in_IN most_JJS cases_NNS ,_, the_DT change_NN in_IN the_DT initial_JJ vertices_NN does_VVZ not_RB yield_VV significantly_RB different_JJ estimates_NNS of_IN the_DT source_NN coordinates_VVZ ,_, especially_RB for_IN the_DT ellipse-based_JJ approach_NN ._SENT 
+The_DT relative_JJ performance_NN of_IN the_DT proposed_VVN techniques_NNS against_IN a_DT conventional_JJ L-shaped_JJ cluster-based_JJ method_NN proposed_VVN by_IN Kundu_NP et_CC al_NP ._SENT 
+which_WDT is_VBZ mainly_RB applicable_JJ to_TO isotropic_JJ and_CC mildly_RB anisotropic_JJ plates_NNS ,_, has_VHZ also_RB been_VBN studied_VVN and_CC compared_VVN with_IN the_DT proposed_VVN technique_NN ._SENT 
+It_PP has_VHZ been_VBN observed_VVN that_IN the_DT proposed_VVN wave_NN front_JJ shape-based_JJ techniques_NNS yield_VV more_RBR accurate_JJ source_NN location_NN estimates_NNS than_IN the_DT conventional_JJ method_NN of_IN Ref_NN ._SENT 
+[_SYM 10_CD ]_SYM for_IN most_JJS cases_NNS ._SENT 
+It_PP may_MD be_VB noted_VVN here_RB that_IN in_IN this_DT study_NN ,_, the_DT numerical_JJ verification_NN of_IN the_DT methodology_NN has_VHZ been_VBN performed_VVN with_IN six_CD sensor_NN clusters_NNS installed_VVN on_IN the_DT plate_NN in_IN a_DT scattered_JJ configuration_NN instead_RB of_IN them_PP surrounding_VVG the_DT actual_JJ acoustic_JJ source_NN ._SENT 
+Although_IN there_EX may_MD be_VB a_DT possibility_NN that_IN the_DT source_NN localization_NN error_NN could_MD decrease_VV with_IN the_DT latter_JJ configuration_NN ,_, the_DT former_JJ configuration_NN is_VBZ more_RBR general_JJ and_CC hence_RB it_PP is_VBZ more_RBR appealing_JJ to_TO test_VV the_DT proposed_VVN approach_NN with_IN this_DT type_NN of_IN cluster_NN configuration_NN ._SENT 
+Besides_RB ,_, in_IN order_NN to_TO surround_VV the_DT acoustic_JJ source_NN with_IN sensor_NN clusters_NNS ,_, one_PP needs_VVZ to_TO have_VH an_DT idea_NN of_IN the_DT source_NN location_NN beforehand_RB ,_, which_WDT does_VVZ not_RB seem_VV plausible_JJ in_IN practical_JJ situations_NNS ._SENT 
+The_DT proposed_VVN acoustic_JJ source_NN localization_NN methodology_NN has_VHZ a_DT scope_NN of_IN further_JJR improvement_NN by_IN considering_VVG the_DT influence_NN of_IN the_DT frequency_NN contents_NNS of_IN the_DT received_VVN signals_NNS ._SENT 
+Future_JJ research_NN can_MD also_RB focus_VV on_IN extending_VVG the_DT proposed_VVN techniques_NNS to_TO structures_NNS more_RBR complex_JJ than_IN two-dimensional_JJ plates_NNS as_IN considered_VVN in_IN this_DT paper_NN ._SENT 
+An_DT experimental_JJ investigation_NN can_MD also_RB be_VB performed_VVN and_CC reported_VVN in_IN future_JJ studies_NNS in_IN order_NN to_TO verify_VV the_DT effectiveness_NN of_IN the_DT presented_VVN methodology_NN in_IN real_JJ life_NN structural_JJ health_NN monitoring_NN ._SENT 
+<Section> Appendix_NN A._NP The_DT unconstrained_JJ optimization_NN algorithm_NN to_TO estimate_VV the_DT unknowns_NNS in_IN the_DT ellipse-based_JJ technique_NN </Section> The_DT version_NN of_IN the_DT Nelder-Mead_JJ simplex_JJ algorithm_NN presented_VVN in_RB [_SYM 33_CD ]_SYM is_VBZ described_VVN below_IN in_IN the_DT context_NN of_IN the_DT ellipse-based_JJ technique_NN (_( see_VV Sub-section_NP 3.1_CD )_) ._SENT 
+Let_VV x=λCxCyηT_NP ._SENT 
+Five_CD initial_JJ vertices_NN for_IN x_NN (_( i._NP e._NP ,_, five_CD different_JJ initial_JJ guesses_VVZ for_IN x_NN )_) are_VBP considered_VVN andΦ_NN is_VBZ calculated_VVN from_IN Eq_NP ._SENT 
+(_( 14_CD )_) at_IN all_PDT these_DT vertices_NN ._SENT 
+Then_RB the_DT following_VVG steps_NNS are_VBP performed_VVN to_TO iteratively_RB solve_VV for_IN the_DT unknowns_NNS ._SENT 
+Step_NN A1_JJ :_: Order_VV the_DT five_CD vertices_NN so_IN that_DT Φ(x1)≤Φ(x2)≤Φ(x3)≤Φ(x4)≤Φ(x5_NN )_) ._SENT 
+Step_NN A2_NN :_: Compute_VV the_DT reflection_NN point_NN xr_NN by_IN @（A.1）_NP where_WRB x¯=∑i=14xi/4_NP is_VBZ the_DT centroid_NN of_IN the_DT four_CD best_JJS points_NNS (_( i._NP e._NP ,_, all_DT vertices_NN except_IN x5_NP )_) ,_, and_CC ρ_NP is_VBZ the_DT coefficient_NN of_IN reflection_NN chosen_VVN as_IN 1._CD Compute_NN Φ(xr_NN )_) ._SENT 
+If_IN Φx1≤Φxr<Φ(x4_NP )_) ,_, replace_VV x5_NN with_IN xr_NP and_CC go_VV to_TO step_VV A1_JJ ._SENT 
+Otherwise_RB ,_, go_VVP to_TO step_VV A3_NN ._SENT 
+Step_NN A3_NN :_: If_IN Φxr<Φ(x1_JJ )_) ,_, compute_VV the_DT expansion_NN point_NN xe_NNS as_IN following_VVG ,_, otherwise_RB go_VV to_TO step_VV A4_JJ ._SENT 
+@（A.2）_NN where_WRB χ_NN is_VBZ the_DT coefficient_NN of_IN expansion_NN chosen_VVN as_IN 2._CD Evaluate_VVP Φ(xe_NN )_) ._SENT 
+If_IN Φxe<Φxr_NP ,_, replace_VV x5_NN with_IN xe_NNS and_CC go_VVP to_TO step_VV A1_JJ ._SENT 
+Otherwise_RB ,_, (_( i._NP e._NP ,_, if_IN Φxe≥Φxr_NP )_) ,_, replace_VV x5_NN with_IN xr_NP and_CC go_VV to_TO step_VV A1_JJ ._SENT 
+Step_NN A4_JJ :_: If_IN Φxr≥Φ(x4_NP )_) ,_, go_VVP to_TO step_VV A4a_NP ._SENT 
+Step_NN A4a_NN :_: If_IN Φx4≤Φxr<Φ(x5_NP )_) ,_, perform_VV an_DT outside_JJ contraction_NN by_IN calculating_VVG xc_NN as_IN shown_VVN in_IN Eq_NP ._SENT 
+(_( A.3_NP )_) ._SENT 
+Otherwise_RB ,_, if_IN Φxr≥Φ(x5_NP )_) ,_, go_VVP to_TO step_VV A4b_NN ._SENT 
+@（A.3）_NN where_WRB ξ_NN is_VBZ the_DT coefficient_NN of_IN contraction_NN chosen_VVN as_IN 12._CD Evaluate_VVP Φxc_NN ._SENT 
+If_IN Φxc≤Φxr_NP ,_, replace_VV x5_NN with_IN xc_NN and_CC go_VV to_TO step_VV A1_JJ ._SENT 
+Otherwise_RB ,_, go_VVP to_TO step_VV A5_JJ ._SENT 
+Step_NN A4b_NN :_: Perform_VV an_DT inside_JJ contraction_NN by_IN calculating_VVG xcc_NN as_IN @（A.4）_NP Evaluate_VVP Φxcc_NN ._SENT 
+If_IN Φxcc<Φx5_NN ,_, replace_VV x5_NN with_IN xcc_NN and_CC go_VV to_TO step_VV A1_JJ ._SENT 
+Otherwise_RB ,_, go_VVP to_TO step_VV A5_JJ ._SENT 
+Step_NN A5_JJ :_: Perform_VV a_DT shrink_VV by_IN replacing_VVG all_PDT the_DT points_NNS except_IN x1_JJ with_IN xi=x1+σ(xi-x1_JJ )_) ,_, i_NP =_SYM 2_CD ,_, 3_CD ,_, 4_CD and_CC 5._CD σ_NN is_VBZ the_DT coefficient_NN of_IN shrinkage_NN chosen_VVN as_IN 12._CD The_DT above-mentioned_JJ steps_NNS can_MD be_VB performed_VVN until_IN the_DT standard_JJ deviation_NN of_IN the_DT computed_VVN values_NNS of_IN Φ_NN at_IN the_DT current_JJ vertices_NN becomes_VVZ less_JJR than_IN a_DT pre-defined_JJ tolerance_NN level_NN ._SENT 
+At_IN this_DT stage_NN ,_, the_DT algorithm_NN is_VBZ terminated_VVN and_CC the_DT latest_JJS x1_NN is_VBZ reported_VVN as_IN the_DT final_JJ solution_NN of_IN the_DT unknown_JJ vector_NN x._NP Appendix_NN B._NP The_DT unconstrained_JJ optimization_NN algorithm_NN to_TO estimate_VV the_DT unknowns_NNS in_IN the_DT parametric_JJ curve-based_JJ technique_NN The_DT version_NN of_IN the_DT Nelder-Mead_JJ simplex_JJ algorithm_NN presented_VVN in_RB [_SYM 33_CD ]_SYM is_VBZ described_VVN below_IN in_IN the_DT context_NN of_IN the_DT parametric_JJ curve-based_JJ technique_NN (_( see_VV Sub-section_NP 3.2_CD )_) ._SENT 
+Let_VV y=pγCxCyηT_NP ._SENT 
+Six_CD initial_JJ vertices_NN for_IN y_NP (_( i._NP e._NP ,_, six_CD different_JJ initial_JJ guesses_VVZ for_IN y_NN )_) are_VBP considered_VVN andS_NN is_VBZ calculated_VVN from_IN Eq_NP ._SENT 
+(_( 21_CD )_) at_IN all_PDT these_DT vertices_NN ._SENT 
+Then_RB the_DT following_VVG steps_NNS are_VBP performed_VVN to_TO iteratively_RB solve_VV for_IN the_DT unknowns_NNS ._SENT 
+Step_NN B1_NN :_: Order_VV the_DT six_CD vertices_NN so_IN that_DT S(y1)≤S(y2)≤S(y3)≤S(y4)≤S(y5)≤S(y6_NN )_) ._SENT 
+Step_NN B2_NN :_: Compute_VV the_DT reflection_NN point_NN yr_NN by_IN @（B.1）_NP where_WRB y¯=∑i=15yi/5_NP is_VBZ the_DT centroid_NN of_IN the_DT five_CD best_JJS points_NNS (_( i._NP e._NP ,_, all_DT vertices_NN except_IN y6_NN )_) ._SENT 
+Compute_VV S(yr_NP )_) ._SENT 
+If_IN Sy1≤Syr<S(y5_NP )_) ,_, replace_VV y6_NN with_IN yr_NP and_CC go_VV to_TO step_VV B1_JJ ._SENT 
+Otherwise_RB ,_, go_VVP to_TO step_VV B3_NN ._SENT 
+Step_NN B3_NN :_: If_IN Syr<S(y1_JJ )_) ,_, compute_VV the_DT expansion_NN point_NN ye_NN as_IN following_VVG ,_, otherwise_RB go_VV to_TO step_VV B4_NN ._SENT 
+@（B.2）_NP EvaluateS(ye_NP )_) ._SENT 
+If_IN Sye<Syr_NP ,_, replace_VV y6_NN with_IN ye_NN and_CC go_VV to_TO step_VV B1_JJ ._SENT 
+Otherwise_RB ,_, (_( i._NP e._NP ,_, if_IN Sye≥Syr_NP )_) ,_, replace_VV y6_NN with_IN yr_NP and_CC go_VV to_TO step_VV B1_JJ ._SENT 
+Step_NN B4_NN :_: If_IN Syr≥S(y5_NP )_) ,_, go_VVP to_TO step_VV B4a_NP ._SENT 
+Step_NN B4a_NN :_: If_IN Sy5≤Syr<S(y6_NP )_) ,_, perform_VV an_DT outside_JJ contraction_NN by_IN calculating_VVG yc_NN as_IN shown_VVN in_IN Eq_NP ._SENT 
+(_( B.3_NP )_) ._SENT 
+Otherwise_RB ,_, if_IN Syr≥S(y6_NP )_) ,_, go_VVP to_TO step_VV B4b_NN ._SENT 
+@（B.3）_JJ Evaluate_VVP Syc_NN ._SENT 
+If_IN Syc≤Syr_NP ,_, replace_VV y6_NN with_IN yc_NN and_CC go_VV to_TO step_VV B1_JJ ._SENT 
+Otherwise_RB ,_, go_VVP to_TO step_VV B5_NN ._SENT 
+Step_NN B4b_NN :_: Perform_VV an_DT inside_JJ contraction_NN by_IN calculating_VVG ycc_NN as_IN @（B.4）_NP Evaluate_VVP Sycc_NN ._SENT 
+If_IN Sycc<Sy6_NN ,_, replace_VV y6_NN with_IN ycc_NN and_CC go_VV to_TO step_VV B1_JJ ._SENT 
+Otherwise_RB ,_, go_VVP to_TO step_VV B5_NN ._SENT 
+Step_NN B5_NN :_: Perform_VV a_DT shrink_VV by_IN replacing_VVG all_PDT the_DT points_NNS except_IN y1_JJ with_IN yi=y1+σ(yi-y1_JJ )_) ,_, i_NP =_SYM 2_CD ,_, 3_CD ,_, 4_CD ,_, 5_CD and_CC 6._CD The_DT above-mentioned_JJ steps_NNS can_MD be_VB performed_VVN until_IN the_DT standard_JJ deviation_NN of_IN the_DT computed_VVN values_NNS of_IN S_NP at_IN the_DT current_JJ vertices_NN becomes_VVZ less_JJR than_IN a_DT pre-defined_JJ tolerance_NN level_NN ._SENT 
+At_IN this_DT stage_NN ,_, the_DT algorithm_NN is_VBZ terminated_VVN and_CC the_DT latest_JJS y1_NN is_VBZ reported_VVN as_IN the_DT final_JJ solution_NN of_IN the_DT unknown_JJ vector_NN y._NP Appendix_NN C._NP The_DT L-shaped_JJ cluster-based_JJ approach_NN to_TO acoustic_JJ source_NN localization_NN proposed_VVN in_IN Ref_NN ._SENT 
+[_SYM 10_CD ]_SYM The_DT conventional_JJ L-shaped_JJ cluster-based_JJ acoustic_JJ source_NN localization_NN approach_NN developed_VVN by_IN Kundu_NP et_CC al_NP ._SENT 
+assumes_VVZ that_IN the_DT elastic_JJ waves_NNS propagate_VVP along_IN a_DT straight_JJ line_NN from_IN the_DT source_NN to_TO a_DT sensor_NN ._SENT 
+Thus_RB ,_, for_IN the_DT ith_JJ cluster_NN ,_, @（C.1）_NP tanθi_NP can_MD be_VB estimated_VVN using_VVG Eqs_NNS ._SENT 
+(_( 1_CD )_) ,_, (_( 2_LS )_) (_( corresponding_JJ to_TO the_DT second_JJ wave_NN groups_NNS )_) ,_, depending_VVG on_IN whether_IN the_DT ith_JJ cluster_NN is_VBZ of_IN Type-a_NP or_CC of_IN Type-b_NN ,_, respectively_RB ._SENT 
+Considering_VVG i=1,2_NN ,_, from_IN Eq_NP ._SENT 
+(_( C.1_JJ )_) ,_, one_PP can_MD then_RB obtain_VV two_CD simultaneous_JJ linear_JJ equations_NNS with_IN two_CD unknowns_NNS Cx_NP and_CC Cy_NP :_: @（C.2）_NP @（C.3）_NP Eqs_NP ._SENT 
+(_( C.1_JJ )_) ,_, (_( C.2_NP )_) can_MD be_VB solved_VVN simultaneously_RB to_TO find_VV the_DT unknowns_NNS Cx_NP and_CC Cy_NP ._SENT 
+<Section> References_NNS </Section> T._NP Kundu_NP Acoustic_JJ source_NN localization_NN Ultrasonics_NP ,_, 54_CD (_( 2014_CD )_) ,_, pp_NP ._SENT 
+25-38_CD H._NP Nakatani_NP ,_, T._NP Hajzargarbashi_NP ,_, K._NP Ito_NP ,_, T._NP Kundu_NP ,_, N._NP Takeda_NP ,_, Impact_NN localization_NN on_IN a_DT cylindrical_JJ plate_NN by_IN near-field_NP beamforming_NP analysis_NN ,_, in_RB :_: M._NP Tomizuka_NP (_( Ed_NP ._SENT 
+)_) ,_, Sensors_NNS and_CC Smart_NP Structures_NNS Technologies_NP for_IN Civil_NP ,_, Mechanical_NP ,_, and_CC Aerospace_NP Systems_NPS ,_, SPIE’s_NPS 2012_CD Annual_JJ International_NP Symposium_NN on_IN Smart_NP Structures_NNS and_CC Nondestructive_JJ Evaluation_NN ,_, vol_NP ._SENT 
+8345_CD ,_, San_NP Diego_NP ,_, California_NP ,_, March_NP 12–15_NP ,_, 2012_CD ,_, 2012._CD H._NP Nakatani_NP ,_, T._NP Hajzargarbashi_NP ,_, K._NP Ito_NP ,_, T._NP Kundu_NP ,_, N._NP Takeda_NP Locating_VVG point_NN of_IN impact_NN on_IN an_DT anisotropic_JJ cylindrical_JJ surface_NN using_VVG acoustic_JJ beamforming_VVG technique_NN 4th_JJ Asia-Pacific_JJ Workshop_NN on_IN Structural_NP Health_NP Monitoring_NN ,_, Melbourne_NP ,_, Australia_NP (_( 2012_CD )_) M._NP Meo_NP ,_, G._NP Zumpano_NP ,_, M._NP Piggott_NP ,_, G._NP Marengo_NP Impact_NP identification_NN on_IN a_DT sandwich_NN plate_NN from_IN wave_NN propagation_NN responses_NNS Compos_NP ._SENT 
+Struct_VV ._SENT 
+,_, 71_CD (_( 2005_CD )_) ,_, pp_NP ._SENT 
+302-306_CD T._NP Kundu_NP ,_, S._NP Das_NP ,_, K._NP V._NP Jata_NP Point_NP of_IN impact_NN prediction_NN in_IN isotropic_JJ and_CC anisotropic_JJ plates_NNS from_IN the_DT acoustic_JJ emission_NN data_NNS J._NP Acoust_NP ._SENT 
+Soc_NP ._SENT 
+Am_RB ._SENT 
+,_, 122_CD (_( 4_LS )_) (_( 2007_CD )_) ,_, pp_NP ._SENT 
+2057-2066_CD T._NP Kundu_NP ,_, S._NP Das_NP ,_, S._NP A._NP Martin_NP ,_, K._NP V._NP Jata_NP Locating_VVG point_NN of_IN impact_NN in_IN anisotropic_JJ fiber_NN reinforced_VVD composite_JJ plates_NNS Ultrasonics_NP ,_, 48_CD (_( 3_LS )_) (_( 2008_CD )_) ,_, pp_NP ._SENT 
+193-201_CD T._NP Hajzargerbashi_NP ,_, T._NP Kundu_NP ,_, S._NP Bland_NP An_DT improved_VVN algorithm_NN for_IN detecting_VVG point_NN of_IN impact_NN in_IN anisotropic_JJ inhomogeneous_JJ plates_NNS Ultrasonics_NP ,_, 51_CD (_( 3_LS )_) (_( 2011_CD )_) ,_, pp_NP ._SENT 
+317-324_CD M._NP Koabaz_NP ,_, T._NP Hajzargarbashi_NP ,_, T._NP Kundu_NP ,_, M._NP Deschamps_NP Locating_VVG the_DT acoustic_JJ source_NN in_IN an_DT anisotropic_JJ plate_NN Struct_NN ._SENT 
+Health_NP Monitor_NP ._SENT 
+,_, 11_CD (_( 3_LS )_) (_( 2011_CD )_) ,_, pp_NP ._SENT 
+315-323_CD T._NP Kundu_NP A_DT new_JJ technique_NN for_IN acoustic_JJ source_NN localization_NN in_IN an_DT anisotropic_JJ plate_NN without_IN knowing_VVG its_PP$ material_NN properties_NNS 6th_JJ European_JJ Workshop_NN on_IN Structural_NP Health_NP Monitoring_NN ,_, Dresden_NP ,_, Germany_NP (_( 2012_CD )_) T._NP Kundu_NP ,_, H._NP Nakatani_NP ,_, N._NP Takeda_NP Acoustic_JJ source_NN localization_NN in_IN anisotropic_JJ plates_NNS Ultrasonics_NP ,_, 52_CD (_( 6_CD )_) (_( 2012_CD )_) ,_, pp_NP ._SENT 
+740-746_CD S._NP Yin_NP ,_, Z._NP Cui_NP ,_, T._NP Kundu_NP Acoustic_JJ source_NN localization_NN in_IN anisotropic_JJ plates_NNS with_IN “_NP Z_NP ”_NP shaped_JJ sensor_NN clusters_NNS Ultrasonics_NP ,_, 84_CD (_( 2018_CD )_) ,_, pp_NP ._SENT 
+34-37_CD H._NP Nakatani_NP ,_, T._NP Kundu_NP ,_, N._NP Takeda_NP Improving_NN accuracy_NN of_IN acoustic_JJ source_NN localization_NN in_IN anisotropic_JJ plates_NNS Ultrasonics_NP ,_, 54_CD (_( 7_CD )_) (_( 2014_CD )_) ,_, pp_NP ._SENT 
+1776-1788_CD F._NP Ciampa_NP ,_, M._NP Meo_NP A_DT new_JJ algorithm_NN for_IN acoustic_JJ emission_NN localization_NN and_CC flexural_JJ group_NN velocity_NN determination_NN in_IN anisotropic_JJ structures_NNS Compos_NP ._SENT 
+Part_NP A_NP ,_, 41_CD (_( 2010_CD )_) ,_, pp_NP ._SENT 
+1777-1786_CD F._NP Ciampa_NP ,_, M._NP Meo_NP ,_, E._NP Barbieri_NP Impact_NP localization_NN in_IN composite_JJ structures_NNS of_IN arbitrary_JJ cross_NN section_NN Struct_NN ._SENT 
+Health_NP Monitor_NP ._SENT 
+:_: Int_NP ._SENT 
+J._NP ,_, 11_CD (_( 2012_CD )_) ,_, pp_NP ._SENT 
+643-655_CD F._NP Ciampa_NP ,_, M._NP Meo_NP Impact_NP detection_NN in_IN anisotropic_JJ materials_NNS using_VVG a_DT time_NN reversal_NN approach_NN Struct_NN ._SENT 
+Health_NP Monitor_NP ._SENT 
+,_, 11_CD (_( 1_LS )_) (_( 2012_CD )_) ,_, pp_NP ._SENT 
+43-49_CD B._NP Park_NP ,_, H._NP Sohn_NP ,_, S._NP E._NP Olson_NP ,_, M._NP P._NP DeSimio_NP ,_, K._NP S._NP Brown_NP ,_, M._NP M._NP Derriso_NP Impact_NP localization_NN in_IN complex_JJ structures_NNS using_VVG laser-based_JJ time_NN reversal_NN Struct_NN ._SENT 
+Health_NP Monitor_NP ._SENT 
+,_, 11_CD (_( 5_LS )_) (_( 2012_CD )_) ,_, pp_NP ._SENT 
+577-588_CD T._NP Kundu_NP ,_, X._NP Yang_NP ,_, H._NP Nakatani_NP ,_, N._NP Takeda_NP A_DT two-step_JJ hybrid_JJ technique_NN for_IN accurately_RB localizing_VVG acoustic_JJ source_NN in_IN anisotropic_JJ structures_NNS without_IN knowing_VVG their_PP$ material_NN properties_NNS Ultrasonics_NP ,_, 56_CD (_( 2015_CD )_) ,_, pp_NP ._SENT 
+271-278_CD M._NP E._NP D._NP Simone_NP ,_, F._NP Ciampa_NP ,_, S._NP Boccardi_NP ,_, M._NP Meo_NP Impact_NP source_NN localisation_NN in_IN aerospace_JJ composite_JJ structures_NNS Smart_NP Mater_NP ._SENT 
+Struct_VV ._SENT 
+,_, 26_CD (_( 2017_CD )_) ,_, p._NP 125026_CD S._NP A._NP H._NP Sabzevari_NP ,_, M._NP Moavenian_NP Sound_NP localization_NN in_IN an_DT anisotropic_JJ plate_NN using_VVG electret_NN microphones_NNS Ultrasonics_NP ,_, 73_CD (_( 2017_CD )_) ,_, pp_NP ._SENT 
+114-124_CD D._NP Xiao_NP ,_, T._NP He_PP ,_, Q._NP Pan_NP ,_, X._NP Liu_NP ,_, J._NP Wang_NP ,_, Y._NP Shan_NP A_DT novel_JJ acoustic_JJ emission_NN beamforming_VVG method_NN with_IN two_CD uniform_JJ linear_JJ arrays_NNS on_IN plate-like_JJ structures_NNS Ultrasonics_NP ,_, 54_CD (_( 2014_CD )_) ,_, pp_NP ._SENT 
+737-745_CD B._NP -W_NNS ._SENT 
+Jang_NP ,_, C._NP -G_NP ._SENT 
+Kim_NP Impact_NP localization_NN of_IN composite_JJ stiffened_VVN panel_NN with_IN triangulation_NN method_NN using_VVG normalized_VVN magnitudes_NNS of_IN fiber_NN optic_JJ sensor_NN signals_NNS Compos_NP ._SENT 
+Struct_VV ._SENT 
+,_, 211_CD (_( 2019_CD )_) ,_, pp_NP ._SENT 
+522-529_CD A._NP Tobias_NP Acoustic_JJ emission_NN source_NN location_NN in_IN two_CD dimensions_NNS by_IN an_DT array_NN of_IN three_CD sensors_NNS Non-destruct_VVP ._SENT 
+Test_NN ._SENT 
+,_, 9_CD (_( 1_LS )_) (_( 1976_CD )_) ,_, pp_NP ._SENT 
+9-12_CD W._NP H._NP Park_NP Acoustic_JJ source_NN localization_NN in_IN an_DT anisotropic_JJ plate_NN without_IN knowing_VVG its_PP$ material_NN properties_NNS ,_, PhD_JJ dissertation_NN ,_, Department_NP of_IN Aerospace_NP and_CC Mechanical_NP Engineering_NP The_NP University_NP of_IN Arizona_NP (_( 2016_CD )_) M._NP G._NP Baxter_NP ,_, R._NP Pullin_NP ,_, K._NP M._NP Holford_NP ,_, S._NP L._NP Evans_NP Delta_NP T_NN source_NN location_NN for_IN acoustic_JJ emission_NN Mech_NP ._SENT 
+Syst_NN ._SENT 
+Signal_NN Process_NN ._SENT 
+,_, 21_CD (_( 2007_CD )_) ,_, pp_NP ._SENT 
+1512-1520_CD J._NP Hensman_NP ,_, R._NP Mills_NP ,_, S._NP G._NP Pierce_NP ,_, K._NP Worden_NP ,_, M._NP Eaton_NP Locating_VVG acoustic_JJ emission_NN sources_NNS in_IN complex_JJ structures_NNS using_VVG Gaussian_JJ processes_NNS Mech_NP ._SENT 
+Syst_NN ._SENT 
+Signal_NN Process_NN ._SENT 
+,_, 24_CD (_( 2010_CD )_) ,_, pp_NP ._SENT 
+211-223_CD S._NP Kh_NP ._SENT 
+Al-Jumaili_NP ,_, M._NP R._NP Pearson_NP ,_, K._NP M._NP Holford_NP ,_, M._NP J._NP Eaton_NP ,_, R._NP Pullin_NP Acoustic_JJ emission_NN source_NN location_NN in_IN complex_JJ structures_NNS using_VVG full_JJ automatic_JJ delta_NN T_NN mapping_NN technique_NN Mech_NP ._SENT 
+Syst_NN ._SENT 
+Signal_NN Process_NN ._SENT 
+,_, 72–73_JJ (_( 2016_CD )_) ,_, pp_NP ._SENT 
+513-524_CD S._NP Gollob_NP ,_, G._NP K._NP Kocur_NP ,_, T._NP Schumacher_NP ,_, L._NP Mhamdi_NP ,_, T._NP Vogel_NP A_DT novel_JJ multi-segment_NN path_NN analysis_NN based_VVN on_IN a_DT heterogeneous_JJ velocity_NN model_NN for_IN the_DT localization_NN of_IN acoustic_JJ emission_NN sources_NNS in_IN complex_JJ propagation_NN media_NNS Ultrasonics_NP ,_, 74_CD (_( 2017_CD )_) ,_, pp_NP ._SENT 
+48-61_CD W._NP H._NP Park_NP ,_, P._NP Packo_NP ,_, T._NP Kundu_NP Acoustic_JJ source_NN localization_NN in_IN an_DT anisotropic_JJ plate_NN without_IN knowing_VVG its_PP$ material_NN properties_NNS –_NN a_DT new_JJ approach_NN Ultrasonics_NP ,_, 79_CD (_( 2017_CD )_) ,_, pp_NP ._SENT 
+9-17_CD N._NP Sen_NP ,_, T._NP Kundu_NP A_DT new_JJ wave_NN front_NN shape-based_JJ approach_NN for_IN acoustic_JJ source_NN localization_NN in_IN an_DT anisotropic_JJ plate_NN without_IN knowing_VVG its_PP$ material_NN properties_NNS Ultrasonics_NP ,_, 87_CD (_( 2018_CD )_) ,_, pp_NP ._SENT 
+20-32_CD N._NP Sen_NP ,_, M._NP Gawroński_NP ,_, P._NP Packo_NP ,_, T._NP Uhl_NP ,_, T._NP Kundu_NP Acoustic_JJ source_NN localization_NN in_IN anisotropic_JJ plates_NNS without_IN knowing_VVG their_PP$ material_NN properties_NNS :_: an_DT experimental_JJ investigation_NN Proc_NN ._SENT 
+SPIE_NP 10972_CD ,_, Health_NP Monitoring_NN of_IN Structural_NP and_CC Biological_NP Systems_NPS XIII_NP (_( 2019_CD )_) ,_, 10.1117/12.2513467_CD A._NP Ebrahimkhanlou_NP ,_, S._NP Salamone_NP Acoustic_JJ emission_NN source_NN localization_NN in_IN thin_JJ metallic_JJ plates_NNS :_: a_DT single-sensor_NN approach_NN based_VVN on_IN multimodal_JJ edge_NN reflections_NNS Ultrasonics_NP ,_, 78_CD (_( 2017_CD )_) ,_, pp_NP ._SENT 
+134-145_CD J._NP A._NP Nelder_NP ,_, R._NP Mead_NP A_DT simplex_JJ method_NN for_IN function_NN minimization_NN Comp_NP ._SENT 
+J._NP ,_, 7_CD (_( 1965_CD )_) ,_, pp_NP ._SENT 
+308-315_CD J._NP C._NP Lagarias_NP ,_, J._NP A._NP Reeds_NP ,_, M._NP H._NP Wright_NP ,_, P._NP E._NP Wright_NP Convergence_NN properties_NNS of_IN the_DT Nelder-Mead_JJ simplex_JJ method_NN in_IN low_JJ dimensions_NNS SIAM_NP J._NP Optim_NN ._SENT 
+,_, 9_CD (_( 1_LS )_) (_( 1998_CD )_) ,_, pp_NP ._SENT 
+112-147_CD 

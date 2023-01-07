@@ -1,0 +1,183 @@
+<title>Design and analysis of the equatorial inboard WCCB blanket module for CFETR</title>
+<author>1,MingzhunLei,2,QigangWu,3,ShulingXu,4,KunXu,5,XuebinMa,6,SonglinLiu</author>
+<Affiliation>1, Institute of Plasma Physics, Chinese Academy of Sciences, Hefei 230031, China</Affiliation>
+<year>2020</year>
+<Jounral>Fusion Engineering and Design</Journal>
+<Publishing_house>ELSEVIER</Publishing_house>
+<Text_Collector>XiaFan，HEU</Text_Collector>
+<DOI>10.1016/j.fusengdes.2020.111889</DOI>
+<URL>https://www.sciencedirect.com/science/article/pii/S0920379620304373</URL>
+Design and analysis of the equatorial inboard WCCB blanket module for CFETR
+MingzhunLei,QigangWu,ShulingXu,KunXu,XuebinMa,SonglinLiu
+Institute of Plasma Physics, Chinese Academy of Sciences, Hefei 230031, China
+<Section>Highlights</Section>
+Preliminary thermal-hydraulic analyses have been conducted to evaluate the design feasibility.
+The cooling configuration has been optimized referring to preliminary flow distribution results.
+Further detailed thermal-hydraulic behavior has been obtained based on a global module FE model with an acceptable result.
+Thermo-mechanical performance of the WCCB blanket has been investigated under normal operation and two accident events.
+<Section>Abstract</Section>
+The blanket system is a key component to fulfill tritium breeding and nuclear energy conversion in the fusion reactor. This paper reports and presents the design and analysis of an equatorial inboard water-cooled ceramic breeder (WCCB) blanket module for Chinese Fusion Engineering Test Reactor (CFETR). The detailed structure design and the schematics of coolant flow scheme optimization has been presented. Based on the design model, a global model of the equatorial inboard WCCB blanket module has been established by the ANSYS code. Preliminary thermal-hydraulic performance of the blanket module is investigated which suggests that the cooling system inside the blanket module should be optimized. Then, optimization design has been done, the analysis results shows that the temperature distribution is reasonable and within the allowable temperature. Further thorough thermal-hydraulic and mechanical analysis have been studied to validate the feasibility of the design. Three scenarios (normal operation/LOCA occurs during plasma startup/LOCA occurs during normal operation) were postulated to evaluate the design rationality, and the results were assessed with ITER SDC-IC. Optimization results imply that the design of the equatorial inboard WCCB blanket module can meet the design requirements.
+Keywords:CFETR;WCCB blanket;Design and optimization;Thermal-hydraulic;Thermal-mechanical calculation
+<Section>1. Introduction</Section>
+The Chinese Fusion Engineering Test Reactor (CFETR) is a new superconducting tokamak being designed in China. As the next-step fusion research device of China, CFETR will bridge gaps between ITER device and future fusion power plant (FPP) [1]. Blanket is well recognized as a critical component for sustainable tritium-breeding and energy conversion for hydrogen fusion energy system [[2], [3], [4]], which are among the most significant objectives for CFETR. Two candidate breeding blanket concepts were proposed and investigated to realize the challenging target for CFETR [5,6]. The water-cooled ceramic breeder (WCCB) blanket and the helium cooled ceramic breeder (HCCB) blanket were developed at the Institute of Plasma Physics Chinese Academy of Sciences (ASIPP) and the Southwestern Institute of Physics (SWIP) in past years.
+The CFETR design began several years ago. The CFETR device in phase I is based on a smaller machine with major/minor radius of plasma R =5.7 m / a =1.6 m. However, an upgraded CFETR machine with a larger size has been proposed for satisfying the goals of phase II. In addition, the upgraded CFETR machine should meet the targets of both phase I and phase II. Hence, the new CFETR machine can satisfy the smooth transfer of phase I to phase II and therefore save the cost of construction. The major radius and minor radius of the new CFETR machine are R = 7.2 m and a = 2.2 m respectively. As the fusion power of CFETR is envisaged from 200 MW to 1.5 GW, different operation scenarios should be taken into account for blanket system operation [7]. Referring to the previous updating activities of WCCB blanket, flow distribution behavior, thermal-hydraulic and thermal-mechanical performance were crucial steps towards the updating design evaluation [5,[7], [8], [9]]. Due to the changes in design parameters, the updated WCCB blanket has been designed for the new design requirements. The oxide dispersion strengthened (ODS) ferritic/martensitic steel is currently selected as the structure material for WCCB blanket. Li2TiO3 is chosen as the tritium breeder and Be12Ti is utilized as neutron multiplier, both of which exist in the form of a mixed pebble beds. A tungsten armor with 2 mm thickness is welded on the first wall (FW) to against plasma erosion and corrosion. The pressurized water with 15.5 MPa is used for cooling the blanket module with an inlet/outlet temperature of 285℃/325℃ under the normal operation condition. Taking consideration of the operation scenario with 500 MW, 1 GW, and 1.5 GW fusion power, a WCCB blanket scheme was proposed and the neutronic performance was evaluated [7,10]. Thermal-hydraulic performance for the equatorial outboard blanket module was investigated [9]. Safety assessment on different accident scenarios using system code RELAP5 [11] was investigated based on the equatorial outboard blanket module. The equatorial inboard WCCB blanket module is an important part of the blanket system, the optimization and analysis should be performed to evaluate the design.
+This paper presents the design of the equatorial inboard WCCB blanket module for CFETR based on common features in Ref [7,12], along with analysis of full module structure. Firstly, the detailed structure design and cooling scheme has been described. Then, a three-dimensional (3D) finite element (FE) model of full blanket module is developed using ANSYS code. Fluid analysis has been performed to verify the distribution of the coolant and pressure drop in the blanket module. Thermal-hydraulic calculations have been carried out to evaluate the design. Based on the analysis results, mechanical analysis of WCCB blanket module has been done. Finally, the discussion around the design and optimization work is presented in the paper.
+<Section>2. Design description of equatorial inboard WCCB blanket module<Section>
+A radial building of equatorial WCCB blanket module is developed by optimization on blanket integrated platform, which couples neutronics, thermal hydraulics and mechanics calculation carried out in ASIPP [13,14]. This blanket structure is composed of cap, tungsten armor, first wall (FW), stiffening plate (SP), rib, cooling tube, manifold and breeding zone (BZ), as shown in Fig. 1. The equatorial inboard blanket module is a closed trapezoid box with a dimension of 740 mm(length)×937 mm/752 mm (width) × 2080 mm(height). The FW is a U-shaped plate with cooling channels where the coolant in two adjacent channels flows in opposite directions to ensure better cooling effect. There are 95 internal cooling channels in FW. The cross-section of the channel is 8 mm × 8 mm, and the thickness of FW is 20 mm. A 2 mm thickness tungsten armor is welded on the first wall of the plasma-facing side to suffer extremely high thermal loads, stress as well as plasma erosion and corrosion. The structure of the upper cap and lower cap is the same. The two caps are both designed to adopt three square cooling channels to remove the volumetric nuclear heat. Two SPs are used to enhance the mechanical strength of the box. Each SP has 81 U-shaped channels each of which shares a cross-section of 5 mm × 5 mm. Two SPs divide the BZ into three sections. Each section has 68 cooling tubes, which is named as CT1, CT2 and CT3. Besides, the inner/outer diameter of the tube is 8 mm/13.5 mm. There is a rib designed between every two adjacent tubes. The function of the rib is to reinforce the blanket structure and to improve the heat transfer capacity. The BZ is filled by the mixed pebble beds of Li2TiO3 and Be12Ti. The manifold consisting of plates and pipes is designed to implement the function of collecting and distributing coolant and purge gas. These will form different chambers and fulfill different functions.
+Fig. 1
+Fig. 1. The detailed design of equatorial inboard WCCB blanket module.
+The schematics of coolant flow scheme of equatorial inboard WCCB blanket module is shown in Fig. 2. Three independent cooling systems (CS) are designed to remove the volumetric nuclear heat and heat load from plasma. The principle of cooling system and tritium purging system is described in detail in Ref. [7].
+Fig. 2
+Fig. 2. Schematics of coolant flow scheme.
+<Section>3. Preliminary analysis and optimization</Section>
+3.1. Thermal-hydraulic analysis
+For WCCB blanket design and optimization, a global model of equatorial inboard WCCB blanket module has been established by the ANSYS code based on the design model. In order to verify the coolant distribution and fluid characteristics, three sub-models were extracted for analysis, as shown in Fig. 3. CS 1 is used for the cooling of the FW, caps and SPs. CS 2 and CS 3 are put into use for nuclear heat elimination of the mixed pebble beds. The mass flow rates of each CS under three operation scenarios (500 MW, 1 GW, 1.5 GW) are listed in Table 1.
+Fig. 3
+Fig. 3. Fluid analysis model of equatorial inboard WCCB blanket module.
+Table 1. The mass flow rate in different CS.
+The operation scenario of 500 MW was taken as an example to evaluate the system design. The mass flow rate in the cooling channels under this scenario was calculated and shown in Fig. 4. The maximum flow discrepancy of the FW cooling channels of the inlet in left and right is 5.1 % and 0.1 %, respectively. The FW adopts bidirectional cooling channels, and the inlets on the left and right sides are in different coolant collecting chambers. Since the total coolant inlet is at different positions of the coolant collecting chambers, there is a certain difference in the mass flow rate of the left and right flow channels. The maximum flow discrepancy of the cooling tubes of CS1 and CS2 in BZ is 8.3 % and 1.1 %, respectively. The largest deviation of the mass flow rates of CS1, CS2, CS3 occurred at the inlet location where the mass flow distribution is not uniform. The maximum velocity of the CS 1, CS2 and CS3 is 4 m/s, 2.96 m/s and 1.36 m/s respectively with a corresponding pressure drop of 0.1 MPa, 0.02 MPa and 0.005 MPa. According to Ref. [12], the results of pressure drop and flow distribution of the coolant are acceptable.
+Fig. 4
+Fig. 4. The flow distribution of CS1 (a), CS2 (b) and CS3 (c).
+Moreover, further analysis has been done to evaluate the temperature distribution on the WCCB blanket. Three cases are calculated considering thermal loads of surface heat flux from plasma and the volumetric nuclear heat from neutron irradiation. A uniform heat flux of 0.5 MW/m2 from particles and radiations of plasma is applied to the FW surface. The volumetric heat density is based on the nuclear calculations in Ref. [7], as listed in Table 2. The inlet pressure and temperature of the coolant are 15.5 MPa and 285℃, respectively. And the thermal properties of tungsten armor, ODS steel and mixed pebble beds can refer to Ref. [7,8,15].
+Table 2. Nuclear heat of equatorial inboard WCCB blanket module.
+Table 3 lists the peak temperature of different components of the blanket under different operation conditions. The maximum temperature of tungsten armor is lower than the allowable temperature of tungsten (1300 ℃). The peak temperature values of BZ are 895℃, 914℃ and 1418℃, respectively, while the allowable temperature of BZ is 900℃. It is indicated from the preliminary results that the maximum temperature of many areas inside the blanket module has exceeded the allowable temperature. The maximum temperature of the structure material is greater than allowable value (ODS steel 650℃) under the three given operation conditions. Further optimization should be carried out to improve the cooling system and temperature distribution.
+Table 3. Maximum temperature of the WCCB blanket structure components.
+3.2. Design optimization
+Based on the thermal-hydraulic analysis results of Section 3.1, it can be confirmed that the cooling system should be optimized to improve flow distribution of the coolant. The design mainly considers that the temperature distribution can meet the temperature requirements of each component of the WCCB blanket under different operation conditions (200 MW, 500 MW, 1 G W and 1.5 GW). Because the operating power range is too large, three sets of cooling systems are used to achieve blanket cooling. CS 1 is used to cool the FW, SPs and covers. CS 2 and 3 are employed to cool the breeding zone. All cooling systems are used to cool the blanket under the higher fusion powers (500 MW, 1 G W and 1.5 GW). When the fusion power is low at 200 MW, only CS 1 and CS 2 are used to cool the blanket for increasing the temperature of the breeder to achieve better tritium releasing performance. To improve flow distribution, the design optimization has been carried out through simplification of the cooling systems where three cooling systems are replaced by two cooling systems, as shown in Fig. 5. Due to the higher heat load of the FW, CS 1 is only used to cool the FW to obtain an ideal temperature distribution. CS 2 will remove the heat of the caps and BZ. The number of CTS are left unchanged compared with the previous design. Through optimizing the radial distribution of CTs, the BZ temperature could be expected to be controlled under the allowable value. In addition, there is no channel in SP anymore. Thus, the manifold will be much easier for manufacture and assembly than the precious design. In general, the whole structure becomes simpler.
+Fig. 5
+Fig. 5. The optimized coolant flow scheme of equatorial inboard WCCB blanket module.
+<Section>4. Thermal-hydraulic analysis</Section>
+Due to the design optimization of the cooling system, thermal-hydraulic analysis has been performed again to evaluate the updated design. A finite element (FE) model of the whole WCCB blanket is built by ANSYS code. There were 66392992 elements and 22827249 nodes totally, and Jacobi of mesh quality was 0.72 average. Five boundary layers are set in the coolant finite element model, as shown in Fig. 6. Most of elements were hex and others were tetra for connections regions. Fluid analysis and thermal-hydraulic analysis have been performed to evaluate the design. The mass flow rate distribution of the optimized CS is listed in Table 4.
+Fig. 6
+Fig. 6. Cross-sectional model of coolant in the FW(a) and CT(b).
+Table 4. The mass flow rate of optimized CS.
+4.1. Fluid analysis
+The flow distribution of the FW cooling channels and BZ cooling tubes under 500 MW operation scenario are shown in Fig. 7(a) and (b). The maximum discrepancy of the FW cooling channels inlet in left and right is 0.51 % and 0.79 %, respectively. The maximum relative deviations of the mass flow rate in CT1, CT2 and CT3 are 0.47 %, 0.41 % and 0.52 %, respectively. And the maximum velocity of CS1 and CS2 is 5.89 m/s and 2.35 m/s, respectively. It is noticeable that the mass flow rate distribution is near uniform after scheme optimization of the CS which indicates a better flow distribution, and the maximum velocity of coolant in CS is reasonable.
+Fig. 7
+Fig. 7. The flow distribution of CS1 (a) and CS2 (b).
+4.2. Thermal-hydraulic analysis
+Three cases of different operation power have been calculated to analyze the design. The maximum temperature of different components in three cases are listed in Table 5. The maximum temperatures of tungsten armor are 548℃, 555℃ and 565℃ in three cases which can meet the allowable temperature requirement of the tungsten material. Meanwhile, the maximum temperatures of the structure components and BZ are 601℃ and 847℃ in the cases, which are within the allowable temperature of the ODS steel and mixed pebble beds correspondingly.
+Table 5. The temperature of WCCB blanket.
+Table 6 summarizes the inlet/outlet temperature and pressure drop of the coolant. The results indicate that the inlet/outlet temperature of coolant is around 285℃/325℃ under different fusion power. Hence, the outlet temperatures of CS1 and CS2 are in good agreement with the design value of 325℃. The pressure drop of CS1/CS2 is 0.06 MPa/0.01 MPa, 0.09 MPa/0.03 MPa and 0.13 MPa/0.07 MPa under the fusion power of 500 MW, 1 GW and 1.5 GW, respectively. Low pressure drop of the coolant proves that the flowing resistance is small and the present design is preferable for uniform mass flow distribution and safety operation [12].
+Table 6. Summary of inlet/outlet temperature and pressure drop of WCCB cooling system.
+<Section>5. Structure analysis</Section>
+Besides the nuclear requirements and thermal-hydraulic assessment of the blanket design, structure mechanical behavior is another crucial index for the design evaluation taking into account the mechanic loads from thermal stresses, coolant pressure and electromagnetics effect. In order to investigate the mechanical behavior of the new design, structure analysis has been performed.
+5.1. Model, loads and boundary conditions
+The finite element model of the optimized WCCB blanket in the structural analysis is the same as that of thermal-hydraulic analysis, except that the coolant is not considered in the structure analysis. The loads consist of gravity, internal pressure and heat load. When analyzing and checking the blanket structure, it is necessary to consider the normal operating conditions and the postulated accident conditions. Hence, the following cases are analyzed:
+Case 1
+Loss of coolant accident (LOCA) occurs during plasma startup;
+Case 2
+Normal operation;
+Case 3
+LOCA occurs during normal operation.
+Case 1 is to consider the blanket pipe rupture accident when the plasma is started. The pressure of the internal surface of blanket box will increase to ∼ 15.5 MPa when the accident occurs. Therefore, a pressure of 15.5 MPa is applied to the inner surface of the blanket box. The purpose of Case 2 is to evaluate the thermal stress of the blanket under normal operation. The temperature field obtained from the thermal-hydraulic analysis in Section 4.2 is applied to the WCCB blanket for Case 2. Case 3 is to consider the pipe rupture accident during normal operation. The loads of the Case 3 are a combination of Case 1 and Case 2. Since the maximum temperature distribution occurs under 1.5 GW operating scenario, the temperature field of this operating condition is used for thermomechanical analysis.
+5.2. Results and discussions
+According to Ref. [16], Case 1 and Case 3 were considered as fault condition, and the allowable stress was assessed under Level D condition. The stress field of the WCCB blanket in Case 1 is shown in Fig. 8. According to the figures, high stresses appear almost at connection areas of the FW, SP and manifold. Hence, stress linearization is carried out along the paths where the peak stress of each component appears. The highest stress is located at the connection between the manifold and cooling tubes, which is caused by the unilateral 15.5 MPa coolant pressure on the inner wall of the cooling tubes. The paths for stress linearization are also shown in the Fig. 8. The primary membrane stresses  and primary bending stress  are evaluated and listed in Table 7. Stresses limit of the materials are based on Ref. [9,17] steel. According to evaluation results, the structural stresses can meet the design requirements.
+Fig. 8
+Fig. 8. Stress field of the WCCB blanket under Case 1.
+Table 7. Summary of the stresses of the WCCB under Case 1.
+Case 1
+Fig. 9, Fig. 10 depict the stresses results of the WCCB blanket in Case 2 and 3. Likewise, there is stress concentration in the connection areas. In order to evaluate the stress, the stress linearization is performed. The paths are shown in the Fig. 9, Fig. 10. The maximum stresses of Case 2 and Case 3 are located at the connection zone between tungsten armor and the FW. That is because the temperature of the tungsten armor and the FW is very high, and the coefficient of thermal expansion of the tungsten armor and the first wall materials is quite different. Based on the SDC-IC code, Case 2 and Case 3 were assessed by Level A and D, respectively. The peak stresses of different components of the WCCB blanket are listed in Table 8, Table 9, where , ,  are the general primary membrane stress, the local membrane stress and the range of cyclic primary plus secondary stress intensities, respectively. The table also lists the stress limits of ODS steel at different temperature near the paths. The areas where the maximum temperature occurs of different components of WCCB blanket were selected for stress linearization. The results show that the maximum stress meets the requirements of the material limits.
+Fig. 9
+Fig. 9. Stress field of the WCCB blanket under Case 2.
+Fig. 10
+Fig. 10. Stress field of the WCCB blanket under Case 3.
+Table 8. Summary of the stresses of the WCCB under Case 2.
+Table 9. Summary of the stresses of the WCCB under Case 3.
+According to the above analysis, the results indicate that stresses can satisfy the requirements of the allowable stress of ODS steel under normal operation. The maximum stresses are less than the allowable stress value under the case of the in-box LOCA with internal pressure of 15.5 MPa. Combination conditions of normal operation and in-box LOCA with 15.5 MPa internal pressure is also simulated, and the results indicate the design of the equatorial inboard WCCB blanket module can meet the structure design requirements. These analysis and design can be good reference for similar blanket design and assessment.
+<Section>6. Conclusions</Section>
+The equatorial inboard WCCB blanket is being presented and validated. Based on the results of the preliminary flow distribution evaluation, the cooling scheme has been optimized and a more simplified cooling configuration with two cooling system has been designed. Around the optimized WCCB structure, the further detailed thermal-hydraulic analysis verified that the optimized cooling scheme could ensure the maximum temperature of the structure components and BZ under the allowable temperature of the ODS steel and mixed pebble beds under the three operation scenarios with 500 MW, 1 GW, and 1.5 GW fusion power. Besides, the thermal-mechanical behavior under 1.5 GW fusion power had been analyzed and evaluated under normal operation and another two envisaged LOCA scenarios with a considering working pressure of 15.5 MPa. Through the preliminary and optimization calculations, it is indicated that the design of the equatorial inboard WCCB blanket module can meet the design requirements. This paper presents a study of the thermal and flow distribution optimization in support of the design and updating activities of the CFETR WCCB blanket which are expected to be used as guidelines for the further blanket system design.
+<Section>CRediT authorship contribution statement</Section>
+Mingzhun Lei: Conceptualization, Writing - review & editing. Qigang Wu: Formal analysis. Shuling Xu: Software, Validation. Kun Xu: Data curation. Xuebin Ma: Methodology. Songlin Liu: Supervision.
+<Section>Declaration of Competing Interest</Section>
+The authors declare that they have no known competing financial interests or personal relationships that could have appeared to influence the work reported in this paper.
+<Section>Acknowledgments</Section>
+The research is supported by the National Key R&D Program of China (2017YFE0300503) and the Collaborative Innovation Program of Hefei Science Center, CAS (2019HSC-CIP 006). The authors would also like to express gratitude to reviewers for kindly revising and constructive suggestions.
+<Section>References</Section>
+[1]
+Y. Wan, J. Li, Y. Liu, X. Wang, V. Chan, C. Chen, et al.
+Overview of the present progress and activities on the CFETR
+Nucl. Fusion, 57 (10) (2017), Article 102009
+CrossRefView Record in ScopusGoogle Scholar
+[2]
+Y. Song, S. Wu, J. Li, B. Wan, Y. Wan, P. Fu, et al.
+Concept design of CFETR tokamak machine
+IEEE Trans. Plasma Sci., 42 (2014), pp. 503-509
+CrossRefView Record in ScopusGoogle Scholar
+[3]
+E. Martelli, A.Del Nevo, P. Arena, G. Bongiovì, G. Caruso, P.A. Di Maio, et al.
+Advancements in DEMO WCLL breeding blanket design and integration
+Int. J. Energy Res., 42 (1) (2018), pp. 27-52
+CrossRefView Record in ScopusGoogle Scholar
+[4]
+L.V. Boccaccini, G. Aiello, J. Aubert, C. Bachmann, T. Barrett, A.Del Nevo, et al.
+Objectives and status of EURO fusion DEMO blanket studies
+Fusion Eng. Des., 109 (2016), pp. 1199-1206
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+[5]
+S. Liu, Y. Pu, X. Cheng, J. Li, C. Peng, X. Ma, et al.
+Conceptual design of a water cooled breeder blanket for CFETR
+Fusion Eng. Des., 89 (2014), pp. 1380-1385
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+[6]
+K. Feng, X. Wang, Y. Feng, Y. Chen, Z. Zhao, Z. Li, et al.
+Current progress of chinese HCCB TBM program
+Fusion Eng. Des., 109 (2016), pp. 729-735
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+[7]
+S. Liu, X. Li, X. Ma, K. Jiang, M. Li, K. Huang, et al.
+Updated design of water-cooled breeder blanket for CFETR
+Fusion Eng. Des., 146 (2019), pp. 1716-1720
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+[8]
+K. Jiang, X. Ma, X. Cheng, S. Lin, K. Huang, S. Liu
+Thermal-hydraulic analysis on the whole module of water cooled ceramic breeder blanket for CFETR
+Fusion Eng. Des., 112 (2016), pp. 81-88
+11
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+[9]
+X. Ma, K. Jiang, X. Zhang, L. Chen, M. Li, S. Liu
+Thermo-mechanical analysis on the full module of water cooled ceramic breeder blanket for CFETR
+Fusion Eng. Des., 126 (2018), pp. 116-123
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+[10]
+S. Liu, X. Cheng, X. Ma, L. Chen, K. Jiang, X. Li, et al.
+Progress on design and related R&D activities for the water-cooled breeder blanket for CFETR
+Theor. Appl. Mech. Lett., 9 (2019), pp. 1-12
+ArticleDownload PDFCrossRefView Record in ScopusGoogle Scholar
+[11]
+X. Cheng, X. Ma, X. Li, W. Wang, S. Liu
+Steady states and LOFA analyses of the updated WCCB blanket for multiple fusion power modes of CFETR
+Fusion Eng. Des., 144 (2019), pp. 23-28
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+[12]
+X. Cheng, X. Ma, W. Wang, L. Chen, S. Liu, Y. Xu
+Primary heat transfer system design of the WCCB blanket for multiple operation modes of CFETR
+Fusion Eng. Des., 153 (2020), Article 111489
+ArticleDownload PDFGoogle Scholar
+[13]
+K. Jiang, W. Ding, X. Zhang, J. Li, X. Ma, K. Huang, et al.
+Development of neutronic-thermal hydraulic-mechanic-coupled platform for WCCB blanket design for CFETR
+Fusion Eng. Des., 137 (2018), pp. 312-324
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+[14]
+K. Jiang, X. Zhang, J. Li
+Using one hybrid 3D-1D-3D approach for the conceptual design of WCCB blanket for CFETR
+Fusion Eng. Des., 114 (2017), pp. 57-71
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+[15]
+V. Barabash
+Summary of Material Properties for Structural Analysis of the ITER Internal Components
+ITER_D_23HL7T v.3.2
+(2020)
+Google Scholar
+[16]
+ITER Structural Design Criteria for In-vessel Components (SDC-IC) Code
+(2012)
+(G74 MA 8 01-05-28 W 0.2, September)
+Google Scholar
+[17]
+D. Zhu, J. Chen
+Thermal stress analysis on chemical vapor deposition tungsten coating as plasma facing material for EAST
+J. Nucl. Mater., 455 (1) (2014), pp. 185-188
+ArticleDownload PDFView Record in ScopusGoogle Scholar

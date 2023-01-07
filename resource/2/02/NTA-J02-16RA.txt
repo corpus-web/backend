@@ -1,0 +1,217 @@
+<title>Evaluation of neutron nuclear data on mercury isotopes</title>
+<author>Keiichi Shibata</author>
+<year>2016</year>
+<Jounral>JOURNAL OF NUCLEAR SCIENCE AND TECHNOLOGY</Journal>
+<Affiliation>Nuclear Data Center, Nuclear Data and Reactor Engineering Division, Nuclear Science and Engineering Center, Japan Atomic Energy Agency, Tokai-mura, Ibaraki, Japan</Affiliation>
+<Publishing_house>Taylor & Francis</Publishing_house>
+<Text_Collector>田苗，BFSU</Text_Collector>
+<DOI>10.1080/00223131.2016.1140599</DOI>
+<URL> http://dx.doi.org/10.1080/00223131.2016.1140599</URL>
+ABSTRACT
+Neutron nuclear data on 10 isotopes of mercury have been evaluated for the next version of Japanese evaluated nuclear data library (JENDL) general-purpose file in the energy region from 10−5 eV to 20 MeV. Resolved resonance parameters (RRPs) for 200, 202Hg were supplemented with the data which had not been considered in the previous library. Unresolved resonance parame- ters (URPs) were obtained by fitting to the total and capture cross sections calculated from nuclear models. A statistical model code was applied to evaluate cross sections above the resolved res- onance region. Coupled-channel optical model parameters were employed for the interaction between neutrons and nuclei except 203Hg. Compound, pre-equilibrium, and direct-reaction pro- cesses were considered for cross-section calculation in the high energy region. The present results reproduce experimental data very well. The evaluated data are compiled into evaluated nuclear data file (ENDF) formatted data files.
+KEYWORDS
+Neutron nuclear data; evaluation; mercury isotopes; cross section; JENDL; resonance parameter; optical model; statistical model
+1.Introduction
+Neutron nuclear data for mercury were evaluated
+[1] in 1997 for (Japanese evaluated nuclear data library)JENDL-3.3 [2]. The data were used to study neutron production rates, heat deposition, and shield- ing in a spallation-neutron target system for the J- PARC/MLF [3]. The latest library JENDL-4.0 [4] adopted almost the same data on mercury, although URPs were added. It is about 18 years since the data were evaluated. Recently, neutron-induced activation cross sections of mercury are required [5] for the decommissioning of light-water reactors, since mer- cury could be contained as an impurity in the structural materials of nuclear facility. Under such circumstances, it was decided to re-evaluate the data on mercury.
+The present work was undertaken to evaluate the data on 10 mercury isotopes by considering the lat- est knowledge on experimental and theoretical nuclear physics. Evaluated are the total, elastic, and inelastic scattering, (n, γ ), (n, p), (n, d), (n, t), (n, 3He), (n, α), (n,
+np), (n, nd), (n, nα), (n, 2n), (n, 3n), (n, 2np) reaction cross sections, the angular distributions of elastically and inelastically scattered neutrons, and the energy dis- tributions of emitted particles and γ -rays in the energy region from 10−5 eV to 20 MeV. The Q-values of the reactions were calculated from the mass table AME2012 [6], and are listed in Table 1, together with abundances
+[7] and half-lives [8].
+This paper presents how the evaluation was per- formed. Section 2 deals with the resonance region. In Section 3, the computational method and procedures above the resonance region are described. Comparisons
+of the evaluated results with experimental and existing evaluated data are made in Section 4. Finally, Section 5 summarises the conclusion.
+2.Resonance region
+The resolved and unresolved resonance regions are listed in Table 2 for each target nucleus. In JENDL- 4.0, the RRPs  of mercury were taken from the work  of  Mughabghab  [9],  after  which  Beer  and  Macklin
+[10] reported the RRPs of 198, 199, 200, 201, 202, 204Hg in the energy region above 2.8 keV. In the present work, the RRPs of 200, 202Hg were supplemented with the data of Beer and Macklin. Figure 1 shows the capture cross sec- tion of 202Hg in the resolved resonance region. As for 204Hg where no RRPs were given for JENDL-4.0, the data were taken from the work of Beer and Macklin, and a negative resonance was placed so that the calcu- lated thermal capture cross section could reproduce the value recommended by Mughabghab [11]. The RRPs of  196, 198, 199, 201Hg  remain  unchanged  from  JENDL-
+4.0. The RRPs of 198, 199, 201Hg obtained by Beer and  Macklin were not considered, since there exists a large gap between the lowest resonance of Beer and Mack- lin and the highest one of JENDL-4.0. New measure- ments would be required to bridge the gap for further improvements of RRPs. Concerning 195, 197, 203Hg for which RRPs are unavailable, constant and 1/v energy dependences are assumed for the elastic scattering and capture cross sections, respectively, up to the lower limit of unresolved resonance region. Normalisation of the cross sections is done at thermal energy. The ther-
+Table . Isotopic abundances and reaction Q-values of mercury isotopes.
+Table . Resolved and unresolved resonance regions.
+Figure . Capture cross section of Hg in the resolved reso-
+nance region.
+mal scattering cross sections were calculated as 4π Rj2, where Rj stands for the scattering radius that can be esti- mated  from  nuclear  model  calculations  in  the  higher energy region. On the other hand, the thermal capture cross sections of 195, 197, 203Hg were estimated by using the simplified formula [12]. This formula gives rough estimates of thermal capture cross sections by using the- oretical s-wave γ -ray strength functions. It is used only when no other options are available.
+Figure . Unresolved resonance region for n + Hg.
+The ASREP code [13] was used to determine the URPs by fitting to the total and capture cross sec- tions calculated with the nuclear models which will be described in Section 3. The URPs obtained are used only for self-shielding calculations, since the pointwise cross sections are given in the evaluated data files. As an example, the cross sections of 197Hg reconstructed from the URPs are compared with the total and cap- ture cross sections calculated from the nuclear models in Figure 2. In the parameter fitting with the ASREP
+code, 10% uncertainties in the nuclear model calcu- lations were assumed. The reconstructed cross sec- tions reproduce the nuclear model calculations very well.
+3.Computational methods and procedures above resonance region
+3.1.Nuclear models
+In the previous evaluation of Hg, several independent codes were used to calculate cross sections above the resonance region. After that, nuclear models have been sophisticated, and reliable model parameters could be
+obtained by many systematic studies. Such progress enables one to predict the cross sections more accu- rately than before.
+In this work, the CCONE code (Version 0.8.4) [14,15] , which was developed for the JENDL projects, was used for calculating the neutron-induced reac- tion cross sections of Hg isotopes. The code is based on  the  spherical  and  coupled-channel  optical mod-
+els, the two-component exciton pre-equilibrium model, the distorted-wave Born approximation (DWBA), and the multi-step statistical model. In order to simulate the direct and semi-direct effects on the radiative capture reaction, the pre-equilibrium capture was considered by using the γ -ray emission rate of Akkermans and Grup-pelaar [16] extended to the two-component exciton pre-equilibrium model. The CCONE code is a comprehen- sive system designed for nuclear data evaluation, and it is similar to the TALYS [17] and EMPIRE [18] codes.
+3.2.Parameter determination
+... Optical-model potentials
+As for neutrons, we employed the global optical-model parameters obtained by Kunieda et al. [19] using the coupled-channel method based on the rigid rotor model (RRM-CC) [20]. The potential V(r) is defined
+as
+@1
+Table . Optical model parameters for neutrons.
+@2
+@3
+@4
+@5
+@6
+@7
+@8
+where Z, A, and N are the atomic number and mass number of a target and N = A − Z, respectively. The
+symbol E† is the incident-neutron energy (E) relative to the Fermi one (Ef), i.e. E† = E − Ef. The Fermi energy Ef
+is calculated from neutron-separation energies (Sn) of target and compound nuclei such as Ef = −{(Sn(Z, A) + Sn(Z, A + 1)}/2. From the neutron potentials, transmission coefficients are obtained together with total cross
+sections, shape elastic scattering cross sections, and the direct-reaction components of inelastic scattering cross
+sections for the CCONE calculation.
+The parameters required in Equatios (2)–(8) are listed in Table 3, and the coupling schemes and deformation parameters are given in Table 4. The deformation parameters for even targets were taken from
+the work of Hogenbirk et al. [21], while those for odd targets were taken from the theoretical work of
+Möller et al. [22] The same neutron potentials were used as the spherical optical-model (SOM) ones for the
+203Hg target, since no coupling levels were found within
+Table 4. Coupling schemes used in the interaction between neutron and target.the framework of the rotational excitation. Vibrational
+Figure . Total cross section of elemental Hg.
+excitation of the target nuclei was taken into account
+by DWBA using the deformation parameters given in
+Table 5. These βL’s of DWBA for even nuclei were essentially based on the experimental work of Hogenbirk
+et al. [21], although those for odd nuclei were calculated using the weak coupling model [23]. The calculated total and non-elastic cross sections of elemental Hg are shown in Figures 3 and 4, respectively. In order to Figure . Non-elastic cross section of elemental Hg. give better fits to experimental data, the values ofWD DISP and WV DISP were adjusted, while the rest of the parameters remain unchanged from the original ones [19]. The
+measured angular distributions of neutrons elastically scattered from elemental Hg are satisfactorily reproduced by the present calculations, as seen in Figure 5. Concerning charged-particles, used were the spherical parameters of Koning and Delaroche [24] for protons,
+Table 5. Deformation parameters for DWBA calculations of mercury isotopes.
+Figure . Angular distributions of neutrons elastically scattered
+from elemental Hg. those of Lohr and Haeberli [25] for deuterons, those of Becchetti and Greenlees [26] for tritons and 3He, and those of Avrigeanu et al. [27] for α-particles. The transmission coefficients, which are required by CCONE to calculate charged-particle emission, are obtained from the charged-particle parameters.
+... Discrete levels and level density In the calculation, it was necessary to input the discrete levels and level density parameters for 37 nuclei, i.e.193−205Hg, 193−204Au, and 191 − 202Pt. The discrete levels
+were taken from the reference input parameters library RIPL-3 [28].
+Concerning the level density, the composite formula of Gilbert and Cameron [29] was used in the present work. In the region of low excitation energy E, the level density is described by the constant temperature formula ρT, namely
+@9
+On the other hand, the a parameter, which characterisesthe Fermi-gas part of level density ρF, is defined as
+@10
+where Esh is the shell correction energy and γ a damping factor. The damping factor is given by γ =
+0.40A−1/3MeV−1. The energy U is expressed by E and the pairing energy 	 , i.e. U = E − 	 . In the above
+equations, the values of a(∗) and  were taken from the work of Mengoni and Nakajima [30]. The shell correction energy Esh is calculated as the difference between
+the experimental mass [6] and the theoretical mass [31].
+The two parameters T and E0 were determined so as to
+connect ρF and ρT smoothly at an appropriate matching energy Em. The parameters used in this work are
+listed in Table 6 for individual nuclei, together with the
+energies of the highest discrete levels Elevel
+highest.
+... Gamma-ray transition
+The γ -ray transmission coefficients are related to the
+photoabsorption cross sections by the detailed balance.
+The photoabsorption cross section is usually approximated by various Lorentzian shapes. In the present calculation, a modified Lorentzian (MLO) proposed by Plujko et al. [32] was used for E1 radiation, since its use
+is recommended by RIPL-3 [28]. The resonance energy (E0), resonance width ( 0), and peak cross section (σ0)
+are given [33] by
+@11
+@12
+@13
+The standard Lorentzian (SLO) form was used to
+describe the M1 and E2 radiations for which the
+parameters were taken from the work of Kopecky and
+Uhl [34].
+In cases where measured capture cross sections are
+available in the keV region, the γ -ray strength functions are renormalised so that the calculated cross sections reproduce these data. The s-wave γ -ray strength
+functions are compared in Table 7 with the values
+recommended by Mughabghab [11]. The values of
+197, 199, 200, 202, 203, 205Hg were obtained after renormalisation using measurements.
+... Pre-equilibrium parameters
+The Version 0.8.4 of CCONE incorporates preequilibrium process for the (n, γ ) and first-step binary
+reactions such as (n, n ), (n, p), (n, d), (n, t), (n, 3He),
+and (n, α). In the two-exciton pre-equilibrium formalism, the single-particle state densities for protons and
+neutrons in a residual nucleus are described [35] by
+@14
+@15
+respectively. The parameter C0, of which the default value is unity, is changed so that the calculations reproduce measured neutron and proton emission data such as (n, 2n) and (n, p) in the present work. The (n, 2n) reaction is a ternary reaction, which proceeds from(n, n ) by sequential decay in the framework of the
+multi-step statistical model. Hence, the (n, 2n) cross section is sensitive to C0 for the residual nucleus in the
+(n, n ) reaction. More experimental data are available
+Table 6. Level density parameters for each nucleus.
+Table 7. Gamma-ray strength functions for s-wave neutron inunits of 10-4.
+for (n, 2n) than for (n, n ) in the nuclides presently
+concerned. In addition to the C0’s, the pre-equilibrium
+parameters for complex-particle emission [36] were
+adjusted for α emission. The pre-equilibrium parameters used are listed in Table 8, where C0’s are given only
+for the residual nuclei in the (n, n ) and (n, p) reactions,
+and are assumed to be unity for those in the other firststep binary reactions.
+Table 8. Pre-equilibrium parameters.
+4.Comparison with experimental data and other evaluated data in the fast-neutron region
+Comparisons are made with experimental data and other evaluated data. The experimental data are
+taken from the EXFOR database [37] that is compiled by the international data centres such as the
+IAEA Nuclear Data Section, the OECD NEA Data Bank, and the National Nuclear Data Center at the
+Brookhaven National Laboratory. As for the generalpurpose evaluated nuclear data, JENDL-4.0 [4],
+Figure . Capture cross sections of , , , Hg.
+ENDF/B-VII.1 [38] and JEFF-3.2 [39] contain the data
+for 196, 198, 199, 200, 201, 202, 204Hg. The libraries ENDF/BVII.1 and JEFF-3.2 took cross sections from JENDL-
+4.0 below 20 MeV. Therefore, they are not independent
+of one another. To avoid duplication, the JENDL-4.0
+data are solely used to compare with the present data.
+These general-purpose libraries do not contain activation cross sections leading to the ground or isomeric
+state. The activation files JENDL/A-96 [40] and JEFF-
+3.1/A [41] are used for comparison with such activation data. Concerning the 199Hg(n, n )
+199mHg reaction,
+the dosimetry file IRDFF-1.05 [42] is included in the
+comparison. We do not discuss most of the reactions
+where experimental data are unavailable, since it is difficult to judge whether the present evaluation is reasonable without measurements.
+The capture cross sections of 198, 199, 200, 201Hg and
+202, 204Hg are illustrated in Figure 6 and 7, respectively.
+It is found from the figures that the present evaluation is
+in good agreement with the data measured by Beer and
+Macklin [10]. In the MeV region, the JENDL-4.0 evaluation is considerably smaller than the present data, since
+the pre-equilibrium capture is not taken into account in
+JENDL-4.0. There exist no experimental data on 196Hg
+with mono-energetic neutrons in the keV region. Alternatively, we used the measured Maxwellian-averaged
+cross section [43] at kT = 30 keV to renormalise the
+γ -ray strength function, as shown in Figure 8. The calculated elemental cross section is compared with measured data and the JENDL-4.0 evaluation in Figure 9,
+Figure 7. Capture cross sections of , Hg. The open symbolsbelong to 204Hg.
+Figure . Maxwellian-averaged capture cross section of Hg.
+where the open and closed symbols stand for neutron and γ -ray measurements, respectively. The present
+results are almost consistent with the γ -ray measurements, whereas the data obtained by the shell transmission method [44], i.e. the neutron measurements, are
+systematically larger than the present and JENDL-4.0
+evaluations.
+Figure 10 shows the 199Hg(n, n )199mHg cross section, which is regarded as one of the dosimetry crosssections. In the figure, the data of Grudzevich et al. [45]were corrected for the 200Hg(n, 2n) 199mHg contribution estimated in this work. The present evaluation is almost  consistent with the data measured by Sakurai et al. [46] above 3 MeV. However, it cannot reproduce the data of Sakurai et al. obtained below 3 MeV, and is rather close to the data of Swann and Metzger [47]. Two 2.8-MeV measurements [48,49] are obviously much lower than the present and JEFF-3.1/A evaluations. The IRDFF- 1.05 data are based on a least-squares fit to the renormalised experimental data below 10 MeV, although the theoretical calculations were taken into account above 10 MeV. The present evaluation yields the dosimetry cross sections by placing much emphasis on the theoretical understanding of the reaction.
+Figures 11–18 show the (n, 2n) reaction cross sections. As for 196Hg(n, 2n), the present evaluation is
+consistent with the measured data on the groundand isomeric-state production. The activation files
+JENDL/A-96 and JEFF-3.1/A are systematically smaller than the measured data on the ground-state production. In the present parametrisation, it is not possible
+Figure 11. 196Hg(n,2n)195Hg reaction cross section.
+Figure 12. 196Hg(n, 2n)195gHg reaction cross section.
+Figure 13. 196Hg(n, 2n)195mHg reaction cross section.
+to simultaneously fit the data measured by Al-Abyad et al. [50] below 12.5 MeV and the other data around
+14 MeV for the 198, 204Hg(n, 2n) reactions. We placed emphasis on the 14-MeV measurements obtained by
+several experiments. In the experiment of Al-Abyad
+Figure 14. 198Hg(n, 2n)197Hg reaction cross section
+Figure 15. 198Hg(n, 2n)197gHg reaction cross section.
+Figure 16. 198Hg(n, 2n)197mHg reaction cross section.
+et al., quasi-monoenergetic neutrons produced via the 2H(d, n)3He were incident on a natural Hg target, and
+so 197Hg and 203Hg could be formed by the 196Hg(n, γ ) and 202Hg(n, γ ) reactions, respectively, due to the lowenergy breakup neutrons having continuous energies.
+Figure 17. 200Hg(n, 2n)199mHg reaction cross section.
+These contributions were corrected in the experiment,
+Figure 18. 204Hg(n,2n)203Hg reaction cross section.
+Figure 19. 198Hg(n, p)198gAu reaction cross section.
+but it is not certain whether the corrections were appropriate. It is suggested that more experiments should be
+performed in the energy region below 14 MeV.
+Charged-particle emission cross sections are illustrated in Figures 19–26. As seen from Table 8, the
+Figure20. 199Hg(n, p)199Au reaction cross section.
+Figure 21. 200Hg(n, p)200Au reaction cross section.
+Figure 22. 201Hg(n, p)201Au reaction cross section.
+pre-equilibrium parameters for (n, p) are not drastically changed from the default value, i.e. unity. The
+present evaluation agrees with the 14-MeV data measured by Kasugai et al. [51] On the other hand, the
+pre-equilibrium effects were much enhanced for (n, α).
+Figure 23. 202Hg(n, p)202Au reaction cross section.
+Figure 24. 204Hg(n, p)204Au reaction cross section.
+Figure 25. 200Hg(n, α)197Pt reaction cross section.
+were obtained by the β counting are too high. However, the 202Hg case was obviously unsuccessful. As a
+matter of fact, Temperley could not observe 544-keV γ -rays due to the decay of 199Pt. Then, the author set
+an upper limit of 1 mb for 202Hg(n, α) 199Pt in order to deduce the 199Hg(n, p)
+199Au cross section, since the residual nucleus 199Pt decays to 199Au. It is unlikely that
+We could reproduce the data of Temperley [52] for 200Hg, although the data of Coleman et al. [53] that
+Figure 26. 202Hg(n, α)199Pt reaction cross section.
+Figure 27. Double-differential neutron emission spectra from
+elemental Hg at  MeV.
+the 14-MeV cross section could reach 1 mb by comparing with the 200Hg(n, α) cross section. Therefore, the
+data of Coleman et al. for 202Hg(n, α) might be overestimated as in the case of 200Hg.
+The double-differential neutron emission spectra from elemental Hg are depicted in Figure 27. The
+presently calculated cross sections are in good agreement with the data measured by Maekawa et al. [54]
+at 14 MeV. The JENDL-4.0 evaluation underestimates the spectra at forward angles, since symmetric angular
+distributions are given for neutrons inelastically scattered from the overlapping levels. In the present work,forward peaking is assumed by using the systematics of
+Kalbach [55].
+5. Concluding remarks
+The neutron nuclear data on Hg isotopes were evaluated in the energy region from 10−5 eV to 20 MeV.
+The RRPs of 200, 202, 204Hg were revised by considering the latest measurements, while those of 196, 198, 199, 201Hg remain unchanged from JENDL-4.0. However, more resonance experiments would be needed to improve
+the low-energy cross section. As for 195, 197, 203Hg whose RRPs are unavailable, constant and 1/v energy dependences are assumed for the low-energy elastic scattering and capture cross sections, respectively. The URPs were obtained for self-shielding calculations by fitting to the total and capture cross sections calculated from the nuclear models.
+Above the resolved resonance region, the present evaluation is based on the statistical model using the
+CCONE code. The neutron transmission coefficients were obtained by the RRM-CC or the SOM, together
+with the total and shape-elastic scattering cross sections. The neutron potentials were found to be reliable by comparing with measured total and non-elastic cross sections of elemental Hg. On the whole, the
+presently evaluated cross sections are in good agreement with available experimental data, and better than
+the JENDL-4.0 data. However, it was not possible to reproduce the measured 198, 204Hg(n, 2n) cross sections
+below 12.5 MeV. More experimental data would be desired to resolve the difference in this energy region.
+The evaluated data are compiled into ENDFformatted data files and will be available in the next release of JENDL general purpose file. Part of the cross sections are used as activation data for the decommissioning of light-water reactors.
+Acknowledgments
+The author would like to thank the members of the Nuclear
+Data Center, JAEA, for their helpful comments on this work.

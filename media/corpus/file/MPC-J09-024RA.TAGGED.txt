@@ -1,0 +1,787 @@
+﻿_JJ <title> Numerical_JJ investigation_NN of_IN the_DT solitary_JJ wave_NN breaking_VVG over_IN a_DT slope_NN by_IN using_VVG the_DT finite_JJ particle_NN method_NN </title> <author> 1_CD ,_, FangHe_NP ,_, 1_CD ,_, HuashanZhang_NP ,_, 2_CD ,_, CanHuang_NP ,_, 2_CD ,_, MoubinLiu_NP </author> <Affiliation> 1_CD ,_, Ocean_NP College_NP ,_, Zhejiang_NP University_NP ,_, Zhoushan_NP ,_, Zhejiang_NP ,_, 316021_CD ,_, China_NP ,_, 2_CD ,_, BIC-ESAT_NP ,_, College_NP of_IN Engineering_NP ,_, Peking_NP University_NP ,_, Beijing_NP ,_, 100871_CD ,_, China_NP </Affiliation> <year> 2020_CD </year> <Jounral> Coastal_NP Engineering_NP </Journal> <Publishing_house> Elsevier_NP </Publishing_house> <Text_Collector> Zhang_NP San，HEU_NP </Text_Collector> <DOI> https://doi.org/10.1016/j.coastaleng.2019.103617_JJ </DOI> <URL> https://www.sciencedirect.com/science/article/pii/S0378383919303217_JJ </URL> Numerical_JJ investigation_NN of_IN the_DT solitary_JJ wave_NN breaking_VVG over_IN a_DT slope_NN by_IN using_VVG the_DT finite_JJ particle_NN method_NN FangHe_NP ,_, HuashanZhang_NP ,_, CanHuang_NP ,_, MoubinLiu_NP Ocean_NP College_NP ,_, Zhejiang_NP University_NP ,_, Zhoushan_NP ,_, Zhejiang_NP ,_, 316021_CD ,_, China_NP BIC-ESAT_NP ,_, College_NP of_IN Engineering_NP ,_, Peking_NP University_NP ,_, Beijing_NP ,_, 100871_CD ,_, China_NP <Section> Highlights_VVZ </Section> For_IN simulations_NNS of_IN the_DT solitary_JJ wave_NN breaking_VVG over_IN slopes_NNS ,_, FPM_NP performs_VVZ better_RBR than_IN SPH_NN in_IN terms_NNS of_IN stability_NN and_CC accuracy_NN ._SENT 
+An_DT empirical_JJ equation_NN is_VBZ proposed_VVN to_TO decide_VV the_DT artificial_JJ viscous_JJ coefficient_NN for_IN simulating_VVG wave_NN transformation_NN by_IN FPM_NP ._SENT 
+The_DT spilling_VVG breaker_NN affects_VVZ the_DT pressure_NN field_NN more_RBR extensive_JJ than_IN plunging_VVG breaker_NN and_CC surging_JJ breaker_NN ._SENT 
+The_DT wave_NN celerity_NN at_IN breaking_NN has_VHZ no_DT clear_JJ relationship_NN with_IN breaker_NN types_NNS ._SENT 
+The_DT wave_NN dissipation_NN turns_VVZ into_IN lower_RBR when_WRB wave_NN breaking_NN types_NNS change_VVP from_IN spilling_VVG breaker_NN to_TO surging_JJ breaker_NN ._SENT 
+<Section> Abstract_JJ </Section> Predicting_VVG the_DT propagation_NN and_CC transformation_NN of_IN the_DT solitary_JJ wave_NN is_VBZ very_RB important_JJ in_IN coastal_JJ engineering_NN ._SENT 
+This_DT paper_NN presents_VVZ a_DT numerical_JJ investigation_NN of_IN the_DT solitary_JJ wave_NN breaking_VVG over_IN a_DT slope_NN by_IN using_VVG a_DT finite_JJ particle_NN method_NN (_( FPM_NP )_) ,_, which_WDT is_VBZ an_DT enhanced_JJ smoothed_VVN particle_NN hydrodynamics_NNS (_( SPH_NN )_) ._SENT 
+We_PP firstly_RB conduct_VVP a_DT comparative_JJ study_NN on_IN SPH_NN and_CC FPM_NN in_IN modelling_VVG solitary_JJ wave_NN and_CC it_PP is_VBZ demonstrated_VVN that_IN FPM_NP performs_VVZ better_RBR than_IN SPH_NN qualitatively_RB and_CC quantitatively_RB ._SENT 
+A_DT modified_JJ particle_NN shifting_VVG technique_NN (_( PST_NP )_) is_VBZ integrated_VVN into_IN FPM_NP to_TO avoid_VV possible_JJ ill_JJ corrective_JJ matrix_NN due_JJ to_TO extremely_RB disordered_VVN particle_NN distribution_NN ._SENT 
+We_PP find_VVP that_IN the_DT artificial_JJ viscous_JJ coefficient_NN can_MD greatly_RB influence_VV the_DT wave_NN run-up_NN and_CC propose_VV an_DT empirical_JJ equation_NN to_TO quickly_RB determine_VV the_DT optimal_JJ value_NN of_IN the_DT artificial_JJ viscous_JJ coefficient_NN used_VVN in_IN the_DT FPM_NN simulations_NNS ._SENT 
+The_DT solitary_JJ wave_NN breaking_NN is_VBZ then_RB modelled_VVN for_IN scenarios_NNS with_IN relative_JJ wave_NN heights_NNS and_CC slopes_NNS ,_, and_CC three_CD typical_JJ breaking_NN types_NNS ,_, including_VVG surging_JJ breaker_NN (_( SU_NP )_) ,_, plunging_VVG breaker_NN (_( PL_NP )_) and_CC spilling_VVG breaker_NN (_( SP_NP )_) ,_, are_VBP analyzed_VVN ._SENT 
+The_DT result_NN indicates_VVZ that_IN SP_NP affects_VVZ the_DT pressure_NN field_NN more_RBR extensive_JJ than_IN PL_NP and_CC SU_NP ._SENT 
+When_WRB the_DT breaker_NN type_NN transits_NNS from_IN SP_NP to_TO SU_NP ,_, the_DT breaker_NN tends_VVZ to_TO break_VV at_IN a_DT narrower_JJR region_NN close_NN to_TO the_DT shoreline_NN ,_, the_DT breaking_VVG depth_NN decreases_NNS ,_, the_DT breaking_VVG index_NN gradually_RB turns_VVZ into_IN an_DT unstable_JJ value_NN ,_, and_CC the_DT relative_JJ run-up_NN height_NN of_IN breaking_VVG waves_NNS becomes_VVZ larger_JJR ._SENT 
+Although_IN the_DT wave_NN celerity_NN at_IN breaking_NN has_VHZ no_DT clear_JJ relationship_NN with_IN breaker_NN types_NNS ,_, the_DT wave_NN celerity_NN at_IN breaking_VVG increases_NNS with_IN the_DT increase_NN of_IN the_DT relative_JJ wave_NN height_NN and_CC slightly_RB decreases_VVZ with_IN a_DT steeper_JJR slope_NN ._SENT 
+KEYWORDS_NNS :_: Solitary_JJ wave_NN ;_: Smoothed_VVN particle_NN hydrodynamics_NNS (_( SPH_NP )_) ;_: Finite_JJ particle_NN method_NN (_( FPM_NP )_) ;_: Wave_NP breaking_NN ;_: Particle_NN shifting_VVG technique_NN (_( PST_NP )_) ;_: Artificial_JJ viscous_JJ coefficient_NN <Section> 1._CD Introduction_NN </Section> Wave_NP breaking_NN is_VBZ a_DT common_JJ phenomenon_NN in_IN the_DT coastal_JJ areas_NNS ._SENT 
+Understanding_VVG the_DT process_NN of_IN wave_NN propagation_NN from_IN shoaling_VVG to_TO post-breaking_NN is_VBZ of_IN scientific_JJ significance_NN and_CC engineering_NN value_NN for_IN further_JJR studying_VVG the_DT wave_NN energy_NN dissipation_NN and_CC wave-structure_NN interaction_NN ._SENT 
+Meanwhile_RB ,_, the_DT descriptions_NNS of_IN current_JJ ,_, sedimentation_NN and_CC erosion_NN also_RB desire_VVP an_DT accurate_JJ analysis_NN of_IN breaking_VVG waves_NNS for_IN coastal_JJ engineers_NNS concerning_VVG the_DT surf-zone_NN dynamics_NNS ._SENT 
+Long_JJ wave_NN modelling_VVG is_VBZ an_DT important_JJ way_NN to_TO predict_VV wave_NN shoaling_VVG and_CC wave_NN breaking_NN among_IN the_DT nearshore_JJ area_NN (_( Pringle_NP et_NP al_NP ._SENT 
+,_, 2016_CD )_) ._SENT 
+In_IN fact_NN ,_, solitary_JJ waves_NNS have_VHP been_VBN widely_RB employed_VVN to_TO model_NN tsunamis_NNS and_CC long_JJ nearshore_JJ waves_NNS since_IN their_PP$ intrinsic_JJ properties_NNS can_MD be_VB equivalently_RB represented_VVD (_( Raichlen_NP and_CC Papanicolaou_NP ,_, 1989_CD ,_, Lin_NP ,_, 2004_CD )_) ._SENT 
+Therefore_RB ,_, the_DT solitary_JJ wave_NN is_VBZ a_DT good_JJ choice_NN to_TO study_VV the_DT phenomenon_NN of_IN wave_NN propagation_NN and_CC transformation_NN over_IN a_DT slope_NN ._SENT 
+Solitary_JJ waves_NNS are_VBP generated_VVN by_IN the_DT forces_NNS rapidly_RB (_( also_RB called_VVN as_IN impulses_NNS )_) acting_VVG on_IN the_DT water_NN body_NN ._SENT 
+The_DT transformation_NN and_CC run-up_NN of_IN solitary_JJ wave_NN have_VHP been_VBN investigated_VVN by_IN many_JJ experimentalists_NNS and_CC theoretical_JJ researchers_NNS ._SENT 
+Hall_NP and_CC Watts_NP (_( 1953_CD )_) conducted_VVN laboratory_NN investigations_NNS on_IN the_DT run-up_NN of_IN solitary_JJ waves_NNS with_IN various_JJ ratios_NNS of_IN wave_NN height_NN to_TO water_NN depth_NN over_IN five_CD slopes_NNS ._SENT 
+Synolakis_NP (_( 1987_CD )_) derived_VVD an_DT expression_NN describing_VVG the_DT evolution_NN of_IN a_DT non-breaking_JJ solitary_JJ wave_NN over_IN a_DT uniform_JJ slope_NN based_VVN on_IN the_DT nonlinear_JJ shallow_JJ water_NN equations_NNS ,_, and_CC the_DT expression_NN was_VBD supported_VVN by_IN a_DT series_NN of_IN experiments_NNS ._SENT 
+Li_NP and_CC Raichlen_NP (_( 2001_CD )_) studied_VVD the_DT run-up_NN process_NN of_IN non-breaking_VVG solitary_JJ waves_NNS over_IN a_DT uniform_JJ plane_NN beach_NN and_CC provided_VVD a_DT better_JJR prediction_NN on_IN various_JJ aspects_NNS of_IN the_DT run-up_NN process_NN compared_VVN to_TO Synolakis_NNS (_( 1987_CD )_) ._SENT 
+Hsiao_NP et_NP al_NP ._SENT 
+(_( 2008_CD )_) carried_VVD out_RP a_DT series_NN of_IN experiments_NNS in_IN a_DT large_JJ wave_NN flume_NN to_TO investigate_VV the_DT transformation_NN and_CC run-up_NN of_IN breaking_VVG solitary_JJ waves_NNS over_IN a_DT 1:60_CD slope_NN ,_, in_IN which_WDT five_CD zones_NNS were_VBD differentiated_VVN during_IN the_DT evolution_NN process_NN of_IN one_CD wave_NN amplitude_NN ._SENT 
+Wu_NP et_NP al_NP ._SENT 
+(_( 2018_CD )_) proposed_VVD an_DT empirical_JJ formula_NN about_IN the_DT wave_NN run-up_NN based_VVN on_IN a_DT large_JJ number_NN of_IN experimental_JJ data_NNS ,_, which_WDT can_MD be_VB applied_VVN to_TO both_CC the_DT solitary_JJ waves_NNS and_CC periodic_JJ waves_NNS over_IN a_DT single_JJ impermeable_JJ slope_NN ._SENT 
+For_IN the_DT purpose_NN of_IN scaling_VVG relationship_NN ,_, a_DT dimensionless_JJ surf_NN parameter_NN for_IN the_DT solitary_JJ wave_NN was_VBD proposed_VVN and_CC applied_VVN to_TO the_DT study_NN of_IN run-up_NN (_( Kobayashi_NP and_CC Karjadi_NP ,_, 1994_CD ,_, Fuhrman_NP and_CC Madsen_NP ,_, 2008_CD )_) ._SENT 
+Later_RBR ,_, Lo_NP et_CC al_NP ._SENT 
+(_( 2013_CD )_) modified_VVN the_DT surf_NN parameter_NN based_VVN on_IN a_DT theoretical_JJ criterion_NN for_IN wave_NN breaking_NN ._SENT 
+They_PP found_VVD that_IN for_IN the_DT wave_NN condition_NN at_IN which_WDT solitary_JJ wave_NN transits_NNS from_IN non-breaking_VVG to_TO breaking_NN ,_, the_DT run-up_NN can_MD reach_VV the_DT maximum_JJ value_NN ,_, thus_RB the_DT surf_NN parameter_NN at_IN the_DT breaking_JJ criterion_NN can_MD be_VB used_VVN to_TO estimate_VV the_DT largest_JJS run-up_NN quickly_RB ._SENT 
+The_DT criterion_NN of_IN wave_NN breaking_NN is_VBZ of_IN more_JJR complexity_NN ._SENT 
+Battjes_NNS (_( 1974_CD )_) firstly_RB defined_VVD a_DT surf_NN similarity_NN parameter_NN for_IN the_DT periodic_JJ waves_NNS as_IN a_DT criterion_NN of_IN wave_NN breaking_NN ._SENT 
+Synolakis_NP (_( 1987_CD )_) also_RB deduced_VVD a_DT breaking_VVG criterion_NN in_IN the_DT processes_NNS of_IN run-up_NN and_CC run-down_JJ of_IN solitary_JJ waves_NNS ._SENT 
+Grilli_NP et_NP al_NP ._SENT 
+(_( 1997_CD )_) studied_VVD the_DT shoaling_VVG and_CC breaking_VVG of_IN solitary_JJ waves_NNS by_IN solving_VVG a_DT fully_RB nonlinear_JJ wave_NN model_NN based_VVN on_IN potential_JJ flow_NN equation_NN ,_, and_CC then_RB proposed_VVN a_DT dimensionless_JJ parameter_NN that_WDT was_VBD later_RBR widely_RB used_VVN to_TO classify_VV the_DT breaking_VVG types_NNS of_IN solitary_JJ waves_NNS ._SENT 
+Recently_RB ,_, Hafsteinsson_NP et_CC al_NP ._SENT 
+(_( 2017_CD )_) investigated_VVD the_DT characteristics_NNS of_IN breaking_VVG solitary_JJ waves_NNS over_IN a_DT plane_NN beach_NN through_IN a_DT systematic_JJ data_NN analysis_NN of_IN high-speed_JJ images_NNS ,_, illustrating_VVG the_DT flow_NN complexities_NNS of_IN the_DT air-water_NN mixture_NN during_IN wave_NN breaking_VVG and_CC post-breaking_VVG ._SENT 
+Their_PP$ results_NNS are_VBP very_RB valuable_JJ for_IN numerical_JJ research_NN and_CC prototype_NN applications_NNS ._SENT 
+With_IN the_DT improvement_NN of_IN computer_NN performance_NN ,_, numerical_JJ simulation_NN has_VHZ gradually_RB become_VVN an_DT important_JJ tool_NN for_IN studying_VVG the_DT wave_NN transformation_NN over_IN the_DT slope_NN ._SENT 
+One_CD advantage_NN of_IN numerical_JJ simulation_NN is_VBZ the_DT capacity_NN to_TO display_VV the_DT details_NNS of_IN the_DT fluid_JJ field_NN ._SENT 
+Conventionally_RB ,_, the_DT numerical_JJ simulations_NNS of_IN wave_NN transformation_NN are_VBP mainly_RB based_VVN on_IN the_DT grid-based_JJ methods_NNS ,_, such_JJ as_IN finite_JJ element_NN method_NN (_( FEM_NP )_) (_( Zhang_NP and_CC Yim_NP ,_, 2014_CD )_) ,_, finite_JJ difference_NN method_NN (_( FDM_NP )_) (_( Yao_NP et_NP al_NP ._SENT 
+,_, 2018_CD )_) and_CC finite_JJ volume_NN method_NN (_( FVM_NP )_) (_( Kuai_NP et_NP al_NP ._SENT 
+,_, 2018_CD )_) ._SENT 
+Pringle_NP et_NP al_NP ._SENT 
+(_( 2016_CD )_) used_VVD a_DT two-way_JJ coupled_VVN long_JJ wave-RANS_NNS model_NN named_VVD 2CLOWNS_NNS to_TO study_VV the_DT transformation_NN and_CC breaking_VVG of_IN solitary_JJ waves_NNS over_IN the_DT slopes_NNS ranging_VVG from_IN 1:100_CD to_TO 1:20_CD ,_, where_WRB the_DT post-breaking_JJ behaviour_NN and_CC wave_NN overturning_VVG shape_NN were_VBD well_RB presented_VVN ._SENT 
+Klonaris_NP et_NP al_NP ._SENT 
+(_( 2016_CD )_) derived_VVD a_DT two-dimensional_JJ high-order_NN Boussinesq-type_NN model_NN to_TO simulate_VV the_DT wave_NN propagation_NN and_CC relevant_JJ processes_NNS in_IN the_DT nearshore_JJ zone_NN ._SENT 
+Generally_RB ,_, conventional_JJ grid-based_JJ methods_NNS have_VHP to_TO deal_VV with_IN the_DT free_JJ surfaces_VVZ with_IN the_DT help_NN of_IN some_DT special_JJ means_NN ,_, which_WDT can_MD be_VB attributed_VVN to_TO the_DT inherent_JJ limitation_NN of_IN these_DT methods_NNS ._SENT 
+For_IN instance_NN ,_, the_DT FEM_NN needs_VVZ to_TO readjust_VV or_CC rezone_VV the_DT grid_NN after_IN each_DT time_NN step_NN ;_: the_DT FDM_NP or_CC FVM_NP has_VHZ to_TO trace_VV the_DT changing_VVG free_JJ surface_NN by_IN the_DT algorithms_NNS such_JJ as_IN Volume_NN of_IN Fluid_NN or_CC Level_NP Set_VVD method_NN ._SENT 
+Smoothed_VVN particle_NN hydrodynamics_NNS (_( SPH_NN )_) is_VBZ a_DT meshless_JJ particle_NN method_NN with_IN strong_JJ self-adaptability_NN (_( Liu_NP and_CC Liu_NP ,_, 2010_CD )_) ,_, which_WDT was_VBD initially_RB proposed_VVN for_IN astrophysical_JJ problems_NNS (_( Gingold_NP and_CC Monaghan_NP ,_, 1977_CD )_) ._SENT 
+Generally_RB ,_, it_PP can_MD be_VB classified_VVN into_IN two_CD categories_NNS :_: weakly_RB compressible_JJ (_( e.g._FW ,_, WCSPH_NP )_) and_CC incompressible_JJ (_( e.g._FW ,_, ISPH_NP )_) ._SENT 
+The_DT SPH_NN is_VBZ essentially_RB suitable_JJ for_IN simulating_VVG the_DT complex_JJ physical_JJ phenomenon_NN ,_, such_JJ as_IN liquid_JJ slashing_VVG ,_, water_NN droplets_NNS and_CC wave_NN breaking_NN ,_, whose_WP$ free_JJ surfaces_NNS are_VBP of_IN large_JJ deformation_NN ._SENT 
+For_IN the_DT standard_JJ SPH_NN scheme_NN ,_, although_IN it_PP has_VHZ been_VBN satisfactorily_RB applied_VVN in_IN modelling_VVG the_DT free_JJ surface_NN flow_NN ,_, it_PP still_RB cannot_MD straightforwardly_RB reproduce_VV a_DT quadratic_JJ function_NN ,_, a_DT linear_JJ function_NN or_CC even_RB a_DT constant_JJ ,_, resulting_VVG in_IN lower_JJR accuracy_NN (_( Liu_NP and_CC Liu_NP ,_, 2006_CD )_) ._SENT 
+Lots_NNS of_IN works_NNS have_VHP been_VBN conducted_VVN to_TO increase_VV the_DT accuracy_NN and_CC stability_NN of_IN the_DT standard_JJ SPH_NN scheme_NN ,_, e.g._FW ,_, Antuono_NP et_CC al_NP ._SENT 
+(_( 2010_CD )_) proposed_VVD an_DT improved_VVN SPH_NN called_VVD δ-SPH_NN ,_, where_WRB a_DT diffusion_NN term_NN was_VBD added_VVN to_TO the_DT continuity_NN equation_NN for_IN reducing_VVG the_DT high-frequency_NN oscillations_NNS in_IN the_DT pressure_NN field_NN and_CC thus_RB the_DT accuracy_NN can_MD be_VB improved_VVN ;_: Wang_NP et_NP al_NP ._SENT 
+(_( 2019_CD )_) introduced_VVD a_DT so-called_JJ Background_NN Mesh_NN (_( BM_NP )_) scheme_NN to_TO enhance_VV the_DT pressure_NN field_NN in_IN particle_NN methods_NNS ;_: Tsuruta_NP et_NP al_NP ._SENT 
+(_( 2019_CD )_) presented_VVD a_DT comprehensive_JJ ISPH-based_JJ numerical_JJ wave_NN flume_NN comprising_VVG of_IN refined_JJ schemes_NNS for_IN enhanced_JJ wave_NN breaking_VVG simulations_NNS ,_, fluid-porous_JJ media_NNS interactions_NNS as_RB well_RB as_IN coupled_VVN DEM-ISPH_NN for_IN scouring_VVG processes_NNS encountered_VVN in_IN coastal_JJ engineering_NN ._SENT 
+For_IN the_DT influence_NN of_IN the_DT turbulence_NN ,_, Gotoh_NP et_CC al_NP ._SENT 
+(_( 2001_CD )_) initially_RB introduced_VVD a_DT sub-particle-scale_JJ turbulence_NN model_NN into_IN a_DT moving_VVG particle_NN semi_NN (_( MPS)-implicit_JJ method_NN ,_, which_WDT was_VBD later_RBR applied_VVN to_TO study_VV such_JJ as_IN coastal_JJ structures_NNS (_( Abolfathi_NP et_NP al_NP ._SENT 
+,_, 2018_CD )_) and_CC solitary_JJ waves_NNS (_( Jeong_NP et_NP al_NP ._SENT 
+,_, 2019_CD )_) ._SENT 
+Several_JJ approaches_NNS such_JJ as_IN the_DT Dynamic_JJ Stabilization_NN (_( Tsuruta_NP et_NP al_NP ._SENT 
+,_, 2013_CD )_) ,_, Arbitrary_JJ Lagrangian-Eulerian_NP (_( ALE)-SPH_NP (_( Oger_NP et_NP al_NP ._SENT 
+,_, 2016_CD )_) and_CC Particle_NN Shifting_VVG Technology_NP (_( PST_NP )_) (_( Xu_NP et_NP al_NP ._SENT 
+,_, 2009_CD )_) have_VHP also_RB been_VBN proposed_VVN to_TO mitigate_VV the_DT disordered_VVN particle_NN distributions_NNS ._SENT 
+As_RB for_IN PST_NP ,_, there_EX have_VHP been_VBN different_JJ modified_JJ versions_NNS ._SENT 
+Lind_NP et_NP al_NP ._SENT 
+(_( 2012_CD )_) associated_VVN numerical_JJ parameters_NNS controlling_VVG the_DT degree_NN of_IN particle_NN shifting_VVG with_IN a_DT given_VVN time_NN step_NN and_CC particle_NN resolution_NN ._SENT 
+Khorasanizade_NP and_CC Sousa_NP (_( 2016_CD )_) modified_VVN the_DT magnitude_NN of_IN shifting_VVG vector_NN by_IN using_VVG the_DT local_JJ maximum_JJ velocity_NN around_IN each_DT particle_NN instead_RB of_IN directly_RB using_VVG the_DT global_JJ maximum_NN velocity_NN ._SENT 
+Khayyer_NP et_NP al_NP ._SENT 
+(_( 2017a_NP )_) proposed_VVD an_DT Optimized_VVN Particle_NN Shifting_VVG (_( OPS_NP )_) scheme_NN for_IN accurate_JJ and_CC consistent_JJ implementation_NN at_IN and_CC in_IN the_DT vicinity_NN of_IN interfaces_NNS without_IN any_DT tuning_VVG parameters_NNS for_IN free-surface_NNS ._SENT 
+In_IN addition_NN ,_, an_DT extension_NN of_IN OPS_NP to_TO multi-phase_NN flows_NNS was_VBD presented_VVN by_IN Khayyer_NP et_CC al_NP ._SENT 
+(_( 2019_CD )_) ._SENT 
+Huang_NP et_NP al_NP ._SENT 
+(_( 2018_CD )_) developed_VVD a_DT modified_JJ PST_NP ,_, which_WDT retains_VVZ the_DT advantages_NNS of_IN original_JJ PST_NP while_IN improving_VVG the_DT homogeneity_NN of_IN particle_NN distribution_NN and_CC helping_VVG to_TO improve_VV the_DT computational_JJ efficiency_NN ._SENT 
+Sun_NP et_NP al_NP ._SENT 
+(_( 2019a_NP )_) proposed_VVD a_DT consistent_JJ PST_NP within_IN the_DT δ+-SPH_NN scheme_NN and_CC performed_VVD a_DT better_JJR agreement_NN with_IN the_DT analytical_JJ solution_NN and_CC no_DT drift_NN of_IN the_DT mean_JJ pressure_NN field_NN than_IN Sun_NP et_CC al_NP ._SENT 
+(_( 2017_CD )_) ._SENT 
+Up_RB to_TO now_RB ,_, SPH_NP has_VHZ been_VBN widely_RB applied_VVN in_IN many_JJ problems_NNS of_IN coastal_JJ engineering_NN including_VVG porous_JJ media_NNS (_( Khayyer_NP et_NP al_NP ._SENT 
+,_, 2018b_NP )_) ,_, fluid-structure_NN interactions_NNS (_( Gotoh_NP et_NP al_NP ._SENT 
+,_, 2004_CD ,_, Bouscasse_NP et_CC al_NP ._SENT 
+,_, 2013_CD ,_, Sun_NP et_CC al_NP ._SENT 
+,_, 2015_CD ,_, Sun_NP et_CC al_NP ._SENT 
+,_, 2019b_NP ,_, Khayyer_NP et_CC al_NP ._SENT 
+,_, 2018a_NP )_) ,_, wave_NN impact_NN pressure_NN calculations_NNS (_( Khayyer_NP and_CC Gotoh_NP ,_, 2009_CD ,_, Khayyer_NP et_CC al_NP ._SENT 
+,_, 2009_CD )_) ,_, wave_NN breaking_NN (_( Khayyer_NP et_NP al_NP ._SENT 
+,_, 2008_CD )_) ,_, wave_NN overtopping_VVG (_( Akbari_NP ,_, 2017_CD )_) and_CC wave_NN energy_NN converters_NNS (_( Crespo_NP et_NP al_NP ._SENT 
+,_, 2017_CD )_) ._SENT 
+Recently_RB ,_, a_DT state-of-the-art_JJ review_NN on_IN the_DT latest_JJS achievements_NNS of_IN particle_NN methods_NNS can_MD be_VB found_VVN in_IN Gotoh_NP and_CC Khayyer_NP (_( 2018_CD )_) in_IN terms_NNS of_IN accuracy_NN ,_, stability_NN ,_, conservation_NN properties_NNS ,_, multi-phase_NP multi-physics_NP multi-scale_NP simulations_NNS ,_, fluid-structure_NN interactions_NNS ,_, exclusive_JJ coastal/ocean_JJ engineering_NN applications_NNS and_CC computational_JJ efficiency_NN ._SENT 
+The_DT finite_JJ particle_NN method_NN (_( FPM_NN )_) proposed_VVN by_IN Liu_NP et_CC al_NP ._SENT 
+(_( 2005_CD )_) and_CC Liu_NP and_CC Liu_NP (_( 2006_CD )_) is_VBZ a_DT modified_JJ or_CC an_DT enhanced_JJ SPH_NN scheme_NN ._SENT 
+The_DT superiority_NN of_IN FPM_NN is_VBZ that_IN it_PP is_VBZ not_RB sensitive_JJ to_TO the_DT particle_NN discontinuity_NN when_WRB the_DT particle_NN number_NN in_IN the_DT calculation_NN domain_NN is_VBZ limited_JJ ;_: that_WDT is_VBZ ,_, even_RB when_WRB the_DT particle_NN distribution_NN is_VBZ irregular_JJ ,_, FPM_NP can_MD maintain_VV good_JJ accuracy_NN ._SENT 
+But_CC a_DT potential_JJ restriction_NN of_IN FPM_NN is_VBZ that_IN its_PP$ corrective_JJ matrices_NNS will_MD be_VB unsolvable_JJ if_IN the_DT particle_NN distribution_NN becomes_VVZ extremely_RB uneven_JJ ,_, leading_VVG to_TO the_DT numerical_JJ instability_NN or_CC even_RB simulation_NN termination_NN ._SENT 
+Recently_RB ,_, Zhang_NP and_CC Liu_NP (_( 2018_CD )_) simulated_JJ the_DT free_JJ surface_NN flow_NN using_VVG FPM_NN based_VVN on_IN the_DT moving_JJ least_JJS squares_NNS and_CC concluded_VVD that_IN FPM_NP is_VBZ of_IN better_JJR flexibility_NN and_CC stronger_JJR capability_NN in_IN simulating_VVG the_DT free_JJ surface_NN flows_NNS in_IN comparison_NN with_IN the_DT Eulerian_JJ methods_NNS ._SENT 
+As_IN a_DT relatively_RB new_JJ method_NN ,_, although_IN FPM_NP has_VHZ shown_VVN its_PP$ remarkable_JJ potential_NN in_IN dealing_VVG with_IN the_DT free_JJ surface_NN flows_NNS ,_, it_PP is_VBZ still_RB of_IN less_JJR research_NN in_IN contrast_NN to_TO the_DT extensive_JJ literature_NN of_IN SPH_NN ._SENT 
+For_IN the_DT problems_NNS with_IN more_JJR uneven_JJ particle_NN distribution_NN such_JJ as_IN the_DT solitary_JJ wave_NN breaking_NN ,_, the_DT feasibility_NN of_IN FPM_NP has_VHZ not_RB been_VBN sufficiently_RB examined_VVN in_IN the_DT literature_NN so_RB far_RB ._SENT 
+In_IN this_DT study_NN ,_, FPM_NP is_VBZ applied_VVN to_TO investigate_VV the_DT solitary_JJ wave_NN transformation_NN over_IN a_DT slope_NN ._SENT 
+To_TO acknowledge_VV the_DT capability_NN of_IN dealing_VVG with_IN the_DT problems_NNS whose_WP$ particle_NN distribution_NN is_VBZ strongly_RB uneven_JJ ,_, a_DT comparative_JJ study_NN between_IN SPH_NP and_CC FPM_NP is_VBZ conducted_VVN ._SENT 
+A_DT modified_JJ PST_NP is_VBZ integrated_VVN into_IN both_DT schemes_NNS ._SENT 
+For_IN better_JJR applications_NNS to_TO the_DT hydraulic_JJ structure_NN and_CC coastal_JJ engineering_NN ,_, the_DT maximum_JJ breaking_NN celerity_NN and_CC wave_NN run-up_NN during_IN the_DT solitary_JJ wave_NN transformation_NN are_VBP further_RBR studied_VVN by_IN FPM_NN since_IN it_PP exhibits_VVZ higher_JJR accuracy_NN than_IN SPH_NN ._SENT 
+The_DT rest_NN of_IN the_DT paper_NN is_VBZ as_RB follows_VVZ ._SENT 
+The_DT variables_NNS and_CC parameters_NNS commonly_RB used_VVN for_IN the_DT solitary_JJ waves_NNS and_CC numerical_JJ wave_NN flume_NN are_VBP defined_VVN in_IN Section_NP 2._CD The_DT mathematical_JJ models_NNS used_VVN in_IN this_DT study_NN are_VBP introduced_VVN in_IN Section_NP 3._CD In_IN Section_NP 4_CD ,_, the_DT solitary_JJ waves_NNS are_VBP simulated_JJ to_TO compare_VV the_DT FPM_NN with_IN SPH_NN qualitatively_RB and_CC quantitatively_RB ._SENT 
+Section_NN 5_CD proposes_VVZ an_DT empirical_JJ equation_NN for_IN the_DT optimal_JJ prediction_NN of_IN artificial_JJ viscous_JJ coefficient_NN α_NN ,_, which_WDT is_VBZ adopted_VVN in_IN a_DT series_NN of_IN numerical_JJ flume_NN tests_NNS by_IN adjusting_VVG the_DT incident_NN wave-height-to-water-depth_NN ratios_NNS and_CC slopes_NNS ._SENT 
+The_DT numerical_JJ investigations_NNS are_VBP carried_VVN out_RP in_IN terms_NNS of_IN breaker_NN types_NNS ,_, breaking_VVG position_NN ,_, breaking_VVG index_NN ,_, breaking_VVG depth_NN ,_, wave_NN celerity_NN at_IN breaking_NN and_CC run-up_NN height_NN of_IN breaking_VVG waves_NNS ._SENT 
+The_DT paper_NN ends_VVZ in_IN Section_NP 6_CD with_IN some_DT concluding_VVG remarks_NNS ._SENT 
+<Section> 2._CD Problem_NN description_NN </Section> Fig_NN ._SENT 
+1_CD shows_NNS a_DT sketch_NN of_IN a_DT solitary_JJ wave_NN propagating_VVG over_IN a_DT slope_NN ._SENT 
+An_DT orthogonal_JJ coordinate_VV system_NN xOz_NN with_IN the_DT x-axis_NN being_VBG horizontally_RB rightwards_RB and_CC the_DT z-axis_NN being_VBG vertically_RB upwards_RB is_VBZ set_VVN with_IN x_SYM =_SYM 0_CD at_IN the_DT initial_JJ position_NN of_IN wave_NN maker_NN and_CC z_SYM =_SYM 0_CD at_IN the_DT flume_NN bottom_NN ._SENT 
+In_IN the_DT whole_JJ process_NN of_IN the_DT solitary_JJ wave_NN transformation_NN over_IN the_DT slope_NN ,_, the_DT physical_JJ parameters_NNS involved_VVN in_IN Fig_NN ._SENT 
+1_LS are_VBP defined_VVN as_RB follows_VVZ :_: SWL_NP is_VBZ the_DT still_JJ water_NN level_NN ,_, d0_JJ the_DT still_JJ water_NN depth_NN ,_, H0_JJ the_DT incident_NN wave_NN height_NN ,_, B_NP the_DT horizontal_JJ length_NN of_IN flat_JJ bottom_NN ,_, s_VVG the_DT slope_NN expressed_VVN as_IN a_DT unit_NN vertical_JJ rise_NN divided_VVN by_IN a_DT horizontal_NN run_VVN S_NP ,_, i.e._FW ,_, s_NNS =_SYM 1/S_NNS ,_, Xb_VVP the_DT horizontal_JJ distance_NN from_IN the_DT slope_NN toe_NN to_TO the_DT position_NN of_IN wave_NN breaking_NN ,_, Hb_VVP the_DT breaking_VVG wave_NN height_NN ,_, db_VVP the_DT water_NN depth_NN at_IN the_DT position_NN of_IN wave_NN breaking_NN ,_, and_CC R_NP the_DT wave_NN run-up_NN height_NN ._SENT 
+It_PP is_VBZ noted_VVN that_IN the_DT wave_NN flume_NN is_VBZ set_VVN with_IN B_NP =_SYM 1.0_CD m_NN and_CC d0_NN =_SYM 0.20_CD m_NN thereafter_RB unless_IN otherwise_RB stated_VVN ._SENT 
+Fig_NN ._SENT 
+1._CD A_DT sketch_NN of_IN a_DT solitary_JJ wave_NN transformation_NN over_IN a_DT slope_NN (_( wave_NN breaking_NN occurs_VVZ when_WRB the_DT wave_NN front_NN face_NN has_VHZ a_DT vertical_JJ tangent_NN )_) ._SENT 
+For_IN a_DT solitary_JJ wave_NN with_IN incident_NN wave_NN height_NN H0_NN propagating_VVG in_IN the_DT x-direction_NN at_IN wave_NN speed_NN c_SYM under_IN constant_JJ depth_NN d0_NN ,_, the_DT leading-order_NN solution_NN of_IN surface_NN elevation_NN η_NN from_IN still_RB water_NN level_NN is_VBZ as_RB @(1_JJ )_) where_WRB @_SYM and_CC the_DT gravity_NN acceleration_NN g_NN =_SYM 9.81_CD m/s2_NN ._SENT 
+2.1_CD ._SENT 
+Breaker_NN types_NNS Battjes_NNS (_( 1974_CD )_) introduced_VVD a_DT so-called_JJ surf_NN similarity_NN parameter_NN to_TO classify_VV the_DT breaker_NN types_NNS of_IN periodic_JJ waves_NNS ,_, where_WRB the_DT slope_NN ,_, deep-water_JJ wave_NN height_NN ,_, and_CC deep-water_JJ wave_NN length_NN are_VBP included_VVN ._SENT 
+Since_IN the_DT wave_NN length_NN and_CC wave_NN period_NN of_IN solitary_JJ wave_NN are_VBP theoretically_RB infinite_JJ ,_, the_DT existing_JJ surf_NN similarity_NN parameter_NN of_IN periodic_JJ waves_NNS was_VBD modified_VVN for_IN solitary_JJ waves_NNS ._SENT 
+Grilli_NP et_NP al_NP ._SENT 
+(_( 1997_CD )_) introduced_VVD a_DT dimensionless_JJ parameter_NN S0_NN for_IN predicting_VVG the_DT types_NNS of_IN solitary_JJ wave_NN breaking_VVG as_IN (_( 2)S0=1.521sH′0√_NN where_WRB s_NN is_VBZ the_DT slope_NN and_CC H0′_NN =_SYM H0/d0_NN is_VBZ the_DT relative_JJ wave_NN height_NN ;_: here_RB (_( i_NP )_) S0_NP <_SYM 0.025_CD means_VVZ the_DT spilling_VVG breaker_NN (_( SP_NP )_) ,_, (_( ii_NP )_) 0.025_CD <_SYM S0_NP <_SYM 0.30_CD means_VVZ the_DT plunging_VVG breaker_NN (_( PL_NP )_) ,_, (_( iii_NP )_) 0.30_CD <_SYM S0_JJ < 0.37 means the surging breaker (SU), and (iv) S0 > 0.37_CD means_NNS non-breaking_JJ ._SENT 
+2.2_CD ._SENT 
+Breaking_VVG position_NN ,_, breaking_VVG depth_NN and_CC breaking_NN index_NN Grilli_NP et_NP al_NP ._SENT 
+(_( 1997_CD )_) pointed_VVD out_RP that_IN the_DT surging_JJ breaker_NN can_MD be_VB regarded_VVN as_IN a_DT particular_JJ plunging_VVG breaker_NN with_IN a_DT small_JJ jet_NN height_NN less_JJR than_IN half_NN of_IN the_DT wave_NN height_NN ._SENT 
+Therefore_RB ,_, the_DT surging_JJ wave_NN and_CC plunging_VVG wave_NN can_MD be_VB distinguished_VVN at_IN the_DT position_NN where_WRB the_DT jet_NN starts_VVZ to_TO develop_VV ._SENT 
+Meanwhile_RB ,_, the_DT position_NN at_IN which_WDT the_DT wave_NN front_NN starts_VVZ to_TO be_VB vertical_JJ (_( refer_VV to_TO Fig_VV ._SENT 
+1_LS )_) is_VBZ identified_VVN as_IN the_DT breaking_VVG position_NN Xb_NN in_IN this_DT study_NN ._SENT 
+The_DT wave_NN height_NN and_CC water_NN depth_NN at_IN the_DT breaking_JJ position_NN are_VBP defined_VVN as_IN the_DT breaking_VVG wave_NN height_NN Hb_NN and_CC breaking_VVG depth_NN db_NN ._SENT 
+Based_VVN on_IN the_DT comparison_NN with_IN experimental_JJ data_NNS ,_, Grilli_NP et_CC al_NP ._SENT 
+(_( 1997_CD )_) provided_VVD empirical_JJ expressions_NNS for_IN the_DT dimensionless_JJ breaking_NN depth_NN db/d0_NN and_CC the_DT breaking_VVG index_NN Hb/db_NN as_IN @(3_NN )_) @(4_NN )_) According_VVG to_TO the_DT geometric_JJ relationship_NN shown_VVN in_IN Fig_NN ._SENT 
+1_LS ,_, the_DT breaking_VVG position_NN Xb_NN can_MD be_VB obtained_VVN by_IN @(5_NN )_) 2.3_CD ._SENT 
+Run-up_NN The_DT wave_NN run-up_NN height_NN is_VBZ an_DT important_JJ indicator_NN related_VVN to_TO the_DT inundation_NN and_CC overtopping_VVG (_( Liu_NP et_NP al_NP ._SENT 
+,_, 1991_CD )_) and_CC its_PP$ prediction_NN has_VHZ been_VBN devoted_VVN by_IN some_DT theoretical_JJ and_CC experimental_JJ research_NN in_IN the_DT past_JJ decades_NNS ._SENT 
+Recently_RB ,_, Wu_NP et_CC al_NP ._SENT 
+(_( 2018_CD )_) characterized_VVD the_DT normalized_VVN run-up_NN height_NN of_IN breaking_VVG solitary_JJ waves_NNS by_IN a_DT surf_NN parameter_NN and_CC proposed_VVD an_DT empirical_JJ formula_NN through_IN an_DT analysis_NN of_IN a_DT large_JJ number_NN of_IN existing_VVG laboratory_NN data_NNS as_IN @(6_NN )_) where_WRB R_NP is_VBZ the_DT maximum_JJ run-up_NN height_NN and_CC ξ_NN =_SYM s(H0/d0)−0.9_NN is_VBZ the_DT surf_NN parameter_NN ._SENT 
+<Section> 3._CD Numerical_JJ methods_NNS </Section> 3.1_CD ._SENT 
+Governing_VVG equations_NNS The_DT fluid_NN is_VBZ assumed_VVN as_IN barotropic_JJ and_CC weakly-compressible_JJ same_JJ as_IN in_IN most_JJS SPH_NN schemes_NNS (_( Antuono_NP et_NP al_NP ._SENT 
+,_, 2011_CD )_) ._SENT 
+The_DT governing_VVG equations_NNS (_( Euler_NP equations_NNS )_) can_MD be_VB expressed_VVN in_IN the_DT Lagrangian_JJ formulas_NNS as_IN @(7_JJ )_) @(8_NP )_) @(9_NP )_) where_WRB ρ_NP is_VBZ the_DT fluid_JJ density_NN ,_, t_NN the_DT time_NN ,_, u_NN the_DT velocity_NN field_NN ,_, p_NN the_DT pressure_NN ,_, f_LS the_DT force_NN field_NN on_IN the_DT fluid_JJ body_NN ,_, ρ0_JJ the_DT density_NN at_IN the_DT surface_NN and_CC c0_NN the_DT sound_JJ velocity_NN ;_: ∇�_NP �_NP �_NP and_CC �_NP �_NP are_VBP the_DT divergence_NN and_CC Hamiltonian_JJ operator_NN ,_, respectively_RB ._SENT 
+The_DT sound_JJ velocity_NN adopted_VVN in_IN weakly-compressible_JJ SPH_NN solvers_NNS is_VBZ usually_RB set_VVN as_IN one_CD order_NN of_IN magnitude_NN larger_JJR than_IN the_DT maximum_JJ flow_NN velocity_NN ,_, which_WDT is_VBZ lower_JJR than_IN the_DT reality_NN ._SENT 
+In_IN this_DT way_NN ,_, both_CC the_DT computational_JJ accuracy_NN and_CC time_NN cost_NN can_MD be_VB satisfied_VVN ._SENT 
+Generally_RB ,_, the_DT flow_NN velocity_NN in_IN the_DT case_NN of_IN gravity_NN waves_NNS is_VBZ directly_RB relevant_JJ to_TO the_DT wave_NN speed_NN c_SYM ,_, thus_RB we_PP set_VVD the_DT sound_JJ velocity_NN as_IN c0=10gd0−−−√≈10c_NN in_IN the_DT present_JJ study_NN ._SENT 
+Note_NN that_IN the_DT wave_NN height_NN H0_NN is_VBZ ignored_VVN in_IN calculating_VVG c0_NN for_IN simplicity_NN ._SENT 
+3.2_CD ._SENT 
+Smoothed_VVN particle_NN hydrodynamics_NNS The_DT discretization_NN of_IN governing_VVG equations_NNS can_MD be_VB divided_VVN into_IN two_CD steps_NNS in_IN the_DT SPH_NN :_: the_DT kernel_NN approximation_NN and_CC particle_NN approximation_NN ._SENT 
+In_IN the_DT process_NN of_IN kernel_NN approximation_NN ,_, the_DT kernel_NN function_NN W_NP is_VBZ introduced_VVN to_TO denote_VV the_DT interaction_NN among_IN SPH_NN particles_NNS ._SENT 
+The_DT field_NN function_NN f_SYM (_( x_LS )_) and_CC its_PP$ derivatives_NNS ∇∙_NN f_SYM (_( x_LS )_) are_VBP discretized_VVN as_IN @(10_NN )_) @(11_JJ )_) where_WRB ⟨⟩_NP represents_VVZ the_DT SPH_NN approximation_NN ,_, x_LS the_DT spatial_JJ coordinates_VVZ ,_, Ω_JJ the_DT support_NN domain_NN of_IN x_NN ,_, x′_JJ the_DT spatial_JJ coordinates_VVZ of_IN interacting_VVG particles_NNS within_IN the_DT support_NN domain_NN of_IN x_NN ,_, and_CC h_NN the_DT smoothing_VVG length_NN determining_VVG the_DT support_NN domain_NN of_IN kernel_NN function_NN ._SENT 
+W(x-x′_NP ,_, h_NN )_) is_VBZ the_DT kernel_NN function_NN for_IN the_DT relative_JJ position_NN x-x′_NN and_CC smoothing_VVG length_NN h._NN In_IN the_DT process_NN of_IN particle_NN approximation_NN ,_, the_DT field_NN function_NN f_SYM (_( x_LS )_) and_CC its_PP$ derivatives_NNS ∇∙_NN f_SYM (_( x_LS )_) are_VBP approximated_VVN by_IN summing_VVG the_DT function_NN of_IN particle_NN j_NN within_IN the_DT support_NN domain_NN of_IN particle_NN i_NP as_IN @(12_NP )_) @(13_NP )_) @(14_NP )_) @(15_NP )_) where_WRB particle_NN i_NP is_VBZ the_DT i-th_JJ particle_NN in_IN the_DT problem_NN domain_NN ,_, particle_NN j_NN is_VBZ the_DT j-th_JJ particle_NN within_IN the_DT support_NN domain_NN of_IN particle_NN i_NP ,_, N_NP is_VBZ the_DT number_NN of_IN particles_NNS within_IN the_DT support_NN domain_NN of_IN particle_NN i_NP and_CC rij_NP is_VBZ the_DT distance_NN between_IN particle_NN i_NP and_CC particle_NN j._NN The_DT B-spline_JJ kernel_NN function_NN proposed_VVN by_IN Monaghan_NP (_( 1992_CD )_) is_VBZ adopted_VVN in_IN this_DT study_NN @(16_NN )_) where_WRB q_NN is_VBZ the_DT relative_JJ distance_NN defined_VVN as_IN q_NN =_SYM rij/h_NP ,_, and_CC αd_RB equals_VVZ to_TO 1/h_NP ,_, 15/(7πh2_NP )_) and_CC 3/(2πh3_JJ )_) for_IN one-dimensional_JJ ,_, two-dimensional_JJ and_CC three-dimensional_JJ problems_NNS ,_, respectively_RB ._SENT 
+To_TO overcome_VV the_DT instability_NN and_CC remove_VV the_DT spurious_JJ numerical_JJ high-frequency_NN oscillations_NNS in_IN the_DT pressure_NN ,_, an_DT artificial_JJ density_NN diffusion_NN term_NN is_VBZ added_VVN into_IN the_DT continuity_NN equation_NN and_CC an_DT artificial_JJ viscous_JJ term_NN is_VBZ added_VVN into_IN the_DT momentum_NN equation_NN ._SENT 
+Based_VVN on_IN Eqs_NP ._SENT 
+(_( 12_CD )_) ,_, (_( 13_CD )_) ,_, the_DT discrete_JJ equations_NNS can_MD be_VB expressed_VVN as_IN @(17_JJ )_) @(18_NP )_) @(19_NP )_) where_WRB @_SYM ,_, @_SYM ,_, @_SYM ,_, @_SYM ,_, and_CC @_SYM ._SENT 
+⟨∇ρ⟩Li_NP is_VBZ the_DT renormalized_JJ gradient_NN defined_VVN as_IN (_( Marrone_NP et_NP al_NP ._SENT 
+,_, 2011_CD )_) @(20_NP )_) @(21_JJ )_) where_WRB ρi_NP (_( ρj_NP )_) ,_, pi_NN (_( pj_NP )_) and_CC ui_NP (_( uj_NP )_) are_VBP the_DT density_NN ,_, pressure_NN and_CC velocity_NN field_NN of_IN particle_NN i_NP (_( j_NN )_) ,_, respectively_RB ;_: the_DT coefficient_NN δ_NN is_VBZ determined_VVN in_IN a_DT narrow_JJ range_NN for_IN stability_NN reasons_NNS and_CC 0.1_CD is_VBZ suggested_VVN (_( Antuono_NP et_NP al_NP ._SENT 
+,_, 2011_CD ,_, Meringolo_NP et_CC al_NP ._SENT 
+,_, 2017_CD )_) ;_: the_DT coefficient_NN α_NN determines_VVZ the_DT magnitude_NN of_IN the_DT artificial_JJ viscous_JJ term_NN and_CC 0.05_CD is_VBZ suggested_VVN (_( Antuono_NP et_NP al_NP ._SENT 
+,_, 2011_CD )_) thereafter_RB unless_IN otherwise_RB stated_VVN ._SENT 
+Both_CC the_DT diffusion_NN term_NN and_CC viscous_JJ term_NN tend_VVP to_TO zero_VV as_IN the_DT spatial_JJ resolution_NN increases_NNS ,_, so_RB the_DT consistency_NN with_IN the_DT Euler_NP equations_NNS can_MD be_VB recovered_VVN ._SENT 
+3.3_CD ._SENT 
+Finite_JJ particle_NN method_NN The_DT accuracy_NN of_IN the_DT standard_JJ SPH_NN method_NN is_VBZ limited_VVN due_RB to_TO the_DT particle_NN inconsistency_NN ._SENT 
+In_IN view_NN of_IN this_DT ,_, Liu_NP et_CC al_NP ._SENT 
+(_( 2005_CD )_) and_CC Liu_NP and_CC Liu_NP (_( 2006_CD )_) proposed_VVD the_DT finite_JJ particle_NN method_NN (_( FPM_NP )_) to_TO improve_VV the_DT particle_NN consistency_NN in_IN the_DT particle_NN approximation_NN process_NN of_IN standard_JJ SPH_NN scheme_NN ._SENT 
+The_DT FPM_NN is_VBZ briefly_RB explained_VVN in_IN the_DT following_NN ._SENT 
+The_DT field_NN function_NN f_SYM (_( x′_NN )_) can_MD be_VB expanded_VVN at_IN point_NN x_SYM by_IN the_DT Taylor_NP expansion_NN as_IN @(22_NN )_) Ignoring_VVG the_DT high-order_NN terms_NNS and_CC leaving_VVG only_RB the_DT first-order_NN derivative_JJ term_NN ,_, we_PP can_MD get_VV @(23_NP )_) Both_CC sides_NNS of_IN Eq_NP ._SENT 
+(_( 23_CD )_) are_VBP multiplied_VVN by_IN the_DT kernel_NN function_NN W_NP and_CC then_RB integrated_VVN over_IN the_DT support_NN domain_NN Ω_NN ,_, so_RB we_PP can_MD obtain_VV @(24_NP )_) Similarly_RB ,_, both_DT sides_NNS of_IN Eq_NP ._SENT 
+(_( 23_CD )_) are_VBP multiplied_VVN by_IN the_DT kernel_NN gradient_NN ∇W_NNS and_CC then_RB integrated_VVN over_IN the_DT support_NN domain_NN Ω_NN ,_, so_RB we_PP can_MD obtain_VV @(25_JJ )_) According_VVG to_TO Eqs_NP ._SENT 
+(_( 24_CD )_) ,_, (_( 25_CD )_) ,_, the_DT following_VVG matrix_NN equation_NN applies_VVZ @(26_JJ )_) Eq_NP ._SENT 
+(_( 26_CD )_) gives_VVZ the_DT expressions_NNS of_IN FPM_NN approximation_NN for_IN the_DT field_NN function_NN f_SYM (_( x_LS )_) and_CC its_PP$ derivatives_NNS ∇f_NN (_( x_LS )_) ,_, which_WDT can_MD be_VB rewritten_VVN as_IN @(27_JJ )_) where_WRB @(28_NP )_) It_PP is_VBZ noted_VVN that_IN Eq_NP ._SENT 
+(_( 27_CD )_) will_MD return_VV to_TO the_DT standard_JJ SPH_NN approximation_NN if_IN the_DT corrective_JJ matrix_NN A_DT is_VBZ a_DT unit_NN matrix_NN ._SENT 
+Beyond_IN that_DT ,_, A_DT can_MD improve_VV the_DT standard_JJ SPH_NN scheme_NN to_TO second-order_NN accuracy_NN since_IN the_DT first_JJ derivatives_NNS in_IN Eq_NP ._SENT 
+(_( 22_CD )_) remain_VVP ._SENT 
+For_IN two-dimensional_JJ fluid_JJ problem_NN ,_, the_DT corrective_JJ matrix_NN A_DT is_VBZ a_DT 3_CD �_JJ �_NP 3_CD matrix_NN and_CC can_MD be_VB rewritten_VVN as_IN @(29_NN )_) Considering_VVG both_CC the_DT artificial_JJ density_NN diffusion_NN term_NN and_CC artificial_JJ viscous_JJ term_NN ,_, the_DT two-dimensional_JJ discrete_JJ formats_NNS of_IN Eqs_NP ._SENT 
+(_( 7_CD )_) ,_, (_( 8_CD )_) by_IN using_VVG FPM_NN are_VBP @(30_JJ )_) @(31_JJ )_) @(32_NP )_) @(33_NP )_) where_WRB u_NN is_VBZ the_DT velocity_NN in_IN the_DT x-direction_NN ,_, v_NN is_VBZ the_DT velocity_NN in_IN the_DT y-direction_NN and_CC the_DT rest_NN symbols_NNS are_VBP of_IN the_DT same_JJ definitions_NNS as_IN above_RB ._SENT 
+FPM_NP is_VBZ an_DT enhanced_JJ version_NN of_IN SPH_NN and_CC is_VBZ of_IN similar_JJ conservation_NN features_NNS with_IN SPH_NN ._SENT 
+SPH_NP potentially_RB possesses_VVZ excellent_JJ conservation_NN properties_NNS including_VVG mass_NN (_( or_CC volume_NN )_) ,_, linear_JJ and_CC angular_JJ momenta_NNS as_RB well_RB as_IN energy_NN (_( Khayyer_NP et_NP al_NP ._SENT 
+,_, 2008_CD ,_, Khayyer_NP et_CC al_NP ._SENT 
+,_, 2018b_NP )_) ._SENT 
+The_DT artificial_JJ density_NN diffusion_NN term_NN and_CC the_DT artificial_JJ viscous_JJ term_NN used_VVN in_IN the_DT present_JJ work_NN do_VVP not_RB affect_VV the_DT consistency_NN since_IN they_PP go_VVP to_TO zero_VV as_IN the_DT spatial_JJ resolution_NN increases_NNS ._SENT 
+Antuono_NP et_NP al_NP ._SENT 
+(_( 2015_CD )_) theoretically_RB analyzed_VVD the_DT energy_NN balance_NN in_IN the_DT δ-SPH_NN model_NN and_CC concluded_VVD that_IN the_DT δ-SPH_NN is_VBZ slightly_RB more_RBR dissipative_JJ than_IN standard_JJ SPH_NN with_IN more_JJR accuracy_NN and_CC less_JJR compressibility_NN even_RB in_IN simulating_VVG inviscid_JJ fluids_NNS ._SENT 
+Khayyer_NP et_NP al_NP ._SENT 
+(_( 2017b_NP )_) analyzed_VVD on_IN energy_NN conservation_NN properties_NNS of_IN projection-based_JJ particle_NN methods_NNS (_( i.e._FW ,_, MPS_NP and_CC ISPH_NP )_) with_IN detailed_JJ study_NN and_CC highlighted_VVD the_DT significance_NN of_IN corrected_JJ Taylor_NP series_NN consistent_JJ pressure_NN gradient_NN models_NNS in_IN providing_VVG enhanced_JJ energy_NN conservation_NN ._SENT 
+Moreover_RB ,_, Cercos-Pita_NP et_CC al_NP ._SENT 
+(_( 2017_CD )_) investigated_VVD the_DT energy_NN conservation_NN of_IN SPH_NN scheme_NN in_IN the_DT presence_NN of_IN fluid-solid_JJ interaction_NN and_CC indicated_VVD that_IN the_DT extra_JJ term_NN generated_VVN by_IN solid_JJ particle_NN has_VHZ no_DT influence_NN on_IN the_DT consistency_NN of_IN SPH_NN ._SENT 
+Meringolo_NP et_NP al_NP ._SENT 
+(_( 2019_CD )_) focused_VVD on_IN the_DT effect_NN of_IN tunable_JJ parameters_NNS δ_NN and_CC α_NN in_IN the_DT δ-SPH_NN scheme_NN according_VVG to_TO the_DT energy_NN dissipation_NN and_CC pointed_VVD that_IN the_DT integration_NN and_CC the_DT solid_JJ conditions_NNS (_( i.e._FW ,_, the_DT ghost_NN particles_NNS approach_NN )_) have_VH no_DT influence_NN on_IN the_DT energy_NN balance_NN ._SENT 
+As_RB for_IN FPM_NP ,_, Huang_NP et_CC al_NP ._SENT 
+(_( 2018_CD )_) studied_VVD the_DT evolution_NN of_IN the_DT total_JJ kinetic_JJ energy_NN ,_, which_WDT shows_VVZ a_DT good_JJ agreement_NN with_IN the_DT analytic_JJ solution_NN and_CC partly_RB reveals_VVZ the_DT energy_NN conservation_NN of_IN FPM_NP ._SENT 
+3.4_CD ._SENT 
+Particle_NN shifting_VVG technology_NN Xu_NP et_NP al_NP ._SENT 
+(_( 2009_CD )_) proposed_VVD a_DT particle_NN shifting_VVG technology_NN (_( PST_NP )_) to_TO enhance_VV the_DT accuracy_NN and_CC stability_NN of_IN the_DT particle_NN method_NN in_IN the_DT Lagrange_NP framework_NN ._SENT 
+The_DT PST_NP has_VHZ received_VVN extensive_JJ attention_NN because_IN it_PP can_MD redistribute_VV the_DT particles_NNS in_IN a_DT more_RBR isotropic_JJ manner_NN ,_, where_WRB the_DT particles_NNS are_VBP prevented_VVN from_IN clustering_VVG in_IN the_DT compressing_VVG direction_NN and_CC thus_RB the_DT sparse_JJ discretization_NN error_NN in_IN the_DT stretching_VVG direction_NN can_MD be_VB accordingly_RB avoided_VVN ._SENT 
+Huang_NP et_NP al_NP ._SENT 
+(_( 2018_CD )_) developed_VVD a_DT modified_JJ PST_NP ,_, which_WDT retains_VVZ the_DT advantages_NNS of_IN the_DT original_JJ PST_NP while_IN improving_VVG the_DT homogeneity_NN of_IN particle_NN distribution_NN and_CC helping_VVG to_TO improve_VV computational_JJ efficiency_NN ._SENT 
+The_DT implementation_NN of_IN the_DT modified_JJ PST_NP is_VBZ divided_VVN into_IN two_CD steps_NNS as_RB follows_VVZ ._SENT 
+Step_VV (_( i_NP )_) :_: obtain_VV the_DT shifting_VVG vector_NN of_IN the_DT particle_NN by_IN @(34_NN )_) where_WRB Umax_NP is_VBZ the_DT maximum_JJ velocity_NN of_IN all_DT fluid_JJ particles_NNS ,_, Δt_VVD the_DT time_NN step_NN ,_, h_NN the_DT smoothing_VVG length_NN ,_, and_CC �_NP �_NP the_DT initial_JJ particle_NN spacing_NN ._SENT 
+Step_VV (_( ii_NP )_) :_: correct_VV the_DT fluid_JJ variables_NNS after_IN the_DT particle_NN shift_NN as_IN @(35_NN )_) where_WRB �_NP �_NP is_VBZ the_DT fluid_JJ variables_NNS ,_, including_VVG the_DT particle_NN spatial_JJ coordinates_NNS x_SYM ,_, density_NN ρ_NN ,_, velocity_NN u_NN ,_, and_CC pressure_NN p._NP i_NP and_CC i′_NP denote_VVP the_DT i-th_JJ particle_NN before_IN and_CC after_IN correction_NN ,_, respectively_RB ;_: it_PP is_VBZ noted_VVN that_IN the_DT free_JJ surface_NN particles_NNS are_VBP not_RB corrected_VVN by_IN the_DT PST_NP to_TO avoid_VV the_DT non-physical_JJ perturbation_NN across_IN the_DT free_JJ surface_NN ._SENT 
+3.5_CD ._SENT 
+Boundary_NN conditions_NNS 3.5.1_CD ._SENT 
+Free_JJ surface_NN As_IN illustrated_VVN in_IN Fig_NN ._SENT 
+2_LS ,_, there_EX are_VBP three_CD types_NNS of_IN particles_NNS :_: free_JJ surface_NN particles_NNS ,_, fluid_JJ particles_NNS and_CC boundary_NN particles_NNS ._SENT 
+Due_JJ to_TO the_DT self-adaptability_NN ,_, the_DT SPH_NN scheme_NN can_MD naturally_RB satisfy_VV the_DT dynamic_JJ boundary_NN conditions_NNS of_IN the_DT free_JJ surface_NN (_( Colagrossi_NP et_NP al_NP ._SENT 
+,_, 2009_CD )_) ._SENT 
+In_IN contrast_NN ,_, the_DT FPM_NN scheme_NN no_RB longer_RBR naturally_RB satisfies_VVZ the_DT dynamic_JJ boundary_NN conditions_NNS of_IN the_DT free_JJ surface_NN ,_, which_WDT may_MD cause_VV potential_JJ errors_NNS in_IN the_DT free_JJ surface_NN calculation_NN ._SENT 
+In_IN view_NN of_IN this_DT ,_, the_DT internal_JJ fluid_JJ particles_NNS (_( blue_JJ in_IN Fig_NN ._SENT 
+2_LS )_) adopt_VV the_DT FPM_NN approximation_NN while_IN the_DT free_JJ surface_NN particles_NNS (_( red_JJ in_IN Fig_NN ._SENT 
+2_LS )_) use_VV the_DT SPH_NN approximation_NN ._SENT 
+Note_NN that_IN the_DT free_JJ surface_NN particles_NNS merely_RB take_VV up_RP a_DT small_JJ part_NN of_IN all_DT particles_NNS ._SENT 
+The_DT same_JJ idea_NN of_IN using_VVG high-order_NN schemes_NNS for_IN the_DT well-conditioned_JJ matrix_NN and_CC SPH_NN schemes_NNS for_IN the_DT ill-conditioned_JJ matrix_NN was_VBD adopted_VVN by_IN Huang_NP et_CC al_NP ._SENT 
+(_( 2018_CD )_) ._SENT 
+Fig_NN ._SENT 
+2._CD Different_JJ types_NNS of_IN particles_NNS :_: free_JJ surface_NN particles_NNS ,_, fluid_JJ particles_NNS and_CC boundary_NN particles_NNS ._SENT 
+Regarding_VVG the_DT determination_NN of_IN free_JJ surface_NN particles_NNS ,_, many_JJ methods_NNS have_VHP been_VBN proposed_VVN (_( Gotoh_NP et_NP al_NP ._SENT 
+,_, 2004_CD ,_, Gotoh_NP and_CC Sakai_NP ,_, 2006_CD ,_, Marrone_NP et_CC al_NP ._SENT 
+,_, 2010_CD )_) ,_, most_JJS of_IN which_WDT are_VBP based_VVN on_IN a_DT comparison_NN of_IN particle_NN density_NN to_TO a_DT certain_JJ threshold_NN ._SENT 
+In_IN Khayyer_NP et_CC al_NP ._SENT 
+(_( 2009_CD )_) ,_, in_IN addition_NN to_TO comparison_NN with_IN a_DT certain_JJ threshold_NN for_IN particle_NN density_NN ,_, an_DT additional_JJ criterion_NN on_IN the_DT basis_NN of_IN symmetric_JJ distribution_NN of_IN neighbours_NNS of_IN non-free_JJ surface_NN particles_NNS was_VBD also_RB proposed_VVN and_CC considered_VVN ._SENT 
+In_IN this_DT study_NN ,_, the_DT particles_NNS are_VBP divided_VVN into_IN eight_CD regions_NNS by_IN two_CD auxiliary_JJ coordinate_JJ systems_NNS ,_, and_CC the_DT particle_NN type_NN (_( free_JJ surface_NN particles_NNS or_CC fluid_JJ particles_NNS )_) can_MD be_VB determined_VVN based_VVN on_IN the_DT particle_NN number_NN in_IN different_JJ regions_NNS ._SENT 
+A_DT detailed_JJ description_NN of_IN this_DT method_NN can_MD be_VB found_VVN in_IN Huang_NP et_CC al_NP ._SENT 
+(_( 2018_CD )_) ._SENT 
+3.5.2_CD ._SENT 
+Projecting_VVG points_NNS Since_IN the_DT neighbourhood_NN of_IN the_DT particles_NNS on_IN the_DT boundary_NN exceeds_VVZ the_DT problem_NN domain_NN ,_, it_PP will_MD be_VB truncated_VVN by_IN the_DT boundary_NN during_IN the_DT integration_NN ._SENT 
+Hence_RB ,_, the_DT particles_NNS on_IN the_DT boundary_NN will_MD only_RB be_VB affected_VVN by_IN the_DT adjacent_JJ particles_NNS within_IN the_DT computational_JJ domain_NN ,_, leading_VVG to_TO calculation_NN errors_NNS ._SENT 
+A_DT specific_JJ case_NN is_VBZ that_IN the_DT particle_NN rushes_VVZ out_RP of_IN the_DT computational_JJ domain_NN ._SENT 
+For_IN that_DT reason_NN ,_, the_DT necessary_JJ boundary_NN conditions_NNS should_MD be_VB applied_VVN ._SENT 
+In_IN this_DT study_NN ,_, the_DT virtual_JJ particle_NN method_NN is_VBZ applied_VVN to_TO deal_VV with_IN the_DT boundaries_NNS ._SENT 
+The_DT boundary_NN can_MD be_VB classified_VVN as_IN the_DT fixed_VVN boundary_NN and_CC the_DT moving_VVG boundary_NN ._SENT 
+Referring_VVG to_TO Fig_VV ._SENT 
+1_LS ,_, the_DT wave_NN maker_NN is_VBZ set_VVN as_IN the_DT moving_VVG boundary_NN ,_, whereas_IN the_DT flume_NN bottom_NN and_CC right_JJ slope_NN are_VBP set_VVN as_IN fixed_VVN boundaries_NNS ._SENT 
+For_IN the_DT virtual_JJ particle_NN method_NN ,_, the_DT boundary_NN particles_NNS include_VVP real_JJ particles_NNS on_IN the_DT boundary_NN and_CC virtual_JJ particles_NNS outside_IN the_DT boundary_NN ._SENT 
+As_IN shown_VVN in_IN Fig_NN ._SENT 
+3_LS ,_, the_DT projecting_VVG points_NNS are_VBP introduced_VVN to_TO calculate_VV the_DT physical_JJ parameters_NNS of_IN boundary_NN particles_NNS ._SENT 
+The_DT distance_NN between_IN a_DT boundary_NN particle_NN and_CC its_PP$ corresponding_JJ projecting_VVG point_NN satisfies_VVZ the_DT following_VVG relationship_NN @(36_NN )_) where_WRB xp_NP and_CC xb_NP are_VBP the_DT spatial_JJ coordinates_VVZ of_IN projecting_VVG point_NN and_CC boundary_NN particle_NN ,_, respectively_RB ;_: nb_NP is_VBZ the_DT unit_NN normal_JJ vector_NN of_IN boundary_NN particle_NN ,_, and_CC it_PP points_VVZ to_TO the_DT inside_NN of_IN fluid_NN ;_: �_NP �_NP is_VBZ the_DT initial_JJ particle_NN spacing_NN ;_: ε_NP is_VBZ the_DT distance_NN coefficient_NN ,_, which_WDT is_VBZ taken_VVN as_IN 0.5_CD ,_, 1.5_CD ,_, 2.5_CD and_CC 3.5_CD for_IN the_DT first_JJ ,_, second_JJ ,_, third_JJ and_CC fourth_JJ layer_NN of_IN boundary_NN particles_NNS ,_, respectively_RB ._SENT 
+Fig_NN ._SENT 
+3._CD A_DT sketch_NN of_IN a_DT projecting_VVG point_NN interacting_VVG with_IN fluid_JJ particles_NNS ,_, where_WRB h_NN is_VBZ the_DT smoothing_VVG length_NN and_CC κ_NN is_VBZ the_DT coefficient_NN of_IN the_DT support_NN domain_NN ._SENT 
+As_RB for_IN the_DT updating_VVG of_IN parameters_NNS ,_, the_DT fluid_JJ parameters_NNS including_VVG velocity_NN ,_, pressure_NN and_CC density_NN of_IN projecting_VVG points_NNS are_VBP firstly_RB calculated_VVN ._SENT 
+It_PP should_MD be_VB noted_VVN that_IN in_IN the_DT calculation_NN of_IN projecting_VVG points_NNS ,_, only_RB the_DT fluid_JJ particles_NNS within_IN its_PP$ support_NN domain_NN are_VBP considered_VVN ._SENT 
+Then_RB ,_, the_DT fluid_JJ parameters_NNS of_IN boundary_NN particles_NNS can_MD be_VB accordingly_RB calculated_VVN ._SENT 
+The_DT velocity_NN of_IN the_DT boundary_NN particle_NN is_VBZ as_RB follows_VVZ @(37_JJ )_) @(38_NN )_) where_WRB uτb_NP and_CC uτp_NP are_VBP the_DT tangential_JJ velocities_NNS of_IN boundary_NN particle_NN and_CC its_PP$ corresponding_JJ projecting_VVG point_NN ,_, respectively_RB ;_: unb_NP and_CC unp_NP are_VBP the_DT normal_JJ velocities_NNS of_IN boundary_NN particle_NN and_CC its_PP$ corresponding_JJ projecting_VVG point_NN ,_, respectively_RB ,_, which_WDT are_VBP equal_JJ in_IN the_DT opposite_JJ direction_NN to_TO ensure_VV that_IN the_DT fluid_JJ particles_NNS will_MD not_RB cross_VV the_DT boundary_NN ._SENT 
+The_DT pressure_NN of_IN boundary_NN particle_NN can_MD be_VB calculated_VVN as_RB (_( Omidvar_NP et_NP al_NP ._SENT 
+,_, 2015_CD )_) @(39_NP )_) where_WRB pb_NP and_CC pp_NP are_VBP the_DT pressure_NN of_IN boundary_NN particle_NN and_CC its_PP$ corresponding_JJ projecting_VVG point_NN ,_, respectively_RB ;_: a_DT is_VBZ the_DT acceleration_NN field_NN ._SENT 
+Meanwhile_RB ,_, according_VVG to_TO the_DT weakly-compressible_JJ equation_NN ,_, the_DT density_NN of_IN boundary_NN particle_NN can_MD be_VB calculated_VVN as_IN @(40_NN )_) 3.5.3_CD ._SENT 
+Boundary_NN force_NN model_NN Since_IN the_DT particles_NNS continuously_RB move_VVP with_IN fluid_JJ flows_NNS ,_, the_DT particles_NNS can_MD easily_RB penetrate_VV the_DT solid_JJ walls_NNS ._SENT 
+To_TO avoid_VV this_DT unphysical_JJ penetration_NN ,_, Monaghan_NP (_( 1994_CD )_) proposed_VVD a_DT force_NN model_NN where_WRB a_DT repulsive_JJ force_NN is_VBZ exerted_VVN on_IN the_DT fluid_JJ particles_NNS adjacent_JJ to_TO the_DT boundary_NN ._SENT 
+Repulsive_JJ force_NN model_NN is_VBZ an_DT old_JJ and_CC well-known_JJ approach_NN in_IN treating_VVG solid_JJ boundary_NN ._SENT 
+Recently_RB ,_, a_DT detailed_JJ discussion_NN on_IN the_DT repulsive_JJ force_NN model_NN can_MD be_VB found_VVN in_IN a_DT review_NN by_IN Ye_NP et_CC al_NP ._SENT 
+(_( 2019_CD )_) ,_, to_TO which_WDT the_DT readers_NNS may_MD refer_VV for_IN the_DT possible_JJ negative_JJ features_NNS and_CC remedies_NNS ._SENT 
+The_DT recent_JJ numerical_JJ examples_NNS demonstrate_VVP that_IN the_DT repulsive_JJ force_NN model_NN performs_VVZ not_RB inferior_JJ if_IN suitable_JJ parameters_NNS are_VBP chosen_VVN (_( Valizadeh_NP and_CC Monaghan_NP ,_, 2015_CD ,_, Yan_NP and_CC Monaghan_NP ,_, 2017_CD ,_, Zhang_NP et_CC al_NP ._SENT 
+,_, 2018_CD )_) ._SENT 
+In_IN this_DT study_NN ,_, the_DT boundary_NN force_NN model_NN is_VBZ as_RB follows_VVZ (_( Zhang_NP et_NP al_NP ._SENT 
+,_, 2018_CD )_) :_: @(41_JJ )_) where_WRB fij_NP is_VBZ the_DT boundary_NN force_NN of_IN boundary_NN particle_NN j_NN acting_VVG on_IN fluid_JJ particle_NN i_NP ;_: the_DT superscript_JJ dim_JJ denotes_VVZ the_DT spatial_JJ dimension_NN and_CC takes_VVZ 2_CD for_IN the_DT two-dimensional_JJ space_NN ;_: nj_NP is_VBZ the_DT unit_NN normal_JJ vector_NN of_IN boundary_NN particle_NN ,_, pointing_VVG to_TO the_DT inside_NN of_IN fluid_NN ._SENT 
+3.5.4_CD ._SENT 
+Solitary_JJ wave_NN maker_NN Katell_NP and_CC Eric_NP (_( 2002_CD )_) applied_VVD a_DT piston_NN wave_NN maker_NN to_TO generate_VV solitary_JJ wave_NN based_VVN on_IN four_CD wave-making_NN schemes_NNS including_VVG the_DT Boussinesq_NP solution_NN ,_, first-order_NN shallow_JJ hydrolysis_NN ,_, second-order_NN shallow_JJ hydrolysis_NN ,_, and_CC Rayleigh_NP solution_NN ._SENT 
+Their_PP$ results_NNS indicated_VVD that_IN the_DT solitary_JJ waves_NNS made_VVN by_IN Boussinesq_NP solution_NN and_CC Rayleigh_JJ solution_NN are_VBP of_IN better_JJR precision_NN ._SENT 
+In_IN this_DT study_NN ,_, the_DT Rayleigh_NP solution_NN was_VBD adopted_VVN to_TO generate_VV solitary_JJ waves_NNS ._SENT 
+The_DT motion_NN of_IN wave_NN maker_NN (_( i.e._FW ,_, moving_VVG boundary_NN )_) is_VBZ as_RB follows_VVZ @(42_JJ )_) with_IN @(43_NN )_) where_WRB xpiston(t_NP )_) represents_VVZ the_DT position_NN of_IN wave_NN maker_NN at_IN time_NN t._NP The_DT stroke_NN of_IN the_DT wave_NN maker_NN is_VBZ @(44_JJ )_) Eq_NP ._SENT 
+(_( 44_CD )_) can_MD be_VB obtained_VVN through_IN subtracting_VVG negative_JJ infinity_NN from_IN positive_JJ infinity_NN in_IN Eq_NP ._SENT 
+(_( 42_CD )_) ._SENT 
+3.6_CD ._SENT 
+Time_NN integration_NN The_DT time_NN integral_JJ scheme_NN adopts_VVZ the_DT Predictor-Corrector_NN algorithm_NN as_RB follows_VVZ ._SENT 
+@(45_NP )_) @(46_NP )_) It_PP is_VBZ noted_VVN that_IN the_DT pressure_NN is_VBZ updated_VVN by_IN using_VVG the_DT weakly-compressible_JJ Eq_NP ._SENT 
+(_( 9_CD )_) at_IN each_DT time_NN step_NN ._SENT 
+The_DT selection_NN of_IN the_DT time_NN step_NN is_VBZ crucial_JJ to_TO the_DT accuracy_NN and_CC stability_NN ._SENT 
+Colagrossi_NP et_NP al_NP ._SENT 
+(_( 2016_CD )_) pointed_VVD out_RP that_IN the_DT time_NN step_NN provided_VVN by_IN the_DT acoustic_JJ constraint_NN is_VBZ close_JJ to_TO that_DT by_IN advection_NN constraint_NN ._SENT 
+Therefore_RB ,_, the_DT advection_NN constraint_NN Δt_NP ≤_NP CFL⋅h/c0_NP is_VBZ used_VVN for_IN all_DT simulations_NNS here_RB for_IN simplicity_NN ,_, where_WRB CFL_NN =_SYM 0.20_CD is_VBZ used_VVN ._SENT 
+<Section> 4._CD Numerical_JJ validation_NN and_CC comparison_NN </Section> 4.1_CD ._SENT 
+Qualitative_JJ validation_NN and_CC comparison_NN Fig_NN ._SENT 
+4_CD shows_NNS the_DT particle_NN distribution_NN with_IN and_CC without_IN the_DT help_NN of_IN PST_NP for_IN SPH_NP and_CC FPM_NP ,_, respectively_RB ._SENT 
+In_IN Fig_NN ._SENT 
+4_LS (_( a_DT )_) ,_, the_DT particle_NN tends_VVZ to_TO approach_VV another_DT particle_NN ,_, and_CC then_RB these_DT particles_NNS are_VBP paired_VVN ._SENT 
+In_IN Fig_NN ._SENT 
+4_LS (_( b_LS )_) ,_, it_PP is_VBZ clear_JJ that_IN the_DT particle_NN clustering_VVG and_CC fracturing_VVG occur_VV near_IN the_DT free_JJ surface_NN and_CC the_DT bottom_JJ wall_NN (_( the_DT shadow_NN area_NN )_) ._SENT 
+In_IN Fig_NN ._SENT 
+4(c_NP )_) and_CC (_( d_LS )_) ,_, the_DT particle_NN distribution_NN is_VBZ more_RBR uniform_JJ and_CC isotropic_JJ by_IN comparing_VVG with_IN Fig_NN ._SENT 
+4(a_NP )_) and_CC (_( b_LS )_) ,_, respectively_RB ,_, which_WDT illustrates_VVZ the_DT advantage_NN of_IN PST_NP in_IN homogenizing_VVG the_DT particle_NN distribution_NN ._SENT 
+Furthermore_RB ,_, the_DT benefits_NNS of_IN PST_NP for_IN FPM_NP are_VBP more_JJR than_IN for_IN SPH_NN ,_, since_IN PST_NP can_MD effectively_RB help_VV FPM_NP avoid_VV the_DT ill-conditioned_JJ matrix_NN A_DT and_CC eliminate_VV the_DT particle_NN clustering_VVG and_CC fracturing_VVG ._SENT 
+Hereafter_RB ,_, PST_NP will_MD be_VB adopted_VVN in_IN all_DT cases_NNS ._SENT 
+Fig_NN ._SENT 
+4._CD Particle_NN distribution_NN for_IN simulations_NNS by_IN (_( a_DT )_) SPH_NN without_IN PST_NP ;_: (_( b_LS )_) FPM_NN without_IN PST_NP ;_: (_( c_LS )_) SPH_NN with_IN PST_NP ;_: (_( d_LS )_) FPM_NN with_IN PST_NP ._SENT 
+Li_NP and_CC Raichlen_NP (_( 2003_CD )_) carried_VVD out_RP an_DT experiment_NN to_TO describe_VV the_DT process_NN of_IN solitary_JJ wave_NN breaking_VVG (_( PL_NP )_) in_IN a_DT flume_NN ._SENT 
+In_IN the_DT experiment_NN ,_, a_DT 1:15_CD slope_NN was_VBD adopted_VVN and_CC the_DT horizontal_JJ section_NN length_NN of_IN the_DT slope_NN was_VBD 1.425_CD m._NPS The_DT water_NN depth_NN was_VBD 0.187_CD m_NN and_CC the_DT relative_JJ wave_NN height_NN is_VBZ 0.40_CD ._SENT 
+Fig_NN ._SENT 
+5_CD compares_VVZ the_DT numerical_JJ results_NNS by_IN SPH_NN and_CC FPM_NN (_( the_DT initial_JJ spacing_NN �_JJ �_NN =_SYM 0.005_CD m_NN )_) with_IN the_DT experimental_JJ results_NNS ._SENT 
+The_DT middle_JJ column_NN is_VBZ the_DT experimental_JJ results_NNS ,_, while_IN the_DT left_NN and_CC the_DT right_JJ columns_NNS are_VBP the_DT comparisons_NNS with_IN SPH_NN and_CC FPM_NN ,_, respectively_RB ._SENT 
+Fig_NN ._SENT 
+5._CD A_DT comparison_NN on_IN the_DT process_NN of_IN plunging_VVG wave_NN breaking_VVG between_IN numerical_JJ simulations_NNS and_CC experimental_JJ snapshots_NNS (_( left_VVN column_NN :_: SPH_NN simulations_NNS ;_: middle_JJ column_NN :_: experimental_JJ snapshots_NNS in_IN Li_NP and_CC Raichlen_NP (_( 2003_CD )_) ;_: right_JJ column_NN :_: FPM_NN simulations_NNS )_) ;_: the_DT conditions_NNS are_VBP d0_NN =_SYM 0.187_CD m_NN ,_, s_NNS =_SYM 1:15_CD and_CC �_NP �_NP =_SYM 0.005_CD m._NN It_PP can_MD be_VB seen_VVN from_IN Fig_NN ._SENT 
+5(a_NP )_) and_CC (_( b_LS )_) that_IN the_DT wave_NN front_NN jets_NNS of_IN both_DT SPH_NN and_CC FPM_NN are_VBP not_RB as_RB extended_VVN as_IN the_DT experimental_JJ results_NNS ,_, while_IN the_DT wave_NN front_NN curvature_NN in_IN both_DT simulations_NNS fits_VVZ well_RB with_IN the_DT experimental_JJ results_NNS ._SENT 
+In_IN Fig_NN ._SENT 
+5(c-2_NP )_) ,_, the_DT wave_NN front_NN jet_NN falls_VVZ on_IN the_DT free_JJ surface_NN forming_VVG an_DT air_NN cavity_NN and_CC the_DT air_NN cavity_NN of_IN the_DT simulations_NNS in_IN Fig_NN ._SENT 
+5(c-1_NN )_) and_CC (_( c-3_NN )_) are_VBP relatively_RB small_JJ ._SENT 
+When_WRB the_DT wave_NN splashes_VVZ ,_, the_DT jet_NN spray_NN is_VBZ as_RB shown_VVN in_IN Fig_NN ._SENT 
+5(d)–(f_NP )_) ._SENT 
+The_DT reproductions_NNS of_IN splash-up_NN are_VBP not_RB as_RB violent_JJ as_IN in_IN the_DT experiment_NN ,_, where_WRB the_DT simulated_JJ closed_JJ bubbles_NNS are_VBP contained_VVN in_IN the_DT filmed_VVN closed_JJ bubble_NN ._SENT 
+The_DT observed_JJ discrepancies_NNS may_MD be_VB attributed_VVN to_TO lack_NN of_IN air_NN phase_NN in_IN the_DT simulations_NNS or_CC absence_NN of_IN a_DT strain-based_JJ viscosity_NN in_IN the_DT simulation_NN of_IN a_DT highly-strained_JJ fluid_JJ flow_NN (_( Khayyer_NP and_CC Gotoh_NP ,_, 2008_CD ,_, Khayyer_NP et_CC al_NP ._SENT 
+,_, 2008_CD )_) ._SENT 
+Despite_IN the_DT fact_NN that_IN the_DT number_NN of_IN spray_NN splash_NN particles_NNS by_IN both_DT SPH_NN and_CC FPM_NN is_VBZ less_JJR than_IN that_DT of_IN the_DT experiment_NN ,_, both_CC SPH_NP and_CC FPM_NP could_MD satisfactorily_RB reproduce_VV the_DT wave_NN breaking_VVG process_NN ._SENT 
+4.2_CD ._SENT 
+Quantitative_JJ validation_NN and_CC comparison_NN 4.2.1_CD ._SENT 
+Solitary_JJ waves_NNS on_IN a_DT horizontal_JJ bottom_NN A_DT rectangular_JJ numerical_JJ flume_NN with_IN 0.20_CD m_NN in_IN water_NN depth_NN and_CC 4_CD m_NN in_IN length_NN is_VBZ set_VVN ,_, and_CC a_DT series_NN of_IN solitary_JJ wave_NN tests_NNS are_VBP carried_VVN out_RP by_IN both_DT SPH_NN and_CC FPM_NN (_( the_DT initial_JJ spacing_NN �_JJ �_NN =_SYM 0.005_CD m_NN )_) ._SENT 
+The_DT simulated_JJ relative_JJ wave_NN heights_NNS are_VBP 0.2_CD ,_, 0.3_CD ,_, 0.4_CD ,_, 0.5_CD ,_, and_CC 0.6_CD ,_, respectively_RB ._SENT 
+According_VVG to_TO Eq_NP ._SENT 
+(_( 42_CD )_) ,_, the_DT motions_NNS of_IN the_DT wave_NN maker_NN is_VBZ shown_VVN in_IN Fig_NN ._SENT 
+6._CD It_PP can_MD be_VB seen_VVN that_IN the_DT wave_NN maker_NN begins_VVZ to_TO move_VV slowly_RB ,_, accelerates_VVZ suddenly_RB between_IN −0.5_JJ s_NNS and_CC 0.5_CD s_NNS ,_, and_CC then_RB slows_VVZ down_RB gradually_RB ._SENT 
+Considering_VVG that_IN Eq_NP ._SENT 
+(_( 42_CD )_) does_VVZ not_RB have_VH time_NN boundary_NN ,_, the_DT motion_NN process_NN of_IN wave_NN maker_NN between_IN −1.0_JJ s_NNS and_CC 1.0_CD s_NNS in_IN a_DT stroke_NN is_VBZ used_VVN in_IN this_DT study_NN ._SENT 
+The_DT larger_JJR the_DT stroke_NN ,_, the_DT greater_JJR the_DT relative_JJ wave_NN height_NN ._SENT 
+It_PP should_MD be_VB noted_VVN that_IN the_DT time_NN and_CC position_NN shown_VVN in_IN Fig_NN ._SENT 
+6_CD are_VBP both_DT relative_JJ values_NNS ._SENT 
+The_DT start_NN time_NN is_VBZ 0_CD s_NN and_CC the_DT initial_JJ position_NN of_IN wave_NN maker_NN is_VBZ x_SYM =_SYM 0_CD m_NN in_IN the_DT actual_JJ simulation_NN ._SENT 
+Fig_NN ._SENT 
+6._CD The_NP motions_NNS of_IN the_DT wave_NN maker_NN for_IN different_JJ relative_JJ wave_NN heights_NNS ._SENT 
+Fig_NN ._SENT 
+7_CD shows_NNS the_DT solitary_JJ waves_NNS of_IN different_JJ relative_JJ wave_NN heights_NNS (_( 0.2_CD and_CC 0.6_CD )_) generated_VVN by_IN FPM_NP and_CC SPH_NP ._SENT 
+In_IN the_DT ascent_NN stage_NN ,_, the_DT surface_NN elevations_NNS simulated_JJ by_IN both_DT FPM_NN and_CC SPH_NN fit_VVP the_DT leading-order_NN solution_NN of_IN Eq_NP ._SENT 
+(_( 1_LS )_) well_RB ._SENT 
+However_RB ,_, in_IN the_DT descent_NN stage_NN ,_, there_EX exists_VVZ a_DT lag_NN for_IN the_DT surface_NN elevation_NN in_IN the_DT numerical_JJ simulations_NNS ,_, especially_RB for_IN a_DT higher_JJR relative_JJ wave_NN height_NN (_( 0.6_CD )_) ._SENT 
+After_IN the_DT descent_NN stage_NN ,_, the_DT free_JJ surface_NN simulated_JJ by_IN SPH_NN becomes_VVZ lower_JJR than_IN the_DT still_JJ water_NN ,_, which_WDT does_VVZ not_RB happen_VV for_IN FPM_NN ._SENT 
+Fig_NN ._SENT 
+8_CD plots_NNS the_DT target_NN H0/d0_NN value_NN versus_CC simulated_JJ H0/d0_JJ value_NN ,_, showing_VVG a_DT very_RB small_JJ discrepancy_NN within_IN 3_CD %_NN ._SENT 
+It_PP is_VBZ indicated_VVN that_IN the_DT wave_NN maker_NN works_VVZ well_RB when_WRB the_DT generated_VVN wave_NN height_NN is_VBZ less_JJR than_IN the_DT maximum_JJ stable_JJ value_NN on_IN a_DT horizontal_JJ bottom_NN (_( 0.78d0_NP )_) ._SENT 
+Fig_NN ._SENT 
+7._CD Solitary_JJ waves_NNS of_IN different_JJ relative_JJ wave_NN heights_NNS generated_VVN by_IN FPM_NN and_CC SPH_NN with_IN �_JJ �_NN =_SYM 0.005_CD m_NN :_: (_( a_DT )_) H0/d0_NP =_SYM 0.2_CD and_CC (_( b_LS )_) H0/d0_NP =_SYM 0.6_CD ._SENT 
+Fig_NN ._SENT 
+8._CD Target_NP H0/d0_JJ value_NN versus_CC simulated_JJ H0/d0_JJ value_NN ._SENT 
+Fig_NN ._SENT 
+9_CD shows_NNS a_DT comparison_NN of_IN the_DT spatial_JJ wave_NN elevations_NNS between_IN the_DT numerical_JJ simulation_NN and_CC leading-order_NN solution_NN for_IN H0/d0_NP =_SYM 0.3_CD at_IN dimensionless_JJ time_NN tg/d0−−−−√_NN =_SYM 17.55_CD ._SENT 
+It_PP can_MD be_VB seen_VVN that_IN before_IN wave_NN crest_NN the_DT elevations_NNS by_IN both_DT FPM_NN and_CC SPH_NN ,_, such_JJ as_IN the_DT regions_NNS “1”_NN and_CC “2”_NN ,_, are_VBP a_DT little_RB higher_JJR than_IN the_DT leading-order_NN solution_NN ._SENT 
+However_RB ,_, after_IN wave_NN crest_NN ,_, the_DT wave_NN elevations_NNS by_IN FPM_NP remain_VVP the_DT symmetry_NN and_CC agree_VV well_RB with_IN the_DT leading-order_NN solution_NN ._SENT 
+In_IN contrast_NN ,_, the_DT wave_NN elevations_NNS by_IN SPH_NN become_VVN asymmetric_JJ and_CC are_VBP slightly_RB inconsistent_JJ with_IN the_DT leading-order_NN solution_NN (_( see_VV the_DT regions_NNS “2”_JJ ,_, “3”_JJ and_CC “4”_JJ )_) ._SENT 
+Fig_NN ._SENT 
+9._CD A_DT comparison_NN of_IN the_DT spatial_JJ wave_NN elevations_NNS between_IN the_DT numerical_JJ simulation_NN and_CC leading-order_NN solution_NN for_IN H0/d0_NP =_SYM 0.3_CD at_IN tg/d0−−−−√=17.55_NN with_IN �_JJ �_NN =_SYM 0.005_CD m._NP Chen_NP et_CC al_NP ._SENT 
+(_( 2019_CD )_) conducted_VVD a_DT solitary_JJ wave_NN propagating_VVG experiment_NN at_IN a_DT wave_NN tank_NN with_IN 21_CD m_NN in_IN length_NN ,_, 0.5_CD m_NN in_IN width_NN and_CC 0.15_CD m_NN in_IN depth_NN ._SENT 
+The_DT normalized_VVN bottom_JJ dynamic_JJ wave_NN pressure_NN pbottom/P0_JJ at_NN x_SYM =_SYM 6.0_CD m_NN for_IN H0/d0_NP =_SYM 0.56_CD by_IN experimental_JJ data_NNS (_( Chen_NP et_NP al_NP ._SENT 
+,_, 2019_CD )_) ,_, analytical_JJ solutions_NNS based_VVN on_IN Green-Naghdi_NP model_NN (_( Pelinovsky_NP et_NP al_NP ._SENT 
+,_, 2015_CD )_) and_CC our_PP$ numerical_JJ results_NNS are_VBP all_RB plotted_VVD in_IN Fig_NN ._SENT 
+10_CD for_IN comparison_NN ._SENT 
+It_PP can_MD be_VB seen_VVN that_IN SPH_NN underestimates_VVZ the_DT pressure_NN during_IN the_DT evolution_NN and_CC FPM_NN gives_VVZ a_DT closer_JJR estimation_NN to_TO the_DT experimental_JJ data_NNS but_CC with_IN slight_JJ oscillation_NN ._SENT 
+Although_IN the_DT pressure_NN by_IN analytical_JJ solutions_NNS is_VBZ a_DT little_RB wider_JJR than_IN the_DT experimental_JJ data_NNS ,_, FPM_NP still_RB keeps_VVZ closer_RBR ._SENT 
+It_PP indicates_VVZ that_IN FPM_NP is_VBZ able_JJ to_TO reproduce_VV the_DT pressure_NN field_NN among_IN the_DT process_NN of_IN the_DT solitary_JJ wave_NN propagating_VVG and_CC seems_VVZ to_TO have_VH higher_JJR accuracy_NN compared_VVN with_IN SPH_NN ._SENT 
+Fig_NN ._SENT 
+10._CD Left_NP :_: a_DT schematic_JJ description_NN of_IN the_DT pressure_NN transducer_NN at_IN x_SYM =_SYM 6.0_CD m_NN ;_: Right_RB :_: the_DT evolution_NN of_IN normalized_VVN bottom_JJ dynamic_JJ wave_NN pressure_NN at_IN x_SYM =_SYM 6.0_CD m_NN for_IN H0/d0_NP =_SYM 0.56_CD with_IN �_JJ �_NN =_SYM 0.005_CD m_NN (_( Chen_NP et_NP al_NP ._SENT 
+,_, 2019_CD )_) ,_, where_WRB pbottom_NP is_VBZ the_DT bottom_JJ dynamic_JJ wave_NN pressure_NN and_CC P0_NN is_VBZ the_DT hydrostatic_JJ pressure_NN (_( P0_NN =_SYM ρgd0_NN )_) ._SENT 
+4.2.2_CD ._SENT 
+Wave_NN shoaling_VVG over_IN a_DT slope_NN The_DT wave_NN shoaling_VVG happens_VVZ while_IN propagating_VVG over_IN a_DT slope_NN ,_, and_CC then_RB the_DT wave_NN height_NN increases_NNS with_IN decreasing_VVG water_NN depth_NN ._SENT 
+The_DT increase_NN in_IN wave_NN height_NN makes_VVZ wave_NN unstable_JJ and_CC eventually_RB breaking_VVG ._SENT 
+Hafsteinsson_NP et_NP al_NP ._SENT 
+(_( 2017_CD )_) conducted_VVD a_DT series_NN of_IN experiments_NNS to_TO study_VV the_DT run-up_NN features_VVZ of_IN breaking_VVG solitary_JJ waves_NNS over_IN a_DT plane_NN sloping_VVG beach_NN ._SENT 
+Different_JJ slopes_NNS s_JJ and_CC relative_JJ wave_NN heights_NNS H0’_JJ under_IN various_JJ still_JJ water_NN depths_NNS d0_NN were_VBD considered_VVN in_IN their_PP$ experiments_NNS ._SENT 
+For_IN comparison_NN ,_, two_CD typical_JJ experimental_JJ cases_NNS of_IN wave_NN shoaling_VVG were_VBD simulated_JJ by_IN FPM_NP and_CC SPH_NP ,_, where_WRB s_NNS =_SYM 1/57.29_CD ,_, H0/d0_NP =_SYM 0.4_CD and_CC d0_NP =_SYM 0.16_CD m_NN for_IN Case_NP One_CD and_CC s_NNS =_SYM 1/19.08_CD ,_, H0/d0_NP =_SYM 0.2_CD and_CC d0_NP =_SYM 0.20_CD m_NN for_IN Case_NP Two_CD ._SENT 
+Fig_NN ._SENT 
+11_CD ,_, Fig_NN ._SENT 
+12_CD show_NN the_DT variations_NNS of_IN relative_JJ amplitude_NN a/d_NNS versus_CC relative_JJ location_NN (_( x-B)/d0_NP ,_, where_WRB a_DT and_CC d_SYM are_VBP the_DT amplitude_NN and_CC local_JJ water_NN depth_NN ,_, respectively_RB ._SENT 
+The_DT experimental_JJ results_NNS of_IN Hafsteinsson_NP et_CC al_NP ._SENT 
+(_( 2017_CD )_) indicated_VVD that_IN a/d_JJ increases_NNS with_IN the_DT increasing_VVG x/d0_NN ._SENT 
+For_IN the_DT effect_NN of_IN s_NN ,_, the_DT wave_NN shoaling_VVG occurs_VVZ at_IN a_DT shorter_JJR relative_JJ distance_NN but_CC reaches_VVZ a_DT higher_JJR a/d_NN value_NN for_IN a_DT steeper_JJR slope_NN (_( s_NNS =_SYM 1/19.08_CD )_) ._SENT 
+For_IN instance_NN ,_, the_DT wave_NN shoaling_VVG for_IN s_NP =_SYM 1/19.08_CD starts_NNS approximately_RB at_IN (_( x-B)/d0_NN =_SYM 4.0_CD and_CC a/d_RB finally_RB reaches_VVZ 2.145_CD as_RB shown_VVN in_IN Fig_NN ._SENT 
+12_CD ,_, whereas_IN the_DT wave_NN shoaling_VVG for_IN s_NP =_SYM 1/57.29_CD starts_NNS approximately_RB at_IN (_( x-B)/d0_NN =_SYM 10.0_CD and_CC a/d_RB finally_RB reaches_VVZ only_RB 1.147_CD as_IN shown_VVN in_IN Fig_NN ._SENT 
+11._CD It_PP is_VBZ noted_VVN that_IN the_DT slope_NN rather_RB than_IN the_DT water_NN depth_NN plays_VVZ a_DT key_JJ factor_NN in_IN the_DT wave_NN shoaling_VVG distance_NN ._SENT 
+Fig_NN ._SENT 
+11._CD Spatial_JJ evolution_NN of_IN wave_NN shoaling_VVG for_IN Case_NP One_CD (_( s_NN =_SYM 1/57.29_CD ,_, H0/d0_NP =_SYM 0.4_CD and_CC d0_NP =_SYM 0.16_CD m_NN )_) ._SENT 
+Fig_NN ._SENT 
+12._CD Spatial_JJ evolution_NN of_IN wave_NN shoaling_VVG for_IN Case_NP Two_CD (_( s_NN =_SYM 1/19.08_CD ,_, H0/d0_NP =_SYM 0.2_CD and_CC d0_NP =_SYM 0.20_CD m_NN )_) ._SENT 
+For_IN Case_NP One_CD in_IN Fig_NN ._SENT 
+11_CD ,_, the_DT results_NNS of_IN SPH_NN deviate_NN from_IN the_DT experimental_JJ results_NNS and_CC seriously_RB underestimate_VVP a/d_RB almost_RB throughout_IN the_DT entire_JJ range_NN of_IN (_( x-B)/d0_NP ._SENT 
+By_IN comparison_NN ,_, the_DT results_NNS of_IN FPM_NP provide_VVP good_JJ predictions_NNS of_IN a/d_NNS for_IN (_( x-B)/d0≤23.0_NN and_CC underestimate_NN a/d_NNS to_TO a_DT lesser_JJR extent_NN for_IN (_( x-B)/d0_NN >_SYM 23.0_CD ._SENT 
+For_IN Case_NP Two_CD in_IN Fig_NN ._SENT 
+12_CD ,_, both_CC SPH_NP and_CC FPM_NP provide_VVP better_JJR predictions_NNS of_IN a/d_NNS than_IN those_DT for_IN Case_NP One_CD in_IN Fig_NN ._SENT 
+11._CD The_NP results_NNS of_IN SPH_NN are_VBP always_RB lower_JJR than_IN FPM_NN and_CC stop_VV at_IN a/d_NP =_SYM 1.622_CD ,_, which_WDT is_VBZ much_RB smaller_JJR than_IN the_DT peak_JJ a/d_NN =_SYM 2.145_CD of_IN experiments_NNS ._SENT 
+By_IN comparison_NN ,_, the_DT results_NNS of_IN FPM_NN are_VBP well_RB consistent_JJ with_IN the_DT experimental_JJ results_NNS and_CC are_VBP only_RB slightly_RB underestimated_VVN ._SENT 
+Although_IN the_DT curve_NN for_IN FPM_NP gradually_RB deviates_VVZ from_IN that_DT for_IN the_DT experiment_NN at_IN the_DT end_NN stage_NN of_IN (_( x-B)/d0_NP ,_, the_DT peak_NN value_NN of_IN a/d_NNS of_IN FPM_NN is_VBZ very_RB close_JJ to_TO the_DT peak_JJ a/d_NN =_SYM 2.145_CD of_IN experiments_NNS ._SENT 
+The_DT qualitative_JJ and_CC quantitative_JJ validations_NNS give_VVP evidence_NN that_IN both_DT FPM_NN and_CC SPH_NN are_VBP able_JJ to_TO simulate_VV the_DT solitary_JJ waves_NNS over_IN a_DT slope_NN ._SENT 
+Moreover_RB ,_, the_DT FPM_NN provides_VVZ better_JJR results_NNS in_IN terms_NNS of_IN wave_NN generation_NN and_CC wave_NN shoaling_VVG than_IN SPH_NN ._SENT 
+<Section> 5._CD Numerical_JJ investigations_NNS of_IN solitary_JJ wave_NN breaking_NN by_IN FPM_NP </Section> 5.1_CD ._SENT 
+Convergence_NN study_NN A_DT convergence_NN study_NN was_VBD conducted_VVN on_IN the_DT estimation_NN of_IN breaking_VVG position_NN Xb_NN which_WDT is_VBZ important_JJ for_IN the_DT simulation_NN of_IN wave_NN breaking_NN ._SENT 
+The_DT convergence_NN was_VBD examined_VVN through_IN a_DT comparison_NN with_IN the_DT prediction_NN by_IN Eq_NP ._SENT 
+(_( 5_CD )_) ._SENT 
+As_IN shown_VVN in_IN Fig_NN ._SENT 
+13_CD ,_, four_CD different_JJ initial_JJ spacings_NNS �_JJ �_NN =_SYM 0.0025_CD ,_, 0.005_CD ,_, 0.008_CD and_CC 0.01_CD m_NN were_VBD tested_VVN for_IN the_DT slope_NN s_NN =_SYM 1/15_CD and_CC the_DT relative_JJ wave_NN height_NN H0′_NP =_SYM 0.40_CD ._SENT 
+Although_IN the_DT breaking_NN positions_NNS Xb_VVP simulated_JJ by_IN FPM_NN are_VBP all_RB shoreward_JJ than_IN Xb_NP =_SYM 2.28_CD predicted_VVN by_IN Eq_NP ._SENT 
+(_( 5_CD )_) ,_, it_PP can_MD be_VB seen_VVN that_IN a_DT finer_JJR initial_JJ spacing_NN results_NNS in_IN a_DT closer_JJR breaking_NN position_NN ._SENT 
+In_IN the_DT present_JJ study_NN ,_, the_DT initial_JJ spacing_NN �_JJ �_NN =_SYM 0.005_CD m_NN was_VBD chosen_VVN due_JJ to_TO an_DT equilibrium_NN between_IN accuracy_NN and_CC computational_JJ cost_NN ,_, where_WRB the_DT bias_NN is_VBZ negligible_JJ (_( about_RB 3_CD %_NN )_) but_CC the_DT computational_JJ cost_NN can_MD be_VB greatly_RB lowered_VVN ._SENT 
+Fig_NN ._SENT 
+13._CD Convergence_NN study_NN on_IN breaking_VVG position_NN Xb_NN simulated_JJ by_IN FPM_NP ._SENT 
+5.2_CD ._SENT 
+Sensitivity_NN analysis_NN of_IN artificial_JJ viscous_JJ term_NN De_NP Padova_NP et_CC al_NP ._SENT 
+(_( 2014_CD )_) pointed_VVD out_RP that_IN the_DT value_NN selection_NN of_IN empirical_JJ coefficient_NN α_NN in_IN Eqs_NP ._SENT 
+(_( 18_CD )_) ,_, (_( 31_CD )_) ,_, (_( 32_CD )_) can_MD drastically_RB change_VV the_DT computational_JJ results_NNS ._SENT 
+The_DT coefficient_NN α_NN determines_VVZ the_DT magnitude_NN of_IN the_DT artificial_JJ viscous_JJ term_NN ._SENT 
+For_IN H0′_NP =_SYM 0.6_CD and_CC s_NNS =_SYM 1/15_CD ,_, Fig_NN ._SENT 
+14_CD illustrates_VVZ a_DT sensitivity_NN analysis_NN of_IN α_NN ranging_VVG from_IN 0.002_CD to_TO 0.05_CD on_IN Hb/db_NP ,_, db/d0_NP ,_, Xb_NP and_CC R/H0_NP ._SENT 
+Fig_NN ._SENT 
+14._CD Sensitivity_NN analysis_NN of_IN α_NP for_IN H0′_NP =_SYM 0.6_CD ,_, s_NNS =_SYM 1/15_CD with_IN �_JJ �_NN =_SYM 0.005_CD m_NN :_: (_( a_DT )_) FPM_NN ,_, and_CC (_( b_LS )_) SPH_NN ._SENT 
+All_PDT the_DT biases_NNS are_VBP calculated_VVN based_VVN on_IN the_DT predictions_NNS by_IN Eqs_NP ._SENT 
+(_( 3_CD )_) ,_, (_( 4_LS )_) ,_, (_( 5_CD )_) ,_, (_( 6_CD )_) ._SENT 
+The_DT “no_NP bias”_NN in_IN Fig_NN ._SENT 
+14_CD represents_VVZ the_DT absolute_JJ consistency_NN with_IN predictions_NNS ._SENT 
+The_DT biases_NNS in_IN Hb/db_NP ,_, db/d0_NP and_CC Xb_NP remain_VVP stable_NN ,_, whose_WP$ largest_JJS variations_NNS by_IN FPM_NN are_VBP less_JJR than_IN 11.07_CD %_NN throughout_IN the_DT range_NN of_IN α_NP ._SENT 
+In_IN contrast_NN ,_, the_DT biases_NNS in_IN R/H0_NP vary_VVP dramatically_RB versus_IN α_NN ,_, indicating_VVG that_IN R/H0_NP is_VBZ very_RB sensitive_JJ to_TO the_DT variation_NN of_IN α_NP ._SENT 
+Consequently_RB ,_, it_PP can_MD be_VB concluded_VVN that_IN the_DT variation_NN of_IN α_NP has_VHZ a_DT significant_JJ effect_NN on_IN the_DT wave_NN run-up_NN but_CC has_VHZ only_RB little_JJ effect_NN on_IN the_DT wave_NN breaking_NN ._SENT 
+Moreover_RB ,_, biases_NNS in_IN Hb/db_NP ,_, db/d0_NP and_CC Xb_NP for_IN FPM_NP are_VBP much_RB closer_RBR to_TO the_DT “no_NP bias”_NN than_IN that_IN for_IN SPH_NN ._SENT 
+Therefore_RB ,_, only_JJ FPM_NN will_MD be_VB used_VVN in_IN the_DT subsequent_JJ simulations_NNS due_JJ to_TO its_PP$ better_JJR prediction_NN ._SENT 
+The_DT sensitivity_NN of_IN α_JJ requests_NNS an_DT appropriate_JJ value_NN selection_NN in_IN the_DT simulation_NN of_IN R/H0_NN ,_, and_CC we_PP further_RBR define_VV the_DT value_NN leading_VVG to_TO non-bias_NNS as_IN the_DT optimum_JJ α_NN ._SENT 
+Fig_NN ._SENT 
+15_CD shows_NNS the_DT optimum_JJ α_NN versus_CC ξ_NN for_IN FPM_NN simulating_VVG R/H0_NN under_IN various_JJ s_NNS ranging_VVG from_IN 1/35_CD to_TO 1/8_CD ._SENT 
+The_DT optimum_JJ α_NN can_MD be_VB considered_VVN as_IN a_DT function_NN of_IN f_NN (_( s_NP ,_, ξ_NP )_) and_CC be_VB fitted_VVN by_IN the_DT following_VVG empirical_JJ equation_NN @(47_JJ )_) with_IN R2_NP =_SYM 0.986_CD ._SENT 
+Eq_NP ._SENT 
+(_( 47_CD )_) provides_VVZ a_DT convenient_JJ selection_NN of_IN the_DT optimum_JJ α_NN for_IN simulating_VVG the_DT wave_NN transformation_NN by_IN FPM_NP ._SENT 
+Fig_NN ._SENT 
+15._CD The_DT optimum_JJ α_NN versus_CC ξ_NN for_IN FPM_NP ._SENT 
+5.3_CD ._SENT 
+Wave_NN breaking_VVG 5.3.1_CD ._SENT 
+Computational_JJ conditions_NNS The_DT performance_NN of_IN solitary_JJ waves_NNS propagating_VVG over_IN a_DT uniform_JJ slope_NN can_MD be_VB affected_VVN by_IN the_DT incident_NN wave_NN height_NN H0_NN ,_, still_RB water_NN depth_NN d0_NN ,_, slope_NN s_NNS ,_, etc._FW Considering_VVG various_JJ parameters_NNS ,_, Table_NN 1_CD summarizes_VVZ a_DT total_NN of_IN 40_CD runs_NNS by_IN FPM_NN (_( the_DT initial_JJ spacing_NN �_JJ �_NN =_SYM 0.005_CD m_NN )_) ._SENT 
+Ten_CD slopes_NNS s_RB ranging_VVG from_IN 1/120_CD to_TO 1/8_CD are_VBP set_VVN ._SENT 
+The_DT relative_JJ wave_NN height_NN H0′_NN ranges_NNS from_IN 0.20_CD to_TO 0.60_CD ._SENT 
+It_PP is_VBZ noted_VVN that_IN the_DT coefficient_NN α_NN is_VBZ determined_VVN by_IN Eq_NP ._SENT 
+(_( 47_CD )_) for_IN the_DT optimum_JJ value_NN ._SENT 
+Based_VVN on_IN the_DT breaking_VVG criterion_NN of_IN Grilli_NP et_CC al_NP ._SENT 
+(_( 1997_CD )_) ,_, all_DT three_CD typical_JJ wave_NN breakers_NNS are_VBP covered_VVN by_IN the_DT 40_CD runs_NNS ,_, and_CC most_JJS of_IN them_PP belong_VVP to_TO the_DT “PL”_JJ breaker_NN ._SENT 
+Table_NN 1._CD Test_NN conditions_NNS ._SENT 
+5.3.2_CD ._SENT 
+Typical_JJ wave_NN breakers_NNS Fig_VVP ._SENT 
+16_CD ,_, Fig_NN ._SENT 
+17_CD ,_, Fig_NN ._SENT 
+18_CD give_VVP examples_NNS of_IN the_DT evolutions_NNS of_IN surging_VVG breaker_NN ,_, plunging_VVG breaker_NN and_CC spilling_VVG breaker_NN ,_, respectively_RB ._SENT 
+The_DT details_NNS of_IN the_DT transformation_NN process_NN during_IN wave_NN breaking_NN can_MD be_VB clearly_RB displayed_VVN ._SENT 
+For_IN the_DT surging_JJ breaker_NN with_IN H0′_NP =_SYM 0.35_CD and_CC s_NNS =_SYM 1/8_CD as_RB shown_VVN in_IN Fig_NN ._SENT 
+16_CD ,_, the_DT wave_NN crest_NN gradually_RB becomes_VVZ asymmetric_JJ and_CC the_DT wave_NN front_NN gets_VVZ steeper_JJR and_CC steeper_JJR with_IN the_DT decreasing_VVG local_JJ water_NN depth_NN ._SENT 
+Eventually_RB ,_, the_DT wave_NN breaks_VVZ from_IN the_DT bottom_NN of_IN the_DT wave_NN front_NN reacting_VVG to_TO the_DT significant_JJ influence_NN of_IN larger_JJR slope_NN ._SENT 
+The_DT solitary_JJ wave_NN breaks_NNS at_IN the_DT location_NN where_WRB the_DT wave_NN front_NN face_NN is_VBZ vertically_RB tangent_JJ as_IN shown_VVN in_IN Fig_NN ._SENT 
+16(e_NN )_) ._SENT 
+The_DT obtained_VVN breaking_NN position_NN is_VBZ very_RB close_JJ to_TO the_DT prediction_NN of_IN Grilli_NP et_CC al_NP ._SENT 
+(_( 1997_CD )_) ._SENT 
+Fig_NN ._SENT 
+16._CD Evolution_NN of_IN free_JJ surface_NN particles_NNS for_IN a_DT surging_JJ breaker_NN (_( SU_NP )_) with_IN H0′_NP =_SYM 0.35_CD and_CC s_NNS =_SYM 1/8_CD ._SENT 
+Fig_NN ._SENT 
+17._CD Evolution_NN of_IN free_JJ surface_NN particles_NNS for_IN a_DT plunging_VVG breaker_NN (_( PL_NP )_) with_IN H0′_NP =_SYM 0.60_CD and_CC s_NNS =_SYM 1/15_CD ._SENT 
+Fig_NN ._SENT 
+18._CD Evolution_NN of_IN free_JJ surface_NN particles_NNS for_IN a_DT spilling_VVG breaker_NN (_( SP_NP )_) with_IN H0′_NP =_SYM 0.40_CD and_CC s_NNS =_SYM 1/120_CD ;_: note_NN :_: x/d0_JJ ranges_NNS from_IN 8_CD to_TO 35_CD in_IN (_( a)–(b_NP )_) ,_, and_CC from_IN 35_CD to_TO 62_CD in_IN (_( c)–(h_NP )_) ._SENT 
+Fig_NN ._SENT 
+17_CD shows_NNS the_DT evolution_NN of_IN free_JJ surface_NN particles_NNS of_IN the_DT plunging_VVG breaker_NN with_IN H0′_NP =_SYM 0.60_CD and_CC s_NNS =_SYM 1/15_CD ._SENT 
+Its_PP$ wave_NN shoaling_VVG is_VBZ stronger_JJR than_IN that_DT of_IN the_DT surging_JJ breaker_NN shown_VVN in_IN Fig_NN ._SENT 
+16._CD As_IN propagating_VVG ,_, the_DT wave_NN front_NN face_NN develops_VVZ into_IN vertical_JJ and_CC begins_VVZ to_TO collapse_VV ,_, the_DT water_NN jet_NN occurs_VVZ and_CC plunges_VVZ on_IN the_DT wave_NN front_NN face_NN ,_, and_CC then_RB an_DT air_NN cavity_NN takes_VVZ place_NN below_IN the_DT wave_NN crest_NN ._SENT 
+Eventually_RB ,_, the_DT water_NN jet_NN impacts_NNS on_IN the_DT water_NN surface_NN and_CC splashes_NNS into_IN the_DT air_NN along_IN the_DT slope_NN ._SENT 
+For_IN the_DT spilling_VVG breaker_NN with_IN H0′_NP =_SYM 0.40_CD ,_, s_NNS =_SYM 1/120_CD as_RB shown_VVN in_IN Fig_NN ._SENT 
+18_CD ,_, it_PP is_VBZ noted_VVN that_IN the_DT plane_NN beach_NN is_VBZ not_RB apparent_JJ due_RB to_TO the_DT very_RB mild_JJ slope_NN s_NNS =_SYM 1/120_CD ._SENT 
+The_DT spilling_VVG breaker_NN performs_VVZ similarly_RB to_TO the_DT plunging_VVG breaker_NN at_IN the_DT early_JJ stage_NN of_IN breaking_NN ._SENT 
+But_CC later_RBR the_DT spilling_VVG breaker_NN occurs_VVZ far_RB away_RB from_IN the_DT shoreline_NN without_IN flow_NN separation_NN ,_, which_WDT is_VBZ quite_RB different_JJ from_IN the_DT plunging_VVG breaker_NN ._SENT 
+The_DT escaped_VVN fluid_JJ particles_NNS slide_NN over_IN the_DT surface_NN and_CC spill_NN down_RB to_TO the_DT wave_NN base_NN ,_, causing_VVG turbulence_NN in_IN the_DT propagation_NN process_NN ._SENT 
+A_DT relatively_RB larger_JJR discrepancy_NN can_MD be_VB found_VVN between_IN obtained_VVN breaking_NN position_NN and_CC prediction_NN of_IN Grilli_NP et_CC al_NP ._SENT 
+(_( 1997_CD )_) and_CC the_DT reason_NN is_VBZ as_RB follows_VVZ ._SENT 
+The_DT very_RB small_JJ s_NN =_SYM 1/120_CD may_MD cause_VV biases_NNS in_IN calculating_VVG the_DT breaking_VVG depth_NN using_VVG Eq_NP ._SENT 
+(_( 3_LS )_) proposed_VVN by_IN Grilli_NP et_CC al_NP ._SENT 
+(_( 1997_CD )_) ._SENT 
+Since_IN the_DT water_NN depth_NN varies_VVZ slightly_RB in_IN the_DT x-direction_NN for_IN the_DT very_RB mild_JJ plane_NN beach_NN ,_, a_DT small_JJ bias_NN in_IN breaking_VVG depth_NN may_MD cause_VV large_JJ deviation_NN in_IN breaking_VVG position_NN ._SENT 
+On_IN this_DT ground_NN ,_, the_DT prediction_NN of_IN Grilli_NP et_CC al_NP ._SENT 
+(_( 1997_CD )_) on_IN the_DT breaking_JJ position_NN is_VBZ not_RB suitable_JJ for_IN the_DT very_RB mild_JJ slope_NN ,_, whereas_IN FPM_NP can_MD provide_VV more_JJR direct_JJ results_NNS ._SENT 
+The_DT field_NN of_IN normalized_VVN pressure_NN p′_NN =_SYM p/P0_NN (_( note_VV hydrostatic_JJ pressure_NN P0_NN =_SYM ρgd0_NN )_) for_IN the_DT three_CD typical_JJ breakers_NNS at_IN breaking_NN and_CC post-breaking_NN are_VBP shown_VVN in_IN Fig_NN ._SENT 
+19._CD At_IN the_DT breaking_NN ,_, the_DT pressure_NN fields_NNS still_RB show_VVP obvious_JJ stratifications_NNS of_IN parallel_JJ contour_NN lines_NNS for_IN all_DT breakers_NNS ._SENT 
+In_IN contrast_NN ,_, the_DT pressure_NN fields_NNS after_IN breaking_NN are_VBP of_IN intense_JJ oscillation_NN ._SENT 
+SU_NP more_RBR influences_VVZ the_DT pressure_NN field_NN around_IN the_DT wave_NN front_NN at_IN breaking_VVG and_CC post-breaking_VVG since_IN its_PP$ breaking_JJ process_NN is_VBZ very_RB quick_JJ ._SENT 
+For_IN PL_NP ,_, the_DT plunging_VVG jet_NN (_( above_IN the_DT air_NN cavity_NN )_) concentrates_VVZ on_IN a_DT position_NN and_CC forms_VVZ huge_JJ pressure_NN ,_, which_WDT extremely_RB changes_VVZ the_DT profile_NN of_IN the_DT free_JJ surface_NN ._SENT 
+For_IN SP_NP ,_, the_DT sliding_VVG fluid_NN particles_NNS cause_VVP turbulence_NN surrounding_VVG a_DT large_JJ region_NN ,_, so_RB that_IN the_DT pressure_NN contour_NN lines_NNS fluctuate_VVP and_CC are_VBP no_RB longer_RBR parallel_JJ to_TO each_DT other_JJ ._SENT 
+Fig_NN ._SENT 
+19._CD Normalized_VVN pressure_NN field_NN p′_NP =_SYM p/P0_NN for_IN the_DT three_CD typical_JJ breakers_NNS at_IN breaking_NN (_( left_VVN )_) and_CC post-breaking_JJ (_( right_NN )_) :_: (_( a_DT )_) SU_NP :_: H0′_NP =_SYM 0.35_CD and_CC s_NNS =_SYM 1/8_CD ,_, (_( b_LS )_) PL_NP :_: H0′_NP =_SYM 0.60_CD and_CC s_NNS =_SYM 1/15_CD ,_, and_CC (_( c_LS )_) SP_NP :_: H0′_NP =_SYM 0.40_CD and_CC s_NNS =_SYM 1/120_CD ._SENT 
+The_DT normalized_VVN bottom_NN dynamic_JJ of_IN three_CD typical_JJ breakers_NNS along_IN the_DT slope_NN is_VBZ shown_VVN in_IN Fig_NN ._SENT 
+20._CD In_IN terms_NNS of_IN pmax/P0_NP ,_, the_DT maximum_JJ pressure_NN pmax_NN skips_VVZ at_IN the_DT slope_NN toe_NN in_IN all_DT of_IN three_CD typical_JJ breakers_NNS and_CC varies_VVZ smoothly_RB along_IN the_DT slope_NN until_IN the_DT wave_NN breaks_VVZ ._SENT 
+At_IN the_DT stage_NN of_IN post-breaking_NN ,_, pmax/P0_NN of_IN SU_NP only_RB has_VHZ a_DT little_JJ fluctuation_NN after_IN the_DT Still_RB Water_NP Level_NP Point_NP (_( SWLP_NP ,_, the_DT cross_NN of_IN the_DT still_JJ water_NN level_NN and_CC the_DT slope_NN )_) whereas_IN pmax/P0_NN of_IN SP_NP fluctuates_VVZ at_IN a_DT large_JJ region_NN before_IN the_DT SWLP_NN ._SENT 
+Differently_RB ,_, there_EX are_VBP two_CD distinct_JJ impacts_NNS in_IN pmax/P0_NN of_IN PL_NP due_JJ to_TO the_DT plunging_NN of_IN water_NN jet_NN and_CC pmax_NN reaches_VVZ more_JJR than_IN two_CD times_NNS of_IN P0_NN in_IN the_DT second_JJ impact_NN ._SENT 
+In_IN addition_NN ,_, pmax/plocal,0_NP (_( plocal,0_NP =_SYM ρgd_NN ,_, where_WRB d_SYM denotes_VVZ local_JJ water_NN depth_NN )_) reflects_VVZ the_DT relative_JJ change_NN from_IN 1_CD to_TO infinite_NN due_JJ to_TO the_DT local_JJ water_NN depth_NN d_SYM varying_VVG from_IN d0_NN to_TO 0._CD Compared_VVN to_TO SP_NP ,_, pmax/plocal,0_NN of_IN SU_NP gradually_RB and_CC continuously_RB increases_NNS over_IN the_DT slope_NN and_CC PL_NP sharply_RB increases_VVZ after_IN wave_NN breaks_NNS ._SENT 
+pmax/plocal,0_NP of_IN SP_NP fluctuates_VVZ at_IN nearly_RB half_JJ of_IN the_DT slope_NN because_IN of_IN the_DT early_JJ breaking_NN position_NN ._SENT 
+On_IN this_DT ground_NN ,_, SP_NP affects_VVZ the_DT pressure_NN field_NN at_IN a_DT large-scale_JJ region_NN and_CC PL_NP has_VHZ a_DT violent_JJ impact_NN concentrating_VVG on_IN the_DT position_NN of_IN plunging_VVG ._SENT 
+Fig_NN ._SENT 
+20._CD The_NP normalized_VVD bottom_JJ dynamic_JJ wave_NN pressure_NN along_IN the_DT slope_NN ._SENT 
+(_( a_DT )_) SU_NP :_: H0′_NP =_SYM 0.35_CD and_CC s_NNS =_SYM 1/8_CD ,_, (_( b_LS )_) PL_NP :_: H0′_NP =_SYM 0.60_CD and_CC s_NNS =_SYM 1/15_CD ,_, and_CC (_( c_LS )_) SP_NP :_: H0′_NP =_SYM 0.40_CD and_CC s_NNS =_SYM 1/120_CD ._SENT 
+Note_NN that_IN p�_NP �_NP denotes_VVZ either_CC the_DT maximum_JJ pressure_NN pmax_NN or_CC the_DT local_JJ hydrostatic_JJ pressure_NN plocal,0_NN =_SYM ρgd_NNS (_( d_SYM denotes_VVZ local_JJ water_NN depth_NN )_) ._SENT 
+5.3.3_CD ._SENT 
+Breaking_VVG position_NN ,_, breaking_VVG depth_NN and_CC breaking_VVG index_NN For_IN the_DT breaking_VVG position_NN Xb_NN ranging_VVG from_IN the_DT toe_NN of_IN slope_NN to_TO the_DT shoreline_NN (_( i.e._FW ,_, the_DT SWLP_NN )_) ,_, the_DT relative_JJ breaking_NN position_NN sXb/d0_NN is_VBZ correspondingly_RB defined_VVN from_IN 0_CD to_TO 1._CD Fig_NN ._SENT 
+21_CD shows_NNS the_DT variation_NN of_IN sXb/d0_JJ versus_CC s_JJ (_( from_IN 1/120_CD to_TO 1/8_CD )_) with_IN various_JJ relative_JJ wave_NN heights_NNS H0′_NN (_( from_IN 0.2_CD to_TO 0.6_CD )_) ._SENT 
+For_IN the_DT mildest_JJS slope_NN s_NNS =_SYM 1/120_CD the_DT relative_JJ breaking_NN position_NN varies_VVZ from_IN 0.17_CD to_TO 0.64_CD in_IN a_DT wider_JJR range_NN ,_, whereas_IN its_PP$ range_NN from_IN 0.89_CD to_TO 0.98_CD is_VBZ much_RB narrower_JJR for_IN the_DT steepest_JJS slope_NN s_NNS =_SYM 1/8_CD ._SENT 
+According_VVG to_TO Eq_NP ._SENT 
+(_( 2_CD )_) ,_, the_DT breaker_NN type_NN transits_NNS from_IN SP_NP to_TO SU_NP with_IN the_DT increasing_VVG slope_NN ._SENT 
+It_PP can_MD be_VB concluded_VVN that_IN SU_NP tends_VVZ to_TO break_VV at_IN a_DT narrower_JJR region_NN close_NN to_TO the_DT shoreline_NN while_IN the_DT breaking_VVG positions_NNS of_IN SP_NP are_VBP much_RB scattered_VVN around_IN the_DT middle_NN of_IN the_DT slope_NN ._SENT 
+Fig_NN ._SENT 
+21._CD Variation_NN of_IN relative_JJ breaking_JJ position_NN sXb/d0_NN versus_CC slope_NN s._NN Fig_NN ._SENT 
+22_CD shows_NNS the_DT variation_NN of_IN relative_JJ breaking_JJ depth_NN db/d0_NN simulated_JJ by_IN FPM_NN versus_CC normalized_VVN parameter_NN S0/H0′_NN ,_, in_IN comparison_NN with_IN the_DT results_NNS by_IN the_DT empirical_JJ relationship_NN of_IN Eq_NP ._SENT 
+(_( 3_CD )_) ._SENT 
+It_PP can_MD be_VB seen_VVN that_IN most_JJS data_NNS points_NNS agree_VVP well_RB with_IN the_DT prediction_NN of_IN Grilli_NP et_CC al_NP ._SENT 
+(_( 1997_CD )_) ,_, however_RB ,_, some_DT results_NNS for_IN PL_NP agree_VVP well_RB with_IN the_DT prediction_NN for_IN SU_NP ._SENT 
+It_PP indicates_VVZ the_DT factitious_JJ classification_NN on_IN breaker_NN types_NNS is_VBZ not_RB so_RB absolute_JJ ,_, and_CC there_EX exists_VVZ a_DT transition_NN ._SENT 
+When_WRB the_DT breaker_NN type_NN tends_VVZ to_TO SU_NP ,_, the_DT breaking_VVG depth_NN decreases_NNS ._SENT 
+Fig_NN ._SENT 
+22._CD Variation_NN of_IN relative_JJ breaking_JJ depth_NN db/d0_NN versus_CC normalized_VVN parameters_NNS S0/H0′_JJ ._SENT 
+Fig_NN ._SENT 
+23_CD shows_NNS the_DT variation_NN of_IN breaking_VVG index_NN Hb/db_NN simulated_JJ by_IN FPM_NN versus_CC parameter_NN S0_NN ,_, in_IN comparison_NN with_IN the_DT results_NNS by_IN the_DT empirical_JJ relationship_NN of_IN Eq_NP ._SENT 
+(_( 4_CD )_) ._SENT 
+The_DT data_NNS points_NNS for_IN S0_JJ < 0.25 collapse well into the prediction of Grilli et al. (1997), while the data points for S0 > 0.25_CD are_VBP much_RB larger_JJR and_CC even_RB can_MD reach_VV three_CD times_NNS of_IN the_DT prediction_NN of_IN Grilli_NP et_CC al_NP ._SENT 
+(_( 1997_CD )_) ._SENT 
+As_IN discussed_VVN earlier_RBR ,_, the_DT breaking_VVG positions_NNS of_IN SU_NP are_VBP concentrated_VVN in_IN the_DT region_NN close_NN to_TO the_DT shoreline_NN where_WRB the_DT breaking_VVG depth_NN db_NN is_VBZ very_RB small_JJ ,_, so_RB a_DT small_JJ variation_NN in_IN breaking_VVG position_NN will_MD greatly_RB change_VV Hb/db_NN for_IN SU_NP ._SENT 
+The_DT prediction_NN of_IN Grilli_NP et_CC al_NP ._SENT 
+(_( 1997_CD )_) on_IN the_DT breaking_VVG index_NN Hb/db_NN by_IN Eq_NP ._SENT 
+(_( 4_CD )_) is_VBZ of_IN insufficient_JJ precision_NN for_IN the_DT very_RB small_JJ breaking_VVG depth_NN ,_, leading_VVG to_TO the_DT large_JJ discrepancy_NN of_IN Hb/db_NP for_IN S0_NP >_SYM 0.25_CD ._SENT 
+The_DT results_NNS simulated_JJ by_IN FPM_NP indicate_VVP that_IN the_DT breaking_VVG index_NN Hb/db_NN gradually_RB becomes_VVZ an_DT unstable_JJ value_NN when_WRB the_DT breaker_NN type_NN transits_VVZ to_TO SU_NP ._SENT 
+Fig_NN ._SENT 
+23._CD Variation_NN of_IN breaking_VVG index_NN Hb/db_NN versus_CC parameter_NN S0_NN ._SENT 
+5.3.4_CD ._SENT 
+Wave_NN celerity_NN at_IN breaking_VVG The_DT breaking_VVG wave_NN celerity_NN is_VBZ an_DT important_JJ kinematic_JJ property_NN especially_RB for_IN estimating_VVG the_DT slamming_VVG load_NN on_IN offshore_JJ structures_NNS since_IN it_PP is_VBZ closely_RB related_VVN to_TO the_DT wave_NN force_NN ._SENT 
+Meanwhile_RB ,_, it_PP is_VBZ also_RB often_RB used_VVN to_TO predict_VV the_DT occurrence_NN of_IN a_DT breaker_NN ._SENT 
+In_IN the_DT view_NN of_IN kinematics_NN ,_, the_DT wave_NN crest_NN will_MD form_VV a_DT jet_NN and_CC subsequently_RB collapse_NN if_IN the_DT horizontal_JJ celerity_NN of_IN wave_NN crest_NN is_VBZ larger_JJR than_IN the_DT wave_NN speed_NN ._SENT 
+In_IN general_NN ,_, the_DT wave_NN celerity_NN cb_NN at_IN the_DT breaking_JJ position_NN can_MD be_VB regarded_VVN as_IN the_DT maximum_JJ celerity_NN throughout_IN the_DT wave_NN propagation_NN process_NN ._SENT 
+Fig_NN ._SENT 
+24_CD shows_NNS the_DT variation_NN of_IN normalized_VVN celerity_NN cb/c_NN versus_IN s_NNS for_IN various_JJ H0′_NN ,_, where_WRB the_DT wave_NN speed_NN c_SYM positively_RB correlates_VVZ to_TO the_DT wave_NN height_NN ._SENT 
+The_DT results_NNS show_VVP that_IN larger_JJR relative_JJ wave_NN height_NN generally_RB leads_VVZ to_TO a_DT larger_JJR cb/c_NN under_IN the_DT same_JJ slope_NN s_NNS and_CC cb/c_NN generally_RB decreases_VVZ with_IN increasing_VVG slope_NN s_NNS ,_, especially_RB obvious_JJ for_IN lower_JJR H0′_NN ._SENT 
+The_DT results_NNS indicate_VVP that_IN there_EX is_VBZ no_DT clear_JJ relationship_NN between_IN the_DT wave_NN celerity_NN at_IN breaking_NN and_CC the_DT breaker_NN type_NN ,_, especially_RB for_IN the_DT cases_NNS with_IN large_JJ wave_NN heights_NNS ._SENT 
+On_IN the_DT other_JJ hand_NN ,_, it_PP is_VBZ found_VVN that_IN the_DT maximum_JJ cb/c_NN is_VBZ no_RB more_JJR than_IN 1.30_CD for_IN H0′<0.60_NP and_CC cb/c_NP can_MD even_RB be_VB always_RB smaller_JJR than_IN 1.0_CD (_( e.g._FW ,_, H0′_NN =_SYM 0.20_CD )_) ,_, illustrating_VVG the_DT celerity_NN at_IN breaking_NN do_VVP not_RB require_VV the_DT value_NN much_RB larger_JJR than_IN the_DT wave_NN speed_NN ._SENT 
+For_IN a_DT quick_JJ estimation_NN ,_, we_PP could_MD safely_RB set_VV an_DT upper_JJ limit_NN of_IN the_DT maximum_JJ cb_NN as_IN two_CD times_NNS of_IN the_DT wave_NN speed_NN c._JJ Fig_NN ._SENT 
+24._CD Variation_NN of_IN normalized_VVN celerity_NN cb/c_NN versus_IN s._NP 5.3.5_CD ._SENT 
+Run-up_NN of_IN breaking_VVG waves_NNS The_DT run-up_NN height_NN of_IN breaking_VVG waves_NNS represents_VVZ the_DT energy_NN transformation_NN process_NN from_IN kinetic_JJ energy_NN to_TO potential_JJ energy_NN ._SENT 
+The_DT smaller_JJR kinetic_JJ energy_NN a_DT water_NN particle_NN with_IN the_DT unit_NN mass_NN contains_VVZ ,_, the_DT smaller_JJR run-up_NN height_NN it_PP reaches_VVZ ._SENT 
+Normalizing_VVG the_DT run-up_NN height_NN with_IN incident_NN wave_NN height_NN H0_NN ,_, an_DT energy_NN relation_NN indicating_VVG the_DT proportion_NN of_IN energy_NN remaining_VVG after_IN breaking_NN can_MD be_VB obtained_VVN ._SENT 
+In_IN other_JJ words_NNS ,_, the_DT normalized_VVN run-up_NN height_NN R/H0_NN can_MD be_VB regarded_VVN as_IN a_DT symbol_NN of_IN energy_NN dissipation_NN ._SENT 
+Fig_NN ._SENT 
+25_CD shows_NNS the_DT variation_NN of_IN normalized_VVN run-up_NN height_NN R/H0_NN versus_IN S0_NP ._SENT 
+R/H0_NP shows_VVZ an_DT upward_JJ trend_NN and_CC scatters_NNS with_IN the_DT increase_NN of_IN S0_NP ._SENT 
+According_VVG to_TO the_DT breaking_VVG criterion_NN S0_NN ,_, R/H0_NP generally_RB becomes_VVZ larger_JJR and_CC larger_JJR in_IN the_DT transition_NN from_IN SP_NP to_TO SU_NP ._SENT 
+Namely_RB ,_, the_DT efficiency_NN of_IN wave_NN dissipation_NN is_VBZ getting_VVG lower_JJR ._SENT 
+It_PP can_MD be_VB concluded_VVN that_IN if_IN without_IN any_DT other_JJ hydraulic_JJ structures_NNS SP_NP is_VBZ a_DT better_JJR choice_NN to_TO dissipate_VV wave_NN energy_NN and_CC thus_RB weaken_VV the_DT wave_NN impacting_VVG on_IN the_DT shoreline_NN ._SENT 
+Fig_NN ._SENT 
+25._CD Variation_NN of_IN normalized_VVN run-up_NN height_NN R/H0_NN versus_CC S0_NN ._SENT 
+<Section> 6._CD Conclusions_NNS </Section> In_IN this_DT paper_NN ,_, we_PP numerically_RB investigated_VVD the_DT breaking_NN of_IN solitary_JJ waves_NNS over_IN a_DT slope_NN by_IN using_VVG the_DT FPM_NN ._SENT 
+A_DT modified_JJ PST_NP is_VBZ integrated_VVN to_TO prevent_VV corrective_JJ matrix_NN from_IN being_VBG ill-conditioned_VVN ,_, so_RB as_RB to_TO be_VB able_JJ to_TO well_RB treat_VV incompressible_JJ flows_NNS with_IN violent_JJ free_JJ surfaces_VVZ ._SENT 
+A_DT comparative_JJ study_NN was_VBD firstly_RB conducted_VVN to_TO show_VV the_DT better_JJR performance_NN of_IN FPM_NN over_IN SPH_NN in_IN modelling_VVG incompressible_JJ flows_NNS in_IN terms_NNS of_IN wave_NN generation_NN and_CC wave_NN shoaling_VVG ._SENT 
+Next_RB ,_, the_DT solitary_JJ wave_NN breaking_NN was_VBD investigated_VVN by_IN a_DT series_NN of_IN simulations_NNS by_IN FPM_NN in_IN the_DT view_NN of_IN breaker_NN types_NNS ,_, breaking_VVG position_NN ,_, breaking_VVG index_NN ,_, breaking_VVG depth_NN ,_, wave_NN celerity_NN at_IN breaking_NN and_CC run-up_NN height_NN of_IN breaking_VVG waves_NNS ._SENT 
+From_IN the_DT discussion_NN and_CC analysis_NN of_IN results_NNS ,_, we_PP can_MD conclude_VV :_: 1)Coupled_VVN with_IN PST_NP ,_, both_DT SPH_NN and_CC FPM_NN can_MD generate_VV solitary_JJ waves_NNS of_IN different_JJ relative_JJ wave_NN heights_NNS well_RB with_IN errors_NNS less_JJR than_IN 3_CD %_NN ._SENT 
+The_DT further_JJR comparison_NN indicates_VVZ that_IN FPM_NP performs_VVZ better_RBR than_IN SPH_NN in_IN simulating_VVG the_DT pressure_NN field_NN and_CC wave_NN shoaling_VVG ._SENT 
+2)The_JJ sensitivity_NN analysis_NN indicates_VVZ that_IN the_DT coefficient_NN α_NN of_IN the_DT artificial_JJ viscous_JJ term_NN has_VHZ a_DT significant_JJ effect_NN on_IN the_DT wave_NN run-up_NN but_CC has_VHZ only_RB little_JJ effect_NN on_IN the_DT wave_NN breaking_NN ._SENT 
+An_DT empirical_JJ equation_NN is_VBZ proposed_VVN for_IN a_DT convenient_JJ selection_NN of_IN the_DT optimal_JJ α_NN for_IN simulating_VVG the_DT wave_NN transformation_NN by_IN FPM_NP ._SENT 
+3)FPM_NP can_MD well_RB simulate_VVP the_DT solitary_JJ wave_NN transformation_NN over_IN a_DT slope_NN and_CC display_VV the_DT details_NNS of_IN three_CD typical_JJ breakers_NNS including_VVG surging_JJ breaker_NN (_( SU_NP )_) ,_, plunging_VVG breaker_NN (_( PL_NP )_) and_CC spilling_VVG breaker_NN (_( SP_NP )_) ._SENT 
+The_DT results_NNS illustrate_VVP that_IN the_DT fluid_JJ particles_NNS of_IN SP_NP gliding_VVG on_IN the_DT surface_NN lead_NN to_TO a_DT large-scale_JJ region_NN of_IN the_DT turbulence_NN ,_, which_WDT extremely_RB changes_VVZ the_DT pressure_NN field_NN along_IN the_DT wave_NN propagating_VVG ._SENT 
+On_IN the_DT contrary_NN ,_, the_DT influence_NN of_IN PL_NP concentrates_VVZ on_IN the_DT position_NN impacted_VVN by_IN the_DT plunging_VVG jet_NN and_CC SU_NP concentrates_VVZ on_IN the_DT wave_NN front_NN ._SENT 
+Generally_RB ,_, SP_NP affects_VVZ the_DT pressure_NN field_NN more_RBR extensive_JJ than_IN PL_NP and_CC SU_NP ._SENT 
+4)When_NP the_DT breaker_NN type_NN transits_NNS from_IN SP_NP to_TO SU_NP ,_, the_DT breaker_NN tends_VVZ to_TO break_VV at_IN a_DT narrower_JJR region_NN close_NN to_TO the_DT shoreline_NN ,_, the_DT breaking_VVG depth_NN decreases_NNS and_CC the_DT breaking_VVG index_NN gradually_RB turns_VVZ into_IN an_DT unstable_JJ value_NN ._SENT 
+In_IN addition_NN ,_, the_DT factitious_JJ classification_NN on_IN breaker_NN types_NNS is_VBZ not_RB so_RB absolute_JJ ,_, and_CC there_EX exists_VVZ a_DT transition_NN ._SENT 
+5)The_JJ wave_NN celerity_NN at_IN breaking_NN has_VHZ no_DT clear_JJ relationship_NN with_IN breaker_NN type_NN ._SENT 
+However_RB ,_, the_DT wave_NN celerity_NN at_IN breaking_VVG increases_NNS with_IN the_DT increase_NN of_IN the_DT relative_JJ wave_NN height_NN ,_, and_CC slightly_RB decreases_VVZ with_IN the_DT steeper_JJR slope_NN ._SENT 
+Furthermore_RB ,_, the_DT wave_NN celerity_NN at_IN breaking_NN is_VBZ no_RB more_JJR than_IN 1.3_CD times_NNS of_IN wave_NN speed_NN (_( the_DT relative_JJ wave_NN height_NN H0′_NP <_SYM 0.6_CD )_) and_CC even_RB can_MD be_VB smaller_JJR than_IN the_DT wave_NN speed_NN with_IN a_DT small_JJ relative_JJ wave_NN height_NN (_( e.g._FW ,_, H0′_NN =_SYM 0.2_CD )_) ._SENT 
+6)The_NNS normalized_VVD run-up_NN height_NN R/H0_NN of_IN breaking_VVG waves_NNS tends_VVZ to_TO be_VB larger_JJR from_IN SP_NP to_TO SU_NP ,_, indicating_VVG the_DT efficiency_NN of_IN wave_NN dissipation_NN is_VBZ getting_VVG lower_JJR ._SENT 
+Compared_VVN to_TO PL_NP and_CC SU_NP ,_, SP_NP is_VBZ a_DT better_JJR choice_NN to_TO dissipate_VV wave_NN energy_NN and_CC thus_RB weaken_VV the_DT wave_NN impacting_VVG shoreline_NN if_IN without_IN any_DT other_JJ hydraulic_JJ structures_NNS ._SENT 
+The_DT FPM_NN scheme_NN presented_VVN in_IN this_DT paper_NN is_VBZ a_DT single-phase_JJ flow_NN model_NN that_WDT has_VHZ some_DT discrepancies_NNS on_IN the_DT reproduction_NN of_IN entrapped_VVN air_NN cavity_NN and_CC splash-up_NN ._SENT 
+The_DT further_JJR development_NN of_IN the_DT FPM_NN is_VBZ to_TO extend_VV it_PP for_IN multi-phase_JJ flow_NN simulations_NNS for_IN applications_NNS in_IN coastal_JJ engineering_NN ,_, such_JJ as_IN air_NN entrainment_NN during_IN wave_NN transformation_NN ,_, pneumatic_JJ wave_NN energy_NN converters_NNS ,_, etc._FW The_DT advanced_JJ schemes_NNS and_CC proper_JJ turbulence_NN models_NNS are_VBP to_TO be_VB coupled_VVN with_IN for_IN the_DT enhancement_NN of_IN conservation_NN features_NNS relating_VVG to_TO volume_NN ,_, momentum_NN and_CC energy_NN ._SENT 
+In_IN addition_NN ,_, some_DT specific_JJ coastal_JJ problems_NNS may_MD require_VV a_DT large_JJ computational_JJ cost_NN ,_, therefore_RB ,_, the_DT FPM_NN coupled_VVN with_IN advanced_JJ parallel_JJ computing_NN technique_NN is_VBZ to_TO be_VB developed_VVN for_IN the_DT improvement_NN of_IN computational_JJ efficiency_NN ._SENT 
+<Section> Declaration_NN of_IN competing_VVG interest_NN </Section> The_DT authors_NNS declare_VVP that_IN they_PP have_VHP no_RB known_VVN competing_VVG financial_JJ interests_NNS or_CC personal_JJ relationships_NNS that_WDT could_MD have_VH appeared_VVN to_TO influence_VV the_DT work_NN reported_VVD in_IN this_DT paper_NN ._SENT 
+<Section> Acknowledgements_NNS </Section> This_DT work_NN was_VBD supported_VVN by_IN the_DT National_NP Natural_NP Science_NP Foundation_NP of_IN China_NP (_( Nos._NP 51979247_CD and_CC 51609211_CD )_) ,_, Natural_NP Science_NP Foundation_NP of_IN Zhejiang_NP Province_NP (_( No._NN LY19E090007_JJ )_) ,_, China_NP Postdoctoral_JJ Science_NP Foundation_NP (_( No._NN 2019M660310_NN )_) and_CC Zhoushan-ZJU_NP Joint_NP Project_NP (_( No._NN 2017C82226_NN )_) ._SENT 
+<Section> References_NNS </Section> S._NP Abolfathi_NP ,_, S._NP Dong_NP ,_, S._NP Borzooei_NP ,_, A._NP Yeganeh-Bakhtiary_NP ,_, J._NP Pearson_NP Application_NN of_IN smoothed_VVN particle_NN hydrodynamics_NNS in_IN evaluating_VVG the_DT performance_NN of_IN coastal_JJ retrofit_VV structures_NNS Coast_JJ ._SENT 
+Eng_NP ._SENT 
+Proc_NN ._SENT 
+,_, 1_CD (_( 2018_CD )_) ,_, p._NP 109_CD H._NP Akbari_NP Simulation_NP of_IN wave_NN overtopping_VVG using_VVG an_DT improved_VVN SPH_NN method_NN Coast_NP Eng_NP ._SENT 
+,_, 126_CD (_( 2017_CD )_) ,_, pp_NP ._SENT 
+51-68_CD M._NP Antuono_NP ,_, A._NP Colagrossi_NP ,_, S._NP Marrone_NP ,_, C._NP Lugni_NP Propagation_NN of_IN gravity_NN waves_NNS through_IN an_DT SPH_NN scheme_NN with_IN numerical_JJ diffusive_JJ terms_NNS Comput_NN ._SENT 
+Phys_NPS ._SENT 
+Commun_NN ._SENT 
+,_, 182_CD (_( 4_LS )_) (_( 2011_CD )_) ,_, pp_NP ._SENT 
+866-877_CD M._NP Antuono_NP ,_, A._NP Colagrossi_NP ,_, S._NP Marrone_NP ,_, D._NP Molteni_NP Free-surface_NN flows_NNS solved_VVN by_IN means_NNS of_IN SPH_NN schemes_NNS with_IN numerical_JJ diffusive_JJ terms_NNS Comput_NN ._SENT 
+Phys_NPS ._SENT 
+Commun_NN ._SENT 
+,_, 181_CD (_( 3_LS )_) (_( 2010_CD )_) ,_, pp_NP ._SENT 
+532-549_CD M._NP Antuono_NP ,_, S._NP Marrone_NP ,_, A._NP Colagrossi_NP ,_, B._NP Bouscasse_NP Energy_NP balance_NN in_IN the_DT δ-SPH_NN scheme_NN Comput_NN ._SENT 
+Methods_NNS Appl_VVP ._SENT 
+Mech_NP ._SENT 
+Eng_NN ._SENT 
+,_, 289_CD (_( 2015_CD )_) ,_, pp_NP ._SENT 
+209-226_CD J.A._NP Battjes_NNS Surf_NN similarity_NN Proc_NN ._SENT 
+14th_JJ Asce_NP Coastal_NP Engineering_NP ._SENT 
+Conf_NP (_( 1974_CD )_) ,_, pp_NP ._SENT 
+466-480_CD Copenhagen_NP ,_, Denmark_NP B._NP Bouscasse_NP ,_, A._NP Colagrossi_NP ,_, S._NP Marrone_NP ,_, M._NP Antuono_NP Nonlinear_JJ water_NN wave_NN interaction_NN with_IN floating_JJ bodies_NNS in_IN SPH_NP J._NP Fluids_NNS Struct_VVP ._SENT 
+,_, 42_CD (_( 2013_CD )_) ,_, pp_NP ._SENT 
+112-129_CD J.L._NP Cercos-Pita_NP ,_, M._NP Antuono_NP ,_, A._NP Colagrossi_NP ,_, A._NP Souto-Iglesias_NPS SPH_NP energy_NN conservation_NN for_IN fluid–solid_JJ interactions_NNS Comput_NN ._SENT 
+Methods_NNS Appl_VVP ._SENT 
+Mech_NP ._SENT 
+Eng_NN ._SENT 
+,_, 317_CD (_( 2017_CD )_) ,_, pp_NP ._SENT 
+771-791_CD Y.-Y_NN ._SENT 
+Chen_NP ,_, Y.-J_NP ._SENT 
+Li_NP ,_, H.-C_NP ._SENT 
+Hsu_NP ,_, H.-H_NP ._SENT 
+Hwung_NP The_DT pressure_NN distribution_NN beneath_IN a_DT solitary_JJ wave_NN reflecting_VVG on_IN a_DT vertical_JJ wall_NN Eur_NN ._SENT 
+J._NP Mech_NP ._SENT 
+B_SYM Fluid_JJ ,_, 76_CD (_( 2019_CD )_) ,_, pp_NP ._SENT 
+66-72_CD A._NP Colagrossi_NP ,_, M._NP Antuono_NP ,_, D._NP Le_NP Touze_VVZ Theoretical_JJ considerations_NNS on_IN the_DT free-surface_JJ role_NN in_IN the_DT smoothed-particle-hydrodynamics_NP model_NN Phys_NNS ._SENT 
+Rev._NP E_NP ,_, 79_CD (_( 5_LS )_) (_( 2009_CD )_) ,_, Article_NP 056701_CD A._NP Colagrossi_NP ,_, E._NP Rossi_NP ,_, S._NP Marrone_NP ,_, D._NP Le_NP Touzé_NP Particle_NN methods_NNS for_IN viscous_JJ flows_NNS :_: analogies_NNS and_CC differences_NNS between_IN the_DT SPH_NN and_CC DVH_NN methods_NNS Commun_NN ._SENT 
+Comput_NN ._SENT 
+Phys_NPS ._SENT 
+,_, 20_CD (_( 3_LS )_) (_( 2016_CD )_) ,_, pp_NP ._SENT 
+660-688_CD A.J.C._NP Crespo_NP ,_, C._NP Altomare_NP ,_, J.M._NP Domínguez_NP ,_, J._NP González-Cao_NP ,_, M._NP Gómez-Gesteira_NP Towards_IN simulating_VVG floating_JJ offshore_JJ oscillating_VVG water_NN column_NN converters_NNS with_IN Smoothed_VVN Particle_NN Hydrodynamics_NN Coast_NP Eng_NP ._SENT 
+,_, 126_CD (_( 2017_CD )_) ,_, pp_NP ._SENT 
+11-26_CD D._NP De_NP Padova_NP ,_, R.A._NP Dalrymple_NP ,_, M._NP Mossa_NP Analysis_NP of_IN the_DT artificial_JJ viscosity_NN in_IN the_DT smoothed_VVN particle_NN hydrodynamics_NNS modelling_VVG of_IN regular_JJ waves_NNS J._NP Hydraul_NNS ._SENT 
+Res_NNS ._SENT 
+,_, 52_CD (_( 6_CD )_) (_( 2014_CD )_) ,_, pp_NP ._SENT 
+836-848_CD D.R._NP Fuhrman_NP ,_, P.A._NP Madsen_NP Surf_NN similarity_NN and_CC solitary_JJ wave_NN runup_NN J._NP Waterw_NN ._SENT 
+Port_NP ,_, Coast_NP ._SENT 
+Ocean_NP Eng_NP ._SENT 
+,_, 134_CD (_( 3_LS )_) (_( 2008_CD )_) ,_, pp_NP ._SENT 
+195-198_CD R.A._NP Gingold_NP ,_, J.J._NP Monaghan_NP Smoothed_VVN particle_NN hydrodynamics_NNS -_: theory_NN and_CC application_NN to_TO non-spherical_JJ stars_NNS Mon_NP ._SENT 
+Not_RB ._SENT 
+R._NP Astron_NP ._SENT 
+Soc_NN ._SENT 
+,_, 181_CD (_( 2_LS )_) (_( 1977_CD )_) ,_, pp_NP ._SENT 
+375-389_CD H._NP Gotoh_NP ,_, A._NP Khayyer_NP On_IN the_DT state-of-the-art_JJ of_IN particle_NN methods_NNS for_IN coastal_JJ and_CC ocean_NN engineering_NN Coast_NP Eng_NP ._SENT 
+J._NP ,_, 60_CD (_( 1_LS )_) (_( 2018_CD )_) ,_, pp_NP ._SENT 
+79-103_CD H._NP Gotoh_NP ,_, T._NP Sakai_NP Key_NP issues_NNS in_IN the_DT particle_NN method_NN for_IN computation_NN of_IN wave_NN breaking_VVG Coast_NP Eng_NP ._SENT 
+,_, 53_CD (_( 2–3_NP )_) (_( 2006_CD )_) ,_, pp_NP ._SENT 
+171-179_CD H._NP Gotoh_NP ,_, S._NP Shao_NP ,_, T._NP Memita_NP SPH-LES_VVZ model_NN for_IN numerical_JJ investigation_NN of_IN wave_NN interaction_NN with_IN partially_RB immersed_VVN breakwater_NN Coast_NP Eng_NP ._SENT 
+J._NP ,_, 46_CD (_( 01_CD )_) (_( 2004_CD )_) ,_, pp_NP ._SENT 
+39-63_CD H._NP Gotoh_NP ,_, T._NP Shibahara_NP ,_, T._NP Sakai_NP Sub-particle-scale_NP turbulence_NN model_NN for_IN the_DT MPS_NP method_NN -_: Lagrangian_JJ flow_NN model_NN for_IN hydraulic_JJ engineering_NN J._NP Comput_NN ._SENT 
+Fluid_JJ Dyn_NN ._SENT 
+,_, 9_CD (_( 2001_CD )_) ,_, pp_NP ._SENT 
+339-347_CD S.T._NP Grilli_NP ,_, I.A._NP Svendsen_NP ,_, R._NP Subramanya_NP Breaking_VVG criterion_NN and_CC characteristics_NNS for_IN solitary_JJ waves_NNS on_IN slopes_NNS J._NP Waterw_NNS ._SENT 
+Port_NP ,_, Coast_NP ._SENT 
+Ocean_NP Eng_NP ._SENT 
+,_, 123_CD (_( 3_LS )_) (_( 1997_CD )_) ,_, pp_NP ._SENT 
+102-112_CD H.J._NP Hafsteinsson_NP ,_, F.M._NP Evers_NP ,_, W.H._NP Hager_NP Solitary_JJ wave_NN run-up_NN :_: wave_NN breaking_NN and_CC bore_NN propagation_NN J._NP Hydraul_NN ._SENT 
+Res_NNS ._SENT 
+,_, 55_CD (_( 6_CD )_) (_( 2017_CD )_) ,_, pp_NP ._SENT 
+787-798_CD J.J.V._NP Hall_NP ,_, G.M._NP Watts_NP Laboratory_NP investigation_NN of_IN the_DT vertical_JJ rise_NN of_IN solitary_JJ waves_NNS on_IN impermeable_JJ slopes_NNS Tech_NP ._SENT 
+Memo_NN ._SENT 
+,_, 33_CD (_( 1953_CD )_) (_( Beach_NP Erosion_NN Board_NP ._SENT 
+US_NP Army_NP Corps_NP of_IN Engineers_NPS ,_, Vicksburg_NP ,_, Miss_NP )_) S.-C_NP ._SENT 
+Hsiao_NP ,_, T.-W_NN ._SENT 
+Hsu_NP ,_, T.-C_NP ._SENT 
+Lin_NP ,_, Y.-H_NP ._SENT 
+Chang_NP On_IN the_DT evolution_NN and_CC run-up_NN of_IN breaking_VVG solitary_JJ waves_NNS on_IN a_DT mild_JJ sloping_JJ beach_NN Coast_NP Eng_NP ._SENT 
+,_, 55_CD (_( 12_CD )_) (_( 2008_CD )_) ,_, pp_NP ._SENT 
+975-988_CD C._NP Huang_NP ,_, D._NP Zhang_NP ,_, Y._NP Shi_NP ,_, Y._NP Si_NP ,_, B._NP Huang_NP Coupled_VVN finite_JJ particle_NN method_NN with_IN a_DT modified_JJ particle_NN shifting_VVG technology_NN Int_NP ._SENT 
+J._NP Numer_NP ._SENT 
+Methods_NNS Eng_NP ._SENT 
+,_, 113_CD (_( 2_LS )_) (_( 2018_CD )_) ,_, pp_NP ._SENT 
+179-207_CD S.M._NP Jeong_NP ,_, J.I._NP Park_NP ,_, J.C._NP Park_NP Numerical_JJ simulation_NN of_IN 2-D_JJ solitary_JJ wave_NN run-up_NN over_IN various_JJ slopes_NNS using_VVG a_DT particle-based_JJ method_NN Water_NP ,_, 11_CD (_( 3_LS )_) (_( 2019_CD )_) G._NP Katell_NP ,_, B._NP Eric_NP Accuracy_NN of_IN solitary_JJ wave_NN generation_NN by_IN a_DT piston_NN wave_NN maker_NN J._NP Hydraul_NN ._SENT 
+Res_NNS ._SENT 
+,_, 40_CD (_( 3_LS )_) (_( 2002_CD )_) ,_, pp_NP ._SENT 
+321-331_CD A._NP Khayyer_NP ,_, H._NP Gotoh_NP Development_NP of_IN CMPS_NP method_NN for_IN accurate_JJ water-surface_NNS tracking_VVG in_IN breaking_VVG waves_NNS Coast_NP Eng_NP ._SENT 
+J._NP ,_, 50_CD (_( 2_LS )_) (_( 2008_CD )_) ,_, pp_NP ._SENT 
+179-207_CD A._NP Khayyer_NP ,_, H._NP Gotoh_NP Modified_VVN Moving_VVG Particle_NN Semi-implicit_JJ methods_NNS for_IN the_DT prediction_NN of_IN 2D_JJ wave_NN impact_NN pressure_NN Coast_NP Eng_NP ._SENT 
+,_, 56_CD (_( 4_LS )_) (_( 2009_CD )_) ,_, pp_NP ._SENT 
+419-440_CD A._NP Khayyer_NP ,_, H._NP Gotoh_NP ,_, H._NP Falahaty_NP ,_, Y._NP Shimizu_NP An_DT enhanced_JJ ISPH–SPH_NN coupled_VVN method_NN for_IN simulation_NN of_IN incompressible_JJ fluid–elastic_JJ structure_NN interactions_NNS Comput_NN ._SENT 
+Phys_NPS ._SENT 
+Commun_NN ._SENT 
+,_, 232_CD (_( 2018_CD )_) ,_, pp_NP ._SENT 
+139-164_CD A._NP Khayyer_NP ,_, H._NP Gotoh_NP ,_, S.D._NP Shao_NP Corrected_VVD incompressible_JJ SPH_NN method_NN for_IN accurate_JJ water-surface_NNS tracking_VVG in_IN breaking_VVG waves_NNS Coast_NP Eng_NP ._SENT 
+,_, 55_CD (_( 3_LS )_) (_( 2008_CD )_) ,_, pp_NP ._SENT 
+236-250_CD A._NP Khayyer_NP ,_, H._NP Gotoh_NP ,_, S.D._NP Shao_NP Enhanced_VVD predictions_NNS of_IN wave_NN impact_NN pressure_NN by_IN improved_VVN incompressible_JJ SPH_NN methods_NNS Appl_NN ._SENT 
+Ocean_NN Res_NNS ._SENT 
+,_, 31_CD (_( 2_LS )_) (_( 2009_CD )_) ,_, pp_NP ._SENT 
+111-131_CD A._NP Khayyer_NP ,_, H._NP Gotoh_NP ,_, Y._NP Shimizu_NP Comparative_JJ study_NN on_IN accuracy_NN and_CC conservation_NN properties_NNS of_IN two_CD particle_NN regularization_NN schemes_NNS and_CC proposal_NN of_IN an_DT optimized_VVN particle_NN shifting_VVG scheme_NN in_IN ISPH_NN context_NN J._NP Comput_NN ._SENT 
+Phys_NPS ._SENT 
+,_, 332_CD (_( 2017_CD )_) ,_, pp_NP ._SENT 
+236-256_CD A._NP Khayyer_NP ,_, H._NP Gotoh_NP ,_, Y._NP Shimizu_NP A_DT projection-based_JJ particle_NN method_NN with_IN optimized_VVN particle_NN shifting_VVG for_IN multiphase_JJ flows_NNS with_IN large_JJ density_NN ratios_NNS and_CC discontinuous_JJ density_NN fields_NNS Comput_NN ._SENT 
+Fluids_NNS ,_, 179_CD (_( 2019_CD )_) ,_, pp_NP ._SENT 
+356-371_CD A._NP Khayyer_NP ,_, H._NP Gotoh_NP ,_, Y._NP Shimizu_NP ,_, K._NP Gotoh_NP On_IN enhancement_NN of_IN energy_NN conservation_NN properties_NNS of_IN projection-based_JJ particle_NN methods_NNS Eur_NN ._SENT 
+J._NP Mech_NP ._SENT 
+B_SYM Fluid_JJ ,_, 66_CD (_( 2017_CD )_) ,_, pp_NP ._SENT 
+20-37_CD A._NP Khayyer_NP ,_, H._NP Gotoh_NP ,_, Y._NP Shimizu_NP ,_, K._NP Gotoh_NP ,_, H._NP Falahaty_NP ,_, S._NP Shao_NP Development_NP of_IN a_DT projection-based_JJ SPH_NN method_NN for_IN numerical_JJ wave_NN flume_NN with_IN porous_JJ media_NNS of_IN variable_JJ porosity_NN Coast_NP Eng_NP ._SENT 
+,_, 140_CD (_( 2018_CD )_) ,_, pp_NP ._SENT 
+1-22_CD S._NP Khorasanizade_NP ,_, J.M.M._NP Sousa_NP An_DT innovative_JJ open_JJ boundary_NN treatment_NN for_IN incompressible_JJ SPH_NP Int_NP ._SENT 
+J._NP Numer_NP ._SENT 
+Methods_NNS Fluids_NNS ,_, 80_CD (_( 3_LS )_) (_( 2016_CD )_) ,_, pp_NP ._SENT 
+161-180_CD G.T._NP Klonaris_NP ,_, C.D._NP Memos_NP ,_, N.K._NP Drønen_NP High-order_NP boussinesq-type_NN model_NN for_IN integrated_JJ nearshore_NP dynamics_NNS J._NP Waterw_NNS ._SENT 
+Port_NP ,_, Coast_NP ._SENT 
+Ocean_NP Eng_NP ._SENT 
+,_, 142_CD (_( 6_CD )_) (_( 2016_CD )_) ,_, Article_NP 04016010_CD N._NP Kobayashi_NP ,_, E.A._NP Karjadi_NP Surf-similarity_NN parameter_NN for_IN breaking_VVG solitary-wave_NN runup_NN J._NP Waterw_NN ._SENT 
+Port_NP ,_, Coast_NP ._SENT 
+Ocean_NP Eng_NP ._SENT 
+,_, 120_CD (_( 6_CD )_) (_( 1994_CD )_) ,_, pp_NP ._SENT 
+645-650_CD Y._NP Kuai_NP ,_, M._NP Qi_NP ,_, J._NP Li_NP Numerical_JJ study_NN on_IN the_DT propagation_NN of_IN solitary_JJ waves_NNS in_IN the_DT near-shore_JJ Ocean_NP Eng_NP ._SENT 
+,_, 165_CD (_( 2018_CD )_) ,_, pp_NP ._SENT 
+155-163_CD Y._NP Li_NP ,_, F._NP Raichlen_NP Solitary_JJ wave_NN runup_NN on_IN plane_NN slopes_NNS J._NP Waterw_NNS ._SENT 
+Port_NP ,_, Coast_NP ._SENT 
+Ocean_NP Eng_NP ._SENT 
+,_, 127_CD (_( 1_LS )_) (_( 2001_CD )_) ,_, pp_NP ._SENT 
+33-44_CD Y._NP Li_NP ,_, F._NP Raichlen_NP Energy_NP balance_NN model_NN for_IN breaking_VVG solitary_JJ wave_NN runup_NN J._NP Waterw_NN ._SENT 
+Port_NP ,_, Coast_NP ._SENT 
+Ocean_NP Eng_NP ._SENT 
+,_, 129_CD (_( 2_LS )_) (_( 2003_CD )_) ,_, pp_NP ._SENT 
+47-59_CD P.Z._NP Lin_NP A_DT numerical_JJ study_NN of_IN solitary_JJ wave_NN interaction_NN with_IN rectangular_JJ obstacles_NNS Coast_NP Eng_NP ._SENT 
+,_, 51_CD (_( 1_LS )_) (_( 2004_CD )_) ,_, pp_NP ._SENT 
+35-51_CD S.J._NP Lind_NP ,_, R._NP Xu_NP ,_, P.K._NP Stansby_NP ,_, B.D._NP Rogers_NP Incompressible_JJ smoothed_VVN particle_NN hydrodynamics_NNS for_IN free-surface_JJ flows_NNS :_: a_DT generalised_VVN diffusion-based_JJ algorithm_NN for_IN stability_NN and_CC validations_NNS for_IN impulsive_JJ flows_NNS and_CC propagating_VVG waves_NNS J._NP Comput_NN ._SENT 
+Phys_NPS ._SENT 
+,_, 231_CD (_( 4_LS )_) (_( 2012_CD )_) ,_, pp_NP ._SENT 
+1499-1523_CD M.B._NP Liu_NP ,_, G.R._NP Liu_NP Restoring_VVG particle_NN consistency_NN in_IN smoothed_VVN particle_NN hydrodynamics_NN Appl_NN ._SENT 
+Numer_NP ._SENT 
+Math_NN ._SENT 
+,_, 56_CD (_( 1_LS )_) (_( 2006_CD )_) ,_, pp_NP ._SENT 
+19-36_CD M.B._NP Liu_NP ,_, G.R._NP Liu_NP Smoothed_VVN particle_NN hydrodynamics_NNS (_( SPH_NP )_) :_: an_DT overview_NN and_CC recent_JJ developments_NNS Arch_NP ._SENT 
+Comput_NN ._SENT 
+Methods_NNS Eng_NP ._SENT 
+,_, 17_CD (_( 1_LS )_) (_( 2010_CD )_) ,_, pp_NP ._SENT 
+25-76_CD M.B._NP Liu_NP ,_, W.P._NP Xie_NP ,_, G.R._NP Liu_NP Modeling_VVG incompressible_JJ flows_NNS using_VVG a_DT finite_JJ particle_NN method_NN Appl_NN ._SENT 
+Math_NN ._SENT 
+Model_NN ._SENT 
+,_, 29_CD (_( 12_CD )_) (_( 2005_CD )_) ,_, pp_NP ._SENT 
+1252-1270_CD P.L.F._NP Liu_NP ,_, C.E._NP Synolakis_NP ,_, H.H._NP Yeh_NP Report_NP on_IN the_DT international_JJ workshop_NN on_IN long-wave_NN run-up_NN J._NP Fluid_JJ Mech_NP ._SENT 
+,_, 229_CD (_( 1991_CD )_) ,_, pp_NP ._SENT 
+675-688_CD H.-Y_NN ._SENT 
+Lo_NP ,_, Y.S._NP Park_NP ,_, P.L.-F_NP ._SENT 
+Liu_NP On_IN the_DT run-up_NN and_CC back-wash_NN processes_NNS of_IN single_JJ and_CC double_JJ solitary_JJ waves—an_JJ experimental_JJ study_NN Coast_NP Eng_NP ._SENT 
+,_, 80_CD (_( 2013_CD )_) ,_, pp_NP ._SENT 
+1-14_CD S._NP Marrone_NP ,_, M._NP Antuono_NP ,_, A._NP Colagrossi_NP ,_, G._NP Colicchio_NP ,_, D._NP Le_NP Touzé_NP ,_, G._NP Graziani_NP δ-SPH_NN model_NN for_IN simulating_VVG violent_JJ impact_NN flows_NNS Comput_NN ._SENT 
+Methods_NNS Appl_VVP ._SENT 
+Mech_NP ._SENT 
+Eng_NN ._SENT 
+,_, 200_CD (_( 13–16_NP )_) (_( 2011_CD )_) ,_, pp_NP ._SENT 
+1526-1542_CD S._NP Marrone_NP ,_, A._NP Colagrossi_NP ,_, D._NP Le_NP Touzé_NP ,_, G._NP Graziani_NP Fast_NP free-surface_NN detection_NN and_CC level-set_NN function_NN definition_NN in_IN SPH_NN solvers_NNS J._NP Comput_NN ._SENT 
+Phys_NPS ._SENT 
+,_, 229_CD (_( 10_CD )_) (_( 2010_CD )_) ,_, pp_NP ._SENT 
+3652-3663_CD D.D._NP Meringolo_NP ,_, A._NP Colagrossi_NP ,_, S._NP Marrone_NP ,_, F._NP Aristodemo_NP On_IN the_DT filtering_VVG of_IN acoustic_JJ components_NNS in_IN weakly-compressible_JJ SPH_NN simulations_NNS J._NP Fluids_NNS Struct_VVP ._SENT 
+,_, 70_CD (_( 2017_CD )_) ,_, pp_NP ._SENT 
+1-23_CD D.D._NP Meringolo_NP ,_, S._NP Marrone_NP ,_, A._NP Colagrossi_NP ,_, Y._NP Liu_NP A_DT dynamic_JJ δ-SPH_NN model_NN :_: how_WRB to_TO get_VV rid_JJ of_IN diffusive_JJ parameter_NN tuning_VVG Comput_NN ._SENT 
+Fluids_NNS ,_, 179_CD (_( 2019_CD )_) ,_, pp_NP ._SENT 
+334-355_CD J.J._NP Monaghan_NP Smoothed_VVN particle_NN hydrodynamics_NN Annu_NP ._SENT 
+Rev._NP Astron_NP ._SENT 
+Astrophys_NPS ._SENT 
+,_, 30_CD (_( 1_LS )_) (_( 1992_CD )_) ,_, pp_NP ._SENT 
+543-574_CD J.J._NP Monaghan_NP Simulating_VVG free_JJ surface_NN flows_NNS with_IN SPH_NP J._NP Comput_NN ._SENT 
+Phys_NPS ._SENT 
+,_, 110_CD (_( 2_LS )_) (_( 1994_CD )_) ,_, pp_NP ._SENT 
+399-406_CD G._NP Oger_NP ,_, S._NP Marrone_NP ,_, D._NP Le_NP Touzé_NP ,_, M._NP De_NP Leffe_NP SPH_NN accuracy_NN improvement_NN through_IN the_DT combination_NN of_IN a_DT quasi-Lagrangian_JJ shifting_VVG transport_NN velocity_NN and_CC consistent_JJ ALE_NN formalisms_NNS J._NP Comput_NN ._SENT 
+Phys_NPS ._SENT 
+,_, 313_CD (_( 2016_CD )_) ,_, pp_NP ._SENT 
+76-98_CD P._NP Omidvar_NP ,_, H._NP Norouzi_NP ,_, A._NP Zarghami_NP Smoothed_VVN particle_NN hydrodynamics_NNS for_IN water_NN wave_NN propagation_NN in_IN a_DT channel_NN Int_NP ._SENT 
+J._NP Mod_NN ._SENT 
+Phys_NPS ._SENT 
+C_NP ,_, 26_CD (_( 08_CD )_) (_( 2015_CD )_) ,_, p._NP 1550085_CD E.N._NP Pelinovsky_NP ,_, K.I._NP Kuznetsov_NP ,_, J._NP Touboul_NP ,_, A.A._NP Kurkin_NP Bottom_NP pressure_NN caused_VVD by_IN passage_NN of_IN a_DT solitary_JJ wave_NN within_IN the_DT strongly_RB nonlinear_JJ Green-Naghdi_NP model_NN Dokl_NN ._SENT 
+Phys_NPS ._SENT 
+,_, 60_CD (_( 4_LS )_) (_( 2015_CD )_) ,_, pp_NP ._SENT 
+171-174_CD W.J._NP Pringle_NP ,_, N._NP Yoneyama_NP ,_, N._NP Mori_NP Two-way_JJ coupled_VVN long_JJ wave-RANS_NNS model_NN :_: solitary_JJ wave_NN transformation_NN and_CC breaking_VVG on_IN a_DT plane_NN beach_NN Coast_NP Eng_NP ._SENT 
+,_, 114_CD (_( 2016_CD )_) ,_, pp_NP ._SENT 
+99-118_CD F._NP Raichlen_NP ,_, P._NP Papanicolaou_NP Some_DT characteristics_NNS of_IN breaking_VVG waves_NNS Proceedings_NNS of_IN the_DT 21st_JJ International_NP Conference_NP on_IN Coastal_NP Engineering_NP (_( 1989_CD )_) ,_, pp_NP ._SENT 
+377-392_CD Torremolinos_NNS ,_, Spain_NP P.N._NP Sun_NP ,_, A._NP Colagrossi_NP ,_, S._NP Marrone_NP ,_, M._NP Antuono_NP ,_, A.M._NN Zhang_NP A_DT consistent_JJ approach_NN to_TO particle_NN shifting_VVG in_IN the_DT δ-Plus-SPH_NN model_NN Comput_NN ._SENT 
+Methods_NNS Appl_VVP ._SENT 
+Mech_NP ._SENT 
+Eng_NN ._SENT 
+,_, 348_CD (_( 2019_CD )_) ,_, pp_NP ._SENT 
+912-934_CD P.N._NP Sun_NP ,_, A._NP Colagrossi_NP ,_, S._NP Marrone_NP ,_, A.M._NN Zhang_NP The_DT δplus-SPH_NN model_NN :_: simple_JJ procedures_NNS for_IN a_DT further_JJR improvement_NN of_IN the_DT SPH_NN scheme_NN Comput_NN ._SENT 
+Methods_NNS Appl_VVP ._SENT 
+Mech_NP ._SENT 
+Eng_NN ._SENT 
+,_, 315_CD (_( 2017_CD )_) ,_, pp_NP ._SENT 
+25-49_CD P.N._NP Sun_NP ,_, D._NP Le_NP Touze_NN ,_, A.M._RB Zhang_NP Study_NP of_IN a_DT complex_JJ fluid-structure_NN dam-breaking_VVG benchmark_JJ problem_NN using_VVG a_DT multi-phase_JJ SPH_NN method_NN with_IN APR_NP Eng_NP ._SENT 
+Anal_JJ ._SENT 
+Bound_VVN ._SENT 
+Elem_NN ._SENT 
+,_, 104_CD (_( 2019_CD )_) ,_, pp_NP ._SENT 
+240-258_CD P.N._NP Sun_NP ,_, F.R._NP Ming_NP ,_, A.M._NN Zhang_NP Numerical_JJ simulation_NN of_IN interactions_NNS between_IN free_JJ surface_NN and_CC rigid_JJ body_NN using_VVG a_DT robust_JJ SPH_NN method_NN Ocean_NP Eng_NP ._SENT 
+,_, 98_CD (_( 2015_CD )_) ,_, pp_NP ._SENT 
+32-49_CD C.E._JJ Synolakis_NNS The_DT runup_NN of_IN solitary_JJ waves_NNS J._NP Fluid_NN Mech_NP ._SENT 
+,_, 185_CD (_( 1987_CD )_) ,_, pp_NP ._SENT 
+523-545_CD N._NP Tsuruta_NP ,_, H._NP Gotoh_NP ,_, K._NP Suzuki_NP ,_, H._NP Ikari_NP ,_, K._NP Shimosako_NP Development_NP of_IN PARISPHERE_NN as_IN the_DT particle-based_JJ numerical_JJ wave_NN flume_NN for_IN coastal_JJ engineering_NN problems_NNS Coast_NP Eng_NP ._SENT 
+J._NP ,_, 61_CD (_( 1_LS )_) (_( 2019_CD )_) ,_, pp_NP ._SENT 
+41-62_CD N._NP Tsuruta_NP ,_, A._NP Khayyer_NP ,_, H._NP Gotoh_NP A_DT short_JJ note_NN on_IN dynamic_JJ stabilization_NN of_IN moving_VVG particle_NN semi-implicit_JJ method_NN Comput_NN ._SENT 
+Fluids_NNS ,_, 82_CD (_( 2013_CD )_) ,_, pp_NP ._SENT 
+158-164_CD A._NP Valizadeh_NP ,_, J.J._NP Monaghan_NP A_DT study_NN of_IN solid_JJ wall_NN models_NNS for_IN weakly_JJ compressible_JJ SPH_NN J._NP Comput_NN ._SENT 
+Phys_NPS ._SENT 
+,_, 300_CD (_( 2015_CD )_) ,_, pp_NP ._SENT 
+5-19_CD L._NP Wang_NP ,_, A._NP Khayyer_NP ,_, H._NP Gotoh_NP ,_, Q._NP Jiang_NP ,_, C._NP Zhang_NP Enhancement_NN of_IN pressure_NN calculation_NN in_IN projection-based_JJ particle_NN methods_NNS by_IN incorporation_NN of_IN background_NN mesh_NN scheme_NN Appl_NN ._SENT 
+Ocean_NN Res_NNS ._SENT 
+,_, 86_CD (_( 2019_CD )_) ,_, pp_NP ._SENT 
+320-339_CD Y.T._NP Wu_NP ,_, P.L.F._NP Liu_NP ,_, K.S._NP Hwang_NP ,_, H.H._NP Hwung_NP Runup_NN of_IN laboratory-generated_JJ breaking_NN solitary_JJ and_CC periodic_JJ waves_NNS on_IN a_DT uniform_JJ slope_NN J._NP Waterw_NN ._SENT 
+Port_NP ,_, Coast_NP ._SENT 
+Ocean_NP Eng_NP ._SENT 
+,_, 144_CD (_( 6_CD )_) (_( 2018_CD )_) R._NP Xu_NP ,_, P._NP Stansby_NP ,_, D._NP Laurence_NP Accuracy_NN and_CC stability_NN in_IN incompressible_JJ SPH_NN (_( ISPH_NN )_) based_VVN on_IN the_DT projection_NN method_NN and_CC a_DT new_JJ approach_NN J._NP Comput_NN ._SENT 
+Phys_NPS ._SENT 
+,_, 228_CD (_( 18_CD )_) (_( 2009_CD )_) ,_, pp_NP ._SENT 
+6703-6725_CD R._NP Yan_NP ,_, J.J._NP Monaghan_NP SPH_NN simulation_NN of_IN skipping_VVG stones_NNS Eur_NN ._SENT 
+J._NP Mech_NP ._SENT 
+B_SYM Fluid_JJ ,_, 61_CD (_( 2017_CD )_) ,_, pp_NP ._SENT 
+61-71_CD Y._NP Yao_NP ,_, F._NP He_PP ,_, Z._NP Tang_NP ,_, Z._NP Liu_NP A_DT study_NN of_IN tsunami-like_JJ solitary_JJ wave_NN transformation_NN and_CC run-up_NN over_IN fringing_VVG reefs_NNS Ocean_NP Eng_NP ._SENT 
+,_, 149_CD (_( 2018_CD )_) ,_, pp_NP ._SENT 
+142-155_CD T._NP Ye_NP ,_, D.Y._NP Pan_NP ,_, C._NP Huang_NP ,_, M.B._NP Liu_NP Smoothed_VVN particle_NN hydrodynamics_NNS (_( SPH_NN )_) for_IN complex_JJ fluid_JJ flows_NNS :_: recent_JJ developments_NNS in_IN methodology_NN and_CC applications_NNS Phys_NNS ._SENT 
+Fluids_NNS ,_, 31_CD (_( 1_LS )_) (_( 2019_CD )_) ,_, Article_NP 011301_CD D.H._NP Zhang_NP ,_, Y.X._NP Shi_NP ,_, C._NP Huang_NP ,_, Y.L._NP Si_NP ,_, B._NP Huang_NP ,_, W._NP Li_NP SPH_NN method_NN with_IN applications_NNS of_IN oscillating_VVG wave_NN surge_NN converter_NN Ocean_NP Eng_NP ._SENT 
+,_, 152_CD (_( 2018_CD )_) ,_, pp_NP ._SENT 
+273-285_CD Y._NP Zhang_NP ,_, S.C._NP Yim_NP Solitary_JJ wave_NN breaking_VVG on_IN irregular_JJ 3D_JJ bathymetry_NN using_VVG a_DT coupled_VVN potential_NN +_SYM viscous_JJ flow_NN model_NN J._NP Eng_NP ._SENT 
+Mech_NN ._SENT 
+,_, 141_CD (_( 6_CD )_) (_( 2014_CD )_) ,_, Article_NP 04014171_CD Z.L._NP Zhang_NP ,_, M.B._NP Liu_NP A_DT decoupled_VVN finite_JJ particle_NN method_NN for_IN modeling_VVG incompressible_JJ flows_NNS with_IN free_JJ surfaces_VVZ Appl_NN ._SENT 
+Math_NN ._SENT 
+Model_NN ._SENT 
+,_, 60_CD (_( 2018_CD )_) ,_, pp_NP ._SENT 
+606-633_CD 

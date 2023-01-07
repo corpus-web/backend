@@ -1,0 +1,236 @@
+<title>A Collision-based Domain Decomposition scheme for large-scale depletion with the Serpent 2 Monte Carlo code</title>
+<author>1,ManuelGarcía,2,JaakkoLeppänen,3,VictorSanchez-Espinoza</author>
+<Affiliation>1,Karlsruhe Institute of Technology, Institute of Neutron Physics and Reactor Technology, Hermann-von-Helmholtz-Platz 1, 76344 Eggenstein-Leopoldshafen, Germany;2,VTT Technical Research Centre of Finland Ltd., P.O. Box 1000, FI-02044 VTT, Finland</Affiliation>
+<year>2020</year>
+<Jounral>Annals of Nuclear Energy</Journal>
+<Publishing_house>ELSEVIER</Publishing_house>
+<Text_Collector>XiaFan，HEU</Text_Collector>
+<DOI>10.1016/j.anucene.2020.108026</DOI>
+<URL>https://www.sciencedirect.com/science/article/pii/S0306454920307222</URL>
+A Collision-based Domain Decomposition scheme for large-scale depletion with the Serpent 2 Monte Carlo code
+ManuelGarcía,JaakkoLeppänen,VictorSanchez-Espinoza
+Karlsruhe Institute of Technology, Institute of Neutron Physics and Reactor Technology, Hermann-von-Helmholtz-Platz 1, 76344 Eggenstein-Leopoldshafen, Germany
+VTT Technical Research Centre of Finland Ltd., P.O. Box 1000, FI-02044 VTT, Finland
+<Section>Highlights</Section>
+Collision-based Domain Decomposition (CDD) scheme for the Serpent 2 Monte Carlo code.
+Burnup-oriented data decomposition with domain-decomposition particle-tracking algorithm.
+Two multithreading schemes for hybrid MPI-OpenMP execution.
+Good memory scalability, up to 50% speedup efficiency at 5,120 cores.
+Demonstration of full-core pin-by-pin burnup capabilities in a Pre-Konvoi PWR problem.
+<Section>Abstract</Section>
+In the framework of the EU Horizon 2020 McSAFE project, high-fidelity multiphysics capabilities are being developed to carry out large-scale burnup calculations for Light Water Reactors. As part of this effort, the Serpent 2 Monte Carlo code has been coupled to thermalhydraulics and fuel-performance codes, with the final objective of performing fully coupled full-core pin-by-pin simulations. To enable memory scalability, needed for these massive problems, a Collision-based Domain Decomposition (CDD) scheme has been implemented in Serpent 2. The methodology is based on data decomposition for burnable materials and a domain decomposition particle-tracking algorithm, and is shown here to provide the required memory scalability and computational performance, with up to 50% speedup efficiency at 5,120 cores. The application of the CDD feature is demonstrated in a pin-by-pin depletion calculation for a Pre-Konvoi PWR reactor.
+Keywords：Serpent 2;Collision-based Domain Decomposition;Pin-level depletion;High Performance Computing
+<Section>1. Introduction</Section>
+Driven by the growing interest in the nuclear industry in high-fidelity simulations for design and safety analysis of nuclear reactors, the EU Horizon 2020 McSAFE project (Mercatali, 2018) was set to tackle the implementation of multiphysics tools based on the Monte Carlo particle transport method. The general objective of the project is to improve the prediction of local safety parameters at pin level in Light Water Reactors (LWRs) solving large-scale pin-by-pin depletion and transient problems.
+In this framework, the continuous-energy Monte Carlo code Serpent 2 (Leppänen et al., 2015) has been coupled to SUBCHANFLOW (SCF) (Imke and Sanchez-Espinoza, 2012), a subchannel thermalhydraulics code, and TRANSURANUS (TU) (Van Uffelen et al., 2008), a fuel-performance code (García et al., 2020). The purpose of this three-code coupling is to perform depletion calculations with a highly detailed methodology, combining high-fidelity neutronics with pin-by-pin thermalhydraulic and thermomechanic analysis. Moreover, the final phase of the project includes the validation of this tool using pin-level experimental data from Pre-Konvoi PWR and VVER-1000 nuclear power plants. The Serpent-SCF transient capabilities have been validated using the SPERT-IIIE hot-full-power tests (Ferraro et al., 2020). In similar projects, neutronic-thermalhydraulic coupled systems such as MCS/CTF (Yu et al., 2019) and RMC/CTF (Wang et al., 2017), as well as MCS/FRAPCON (Yu et al., 2020), which includes fuel-performance analysis, have been applied to full-core burnup calculations for cases such as the BEAVRS PWR benchmark.
+Naturally, the solution of full-core pin-by-pin depletion problems using the Monte Carlo method leads to massive computational requirements (Ferraro et al., 2018). On the one hand, the number of particles per transport cycle needed for a reasonable statistical uncertainty in the power distribution and reaction rates is of the order of 109, leading to huge runtimes even in High Performance Computing (HPC) systems. To tackle this issue, Serpent 2 features hybrid MPI-OpenMP parallelization, which allows the efficient use of the resources available in most HPC architectures. On the other hand, the size of the problem in terms of memory, driven mainly by the storage of burnable material data, reaches a few terabytes, which exceeds the memory available in typical computing nodes. This last point creates a clear bottleneck for the solution of large-scale burnup problems, as explained in detail in Section 2, since the standard parallel scheme used in Monte Carlo particle transport has no memory scalability.
+To solve this memory bottleneck, a Collision-based Domain Decomposition (CDD) scheme for Serpent 2 has been formulated and implemented. The main aspects of the methodology, i. e. the decomposition of the geometry and the tracking algorithm, are explained in Section 3. Section 4 shows a detailed analysis of the performance, both in terms of speedup and of memory scalability, while Section 5 presents the application of the CDD scheme on a full-core pin-by-pin depletion problem. Since the topic of this paper is the CDD methodology, the analysis is focused on the Monte Carlo calculations independently of the multiphysics system.
+<Section>2. Parallel schemes for Monte Carlo particle transport</Section>
+The traditional approach to parallelize Monte Carlo particle transport calculations is based on the fact that particle histories are independent and can therefore be simulated simultaneously. This leads naturally to a scheme based on splitting the particle histories across execution units, and is commonly termed particle-based parallelism. Here each process simulates a subset of the total number of histories and the results are combined after each transport calculation. Given that the problem is inherently parallel, this method can lead to excellent speedups.
+Now, most Monte Carlo codes implement particle-based parallelism using domain replication, which means that all execution units have all the information about the system (geometry, materials, cross sections, etc). This is a convenient approach for most applications, because no communication across processes is needed during tracking, improving the parallel efficiency. The drawback is that this method has no memory scalability, meaning that adding computing resources to the system does not increase the maximum size of the problem that can be simulated. This is due to the fact that, since the problem is replicated, it needs to fit in the memory available to each process, independently of the number of processes being used.
+To produce Monte Carlo transport codes with memory scalability, several schemes have been proposed and implemented. These can be grouped in two broad categories: data decomposition and domain decomposition, which are summarized in Sections 2.1 Data decomposition, 2.2 Domain decomposition respectively. The method proposed in this work is a combination of these two approaches, as explained in Section 3.
+Serpent 2, like most Monte Carlo codes, uses an OpenMP-based shared-memory approach for in-node parallelism and MPI, a distributed-memory paradigm, for node-to-node communications. The discussions that follow refer to the MPI layer of the implementation, which determines the memory scalability of the code. A one-to-one mapping between MPI tasks and physical nodes, which is typically the case, is assumed, and therefore the terms process, task and node are used interchangeably. The OpenMP layer determines the in-node performance but does not significantly affect the memory scalability, since all threads share a common memory space and do not need separate copies of the problem. The interaction of the MPI and OpenMP layers is discussed in Section 3.2.
+2.1. Data decomposition
+The idea of data decomposition is to distribute memory-intensive data, such as geometry structures, cross sections, tallies and material information, across nodes. Particle-based parallelism is still used, and remote data is retrieved on demand during tracking when a task needs information that is not stored locally.
+In this scheme, memory scalability is driven by the decomposition of data structures and the performance in terms of speedup is determined primarily by the algorithm used to communicate data across tasks during particle tracking. In previous works this last issue has been addressed using methods such as tally servers (Romano et al., 2013) and global view arrays (Dun et al., 2015) in the OpenMC code. Implementing an efficient data-transfer model and combining it with in-node multithreading is not trivial however, which is the main drawback of this methodology.
+2.2. Domain decomposition
+Domain decomposition consists of partitioning the model into subdomains assigned to different tasks, which store only the local geometry, cross sections, tallies and materials. Each task then tracks the particles born locally, in addition to the ones that enter its domain, and particles are transferred across tasks as they cross domain boundaries.
+In this case, the geometry partition leads naturally to memory scalability, as each node stores only one subdomain, and the performance depends on the efficiency of the particle communication scheme for the tracking algorithm. The most complex issue in this approach is the partition of the problem geometry, which in most Monte Carlo codes is represented using Constructive Solid Geometry (CSG) (O’Brien and Joy, 2009). While the particle tracking has to rely on asynchronous MPI communications to achieve good performance and its implementation is not trivial, this problem has been studied extensively and efficient algorithms have been formulated and published (Brunner and Brantley, 2009, Liang et al., 2016).
+<Section>3. Collision-based Domain Decomposition</Section>
+The Collision-based Domain Decomposition (CDD) scheme implemented in Serpent 2 is essentially a data decomposition method with a domain decomposition tracking algorithm.
+The data decomposition is done material-wise and is focused on depletion. Each domain contains a subset of the burnable materials for which it stores all data, including compositions, material cross sections and tallies. In this way, the depletion data, which constitutes the largest portion of the memory demand in burnup calculations, is distributed across tasks, reducing the in-node memory. All non-burnable materials, along with the rest of the model (geometry, nuclide cross sections, spatial tallies, etc) are replicated in all domains. Avoiding dividing non-burnable materials reduces the number of particles that need to be transferred across domains, as explained next, and has a negligible impact on the memory scalability. Fig. 1 illustrates this type of decomposition for a PWR fuel assembly. The way in which the material decomposition is performed is explained in detail in Section 3.1.
+Fig. 1. Material decomposition for a 2D model of a PWR fuel assembly. The fuel material is decomposed in 9 domains shown with different colors in the fuel pins, while the cladding and coolant materials are replicated in all domains. (For interpretation of the references to color in this figure legend, the reader is referred to the web version of this article.)
+As in all data decomposition schemes, a task can track a particle until non-local data is needed, in which case the standard approach is to fetch that data from a remote domain to continue the tracking. In the CDD method, the particle is sent to the corresponding task instead, as in standard domain decomposition schemes when particles cross domain boundaries. A particle can stream through local fuel materials and non-burnable ones, and even through non-local fuel materials in delta-tracking mode (Leppänen, 2010) as long as there is no interaction. Particle transfers are triggered when a collision in a non-local material occurs, hence the collision-based aspect of the approach. The two key issues for an efficient algorithm are the particle tracking and termination control methods, which are described in Sections 3.2 Particle tracking, 3.3 Termination control respectively.
+The implementation presented in this work is based on a one-to-one mapping between domains and MPI tasks, i. e. each domain is assigned to a unique task. In principle this is not mandatory, since a domain could be handled by more than one MPI task, combining domain decomposition and replication. However, this leads to a more complex implementation and offers no clear benefits, since the optimum execution in terms of memory use is to have one node/task per domain and the performance would not be improved, since all tasks have to be included in the CDD communication scheme independently. Furthermore, the material decomposition is performed at runtime based on the number of MPI tasks, and therefore the number of domains is adjusted automatically to the number of tasks.
+3.1. Material decomposition
+Burnable materials are typically defined in Serpent 2 using automatic divisions, which create depletion zones from user-defined materials. Divisions can be universe-based, for example at nodal or pin level, as well as radial and azimuthal for fuel pins. The material division can be arbitrarily detailed, and is typically bounded by the memory demand. In the CDD scheme, domains are defined by a set of burnable materials, in order to avoid performing an actual partition of the CSG-based geometry, which was cited as a chief issue in domain decomposition methods.
+Now, the performance of the tracking algorithm will in principle depend on two main factors: the number of particles tracked in each domain, i. e. the source distribution, and the number of particles flying across domains, i. e. the burden on the particle communication algorithm. The source distribution is both unknown a priori and dependent on burnup, and hence can only be treated with dynamic load balancing, which is out of the scope of this work. Therefore, assuming a uniform particle source, it is reasonable to try to define domains as compact as possible to minimize the number of particle transfers.
+Serpent 2 provides various simple methods to divide the burnable materials into domains, using material indexes or two-dimensional radial sectors. A more advanced method, used in this study, relies on graph-partitioning. The weighted graph representation of the set of materials consists of:
+•
+V: the vertices of the graph, vi is material i.
+•
+E: the edges of the graph, eij is the link between materials i and j.
+•
+WV: the weights of the vertices, wiV is the weight of material i.
+•
+WE: the weights of the edges, wijE is the weight of link ij.
+The material volumes are used as weights wiV for the vertices, to keep the domain volumes equal. The edges are weighted with the inverse of the distance between materials, such that
+(1)wijE=Llij,
+where L is a representative length of the system and lij is the distance between materials i and j. This just means that the closer two materials are the tighter the link is, to generate compact domains. A user-given cutoff value for lij is used to discard edges for materials that are too far apart, in order to reduce the graph size and therefore the memory requirement and the partition time. Once the material graph is constructed, the partition is done using the Metis graph-partitioner library (Karypis and Kumar, 1999) to obtain decompositions like the one shown in Fig. 1.
+It is important to note here that the CDD feature does not introduce any approximations from the physical point of view, and the results are expected to be equivalent within the statistical variability of the solution. The material decomposition has no impact in terms of modeling, only in terms of performance.
+Furthermore, previous publications propose the use of overlapping domains, extending each domain by a certain width that includes non-local materials while restricting the fission source to the original region (Wagner et al., 2015). This would decrease the amount of domain crossings and potentially improve the performance, though it has not been included in the CDD implementation.
+3.2. Particle tracking
+During tracking, particles that encounter collisions in non-local materials have to be transferred between MPI tasks. To do this efficiently, all domain decomposition implementations use asynchronous MPI communications, which means that particles are sent without waiting for them to be received, thus avoiding synchronizing MPI tasks for particle transfers. Particles are sent and received using the MPI_Isend() and MPI_Irecv() standard nonblocking functions, along with the MPI_Test() and MPI_Wait() help functions (MPI Forum, 2015). Furthermore, particles are buffered and sent in packages instead of individually. Now, since the completion of these send operations is not ensured directly, an indirect check needs to be in place to determine when a transport cycle is over, which is the topic of Section 3.3.
+The actual tracking scheme is composed of the MPI layer of the implementation, which determines the node-to-node communications, and the OpenMP layer for in-node multithreading. In this regard, two hybrid MPI-OpenMP modes have been implemented in Serpent 2: funneled and serialized multithreading. These execution modes differ in how the MPI and OpenMP layers interact, which in turn leads to slightly different tracking algorithms, which are described in the next two sections.
+3.2.1. Funneled multithreading
+The most straightforward way to treat multithreading with domain decomposition is to perform all MPI-related work outside the OpenMP-parallel section of the tracking scheme, i. e. having only the main thread make MPI calls. In this funneled implementation, described in Algorithm 1, particles that need to be sent to other domains are put in a limbo buffer during tracking. Only after all local particles have been tracked, the master thread sends all outgoing particles and receives the ones coming from other domains. This is repeated until the transport cycle is completed.
+3.2.2. Serialized multithreading
+In the funneled multithreading scheme the MPI communications are performed in a sequential manner within each MPI task, once all local particles are tracked. Hence, it is reasonable to think that better performance could be achieved doing this work within the tracking loop, in order to maximize the communication/computation overlap. The performance gain will in principle be a trade-off between the improvement in the algorithm and the additional overhead driven by thread synchronization and enhanced thread-safety level of the MPI library (MPI_THREAD_SERIALIZED is required (MPI Forum, 2015)).
+Algorithm 2 describes the scheme with multithreaded MPI communications. Particles are sent and received within the OpenMP-parallel tracking loop, though this occurs in an OpenMP-critical section, i. e. serialized. Once a send buffer is full, the asynchronous MPI message is sent to the corresponding domain and particles coming from that same domain are received and put in the limbo buffer. Once the tracking of local particles is over, particle transfers with all domains are checked and limbo particles are put in simulation queues.
+Performing the particle transfers during tracking has two advantages. First, MPI communications can be done by one thread while the rest are tracking particles, which increases the overlap between communication and computation. Second, asynchronous MPI send and receive operations are done more often, which reduces the probability of exhausting MPI resources such as memory pipes and buffers. This last point is addressed in previous domain decomposition implementations with a fixed frequency at which asynchronous receives are checked, though it is not reported how multithreading is handled in this case (Brunner and Brantley, 2009).
+3.3. Termination control
+A transport cycle is completed when all particle histories in the whole system have been simulated. Although this seems obvious, since particles are sent asynchronously each task cannot determine on its own when it is done. A task can run out of local particles and not detect any incoming messages while live particles that can later be sent its way exist in other domains. For this reason, all domain decomposition schemes require a termination control method based on a global check of the particle balance.
+In the CDD scheme proposed here, termination is checked when domains have run out of local particles to track, as can be noted in Algorithms 1 and 2. If all tasks are synchronized at this point and it is determined that all particles sent have been received, this means that all particle histories started have been completed and therefore that the cycle is finished. The stopping criteria is n=0, where n is the difference between the number of particles sent and received.
+Now, this synchronized check is a very expensive operation and would kill the performance of the algorithm if performed after every tracking loop. To avoid doing this, an estimation using asynchronous MPI communications is performed instead, and the synchronized check is only done when this asynchronous balance is achieved.
+In order not to overwhelm a particular MPI task with the communications related to the asynchronous estimation of the particle balance, tasks are organized in a binary tree as shown in Fig. 2, in a similar way as in previous implementations (Brunner and Brantley, 2009). The particle balance is collected by the main task (rank 0), which sends a signal sp down the tree to request synchronization when n=0 is estimated. At this point all tasks synchronize and the true particle balance is checked. This scheme is summarized in Algorithm 3.
+Fig. 2. Binary tree structure used to estimate the particle balance. Task i collects the balance of its children tasks c1(i) and c2(i) and sends it to its parent p(i), while the synchronization signal sp is transmitted in the opposite direction.
+<Section>4. Performance</Section>
+In this section the performance of the CDD scheme in a PWR-like system is analyzed. The test case is a 16x16 array of simplified 17x17-pin PWR fuel assemblies like the one shown in Fig. 3. The geometry is axially uniform with no reflectors and with periodic boundary conditions, and hence the system is effectively infinite. The fuel material is divided pin-wise and axially, producing a pin-by-pin tridimensional decomposition. In all cases 200 cycles of 2.106 particles, 100 inactive and 100 active, were simulated.
+Fig. 3. PWR fuel assembly used for the test cases.
+The results shown here were obtained in the ForHLR II high-performance computer of the Karlsruhe Institute of Technology (KIT) (Steinbuch Centre for Computing (SCC), 2020), which features Intel(R) Xeon(R) E5-2660 v3 (2.60 GHz) CPUs. Each node contains 10 cores with 2 hardware threads per core, adding up to 20 threads per node. Given that in practice, at least for massive burnup applications, the MPI-OpenMP parameters are matched to the architecture, i. e. one task per node and one thread per core, 20 OpenMP threads per MPI task were used in all cases, and the performance data is reported as a function of the number of tasks (nodes). Using more than one task per node would multiply the in-node memory demand, which is typically the bottleneck, and is likely to degrade the speedup, since in-node multithreading tends to perform better than message-passing, at least for Serpent 2.
+4.1. Speedup
+The speedup SNt and efficiency εNt for N MPI tasks are defined from the wall clock runtime tN as
+(2)SNt=N0t0tN,εNt=N0t0NtN=SNtN,
+where N0 and t0 are the number of tasks and runtime for a reference run, typically the sequential case (N0=1). When the problem does not fit in the memory of a single node the runtime for N0=1 cannot be obtained, and the case with the lowest number of tasks is used instead.
+4.1.1. Multithreading
+Fig. 4 shows the speedup for the two multithreading schemes described in Sections 3.2.1 Funneled multithreading, 3.2.2 Serialized multithreading. The performance is essentially the same, with a marginal gain using funneled multithreading at the highest number of MPI tasks. Overall the speedup is quite good, with more than 45% efficiency at 256 nodes (5,120 cores). This results suggest that the potential gain from increasing the computation/communication overlap does not compensate for the multithreading overhead, and the simpler scheme performs better.
+Fig. 4. Speedup for funneled and serialized multithreading. The dashed line represents the efficiency.
+4.1.2. Burnup
+Fig. 5 compares the strong scalability for runs with and without depletion. The burnup calculation consists of a single step using the predictor–corrector method for time integration. In this case the runtime using 32 tasks is used as reference (N0=32 in Eq. (2)), since the problem does not fit in a single node. Although a loss of performance for the burnup run can be seen, likely due to the additional tallies and normalization of reaction rates required for the depletion calculation, the efficiency remains acceptable, at almost 40% for 256 nodes.
+Fig. 5. Speedup for runs with and without burnup.
+4.1.3. Tracking modes
+Two particle tracking modes can be used and combined in Serpent 2: surface and delta tracking (Leppänen, 2010). A better speedup is achieved using surface tracking, as shown in Fig. 6, likely due to the fact that this mode is generally slower, making the tracking time larger compared to the overhead time due to CDD communications. Nevertheless, for a single MPI task delta tracking is twice as fast, making the overall performance of delta tracking better. A potential advantage of delta tracking is that a particle can go through non-local materials as long as a collision does not take place, reducing the node-to-node particle communications, but this is a marginal effect and does not seem to impact the performance.
+Fig. 6. Speedup for delta and surface tracking.
+4.2. Memory scalability
+The memory scalability SNm and efficiency εNm for N MPI tasks are defined from the in-node memory demand mN as
+(3)SNm=N0m0mN,εNm=N0m0NmN=SNmN,
+where N0 and m0 are the number of tasks and memory demand for the reference run, typically N0=1, as for the speedup definition.
+4.2.1. Memory optimization modes
+Serpent 2 features four optimization modes for memory management, reducing the memory demand at the expense of a loss of performance (Leppänen and Isotalo, 2012). Fig. 7, Fig. 8 show the memory scalability for modes 4 and 2, respectively, for runs without burnup. While both modes are based on energy grid unionization for cross-section data, in mode 4, the fastest one, macroscopic cross-sections are precalculated for each material, which is not done in mode 2 in order to reduce the overall memory footprint. As a result, for mode 4 the material data represents a larger fraction of the total memory use and the scalability is much better.
+Fig. 7. Memory scalability (total and for material data) using optimization mode 4. The dashed line corresponds to the efficiency.
+Fig. 8. Memory scalability using optimization mode 2.
+4.2.2. Burnup
+Fig. 9 shows the memory scalability for depletion calculations using optimization mode 2, taking as reference a run with 32 MPI tasks (N0=32). In this case a larger fraction of the memory demand comes from the storage of burnable materials and the scalability improves compared to the one shown in Fig. 8. The efficiency at 256 nodes is close to 40%, which overall is quite good.
+Fig. 9. Memory scalability using for a burnup calculation.
+<Section>5. Full-core pin-by-pin depletion</Section>
+To demonstrate the depletion capabilities enabled by the CDD scheme, a full-core pin-by-pin burnup calculation is presented in this section. The problem considered is a Pre-Konvoi PWR reactor, with the geometry shown in Fig. 10 for a quarter of the core. The core consists of 193 fuel assemblies with a 23 cm pitch. Each fuel assembly is made up of 16x16 UO2 pins with a 1.43 cm pitch and 1.9%, 2.5% or 3.2% 235U enrichment, depending on the type, with 20 guide tubes. 96 fuel assemblies contain 8-rod boron silicate bundles, which are fully inserted during the first cycle as burnable poisons. Axial and radial water reflectors, as well as 7 spacer grids, are included in the model. Each transport calculation consists of 1000 active cycles of 106 particles, with the criticality source calculated initially with 350 inactive cycles and corrected with 50 cycles after each burnup step. The depletion calculation up to 15 MWd/tn was done in steps of 1.25 MWd/tn using the standard predictor–corrector method with equilibrium xenon concentration.
+Fig. 10. Geometry of a quarter of the Pre-Konvoi core.
+5.1. Material decomposition
+A pin-by-pin material division was used for the burnup calculation, with each pin divided in 16 axial zones, resulting in 728,768 fuel materials. A pin-level division with 12 axial and 3 radial zones was used for the burnable poisons, which adds 27,648 depletion zones. The total number of burnable materials is 756,416. Fig. 11, Fig. 12, Fig. 13 show the graph-based material decomposition for cuts along the z, y and x axis respectively. Each color represents the fuel materials in a given domain, while all the non-burnable materials, such as the moderator and the structures, are replicated.
+Fig. 11. Material decomposition for an xy-cut.
+Fig. 12. Material decomposition for an xz-cut.
+Fig. 13. Material decomposition for a yz-cut.
+5.2. Results
+Fig. 14 shows the multiplication factor keff for runs with 32 and 64 domains, along with the difference between the two compared to the standard deviations σ. The differences lay within the expected 3(σ32+σ64) range for the whole burnup calculation, reaching a maximum of 10 pcm, while the values at the final step are identical. This results show that no bias in the keff is introduced by the domain decomposition feature.
+Fig. 14. Multiplication factor for 32 and 64 tasks.
+Fig. 15 shows the pin-level power distribution P calculated using 64 domains at 0 and 15 MWd/tn, as well as the standard deviations and the differences with respect to the solution using 32 domains. The differences are normalized with the local standard deviation as
+(4)ΔP=P64-P32σ64+σ32,
+to take into account the statistical uncertainty. It can also be concluded here that the CDD scheme does not introduce biases in the calculation, since the deviations in the pin power are within the expected stochastic variability of the solution.
+Fig. 15. Power distribution P and standard deviation σ for 64 domains and differences ΔP=P64-P32σ64+σ32 respect to 32 domains.
+It is important to note here that in the CDD scheme presented in this work it is not possible to achieve exact reproducibility in the results. Particle transfers between MPI tasks happen in an order that is not deterministic, and therefore the random number sequence and the resulting particle histories are different for each run. One way to get reproducible results is to associate a specific random sequence to each particle, ensuring that particle histories will not depend on domain crossings. Since this is not implemented in the current version, the results are considered in agreement for verification purposes if they are equivalent within their statistical variability.
+5.3. Performance
+The speedup for this burnup problem is shown in Fig. 16. The efficiency is about 30% at 256 nodes (5,120 cores), which is still quite good considering that the non-uniform source distribution in this case leads to significant load imbalance compared to the test case used in Section 4. The memory scalability is shown in Fig. 17. The total memory demand for this problem without domain decomposition can be estimated at about 450 GB, which exceeds the 64 GB in-node memory of the cluster used in this work.
+Fig. 16. Speedup for full-core burnup. The dashed line represents the efficiency.
+Fig. 17. Memory scalability for full-core burnup. The dashed line represents the efficiency.
+<Section>6. Conclusions</Section>
+A Collision-based Domain Decomposition (CDD) scheme for Serpent 2 has been developed to tackle full-core pin-by-pin depletion problems. The methodology is based on data decomposition for burnable materials and a domain decomposition tracking algorithm with two different multithreading modes for hybrid MPI-OpenMP execution, which are fully described in this work.
+The performance in PWR-like infinite systems is shown to be quite good, with between 40% and 50% efficiency at 256 domains/nodes (5,120 cores). The memory scalability of the new scheme allows for the simulation of increasingly larger systems by multiplying the computational resources.
+To demonstrate the capabilities enabled by the new methodology, a full-core pin-by-pin depletion calculation for a Pre-Konvoi PWR reactor is presented here. The results are shown to be consistent, with no bias introduced by the CDD feature.
+The implementation of CDD in Serpent 2 paves the way for the solution of full-core pin-by-pin burnup problems coupled with thermalhydraulics and fuel-performance codes in the context of the McSAFE project. It also represents the last major development and optimization stage for Serpent-SCF-TU before the validation phase with PWR and VVER plant data.
+<Section>Declaration of Competing Interest</Section>
+The authors declare that they have no known competing financial interests or personal relationships that could have appeared to influence the work reported in this paper.
+<Section>Acknowledgments</Section>
+This work was done within the McSAFE project which is receiving funding from the Euratom research and training programme 2014–2018 under grant agreement No 755097.
+This work was performed on the computational resource ForHLR II funded by the Ministry of Science, Research and the Arts Baden-Württemberg and DFG (”Deutsche Forschungsgemeinschaft”).
+<Section>Supplementary data</Section>
+The following are the Supplementary data to this article:
+<Section>Research data for this article</Section>
+Data not available / Data will be made available on request
+About research data
+<Section>References</Section>
+Brunner and Brantley, 2009
+T.A. Brunner, P. Brantley
+An efficient, robust, domain-decomposition algorithm for particle Monte Carlo
+Journal of Computational Physics, 228 (2009), pp. 3882-3890, 10.1016/j.jcp.2009.02.013
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+Dun et al., 2015
+N. Dun, H. Fujita, J. Tramm, A. Chien, A. Siegel
+Data decomposition in Monte Carlo neutron transport simulations using global view arrays
+International Journal of High Performance Computing Applications, 29 (3) (2015), pp. 348-365, 10.1177/1094342015577681
+CrossRefView Record in ScopusGoogle Scholar
+Ferraro et al., 2018
+Ferraro, D., García, M., Mercatali, L., Sanchez-Espinoza, V., Leppänen, J., Valtavirta, V., 2018. Foreseen capabilities, bottlenecks identification and potential limitations of Serpent MC transport code in large-scale full 3-D burnup calculations, Proceedings of the 26th International Conference on Nuclear Engineering, ICONE26, London, England, July 22–26. doi:10.1115/ICONE26-82305.
+Google Scholar
+Ferraro et al., 2020
+D. Ferraro, M. García, V. Valtavirta, U. Imke, R. Tuominen, J. Leppänen, V. Sanchez-Espinoza
+Serpent/SUBCHANFLOW pin-by-pin coupled transient calculations for the SPERT-IIIE hot full power tests
+Annals of Nuclear Energy, 142 (2020), 10.1016/j.anucene.2020.107387
+107387
+Google Scholar
+García et al., 2020
+M. García, R. Tuominen, A. Gommlich, D. Ferraro, V. Valtavirta, U. Imke, P. Van Uffelen, L. Mercatali, V. Sanchez-Espinoza, J. Leppänen, S. Kliem
+A Serpent2-SUBCHANFLOW-TRANSURANUS coupling for pin-by-pin depletion calculations in Light Water Reactors
+Annals of Nuclear Energy, 139 (2020), 10.1016/j.anucene.2019.107213
+107213
+Google Scholar
+Imke and Sanchez-Espinoza, 2012
+U. Imke, V. Sanchez-Espinoza
+Validation of the subchannel code SUBCHANFLOW using the NUPEC PWR tests (PSBT)
+Science and Technology of Nuclear Installations (2012), 10.1155/2012/465059
+Google Scholar
+Karypis and Kumar, 1999
+G. Karypis, V. Kumar
+A fast and highly quality multilevel scheme for partitioning irregular graphs
+SIAM Journal on Scientific Computing, 20 (1) (1999), pp. 359-392, 10.1137/S1064827595287997
+View Record in ScopusGoogle Scholar
+Leppänen, 2010
+J. Leppänen
+Performance of Woodcock delta-tracking in lattice physics applications using the Serpent Monte Carlo reactor physics burnup calculation code
+Annals of Nuclear Energy, 37 (5) (2010), pp. 715-722, 10.1016/j.anucene.2010.01.011
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+Leppänen and Isotalo, 2012
+Leppänen, J., Isotalo, A., 2012. Burnup calculation methodology in the serpent 2 Monte Carlo code, International Conference on the Physics of Reactors, PHYSOR 2012, Knoxville, USA, April 15–20, 2012 2 924–935.
+Google Scholar
+Leppänen et al., 2015
+J. Leppänen, M. Pusa, T. Viitanen, V. Valtavirta, T. Kaltiaisenaho
+The Serpent Monte Carlo code: Status, development and applications in 2013
+Annals of Nuclear Energy, 82 (2015), pp. 142-150, 10.1016/j.anucene.2014.08.024
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+Liang et al., 2016
+J. Liang, K. Wang, Y. Qiu, X. Chai, S. Qiang
+Domain decomposition strategy for pin-wise full-core Monte Carlo depletion calculation with the reactor Monte Carlo code
+Nuclear Engineering and Technology, 48 (3) (2016), pp. 635-641, 10.1016/j.net.2016.01.015
+ArticleDownload PDFCrossRefView Record in ScopusGoogle Scholar
+Mercatali, 2018
+Mercatali, L., 2018. The EC McSAFE Project: High Performance Monte Carlo Methods for Safety Demonstration – Status and Perspectives, Proceedings of the International Multi-Physics Validation Workshop, North Carolina State University, Raleigh, USA, June 14–15.
+Google Scholar
+MPI Forum, 2015
+MPI Forum, 2015. MPI: A Message-Passing Interface Standard, Version 3.1.
+Google Scholar
+O’Brien and Joy, 2009
+O’Brien, M.J., Joy, K.I., 2009. Domain decomposition of a constructive solid geometry monte carlo transport code. Proceedings of the 2009 International Conference on Advances in Mathematics, Computational Methods and Reactor Physics, Saratoga Springs, NY, United States, May 3–7.
+Google Scholar
+Romano et al., 2013
+P.K. Romano, A.R. Siegel, B. Forget, K. Smith
+Data decomposition of Monte Carlo particle transport simulations via tally servers
+Journal of Computational Physics, 252 (2013), pp. 20-36, 10.1016/j.jcp.2013.06.011
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+Steinbuch Centre for Computing (SCC), 2020
+Steinbuch Centre for Computing (SCC), ForHLR II Documentation, https://www.scc.kit.edu/dienste/forhlr2.php, accessed: 2020/06/09.
+Google Scholar
+Van Uffelen et al., 2008
+P. Van Uffelen, C. Györi, A. Schubert, J. van de Laar, Z. Hózer, G. Spykman
+Extending the application range of a fuel performance code from normal operating to design basis accident conditions
+Journal of Nuclear Materials, 383 (1) (2008), pp. 137-143, 10.1016/j.jnucmat.2008.08.043
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+Wagner et al., 2015
+J.C. Wagner, S.W. Mosher, T.M. Evans, D.E. Peplow, J.A. Turner
+Hybrid and parallel domain-decomposition methods development to enable monte carlo for reactor analyses
+Progress in Nuclear Science and Technology, 2 (2015), 10.15669/pnst.2.815
+Google Scholar
+Wang et al., 2017
+K. Wang, S. Liu, Z. Li, G. Wang, J. Liang, F. Yang, Z. Chen, X. Guo, Y. Qiu, Q. Wu, J. Guo, X. Tang
+Analysis of BEAVRS two-cycle benchmark using RMC based on full core detailed model
+Progress in Nuclear Energy, 98 (2017), pp. 301-312, 10.1016/j.pnucene.2017.04.009
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+Yu et al., 2020
+J. Yu, H. Lee, M. Lemaire, H. Kim, P. Zhang, D. Lee
+Fuel performance analysis of BEAVRS benchmark Cycle 1 depletion with MCS/FRAPCON coupled system
+Annals of Nuclear Energy, 138 (2020), 10.1016/j.anucene.2019.107192
+107192
+Google Scholar
+Yu et al., 2019
+J. Yu, H. Lee, H. Kim, P. Zhang, D. Lee
+Coupled neutronics-thermal-hydraulic simulation of BEAVRS cycle 1 depletion by the MCS/CTF code system
+Nuclear Technology (2019), 10.1080/00295450.2019.1677107
+Google Scholar

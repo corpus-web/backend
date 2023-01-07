@@ -1,0 +1,215 @@
+<title>Implementation and comparison of least-square method and thin-plate spline method for PWR online power-distribution monitoring based on NECP-ONION system</title>
+<author>1,ZhuoLi,2,MingtaoHe,3,LiangzhiCao,4,HongchunWu,5,WeiShen,6,YongLiu</author>
+<Affiliation>1,School of Nuclear Science and Technology, Xi’an Jiaotong University, Xi’an, Shaanxi 710049, China;2,Sino-French Institute of Nuclear Engineering and Technology, Sun Yat-sen University, Zhuhai, Guangdong 519082, China;3,China Nuclear Power Technology Research Institute Co., Ltd, Shenzhen, Guangdong 518031, China;4,Science and Technology on Reactor System Design Technology Laboratory, Nuclear Power Institute of China, Chengdu, Sichuan 610213, China</Affiliation>
+<year>2020</year>
+<Jounral>Nuclear Engineering and Design</Journal>
+<Publishing_house>ELSEVIER</Publishing_house>
+<Text_Collector>XiaFan，HEU</Text_Collector>
+<DOI>10.1016/j.nucengdes.2020.110712</DOI>
+<URL>https://www.sciencedirect.com/science/article/pii/S0029549320302065</URL>
+Implementation and comparison of least-square method and thin-plate spline method for PWR online power-distribution monitoring based on NECP-ONION system
+ZhuoLi,MingtaoHe,LiangzhiCao,HongchunWu,WeiShen,6,YongLiu
+School of Nuclear Science and Technology, Xi’an Jiaotong University, Xi’an, Shaanxi 710049, China
+Sino-French Institute of Nuclear Engineering and Technology, Sun Yat-sen University, Zhuhai, Guangdong 519082, China
+China Nuclear Power Technology Research Institute Co., Ltd, Shenzhen, Guangdong 518031, China
+Science and Technology on Reactor System Design Technology Laboratory, Nuclear Power Institute of China, Chengdu, Sichuan 610213, China
+<Section>Highlights</Section>
+The least-square method (LSM) is implemented in the NECP-ONION system.
+The thin-plate spline method (TPSM) is implemented in the NECP-ONION system.
+The key parameters have important impact on the online monitoring methods.
+The key parameters are determined based on the uncertainty requirement.
+The LSM and TPSM are compared based on the BEAVRS benchmark.
+<Section>Abstract</Section>
+Among many methods for online power-distribution monitoring, the least-square method (LSM) and the thin-plate spline method (TPSM) are two practical and promising methods for PWR application. These two methods have been implemented in the NECP-ONION system, which has the capability to perform the 3D PWR online power-distribution monitoring including plant data processing, core calculation, online power-distribution monitoring, and sensitivity and uncertainty analysis. It is found that the weighting factor and the regularization coefficient are the most important parameters, defined as key parameters, for the LSM and the TPSM respectively, and thus should be determined in advance. The online power-distribution monitoring and uncertainty analysis with various key parameters are performed for BEAVRS benchmark problem. Numerical results show that, key parameters have important impact on the monitoring accuracy and uncertainty. With the weighting factor increase or the regularization coefficient decrease, the monitoring accuracies improve but the uncertainties of monitored results increase simultaneously. Therefore, a strategy is proposed that the key parameter is determined based on the uncertainty requirement of the online monitoring system. Then, the comparison of the monitoring accuracies for these two methods is carried out with the same maximum-uncertainty values; the monitoring accuracy of the LSM is better than TPSM on the condition of this paper.
+Keywords:Online monitoring;Least-square method;Thin-plate spline method;Sensitivity and uncertainty analysis
+<Section>1. Introduction</Section>
+The 3D online power-distribution monitoring is important for the safety and the economy of nuclear power plants since it can be employed to evaluate the operation condition of the reactor and the safety margin, such as the power peaking factor, the enthalpy rising factor, the quadrant tilt ratio and the fuel burnup distribution, and to reduce the over-conservative operating principles and thus improve the economy of nuclear power plants. Therefore, many kinds of online monitoring systems have been developed to obtain the power distribution in real time by using in-core or ex-core detectors, such as RFSP-flux mapping for CANDU (Hinchley, 1974, Shen and Schwanke, 2012), BEACON (Beard and Morita, 1988) for PWR, SCORPIPO-VVER (Pecka et al., 1999) for VVER and ABB CORE MASTER (Lundberg and Wenisch, 1999) for BWR. Since the in-core or ex-core neutron detectors are located at strategically selected locations, many computational methods have been proposed, including the harmonics expansion method (Wang et al., 2011), thin-plate spline method (TPSM) (Boyd and Miller, 1996.), internal boundary condition method (Chan et al., 1990), coupling coefficients method (Terney et al., 1983), least-square method (LSM) (Lee and Kim, 2003), error shape synthesis method (Hong, 2004), weight coefficient method, polynomial expand method (Li et al., 2013) and ordinary kriging method (Peng et al., 2014), etc.
+These methods can be classified into three categories in terms of the utilization pattern of detectors. The first category is the function expansion method, such as the harmonics expansion method and error shape synthesis method. In those methods, the reactor-core power distribution is expanded by harmonics or other basic functions, while detector measurements are used to determine the expansion coefficients. The basic functions usually have a complete-orthogonal property. The second category kind of methods solves the neutron diffusion equation with detector measurements as additional boundary conditions, such as the internal boundary condition and LSM. The third category of methods is the simulation and correction method, such as the TPSM, weight coefficient method and polynomial expand method. Those methods have a characteristic that a fitting is performed for the ratios of detector measured values over predicted values to obtain a proportion function through the entire core.
+A comprehensive evaluation among online power-distribution monitoring methods is necessary for the selection of methods when an online monitoring system is developed. Hong (2004) developed two online monitoring methods, the LSM and error shape synthesis method, and made a comparison between them and concluded that the error shape synthesis method shows faster computing speed, while the LSM provides greater monitoring accuracy. Zhong et al. (2010) compared the harmonics expansion method and LSM and concluded that the harmonics expansion method has better monitoring accuracy and stability. Mishra et al. (2012) evaluated three methods, the harmonics expansion method, internal boundary condition method and LSM and concluded that the LSM is the most accurate. Since the simple and direct comparisons were carried out with different comparison principles or calculation conditions, inconsistent conclusions appeared. Previous investigation shows that there is a weighting factor in the LSM which has important impact on the monitoring accuracy, similar to the expansion order in the harmonics expansion method. Therefore, these parameters are important calculation conditions which should be determined in advance. A clear strategy for the method evaluation is also necessary.
+In this paper, two methods for online power-distribution monitoring have been studied, the LSM and TPSM. These two methods are implemented in the 3D online power-distribution monitoring system NECP-ONION, which includes plant data processing, core calculation, online power-distribution monitoring and sensitivity and uncertainty analysis (Li et al., 2017a). In our previous work, we found that the weighting factor in the LSM has important impact on the monitoring accuracy and uncertainty (Li et al., 2017b). Similarly, the regularization coefficient is also the key parameter in the TPSM based on numerical results in this paper. Further, the online power-distribution monitoring and uncertainty analysis with various key parameters have been performed based on the benchmark for evaluation and validation of reactor simulations (BEAVRS) (Horelik et al., 2017). At last the key parameters are determined. Then the comparison of the monitoring accuracies for the two methods is carried out with the same maximum-uncertainty values.
+The remainder of this paper is organized as follows. The theory of online monitoring and the uncertainty analysis methods are presented in Section 2, including the LSM, the TPSM, and the sensitivity and uncertainty method. Section 3 describes the online monitoring and uncertainty results with various key parameters for the two monitoring methods respectively. The comparison of the two monitoring methods are discussed in Section 4. Finally, conclusions are summarized in Section 5.
+<Section>2. Method</Section>
+2.1. Least-square method (LSM)
+In the LSM, the neutron diffusion equation is solved firstly to obtain the effective multiplication factor:
+(1)MΦ=1keffFΦ
+where M and F are the destruction and production of neutrons, respectively, Φ is the neutron flux and keff is the effective multiplication factor.
+Then, the detector signals can be written as follow:
+(2)srd=CdNd∑g=1Gσgrd·Φgrd
+where rd is the detector position, srd is the detector signal at rd, Cd is the proportion coefficient of detector at rd, Nd is the detector-material nucleus-density at rd, g is the energy group, g = 1,2,…,G, σg is the micro cross-sections of energy group g for the detector material and Φg is the neutron flux of energy group g.
+Eq. (2) can be written as matrix form:
+(3)DΦ=s
+where D is the detector response matrix which is constituted by Cd, Nd and σgrd and s is the detector signal. Eq. (3) is called detector-response equation, which represents the relationship between the neutron flux and detector signals.
+Thirdly, the neutron diffusion equation and the detector-response equation are put together and constitute an over-determined nonlinear system:
+(4)M-1keffFωDΦ=0ωs
+where ω is the weighting factor for the detector-response equation. The least-square principle is used to solve these equations to obtain the monitored neutron flux and the monitored power distribution.
+According to our previous work, the weighting factor ω is important in the LSM which corresponds to a measure of the relative importance of the detector-response equation to the neutron-diffusion equation; and a method for the determination of the optimum weighting factor is proposed by considering the trends of monitoring errors and the sensitivity coefficients with the weighting factor (Li et al., 2017b).
+2.2. Thin-plate spline method (TPSM)
+In the TPSM, the neutron diffusion equation is solved to obtain the core power distribution and the detector response value, called predicted values. Then a fitting for the ratios of detector measured values over predicted values is carried out based on the thin-plate spline fitting. The spatially continuous proportion function is obtained. The reconstructed result of power distribution is calculated by multiplying the proportion function to the predicted power distribution.
+(5)Pmr=Ppr·smrdsprd¯
+where r is the spatial position, Pmr is the monitored power distribution at r, Ppr is the predicted power distribution at r, smrd is the measured detector signal at rd, sprd is the predicted detector signal at rd and smrdsprd¯ presents the thin-plate spline fitting of ratios smrdsprd through the entire core.
+In the 3D rectangular coordinate system, according to the mathematic definition of the thin-plate spline function, the thin-plate spline function can be written as follows (Li et al., 2013, Li et al., 2018):
+(6)fx,y,z=a0+a1x+a2y+a3z+12∑ibili2logli
+(7)li2=x-xi2+y-yi2+z-zi2
+with the constraints:
+(8)∑ibi=0∑ibixi=0∑ibiyi=0∑ibizi=0
+(9)fxj,yj,zj=smrjsprj,j=1,...,Md
+where fx,y,z is the spline function at rectangular coordinate system x,y,z, xi,yi,zi is the sampled point which is the detector location, li is the distance between x,y,z and xi,yi,zi, Md is the number of detectors in the core and a0,a1,a2,a3 and bi are fitting coefficients to be determined. These coefficients can be obtained easily according to Eqs. (8), (9).
+It should be noticed that, the spline fitting function (Eq. (6)) passes through the sampled points based on the theory above, which means the spline fitting function will be more sensitive to the detector signal. Then the improved spline fitting function is proposed. When the coefficients are determined, Eq. (10) is employed.
+(10)gxj,yj,zj=a0+a1xj+a2yj+a3zj+12∑i≠jbilji2loglji+αbj=smrjsprj,j=1,...,Md
+where lji2=xj-xi2+yj-yi2+zj-zi2 and α is the regularization coefficient (Chen and Li, 2012). The fitting coefficients a0,a1,a2,a3 and bi can be obtained according to Eqs. (8), (10), while the monitored power distribution can be obtained according to Eq. (6), (7). The regularization coefficient α is the “key parameter” for TPSM, like the weighting factor ω in LSM. It has important impact on the monitoring accuracy and uncertainty which will be analyzed in Section 3.2.
+2.3. Sensitivity and uncertainty (S&U) analysis method
+The sensitivity analysis in this paper is based on the direct numerical perturbation (DNP) method, which is usually used as reference in the sensitivity and uncertainty analysis (Liu et al., 2015). It can be described as follow:
+(11)SP(r),s(rd)=dP(r)/P(r)ds(rd)/s(rd)=s(rd)P(r)·dP(r)ds(rd)=s0(rd)P0(r)·P+(r)-P-(r)s+(rd)-s-(rd)
+where SP(r),s(rd) is the sensitivity coefficient of the power distribution at r to the detector signal at rd, s0(rd), s+(rd) and s-(rd) are the unperturbed, positive perturbed and negative perturbed values of the detector signals at rd respectively, P0(r), P+(r) and P-(r) are the corresponding power distribution at r respectively.
+The "sandwich rule" for uncertainty quantification of power distribution to detector signals can be presented as:
+(12)σ2PrPr2=SP(r),R(ri)CovR(ri),R(rj)SP(r),R(rj)T
+where σ2Pr is the variance of power distribution which presents the uncertainty result of power distribution due to uncertainties of detector signals, the relative variance is usually used, SP(r),R(ri) and SP(r),R(rj) are the relative sensitivity coefficients vectors of power distribution to detector signals at position ri and rj, R(ri) and R(rj) present detector signals at any position and CovR(ri),R(rj) presents the relative covariance data for detector signals R(ri) and R(rj).
+2.4. Flowchart of the 3D online power-distribution monitoring system
+The flowchart of the 3D online power-distribution monitoring system NECP-ONION is shown in Fig. 1. There are four steps in the online monitoring system. The first step is reading measured plant data, transmitting and processing of data, and performing detector failure diagnosis. The second step is performing numerical simulations including core state-parameter calculation, assembly cross-section calculation, power-distribution and burnup-distribution calculations, and detector material depletion calculation. The third step, which is different for the LSM and TPSM, is performing online power-distribution reconstruction by the monitoring methods. The last step is the sensitivity and uncertainty analysis. The DNP method, the analytical method and the statistical sampling method are available in this part.
+Fig. 1. Flowchart of the 3D online power-distribution monitoring system NECP-ONION.
+3. Numerical results of two monitoring methods with various key parameters
+In this paper, numerical results are based on the BEAVRS benchmark (Horelik et al., 2017), which contains detailed description of the geometry, material, and operation data for a typical PWR core. The core power is 3411MWth with 193 assemblies. Three enrichments are included in cycle 1, 1.6%, 2.4% and 3.1%. The fuel type is 17 × 17 with 264 fuel rods. There are two types of asymmetrical burnable poison (BP) layout assemblies in cycle 1, with 6 and 15 BPs respectively. The locations of detector tubes are illustrated in Fig. 2. For the first cycle of BEAVRS benchmark, the full-core online monitoring and uncertainty analysis of 23 burnups as listed in Table 1 are carried out.
+Fig. 2. Layout of fuel assemblies and detector tubes locations in cycle 1.
+Table 1. Burnups for the online monitoring and uncertainty analysis.
+As there is no reference-power-distribution published in the BEAVRS benchmark, the detector measurements provided by the benchmark are used as references. The monitoring system NECP-ONION also calculates the monitored detector responses. The root-mean-square (RMS) error of the monitored detector responses compared with the detector measurements provided in the benchmark is considered as the monitoring accuracy.
+(13)RMSerror=∑d=1MdRrd-srdsrd2/Md×100%
+where RMSerror is the monitoring accuracy, Md is the number of detectors in the core, rd is the detector position, d=1,2,...,Md, Rrd is the monitored detector response at rd,srd is the detector measurement (signal) at rd.
+It should be noticed that not all detector tubes provide detector measurements for the whole cycle, as the detector failure happens at irregular time. The number of detectors will be different with various burnups. The relative uncertainties of the monitored radial power distribution can be calculated based on methods in Section 2.3.
+3.1. Monitoring accuracy and uncertainty of LSM with various weighting factors
+The various weighting factors for the online monitoring and uncertainty analysis based on the LSM are listed in Table 2. The cases of 23 burnups with 20 weighting factors are carried out. As the numerical results are enormous and not convenient to be listed one by one, 4 representative burnups are selected, the 0.01 MWd/tU, 644.8 MWd/tU, 6012.2 MWd/tU and 12915.2 MWd/tU. These burnups express the core state of the beginning of cycle (BOC), the middle of cycle (MOC) and the end of cycle (EOC) respectively. Moreover, as the BEAVRS benchmark notable characteristic, the measured data presents a very large northwest to southeast (10%) tilt that cannot be explained when the power is very low, since the core loading pattern is known to be symmetric (Horelik et al, 2017). Therefore another burnup 644.8 MWd/tU is added to the representative burnups in which the power tilting is ameliorated.
+Table 2. Various weighting factors for the online monitoring and uncertainty analysis.
+The monitoring accuracy varying with the weighting factors for these 4 burnups are shown in Fig. 3, in which the X-axis is the weighting factor and the Y-axis is the RMS error of the monitored detector responses compared with the references. As the appearance of the power tilting, the RMS error for the 0.01 MWd/tU is much larger than those in other burnups. But with the increase of the weighting factor, the RMS errors decrease. Especially when the weighting factor is larger than 40, the RMS errors are nearly 0.0 for all the burnups. The weighting factor has great impact on the monitoring errors when it changes from 0.1 to 40. For the other burnups which have not been illustrated, it has the same variation tendency.
+Fig. 3. The monitoring accuracy variation with the weighting factors for 4 burnups.
+Uncertainties of the detector measurements are estimated to be 1% as inputs for the whole cycle. Then the relative uncertainties of the monitored radial power distributions to the detector measurements are carried out for each burnup. Considering the in-core locations of assemblies, 4 representative assemblies, H01, P03, F09 and K12, are selected to show the uncertainty variation with the weighting factor. These assemblies are located in four quadrants respectively and considering the peripheral region such as H01 and P03 and the middle of the core such as F09 and K12. Specially, the assembly K12 is an instrument-tube-located assembly. As illustrated in Fig. 4(a)–(d), the uncertainties of the monitored results increase with the weighting factor for all assemblies and burnups. But the variation of the uncertainty caused by the core burnup is smaller compared with that caused by the weighting factor.
+Fig. 4. The relative uncertainty of the monitored radial power at different assemblies ((a) H01, (b) P03, (c) F09 and (d) K12) with various weighting factor for 4 burnups.
+In summary, with the increase of the weighting factor, the monitoring accuracy is improved but the uncertainty of the monitored power distribution increases simultaneously.
+3.2. Monitoring accuracy and uncertainty of TPSM with various regularization coefficients
+The online monitoring and uncertainty analysis with various regularization coefficients based on TPSM is carried out. As listed in Table 3, 16 regularization coefficients from 10−2 to 104 are considered. The same representative burnups and assemblies with the LSM are selected to be demonstrated. RMS errors of the monitored radial detector responses increase with the regularization coefficient as shown in Fig. 5, while the uncertainties decrease as shown in Fig. 6. In the TPSM, the variation of the uncertainty caused by the core burnup is negligible compared with the variation caused by the regularization coefficient, especially in the assembly K12 in which an instrument tube is located.
+Table 3. Various regularization coefficients for the online monitoring and uncertainty analysis.
+Fig. 5. The monitoring accuracy variation with the regularization coefficients for 4 burnups.
+Fig. 6. The relative uncertainty of the monitored radial power at different assemblies ((a) H01, (b) P03, (c) F09 and (d) K12) with various regularization coefficients for 4 burnups.
+<Section>4. The determination of the optimum key parameter and the comparison of two methods</Section>
+4.1. Determination of the optimum key parameter
+Numerical results in Section 3 show that the monitoring accuracy and uncertainties of the monitored detector responses should both be taken into account to determine the key parameters. Actually, the uncertainty of the outputs for the online monitoring system is restricted since the monitored power-distribution is employed to determine the power peaking factor, the enthalpy rising factor, the quadrant tilt ratio and other safety margin of a reactor. Therefore, a principle is proposed that the key parameter is determined based on the uncertainty requirement of the online monitoring system.
+Fig. 7, Fig. 8 list the maximum uncertainty of the monitored power distribution with various key parameters for 4 representative burnups based on the LSM and TPSM respectively. As the uncertainties of detector measurements are 1%, the requirement of the maximum uncertainty is set to be less than 1% in this paper. Based on this criterion, the optimum weighting factor for the LSM is 10.0 and the optimum regularization coefficient for the TPSM is 10.0 according to results in Fig. 7, Fig. 8.
+Fig. 7. The maximum uncertainty of the monitored power distribution with various weighting factors for 4 burnups.
+Fig. 8. The maximum uncertainty of the monitored power distribution with various regularization coefficients for 4 burnups.
+4.2. Comparison of the LSM and TPSM
+The comparison of the monitoring accuracy for these two methods is performed with the same maximum-uncertainty value. Based on the numerical results shown in Fig. 3, Fig. 5, when the weighting factor and the regularization coefficient equal 10.0 and 10.0 respectively, the RMS errors of the monitored detector response are 0.44% and 0.79% for 0.01 MWd/tU. The detailed comparison results are listed in Table 4.
+Table 4. Comparison of the monitoring accuracy for two methods.
+Numerical results show that, when the uncertainty of monitored power distribution is presented as 1.0%, the monitoring accuracy of LSM is better than that of TPSM. If the maximum uncertainty of monitored power distribution is 0.7%, the weighting factor is same for 4 the burnups but the regularization coefficient is discrepant from the BOC to the EOC. For the other two uncertainty requirements, variations of weighting factor and regularization coefficient both occur for different burnups. This variation is more obvious in Fig. 8. It reminds that the variations of uncertainties with burnup exist even though they are smaller than those with key parameters. But for the RMS error comparison, numerical results above draw a conclusion that the monitoring accuracy of LSM is better than that of TPSM, while the uncertainties of monitored results are consistent. However, the LSM is computationally intensive than the TPSM. Mathematically, Eq. (4) contains a very large scale matrix. The number of rows equals the number of energy group multiply the number of meshes plus the number of detectors. Correspondingly, the similar matrix in the TPSM has the number of detectors plus 4 rows as shown in Eqs. (8), (9). This is important since the “real time” is one of the most significant characteristics for the online monitoring. Therefore, the TPSM and LSM are two practical and promising methods.
+Taking 0.01 MWd/tU with maximum uncertainty 1.0%, 6012.2 MWd/tU with maximum uncertainty 0.7% and 12915.2 MWd/tU with maximum uncertainty 0.5% as examples, uncertainties of monitored radial power distributions for the LSM and TPSM are shown in Fig. 9, Fig. 10, Fig. 11. In these figures, the first line is the uncertainties based on the LSM and the second line is the uncertainties based on the TPSM in each assembly region; and the assemblies with detectors are in the bold type.
+Fig. 9. Uncertainties of monitored power distributions for the LSM and TPSM with ω=10.0 and α=10.0 at 0.01 MWd/tU.
+Fig. 10. Uncertainties of monitored power distributions for the LSM and TPSM with ω=4.0 and α=200 at 6012.2 MWd/tU.
+Fig. 11. Uncertainties of monitored power distributions for the LSM and TPSM with ω=2.0 and α=1000 at 12915.2 MWd/tU.
+It can be found that uncertainties of assemblies with detectors are obvious larger than those of assemblies without detectors except for assemblies at the peripheral region of the core in Fig. 9. This phenomenon means the uncertainty of detector measurement impacts more on the monitored result of the assembly in which this detector is located than surrounding assemblies.
+In Fig. 10, Fig. 11, this difference is small for the entire core, but it is more obvious in the LSM than the TPSM. For the uncertainties of assemblies at the peripheral region of the core, these assemblies usually with smaller relative powers. Hence they perform the larger relative uncertainties than the assemblies in the middle of the core. But another important reason is that these assemblies are impacted by the uncertainty of detector measurement more seriously. At 12915.2 MWd/tU, taking the detector G09 as an example, the sensitivity coefficients of monitored power distribution to the detector measurements are shown in Fig. 12(a) by the LSM with ω=2.0. The largest sensitivity coefficient is 2.55E-01 happened in assembly G09. That means 1% changes of the detector measurements will lead to 0.255% changes of the monitored power in assembly G09. Moreover, there are obvious changes in assemblies at the peripheral region of the core, such as −0.011% changes of the monitored power in assembly L01. The similar phenomenon can be observed in Fig. 12(b) which is for the detector A11.
+Fig. 12. Sensitivity coefficients of monitored power distribution to the detector measurements ((a) G09 and (b) A11) by the LSM with ω=2.0 at 12915.2 MWd/tU.
+In Fig. 10, uncertainties in the right-top quarter core are larger than those in the other three quarters, since the burnup 6012.2 MWd/tU has 4 failed detectors, D03, C05, B06 and C07. They are all located in the right-top quarter core, which leads to the obvious tilt of uncertainties.
+In addition, it is noticed that the uncertainties of monitored power distributions for TPSM are less than those for LSM in most assemblies in Fig. 10, Fig. 11. It suggests that the TPSM is better than the LSM. In this context, more comprehensive factors should be considered when comparing the two monitoring methods. In addition to the calculation accuracy, and speed, the variation of the key parameters and the uncertainties should also be considered. In this paper, the numerical results are based on the first cycle of BEAVRS benchmark. But the strategy for the determination of the key parameters is general for other cases or problems. A new perspective for the evaluation and comparison of monitoring methods is provided.
+<Section>5. Summary and conclusions</Section>
+In this paper, two methods for online power-distribution monitoring have been studied, the least-square method (LSM) and the thin-plate spline method (TPSM), and implemented in the 3D online power-distribution monitoring system NECP-ONION. The weighting factor and the regularization coefficient have important impact on the monitoring accuracy and uncertainty, which are called key parameters in the LSM and TPSM. The online power-distribution monitoring and uncertainty analysis with various key parameters have been performed based on the BEAVRS benchmark. One principle is proposed for the key parameter determination. Then the comparison of the monitoring accuracies for these two methods with the same maximum-uncertainty values is performed. Conclusions are as follow:
+1.
+The key parameter has important impact on the monitoring accuracy and uncertainty. The monitoring accuracy improves with the key parameter but the uncertainty of the monitored result increase simultaneously. The determination of the key parameter need to consider the trends of both monitored errors and the monitored uncertainties.
+2.
+The key parameter is determined based on the uncertainty requirement of the online monitoring system. For the first cycle of the BEAVRS benchmark, the optimum weighting factor in the LSM and the optimum regularization coefficient in the TPSM are 10.0 and 10.0 respectively with the maximum uncertainty of monitored power distribution less than 1%.
+3.
+The comparison of monitoring methods should be performed with the same uncertainty requirement. The monitoring accuracy of the LSM is better than TPSM while the uncertainties of monitored results are consistent.
+<Section>CRediT authorship contribution statement</Section>
+Zhuo Li: Conceptualization, Investigation, Data curation, Formal analysis, Writing - original draft, Writing - review & editing. Mingtao He: Investigation, Data curation, Formal analysis, Writing - review & editing. Liangzhi Cao: Funding acquisition, Project administration, Writing - review & editing, Supervision. Hongchun Wu: Resources, Funding acquisition, Supervision. Wei Shen: Resources, Conceptualization, Methodology, Supervision. Yong Liu: Software, Methodology, Writing - review & editing.
+<Section>Declaration of Competing Interest</Section>
+The authors declare that they have no known competing financial interests or personal relationships that could have appeared to influence the work reported in this paper.
+<Section>Acknowledgement</Section>
+This work is supported by the National Natural Science Foundation of China (Grant No. 11735011).
+<Section>Appendix A. Supplementary data</Section>
+The following are the Supplementary data to this article:
+Supplementary data 1.
+<Section>References</Section>
+Beard and Morita, 1988
+C. Beard, T. Morita
+The BEACON core monitoring system
+Trans. Am. Nucl. Soc., 56 (1988), pp. 518-519
+View Record in ScopusGoogle Scholar
+Boyd and Miller, 1996
+Boyd, W.A., Miller, R.W., 1996. The BEACON on-line core monitoring system: functional upgrades and applications. In: Proceedings of a Specialists’ Meeting, In-core Instrumentation and Core Assessment, Mito-shi, Japan.
+Google Scholar
+Chan et al., 1990
+Chan, P.S.W., Mamourian, M., April 18-20, 1990. Application of on-line solution of 3-dimensional multigroup finite-difference neutron diffusion equations in reactor power control system. In: Third International Conference on Simulation method in Nuclear Engineering. Montreal, Quebec.
+Google Scholar
+Chen and Li, 2012
+C. Chen, Y. Li
+A robust method of thin plate spline and its application to DEM construction
+Comput. Geosci., 48 (2012), pp. 9-16
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+Hinchley, 1974
+Hinchley, E., Kugler, G., October, 1974. On-line control of the CANDU-PHWR power distribution. In: IAEA Specialists Meeting on Spatial Control Problems, Studsvik, Sweden.
+Google Scholar
+Hong, 2004
+I.S. Hong
+Flux mapping methods for CANDU reactors based on least squares principle and error shape synthesis
+(Ph.D. thesis)
+Seoul National University, Seoul, Korea (2004)
+Google Scholar
+Horelik et al., 2017
+Horelik, N., Herman, B., Ellis, M., et al., 2017. MIT benchmark for evaluation and validation of reactor simulations. USA: MIT Computational Reactor Physics Group; Rev. 2.0.1.
+Google Scholar
+Lee and Kim, 2003
+K.B. Lee, C.H. Kim
+The least-squares method for three-dimensional core power distribution monitoring in pressurized water reactors
+Nucl. Sci. Eng., 143 (2003), pp. 268-280
+View Record in ScopusGoogle Scholar
+Li et al., 2013
+Li, W., Lu, H., Li, J., et al., 2013. Development of a new flux map processing code for moveable detector system in PWR. In: M&C 2013. Sun Valley, Idaho, America.
+Google Scholar
+Li et al., 2018
+W. Li, P. Ding, C. Duan, et al.
+Comparison of spatial interpolation approaches for in-core power distribution reconstruction
+Nucl. Eng. Des., 337 (2018), pp. 66-73
+ArticleDownload PDFCrossRefView Record in ScopusGoogle Scholar
+Li et al., 2017a
+Z. Li, L. Cao, H. Wu, et al.
+Development and validation of a PWR on-line power-distribution monitoring system NECP-ONION
+Nucl. Eng. Des., 322 (2017), pp. 104-115
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+Li et al., 2017b
+Z. Li, L. Cao, H. Wu, et al.
+Sensitivity analysis for the weighting factor in the least-square method for the PWR on-line power-distribution monitoring
+Ann. Nucl. Energy, 109 (2017), pp. 675-683
+ArticleDownload PDFCrossRefView Record in ScopusGoogle Scholar
+Liu et al., 2015
+Y. Liu, L. Cao, H. Wu, et al.
+Eigenvalue implicit sensitivity and uncertainty analysis with the subgroup resonance-calculation method
+Ann. Nucl. Energy, 79 (2015), pp. 18-26
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+Lundberg and Wenisch, 1999
+Lundberg, S., Wenisch, J., 1999. Core Supervision Methods and Future Improvements of the CORE MASTER/PRESTO System at KKB. In: Core Monitoring for Commercial Reactors: Improvements in Systems and Methods, Stockholm, Sweden.
+Google Scholar
+Mishra et al., 2012
+S. Mishra, R.S. Modak, S. Ganesan
+Computational schemes for online flux mapping system in a large-sized pressurized heavy water reactor
+Nucl. Sci. Eng., 170 (2012), pp. 280-289
+View Record in ScopusGoogle Scholar
+Pecka et al., 1999
+Pecka, M., Svarny, J., Kment, J., 1999. Some Aspects of the New Core Monitoring System at NPP Dukovany and First Experience. In: Core Monitoring for Commercial Reactors: Improvements in Systems and Methods, Stockholm, Sweden.
+Google Scholar
+Peng et al., 2014
+X. Peng, K. Wang, Q. Li
+A new power mapping method based on ordinary Kriging and determination of optimal detector location strategy
+Ann. Nucl. Energy, 68 (2014), pp. 118-123
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+Shen and Schwanke, 2012
+Shen, W., Schwanke, P., 2012. Evolution of RFSP 3.5 for CANDU analysis. In: Proc. of the 33rd Canadian Nuclear Society (CNS) Annual Conference, Saskatoon, Saskatchewan, Canada, June 10-13.
+Google Scholar
+Terney et al., 1983
+W. Terney, J. Biffer, C. Dechand, et al.
+The C-E CECOR fixed in-core detector analysis system
+Trans. Am. Nucl. Soc., 44 (1983), pp. 542-543
+View Record in ScopusGoogle Scholar
+Wang et al., 2011
+C. Wang, H. Wu, L. Cao, et al.
+On-line reconstruction of in-core power distribution by harmonics expansion method
+Nucl. Eng. Des., 241 (2011), pp. 3042-3050
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+Zhong et al., 2010
+Zhong, B., Wang, K., Yu, G., 2010. A new method on flux mapping by function expansion. In: International Conference on Nuclear Engineering (ICONE18), Xi’an, China.
+Google Scholar

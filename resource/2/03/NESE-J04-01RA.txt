@@ -1,0 +1,394 @@
+<title>Embedded sensors in additively manufactured silicon carbide</title>
+<author>1,Christian M.Petrie,2,Adrian M.Schrell,3,Donovan N.Leonard,4,YingYang,5,Brian C.Jolly,6,Kurt A.Terrani</author>
+<Affiliation>1,Oak Ridge National Laboratory, PO Box 2008, Oak Ridge, TN, 37831, USA</Affiliation>
+<year>2021</year>
+<Jounral>Journal of Nuclear Materials</Journal>
+<Publishing_house>ELSEVIER</Publishing_house>
+<Text_Collector>XiaFan，HEU</Text_Collector>
+<DOI>10.1016/j.jnucmat.2021.153012</DOI>
+<URL>https://www.sciencedirect.com/science/article/pii/S002231152100235X</URL>
+Embedded sensors in additively manufactured silicon carbide
+Christian M.Petrie,Adrian M.Schrell,Donovan N.Leonard,YingYang,Brian C.Jolly,Kurt A.Terrani
+Oak Ridge National Laboratory, PO Box 2008, Oak Ridge, TN, 37831, USA
+<Section>Abstract</Section>
+Silicon carbide (SiC) components are being considered for a wide range of nuclear applications due to their high-temperature strength retention, low neutron absorption, chemical inertness, and dimensional stability under neutron irradiation. However, machining and joining of SiC components have traditionally limited its application to relatively simple geometries. Recent work has demonstrated additive manufacturing of complex, high-purity, crystalline SiC components using a combination of binder jet printing and densification via chemical vapor infiltration (CVI). The process lends itself to embedding of fuel, absorbers, moderators, and sensors at strategic locations within a component. The latter could allow for enhanced in situ performance monitoring of limiting fuel temperatures, self-shielded neutron flux, and potentially spatially distributed strain within complex SiC components if sensors can be successfully embedded during CVI. This work describes (1) methods for embedding sensors; (2) thermodynamic analyses and material compatibility testing for identifying sensors capable of surviving high temperatures and exposure to hydrogen and hydrogen chloride during CVI; and (3) nuclear applications for embedded sensors, including potential failure modes during fabrication and during reactor operation. Molybdenum-sheathed thermocouples were successfully embedded in a complex SiC component, whereas niobium-sheathed high-temperature irradiation-resistant thermocouples started to drift as soon as the reactant gases were introduced and ultimately failed during CVI due to severe constrained expansion, potentially resulting from niobium hydride formation in the low-temperature region of the CVI system. Optical fibers were successfully embedded in SiC, but further work is needed to protect the fragile fiber leads after their protective coatings are removed during CVI.
+Keywords:Embedded;Sensors;Silicon carbide;Additive manufacturing;Fiber-optics;Thermocouples
+<Section>1. Introduction</Section>
+Advanced, high-temperature nuclear reactors have been considered for many decades because of their passive safety features and their potential for increased uranium utilization or burnup of minor actinides. In addition, advanced reactors offer increased thermal efficiency when operating at higher temperatures. Examples of advanced high-temperature nuclear reactor concepts include high-temperature gas-cooled reactors [1] and molten salt reactors [2]. These systems are not only more efficient but are also capable of providing high-temperature process heat that could be used for water desalination, oil production/refining, or hydrogen production [3].
+For any high-temperature system, the structural materials must be thermodynamically stable at their operating temperatures, and they must be compatible with the surrounding materials, including the fuel and coolant. Structural materials must also maintain adequate mechanical strength at their operating temperatures throughout the entire lifetime of the component. Many metals suffer from greatly reduced mechanical strength at higher temperatures. In fact, until recently only five structural materials were code-qualified by the American Society of Mechanical Engineers for nuclear applications at temperatures above 550°C: 304 and 316 stainless steel, Incoloy 800 H, 2¼Cr‐1Mo steel, and 9Cr‐1Mo‐V steel [4]. More recently, Alloy 617 was added to this list [5]. However, most applications that require operating temperatures approaching or exceeding 1,000°C will require either refractory metals or ceramics.
+The ability to fabricate structural components from ceramic materials has been limited in large part due to the inability to fabricate ceramic components with complex geometries. However, recent studies have demonstrated the ability to 3D print high-purity silicon carbide (SiC) ceramic components with such geometries [6], with one particular approach [7] leveraged in this work. SiC has been considered for use in a wide range of nuclear applications [8,9] due to its high-temperature strength [10], chemical inertness [11], low neutron absorption [12], and radiation tolerance [13,14]. This manuscript discusses how an enabling SiC 3D printing technology can be extended to embed sensors within the ceramic structures in locations that would not be possible to access using conventional manufacturing techniques. Embedding sensors in ceramic structures could allow for online performance monitoring to enable significant performance gains. The ability to design and fabricate complex nuclear-grade ceramic components with integrated sensors, including fuel forms [15], could greatly expand the operating space for advanced reactor designs and allow enhanced process monitoring and operating protocols (i.e., reduced response delays) during reactor operation. This manuscript summarizes the sensor-embedding process, including material and sensor selection; results from the initial sensor-embedding trials; and a discussion of potential challenges and opportunities for in-core applications in advanced nuclear reactors.
+<Section>2. Background</Section>
+2.1. SiC 3D printing process
+SiC components with complex geometries are fabricated using a binder jet printing process [7]. The pure SiC powder feedstock particle size may range from 10 to 80 µm and may conform to the cubic or hexagonal SiC allotropes. The powder is loaded into the hopper of a binder jet printer (Innovent from ExOne Company, North Huntingdon, Pennsylvania), and the part is printed in successive 2D layers per the computer-aided design (CAD). For each layer of the part, the printer rakes powder across the printing bed and deposits a liquid binding agent over the solid portions of the layer. The bed is lowered, and the process is repeated for the next layer. Once all the layers have been printed, the entire bed is heated to ~190°C in air to cure the binder and drive off most of the organic solvent. After curing, the part is excavated from the powder bed, and residual powder is removed. At this point, the part is held together by the cured binder and has very low strength. The parts are then densified using chemical vapor infiltration (CVI). The furnace is heated in ~0.3 atm of Ar to a temperature of ~1,000°C, which volatizes the binder. Methyltrichlorosilane (MTS) is then carried into the reactant chamber by H2, infiltrates the porous part, and thermally decomposes to form high-purity crystalline SiC plus HCl gas:
+@(1)
+The result is a densified part (up to 92% of theoretical density) composed entirely of high-purity SiC, with no significant shrinkage or distortion of the part compared to the dimensions in the CAD file.
+2.2. Previous work embedding sensors in ceramics
+Previous attempts to embed sensors in ceramics have generally relied on diffusion bonding or sintering processes. For example, previous works have used diffusion bonding to embed thin-film thermocouples (TCs) in boron nitride [16] as well as thin-film strain gauges in sapphire [17] for machining and manufacturing applications. Diffusion bonding processes are limited in geometric complexity by the machining processes used to fabricate the components that are to be joined. Sintering has also been used to embed sapphire optical fibers [18] and passive wireless temperature sensors [19] in alumina components. Sintering processes inherently result in component shrinkage, which presents significant challenges when fabricating tight-tolerance components or when embedding sensors that likely will not shrink to the same degree as the surrounding matrix material. Depending on the method used to fabricate the pre-sintered component, geometric complexity could also be limited. To the authors’ knowledge, the only previous attempt to embed sensors using CVI was a study performed by de Vries [20]. In this work, fiber-optic sensors were woven alongside SiC fibers and densified using CVI to form a SiC ceramic matrix composite. The present work is similar in that CVI is used to bond fiber-optic sensors (along with other sensors) inside a SiC ceramic structure. However, the use of a binder jet process in the present work allows for fabrication of more complex ceramic structures and more precise placement of sensors inside the ceramic component.
+<Section>3. Methods</Section>
+3.1. Sensor-embedding process
+The sensor-embedding process relies on thermal decomposition of MTS to bond the sensor to the surrounding SiC matrix. There are four general approaches for incorporating sensors into complex, 3D-printed SiC components [21]. In the simplest approach, a cavity or channel is incorporated into the design and printed during the binder jet process, the part is densified using CVI, and the sensor is inserted afterward. This approach has several advantages including a simple manufacturing process, the ability to remove sensors from the component if they fail, and no harsh CVI environment for the sensors to survive. However, some sensors, such as strain sensors, must be directly embedded in the component to properly function. In the second approach (Fig. 1a), the binder jet printing process is paused after printing half of a channel. The printing process is then resumed after placing the sensor inside the half-printed channel, and additional powder is layered on top of the sensor. This approach mitigates concerns related to breaking the sensor or cracking the part during sensor insertion, but it is limited to channels printed horizontally during the binder jet process. A third approach (Fig. 1b) could be considered in which the sensor is inserted into a printed channel after the binder jet process but before the CVI process. However, this requires the sensor sheath to be stiff enough to pass through the channel without breaking the sensor or cracking the part before it is densified.
+Fig. 1. Photographs of complex binder jet parts with different methods for embedding sensors. These methods include temporarily pausing the binder jet printing process, placing the sensor in the bed, and then resuming the printing process (a) or pressing the sensor into a tight-fitting cavity after binder jet printing (b), both of which are followed by CVI. In another approach, after binder jet printing a part with a large cavity (c), sensors are inserted and surrounded by loose SiC powder (d), and the entire assembly is densified using CVI (e).
+One way to mitigate potential damage to the sensor or the part during sensor insertion is to use a fourth approach (Fig. 1c through Fig. 1e) to embedding sensors that requires printing the component with an oversized channel, or cavity, in which the sensor is placed and surrounded by loose SiC powder to fill the empty space. The printed part, loose powder, and sensor are all bonded together during CVI as the MTS infiltrates the open pores and densifies the entire assembly. Because the binder is applied to the same loose powder during the printing process, and the binder is completely driven off during CVI, the microstructures of the printed regions and the loose powder-filled regions are similar after CVI.
+3.2. Thermodynamic calculations
+The primary challenge for embedding any sensor is to identify sensor and/or sheath materials that can survive the high temperatures and chemically aggressive environment of the CVI process. Because HCl is a product of MTS thermal decomposition, the sensors and sensor sheaths must be compatible with HCl and the H2 carrier gas at temperatures of ~1,000°C. As a first step toward identifying candidate sheath materials, Ellingham diagrams were consulted to determine the metals for which the standard Gibbs free energy of formation for metal chlorides is greater than that for HCl. This would indicate that the metal chloride is more stable than HCl at the CVI temperature and therefore does not form. After reviewing the literature [22,23], the metals initially considered for further evaluation as sensor sheath materials were Mo, Nb, W, and Ta. Cu and Au were also evaluated because they are commercially available metal coatings for optical fibers that are thermodynamically compatible with HCl at temperatures approaching 1,000°C.
+Computational thermodynamic calculations were performed to assess the compatibility of candidate sheath materials with both HCl and SiC at temperatures in the range of 1,000°C. The FactSage 7.2 software package, which uses the well-established CALPHAD approach [24], was used with the Factps database to determine the stable compounds that form when exposing a system containing SiC and 10,000 ppm of various metals to both H2 and HCl at 1,000°C. The partial pressures of H2 and HCl were varied, but the total system pressure was maintained at 0.1 atm.
+3.3. Material compatibility testing
+The computational thermodynamic calculations described in Section 3.2 can be used to provide confidence that refractory metals can survive the CVI process and be successfully embedded in a SiC ceramic structure. To confirm this, material samples in the form of wires or thin sheets were placed inside a printed SiC can filled with loose SiC powder. The samples included were composed of W, Mo, Nb, and Ta, although only the Mo and Nb results are presented in this work because the lower neutron absorption cross sections for these materials make them more attractive as sheath materials for nuclear applications. Results from testing of W and Ta samples can be found in a previous report [21]. In addition, short sections of SiO2 optical fiber were included. Bare (uncoated) optical fibers were also tested, along with Au- and Cu-coated optical fibers. All cans loaded with samples and loose SiC powder were then placed inside the CVI furnace for densification. After CVI, the parts were sectioned for microscopy to evaluate the metal/ceramic interface and to identify any chemical interactions that occurred. Scanning electron microscopy (SEM) was used to characterize the interface with energy-dispersive x-ray spectroscopy (EDS) mapping to indicate elemental distributions within the samples.
+3.4. In situ testing of functional sensors
+After determining suitable candidate sensor and sheath materials, two experiments were conducted with in situ measurements during CVI. In the first experiment, a total of four sensors were loaded in a binder-jet-printed can with a large cavity. The sensors were surrounded by loose SiC powder like what is shown in Fig. 1c through Fig. 1e and schematically in Fig. 2. This experiment included a Ø1.6 mm Nb-sheathed Mo-Nb TC, or high-temperature irradiation-resistant (HTIR) TC, developed at Idaho National Laboratory [25,26]. The Nb sheath of the HTIR TC was heat treated at 1,600°C for 4 hours to improve high-temperature thermal drift at the expense of increased grain growth and embrittlement. Two Mo-sheathed single-mode fiber-optic sensors—one coated in ormocer (organically modified ceramic) and the other coated in acrylate—were included to directly embed the fibers in the SiC matrix to measure strain. A third optical fiber was loosely contained inside a closed-ended Mo sheath so that the sheath would be embedded in the SiC part and the loose fiber could provide spatially distributed temperature measurements. All fiber-optic sensors were sealed with epoxy inside their respective sheaths above the top flange of the quartz tube. The SiC component was placed on a graphite stand in the center of the heated region of a sealed quartz tube in which the CVI process gases were contained. The sensor leads passed up to the quartz tube's top flange and were sealed inside compression fittings. A second instrumented experiment was performed to embed a single Ø1.6 mm Mo-sheathed Type C TC with alumina insulation from Omega Engineering Inc. This experiment tested a similar binder-jet-printed SiC component except it was printed with a tight-fitting hole so that the TC could be inserted without requiring loading of additional powder prior to CVI (similar to Fig. 1a).
+Fig. 2. Section views of the experimental setup for in situ measurements during CVI showing (a) the entire assembly and (b) the sample with embedded sensors.
+Unfortunately, all the fiber-optic sensors broke after their protective coatings were removed at high temperatures during the first day of heating in Ar. Therefore, only the results from the embedded TCs are reported. Because the failures occurred prior to introducing the process gases, and these same sensors have previously been proven to survive temperatures approaching 1,000°C [27,28], the failures likely were unrelated to the embedding process. It is suspected that the fiber failures were caused by constrained expansion and bowing of the fiber sheaths, which put strain on the fragile, uncoated fibers. Future tests will consider higher temperature fiber coatings as well as modified methods for sealing the fiber sheaths to prevent bowing caused by constrained thermal expansion.
+<Section>4. Results</Section>
+4.1. Thermodynamic calculations
+The results of the thermodynamic calculations are summarized in Fig. 3. This figure shows the stable regions for compounds that form when SiC, Mo, and Nb are exposed to different partial pressures of HCl and H2. Fig. 3a shows the range of partial pressures of HCl and H2 under which solid SiC is stable. The furnace should not be operated under high HCl partial pressures and low H2 partial pressures (bottom right portion of the figure) because this results in the formation of carbon + gaseous reaction products and unsuccessful densification of the SiC component. MTS is carried into the furnace by H2 with a nominal H2:MTS ratio of 10:1. Therefore, if all of the MTS thermally decomposes to form HCl (3 moles of HCl per 1 mole of MTS), the minimum H2:HCl ratio would be 10:3, which would give partial pressures of 0.08 and 0.02 atm for H2 and HCl, respectively. This combination is safely within the region in which SiC does not form gaseous compounds.
+Fig. 3. Stable regions of compounds as a function of HCl and H2 partial pressures at 1,000°C and 0.1 atm pressure in the (a) SiC-HCl-H2, (b) Mo-HCl-H2, (c) Nb-HCl-H2, (d) SiC-HCl-H2-Mo, and (e) SiC-HCl-H2-Nb systems, respectively.
+Fig. 3b and c show the same data for Mo and Nb, respectively, in HCl and H2. These figures show that for the range of desired HCl and H2 partial pressures, all the metals evaluated are stable and do not form stable chlorides. Repeating the calculations for W and Ta led to similar conclusions [21]. The results presented in Fig. 3b and c provide additional evidence that the refractory metals that were evaluated in the thermodynamic calculations will not suffer prohibitive reactions with HCl using the current H2:HCl ratio. However, there is some concern that the metals could react with the SiC matrix. Based on the thermodynamic calculations, many of these metals will likely form metal carbides and/or silicides. Fig. 3d and e show the stable compounds that form in the SiC-HCl-H2-M system, in which M is the refractory metal of interest (Mo and Nb in this case). These figures show similar trends to the previous figures in that no liquid or gaseous reaction products are formed over the range of desired HCl and H2 partial pressures. However, carbide and silicide compounds are expected to form in both metal sheaths. This may be acceptable if the reaction and diffusion kinetics of the interlayer formation are slow enough that the reaction layer is limited to a thin region at the surface of the sensor sheath.
+4.2. Material compatibility testing
+4.2.1. Sheath materials
+Fig. 4 shows the microscopy results from the material compatibility tests. The Mo and Nb samples clearly survive the CVI process. However, the carbon-rich regions surrounding the SiC powder are filled with epoxy used during the sample preparation, indicating that these samples were not well-infiltrated due to a relatively short infiltration time. Nevertheless, the samples were still exposed to MTS, H2, HCl, and SiC powder at the process temperatures. The microscopy indicates some chemical interaction between the metals and the surrounding SiC matrix, which was expected based on the results of the thermodynamic calculations. Mo forms a thin silicide layer (Fig. 4b) with a thickness on the order of micrometers, indicating that the kinetics of the diffusion-limited reaction are quite slow. Nb does not show any significant carbide (Fig. 4g) or silicide (Fig. 4f) formation. From these results, both Mo and Nb appear to be promising candidates for use as sensor sheath materials based on compatibility with the H2 and MTS process gases as well as the surrounding SiC matrix. W and Ta are also candidate sheath materials based on previous testing, which did not show significant carbide or silicide formation [21]. The Si that was identified in previous measurements of Ta samples has since been determined to be a data processing artifact.
+Fig. 4. SEM images of Mo (a) and Nb (e) coupons embedded in SiC after CVI, with EDS maps of Si (b, f), C (c, g), Mo (d), and Nb (h). The scale bars in the EDS maps are 20 µm wide.
+Because the coupon samples shown in Fig. 4 were not well-infiltrated, an additional CVI experiment was performed to evaluate the interface between a densified SiC matrix and a Ø1.6 mm Mo tube that more closely resembles a sensor sheath. Fig. 5 shows a top-down image of the embedded Mo sheath (Fig. 5a) and an axial section view (Fig. 5b) with detailed views showing the sheath/matrix interface (Fig. 5c) and the bulk SiC matrix (Fig. 5d). While some matrix cracking is visible, the Mo sheath is clearly embedded in the SiC matrix, and the densification that occurred near the vicinity of the sheath appears to be similar to that of the bulk SiC. Fig. 5 also shows significantly better infiltration (higher matrix density) compared to the samples shown in Fig. 4. Matrix cracking results from constrained cooling after bonding is initiated during CVI (at 1,000°C). The Mo tube has a higher thermal expansion coefficient than SiC, resulting in a differential thermal strain of 0.14% after cooling to room temperature. This amounts to a stress on the order of hundreds of megapascals, which is enough to exceed the strength of the interface and cause localized cracking or debonding to occur. However, except for strain sensors, most sensors do not require that the sensor sheath be perfectly bonded to the surrounding material. EDS analysis of the sheath/matrix interface (not shown) indicated silicide formation similar to that of the Mo coupon samples (Fig. 4) with a thickness of ~10 µm.
+Fig. 5. Images of a Mo sensor sheath embedded in SiC, showing a top-down view (a) and an axial section view (b), and detailed views showing the sheath/matrix interface (c) and the bulk SiC matrix (d).
+4.2.2. Fiber-optics
+In addition to sheath materials, SiO2 optical fibers were embedded bare (uncoated) and with Au and Cu alloy metal coatings. Fig. 6 shows cross sections of each of the embedded fiber types after CVI. The SiC matrices surrounding these samples, particularly the bare and Cu coated fiber samples, appear to have a higher density compared to the matrices surrounding the Mo and Nb wires (Fig. 4), indicating that these samples were properly infiltrated. All the fibers appear to be successfully embedded in the SiC matrix. However, the Au and Cu coatings are clearly deformed and may have partially melted during the CVI process. The melting points of Au and Cu are 1,064°C and 1,085°C, respectively. Because the furnace was operated at a nominal temperature of 1,000°C—well below the coatings’ melting points—it is likely that the proprietary coatings are alloys with melting points below those of the pure metals. In any case, even after the coatings deformed, the exposed sections of the fibers did not show significant degradation when exposed to HCl. A crack is visible in the Cu-coated fiber, but it is unclear whether this crack occurred during CVI or during cutting and polishing of the sample. Additional embedded Cu-coated fibers did not show any cracking after sectioning and polishing. The surface of the Cu-coated fiber also appears to be rougher than those of the bare and Au-coated fibers, which could indicate some surface reaction. However, light is transmitted only within the central ~10 µm core of the fiber, which would not be significantly affected by surface reactions. The bare optical fiber appears to be well bonded to the SiC matrix. Therefore, bare fibers appear to be best suited for direct embedding in SiC. However, there are concerns with handling an uncoated fiber after embedding due to the lack of mechanical protection that is typically provided by a metal coating.
+Fig. 6. Cross sections of embedded SiO2 optical fibers showing (a) Au-coated fibers, (b) Cu-coated fibers, and (c) bare (uncoated) fibers.
+4.3. Embedding of functional sensors
+Fig. 7 shows temperatures measured by the Nb-sheathed HTIR TC during CVI. The first day of operation involved heating to a nominal temperature of 1,000°C in Ar and holding at temperature for ~2.6 hours before cooling to room temperature. The HTIR TC registered a much lower temperature of ~940°C. This discrepancy could have been related to issues with the vendor-provided calibration. After heating back to 1,000°C in Ar on the second day of operation, MTS and H2 flow was initiated near 4.1 hours. The HTIR TC immediately started to drift despite the furnace temperature controller holding a constant internal temperature. The HTIR TC failed near 19.1 hours, after approximately 15 hours of operation with MTS + H2 flow.
+Fig. 7. Temperatures measured by the Nb-sheathed HTIR TC during 2 days of operation: one in Ar and one during CVI while flowing MTS and H2 starting near 4.1 hours. The HTIR TC immediately started to drift after exposure to MTS and H2 and failed at 19.1 hours.
+After CVI, the experiment was disassembled, and the HTIR TC was examined. Fig. 8 shows photographs of the three Mo sheaths that contained the fiber-optic sensors as well as the Nb-sheathed HTIR TC. Also shown is a crack that formed in the sheath of the HTIR TC. The HTIR TC's Nb sheath bowed much more significantly compared to the Mo sheaths. This bowing was almost certainly a result of constrained expansion, as the sensor sheaths were fixed in place inside compression fittings in the quartz tube's top flange as well as at the bottom by the SiC part and the graphite stand. However, thermal expansion alone is only estimated to be a few millimeters for both Mo and Nb compared to the tens of millimeters that would be required to cause the amount of bowing that was observed. Cracking due to constrained expansion is not surprising given the brittle nature of the Nb sheath after it was heat treated prior to CVI. However, the source of the Nb expansion is not immediately clear and is discussed in more detail in Section 5.2.
+Fig. 8. Photographs showing (a) the sheaths extending from the SiC component where the sensors were embedded and (b) a close-up view of a crack that formed in the HTIR TC.
+The second experiment for embedding sensors with in situ measurements during CVI included a single Mo-sheathed Type C TC. Fig. 9 shows the temperatures measured over 5 days of CVI as well as postembedding photographs. The TC clearly survived the embedding process and measured temperatures within 13°C of the 1,000°C furnace set point. Prior to introducing MTS and H2 near 8.5 hours, the TC read ~994°C and continued to increase to ~996°C up to 12.5 hours. After this point, a downward drift of ~9°C was observed over the next ~30 hours of CVI. The temperature increase and subsequent slow decrease starting near 104 hours appear to have been caused by physical changes during CVI, considering that there was a temporary loss of H2 and MTS flow that started near 104 hours and lasted approximately 2 to 3 hours. It is possible that the initial decrease in temperature was caused by the transition from Ar to H2 + MTS flow. H2 has a lower density and higher thermal conductivity compared to Ar, which could have resulted in increased axial heat losses within the furnace due to increased gas conduction and natural circulation. After cooling, the TC measurements matched those of the furnace's control TC (not shown) to within 1°C, indicating no significant hysteresis.
+Fig. 9. Embedded Mo-sheathed Type C TC showing measured temperatures during 5 days of CVI (a), only the steady-state data near 1,000°C (b), and postembedding photographs (c and d).
+<Section>5. Discussion</Section>
+5.1. Nuclear energy applications
+Embedding sensors within in-core components could provide real-time measurements of temperature, strain, or neutron flux at critical locations that might dictate operational limits. For example, embedded self-powered neutron detectors (SPNDs) could provide more detailed maps of neutron flux near highly absorbing media, such as fuel or control materials. Similarly, embedding temperature sensors could allow for local measurements of fuel or coolant temperature distributions in hot channels or other limiting locations. The left portions of the images in Fig. 10 show qualitative maps of temperature (Fig. 10a) and neutron flux (Fig. 10b) for traditionally instrumented reactor systems with in-coolant temperature sensors and local power monitors. Temperature sensors give only an indication of the coolant temperature, typically near the core inlet and outlet. Therefore, cladding temperatures and fuel centerline temperatures can only be calculated based on estimates of local power with assumed fuel dimensions and thermophysical properties. While total reactor power can be accurately determined based on the total heat balance across the core, local power is only estimated based on measurements from local power range monitors (LPRMs) that are typically performed during startup because LPRMs are often withdrawn during full power operation. Local power monitoring is critical to optimizing fuel loading and reducing power peaking factors. LPRMs also cannot account for the neutron self-shielding that occurs within each fuel rod. The self-shielding changes significantly over the course of an operating cycle as the fuel is depleted of U-235 and Pu-239 is bred, and this effect would not be captured using LPRMs that are withdrawn prior to full power operation. The right sides of the images in Fig. 10 show how embedding temperature and neutron sensors within the fuel could allow for direct measurements of the limiting (maximum) fuel temperatures and a more accurate measurement of the self-shielded neutron flux inside the fuel.
+Fig. 10. Qualitative mapping of temperature (a) and neutron flux (b) for traditional in-coolant temperature sensors (TSs) and neutron sensors (NSs) vs. embedded temperature and neutron sensors.
+The measurements made during this work show that TCs can be successfully embedded in complex SiC structures, similar to what will be used in the Transformational Challenge Reactor [29,30]. Embedding spatially distributed temperature sensors, such as fiber-optic sensors using optical frequency domain reflectometry [31,32], would be even more appealing because these sensors limit the number of vessel penetrations and provide a more detailed mapping of temperatures without requiring a priori knowledge of peak temperature locations. Finally, embedded, spatially distributed strain sensors could be used to monitor the structural health of complex SiC components during operation and identify areas of high stress that could be mitigated before failure occurs. Similar spatially distributed strain measurements have been previously demonstrated using fiber-optic sensors embedded in metals [33,34] and concrete [35]. Embedding of SPNDs would be similar to embedding of TCs in that these sensors only require an emitter, an insulator, and a collector, which can sometimes be the sensor's sheath. This work has studied potential sensor sheath materials that can survive the CVI embedding process and successfully embedded Mo-sheathed TCs with alumina insulation. Because the emitter, insulator, and collector (if separate from the sheath) are not exposed to H2 or HCl, they must only survive the CVI process temperatures. Therefore, it is not expected that embedding SPNDs would present any new challenges compared to embedding TCs provided suitable high-temperature materials were used.
+5.2. Sensor failures during embedding
+The failures that were observed in the Nb-sheathed TC were not expected based on thermodynamic calculations (Section 4.1) and materials compatibility tests (Section 4.2), which both showed that Nb should not suffer from prohibitive reactions with MTS (or its HCl byproduct), H2, or the SiC matrix. However, the thermodynamic calculations and the materials compatibility tests were only performed at a temperature of 1,000°C. During the experiment, a significant portion of the HTIR TC's sheath was exposed to far lower temperatures (~100°C at the flange connection). For a H2 partial pressure of 0.08 atm, the Nb-H phase diagram [36] indicates that Nb can form stable hydrides with H/Nb ratios > 0.1 at temperatures <500°C and H/Nb ratios > 0.6 for temperatures <350°C. Empirical correlations for the lattice parameters of the Nb-H system were developed by Ito as a function of the H/Nb ratio [37]. The relative volumetric expansion () resulting from the reported lattice parameters can be expressed as
+@(2)
+Combining this correlation with the isobaric Nb-H phase diagram [36]—for a conservatively high H2 partial pressure of 0.13 atm (100 mm Hg)—and the estimated axial temperature profile within the furnace, the net expansion of the Nb sheath due to hydride formation can be calculated assuming isotropic expansion. The calculated expansion is ~2.4 mm over the 430 mm constrained length of the sheath. This linear expansion is very similar to the calculated thermal expansion of the Nb sheath and the graphite stand on which the sample rested, both of which were ~2.5 mm. Therefore, while hydride formation in the Nb sheath may have contributed to the bowing and failure during CVI, it cannot explain the extreme bowing that was observed. In any case, the failure of the Nb-sheathed TC and the successful embedding of Mo-sheathed TCs are enough evidence for considering Mo a superior sheath material in terms of compatibility with the CVI process.
+The fiber-optic sensors have not been discussed in detail because they broke at various locations above the embedded region but within the heated region of the furnace. Previous works have shown that fused silica fiber-optic sensors can survive temperatures approaching 1,000°C [27,28], with brief operation capable at temperatures up to 1,200°C [38]. For higher-temperature operation, single-crystal sapphire optical fibers have the potential for sensing at temperatures up to 1,600°C [39], [40], [41]. The challenge for embedding fiber-optic sensors is that they are extremely fragile without their protective coatings, most of which are polymers that cannot survive temperatures anywhere near 1,000°C. Metal coatings such as gold and copper alloys are commercially available, but they clearly show signs of melting following CVI (Fig. 6). Therefore, future work could investigate improved coatings (metal or ceramic) or other means of protecting the fragile fiber-optic sensors during CVI.
+5.3. Radiation effects
+Neutron radiation has the potential to impact both the sensor operation (signal attenuation or drift) and the interfaces between the embedded sensors and the SiC matrix. The primary limitation for TCs is drift due to thermal diffusion or neutron-induced transmutation. Type K (chromel-alumel) and Type N (nicrosil-nisil) TCs are the most common for nuclear applications. The signal drift has been shown to be <0.8% at a fast neutron fluence of 1.4 × 1020 n/cm2 for Type K TCs [42]. Because Type K and Type N TCs are composed mostly of Ni, they would likely have similar radiation-induced drift. However, Type N TCs exhibit lower thermal drift, particularly at temperatures of 800°C or higher [43]. Type K and Type N TCs are limited to a maximum temperature in the range of 1,000−1,200°C. For higher-temperature applications, W/Re (Type C, D, and G) and Pt/Rh (Type B, R, and S) TCs are typically used for nonnuclear applications. However, these TCs show prohibitively large drift due to transmutation of W, Re, and Rh [44,45]. For example, W/Re TCs have been shown to drift between 10 and 25% for a thermal neutron fluence on the order of 1021 n/cm2 [45]. For high-temperature in-core measurements, Mo/Nb TCs have been developed and tested [25,46]. These TCs show minimal thermal drift at temperatures as high as 1,315ׄ°C for thousands of hours [26] and have provided reliable temperature measurements in the range of 800 to 1,460°C during irradiation in the AGR-5/6/7 experiment [26] and at fast neutron fluences up to 1.4 × 1020 n/cm2 in the Fast Fission Test Facility [43]. Depending on the application temperature, Type N or Mo/Nb TCs with a Mo sheath are identified as the most promising sensors for embedding in SiC nuclear components based on compatibility with the embedding process and for minimizing drift under neutron irradiation.
+Fiber-optic sensors suffer from both signal attenuation (darkening) and drift due to volumetric compaction [47]. Many studies have been performed to evaluate darkening during high neutron fluence irradiation testing [48], [49], [50], [51], with some previous works showing significantly reduced darkening when the irradiation temperature is increased [47, [52], [53], [54], [55]]. One study showed adequate light transmission (~6 dB attenuation) in fiber-optic temperature sensors irradiated for >50 days (fast neutron fluence on the order of 1020 n/cm2) in the Massachusetts Institute of Technology Research Reactor at temperatures of ~600°C [54]. In general, fibers with pure silica core, F-doped silica cladding have shown the highest radiation resistance [56]. Increased OH concentrations have been shown to reduce radiation-induced signal attenuation in the ultraviolet to visible range at the expense of increased intrinsic attenuation in the near infrared [49]. Some previous works have observed higher infrared signal attenuation with polymer-coated fibers compared with metal-coated fibers, presumably due to increases in OH caused by hydrogen diffusion from the polymer-based coatings [57]. Therefore, when considering fiber-optic sensors for nuclear applications, the core/cladding dopants, OH concentration, coating material, operating wavelength, and temperature must all be considered to limit the radiation-induced signal attenuation. For fiber-optic sensors embedded using CVI, the H2 atmosphere could result in increased OH concentrations, which would affect light transmission before and during reactor operation.
+Drift of fiber-optic sensors under neutron irradiation is primarily caused by volumetric compaction of the amorphous SiO2 structure [47, 58, 59], which is manifested as an apparent decrease in temperature or strain. Compaction reaches an equilibrium after accumulating a fast neutron fluence on the order of 1019 n/cm2, and the magnitude of the compaction monotonically decreases with increasing temperature. After reaching equilibrium, the calculated drift in fiber-optic temperature sensors due to compaction effects varies from >80°C when irradiated at 300°C to as low as 20°C when irradiated at 700°C [47]. However, because the compaction and the resulting drift saturate, the sensors can provide measurements of relative changes in temperature after saturation has been reached, assuming that the signal-to-noise ratio is still acceptable.
+Fiber-optic strain sensors that are directly embedded in SiC ceramics could suffer from an additional potential failure mode due to constrained thermal expansion as well as the combined effects of constrained radiation-induced compaction of the amorphous SiO2 structure and radiation-induced swelling of the surrounding SiC matrix. Fig. 11a shows the fiber strain due to constrained thermal expansion, assuming that there is no slip at the fiber/matrix interface. Because the fiber is bonded to the SiC matrix at a temperature of 1,000°C and the coefficient of thermal expansion (CTE) for amorphous SiO2 is lower than that for SiC, the fiber remains in compression for all temperatures <1,000°C. This is much more favorable compared to embedding of metals with higher thermal expansion coefficients that put the fiber in tension when heated to temperatures beyond the temperature at which the sensor was bonded to the metal. Neglecting creep and again assuming that the fiber and matrix remain bonded, the strain resulting from radiation-induced dimensional changes can be calculated as a function of temperature and fast neutron fluence—or dose, assuming 1 dpa in SiC per 1021 n/cm2—using previous correlations for SiO2 compaction [47] and SiC swelling [60]. Fig. 11b shows the fiber strain as a function of fast neutron fluence and dose in SiC for temperatures of 300, 500, and 700°C. The fiber is in tension because it is constrained and wants to compact as the surrounding matrix swells. Both SiC swelling and fused silica compaction decrease with increasing temperature, which causes the fiber strain to also decrease. Adding the thermal expansion strain to the differential swelling/compaction strain and multiplying by the temperature-dependent elastic modulus for fused silica [61] gives the calculated stresses shown in Fig. 11c. Both the compressive strain from constrained thermal expansion and the radiation-induced swelling/compaction strain are reduced as the temperature is increased.
+Fig. 11. (a) Fiber strain resulting from constrained thermal expansion, (b) radiation-induced fiber strain resulting from fused silica compaction and SiC swelling under constraint as a function of fast neutron fluence or SiC dose with temperature as a parameter, and (c) the resulting stress in the fiber due to both constrained thermal expansion and radiation-induced swelling/compaction.
+While fiber fracture is a statistical phenomenon, the average tensile strength is reported to be in the range of 6.5 GPa at 200°C and decreases to 1.2 GPa at 780°C, and the minimum reported tensile strength varies from 4.6 GPa at 200°C to 400 MPa at 780°C [62]. The calculated stresses are significantly lower than the reported fiber tensile strength over the 300 to 700°C temperature range, even without considering the effects of creep. Therefore, fiber-optic strain sensors embedded in SiC using CVI may be able to survive the expected strain due to both differential thermal expansion and radiation-induced dimensional changes. However, it is possible that the calculated stresses could exceed the strength of the fiber/matrix interface, which would reduce strain coupling from the matrix to the fiber and reduce the fidelity of the strain sensor. This interface could be engineered to provide maximum strain transfer or to intentionally slip to prevent brittle failure of the fiber, like what has been done for engineered SiC-fiber-reinforced, SiC matrix composites [63]. Future work will investigate the strength of the fiber/matrix interface for different fiber coatings.
+<Section>6. Summary and conclusions</Section>
+This work reports the first successful embedding of functional sensors in complex, additively manufactured SiC ceramic components using a combination of binder jet printing and CVI. Embedding fuel, moderator, or absorber materials inside complex SiC ceramic structures could greatly improve the ability to design high-performance, compact nuclear reactor cores by providing increased geometric freedom without the constraints of conventional manufacturing. The ability to embed sensors within these complex core structures could greatly improve monitoring and control capabilities by reducing sensor response times and providing measurements at the most limiting locations that define safety margins. This work summarizes methods for embedding sensors and some of the challenges including materials selection during CVI. While Mo, Nb, W, and Ta materials were shown to be compatible with the CVI process gases and showed minimal interaction with the surrounding SiC matrix, a Nb-sheathed TC was later shown to bow significantly due to constrained expansion once MTS and H2 gas flow was initiated. On the other hand, a Mo-sheathed TC was successfully embedded in SiC with minimal drift during CVI and no significant hysteresis.
+Fiber-optic sensors were successfully embedded in SiC with Au and Cu alloy coatings and without coatings. However, the fragile fiber leads broke during an instrumented test because their protective coatings could not survive the process temperatures. The bonding of the fiber to the matrix occurs at ~1,000°C, causing the fiber to undergo compression at lower temperatures as the matrix shrinks more than the fiber. Evaluation of radiation effects on embedded fiber-optic strain sensors shows that the fibers will eventually see tensile stresses resulting from radiation-induced swelling of the SiC matrix and compaction of the fiber. However, these calculated stresses are significantly below the typical fiber failure stresses even in the absence of creep, indicating that the sensors could potentially survive high-dose neutron irradiation. Future work could investigate improved fiber coatings (metal or ceramic) or other means of protecting the fragile fiber-optic sensors during CVI and more generally optimizing the interface between the fibers and the SiC matrix.
+<Section>CRediT authorship contribution statement</Section>
+Christian M. Petrie: Methodology, Investigation, Data curtion, Writing – original draft. Adrian M. Schrell: Methodology, Investigation, Writing – review & editing. Donovan N. Leonard: Investigation, Data curtion, Writing – review & editing. Ying Yang: Methodology, Investigation, Data curtion, Writing – review & editing. Brian C. Jolly: Methodology, Investigation, Writing – review & editing. Kurt A. Terrani: Supervision, Writing – review & editing.
+<Section>Declaration of Competing Interest</Section>
+The authors declare that they have no known competing financial interests or personal relationships that could have appeared to influence the work reported in this paper.
+<Section>Acknowledgments</Section>
+This work was supported by the Transformational Challenge Reactor Program of the US Department of Energy, Office of Nuclear Energy. Dylan Richardson and Michael Trammel (Oak Ridge National Laboratory, ORNL) performed the binder jet printing. Austin Schumacher and Gokul Vasudevamurthy (ORNL) assisted with the chemical vapor infiltration. Yutai Katoh (ORNL) provided helpful comments on the manuscript.
+<Section>References</Section>
+[1]
+C.R. McCullough
+Summary report on design and development of high temperature gas-cooled power pile
+Clinton Labs, Oak Ridge, TN (1947)
+Google Scholar
+[2]
+R.C. Briant, A.M. Weinberg
+Molten fluorides as power reactor fuels
+Nucl. Sci. Eng., 2 (6) (1957), pp. 797-803
+CrossRefView Record in ScopusGoogle Scholar
+[3]
+W.-J. Lee, Y.-W. Kim, J.-H. Chang
+Perspectives of nuclear heat and hydrogen
+Nucl. Eng. Technol., 41 (4) (2009), pp. 413-426
+CrossRefGoogle Scholar
+[4]
+Section III Rules for Construction of Nuclear Facility Components: Division 5 High Temperature Reactors, 2019 ASME Boiler and Pressure Vessel Code: An International Code
+The American Society of Mechanical Engineers, New York, NY (2019)
+Google Scholar
+[5]
+H. Hogan, Commercial alloy qualified for new use, expanding nuclear operating temperature, 2020. https://inl.gov/article/a-new-material-expands-nuclear-operating-temperature/. (Accessed June 25 2020).
+Google Scholar
+[6]
+T. Koyanagi, K. Terrani, S. Harrison, J. Liu, Y. Katoh
+Additive manufacturing of silicon carbide for nuclear applications
+J. Nucl. Mater. (2021), 10.1016/j.jnucmat.2020.152577
+Google Scholar
+[7]
+K. Terrani, B. Jolly, M. Trammell
+3D printing of high-purity silicon carbide
+J. Am. Ceram. Soc., 103 (3) (2020), pp. 1575-1581
+CrossRefView Record in ScopusGoogle Scholar
+[8]
+L.L. Snead, T. Nozawa, M. Ferraris, Y. Katoh, R. Shinavski, M. Sawan
+Silicon carbide composites as fusion power reactor structural materials
+J. Nucl. Mater., 417 (1-3) (2011), pp. 330-339
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+[9]
+Y. Katoh, L.L. Snead, I. Szlufarska, W.J. Weber
+Radiation effects in SiC for nuclear structural applications
+Curr. Opin. Solid State Mater. Sci., 16 (3) (2012), pp. 143-152
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+[10]
+T. Ishikawa, S. Kajii, K. Matsunaga, T. Hogami, Y. Kohtoku, T. Nagasawa, A Tough
+Thermally conductive silicon carbide composite with high strength up to 1600°C in air
+Science, 282 (5392) (1998), p. 1295
+View Record in ScopusGoogle Scholar
+[11]
+K.A. Terrani, B.A. Pint, C.M. Parish, C.M. Silva, L.L. Snead, Y. Katoh
+Silicon carbide oxidation in steam up to 2 MPa
+J. Am. Ceram. Soc., 97 (8) (2014), pp. 2331-2352
+CrossRefView Record in ScopusGoogle Scholar
+[12]
+N.M. George, K. Terrani, J. Powers, A. Worrall, I. Maldonado
+Neutronic analysis of candidate accident-tolerant cladding concepts in pressurized water reactors
+Ann. Nucl. Energy, 75 (2015), pp. 703-712
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+[13]
+L.L. Snead, T. Nozawa, Y. Katoh, T.-S. Byun, S. Kondo, D.A. Petti
+Handbook of SiC properties for fuel performance modeling
+J. Nucl. Mater., 371 (1-3) (2007), pp. 329-377
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+[14]
+T. Koyanagi, T. Nozawa, Y. Katoh, L.L. Snead
+Mechanical property degradation of high crystalline SiC fiber–reinforced SiC matrix composite neutron irradiated to 100 displacements per atom
+J. Eur. Ceram. Soc., 38 (4) (2018), pp. 1087-1094
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+[15]
+K.A. Terrani, B.C. Jolly, M.P. Trammell, G. Vasadevamurthy, D. Schappel, B. Ade, G.W. Helmreich, H. Wang, A.M. Rossy, B.R. Betzler, A.T. Nelson
+Architecture and properties of TCR fuel form
+J. Nucl. Mater. (2021), Article 152781
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+[16]
+D. Werschmoeller, X. Li
+Measurement of tool internal temperatures in the tool–chip contact region by embedded micro thin film thermocouples
+J. Manufact. Process., 13 (2) (2011), pp. 147-152
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+[17]
+H. Choi, H. Konishi, H. Xu, X. Li
+Embedding of micro thin film strain sensors in sapphire by diffusion bonding
+J. Micromech. Microeng., 17 (11) (2007), pp. 2248-2252
+CrossRefView Record in ScopusGoogle Scholar
+[18]
+A. Ghazanfari, W. Li, M.C. Leu, Y. Zhuang, J. Huang
+Advanced ceramic components with embedded sapphire optical fiber sensors for high temperature applications
+Mater. Des., 112 (2016), pp. 197-206
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+[19]
+C. Li, Q. Tan, W. Zhang, C. Xue, J. Xiong
+An embedded passive resonant sensor using frequency diversity technology for high-temperature wireless measurement
+IEEE Sens. J., 15 (2) (2015), pp. 1055-1060
+View Record in ScopusGoogle Scholar
+[20]
+M. de Vries, M. Nasta, J. Patel, K. Kamdar, R. Lowden, D. Stinton, S. Allison, J. Muhs, R. Claus, Survivability of optical fiber sensor elements embedded in silicon carbide ceramic matrix composites, 2020, SPIE1993.
+Google Scholar
+[21]
+C.M. Petrie, D.N. Leonard, Y. Yang, M.P. Trammell, B.C. Jolly, K.A. Terrani
+Embedment of Sensors in Ceramic Structures
+Oak Ridge National Laboratory, Oak Ridge, TN (2019)
+Google Scholar
+[22]
+T.B. Reed, Free Energy of Formation of Binary Compounds, MIT press1971.
+Google Scholar
+[23]
+D.R. Stull, H. Prophet
+JANAF Thermochemical Tables
+National Standard Reference Data System (1971)
+Google Scholar
+[24]
+N. Saunders, A.P. Miodownik
+CALPHAD (Calculation of Phase Diagrams): a Comprehensive Guide
+Elsevier (1998)
+Google Scholar
+[25]
+J.L. Rempe, D.L. Knudson, K.G. Condie, S.C. Wilkins
+Thermocouples for high-temperature in-pile testing
+Nucl. Technol, 156 (3) (2006), pp. 320-331
+CrossRefView Record in ScopusGoogle Scholar
+[26]
+A.J. Palmer, R.S. Skifton, D.C. Haggard, W.D. Swank
+Development and Testing of Thermocouples for the Advanced Gas Reactor Fuel Experiment AGR-5/6/7, Nuclear Plant Instrumentation, Control and Human-Machine Interface Technologies
+American Nuclear Society, Orlando, FL (2019), pp. 1013-1027
+2019
+View Record in ScopusGoogle Scholar
+[27]
+D.C. Sweeney, A.M. Schrell, C.M. Petrie
+An adaptive reference scheme to extend the functional range of optical backscatter reflectometry in extreme environments
+IEEE Sens. J., 21 (1) (2020), pp. 498-509
+Google Scholar
+[28]
+A.H. Rose
+Devitrification in annealed optical fiber
+J. Lightw. Technol., 15 (5) (1997), pp. 808-814
+View Record in ScopusGoogle Scholar
+[29]
+ORNL, Transformational Challenge Reactor: Demonstrating a faster, more affordable approach to advanced nuclear energy, 2020, tcr.ornl.gov. (Accessed 1-26-2020 2020).
+Google Scholar
+[30]
+B.R. Betzler, B.J. Ade, A.J. Wysocki, P.K. Jain, P.C. Chesser, M.S. Greenwood, K.A. Terrani
+Transformational challenge reactor preconceptual core design studies
+Nucl. Eng. Des., 367 (2020), Article 110781
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+[31]
+M. Froggatt, J. Moore
+High-spatial-resolution distributed strain measurement in optical fiber with Rayleigh scatter
+Appl. Opt., 37 (10) (1998), pp. 1735-1740
+CrossRefView Record in ScopusGoogle Scholar
+[32]
+T.W. Wood, B. Blake, T.E. Blue, C.M. Petrie, D. Hawn
+Evaluation of the performance of distributed temperature measurements with single-mode fiber using rayleigh backscatter up to 1000°C
+IEEE Sens. J., 14 (1) (2014), pp. 124-128
+CrossRefView Record in ScopusGoogle Scholar
+[33]
+C.M. Petrie, N. Sridharan, M. Subramanian, A. Hehr, M. Norfolk, J. Sheridan
+Embedded metallized optical fibers for high temperature applications
+Smart Mater. Struct., 28 (2019), Article 055012
+CrossRefView Record in ScopusGoogle Scholar
+[34]
+C.M. Petrie, N. Sridharan, A. Hehr, M. Norfolk, J. Sheridan
+High-temperature strain monitoring of stainless steel using fiber optics embedded in ultrasonically consolidated nickel layers
+Smart Mater. Struct., 28 (8) (2019), Article 085041
+CrossRefView Record in ScopusGoogle Scholar
+[35]
+J.M. Henault, M. Quiertant, S. Delepine-Lesoille, J. Salin, G. Moreau, F. Taillade, K. Benzarti
+Quantitative strain measurement and crack detection in RC structures using a truly distributed fiber optic sensing system
+Construct. Build. Mater., 37 (2012), pp. 916-923
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+[36]
+W.M. Albrecht, W.D. Goode, M.W. Mallett
+Reactions in the niobium-hydrogen system
+J. Electrochem. Soc.y, 106 (11) (1959), p. 981
+CrossRefView Record in ScopusGoogle Scholar
+[37]
+M. Ito
+Studies on Physical Properties Of Metal Hydrides and Hydrogen Behavior in Zr Alloys, Division of Sustanable Energy and Environmental Engineering
+Osaka University, Osaka, Japan (2008)
+Google Scholar
+[38]
+T. Zhu, T. Ke, Y. Rao, K.S. Chiang
+Fabry–Perot optical fiber tip sensor for high temperature measurement
+Opt. Commun., 283 (19) (2010), pp. 3683-3685
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+[39]
+C.M. Petrie, T.E. Blue
+In situ thermally induced attenuation in sapphire optical fibers heated to 1400°C
+J. Am. Ceram. Soc., 98 (2) (2015), pp. 483-489
+CrossRefGoogle Scholar
+[40]
+B.A. Wilson, C.M. Petrie, T.E. Blue
+High-temperature effects on the light transmission through sapphire optical fiber
+J. Am. Ceram. Soc., 101 (8) (2018), pp. 3452-3459
+CrossRefView Record in ScopusGoogle Scholar
+[41]
+Y. Zhu, Z. Huang, F. Shen, A. Wang
+Sapphire-fiber-based white-light interferometric sensor for high-temperature measurements
+Opt. Lett., 30 (7) (2005), pp. 711-713
+View Record in ScopusGoogle Scholar
+[42]
+R. Gottschlich, M. Bellezza, EMF deviation of chromel/alumel thermocouples caused by neutron irradiation, Brussels, 1966.
+Google Scholar
+[43]
+R.E. Bentley
+Long-term drift in mineral-insulated Nicrosil-sheathed type K thermocouples
+Sens. Actuat. A: Phys., 24 (1) (1990), pp. 21-26
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+[44]
+C. Vitanza, T. Stien
+Assessment of fuel thermocouple decalibration during in-pile service
+J. Nucl. Mater., 139 (1) (1986), pp. 11-18
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+[45]
+K. Ara, M. Yamada, K. Shimizu, N. Wakayama
+Development of high-reliable tungsten-rhenium alloy thermocouple for measuring in-core helium-gas temperature in very high temperature gas-cooled reactor
+IEEE Trans. Nucl. Sci., 33 (1) (1986), pp. 688-693
+CrossRefView Record in ScopusGoogle Scholar
+[46]
+J.-F. Villard, S. Fourrez, D. Fourmentel, A. Legrand
+Improving high-temperature measurements in nuclear reactors with Mo/Nb thermocouples
+Int. J. Thermophys., 29 (5) (2008), pp. 1848-1857
+CrossRefView Record in ScopusGoogle Scholar
+[47]
+C.M. Petrie, A. Birri, T.E. Blue
+High-dose temperature-dependent neutron irradiation effects on the optical transmission and dimensional stability of amorphous fused silica
+J. Non-Cryst. Solids, 525 (2019), Article 119668
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+[48]
+G. Cheymol, H. Long, J.F. Villard, B. Brichard
+High level gamma and neutron irradiation of silica optical fibers in CEA OSIRIS nuclear reactor
+IEEE Trans. Nucl. Sci., 55 (4) (2008), pp. 2252-2258
+CrossRefView Record in ScopusGoogle Scholar
+[49]
+D.W. Cooke, B.L. Bennett, E.H. Farnum
+Optical absorption of neutron-irradiated silica fibers
+J. Nucl. Mater., 232 (2) (1996), pp. 214-218
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+[50]
+R.S. Fielder, D. Klemer, K.L. Stinson-Bagby
+High neutron fluence survivability testing of advanced fiber bragg grating sensors
+AIP Conf. Proceed., 699 (1) (2004), pp. 650-657
+View Record in ScopusGoogle Scholar
+[51]
+T. Kakuta, T. Shikama, M. Narui, T. Sagawa
+Behavior of optical fibers under heavy irradiation
+Fusion Eng. Des., 41 (1) (1998), pp. 201-205
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+[52]
+C.M. Petrie, D.P. Hawn, W. Windl, T.E. Blue
+Reactor radiation-induced attenuation in fused silica optical fibers heated up to 1000 °C
+J. Non-Cryst. Solids, 409 (2015), pp. 88-94
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+[53]
+C.M. Petrie, B. Wilson, T.E. Blue
+In situ gamma radiation-induced attenuation in sapphire optical fibers heated to 1000°C
+J. Am. Ceram. Soc., 97 (10) (2014), pp. 3150-3156
+CrossRefView Record in ScopusGoogle Scholar
+[54]
+M.A.S. Zaghloul, M. Wang, S. Huang, C. Hnatovsky, D. Grobnic, S. Mihailov, M.-J. Li, D. Carpenter, L.-W. Hu, J. Daw, G. Laffont, S. Nehr, K.P. Chen
+Radiation resistant fiber Bragg grating in random air-line fibers for sensing applications in nuclear reactor cores
+Opt. Express, 26 (9) (2018), pp. 11775-11786
+CrossRefView Record in ScopusGoogle Scholar
+[55]
+A.T. Ramsey, W. Tighe, J. Bartolick, P.D. Morgan
+Radiation effects on heated optical fibers
+Rev. Sci. Instrum., 68 (1) (1997), pp. 632-635
+View Record in ScopusGoogle Scholar
+[56]
+S. Girard, J. Kuhnhenn, A. Gusarov, B. Brichard, M.V. Uffelen, Y. Ouerdane, A. Boukenter, C. Marcandella
+Radiation effects on silica-based optical fibers: recent advances and future challenges
+IEEE Trans. Nucl. Sci., 60 (3) (2013), pp. 2015-2036
+CrossRefView Record in ScopusGoogle Scholar
+[57]
+B. Brichard, P. Borgermans, A.F. Fernandez, K. Lammens, A. Decreton
+Radiation effect in silica optical fiber exposed to intense mixed neutron-gamma radiation field
+IEEE Trans. Nucl. Sci., 48 (6) (2001), pp. 2069-2073
+View Record in ScopusGoogle Scholar
+[58]
+W. Primak, R. Kampwirth
+The radiation compaction of vitreous silica
+J. Appl. Phys., 39 (12) (1968), pp. 5651-5658
+View Record in ScopusGoogle Scholar
+[59]
+F. Piao, W.G. Oldham, E.E. Haller
+The mechanism of radiation-induced compaction in vitreous silica
+J. Non-Cryst. Solids, 276 (1-3) (2000), pp. 61-71
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+[60]
+Y. Katoh, T. Koyanagi, J.L. McDuffee, L.L. Snead, K. Yueh
+Dimensional stability and anisotropy of SiC and SiC-based composites in transition swelling regime
+J. Nucl. Mater., 499 (2018), pp. 471-479
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+[61]
+J.W. Marx, J.M. Sivertsen
+Temperature dependence of the elastic moduli and internal friction of silica and glass
+J. Appl. Phys., 24 (1) (1953), pp. 81-87
+CrossRefView Record in ScopusGoogle Scholar
+[62]
+B.A. Proctor, I. Whitney, J.W. Johnson, A.H. Cottrell
+The strength of fused silica
+Proceedings of the Royal Society of London. Series A. Mathematical and Physical Sciences (1967)
+297 (1451)534-557
+Google Scholar
+[63]
+Y. Katoh, K. Ozawa, C. Shih, T. Nozawa, R.J. Shinavski, A. Hasegawa, L.L. Snead
+Continuous SiC fiber, CVI SiC matrix composites for nuclear applications: Properties and irradiation effects
+J. Nucl. Mater., 448 (1-3) (2014), pp. 448-476
+ArticleDownload PDFView Record in ScopusGoogle Scholar

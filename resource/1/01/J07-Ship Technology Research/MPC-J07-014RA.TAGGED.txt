@@ -1,0 +1,382 @@
+﻿_JJ <title> Computation_NN of_IN mechanically_RB coupled_VVN bodies_NNS in_IN a_DT seaway_NN </title> <author> Xiaojing_NP Luo-Theilen_NP ,_, Thomas_NP Rung_NP </author> <Affiliation> Institute_NP for_IN Fluid_JJ Dynamics_NPS and_CC Ship_NP Theory_NN ,_, Hamburg_NP University_NP of_IN Technology_NP ,_, Hamburg_NP ,_, Germany_NP </Affiliation> <year> 2017_CD </year> <Jounral> Ship_NP Technology_NP Research_NP </Journal> <Publishing_house> Taylor_NP and_CC Francis_NP Online_JJ </Publishing_house> <Text_Collector> Zhang_NP San，HEU_NP </Text_Collector> <DOI> https://doi.org/10.1080/09377255.2017.1348654_NP </DOI> <URL> https://www-tandfonline-com/doi/full/10.1080/09377255.2017.1348654_JJ </URL> Computation_NN of_IN mechanically_RB coupled_VVN bodies_NNS in_IN a_DT seaway_NN Xiaojing_NP Luo-Theilen_NP ,_, Thomas_NP Rung_NP Institute_NP for_IN Fluid_JJ Dynamics_NPS and_CC Ship_NP Theory_NN ,_, Hamburg_NP University_NP of_IN Technology_NP ,_, Hamburg_NP ,_, Germany_NP <Section> Abstract_JJ </Section> The_DT paper_NN is_VBZ concerned_VVN with_IN the_DT simulation_NN of_IN mechanically_RB coupled_VVN bodies_NNS in_IN seaway_NN ._SENT 
+While_IN the_DT applications_NNS of_IN such_JJ cases_NNS are_VBP very_RB wide_JJ ,_, they_PP are_VBP of_IN particular_JJ interest_NN for_IN offshore_JJ operations_NNS ,_, e.g._FW towing_VVG and_CC boat_NN landing_NN ._SENT 
+The_DT focus_NN of_IN the_DT present_JJ study_NN is_VBZ to_TO supplement_VV a_DT viscous_JJ flow_NN solver_NN by_IN appropriate_JJ mechanical_JJ models_NNS to_TO analyse_VV the_DT hydrodynamics_NN of_IN coupled_VVN bodies_NNS due_JJ to_TO mechanical_JJ joints_NNS ._SENT 
+A_DT quaternion-based_JJ motion_NN modeller_NN has_VHZ been_VBN implemented_VVN using_VVG several_JJ basic_JJ joint_JJ elements_NNS to_TO model_VV their_PP$ influence_NN in_IN a_DT multi-body_NN system_NN ._SENT 
+Examples_NNS included_VVD refer_VV to_TO rigid_JJ links_NNS ,_, ropes_NNS ,_, fenders_NNS or_CC guide_NN frames_NNS to_TO restrict_VV the_DT motion_NN in_IN experiments_NNS ,_, and_CC aim_VVP to_TO illustrate_VV the_DT predictive_JJ accuracy_NN of_IN the_DT procedure_NN and_CC generic_JJ applications_NNS utilising_VVG all_DT features_NNS of_IN the_DT computational_JJ framework_NN including_VVG an_DT overset_VVN grid_NN technique_NN ._SENT 
+KEYWORDS_NNS :_: Coupled_VVN bodies_NNS ,_, mechanical_JJ joints_NNS ,_, seaway_NN ,_, multi-body_NP hydrodynamics_NNS <Section> 1._CD Introduction_NN </Section> Many_JJ hydrodynamic_JJ application_NN cases_NNS refer_VVP to_TO the_DT interplay_NN of_IN multiple_JJ vessels_NNS ._SENT 
+An_DT example_NN refers_VVZ to_TO an_DT assessment_NN of_IN the_DT offshore_JJ capability_NN of_IN ships_NNS ,_, where_WRB it_PP is_VBZ important_JJ to_TO consider_VV their_PP$ behaviour_NN when_WRB operating_VVG in_IN seaway_NN as_IN well_RB as_RB in_IN close_JJ proximity_NN of_IN other_JJ vessels_NNS or_CC structures_NNS ._SENT 
+Towing_VVG or_CC escorting_VVG of_IN large_JJ merchant_NN ships_NNS by_IN tugs_NNS are_VBP other_JJ well-known_JJ applications_NNS ,_, which_WDT refer_VVP to_TO multi-body_VV hydrodynamics_NNS ._SENT 
+The_DT tug_NN applies_VVZ forces_NNS to_TO the_DT escorted_VVN vessel_NN by_IN positioning_NN itself_PP into_IN a_DT certain_JJ angle_NN against_IN the_DT flow_NN ._SENT 
+In_IN this_DT regard_NN ,_, the_DT combination_NN of_IN thrust_NN and_CC hydrodynamic_JJ forces_NNS along_IN the_DT hull_NN of_IN the_DT tug_NN can_MD lead_VV to_TO extremely_RB high_JJ towline_NN forces_NNS ._SENT 
+Next_JJ to_TO performance_NN issues_NNS ,_, there_EX also_RB often_RB exists_VVZ an_DT enhanced_JJ interest_NN into_IN the_DT safety_NN margins_NNS in_IN hazardous_JJ operating_VVG conditions_NNS for_IN multiple_JJ bodies_NNS ._SENT 
+Elevated_JJ sea_NN states_NNS ,_, for_IN example_NN ,_, can_MD restrict_VV the_DT access_NN to_TO offshore_JJ foundations_NNS for_IN maintenance_NN and_CC repair_NN purposes_NNS ._SENT 
+Technical_JJ staff_NN and_CC equipment_NN are_VBP transferred_VVN by_IN service_NN vessels_NNS which_WDT often_RB simply_RB push_VV their_PP$ bow_NN fender_NN against_IN the_DT structure_NN to_TO limit_VV the_DT relative_JJ motion_NN between_IN vessel_NN and_CC foundation_NN ._SENT 
+A_DT sudden_JJ slip_NN of_IN the_DT fender_NN due_JJ to_TO wave_NN loads_NNS can_MD seriously_RB endanger_VV a_DT save_VV transfer_NN ._SENT 
+Research_NP is_VBZ required_VVN to_TO develop_VV sound_JJ computational_JJ modelling_VVG practices_NNS ,_, which_WDT provide_VVP reliable_JJ answers_NNS at_IN feasible_JJ numerical_JJ expenses_NNS ._SENT 
+Inviscid_JJ boundary_NN element_NN methods_NNS are_VBP predominantly_RB employed_VVN for_IN transient_JJ hydrodynamic_JJ simulations_NNS ._SENT 
+Owing_VVG to_TO significantly_RB smaller_JJR computational_JJ effort_NN and_CC superior_JJ geometric_JJ flexibility_NN ,_, they_PP are_VBP an_DT ideal_JJ candidate_NN for_IN parameter_NN studies_NNS or_CC long-term_JJ simulations_NNS at_IN small_JJ time_NN to_TO solutions_NNS ._SENT 
+For_IN the_DT same_JJ reasons_NNS ,_, they_PP are_VBP also_RB predominantly_RB used_VVN in_IN industry_NN for_IN complex_JJ hydrodynamic_JJ multi-body_NN simulations_NNS ._SENT 
+Potential_JJ flow_NN methods_NNS for_IN coupled_VVN rigid_JJ bodies_NNS can_MD be_VB found_VVN in_IN Nair_NP and_CC Kanso_NP (_( 2007_CD )_) ._SENT 
+Dealing_VVG with_IN hydrodynamic_JJ coupled_VVN multi-body_NN systems_NNS ,_, the_DT response_NN of_IN bodies_NNS is_VBZ determined_VVN by_IN impulse_NN response_NN functions_NNS in_IN Wang_NP et_CC al_NP ._SENT 
+(_( 2005_CD )_) and_CC their_PP$ convolutions_NNS in_IN Clauss_NP and_CC Jacobsen_NP (_( 2005_CD )_) ._SENT 
+Steady-state_NN application_NN calculations_NNS of_IN the_DT prediction_NN of_IN towline_NN forces_NNS in_IN escort_NN operations_NNS are_VBP published_VVN by_IN Artyszuk_NP (_( 2014_CD )_) ._SENT 
+Publications_NNS concerning_VVG landing_NN manoeuvres_NNS are_VBP presented_VVN in_IN Josse_NP et_CC al_NP ._SENT 
+(_( 2011_CD )_) and_CC Feikens_NP et_NP al_NP ._SENT 
+(_( 2011_CD )_) ,_, in_IN which_WDT the_DT methods_NNS are_VBP based_VVN on_IN computations_NNS in_IN frequency_NN domain_NN in_IN conjunction_NN with_IN the_DT impulse_NN response_NN function_NN method_NN in_IN time_NN domain_NN simulations_NNS ._SENT 
+There_EX are_VBP only_RB few_JJ publications_NNS on_IN multi-body_NN hydrodynamics_NNS using_VVG nonlinear_JJ three-dimensional_JJ potential_JJ flow_NN methods_NNS in_IN time-domain_NP ._SENT 
+Simulations_NNS regarding_VVG offshore_JJ service_NN ships_NNS are_VBP published_VVN by_IN Ferreira_NP González_NP et_CC al_NP ._SENT 
+(_( 2015a_NP ,_, 2015b_NP )_) ,_, which_WDT are_VBP based_VVN on_IN Boundary_NP Element_NN methods_NNS ._SENT 
+Some_DT effects_NNS of_IN importance_NN for_IN the_DT prediction_NN of_IN forces_NNS and_CC motions_NNS are_VBP either_RB neglected_VVN or_CC misrepresented_VVD by_IN inviscid_JJ methods_NNS ._SENT 
+When_WRB attention_NN is_VBZ devoted_VVN to_TO these_DT issues_NNS ,_, viscous_JJ (_( turbulent_JJ )_) flow_NN investigations_NNS are_VBP a_DT valuable_JJ source_NN of_IN information_NN ._SENT 
+With_IN regard_NN to_TO viscous_JJ flow-simulation_NN approaches_NNS ,_, the_DT associated_VVN challenge_NN beyond_IN the_DT state-of-the-art_JJ refers_VVZ to_TO (_( 1_LS )_) sea-keeping_VVG and_CC manoeuvring_VVG simulations_NNS in_IN seaways_NNS with_IN transient_JJ heading_VVG ,_, (_( 2_LS )_) the_DT ability_NN to_TO mimic_VV hydrodynamic_JJ interaction_NN of_IN multiple_JJ floating_JJ bodies_NNS and_CC (_( 3_LS )_) an_DT appropriate_JJ model_NN for_IN their_PP$ possible_JJ mechanical_JJ interactions_NNS �_JJ �_NP e.g._FW due_JJ to_TO towing_VVG or_CC dynamic_JJ positioning_NN and_CC handling_NN ._SENT 
+The_DT present_JJ study_NN conveys_VVZ the_DT benefits_NNS of_IN a_DT mesh-based_JJ multiphase_JJ finite-volume_NN RANS_NNS method_NN ,_, which_WDT facilitates_VVZ an_DT overset-grid_JJ technique_NN to_TO address_VV large_JJ relative_JJ motion_NN between_IN multiple_JJ floating_JJ objects_NNS and_CC a_DT quaternion-based_JJ motion_NN model_NN ,_, which_WDT constraints_NNS the_DT bodies_NNS due_JJ to_TO mechanical_JJ connections_NNS ._SENT 
+The_DT paper_NN is_VBZ structured_VVN as_RB follows_VVZ :_: Chapter_NP 2_CD outlines_VVZ the_DT computational_JJ framework_NN and_CC describes_VVZ the_DT numerical_JJ models_NNS with_IN emphases_NNS being_VBG given_VVN to_TO the_DT motion_NN model_NN and_CC the_DT treatment_NN of_IN mechanically_RB coupled_VVN multi-body_NN systems_NNS ._SENT 
+In_IN Chapter_NP 3_CD ,_, verification_NN and_CC validation_NN cases_NNS supplemented_VVN by_IN two_CD applications_NNS concerning_VVG a_DT floating_JJ tug_NN and_CC a_DT landing_NN manoeuvre_NN are_VBP presented_VVN ._SENT 
+Conclusions_NNS and_CC future_JJ aims_NNS are_VBP outlines_VVZ at_IN the_DT end_NN ._SENT 
+In_IN the_DT remainder_NN of_IN this_DT paper_NN ,_, symbolic_JJ vectors_NNS are_VBP presented_VVN in_IN bold_JJ and_CC lower-case_JJ letters_NNS ,_, whereas_IN symbolic_JJ matrices_NNS are_VBP described_VVN in_IN bold_JJ and_CC upper-case_JJ letters_NNS ._SENT 
+(_( )′_NP and_CC (_( ˙_NP )_) denote_VVP values_NNS in_IN local_JJ coordinates_NNS and_CC time_NN derivatives_NNS ._SENT 
+Subscripts_NNS are_VBP applied_VVN in_IN different_JJ ways_NNS and_CC will_MD be_VB separately_RB defined_VVN in_IN each_DT section_NN ._SENT 
+<Section> 2._CD Computational_JJ models_NNS </Section> The_DT computational_JJ models_NNS described_VVD herein_RB compose_VV a_DT fluid_JJ dynamic_JJ model_NN ,_, a_DT motion_NN model_NN and_CC a_DT seaway_NN model_NN ._SENT 
+The_DT fluid_JJ dynamic_JJ model_NN employs_VVZ the_DT incompressible_JJ Reynolds-averaged_NN or_CC filtered_VVN Navier–Stokes_NNS equations_NNS ._SENT 
+Using_VVG Cartesian_JJ coordinates_VVZ and_CC Einstein_NP 's_POS summation_NN rule_NN the_DT governing_VVG equations_NNS read_VVP @(1_JJ )_) @(2_NN )_) Here_RB t_NN denotes_VVZ the_DT time_NN and_CC and_CC represent_VV the_DT Cartesian_JJ coordinates_VVZ of_IN the_DT velocity_NN vector_NN ,_, the_DT surface-stress_NN tensor_NN ,_, the_DT unit_NN tensor_NN and_CC the_DT body-force_NN vector_NN ._SENT 
+The_DT pressure_NN and_CC density_NN fields_NNS refer_VVP to_TO p_NN and_CC ρ_NN ._SENT 
+The_DT effective_JJ fluid_JJ viscosity_NN consists_VVZ of_IN a_DT molecular_JJ part_NN and_CC a_DT turbulent_JJ part_NN ._SENT 
+The_DT latter_NN is_VBZ typically_RB obtained_VVN from_IN a_DT two-equation_NN or_CC a_DT Smagorinsky_NP Boussinesq-viscosity_NN model_NN ,_, e.g._FW Wilcox_NP (_( 1988_CD )_) ._SENT 
+The_DT present_JJ study_NN is_VBZ restricted_VVN to_TO flows_NNS of_IN two_CD immiscible_JJ phases_NNS with_IN a_DT joint_JJ kinematic_JJ field_NN ._SENT 
+Following_VVG a_DT Volume_NN of_IN Fluid_JJ approach_NN (_( VoF_NP )_) ,_, fluid_JJ properties_NNS are_VBP obtained_VVN from_IN constant_JJ phase_NN properties_NNS (_( ,_, etc._FW )_) and_CC the_DT evolution_NN of_IN a_DT volume-based_JJ mixture_NN fraction_NN c_SYM ,_, i.e._FW @(3_NN )_) 2.1_CD ._SENT 
+Numerical_JJ framework_NN Results_NNS presented_VVN in_IN the_DT present_JJ paper_NN are_VBP obtained_VVN from_IN the_DT Finite-Volume_NN Navier–Stokes_VVZ procedure_NN FreSCo+_NN ,_, cf_NP ._SENT 
+Rung_NP et_NP al_NP ._SENT 
+(_( 2009_CD )_) ._SENT 
+The_DT procedure_NN solves_VVZ the_DT Navier–Stokes_NNS equations_NNS for_IN an_DT incompressible_JJ fluid_NN composed_VVN of_IN two_CD (_( or_CC more_JJR )_) immiscible_JJ phases_NNS ,_, e.g._FW air_NN ,_, water_NN ,_, vapour_NN or_CC soil_NN ._SENT 
+The_DT segregated_JJ algorithm_NN is_VBZ based_VVN on_IN the_DT strong_JJ conservation_NN form_NN of_IN the_DT momentum_NN equations_NNS ._SENT 
+It_PP employs_VVZ a_DT cell-centred_JJ ,_, co-located_JJ storage_NN arrangement_NN for_IN all_DT transport_NN properties_NNS ._SENT 
+Structured_JJ and_CC unstructured_JJ grids_NNS ,_, based_VVN on_IN arbitrary_JJ polyhedral_JJ cells_NNS or_CC hanging_VVG nodes_NNS ,_, can_MD be_VB used_VVN in_IN an_DT Arbitrary_JJ Langrangian-Eulerian_NN (_( ALE_NN )_) mode_NN ._SENT 
+The_DT implicit_JJ numerical_JJ approximation_NN is_VBZ second-order_NN accurate_JJ in_IN space_NN and_CC time_NN ._SENT 
+Integrals_NNS are_VBP approximated_VVN using_VVG the_DT conventional_JJ mid-point_NN rule_NN ._SENT 
+The_DT solution_NN is_VBZ iterated_VVN to_TO convergence_NN using_VVG a_DT pressure-correction_NN scheme_NN ._SENT 
+Various_JJ turbulence-closure_NN models_NNS are_VBP available_JJ with_IN respect_NN to_TO statistical_JJ (_( RANS_NNS )_) or_CC scale-resolving_NN (_( LES_FW ,_, DES_NP )_) approaches_NNS ._SENT 
+Two-phase_JJ flows_NNS are_VBP addressed_VVN by_IN interface-capturing_VVG methods_NNS based_VVN upon_IN the_DT Volume-of-Fluid_JJ technique_NN ._SENT 
+The_DT algorithm_NN is_VBZ parallelised_VVN using_VVG a_DT domain-decomposition_NN technique_NN based_VVN on_IN a_DT Single_NP Program_NP Multiple_JJ Data_NP message-passing_NN model_NN ,_, i.e._FW each_DT process_NN runs_VVZ the_DT same_JJ program_NN on_IN its_PP$ own_JJ subset_NN of_IN data_NNS ._SENT 
+Inter-processor_NP communication_NN employs_VVZ the_DT MPI_NP communications_NN protocol_NN ._SENT 
+Load_NN balancing_NN is_VBZ achieved_VVN using_VVG the_DT ParMETIS_NP partitioning_VVG software_NN ._SENT 
+2.2_CD ._SENT 
+Overset-grid_JJ method_NN When_WRB attention_NN is_VBZ directed_VVN to_TO mechanical_JJ interactions_NNS of_IN floating_JJ bodies_NNS ,_, geometric_JJ flexibility_NN requirements_NNS on_IN the_DT flow_NN simulation_NN approach_NN are_VBP substantial_JJ ._SENT 
+Overset_VVN grid_NN methods_NNS ,_, also_RB referred_VVD to_TO as_IN overlapping/chimera_NN grid_NN methods_NNS ,_, are_VBP a_DT versatile_JJ approach_NN towards_IN complex_JJ moving_VVG geometries_NNS ._SENT 
+The_DT algorithm_NN uses_VVZ a_DT background_NN mesh_NN to_TO define_VV the_DT extent_NN of_IN the_DT computational_JJ domain_NN and_CC a_DT moving_VVG foreground_NN mesh_NN associated_VVN with_IN each_DT moving_VVG body_NN to_TO model_VV the_DT relative_JJ motion_NN ._SENT 
+The_DT bulk_NN of_IN the_DT computational_JJ grid_NN is_VBZ usually_RB fixed_VVN ,_, and_CC in_IN the_DT grid_NN transition_NN region_NN ,_, at_IN least_JJS two_CD grids_NNS overlap_VVP ._SENT 
+Very_RB close_JJ arrangements_NNS of_IN moving_VVG parts_NNS and_CC intersecting_VVG motion_NN paths_NNS can_MD be_VB modelled_VVN ._SENT 
+The_DT method_NN strongly_RB facilitates_VVZ the_DT grid_NN generation_NN process_NN and_CC improves_VVZ the_DT quality_NN of_IN the_DT meshes_NNS ._SENT 
+Within_IN the_DT approach_NN ,_, all_DT active_JJ cells_NNS of_IN the_DT overlapping_JJ domains_NNS are_VBP merged_VVN into_IN one_CD global_JJ equation_NN system_NN ,_, which_WDT is_VBZ solved_VVN using_VVG an_DT iterative_JJ solver_NN ._SENT 
+Owing_VVG to_TO the_DT implicit_JJ coupling_NN on_IN the_DT bases_NNS of_IN a_DT single_JJ equation_NN system_NN ,_, the_DT domains_NNS are_VBP fully_RB synchronised_VVN ._SENT 
+Parallelisation_NN is_VBZ based_VVN on_IN dynamic_JJ load_NN balancing_NN and_CC not_RB restricted_VVN by_IN the_DT size_NN of_IN the_DT domains_NNS and_CC their_PP$ arrangement_NN ._SENT 
+Thus_RB ,_, the_DT present_JJ overset-grid_NN procedure_NN is_VBZ mass-conservative_JJ ,_, strongly_RB coupled_VVN ,_, fully_RB parallelised_VVN as_IN described_VVN by_IN Völkner_NP et_CC al_NP ._SENT 
+(_( 2015_CD ,_, 2017_CD )_) and_CC Brunswig_NP and_CC Rung_NP (_( 2011_CD )_) ._SENT 
+2.3_CD ._SENT 
+Seaway_NN model_NN When_WRB attention_NN is_VBZ drawn_VVN to_TO manoeuvring_VVG and_CC seakeeping_VVG simulations_NNS in_IN waves_NNS ,_, two_CD major_JJ challenges_NNS occur_VVP ._SENT 
+The_DT first_JJ one_CD refers_VVZ to_TO the_DT associated_VVN grid_NN requirements_NNS for_IN an_DT accurate_JJ propagation_NN of_IN incident_NN waves_NNS towards_IN the_DT floating_JJ body_NN and_CC the_DT Courant-number_NN based_VVN time-step_JJ limitations_NNS ._SENT 
+The_DT second_JJ challenge_NN refers_VVZ to_TO the_DT behaviour_NN of_IN the_DT wave_NN field_NN downstream_JJ of_IN the_DT floating_JJ body_NN ,_, in_IN particular_JJ the_DT management_NN of_IN wave_NN reflections_NNS induced_VVN at_IN the_DT outlet_NN of_IN the_DT domain_NN ._SENT 
+The_DT suppression_NN of_IN such_JJ reflections_NNS requires_VVZ significant_JJ numerical_JJ damping_VVG downstream_JJ of_IN the_DT floating_JJ body_NN ._SENT 
+The_DT latter_NN is_VBZ frequently_RB achieved_VVN by_IN the_DT introduction_NN of_IN a_DT damping_VVG zone_NN (_( numerical_JJ beach_NN )_) ,_, which_WDT is_VBZ usually_RB realised_VVN by_IN means_NNS of_IN grid-stretching_VVG aft_JJ of_IN the_DT floating_JJ body_NN ._SENT 
+The_DT approach_NN permits_VVZ to_TO damp_VV waves_NNS before_IN they_PP reach_VVP the_DT outlet_NN boundary_NN and_CC can_MD be_VB supplemented_VVN by_IN simple_JJ outlet_NN conditions_NNS (_( e.g._FW a_DT hydrostatic_JJ pressure_NN distribution_NN )_) ._SENT 
+Owing_VVG to_TO the_DT inherent_JJ directionality_NN ,_, grid-based_JJ damping_VVG is_VBZ not_RB applicable_JJ if_IN the_DT wave_NN direction_NN changes_NNS in_IN time_NN ,_, e.g._FW during_IN offshore_JJ operations_NNS of_IN tugs_NNS ._SENT 
+Coupled_VVN viscous/inviscid_JJ methods_NNS as_IN proposed_VVN by_IN Gentaz_NP et_CC al_NP ._SENT 
+(_( 2004_CD )_) are_VBP an_DT attractive_JJ way_NN to_TO address_VV these_DT challenges_NNS ._SENT 
+Such_JJ techniques_NNS usually_RB assign_VVP the_DT simulation_NN of_IN the_DT propagating_VVG wave_NN field_NN to_TO an_DT inviscid_JJ description_NN ._SENT 
+In_IN this_DT study_NN ,_, linear_JJ superposed_VVD (_( Airy_JJ )_) waves_NNS are_VBP used_VVN ._SENT 
+The_DT technique_NN presented_VVD here_RB assumes_VVZ that_IN viscous_JJ and_CC diffraction_NN effects_NNS are_VBP negligible_JJ in_IN the_DT vicinity_NN of_IN the_DT far-field_NP boundaries_NNS ._SENT 
+This_DT assumption_NN simplifies_VVZ the_DT computational_JJ model_NN ,_, since_IN the_DT floating_JJ body_NN and_CC the_DT diffracted_VVN wave-field_NN do_VVP not_RB need_VV to_TO be_VB modelled_VVN by_IN the_DT inviscid_JJ wave_NN field_NN ._SENT 
+The_DT coupling_NN of_IN both_DT methods_NNS is_VBZ achieved_VVN by_IN an_DT implicit_JJ forcing_VVG of_IN the_DT viscous_JJ solution_NN using_VVG a_DT manipulation_NN of_IN the_DT coefficient_NN matrix_NN ._SENT 
+The_DT latter_NN applies_VVZ to_TO the_DT momentum_NN and_CC mixture_NN fraction_NN equation_NN ._SENT 
+The_DT forcing_VVG is_VBZ spatially_RB confined_VVN to_TO the_DT far_JJ field_NN ,_, about_IN half_DT maximum_JJ wave_NN length_NN from_IN the_DT exterior_JJ bounds_NNS ._SENT 
+The_DT forcing_VVG intensity_NN is_VBZ adjusted_VVN to_TO the_DT magnitude_NN of_IN the_DT main_JJ diagonal_NN and_CC typically_RB involves_VVZ about_RB of_IN relative_JJ forcing_VVG ._SENT 
+Further_JJR details_NNS of_IN this_DT method_NN can_MD be_VB found_VVN in_IN Wöckner_NP et_CC al_NP ._SENT 
+(_( 2010_CD )_) ._SENT 
+The_DT generation_NN of_IN natural_JJ seaway_NN can_MD be_VB achieved_VVN by_IN superposing_VVG of_IN regular_JJ wave_NN components_NNS of_IN different_JJ amplitudes_NNS and_CC frequencies_NNS ._SENT 
+Since_IN the_DT phase_NN of_IN each_DT wave_NN has_VHZ a_DT spatial_JJ and_CC a_DT time_NN dependency_NN ,_, irregular_JJ patterns_NNS occur_VVP ._SENT 
+The_DT magnitudes_NNS of_IN the_DT frequency_NN assigned_VVN amplitudes_NNS are_VBP derived_VVN from_IN empirical_JJ data_NNS and_CC follow_VV from_IN seaway_NN spectra_NN ,_, which_WDT describe_VVP the_DT distribution_NN of_IN wave_NN energy_NN over_IN wave_NN frequency_NN and_CC direction_NN ._SENT 
+In_IN this_DT paper_NN ,_, the_DT JONSWAP-spectrum_NN defined_VVN in_IN Clauss_NP et_CC al_NP ._SENT 
+(_( 1988_CD )_) is_VBZ used_VVN ._SENT 
+The_DT energy_NN distribution_NN over_IN wave_NN direction_NN can_MD be_VB defined_VVN by_IN a_DT -dispersion_NN in_IN the_DT interval_NN of_IN about_RB the_DT main_JJ encounter_NN direction_NN ._SENT 
+To_TO avoid_VV recurrence_NN ,_, the_DT frequencies_NNS are_VBP chosen_VVN arbitrarily_RB within_IN each_DT discretisation_NN step_NN size_NN and_CC the_DT wave_NN phase_NN is_VBZ random_JJ within_IN ._SENT 
+2.4_CD ._SENT 
+Motion_NN model_NN The_DT most_RBS common_JJ way_NN to_TO describe_VV the_DT angular_JJ orientation_NN of_IN a_DT rigid_JJ body_NN in_IN a_DT three_CD dimensional_JJ space_NN is_VBZ the_DT use_NN of_IN Euler_NP angles_NNS ._SENT 
+They_PP represent_VVP three_CD composed_VVN elementary_JJ rotations_NNS of_IN a_DT body-fixed_JJ local_NN coordinate_VV system_NN referring_VVG to_TO an_DT initial_JJ global_JJ system_NN ._SENT 
+Each_DT elementary_JJ rotation_NN allows_VVZ one_CD degree_NN of_IN freedom_NN ._SENT 
+In_IN such_PDT an_DT arrangement_NN the_DT effect_NN of_IN a_DT Gimbal_NP Lock_NP can_MD occur_VV (_( cf_NP ._SENT 
+Figure_NN 1_CD )_) ,_, when_WRB two_CD axes_NNS are_VBP driven_VVN into_IN a_DT parallel_JJ configuration_NN ,_, which_WDT ‘locks’_NN the_DT system_NN into_IN a_DT rotation_NN in_IN a_DT degenerate_JJ two-dimensional_JJ space_NN ._SENT 
+To_TO avoid_VV this_DT singularity_NN and_CC ensure_VV that_IN each_DT motion_NN is_VBZ uniquely_RB defined_VVN ,_, quaternions_NNS are_VBP employed_VVN for_IN the_DT motion_NN modeller_NN and_CC will_MD be_VB discussed_VVN in_IN the_DT following_NN ._SENT 
+Constraint_NN forces_NNS due_JJ to_TO mechanical_JJ couplings_NNS are_VBP also_RB derived_VVN using_VVG quaternions_NNS ._SENT 
+Figure_NN 1._CD Illustration_NN of_IN the_DT Gimbal_NP Lock_NP scenario_NN (_( left_VVN :_: no_DT Gimbal_NP Lock_NP ,_, right_NN :_: Gimbal_NP Lock_NP )_) ._SENT 
+2.4.1_CD ._SENT 
+Quaternions_NNS According_VVG to_TO Euler_NP 's_POS Theorem_NN ,_, the_DT general_JJ displacement_NN of_IN a_DT body_NN can_MD be_VB accomplished_VVN by_IN a_DT single_JJ rotation_NN about_IN a_DT suitable_JJ axis_NN over_IN a_DT certain_JJ angle_NN ,_, cf_NP ._SENT 
+Nikravesh_NP (_( 1988_CD )_) ._SENT 
+Therefore_RB it_PP is_VBZ reasonable_JJ to_TO use_VV a_DT representation_NN of_IN the_DT coordinate_VV transformation_NN in_IN terms_NNS of_IN the_DT parameters_NNS of_IN this_DT single_JJ rotation_NN ,_, i.e._FW the_DT angle_NN of_IN rotation_NN and_CC the_DT direction_NN cosines_NNS of_IN the_DT orientational_JJ axis_NN of_IN rotation_NN ._SENT 
+A_DT quaternion_NN is_VBZ a_DT collection_NN of_IN four_CD real_JJ parameters_NNS ,_, of_IN which_WDT the_DT first_JJ is_VBZ considered_VVN as_IN a_DT scalar_NN and_CC the_DT other_JJ three_CD as_IN a_DT vector_NN in_IN three-dimensional_JJ space_NN :_: @(4_NP )_) Denoting_VVG in_IN Figure_NP 2_CD as_IN the_DT rotation_NN axis_NN and_CC �_JJ �_NN as_IN the_DT rotation_NN angle_NN ,_, the_DT transformation_NN of_IN vector_NN into_IN represents_VVZ a_DT rotation_NN from_IN to_TO P_NN @(5_NN )_) Introducing_VVG the_DT Euler_NP parameters_NNS @(6_NN )_) a_DT rotation_NN matrix_NN can_MD be_VB derived_VVN from_IN Equation_NN (_( 5_CD )_) ,_, which_WDT obeys_VVZ to_TO @(7_JJ )_) and_CC reads_NNS @_SYM Based_VVN on_IN Equation_NN (_( 6_CD )_) ,_, consists_VVZ of_IN unit_NN quaternions_NNS ._SENT 
+Thus_RB ,_, the_DT resulting_VVG vector_NN is_VBZ a_DT unitary_JJ transformation_NN of_IN ,_, see_VVP Equation_NN (_( 7_CD )_) ._SENT 
+To_TO state_VV the_DT angular_JJ velocity_NN vector_NN in_IN the_DT same_JJ manner_NN ,_, the_DT following_VVG relation_NN can_MD be_VB obtained_VVN from_IN the_DT time_NN derivative_JJ of_IN @(8_NN )_) with_IN @_SYM By_IN means_NNS of_IN the_DT obtained_VVN relations_NNS above_RB ,_, a_DT body_NN 's_POS equations_NNS of_IN motion_NN can_MD be_VB easily_RB transformed_VVN into_IN quaternions_NNS and_CC thus_RB avoid_VV Gimbal_NP Locks_NP ._SENT 
+2.4.2_CD ._SENT 
+Multi-body_NN interaction_NN An_DT equation_NN system_NN of_IN k_NN unconstrained_JJ bodies_NNS is_VBZ achieved_VVN by_IN stringing_VVG together_RB all_DT six_CD equations_NNS of_IN motion_NN for_IN the_DT translation_NN and_CC rotation_NN of_IN single_JJ unconstrained_JJ bodies_NNS @(9_NN )_) into_IN the_DT system_NN @(10_NN )_) Herein_RB ,_, the_DT matrix_NN contains_VVZ all_DT masses_NNS m_NN and_CC inertia_NN tensors_NNS ._SENT 
+The_DT acceleration_NN vector_NN inherits_VVZ the_DT second_JJ derivative_NN of_IN the_DT translation_NN vector_NN of_IN the_DT body-fixed_JJ coordinate_VV system_NN relative_JJ to_TO the_DT global_JJ frame_NN and_CC the_DT local_JJ angular_JJ accelerations_NNS ._SENT 
+External_JJ forces_NNS and_CC local_JJ external_JJ moments_NNS are_VBP combined_VVN in_IN vector_NN ._SENT 
+The_DT vector_NN reads_VVZ and_CC comprises_VVZ all_DT quadratic_JJ velocity_NN terms_NNS of_IN each_DT body_NN 1_CD to_TO k._NP In_IN a_DT multi-body_NN system_NN ,_, the_DT equations_NNS of_IN motion_NN have_VHP to_TO be_VB completed_VVN by_IN additional_JJ constraint_NN conditions_NNS due_JJ to_TO mechanical_JJ joints_NNS ._SENT 
+Figure_NN 2._CD Rotation_NN from_IN to_TO P._NP Rigid_JJ link_NN To_TO model_VV a_DT rigid_JJ link_NN of_IN two_CD coupled_VVN bodies_NNS ,_, the_DT distance_NN between_IN two_CD points_NNS i_NP and_CC j_NN of_IN each_DT body_NN has_VHZ to_TO be_VB restricted_VVN to_TO a_DT constant_JJ length_NN l._NP As_RB indicated_VVD by_IN Figure_NP 3_CD ,_, it_PP can_MD be_VB expressed_VVN in_IN terms_NNS of_IN global_JJ coordinates_VVZ and_CC and_CC replaced_VVN by_IN transformation_NN into_IN local_JJ coordinates_VVZ and_CC as_RB follows_VVZ @(11_JJ )_) Figure_NP 3._CD Illustration_NN of_IN the_DT spatial_JJ positions_NNS in_IN a_DT multi-body_NN system_NN ._SENT 
+The_DT constant_JJ distance_NN constraint_NN can_MD be_VB acquired_VVN through_IN @(12_NN )_) Since_IN spatial_JJ position_NN vectors_NNS are_VBP expressed_VVN by_IN quaternions_NNS ,_, this_DT condition_NN is_VBZ a_DT function_NN of_IN a_DT combined_JJ vector_NN containing_VVG the_DT translation_NN and_CC the_DT Euler_NP parameters_NNS of_IN each_DT body_NN k=1,2_NN :_: Equation_NN (_( 12_CD )_) also_RB has_VHZ to_TO be_VB fulfilled_VVN on_IN velocity_NN and_CC acceleration_NN levels_NNS ,_, i.e._FW @(13_NP )_) @(14_NP )_) To_TO be_VB consistent_JJ with_IN system_NN (_( 10_CD )_) ,_, a_DT transformation_NN from_IN into_IN for_IN each_DT body_NN yields_NNS @(15_NN )_) denotes_VVZ a_DT coupling_NN term_NN specified_VVN on_IN the_DT mechanical_JJ joint_NN between_IN the_DT bodies_NNS ._SENT 
+Moreover_RB ,_, reaction_NN forces_NNS and_CC moments_NNS caused_VVN by_IN a_DT rigid_JJ link_NN have_VHP to_TO be_VB considered_VVN ._SENT 
+Lagrange_NP multipliers_NNS �_NP �_( are_VBP often_RB used_VVN to_TO fuse_NN the_DT governing_VVG equations_NNS with_IN constraint_NN conditions_NNS ._SENT 
+The_DT additional_JJ vector_NN containing_VVG constraint_NN reaction_NN forces_NNS and_CC moments_NNS for_IN system_NN (_( 10_CD )_) can_MD be_VB derived_VVN as_IN @(16_NP )_) Finally_RB ,_, following_VVG equation_NN system_NN describes_VVZ the_DT motion_NN of_IN k_NN mechanically_RB coupled_VVN bodies_NNS using_VVG quaternions_NNS to_TO describe_VV spatial_JJ positions_NNS :_: @(17_JJ )_) Rope_NN model_NN The_DT physical_JJ characteristics_NNS of_IN springs_NNS and_CC dampers_NNS are_VBP very_RB versatile_JJ in_IN their_PP$ application_NN ._SENT 
+These_DT basic_JJ mechanical_JJ elements_NNS can_MD be_VB used_VVN to_TO model_VV the_DT elastic_JJ behaviour_NN of_IN ropes_NNS ._SENT 
+Since_IN the_DT rope_NN is_VBZ only_RB applying_VVG tension_NN forces_NNS to_TO a_DT body_NN ,_, constraint_NN forces_NNS are_VBP simply_RB added_VVN to_TO Equation_NN (_( 9_CD )_) as_IN external_JJ forces_NNS ._SENT 
+If_IN the_DT distance_NN between_IN the_DT points_NNS i_NP and_CC j_NN is_VBZ below_IN the_DT defined_VVN relaxed_VVN rope_NN length_NN l_NN ,_, no_DT constraint_NN forces_NNS are_VBP taken_VVN into_IN account_NN and_CC the_DT equations_NNS of_IN motion_NN will_MD be_VB solved_VVN separately_RB for_IN each_DT body_NN ._SENT 
+As_RB soon_RB as_RB d_SYM exceeds_VVZ l_NN ,_, an_DT additional_JJ external_JJ force_NN @(18_NN )_) is_VBZ applied_VVN to_TO both_DT of_IN the_DT coupled_VVN bodies_NNS with_IN opposite_JJ signs_NNS ._SENT 
+Herein_RB ,_, C_NP and_CC D_NP denote_VVP to_TO spring_NN and_CC damping_VVG coefficients_NNS ._SENT 
+The_DT choice_NN of_IN the_DT coefficients_NNS C_NP and_CC D_NP is_VBZ crucial_JJ for_IN the_DT rope_NN 's_POS behaviour_NN ._SENT 
+Typical_JJ classifications_NNS of_IN ropes_NNS are_VBP based_VVN on_IN their_PP$ maximum_JJ breaking_NN load_NN and_CC their_PP$ elongation_NN at_IN breaking_VVG load_NN ._SENT 
+Figure_NN 4_CD exemplifies_VVZ two_CD ropes_NNS with_IN different_JJ characteristics_NNS ._SENT 
+The_DT stiff_JJ rope_NN manifests_VVZ an_DT elongation_NN of_IN at_IN breaking_VVG load_NN ._SENT 
+The_DT elastic_JJ rope_NN features_VVZ an_DT elongation_NN of_IN at_IN the_DT same_JJ breaking_NN load_NN ,_, which_WDT corresponds_VVZ to_TO a_DT length_NN deviation_NN of_IN 6.1 m_NN for_IN a_DT 100 m_NN rope_NN ._SENT 
+Different_JJ rope_NN characteristics_NNS can_MD be_VB modelled_VVN by_IN choosing_VVG appropriate_JJ parameters_NNS in_IN Equation_NN (_( 18_CD )_) ._SENT 
+As_IN Hooke_NP 's_POS law_NN relates_VVZ the_DT spring_NN force_NN f_SYM to_TO a_DT length_NN deviation_NN ,_, a_DT 100 m_NN rope_NN with_IN a_DT maximum_JJ breaking_NN load_NN of_IN 200 t_NP and_CC an_DT elongation_NN of_IN at_IN breaking_VVG load_NN would_MD have_VH a_DT spring_NN coefficient_NN of_IN 755 kN_NP  m−1_NN ._SENT 
+To_TO obtain_VV the_DT damping_VVG coefficient_NN D_NP ,_, a_DT frequently_RB employed_VVN damping_VVG measure_NN is_VBZ given_VVN by_IN a_DT prescribed_JJ damping_VVG ratio_NN δ_NN ,_, viz_NP ._SENT 
+@(19_NP )_) which_WDT depends_VVZ on_IN the_DT attached_VVN body_NN 's_POS mass_JJ m._JJ Realistic_JJ ropes_NNS exhibit_VV an_DT under-damped_JJ behaviour_NN ,_, which_WDT refers_VVZ to_TO ._SENT 
+Figure_NN 4._CD Load-Elongation_NN diagram_NN of_IN a_DT stiff_JJ and_CC an_DT elastic_JJ rope_NN ._SENT 
+Fender_NN model_NN Another_DT important_JJ mechanical_JJ device_NN in_IN ship_NN operations_NNS is_VBZ a_DT fender_NN ._SENT 
+To_TO mimic_VV its_PP$ property_NN ,_, two_CD models_NNS are_VBP presented_VVN in_IN this_DT subsection_NN ._SENT 
+The_DT first_JJ model_NN (_( I_PP )_) is_VBZ based_VVN on_IN the_DT spring-damper_NN system_NN outlined_VVN by_IN Equation_NN (_( 18_CD )_) ._SENT 
+Opposed_VVN to_TO the_DT rope_NN ,_, the_DT fender_NN applies_VVZ repellent_JJ forces_NNS to_TO a_DT body_NN ,_, if_IN a_DT predefined_JJ minimum_JJ distance_NN ,_, i.e._FW the_DT fender_NN thickness_NN ,_, cannot_MD be_VB maintained_VVN due_RB to_TO the_DT body_NN 's_POS motion_NN ._SENT 
+The_DT effective_JJ direction_NN of_IN the_DT fender_NN normal_JJ forces_NNS are_VBP dependent_JJ on_IN the_DT fender_NN 's_POS geometrical_JJ extent_NN and_CC are_VBP usually_RB applied_VVN radial_NN to_TO the_DT longitudinal_JJ axes_NNS of_IN the_DT fender_NN geometry_NN ._SENT 
+If_IN the_DT fender_NN gets_VVZ compressed_VVN ,_, normal_JJ forces_NNS can_MD be_VB determined_VVN by_IN @(20_NN )_) where_WRB is_VBZ the_DT fender_NN deformation_NN and_CC denotes_VVZ the_DT unit_NN vector_NN in_IN radial_JJ direction_NN of_IN the_DT fender_NN ._SENT 
+Additionally_RB ,_, friction_NN forces_NNS have_VHP to_TO be_VB taken_VVN into_IN account_NN ._SENT 
+To_TO determine_VV friction_NN between_IN fender_NN and_CC floating_JJ body_NN ,_, the_DT dynamic_JJ motion_NN of_IN the_DT body_NN has_VHZ to_TO be_VB considered_VVN ._SENT 
+The_DT fender_NN can_MD either_RB stick_VV to_TO or_CC slip_VV against_IN the_DT body_NN ._SENT 
+Given_VVN by_IN Coulomb_NN 's_POS law_NN of_IN friction_NN ,_, the_DT relation_NN between_IN normal_JJ force_NN and_CC tangential_JJ friction_NN force_NN is_VBZ defined_VVN by_IN @(21_JJ )_) Herein_RB ,_, μ_NP is_VBZ a_DT (_( constant_JJ )_) friction_NN coefficient_NN ._SENT 
+Since_IN Equation_NN (_( 21_CD )_) is_VBZ an_DT inequality_NN ,_, the_DT actual_JJ acting_JJ friction_NN force_NN can_MD be_VB significantly_RB lower_JJR than_IN the_DT maximum_JJ friction_NN force_NN @(22_NN )_) which_WDT at_IN the_DT same_JJ time_NN defines_VVZ the_DT limit_NN of_IN stiction_NN forces_NNS ._SENT 
+While_IN the_DT normal_JJ force_NN can_MD be_VB directly_RB obtained_VVN from_IN Equation_NN (_( 20_CD )_) ,_, the_DT required_JJ friction_NN force_NN has_VHZ to_TO be_VB derived_VVN from_IN the_DT equations_NNS of_IN motion_NN ._SENT 
+The_DT dynamic_JJ tangential_JJ motion_NN at_IN the_DT contact_NN point_NN between_IN body_NN and_CC fender_NN is_VBZ neutralised_VVN ,_, if_IN the_DT sum_NN of_IN all_DT forces_NNS acting_VVG on_IN that_DT specific_JJ point_NN is_VBZ less_JJR than_IN ._SENT 
+Therefore_RB ,_, the_DT spring-damper_NP system_NN @(23_NN )_) is_VBZ used_VVN to_TO model_VV the_DT friction_NN force_NN f_SYM fr_NP ._SENT 
+Here_RB ,_, and_CC dxcp_NP denote_VVP the_DT vector_NN of_IN the_DT vertical_JJ velocity_NN and_CC the_DT associated_VVN scalar_JJ vertical_JJ displacement_NN of_IN the_DT contact_NN point_NN ._SENT 
+This_DT modelling_VVG is_VBZ suited_VVN for_IN implicit_JJ calculations_NNS ,_, since_IN big_JJ tangential_JJ force_NN impacts_NNS on_IN the_DT contact_NN point_NN are_VBP detected_VVN as_IN opposing_VVG accelerations_NNS and_CC will_MD be_VB counterbalanced_VVN during_IN the_DT implicit_JJ iterations_NNS ._SENT 
+If_IN there_EX is_VBZ no_DT velocity_NN of_IN the_DT contact_NN point_NN ,_, no_DT friction_NN force_NN will_MD be_VB applied_VVN ._SENT 
+In_IN the_DT second_JJ fender_NN model_NN (_( II_NP )_) the_DT characteristic_JJ behaviour_NN of_IN the_DT fender_NN is_VBZ predefined_VVN by_IN a_DT nonlinear_JJ characteristic_JJ function_NN provided_VVN by_IN Böbs_NNS (_( 2013_CD )_) and_CC is_VBZ shown_VVN in_IN Figure_NP 5._CD This_DT specific_JJ type_NN of_IN fender_NN is_VBZ derived_VVN from_IN Trelleborg_NP Marine_NP Systems_NPS (_( 2017_CD )_) by_IN choosing_VVG appropriate_JJ polynomial_JJ parameters_NNS to_TO mimic_VV its_PP$ nonlinear_JJ characteristic_NN for_IN a_DT desired_VVN maximum_NN reaction_NN force_NN ._SENT 
+In_IN Figure_NP 5_CD ,_, the_DT percentage_NN of_IN the_DT reaction_NN force_NN is_VBZ given_VVN over_IN the_DT percental_JJ deflection_NN of_IN the_DT fender_NN ._SENT 
+The_DT force_NN close_NN to_TO the_DT maximum_JJ load_NN is_VBZ already_RB achieved_VVN at_IN of_IN compression_NN ._SENT 
+Followed_VVN by_IN a_DT region_NN of_IN decreased_VVN forces_NNS (_( ∼60_JJ %_NN reaction_NN force_NN )_) ,_, the_DT maximum_JJ reaction_NN load_NN reaches_VVZ to_TO ∼75_JJ %_NN of_IN compression_NN ._SENT 
+This_DT fender_NN characteristic_NN inherits_VVZ the_DT feature_NN of_IN self_NN protecting_VVG from_IN over-compression_NN ._SENT 
+Choosing_VVG an_DT appropriate_JJ maximum_JJ reaction_NN force_NN ,_, the_DT fender_NN normal_JJ force_NN can_MD be_VB obtained_VVN using_VVG the_DT characteristic_JJ curve_NN as_IN following_VVG @(24_JJ )_) where_WRB x_SYM defines_VVZ the_DT deformation_NN of_IN the_DT fender_NN ._SENT 
+For_IN the_DT associated_VVN friction_NN force_NN @(25_NN )_) the_DT argument_NN of_IN the_DT characteristic_JJ function_NN again_RB refers_VVZ to_TO the_DT vertical_JJ displacement_NN of_IN the_DT contact_NN point_NN ._SENT 
+The_DT friction_NN condition_NN at_IN the_DT contact_NN point_NN in_IN both_DT fender_NN models_NNS refers_VVZ either_RB to_TO stick_VV or_CC slip_VV ,_, based_VVN on_IN the_DT comparison_NN of_IN the_DT forces_NNS defined_VVN in_IN Equations_NNS (_( 22_CD )_) and_CC (_( 23_CD )_) or_CC (_( 25_CD )_) ,_, respectively_RB :_: @(26_NP )_) <Section> 3._CD Verification_NP ,_, validation_NN and_CC application_NN </Section> In_IN this_DT section_NN ,_, several_JJ validations_NNS and_CC applications_NNS are_VBP presented_VVN ._SENT 
+An_DT overview_NN involving_VVG the_DT main_JJ simulation_NN parameters_NNS is_VBZ given_VVN in_IN Table_NN 1._CD Figure_NN 5._CD Nonlinear_JJ characteristic_JJ curve_NN of_IN the_DT fender_NN 's_POS reaction_NN force_NN over_IN the_DT deflection_NN of_IN the_DT fender_NN ._SENT 
+Table_NN 1._CD Characteristic_JJ features_NNS used_VVN in_IN the_DT numerical_JJ examples_NNS of_IN Section_NP 3._CD 3.1_CD ._SENT 
+Falling_VVG cube_NN fixed_VVN to_TO a_DT rope_NN The_DT first_JJ test_NN case_NN refers_VVZ to_TO a_DT test_NN of_IN the_DT rope_NN model_NN by_IN analysing_VVG the_DT vertical_JJ motion_NN of_IN a_DT free_JJ falling_VVG 3D-cube_NN with_IN a_DT mass_NN of_IN and_CC an_DT edge_NN length_NN of_IN 1 m_NN under_IN gravity_NN ._SENT 
+The_DT properties_NNS of_IN the_DT ambient_JJ fluid_NN were_VBD assigned_VVN to_TO air_VV with_IN a_DT density_NN of_IN  kg_NP  m−3_NP and_CC a_DT dynamic_JJ viscosity_NN of_IN  Pa s_NP ._SENT 
+As_IN depicted_VVN in_IN Figure_NP 6_CD ,_, the_DT cube_NN was_VBD attached_VVN to_TO a_DT rope_NN of_IN 5 m_NP ,_, which_WDT was_VBD fixed_VVN to_TO a_DT horizontal_JJ wall_NN ._SENT 
+In_IN the_DT beginning_NN of_IN the_DT simulation_NN ,_, the_DT cube_NN was_VBD initialised_VVN at_IN a_DT vertical_JJ distance_NN of_IN 0.5 m_NN to_TO the_DT wall_NN (_( see_VV Figure_NP 6_CD )_) ._SENT 
+For_IN this_DT test_NN ,_, a_DT rope_NN that_WDT has_VHZ 20 kg_JJ maximum_JJ breaking_NN load_NN (_( BL_NP )_) and_CC an_DT elongation_NN (_( EG_NN )_) of_IN at_IN half_DT breaking_JJ load_NN was_VBD considered_VVN ._SENT 
+Owing_VVG to_TO Hooke_NP 's_POS law_NN and_CC choosing_VVG in_IN Equation_NN (_( 19_CD )_) for_IN convenience_NN ,_, one_PP obtains_VVZ the_DT rope_NN parameters_NNS listed_VVN in_IN Table_NN 2._CD Table_NN 2._CD Rope_NN parameters_NNS of_IN the_DT falling_VVG cube_NN case_NN ._SENT 
+The_DT result_NN of_IN the_DT simulation_NN is_VBZ illustrated_VVN in_IN Figure_NP 7._CD The_DT left_NN diagram_NN displays_VVZ the_DT temporal_JJ evolution_NN of_IN the_DT vertical_JJ position_NN and_CC the_DT right_JJ chart_NN reveals_VVZ a_DT history_NN of_IN forces_NNS acting_VVG on_IN the_DT cube_NN ._SENT 
+As_IN the_DT length_NN of_IN the_DT overstretched_JJ rope_NN is_VBZ decreased_VVN towards_IN the_DT relaxed_VVN length_NN ,_, the_DT cube_NN is_VBZ accelerated_VVN in_IN negative_JJ -direction_NN ,_, cf_NP ._SENT 
+close-up_NN in_IN Figure_NP 7_CD (_( left_VVN )_) ,_, and_CC upward_RB pointing_VVG fluid_JJ forces_NNS up_RB to_TO approximately_RB 25 N_NNS occur_VVP in_IN line_NN with_IN the_DT induced_VVN hydrodynamic_JJ masses_NNS ._SENT 
+As_RB soon_RB as_IN the_DT contact_NN point_NN distance_NN settled_VVD to_TO the_DT predefined_JJ rope_NN length_NN of_IN 5 m_NP ,_, the_DT rope_NN forces_NNS reduced_VVN and_CC finally_RB held_VVD the_DT cube_NN under_IN gravitational_JJ force_NN ._SENT 
+The_DT rope_NN length_NN displayed_VVD an_DT overshoot_VV of_IN 5.38 m_NN and_CC maintained_VVD a_DT final_JJ length_NN of_IN 5.09 m_NP ._SENT 
+Compared_VVN to_TO the_DT expected_VVN final_JJ length_NN according_VVG to_TO the_DT rope_NN parameters_NNS in_IN Table_NN 2_CD of_IN 5.1 m_NP ,_, this_DT corresponded_VVD to_TO a_DT relative_JJ error_NN of_IN ._SENT 
+Furthermore_RB ,_, the_DT sum_NN of_IN rope_NN forces_NNS and_CC fluid_JJ forces_NNS yield_VV to_TO the_DT weight_NN of_IN the_DT cube_NN ,_, which_WDT is_VBZ in_IN line_NN with_IN the_DT theory_NN ._SENT 
+The_DT overshoot_VVP is_VBZ an_DT effect_NN related_VVN to_TO the_DT spring-damper-model_NN ._SENT 
+The_DT magnitude_NN of_IN the_DT peak_NN can_MD be_VB affected_VVN by_IN adjusting_VVG the_DT damping_VVG behaviour_NN ,_, but_CC has_VHZ no_DT influence_NN to_TO the_DT final_JJ elongation_NN value_NN of_IN the_DT rope_NN ._SENT 
+Further_JJR details_NNS are_VBP discussed_VVN in_IN Section_NP 3.3_CD ._SENT 
+Results_NNS showed_VVD that_IN the_DT implemented_VVN rope_NN model_NN is_VBZ able_JJ to_TO mimic_VV realistic_JJ rope_NN characteristics_NNS ._SENT 
+Figure_NN 6._CD Illustration_NN of_IN the_DT falling_VVG cube_NN fixed_VVN to_TO a_DT rope_NN ._SENT 
+Left_VVN :_: initial_JJ position_NN ,_, right_RB :_: final_JJ position_NN ._SENT 
+Figure_NN 7._CD Simulation_NP results_NNS of_IN rope_NN length_NN (_( left_VVN )_) and_CC forces_NNS acting_VVG on_IN the_DT falling_VVG cube_NN (_( right_NN )_) ._SENT 
+3.2_CD ._SENT 
+Resistance_NN calculation_NN using_VVG a_DT rigid_JJ link_NN The_DT next_JJ verification_NN case_NN was_VBD concerned_VVN with_IN the_DT resistance_NN of_IN a_DT Wigley_NP vessel_NN in_IN turbulent_JJ flow_NN at_IN Froude_JJ number_NN and_CC Reynolds_NP number_NN using_VVG a_DT rigid_JJ link_NN connection_NN ._SENT 
+The_DT dimension_NN of_IN the_DT vessel_NN referred_VVD to_TO a_DT length-to-breadth_JJ ratio_NN of_IN ,_, a_DT draught-to-length_JJ ratio_NN of_IN and_CC a_DT displacement_NN of_IN an_DT amidships_JJ section_NN coefficient_NN of_IN ._SENT 
+The_DT employed_VVN grid_NN consists_VVZ of_IN nodes_NNS ._SENT 
+Results_NNS obtained_VVN for_IN fixing_VVG all_DT degrees_NNS of_IN freedom_NN were_VBD compared_VVN to_TO the_DT simulation_NN of_IN a_DT vessel_NN ,_, which_WDT was_VBD free_JJ to_TO surge_VV with_IN its_PP$ bow_NN connected_VVN to_TO a_DT wall_NN by_IN a_DT rigid_JJ link_NN ._SENT 
+The_DT rigid_JJ link_NN aimed_VVN at_IN preventing_VVG the_DT vessel_NN from_IN moving_VVG backwards_RB ._SENT 
+Both_DT single_JJ grid_NN simulations_NNS used_VVD the_DT seaway_NN model_NN described_VVN in_IN Section_NP 2.3_CD for_IN calm_JJ water_NN conditions_NNS ._SENT 
+A_DT comparison_NN of_IN the_DT resultant_JJ wave_NN pattern_NN is_VBZ illustrated_VVN in_IN Figure_NN 8._CD Results_NNS for_IN the_DT fixed_VVN position_NN simulation_NN are_VBP displayed_VVN in_IN the_DT upper_JJ part_NN of_IN the_DT figure_NN and_CC agree_VV with_IN the_DT wave_NN pattern_NN returned_VVN by_IN the_DT rigid_JJ link_NN simulation_NN shown_VVN in_IN the_DT bottom_NN ._SENT 
+An_DT identical_JJ total_JJ resistance_NN value_NN was_VBD computed_VVN for_IN both_DT cases_NNS and_CC the_DT relative_JJ length_NN change_NN of_IN the_DT rigid_JJ link_NN remained_VVD in_IN the_DT order_NN of_IN during_IN the_DT whole_JJ simulation_NN ,_, which_WDT is_VBZ deemed_VVN negligible_JJ ._SENT 
+Other_JJ verification_NN and_CC validation_NN cases_NNS for_IN this_DT joint_JJ model_NN can_MD be_VB found_VVN in_IN Mierke_NP (_( 2012_CD )_) and_CC Luo_NP et_NP al_NP ._SENT 
+(_( 2012_CD )_) ._SENT 
+Figure_NN 8._CD Wave_NP pattern_NN of_IN the_DT resistance_NN test_NN with_IN a_DT fixed_VVN vessel_NN (_( top_JJ of_IN figure_NN )_) and_CC a_DT vessel_NN held_VVN by_IN a_DT rigid_JJ link_NN (_( bottom_NN of_IN figure_NN )_) ._SENT 
+3.3_CD ._SENT 
+Rope_NN parameter_NN study_NN The_DT behaviour_NN of_IN the_DT rope_NN in_IN its_PP$ overshooting_VVG region_NN was_VBD investigated_VVN for_IN different_JJ rope_NN parameters_NNS using_VVG the_DT simulation_NN set-up_NN of_IN the_DT Wigley_NP vessel_NN from_IN the_DT previous_JJ section_NN ._SENT 
+Instead_RB of_IN the_DT rigid_JJ link_NN connection_NN ,_, a_DT rope_NN was_VBD attached_VVN to_TO the_DT vessel_NN 's_POS bow_NN ._SENT 
+In_IN the_DT initial_JJ position_NN of_IN the_DT Wigley_NP ,_, the_DT rope_NN was_VBD not_RB tightened_VVN ._SENT 
+Induced_VVN by_IN the_DT incoming_JJ current_NN ,_, the_DT vessel_NN moved_VVD backwards_RB until_IN the_DT predefined_JJ rope_NN length_NN was_VBD achieved_VVN ._SENT 
+The_DT vessel_NN was_VBD able_JJ to_TO move_VV 0.3 m_NN in_IN the_DT direction_NN of_IN the_DT current_JJ until_IN the_DT rope_NN got_VVD tight_RB and_CC held_VVD the_DT vessel_NN in_IN place_NN ._SENT 
+For_IN the_DT comparison_NN of_IN various_JJ rope_NN 's_POS characteristics_NNS ,_, two_CD different_JJ coefficients_NNS of_IN extension_NN were_VBD paired_VVN with_IN different_JJ damping_VVG parameters_NNS as_IN outlined_VVN in_IN Table_NN 3._CD Table_NN 3._CD Parameter_NN sets_NNS of_IN two_CD different_JJ rope_NN types_NNS (_( i.e._FW stiff_JJ and_CC elastic_JJ )_) used_VVN in_IN the_DT study_NN ._SENT 
+In_IN each_DT simulation_NN the_DT relaxed_VVN rope_NN length_NN referred_VVD to_TO 100 m_NP ._SENT 
+The_DT spring_NN coefficient_NN can_MD be_VB obtained_VVN by_IN Hooke_NP 's_POS law_NN and_CC the_DT elongation_NN magnitude_NN of_IN the_DT rope_NN ._SENT 
+According_VVG to_TO Equation_NN (_( 19_CD )_) the_DT dependent_JJ variable_NN for_IN calculating_VVG the_DT damping_VVG parameter_NN is_VBZ mass_RB m._JJ Since_IN towing_VVG operations_NNS involve_VVP different_JJ body_NN masses_NNS as_RB well_RB as_IN the_DT relevant_JJ hydrodynamic_JJ masses_NNS ,_, the_DT damping_VVG coefficient_NN D_NP can_MD be_VB seen_VVN as_IN a_DT function_NN of_IN the_DT vessel_NN 's_POS mass_NN ._SENT 
+The_DT resistance_NN coefficients_NNS and_CC wave_NN pattern_NN resultant_JJ from_IN each_DT computation_NN agreed_VVD with_IN the_DT data_NNS obtained_VVN in_IN the_DT previous_JJ case_NN using_VVG the_DT rigid_JJ link_NN ._SENT 
+Figure_NN 9_CD demonstrates_VVZ the_DT percental_JJ length_NN deviation_NN from_IN the_DT rope_NN 's_POS relaxed_VVN length_NN by_IN observing_VVG the_DT normalised_VVN distance_NN between_IN the_DT two_CD end_NN points_NNS of_IN the_DT rope_NN ._SENT 
+Owing_VVG to_TO the_DT initial_JJ position_NN of_IN the_DT vessel_NN ,_, the_DT displayed_VVN curves_NNS started_VVN at_IN ._SENT 
+The_DT upper_JJ figure_NN shows_VVZ the_DT result_NN for_IN the_DT stiff_JJ rope_NN ,_, which_WDT had_VHD a_DT breaking_VVG load_NN and_CC elongation_NN ._SENT 
+The_DT lower_JJR diagram_NN depicts_VVZ the_DT results_NNS for_IN the_DT elastic_JJ rope_NN ,_, which_WDT had_VHD the_DT same_JJ breaking_NN load_NN and_CC an_DT elongation_NN of_IN ._SENT 
+Every_DT simulation_NN manifested_VVD a_DT result_NN close_NN to_TO the_DT expectations_NNS ._SENT 
+Modelled_VVN ropes_NNS were_VBD flexible_JJ ,_, and_CC as_RB expected_VVN ,_, the_DT ropes_NNS with_IN the_DT higher_JJR flexible_JJ quality_NN �_NP �_NP indicated_VVD by_IN small_JJ values_NNS in_IN C_NP (_( Figure_NP 9_CD ,_, bottom_JJ )_) �_NP �_NP elongated_VVD more_JJR than_IN ropes_NNS with_IN lower_JJR flexibility_NN �_NN �_NN indicated_VVN by_IN large_JJ values_NNS in_IN C_NP (_( Figure_NP 9_CD ,_, top_JJ )_) ._SENT 
+Furthermore_RB ,_, less_JJR stiff_JJ ropes_NNS overshot_VVD the_DT target_NN length_NN more_JJR than_IN the_DT stiff_JJ ropes_NNS ._SENT 
+However_RB ,_, all_DT ropes_NNS with_IN identical_JJ spring_NN but_CC different_JJ damping_VVG coefficients_NNS led_VVN to_TO the_DT same_JJ final_JJ elongation_NN length_NN ._SENT 
+The_DT magnitude_NN of_IN the_DT oscillation_NN amplitude_NN was_VBD controlled_VVN by_IN choosing_VVG appropriate_JJ damping_VVG parameters_NNS for_IN the_DT desired_VVN rope_NN characteristic_NN ._SENT 
+As_IN indicated_VVN by_IN Figure_NP 9_CD ,_, independent_JJ on_IN the_DT spring_NN stiffness_NN ,_, larger_JJR values_NNS of_IN damping_VVG coefficients_NNS led_VVN to_TO smaller_JJR or_CC even_RB no_DT oscillations_NNS ._SENT 
+The_DT two_CD dotted_JJ lines_NNS are_VBP least_RBS extended_VVN ._SENT 
+Looking_VVG at_IN the_DT stiff_JJ rope_NN with_IN �_JJ �_NN and_CC ,_, the_DT elongation_NN maximum_NN reached_VVN before_IN remaining_VVG a_DT final_JJ length_NN of_IN above_IN the_DT relaxed_VVN rope_NN length_NN ._SENT 
+Compared_VVN to_TO Table_NN 3_CD ,_, damping_VVG values_NNS should_MD be_VB taken_VVN from_IN for_IN n>1_JJ to_TO avoid_VV large_JJ oscillation_NN amplitudes_NNS ._SENT 
+Figure_NN 9._CD Change_NP of_IN distance_NN of_IN the_DT rope_NN for_IN different_JJ damping_VVG coefficients_NNS and_CC BL_NP ._SENT 
+Top_NN :_: EG_NP (_( stiff_JJ rope_NN )_) ,_, bottom_NN :_: EG_NP (_( elastic_JJ rope_NN )_) ._SENT 
+3.4_CD ._SENT 
+Floating_JJ tug_NN A_DT tug_NN vessel_NN (_( see_VV Table_NN 4_LS )_) served_VVN for_IN the_DT validation_NN of_IN the_DT coupled_VVN computational_JJ methods_NNS against_IN experimental_JJ data_NNS ._SENT 
+Simulations_NNS of_IN a_DT non-propelled_JJ tug_NN in_IN different_JJ harmonic_JJ waves_NNS and_CC encounter_NN angles_NNS were_VBD compared_VVN to_TO measured_VVN data_NNS reported_VVN by_IN the_DT SVA_NP Potsdam_NP Model_NP Basin_NP (_( 2013_CD )_) for_IN a_DT scaling_VVG factor_NN of_IN ._SENT 
+Figure_NN 10_CD exemplifies_VVZ the_DT investigated_VVN three_CD validation_NN cases_NNS in_IN head_NN ,_, oblique_JJ and_CC beam_NN waves_NNS ._SENT 
+The_DT steepness_NN of_IN all_DT applied_VVN waves_NNS was_VBD in_IN accordance_NN with_IN the_DT experiments_NNS ._SENT 
+In_IN the_DT computation_NN two_CD overlapping_JJ grids_NNS containing_VVG cells_NNS for_IN the_DT foreground_NN grid_NN and_CC cells_NNS for_IN the_DT background_NN grid_NN were_VBD used_VVN for_IN a_DT rather_RB compact_JJ domain_NN of_IN in_IN horizontal_JJ and_CC lateral_JJ direction_NN ._SENT 
+The_DT vertical_JJ span_NN of_IN the_DT domain_NN was_VBD 1.06L_JJ with_IN the_DT free_JJ surface_NN being_VBG centred_VVN ._SENT 
+All_DT degrees_NNS of_IN freedom_NN of_IN the_DT vessel_NN other_JJ than_IN the_DT motion_NN of_IN interest_NN ,_, i.e._FW heave_NN ζ_NN ,_, pitch_NN θ_NN and_CC roll_VV �_JJ �_NN ,_, were_VBD suppressed_VVN by_IN neglecting_VVG the_DT associated_VVN accelerations_NNS ._SENT 
+Figure_NN 10._CD Validation_NN test_NN cases_NNS of_IN the_DT tug_NN in_IN head_NN (_( )_) ,_, oblique_JJ (_( )_) and_CC beam_NN waves_NNS (_( )_) using_VVG overset_VVN grids_NNS ._SENT 
+Table_NN 4._CD Dimensions_NNS of_IN the_DT full-scale_JJ tug_NN ._SENT 
+In_IN Figure_NP 11_CD ,_, results_NNS of_IN head_NN (_( 180°_NP )_) and_CC beam_NN waves_NNS (_( 90°_NP )_) are_VBP assessed_VVN by_IN a_DT comparison_NN to_TO the_DT associated_VVN response-amplitude-operator_NN (_( RAO_NP )_) in_IN comparison_NN to_TO measured_JJ data_NNS ._SENT 
+The_DT comparison_NN revealed_VVD an_DT encouraging_JJ agreement_NN between_IN simulations_NNS and_CC experiments_NNS ._SENT 
+While_IN the_DT calculated_JJ heave_NN motion_NN in_IN head_NN waves_NNS for_IN the_DT normalised_VVN wave_NN length_NN was_VBD slightly_RB over-predicted_VVN ,_, the_DT agreement_NN of_IN the_DT other_JJ motions_NNS were_VBD much_RB better_JJR ._SENT 
+It_PP is_VBZ noticed_VVN that_IN the_DT numerically_RB predicted_VVN roll_NN motion_NN in_IN head_NN waves_NNS is_VBZ always_RB close_JJ to_TO zero_VV due_JJ to_TO the_DT strictly_RB symmetric_JJ set-up_NN ,_, which_WDT was_VBD difficult_JJ to_TO maintain_VV during_IN the_DT experiments_NNS ._SENT 
+Figure_NN 11._CD Simulation_NP results_NNS of_IN floating_JJ tug_NN compared_VVN to_TO RAO_NP for_IN head_NN and_CC beam_NN waves_NNS ._SENT 
+The_DT simulations_NNS for_IN encounter_NN wave_NN angles_NNS of_IN 135°_JJ required_JJ specific_JJ treatment_NN because_IN of_IN the_DT strong_JJ coupling_NN to_TO the_DT yaw_VVP motion_NN of_IN the_DT tug_NN ._SENT 
+Owing_VVG to_TO its_PP$ hull_NN geometry_NN ,_, the_DT tug_NN turned_VVD itself_PP into_IN the_DT incoming_JJ diagonal_JJ waves_NNS ._SENT 
+Therefore_RB ,_, the_DT yaw_VVP motion_NN increased_VVN over_IN time_NN and_CC an_DT energy_NN transfer_NN to_TO the_DT other_JJ degrees_NNS of_IN freedom_NN was_VBD experienced_VVN ._SENT 
+Though_RB ,_, yaw_VVP was_VBD suppressed_VVN numerically_RB ,_, inherent_JJ properties_NNS of_IN the_DT quaternion_NN model_NN would_MD still_RB permit_VV small_JJ yaw_VVP movements_NNS in_IN every_DT time_NN step_NN ,_, which_WDT would_MD cumulate_VV to_TO larger_JJR magnitudes_NNS ._SENT 
+Figure_NN 13_CD (_( top-right_NN )_) displays_VVZ the_DT undesired_JJ monotonic_JJ increase_NN of_IN the_DT predicted_VVN yaw_VVP for_IN an_DT exemplary_JJ wave_NN length_NN of_IN over_IN a_DT period_NN of_IN 45_CD  s_NNS ._SENT 
+It_PP is_VBZ interesting_JJ to_TO note_VV that_IN the_DT experiments_NNS actually_RB suffered_VVN from_IN similar_JJ phenomena_NNS ._SENT 
+To_TO measure_VV heave_NN ,_, pitch_NN and_CC roll_NN motion_NN ,_, the_DT tug_NN was_VBD stabilised_VVN in_IN the_DT experimental_JJ towing_VVG tank_NN by_IN using_VVG guidance_NN lines_NNS ._SENT 
+Whenever_WRB the_DT tug_NN started_VVD to_TO break_VV out_RP of_IN the_DT desired_VVN position_NN ,_, it_PP was_VBD towed_VVN back_RB immediately_RB ._SENT 
+For_IN the_DT numerical_JJ investigation_NN the_DT same_JJ treatment_NN was_VBD used_VVN by_IN attaching_VVG numerical_JJ ropes_NNS to_TO the_DT tug_NN as_IN illustrated_VVN in_IN Figure_NP 12._CD Using_VVG rope_NN parameters_NNS of_IN  N_NP �_NP �_NP and_CC reasonable_JJ results_NNS were_VBD obtained_VVN ._SENT 
+Figure_NN 13_CD (_( left_NN )_) demonstrates_VVZ the_DT improved_VVN performance_NN returned_VVN by_IN the_DT bonded_VVN configuration_NN in_IN comparison_NN with_IN the_DT simulation_NN results_NNS of_IN the_DT unbonded_JJ case_NN ._SENT 
+Owing_VVG to_TO the_DT use_NN of_IN the_DT numerical_JJ ropes_NNS ,_, the_DT yaw_VVP motion_NN was_VBD reduced_VVN to_TO the_DT order_NN of_IN °_NP ,_, see_VVP Figure_NP 13_CD (_( right_NN )_) ._SENT 
+Mind_VV that_IN the_DT stabilisation_NN of_IN the_DT tug_NN position_NN by_IN guidance_NN lines_NNS in_IN the_DT experimental_JJ environment_NN is_VBZ the_DT most_RBS difficult_JJ for_IN oblique_JJ waves_NNS ._SENT 
+Therefore_RB ,_, discrepancies_NNS can_MD occur_VV easily_RB between_IN measurements_NNS and_CC numerical_JJ results_NNS ._SENT 
+The_DT conspicuous_JJ deviations_NNS between_IN measurements_NNS and_CC predictions_NNS for_IN the_DT larger_JJR wave_NN length_NN displayed_VVN in_IN Figure_NP 13_CD could_MD also_RB result_VV from_IN the_DT combination_NN of_IN the_DT compact_JJ numerical_JJ grid_NN and_CC the_DT employed_VVN incident_NN wave_NN model_NN ,_, in_IN particular_JJ the_DT length_NN of_IN the_DT buffer_NN zone_NN and_CC its_PP$ respective_JJ clearance_NN from_IN the_DT vessel_NN ._SENT 
+According_VVG to_TO Jacobsen_NP et_CC al_NP ._SENT 
+(_( 2012_CD )_) ,_, wave_NN reflections_NNS at_IN the_DT buffer_NN zone_NN might_MD occur_VV for_IN buffer_NN zones_NNS that_WDT are_VBP shorter_JJR than_IN the_DT length_NN of_IN the_DT vessel_NN ,_, at_IN least_JJS for_IN explicit_JJ wave_NN models_NNS ._SENT 
+Other_JJ towing_VVG application_NN cases_NNS have_VHP been_VBN published_VVN in_IN Rung_NP et_CC al_NP ._SENT 
+(_( 2013a_NP ,_, 2013b_NP )_) ._SENT 
+Figure_NN 12._CD Applying_VVG numerical_JJ ropes_NNS to_TO avoid_VV breaking_VVG out_RP of_IN the_DT tug_NN for_IN wave_NN encounter_NN angle_NN °_NN ._SENT 
+Figure_NN 13._CD Left_VVN :_: Simulation_NN results_NNS of_IN floating_JJ tug_NN for_IN °_NN without_IN guidance_NN lines_NNS (_( no_DT rope_NN )_) and_CC using_VVG guidance_NN lines_NNS (_( rope_NN )_) compared_VVN to_TO RAO_NP ._SENT 
+Right_NN :_: Comparison_NN of_IN the_DT the_DT predicted_VVN yaw_VVP motion_NN evolution_NN with_IN and_CC without_IN numerical_JJ ropes_NNS for_IN an_DT exemplary_JJ wave_NN length_NN (_( )_) ._SENT 
+3.5_CD ._SENT 
+Boat_NN landing_NN The_DT final_JJ application_NN was_VBD concerned_VVN with_IN the_DT landing_NN manoeuvre_NN of_IN a_DT catamaran_NN vessel_NN at_IN an_DT offshore_JJ foundation_NN using_VVG a_DT fender_NN ._SENT 
+The_DT aim_NN was_VBD to_TO analyse_VV the_DT hydrodynamic_JJ effects_NNS on_IN the_DT contact_NN between_IN a_DT vessel_NN and_CC a_DT monopile_JJ structure_NN ._SENT 
+Numerical_JJ simulations_NNS were_VBD compared_VVN to_TO experiments_NNS published_VVN by_IN Ferreira_NP González_NP et_CC al_NP ._SENT 
+(_( 2015a_NP )_) ._SENT 
+The_DT tests_NNS were_VBD carried_VVN out_RP in_IN a_DT towing_VVG tank_NN of_IN 80 m_NN length_NN ,_, 5 m_NN width_NN and_CC 2.3 m_NN depth_NN ._SENT 
+The_DT main_JJ particulars_NNS of_IN the_DT model_NN are_VBP listed_VVN in_IN Table_NN 5_CD ,_, which_WDT refers_VVZ to_TO a_DT geometric_JJ scaling_NN factor_NN of_IN ._SENT 
+The_DT vessel_NN was_VBD equipped_VVN with_IN two_CD propellers_NNS and_CC a_DT D-profile_JJ fender_NN ._SENT 
+As_IN the_DT vessel_NN pushed_VVN against_IN the_DT monopile_NN ,_, which_WDT was_VBD achieved_VVN by_IN keeping_VVG the_DT thrust_NN on_IN a_DT mean_JJ level_NN ,_, the_DT motion_NN of_IN the_DT catamaran_NN and_CC the_DT fender_NN were_VBD measured_VVN ._SENT 
+Figure_NN 14_CD illustrates_VVZ the_DT set-up_NN and_CC the_DT employed_VVN overset_VVN grids_NNS ._SENT 
+The_DT foreground_NN grid_NN contains_VVZ about_IN cells_NNS and_CC the_DT background_NN grid_NN amounts_VVZ approximately_RB cells_NNS ._SENT 
+The_DT computational_JJ domain_NN had_VHD the_DT same_JJ size_NN as_IN the_DT towing_VVG tank_NN ._SENT 
+The_DT propeller_NN thrust_NN was_VBD modelled_VVN by_IN applying_VVG external_JJ forces_NNS on_IN the_DT body_NN and_CC fender_NN forces_NNS were_VBD calculated_VVN and_CC compared_VVN by_IN using_VVG the_DT first_JJ and_CC the_DT second_JJ fender_NN model_NN as_IN described_VVN in_IN the_DT Section_NP 2.4.2_CD ._SENT 
+The_DT response-amplitude-operator_NN for_IN the_DT heave_NN and_CC the_DT pitch_NN motion_NN of_IN the_DT isolated_JJ ,_, free_JJ floating_JJ catamaran_NN is_VBZ shown_VVN in_IN Figure_NP 15._CD The_DT agreement_NN between_IN the_DT numerical_JJ results_NNS and_CC the_DT experimental_JJ data_NN is_VBZ deemed_VVN satisfactory_JJ ._SENT 
+Mind_VV that_IN results_NNS refer_VVP to_TO a_DT vessel_NN ,_, which_WDT was_VBD not_RB pushing_VVG against_IN a_DT monopile_NN ._SENT 
+Therefore_RB ,_, its_PP$ motion_NN was_VBD not_RB effected_VVN by_IN any_DT contact_NN forces_NNS and_CC the_DT simulations_NNS serve_VVP to_TO verify_VV the_DT adequacy_NN of_IN the_DT computational_JJ model_NN ._SENT 
+Table_NN 5._CD Dimensions_NNS of_IN the_DT catamaran_NN model_NN ._SENT 
+Figure_NN 14._CD Sketch_NN of_IN the_DT simulation_NN set-up_NN (_( left_VVN )_) and_CC the_DT employed_VVN grids_NNS (_( right_NN )_) for_IN the_DT boat_NN landing_NN case_NN ._SENT 
+Figure_NN 15._CD RAO_NP for_IN free_JJ floating_JJ catamaran_NN in_IN head_NN waves_NNS ._SENT 
+The_DT model_NN parameters_NNS of_IN the_DT two_CD fender_NN models_NNS used_VVN in_IN the_DT boat_NN landing_NN simulations_NNS are_VBP listed_VVN in_IN Table_NN 6._CD The_DT simulated_JJ motions_NNS of_IN the_DT vessel_NN were_VBD restricted_VVN to_TO surge_NN ,_, heave_NN and_CC pitch_NN ._SENT 
+A_DT constant_JJ thrust_NN ,_, which_WDT agreed_VVD with_IN the_DT average_JJ value_NN extracted_VVN from_IN the_DT measurements_NNS ,_, was_VBD applied_VVN to_TO the_DT body_NN to_TO mimic_VV the_DT propeller_NN force_NN ._SENT 
+Results_NNS of_IN the_DT landing_NN manoeuvre_NN in_IN regular_JJ waves_NNS were_VBD compared_VVN to_TO the_DT experimental_JJ data_NNS in_IN Figure_NP 16_CD for_IN a_DT normalised_VVN wave_NN length_NN of_IN and_CC a_DT steepness_NN of_IN ._SENT 
+The_DT upper_JJ diagram_NN shows_VVZ the_DT vertical_JJ motion_NN of_IN the_DT fender_NN and_CC the_DT bottom_NN of_IN the_DT figure_NN reveals_VVZ the_DT pitch_NN motion_NN of_IN the_DT catamaran_NN ._SENT 
+Both_DT simulations_NNS using_VVG fender_NN models_NNS I_PP and_CC II_NP displayed_VVD a_DT good_JJ agreement_NN of_IN the_DT predicted_VVN amplitudes_NNS and_CC frequencies_NNS with_IN experimental_JJ data_NNS ._SENT 
+Figure_NN 16._CD Comparison_NN of_IN predicted_VVN and_CC measured_VVN time_NN series_NN data_NNS of_IN the_DT fender_NN heave_NN motion_NN (_( top_JJ )_) and_CC catamaran_NN pitch_NN motion_NN (_( bottom_NN )_) for_IN the_DT boat_NN landing_NN simulation_NN in_IN regular_JJ waves_NNS (_( ,_, )_) ._SENT 
+Table_NN 6._CD Model_NP parameters_NNS used_VVN in_IN the_DT simulations_NNS ._SENT 
+For_IN further_JJR demonstration_NN of_IN the_DT fender_NN 's_POS stick_NN and_CC slip_NN behaviour_NN ,_, the_DT manoeuvre_NN was_VBD simulated_JJ in_IN irregular_JJ waves_NNS ._SENT 
+For_IN this_DT purpose_NN ,_, a_DT JONSWAP-spectrum_NN using_VVG a_DT significant_JJ wave_NN height_NN of_IN in_IN model_NN scale_NN and_CC a_DT significant_JJ period_NN of_IN (_( Figure_NP 17_CD )_) was_VBD used_VVN ._SENT 
+According_VVG to_TO Bertram_NP (_( 2000_CD )_) ,_, 30–100_JJ wave_NN components_NNS should_MD be_VB employed_VVN for_IN the_DT simulation_NN of_IN a_DT natural_JJ seaway_NN in_IN each_DT incident_NN wave_NN direction_NN ._SENT 
+Three_CD different_JJ discrete_JJ realisations_NNS of_IN the_DT spectrum_NN using_VVG 20_CD ,_, 50_CD and_CC 80_CD frequency_NN bins_NNS were_VBD used_VVN for_IN the_DT same_JJ grid_NN in_IN the_DT present_JJ study_NN ._SENT 
+The_DT resolution_NN of_IN the_DT free-surface_NN was_VBD chosen_VVN in_IN a_DT way_NN that_IN waves_NNS with_IN half_DT significant_JJ wave_NN height_NN were_VBD resolved_VVN with_IN about_RB 20_CD cells_NNS ._SENT 
+Furthermore_RB ,_, the_DT peak_NN frequency_NN has_VHZ been_VBN reproduced_VVD adequately_RB for_IN all_DT three_CD seaways_NNS ._SENT 
+The_DT waves_NNS were_VBD superposed_VVN in_IN five_CD defined_VVN directions_NNS ,_, which_WDT were_VBD uniformly_RB distributed_VVN in_IN the_DT interval_NN of_IN in_IN head_NN sea_NN using_VVG a_DT -dispersion_NN ._SENT 
+Each_DT short_JJ crested_JJ seaway_NN was_VBD therefore_RB composed_VVN of_IN 100_CD (_( seaway_NN A_NP )_) ,_, 250_CD (_( seaway_NN B_NN )_) or_CC 400_CD (_( seaway_NN C_NP )_) components_NNS ._SENT 
+An_DT important_JJ aspect_NN refers_VVZ to_TO the_DT random_JJ characteristic_NN of_IN the_DT seaway_NN simulation_NN ._SENT 
+To_TO avoid_VV recurrence_NN ,_, frequencies_NNS and_CC phases_NNS of_IN the_DT superposed_VVN wave_NN components_NNS were_VBD chosen_VVN randomly_RB within_IN each_DT discretisation_NN and_CC also_RB with_IN respect_NN to_TO their_PP$ phase_NN within_IN ,_, respectively_RB �_JJ �_NN see_VVP Section_NP 2.3_CD ._SENT 
+Thus_RB ,_, despite_IN the_DT same_JJ underlying_VVG wave_NN spectrum_NN ,_, different_JJ discretisations_NNS could_MD lead_VV to_TO different_JJ results_NNS in_IN such_PDT a_DT short-term_JJ analysis_NN ._SENT 
+Figure_NN 17._CD Wave_NP energy_NN distribution_NN used_VVN for_IN the_DT seaway_NN generation_NN (_( discretised_VVN in_IN 80_CD bins_NNS )_) ._SENT 
+The_DT fender_NN 's_POS vertical_JJ displacement_NN and_CC velocity_NN were_VBD compared_VVN for_IN the_DT three_CD realised_VVN seaways_NNS ._SENT 
+Results_NNS displayed_VVN in_IN Figure_NP 18_CD outline_NN that_IN the_DT slip_NN occurred_VVD about_IN every_DT 13_CD  s_NNS for_IN a_DT period_NN of_IN approximately_RB 7_CD  s_NNS in_IN seaway_NN A_NP ,_, which_WDT was_VBD attributed_VVN to_TO the_DT low_JJ resolution_NN ._SENT 
+In_IN conjunction_NN with_IN seaway_NN B_NP ,_, three_CD significant_JJ slips_VVZ were_VBD recorded_VVN at_IN ,_, and_CC ._SENT 
+In_IN seaway_NN C_NP the_DT fender_NN rarely_RB slipped_VVD into_IN large_JJ amplitudes_NNS ._SENT 
+Figure_NN 18._CD Fender_NP 's_POS vertical_JJ displacement_NN (_( upper_JJ )_) and_CC velocity_NN (_( bottom_NN )_) during_IN landing_NN manoeuvre_NN in_IN irregular_JJ waves_NNS ._SENT 
+<Section> 4._CD Conclusion_NN and_CC future_JJ work_NN </Section> Hydrodynamic_JJ simulations_NNS of_IN mechanically_RB coupled_VVN bodies_NNS have_VHP been_VBN presented_VVN ._SENT 
+To_TO overcome_VV the_DT challenge_NN of_IN large_JJ relative_JJ motions_NNS in_IN a_DT multi-body_NN set-up_NN ,_, implicitly_RB coupled_VVN overset-grids_NNS were_VBD applied_VVN ._SENT 
+Implicit_JJ seaway_NN boundary_NN conditions_NNS combining_VVG viscous_JJ solutions_NNS in_IN the_DT interior_NN of_IN the_DT domain_NN and_CC inviscid_JJ solutions_NNS in_IN the_DT far-field_NN were_VBD used_VVN to_TO avoid_VV undesirable_JJ reflections_NNS from_IN the_DT boundaries_NNS and_CC allowed_VVN for_IN the_DT use_NN of_IN relatively_RB small_JJ domain_NN sizes_NNS and_CC variable_JJ headings_NNS ._SENT 
+A_DT quaternion_NN based_VVN motion_NN module_NN with_IN constraint_NN conditions_NNS and_CC models_NNS of_IN several_JJ basic_JJ mechanical_JJ joint_JJ elements_NNS has_VHZ been_VBN successfully_RB implemented_VVN ._SENT 
+The_DT algorithm_NN was_VBD verified_VVN and_CC validated_VVN and_CC finally_RB applied_VVN to_TO wave_NN tests_NNS of_IN a_DT floating_JJ tug_NN and_CC boat_NN landing_NN manoeuvres_NNS ._SENT 
+Results_NNS indicate_VVP that_IN the_DT combination_NN of_IN generic_JJ mechanical_JJ joints_NNS between_IN multiple_JJ (_( floating_JJ )_) objects_NNS and_CC overset_VV grid_NN methods_NNS are_VBP a_DT viable_JJ option_NN to_TO analyse_VV complex_JJ hydrodynamic_JJ scenarios_NNS at_IN manageable_JJ computational_JJ costs_NNS if_IN a_DT short-time_JJ analysis_NN is_VBZ sufficient_JJ ._SENT 
+Future_JJ work_NN will_MD focus_VV on_IN expanding_VVG the_DT range_NN of_IN mechanical_JJ couplings_NNS to_TO simulate_VV ,_, e.g._FW jacking_VVG scenarios_NNS ._SENT 
+Furthermore_RB ,_, investigations_NNS of_IN more_JJR complex_JJ application_NN cases_NNS involving_VVG escort_NN operations_NNS and_CC mooring_NN systems_NNS will_MD be_VB of_IN interest_NN ._SENT 
+<Section> Acknowledgements_NNS </Section> The_DT present_JJ work_NN was_VBD part_NN of_IN the_DT project_NN ‘TUG-Design’_NN and_CC ‘HyMOTT’_NN ,_, which_WDT were_VBD funded_VVN by_IN the_DT Federal_NP Ministry_NP for_IN Economic_NP Affairs_NPS and_CC Energy_NP (_( BMWi_NP )_) ._SENT 
+The_DT numerical_JJ investigations_NNS were_VBD carried_VVN out_IN using_VVG the_DT supercomputer_NN system_NN of_IN North-German_NP Supercomputing_NP Allinance_NP (_( HLRN_NP )_) ._SENT 
+The_DT authors_NNS thank_VVP BMWi_NP and_CC HLRN_NP for_IN their_PP$ support_NN ._SENT 
+<Section> Disclosure_NN statement_NN </Section> No_DT potential_JJ conflict_NN of_IN interest_NN was_VBD reported_VVN by_IN the_DT authors_NNS ._SENT 
+<Section> Additional_JJ information_NN </Section> Funding_NP ‘TUG-Design’_NP is_VBZ assigned_VVN to_TO the_DT grant_NN number_NN 03SX311A_NP and_CC ‘HyMOTT’_NP has_VHZ the_DT grant_NN number_NN 03SX390C_NN ._SENT 
+Both_DT projects_NNS were_VBD funded_VVN by_IN the_DT Federal_NP Ministry_NP for_IN Economic_NP Affairs_NPS and_CC Energy_NP (_( BMWi_NP )_) ._SENT 
+<Section> References_NNS </Section> Artyszuk_NP J._NP 2014._CD Steady-state_NN manoeuvring_VVG of_IN a_DT generic_JJ ASD_NN tug_NN in_IN escort_NN pull_NN and_CC bow-rope_NN aided_VVN push_NN operation_NN ._SENT 
+Int_NP J_NP Mar_NP Navigation_NP Saf_NP Sea_NP Transport_NP ._SENT 
+8:449–457_JJ ._SENT 
+doi_NP :_: 10.12716/1001.08.03.17_CD Bertram_NP V._NP 2000._CD Practical_JJ ship_NN hydrodynamics_NNS ._SENT 
+Oxford_NP :_: Butterworth_NP Heinemann_NP ._SENT 
+Böbs_NP A._NP 2013._CD Belastung_NP vertäuter_NP Schiffe_NP durch_VVZ vorbeifahrende_NP Schiffe_NP in_IN engem_NP Fahrwasser_NP [_SYM Diploma_NN thesis_NN ]_SYM ._SENT 
+Hamburg_NP University_NP of_IN Technology_NP ._SENT 
+Brunswig_NP J_NP ,_, Rung_NP T._NP 2011._CD RANS_NP simulations_NNS using_VVG overset_VVN meshes_NNS ._SENT 
+4th_JJ International_NP Conference_NP on_IN Computational_JJ Methods_NNS in_IN Marine_NP Engineering_NP ;_: Sep_NP 28–30_NP ;_: Lisbon_NP ,_, Portugal_NP ._SENT 
+Clauss_NP G_NP ,_, Jacobsen_NP K._NP 2005._CD Multi-body_NN systems_NNS in_IN waves_NNS �_JJ �_JJ impact_NN of_IN hydrodynamic_JJ coupling_NN on_IN motions_NNS ._SENT 
+12th_JJ International_NP Congress_NP of_IN the_DT International_NP Maritime_NP Association_NP of_IN the_DT Mediterranean_NP (_( IMAM_NN )_) ;_: Sep_NP 26–30_NP ;_: Lisbon_NP ,_, Portugal_NP ._SENT 
+Clauss_NP G_NP ,_, Lehmann_NP E_NP ,_, Oestergaard_NP C._NP 1988._CD Meerestechnische_NP Konstruktionen_NP ._SENT 
+Berlin_NP :_: Springer-Verlag_NP ._SENT 
+Feikens_NP H_NP ,_, Verwey_NP R_NP ,_, Serraris_NP J_NP ,_, Huijsmans_NP R._NP 2011._CD Wet_JJ handshake_NN :_: workability_NN study_NN of_IN an_DT offshore_JJ thruster_NN exchange_NN operation_NN ._SENT 
+ASME_NP 30th_JJ International_NP Mechanical_NP Engineering_NP Congress_NP &_CC Exposition_NN ;_: Nov_NP 11–17_JJ ;_: Denver_NP ,_, CO._NP Ferreira_NP González_NP D_NP ,_, König_NP M_NP ,_, Abdel-Maksoud_NP M_NP ,_, Düster_NP A._NP 2015a_NP ._SENT 
+Simulation_NN of_IN safety-relevant_JJ situations_NNS regarding_VVG the_DT interaction_NN of_IN service_NN ships_NNS with_IN offshore_JJ wind_NN turbine_NN plants_NNS ._SENT 
+34th_JJ International_NP Conference_NP on_IN Ocean_NP ,_, Offshore_NP and_CC Arctic_NP Engineering_NP (_( OMAE_NP )_) ;_: May_NP 31–June_NP 5_CD ;_: St_NP John_NP 's_POS ,_, Newfoundland_NP ,_, Canada_NP ._SENT 
+Ferreira_NP González_NP D_NP ,_, Loebus_NP S_NP ,_, Abdel-Maksoud_NP M._NP 2015b_NP ._SENT 
+Application_NN of_IN a_DT boundary_NN element_NN method_NN for_IN hydrodynamic_JJ simulations_NNS of_IN landing_NN manoeuvres_NNS at_IN an_DT offshore_JJ foundation_NN ._SENT 
+9th_JJ International_NP Workshop_NN on_IN Ship_NP and_CC Marine_NP Hydrodynamics_NNS (_( IWSH_NP )_) ;_: Aug_NN 26–28_NN ;_: Glasgow_NP ,_, UK_NP ._SENT 
+Gentaz_NP L_NP ,_, Allesandrini_NP B_NP ,_, Ferrant_JJ P_NN ,_, Luquet_NP R._NP 2004._CD Numerical_JJ simulation_NN of_IN the_DT 3D_JJ viscous_JJ flow_NN around_IN a_DT vertical_JJ cylinder_NN in_IN non-linear_JJ waves_NNS using_VVG explicit_JJ incident_NN wave_NN model_NN ._SENT 
+International_NP Conference_NP on_IN Offshore_NP Mechanics_NNS and_CC Arctic_NP Engineering_NP ;_: Jun_NP 20–25_NP ;_: Canada_NP :_: Vancouver_NP ._SENT 
+Jacobsen_NP NG_NP ,_, Fuhrmann_NP DR_NP ,_, Freds�_NP �_NP J._NP 2012._CD A_DT wave_NN generation_NN toolbox_NN for_IN the_DT open-source_NN CFD_NN library_NN :_: OpenFoam®_NN ._SENT 
+Int_NP J_NP Numer_NP Methods_NNS Fluids_NNS ._SENT 
+70:1073–1088_NP ._SENT 
+doi_NP :_: 10.1002/fld.2726_NP Josse_NP T_NN ,_, Billet_NP A_NP ,_, Leen_NP S._NP 2011._CD Prediction_NN of_IN supply_NN vessel_NN motion_NN during_IN transfer_NN to_TO a_DT fixed_VVN structure_NN ._SENT 
+ASME_NP 30th_JJ International_NP Mechanical_NP Engineering_NP Congress_NP &_CC Exposition_NN ;_: Nov_NP 11–17_JJ ;_: Denver_NP ,_, CO._NP Luo_NP X_NP ,_, Brunswig_NP J_NP ,_, Manzke_NP M_NP ,_, Koliha_NP N_NP ,_, Matin_NP F_NP ,_, Janssen_NP CF_NP ,_, Rung_NP T._NP 2012._CD Analyses_NNS of_IN coupled_VVN floating_JJ bodies_NNS in_IN seaway_NN ._SENT 
+2nd_JJ International_NP Conference_NP on_IN Violent_JJ Flows_NNS ;_: Sep_JJ 25–27_JJ ;_: Nantes_NP ,_, France_NP ._SENT 
+Mierke_NP D._NP 2012._CD Simulation_NP der_NP Bewegung_NP mechanisch_NP gekoppelter_NP schwimmender_NP Körper_NP mit_VVZ Hilfe_NP von_NP Quaternionen_NP in_IN einem_NP RANSE-Verfahren_NP [_SYM Bachelor_NP thesis_NN ]_SYM ._SENT 
+Hamburg_NP University_NP of_IN Technology_NP ._SENT 
+Nair_NP S_NP ,_, Kanso_NP E._NP 2007._CD Hydrodynamically_RB coupled_VVN rigid_JJ bodies_NNS ._SENT 
+J_NP Fluid_JJ Mech_NP ._SENT 
+592:393–411_JJ ._SENT 
+doi_NP :_: 10.1017/S002211200700849X_NP Nikravesh_NP P._NP 1988._CD Computer-aided_JJ analysis_NN of_IN mechanical_JJ systems_NNS ._SENT 
+New_NP Jersey_NP ,_, NJ_NP :_: Prentice-Hall_NP ._SENT 
+Rung_VVN T_NN ,_, Luo_NP X_NP ,_, Matin_NP F._NP 2013a_NP ._SENT 
+Multi-body_NN hydrodynamics_NNS using_VVG parallel_JJ overset-grid_JJ technique_NN ._SENT 
+V_NN International_NP Conference_NP on_IN Computational_JJ Methods_NNS in_IN Marine_NP Engineering_NP ;_: May_NP 29–31_NN ;_: Hamburg_NP ,_, Germany_NP ._SENT 
+Rung_VVN T_NN ,_, Ulrich_NP C_NP ,_, Luo_NP X._NP 2013b_NP ._SENT 
+Multi-body_NN hydrodynamics_NNS for_IN offshore_JJ applications_NNS using_VVG advanced_JJ viscous_JJ flow_NN simulation_NN techniques_NNS ._SENT 
+Conference_NN on_IN Maritime_NP Energy_NP ;_: May_NP 21–22_NP ;_: Hamburg_NP ,_, Germany_NP ._SENT 
+Rung_VVN T_NN ,_, Wöckner_NP K_NP ,_, Manzke_NP M_NP ,_, Stück_NP A_NP ,_, Brunswig_NP J_NP ,_, Ulrich_NP C._NP 2009._CD Challenges_NNS and_CC perspectives_NNS for_IN maritime_JJ CFD_NN applications_NNS ._SENT 
+Jahrbuch_NP der_NP Schiffbautechnischen_NP Gesellschaft_NN ;_: vol_NN ._SENT 
+103._CD Hamburg_NP :_: Schiffahrts-Verlag_NP Hansa_NP ._SENT 
+SVA_NP Potsdam_NP Model_NP Basin_NP ._SENT 
+2013._CD Seakeeping_VVG tests_NNS for_IN a_DT voith_JJ water_NN tractor_NN ._SENT 
+Report_NN ;_: SVAtech_NP GmbH_NP ._SENT 
+Trelleborg_NP Marine_NP Systems_NPS ._SENT 
+2017._CD Fender_NP systems_NNS ._SENT 
+Product_NN Brochure_NN ._SENT 
+Völkner_NP S_NP ,_, Brunswig_NP J_NP ,_, Rung_NP T._NP 2017._CD Analysis_NN of_IN non-conservative_JJ interpolation_NN techniques_NNS in_IN overset_VVN grid_NN finite-volume_NN methods_NNS ._SENT 
+Comput_NN Fluids_NNS ._SENT 
+148:39–55_NP ._SENT 
+doi_NP :_: 10.1016/j.compfluid.2017.02.010_NP Völkner_NP S_NP ,_, Wriggers_NP W_NP ,_, Luo-Theilen_NP X_NP ,_, Rung_NP T._NP 2015._CD An_DT overset-grid_JJ three-phase_JJ flow_NN model_NN for_IN offshore_JJ operations_NNS ._SENT 
+VI_NP International_NP Conference_NP on_IN Computational_JJ Methods_NNS in_IN Marine_NP Engineering_NP ;_: Jun_NP 15–17_JJ ;_: Rome_NP ,_, Italy_NP ._SENT 
+Wang_NP J-F_NP ,_, Li_NP J-D_NP ,_, Cai_NP X-G_NP ,_, Tian_NP M-Q_NP ,_, Hao_NP J-F_NP ._SENT 
+2005._CD Hydrodynamic_JJ interactions_NNS between_IN two_CD bodies_NNS in_IN waves_NNS in_IN 3D_JJ time_NN domain_NN ._SENT 
+J_NP Marine_NP Sci_NP Appl_NP ._SENT 
+4:15–20_NP ._SENT 
+doi_NP :_: 10.1007/s11804-005-0039-7_JJ Wilcox_NP D._NP 1988._CD Turbulence_NN modeling_NN for_IN CFD_NN ._SENT 
+La_NP Canada_NP ,_, CA_MD :_: DCW_NP Industries_NPS ._SENT 
+Wöckner_NP K_NP ,_, Drazyk_NP W_NP ,_, Rung_NP T._NP 2010._CD An_DT efficient_JJ VoF-based_JJ RANS_NNS method_NN to_TO capture_VV complex_JJ sea_NN states_NNS ._SENT 
+29th_JJ International_NP Conference_NP on_IN Ocean_NP ,_, Offshore_NP and_CC Arctic_NP Engineering_NP (_( OMAE_NP )_) ;_: Jun_NN 6–11_NN ;_: Shanghai_NP ,_, China_NP ._SENT 

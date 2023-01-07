@@ -1,0 +1,283 @@
+<title>Performance improvement in temperature thermometry using data analytics - A nuclear power plant perspective</title>
+<author>1,S.Narasimhan,2,V.Rajendran</author>
+<Affiliation>1,Bharatiya Nabhikiya Vidyut Nigam Limited, BHAVINI, Kalpakkam, India;2,Department of ECE, VELS Institute of Science, Technology and Advanced Studies (VISTAS), Chennai, India </Affiliation>
+<year>2021</year>
+<Jounral>Progress in Nuclear Energy</Journal>
+<Publishing_house>ELSEVIER</Publishing_house>
+<Text_Collector>XiaFan，HEU</Text_Collector>
+<DOI>10.1016/j.pnucene.2021.103669</DOI>
+<URL>https://www.sciencedirect.com/science/article/pii/S0149197021000408</URL>
+Performance improvement in temperature thermometry using data analytics - A nuclear power plant perspective
+S.Narasimhan,V.Rajendran
+Bharatiya Nabhikiya Vidyut Nigam Limited, BHAVINI, Kalpakkam, India
+Department of ECE, VELS Institute of Science, Technology and Advanced Studies (VISTAS), Chennai, India
+<Section>Highlights</Section>
+Highlights
+•
+Analysis of uncertainties and errors in thermocouple sensors using data analytics models.
+•
+Integrated methodology of compensating for overall uncertainties in temperature thermometry.
+•
+Improve the performance of core temperature monitoring system of a nuclear power plant.
+•
+ANOVA Analysis.
+•
+Levene's test and Shapiro-Wilks Test.
+<Section>Abstract</Section>
+The power density of the nuclear reactor core is high. In the event of inadequate cooling of Fuel subassembly (FSA), the fuel-clad temperature can increase to a high value leading to clad rupture. Hence, it is very important to detect core anomalies with adequate and suitable instrumentation. It is also required to monitor continuously the adequacy of reactor core cooling and initiate suitable safety actions in case of any abnormality.
+K-Type Thermocouples are normally used for measuring the core temperature. Computer based Core temperature-monitoring system is provided for acquiring the temperature signals, detection of core anomalies, error in core loading, fuel enrichment error and fuel orifice error. The control system monitor the temperature and provides signals for safety system to initiate protective action in case of incidents. These safety actions prevent the clad hot spot and fuel temperature from reaching the design safety limits.
+Hence, it is necessary to factor in the performance uncertainties of the safety instrumentation so that the process is operated efficiently within the limiting conditions of operation, limiting safety settings and the design safety limits. The errors and uncertainties of the thermocouples, signal processing electronics and the display systems shall be quantitatively estimated to implement an efficient operation strategy and optimize the requirements of calibration & ageing management.
+This paper deals with application of data analysis techniques to analyze the performance characteristics of core temperature monitoring thermocouples, estimate errors and suggest correction factors so that the requirements of availability and reliability are met within the actual safety limits for the system in a nuclear power reactor. The challenges in electronic calibration of measurement channels are discussed in view of distributed locations. The uncertainties and errors in thermocouple sensors are analysed using data analytics models and an integrated methodology of compensating for overall uncertainties in the system is proposed based on the analysis.
+Keywords:Analysis of variance;Calibration;Drift measurement;Data analysis;F-ratioLevene's test;Mean square betweenMean square error;Shapiro-wilks test;Signal conditioners;Thermocouples
+<Section>1. Introduction</Section>
+International Electro-technical Commission (IEC) standard (IEC-61226, IEC, 2009) had categorized the nuclear instrumentation systems as Safety, Safety Related and Non-Safety to develop requirements that are consistent with their classifications for prevention and mitigation of postulated initiating events (PIE). The standard also enumerates generic specifications of the I&C system for the classified safety functions including the requirements of quality assurance, reliability, testing & maintenance.
+The standard (IEC 61508-4, IEC, 1997), defines the risk based functional safety of electrical, electronic and programmable electronic equipment for a cost-effective implementation of safety-related system design.
+As brought in IAEA documents (Safety Glossary IAEA, 2007), the configuration of a nuclear plant Instrumentation & control system considers various safety criteria in their design right from plant lay out to system operation and maintenance. The systems are built with rugged and failsafe design with triplicated, redundant and diverse instrumentation tolerating single and common cause failures considering various failure scenarios and design basis events. All critical components are subjected to environmental qualifications and life cycle testing so that the reliability goals of a safety system are met. While designing and implementing the system, threshold limits of the sensors and the calibration uncertainties are selected such that the process is operated efficiently within the limiting conditions of operation, limiting safety settings and the design safety limits. This necessitates a thorough understanding on the performances and uncertainties related to all safety critical sensors, signal-conditioning modules, and channel processing systems during the entire period of installation, commissioning, operation and maintenance.
+Since the final measure (as seen by the operator) of the actual process variable within a plant/equipment, goes through a certain minimum stages, viz. sensor/transducer, signal conditioning module & finally the display/recording units, the various uncertainties/errors contributed by each stage, needs to be accounted for.
+One such safety system in a nuclear plant is nuclear core temperature monitoring system. This system ensures that reactor inlet and fuel subassembly outlet temperatures are continuously monitored to ensure the core is adequately cooled and in case of any abnormal temperature rise inside the core, necessary safety actions are initiated. These temperature signals are used for detection of core anomalies such as plugging of fuel subassemblies during start up, error in core loading, fuel enrichment error and fuel orifice error and initiate a protective action in the case of anomalies that are detected. Further, the temperature measured by the system is also used for calculation of reactor thermal power and correction of neutronic power signals.
+This paper provides an overview of the errors in the sensors and measuring systems of core temperature monitoring system of a nuclear power plant to improve the performance considering the design, installation & calibration aspects of safety instrumentation.
+<Section>2. Literature review</Section>
+The field of sensor uncertainties and their effect on performance optimization has been a subject of research for many years. There are various publications that deal with monitoring the performance of the process using sensor data analysis and various models are proposed using several statistical, mathematical and data modelling techniques.
+(Narasimhan and Rajendran, 2019) dwells on the safety class instrumentation system sensors and the effect of their drifts in the overall system performance. The paper brings out the issues related to uncertainties in sensors/transducers and the issues in the requirement of periodic calibration requirements. The paper proposes to develop a single parameter using data analytics, which can indicate the drifts in redundant sensors so that calibration intervals can be optimized.
+(Beemex Corporation, www.beemex.com) brings out the issues on optimal calibration parameters on Process Instrumentation in sensors calibration. The paper enumerates the best practices to follow calibration interval based on the impact of a failure without compromising on safe operating conditions. The paper analyses the effects of drifts in the sensors in detail.
+(IAEA, 2008) describes the on-line methodologies to be considered for verification of instruments calibration in addition to equipment and plant condition monitoring in nuclear power plants. This publication focusses on review of instrument calibration to ascertain the possibility to extend the periodicity of calibration of sensors and electronics. It also reviews the in-situ methodologies adopted to verify the dynamic performance and response time of process instrumentation.
+(Hashemian, 2010) discusses on the dynamic response of the process sensors that supply real-time data to the safety systems in nuclear power plants (NPP). The research dwells on the methods to improve the response times of the safety sensors by implementing newer methods. The paper also analyses the fluctuations in the sensor values that arise from random flux, turbulent flow, random heat transfer, process control action, and vibration.
+(Anderson et al., 1979) is very relevant to this study as it discusses on the characteristics of a K-type thermocouple used in a Nuclear Power Plant. The paper discusses on the factors that has an impact on the accuracy of temperature measurements by sheathed thermocouple assemblies of types K and S. The study is performed under varying conditions like change in temperature conditions, change in magnetic flux densities, their orientation and speed of sampling by data acquisition system. This paper has motivated to further the study the performance in a given configuration of thermocouple thermometry in the subject nuclear power plant and the associated data analysis.
+(Saha and Sridhar, 2012) is also very relevant for this study as it discusses on the application of temperature thermometry in a similar nuclear reactor and the methods of cross calibration techniques employed in isothermal conditions to improvise the accuracy of measurement. This paper considers that since large number of thermocouples are used, the accuracy of measurement can be improved considering mean values in cross calibration at a single point of temperature condition. Even though cross calibration is any way a requirement before start of the reactor to bring all the redundant measurements to a reference level, the issues related to inherent sensors uncertainties in the continuous operating conditions are required to be addressed to improve the performance reliability. This paper dwells on the issues with respect to such errors and an integrated approach to dynamic compensation using data analytics. Further, the configuration of the system in the subject nuclear power plant is different from the plant dealt in the paper.
+<Section>3. Core temperature monitoring system (CTMS)</Section>
+Two Mineral Insulated, Stainless Steel sheathed, ungrounded junction, K-type Chromel-Alumel thermocouples (TC) with the overall diameter of 1 mm with an accuracy of ±2.3 °C (at a nominal operating temperature of 570 °C) are used for monitoring the temperature from each of the subassembly in the core. These thermocouples are installed in thermo well, which are part of the control plug. Sodium enters at the bottom of the subassembly, takes the nuclear heat generated from the fuel, comes out from the subassembly as a jet, and hits the tip of the thermo well.
+The system processes the temperature signals from the thermocouples, derives the mean core outlet temperature, calculates temperature rise across the core and deviation in the individual subassembly over the expected value. It generates the signal for tripping the reactor to safe state when these parameters cross the safety set points as well as inputs for thermal power calculation and correction for neutronic power measurement.
+Two thermocouple signals of each subassembly are multiplied into three signals and the triplicated signals are processed by triplicated Real Time Computer based systems.
+The thermocouple signals (A&B) from the reactor are independently routed to the primary signal processing system located in a local control center which converts the millivolt signals into current signals (4–20 mA) and transmits to safety signaling and control system located at a different building. The system multiplies each of the current signal into three voltage signals and the real time computers generate various computed signals to initiate safety action based on logic processing. It generates alarms or trip signals when the computed values cross the respective alarm or trip thresholds. The thresholds are typically not beyond 5 °C.
+Since sensors and processing units are located across various buildings and are interconnected through extension and instrumentation cables, the difference in environment conditions in each of the building and the uncertainties and errors in individual components will influence overall accuracy of the system.
+Hence, any significant deviation in the measurements made by the system due to errors in sensor, signal conditioning etc. may spuriously generate alarm/trip, which will affect the safety/availability of the reactor. Hence, consistent and accurate system performance shall be ensured by individually analyzing, accounting and compensating for various uncertainties, drifts and errors in individual components. This paper enumerates three broad approaches to increase the reliability of the system performance.
+1.
+Estimation of errors and calibration of temperature measurement channels (electronics and computer systems)
+2.
+Estimation of errors of thermocouple sensors using data analytics method
+3.
+Integration and compensation for uncertainties in the overall system
+<Section>4. Errors in Temperature Measurement Channels</Section>
+The raw signal output of thermocouples require further signal conditioning/signal-recovery modules for appropriate signal amplification and subsequent digitization. Errors in DC signal conditioning stages include micro-phony errors in cables, piezo-resistive errors in PCBs, input-output impedance errors, bias & offset current errors, CMRR & PSRR errors in OPAMPS, ON/OFF resistance errors in analog MUX, quantization & linearity errors in ADCs and possible computation errors in floating point computations in microprocessors. Particularly in case of thermocouple thermometry with a low signal output, the electronic measuring system shall have significant errors due to the ohmic value of resistors, lead inductance in electrolytic capacitors, parasitic capacitance in resistors, piezo-resistive emf generation due to mounting of populated PCBs in sub-racks (bins), galvanic potential on IC leads due to poor quality of solder, cross-talk across tracks on PCBs, etc. All the electronic items are procured/manufactured from various agencies and are calibrated separately at factory and at site. Each component is specified with the accuracy limit for various operating conditions. The error rates of various electronic modules in processing are taken into consideration to ascertain the overall error and worst-case error due to electronic modules as given in Table 1. Considering root sum of squares for error estimation, the overall errors contributed by the signal processing electronics comes to ±1.94 °C. Including the thermocouple error of ±2.3 °C in the calculation, the total error in temperature measurement is ±2.78 °C and the worst-case error (additive) is 5.72 °C, which is higher than the threshold values.
+Table-1. Electronics error estimate.
+<Section>5. Electronics calibration methodology</Section>
+A standard electronics calibration method involves simulation of the signals with the handheld millivolt source from the field, isolating the field sensor and checking the outputs in Control room. If the deviations are high, the electronic modules are adjusted to bring down the error within the acceptable limits. Such a standard methodology cannot be adopted here due to following challenges:
+a)
+Since two thermocouples are provided at the outlets of each sub assembly for redundancy purpose and processed together, both the signals are to be simulated simultaneously. Further reference junction temperature shall be measured at the signal conditioning module location and subtracted from the signal to be simulated.
+Whereas, the signal conditioners for both the thermocouples are installed at two different locations, the reference junction temperatures are not same. Hence, two different millivolt signals are to be fed at the field for simulating the same temperature for both the thermocouples.
+b)
+It is not possible to measure the reference junction temperature exactly as compensation values vary based on the type and location of measurement viz. surface of signal conditioners, at the terminal blocks or by shorting the input terminals.
+c)
+As per the general industrial practice, the accuracy of reference junction compensation is guaranteed only up to 45 °C. During calibration, if the air conditioning and the ventilation system fails then the compensation by simulation will introduce more error in the calibration process.
+d)
+The method involves use of multiple measuring instruments and voltage sources for calibration and each will have its own errors.
+Considering the challenges above, the calibration of temperature measurement system was taken up by simulating the actual temperature using a portable oil temperature bath. Even though the range of K type thermocouple is −100 °C to 1350 °C, the calibration range was chosen between 50 °C to 600 °C in such a way that the maximum accuracy is achieved in the operating temperature range.
+A simulation thermocouple probe and the reference RTD were inserted inside the temperature bath. The field extension cable (cable end connector mating part) was disconnected from the field sensor and connected with the simulation thermocouple probe as per the test set up is shown Fig. 1.
+Fig. 1
+Fig. 1. Test set-up.
+The test set-up was placed at site close to field sensor location. The bath temperature was adjusted until the RTD reads 50 °C and the readings were taken from the measurement channels. The offset of signal conditioners was adjusted to bring the readings close to RTD measurement. After this adjustment, the offset of isolator modules were adjusted to normalize the discrepancy in the measurement of all the three channels. Now the bath temperature is raised to 600 °C as measured by RTD. Now the gain of signal conditioners and isolators were adjusted to reduce the error in measurement. The process is repeated until the error rates are within the admissible values.
+Five-point calibration was done at values 50 °C, 150 °C, 300 °C, 450 °C, and 600 °C. The above procedure was repeated for all temperature channels for all the subassemblies.
+<Section>6. Errors in thermocouple sensors</Section>
+As brought out in (Narasimhan and Rajendran, 2019), the primary sensors that are erected on the process equipment or inserted into the piping, shall be conforming to the mechanical/process standards and shall be subjected to similar manufacturing & in-stage testing procedures. The instrumentation design shall match with the process characteristics in terms of their steady-state accuracy, transient response and control loop performance. The overall performance of the system is significantly affected by the following factors:
+•
+Primary Sensors Design and their inherent Uncertainties
+•
+Errors due to installation
+•
+Associated Time Constants
+In the core temperature monitoring system, the temperature measurement by the thermocouples involves the transfer of the heat energy from the nuclear core by the coolant on the thermo-well and subsequently the sheath material of the thermocouples. Hence, to effectively understand the uncertainties involved, we can develop a physical model for the sensor measurement. A typical physical modelling of the sensor involves modelling of thermal conductivity and the transfer functions of the process considering the heat transfer coefficient of the various interfaces. Hence, it is required to understand the interface geometry and the corresponding heat transfer mechanism.
+The heat transfer mechanism can be in the form of conduction, convection and radiation. In case of thermocouples with thinner cross section, it can be assumed that both the conductive and radiated heat transfers are negligible when compared to the convective heat transfer.
+The movement of fluid surrounding the sensor has a very large effect in its response. If the fluid velocity is low, a film of coolant fluid will be built up around the sensor, effectively insulating it. The thermal capacity and the conductivity of the fluid determine the heat made available for transfer to the sensor.
+As brought out in (Anderson et al., 1979), following “seven deadly sins” in a thermocouple thermometry requires consideration:
+1.
+Errors due to thermal shunting
+2.
+Electrical Shunting and Electrical Leakage errors
+3.
+Error in Calibration
+4.
+Error due to Decalibration
+5.
+Errors due to extension lead wire
+6.
+Errors associated with Reference Junction
+7.
+Errors in Measurement System
+Barring the measurement system errors, all other errors are temperature dependent. It was also shown by (Anderson et al., 1979) that the cumulative errors for a stainless steel sheathed K-Type thermocouple for a 50 hours exposure at 1150 °C was up to 7 °C. In practice, each thermocouple is usually individually calibrated before installation and it may not be required generally calibrate onsite.
+The manufacturing tolerance of a thermocouple is often batch oriented. It is expected that the thermocouples made from a particular batch of materials exhibit similar tolerance limits. However, the variability in their tolerances observed in a single batch may increase when the diameter of the thermocouple assemblies becomes smaller. Considering 420 thermocouples of 1 mm diameter with a stainless steel sheath, measuring the outlet temperature of the core, the variability involved in each of the thermocouple has a bearing towards estimating the actual core outlet temperatures and subsequent protective action taken by the computer system based on the calculated parameters crossing the threshold.
+In addition to the sensor, there can be uncertainties associated with the process, the mode of measurement in the process, the type of mounting and the associated thermo well heat transfer characteristics, which cannot be accurately factored into while ascertaining the confidence in the measurements.
+With such a high variance in the uncertainties, any calculation of thermal power from the core will have corresponding uncertainties and correction of neutronic power based on the signal will have considerable impact on efficiency. Further, since the safety action in a nuclear plant is dependent on thermocouple measurement, a high degree of analysis and adequate margins in the design and engineering is necessary to be incorporated. Specifically, a core monitoring system uses 420 thermocouples to detect fuel and core anomalies. Further safety actions are based on several computational values. This calls for an extensive analysis to ascertain the degree of uncertainties in the sensors and the associated processes to provide adequate compensations in the computations.
+<Section>7. Experiment design</Section>
+To analyze the uncertainties involved in relation to the sensor per se, the experiment was repeated using three-simulation thermocouple probe and a reference RTD inserted inside the temperature bath. The thermocouple and RTD readings were monitored using a receiver Instrument with known calibration traceability as per the test set up is shown Fig. 2.
+Fig. 2
+Fig. 2. Experimental test set up.
+Even though the range of K type thermocouple is −100 °C to 1350 °C, the simulation range was chosen between 50 °C and 600 °C so that the simulated temperatures read by the sensors are always within the plant operating temperature range.
+The bath temperature was adjusted until the RTD reads 50 °C and the readings were taken from the measurement channels at an interval of 10 min for 8 h in a day. Similar measurements were taken subsequently for the temperatures 150 °C, 300 °C, 450 °C, and 600 °C with the same interval at the same time in each day. 50 measurements were taken at each of the temperature value.
+Further to understand the uncertainties related to the process conditions at which these sensors are measuring the temperatures, three onsite thermocouple readings (TPDna00_826X_A, TPDna00_827X_A & TPDna00_828X_A) at the process temperatures of 175 °C were selected for a period of 1 hour with a sampling time of 1 sec. 3600 data samples were collected for analysis at this isothermal condition.
+<Section>8. Data analysis</Section>
+Analysis of the data involves application of engineering statistics on a general engineering problem to yield appropriate engineering solutions. As brought out by (NIST/SEMATECH, 2012) in a classical data analysis approach, the data collected is subjected to the imposition of a model (normality, linearity, etc.) and the model metrics are analysed based on estimation, and testing. Sometimes the data collected is analysed to select a suitable model for application. The analysis includes the prior knowledge on the distribution of the parameters and the collected data so that meaningful inferences and the assumptions are made about the model parameters. The models can be deterministic and quantitative like analysis of variance (ANOVA), regression models etc. The probabilistic model assumes that the errors about the deterministic model are normally distributed. This assumption has a significant impact on the capability of the model in estimating its parameters and generating the predicted values. However, they are very sensitive to any shift in location/distribution as statistically significant.
+In this study, an ANOVA model is built on the data collected with testing of normality and variances. The goal is to identify whether the errors associated with the thermocouple thermometry in the system are significant to be compensated in the given system configuration so that the load on the safety systems due to system errors are minimized.
+8.1. Analysis of variance (ANOVA)
+The one-way analysis of variance (ANOVA) model brings out a conclusion whether the means of the population groups of interest are statistically significantly different from each other. It tests the null hypothesis:
+where μ = group mean and k = number of groups.
+As brought out in (NIST/SEMATECH, 2012), the test is based on two estimates of the population variance ().
+Mean square error (MSE) which is calculated among scores within the groups. Whether or not the population means are equal, MSE always estimates .
+Mean square between (MSB) which is calculated based on the sample means. If the population means are equal MSB estimates . If they are not equal, then MSB estimates a quantity larger than .
+The standard method for determining the probability of the population means being different is based on the ratio of MSB to MSE called the F ratio.
+However, ANOVA model considers the following assumptions for the test of significance:
+1.
+There is homogeneity of variances among the populations
+2.
+The populations are normally distributed
+3.
+Each value is sampled independently from each other value
+8.2. Shapiro-Wilk test for normality
+The Shapiro-Wilks test for normality as brought out in (Shapiro and Wilk, 1965), is a popular normality tests to detect whether the data set follow a normal distribution. The hypothesis sets are formed with the null hypothesis being that the population distribution is normal.
+If the p value of the test statistic is less than the chosen α level (say 0.05), then there is 95% evidence that the population tested are not normally distributed. The Shapiro-Wilk Test is more appropriate for small sample sizes (<50 samples).
+8.3. Levene test for equality of variance
+As brought out in (NIST/SEMATECH, 2012), Levene's test for equality of variance tests whether the chosen data samples have equal variances. Levene's test is generally used in cases where the distribution is not normal.
+Given a variable@with sample of size@divided into@sub groups, where@the sample size of the@-th subgroup, the Levene test is defined as:
+For at least one pair.
+The Levene test statistic W is calculated as:
+@
+where@and@is the mean of the@-th subgroup,@are the group means of the@and
+@
+is the overall mean of the @.
+The Levene test rejects the hypothesis that the variances are equal if
+W > Fα, k-1, N-k
+Where Fα, k-1, N-k is the upper critical value of the F distribution with k-1 and N-k degrees of freedom at a significance level of α.
+<Section>9. Observation and test results</Section>
+The various summary statistics of the thermocouple sensor values for all the measurements taken with the experimental setup explained above was calculated as in Table 2.
+Table −2. Summary statistics for Thermocouples of Simulated setup.
+The various summary statistics of the thermocouple sensor values for all the measurements taken for the onsite thermocouples with the process at 175°C was calculated as in Table 3.
+Table −3. Summary statistics for Thermocouples onsite.
+The observations from the summary statistics of the simulated setup are as follows:
+1.
+The mean values of thermocouples are largely close to each other for each of the temperature value.
+2.
+The standard deviation of the values by all three sensors is also largely close to each other. However, the standard deviation values are higher at 450 °C and 600 °C.
+3.
+The distribution of the values appears to be moderately symmetric except at extreme values.
+4.
+Thermocouple exhibits a moderate symmetry at all temperatures except for 50 °C and 600 °C where it is highly skewed. It exhibits a very high positive skew for 50 °C and a high negative skew at 600 °C. Similarly, other two thermocouples exhibit moderate symmetry except for 600 °C. At this temperature measurement all the thermocouples are highly negatively skewed.
+5.
+The distribution also indicates platykurtic behaviour with shorter distribution height and thinner tails for all the temperatures. However, thermocouple 1 exhibits leptokurtic behaviour at 50 °C with longer distribution and thick tails.
+The above summary statistics indicate that the statistical properties exhibited by the thermocouples vary with respect to the temperatures that it measures.
+The observations from the summary statistics for the onsite plant thermocouples are as follows:
+1.
+The mean values of thermocouples are largely close to each other.
+2.
+The standard deviation of the values by all three sensors are also close to each other.
+3.
+The distribution of the values are moderately symmetric.
+4.
+The distribution also indicates platykurtic behaviour.
+As can be seen by the summary statistics on the data collected for both onsite and simulated setup, the sensors exhibited closeness in their standard deviation values at the respective temperatures. The statistics also revealed that the distribution is moderately symmetric except for extreme values. Since independent sensors are used for measurement, the third condition is satisfied for deploying ANOVA Analysis on this study.
+The hypothesis for test of normality by Shapiro-Wilk test for the measurement data of the three thermocouples at each of the temperatures 50 °C, 150 °C, 300 °C, 450 °C & 600 °C as well as onsite thermocouple measurements at 175 °C is.
+Null Hypothesis: The thermocouple measurements (Populations) are normally distributed
+Alternate Hypothesis: Populations are not normally distributed
+The parametric value W and the corresponding p-values for all the thermocouples at each of the temperature measurement for the test are calculated as in Table −4, Table – 5.
+Table −4. Normality test for Thermocouples of Simulated setup.
+Table – 5. Normality test for Thermocouples onsite.
+At the significance level α = 0.05, the p-value for the thermocouples are much lower at 600 °C than other measurements. However, the p-values of thermocouple-1&2 is higher than α value at 300 °C. Similarly thermocouple-3 exhibits higher p-value at 50 °C. This shows that the population distribution is not perfectly normal at all temperatures. Further, the p-values of the onsite thermocouples indicate that the overall plant measurement is not normally distributed. Hence, the test of homogeneity of variances by Levene's test is justified.
+The hypothesis for test of equality of variances by Levene's test with three thermocouples (k) and total measurements of 150(N) is.
+Null Hypothesis: Population variances of all the three thermocouples are equal
+Alternate Hypothesis: Population variances of the thermocouples are different from each other
+The parametric value W for the test is calculated as in Table 6.
+Table – 6. Levene's test results.
+At the significance level α = 0.05, the upper tail critical value of Fα,k-1,N-k statistics is 3.0576. Hence, we cannot reject the null hypothesis since the value of the Levene test statistic is less than the critical value at all temperatures except at 150 °C. At 150 °C, it is marginally higher. Hence, there is insufficient evidence to conclude that the variances are not equal. However, the test indicates that variances in measurements of all the thermocouples are not homogeneous at 150 °C. Whereas for the onsite measurement by the field thermocouples at 175 °C, the parametric value W calculated for the measurement of 3333 observations is 495.56. Whereas the upper tail critical value of Fα,k-1,N-k statistics is 2.996. This shows that the measurement data is not homoscedastic and hence requires dynamic compensation for the individual variances and uncertainties in each of the thermocouples in the integrated system of measurement.
+The hypothesis for test of equality of means by Analysis of variance (ANOVA) is.
+Null Hypothesis: Population means of the thermocouples are equal
+Alternate Hypothesis: Population means of the thermocouples are different from each other
+The hypothesis is checked for each of the temperatures at which the data is taken. The various ANOVA Parametric values are as in Table - 7, Table - 8, Table - 9, Table - 10, Table - 11, Table - 12.
+Table - 7. ANOVA test results of Onsite Thermocouples for temperature 175 °C.
+Table - 8. ANOVA test results of Simulated Thermocouples for temperature 600 °C.
+Table - 9. ANOVA test results of Simulated Thermocouples for temperature 450 °C.
+Table - 10. ANOVA test results of Simulated Thermocouples for temperature 300 °C.
+Table - 11. ANOVA test results of Simulated Thermocouples for temperature 150 °C.
+Table - 12. ANOVA test results of Simulated Thermocouples for temperature 50 °C.
+The above ANOVA result indicates that the null hypothesis is false with the F-values ranging from 4.35 to 291. The F-values are very high at temperatures 150 °C and 300 °C. For the real time plant data at 175 °C, the F-value is 10,754.
+This shows that there exists a unique behaviour of sensors and their uncertainties, which depend considerably on the temperature of use. Since the normal operating state of the reactor during refuelling campaign and start up is maintained in this temperature range, these thermocouple measurements shall be dynamically compensated for their uncertainties while computing the variables for safety.
+<Section>10. Integrated compensation for uncertainties in the overall system</Section>
+With the above observations, it is concluded that the thermocouple thermometry exhibits various uncertainties associated with the process conditions, sensors, their installation and the associated measuring channels. It is required to process all the available measurements regardless of their precision, with the use of the knowledge on the system, the measurement dynamics, the statistical description of errors and the unavoidable uncertainty in the dynamic model assumptions so that the error in the estimate is minimized statistically.
+With 420 thermocouple monitoring the temperature in the core, we can establish the conditional probability of measurement of core temperature , conditioned on the mean of the observed value of measurements@with the variance . Based on this conditional probability density, the best estimate of temperature by the thermocouple@is
+In addition, the variance of the error in estimate is
+Assuming that the combined estimate from all the thermocouples is Gaussian, with mean μ and variance σ2 as
+From the above, it can be inferred that the value σ2 is less than the individual thermocouple variances , which is to say that the uncertainty in our measurements have reduced. Given this density, the best estimate will be
+with the associated error variance of .
+If the thermocouples have shown homogeneity in their variances, the best estimate would have been simply the average of all the measurements. On the other hand, if any of the thermocouple variance is higher than the others, then the equation dictates weighting that particular observation@lighter than other thermocouples. Further, the variance of the estimate is less than . Thus, even a poor quality thermocouple measurement channel will not significantly affect the precision of measurement.
+As each of the thermocouple, measurements are made at a higher scan intervals by the computer and as the thermocouple response time is 6 s, following methodology can be adopted for calculating the best estimate for thermal power calculation and safety processing:
+➢
+Obtain mean value of last preceding 60 measurements for each of the thermocouple (
+➢
+Calculate the variances
+➢
+Calculate the best estimate .
+➢
+Apply this estimate for further processing for safety actions.
+The estimated temperature values from the onsite plant data earlier collected at 175 °C by taking the simple grand mean is plotted in Fig. 3. Similarly the estimated temperature with compensation based on the above method is plotted in Fig. 4.
+Fig-3
+Fig-3. Estimated Temperature using simple mean.
+Fig-4
+Fig-4. Estimated Temperature with compensation.
+<Section>11. Conclusion</Section>
+The results show that the estimated value is more precise while applying the method of dynamic compensation of variances compared to using a simple mean for temperature estimation. This will improve the accuracy of calculation of thermal power and the corresponding compensation that is applied to neutronic power signals. Further, this will enable calculation of the mean core outlet temperature, mean temperature rise across the core and deviation in the individual subassembly over the expected value with compensation towards individual temperature channel variances so that inadvertent safety initiation due to inherent uncertainties in temperature measurements is minimized. This compensation shall be applied subsequent to cross calibration and balancing the temperature measurements under process isothermal conditions as indicated in (Saha and Sridhar, 2012).
+<Section>Declaration of competing interest</Section>
+It is hereby declared that we have no known competing financial interests or personal relationships that could have appeared to influence the work reported in this paper.
+<Section>Acknowledgments</Section>
+I sincerely thank all my seniors and colleagues who have encouraged and stood by me in every manner for this study. I would especially thank. Dr. Kallol Roy, Chairman&Managing Director and Shri V. Rajan Babu, Director (Technical), Bharatiya Nabhikiya Vidyut Nigam Limited (BHAVINI) for kind permission given to me to take up the study in the process system and to have an access to the data for the purpose of study. Smt. Pandiarajamani, Scientific Officer/E for her active support in conduct of test, data collection and validation.
+<Section>References</Section>
+Anderson et al., 1979
+R.L. Anderson, R.K. Adams, B.C. Duggins
+Limitations of Thermocouples in Temperature Measurements
+25th ISA Anaheim CA (1979)
+Google Scholar
+Beemex Corporation,
+Beemex Corporation ‘Optimal calibration parameters for process instrumentation, white paper on calibration’. Available at: www.beemex.com.
+Google Scholar
+Hashemian, 2010
+H.M. Hashemian
+Measurement of true process temperatures and pressures in nuclear power plants
+7th International Topical Meeting on Nuclear Plant Instrumentation, Control, and Human-Machine Interface Technologies 2010, NPIC and HMIT 2010 (2010)
+Google Scholar
+IAEA, 2007
+IAEA
+Terminology Used in Nuclear Safety and Radiation Protection
+IAEA Safety Glossary (2007)
+Google Scholar
+IAEA, 2008
+IAEA
+On-Line Monitoring for Improving Performance of Nuclear Power Plants Part 1: Instrument Channel Monitoring
+(2008)
+Google Scholar
+IEC-, 2009
+IEC-61226
+Nuclear Power Plants --- Instrumentation & Control Important to Safety --- Classification of Instrumentation & Control Functions
+(third ed.) (2009)
+Google Scholar
+IEC, 1997
+IEC 61508-4
+Functional Safety of Electrical/electronic/Programmable Electronic Safety-Related Systems Part 4: Definitions and Abbreviations
+(1997)
+IEC 61508-4
+Google Scholar
+Narasimhan and Rajendran, 2019
+S. Narasimhan, Rajendran
+Application of data mining techniques for sensor drift analysis to optimize nuclear power plant performance
+Int. J. Innovative Technol. Explor. Eng., 9 (1) (2019), pp. 3087-3095, 10.35940/ijitee.A9139.119119
+View Record in ScopusGoogle Scholar
+NIST/SEMATECH, 2012
+NIST/SEMATECH
+‘e-Handbook of Statistical Methods’, E-Handbook of Statistical Methods
+(2012)
+Google Scholar
+Saha and Sridhar, 2012
+A.K. Saha, S. Sridhar
+In-situ cross calibration of in-core thermocouples in fast breeder test reactor
+Proceedings - 2012 International Conference on Advances in Computing and Communications, ICACC 2012 (2012), 10.1109/ICACC.2012.56
+Google Scholar
+Shapiro and Wilk, 1965
+S.S. Shapiro, M.B. Wilk
+An analysis of variance test for normality (complete samples)
+Biometrika (1965), 10.2307/2333709
+Google Scholar

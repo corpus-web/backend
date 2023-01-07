@@ -1,0 +1,560 @@
+﻿_JJ <title> Nonlinear_JJ finite_JJ element_NN analysis_NN of_IN failure_NN modes_NNS and_CC ultimate_JJ strength_NN of_IN flexible_JJ pipes_NNS </title> <author> 1_CD ,_, Dong-Hyun_NP Yoo_NP ,_, 2_CD ,_, Beom-Seon_NP Jang_NP ,_, 3_CD ,_, Ki-Ho_NP Yim_NP </author> <Affiliation> 1_CD ,_, Department_NP of_IN Naval_NP Architecture_NP and_CC Ocean_NP Engineering_NP ,_, Seoul_NP National_NP University_NP ,_, Seoul_NP ,_, South_NP Korea_NP ,_, 2_CD ,_, RIMSE_RB ,_, Department_NP of_IN Naval_NP Architecture_NP and_CC Ocean_NP Engineering_NP ,_, Seoul_NP National_NP University_NP ,_, Seoul_NP ,_, South_NP Korea_NP ,_, 3_CD ,_, Offshore_NP System_NP R&D_NP Department_NP ,_, Daewoo_NP Shipbuilding_NP &_CC Marine_NP Engineering_NP Co._NP ,_, Ltd._NP ,_, Seoul_NP ,_, South_NP Korea_NP </Affiliation> <year> 2017_CD </year> <Jounral> Marine_NP Structure_NN </Journal> <Publishing_house> ELSEVIER_NP </Publishing_house> <Text_Collector> Zhang_NP San，HEU_NP </Text_Collector> <DOI> 10.1016/j.marstruc.2020.03.007_JJ </DOI> <URL> https://www.sciencedirect.com/science/article/pii/S0951833916302659_NN </URL> A_DT finite_JJ element_NN model_NN for_IN unbonded_JJ flexible_JJ pipe_NN under_IN combined_JJ axisymmetric_JJ and_CC bending_VVG loads_NNS Dong-Hyun_NP Yoo_NP ,_, Beom-Seon_NP Jang_NP ,_, Ki-Ho_NP Yim_NP Department_NP of_IN Naval_NP Architecture_NP and_CC Ocean_NP Engineering_NP ,_, Seoul_NP National_NP University_NP ,_, Seoul_NP ,_, South_NP Korea_NP RIMSE_NN ,_, Department_NP of_IN Naval_NP Architecture_NP and_CC Ocean_NP Engineering_NP ,_, Seoul_NP National_NP University_NP ,_, Seoul_NP ,_, South_NP Korea_NP Offshore_NP System_NP R&D_NP Department_NP ,_, Daewoo_NP Shipbuilding_NP &_CC Marine_NP Engineering_NP Co._NP ,_, Ltd._NP ,_, Seoul_NP ,_, South_NP Korea_NP <Section> Highlights_VVZ </Section> The_DT assessments_NNS of_IN ultimate_JJ strength_NN are_VBP quite_RB complicated_VVN due_JJ to_TO geometric_JJ complexity_NN and_CC contact_NN mechanism_NN between_IN layers_NNS ._SENT 
+This_DT study_NN proposes_VVZ practical_JJ and_CC stable_JJ methods_NNS for_IN the_DT ultimate_JJ strength_NN assessment_NN using_VVG 2D_JJ FE_NP model_NN and_CC 3D_JJ FE_NP model_NN ._SENT 
+From_IN the_DT ultimate_JJ strength_NN analysis_NN ,_, the_DT failure_NN mechanisms_NNS and_CC the_DT interactions_NNS between_IN layers_NNS are_VBP investigated_VVN ._SENT 
+In_IN case_NN of_IN compressive_JJ ultimate_JJ strength_NN ,_, the_DT effect_NN of_IN external_JJ pressure_NN on_IN the_DT ultimate_JJ strength_NN is_VBZ investigated_VVN ._SENT 
+<Section> Abstract_JJ </Section> Designs_NNS of_IN flexible_JJ pipe_NN utilized_VVN in_IN offshore_JJ dynamic_JJ riser_NN applications_NNS need_VVP to_TO be_VB subjected_VVN to_TO strength_NN assessment_NN over_IN the_DT entire_JJ length_NN in_IN relation_NN to_TO the_DT dynamic_JJ motion_NN of_IN the_DT connected_JJ floater_NN ._SENT 
+Such_JJ assessment_NN includes_VVZ many_JJ uncertain_JJ factors_NNS including_VVG soil_NN properties_NNS ,_, internal_JJ pressure_NN ,_, ocean_NN metadata_NNS and_CC others_NNS ._SENT 
+Failure_NN of_IN flexible_JJ pipe_NN ,_, moreover_RB ,_, leads_VVZ to_TO serious_JJ financial_JJ loss_NN and_CC environmental_JJ degradation_NN ._SENT 
+Thus_RB ,_, flexible_JJ pipe_NN failure_NN modes_NNS and_CC safety_NN need_VVP to_TO be_VB evaluated_VVN in_IN terms_NNS of_IN ultimate_JJ strength_NN under_IN various_JJ loads_NNS ._SENT 
+Ultimate_JJ strength_NN assessment_NN of_IN flexible_JJ pipe_NN is_VBZ quite_RB complicated_JJ and_CC time-consuming_JJ compared_VVN with_IN that_DT of_IN a_DT steel_NN catenary_NN riser_NN ,_, due_JJ to_TO the_DT composite_JJ materials_NNS ,_, geometric_JJ complexity_NN and_CC the_DT contact_NN mechanism_NN between_IN layers_NNS The_DT material_NN nonlinearity_NN and_CC large_JJ deformation_NN ,_, moreover_RB ,_, render_VV stable_JJ convergence_NN of_IN nonlinear_JJ analysis_NN to_TO a_DT solution_NN problematic_JJ ._SENT 
+This_DT paper_NN proposes_VVZ practical_JJ and_CC stable_JJ methods_NNS of_IN ultimate-strength_JJ assessment_NN using_VVG 8-layered_JJ and_CC 5-layered_JJ 3D_JJ FE_NP models_NNS subjected_VVN to_TO axial_JJ tensile_JJ and_CC compressive_JJ loads_NNS ,_, respectively_RB ._SENT 
+In_IN the_DT 5-layered_JJ model_NN ,_, four_CD inner_JJ layers_NNS (_( carcass_NN ,_, pressure_NN sheath_NN ,_, pressure_NN armour_NN ,_, and_CC anti-friction_NN tape_NN )_) are_VBP replaced_VVN by_IN one_CD equivalent_NN pressure_NN layer_NN which_WDT plays_VVZ a_DT role_NN of_IN withstanding_VVG pressure_NN applied_VVN together_RB with_IN the_DT axial_JJ compression_NN ._SENT 
+It_PP aims_VVZ to_TO improve_VV the_DT convergence_NN of_IN nonlinear_JJ analysis_NN by_IN simplifying_VVG the_DT interactions_NNS between_IN layers_NNS ._SENT 
+For_IN each_DT analysis_NN ,_, the_DT failure_NN mechanisms_NNS and_CC the_DT interactions_NNS between_IN layers_NNS are_VBP investigated_VVN in_IN detail_NN with_IN incremental_JJ loading_NN ._SENT 
+The_DT effect_NN of_IN initial_JJ imperfection_NN ,_, i.e._FW ovalizations_NNS are_VBP also_RB examined_VVN ._SENT 
+In_IN the_DT compressive_JJ strength_NN analysis_NN ,_, the_DT influence_NN of_IN various_JJ external_JJ pressure_NN are_VBP additionally_RB studied_VVN ._SENT 
+Keywords_NNS :_: Flexible_JJ pipe_NN ;_: Ultimate_NP strength_NN ;_: Failure_NN modes_NNS ;_: Nonlinear_JJ FE_NP analysis_NN <Section> 1._CD Introduction_NN </Section> Flexible_JJ pipe_NN consists_VVZ of_IN several_JJ layers_NNS that_WDT have_VHP different_JJ functions_NNS ,_, materials_NNS and_CC geometries_NNS ._SENT 
+As_IN recent_JJ offshore_JJ projects_NNS have_VHP become_VVN larger_JJR and_CC deeper_JJR ,_, the_DT demand_NN grows_VVZ for_IN new_JJ flexible_JJ pipe_NN designs_NNS that_WDT can_MD withstand_VV high_JJ internal_JJ pressure_NN and_CC large_JJ bending_VVG curvature_NN ._SENT 
+Such_JJ new-design_NN development_NN needs_VVZ to_TO be_VB supported_VVN by_IN exhaustive_JJ assessment_NN of_IN structural_JJ integrity_NN in_IN terms_NNS of_IN yield_NN strength_NN ,_, ultimate_JJ strength_NN ,_, fatigue_NN strength_NN ,_, and_CC other_JJ parameters_NNS ._SENT 
+The_DT previous_JJ studies_NNS on_IN the_DT structural_JJ behavior_NN of_IN flexible_JJ pipe_NN can_MD be_VB classified_VVN into_IN analytical_JJ and_CC numerical_JJ approaches_NNS ._SENT 
+All_DT of_IN them_PP utilize_VV overall_JJ elastic_JJ stiffness_NN curves_NNS that_WDT are_VBP based_VVN on_IN the_DT elastic_JJ behaviors_NNS of_IN each_DT layer_NN and_CC the_DT stick-slip_NN behavior_NN caused_VVN by_IN the_DT mechanisms_NNS of_IN contact_NN between_IN layers_NNS ._SENT 
+In_IN their_PP$ analytical_JJ model_NN ,_, Feret_NN and_CC Bournazel_NNS [_SYM 1_CD ]_SYM formulated_VVN governing_VVG equations_NNS for_IN the_DT behavior_NN of_IN flexible_JJ pipes_NNS under_IN axisymmetric_JJ loads_NNS and_CC evaluated_VVD the_DT stresses_NNS in_IN tensile_JJ armour_NN layers_NNS on_IN the_DT basis_NN of_IN a_DT simplified_VVN solution_NN for_IN the_DT helical_JJ tendons_NNS ._SENT 
+However_RB ,_, the_DT results_NNS are_VBP not_RB valid_JJ when_WRB the_DT layers_NNS are_VBP not_RB in_IN contact_NN ._SENT 
+A_DT similar_JJ analytical_JJ model_NN was_VBD provided_VVN by_IN McNamara_NP and_CC Harte_NP [_SYM 2_CD ]_SYM ._SENT 
+Kebadze_NN [_SYM 3_CD ]_SYM also_RB investigated_VVN the_DT behavior_NN of_IN flexible_JJ pipes_NNS under_IN axisymmetric_JJ loads_NNS ,_, but_CC with_IN respect_NN to_TO various_JJ applications_NNS of_IN kinematic_JJ models_NNS for_IN each_DT layer_NN ._SENT 
+The_DT research_NN proposed_VVD the_DT use_NN of_IN the_DT kinematics_NN of_IN the_DT thin_JJ tube_NN for_IN isotropic_JJ layers_NNS ,_, which_WDT approach_NN was_VBD adopted_VVN in_IN Refs_NNS ._SENT 
+[_SYM 4_CD ]_SYM and_CC [_SYM 5_CD ]_SYM ._SENT 
+Many_JJ investigators_NNS have_VHP studied_VVN the_DT structural_JJ behaviors_NNS of_IN the_DT carcass_NN and_CC pressure_NN armour_NN using_VVG orthotropic_JJ models_NNS (_( e.g._FW Bahtui_NP et_FW al_NP ._SENT 
+[_SYM 4_CD ]_SYM ;_: Harte_NP and_CC McNamara_NP [_SYM 6_CD ]_SYM ;_: Kebadze_NNS [_SYM 3_CD ]_SYM ;_: Neto_NP et_NP al_NP ._SENT 
+[_SYM 7_CD ]_SYM ,_, [_SYM 8_CD ]_SYM ;_: Ren_NP et_NP al_NP ._SENT 
+[_SYM 9_CD ]_SYM ;_: Sævik_NP [_SYM 5_CD ]_SYM ;_: Sousa_NP [_SYM 10_CD ]_SYM ;_: Sousa_NP et_NP al_NP ._SENT 
+[_SYM 11_CD ]_SYM ,_, [_SYM 12_CD ]_SYM ,_, [_SYM 13_CD ]_SYM )_) ._SENT 
+Their_PP$ uses_NNS of_IN the_DT elastic_JJ modulus_NN in_IN the_DT relevant_JJ constitutive_JJ equations_NNS ,_, however_RB ,_, are_VBP different_JJ slightly_RB ._SENT 
+Sousa_NP et_NP al_NP ._SENT 
+[_SYM 11_CD ]_SYM and_CC Neto_NP et_NP al_NP ._SENT 
+[_SYM 7_CD ]_SYM ,_, for_IN example_NN ,_, employed_VVN the_DT equivalent_JJ modulus_NN differently_RB from_IN the_DT other_JJ studies_NNS ._SENT 
+The_DT experimental_JJ research_NN on_IN the_DT behavior_NN of_IN flexible_JJ pipes_NNS is_VBZ abundant_JJ ._SENT 
+Most_JJS of_IN it_PP ,_, though_RB ,_, has_VHZ described_VVN only_RB the_DT experimental_JJ results_NNS without_IN treating_VVG detailed_JJ design_NN data_NNS for_IN each_DT layer_NN (_( e.g._FW material_NN properties_NNS ,_, thicknesses_NNS ,_, radius_NN ,_, sectional_JJ area_NN ,_, shapes_VVZ of_IN sections_NNS ,_, laying_VVG angles_NNS ,_, etc_FW )_) ._SENT 
+Witz_NN [_SYM 14_CD ]_SYM ,_, by_IN contrast_NN ,_, provided_VVD detailed_JJ product_NN data_NNS as_IN well_RB ,_, which_WDT information_NN has_VHZ been_VBN utilized_VVN in_IN many_JJ comparative_JJ studies_NNS [_SYM 3_CD ]_SYM ,_, [_SYM 9_CD ]_SYM ,_, [_SYM 10_CD ]_SYM ._SENT 
+The_DT papers_NNS presented_VVD the_DT relevant_JJ structural_JJ behaviors_NNS as_IN subject_NN to_TO tension_NN ,_, torsion_NN ,_, bending_VVG ,_, and_CC bending_VVG with_IN internal_JJ pressure_NN ,_, and_CC also_RB compared_VVN several_JJ institutions_NNS '_POS analytic_JJ predictions_NNS with_IN the_DT experiment_NN results_NNS ._SENT 
+Numerical_JJ models_NNS formulated_VVN using_VVG commercial_JJ software_NN (_( e.g._FW ANSYS®_NP ,_, MARC®_NP ,_, ABAQUS®_NP )_) or_CC specialized_JJ FE_NP tools_NNS (_( e.g._FW BFLEX_NP )_) have_VHP been_VBN suggested_VVN ._SENT 
+Sousa_NN [_SYM 10_CD ]_SYM and_CC Sousa_NP et_NP al_NP ._SENT 
+[_SYM 11_CD ]_SYM used_VVN ANSYS®_NN for_IN their_PP$ FE_NP analyses_NNS ,_, taking_VVG into_IN account_NN material_NN nonlinearity_NN ,_, geometric_JJ nonlinearity_NN ,_, and_CC the_DT contact_NN mechanism_NN between_IN layers_NNS ._SENT 
+For_IN the_DT carcass_NN and_CC pressure_NN armours_NNS ,_, they_PP employed_VVN an_DT equivalent_JJ shell_NN model_NN ._SENT 
+Bahtui_NP et_NP al_NP ._SENT 
+[_SYM 4_CD ]_SYM proposed_VVN nonlinear_JJ FE_NP analysis_NN methods_NNS using_VVG ABAQUS®_NN with_IN the_DT explicit_JJ method_NN ._SENT 
+They_PP utilized_VVD orthotropic_JJ models_NNS for_IN the_DT carcass_NN ,_, and_CC compared_VVN their_PP$ numerical_JJ results_NNS with_IN analytical_JJ results_NNS respecting_IN tension_NN ,_, torsion_NN ,_, and_CC bending_VVG ._SENT 
+Similarly_RB ,_, Ren_NP et_CC al_NP ._SENT 
+[_SYM 9_CD ]_SYM investigated_VVD the_DT tensional_JJ behavior_NN of_IN the_DT 2.5_CD in_IN flexible_JJ pipe_NN provided_VVN in_IN Ref_NN ._SENT 
+[_SYM 14_CD ]_SYM ._SENT 
+Sævik_NN [_SYM 5_CD ]_SYM developed_VVD a_DT specialized_JJ FE_NP tool_NN ,_, named_VVN BFLEX_NP ,_, that_WDT reflects_VVZ the_DT actual_JJ shapes_NNS of_IN all_DT layers_NNS ._SENT 
+The_DT stresses_NNS in_IN tensile_JJ armour_NN layers_NNS are_VBP compared_VVN with_IN experimental_JJ results_NNS ._SENT 
+In_IN addition_NN to_TO the_DT elastic_JJ stiffness_NN analysis_NN required_VVN for_IN global_JJ dynamic_JJ analysis_NN or_CC the_DT assessment_NN of_IN the_DT stresses_NNS of_IN each_DT layer_NN ,_, ultimate-strength_NN analysis_NN is_VBZ necessary_JJ in_IN order_NN to_TO estimate_VV the_DT safety_NN margin_NN against_IN failure_NN under_IN excessive_JJ loads_NNS ._SENT 
+In_IN one_CD relevant_JJ study_NN ,_, Neto_NP et_CC al_NP ._SENT 
+[_SYM 7_CD ]_SYM predicted_VVD the_DT wet_JJ collapse_NN and_CC burst_NN of_IN flexible_JJ pipes_NNS ,_, to_TO which_WDT end_NN they_PP developed_VVD and_CC compared_VVD a_DT 2D_JJ equivalent_JJ FE_NP model_NN ,_, a_DT full_JJ 3D_JJ FE_NP model_NN ,_, a_DT 3D_JJ ring_NN model_NN ,_, and_CC analytic_JJ models_NNS ._SENT 
+They_PP found_VVD that_IN small_JJ carcass_NN and_CC pressure_NN armour_NN laying_VVG angles_NNS does_VVZ not_RB affect_VV the_DT radial-structural_JJ response_NN ._SENT 
+And_CC although_IN the_DT equivalent_JJ shell_NN model_NN shows_VVZ a_DT tendency_NN to_TO underestimate_VV the_DT Von_NP Mises_NNS stress_VVP up_RP to_TO yielding_VVG ,_, it_PP provides_VVZ good_JJ predictions_NNS of_IN radial_JJ displacement_NN and_CC ultimate_JJ strength_NN with_IN respect_NN to_TO pressure_NN ._SENT 
+Recently_RB ,_, Sousa_NP et_CC al_NP ._SENT 
+[_SYM 13_CD ]_SYM tested_VVN the_DT strengths_NNS of_IN high-strength_NN tape_NN and_CC compared_VVN the_DT results_NNS by_IN FE_NP analysis_NN ._SENT 
+A_DT full_JJ 3D_JJ FE_NP model_NN which_WDT accounts_VVZ for_IN all_DT actual_JJ geometric_JJ shapes_NNS even_RB for_IN carcass_NN and_CC pressure_NN armour_NN using_VVG 3D_JJ solid_JJ elements_NNS can_MD be_VB conceived_VVN ._SENT 
+Such_PDT a_DT model_NN can_MD be_VB valid_JJ for_IN simple_JJ elastic_JJ analysis_NN that_WDT considers_VVZ only_RB the_DT contact_NN mechanism_NN ._SENT 
+However_RB ,_, with_IN the_DT full_JJ 3D_NN solid_JJ FE_NP model_NN ,_, guaranteeing_VVG robust_JJ convergence_NN in_IN ultimate-strength_JJ analysis_NN ,_, wherein_RB material_NN nonlinearity_NN and_CC severe_JJ geometric_JJ nonlinearity_NN induced_VVN by_IN large_JJ deformation_NN have_VHP to_TO be_VB carefully_RB taken_VVN into_IN account_NN ,_, is_VBZ difficult_JJ ._SENT 
+Normally_RB ,_, much_JJ trial_NN and_CC error_NN is_VBZ necessary_JJ before_IN a_DT final_JJ failure_NN can_MD be_VB obtained_VVN ._SENT 
+Another_DT prohibitive_JJ factor_NN of_IN this_DT full_JJ 3D_NN model_NN 's_POS application_NN to_TO an_DT actual_JJ development_NN process_NN is_VBZ the_DT huge_JJ computational_JJ time_NN and_CC cost_NN ._SENT 
+In_IN this_DT research_NN ,_, two_CD simplified_VVN FE_NP models_NNS are_VBP used_VVN for_IN ultimate_JJ strength_NN assessment_NN of_IN flexible_JJ pipe_NN of_IN 2.5_CD inch_NN ._SENT 
+ANSYS®_JJ mechanical_NN [_SYM 14_CD ]_SYM is_VBZ used_VVN for_IN the_DT analysis_NN ._SENT 
+The_DT validity_NN of_IN the_DT method_NN is_VBZ supported_VVN by_IN comparing_VVG the_DT axial_JJ stiffness_NN with_IN those_DT of_IN analytical_JJ models_NNS in_IN Witz_NP [_SYM 14_CD ]_SYM ._SENT 
+Layers_NNS of_IN complex_JJ geometries_NNS such_JJ as_IN carcass_NN and_CC pressure_NN armour_NN which_WDT seriously_RB deteriorates_VVZ the_DT convergence_NN of_IN analyses_NNS are_VBP replaced_VVN with_IN respective_JJ equivalent_JJ layers_NNS that_WDT show_VVP similar_JJ structural_JJ behaviors_NNS ._SENT 
+First_RB ,_, full-layered_VVD 3D_JJ FE_NP model_NN is_VBZ used_VVN to_TO evaluate_VV the_DT ultimate_JJ tensile_JJ strength_NN ._SENT 
+The_DT resultant_JJ radial_JJ deformation_NN is_VBZ negligible_JJ and_CC the_DT convergence_NN of_IN nonlinear_JJ analysis_NN is_VBZ relatively_RB good_JJ even_RB if_IN the_DT FE_NP model_NN contains_VVZ all_DT layers_NNS ._SENT 
+The_DT analysis_NN results_NNS are_VBP verified_VVN by_IN comparing_VVG with_IN an_DT analytical_JJ model_NN which_WDT is_VBZ modified_VVN suitable_JJ to_TO a_DT prediction_NN of_IN structural_JJ behavior_NN beyond_IN yield_NN strength_NN ._SENT 
+Next_RB ,_, an_DT ultimate_JJ compressive_JJ strength_NN analysis_NN is_VBZ carried_VVN out_IN using_VVG 5-layered_JJ model_NN ._SENT 
+When_WRB the_DT model_NN is_VBZ subjected_VVN to_TO high_JJ axial_JJ compressive_JJ force_NN ,_, the_DT tensile_JJ armour_NN layers_NNS get_VVP to_TO expand_VV radially_RB ._SENT 
+Then_RB ,_, the_DT polymeric_JJ layers_NNS wrapping_VVG them_PP end_VV up_RP yielding_VVG ,_, and_CC a_DT large_JJ radial_JJ deformation_NN occurs_VVZ suddenly_RB ._SENT 
+This_DT phenomenon_NN is_VBZ called_VVN a_DT radial_NN buckling_VVG or_CC bird-caging_VVG failure_NN ._SENT 
+Since_IN ultimate_JJ compressive_JJ strength_NN analysis_NN involves_VVZ complex_JJ interactions_NNS between_IN layers_NNS and_CC large_JJ deformations_NNS ,_, this_DT analysis_NN does_VVZ n't_RB converge_VV well_RB ._SENT 
+Therefore_RB ,_, a_DT much_RB simpler_JJR FE_NP model_NN is_VBZ introduced_VVN ._SENT 
+Radial_NN buckling_VVG is_VBZ mainly_RB related_VVN to_TO tensile_JJ armour_NN layers_NNS and_CC outer_JJ polymeric_JJ layers_NNS ,_, and_CC the_DT inner_JJ layers_NNS scarcely_RB contribute_VVP to_TO this_DT failure_NN mode_NN ._SENT 
+Thus_RB ,_, these_DT inner_JJ layers_NNS can_MD be_VB replaced_VVN with_IN one_CD equivalent_NN layer_NN ._SENT 
+The_DT 2D_JJ FE_NP model_NN is_VBZ used_VVN to_TO find_VV circumferential_JJ elastic_JJ modulus_NN of_IN the_DT equivalent_JJ layer_NN ._SENT 
+This_DT simple_JJ model_NN is_VBZ called_VVN a_DT 5-layered_JJ model_NN ._SENT 
+The_DT validity_NN of_IN the_DT model_NN is_VBZ also_RB proved_VVN by_IN comparing_VVG its_PP$ axial_JJ stiffness_NN with_IN that_DT of_IN the_DT 8-layered_JJ model_NN and_CC other_JJ references_NNS ._SENT 
+For_IN ultimate_JJ compressive_JJ strength_NN analysis_NN ,_, the_DT effect_NN of_IN external_JJ pressure_NN is_VBZ also_RB investigated_VVN ._SENT 
+This_DT paper_NN proceeds_NNS as_RB follows_VVZ ._SENT 
+First_RB ,_, the_DT properties_NNS of_IN the_DT 2.5_CD in_RB ._SENT 
+flexible_JJ pipe_NN are_VBP introduced_VVN ._SENT 
+Then_RB ,_, the_DT 8-layered_JJ and_CC 5-layered_JJ models_NNS are_VBP introduced_VVN ._SENT 
+After_IN that_DT ,_, the_DT analytic_JJ method_NN is_VBZ explained_VVN briefly_RB ._SENT 
+Next_RB ,_, the_DT axial_JJ stiffness_NN values_NNS of_IN the_DT FE_NP models_NNS are_VBP calculated_VVN ,_, and_CC they_PP are_VBP compared_VVN with_IN those_DT of_IN analytical_JJ models_NNS and_CC the_DT experimental_JJ result_NN of_IN Witz_NP [_SYM 14_CD ]_SYM ._SENT 
+Finally_RB ,_, the_DT ultimate_JJ strength_NN assessments_NNS are_VBP performed_VVN in_IN terms_NNS of_IN two_CD types_NNS of_IN loads_NN i.e._FW axial_JJ tension_NN ,_, and_CC axial_JJ compression_NN ._SENT 
+Conclusion_NN is_VBZ laid_VVN in_IN the_DT end_NN ._SENT 
+<Section> 2._CD Methodology_NN </Section> 2.1_CD ._SENT 
+Properties_NNS of_IN 2.5_CD in_RB ._SENT 
+flexible_JJ pipe_NN Flexible_JJ pipe_NN of_IN 2.5_CD in_RB ._SENT 
+diameter_NN and_CC eight_CD layers_NNS is_VBZ a_DT good_JJ reference_NN ,_, since_IN both_CC the_DT material_NN property_NN details_NNS and_CC various_JJ experimental_JJ results_NNS with_IN regard_NN to_TO axisymmetric_JJ loads_NNS are_VBP available_JJ [_SYM 14_CD ]_SYM ._SENT 
+In_IN any_DT assessment_NN of_IN ultimate_JJ strength_NN ,_, material_NN nonlinearity_NN ,_, geometric_JJ nonlinearity_NN as_RB well_RB as_IN contact_NN and_CC friction_NN must_MD be_VB properly_RB taken_VVN into_IN account_NN ._SENT 
+The_DT bi-linear_JJ material_NN properties_NNS for_IN each_DT layer_NN used_VVN in_IN the_DT FE_NP models_NNS for_IN computation_NN of_IN ultimate_JJ strength_NN are_VBP shown_VVN in_IN Table_NN 1._CD Table_NN 1._CD Non-linear_JJ material_NN properties_NNS of_IN each_DT layer_NN ._SENT 
+The_DT same_JJ material_NN properties_NNS as_RB employed_VVN in_IN Ref_NN ._SENT 
+[_SYM 14_CD ]_SYM are_VBP used_VVN in_IN the_DT stiffness_NN analysis_NN ._SENT 
+However_RB ,_, since_IN there_EX are_VBP no_DT values_NNS for_IN AFNOR_NP FI_NP 15_CD and_CC 41_CD in_IN Ref_NN ._SENT 
+[_SYM 14_CD ]_SYM ,_, data_NNS in_IN Ref_NN ._SENT 
+[_SYM 10_CD ]_SYM are_VBP used_VVN ._SENT 
+Other_JJ sources_NNS are_VBP used_VVN for_IN filling_VVG all_DT properties_NNS in_IN Table_NN 1._CD In_IN a_DT stiffness_NN calculation_NN to_TO validate_VV the_DT proposed_VVN 3D_NN model_NN ,_, fabric_NN tape_NN is_VBZ used_VVN to_TO compare_VV with_IN [_SYM 14_CD ]_SYM ,_, but_CC ,_, outer_JJ sheath_NN is_VBZ employed_VVN for_IN ultimate_JJ strength_NN assessment_NN since_IN it_PP is_VBZ generally_RB used_VVN in_IN flexible_JJ pipe_NN ._SENT 
+2.2_CD ._SENT 
+Equivalent_JJ shell_NN model_NN for_IN carcass_NN and_CC pressure_NN armour_VVP The_DT carcass_NN and_CC pressure_NN armour_NN (_( zeta_NN layer_NN )_) in_IN flexible_JJ pipes_NNS have_VHP very_RB complex_JJ geometries_NNS and_CC mechanical_JJ behaviors_NNS ._SENT 
+In_IN fact_NN ,_, it_PP is_VBZ practically_RB impossible_JJ to_TO perform_VV a_DT stable_JJ nonlinear_JJ FE_NP analysis_NN that_WDT includes_VVZ the_DT complex_JJ self-contact_NN mechanism_NN together_RB with_IN the_DT mechanism_NN of_IN contact_NN with_IN the_DT other_JJ layers_NNS ._SENT 
+Due_JJ to_TO the_DT unique_JJ overlapped_VVN structure_NN of_IN flexible_JJ pipes_NNS ,_, both_DT layers_NNS '_POS contributions_NNS to_TO axial_JJ stiffness_NN are_VBP known_VVN to_TO be_VB negligible_JJ ._SENT 
+In_IN the_DT longitudinal_JJ direction_NN ,_, they_PP can_MD move_VV freely_RB within_IN a_DT small_JJ range_NN of_IN longitudinal_JJ deformation_NN ._SENT 
+But_CC beyond_IN a_DT certain_JJ deformation_NN ,_, self-contact_NP occurs_VVZ and_CC stiffness_NN is_VBZ dramatically_RB increased_VVN ._SENT 
+For_IN more_JJR detailed_JJ investigation_NN of_IN the_DT nonlinear_JJ structural_JJ response_NN of_IN the_DT carcass_NN ,_, a_DT single-layer_NP 3D_JJ FE_NP model_NN consisting_VVG of_IN 22_CD pitches_NNS is_VBZ developed_VVN using_VVG ANSYS®_JJ mechanical_JJ ,_, as_RB shown_VVN in_IN Fig_NN ._SENT 
+1._CD The_DT cross-section_NN in_IN the_DT helical_JJ direction_NN is_VBZ modeled_VVN using_VVG solid_JJ elements_NNS (_( SOLID185_NP )_) ._SENT 
+Additionally_RB ,_, to_TO realize_VV the_DT self-contact_JJ mechanism_NN of_IN this_DT complex_JJ model_NN ,_, the_DT exterior_JJ surface_NN of_IN the_DT carcass_NN is_VBZ divided_VVN into_IN several_JJ parts_NNS ,_, and_CC contact_NN between_IN each_DT surface_NN is_VBZ modeled_VVN ._SENT 
+In_IN this_DT way_NN ,_, unlocking_VVG and_CC locking_VVG of_IN the_DT carcass_NN layers_NNS under_IN axial_JJ loading_NN can_MD be_VB realized_VVN ._SENT 
+Fig_NN ._SENT 
+1._CD FE_NP model_NN for_IN carcass_NN only_RB and_CC cross-section_NN (_( Neto_NP [_SYM 7_CD ]_SYM )_) ._SENT 
+The_DT nodes_NNS on_IN the_DT two_CD end_NN sections_NNS are_VBP rigidly_RB linked_VVN respectively_RB to_TO remote_JJ points_NNS located_VVN at_IN the_DT center_NN of_IN the_DT flexible_JJ pipe_NN ._SENT 
+One_CD of_IN those_DT points_NNS is_VBZ restrained_VVN with_IN respect_NN to_TO all_DT degrees_NNS of_IN freedom_NN ;_: to_TO the_DT other_JJ point_NN ,_, tensional_JJ load_NN is_VBZ applied_VVN ,_, and_CC only_RB torsional_JJ rotation_NN is_VBZ fixed_VVN ._SENT 
+Fig_NN ._SENT 
+2_CD plots_NNS the_DT nonlinear-FE-analysis-obtained_JJ relationship_NN between_IN tensional_JJ load_NN and_CC longitudinal_JJ elongation_NN ._SENT 
+Carcass_NN interlocking_VVG occurs_VVZ at_IN approximately_RB 4_CD %_NN of_IN longitudinal_JJ elongation_NN ._SENT 
+Prior_RB to_TO the_DT interlocking_VVG ,_, the_DT carcass_NN has_VHZ quite_RB low_JJ axial_JJ stiffness_NN ;_: after_IN interlocking_VVG ,_, the_DT stiffness_NN is_VBZ increased_VVN dramatically_RB ._SENT 
+The_DT 4_CD %_NN elongation_NN is_VBZ much_RB larger_JJR than_IN elastic_JJ elongation_NN wherein_RB all_DT layers_NNS remain_VVP within_IN their_PP$ respective_JJ elastic_JJ limits_NNS ._SENT 
+Moreover_RB ,_, ultimate_JJ elongation_NN of_IN the_DT entire_JJ structure_NN is_VBZ ,_, at_IN most_JJS ,_, around_RB 2_CD %_NN (_( this_DT will_MD be_VB explained_VVN later_RBR in_IN this_DT paper_NN )_) ._SENT 
+Therefore_RB ,_, it_PP is_VBZ reasonable_JJ to_TO neglect_NN the_DT axial_JJ stiffness_NN of_IN the_DT carcass_NN in_IN tensile_JJ analysis_NN ._SENT 
+Fig_NN ._SENT 
+3_CD plots_NNS overall_JJ stress_NN distribution_NN when_WRB the_DT carcass_NN reaches_VVZ the_DT failure_NN and_CC Fig_NN ._SENT 
+4_CD sectional_JJ stress_NN distribution_NN at_IN the_DT initiation_NN of_IN interlocking_VVG and_CC the_DT failure_NN ,_, respectively_RB ._SENT 
+The_DT final_JJ failures_NNS occurs_VVZ when_WRB the_DT self-contacted_JJ locations_NNS which_WDT are_VBP interlocked_VVN together_RB arrives_VVZ at_IN the_DT tensile_JJ strength_NN ._SENT 
+Fig_NN ._SENT 
+2._CD Tension_NN vs._IN elongation_NN curve_NN for_IN carcass_NN ._SENT 
+Fig_NN ._SENT 
+3._CD Overall_JJ stress_NN distribution_NN at_IN failure_NN ._SENT 
+Fig_NN ._SENT 
+4._CD Sectional_JJ stress_NN distribution_NN (_( a_DT )_) at_IN the_DT initiation_NN of_IN interlocking_VVG (_( b_LS )_) at_IN the_DT failure_NN ._SENT 
+Under_IN compressive_JJ loading_NN ,_, unlocking_VVG happens_VVZ in_IN cases_NNS of_IN large_JJ shortening_NN ,_, and_CC accordingly_RB ,_, no_DT remarkable_JJ increase_NN in_IN stiffness_NN ,_, as_RB for_IN tensional_JJ load_NN ,_, is_VBZ observed_VVN ._SENT 
+Thus_RB ,_, the_DT compressive_JJ axial_JJ stiffness_NN also_RB can_MD be_VB neglected_VVN ._SENT 
+On_IN the_DT other_JJ hand_NN ,_, the_DT carcass_NN and_CC pressure_NN armour_NN has_VHZ strong_JJ hoop-directional_JJ stiffness_NN to_TO withstand_VV internal_JJ and_CC external_JJ pressure_NN ._SENT 
+The_DT stiffness_NN can_MD be_VB computed_VVN ,_, according_VVG to_TO [_SYM 12_CD ]_SYM and_CC [_SYM 13_CD ]_SYM ,_, as_RB @(1_JJ )_) where_WRB ,_, teq_NP ._SENT 
+is_VBZ equivalent_JJ thickness_NN ,_, A_DT is_VBZ the_DT area_NN and_CC Iy_NP is_VBZ the_DT smaller_JJR second_JJ moment_NN about_IN central_JJ axis_NN of_IN cross-section_NN ._SENT 
+Eeq_NP ._SENT 
+is_VBZ the_DT equivalent_JJ elastic_JJ modulus_NN ,_, n_NN is_VBZ the_DT number_NN of_IN wires_NNS ,_, E_NP is_VBZ the_DT elastic_JJ modulus_NN of_IN material_NN ,_, Geq_NP ._SENT 
+is_VBZ the_DT equivalent_JJ shear_NN modulus_NN ,_, J_NP is_VBZ the_DT polar_JJ moment_NN of_IN cross-sectional_JJ area_NN ,_, G_NP is_VBZ the_DT shear_NN modulus_NN of_IN material_NN ,_, and_CC ,_, LP_NP is_VBZ the_DT pitch_NN length_NN of_IN the_DT tendon_NN ._SENT 
+The_DT application_NN of_IN the_DT equivalent_JJ shell_NN model_NN with_IN orthotropic_JJ properties_NNS can_MD simplify_VV the_DT FE_NP models_NNS and_CC ,_, thereby_RB ,_, considerably_RB mitigate_VV convergence_NN problems_NNS in_IN nonlinear_JJ FE_NP analysis_NN ._SENT 
+2.3_CD ._SENT 
+Ovalization_NN Collapse_NN ,_, a_DT typical_JJ mode_NN of_IN failure_NN caused_VVN by_IN external_JJ pressure_NN ,_, theoretically_RB does_VVZ not_RB occur_VV under_IN the_DT condition_NN of_IN a_DT perfect_JJ circle_NN ._SENT 
+In_IN order_NN to_TO comprehend_VV the_DT collapse_NN mechanism_NN ,_, initial_JJ imperfection_NN ,_, such_JJ as_IN ovalization_NN ,_, depicted_VVN in_IN Fig_NN ._SENT 
+5_LS ,_, has_VHZ to_TO be_VB applied_VVN to_TO the_DT FE_NP model_NN ._SENT 
+Ovalization_NP (_( δ0_NP )_) suggested_VVD in_IN Ref_NN ._SENT 
+[_SYM 16_CD ]_SYM is_VBZ defined_VVN as_IN @(2_NP )_) Fig_NN ._SENT 
+5._CD Definition_NN of_IN ovalization_NN ._SENT 
+A_DT minimum_JJ 0.2_CD %_NN ovalization_NN is_VBZ required_VVN for_IN a_DT collapse_NN test_NN (_( [_SYM 16_CD ]_SYM )_) ._SENT 
+<Section> 3._CD Numerical_JJ models_NNS </Section> In_IN this_DT research_NN ,_, three_CD different_JJ models_NNS are_VBP adopted_VVN according_VVG to_TO the_DT applied_VVN load_NN ._SENT 
+First_RB ,_, a_DT 3D_JJ 8-layerd_NN model_NN including_VVG all_DT layers_NNS is_VBZ used_VVN for_IN ultimate_JJ tensile_JJ strength_NN analysis_NN ._SENT 
+The_DT differences_NNS between_IN the_DT use_NN of_IN solid_JJ elements_NNS and_CC shell_NN elements_NNS for_IN polymeric_JJ layers_NNS is_VBZ investigated_VVN ._SENT 
+For_IN an_DT ultimate_JJ compressive_JJ strength_NN ,_, a_DT 5-layered_JJ 3D_NN model_NN is_VBZ proposed_VVN by_IN replacing_VVG inner_JJ four_CD layers_NNS by_IN one_CD equivalent_NN layer_NN ._SENT 
+A_DT 2D_JJ plain_JJ strain_NN FE_NP model_NN is_VBZ used_VVN to_TO find_VV the_DT circumferential_JJ elastic_JJ stiffness_NN of_IN the_DT equivalent_JJ layer_NN ._SENT 
+3.1_CD ._SENT 
+3D_NNS 8-layered_VVD model_NN This_DT model_NN includes_VVZ all_DT layers_NNS ,_, as_IN shown_VVN Fig_NN ._SENT 
+6._CD The_DT tensile_JJ armour_NN layers_NNS are_VBP modeled_VVN with_IN 2-noded_JJ BEAM188_JJ elements_NNS ._SENT 
+For_IN carcass_NN and_CC pressure_NN armour_NN (_( zeta_NN layer_NN )_) ,_, SHELL181_JJ elements_NNS are_VBP used_VVN since_IN the_DT deformation_NN over_IN thickness_NN is_VBZ negligible_JJ compared_VVN with_IN other_JJ directional_JJ deformations_NNS due_JJ to_TO their_PP$ high_JJ elastic_JJ modulus_NN ._SENT 
+However_RB ,_, other_JJ four_CD layers_NNS such_JJ as_IN pressure_NN sheath_NN ,_, two_CD anti-friction_NN tapes_NNS ,_, and_CC fabric_NN tape_NN need_VVP to_TO be_VB modeled_VVN using_VVG SOLID185_JJ because_IN they_PP have_VHP much_RB lower_JJR elastic_JJ modulus_NN than_IN neighboring_JJ steel_NN layers_NNS and_CC their_PP$ deformations_NNS over_IN thickness_NN is_VBZ directly_RB determined_VVN by_IN the_DT penetrations_NNS of_IN the_DT neighboring_JJ layers_NNS ._SENT 
+Therefore_RB ,_, these_DT penetrations_NNS have_VHP an_DT influence_NN on_IN the_DT axial_JJ deformation_NN and_CC the_DT resultant_JJ stiffness_NN as_IN well_RB ._SENT 
+However_RB ,_, the_DT solid_JJ modeling_NN makes_VVZ the_DT computational_JJ time_NN longer_RBR and_CC the_DT convergence_NN more_RBR difficult_JJ than_IN a_DT shell_JJ modeling_NN ._SENT 
+On_IN the_DT other_JJ hand_NN ,_, since_IN shell_NN modeling_NN is_VBZ not_RB able_JJ to_TO allow_VV the_DT thicknesswise_JJ deformation_NN ,_, the_DT penetration_NN of_IN neighboring_JJ layers_NNS should_MD be_VB realized_VVN by_IN controlling_VVG the_DT penetration_NN tolerance_NN ._SENT 
+This_DT is_VBZ to_TO be_VB investigated_VVN in_IN Subsection_NN 5.1_CD ._SENT 
+For_IN the_DT SHELL181_JJ element_NN ,_, a_DT four-noded_JJ element_NN with_IN 6_CD D.O.F._NN at_IN each_DT node_NN is_VBZ adopted_VVN ._SENT 
+The_DT B-bar_NP method_NN is_VBZ used_VVN to_TO avoid_VV the_DT volumetric_JJ locking_VVG and_CC a_DT linear_JJ interpolation_NN scheme_NN is_VBZ employed_VVN ._SENT 
+An_DT eight-noded_JJ element_NN is_VBZ used_VVN for_IN the_DT SOLID185_JJ elements_NNS ._SENT 
+Fig_NN ._SENT 
+6._CD 3D_JJ FE_NP 8-layered_JJ model_NN (_( isometric_JJ view_NN and_CC sectional_JJ view_NN )_) ._SENT 
+The_DT types_NNS of_IN elements_NNS and_CC material_NN of_IN all_DT layers_NNS in_IN the_DT flexible_JJ pipe_NN are_VBP summarized_VVN in_IN Table_NN 2._CD Since_IN the_DT anti-friction_NN tape_NN and_CC the_DT fabric_NN tape_NN are_VBP wound_VVN circumferentially_RB ,_, it_PP needs_VVZ to_TO be_VB modeled_VVN as_IN orthotropic_JJ layers_NNS ._SENT 
+However_RB ,_, the_DT orthotropic_JJ modeling_NN deteriorates_VVZ the_DT convergency_NN of_IN nonlinear_JJ analysis_NN seriously_RB ._SENT 
+Moreover_RB ,_, their_PP$ elastic_JJ modulus_NN values_NNS are_VBP much_RB lower_JJR than_IN other_JJ steel_NN layers_NNS and_CC their_PP$ contributions_NNS on_IN the_DT axial_JJ stiffness_NN are_VBP negligible_JJ ._SENT 
+Thus_RB ,_, they_PP are_VBP modeled_VVN to_TO have_VH isotropic_JJ properties_NNS ._SENT 
+This_DT assumption_NN is_VBZ verified_VVN reasonable_JJ by_IN a_DT case_NN study_NN to_TO be_VB explained_VVN in_IN Subsection_NN 5.2_CD ._SENT 
+Table_NN 2._CD Properties_NPS of_IN elements_NNS and_CC materials_NNS in_IN 8-layered_JJ FE_NP model_NN ._SENT 
+As_IN a_DT contact_NN algorithm_NN ,_, pure_JJ penalty_NN method_NN is_VBZ used_VVN ._SENT 
+This_DT method_NN calculates_VVZ contact_NN force_NN using_VVG Equation_NN (_( 3_CD )_) ,_, where_WRB Fn_NP is_VBZ the_DT contact_NN force_NN ,_, kn_NP is_VBZ the_DT contact_NN stiffness_NN and_CC xp_NN is_VBZ the_DT penetration_NN :_: @(3_NP )_) The_DT penetration_NN depends_VVZ on_IN the_DT contact_NN stiffness_NN as_IN subject_NN to_TO the_DT specific_JJ normal_JJ force_NN ._SENT 
+Under_IN real_JJ conditions_NNS ,_, any_DT penetration_NN is_VBZ not_RB allowed_VVN into_IN an_DT inward_RB layer_NN ,_, but_CC a_DT slight_JJ penetration_NN is_VBZ inevitable_JJ with_IN the_DT contact_NN algorithm_NN ._SENT 
+In_IN order_NN to_TO reduce_VV the_DT penetration_NN ,_, higher_JJR contact_NN stiffness_NN has_VHZ to_TO be_VB employed_VVN ._SENT 
+However_RB ,_, higher_JJR contact_NN stiffness_NN can_MD incur_VV a_DT convergence_NN problem_NN in_IN numerical_JJ analysis_NN ._SENT 
+Thus_RB ,_, a_DT penetration_NN tolerance_NN is_VBZ used_VVN in_IN order_NN to_TO achieve_VV both_DT lower_JJR penetration_NN and_CC better_JJR convergence_NN ._SENT 
+Once_RB the_DT penetration_NN attains_VVZ a_DT given_VVN penetration_NN tolerance_NN ,_, contact_NN stiffness_NN increases_NNS ,_, thereby_RB iteratively_RB forming_VVG a_DT balance_NN between_IN the_DT contact_NN force_NN and_CC the_DT normal_JJ force_NN ._SENT 
+In_IN general_NN ,_, ANSYS_NP Mechanical_NP [_SYM 15_CD ]_SYM recommends_VVZ a_DT penetration_NN tolerance_NN of_IN 1_CD %_NN of_IN the_DT element_NN thickness_NN ._SENT 
+This_DT is_VBZ adopted_VVN for_IN 3D_JJ solid_JJ model_NN ,_, but_CC ,_, 5_CD %_NN for_IN shell_NN elements_NNS ._SENT 
+The_DT reason_NN of_IN 5_CD %_NN is_VBZ described_VVN in_IN Section_NP 5._CD The_DT pure_JJ penalty_NN method_NN requires_VVZ both_CC a_DT normal_JJ and_CC a_DT tangential_JJ contact_NN stiffness_NN ._SENT 
+ANSYS_NP provides_VVZ FKN_NP and_CC FKT_NP to_TO define_VV contact_NN stiffness_NN and_CC the_DT factors_NNS controlling_VVG normal_JJ (_( kn_NP )_) and_CC tangential_JJ contact_NN stiffness_NN (_( kt_NP )_) ._SENT 
+The_DT ANSYS_NP manual_JJ [_SYM 15_CD ]_SYM recommends_VVZ the_DT use_NN of_IN 1.0_CD of_IN FKN_NN in_IN cases_NNS of_IN axisymmetric_JJ load_NN ._SENT 
+The_DT same_JJ default_NN value_NN of_IN FKT_NP =_SYM 1.0_CD is_VBZ used_VVN for_IN the_DT tangential_JJ contact_NN stiffness_NN ._SENT 
+ANSYS_NP Mechanical_NP calculates_VVZ the_DT normal_JJ and_CC the_DT tangential_JJ stiffness_NN values_NNS by_IN multiplying_VVG FKN_NP and_CC FKT_NP to_TO internal_JJ stiffness_NN values_NNS which_WDT are_VBP updated_VVN in_IN each_DT iteration_NN by_IN ANSYS_NP automatically_RB ._SENT 
+All_DT of_IN the_DT contact_NN conditions_NNS between_IN adjacent_JJ layers_NNS are_VBP related_VVN to_TO frictional_JJ contact_NN ,_, which_WDT means_VVZ that_IN they_PP can_MD be_VB separate_JJ ,_, stick_VV together_RB or_CC slip_VV freely_RB ._SENT 
+The_DT friction_NN coefficients_NNS for_IN 2.5_CD in_RB ._SENT 
+of_IN flexible_JJ pipe_NN are_VBP not_RB provided_VVN in_IN Ref_NN ._SENT 
+[_SYM 14_CD ]_SYM ._SENT 
+The_DT friction_NN coefficient_NN of_IN 0.1_CD for_IN the_DT interactions_NNS between_IN all_DT layers_NNS are_VBP employed_VVN according_VVG to_TO the_DT available_JJ experimental_JJ data_NNS [_SYM 17_CD ]_SYM ._SENT 
+CONTA175/TARGE170_JJ elements_NNS are_VBP used_VVN to_TO realize_VV the_DT contact_NN mechanism_NN between_IN nodes_NNS of_IN a_DT tendon_NN layer_NN and_CC surfaces_VVZ of_IN its_PP$ neighboring_JJ solid_JJ layers_NNS in_IN the_DT 8-layered_JJ solid_JJ models_NNS (_( or_CC shell_NN layers_NNS in_IN the_DT 8-layered_JJ shell_NN model_NN )_) ._SENT 
+Similarly_RB ,_, CONTA174/TARGE170_JJ elements_NNS are_VBP employed_VVN between_IN two_CD adjoining_JJ surfaces_NNS of_IN shell_NN or_CC solid_JJ layers_NNS ._SENT 
+The_DT same_JJ contact_NN elements_NNS are_VBP used_VVN for_IN the_DT 8-layered_JJ solid_JJ and_CC shell_JJ models_NNS ._SENT 
+The_DT contact_NN pairs_NNS are_VBP summarized_VVN in_IN Table_NN 3._CD Table_NN 3._CD Information_NN on_IN contact_NN pairs_NNS and_CC properties_NNS of_IN contact_NN elements_NNS ._SENT 
+For_IN axial_JJ force_NN ,_, all_RB of_IN the_DT nodes_NNS on_IN both_DT end-sections_NNS are_VBP rigidly_RB linked_VVN to_TO remote_JJ points_NNS located_VVN at_IN the_DT centers_NNS of_IN the_DT sections_NNS ,_, respectively_RB (_( see_VV Fig_NN ._SENT 
+7_CD )_) ._SENT 
+RP1_JJ is_VBZ restrained_VVN with_IN respect_NN to_TO all_DT of_IN the_DT degrees_NNS of_IN freedom_NN ._SENT 
+Axial_JJ load_NN is_VBZ applied_VVN to_TO RP2_NN without_IN restraining_VVG any_DT degree_NN of_IN freedom_NN ._SENT 
+Fig_NN ._SENT 
+7._CD Remote_JJ points_NNS of_IN 3D_JJ FE_NP model_NN ._SENT 
+3.2_CD ._SENT 
+3D_JJ 5-layered_JJ model_NN When_WRB the_DT flexible_JJ pipe_NN is_VBZ subjected_VVN to_TO high_JJ axial_JJ compression_NN ,_, the_DT central_JJ part_NN of_IN tensile_JJ armour_NN layers_NNS swells_VVZ in_IN the_DT radial_JJ direction_NN and_CC a_DT large_JJ gap_NN is_VBZ generated_VVN between_IN the_DT inner_JJ tensile_JJ armour_NN layer_NN and_CC the_DT inner_JJ anti-friction_NN layer_NN ._SENT 
+The_DT fabric_NN tape_NN wrapping_VVG the_DT outer_JJ tensile_JJ armour_NN layer_NN impedes_VVZ the_DT radial_JJ expansion_NN ._SENT 
+However_RB ,_, when_WRB it_PP cannot_MD withstand_VV the_DT expansion_NN any_DT longer_JJR ,_, radial_JJ buckling_NN occurs_VVZ suddenly_RB ._SENT 
+Thus_RB ,_, the_DT compressive_JJ strength_NN is_VBZ dominated_VVN by_IN tensile_JJ armour_NN layers_NNS having_VHG large_JJ axial_JJ stiffness_NN and_CC outer_JJ polymeric_JJ tapes_NNS and_CC contributions_NNS of_IN the_DT other_JJ layers_NNS on_IN the_DT axial_JJ strength_NN ,_, however_RB ,_, can_MD be_VB ignored_VVN ._SENT 
+Additionally_RB ,_, the_DT 3D_JJ FE_NP model_NN including_VVG all_DT layers_NNS has_VHZ a_DT convergence_NN difficulty_NN under_IN strong_JJ compression_NN because_IN of_IN complex_JJ interactions_NNS between_IN layers_NNS ._SENT 
+The_DT difficulty_NN can_MD be_VB improved_VVN by_IN reducing_VVG the_DT number_NN of_IN layers_NNS ._SENT 
+For_IN these_DT reasons_NNS ,_, this_DT paper_NN employs_VVZ a_DT new_JJ FE_NP model_NN which_WDT has_VHZ only_RB 5_CD layers_NNS ;_: equivalent_JJ pressure_NN layer_NN ,_, inner_JJ anti-friction_NN tape_NN ,_, two_CD tensile_JJ armour_NN layers_NNS ,_, and_CC fabric_NN tape_NN ._SENT 
+That_DT is_VBZ ,_, inner_JJ 4_CD layers_NNS (_( carcass_NN ,_, pressure_NN sheath_NN ,_, pressure_NN armour_NN ,_, and_CC anti-friction_NN tape_NN )_) are_VBP replaced_VVN by_IN one_CD equivalent_NN pressure_NN layer_NN which_WDT plays_VVZ a_DT role_NN of_IN withstanding_VVG pressure_NN applied_VVN together_RB with_IN the_DT axial_JJ compression_NN ._SENT 
+Fig_NN ._SENT 
+8_CD shows_NNS the_DT isometric_NN and_CC sectional_JJ views_NNS of_IN the_DT 5-layered_JJ model_NN ._SENT 
+The_DT length_NN of_IN the_DT layers_NNS is_VBZ identical_JJ to_TO two_CD pitch_NN length_NN of_IN the_DT outer_JJ tensile_JJ armour_NN layer_NN ._SENT 
+Two_CD tensile_JJ armour_NN layers_NNS are_VBP modeled_VVN with_IN beam_NN elements_NNS (_( BEAM188_NP )_) ,_, and_CC the_DT other_JJ layers_NNS are_VBP modeled_VVN with_IN shell_JJ elements_NNS (_( SHELL181_JJ )_) ._SENT 
+The_DT other_JJ properties_NNS are_VBP the_DT same_JJ as_RB for_IN the_DT 3D_NN 8-layered_VVD shell_JJ FE_NP model_NN ._SENT 
+Fig_NN ._SENT 
+8._CD 3D_NNS 5-layered_JJ FE_NP model_NN (_( isometric_JJ view_NN and_CC sectional_JJ view_NN )_) ._SENT 
+3.3_CD ._SENT 
+2D_JJ FE_NP model_NN including_VVG inner_JJ four_CD layers_NNS When_WRB external_JJ pressure_NN acts_NNS on_IN the_DT outer_JJ surface_NN of_IN an_DT undamaged_JJ flexible_JJ pipe_NN ,_, the_DT pipe_NN 's_POS resistance_NN to_TO that_DT pressure_NN is_VBZ provided_VVN mainly_RB by_IN the_DT pressure_NN armour_NN ,_, the_DT tensile_JJ armour_NN layer_NN 's_POS contribution_NN being_VBG comparatively_RB small_JJ ._SENT 
+Hence_RB ,_, the_DT tensile_JJ armour_NN layer_NN including_VVG anti-friction_NN layers_NNS can_MD be_VB neglected_VVN ._SENT 
+This_DT would_MD be_VB acceptable_JJ from_IN a_DT conservative_JJ perspective_NN ._SENT 
+For_IN the_DT inner_JJ four_CD layers_NNS ,_, 2D_NNS plane-strain_VVP elements_NNS can_MD be_VB used_VVN to_TO analyze_VV the_DT collapse_NN strength_NN against_IN external_JJ pressure_NN ._SENT 
+Two_CD different_JJ failure_NN modes_NNS have_VHP been_VBN investigated_VVN :_: the_DT dry_JJ and_CC the_DT wet_JJ collapse_NN ._SENT 
+The_DT first_JJ can_MD occur_VV when_WRB the_DT external_JJ polymeric_JJ layer_NN has_VHZ no_DT damages_NNS ._SENT 
+The_DT second_JJ case_NN assumes_VVZ a_DT scenario_NN when_WRB the_DT external_JJ polymeric_JJ layer_NN is_VBZ damaged_VVN ,_, permitting_VVG that_IN the_DT water_NN floods_VVZ the_DT annulus_NN ._SENT 
+The_DT ultimate_JJ external_JJ pressure_NN of_IN wet_JJ collapse_NN is_VBZ usually_RB smaller_JJR than_IN that_DT of_IN the_DT dry_JJ collapse_NN ._SENT 
+Neto_NP et_NP al_NP ._SENT 
+[_SYM 18_CD ]_SYM and_CC Neto_NP et_NP al_NP ._SENT 
+[_SYM 19_CD ]_SYM treated_VVN dry_JJ and_CC wet_JJ collapse_NN resistance_NN ,_, respectively_RB ._SENT 
+Both_DT resistances_NNS were_VBD investigated_VVN by_IN Neto_NP et_CC al_NP ._SENT 
+[_SYM 20_CD ]_SYM ._SENT 
+Note_NN that_IN the_DT carcass_NN and_CC the_DT pressure_NN armour_NN are_VBP almost_RB perpendicular_JJ to_TO the_DT longitudinal_JJ direction_NN ._SENT 
+Neto_NP et_NP al_NP ._SENT 
+[_SYM 7_CD ]_SYM determined_VVN that_IN small_JJ laying_VVG angles_NNS of_IN the_DT carcass_NN and_CC pressure_NN armour_NN do_VVP not_RB affect_VV the_DT radial-structural_JJ response_NN ._SENT 
+Although_IN the_DT equivalent_JJ shell_NN model_NN shows_VVZ a_DT tendency_NN to_TO underestimate_VV the_DT Von_NP Mises_NNS stresses_VVZ up_RP to_TO the_DT yield_NN limit_NN ,_, it_PP shows_VVZ good_JJ agreement_NN respecting_IN the_DT radial_JJ displacement_NN and_CC pressure_NN ,_, and_CC is_VBZ useful_JJ also_RB for_IN prediction_NN of_IN radial_JJ failure_NN ._SENT 
+The_DT 2D_JJ FE_NP model_NN for_IN three_CD layers_NNS adopts_VVZ 8-noded_JJ plane-strain_NN elements_NNS ._SENT 
+Only_RB a_DT quarter_NN of_IN the_DT cross-section_NN is_VBZ modeled_VVN ,_, due_JJ to_TO the_DT symmetricity_NN along_IN the_DT x_NN and_CC y_NN axes_NNS ,_, which_WDT are_VBP also_RB the_DT FE_NP model_NN 's_POS boundary_NN conditions_NNS ._SENT 
+In_IN this_DT paper_NN ,_, the_DT 2D_JJ FE_NP model_NN is_VBZ used_VVN for_IN calculating_VVG circumferential_JJ elastic_JJ stiffness_NN of_IN an_DT equivalent_JJ layer_NN to_TO be_VB substituted_VVN for_IN inner_JJ four_CD layers_NNS ._SENT 
+3.4_CD ._SENT 
+Equivalent_JJ pressure_NN layer_NN As_IN described_VVN above_IN ,_, the_DT full_JJ 3D_JJ FE_NP model_NN is_VBZ hard_JJ to_TO converge_VV for_IN high_JJ axial_JJ compression_NN due_JJ to_TO the_DT complicated_JJ nonlinear_JJ interactions_NNS between_IN multi-layers_NNS induced_VVN by_IN large_JJ deformation_NN ._SENT 
+In_IN order_NN to_TO simplify_VV the_DT interactions_NNS and_CC improve_VV the_DT convergency_NN ,_, the_DT inner_JJ four_CD layers_NNS plying_VVG a_DT role_NN of_IN withstanding_VVG internal/external_JJ pressure_NN are_VBP replaced_VVN with_IN an_DT equivalent_JJ pressure_NN layer_NN which_WDT is_VBZ modeled_VVN as_IN orthotropic_JJ shell_NN elements_NNS ._SENT 
+Elastic_JJ modulus_NN E1�_NP �_NP and_CC E2�_NP �_NP indicate_VVP axial_JJ and_CC circumferential_JJ elastic_JJ modulus_NN ,_, respectively_RB ._SENT 
+There_EX can_MD be_VB various_JJ ways_NNS to_TO find_VV the_DT geometry_NN and_CC material_NN properties_NNS of_IN equivalent_JJ pressure_NN layer_NN ._SENT 
+In_IN this_DT paper_NN ,_, it_PP is_VBZ assumed_VVN that_IN this_DT layer_NN has_VHZ the_DT same_JJ thickness_NN as_IN the_DT pressure_NN armour_NN and_CC its_PP$ outer_JJ diameter_NN is_VBZ identical_JJ to_TO the_DT inner_JJ anti-friction_NN tape_NN ._SENT 
+Then_RB ,_, based_VVN on_IN the_DT geometric_JJ assumption_NN ,_, its_PP$ elastic_JJ modulus_NN can_MD be_VB determined_VVN ._SENT 
+E1�_NP �_NP and_CC E2�_NP �_NP are_VBP determined_VVN by_IN a_DT 3D_JJ FE_NP analysis_NN under_IN axial_JJ tension_NN and_CC a_DT 2D_JJ FE_NP analysis_NN under_IN external_JJ pressure_NN ,_, respectively_RB ._SENT 
+First_RB ,_, in_IN order_NN to_TO find_VV the_DT circumferential_JJ elastic_NN modulus_NN E2�_NP �_NP ,_, two_CD 2D_NN plane_NN strain_NN FE_NP model_NN including_VVG four_CD layers_NNS and_CC equivalent_JJ one_CD layer_NN are_VBP used_VVN as_IN shown_VVN in_IN Fig_NN ._SENT 
+9._CD External_NP pressure_NN is_VBZ incrementally_RB applied_VVN to_TO two_CD models_NNS and_CC radial_JJ deformations_NNS are_VBP measured_VVN ._SENT 
+Fig_NN ._SENT 
+9._CD 2D_JJ FE_NP models_NNS (_( 4-layered_VVN model_NN and_CC 1-layered_JJ model_NN )_) ._SENT 
+Fig_NN ._SENT 
+10_CD shows_NNS the_DT relationship_NN between_IN the_DT external_JJ pressure_NN and_CC the_DT radial_JJ deformation_NN of_IN the_DT 4-layered_JJ model_NN ._SENT 
+A_DT linear_JJ relationship_NN is_VBZ found_VVN for_IN the_DT pressure_NN range_NN below_IN 0.2_CD MPa_NN ._SENT 
+Since_IN the_DT external_JJ pressure_NN applied_VVN in_IN ultimate_JJ compressive_JJ strength_NN analysis_NN is_VBZ also_RB within_IN the_DT range_NN ,_, the_DT 4_CD layers_NNS can_MD be_VB replaced_VVN by_IN one_CD equivalent_NN pressure_NN layer_NN of_IN linear_JJ elastic_JJ circumferential_JJ modulus_NN ._SENT 
+Through_IN a_DT parametric_JJ study_NN using_VVG one-layered_JJ 2D_JJ FE_NP model_NN ,_, E2�_NP �_NP is_VBZ determined_VVN to_TO have_VH the_DT same_JJ stiffeners_NNS as_IN the_DT 4-layered_JJ model_NN ._SENT 
+Fig_NN ._SENT 
+10._CD External_NP pressure_NN vs_NP radial_JJ deformation_NN for_IN 4-layered_JJ model_NN ._SENT 
+Fig_NN ._SENT 
+11_CD shows_NNS the_DT difference_NN in_IN radial_JJ deformation_NN of_IN two_CD models_NNS for_IN various_JJ values_NNS of_IN E2�_JJ �_NN ._SENT 
+Although_IN slight_JJ differences_NNS are_VBP observed_VVN depending_VVG on_IN the_DT external_JJ pressure_NN ,_, it_PP is_VBZ identified_VVN that_IN when_WRB the_DT E2∗/EPA_NP value_NN is_VBZ roughly_RB between_IN 2.55_CD and_CC 2.65_CD ._SENT 
+The_DT error_NN becomes_VVZ smaller_JJR than_IN 5_CD %_NN ._SENT 
+Here_RB ,_, EPA_NP is_VBZ the_DT elastic_JJ modulus_NN of_IN pressure_NN armour_NN ,_, 205_CD GPa_NN ._SENT 
+Thus_RB ,_, E2�_NP �_NP =_SYM 2.6_CD �_JJ �_NP 312_CD GPa_NN =_SYM 811.2_CD GPa_NN is_VBZ used_VVN in_IN the_DT study_NN ._SENT 
+Fig_NN ._SENT 
+11._CD Error_NN of_IN radial_JJ deformation_NN vs_NP E2∗/EPA_NP ._SENT 
+Likewise_RB ,_, 3D_VVG 4-layered_JJ and_CC 3D_JJ one-layered_JJ models_NNS are_VBP used_VVN to_TO determine_VV E1�_JJ �_NN ._SENT 
+The_DT 3D_JJ 4-layered_JJ model_NN is_VBZ constructed_VVN by_IN taking_VVG only_RB inner_JJ 4_CD layers_NNS from_IN the_DT 8-layered_JJ shell_NN model_NN defined_VVN in_IN Table_NN 2._CD The_DT 3D_NN one-layered_JJ model_NN is_VBZ constructed_VVN using_VVG shell_JJ elements_NNS like_IN a_DT cylindrical_JJ tube_NN of_IN which_WDT inner_JJ diameter_NN is_VBZ 83.1_CD mm_NP and_CC its_PP$ thickness_NN 6.2_CD mm_NP ._SENT 
+Through_IN a_DT similar_JJ parametric_JJ study_NN ,_, E1�_NP �_NP is_VBZ determined_VVN 1.9_CD times_NNS the_DT elastic_JJ modulus_NN of_IN pressure_NN sheath_NN (_( 0.284_CD MPa_NP )_) ,_, that_WDT is_VBZ ,_, E1�_JJ �_NN =_SYM 1.9_CD �_JJ �_NP 0.284_CD GPa_NN =_SYM 0.540_CD GPa_NN ._SENT 
+Conclusively_RB ,_, Table_NN 4_CD contains_VVZ the_DT geometric_JJ information_NN and_CC material_NN properties_NNS of_IN the_DT equivalent_JJ pressure_NN layer_NN ._SENT 
+Yield_NN strength_NN and_CC ultimate_JJ strength_NN need_MD not_RB be_VB considered_VVN since_IN the_DT external_JJ pressure_NN is_VBZ small_JJ ,_, and_CC the_DT carcass_NN and_CC the_DT pressure_NN armour_NN allow_VVP large_JJ shortening_NN ._SENT 
+The_DT equivalent_JJ pressure_NN layer_NN is_VBZ used_VVN in_IN 3D_JJ 5-layered_JJ model_NN ,_, and_CC the_DT validity_NN of_IN the_DT model_NN is_VBZ proved_VVN by_IN comparing_VVG the_DT elastic_JJ stiffness_NN with_IN 8-layered_JJ model_NN and_CC other_JJ analytical_JJ models_NNS ._SENT 
+Table_NN 4._CD Geometric_JJ information_NN and_CC material_NN properties_NNS of_IN equivalent_JJ pressure_NN layer_NN ._SENT 
+<Section> 4._CD Analytical_NP model_NN </Section> For_IN the_DT axial_JJ tensile_JJ strength_NN case_NN ,_, the_DT analytical_JJ model_NN can_MD be_VB used_VVN for_IN a_DT comparison_NN with_IN FE_NP results_NNS ._SENT 
+This_DT research_NN adopts_VVZ the_DT iterative_JJ method_NN described_VVN in_IN Bahtui_NP et_CC al_NP ._SENT 
+[_SYM 4_CD ]_SYM and_CC adjusts_VVZ it_PP suitable_JJ to_TO the_DT ultimate_JJ strength_NN analysis_NN ._SENT 
+Since_IN only_RB axial_JJ tensile_JJ case_NN is_VBZ treated_VVN ,_, no-separation_NN model_NN is_VBZ employed_VVN ._SENT 
+The_DT constitutive_JJ equation_NN of_IN each_DT layer_NN can_MD be_VB derived_VVN from_IN the_DT relation_NN of_IN principle_NN of_IN virtual_JJ works_NNS and_CC the_DT internal_JJ energy_NN depending_VVG on_IN the_DT geometric_JJ characteristics_NNS of_IN the_DT layer_NN ._SENT 
+The_DT total_JJ constitutive_JJ equation_NN of_IN flexible_JJ pipe_NN can_MD be_VB developed_VVN depending_VVG on_IN the_DT interactions_NNS with_IN respect_NN to_TO relevant_JJ deformations_NNS ._SENT 
+The_DT solutions_NNS can_MD be_VB achieved_VVN by_IN direct_JJ calculation_NN method_NN ,_, substituting_VVG the_DT pressure_NN equilibrium_NN equation_NN and_CC compatibility_NN equations_NNS into_IN the_DT total_JJ constitutive_JJ equation_NN of_IN flexible_JJ pipe_NN ._SENT 
+Only_RB brief_JJ description_NN is_VBZ laid_VVN here_RB ._SENT 
+4.1_CD ._SENT 
+Isotropic_JJ layer_NN Isotropic_JJ layers_NNS (_( e.g._FW outer_JJ sheath_NN ,_, pressure_NN sheath_NN and_CC anti-friction_NN layer_NN )_) in_IN flexible_JJ pipe_NN can_MD be_VB modeled_VVN as_IN isotropic_JJ cylindrical_JJ layer_NN ._SENT 
+The_DT constitutive_JJ equations_NNS for_IN the_DT isotropic_JJ layer_NN are_VBP formulated_VVN as_RB follows_VVZ ._SENT 
+@(4_NP )_) where_WRB ,_, the_DT axial_JJ displacement_NN uz_NP ,_, the_DT axial_JJ rotation_NN �_NP �_NP ,_, the_DT rotations_NNS about_IN the_DT normal/binormal_JJ directions_NNS Ψx/Ψy_NN ,_, and_CC the_DT radial_JJ displacement_NN ur_NNS are_VBP shown_VVN in_IN Fig_NN ._SENT 
+12._CD L_NP is_VBZ the_DT length_NN of_IN pipe_NN and_CC R_NN the_DT mean_JJ radius_NN of_IN the_DT layer_NN ._SENT 
+N_NP ,_, T_NN ,_, Mx_NP ,_, and_CC My_NP are_VBP the_DT axial_JJ force_NN ,_, the_DT axial_JJ torque_NN ,_, the_DT moment_NN about_IN the_DT normal_JJ direction_NN ,_, and_CC the_DT moment_NN about_IN the_DT bi-normal_JJ direction_NN ,_, respectively_RB ._SENT 
+Δp_NP is_VBZ the_DT radial_JJ pressure_NN differential_NN across_IN the_DT layer_NN ,_, that_WDT is_VBZ ,_, the_DT difference_NN between_IN the_DT internal_JJ pressure_NN pin_NN and_CC the_DT external_JJ pressure_NN pout_NN ,_, that_WDT is_VBZ ,_, Δp=pin−pout_NP ._SENT 
+A_DT ,_, E_NP ,_, and_CC ν_NP are_VBP sectional_JJ area_NN ,_, elastic_JJ modulus_NN and_CC Poisson_NP ratio_NN of_IN each_DT layer_NN ._SENT 
+Fig_NN ._SENT 
+12._CD Coordinate_NN and_CC symbols_NNS for_IN cylindrical_JJ layers_NNS ._SENT 
+4.2_CD ._SENT 
+Orthotropic_JJ layer_NN The_DT carcass_NN ,_, the_DT pressure_NN armour_NN (_( zeta_NN layer_NN )_) and_CC carcass_NN can_MD be_VB modeled_VVN as_IN orthotropic_JJ cylindrical_JJ layer_NN with_IN the_DT equivalent_JJ shell_NN model_NN ._SENT 
+According_VVG to_TO the_DT principle_NN of_IN virtual_JJ works_NNS ,_, the_DT constitutive_JJ equations_NNS for_IN the_DT orthotropic_JJ layer_NN are_VBP formulated_VVN as_RB :_: @(5_NP )_) where_WRB ,_, Ez_NP is_VBZ the_DT axial_JJ stiffness_NN of_IN orthotropic_JJ layer_NN ,_, and_CC almost_RB zero_CD ._SENT 
+Eeq_NP ._SENT 
+and_CC Geq_NP ._SENT 
+are_VBP defined_VVN in_IN Eq_NP ._SENT 
+(_( 1_CD )_) ._SENT 
+4.3_CD ._SENT 
+Helical_JJ armour_NN layer_NN The_DT constitutive_JJ equations_NNS of_IN outer_JJ and_CC inner_JJ tensile_JJ armours_NNS are_VBP as_RB follows_VVZ ._SENT 
+@(6_NP )_) where_WRB ,_, α_NP is_VBZ laying_VVG angle_NN with_IN respect_NN to_TO z-axis_NN ._SENT 
+4.4_CD ._SENT 
+Total_JJ constitutive_JJ equation_NN When_WRB the_DT flexible_JJ pipe_NN has_VHZ no_DT gap_NN between_IN all_DT layers_NNS ,_, the_DT overall_JJ stiffness_NN matrix_NN of_IN whole_JJ model_NN can_MD be_VB derived_VVN from_IN summing_VVG the_DT stiffness_NN contributions_NNS of_IN the_DT isotropic_JJ layers_NNS ,_, orthotropic_JJ layer_NN and_CC the_DT helical_JJ armour_NN layers_NNS ._SENT 
+The_DT total_JJ constitutive_JJ equation_NN of_IN the_DT 2.5″_JJ flexible_JJ pipe_NN is_VBZ given_VVN in_IN Eq_NP ._SENT 
+(_( 7_CD )_) ._SENT 
+All_DT coefficients_NNS in_IN stiffness_NN matrix_NN are_VBP defined_VVN in_IN Appendix_NN ._SENT 
+To_TO solve_VV Eq_NP ._SENT 
+(_( 7_CD )_) the_DT interlayer_NN contact_NN pressures_NNS Δp1,…,Δp8_NN should_MD be_VB known_VVN ._SENT 
+The_DT pressures_NNS are_VBP dependent_JJ on_IN the_DT displacement_NN vector_NN in_IN Eq_NP ._SENT 
+(_( 7_CD )_) and_CC therefore_RB an_DT iterative_JJ approach_NN has_VHZ to_TO be_VB used_VVN ._SENT 
+The_DT iteration_NN is_VBZ begun_VVN by_IN assuming_VVG the_DT contact_NN pressures_NNS ._SENT 
+The_DT complete_JJ load_NN vector_NN in_IN Eq_NP ._SENT 
+(_( 7_CD )_) is_VBZ assembled_VVN as_IN the_DT first_JJ estimate_NN of_IN the_DT deformation_NN vector_NN is_VBZ obtained_VVN ._SENT 
+This_DT solution_NN is_VBZ used_VVN to_TO compute_VV the_DT forces_NNS ,_, contact_NN pressures_NNS and_CC deformations_NNS of_IN the_DT individual_JJ layers_NNS ._SENT 
+The_DT iteration_NN is_VBZ repeated_VVN until_IN the_DT contract_NN pressures_NNS converge_VVP ._SENT 
+4.5_CD ._SENT 
+Compatibility_NN equations_NNS &_CC pressure_NN equilibrium_NN equation_NN The_DT flexible_JJ pipe_NN should_MD satisfy_VV continuity_NN equations_NNS of_IN radial_JJ displacements_NNS in_IN no-gap_NN condition_NN ._SENT 
+@(8_NP )_) where_WRB ,_, Δrout_NP and_CC Δrin_NP are_VBP the_DT changes_NNS in_IN the_DT outer_JJ Rout_NN and_CC the_DT inner_JJ radii_NNS Rin_NP at_IN each_DT layer_NN as_IN defined_VVN in_IN Fig_NN ._SENT 
+13_CD and_CC Δt_NP thickness_NN change_NN ._SENT 
+Helical_JJ armour_NN layers_NNS ,_, pressure_NN armour_NN ,_, and_CC carcass_NN are_VBP assumed_VVN to_TO have_VH no_DT change_NN of_IN thickness_NN and_CC move_VV rigidly_RB in_IN the_DT radial_JJ direction_NN ._SENT 
+@(9_NP )_) Fig_NN ._SENT 
+13._CD Side_NN section_NN of_IN a_DT single_JJ layer_NN before_IN and_CC after_IN deformation_NN ._SENT 
+The_DT continuity_NN equations_NNS are_VBP rewritten_VVN as_RB follows_VVZ ._SENT 
+@(10_NP )_) @(11_JJ )_) The_DT variation_NN of_IN thickness_NN and_CC can_MD be_VB derived_VVN as_RB :_: @(12_NP )_) The_DT integration_NN of_IN all_DT contact_NN pressures_NNS (_( Δpi_NP )_) shall_MD equal_VV to_TO the_DT sum_NN of_IN internal_JJ pressure_NN Pin_NP and_CC external_JJ pressure_NN Pout_NN on_IN the_DT flexible_JJ pipe_NN ,_, the_DT pressure_NN equilibrium_NN equation_NN is_VBZ written_VVN as_RB :_: @(13_NP )_) Here_RB ,_, the_DT values_NNS for_IN the_DT tensile_JJ armour_NN layer_NN ,_, Δp5_JJ and_CC Δp7_JJ can_MD be_VB derived_VVN as_RB follows_VVZ ._SENT 
+@(14_NP )_) Here_RB ,_, since_IN Ψx=Ψy=0_NN under_IN pure_JJ axial_JJ tensile_JJ load_NN ,_, axial_JJ strain_NN of_IN helical_JJ tendon_NN is_VBZ defined_VVN as_IN @(15_NP )_) Meanwhile_RB ,_, the_DT following_VVG equation_NN holds_VVZ in_IN the_DT radial_JJ direction_NN as_IN depicted_VVN in_IN Fig_NN ._SENT 
+13._CD @(16_NN )_) If_IN Eqs_NP ._SENT 
+(_( 10_CD )_) ,_, (_( 11_CD )_) ,_, (_( 12_CD )_) are_VBP substituted_VVN into_IN Eq_NP ._SENT 
+(_( 16_CD )_) ,_, the_DT following_VVG two_CD equations_NNS are_VBP obtained_VVN ._SENT 
+@(17_JJ )_) @(18_NP )_) Eqs_NP ._SENT 
+(_( 17_CD )_) ,_, (_( 18_CD )_) and_CC Eq_NP ._SENT 
+(_( 13_CD )_) provides_VVZ eight_CD equations_NNS to_TO be_VB used_VVN to_TO find_VV all_DT eight_CD unknowns_NNS ,_, Δp2,Δp4,Δp6,Δp8_NN and_CC Δr2in,Δr4in,Δr6in,Δr8in_NN at_IN each_DT iterations_NNS ._SENT 
+In_IN order_NN to_TO assess_VV the_DT ultimate_JJ tensile_JJ strength_NN of_IN the_DT flexible_JJ pipe_NN ,_, Eq_NP ._SENT 
+(_( 7_CD )_) should_MD be_VB solved_VVN as_IN the_DT axial_JJ tension_NN is_VBZ increased_VVN incrementally_RB ._SENT 
+At_IN each_DT step_NN ,_, the_DT axial_JJ stress_NN of_IN helical_JJ tendon_NN is_VBZ calculated_VVN as_RB follows_VVZ ._SENT 
+@(19_NP )_) All_DT materials_NNS are_VBP modeled_VVN as_IN a_DT bi-linear_JJ curve_NN ._SENT 
+If_IN the_DT stress_NN of_IN tensile_JJ armour_NN goes_VVZ beyond_IN the_DT yield_NN stress_NN ,_, the_DT elastic_JJ modulus_NN E_NN is_VBZ replaced_VVN by_IN E′_NP ,_, the_DT slope_NN between_IN the_DT yield_NN strength_NN point_NN (_( ε,σ_JJ )_) =_SYM (_( 0.54_CD %_NN ,_, 1100_CD MPa_NN )_) and_CC tensile_JJ strength_NN point_NN (_( 1.0_CD %_NN ,_, 1400_CD MPa_NN )_) ,_, i.e._FW E′_NP =_SYM 64.74_CD GPa_NN ._SENT 
+When_WRB the_DT stress_NN reaches_VVZ tensile_JJ stress_NN ,_, the_DT incremental_JJ loading_NN step_NN stops_NNS ._SENT 
+As_IN the_DT contribution_NN of_IN other_JJ isotropic_JJ layers_NNS such_JJ as_IN pressure_NN sheath_NN and_CC outer_JJ sheath_NN on_IN the_DT tensile_JJ strength_NN is_VBZ ignorable_JJ ,_, only_RB the_DT elastic_JJ modulus_NN of_IN tensile_JJ armours_NNS is_VBZ changed_VVN ._SENT 
+<Section> 5._CD Elastic_JJ analysis_NN for_IN axial_JJ stiffness_NN </Section> The_DT FE_NP models_NNS proposed_VVN in_IN this_DT research_NN are_VBP validated_VVN by_IN comparing_VVG elastic_JJ stiffness_NN analysis_NN with_IN other_JJ analytical_JJ models_NNS ._SENT 
+In_IN addition_NN ,_, this_DT section_NN deals_NNS with_IN several_JJ issues_NNS in_IN numerical_JJ analysis_NN ._SENT 
+First_RB ,_, the_DT difference_NN between_IN the_DT 8-layered_JJ solid_JJ and_CC shell_JJ models_NNS defined_VVN in_IN Table_NN 2_CD is_VBZ examined_VVN ,_, and_CC it_PP is_VBZ discussed_VVN how_WRB this_DT difference_NN can_MD be_VB minimized_VVN by_IN controlling_VVG the_DT penetration_NN tolerance_NN ._SENT 
+The_DT axial_JJ stiffness_NN of_IN 5-layered_JJ model_NN is_VBZ also_RB compared_VVN with_IN other_JJ results_NNS ._SENT 
+Second_RB ,_, the_DT assumption_NN of_IN using_VVG isotropic_JJ property_NN for_IN two_CD anti-friction_NN layers_NNS and_CC fabric_NN tape_NN is_VBZ indirectly_RB verified_VVN to_TO be_VB reasonable_JJ ._SENT 
+5.1_CD ._SENT 
+Solid_JJ vs_NP shell_NN elements_NNS for_IN polymeric_JJ layers_NNS and_CC 5-layered_JJ model_NN As_IN mentioned_VVN in_IN Subsection_NN 3.1_CD ,_, four_CD polymeric_JJ layers_NNS such_JJ as_IN pressure_NN sheath_NN ,_, two_CD anti-friction_NN tapes_NNS ,_, and_CC fabric_NN tape_NN need_MD be_VB modeled_VVN using_VVG SOLID185_NN because_IN their_PP$ thicknesswise_JJ deformations_NNS determined_VVN by_IN the_DT penetrations_NNS of_IN the_DT neighboring_JJ layers_NNS can_MD affect_VV on_IN the_DT overall_JJ axial_JJ stiffness_NN of_IN flexible_JJ pipe_NN ._SENT 
+However_RB ,_, since_IN all_DT layers_NNS are_VBP very_RB thin_RB compared_VVN to_TO their_PP$ diameter_NN ,_, it_PP is_VBZ suitable_JJ to_TO use_VV shell_NN elements_NNS considering_VVG the_DT aspect_NN ratio_NN ._SENT 
+Shell_NP modeling_NN also_RB can_MD reduce_VV the_DT computational_JJ time_NN and_CC improve_VV the_DT convergence_NN difficulty_NN ._SENT 
+However_RB ,_, since_IN shell_NN modeling_NN is_VBZ not_RB able_JJ to_TO reflect_VV the_DT deformation_NN in_IN thickness_NN direction_NN ,_, the_DT contact_NN mechanism_NN can_MD differ_VV from_IN the_DT actual_JJ phenomenon_NN ._SENT 
+This_DT can_MD be_VB realized_VVN by_IN allowing_VVG the_DT penetration_NN tolerance_NN as_IN much_JJ as_IN the_DT penetration_NN of_IN neighboring_JJ layers_NNS ._SENT 
+In_IN ANSYS_NP ,_, shell_NN element_NN can_MD have_VH a_DT virtual_JJ rigid_JJ thickness_NN and_CC it_PP differs_VVZ from_IN solid_JJ element_NN which_WDT can_MD deform_VV in_IN thickness_NN direction_NN ._SENT 
+Fig_NN ._SENT 
+14_CD shows_NNS the_DT thickness_NN effect_NN concept_NN used_VVN for_IN shell_JJ element_NN in_IN ANSYS_NP mechanical_JJ ._SENT 
+Fig_NN ._SENT 
+14._CD Thicknesswise_JJ deformation_NN of_IN shell_NN element_NN and_CC solid_JJ element_NN ._SENT 
+The_DT effect_NN is_VBZ investigated_VVN through_IN a_DT case_NN study_NN defined_VVN in_IN Table_NN 5._CD Table_NN 5._CD A_DT case_NN study_NN for_IN element_NN type_NN and_CC tolerance_NN value_NN ._SENT 
+Fig_NN ._SENT 
+15_CD shows_NNS the_DT axial_JJ stiffness_NN of_IN Model_NP 1_CD and_CC Model_NP 2._CD The_DT axial_JJ stiffness_NN of_IN solid_JJ model_NN (_( Model_NP 1_CD )_) is_VBZ 1265.3_CD kN_NN and_CC that_IN of_IN shell_NN model_NN (_( Model_NP 2_CD )_) 1548.1_CD kN_NN ._SENT 
+Under_IN the_DT same_JJ 1_CD %_NN of_IN penetration_NN tolerance_NN ,_, since_IN the_DT polymeric_JJ layers_NNS modeled_VVN as_IN shell_JJ elements_NNS in_IN Model_NP 2_CD does_VVZ n't_RB reflect_VV radial_JJ deformation_NN ,_, the_DT radial_JJ penetration_NN of_IN tensile_JJ armour_NN layers_NNS is_VBZ not_RB permitted_VVN ._SENT 
+Thus_RB ,_, the_DT axial_JJ stiffness_NN becomes_VVZ larger_JJR than_IN Model_NP 1_CD which_WDT allows_VVZ radial_JJ penetration_NN of_IN tensile_JJ armour_NN layers_NNS ._SENT 
+Fig_NN ._SENT 
+15._CD Axial_JJ force_NN vs._IN axial_JJ deformation_NN of_IN solid_JJ and_CC shell_JJ models_NNS ._SENT 
+The_DT behavior_NN of_IN shell_NN modeling_NN can_MD be_VB adjusted_VVN by_IN increasing_VVG the_DT penetration_NN tolerance_NN as_IN much_JJ as_IN the_DT radial_JJ penetration_NN of_IN tensile_JJ armour_NN layers_NNS ._SENT 
+Since_IN the_DT stiffness_NN of_IN polymeric_JJ layers_NNS are_VBP much_RB smaller_JJR than_IN tensile_JJ armour_NN layers_NNS ,_, the_DT penetration_NN of_IN tensile_JJ armours_NNS is_VBZ not_RB resisted_VVN by_IN the_DT polymeric_JJ layers_NNS ._SENT 
+Therefore_RB ,_, if_IN the_DT penetration_NN tolerance_NN is_VBZ set_VVN the_DT same_JJ as_IN the_DT actual_JJ radial_JJ deformation_NN measured_VVN from_IN the_DT solid_JJ model_NN ,_, the_DT similar_JJ axial_JJ stiffness_NN can_MD be_VB obtained_VVN ._SENT 
+The_DT maximum_JJ thicknesswise_JJ strain_NN of_IN two_CD anti-friction_NN layers_NNS is_VBZ found_VVN about_IN 4.2_CD %_NN ._SENT 
+If_IN considering_VVG 1_CD %_NN of_IN tolerance_NN given_VVN in_IN the_DT solid_JJ model_NN ,_, 5_CD %_NN of_IN the_DT penetration_NN tolerance_NN set_VVN in_IN the_DT shell_JJ model_NN ._SENT 
+As_IN identified_VVN in_IN Fig_NN ._SENT 
+16_CD ,_, the_DT axial_JJ stiffness_NN is_VBZ calculated_VVN 1216.9_CD kN_NN and_CC becomes_VVZ close_VV to_TO that_DT of_IN solid_JJ model_NN (_( 1265.3_CD kN_NN )_) ._SENT 
+It_PP is_VBZ also_RB similar_JJ to_TO the_DT mean_JJ value_NN (_( 1280_CD KN_NP )_) of_IN ten_CD analytical_JJ models_NNS with_IN ends_NNS free_JJ to_TO rotate_VV in_IN Ref_NN ._SENT 
+[_SYM 14_CD ]_SYM ._SENT 
+The_DT axial_JJ stiffness_NN calculated_VVN in_IN this_DT research_NN using_VVG the_DT analytical_JJ model_NN described_VVN in_IN Section_NP 4_CD is_VBZ 1234_CD kN_NN ._SENT 
+Conclusively_RB ,_, 8-layerd_NN shell_NN model_NN with_IN 5_CD %_NN of_IN penetration_NN tolerance_NN is_VBZ identified_VVN to_TO yield_VV similar_JJ stiffness_NN with_IN the_DT 8-layered_JJ solid_JJ model_NN ._SENT 
+On_IN the_DT other_JJ hand_NN ,_, the_DT stiffness_NN value_NN of_IN the_DT experiment_NN in_IN Ref_NN ._SENT 
+[_SYM 14_CD ]_SYM is_VBZ 911.9_CD kN_NN and_CC it_PP is_VBZ considerably_RB different_JJ from_IN other_JJ analytical_JJ models_NNS ._SENT 
+The_DT reason_NN is_VBZ explained_VVN as_IN unavoidable_JJ small_JJ error_NN in_IN the_DT measurement_NN of_IN axial_JJ elongation_NN and_CC unknown_JJ gaps_NNS between_IN component_NN layers_NNS in_IN Ref_NN ._SENT 
+[_SYM 14_CD ]_SYM ._SENT 
+Fig_NN ._SENT 
+16._CD Axial_JJ force_NN vs._IN axial_JJ deformation_NN of_IN solid_JJ and_CC shell_JJ model_NN (_( PTOL5_JJ %_NN )_) ._SENT 
+Next_RB ,_, the_DT validity_NN of_IN the_DT 5-layered_JJ model_NN proposed_VVN in_IN this_DT paper_NN is_VBZ investigated_VVN ._SENT 
+This_DT model_NN replaces_VVZ the_DT inner_JJ 4_CD layers_NNS with_IN one_CD equivalent_NN pressure_NN layer_NN in_IN the_DT 8-layered_JJ shell_NN model_NN ._SENT 
+Since_IN the_DT other_JJ outer_JJ 4_CD layers_NNS strongly_RB related_VVN with_IN axial_JJ stiffness_NN are_VBP kept_VVN the_DT same_JJ ,_, the_DT 8-layered_JJ model_NN and_CC the_DT 5-layered_JJ model_NN are_VBP expected_VVN to_TO have_VH nearly_RB the_DT same_JJ axial_JJ stiffness_NN ._SENT 
+Fig_NN ._SENT 
+17_CD compares_VVZ the_DT axial_JJ stiffness_NN curves_NNS of_IN 8-layered_JJ shell_NN model_NN and_CC 5-layered_JJ shell_NN model_NN and_CC they_PP show_VVP a_DT good_JJ agreement_NN ._SENT 
+This_DT result_NN proves_VVZ that_IN the_DT use_NN of_IN 5-layered_JJ model_NN can_MD improve_VV the_DT convergence_NN difficulty_NN keeping_VVG the_DT accuracy_NN nearly_RB the_DT same_JJ ._SENT 
+All_DT axial_JJ stiffness_NN values_NNS are_VBP summarized_VVN in_IN Table_NN 6._CD Fig_NN ._SENT 
+17._CD Axial_JJ force_NN and_CC axial_JJ deformation_NN of_IN 8-layered_JJ and_CC 5-layered_JJ models_NNS ._SENT 
+Table_NN 6._CD Comparison_NN of_IN axial_JJ stiffness_NN values_NNS from_IN different_JJ models_NNS ._SENT 
+5.2_CD ._SENT 
+Isotropic_JJ vs_NP orthotropic_JJ material_NN As_IN mentioned_VVN in_IN 3.1_CD ,_, anti-friction_NN tape_NN and_CC fabric_NN tape_NN have_VHP orthotropic_JJ properties_NNS ._SENT 
+The_DT axial_JJ and_CC circumferential_JJ elastic_JJ moduli_NNS of_IN fabric_NN tape_NN are_VBP 600_CD MPa_NN and_CC 300_CD MPa_NN ,_, respectively_RB ._SENT 
+In_IN case_NN of_IN the_DT anti-friction_NN tape_NN ,_, the_DT circumferential_JJ elastic_JJ modulus_NN is_VBZ known_VVN 300_CD MPa_NN ,_, but_RB ,_, its_PP$ axial_JJ elastic_JJ modulus_NN has_VHZ not_RB been_VBN reported_VVN ,_, thus_RB ,_, it_PP is_VBZ assumed_VVN half_PDT the_DT circumferential_JJ elastic_JJ modulus_NN ._SENT 
+In_IN order_NN to_TO examine_VV the_DT effect_NN of_IN changing_VVG the_DT original_JJ orthotropic_JJ property_NN to_TO isotropic_JJ property_NN ,_, two_CD 3D_JJ 8-layered_JJ models_NNS are_VBP compared_VVN :_: isotropic_JJ modeling_NN with_IN circumferential_JJ elastic_JJ modulus_NN and_CC the_DT other_JJ isotropic_JJ model_NN with_IN axial_JJ elastic_JJ modulus_NN ._SENT 
+The_DT stiffness_NN of_IN orthotropic_JJ properties_NNS would_MD be_VB between_IN two_CD isotropic_JJ models_NNS as_IN illustrated_VVN in_IN Fig_NN ._SENT 
+18._CD Fig_NN ._SENT 
+18._CD The_DT concept_NN of_IN an_DT equality_NN between_IN isotropic_JJ and_CC orthotropic_JJ layers_NNS ._SENT 
+From_IN the_DT elastic_JJ analysis_NN ,_, the_DT first_JJ model_NN yields_VVZ 1216.1_CD kN_NN and_CC the_DT second_JJ 1216.9_CD kN_NNS ._SENT 
+The_DT difference_NN is_VBZ negligible_JJ because_IN the_DT contributions_NNS of_IN polymeric_JJ layer_NN on_IN the_DT axial_JJ stiffness_NN is_VBZ much_RB smaller_JJR than_IN two_CD tensile_JJ armours_NNS ._SENT 
+Thus_RB ,_, all_DT 3D_JJ model_NN uses_VVZ isotropic_JJ property_NN of_IN elastic_JJ modulus_NN of_IN circumferential_JJ elastic_JJ modulus_NN ._SENT 
+<Section> 6._CD Ultimate_NP strength_NN assessment_NN </Section> The_DT purpose_NN of_IN this_DT paper_NN is_VBZ to_TO assess_VV the_DT ultimate_JJ strength_NN of_IN flexible_JJ pipe_NN using_VVG numerical_JJ methods_NNS ._SENT 
+In_IN Section_NP 3_CD ,_, 3D_VVG 8-layered_JJ and_CC 5-layered_JJ FE_NP models_NNS are_VBP introduced_VVN ,_, and_CC the_DT validity_NN of_IN these_DT models_NNS are_VBP proved_VVN by_IN performing_VVG elastic_JJ analysis_NN and_CC comparing_VVG the_DT results_NNS with_IN references_NNS in_IN Section_NP 5._CD Finally_RB ,_, in_IN this_DT section_NN ,_, ultimate_JJ strength_NN assessment_NN is_VBZ examined_VVN for_IN axial_JJ tensile_JJ and_CC compressive_JJ loads_NNS ._SENT 
+6.1_CD ._SENT 
+Ultimate_JJ tensile_JJ strength_NN analysis_NN At_IN first_JJ ,_, the_DT axial_JJ ultimate_JJ strength_NN is_VBZ assessed_VVN using_VVG the_DT 3D_JJ 8-layered_JJ shell_NN model_NN ._SENT 
+The_DT structural_JJ behavior_NN of_IN the_DT model_NN subjected_VVN to_TO incremental_JJ axial_JJ tension_NN is_VBZ observed_VVN ._SENT 
+The_DT axial_JJ stiffness_NN needs_VVZ to_TO be_VB determined_VVN carefully_RB because_IN large_JJ elongation_NN can_MD induce_VV the_DT interlocking_VVG of_IN carcass_NN and_CC drastic_JJ increase_NN of_IN axial_JJ stiffness_NN ._SENT 
+Fig_NN ._SENT 
+19_CD plots_NNS the_DT relationship_NN between_IN tension_NN and_CC elongation_NN in_IN the_DT FE_NP model_NN of_IN the_DT carcass_NN for_IN the_DT single_JJ layer_NN ._SENT 
+It_PP indicates_VVZ that_IN interlocking_VVG occurs_VVZ at_IN approximately_RB 4_CD %_NN of_IN longitudinal_JJ elongation_NN ._SENT 
+Whereas_IN before_RB interlocking_VVG ,_, the_DT carcass_NN has_VHZ very_RB low_JJ axial_JJ stiffness_NN ,_, after_IN interlocking_VVG it_PP is_VBZ increased_VVN drastically_RB ._SENT 
+The_DT equivalent_JJ axial_JJ stiffness_NN of_IN carcass_NN is_VBZ calculated_VVN much_RB smaller_JJR than_IN circumferential_JJ stiffness_NN ._SENT 
+The_DT relationship_NN between_IN tension_NN and_CC elongation_NN for_IN the_DT ultimate-tensile_JJ strength_NN is_VBZ plotted_VVN in_IN Fig_NN ._SENT 
+20._CD Since_IN the_DT entire_JJ failure_NN of_IN flexible_JJ pipe_NN occurs_VVZ at_IN about_RB 1.8_CD %_NN of_IN elongation_NN as_IN shown_VVN in_IN Fig_NN ._SENT 
+23_CD ,_, the_DT assumption_NN of_IN low_JJ stiffness_NN is_VBZ valid_JJ in_IN the_DT tensile_JJ ultimate_JJ strength_NN analysis_NN ._SENT 
+Fig_NN ._SENT 
+19._CD Axial_JJ force_NN vs._IN axial_JJ deformation_NN for_IN carcass_NN ._SENT 
+Fig_NN ._SENT 
+20._CD Axial_JJ force_NN vs._IN axial_JJ deformation_NN for_IN the_DT entire_JJ model_NN ._SENT 
+To_TO begin_VV with_IN ,_, the_DT elongation_NN is_VBZ increased_VVN linearly_RB according_VVG to_TO the_DT tension_NN ,_, and_CC at_IN point_NN A_NP ,_, the_DT inner_JJ tensile_JJ armour_NN layer_NN changes_NNS from_IN elastic_NN to_TO plastic_JJ region_NN at_IN nearly_RB the_DT same_JJ time_NN ._SENT 
+Thus_RB ,_, the_DT axial_JJ stiffness_NN is_VBZ reduced_VVN as_IN it_PP passes_VVZ point_NN A._NP At_IN point_NN B_NP ,_, the_DT outer_JJ tensile_JJ armour_NN layers_NNS also_RB are_VBP shifted_VVN from_IN the_DT elastic_JJ region_NN into_IN the_DT plastic_NN ;_: thus_RB ,_, both_DT tensile_JJ armour_NN layers_NNS become_VVP plastic_NN from_IN B_NP to_TO C._NP Finally_RB ,_, rupture_NN failure_NN initiates_VVZ in_IN the_DT inner_JJ tensile_JJ armour_NN layers_NNS as_IN the_DT axial_JJ stress_NN reaches_VVZ the_DT ultimate_JJ tensile_JJ strength_NN of_IN the_DT material_NN ,_, as_RB represented_VVN in_IN Fig_NN ._SENT 
+21._CD Fig_NN ._SENT 
+21_CD shows_NNS the_DT stress_NN distributions_NNS of_IN the_DT metal_NN layers_NNS at_IN the_DT point_NN C._NP The_DT largest_JJS stress_NN occurs_VVZ nearby_RB the_DT end_NN the_DT tensile_JJ load_NN is_VBZ applied_VVN ,_, however_RB ,_, the_DT difference_NN between_IN the_DT maximum_JJ stress_NN and_CC the_DT stress_NN at_IN the_DT middle_NN is_VBZ just_RB about_RB 1_CD %_NN ._SENT 
+It_PP may_MD be_VB due_JJ to_TO a_DT numerical_JJ reason_NN rather_RB than_IN a_DT boundary_NN effect_NN difference_NN ._SENT 
+Outer_JJ tensile_JJ armours_NNS goes_VVZ beyond_IN the_DT yield_NN stress_NN and_CC the_DT other_JJ pressure_NN resisting_VVG layers_NNS remain_VVP within_IN elastic_JJ limit_NN ._SENT 
+Fig_NN ._SENT 
+21._CD Stress_NN distributions_NNS of_IN each_DT layer_NN at_IN ultimate_JJ tensile_JJ strength_NN (_( MPa_NP )_) ._SENT 
+The_DT reason_NN for_IN the_DT difference_NN between_IN the_DT two_CD tensile_JJ armour_NN layers_NNS is_VBZ as_RB follows_VVZ ._SENT 
+The_DT elongations_NNS of_IN both_DT armours_NNS are_VBP the_DT same_JJ ,_, and_CC ,_, since_IN the_DT rotation_NN is_VBZ fixed_VVN ,_, the_DT torsional_JJ angle_NN is_VBZ zero_CD ._SENT 
+The_DT only_JJ remaining_VVG variable_NN related_VVN to_TO the_DT strain_NN defined_VVN in_IN Eq_NP ._SENT 
+(_( 15_CD )_) is_VBZ the_DT relative_JJ radial_JJ displacement_NN (_( Δr/R_NP )_) ._SENT 
+The_DT radially_RB deformable_JJ layers_NNS ,_, which_WDT generally_RB are_VBP composed_VVN of_IN polymeric_JJ materials_NNS ,_, are_VBP the_DT pressure_NN sheath_NN ,_, the_DT anti-friction_NN layers_NNS ,_, and_CC the_DT outer_JJ sheath_NN ._SENT 
+The_DT pressure_NN armour_NN (_( zeta_NN layer_NN )_) has_VHZ strong_JJ stiffness_NN with_IN respect_NN to_TO pressure_NN ,_, and_CC so_RB the_DT radial_JJ deformation_NN is_VBZ relatively_RB small_JJ ._SENT 
+The_DT number_NN of_IN synthetic_JJ layers_NNS in_IN the_DT outer_JJ tensile_JJ armour_NN layer_NN is_VBZ two_CD ,_, while_IN the_DT inner_JJ tensile_JJ armour_NN layer_NN has_VHZ only_RB one_CD plastic_NN layer_NN ._SENT 
+Accordingly_RB ,_, the_DT radial_JJ deformation_NN of_IN the_DT inner_JJ tensile_JJ armour_NN layer_NN is_VBZ smaller_JJR than_IN that_DT of_IN the_DT outer_JJ tensile_JJ armour_NN layer_NN ,_, as_RB illustrated_VVN in_IN Fig_NN ._SENT 
+22(a_NP )_) ._SENT 
+The_DT typical_JJ axial_JJ stress_NN distribution_NN ,_, plotted_VVD in_IN Fig_NN ._SENT 
+22(b_NP )_) ,_, confirms_VVZ that_IN the_DT inner_JJ tensile_JJ armour_NN layer_NN is_VBZ critical_JJ to_TO the_DT tensile_JJ strength_NN of_IN the_DT flexible_JJ pipe_NN ._SENT 
+Fig_NN ._SENT 
+22._CD Typical_JJ structural_JJ responses_NNS of_IN tensile_JJ armour_NN layers_NNS under_IN 500_CD kN_NN of_IN tension_NN :_: (_( a_DT )_) radial_JJ deformation_NN (_( mm_NP )_) (_( b_LS )_) axial_JJ stress_NN (_( MPa_NP )_) ._SENT 
+Fig_NN ._SENT 
+23_CD ,_, Fig_NN ._SENT 
+24_CD each_DT compare_VVP the_DT numerical_JJ with_IN the_DT analytical_JJ data_NNS ,_, in_IN the_DT former_JJ case_NN for_IN the_DT relationship_NN between_IN tension_NN and_CC elongation_NN ,_, and_CC in_IN the_DT latter_JJ case_NN for_IN the_DT relationship_NN between_IN axial_JJ stress_NN and_CC elongation_NN ._SENT 
+As_IN shown_VVN in_IN the_DT figures_NNS ,_, both_CC methods_NNS show_VVP good_JJ agreement_NN with_IN respect_NN to_TO ultimate_JJ strength_NN and_CC axial_JJ stress_NN in_IN the_DT tensile_JJ armour_NN layers_NNS ._SENT 
+Fig_NN ._SENT 
+23._CD Axial_JJ force_NN vs._IN axial_JJ deformation_NN by_IN analytical/numerical_JJ methods_NNS ._SENT 
+Fig_NN ._SENT 
+24._CD Axial_JJ stress_NN vs._IN axial_JJ deformation_NN by_IN analytical/numerical_JJ methods_NNS ._SENT 
+Furthermore_RB ,_, the_DT effect_NN of_IN ovalization_NN on_IN the_DT ultimate_JJ tensile_JJ strength_NN is_VBZ not_RB significant_JJ ,_, as_RB identified_VVN in_IN Fig_NN ._SENT 
+25._CD This_NP means_VVZ the_DT tensile_JJ elongation_NN is_VBZ nearly_RB independent_JJ of_IN the_DT radial_JJ deformation_NN ._SENT 
+Fig_NN ._SENT 
+25._CD Ultimate_NP tensile_JJ strength_NN with_IN respect_NN to_TO ovalization_NN ._SENT 
+6.2_CD ._SENT 
+Ultimate_JJ compressive_JJ strength_NN When_WRB the_DT strength_NN of_IN anti-buckling_VVG tape_NN (_( outer_JJ sheath_NN here_RB )_) or_CC the_DT external_JJ pressure_NN is_VBZ sufficiently_RB large_JJ to_TO suppress_VV the_DT radial_JJ expansion_NN of_IN flexible_JJ pipe_NN ,_, the_DT outer_JJ tensile_JJ armours_NNS slide_NN in_IN the_DT lateral_JJ direction_NN ,_, that_WDT is_VBZ ,_, a_DT lateral_NN buckling_VVG of_IN tensile_JJ armour_NN tendons_NNS happens_VVZ ._SENT 
+The_DT lateral_JJ buckling_VVG strength_NN becomes_VVZ larger_JJR as_IN the_DT bending_VVG curvature_NN of_IN pipe_NN and_CC the_DT friction_NN coefficient_NN increase_NN ._SENT 
+In_IN case_NN of_IN a_DT longer_JJR FE_NP model_NN (_( 3-pitch_NN length_NN or_CC longer_RBR )_) ,_, the_DT bending_VVG of_IN flexible_JJ pipe_NN is_VBZ more_RBR likely_JJ to_TO occur_VV than_IN a_DT shorter_JJR model_NN ._SENT 
+The_DT bending_VVG may_MD induce_VV lateral_JJ buckling_VVG earlier_RBR than_IN radial_JJ buckling_VVG depending_VVG on_IN the_DT friction_NN coefficient_NN ._SENT 
+Here_RB ,_, the_DT outer_JJ sheath_NN of_IN this_DT paper_NN has_VHZ much_RB lower_JJR tensile_JJ strength_NN (_( 36_CD MPa_NN )_) than_IN anti-buckling_VVG tape_NN in_IN Ref_NN ._SENT 
+[_SYM 21_CD ]_SYM and_CC the_DT applied_VVN external_JJ pressure_NN is_VBZ also_RB not_RB so_RB high_JJ ,_, therefore_RB ,_, a_DT radial_JJ buckling_VVG can_MD happen_VV at_IN lower_JJR axial_JJ compression_NN than_IN the_DT lateral_NN buckling_VVG ._SENT 
+For_IN an_DT investigation_NN of_IN lateral_JJ buckling_VVG ,_, normally_RB one_CD wire_NN model_NN has_VHZ been_VBN normally_RB used_VVN and_CC the_DT interaction_NN between_IN tendons_NNS needs_VVZ to_TO be_VB taken_VVN into_IN account_NN carefully_RB ._SENT 
+Therefore_RB ,_, this_DT manuscript_NN focuses_VVZ on_IN only_RB the_DT radial_NN buckling_VVG and_CC leaves_VVZ the_DT lateral_NN buckling_VVG as_IN a_DT further_JJR study_NN ._SENT 
+For_IN ultimate_JJ compressive_JJ strength_NN analysis_NN ,_, 3D_VVG 5-layered_JJ model_NN is_VBZ used_VVN ._SENT 
+Fig_NN ._SENT 
+26_CD shows_NNS the_DT shortening_NN ratio_NN vs_NP axial_JJ compression_NN curve_NN ._SENT 
+When_WRB the_DT load_NN is_VBZ low_JJ ,_, a_DT curve_NN is_VBZ almost_RB linear_JJ ._SENT 
+However_RB ,_, after_IN a_DT specific_JJ point_NN A_NP ,_, shortening_NN increases_NNS rapidly_RB ._SENT 
+From_IN this_DT point_NN ,_, the_DT entire_JJ model_NN loses_VVZ the_DT resistance_NN against_IN axial_JJ compression_NN ._SENT 
+Fig_NN ._SENT 
+26._CD Axial_JJ compression_NN vs_NP shortening_NN ratio_NN for_IN the_DT 3D_JJ 5-layered_JJ model_NN (_( 0.1_CD MPa_NN of_IN external_JJ pressure_NN )_) ._SENT 
+Fig_NN ._SENT 
+28_CD plots_NNS radial_JJ deformation_NN and_CC stress_NN in_IN terms_NNS of_IN axial_JJ compression_NN for_IN each_DT of_IN outer_JJ 4_CD layers_NNS ._SENT 
+The_DT external_JJ pressure_NN is_VBZ 0.1_CD MPa_NN ._SENT 
+In_IN the_DT above_JJ diagram_NN (_( radial_JJ deformation_NN vs_NP axial_JJ compression_NN )_) ,_, it_PP can_MD be_VB found_VVN that_IN each_DT of_IN two_CD tensile_JJ armour_NN layers_NNS and_CC a_DT polymeric_JJ layer_NN wrapping_VVG the_DT armour_NN layer_NN behaves_VVZ in_IN pairs_NNS ._SENT 
+When_WRB the_DT model_NN is_VBZ subject_JJ to_TO axial_JJ compression_NN ,_, the_DT central_JJ part_NN of_IN the_DT tensile_JJ armour_NN layers_NNS expands_VVZ radially_RB ._SENT 
+Although_IN the_DT wrapping_VVG polymeric_JJ layers_NNS delay_VVP this_DT movement_NN ,_, the_DT radial_JJ expansion_NN of_IN tensile_JJ armour_NN layers_NNS happens_VVZ suddenly_RB as_RB soon_RB as_IN the_DT polymeric_JJ layers_NNS reach_VVP their_PP$ ultimate_JJ strength_NN ._SENT 
+From_IN this_DT ,_, the_DT failure_NN of_IN polymeric_JJ layers_NNS is_VBZ seen_VVN to_TO be_VB caused_VVN by_IN the_DT radial_NN buckling_VVG of_IN tensile_JJ armour_NN layers_NNS ._SENT 
+From_IN 0_CD to_TO A_NP ,_, all_DT of_IN the_DT layers_NNS undergo_VVP the_DT same_JJ radial_JJ deformations_NNS under_IN compression_NN ._SENT 
+In_IN this_DT range_NN ,_, the_DT stresses_NNS in_IN all_DT of_IN the_DT layers_NNS are_VBP within_IN the_DT elastic_JJ region_NN ,_, and_CC there_EX is_VBZ no_DT inter-layer_NN gap_NN ._SENT 
+However_RB ,_, at_IN point_NN A_NP ,_, the_DT outer_JJ sheath_NN arrives_VVZ at_IN its_PP$ yield_NN strength_NN (_( 30_CD MPa_NN )_) first_JJ and_CC it_PP loses_VVZ its_PP$ stiffness_NN a_DT lot_NN ._SENT 
+Thus_RB ,_, the_DT resistance_NN for_IN the_DT radial_JJ expansion_NN of_IN the_DT outer_JJ tensile_JJ armour_NN layer_NN decreases_NNS and_CC the_DT outer_JJ tensile_JJ armour_NN layer_NN begins_VVZ to_TO swell_VV rapidly_RB ._SENT 
+And_CC so_RB ,_, from_IN point_NN A_NP to_TO B_NP ,_, the_DT radial_JJ expansion_NN of_IN the_DT outer_JJ sheath_NN and_CC outer_JJ tensile_JJ armour_NN layer_NN increases_VVZ rapidly_RB together_RB ._SENT 
+In_IN this_DT region_NN ,_, a_DT gap_NN occurs_VVZ between_IN the_DT outer_JJ anti-friction_NN layer_NN and_CC outer_JJ tensile_JJ armour_NN layer_NN ._SENT 
+At_IN points_NNS B_NP and_CC C_NP ,_, the_DT anti-friction_NN layer_NN arrives_VVZ at_IN its_PP$ yield_NN strength_NN (_( 20_CD MPa_NN )_) and_CC ultimate_JJ strength_NN (_( 25_CD MPa_NNS )_) respectively_RB ,_, and_CC the_DT central_JJ part_NN swells_VVZ more_RBR rapidly_RB ._SENT 
+Finally_RB ,_, as_IN the_DT outer_JJ sheath_NN arrives_VVZ at_IN its_PP$ ultimate_JJ strength_NN (_( 36_CD MPa_NP )_) (_( point_NN D_NP )_) ,_, the_DT entire_JJ model_NN is_VBZ unable_JJ to_TO withstand_VV compression_NN any_DT more_JJR ,_, and_CC undergoes_VVZ rapid_JJ shortening_NN ._SENT 
+The_DT compressive_JJ force_NN at_IN point_NN D_NP corresponds_VVZ to_TO the_DT ultimate_JJ compressive_JJ strength_NN of_IN the_DT entire_JJ flexible_JJ pipe_NN ._SENT 
+As_IN indicated_VVN in_IN Fig_NN ._SENT 
+27_CD ,_, there_EX is_VBZ no_DT gap_NN in_IN the_DT initial_JJ state_NN ,_, but_CC after_IN point_NN A_NP ,_, a_DT gap_NN occurs_VVZ between_IN the_DT outer_JJ tensile_JJ armour_NN layer_NN and_CC the_DT outer_JJ anti-friction_NN layer_NN ,_, and_CC becomes_VVZ larger_JJR as_IN compression_NN increases_NNS ._SENT 
+By_IN point_NN D_NP ,_, there_EX is_VBZ a_DT quite_RB large_JJ gap_NN between_IN the_DT layers_NNS ._SENT 
+The_DT deformed_VVN shapes_NNS of_IN tensile_JJ armours_NNS layers_NNS and_CC von-Mises_NNS stress_VVP distribution_NN on_IN the_DT outer_JJ sheath_NN at_IN the_DT point_NN D_NP ,_, the_DT birdcage-shaped-failure_NN ,_, are_VBP depicted_VVN in_IN Fig_NN ._SENT 
+29_CD (_( a_DT )_) and_CC (_( b_LS )_) ._SENT 
+Fig_NN ._SENT 
+27._CD Gap_NP between_IN outer_JJ tensile_JJ armour_NN layers_NNS and_CC outer_JJ anti-friction_NN layer_NN ._SENT 
+Fig_NN ._SENT 
+28._CD Radial_JJ deformation_NN (_( upper_JJ )_) and_CC max_NP ._SENT 
+equivalent_JJ stress_NN (_( lower_VV )_) with_IN respect_NN to_TO axial_JJ compression_NN for_IN 2-pitch_NN model_NN ._SENT 
+Fig_NN ._SENT 
+29._CD At_IN the_DT birdcage-shaped-failure_NN ,_, (_( a_DT )_) radial_JJ deformation_NN of_IN the_DT outer_JJ tensile_JJ armour_NN layer_NN (_( b_LS )_) von-Mises_VVZ stress_NN on_IN outer_JJ sheath_NN ._SENT 
+Additional_JJ investigation_NN on_IN the_DT effect_NN of_IN external_JJ pressures_NNS on_IN the_DT compressive_JJ ultimate_JJ strength_NN is_VBZ made_VVN ._SENT 
+Fig_NN ._SENT 
+30_CD represents_VVZ the_DT radial_JJ deformation_NN of_IN two_CD tensile_JJ armour_NN layers_NNS under_IN various_JJ external_JJ pressures_NNS (_( i.e._FW 0.1_CD MPa_NP ,_, 0.15_CD MPa_NP ,_, 0.20_CD MPa_NN )_) ._SENT 
+It_PP can_MD be_VB seen_VVN that_IN the_DT higher_JJR the_DT external_JJ pressure_NN is_VBZ ,_, the_DT higher_JJR the_DT ultimate_JJ compressive_JJ strength_NN is_VBZ likely_JJ to_TO be_VB ._SENT 
+This_DT is_VBZ owed_VVN to_TO the_DT fact_NN that_IN the_DT external_JJ pressure_NN and_CC compressive_JJ force_NN have_VHP the_DT opposite_JJ effects_NNS on_IN the_DT tensile_JJ armour_NN layers_NNS ._SENT 
+In_IN other_JJ words_NNS ,_, the_DT axial_JJ compressive_JJ force_NN causes_VVZ the_DT tensile_JJ armour_NN layers_NNS to_TO inflate_VV in_IN the_DT radial_JJ direction_NN ,_, whereas_IN the_DT external_JJ pressure_NN delays_NNS this_DT phenomenon_NN ._SENT 
+Therefore_RB ,_, it_PP can_MD be_VB concluded_VVN that_IN the_DT ultimate_JJ compressive_JJ strength_NN can_MD be_VB increased_VVN under_IN high_JJ external_JJ pressure_NN (_( see_VV Fig_NN ._SENT 
+31_CD )_) ._SENT 
+Fig_NN ._SENT 
+30._CD Radial_JJ deformation_NN of_IN tensile_JJ armour_NN layer_NN layers_NNS with_IN respect_NN to_TO axial_JJ compression_NN ._SENT 
+Fig_NN ._SENT 
+31._CD Max_NP ._SENT 
+equivalent_JJ stress_NN of_IN outer_JJ sheath_NN with_IN respect_NN to_TO axial_JJ compression_NN ._SENT 
+The_DT results_NNS of_IN Fig_NN ._SENT 
+30_CD can_MD be_VB compared_VVN with_IN the_DT analytical_JJ model_NN for_IN radial_JJ buckling_VVG proposed_VVN by_IN Sævik_NP ,_, S._NP and_CC Thorsen_NP [_SYM 21_CD ]_SYM ._SENT 
+The_DT critical_JJ load_NN is_VBZ calculated_VVN using_VVG energy_NN principles_NNS and_CC an_DT assumed_JJ buckling_VVG shape_NN ._SENT 
+The_DT formula_NN was_VBD proposed_VVN for_IN the_DT elastic_JJ buckling_VVG mode_NN without_IN a_DT failure_NN of_IN anti-buckling_VVG tape_NN ._SENT 
+Here_RB ,_, the_DT internal_JJ potential_JJ energy_NN consists_VVZ of_IN contributions_NNS from_IN bending_VVG of_IN the_DT tensile_JJ armour_NN and_CC the_DT straining_VVG of_IN the_DT outer_JJ sheath_NN instead_RB of_IN the_DT anti-buckling_JJ tape_NN ._SENT 
+The_DT bending_VVG of_IN outer_JJ sheath_NN can_MD be_VB neglected_VVN since_IN its_PP$ small_JJ thickness_NN leads_VVZ to_TO negligible_JJ bending_VVG stiffness_NN ._SENT 
+@_SYM here_RB ,_, I_PP :_: the_DT moment_NN of_IN inertia_NN about_IN the_DT circumferential_JJ axis_NN of_IN a_DT helical_JJ tendon_NN l_NN :_: one-pitch_NN length_NN m_NN :_: the_DT number_NN of_IN half_JJ waves_NNS (_( Q1_NN becomes_VVZ minimum_JJ when_WRB m_NN =_SYM 1_CD here_RB )_) Eta_NN :_: the_DT elastic_JJ modulus_NN of_IN tensile_JJ armour_NN Eos_NNS :_: the_DT elastic_JJ modulus_NN of_IN outer_JJ sheath_NN t_NN :_: thickness_NN of_IN outer_JJ sheath_NN R_NN :_: the_DT radius_NN of_IN outer_JJ sheath_NN α_NN :_: the_DT laying_VVG angle_NN of_IN tensile_JJ armour_NN (_( =35°_NP )_) The_DT calculated_JJ elastic_NN buckling_VVG strength_NN is_VBZ 34.5_CD kN_NN and_CC it_PP is_VBZ regarded_VVN that_IN the_DT point_NN A_DT in_IN Fig_NN ._SENT 
+28_CD (_( 34.0_CD kN_NN with_IN 0.1_CD MPa_NN of_IN external_JJ pressure_NN )_) corresponds_VVZ to_TO the_DT elastic_JJ buckling_VVG point_NN ._SENT 
+The_DT contributions_NNS of_IN bending_VVG of_IN tensile_JJ armour_NN layers_NNS and_CC the_DT straining_VVG of_IN the_DT outer_JJ sheath_NN are_VBP 19.6_CD kN_NN and_CC 14.9_CD kN_NNS ,_, respectively_RB ._SENT 
+Since_IN the_DT outer_JJ sheath_NN remains_VVZ elastic_JJ range_NN until_IN the_DT point_NN A_NP ,_, the_DT assumption_NN of_IN the_DT above_JJ formula_NN that_IN outer_JJ sheath_NN does_VVZ n't_RB fail_VV until_IN the_DT elastic_JJ radial_NN buckling_VVG is_VBZ consistent_JJ with_IN the_DT result_NN ._SENT 
+In_IN the_DT early_JJ stage_NN of_IN the_DT incremental_JJ loads_NNS ,_, the_DT radial_JJ expansion_NN is_VBZ restrained_VVN by_IN the_DT outer_JJ sheath_NN ._SENT 
+When_WRB the_DT load_NN reaches_VVZ the_DT critical_JJ radial_NN buckling_VVG strength_NN ,_, a_DT large_JJ radial_JJ expansion_NN happens_VVZ and_CC the_DT outer_JJ sheath_NN experiences_VVZ large_JJ contact_NN pressure_NN induced_VVN by_IN the_DT large_JJ radical_JJ expansion_NN of_IN tensile_JJ armour_NN layer_NN ._SENT 
+Then_RB ,_, the_DT outer_JJ sheath_NN yields_NNS but_CC it_PP can_MD resist_VV further_JJR until_IN its_PP$ tensile_JJ strength_NN ._SENT 
+Finally_RB ,_, when_WRB the_DT outer_JJ sheath_NN arrive_VV at_IN it_PP tensile_JJ strength_NN ,_, the_DT flexible_JJ pipe_NN cannot_MD endure_VV the_DT axial_JJ force_NN any_DT longer_RBR and_CC the_DT analysis_NN stops_VVZ ._SENT 
+Conclusively_RB ,_, the_DT failure_NN of_IN outer_JJ sheath_NN is_VBZ caused_VVN by_IN the_DT radial_NN buckling_VVG of_IN tensile_JJ armour_NN layers_NNS and_CC this_DT is_VBZ identified_VVN from_IN the_DT finding_NN that_IN the_DT radial_JJ expansion_NN curve_NN of_IN outer_JJ sheath_NN matches_VVZ with_IN that_DT of_IN the_DT outer_JJ tensile_JJ armour_NN layer_NN in_IN Fig_NN ._SENT 
+28._CD <Section> 7._CD Conclusions_NNS </Section> This_DT paper_NN proposes_VVZ practical_JJ numerical_JJ methods_NNS for_IN ultimate_JJ strength_NN assessment_NN of_IN flexible_JJ pipe_NN based_VVN on_IN reasonable_JJ assumptions_NNS ._SENT 
+Three_CD types_NNS of_IN FE_NP models_NNS are_VBP introduced_VVN to_TO investigate_VV failure_NN mechanism_NN and_CC elastic_JJ stiffness_NN ._SENT 
+A_DT 2D_JJ plane-strain_NP FE_NP model_NN is_VBZ used_VVN for_IN the_DT hoop-directional_JJ elastic_JJ modulus_NN of_IN equivalent_JJ pressure_NN layer_NN ._SENT 
+A_DT 3D_NN 8-layered_VVN FE_NP model_NN including_VVG all_DT layers_NNS is_VBZ introduced_VVN for_IN a_DT calculation_NN of_IN ultimate_JJ tensile_JJ strength_NN ._SENT 
+Beam_NP elements_NNS are_VBP used_VVN for_IN the_DT tensile_JJ armour_NN layers_NNS ,_, and_CC shell_NN elements_NNS for_IN the_DT other_JJ layers_NNS ._SENT 
+The_DT carcass_NN and_CC pressure_NN armour_NN are_VBP modeled_VVN ,_, respectively_RB ,_, using_VVG the_DT equivalent_JJ orthotropic_JJ properties_NNS ._SENT 
+This_DT approach_NN is_VBZ verified_VVN in_IN an_DT investigation_NN of_IN the_DT interlocking_VVG phenomenon_NN of_IN the_DT carcass_NN ,_, using_VVG a_DT single-layer_NN 3D_JJ FE_NP model_NN to_TO realize_VV the_DT complex_JJ geometry_NN ._SENT 
+When_WRB the_DT model_NN is_VBZ subjected_VVN to_TO incremental_JJ axial_JJ tension_NN ,_, the_DT overall_JJ stiffness_NN decreases_NNS due_JJ to_TO progressive_JJ failure_NN of_IN tensile_JJ armour_NN layers_NNS ._SENT 
+The_DT inner_JJ tensile_JJ armour_NN yields_NNS first_JJ and_CC the_DT outer_JJ tensile_JJ armour_NN layer_NN follows_VVZ ._SENT 
+When_WRB the_DT stress_NN of_IN the_DT inner_JJ tensile_JJ armour_NN reaches_VVZ its_PP$ tensile_JJ strength_NN ,_, the_DT flexible_JJ pipe_NN finally_RB fails_VVZ ._SENT 
+In_IN the_DT case_NN of_IN ultimate-compressive-strength_JJ analysis_NN ,_, the_DT entire_JJ model_NN including_VVG all_DT layers_NNS is_VBZ hard_JJ to_TO converge_VV due_JJ to_TO its_PP$ high_JJ non-linearity_NN ._SENT 
+In_IN order_NN to_TO simplify_VV the_DT complicated_JJ interactions_NNS between_IN layers_NNS ,_, the_DT inner_JJ 4_CD layers_NNS (_( carcass_NN ,_, pressure_NN sheath_NN ,_, pressure_NN armour_NN ,_, and_CC inner_JJ anti-friction_NN tape_NN )_) are_VBP replaced_VVN with_IN an_DT equivalent_JJ layer_NN ._SENT 
+Using_VVG 4-layered_JJ 2D_NNS and_CC 3D_JJ FE_NP models_NNS are_VBP employed_VVN to_TO find_VV out_RP axial_JJ and_CC circumferential_JJ elastic_JJ moduli_NNS ._SENT 
+The_DT 5-layered_JJ models_NNS are_VBP validated_VVN by_IN comparing_VVG its_PP$ axial_JJ stiffness_NN with_IN those_DT of_IN 3D_NNS 8-layered_JJ FE_NP model_NN and_CC analytical_JJ models_NNS ._SENT 
+When_WRB the_DT model_NN is_VBZ subject_JJ to_TO extreme_JJ compressive_JJ strength_NN ,_, tensile_JJ armour_NN layers_NNS begin_VVP to_TO expand_VV radially_RB ,_, and_CC the_DT wrapping_VVG outer_JJ sheath_NN delays_NNS this_DT expansion_NN ._SENT 
+However_RB ,_, when_WRB the_DT stresses_NNS of_IN outer_JJ sheath_NN reaches_VVZ its_PP$ yield_NN strength_NN ,_, elastic_JJ buckling_VVG of_IN the_DT tensile_JJ armour_NN layers_NNS follows_VVZ the_DT failure_NN ._SENT 
+After_IN the_DT outer_JJ sheath_NN arrives_VVZ at_IN their_PP$ ultimate_JJ strengths_NNS ,_, it_PP cannot_MD resist_VV the_DT radial_JJ expansion_NN of_IN the_DT tensile_JJ armour_NN layers_NNS ._SENT 
+Consequently_RB ,_, the_DT central_JJ component_NN of_IN the_DT overall_JJ model_NN swells_NNS rapidly_RB ._SENT 
+Whereas_IN ovalization_NN effects_NNS different_JJ sensitivities_NNS of_IN radial_JJ deformation_NN to_TO compression_NN ,_, it_PP is_VBZ negligible_JJ with_IN respect_NN to_TO ultimate_JJ compressive_JJ strength_NN ._SENT 
+<Section> Acknowledgements_NNS </Section> This_DT work_NN was_VBD supported_VVN by_IN the_DT Technology_NP Innovation_NN Program_NN (_( 10062271_CD )_) ,_, “Development_NN of_IN Structural_JJ Integrity_NN Assessment_NP Technology_NP for_IN Flexible_NP Riser_NP of_IN over_IN 7-inch_JJ internal_JJ diameter_NN at_IN water_NN depth_NN of_IN 1500_CD m”_NN funded_VVN by_IN the_DT Ministry_NP of_IN Trade_NP ,_, Industry_NP and_CC Energy_NP ,_, Korea_NP ._SENT 
+<Section> References_NNS </Section> [_SYM 1_CD ]_SYM J.J._NP Feret_NP ,_, C.L._NP Bournazel_NP Calculation_NN of_IN stresses_NNS and_CC slip_VV in_IN structural_JJ layers_NNS of_IN unbonded_JJ flexible_JJ pipes_NNS J_NP Offshore_NP Mech_NP Artic_NN Eng_NP ,_, 109_CD (_( 1987_CD )_) ,_, pp_NP ._SENT 
+263-269_CD [_SYM 2_CD ]_SYM J.F._NP McNamara_NP ,_, A.M._NN Harte_NP Three-dimensional_JJ analytical_JJ simulation_NN of_IN flexible_JJ pipe_NN wall_NN structure_NN J_NP Offshore_NP Mech_NP Artic_NN Eng_NP ,_, 114_CD (_( 1992_CD )_) ,_, pp_NP ._SENT 
+69-75_CD [_SYM 3_CD ]_SYM E._NP Kebadze_NNS Theoretical_JJ modelling_VVG of_IN unbonded_JJ flexible_JJ pipe_NN cross-sections_NNS Degree_NP of_IN Doctor_NP of_IN Philosophy_NN South_NP Bank_NP University_NP ,_, UK_NP (_( 2000_CD )_) [_SYM 4_CD ]_SYM A._NP Bahtui_NP ,_, H._NP Bahai_JJ ,_, G._NP Alfano_NP Numerical_JJ and_CC analytical_JJ modeling_NN of_IN unbonded_JJ flexible_JJ risers_NNS J_NP Offshore_NP Mech_NP Artic_NN Eng_NP ,_, 131_CD (_( 2009_CD )_) ,_, p._NP 021401_CD [_SYM 5_CD ]_SYM S._NP Sævik_NP Theoretical_JJ and_CC experimental_JJ studies_NNS of_IN stresses_NNS in_IN flexible_JJ pipes_NNS Comput_NN Struct_NN ,_, 89_CD (_( 2011_CD )_) ,_, pp_NP ._SENT 
+2273-2291_CD [_SYM 6_CD ]_SYM A.M._RB Harte_NP ,_, J.F._NP McNamara_NP Modeling_NN procedures_NNS for_IN the_DT stress_NN analysis_NN of_IN flexible_JJ pipe_NN cross_NN sections_NNS J_NP Offshore_NP Mech_NP Artic_NN Eng_NP ,_, 115_CD (_( 1993_CD )_) ,_, pp_NP ._SENT 
+46-51_CD [_SYM 7_CD ]_SYM A.G._NP Neto_NP ,_, C.A._NP Martins_NPS A_DT comparative_JJ wet_JJ collapse_NN buckling_VVG study_NN for_IN the_DT carcass_NN layer_NN of_IN flexible_JJ pipes_NNS J_NP Offshore_NP Mech_NP Artic_NN Eng_NP ,_, 134_CD (_( 2012_CD )_) ,_, p._NP 031701_CD [_SYM 8_CD ]_SYM A.G._NP Neto_NP ,_, C.A._NP Martins_NP ,_, C.P._NP Pesce_NP ,_, C.O.C._NP Meirelles_NP ,_, E.R._NP Malta_NP ,_, T.F.B._NP Neto_NP ,_, et_NP al_NP ._SENT 
+Prediction_NN of_IN burst_NN in_IN flexible_JJ pipes_NNS J_NP Offshore_NP Mech_NP Artic_NN Eng_NP ,_, 135_CD (_( 2013_CD )_) ,_, p._NP 011401_CD [_SYM 9_CD ]_SYM S.F._NP Ren_NP ,_, W.Y._NP Tang_NP ,_, J.T._NP Guo_NP Behavior_NN of_IN unbonded_JJ flexible_JJ risers_NNS subject_JJ to_TO axial_JJ tension_NN China_NP Ocean_NP Eng_NP ,_, 28_CD (_( 2_LS )_) (_( 2013_CD )_) ,_, pp_NP ._SENT 
+249-258_CD [_SYM 10_CD ]_SYM J.R.M._NP Sousa_NP Local_JJ analysis_NN of_IN flexible_JJ risers_NNS through_IN the_DT finite_JJ element_NN method_NN D.Sc_NN ._SENT 
+Thesis_NN COPPE/UFRJ_NP (_( 2005_CD )_) [_SYM 11_CD ]_SYM J.R.M._NP Sousa_NP ,_, A.N._NP Pinho_NP ,_, G.B._NP Ellwanger_NP ,_, E.C.P._NP Lima_NP Numerical_JJ analysis_NN of_IN a_DT flexible_JJ pipe_NN with_IN damaged_JJ tensile_JJ armour_NN wires_NNS Proceedings_NNS of_IN the_DT ASME_NN 2009_CD 28th_JJ international_JJ conference_NN on_IN ocean_NN ,_, Offshore_NP and_CC Arctic_NP Engineering_NP ,_, OMAE_NP ,_, Honolulu_NP ,_, Hawaii_NP ,_, USA_NP (_( 2009_CD )_) [_SYM 12_CD ]_SYM J.R.M._NP Sousa_NP ,_, C._NP Magluta_NP ,_, N._NP Roitman_NP ,_, G.B._NP Ellwanger_NP ,_, E.C.P._NP Lima_NP On_IN the_DT response_NN of_IN flexible_JJ risers_NNS to_TO loads_NNS imposed_VVN by_IN hydraulic_JJ collars_NNS Appl_VVP Ocean_NP Res_NNS ,_, 31_CD (_( 2009_CD )_) ,_, pp_NP ._SENT 
+157-170_CD [_SYM 13_CD ]_SYM J.R.M._NP Sousa_NP ,_, P.F._NP Viero_NP ,_, C._NP Magluta_NP ,_, N._NP Roitman_NP An_DT experimental_JJ and_CC numerical_JJ study_NN on_IN the_DT axial_JJ compression_NN response_NN of_IN flexible_JJ pipes_NNS J_NP Offshore_NP Mech_NP Artic_NN Eng_NP ,_, 134_CD (_( 2012_CD )_) ,_, p._NP 031703_CD [_SYM 14_CD ]_SYM J.A._NP Witz_NP A_DT case_NN study_NN in_IN the_DT cross-section_NN analysis_NN of_IN flexible_JJ risers_NNS Mar_NP Struct_NN ,_, 9_CD (_( 1996_CD )_) ,_, pp_NP ._SENT 
+885-904_CD [_SYM 15_CD ]_SYM ANSYS_NP Mechanical_NP APDL_NP Documentation_NN ,_, R15.0_NP ._SENT 
+[_SYM 16_CD ]_SYM American_NP Petroleum_NP Institute_NP (_( API_NP )_) API_NP RP_NP 17B_NP ,_, recommended_VVD practice_NN for_IN flexible_JJ pipe_NN (_( third_JJ ed_NNS ._SENT 
+)_) (_( 2002_CD )_) [_SYM 17_CD ]_SYM S._NP Sævik_NP ,_, S._NP Berge_NP Fatigue_NN testing_NN and_CC theoretical_JJ studies_NNS of_IN two_CD 4_CD inch_NN flexible_JJ pipes_NNS Eng_NP Struct_NN ,_, 17_CD (_( 4_LS )_) (_( 1995_CD )_) ,_, pp_NP ._SENT 
+276-292_CD [_SYM 18_CD ]_SYM A.G._NP Neto_NP ,_, C.A._NP Martins_NP ,_, C.O.C._NP Malta_NP ,_, R.L._NP Tanaka_NP ,_, C.A.F._NP Godinho_NP Simplified_VVN finite_JJ element_NN models_NNS to_TO study_VV the_DT dry_JJ collapse_NN of_IN straight_JJ and_CC curved_VVN flexible_JJ pipes_NNS J_NP Offshore_NP Mech_NP Arct_NP Eng_NP ,_, 138_CD (_( 2_LS )_) (_( 2016_CD )_) [_SYM 19_CD ]_SYM A.G._NP Neto_NP ,_, C.A._NP Martins_NPS Flexible_JJ pipes_NNS :_: influence_NN of_IN the_DT pressure_NN armour_NN in_IN the_DT wet_JJ collapse_NN resistance_NN J_NP Offshore_NP Mech_NP Arct_NP Eng_NP ,_, 136_CD (_( 3_LS )_) (_( 2014_CD )_) ,_, p._NP 031401_CD [_SYM 20_CD ]_SYM A.G._NP Neto_NP ,_, C.A._NP Martins_NP ,_, E.R._NP Malta_NP ,_, C.A.F_NP Godinho_NP ,_, T.F.B._NP Neto_NP ,_, and_CC E.A._NP Lima_NP ._SENT 
+Wet_JJ and_CC dry_JJ collapse_NN of_IN straight_JJ and_CC curved_VVN flexible_JJ pipes_NNS :_: a_DT 3D_JJ FEM_NN modeling_NN ._SENT 
+In_RB :_: In_IN the_DT proceedings_NNS of_IN the_DT twenty-second_JJ international_JJ offshore_JJ and_CC polar_JJ engineering_NN conference_NN ._SENT 
+(_( Rhodes_NP ,_, Greece_NP )_) ;_: June_NP 17–22_NP ,_, 2012._CD [_SYM 21_CD ]_SYM S._NP Sævik_NP ,_, M.J._NP Thorsen_NP Techniques_NNS for_IN predicting_VVG tensile_JJ armour_NN buckling_VVG and_CC fatigue_NN in_IN deep_JJ water_NN flexible_JJ risers_NNS In_IN the_DT proceedings_NNS of_IN the_DT ASME_NN 2012_CD 31st_JJ international_JJ conference_NN on_IN ocean_NN ,_, Offshore_NP and_CC Arctic_NP Engineering_NP ,_, Rio_NP de_NP Janeiro_NP ,_, Brazil_NP (_( 2012_CD )_) July_NP 1–6_NP 

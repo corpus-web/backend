@@ -1,0 +1,245 @@
+<title>Reflector macroscopic cross-section data uncertainties effect on the nodal code full-core calculation</title>
+<author>1,PavelSuk,2,JanFrýbort</author>
+<Affiliation>1,Department of Nuclear Reactors, Faculty of Nuclear Science and Physical Engineering, Czech Technical University in Prague, V Holesovickach 2, 180 00 Prague 8, Czech Republic</Affiliation>
+<year>2020</year>
+<Jounral>Nuclear Engineering and Design</Journal>
+<Publishing_house>ELSEVIER</Publishing_house>
+<Text_Collector>XiaFan，HEU</Text_Collector>
+<DOI>10.1016/j.nucengdes.2020.110743</DOI>
+<URL>https://www.sciencedirect.com/science/article/pii/S0029549320302375</URL>
+Reflector macroscopic cross-section data uncertainties effect on the nodal code full-core calculation
+PavelSuk,JanFrýbort
+Department of Nuclear Reactors, Faculty of Nuclear Science and Physical Engineering, Czech Technical University in Prague, V Holesovickach 2, 180 00 Prague 8, Czech Republic
+<Section>Highlights</Section>
+Uncertainties are not reproduced to the nodal calculation directly.
+Dakota statistical code is used for uncertainties evaluation with connection to the Andrea macrocode.
+Andrea macrocode brings good integrity of the calculation in case of the reflector cross-section parameters change.
+Critical boron concentration is not changed of more than 0.15%.
+Fuel assembly power distribution is not changed of more than 0.8%.
+Pin power reconstruction is not changed of more than 1.65%.
+<Section>Abstract</Section>
+The nodal codes still represent the key computational part of the nuclear power plant operation analysis. The mathematical model in the codes is connected with physical interpretation via macroscopic cross-section libraries. These data are generated using lattice codes, where the exact geometry is simulated. The uncertainties of the microscopic cross-sections and other geometrical uncertainties are typically not transferred from the lattice codes into the macroscopic libraries. This analysis starts with existing macroscopic data for radial reactor core reflectors and anticipated uncertainties of these data and investigates sensitivity of the critical boron concentration as well as the power prediction in the core to variations of these data. The provided analysis showed strong stability of the results with the changing reflector cross-section characteristics. Even with the highest perturbations of the reflector data the critical boron concentration was not changed by more than 0.15 % and pin power was predicted with less than 1.65% difference. The effects were found to be largely localized.
+Keywords：VVER-1000;Cross-section;Andrea;Sensitivity analysis;Reflector;Nodal codes;Homogenization
+<Section>1. Introduction and main motivation</Section>
+Nuclear reactor calculations (simulations of characteristics and evolution of fuel assemblies inside the core) represents the very important part of the nuclear power plant (NPP) operation. These calculations are used in every stage of the NPP operation, but the most calculations are provided during the safety analysis report preparation and the fuel loading designing. Wide range of the calculations must be provided before the actual reactor core operation. These calculations consist of the:
+Neutronic calculations,
+thermal–hydraulic calculations,
+thermal-mechanic calculations,
+economic calculations.
+The central part of the calculations is the neutronic analysis, because its results affect the other calculations. Also the most requirements are also connected with the neutronic calculations. These include fission power distribution in the core, shutdown margin, optimal fuel enrichment, and efficient operation.
+Large batch of the calculations has to be provided by the NPP staff to ensure all these requirements. Every new fuel pattern except the very first fuel load is usually consisted of the used fuel assemblies. The nuclide inventory of the used fuel assemblies depends on the operational history of the previous load. The fuel history is ever evolving and it can change even in the very last period of the operation for various reasons like loss of fuel integrity. NPP staff need to prepare contingency plans for these circumstances so the calculations has to be very quick and flexible.
+There are accurate microcodes based on microscopic data for individual nuclides. The microcodes use either deterministic methods (CASL Vera (The Consortium for Advanced Simulation of Light Water Reactors, 2020), HELIOS (Wemple, 2011), SCALE (Rearden and Jessee, 2016)) or stochastic simulations (Serpent (Leppänen, 2015), SCALE/KENO (Rearden and Jessee, 2016)) to solve neutron transport in the simulated system. The disadvantage is high computational costs for full-core simulations as illustrated by benchmark calculations (Novak et al., 2017). Thus there is an alternative group of macrocodes based on simplified core geometry with coarser energy structure and nuclear data only for homogenized materials. The macrocodes are much faster, but still provide sufficient accuracy for NPP calculation.
+As mentioned above the macrocodes use simplified materials, energy structure, and model geometry. The energy structure is reduced into small number of energy groups, usually 2 groups for light water reactors (LWR) (Yoon and Joo, 2008, Singh et al., 2015) and at least 4 or more groups for fast reactors (SFR, FBR, etc.) (Lim et al., 2018, Nikitin et al., 2015). The exact geometry of the fuel assembly is replaced by the homogenized cell, which is described with the physical quantities from the macroscopic cross-section library. The homogenization process is illustrated in Fig. 3, where the geometry of fuel assemblies is replaced by homogenized materials. The homogenization is realized usually by the 2D deterministic microcodes (SCALE/TRITON, or HELIOS). The fuel assemblies are simulated in the infinite lattice, while the reflector parts are simulated in the conjunctions with the fuel assemblies. The procedure can be different for small and large reactor cores, see examples (Fejt and Frybort, 2018) and (Kord, 2017).
+The homogenized data for the fuel assemblies consist of:
+•
+∑a– absorption macroscopic cross-section,
+•
+∑f – fission macroscopic cross-section,
+•
+D/  ∑tr– diffusion coefficient or transport macroscopic cross-section describes the neutron leakage,
+•
+∑s – scattering macroscopic cross-section describes neutron transition between groups,
+•
+v∑f – number of neutron released from fission,
+•
+k∑f – heat energy released from fission,
+•
+ADF – assembly discontinuity factors help to preserve the flux discontinuity on the homogenized boundary,
+•
+GFF – group form factors are used for pin power reconstruction.
+The reflector block usually contains less information. The fissile material is not present there, therefore the macroscopic fission cross-section is zero. The reflector homogenized block consists of:
+•
+∑a– absorption macroscopic cross-section
+•
+D/ ∑tr – diffusion coefficient or transport macroscopic cross-section describe the leakage,
+•
+∑s – scattering macroscopic cross-section describes neutron transition between groups,
+•
+ADF – assembly discontinuity factors help to preserve the flux discontinuity on the homogenized boundary,
+While the homogenization process for the fuel assemblies is based on the commonly used process that has been validated (Smith, 2016), the reflector block homogenization can be achieved by various methods.
+Fuel assembly macroscopic cross section data are usually prepared with using simple infinite fuel lattice by simulation of the one fuel assembly with mirror boundary conditions. On the other hand the reflector macroscopic cross sections are prepared using the simulation of the reflector block in the minicore with other fuel assemblies. VVER-1000 nuclear reactor includes 5 types of reflector geometries that differ of water and steel ratio. Each reflector data are prepared with different model that consists of 2 halves of the fuel assemblies and relevant reflector blocks. A REF3 reflector type homogenization model is visualised in Fig. 1.
+Fig. 1. REF3 homogenization model (vacuum at outside boundary, mirror inside boundary).
+This article does not deal with the reflector homogenization methods directly, but its aim is to show how the main neutronic core parameters depend on the reflector macroscopic cross-sections. Power of fuel assemblies, pin power reconstruction in the fuel assemblies adjacent to the reflector, and critical boron concentration in the coolant/moderator are analysed.
+The calculation analysis is based on the 16th fuel loading pattern of the 2nd Temelin NPP unit. The Andrea nodal code (Vočka et al., 2016) was used for the calculations. This code is developed by the Department of reactor physics and fuel cycle support (ORF) UJV Rez and moreover it is used for the designing, optimization, and safety analyses of the fuel loading patterns at the Temelin NPP (Vočka et al., 2016, Havluj et al., 2020, Havluj and Vocka, 2020).
+Andrea solves 3D core behaviour using Nodal Expansion Method (NEM). The neutron balance is solved with using the transverse integration and transverse averaged mapping function. Using the neutron balance equation, partial currents at the boundary and physic quantities describing the analysed region, the averaged neutron flux can be obtained. Using the higher expansion function order, the neutron flux distribution is calculated inside the node (Vočka et al., 2016, BELAC et al., 2020, Havluj et al., 2020, Havluj and Vocka, 2020).
+The very short description of the Temelin NPP and the burnup history of the 16th fuel loading pattern are described in the Section 2, the calculation methodology as well as the input data and changed parameters are described in the Section 3. Results are summarized in the Section 4. The conclusion 5 closes the paper.
+<Section>2. Temelin NPP description</Section>
+Temelin NPP operates two VVER-1000/V-320 units, each with 1028 MW output electric power. These units were developed by the Russian project office Gidropress. The reactor core is cooled with the light water and the light water is also used as a neutron moderator (ARIS, 2011). The primary circuit water pressure is 15.7 MPa, the average reactor coolant input temperature is around 290 °C and the reactor coolant output temperature is around 320 °C (ARIS, 2011).
+There are some differences between eastern and western PWR reactor models, but the both models are hydrodynamically very similar. The VVER reactors use hexagonal fuel assemblies with triangular fuel pin lattice. The main information about the hexagonal fuel assemblies of VVER-1000 nuclear reactor are in Table 1. The steam generators orientation is another substantial difference. The steam generators are oriented horizontally with U tubes in the horizontal planes. The VVER-1000 reactor model uses 4 loops with 4 circulation pumps. The pressurizer is connected to the hot pipe of the first loop. The visualization of the primary circuit is in Fig. 2 (ARIS, 2011).
+Table 1. VVER-1000 nuclear reactor fuel assembly and core main information.
+Fig. 2. VVER-1000 nuclear reactor primary circuit visualization (Tabadar et al., 2018).
+Fig. 3. Fuel loading pattern, each number represents different fuel type, the different fuel burnup is illustrated by the different colour (blue – fresh fuel, light blue 1 year operation, green – 2 years operation, yellow – three years operation, red – four years operation). (For interpretation of the references to color in this figure legend, the reader is referred to the web version of this article.)
+The construction of the Temelin NPP was started in the 1985 and the whole power plant was officially finished in 2002. The long construction time was caused by the political situation in the 1990’s. The construction was started under the soviet surveillance, but in 1993 the Westinghouse electric company won the contract for the NPP completion work.
+Eight initial fuel loadings were designed with the Westinghouse nuclear fuel VVANTAGE-6. Afterwards, the Russian TVEL company was chosen as the fuel supplier and for the 9th fuel loading the whole core was replaced by the fresh fuel assemblies again. This study builds on parameters of the 16th fuel loading in the 2nd unit of the Temelin NPP, which has in fact shorter operational history due to the fuel vendor change. The various fuel types and their burnup of the 16th fuel loading pattern is described in Fig. 3.
+The radial reflector of the VVER-1000 nuclear reactor is symmetrical and it can be spatially divided into 5 different hexagonal blocks. The hexagonal blocks and their position in the core are described in the simple 1/6 core in Fig. 4. The realistic geometry is on the left and the macrocode representation using the homogenized materials is on the right. The fuel assemblies have red colour, while the reflector blocks are drawn in green.
+Fig. 4. Reflector geometry and hexagonal block description.
+<Section>3. Calculation methodology</Section>
+The main purpose of the study is to analyse dependencies between the main core neutronic characteristics and the input cross-section data for the radial reflectors. The analysed characteristics are following:
+•
+Critical boron concentration at the beginning of the cycle,
+•
+assembly power at the beginning of the cycle,
+•
+pin power of chosen fuel assemblies at the beginning of the cycle.
+The changes of these characteristics are analysed against the changes of the input values for the reflectors. The input values are: , and ADF. Each of these parameter is changed for every reflector assembly. The original values were calculated using the HELIOS system, and they are summarised in Table 2 (Vočka et al., 2016).
+Table 2. Original calculated macroscopic data for reflector assemblies and their relative changes.
+The input values are changed by the factor , where  is a relative standard deviation in determination of the value. These standard deviations correspond to the unrodded assembly at hot full power from the OECD Benchmark for uncertainty analysis (Bratton et al., 2014). Data for the VVER-1000 assembly were taken when available. The ADF factors were adopted from the GEN-III case. The input values were changed only for the 16th fuel loading, the previous cycles leading to the current state were calculated with the original unchanged values.
+The simulations were calculated by the macrocode Andrea used for designing of the fuel loadings at the Temelin NPP. All necessary nuclear data describing the fuel assemblies, reflectors, and all other core components are distributed with the code. At first it was necessary go through the burnup history of the fuel loading, which means to make burnup calculation of the previous 7 loadings. This part was made by the step-by-step process with calculation of each fuel loading. After having all the history data, the 16th fuel loading could be calculated.
+The analysis was realized in the Dakota statistical engine (Group of Authors, 2019). The upper and lower values limit were selected as  and , where xcorresponds to the physical quantity from the original data library. The normal distribution was used for the random sampling of the input values. The mean value was taken from the original data library while the variance was given as the . 100 samples were generated by the Dakota system.
+3.1. Output analysis
+The analysed output parameters are the critical boron concentration, fuel assembly power distribution in the core and pin power distribution in the chosen fuel assembly. All the chosen parameters are discussed for the beginning of the cycle. The Dakota statistical software has power to calculate a correlation matrix for scalar values, therefore, the fuel assembly power distribution and pin power distribution must be characterized by a scalar number. The Mean Square Error (MSE) values were used for this purpose:
+@(1)
+where Nis the number of the fuel assemblies and the number of the fuel pins in the chosen fuel assembly, respectively; P is the power of the fuel assembly and the power of the fuel pins in the chosen fuel assembly, respectively;  is the averaged power of the fuel assembly and the averaged power of the fuel pins in the chosen fuel assembly, respectively.
+The fuel pin power change is analysed in the fuel assemblies at following positions (see Fig. 3):
+•
+(1,2) – fuel assembly at the core periphery depleted for 4 years, original average enrichment 4% U,
+•
+(1,4) – fresh fuel assembly at the core periphery, original average enrichment 4.6% U with 12 gadolinium pins,
+•
+(5,7) – fuel assembly in the third ring of fuel assemblies depleted for 3 years, original average enrichment 4.4% U with 6 gadolinium pins,
+•
+(5,5) – fresh fuel assembly in the third ring of fuel assemblies, original average enrichment 3.6% U with 12 gadolinium pins,
+•
+(8,8) – fuel assembly in the core centre depleted for 2 years, original average enrichment 4.0% U with 12 gadolinium pins.
+These fuel assemblies are a great representation of potential variations with respect to the burnup, position, enrichment as well as the burnable absorbers location.
+<Section>4. Results</Section>
+The very first analysis corresponds with the correlation coefficients evaluation. These coefficients bring first insight into the sensitivity analysis and they mark input data for calculations strongly connected with the analysed output parameters. Unfortunately, these factors are not able to show how the tracked quantity is exactly changed in the core. The limit case analysis is provided in the second part of this section to illustrate also the quantitative effect of the input data.
+4.1. Correlation coefficients analysis
+50 input parameters in total with 7 output parameters were analysed. 100 cases with the randomly sampled input data were generated and analysed via the Dakota software package. The correlation matrix was obtain as the result of this analysis. All correlation coefficients are shown in Figs. 5 for the critical boron concentration (BC) and the fuel assembly power MSE and 6 for the pin power MSE in the fuel assemblies at positions (1,2), (5,7), and (8,8). The correlation coefficients lower than 0.4 in the absolute value are not used in the future analysis because of the low correlation values. The results with higher correlation values are shown in tables from Table 3, Table 4, Table 5, Table 6, Table 7.
+Fig. 5. Correlation coefficients for boron concentration and assembly power MSE.
+Fig. 6. Correlation coefficients for pin power MSE.
+Table 3. Correlation coefficients for REF1 block.
+Table 4. Correlation coefficients for REF2 block.
+Table 5. Correlation coefficients for REF3 block.
+Table 6. Correlation coefficients for REF4 block.
+Table 7. Correlation coefficients for REF5 block.
+The correlation factors’ values are by the definition in the @ interval and the meaning of the values are:
+•
+1 – perfect positive linear correlation (if one quantity increases, the second also increases)
+•
+0 – that two quantities are not correlated
+•
+−1 – perfect negative linear correlation (if one quantity increases, the second one decreases)
+The results clearly show that some input parameters are only weakly connected with the output parameters, for example: the scattering cross-section with the exception of @ are only weakly correlated with the observed outputs similarly to the ADF factors. The correlation coefficients of these input parameter did not exceed 0.4 in the absolute value. On the contrary some input data, namely the diffusion coefficients, @, and @, are greatly correlated.
+The correlation matrices are able to show which values are correlated, but there is no evidence how the assembly of pin powers or the critical boron concentration are changed. The absolute values of the critical boron concentration, fuel assembly power in the core as well as the pin power in the chosen fuel assemblies changes are analysed in the next Section 4.2.
+4.2. Limit case analysis
+The above analysis showed that the most strongly correlated parameters are: @, and @. In order to discover the absolute effect of these input data on the output characteristics, the limit case models were developed. In each case one input parameter from the above list was changed by the maximum assumed value of @ for all the reflector assemblies. This analysis adds to the presented correlations and sensitivities a hint to the calculation uncertainty without the necessity to produce new homogenized macroscopic data by the sampling process. Three cases were analysed for each input parameter:
+•
+Reference state – the calculation with the original data,
+•
+Upper limit – the calculation with the parameter changed to @,
+•
+Lower limit – the calculation with the parameter changed to @,
+where xrepresents one of the input data: , and  and  is the relative standard deviation in determination of the value from Table 2.
+The results of percentage change in the critical boron concentration, fuel assembly power MSE and pin power MSE in chosen fuel assemblies from the reference case are summarised in Table 8.
+Table 8. Percentage change in critical boron concentration and power MSE for input data changed by the .
+The following equation is applied to quantification of The fuel assembly power and the pin power change, respectively:
+@(2)
+where @ and @ are the fuel assembly and the pin powers for the limit case and the reference case.
+Table 8 shows that the  has the greatest influence on the critical boron concentration and the power changes in the fuel assemblies as well as the pin power in the chosen fuel assembly. The power changes of the fuel assemblies are illustrated in Fig. 7 for the two limiting cases for the fast group diffusion coefficient.
+Fig. 7. Fuel assembly power changes from the reference case for  upper and lower level case.
+Pin power changes are shown in the additional Fig. 8, Fig. 9. These illustrate the relative change of the pin powers for two selected fuel assemblies in positions (1,2) and (1,4) as a result of the limiting changes of the fast group diffusion coefficient for all reflector assemblies.
+Fig. 8. Pin powers changes from the reference case in assembly at position (1,2) for @ upper and lower level case.
+Fig. 9. Pin powers changes from the reference case in assembly at position (1,4) for @ upper and lower level case.
+The results presented in this section showed that although many of the input data are correlated to the output characteristics, they do not have a considerable impact on the critical boron concentration or power distribution in the core. The discussion of the observed characteristics follows:
+•
+D1, D2 – Diffusion coefficients represent the neutron leakage from the tracked volume. Their value directly affect the number of neutrons escaped from the volume, therefore if the value increase, the neutron leakage from the volume also increases. Neutrons escaping from a fuel assembly can easily finish in another fuel assembly. Leakage of neutrons from the reflector assemblies can lead to the neutron escape from the core. The reflectors are mostly connected by one side with the fuel assemblies. (REF1 has two sides connected with the fuel assemblies). Other sides are connected with the reflector volumes or they have the vacuum boundary condition. Neutron leakage increases with the rising value of the diffusion coefficients and an increasing amount of neutrons is capable to escape from the core Large amount of neutron escape the core, therefore the power has to be smaller in the fuel assemblies near the reflector volume.
+•
+,  – Macroscopic absorption cross-sections represent the loss of neutrons in the reflectors due to absorption. If the neutron is absorbed in the non-fissile material it is lost and cannot contribute to the power generation in the core. If more neutrons are absorbed in the reflector, less neutrons can be scattered back to the fuel and therefore the neutron flux (and also the power generation) is lower in the fuel assemblies near the reflector boundary.
+•
+– The effect of neutron down-scattering is connected to the diffusion coefficient. If the down-scatter value increases the number of thermal neutron also increases in the reflectors due to fast neutron slowing-down. These neutrons can also be scattered back to the fuel assemblies and they can contribute to the fission reactions and thus the power in the fuel pins located near the reflector is also increased. On the other hand, the mean free path depends on the neutron energy. The fast neutron has a longer mean free path, therefore they are able to get deeper into the reflectors. If that neutron lose the energy there, the possibility to get back to any fuel assembly is lower because the mean free path of thermalized neutrons is shorter. The effect of this cross-section is the weakest of all the compared data.
+To clarify the  influence, the energy spectra comparison in the core including the reflectors is provided in Fig. 10. The cadmium ratio  defined by (3) is used to visualize the magnitude of neutron thermalization in the core.
+@(3)
+where @, respectively @, is fast, respectively thermal, neutron flux in node (@). The values of the  are axially dependent (influence of different axial burnup and axial reflectors). The  was analysed in the plane near the middle of the core height. Given the definition in (3), the higher is the fraction the lower is the thermal neutron fraction.
+Fig. 10.  ratio in the middle of the core height.
+Fig. 10 shows that the neutron spectrum in the reflector assemblies at the core periphery is more thermal than the neutron energy spectrum in the fuel assemblies. This fact confirms the theory about the influence of the  impact to the main neutron parameters calculation. The neutron born in the fuel assembly has higher energy and its mean free path is longer therefore the neutron can get deeper to the reflector assembly. The thermal neutron has shorter mean free paths, therefore the possibility to reach back any fuel assembly is lower.
+<Section>5. Conclusion</Section>
+The impact of the reflector macroscopic cross-section uncertainties was analysed in this study. The Andrea macrocode was used for the calculation of the 16th fuel loading at the Temelin NPP 2nd unit. The diffusion coefficient, absorption cross-section, scattering cross-section, and the discontinuity factors for the reflector assemblies were the studied input data. These parameters were varied according to their standard deviation determined in scope of the OECD/NEA Benchmark for uncertainty analysis in modelling (Bratton et al., 2014).
+The Dakota statistical software was used for the parameters random sampling and the output evaluation. The critical boron concentration as well as the power prediction in the core was analysed at the beginning of the cycle. 100 cases were calculated with different input parameters and the correlation coefficients with the mentioned characteristics were determined. This part of the study showed which input parameters are connected with the tracked output parameters. The analysis proved that the diffusion coefficient, absorption cross-section, and down-scattering cross-section have the highest impact to the output parameters.
+The highest impact in the absolute values was found for the fast neutron diffusion coefficient. The critical boron concentration as well as the power variations were compared with the unchanged parameters case. The boron concentration showed that the input parameters change does not have a high impact on the whole calculation. The critical boron concentration was changed only by 0.15%. Only fuel assemblies adjacent to the reflectors were influenced. The power was changed by less than 0.8% in both cases. The pin power reconstruction also showed small changes from the solution with the reference input values with changes below 1.65% in the nearest pins to the reflector cells.
+This study showed the strong calculation integrity of the nodal macrocode Andrea as well as the Temelin NPP fuel loading pattern. The observed boron concentration changes due to reflector input data variations was bellow 0.15% and the pin power MSE was changed by less than 1.65%. Finally, it is necessary to note that all the cases were analysed at the beginning of the cycle. But usually the highest fuel assembly and the fuel pin peaking factors are observed for the beginning of the cycle, therefore this analysis is highly relevant to safety operation of nuclear power plants.
+<Section>CRediT authorship contribution statement</Section>
+Pavel Suk: Methodology, Software, Writing - original draft, Writing - review & editing. Jan Frýbort: Conceptualization, Methodology, Writing - review & editing, Funding acquisition.
+<Section>Declaration of Competing Interest</Section>
+The authors declare that they have no known competing financial interests or personal relationships that could have appeared to influence the work reported in this paper.
+<Section>Acknowledgement</Section>
+This work was supported by the Students Grant Agency at the Czech Technical University in Prague, Grant No. SGS19/114/OHK4/2T/14 and it was also supported by the project No. CZ.02.1.01/0.0/0.0/16_013/0001790, financed from European structural and investment funds and Czech Republic funds.
+<Section>References</Section>
+ARIS, 2011
+ARIS, 2011. Status report 93 – VVER-1000 (V-466B) (VVER-1000 (V-466B)), IAEA.
+Google Scholar
+BELAC et al., 2020
+Belac, J., Josek, R., Klecka, L., Stary, V., Vocka, R. 2020. Andrea: Advanced nodal diffusion code for reactor analysis. https://inis.iaea.org/collection/NCLCollectionStore/Public/38/059/38059179.pdf, Accessed: 2020-06-19.
+Google Scholar
+Bratton et al., 2014
+Bratton, R.N., Avramova, M., Ivanov, K., 2014. Oecd/nea benchmark for uncertainty analysis in modeling (uam) for lwrs – summary and discussion of neutronics cases (phase i), Nuclear Engineering and Technology 46, 313–342.
+Google Scholar
+Fejt and Frybort, 2018
+F. Fejt, J. Frybort
+Analysis of a small-scale reactor core with PARCS/Serpent
+Annals of Nuclear Energy, 117 (2018), pp. 25-31
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+Group of Authors, 2019
+Group of Authors, Dakota, A Multilevel Parallel Object-Oriented Framework for Design Optimization, Parameter Estimation, Uncertainty Quantification, and Sensitivity Analysis: Version 6.11 User’s Manual, Sandia National Laboratories P.O. Box 5800 Albuquerque, New Mexico 87185. Https://dakota.sandia.gov/content/manuals.
+Google Scholar
+Havluj and Vocka, 2020
+Havluj, F., Vocka, R. Andrea. http://orf.ujv.cz/en/products/andrea, Accessed: 2020-06-19.
+Google Scholar
+Havluj et al., 2020
+Havluj, F., Hejzlar, J., Klouzal, J., Stary, V., Vocka, R. Core design methodology and software for temelin npp, https://inis.iaea.org/collection/NCLCollectionStore/Public/43/056/43056273.pdf, Accessed: 2020-06-19.
+Google Scholar
+Kord, 2017
+S. Kord
+Nodal diffusion methods and lattice physics data in lwr analyses: Understanding numerous subtle details
+Progress in Nuclear Energy, 101 (2017), pp. 360-369
+Google Scholar
+Leppänen, 2015
+Leppänen, J., 2015. Serpent – a Continous-energy Monte Carlo Reactor Physics Burnup Calculation Code, VTT Technical Research Centre of Finland.
+Google Scholar
+Lim et al., 2018
+C. Lim, H.G. Joo, W.S. Yang
+Development of a fast reactor multigroup cross section generation code exus-f capable of direct processing of evaluated nuclear data files
+Nuclear Engineering and Technology, 50 (2018), pp. 340-355
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+Nikitin et al., 2015
+E. Nikitin, E. Fridman, K. Mikityuk
+On the use of the sph method in nodal diffusion analyses of sfr cores
+Annals of Nuclear Energy, 85 (2015)
+Google Scholar
+Novak et al., 2017
+O. Novak, O. Chvala, N. Luciano, G. Maldonado
+VVER 1000 Khmelnitskiy benchmark analysis calculated by Serpent2
+Annals of Nuclear Energy, 110 (2017), pp. 948-957
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+Rearden and Jessee, 2016
+Rearden, B.T., Jessee, M., 2016. SCALE Code System, ORNL/TM-2005/39.
+Google Scholar
+Singh et al., 2015
+T. Singh, T. Mazumdar, P. Pandey, P. Varde
+Overview of reactor core level calculation by nodal and finite difference methods
+Life Cycle Reliability and Safety Engineering, 4 (2015), pp. 11-21
+View Record in ScopusGoogle Scholar
+Smith, 2016
+Smith, K., 2016. Nodal diffusion methods: Understanding numerous unpublished details. In: Physics of Reactors 2016, PHYSOR 2016: Unifying Theory and Experiments in the 21st Century, vol. 2, pp. 1227–1241.
+Google Scholar
+Tabadar et al., 2018
+Z. Tabadar, S. Aghajanpour, M. Jabbari, M. Khaleghi, M. Hashemi-Tilehnoee
+Thermal-hydraulic analysis of VVER-1000 residual heat removal system using RELAP5 code, an evaluation at the boundary of reactor repair mode
+Alexandria Engineering Journal, 57 (2018), pp. 1249-1259
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+The Consortium for Advanced Simulation of Light Water Reactors, 2020
+The Consortium for Advanced Simulation of Light Water Reactors, The virtual environment for reactor applications (vera), https://www.casl.gov/vera, 2020. Accessed: 2020-01-12.
+Google Scholar
+Vočka et al., 2016
+Vočka, R., et al., User Guide for program ANDREA, UJV, 2016.
+Google Scholar
+Wemple, 2011
+C. Wemple
+HELIOS-2 Methods Manual
+Studsvik Scandpower (2011)
+Google Scholar
+Yoon and Joo, 2008
+J. Yoon, H. Joo
+Two-level coarse mesh finite difference formulation with multigroup source expansion nodal kernels
+Journal of Nuclear Science and Technology, 45 (2008), pp. 668-682
+CrossRefView Record in ScopusGoogle Scholar

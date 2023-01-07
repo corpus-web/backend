@@ -1,0 +1,180 @@
+<title>High precision strike point control to support experiments in the DIII-D small angle slot divertor</title>
+<author>1,D.Eldon,2,A.W.Hyatt,2,B.Covele,3,N.Eidietis,3,H.Y.Guo,4,D.A.Humphreys,5,A.L.Moser,6,B.Sammuli,7,M.L.Walker</author>
+<Affiliation>1, General Atomics, PO Box 85608, San Diego, CA 92186-5608, USA</Affiliation>
+<year>2020</year>
+<Jounral>Fusion Engineering and Design</Journal>
+<Publishing_house>ELSEVIER</Publishing_house>
+<Text_Collector>XiaFan，HEU</Text_Collector>
+<DOI>10.1016/j.fusengdes.2020.111797</DOI>
+<URL>https://www.sciencedirect.com/science/article/pii/S0920379620303458</URL>
+High precision strike point control to support experiments in the DIII-D small angle slot divertor
+D.Eldon,A.W.Hyatt,B.Covele,N.Eidietis,H.Y.Guo,D.A.Humphreys,A.L.Moser,B.Sammuli,M.L.Walker
+General Atomics, PO Box 85608, San Diego, CA 92186-5608, USA
+<Section>Highlights</Section>
+Improved strike point position control at DIII-D to +- 1 mm precision.
+Precise control supports experiments in the small angle slot divertor at DIII-D.
+Upgraded control manages X-point R & Z coordinates as well as strike point position.
+Control tuning accomplished using hundreds of TokSys simulations.
+<Section>Abstract</Section>
+Improvements in strike point control enabled tests with the new small angle slot (SAS) divertor installed at DIII-D with precision as tight as 1 mm, barring brief perturbations from ELMs. Aside from being narrower than previous baffle structures in DIII-D, simulations indicate that performance of the SAS divertor should be very sensitive to strike point position, making the improved strike point control essential for experiments with the SAS divertor. Improved control entails regulating more divertor geometry target locations than before and setting higher gain on the strike point target. This is achieved by tasking more poloidal field (PF) shaping coils with divertor topology control, fine tuning of the coil configuration and algorithm gains, and adding regulation of the power supply common rail. The result is that although more variables are controlled, precision is better: high frequency jitter in the strike point position is lower on average compared to related discharges with standard divertor shape control.
+Keywords:Tokamak;Plasma control;Divertor
+<Section>1. Introduction and background</Section>
+A divertor baffle structure, called the Small Angle Slot (SAS) [1] has been installed at DIII-D. This structure includes a narrow slot, the wall of which includes segments positioned at various angles (see Fig. 1). The experimental goals of the SAS include positioning the strike point at different reference positions within the slot. Therefore, the Plasma Control System (PCS) [2] is required to control the strike point position with error less than the length scales found within the slot, which are smaller than previous baffle structures on DIII-D, while also aligning the divertor leg so it enters the slot at the correct angle. That is, the system for controlling divertor magnetic topology gains at least one degree of complexity while simultaneously requiring higher precision than before.
+Fig. 1
+Fig. 1. SAS divertor at the top of DIII-D. The@value of the target point (red +) is specified and the control segment (black dashed line) determines the@value. A and B label the slot's bottom and small angle targets. Poloidal field (PF) coil currents are modified to match the poloidal flux at the target point to the poloidal flux on the separatrix (magenta) determined by real time EFIT [7].
+The DIII-D PCS has been upgraded to ensure the necessary capabilities are available during SAS tests. Previously, the PCS controlled the divertor magnetic topology with two parameters: the@coordinates of the -point or the strike points. The upgraded controller adds the capability of simultaneously controlling three divertor shape parameters, @,@ , and@while also controlling the rest of the boundary shape. While adding complexity to the controller, the precision of strike point control was also improved: high frequency random perturbations to strike point position have been reduced by roughly a factor of 2. This control is a useful tool to help test the hypothesis that the divertor solution is sensitive to small changes in strike point position within the SAS, as was predicted by initial modelling [1], [3] with SOLPS 5.0 [4]. Such tests are reported separately; here, we only focus on shape control.
+Besides the SAS, high precision strike point control is important in many applications; for example, NSTX used its own upgraded strike point position control system during tests with a liquid lithium divertor [5], [6].
+The SAS, shown in Fig. 1, is 2 cm wide along the target plate at the bottom of the slot (marked A in Fig. 1), or 1.7 cm projected in . Toroidal variation in position at installation makes its effective width in – even narrower: the unobstructed width at the bottom of the slot is less than 1 cm projected in . Beyond that, the initial modelling, which drives the tests we must support, predicted that the divertor plasma should behave differently depending whether the strike point falls on the flat bottom (marked A in Fig. 1) of the slot but away from the slanted outer target, on the bottom but next to the slanted target (marked B in Fig. 1), or on the slant itself. So, control must be much tighter than simply ensuring that the divertor leg enters the slot. Sensitivity to strike point position should be related to the local heat flux width of roughly 5 mm, so the design requirement should be to maintain strike point error significantly below this level; we use 1 mm as a rough guideline.
+Additionally, measurements of strike point position available to the control system may be systematically offset by 10–20 mm relative to well-known position references (as discussed in Section 3.2), so the target strike point position must sometimes be adjusted to compensate. This is possible if the control system can suppress high frequency and random deflections to strike point position, so we prioritize this capability over absolute accuracy between measured (in real time) and target position. In this paper, strike point position error is separated into two components: we define accuracy and precision as the average and standard deviation of error in strike point position over a given interval. Note that standard deviation of error and RMS error (a common metric) are the same when average error is neglected. Reducing control accuracy to the level of realtime measurement error is judged to be sufficient for this application, as position targets may have to be offset by this amount, no matter how good the controller is.
+The remainder of this paper is organized into a description of the controller setup in Section 2, evaluation of its performance in Section 3, and closing discussion in Section 4.
+<Section>2. Setup of strike point control in the SAS divertor</Section>
+Previous DIII-D divertor configuration control algorithms controlled only two parameters: an@and a@value, each of which could refer to the X-point or the strike point (so,@& ,@& , or a mixture like@& ). These two shape parameters would be controlled by three of the Poloidal Field (PF) coils. In the new control algorithm, a new, dedicated shape control segment is added to specifically control divertor strike point position. This is in addition to@&@control, with a fourth PF coil being added to control the set of three divertor parameters. Because an extra coil has been added, the coil closest to the strike point is free to have higher gain for error in strike point position, leaving regulation of the X-point position primarily to the other three coils. The strike point coil can’t completely ignore error in X-point position, however, lest its efforts to control the strike point push the X-point too far out of position. Thus, choosing the right gain for each combination of shape parameter and control coil presents an optimization problem which was addressed by running hundreds of TokSys [8], [9] simulations, followed by testing and final refinements during dedicated plasma control development time.
+An additional option to directly set the angle of the separatrix at the strike point has also been added. In this case, the strike point@position and angle@are prescribed, and the target@coordinates of the X-point are updated to achieve the desired . Although this capability appears to be working properly, it has yet to be used outside of plasma control tests. Therefore, evaluation of control performance in this paper will focus on cases with the indirect angle specification option.
+Another challenge is that DIII-D's poloidal field shaping coils are not all fully independent; a large subset of coils are connected in parallel to a common rail (called the VFI bus or just bus) [10] and all their currents must sum to zero (see Fig. 2). Typically one or more of the coils is not powered and the VFI bus voltage drives their current(s). This means that changes in currents to control shape in one area can show up as changes in return current through other coil(s) – potentially in opposition to the originally attempted shape change. The VFI bus voltage required to drive the return coil current is provided by all active VFI connected coils’ power supplies. Thus, the return coil presents an additional, varying load in series with each coil on the bus. This promotes more instability as the VFI voltage required to drive the return current dynamically couples each VFI supply with each other, and it also introduces a tendency for shape to drift as plasma parameters evolve.
+Fig. 2
+Fig. 2. Schematic of power systems for DIII-D's central solenoid or Ohmic coil and PF shaping coils. Note that the VFI bus (red horizontal line at the top) connects most of the PF coils (marked with green rectangles) together. Reproduced from Hyatt et al. [11]. See also: figure 14 and related text from Luxon et al.[10].
+Problems related to the VFI bus were overcome by regulating the voltage on the VFI bus. This is accomplished by powering the return coil(s) and commanding the supply to provide the voltage needed to drive the necessary return current, hence holding the VFI bus voltage at zero. This effectively decouples the other VFI coils’ supplies from the return coil and helps localize shaping distortions to the vicinity of the return coil, which can be selected to be far away from the area where high precision is needed.
+The gain matrix for connecting shape errors to poloidal field shaping coils (see Fig. 3) was developed by studying responses generated by a linearized Grad–Shafronov solver embedded in the TokSys simserver. The starting point was a successful controller for core boundary, , and , to which control of@and VFI bus voltage were added. Gains and power supply deployments were then improved over the course of 100–200 simulations before being fine tuned during plasma shots conducted during the startup period prior to physics experiments. The result is shown in Table 2. The gain matrix in Table 2 is applied after each column's error has already been PD or PID conditioned with gains given in Table 1. Comparison of columns of Table 2 is somewhat complicated by the fact that the errors represented by each column come from different types of measurements with different scales. The final outputs of the gain matrix are commands to power systems.
+Fig. 3
+Fig. 3. A subset of DIII-D poloidal field coils (gray), shape control segments (red dashed lines), shape control target points (red circles), X-point target (red X), measured X-point (red +), and strike point target (red square). The relationships between errors in shape targets and coil currents is set by the gain matrix given in Table 2. Segments and coils that are not featured in the table are transparent and unlabeled. There are several more shape control segments, and each F*A coil has a counterpart named F*B that is its mirror image on the bottom half of the machine (not shown).
+Table 1. PID gains for conditioning shape control errors prior to the gain matrix of Table 2, as used for shot 170607. The PID conditioning module includes RC lowpass filtering the errors with a 1 ms time-constant for all columns except VFI, which uses a 100 ms time-constant.
+Table 2. Excerpt from gain matrix connecting shape control errors to poloidal field coils, as used for shot 170607. , , , and@come from differences in poloidal flux between the plasma boundary and target points that the boundary is meant to intersect.@and@are errors in the coordinates of the X-point in space, and the VFI column represents the error in voltage on the common rail. The errors in each column are PID conditioned (see Table 1) prior to being multiplied by this matrix.
+<Section>3. Strike point control performance</Section>
+These choice to use accuracy and precision (average and standard deviation of strike point error) as metrics for strike point position control quality are examined in Section 3.1. Next, we cross-calibrate various measurements of strike point position in Section 3.2. Then, in Section 3.3, the performance of the strike point control system is reported in detail for representative discharges 169622 (L-mode) and 170607 (H-mode, type-I ELMs at 100 Hz) with the parameters given in Table 3. Finally, Section 3.4 gives a broader survey of control performance in related discharges with and without the upgraded strike point control.
+Table 3. Parameters for SAS strike point control tests.
+3.1. Choice of metrics
+Statistically, we regard strike point error from the shots listed in Table 5 as close enough to a normal distribution that standard deviation is a worthwhile metric. For each shot in the table, 2001 samples of RT EFIT [7] strike point error are considered, an average of 1317 samples pass the ELM filter, and for the distribution of these samples in each shot, the average skewness is 0.26 (0.47 without the ELM filter), and the average excess kurtosis is 0.55 (0.938 without the ELM filter). A reasonable guideline is that the magnitude of skewness should be less than 2 and proper kurtosis (excess = proper – 3) should be less than 7 [12], which is satisfied for every interval listed in Table 5. A spot check of histograms of samples for a few shots confirms that they do appear to be close enough to normally distributed that no concern is warranted. Even if the distribution were not normal, standard deviation approaches root-mean-square (RMS) error as the 0 frequency component is neglected, which we do so that we can treat it separately, and RMS error is often used as a metric even for distributions which are known not to be normal.
+To decide how to prioritize precision and accuracy, we consider that it is common practice to trim shape control by offsetting targets and commands to achieve precise shaping goals, and our developments have had no effect on this situation at DIII-D. Trimming is necessary for a number of reasons:
+1.
+The PCS relies on magnetic reconstruction which can experience systematic errors of up to 20 mm in strike point position (see Section 3.2 for details).
+2.
+The PCS does not check that the operator's target for the plasma boundary shape is physically achievable with the present configuration of power supplies; if the operator makes an impossible request, there will be error somewhere. Padding commands or targets can be part of choosing where the error manifests.
+3.
+The equilibrium reconstruction used for control is axisymmetric and weighted heavily by an array of magnetic probes at one toroidal location. If significant 3D magnetic fields are present, the strike point at some other toroidal angle might not align with local diagnostics as intended, even if the PCS reports it has met its target.
+Because constant offsets to strike point position may be added as a routine feature of shape control, we regard absolute accuracy of the controller as less important than its ability to suppress random, high frequency variation in strike point position, which is impossible to correct with feed-forward commands. Furthermore, the strike point sweeps which are effective in typical experiments with the SAS make systematic offsets in strike point position irrelevant, yet short timescale variation in strike point position can still be problematic. Thus, we prioritize precision over accuracy.
+3.2. Spatial calibration and comparison of strike point measurements
+The most commonly available high frequency measurements of strike point position are from “fasteq”1 and the PCS itself. The PCS will only archive strike point position errors with sufficient time resolution for analysis for certain control configurations. So, the fasteq class of equilibrium reconstruction is an important contingency for when the PCS does not provide an easy avenue to high frequency strike point position measurements, such as in old shots. To validate these measurements, we use the standard EFIT01 class of automatic reconstructions [13], Langmuir probes [14], and IRTV [15]. EFIT01 uses hardware pre-processing of its input data that precludes adequate time resolution, so it is only useful for comparing strike point position accuracy, but not precision. Langmuir probes are spaced such that identifying the strike point from a profile requires sweeping the strike point past the probes, which makes them also only useful for checking average position, but not checking high frequency changes (the probes in the relevant array are 28 mm apart). IRTV commonly experiences significant static systematic spatial offsets relative to all other means of determining strike point position, so it is only useful for assessing precision, but not accuracy, as seen in Fig. 4.
+Fig. 4
+Fig. 4. Comparison of spatial alignment of various measurements of the strike point position during a strike point sweep. Langmuir probes (data from 5 probes are shown, each with its own symbol, and LP data are filtered to remove ELMs and then smoothed with a 20 ms time constant to reduce noise) give saturation current (a) and floating potential (b) profiles that are consistent with EFIT01's strike point position to within the 4 mm spatial resolution of the probes (determined by estimating the zero crossing of the floating potential curve obtained by fitting a line between its positive and negative peaks). The average of 963 Eich [16] fits (an additional 37 fits were rejected due to high ) to IRTV heat flux profiles [15] (c) implies a more inboard strike point position by 13  3.5 mm but the uncertainty in the spatial calibration of IRTV is 10 mm, so actually IRTV data are consistent with EFIT01 to within scatter in the fits and calibration uncertainty. The strike point reported by fasteq is outboard of by 14 mm on average. The light red shaded band around the IRTV profile represents the standard deviation of the Eich fits in time. The IRTV camera has been known to occasionally suffer from spatial calibration issues, which can add a constant offset to reported positions.
+We find that RT EFIT used by the PCS for control agrees fairly well with fasteq, which provides a straightforward means of obtaining high frequency strike point positions in general (useful when the PCS is controlling the X-point and not archiving strike point error because it is not respecting a direct strike point target). Langmuir probes and EFIT01 commonly agree well with each other in typical DIII-D shots, which we confirm for some sample shots. We use the zero-crossing of the floating potential@as a reference for the strike point position, and determine its location by fitting a line to@data within 5 mm of the EFIT01 strike point. For the sample data shown in Fig. 4, the@point deviates from the EFIT01 strike point position by  mm, which is within the 4 mm spatial resolution of the probe array [14]. RT EFIT and fasteq agree with EFIT01 and thus the Langmuir probes, which have well known spatial positions, to within 20 mm. Interpretation of IRTV data includes a spatial calibration with 10 mm systematic uncertainty, making it difficult to use for measuring average strike point position to the tight tolerances we are interested in. However, IRTV's relative spatial calibration is not problematic and the pixel spacing is 2 mm. RT EFIT agrees well with IRTV on precision, which is not affected by the spatial calibration error of IRTV (see Table 4).
+Table 4. Strike point@position relative to PCS target, DIII-D#175192 from 3.0 to 3.5 s: lower single null plasma with SAS strike point control.
+**
+The Eich fit was developed to treat inter-ELM periods only; the model is not applicable to heat flux profiles during ELMs.
+*** The “EFIT01” line of standard equilibrium reconstructions is evaluated every 20 ms, which is not often enough to evaluate jitter.
+So, we find that our measurements of precision from RT EFIT and fasteq agree with non-magnetic diagnostics, and that our measurements of accuracy from these methods may deviate by up to 20 mm.
+3.3. Detailed analysis of strike point control performance
+Short term precision over 100 ms intervals was 1 mm in both L-mode (Fig. 5, top panel) and this particular ELMing H-mode example (Fig. 6, top panel). ELMs do cause a brief disturbance which can be up to 1 cm in some cases, but the disturbance was much smaller in this shot and was about the same amplitude as regular noise. In cases where ELMs did introduce a larger displacement, the strike point position recovered very quickly back to 1 mm precision such that high precision was maintained most of the time. This should be adequate for studies of inter-ELM divertor operation. For longer (several seconds) time windows in both of these two sample cases, control precision is about 1 mm [see Figs. 5(b) and 6 (b)]. Rapid back-and-forth strike point sweeps appear to degrade precision (see bottom panel of Fig. 5), but really this is just an artifact of latency in the control system interfering constructively or destructively with the systematic spatial offset, as seen in Fig. 7. The distribution of samples of strike point position error is broadened because average error changes depending on which way the strike point is being swept, but high frequency random variation (or jitter) is not actually higher.
+Fig. 5
+Fig. 5. Strike point control performance in L-mode: plots of error between measured and target strike point vs. time and projected into R for simplicity. Distances along the SAS bottom are 12% larger. Three time windows are shown to show short term variation, long term variation, and variation in the presence of strike point sweeps. For reference, the black double headed arrow in the top panel shows the width of the SAS bottom, also projected into R. This does not mean that the target is actually at the bottom of the slot; in the middle panel, for example, the target is swept up the outer wall.
+Fig. 6
+Fig. 6. Strike point control performance in ELMing H-mode; compare with Fig. 5.
+Fig. 7
+Fig. 7. Strike point control performance during strike point sweeps. The target (red line) is swept back and forth across the tile just outside of the SAS in this case. The corners of the SAS (edges of line segment A from Fig. 1) are marked by horizontal dashed and dash-dotted lines. The measured strike point position from real time EFIT [7] follows the target fairly well, although there is a systematic offset in position of a few mm and also a lag in time. Taken together, these give the appearance of better control accuracy when target@is decreasing. The time lag also explains the pattern of errors and poorer precision seen during the sweeps of the bottom panel of Fig. 5.
+3.4. Strike point position control performance from various shots
+In order to compare to standard strike point control and to validate control metrics based on real time EFIT, “SAS flipped” shots are considered. These are lower single null shots with shapes mirroring noteworthy upper single null shots with the strike point in the SAS. The lower divertor is accessible to more diagnostics, including infrared television (IRTV) [15]. Inter-ELM profiles of heat flux from IRTV are fit with Eich's function [16] to overcome noise and find the strike point.
+The results from LSN SAS flipped shot #175192 in Table 4 show that strike point jitter estimates from IRTV and high frequency offline equilibrium analysis method “fasteq” are roughly consistent with jitter estimates from PCS outputs. The jitter estimates from Table 4 are also similar to the measurements of 1 mm precision in the USN SAS shots, which are based on PCS measurements (Fig. 5, Fig. 6, Fig. 7). Unfortunately, most SAS-related shots are performed with the SAS controller, making it difficult to match the shape of any two shots with and without the SAS control. Because of the lack of directly comparable cases, these jitter measurements cannot be compared directly, but they do show that the SAS controller doesn’t make jitter dramatically worse, despite controlling more parameters. In lieu of a 1:1 comparison between matched shots with and without the SAS controller, a survey of shots in SAS-relevant shapes with different parameters was performed, with results reported in Table 5.
+Table 5. Precision of strike point position control in H-mode, between ELMs. All samples are calculated over 500 ms intervals. All shapes are related to the SAS.
+The target is not well defined with shots with X-point control. The strike point for fasteq is measured on the limiting surface, but the target is defined on a control segment. The relevant segment aligns well with the flat lower divertor, but does not follow the contours of baffles in the upper divertor. We only report fasteq accuracy when the target and measurement are defined on the same surface. Precision for fasteq may still be valid even when the target definition includes an arbitrary offset.
+The shots in Table 5 are drawn from a variety of toroidal field directions (represented as whether the@drift is into or out of the divertor), power levels, and variations on the scenario boundary shape in an effort to capture the range of SAS control performance under different conditions. There are three base shapes: an upper null with the divertor leg entering the small angle slot (SAS), an upper null with the divertor leg entering the old upper divertor near  m (see Fig. 1) instead of the SAS but otherwise as similar as possible (USN), and a lower null with its boundary determined by vertically mirroring the SAS shape (LSN). On top of the three base shapes, a change in X-point height and divertor leg length was made between the FY17 and FY18 campaigns. The leg length used in FY17 is shown in Fig. 1, whereas FY18 had a shorter leg. There are more combinations available with the strike point in the SAS than otherwise. Some shots were discarded where the strike point was close to corners or near-vertical surfaces which made it more difficult to accurately transform@into@precision. Others with exceptionally large ELM perturbations, which were difficult to remove from both fasteq and PCS measurements consistently, were also discarded.
+The table shows that the SAS controller's median precision is 0.9 mm perpendicular to the leg for this selection of representative discharges, whereas related shots without the SAS controller have median strike point position precision of 2.5 mm.
+Tightly controlling the divertor incurs the risk of reduced shape control elsewhere along the boundary. However, the average of RMS errors between shape targets (all shots considered had the same number of shape control segments; some example boundary shape targets are labeled – in Fig. 3) and the RT EFIT boundary for the shots in Table 5 are 8.5 mm for the SAS shots compared to 13.9 mm for the non-SAS shots, giving a 39% reduction in shape error when using the SAS controller for this selection of shots. Since the shots in the table are not 1:1 comparisons and there are not many relevant non-SAS cases to compare to, interpretation of this result should be limited to the conclusion that the SAS control setup doesn’t appear to make any aspect of shape control worse.
+<Section>4. Discussion of results</Section>
+A control algorithm within the DIII-D PCS [2] was designed using the TokSys suite [8], [9]. TokSys allowed hundreds of simulations to be carried out to test various control strategies and details before taking any plasma shots [17]. Simulation-driven control development not only saves plasma run-time on DIII-D, it reveals opportunities to improve simulation and development tools in preparation for planning ITER controls. This is very important since ITER and subsequent fusion devices will raise the cost of control development time in plasma, and the consequences for poor control will be much more severe.
+In order to simultaneously control strike point position and outer leg angle, the usual isoflux control for strike point position was combined with the usual X-point position control, the combination being a new capability. The combination of controlling more parameters and demanding high precision leads to a higher tendency for instabilities which had to be countered by careful selection of the coil setup and control algorithm.
+The new strike point control system was essential for physics studies in the SAS, allowing tests of sensitivity to strike point position. Some noteworthy SAS results are reported by Guo et al. [18]. In the future, it would be valuable to try to control flux expansion at the target as well as strike point position.
+<Section>Disclaimer</Section>
+This report was prepared as an account of work sponsored by an agency of the United States Government. Neither the United States Government nor any agency thereof, nor any of their employees, makes any warranty, express or implied, or assumes any legal liability or responsibility for the accuracy, completeness, or usefulness of any information, apparatus, product, or process disclosed, or represents that its use would not infringe privately owned rights. Reference herein to any specific commercial product, process, or service by trade name, trademark, manufacturer, or otherwise, does not necessarily constitute or imply its endorsement, recommendation, or favoring by the United States Government or any agency thereof. The views and opinions of authors expressed herein do not necessarily state or reflect those of the United States Government or any agency thereof.
+<Section>Acknowledgements</Section>
+The comparison of strike point precision between shots with and without the new SAS controller relies upon the “fasteq” automatic offline equilibrium analysis method, which was developed by Dr. Thomas Osborne.
+This material is based upon work supported by the U.S. Department of Energy, Office of Science, Office of Fusion Energy Sciences, using the DIII-D National Fusion Facility, a DOE Office of Science user facility, under Award DE-FC02-04ER54698.
+<Section>References</Section>
+[1]
+H.Y. Guo, C.F. Sang, P.C. Stangeby, L.L. Lao, T.S. Taylor, D.M. Thomas
+Small angle slot divertor concept for long pulse advanced tokamaks
+Nucl. Fusion, 57 (2017), p. 044001, 10.1088/1741-4326/aa5b46
+CrossRefGoogle Scholar
+[2]
+J.R. Ferron, B. Penaflor, M.L. Walker, J. Moller, D. Butner
+A flexible software architecture for tokamak discharge control systems
+Proc. 16th IEEE/NPSS Symp. on Fusion Engin (1995), 10.1109/FUSION.1995.534361
+Google Scholar
+[3]
+C.F. Sang, H.Y. Guo, L.L. Lao, P.C. Stangeby, T. Taylor
+SOLPS-EIRENE analysis of neutral baffling for the design of a new divertor in DIII-D
+Nucl. Fusion, 57 (2017), p. 056043, 10.1088/1741-4326/aa6548
+CrossRefGoogle Scholar
+[4]
+R. Schneider, X. Bonnin, K. Borrass, D.P. Coster, H. Kastelewicz, D. Reiter, V.A. Rozhansky, B.J. Braams
+Plasma edge physics with B2-Eirene
+Contrib. Plasma Phys., 46 (2006), p. 3, 10.1002/ctpp.200610001
+CrossRefView Record in ScopusGoogle Scholar
+[5]
+E. Kolemen, D.A. Gates, C.W. Rowley, N.J. Kasdin, J. Kallman, S. Gerhardt, V. Soukhanovskii, D. Muller
+Strike point control for the national spherical torus experiment (NSTX)
+Nucl. Fusion, 50 (2010), p. 105010, 10.1088/0029-5515/50/10/105010
+CrossRefGoogle Scholar
+[6]
+E. Kolemen, D.A. Gates, S. Gerhardt, R. Kaita, H. Kugel, D. Mueller, C. Rowley, V. Soukhanovskii
+Plasma modelling results and shape control improvements for NSTX
+Nucl. Fusion, 51 (2011), p. 113024, 10.1088/0029-5515/51/11/113024
+CrossRefGoogle Scholar
+[7]
+J.R. Ferron, M.L. Walker, L.L. Lao, H.E. St. John, D.A. Humphreys, J.A. Leuer
+Real time equilibrium reconstruction for tokamak discharge control
+Nucl. Fusion, 38 (1998), p. 1055, 10.1088/0029-5515/38/7/308
+CrossRefView Record in ScopusGoogle Scholar
+[8]
+D.A. Humphreys, J.R. Ferron, M. Bakhtiari, J.A. Blair, Y. In, G.L. Jackson, H. Jhang, R.D. Johnson, J.S. Kim, R.J. LaHaye, J.A. Leuer, B.G. Penaflor, E. Schuster, M.L. Walker, H. Wang, A.S. Welander, D.G. Whyte
+Development of ITER-relevant plasma control solutions at DIII-D
+Nucl. Fusion, 47 (2007), p. 943, 10.1088/002905515/47/8/028
+CrossRefView Record in ScopusGoogle Scholar
+[9]
+D.A. Humphreys, J.R. Ferron, A.W. Hyatt, R.J. La Haye, J.A. Leuer, B.G. Penaflor, M.L. Walker, A.S. Welander, Y. In
+DIII-D integrated plasma control solutions for iter and next-generation tokamaks
+Fusion Eng. Des., 83 (2008), p. 193, 10.1016/j.fusengdes.2008.01.012
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+[10]
+J.L. Luxon
+A design retrospective of the DIII-D tokamak
+Nucl. Fusion, 42 (2002), p. 614, 10.1088/0029-5515/42/5/513
+View Record in ScopusGoogle Scholar
+[11]
+A.W. Hyatt, et al.
+Using the TokSys modeling and simulation environment to design, test and implement plasma control algorithms on DIII-D
+Presented at the 56th Annual Meeting of the APS DPP in New Orleans, LA, USA, 2014 November (2014)
+Google Scholar
+[12]
+H.-Y. Kim
+Statistical notes for clinical researchers: assessing normal distribution using skewness and kurtosis
+Restor. Dent. Endod., 38 (2013), p. 52, 10.5395/rde.2013.38.1.52
+CrossRefView Record in ScopusGoogle Scholar
+[13]
+L.L. Lao, H. St. John, R.D. Stambaugh, A.G. Kellman, W. Pfeiffer
+Reconstruction of current profile parameters and plasma shapes in tokamaks
+Nucl. Fusion, 25 (1985), p. 1611, 10.1088/0029-5515/25/11/007
+CrossRefView Record in ScopusGoogle Scholar
+[14]
+J.G. Watkins, D. Taussig, R.L. Boivin, M.A. Mahdavi, R.E. Nygren
+High heat flux Langmuir probe array for the DIII-D divertor plates
+Rev. Sci. Instrum., 79 (2008), p. 10F125, 10.1063/1.2982423
+CrossRefGoogle Scholar
+[15]
+C.J. Lasnier, D.N. Hill, T.W. Petrie, A.W. Leonard, T.E. Evans, R. Maingi
+Survey of target plate heat flux in diverted DIII-D tokamak discharges
+Nucl. Fusion, 38 (1998), p. 1225, 10.1088/0029-5515/38/8/209
+View Record in ScopusGoogle Scholar
+[16]
+T. Eich, B. Sieglin, A. Scarabosio, A. Herrmann, A. Kallenbach, G.F. Matthews, S. Jachmich, S. Brezinsek, M. Rack, R.J. Goldston
+ASDEX Upgrade Team, JET-EFDA contributors, empirical scaling of inter-ELM power widths in ASDEX upgrade and JET
+J. Nucl. Mater., 438 (2013), p. S72, 10.1016/j.jnucmat.2013.01.011
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+[17]
+M.L. Walker
+Enabling co-simulation of a tokamak plant model and plasma control system
+Fusion Eng. Des., 127 (2018), p. 60, 10.1016/j.fusengdes.2017.12.021
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+[18]
+H.Y. Guo, et al.
+Development and First Experimental Tests of a Small Angle Slot Divertor on DIII-D
+International Atomic Energy Agency (2018)
+Google Scholar

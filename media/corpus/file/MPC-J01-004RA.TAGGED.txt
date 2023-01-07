@@ -1,0 +1,532 @@
+﻿_JJ <title> Probabilistic_JJ ship_NN domain_NN with_IN applications_NNS to_TO ship_VV collision_NN risk_NN assessment_NN </title> <author> 1_CD ,_, Liye_NP Zhang_NP ,_, 2_CD ,_, Qiang_NP Meng_NP </author> <Affiliation> 1_CD ,_, Institute_NP of_IN High_NP Performance_NP Computing_NP ,_, A*Star_NP (_( Agency_NP for_IN Science_NP ,_, Technology_NP and_CC Research_NP )_) ,_, 118411_CD ,_, Singapore_NP ,_, 2_CD ,_, Department_NP of_IN Civil_NP and_CC Environmental_NP Engineering_NP ,_, National_NP University_NP of_IN Singapore_NP ,_, 117576_CD ,_, Singapore_NP </Affiliation> <year> 2019_CD </year> <Jounral> Ocean_NP Engineering_NP </Journal> <Publishing_house> ELSEVIER_NP </Publishing_house> <Text_Collector> Zhang_NP San，HEU_NP </Text_Collector> <DOI> 10.1016/j.oceaneng.2019.106130_NP </DOI> <URL> https://www.sciencedirect.com/science/article/pii/S0029801819303191_JJ </URL> Probabilistic_JJ ship_NN domain_NN with_IN applications_NNS to_TO ship_VV collision_NN risk_NN assessment_NN Liye_NP Zhang_NP ,_, Qiang_NP Meng_NP Institute_NP of_IN High_NP Performance_NP Computing_NP ,_, A*Star_NP (_( Agency_NP for_IN Science_NP ,_, Technology_NP and_CC Research_NP )_) ,_, 118411_CD ,_, Singapore_NP Department_NP of_IN Civil_NP and_CC Environmental_NP Engineering_NP ,_, National_NP University_NP of_IN Singapore_NP ,_, 117576_CD ,_, Singapore_NP <Section> Highlights_NNS </Section> Propose_VVP the_DT novel_NN concept_NN of_IN probabilistic_JJ ship_NN domain_NN ._SENT 
+Develop_VV an_DT effective_JJ big_JJ AIS_NNS data_NNS based_VVN approach_VVP to_TO determine_VV the_DT probabilisitc_NP ship_NN domain_NN ._SENT 
+Apply_VV the_DT probabilistic_JJ ship_NN domain_NN for_IN ship_NN collision_NN risk_NN assessment_NN ._SENT 
+Conduct_NN case_NN studies_NNS from_IN the_DT Singapore_NP Strait_NP ._SENT 
+<Section> Abstract_JJ </Section> Ship_NN domain_NN plays_VVZ a_DT critical_JJ role_NN in_IN ship_NN traffic_NN risk_NN assessment_NN and_CC safe_JJ navigation_NN ._SENT 
+Today_NN ,_, the_DT widely_RB available_JJ AIS_NNS data_NNS makes_VVZ it_PP possible_JJ to_TO capture_VV the_DT diverse_JJ behaviors_NNS of_IN navigators_NNS and_CC navigational_JJ conditions_NNS by_IN vessel_NN trajectories_NNS in_IN practice_NN ._SENT 
+We_PP propose_VVP the_DT novel_NN concept_NN of_IN probabilistic_JJ ship_NN domain_NN ,_, which_WDT depicts_VVZ the_DT ship_NN domain_NN boundary_NN as_IN the_DT vague_JJ value_NN rather_RB than_IN the_DT crisp_JJ value_NN with_IN a_DT forbidden_VVN boundary_NN and_CC a_DT desired_VVN boundary_NN ._SENT 
+We_PP also_RB develop_VV an_DT effective_JJ big_JJ AIS_NNS data_NNS driven_VVN approach_VVP to_TO determine_VV the_DT probabilistic_JJ ship_NN domain_NN ._SENT 
+We_PP further_RBR investigate_VV how_WRB to_TO use_VV the_DT probabilistic_JJ ship_NN domain_NN to_TO assess_VV ship_NN collision_NN risk_NN ._SENT 
+Finally_RB ,_, a_DT few_JJ case_NN studies_NNS from_IN the_DT Singapore_NP Strait_NP are_VBP conducted_VVN to_TO show_VV the_DT merits_NNS of_IN the_DT probabilistic_JJ ship_NN domain_NN and_CC the_DT big_JJ AIS_NNS data_NNS driven_VVN approach_NN ._SENT 
+Keywords_NNS :_: Probabilistic_JJ ship_NN domain_NN ;_: Big_NP AIS_NNS data_NNS ;_: Ship_NP collision_NN risk_NN assessment_NN <Section> 1._CD Introduction_NN </Section> Ship_NN domain_NN is_VBZ one_CD of_IN the_DT unique_JJ features_NNS of_IN ship_NN traffic_NN in_IN the_DT restricted_JJ water_NN areas_NNS such_JJ as_IN straits_NNS ,_, canals_NNS as_RB well_RB as_IN port_NN waters_NNS ._SENT 
+It_PP has_VHZ been_VBN widely_RB used_VVN in_IN ship_NN collision_NN risk_NN assessment_NN (_( Goerlandt_NP and_CC Montewka_NP ,_, 2015_CD ;_: Weng_NP and_CC Yang_NP ,_, 2015_CD ;_: Zhang_NP et_NP al_NP ._SENT 
+,_, 2016_CD )_) ,_, ship_NN collision_NN avoidance_NN analysis_NN (_( Zhao_NP et_NP al_NP ._SENT 
+,_, 1993_CD ;_: Debnath_NP and_CC Chin_NP ,_, 2010_CD ;_: Szlapczynski_NP et_NP al_NP ._SENT 
+,_, 2018_CD ;_: Lu_NP et_NP al_NP ._SENT 
+,_, 2018_CD )_) ,_, near_RB miss_VVP detection_NN (_( Szlapczynski_NP and_CC Niksa-Rynkiewicz_NP ,_, 2018_CD )_) ,_, and_CC ship_NN traffic_NN simulation_NN development_NN (_( Goerlandt_NP and_CC Kujala_NP ,_, 2011_CD ;_: Hsu_NP ,_, 2014_CD ;_: Kang_NP et_NP al_NP ._SENT 
+,_, 2019a_NP )_) ._SENT 
+Since_IN the_DT ship_NN domain_NN was_VBD first_RB proposed_VVN by_IN Fujii_NP and_CC Tanaka_NP (_( 1971_CD )_) in_IN the_DT 1960s_NNS ,_, a_DT large_JJ number_NN of_IN ship_NN domains_NNS have_VHP been_VBN developed_VVN differentiating_VVG from_IN their_PP$ shape_NN and_CC factors_NNS considered_VVN (_( Zhao_NP et_NP al_NP ._SENT 
+,_, 1993_CD ;_: Wang_NP et_NP al_NP ._SENT 
+,_, 2010_CD ;_: Smierzchalski_NP and_CC Michalewicz_NP ,_, 2000_CD ;_: Szlapczynski_NP and_CC Szlapczynska_NP ,_, 2017_CD )_) ._SENT 
+Ship_NN domains_NNS are_VBP related_VVN to_TO factors_NNS such_JJ as_IN ship_NN size_NN ,_, ship_NN maneuverability_NN ,_, hydrological_JJ conditions_NNS ,_, meteorological_JJ conditions_NNS ,_, ship_NN velocity_NN ,_, traffic_NN intensity_NN ,_, the_DT knowledge_NN of_IN navigator_NN (_( Zhao_NP et_NP al_NP ._SENT 
+,_, 1993_CD ;_: Dinh_NP and_CC Im_NP ,_, 2016_CD )_) ._SENT 
+Based_VVN on_IN the_DT methodology_NN to_TO determine_VV the_DT ship_NN domain_NN and_CC factors_NNS taken_VVN into_IN account_NN ,_, ship_NN domains_NNS can_MD be_VB generally_RB classified_VVN into_IN three_CD categories_NNS ,_, namely_RB empirical_JJ domain_NN ,_, knowledge-based_JJ domain_NN and_CC analytical_JJ domain_NN (_( Szlapczynski_NP and_CC Niksa-Rynkiewicz_NP ,_, 2018_CD ;_: Dinh_NP and_CC Im_NP ,_, 2016_CD )_) ._SENT 
+It_PP should_MD be_VB noted_VVN that_IN these_DT three_CD groups_NNS are_VBP not_RB mutually_RB exclusive_JJ ._SENT 
+These_DT ship_NN domains_NNS are_VBP developed_VVN for_IN different_JJ purposes_NNS ,_, whose_WP$ complexity_NN ,_, domain_NN determine_VVP method_NN ,_, and_CC factors_NNS considered_VVN are_VBP different_JJ ._SENT 
+Empirical_JJ ship_NN domains_NNS are_VBP the_DT domain_NN models_NNS determined_VVD empirically_RB based_VVN on_IN the_DT field_NN data_NNS ._SENT 
+The_DT earliest_JJS work_NN to_TO determine_VV the_DT ship_NN domain_NN using_VVG field_NN data_NNS can_MD be_VB traced_VVN back_RB to_TO the_DT study_NN by_IN Fujii_NP and_CC Tanaka_NP (_( 1971_CD )_) that_WDT used_VVD the_DT real_JJ radar_NN data_NNS ._SENT 
+In_IN the_DT recent_JJ years_NNS ,_, AIS_NNS data_NNS is_VBZ increasingly_RB used_VVN to_TO determine_VV the_DT ship_NN domains_NNS because_IN of_IN the_DT installation_NN of_IN as_RB per_IN the_DT regulation_NN of_IN International_NP Maritime_NP Organization_NP (_( IMO_NP )_) (_( Goerlandt_NP et_NP al_NP ._SENT 
+,_, 2017_CD ;_: Pietrzykowski_NP and_CC Uriasz_NP ,_, 2009_CD ;_: Pietrzykowski_NP and_CC Magaj_NP ,_, 2016_CD ,_, 2017_CD )_) ._SENT 
+For_IN example_NN ,_, Hansen_NP et_CC al_NP ._SENT 
+(_( 2013_CD )_) estimated_VVD the_DT ship_NN domain_NN using_VVG a_DT visualization_NN method_NN by_IN plotting_VVG the_DT ship_NN traffic_NN density_NN based_VVN on_IN the_DT data_NNS from_IN Danish_JJ waters_NNS ._SENT 
+The_DT results_NNS show_VVP that_IN the_DT empirical_JJ ship_NN domain_NN is_VBZ roughly_RB in_IN accordance_NN with_IN that_DT of_IN Fujii_NP and_CC Tanaka_NP (_( 1971_CD )_) and_CC Coldwell_NP (_( 1983_CD )_) ._SENT 
+Wang_NP and_CC Chin_NP (_( 2016_CD )_) proposed_VVD a_DT free-form_NN asymmetrical_JJ polygon_NN domain_NN with_IN the_DT assumption_NN that_IN the_DT domain_NN size_NN is_VBZ a_DT function_NN of_IN the_DT ship_NN length_NN and_CC speed_NN ._SENT 
+This_DT domain_NN model_NN is_VBZ calibrated_VVN using_VVG the_DT GA_NP algorithm_NN based_VVN on_IN the_DT AIS_NNS data_NNS of_IN Singapore_NP Port_NP and_CC Singapore_NP Strait_NP (_( Wang_NP and_CC Chin_NP ,_, 2016_CD )_) ._SENT 
+Knowledge-based_JJ ship_NN domains_NNS are_VBP determined_VVN based_VVN on_IN the_DT experts_NNS '_POS knowledge_NN ,_, such_JJ as_IN the_DT survey_NN of_IN the_DT navigators_NNS ._SENT 
+Neural_JJ network_NN and_CC fuzzy_JJ logic_NN are_VBP two_CD widely_RB used_VVN methods_NNS to_TO model_VV the_DT knowledge-based_JJ ship_NN domain_NN (_( Zhao_NP et_NP al_NP ._SENT 
+,_, 1993_CD ;_: Zhu_NP et_NP al_NP ._SENT 
+,_, 2001_CD ;_: Szlapczynski_NP and_CC Szlapczynska_NP ,_, 2017_CD )_) ._SENT 
+Zhu_NP et_NP al_NP ._SENT 
+(_( 2001_CD )_) developed_VVD a_DT three-layer_NN back_NN propagation_NN neural_JJ network_NN ,_, which_WDT is_VBZ trained_VVN using_VVG the_DT survey_NN data_NNS collected_VVN from_IN the_DT navigators_NNS ._SENT 
+This_DT ship_NN domain_NN model_NN can_MD take_VV into_IN account_NN the_DT ship_NN length_NN ,_, local_JJ visibility_NN ,_, and_CC manoeuvrability_NN (_( Zhu_NP et_NP al_NP ._SENT 
+,_, 2001_CD )_) ._SENT 
+The_DT fuzzy_JJ domain_NN can_MD also_RB take_VV into_IN account_NN various_JJ factors_NNS ,_, which_WDT are_VBP described_VVN by_IN the_DT membership_NN functions_NNS using_VVG linguistic_JJ variables_NNS (_( Dinh_NP and_CC Im_NP ,_, 2016_CD ;_: Pietrzykowski_NP ,_, 2008_CD ;_: Pietrzykowski_NP et_NP al_NP ._SENT 
+,_, 2018_CD )_) ._SENT 
+Wang_NP (_( 2010_CD )_) developed_VVD a_DT fuzzy_JJ quaternion_NN ship_NN domain_NN (_( FQSD_NN )_) ,_, which_WDT was_VBD introduced_VVN to_TO estimate_VV the_DT spatial_JJ collision_NN risk_NN ._SENT 
+Pietrzykowski_NP (_( 2008_CD )_) developed_VVD a_DT fuzzy_JJ domain_NN in_IN restricted_JJ water_NN areas_NNS considering_VVG navigational_JJ safety_NN level_NN ._SENT 
+The_DT risk_NN level_NN is_VBZ represented_VVN as_IN the_DT function_NN of_IN the_DT risk_NN impact_NN factors_NNS ,_, such_JJ as_IN distance_NN to_TO the_DT fairway_NN ,_, course_NN deviation_NN and_CC rate_NN of_IN turn_NN ,_, which_WDT is_VBZ modeled_VVN using_VVG artificial_JJ intelligence_NN and_CC calibrated_VVN based_VVN on_IN relevant_JJ navigators’_JJ knowledge_NN ._SENT 
+It_PP is_VBZ found_VVN that_IN the_DT ship_NN domain_NN area_NN is_VBZ an_DT exponential_JJ function_NN of_IN the_DT safety_NN level_NN ,_, and_CC there_EX is_VBZ the_DT same_JJ relationship_NN between_IN the_DT domain_NN boundary_NN and_CC the_DT navigational_JJ safety_NN level_NN ._SENT 
+Similarly_RB ,_, a_DT fuzzy_JJ ship_NN domain_NN for_IN the_DT open_JJ sea_NN area_NN was_VBD also_RB developed_VVN ,_, which_WDT investigated_VVD the_DT impact_NN of_IN the_DT length_NN of_IN both_DT own_JJ ship_NN and_CC target_NN ship_NN (_( Pietrzykowski_NP and_CC Uriasz_NP ,_, 2009_CD )_) ._SENT 
+This_DT study_NN found_VVD that_IN smaller_JJR ships_NNS usually_RB adjust_VVP their_PP$ domains_NNS when_WRB encountering_VVG large_JJ ships_NNS ._SENT 
+As_IN the_DT fuzzy_JJ domain_NN is_VBZ capable_JJ of_IN taking_VVG into_IN account_NN multiple_JJ risk_NN factors_NNS ,_, it_PP is_VBZ suitable_JJ for_IN risk_NN analysis_NN ._SENT 
+For_IN example_NN ,_, the_DT fuzzy_JJ ship_NN domain_NN is_VBZ successfully_RB applied_VVN to_TO safe_JJ trajectory_NN determination_NN (_( Pietrzykowski_NP ,_, 2005_CD ;_: Wang_NP ,_, 2010_CD ;_: Pietrzykowski_NP and_CC Magaj_NP ,_, 2014_CD )_) ._SENT 
+The_DT Analytical_NP ship_NN domain_NN uses_VVZ mathematical_JJ formulas_NNS and_CC variables_NNS to_TO model_VV the_DT domain_NN boundary_NN (_( Zhao_NP et_NP al_NP ._SENT 
+,_, 1993_CD ;_: Wang_NP et_NP al_NP ._SENT 
+,_, 2010_CD )_) ._SENT 
+For_IN example_NN ,_, Wang_NP et_CC al_NP ._SENT 
+(_( 2010_CD )_) proposed_VVD a_DT Quaternion_NN Ship_NN Domain_NN (_( QSD_NN )_) with_IN four_CD radii_NNS and_CC the_DT domain_NN shape_NN is_VBZ modeled_VVN with_IN five_CD parameters_NNS ,_, which_WDT are_VBP functions_NNS of_IN ship_NN speed_NN ,_, length_NN ,_, and_CC manoeuvrability_NN ._SENT 
+Then_RB ,_, this_DT domain_NN has_VHZ been_VBN extended_VVN by_IN regarding_VVG the_DT boundary_NN as_IN a_DT fuzzy_JJ one_CD ,_, resulting_VVG in_IN the_DT Fuzzy_JJ ship_NN domain_NN ._SENT 
+Another_DT extension_NN of_IN QSD_NN is_VBZ to_TO take_VV into_IN account_NN the_DT domain_NN shape_NN parameters_NNS as_IN a_DT function_NN of_IN impact_NN factors_NNS ,_, including_VVG navigational_JJ environment_NN ,_, human_JJ factors_NNS ,_, and_CC ship_NN manoeuvrability_NN (_( Wang_NP ,_, 2013_CD )_) ._SENT 
+Several_JJ other_JJ studies_NNS developed_VVD analytical_JJ ship_NN domains_NNS for_IN particular_JJ water_NN areas_NNS ._SENT 
+For_IN example_NN ,_, Rawson_NP et_CC al_NP ._SENT 
+(_( 2014_CD )_) developed_VVD a_DT ship_NN domain_NN for_IN one_CD area_NN of_IN the_DT River_NP Thames_NP in_IN Central_NP London_NP ,_, whose_WP$ shape_NN is_VBZ a_DT function_NN of_IN ship_NN speed_NN and_CC ship_NN type_NN ._SENT 
+Another_DT region-specific_JJ ship_NN domain_NN model_NN has_VHZ been_VBN developed_VVN for_IN capacity_NN analysis_NN in_IN restricted_JJ channels_NNS between_IN Tianjin_NP and_CC Beijing_NP ,_, which_WDT has_VHZ a_DT shape_NN of_IN ellipse_NN with_IN the_DT semi-axes_NNS parameters_NNS determined_VVN in_IN an_DT analytical_JJ way_NN based_VVN on_IN a_DT specific_JJ problem_NN for_IN the_DT discussed_VVN water_NN region_NN (_( Liu_NP et_NP al_NP ._SENT 
+,_, 2016_CD )_) ._SENT 
+These_DT three_CD types_NNS of_IN ship_NN domains_NNS have_VHP their_PP$ own_JJ advantages_NNS and_CC limitations_NNS ._SENT 
+The_DT empirical_JJ ship_NN domains_NNS are_VBP determined_VVN based_VVN on_IN the_DT trajectory_NN data_NNS ,_, such_JJ as_IN AIS_NNS data_NNS ,_, which_WDT are_VBP currently_RB widely_RB accessible_JJ ._SENT 
+However_RB ,_, they_PP are_VBP usually_RB simple_JJ and_CC for_IN certain_JJ water_NN area_NN with_IN specific_JJ navigational_JJ conditions_NNS ,_, since_IN empirical_JJ data_NNS make_VVP it_PP hard_JJ to_TO isolate_VV the_DT impact_NN of_IN multiple_JJ parameters_NNS ._SENT 
+The_DT analytical_JJ ship_NN domains_NNS and_CC knowledge-based_JJ ship_NN domains_NNS can_MD take_VV into_IN account_NN multiple_JJ impact_NN factors_NNS (_( Szlapczynski_NP and_CC Niksa-Rynkiewicz_NP ,_, 2018_CD ;_: Szlapczynski_NP and_CC Szlapczynska_NP ,_, 2017_CD )_) ._SENT 
+However_RB ,_, these_DT two_CD types_NNS of_IN ship_NN domains_NNS usually_RB depend_VVP on_IN the_DT expertise_NN knowledge_NN (_( Szlapczynski_NP and_CC Szlapczynska_NP ,_, 2017_CD )_) ._SENT 
+For_IN example_NN ,_, the_DT determination_NN of_IN knowledge-based_JJ ship_NN domains_NNS is_VBZ obviously_RB heavily_RB dependent_JJ on_IN the_DT choice_NN of_IN surveyed_VVN navigators_NNS (_( even_RB experts’_JJ judgments_NNS are_VBP subjective_JJ )_) (_( Szlapczynski_NP and_CC Szlapczynska_NP ,_, 2017_CD )_) ._SENT 
+Subjectivity_NN is_VBZ also_RB the_DT problem_NN of_IN analytical_JJ domains_NNS because_IN the_DT assumptions_NNS and_CC formula_NN for_IN the_DT analytical_JJ domains_NNS depend_VVP on_IN the_DT expertise_NN of_IN the_DT researchers_NNS ._SENT 
+The_DT contemporary_JJ ship_NN domains_NNS tend_VVP to_TO combine_VV the_DT features_NNS of_IN different_JJ types_NNS of_IN ship_NN domains_NNS and_CC use_VV big_JJ AIS_NNS data_NNS for_IN domain_NN determination_NN ._SENT 
+The_DT ship_NN domain_NN developed_VVN by_IN Wang_NP and_CC Chin_NP (_( 2016_CD )_) is_VBZ an_DT example_NN ,_, which_WDT has_VHZ the_DT features_NNS of_IN both_DT analytical_JJ ship_NN domains_NNS and_CC empirical_JJ ship_NN domains_NNS ._SENT 
+As_IN aforementioned_JJ ,_, the_DT fuzzy_JJ domain_NN has_VHZ many_JJ advantages_NNS and_CC can_MD depict_VV the_DT boundary_NN as_IN a_DT vague_JJ value_NN rather_RB than_IN a_DT crisp_JJ value_NN using_VVG fuzzy_JJ set_NN ,_, which_WDT makes_VVZ it_PP suitable_JJ for_IN risk_NN evaluation_NN ._SENT 
+Probability_NN is_VBZ another_DT tool_NN to_TO describe_VV vague_JJ information_NN ,_, which_WDT can_MD be_VB calibrated_VVN using_VVG sampling_VVG data_NNS rather_RB than_IN the_DT subjective_JJ human_JJ judgment_NN ._SENT 
+Today_NN ,_, AIS_NNS is_VBZ widely_RB available_JJ and_CC records_VVZ the_DT real_JJ navigational_JJ behavior_NN of_IN navigators_NNS with_IN respect_NN to_TO the_DT navigational_JJ environments_NNS (_( e.g._FW ,_, Kang_NP et_CC al_NP ._SENT 
+,_, 2019b_NP ;_: Kang_NP et_NP al_NP ._SENT 
+,_, 2018_CD )_) ._SENT 
+This_DT study_NN thus_RB aims_VVZ to_TO (_( i_NP )_) define_VV the_DT probabilistic_JJ ship_NN domain_NN in_IN a_DT given_VVN restricted_JJ water_NN area_NN because_IN it_PP can_MD well_RB describe_VV the_DT navigational_JJ behavior_NN of_IN captains_NNS ,_, (_( ii_NP )_) develop_VV an_DT effective_JJ big_JJ AIS_NNS data_NNS driven_VVN approach_VVP to_TO determine_VV the_DT probabilistic_JJ ship_NN domain_NN ,_, and_CC (_( iii_NP )_) quantitatively_RB assess_VV the_DT ship_NN collision_NN risk_NN by_IN using_VVG the_DT probabilistic_JJ ship_NN domain_NN ._SENT 
+The_DT rest_NN of_IN the_DT paper_NN is_VBZ organized_VVN as_RB follows_VVZ ._SENT 
+The_DT definition_NN and_CC formulation_NN of_IN the_DT probabilistic_JJ domain_NN are_VBP presented_VVN in_IN Section_NP 2_CD ,_, followed_VVN by_IN the_DT big_JJ AIS_NNS data_NNS driven_VVN approach_VVP to_TO determine_VV the_DT probabilistic_JJ ship_NN domain_NN ._SENT 
+Subsequently_RB ,_, we_PP investigate_VV the_DT application_NN of_IN the_DT probabilistic_JJ ship_NN domain_NN to_TO assess_VV ship_NN collision_NN risk_NN ._SENT 
+Finally_RB ,_, a_DT few_JJ case_NN studies_NNS from_IN the_DT Singapore_NP Strait_NP are_VBP conducted_VVN ,_, which_WDT numerically_RB compare_VVP the_DT probabilistic_JJ ship_NN domain_NN with_IN two_CD traditional_JJ ship_NN domains_NNS and_CC then_RB show_VV the_DT application_NN of_IN probabilistic_JJ ship_NN domain_NN in_IN ship_NN collision_NN risk_NN assessment_NN ._SENT 
+<Section> 2._CD Probabilistic_JJ SHIP_NN domain_NN </Section> 2.1_CD ._SENT 
+The_DT definition_NN of_IN probabilistic_JJ ship_NN domain_NN Given_VVN a_DT restricted_JJ water_NN area_NN denoted_VVN by_IN Ω_NN ,_, there_EX are_VBP many_JJ different_JJ types_NNS of_IN ship_NN sailing_NN in_IN the_DT restricted_JJ water_NN area_NN at_IN any_DT time_NN instance_NN ._SENT 
+Any_DT two_CD adjacent_JJ sailing_NN ships_NNS in_IN the_DT restricted_JJ water_NN area_NN should_MD keep_VV a_DT certain_JJ distance_NN to_TO avoid_VV the_DT possible_JJ ship_NN collision_NN or_CC near-miss_NN ._SENT 
+Fujii_NP and_CC Tanaka_NP (_( 1971_CD )_) and_CC Goodwin_NP (_( 1975_CD )_) defined_VVD the_DT domain_NN of_IN a_DT ship_NN as_RB follows_VVZ :_: an_DT effective_JJ area_NN around_IN a_DT ship_NN ,_, in_IN which_WDT a_DT navigator_NN would_MD like_VV to_TO keep_VV free_JJ with_IN respect_NN to_TO other_JJ ships_NNS ._SENT 
+In_IN this_DT ship_NN domain_NN ,_, it_PP is_VBZ supposed_VVN that_IN the_DT water_NN area_NN around_IN the_DT ship_NN is_VBZ divided_VVN into_IN two_CD sub-areas_NNS ,_, namely_RB the_DT risk_NN area_NN and_CC safe_JJ area_NN shown_VVN in_IN Fig_NN ._SENT 
+1(a_NP )_) ._SENT 
+The_DT captains_NNS keep_VVP the_DT risk_NN area_NN clean_VV such_JJ that_IN they_PP have_VHP sufficient_JJ reaction_NN time_NN and_CC space_NN to_TO take_VV the_DT necessary_JJ actions/operations_NNS avoiding_VVG possible_JJ ship_NN collisions_NNS ._SENT 
+Fig_NN ._SENT 
+1._CD Risk_NN area_NN around_IN the_DT ship_NN ._SENT 
+In_IN reality_NN ,_, the_DT boundary_NN between_IN the_DT risk_NN and_CC safe_JJ areas_NNS is_VBZ vague_JJ and_CC uncertain_JJ because_IN of_IN the_DT different_JJ navigational_JJ behaviors_NNS of_IN captains_NNS ._SENT 
+As_IN shown_VVN in_IN Fig_NN ._SENT 
+1(b_NP )_) ,_, the_DT risk_NN area_NN can_MD be_VB precisely_RB divided_VVN into_IN two_CD sub-areas_NNS :_: forbidden_VVN and_CC risk_NN sub-areas_NNS ._SENT 
+Other_JJ than_IN the_DT own_JJ ship_NN ,_, there_EX will_MD be_VB no_DT other_JJ ships_NNS sailing_VVG in_IN the_DT forbidden_VVN area_NN ._SENT 
+Nevertheless_RB ,_, another_DT ship_NN would_MD probably_RB enter_VV the_DT risk_NN sub-area_NN ,_, the_DT probability_NN of_IN which_WDT depends_VVZ on_IN the_DT behavior_NN of_IN navigators_NNS ,_, sailing_VVG speeds_NNS ,_, ship_NN types_NNS as_RB well_RB as_IN the_DT navigational_JJ conditions_NNS of_IN the_DT restricted_JJ water_NN areas_NNS ._SENT 
+This_DT probability_NN increases_VVZ when_WRB the_DT distance_NN to_TO the_DT own_JJ ship_NN surpasses_VVZ the_DT boundary_NN of_IN the_DT forbidden_VVN sub-area_NN because_IN of_IN the_DT low_JJ ship_NN collision_NN risk_NN ._SENT 
+Gucma_NP and_CC Marcjan_NP (_( 2012_CD )_) proposed_VVD a_DT similar_JJ probabilistic_JJ model_NN of_IN minimal_JJ passing_VVG distances_NNS ._SENT 
+The_DT field_NN data_NN analysis_NN in_IN Singapore_NP Port_NP confirms_VVZ the_DT minimal_JJ distances_NNS with_IN long-tailed_JJ distribution_NN ,_, named_VVN as_IN ship_NN safety_NN distance_NN (_( Zhang_NP et_NP al_NP ._SENT 
+,_, 2015_CD )_) ._SENT 
+As_IN shown_VVN in_IN Fig_NN ._SENT 
+1(b_NP )_) ,_, the_DT length_NN defined_VVN by_IN δ(θ)=r(θ)−rmin(θ_NN )_) can_MD be_VB formulated_VVN as_IN a_DT continuous_JJ random_JJ variable_NN for_IN any_DT given_VVN polar_JJ angle_NN θ_NN ,_, where_WRB rmin(θ_NP )_) is_VBZ the_DT distance_NN from_IN the_DT own_JJ ship_NN to_TO the_DT boundary_NN of_IN the_DT forbidden_VVN area_NN ,_, r(θ_NP )_) is_VBZ the_DT distance_NN between_IN the_DT target_NN ship_NN and_CC own_JJ ship_NN ._SENT 
+It_PP can_MD be_VB seen_VVN that_IN δ(θ_NN )_) is_VBZ the_DT distance_NN from_IN the_DT boundary_NN of_IN the_DT forbidden_VVN area_NN to_TO the_DT target_NN ship_NN in_IN sector_NN θ_NN ._SENT 
+Let_VV fΔ(θ)(x_NP )_) denote_VVP the_DT probability_NN density_NN function_NN of_IN the_DT continuous_JJ random_JJ variable_JJ δ(θ_NN )_) defined_VVN in_IN the_DT sample_NN space_NN [_SYM 0,l(θ_JJ )_) ]_SYM for_IN a_DT given_VVN angle_NN θ_NN ,_, namely_RB the_DT ship_NN domain_NN probability_NN function_NN ._SENT 
+l(θ_NP )_) is_VBZ a_DT given_VVN non-negative_JJ value_NN and_CC it_PP is_VBZ set_VVN to_TO 2_CD NM_NP ,_, which_WDT is_VBZ the_DT safe_JJ distance_NN beyond_IN which_WDT the_DT target_NN ship_NN is_VBZ not_RB considered_VVN as_IN a_DT threat_NN from_IN the_DT perspective_NN of_IN ship_NN collision_NN (_( Dinh_NP and_CC Im_NP ,_, 2016_CD )_) ._SENT 
+The_DT probabilistic_JJ ship_NN domain_NN with_IN the_DT probability_NN of_IN 0≤α≤1_NN ,_, which_WDT is_VBZ referred_VVN to_TO as_IN α–ship_NN domain_NN ,_, is_VBZ mathematically_RB defined_VVN by_IN Sα={(rmin(θ)+δ(θ),θ)|∫0δ(θ)fΔ(θ)(ω)dω≤α,0≤δ(θ)≤l(θ)−rmin(θ),00≤θ≤3600}(1_JJ )_) As_IN illustrated_VVN in_IN Fig_NN ._SENT 
+2_LS ,_, given_VVN different_JJ values_NNS of_IN α_NP ,_, the_DT ship_NN domain_NN can_MD be_VB depicted_VVN by_IN a_DT series_NN of_IN contours_NNS ,_, which_WDT is_VBZ called_VVN the_DT α-boundary_NN ._SENT 
+The_DT a-boundary_NN is_VBZ expressed_VVN by_IN Rα={(rmin(θ)+δ(θ),θ)|∫0δ(θ)fΔ(θ)(ω)dω=α,0≤δ(θ)≤l(θ)−rmin(θ),00≤θ≤3600}(2_NN )_) When_WRB α_NP is_VBZ zero_CD ,_, the_DT corresponding_JJ boundary_NN is_VBZ identical_JJ to_TO the_DT boundary_NN of_IN the_DT forbidden_VVN sub-area_NN and_CC it_PP is_VBZ named_VVN as_IN the_DT forbidden_VVN boundary_NN that_WDT illustrates_VVZ the_DT water_NN area_NN of_IN the_DT highest_JJS risk_NN around_IN the_DT own_JJ ship_NN ._SENT 
+Fig_NN ._SENT 
+2._CD α-Domain_NN ._SENT 
+2.2_CD ._SENT 
+Probabilistic_JJ ship_NN domain_NN vs_NP deterministic_JJ and_CC fuzzy_JJ ship_NN domains_NNS We_PP now_RB investigate_VV the_DT similarities_NNS and_CC differences_NNS among_IN the_DT probabilistic_JJ ship_NN domain_NN ,_, deterministic_JJ ship_NN domains_NNS and_CC fuzzy_JJ ship_NN domains_NNS ._SENT 
+2.2.1_CD ._SENT 
+Probabilistic_JJ domain_NN vs_NP deterministic_JJ domain_NN The_DT significant_JJ difference_NN between_IN the_DT α-domain_NN and_CC deterministic_JJ ship_NN domain_NN is_VBZ the_DT way_NN to_TO describe_VV the_DT boundary_NN between_IN the_DT safe_JJ and_CC risk_NN areas_NNS around_IN the_DT own_JJ ship_NN ._SENT 
+The_DT deterministic_JJ ship_NN domains_NNS consider_VVP the_DT boundary_NN between_IN the_DT safe_JJ and_CC risk_NN areas_NNS as_IN the_DT crisp_JJ numeric_JJ value_NN ._SENT 
+In_IN the_DT α-domain_NP model_NN ,_, the_DT ship_NN domain_NN boundary_NN is_VBZ considered_VVN as_IN the_DT probabilistic_JJ value_NN based_VVN on_IN the_DT distribution_NN of_IN the_DT target_NN ships_NNS ._SENT 
+The_DT distribution_NN of_IN the_DT distance_NN to_TO the_DT target_NN ships_NNS is_VBZ affected_VVN by_IN many_JJ factors_NNS ,_, such_JJ as_IN the_DT navigational_JJ behavior_NN of_IN the_DT captains_NNS and_CC the_DT navigational_JJ environments_NNS ._SENT 
+The_DT deterministic_JJ ship_NN domains_NNS can_MD be_VB regarded_VVN as_IN a_DT special_JJ case_NN of_IN the_DT α-domain_NN ._SENT 
+As_IN shown_VVN in_IN Fig_NN ._SENT 
+3_LS ,_, the_DT ship_NN density_NN in_IN a_DT small_JJ area_NN around_IN the_DT own_JJ ship_NN with_IN the_DT width_NN of_IN 2×Δh_NP at_IN the_DT distance_NN r_NN is_VBZ ρr_NP ;_: Δh=n∫r−Δhr+ΔhfΔθωdω1/mπr+Δh2−1/mπr−Δh2=mn∫r−Δhr+ΔhfΔθωdω4πrΔh(3_NP )_) where_WRB r_NN is_VBZ the_DT distance_NN to_TO the_DT own_JJ ship,Δh_NN is_VBZ the_DT small_JJ distance_NN around_IN r_NN and_CC m_NN is_VBZ the_DT number_NN of_IN sectors_NNS ._SENT 
+Let_VV Δh→0_NP and_CC ξ∈[r−Δh,r+Δh_NP ]_SYM ,_, we_PP have_VHP the_DT limξ→r_NN ._SENT 
+According_VVG to_TO the_DT mean_JJ value_NN theorem_NN of_IN integrals_NNS ,_, the_DT limit_NN of_IN formula_NN (_( 3_CD )_) is_VBZ limΔh→0ρr_NP ;_: Δh=limΔh→0mnfΔθξ2Δh4πrΔh=mnfΔθr2πr=kfΔθr/r(4_NP )_) where_WRB n_NN is_VBZ the_DT sample_NN number_NN and_CC k=mn/2π_NN ._SENT 
+It_PP can_MD be_VB easily_RB seen_VVN that_IN the_DT ship_NN density_NN equals_VVZ the_DT probability_NN of_IN ships_NNS per_IN unit_NN arc_NN length_NN multiplies_VVZ a_DT constant_JJ value_NN k._NN Thus_RB ,_, in_IN a_DT small_JJ area_NN at_IN the_DT distance_NN of_IN r_NN ,_, the_DT ship_NN density_NN can_MD be_VB calculated_VVN by_IN ρr=mnfΔθr2πr=mn2π×fΔθr/r(5_NP )_) Fig_NN ._SENT 
+3._CD Ship_NN density_NN in_IN a_DT small_JJ sector_NN ._SENT 
+Let_VV ρ(r�_NP �_NP )_) be_VB the_DT maximum_JJ value_NN of_IN ρ(r_NP )_) ,_, then_RB r�_JJ �_NN is_VBZ the_DT position_NN of_IN the_DT maximum_JJ ship_NN density_NN from_IN own_JJ ship_NN ._SENT 
+In_IN other_JJ words_NNS ,_, r�_NP �_NP composes_VVZ the_DT boundary_NN at_IN which_WDT the_DT ship_NN density_NN reaches_VVZ the_DT maximum_NN ._SENT 
+This_DT boundary_NN is_VBZ defined_VVN as_IN the_DT desired_VVN boundary_NN ._SENT 
+The_DT desired_VVN boundary_NN indicates_VVZ the_DT distances_NNS that_IN the_DT captains_NNS are_VBP more_RBR likely_JJ to_TO keep_VV when_WRB two_CD ships_NNS sailing_VVG alongside_IN each_DT other_JJ ._SENT 
+This_DT is_VBZ the_DT same_JJ as_IN the_DT definition_NN of_IN the_DT boundary_NN in_IN the_DT classical_JJ ship_NN domains_NNS models_NNS ,_, which_WDT is_VBZ defined_VVN as_IN the_DT distance_NN at_IN which_WDT the_DT ship_NN density_NN is_VBZ the_DT highest_JJS (_( Fujii_NP and_CC Tanaka_NP ,_, 1971_CD ;_: Goodwin_NP ,_, 1975_CD )_) ._SENT 
+2.2.2_CD ._SENT 
+Probabilistic_JJ domain_NN vs_NP fuzzy_JJ ship_NN domains_NNS The_DT α-domain_NN and_CC fuzzy_JJ domain_NN has_VHZ similarities_NNS in_IN depicting_VVG the_DT boundary_NN as_IN the_DT vague_JJ value_NN ,_, which_WDT can_MD reflect_VV the_DT diversity_NN of_IN the_DT behaviors_NNS of_IN navigators_NNS ._SENT 
+Moreover_RB ,_, both_CC of_IN the_DT α-domain_NN and_CC fuzzy_JJ domain_NN are_VBP related_VVN to_TO the_DT risk_NN level_NN ,_, which_WDT makes_VVZ them_PP suitable_JJ for_IN risk_NN analysis_NN ._SENT 
+However_RB ,_, the_DT rationale_NN to_TO characterize_VV the_DT uncertainty_NN is_VBZ totally_RB different_JJ ._SENT 
+Probability_NN is_VBZ associated_VVN with_IN events_NNS and_CC not_RB facts_NNS ,_, and_CC those_DT events_NNS will_MD either_RB occur_VV or_CC not_RB occur_VV ._SENT 
+There_EX is_VBZ nothing_NN fuzzy_JJ about_IN it_PP ._SENT 
+However_RB ,_, Fuzzy_JJ Logic_NN is_VBZ all_RB about_IN the_DT degree_NN of_IN truth_NN ._SENT 
+Pietrzykowski_NP Uriasz_NP (_( 2009_CD )_) used_VVD the_DT member_NN function_NN of_IN the_DT fuzzy_JJ ship_NN domain_NN by_IN learning_VVG from_IN the_DT navigators_NNS '_POS knowledge_NN using_VVG the_DT artificial_JJ neural_JJ networks_NNS with_IN fuzzy_JJ logic_NN ._SENT 
+When_WRB the_DT fuzzy_JJ ship_NN domains_NNS are_VBP applied_VVN to_TO the_DT ship_NN collision_NN risk_NN assessment_NN by_IN different_JJ people_NNS ,_, the_DT membership_NN function_NN may_MD not_RB be_VB the_DT same_JJ ,_, which_WDT leads_VVZ to_TO the_DT inconsistent_JJ assessment_NN results_NNS ._SENT 
+For_IN the_DT α-domain_NN ,_, the_DT uncertainty_NN of_IN the_DT captains’_JJ navigational_JJ behavior_NN is_VBZ quantified_VVN based_VVN on_IN the_DT frequency_NN of_IN the_DT target_NN ships_NNS at_IN different_JJ distances_NNS ,_, which_WDT can_MD be_VB determined_VVN by_IN the_DT historical_JJ ship_NN trajectories_NNS ._SENT 
+It_PP should_MD be_VB noted_VVN that_IN the_DT probabilistic_JJ domain_NN is_VBZ heavily_RB dependent_JJ on_IN the_DT set_NN of_IN AIS_NNS data_NNS ,_, while_IN the_DT fuzzy_JJ domain_NN depends_VVZ on_IN the_DT knowledge_NN of_IN the_DT experts_NNS ,_, such_JJ as_IN navigators_NNS ._SENT 
+<Section> 3._CD Big_NP AIS_NNS data_NNS driven_VVN approach_VVP to_TO determine_VV the_DT probabilistic_JJ SHIP_NN domain_NN </Section> To_TO determine_VV the_DT probabilistic_JJ ship_NN domain_NN ,_, we_PP have_VHP to_TO define_VV the_DT critical_JJ ship_NN safety_NN distance_NN (_( CSSD_NN )_) between_IN the_DT own_JJ and_CC its_PP$ neighboring_JJ ships_NNS ,_, as_RB illustrated_VVN in_IN Fig_NN ._SENT 
+4._CD As_RB shown_VVN in_IN Fig_NN ._SENT 
+4(a_NP )_) ,_, the_DT ship_NN safety_NN distance_NN (_( SSD_NN )_) is_VBZ defined_VVN as_IN the_DT minimum_JJ distance_NN from_IN own_JJ ship_NN to_TO a_DT number_NN of_IN ships_NNS around_IN the_DT own_JJ ship_NN at_IN the_DT given_VVN time_NN instance_NN t1_NN ._SENT 
+During_IN a_DT period_NN ,_, the_DT SSD_JJ changes_NNS over_IN time_NN ,_, and_CC the_DT minimum_JJ SSD_NN occurred_VVD at_IN time_NN instance_NN t2_NN is_VBZ called_VVN the_DT CSSD_NN ._SENT 
+For_IN example_NN ,_, during_IN the_DT ship_NN overtaking_VVG process_NN ,_, the_DT SSD_NN is_VBZ large_JJ at_IN first_JJ ,_, and_CC then_RB the_DT SSD_JJ decreases_NNS which_WDT results_NNS in_IN the_DT rise_NN in_IN the_DT collision_NN risk_NN ._SENT 
+The_DT captain_NN changes_VVZ the_DT course_NN to_TO keep_VV the_DT distance_NN above_IN the_DT minimum_JJ distance_NN ,_, which_WDT is_VBZ the_DT boundary_NN between_IN the_DT risk_NN area_NN and_CC safe_JJ area_NN ._SENT 
+It_PP should_MD be_VB noted_VVN that_IN the_DT captain_NN of_IN the_DT own_JJ ship_NN only_RB cares_VVZ about_IN the_DT status_NN of_IN the_DT nearest_JJS ship_NN in_IN one_CD direction_NN which_WDT is_VBZ the_DT most_RBS serious_JJ threat_NN to_TO its_PP$ safety_NN ._SENT 
+Fig_NN ._SENT 
+4._CD Critical_JJ safety_NN distance_NN (_( CSSD_NN )_) ._SENT 
+As_IN a_DT data-driven_JJ ship_NN domain_NN ,_, although_IN the_DT probabilistic_JJ domain_NN does_VVZ not_RB explicitly_RB take_VV into_IN account_NN the_DT impact_NN factor_NN variable_NN as_IN fuzzy_JJ domain_NN ,_, it_PP can_MD consider_VV the_DT impact_NN factors_NNS by_IN categorizing_VVG the_DT input_NN AIS_NNS data_NNS into_IN different_JJ groups_NNS under_IN different_JJ scenarios_NNS ._SENT 
+In_IN each_DT category_NN ,_, the_DT impact_NN factors_NNS are_VBP similar_JJ ,_, such_JJ as_IN the_DT same_JJ ship_NN type_NN ,_, ship_NN speed_NN ,_, and_CC navigation_NN environment_NN ._SENT 
+For_IN example_NN ,_, we_PP can_MD determine_VV the_DT ship_NN domain_NN for_IN a_DT certain_JJ type_NN of_IN ship_NN in_IN a_DT specific_JJ water_NN area_NN ._SENT 
+The_DT own_JJ ship_NN speed_NN can_MD be_VB categorized_VVN into_IN different_JJ levels_NNS ,_, such_JJ as_IN low_JJ speed_NN ,_, normal_JJ speed_NN ,_, and_CC high_JJ speed_NN ._SENT 
+Then_RB ,_, the_DT ship_NN domains_NNS determined_VVD based_VVN on_IN the_DT data_NNS in_IN certain_JJ category_NN implicitly_RB consider_VV the_DT impact_NN factors_NNS of_IN the_DT corresponding_JJ scenario_NN ._SENT 
+Fig_NN ._SENT 
+5_CD depicts_VVZ the_DT flowchart_NP of_IN the_DT big_JJ AIS_NNS data_NNS driven_VVN approach_VVP to_TO determine_VV the_DT probabilistic_JJ ship_NN domain_NN ._SENT 
+It_PP includes_VVZ four_CD steps_NNS :_: Step_NN 1_CD -_: AIS_NNS data_NNS cleansing_NN and_CC interpolation_NN ,_, Step_NN 2_CD -_: the_DT CSSD_JJ data_NN calculation_NN ,_, Step_VV 3_CD �_JJ �_JJ Abnormal_JJ CSSD_NN data_NNS elimination_NN and_CC Step_VV 4_CD -_: the_DT α-domain_NN determination_NN ._SENT 
+These_DT four_CD steps_NNS are_VBP elaborated_VVN in_IN the_DT following_VVG 4_CD sub-sections_NNS ._SENT 
+There_EX are_VBP some_DT similarities_NNS between_IN this_DT approach_NN and_CC the_DT study_NN by_IN Hansen_NP et_CC al_NP ._SENT 
+(_( 2013_CD )_) ._SENT 
+Both_DT studies_NNS determine_VVP the_DT ship_NN domain_NN based_VVN on_IN the_DT amount_NN of_IN time_NN during_IN which_WDT another_DT ship_NN is_VBZ observed_VVN at_IN the_DT given_VVN position_NN relative_JJ to_TO the_DT own_JJ ship_NN ,_, which_WDT is_VBZ presented_VVN as_IN the_DT frequency_NN of_IN the_DT distance_NN from_IN the_DT own_JJ ship_NN to_TO the_DT target_NN ship_NN ._SENT 
+However_RB ,_, our_PP$ study_NN differs_VVZ from_IN the_DT study_NN by_IN Hansen_NP et_CC al_NP ._SENT 
+(_( 2013_CD )_) as_RB follows_VVZ ._SENT 
+Firstly_RB ,_, the_DT distances_NNS used_VVN to_TO determine_VV the_DT ship_NN domain_NN in_IN the_DT study_NN by_IN Hansen_NP et_CC al_NP ._SENT 
+(_( 2013_CD )_) include_VV all_PDT the_DT distances_NNS at_IN different_JJ time_NN ,_, while_IN in_IN our_PP$ study_NN we_PP only_RB use_VVP the_DT critical_JJ ship_NN safety_NN distance_NN (_( CSSD_NN )_) ,_, which_WDT is_VBZ defined_VVN based_VVN on_IN the_DT smallest_JJS distance_NN during_IN the_DT encounter_NN of_IN two_CD ships_NNS ._SENT 
+Moreover_RB ,_, in_IN our_PP$ study_NN ,_, we_PP developed_VVD a_DT data_NNS cleansing_VVG algorithm_NN to_TO remove_VV the_DT noise_NN data_NNS in_IN CSSD_JJ data_NNS ._SENT 
+Fig_NN ._SENT 
+5._CD The_DT flowchart_NN of_IN the_DT probabilistic_JJ ship_NN domain_NN calibration_NN approach_NN ._SENT 
+3.1_CD ._SENT 
+Step_NN 1_CD -_: AIS_NNS data_NNS cleansing_NN and_CC interpolation_NN The_DT AIS_NNS data_NNS should_MD be_VB cleaned_VVN and_CC interpolated_VVN in_IN the_DT time_NN domain_NN ._SENT 
+The_DT raw_JJ AIS_NNS data_NNS are_VBP not_RB immune_JJ to_TO errors_NNS occurring_VVG during_IN collection_NN and_CC transmission_NN ,_, which_WDT thus_RB need_VVP cleanness_NN to_TO eliminate_VV the_DT possible_JJ noises_NNS ._SENT 
+The_DT raw_JJ AIS_NNS data_NNS are_VBP sent_VVN at_IN different_JJ times_NNS randomly_RB ._SENT 
+To_TO get_VV the_DT snapshot_NN of_IN ship_NN dynamics_NNS ,_, the_DT AIS_NNS data_NNS must_MD be_VB interpolated_VVN with_IN a_DT predefined_JJ time_NN interval_NN ._SENT 
+The_DT procedure_NN proposed_VVN by_IN Qu_NP et_CC al_NP ._SENT 
+(_( 2011_CD )_) is_VBZ adopted_VVN to_TO cleanse_VV the_DT AIS_NNS data_NN noise_NN ,_, which_WDT is_VBZ based_VVN on_IN the_DT fundamental_JJ physical_JJ law_NN of_IN the_DT vessel_NN movement_NN ._SENT 
+In_IN order_NN to_TO get_VV the_DT snapshot_NN of_IN ship_NN status_NN ,_, the_DT AIS_NNS data_NNS should_MD be_VB interpolated_VVN with_IN a_DT predefined_JJ time_NN interval_NN ._SENT 
+In_IN this_DT study_NN ,_, a_DT linear_JJ interpolation_NN method_NN proposed_VVN by_IN (_( Zhang_NP et_NP al_NP ._SENT 
+,_, 2015_CD )_) is_VBZ used_VVN for_IN data_NN interpolation_NN and_CC the_DT predefined_JJ time_NN interval_NN is_VBZ set_VVN to_TO 30 s_NNS ._SENT 
+3.2_CD ._SENT 
+Step_NN 2_CD -_: critical_JJ ship_NN safety_NN distance_NN calculation_NN The_DT CSSD_NN is_VBZ calculated_VVN using_VVG the_DT cleaned_VVN and_CC interpolated_VVN AIS_NNS data_NNS generated_VVN in_IN Step_NN 1_CD and_CC ship_VV characteristic_JJ data_NNS ._SENT 
+The_DT generated_VVN AIS_NNS data_NNS contains_VVZ information_NN of_IN ship_NN MMSI_NP ,_, latitude_NN ,_, longitude_NN ,_, course_NN of_IN ground_NN ,_, speed_NN of_IN ground_NN ,_, ship_NN draught_NN ,_, ship_NN type_NN and_CC time_NN stamp_NN ._SENT 
+The_DT ship_NN characteristics_NNS data_NNS provides_VVZ the_DT information_NN of_IN ship_NN length_NN and_CC ship_NN type_NN ._SENT 
+We_PP first_RB calculate_VVP the_DT distances_NNS between_IN all_DT pairs_NNS of_IN ships_NNS with_IN the_DT computational_JJ complexity_NN of_IN n2_NP ,_, where_WRB n_NN is_VBZ the_DT number_NN of_IN ships_NNS at_IN a_DT given_VVN time_NN instance_NN ._SENT 
+To_TO improve_VV the_DT computation_NN efficiency_NN ,_, we_PP only_RB iterate_VVP the_DT ships_NNS within_IN a_DT given_VVN distance_NN denoted_VVD by_RB dup_VV ._SENT 
+The_DT minimum_JJ distance_NN between_IN the_DT own_JJ ship_NN and_CC target_NN ship_NN during_IN a_DT time_NN span_NN in_IN sector_NN θ_NN is_VBZ calculated_VVN as_IN one_CD record_NN of_IN CSSD_NNS ._SENT 
+The_DT CSSD_JJ calculation_NN method_NN is_VBZ presented_VVN below_IN :_: Fig_NN Fig_NN ._SENT 
+6_CD plots_NNS the_DT CSSD_NN data_NNS calculated_VVN for_IN two_CD container_NN ships_NNS sailing_VVG in_IN the_DT two_CD water_NN areas_NNS of_IN Singapore_NP Strait_NP by_IN using_VVG one-week_NN AIS_NNS data_NNS from_IN October_NP 2_CD ,_, 2013_CD to_TO October_NP 8_CD ,_, 2013._CD According_VVG to_TO Fig_VV ._SENT 
+6_CD ,_, it_PP can_MD be_VB found_VVN that_IN around_IN the_DT own_JJ ship_NN there_EX is_VBZ an_DT area_NN in_IN which_WDT no_DT ship_NN enters_VVZ ._SENT 
+It_PP can_MD be_VB also_RB seen_VVN that_IN the_DT ship_NN density_NN around_IN the_DT dotted_JJ circle_NN is_VBZ much_RB higher_JJR than_IN the_DT other_JJ areas_NNS ._SENT 
+Fig_NN ._SENT 
+6._CD Two_CD CSSD_JJ data_NNS distributions_NNS ._SENT 
+3.3_CD ._SENT 
+Step_NN 3_CD -_: critical_JJ ship_NN safety_NN distance_NN data_NNS cleansing_VVG The_DT CSSD_JJ data_NNS cannot_MD be_VB used_VVN directly_RB for_IN the_DT probabilistic_JJ ship_NN domain_NN determination_NN without_IN abnormal_JJ data_NNS elimination_NN because_IN there_EX are_VBP abnormal_JJ CSSD_JJ data_NNS generated_VVN by_IN or_CC exceptional_JJ navigational_JJ behavior_NN such_JJ as_IN accidents_NNS caused_VVN by_IN human_JJ errors_NNS ._SENT 
+For_IN example_NN ,_, as_RB shown_VVN in_IN Fig_NN ._SENT 
+6_CD ,_, near_IN the_DT own_JJ ship_NN there_EX are_VBP some_DT data_NNS points_NNS with_IN extremely_RB low_JJ density_NN ,_, which_WDT would_MD be_VB the_DT ships_NNS invading_VVG the_DT ship_NN domain_NN accidently_RB ._SENT 
+To_TO eliminate_VV these_DT abnormal_JJ CSSD_NN data_NNS ,_, we_PP develop_VVP the_DT abnormal_JJ CSSA_NP data_NNS elimination_NN algorithm_NN inspired_VVN by_IN the_DT low-frequency_NN noise_NN elimination_NN algorithm_NN for_IN the_DT salt-and-pepper_NN data_NN noise_NN in_IN image_NN processing_NN ._SENT 
+Firstly_RB ,_, we_PP convert_VVP the_DT CSSD_JJ data_NNS into_IN an_DT image_NN by_IN taking_VVG each_DT CSSD_NN as_IN a_DT pixel_NN ._SENT 
+The_DT height_NN mand_NN width_NN n_NN of_IN the_DT image_NN depend_VVP on_IN the_DT spatial_JJ resolution_NN in_IN the_DT row_NN and_CC column_NN directions_NNS of_IN Δx_NP andΔy_NP ,_, respectively_RB ._SENT 
+Let_VV i∈{1,2,…,n_NNS }_) be_VB the_DT index_NN of_IN the_DT CSSD_JJ data_NNS ,_, ri_NNS and_CC θi_NNS be_VB the_DT polar_JJ radius_NN and_CC polar_JJ angle_NN of_IN the_DT CSSD_JJ data_NN i_NP ,_, m_NN and_CC n_NN are_VBP then_RB calculated_VVN by_IN m=⌈(max{risin(θi)}−min{risin(θi)})/Δy⌉(6_NN )_) n=⌈(max{ricos(θi)}−min{ricos(θi)})/Δx⌉(7_JJ )_) where_WRB ⌈x�_NP �_NP is_VBZ the_DT math_NN operator_NN to_TO get_VV the_DT smallest_JJS integer_NN larger_JJR than_IN x._NP The_DT position_NN of_IN the_DT own_JJ ship_NN is_VBZ calculated_VVN by(x0,y0)=(|minricosθi|,|minrisinθi|_JJ )_) ._SENT 
+The_DT value_NN of_IN the_DT pixel_NP (_( i,j_NP )_) is_VBZ the_DT number_NN of_IN the_DT CSSD_JJ data_NNS located_VVN in_IN the_DT grid_NN of_IN (_( i,j_NP )_) ._SENT 
+Fig_NN ._SENT 
+7_CD (_( a_DT )_) and_CC (_( c_LS )_) show_VV two_CD examples_NNS of_IN the_DT image_NN created_VVD based_VVN on_IN the_DT raw_JJ CSSD_NN data_NNS ._SENT 
+It_PP can_MD be_VB seen_VVN clearly_RB that_IN there_EX is_VBZ salt-and-pepper_NN noise_NN marked_VVD with_IN the_DT circle_NN ._SENT 
+Fig_NN ._SENT 
+7._CD CSSD_JJ noise_NN data_NNS elimination_NN ._SENT 
+Once_RB the_DT image_NN has_VHZ been_VBN created_VVN ,_, we_PP eliminate_VVP the_DT pixels_NNS around_IN which_WDT the_DT total_JJ number_NN of_IN the_DT nonzero-value_JJ pixels_NNS is_VBZ below_IN the_DT predefined_JJ threshold_NN ξneighbor_NN ._SENT 
+The_DT larger_JJR ξneighbor_NN is_VBZ ,_, the_DT more_JJR pixels_NNS will_MD be_VB eliminated_VVN as_IN the_DT noise_NN data_NNS ._SENT 
+The_DT neighbor_NN area_NN of_IN the_DT pixel_NP (_( i,j_NP )_) is_VBZ defined_VVN as_IN D(i,j,Δh)={Dxy|i−Δh≤x≤i+Δh,j−Δh≤y≤j+Δh,0≤x≤m,0≤y≤n}(8_NN )_) where_WRB Δh_NP is_VBZ the_DT width_NN of_IN the_DT neighbor_NN area_NN ._SENT 
+The_DT abnormal_JJ CSSD_NN data_NNS elimination_NN algorithm_NN is_VBZ presented_VVN as_RB follows_VVZ :_: Fig_NN Fig_NN ._SENT 
+7_CD shows_NNS the_DT results_NNS of_IN the_DT abnormal_JJ CSSD_NN data_NNS cleansing_VVG as_IN an_DT image_NN ._SENT 
+It_PP can_MD be_VB seen_VVN that_IN the_DT abnormal_JJ data_NNS marked_VVN with_IN circles_NNS in_IN Fig_NN ._SENT 
+7(a_NP )_) and_CC (_( c_LS )_) are_VBP removed_VVN by_IN the_DT proposed_VVN algorithm_NN as_IN shown_VVN in_IN Fig_NN ._SENT 
+7_CD (_( b_LS )_) and_CC 7_CD (_( d_LS )_) ,_, respectively_RB ._SENT 
+3.4_CD ._SENT 
+Step_NN 4_CD -_: α-domain_NN determination_NN According_VVG to_TO the_DT definition_NN of_IN α-domain_NP ,_, the_DT domain_NN probability_NN function_NN fΔ(θ)(x_NN )_) is_VBZ determined_VVN by_IN the_DT probability_NN density_NN function_NN of_IN the_DT random_JJ variable_JJ δ(θ_NN )_) ._SENT 
+The_DT CSSD_JJ data_NNS are_VBP the_DT sample_NN of_IN random_JJ variable_JJ δ(θ_NN )_) ,_, which_WDT can_MD be_VB used_VVN to_TO identify_VV the_DT probability_NN density_NN function_NN of_IN δ(θ_NN )_) using_VVG the_DT kernel_NN density_NN estimation_NN ._SENT 
+The_DT CSSD_JJ data_NNS in_IN sector_NN θi_NNS are_VBP grouped_VVN by_IN the_DT set_VVN CSSD={x|θi<angle(x)<θi+1,i=1,…,n_NN }_) ,_, where_WRB angle(x_NP )_) is_VBZ the_DT polar_JJ angle_NN of_IN the_DT CSSD_JJ x._NP The_DT PDF_NN of_IN δ(θ_NN )_) is_VBZ given_VVN by_IN ,_, Fig_VV ._SENT 
+8._CD CSSD_JJ data_NNS distribution_NN ._SENT 
+The_DT α-domain_NN is_VBZ composed_VVN of_IN forbidden_VVN area_NN boundary_NN and_CC the_DT ship_NN domain_NN probability_NN functions_NNS ._SENT 
+With_IN CSSD_JJ data_NNS ,_, the_DT probability_NN density_NN function_NN of_IN δ(θ_NN )_) can_MD be_VB determined_VVN using_VVG the_DT kernel_NN density_NN estimation_NN method_NN ._SENT 
+Given_VVN any_DT risk_NN level_NN 1−α_NN ,_, the_DT α-boundary_NN can_MD be_VB determined_VVN ._SENT 
+The_DT α-boundary_NN is_VBZ similar_JJ to_TO the_DT α-cut_NN of_IN fuzzy_JJ ship_NN domain_NN ,_, where_WRB the_DT value_NN α_NN represents_VVZ the_DT safety_NN level_NN (_( Pietrzykowski_NP and_CC Magaj_NP ,_, 2017_CD ;_: Pietrzykowski_NP ,_, 2008_CD )_) ._SENT 
+Moreover_RB ,_, both_CC the_DT probabilistic_JJ domain_NN and_CC fuzzy_JJ domain_NN model_NN the_DT boundary_NN of_IN the_DT ship_NN domain_NN as_IN the_DT vague_JJ value_NN rather_RB than_IN the_DT crisp_JJ value_NN using_VVG probability_NN and_CC fuzzy_JJ set_NN respectively_RB ._SENT 
+The_DT α-ship_NN domain_NN can_MD be_VB determined_VVN according_VVG to_TO the_DT following_VVG steps_NNS ._SENT 
+First_RB ,_, fetch_VV all_DT CSSD_JJ data_NNS in_IN every_DT sector_NN θ_NN and_CC then_RB calculate_VV the_DT forbidden_VVN boundary_NN using_VVG the_DT cleansed_VVN CSSD_NN ._SENT 
+Then_RB ,_, the_DT distribution_NN of_IN the_DT CSSD_NN in_IN every_DT sector_NN is_VBZ calculated_VVN using_VVG the_DT kernel_NN density_NN estimation_NN method_NN ._SENT 
+Subsequently_RB ,_, the_DT boundary_NN of_IN the_DT α-domain_NN can_MD be_VB calculated_VVN according_VVG to_TO each_DT given_VVN safe_JJ level_NN ._SENT 
+Finally_RB ,_, the_DT desired_VVN boundary_NN of_IN the_DT α-domain_NN can_MD be_VB determined_VVN by_IN the_DT local_JJ maximum_JJ value_NN of_IN the_DT kernel_NN density_NN function_NN ._SENT 
+The_DT details_NNS of_IN the_DT algorithm_NN to_TO determine_VV the_DT α-ship_NN domain_NN is_VBZ illustrated_VVN as_IN follows:g(x)=1K′∑j=1K′ϕh(x−xj)=1K′h∑j=1K′ϕh(x−xjh)(9_NN )_) where_WRB �_NP �_NP is_VBZ a_DT 1-D_JJ kernel_NN function_NN that_WDT satisfies_VVZ ϕ(x)≥0_JJ and_CC ∫Rϕ(x)dx=1_JJ in_IN the_DT real_JJ number_NN field_NN R_NN ;_: h_NN is_VBZ a_DT bandwidth_NN parameter_NN larger_JJR than_IN 0_CD ;_: K′_NP is_VBZ the_DT number_NN of_IN elements_NNS in_IN the_DT set_NN to_TO be_VB investigated_VVN within_IN the_DT window_NN bandwidth_NN h._NP In_IN this_DT paper_NN ,_, the_DT Gaussian_JJ kernel_NN is_VBZ adopted_VVN to_TO calculate_VV the_DT probability_NN density_NN function_NN ._SENT 
+The_DT probability_NN density_NN function_NN of_IN δ(θ_NN )_) can_MD be_VB illustrated_VVN by_IN a_DT real-world_NN example_NN shown_VVN in_IN Fig_NN ._SENT 
+8._CD This_DT example_NN uses_VVZ the_DT one-week_NN AIS_NNS data_NNS in_IN the_DT Singapore_NP Strait_NP ._SENT 
+In_IN Fig_NN ._SENT 
+8_CD (_( a_DT )_) ,_, we_PP can_MD observe_VV the_DT forbidden_VVN area_NN and_CC boundary_NN of_IN the_DT ship_NN domain_NN ._SENT 
+In_IN Fig_NN ._SENT 
+8(b_NP )_) ,_, there_EX is_VBZ a_DT maximum_JJ peak_NN value_NN of_IN the_DT PDF_NN of_IN δ(θ_NP )_) ,_, and_CC the_DT value_NN increases_VVZ with_IN the_DT rise_NN of_IN the_DT CSSD_NN before_IN the_DT PDF_NN reaches_VVZ the_DT peak_NN value_NN ._SENT 
+After_IN the_DT PDF_NN of_IN δ(θ)approaches_NNS the_DT peak_NN ,_, the_DT value_NN of_IN this_DT function_NN decreases_VVZ when_WRB CSSD_NN becomes_VVZ larger_JJR ._SENT 
+Fig_NN <Section> 4._CD SHIP_NN collision_NN risk_NN assessment_NN using_VVG the_DT probabilistic_JJ SHIP_NN domain_NN </Section> For_IN ship_NN collision_NN risk_NN assessment_NN ,_, the_DT traditional_JJ ship_NN domains_NNS are_VBP used_VVN as_IN thresholds_NNS to_TO judge_VV whether_IN there_EX is_VBZ collision_NN risk_NN ._SENT 
+More_RBR specifically_RB ,_, there_EX is_VBZ no_DT collision_NN risk_NN if_IN the_DT target_NN ship_NN is_VBZ outside_JJ of_IN the_DT ship_NN domain_NN of_IN the_DT own_JJ ship_NN ,_, otherwise_RB there_EX is_VBZ collision_NN risk_NN (_( Debnath_NP and_CC Chin_NP ,_, 2010_CD )_) ._SENT 
+The_DT probabilistic_JJ ship_NN domain_NN can_MD not_RB only_RB evaluate_VV whether_IN there_EX is_VBZ collision_NN risk_NN but_CC also_RB calculate_VV the_DT risk_NN level_NN by_IN the_DT probability_NN of_IN δ(θ_NP )_) ,_, which_WDT can_MD be_VB measured_VVN by_IN the_DT frequency_NN of_IN the_DT critical_JJ ship_NN safe_JJ distance_NN ._SENT 
+At_IN the_DT position_NN (_( θ,r_NP )_) ,_, the_DT ship_NN collision_NN risk_NN is_VBZ defined_VVN by_IN R(θ,r)={10<r≤rmin(θ)1−∫0r−rminfΔ(θ)(ω)dωrmin(θ)<r<l(θ)(10_NN )_) where_WRB r_NN is_VBZ the_DT distance_NN to_TO the_DT own_JJ ship_NN ,_, rmin(θ_NP )_) is_VBZ on_IN the_DT boundary_NN of_IN the_DT forbidden_VVN area_NN in_IN sector_NN θ_NN ,_, and_CC fΔ(θ)(x_NP )_) is_VBZ the_DT probability_NN density_NN function_NN of_IN δ(θ_NN )_) at_IN the_DT distance_NN x._NN It_PP can_MD be_VB easily_RB seen_VVN that_IN 0≤R(θ,r)≤1_JJ ._SENT 
+The_DT ship_NN collision_NN risk_NN defined_VVN by_IN equation_NN (_( 10_CD )_) has_VHZ significant_JJ implications_NNS ._SENT 
+The_DT larger_JJR probability_NN of_IN the_DT presence_NN of_IN the_DT target_NN ships_NNS indicates_VVZ the_DT lower_JJR collision_NN risk_NN ._SENT 
+On_IN the_DT contrary_NN ,_, the_DT lower_JJR probability_NN of_IN the_DT presence_NN of_IN the_DT target_NN ships_NNS shows_VVZ that_IN quite_RB few_JJ ships_NNS dare_VVP to_TO navigate_VV at_IN this_DT position_NN considering_VVG the_DT high_JJ collision_NN risk_NN ._SENT 
+In_IN the_DT forbidden_VVN area_NN ,_, this_DT probability_NN decreases_VVZ to_TO zero_VV and_CC the_DT collision_NN risk_NN increases_NNS to_TO the_DT largest_JJS value_NN of_IN one_CD ._SENT 
+The_DT risk_NN level_NN in_IN the_DT probabilistic_JJ domain_NN whose_WP$ α-value_NN is_VBZ set_VVN to_TO α_NN is_VBZ higher_JJR than_IN 1−α_NP ._SENT 
+In_IN other_JJ words_NNS ,_, given_VVN a_DT risk_NN level_NN β_NN there_RB is_VBZ a_DT corresponding_JJ probabilistic_JJ domain_NN with_IN the_DT α-value_NN of_IN 1−β_NP ._SENT 
+The_DT probabilistic_JJ ship_NN domain_NN is_VBZ suitable_JJ for_IN quantitative_JJ safety_NN evaluation_NN and_CC navigation_NN operation_NN ._SENT 
+First_RB ,_, in_IN the_DT α-domain_NN ,_, the_DT risk_NN level_NN is_VBZ a_DT continuous_JJ value_NN ,_, which_WDT is_VBZ quantitatively_RB determined_VVN by_IN the_DT probability_NN of_IN the_DT presence_NN of_IN the_DT target_NN ships_NNS ._SENT 
+In_IN the_DT traditional_JJ ship_NN domain_NN models_NNS ,_, such_JJ as_IN Fujii_NP 's_POS domain_NN and_CC the_DT Goodwin_NP 's_POS domain_NN ,_, there_EX are_VBP only_RB two_CD risk_NN levels_NNS ,_, risk_NN level_NN or_CC safe_JJ level_NN ._SENT 
+In_IN reality_NN ,_, the_DT risk_NN level_NN increases_VVZ continuously_RB with_IN the_DT decrease_NN of_IN the_DT safety_NN distance_NN ,_, which_WDT cannot_MD be_VB captured_VVN by_IN the_DT traditional_JJ deterministic_JJ ship_NN domain_NN models_NNS ._SENT 
+Moreover_RB ,_, the_DT α-domain_NP model_NN can_MD be_VB effectively_RB calibrated_VVN by_IN calculating_VVG the_DT domain_NN probability_NN function_NN ._SENT 
+Hence_RB ,_, the_DT ship_NN collision_NN risk_NN assessment_NN results_NNS are_VBP more_RBR robust_JJ because_IN it_PP does_VVZ not_RB rely_VV on_IN the_DT experts_NNS '_POS knowledge_NN required_VVN by_IN the_DT fuzzy_JJ ship_NN domain_NN ._SENT 
+<Section> 5._CD Case_NP studies_NNS </Section> To_TO compare_VV the_DT impact_NN of_IN the_DT navigational_JJ conditions_NNS in_IN different_JJ water_NN areas_NNS on_IN the_DT probabilistic_JJ ship_NN domain_NN ,_, we_PP select_VVP three_CD channel_NN segments_NNS with_IN different_JJ widths_NNS in_IN the_DT Singapore_NP Straight_NP shown_VVN in_IN Fig_NN ._SENT 
+9._CD To_TO establish_VV the_DT probabilistic_JJ ship_NN domains_NNS in_IN these_DT three_CD channel_NN segments_NNS for_IN container_NN ships_NNS ,_, we_PP use_VVP one-week_NN AIS_NNS data_NNS in_IN the_DT Singapore_NP Straight_NP from_IN October_NP 2_CD ,_, 2013_CD to_TO October_NP 8_CD ,_, 2013._CD The_DT one-week_NN AIS_NNS data_NNS contains_VVZ the_DT information_NN of_IN Maritime_NP Mobile_NP Service_NP Identity_NN (_( MMSI_NP )_) ,_, vessel_NN position_NN ,_, time_NN ,_, speed_NN ,_, course_NN ,_, draught_NN ,_, cargo_NN ,_, destination_NN ,_, short_JJ safety_NN message_NN and_CC etc._FW The_DT vessel_NN information_NN is_VBZ retrieved_VVN from_IN a_DT commercial_JJ database_NN with_IN the_DT characteristics_NNS of_IN 70,509_CD ships_NNS ,_, including_VVG the_DT Maritime_NP Mobile_NP Service_NP Identity_NN number_NN ,_, type_NN of_IN vessel_NN ,_, length_NN ,_, beam_NN ,_, and_CC etc._FW Fig_NN ._SENT 
+9._CD Three_CD channel_NN segments_NNS in_IN the_DT Singapore_NP Strait_NP ._SENT 
+The_DT one-week_NN AIS_NNS data_NNS consist_VVP of_IN 1,257,860_CD records_NNS generated_VVN by_IN 2618_CD different_JJ ships_NNS ._SENT 
+The_DT average_JJ sailing_NN speed_NN of_IN these_DT ships_NNS is_VBZ 7.41_CD knots_NNS and_CC the_DT average_JJ length_NN is_VBZ 155.56 m_NN ._SENT 
+The_DT most_RBS frequent_JJ ships_NNS are_VBP general_JJ cargo_NN ships_NNS ,_, container_NN ships_NNS ,_, oil_NN tankers_NNS and_CC LNG_NP ships_NNS ,_, whose_WP$ occupations_NNS are_VBP 18.58_CD %_NN ,_, 16.47%,14.10_CD %_NN and_CC 12.09_CD %_NN ,_, respectively_RB ._SENT 
+The_DT big_JJ AIS_NNS data_NNS driven_VVN approach_NN for_IN probabilistic_JJ ship_NN domain_NN determination_NN is_VBZ implemented_VVN using_VVG Python2.7_JJ as_IN the_DT plugins_NNS of_IN a_DT maritime_JJ traffic_NN simulation_NN platform_NN named_VVN as_IN STSS_NP (_( http://stss-maritime.github.io/_NP )_) ._SENT 
+This_DT platform_NN has_VHZ the_DT functions_NNS of_IN the_DT AIS_NNS data_NN visualization_NN and_CC the_DT basic_JJ GIS_NN functions_NNS to_TO manage_VV both_DT nautical_JJ chart_NN and_CC the_DT AIS_NNS data_NNS ._SENT 
+We_PP also_RB develop_VV a_DT CSSD_JJ data_NNS checking_VVG module_NN using_VVG the_DT AIS_NNS data_NN visualization_NN method_NN on_IN the_DT platform_NN of_IN STSS_NP ._SENT 
+After_IN checking_VVG the_DT extremely_RB small_JJ CSSD_NN values_NNS ,_, we_PP found_VVD that_IN the_DT CSSD_NN of_IN several_JJ types_NNS of_IN ships_NNS must_MD be_VB removed_VVN from_IN the_DT dataset_NN for_IN the_DT probabilistic_JJ ship_NN domain_NN determination_NN ._SENT 
+These_DT ship_NN types_NNS include_VVP tug_NN ships_NNS ,_, pilot_NN ships_NNS ,_, and_CC tender_NN ships_NNS ,_, which_WDT supply_VVP services_NNS for_IN commercial_JJ ships_NNS such_JJ as_IN container_NN ships_NNS and_CC oil_NN tankers_NNS ._SENT 
+During_IN the_DT service_NN time_NN ,_, these_DT ships_NNS are_VBP close/adjacent_JJ to_TO the_DT own_JJ ship_NN ,_, and_CC thus_RB the_DT CSSD_JJ data_NNS with_IN the_DT service-providing_JJ ships_NNS involved_VVN does_VVZ not_RB reflect_VV the_DT normal_JJ sailing_NN behavior_NN from_IN the_DT perspective_NN of_IN the_DT navigation_NN safety_NN ._SENT 
+As_IN the_DT one-week_NN AIS_NNS data_NNS include_VVP 1,257,860_CD AIS_NNS records_NNS ,_, the_DT amount_NN of_IN SSD_JJ data_NNS is_VBZ much_RB larger_JJR because_IN each_DT ship_NN has_VHZ many_JJ target_NN ships_NNS at_IN any_DT time_NN instance_NN ._SENT 
+By_IN calculating_VVG the_DT CSSD_NN rather_RB than_IN the_DT SSD_NN ,_, the_DT numbers_NNS of_IN the_DT records_NNS in_IN the_DT three_CD areas_NNS shown_VVN in_IN Fig_NN ._SENT 
+9_CD are_VBP respectively_RB 60,301_CD ,_, 57,190_CD and_CC 84,143_CD ,_, which_WDT are_VBP quite_RB small_JJ compared_VVN with_IN the_DT size_NN of_IN the_DT AIS_NNS data_NNS ._SENT 
+5.1_CD ._SENT 
+Probabilistic_JJ ship_NN domain_NN determination_NN The_DT AIS_NNS data_NNS should_MD be_VB categorized_VVN into_IN different_JJ groups_NNS to_TO determine_VV the_DT ship_NN domains_NNS under_IN different_JJ scenarios_NNS ,_, because_IN ship_NN domain_NN is_VBZ affected_VVN by_IN many_JJ factors_NNS ,_, such_JJ as_IN the_DT ship_NN type_NN ,_, ship_NN speed_NN ,_, and_CC navigation_NN environment_NN ._SENT 
+Fig_NN ._SENT 
+10_CD shows_NNS the_DT established_VVN α-domains_NNS for_IN container_NN ships_NNS in_IN the_DT water_NN area_NN 1_CD with_IN different_JJ sailing_NN speeds_NNS ._SENT 
+The_DT sailing_NN speeds_NNS are_VBP categorized_VVN into_IN three_CD groups_NNS :_: (_( a_DT )_) the_DT slow_JJ speed_NN below_IN 10_CD knots_NNS ,_, (_( b_LS )_) the_DT medium_JJ speed_NN between_IN 10_CD knots_NNS and_CC 12_CD knots_NNS ,_, and_CC (_( c_LS )_) the_DT high_JJ speed_NN above_IN 12_CD knots_NNS ._SENT 
+The_DT reason_NN that_IN we_PP choose_VVP 12_CD knots_NNS as_IN the_DT threshold_NN value_NN between_IN the_DT high_JJ speed_NN and_CC medium_NN speed_NN is_VBZ that_IN the_DT speed_NN limit_NN in_IN Singapore_NP Strait_NP is_VBZ 12_CD knots_NNS ._SENT 
+Fig_NN ._SENT 
+10._CD Ship_NN domain_NN and_CC risk_NN level_NN in_IN Zone_NP 1_CD (_( L_NP :_: ship_NN length_NN )_) ._SENT 
+As_IN shown_VVN in_IN Fig_NN ._SENT 
+10_CD (_( a_DT )_) ,_, the_DT α-domain_NN is_VBZ represented_VVN by_IN dashed_VVN contours_NNS of_IN various_JJ collision_NN risks_NNS or_CC the_DT domain_NN probabilities_NNS ._SENT 
+In_IN Fig_NN ._SENT 
+10_CD (_( a_DT )_) ,_, the_DT forbidden_VVN boundary_NN and_CC the_DT desired_VVN boundary_NN are_VBP marked_VVN with_IN the_DT solid_JJ blue_NN and_CC the_DT black_JJ lines_NNS ,_, respectively_RB ._SENT 
+The_DT α-value_NN of_IN the_DT dashed_VVN contour_NN represents_VVZ the_DT probabilities_NNS of_IN the_DT ships_NNS presenting_VVG within_IN that_DT contour_NN ._SENT 
+In_IN Fig_NN ._SENT 
+10_CD ,_, we_PP can_MD see_VV that_IN the_DT probability_NN values_VVZ of_IN one_CD desired_VVN boundary_NN are_VBP a_DT bit_NN different_JJ from_IN each_DT other_JJ ,_, roughly_RB around_IN 0.4_CD to_TO 0.5_CD ._SENT 
+The_DT area_NN inside_IN the_DT forbidden_VVN boundary_NN is_VBZ extremely_RB dangerous_JJ and_CC the_DT probability_NN of_IN target_NN ships_NNS navigating_VVG in_IN is_VBZ zero_CD ._SENT 
+In_IN Fig_NN ._SENT 
+10_CD (_( b_LS )_) ,_, it_PP can_MD be_VB seen_VVN that_IN the_DT distribution_NN of_IN the_DT risk_NN level_NN around_IN a_DT ship_NN looks_VVZ like_IN a_DT cowboy_NN hat_NN ._SENT 
+The_DT risk_NN level_NN in_IN the_DT water_NN area_NN far_RB from_IN the_DT own_JJ ship_NN is_VBZ quite_RB small_JJ ,_, and_CC the_DT risk_NN increases_VVZ when_WRB the_DT target_NN ship_NN approaches_VVZ the_DT own_JJ ship_NN ._SENT 
+When_WRB the_DT target_NN ship_NN enters_VVZ the_DT forbidden_VVN area_NN ,_, the_DT risk_NN level_NN reaches_VVZ the_DT highest_JJS value_NN of_IN one_CD ._SENT 
+As_IN shown_VVN in_IN Fig_NN ._SENT 
+10_CD ,_, some_DT part_NN of_IN the_DT domain_NN boundary_NN is_VBZ not_RB convex_JJ ,_, which_WDT does_VVZ not_RB exist_VV in_IN the_DT ship_NN domains_NNS with_IN the_DT assumption_NN of_IN convex_JJ boundaries_NNS ,_, such_JJ as_IN circular_JJ ,_, elliptical_JJ ,_, or_CC polygonal_JJ boundaries_NNS ._SENT 
+In_IN this_DT study_NN ,_, we_PP do_VVP not_RB model_VV the_DT ship_NN domain_NN with_IN the_DT assumption_NN of_IN the_DT convex_JJ boundary_NN ._SENT 
+Instead_RB ,_, the_DT boundary_NN is_VBZ modeled_VVN separately_RB in_IN every_DT small_JJ sector_NN θ_NN as_IN shown_VVN in_IN Fig_NN ._SENT 
+2_LS ,_, which_WDT is_VBZ called_VVN free-form_NN ship_NN domain_NN by_IN Wang_NP and_CC Chin_NP (_( 2016_CD )_) ._SENT 
+The_DT non-convex_JJ ship_NN domain_NN is_VBZ also_RB found_VVN in_IN the_DT studies_NNS of_IN Hansen_NP et_CC al_NP ._SENT 
+(_( 2013_CD )_) ,_, Wang_NP and_CC Chin_NP (_( 2016_CD )_) and_CC Pietrzykowski_NP (_( 2008_CD )_) ._SENT 
+One_CD reason_NN would_MD be_VB that_IN with_IN the_DT increase_NN of_IN the_DT amount_NN of_IN the_DT sectors_NNS ,_, the_DT sample_NN size_NN in_IN each_DT sector_NN decreases_VVZ ._SENT 
+Another_DT reason_NN is_VBZ that_IN AIS_NNS data_NNS is_VBZ always_RB suffered_VVN from_IN data_NN noise_NN problems_NNS (_( Zhang_NP et_NP al_NP ._SENT 
+,_, 2017_CD ,_, 2018_CD )_) ._SENT 
+Thus_RB ,_, there_EX would_MD be_VB some_DT bias_NN in_IN the_DT probability_NN function_NN estimation_NN ,_, which_WDT could_MD possibly_RB result_VV in_IN the_DT non-convex_JJ part_NN of_IN the_DT ship_NN boundary_NN curve_NN ._SENT 
+In_IN Fig_NN ._SENT 
+10_CD ,_, we_PP can_MD find_VV that_IN the_DT ship_NN domain_NN is_VBZ significantly_RB affected_VVN by_IN the_DT ship_NN speed_NN ,_, by_IN comparing_VVG the_DT desired_VVN boundary_NN and_CC the_DT forbidden_VVN boundary_NN of_IN the_DT ship_NN domain_NN ._SENT 
+To_TO compare_VV the_DT radii_NNS of_IN different_JJ ship_NN domains_NNS y_NN ,_, we_PP analyze_VVP the_DT forbidden_VVN and_CC desired_VVN radii_NNS in_IN three_CD directions_NNS ,_, names_NNS starboard_JJ ,_, port_JJ and_CC astern_JJ ._SENT 
+These_DT three_CD directions_NNS are_VBP defined_VVN as_RB :_: (_( a_DT )_) starboard_JJ side_NN is_VBZ the_DT angle_NN from_IN 0_CD to_TO 112.5°_NP ,_, (_( b_LS )_) astern_JJ side_NN is_VBZ the_DT angle_NN from_IN 112.5_CD to_TO 247.5°_NP ,_, and_CC (_( c_LS )_) port_NN side_NN is_VBZ the_DT angle_NN from_IN 247.5_CD to_TO 360°_NP ._SENT 
+It_PP should_MD be_VB noted_VVN that_IN the_DT zero_NN degree_NN is_VBZ the_DT ship_NN head_NN direction_NN and_CC the_DT angle_NN increases_VVZ in_IN the_DT clockwise_JJ direction_NN ._SENT 
+As_IN shown_VVN in_IN Table_NN 1_CD ,_, the_DT average_JJ values_NNS of_IN the_DT forbidden_VVN boundary_NN and_CC that_IN of_IN the_DT desired_VVN boundary_NN are_VBP quite_RB different_JJ ._SENT 
+For_IN the_DT forbidden_VVN boundary_NN ,_, the_DT radius_NN increases_VVZ with_IN the_DT increase_NN of_IN the_DT ship_NN speed_NN ._SENT 
+Nevertheless_RB ,_, no_DT similar_JJ trend_NN is_VBZ found_VVN for_IN the_DT desired_VVN boundary_NN ._SENT 
+Table_NN 1._CD Average_JJ value_NN of_IN the_DT ship_NN domain_NN boundary_NN ._SENT 
+To_TO further_RBR investigate_VV the_DT impact_NN of_IN the_DT water_NN area_NN features_NNS ,_, we_PP calibrate_VVP the_DT proposed_VVN ship_NN domains_NNS in_IN three_CD different_JJ water_NN areas_NNS ,_, two_CD strait_JJ segments_NNS without_IN crossing_VVG and_CC one_CD segment_NN with_IN crossing_VVG ,_, as_IN shown_VVN in_IN Fig_NN ._SENT 
+9._CD Areas_NNS 1_CD and_CC 3_CD are_VBP strait_JJ segments_NNS without_IN crossing_VVG ,_, whose_WP$ widths_NNS are_VBP 1.942 km_NP and_CC 2.546 km_NP ,_, respectively_RB ._SENT 
+Area_NP 2_CD has_VHZ the_DT crossing_VVG vessel_NN traffic_NN ,_, entering_VVG or_CC leaving_VVG the_DT Singapore_NP Port_NP ._SENT 
+For_IN the_DT demonstration_NN purpose_NN ,_, the_DT ship_NN domains_NNS in_IN these_DT three_CD different_JJ areas_NNS are_VBP only_RB calibrated_VVN for_IN ships_NNS with_IN high_JJ speed_NN ,_, which_WDT is_VBZ above_IN 12_CD knots_NNS ._SENT 
+The_DT established_JJ probabilistic_JJ ship_NN domains_NNS in_IN these_DT three_CD water_NN areas_NNS are_VBP shown_VVN in_IN Fig_NN ._SENT 
+11_CD ,_, which_WDT look_VVP quite_RB different_JJ from_IN each_DT other_JJ ._SENT 
+First_RB ,_, it_PP can_MD be_VB found_VVN that_IN the_DT ship_NN domain_NN in_IN water_NN area_NN 1_CD is_VBZ more_JJR like_IN a_DT symmetrical_JJ geometry_NN ,_, compared_VVN with_IN area_NN 2_CD and_CC area_NN 3._CD The_DT ship_NN domain_NN of_IN area_NN 3_CD seems_VVZ to_TO rotate_VV a_DT small_JJ angle_NN in_IN the_DT anti-clockwise_RB direction_NN ._SENT 
+This_DT would_MD be_VB caused_VVN by_IN the_DT turning_VVG vessel_NN traffic_NN flow_NN in_IN the_DT westbound_JJ of_IN area_NN 3._CD Moreover_RB ,_, the_DT boundary_NN radii_NNS of_IN ship_NN domain_NN in_IN different_JJ areas_NNS vary_VVP greatly_RB from_IN each_DT other_JJ ._SENT 
+As_RB can_MD be_VB seen_VVN in_IN Table_NN 2_CD ,_, the_DT average_JJ radius_NN length_NN of_IN the_DT forbidden_VVN boundary_NN of_IN the_DT ship_NN domain_NN in_IN area_NN 2_CD is_VBZ significantly_RB smaller_JJR than_IN that_DT in_IN the_DT other_JJ two_CD areas_NNS ._SENT 
+Whereas_IN for_IN the_DT desired_VVN boundary_NN ,_, the_DT radii_NNS are_VBP similar_JJ in_IN all_PDT the_DT three_CD water_NN areas_NNS ._SENT 
+Fig_NN ._SENT 
+11._CD Ship_NN domain_NN and_CC risk_NN level_NN in_IN different_JJ water_NN areas_NNS (_( L_NP :_: ship_NN length_NN )_) ._SENT 
+Table_NN 2._CD The_DT average_NN length_NN of_IN the_DT ship_NN domain_NN boundary_NN radii_NNS ._SENT 
+5.2_CD ._SENT 
+Numerical_JJ comparisons_NNS with_IN the_DT two_CD traditional_JJ ship_NN domains_NNS We_PP compare_VVP the_DT probabilistic_JJ ship_NN domain_NN with_IN the_DT traditional_JJ ship_NN domains_NNS ,_, including_VVG Fujii_NP 's_POS domain_NN (_( Fujii_NP and_CC Tanaka_NP ,_, 1971_CD )_) ,_, Goodwin_NP 's_POS domain_NN (_( Goodwin_NP ,_, 1975_CD )_) and_CC an_DT empirical_JJ ship_NN domain_NN based_VVN on_IN AIS_NNS data_NNS (_( Hansen_NP et_NP al_NP ._SENT 
+,_, 2013_CD )_) ._SENT 
+Fujii_NP 's_POS domain_NN and_CC Goodwin_NP 's_POS domain_NN depend_VVP on_IN the_DT ship_NN length_NN without_IN considering_VVG the_DT sailing_NN speed_NN ._SENT 
+We_PP compare_VVP these_DT two_CD ship_NN domains_NNS with_IN the_DT probabilistic_JJ ship_NN domains_NNS established_VVN in_IN the_DT water_NN areas_NNS 2_CD and_CC 3_CD with_IN the_DT high-speed_JJ ships_NNS exceeding_VVG 12_CD knots_NNS ._SENT 
+The_DT ship_NN length_NN is_VBZ supposed_VVN to_TO be_VB 200 m_NN for_IN both_DT Fujii_NP 's_POS domain_NN and_CC Goodwin_NP 's_POS domain_NN ._SENT 
+Fig_NN ._SENT 
+12_CD shows_NNS the_DT comparison_NN results_NNS between_IN the_DT classical_JJ ship_NN domains_NNS and_CC the_DT probabilistic_JJ ship_NN domains_NNS ._SENT 
+As_IN shown_VVN in_IN Fig_NN ._SENT 
+12_CD ,_, the_DT gray_JJ area_NN is_VBZ surrounded_VVN by_IN the_DT desired_VVN boundary_NN and_CC the_DT forbidden_VVN boundary_NN of_IN the_DT α-domain_NN ._SENT 
+It_PP can_MD be_VB seen_VVN that_IN the_DT desired_VVN boundary_NN of_IN the_DT α-domain_NN roughly_RB matches_VVZ the_DT Goodwin_NP 's_POS domain_NN and_CC Fujii_NP 's_POS domain_NN in_IN some_DT sectors_NNS ._SENT 
+Specifically_RB ,_, the_DT desired_VVN boundary_NN of_IN the_DT proposed_VVN domain_NN approximately_RB matches_VVZ the_DT Fujii_NP 's_POS model_NN on_IN the_DT starboard_JJ side_NN and_CC port_NN side_NN ,_, while_IN it_PP is_VBZ quite_RB different_JJ from_IN each_DT other_JJ in_IN the_DT astern_JJ sector_NN ._SENT 
+For_IN the_DT astern_JJ sector_NN ,_, the_DT α-domain_NN roughly_RB matches_VVZ the_DT Goodwin_NP 's_POS domain_NN ._SENT 
+Fig_NN ._SENT 
+12._CD Ship_NN domain_NN model_NN comparison_NN ._SENT 
+However_RB ,_, the_DT differences_NNS between_IN the_DT α-domain_NN and_CC the_DT classical_JJ ship_NN domains_NNS are_VBP also_RB significant_JJ ._SENT 
+The_DT probabilistic_JJ domain_NN provides_VVZ the_DT probability_NN information_NN of_IN the_DT threshold_NN between_IN the_DT safe_JJ area_NN and_CC risk_NN area_NN ,_, which_WDT is_VBZ more_RBR reasonable_JJ to_TO depict_VV the_DT uncertainty_NN of_IN the_DT human_JJ perception_NN ._SENT 
+Second_RB ,_, the_DT area_NN of_IN the_DT forbidden_VVN boundary_NN of_IN the_DT probabilistic_JJ ship_NN domain_NN is_VBZ much_RB smaller_JJR than_IN both_DT Fujii_NP 's_POS domain_NN and_CC Goodwin_NP 's_POS domain_NN ._SENT 
+It_PP is_VBZ quite_RB straightforward_JJ because_IN the_DT forbidden_VVN boundary_NN of_IN the_DT proposed_VVN domain_NN only_RB contains_VVZ the_DT area_NN with_IN the_DT highest_JJS risk_NN ._SENT 
+Furthermore_RB ,_, the_DT probabilistic_JJ domain_NN is_VBZ of_IN free-form_NN ,_, while_IN the_DT classical_JJ ship_NN domains_NNS have_VHP assumptions_NNS of_IN the_DT geometry_NN of_IN the_DT ship_NN domain_NN such_JJ as_IN circle_NN or_CC ellipse_NN ._SENT 
+Moreover_RB ,_, the_DT Goodwin_NP 's_POS ship_NN domain_NN is_VBZ much_RB larger_JJR than_IN the_DT desired_VVN boundary_NN of_IN the_DT α-domain_NN on_IN both_DT port_NN and_CC starboard_JJ sides_NNS ,_, while_IN Fujii_NP 's_POS ship_NN domain_NN matches_VVZ much_RB better_JJR ._SENT 
+The_DT empirical_JJ ship_NN domain_NN by_IN Hansen_NP et_CC al_NP ._SENT 
+(_( 2013_CD )_) is_VBZ supposed_VVN to_TO be_VB an_DT ellipse_NN ,_, named_VVN with_IN the_DT “comfort_NN ellipse”_NN ._SENT 
+It_PP has_VHZ the_DT same_JJ meaning_NN as_IN the_DT “desired_JJ boundary”_NN of_IN the_DT probabilistic_JJ domain_NN proposed_VVN in_IN this_DT paper_NN ._SENT 
+This_DT empirical_JJ ship_NN domain_NN is_VBZ determined_VVN in_IN several_JJ water_NN areas_NNS ._SENT 
+The_DT length_NN of_IN the_DT comfort_NN ellipse_NN is_VBZ about_RB 8_CD ship_NN lengths_NNS ,_, 4.5_CD ship_NN lengths_NNS in_IN front_NN of_IN the_DT ship_NN and_CC 3.5_CD ship_NN lengths_NNS behind_IN the_DT ship_NN ._SENT 
+The_DT width_NN of_IN the_DT comfort_NN ellipse_NN is_VBZ 1.4–1.8_JJ ship_NN lengths_NNS ._SENT 
+For_IN the_DT comparison_NN purpose_NN ,_, we_PP set_VVD the_DT value_NN of_IN the_DT ellipse_NN width_NN to_TO 1.8_CD ship_NN lengths_NNS as_RB shown_VVN in_IN Fig_NN ._SENT 
+12._CD It_PP can_MD be_VB seen_VVN that_IN in_IN Area_NP 2_CD the_DT forbidden_VVN boundary_NN is_VBZ similar_JJ to_TO the_DT empirical_JJ domain_NN ,_, which_WDT is_VBZ the_DT smallest_JJS of_IN the_DT four_CD ship_NN domains_NNS ._SENT 
+In_IN Area_NP 3_CD ,_, the_DT empirical_JJ ship_NN domain_NN is_VBZ smaller_JJR than_IN the_DT forbidden_VVN boundary_NN of_IN the_DT probabilistic_JJ domain_NN ._SENT 
+One_CD possible_JJ reason_NN would_MD be_VB the_DT different_JJ navigational_JJ condition_NN in_IN different_JJ water_NN areas_NNS ._SENT 
+For_IN example_NN ,_, one_CD water_NN area_NN used_VVN for_IN empirical_JJ domain_NN determination_NN is_VBZ only_RB 300m_NN wide_JJ ,_, which_WDT is_VBZ much_RB narrower_JJR than_IN the_DT Singapore_NP Strait_NP ._SENT 
+5.3_CD ._SENT 
+Probabilistic_JJ ship_NN domain-based_JJ ship_NN collision_NN risk_NN assessment_NN Ship_NN collision_NN risk_NN assessment_NN is_VBZ one_CD of_IN the_DT important_JJ components_NNS in_IN the_DT formal_JJ safety_NN assessment_NN (_( Zhang_NP et_NP al_NP ._SENT 
+,_, 2019_CD ;_: Wu_NP et_NP al_NP ._SENT 
+,_, 2015_CD ;_: Yip_NP et_NP al_NP ._SENT 
+,_, 2015_CD )_) ._SENT 
+To_TO apply_VV the_DT probabilistic_JJ ship_NN domain_NN for_IN ship_NN collision_NN assessment_NN ,_, a_DT case_NN study_NN is_VBZ conducted_VVN to_TO compare_VV it_PP with_IN the_DT Fujii_NP 's_POS domain_NN and_CC the_DT Goodwin_NP 's_POS domain_NN ,_, which_WDT have_VHP been_VBN widely_RB used_VVN in_IN ship_NN collision_NN assessment_NN (_( Wang_NP et_NP al_NP ._SENT 
+,_, 2009_CD )_) ._SENT 
+Suppose_VV a_DT target_NN ship_NN approaches_VVZ the_DT own_JJ ship_NN from_IN the_DT direction_NN of_IN 15°_NP and_CC 75°_NP ,_, respectively_RB ._SENT 
+The_DT length_NN of_IN the_DT own_JJ ship_NN is_VBZ 200 m_NN ._SENT 
+The_DT parameters_NNS of_IN the_DT Fujii_NP 's_POS domain_NN and_CC the_DT Goodwin_NP 's_POS domain_NN are_VBP determined_VVN according_VVG to_TO the_DT references_NNS (_( Fujii_NP and_CC Tanaka_NP ,_, 1971_CD ;_: Goodwin_NP ,_, 1975_CD ;_: Zhao_NP et_NP al_NP ._SENT 
+,_, 1993_CD )_) ._SENT 
+The_DT α-domain_NN is_VBZ calibrated_VVN in_IN area_NN 2_CD and_CC 3_CD for_IN the_DT container_NN ships_NNS with_IN the_DT speed_NN above_IN 12_CD knots_NNS as_RB shown_VVN in_IN the_DT previous_JJ section_NN ._SENT 
+Fig_NN ._SENT 
+13_CD shows_NNS the_DT spatial_JJ distributions_NNS of_IN the_DT collision_NN risk_NN around_IN the_DT own_JJ ship_NN ._SENT 
+As_IN shown_VVN in_IN Fig_NN ._SENT 
+13_CD (_( a_DT )_) and_CC (_( b_LS )_) ,_, according_VVG to_TO the_DT definition_NN of_IN Fujii_NP 's_POS ship_NN domain_NN or_CC Goodwin_NP 's_POS ship_NN domain_NN the_DT own_JJ ship_NN is_VBZ in_IN the_DT risk_NN status_NN once_IN its_PP$ ship_NN domain_NN is_VBZ invaded_VVD by_IN the_DT target_NN ship_NN ,_, or_CC it_PP is_VBZ in_IN the_DT safe_JJ status_NN ._SENT 
+However_RB ,_, in_IN reality_NN ,_, the_DT risk_NN level_NN increases_VVZ continuously_RB with_IN the_DT decrease_NN of_IN the_DT safety_NN distance_NN ,_, rather_RB than_IN jump_NN from_IN safe_JJ status_NN to_TO risk_VV status_NN at_IN a_DT certain_JJ distance_NN ._SENT 
+The_DT α-domain_NP model_NN can_MD address_VV this_DT problem_NN ._SENT 
+As_RB can_MD be_VB seen_VVN in_IN Fig_NN ._SENT 
+13_CD (_( c_LS )_) and_CC (_( d_LS )_) ,_, the_DT proposed_VVN domain_NN can_MD quantitatively_RB depict_VV the_DT change_NN of_IN the_DT risk_NN level_NN with_IN the_DT increase_NN of_IN the_DT safety_NN distance_NN ._SENT 
+Fig_NN ._SENT 
+13._CD Risk_NN distribution_NN ._SENT 
+We_PP further_RBR elaborate_VV how_WRB the_DT proposed_VVN ship_NN domain_NN can_MD be_VB used_VVN for_IN evaluating_VVG the_DT collision_NN risk_NN level_NN ._SENT 
+The_DT α-domain_NN for_IN the_DT demonstration_NN purpose_NN is_VBZ the_DT one_CD in_IN area_NN 2._CD The_DT safety_NN levels_NNS evaluated_VVN with_IN different_JJ ship_NN domains_NNS at_IN different_JJ distances_NNS are_VBP shown_VVN in_IN Table_NN 3._CD It_PP can_MD be_VB found_VVN that_IN the_DT Fujii_NP 's_POS model_NN and_CC Goodwin_NP 's_POS model_NN can_MD only_RB give_VV the_DT results_NNS of_IN two_CD risk_NN status_NN ,_, risk_NN or_CC safe_JJ status_NN ._SENT 
+On_IN the_DT contrary_NN ,_, the_DT proposed_VVN ship_NN domain_NN can_MD give_VV the_DT risk_NN level_NN in_IN the_DT form_NN of_IN continuous_JJ values_NNS ,_, which_WDT are_VBP more_RBR accurate_JJ ._SENT 
+More_RBR importantly_RB ,_, in_IN the_DT α-domain_NN ,_, this_DT risk_NN value_NN is_VBZ determined_VVN by_IN the_DT probability_NN of_IN the_DT presence_NN of_IN the_DT target_NN ships_NNS around_IN the_DT own_JJ ship_NN calculated_VVN with_IN the_DT large_JJ AIS_NNS data_NNS ,_, rather_RB than_IN determined_VVN only_RB according_VVG to_TO the_DT experiences_NNS of_IN the_DT experts_NNS ._SENT 
+Table_NN 3._CD Safe_NP level_NN evaluated_VVN with_IN different_JJ ship_NN domains_NNS ._SENT 
+<Section> 6._CD Conclusions_NNS </Section> We_PP have_VHP proposed_VVN the_DT novel_JJ probabilistic_JJ ship_NN domain_NN ,_, named_VVN α-domain_NP ,_, which_WDT can_MD be_VB estimated_VVN by_IN the_DT critical_JJ ship_NN safety_NN distance_NN (_( CSSD_NN )_) data_NNS ._SENT 
+The_DT probabilisitc_NP ship_NN domain_NN can_MD capture_VV the_DT diversity_NN of_IN the_DT navigationavdl_NP behaviors_NNS ._SENT 
+We_PP have_VHP also_RB shown_VVN that_IN the_DT traditional_JJ ship_NN domains_NNS ,_, such_JJ as_IN Fujii_NP 's_POS model_NN and_CC Goodwin_NP 's_POS models_NNS ,_, are_VBP the_DT special_JJ case_NN of_IN the_DT α-domain_NN ._SENT 
+A_DT big_JJ AIS_NNS data_NNS driven_VVN approach_NN to_TO effectively_RB determine_VV the_DT α-domain_NN was_VBD also_RB developed_VVN ,_, including_VVG four_CD steps_NNS :_: AIS_NNS data_NNS cleansing_NN and_CC interpolation_NN ,_, the_DT CSSD_JJ data_NN calculation_NN ,_, abnormal_JJ CSSD_JJ data_NNS elimination_NN and_CC the_DT α-domain_NP determination_NN ._SENT 
+Subsequently_RB ,_, we_PP investigated_VVD how_WRB to_TO use_VV the_DT α-domain_NN to_TO assess_VV ship_NN collision_NN risk_NN ._SENT 
+A_DT few_JJ case_NN studies_NNS from_IN the_DT Singapore_NP Strait_NP have_VHP been_VBN carried_VVN out_RP ._SENT 
+We_PP numerically_RB compared_VVD the_DT α-domain_NN with_IN the_DT two_CD traditional_JJ ship_NN domain_NN ,_, Fujii_NP 's_POS domain_NN and_CC Goodwin_NP 's_POS domain_NN ._SENT 
+It_PP was_VBD found_VVN that_IN the_DT desired_VVN boundary_NN of_IN the_DT α-domain_NP model_NN approximately_RB matches_VVZ Fujii_NP 's_POS ship_NN domain_NN on_IN the_DT port_JJ side_NN and_CC starboard_JJ side_NN ,_, and_CC matches_VVZ Goodwin_NP 's_POS ship_NN domains_NNS on_IN the_DT aft_JJ side_NN ._SENT 
+The_DT case_NN study_NN also_RB showed_VVD that_IN the_DT forbidden_VVN boundary_NN of_IN the_DT α-domain_NN is_VBZ significantly_RB impacted_VVN by_IN the_DT sailing_NN speed_NN ,_, while_IN the_DT desired_VVN boundary_NN keeps_VVZ roughly_RB stable_JJ ._SENT 
+More_RBR specifically_RB ,_, the_DT forbidden_VVN boundary_NN of_IN the_DT α-domain_NN increases_VVZ greatly_RB with_IN the_DT rise_NN of_IN the_DT sailing_NN speed_NN ._SENT 
+It_PP was_VBD also_RB found_VVN that_IN the_DT ship_NN domain_NN is_VBZ quite_RB different_JJ in_IN different_JJ water_NN areas_NNS ._SENT 
+In_IN details_NNS ,_, in_IN the_DT small_JJ or_CC narrow_JJ constrained_VVN water_NN areas_NNS ,_, the_DT ship_NN domains_NNS are_VBP smaller_JJR ._SENT 
+We_PP applied_VVD the_DT α-domain_NN for_IN the_DT quantitative_JJ ship_NN collision_NN risk_NN evaluation_NN ._SENT 
+To_TO conclude_VV ,_, compared_VVN with_IN the_DT traditional_JJ ship_NN domains_NNS ,_, the_DT proposed_VVN α-domain_NN has_VHZ several_JJ advantages_NNS ._SENT 
+First_RB ,_, it_PP considers_VVZ the_DT boundary_NN between_IN the_DT safe_JJ and_CC risk_NN water_NN area_NN around_IN the_DT own_JJ ship_NN as_IN an_DT area_NN with_IN probability_NN information_NN rather_RB than_IN a_DT fixed_VVN value_NN ,_, and_CC thus_RB can_MD capture_VV the_DT diversity_NN of_IN the_DT navigational_JJ behavior_NN and_CC the_DT vagueness_NN of_IN the_DT human_JJ perception_NN of_IN risk_NN ._SENT 
+Second_RB ,_, the_DT α-domain_NN is_VBZ formulated_VVN based_VVN on_IN the_DT probability_NN density_NN function_NN ,_, which_WDT can_MD be_VB efficiently_RB estimated_VVN by_IN the_DT CSSD_JJ data_NNS generated_VVN from_IN the_DT big_JJ AIS_NNS data_NNS ._SENT 
+More_RBR importantly_RB ,_, the_DT α-domain_NN is_VBZ intrinsically_RB suitable_JJ for_IN ship_NN collision_NN risk_NN evaluation_NN ._SENT 
+<Section> Acknowledgement_NN </Section> We_PP are_VBP grateful_JJ to_TO the_DT two_CD anonymous_JJ reviewers_NNS for_IN their_PP$ valuable_JJ comments_NNS and_CC constructive_JJ suggestions_NNS on_IN the_DT early_JJ version_NN of_IN this_DT study_NN ._SENT 
+This_DT study_NN is_VBZ supported_VVN by_IN the_DT research_NN project_NN “Tugboat_NN Scheduling_NP for_IN Large_JJ Container_NP Ports_NP (_( Grant_NP No._NN R726000003646)”_NN funded_VVN by_IN the_DT Ministry_NP of_IN Education_NP -_: Singapore_NP via_IN the_DT Institute_NP of_IN Operations_NP Research_NP and_CC Analytics_NP at_IN National_NP University_NP of_IN Singapore_NP ._SENT 
+<Section> References_NNS </Section> Coldwell_NP ,_, 1983_CD T.G._NP Coldwell_NP Marine_NP traffic_NN behaviour_NN in_IN restricted_JJ waters_NNS J._NP Navig_NP ._SENT 
+,_, 36_CD (_( 1983_CD )_) ,_, pp_NP ._SENT 
+430-444_CD Debnath_NP and_CC Chin_NP ,_, 2010_CD A.K._NP Debnath_NP ,_, H.C._NP Chin_NP Navigational_JJ traffic_NN conflict_NN technique_NN :_: a_DT proactive_JJ approach_NN to_TO quantitative_JJ measurement_NN of_IN collision_NN risks_NNS in_IN port_NN waters_NNS J._NP Navig_NP ._SENT 
+,_, 63_CD (_( 2010_CD )_) ,_, p._NP 137_CD Dinh_NP and_CC Im_NP ,_, 2016_CD G.H._NP Dinh_NP ,_, N._NP Im_NP The_DT combination_NN of_IN analytical_JJ and_CC statistical_JJ method_NN to_TO define_VV polygonal_JJ ship_NN domain_NN and_CC reflect_VV human_JJ experiences_NNS in_IN estimating_VVG dangerous_JJ area_NN Int_NP ._SENT 
+J._NP e-Navigation_NP Marit_NP ._SENT 
+Econ_NN ._SENT 
+,_, 4_CD (_( 2016_CD )_) ,_, pp_NP ._SENT 
+97-108_CD Fujii_NP and_CC Tanaka_NP ,_, 1971_CD Y._NP Fujii_NP ,_, K._NP Tanaka_NP Traffic_NP capacity_NN J._NP Navig_NP ._SENT 
+,_, 24_CD (_( 1971_CD )_) ,_, pp_NP ._SENT 
+543-552_CD Goerlandt_NP and_CC Kujala_NP ,_, 2011_CD F._NP Goerlandt_NP ,_, P._NP Kujala_NP Traffic_NP simulation_NN based_VVN ship_NN collision_NN probability_NN modeling_NN Reliab_NN ._SENT 
+Eng_NP ._SENT 
+Syst_NN ._SENT 
+Saf_NN ._SENT 
+,_, 96_CD (_( 2011_CD )_) ,_, pp_NP ._SENT 
+91-107_CD Goerlandt_NP and_CC Montewka_NP ,_, 2015_CD F._NP Goerlandt_NP ,_, J._NP Montewka_NP Maritime_NP transportation_NN risk_NN analysis_NN :_: review_NN and_CC analysis_NN in_IN light_NN of_IN some_DT foundational_JJ issues_NNS Reliab_VVP ._SENT 
+Eng_NP ._SENT 
+Syst_NN ._SENT 
+Saf_NN ._SENT 
+,_, 138_CD (_( 2015_CD )_) ,_, pp_NP ._SENT 
+115-134_CD Goerlandt_NP et_NP al_NP ._SENT 
+,_, 2017_CD F._NP Goerlandt_NP ,_, J._NP Montewka_NP ,_, W._NP Zhang_NP ,_, P._NP Kujala_NP An_DT analysis_NN of_IN ship_NN escort_NN and_CC convoy_NN operations_NNS in_IN ice_NN conditions_NNS Saf_NN ._SENT 
+Sci_NNS ._SENT 
+,_, 95_CD (_( 2017_CD )_) ,_, pp_NP ._SENT 
+198-209_CD Goodwin_NP ,_, 1975_CD E.M._NP Goodwin_NP A_DT statistical_JJ study_NN of_IN ship_NN domains_NNS J._NP Navig_NP ._SENT 
+,_, 28_CD (_( 1975_CD )_) ,_, pp_NP ._SENT 
+328-344_CD Gucma_NP and_CC Marcjan_NP ,_, 2012_CD L._NP Gucma_NP ,_, K._NP Marcjan_NP Probabilistic_JJ model_NN of_IN minimal_JJ passing_VVG distances_NNS of_IN vessels_NNS navigating_VVG in_IN Polish_JJ coastal_JJ waters_NNS Conference_NN Proceedings_NNS 11th_JJ International_NP Probabilistic_JJ Safety_NP Assessment_NP and_CC Management_NP Conference_NP and_CC the_DT Annual_JJ European_JJ Safety_NN and_CC Reliability_NN Conference_NP 2012_CD (_( PSAM11_JJ ESREL_NP 2012_CD )_) ,_, vol_NP ._SENT 
+7_CD (_( 2012_CD )_) Helsinki_NP ,_, Finland_NP Hansen_NP et_CC al_NP ._SENT 
+,_, 2013_CD M.G._NP Hansen_NP ,_, T.K._NP Jensen_NP ,_, T._NP Lehn-Schiøler_NP ,_, K._NP Melchild_NP Empirical_JJ ship_NN domain_NN based_VVN on_IN AIS_NNS data_NNS J._NP Navig_NP ._SENT 
+,_, 66_CD (_( 2013_CD )_) ,_, pp_NP ._SENT 
+931-940_CD Hsu_NP ,_, 2014_CD H.-Z_NP ._SENT 
+Hsu_NP Safety_NP domain_NN measurement_NN for_IN vessels_NNS in_IN an_DT overtaking_VVG situation_NN Int_NP ._SENT 
+J._NP e-Navigation_NP Marit_NP ._SENT 
+Econ_NN ._SENT 
+,_, 1_CD (_( 2014_CD )_) ,_, pp_NP ._SENT 
+29-38_CD Kang_NP et_NP al_NP ._SENT 
+,_, 2019a_NP L._NP Kang_NP ,_, Z._NP Lu_NP ,_, Q._NP Meng_NP ,_, S._NP Gao_NP ,_, F._NP Wang_NP Maritime_NP simulator_NN based_VVN determination_NN of_IN minimum_JJ DCPA_NP and_CC TCPA_NP in_IN head-on_JJ ship-to-ship_NN collision_NN avoidance_NN in_IN confined_VVN waters_NNS Transportmetrica_NN :_: Transport_NN ._SENT 
+Sci_NNS ._SENT 
+,_, 15_CD (_( 2019_CD )_) ,_, pp_NP ._SENT 
+1124-1144_CD Kang_NP et_NP al_NP ._SENT 
+,_, 2018_CD L._NP Kang_NP ,_, Q._NP Meng_NP ,_, Q._NP Liu_NP Fundamental_JJ diagram_NN of_IN ship_NN traffic_NN in_IN the_DT Singapore_NP Strait_NP Ocean_NP Eng_NP ._SENT 
+,_, 147_CD (_( 2018_CD )_) ,_, pp_NP ._SENT 
+340-354_CD L._NP Kang_NP ,_, Q._NP Meng_NP ,_, C._NP Zhou_NP ,_, S._NP Gao_NP How_WRB do_VVP ships_NNS pass_VV through_IN L-shaped_JJ turnings_NNS in_IN the_DT Singapore_NP Strait_NP ?_SENT 
+Ocean_NP Eng_NP ._SENT 
+,_, 182_CD (_( 2019_CD )_) ,_, pp_NP ._SENT 
+329-342_CD Lu_NP et_NP al_NP ._SENT 
+,_, 2018_CD Z._NP Lu_NP ,_, L._NP Kang_NP ,_, S._NP Gao_NP ,_, Q._NP Meng_NP Determination_NN of_IN minimum_JJ distance_NN to_TO obstacle_NN avoidance_NN in_IN the_DT Singapore_NP strait_NN Transport_NN ._SENT 
+Res_NNS ._SENT 
+Rec_NN ._SENT 
+,_, 2672_CD (_( 11_CD )_) (_( 2018_CD )_) ,_, pp_NP ._SENT 
+73-80_CD Pietrzykowski_NP ,_, 2005_CD Z._NP Pietrzykowski_NP Investigations_NNS of_IN model_NN based_VVN navigator_NN 's_POS behaviour_NN in_IN collision_NN avoidance_NN at_IN sea_NN S._NP Gucma_NP ,_, B._NP Mazurkiewicz_NP ,_, B._NP Wiśniewski_NP (_( Eds_NPS ._SENT 
+)_) ,_, Seas_NNS &_CC Oceans_NNS 1_CD (_( 2nd_JJ International_NP Congress_NP of_IN Seas_NNS and_CC Oceans_NNS )_) (_( 2005_CD )_) Szczecin_NP Pietrzykowski_NP and_CC Magaj_NP ,_, 2017_CD Z._NP Pietrzykowski_NP ,_, J._NP Magaj_NP Ship_NP domain_NN as_IN a_DT safety_NN criterion_NN in_IN a_DT precautionary_JJ area_NN of_IN traffic_NN separation_NN scheme_NN TransNav_NP -_: Journal_NP on_IN Marine_NP Navigation_NP and_CC Safety_NP of_IN Sea_NP Transportation_NP ,_, 11_CD (_( 1_LS )_) (_( 2017_CD )_) Pietrzykowski_NP and_CC Magaj_NP ,_, 2016_CD Z._NP Pietrzykowski_NP ,_, J._NP Magaj_NP Ship_NP domains_NNS in_IN traffic_NN separation_NN schemes_NNS Scientific_JJ Journals_NNS of_IN the_DT Maritime_NP University_NP of_IN Szczecin_NP ,_, 45_CD (_( 117_CD )_) (_( 2016_CD )_) Pietrzykowski_NP and_CC Magaj_NP ,_, 2014_CD Z._NP Pietrzykowski_NP ,_, J._NP Magaj_NP The_DT safe_JJ ships_NNS trajectory_NN in_IN a_DT restricted_JJ area_NN Scientific_JJ Journals_NNS of_IN the_DT Maritime_NP University_NP of_IN Szczecin_NP ,_, 39_CD (_( 111_CD )_) (_( 2014_CD )_) Pietrzykowski_NP ,_, 2008_CD Z._NP Pietrzykowski_NP Ship_NP 's_POS fuzzy_JJ domain_NN -_: a_DT criterion_NN for_IN navigational_JJ safety_NN in_IN narrow_JJ fairways_NNS J._NP Navig_NP ._SENT 
+,_, 61_CD (_( 2008_CD )_) The_DT Royal_NP Institute_NP of_IN Navigation_NP ,_, Cambridge_NP Pietrzykowski_NP et_CC al_NP ._SENT 
+,_, 2018_CD Z._NP Pietrzykowski_NP ,_, M._NP Wielgosz_NP ,_, M._NP Siemianowicz_NP Ship_NP domain_NN in_IN various_JJ visibility_NN conditions_NNS in_IN restricted_JJ waters_NNS Annu_NN ._SENT 
+Navig_NN ._SENT 
+,_, 25_CD (_( 2018_CD )_) Pietrzykowski_NP and_CC Uriasz_NP ,_, 2009_CD Z._NP Pietrzykowski_NP ,_, J._NP Uriasz_NP The_DT ship_NN domain_NN �_NP �_NP a_DT criterion_NN of_IN navigational_JJ safety_NN assessment_NN in_IN an_DT open_JJ sea_NN area_NN J._NP Navig_NP ._SENT 
+,_, 62_CD (_( 2009_CD )_) ,_, pp_NP ._SENT 
+93-108_CD Qu_NP et_NP al_NP ._SENT 
+,_, 2011_CD X._NP Qu_NP ,_, Q._NP Meng_NP ,_, L._NP Suyi_NP Ship_NP collision_NN risk_NN assessment_NN for_IN the_DT Singapore_NP Strait_NP Accid_NP ._SENT 
+Anal_JJ ._SENT 
+Prev_NP ._SENT 
+,_, 43_CD (_( 2011_CD )_) ,_, pp_NP ._SENT 
+2030-2036_CD Rawson_NP et_NP al_NP ._SENT 
+,_, 2014_CD A._NP Rawson_NP ,_, E._NP Rogers_NP ,_, D._NP Foster_NP ,_, D._NP Phillips_NP Practical_JJ application_NN of_IN domain_NN analysis_NN :_: port_NN of_IN London_NP case_NN study_NN J._NP Navig_NP ._SENT 
+,_, 67_CD (_( 2014_CD )_) ,_, pp_NP ._SENT 
+193-209_CD Smierzchalski_NP and_CC Michalewicz_NP ,_, 2000_CD R._NP Smierzchalski_NP ,_, Z._NP Michalewicz_NP Modeling_NN of_IN ship_NN trajectory_NN in_IN collision_NN situations_NNS by_IN an_DT evolutionary_JJ algorithm_NN IEEE_NP Trans_NP ._SENT 
+Evol_NN ._SENT 
+Comput_NN ._SENT 
+,_, 4_CD (_( 2000_CD )_) ,_, pp_NP ._SENT 
+227-241_CD Szlapczynski_NP et_NP al_NP ._SENT 
+,_, 2018_CD R._NP Szlapczynski_NP ,_, P._NP Krata_NP ,_, J._NP Szlapczynska_NP Ship_NP domain_NN applied_VVN to_TO determining_VVG distances_NNS for_IN collision_NN avoidance_NN manoeuvres_NNS in_IN give-way_NN situations_NNS Ocean_NP Eng_NP ._SENT 
+,_, 165_CD (_( 2018_CD )_) ,_, pp_NP ._SENT 
+43-54_CD Szlapczynski_NP and_CC Niksa-Rynkiewicz_NP ,_, 2018_CD R._NP Szlapczynski_NP ,_, T._NP Niksa-Rynkiewicz_NP A_DT framework_NN of_IN A_DT ship_NN domain-based_JJ near-miss_NN detection_NN method_NN using_VVG mamdani_NP neuro-fuzzy_NP classification_NN Pol_NP ._SENT 
+Marit_NP ._SENT 
+Res_NNS ._SENT 
+,_, 25_CD (_( 2018_CD )_) ,_, pp_NP ._SENT 
+14-21_CD Szlapczynski_NP and_CC Szlapczynska_NP ,_, 2017_CD R._NP Szlapczynski_NP ,_, J._NP Szlapczynska_NP Review_NP of_IN ship_NN safety_NN domains_NNS :_: models_NNS and_CC applications_NNS Ocean_NP Eng_NP ._SENT 
+,_, 145_CD (_( 2017_CD )_) ,_, pp_NP ._SENT 
+277-289_CD Wang_NP ,_, 2010_CD N._NP Wang_NP An_DT intelligent_JJ spatial_JJ collision_NN risk_NN based_VVN on_IN the_DT quaternion_NN ship_NN domain_NN J._NP Navig_NP ._SENT 
+,_, 63_CD (_( 2010_CD )_) ,_, pp_NP ._SENT 
+733-749_CD Wang_NP ,_, 2013_CD N._NP Wang_NP A_DT novel_JJ analytical_JJ framework_NN for_IN dynamic_JJ quaternion_NN ship_NN domains_NNS J._NP Navig_NP ._SENT 
+,_, 66_CD (_( 2013_CD )_) ,_, pp_NP ._SENT 
+265-281_CD Wang_NP et_NP al_NP ._SENT 
+,_, 2009_CD N._NP Wang_NP ,_, X._NP Meng_NP ,_, Q._NP Xu_NP ,_, Z._NP Wang_NP A_DT unified_JJ analytical_JJ framework_NN for_IN ship_NN domains_NNS J._NP Navig_NP ._SENT 
+,_, 62_CD (_( 2009_CD )_) ,_, pp_NP ._SENT 
+643-655_CD Wang_NP and_CC Chin_NP ,_, 2016_CD Y._NP Wang_NP ,_, H.-C_NP ._SENT 
+Chin_NP An_DT empirically-calibrated_JJ ship_NN domain_NN as_IN a_DT safety_NN criterion_NN for_IN navigation_NN in_IN confined_VVN waters_NNS J._NP Navig_NP ._SENT 
+,_, 69_CD (_( 2016_CD )_) ,_, pp_NP ._SENT 
+257-276_CD Weng_NP and_CC Yang_NP ,_, 2015_CD J._NP Weng_NP ,_, D._NP Yang_NP Investigation_NP of_IN shipping_VVG accident_NN injury_NN severity_NN and_CC mortality_NN Accid_NN ._SENT 
+Anal_JJ ._SENT 
+Prev_NP ._SENT 
+,_, 76_CD (_( 2015_CD )_) ,_, pp_NP ._SENT 
+92-101_CD Wu_NP et_NP al_NP ._SENT 
+,_, 2015_CD B._NP Wu_NP ,_, Y._NP Wang_NP ,_, J._NP Zhang_NP ,_, E.E._NP Savan_NP ,_, X._NP Yan_NP Effectiveness_NN of_IN maritime_JJ safety_NN control_NN in_IN different_JJ navigation_NN zones_NNS using_VVG a_DT spatial_JJ sequential_JJ DEA_NP model_NN :_: yangtze_NP River_NP case_NN Accid_NN ._SENT 
+Anal_JJ ._SENT 
+Prev_NP ._SENT 
+,_, 81_CD (_( 2015_CD )_) ,_, pp_NP ._SENT 
+232-242_CD Yip_NP et_NP al_NP ._SENT 
+,_, 2015_CD T.L._NP Yip_NP ,_, D._NP Jin_NP ,_, W.K._NP Talley_NP Determinants_NNS of_IN injuries_NNS in_IN passenger_NN vessel_NN accidents_NNS Accid_JJ ._SENT 
+Anal_JJ ._SENT 
+Prev_NP ._SENT 
+,_, 82_CD (_( 2015_CD )_) ,_, pp_NP ._SENT 
+112-117_CD Zhang_NP et_NP al_NP ._SENT 
+,_, 2017_CD L._NP Zhang_NP ,_, Q._NP Meng_NP ,_, T._NP Fang_NP Fwa_NP Big_NP AIS_NNS data_NNS based_VVN spatial-temporal_JJ analyses_NNS of_IN ship_NN traffic_NN in_IN Singapore_NP port_NN waters_NNS Transport_NN ._SENT 
+Res_NNS ._SENT 
+E_SYM Logist_NN ._SENT 
+Transport_NN ._SENT 
+Rev._NP (_( 2017_CD )_) Zhang_NP et_CC al_NP ._SENT 
+,_, 2018_CD L._NP Zhang_NP ,_, Q._NP Meng_NP ,_, Z._NP Xiao_NP ,_, X._NP Fu_NP A_DT novel_JJ ship_NN trajectory_NN reconstruction_NN approach_NN using_VVG AIS_NNS data_NNS Ocean_NP Eng_NP ._SENT 
+,_, 159_CD (_( 2018_CD )_) ,_, pp_NP ._SENT 
+165-174_CD Zhang_NP et_NP al_NP ._SENT 
+,_, 2019_CD L._NP Zhang_NP ,_, H._NP Wang_NP ,_, Q._NP Meng_NP ,_, H._NP Xie_NP Ship_NP accident_NN consequences_NNS and_CC contributing_VVG factors_NNS analyses_NNS using_VVG ship_NN accident_NN investigation_NN reports_NNS Proc_NN ._SENT 
+Inst_NP ._SENT 
+Mech_NP ._SENT 
+Eng_NP ._SENT 
+O_NP J._NP Risk_NN Reliab_NN ._SENT 
+,_, 233_CD (_( 1_LS )_) (_( 2019_CD )_) ,_, pp_NP ._SENT 
+35-47_CD Zhang_NP et_NP al_NP ._SENT 
+,_, 2015_CD L._NP Zhang_NP ,_, H._NP Wang_NP ,_, Q._NP Meng_NP Big_NP data–based_JJ estimation_NN for_IN ship_NN safety_NN distance_NN distribution_NN in_IN port_NN waters_NNS Transp_VVP ._SENT 
+Res_NNS ._SENT 
+Rec_NN ._SENT 
+J._NP Transp_NP ._SENT 
+Res_NNS ._SENT 
+Board_NP ,_, 2479_CD (_( 2015_CD )_) ,_, pp_NP ._SENT 
+16-24_CD Zhang_NP et_NP al_NP ._SENT 
+,_, 2016_CD W._NP Zhang_NP ,_, F._NP Goerlandt_NP ,_, P._NP Kujala_NP ,_, Y._NP Wang_NP An_DT advanced_JJ method_NN for_IN detecting_VVG possible_JJ near_IN miss_VV ship_NN collisions_NNS from_IN AIS_NNS data_NNS Ocean_NP Eng_NP ._SENT 
+,_, 124_CD (_( 2016_CD )_) ,_, pp_NP ._SENT 
+141-156_CD Zhao_NP et_NP al_NP ._SENT 
+,_, 1993_CD J._NP Zhao_NP ,_, Z._NP Wu_NP ,_, F._NP Wang_NP Comments_NNS on_IN ship_NN domains_NNS J._NP Navig_NP ._SENT 
+,_, 46_CD (_( 1993_CD )_) ,_, pp_NP ._SENT 
+422-436_CD Zhu_NP et_NP al_NP ._SENT 
+,_, 2001_CD X._NP Zhu_NP ,_, H._NP Xu_NP ,_, J._NP Lin_NP Domain_NN and_CC its_PP$ model_NN based_VVN on_IN neural_JJ networks_NNS J._NP Navig_NP ._SENT 
+,_, 54_CD (_( 2001_CD )_) ,_, pp_NP ._SENT 
+97-103_CD 

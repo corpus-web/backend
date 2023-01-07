@@ -1,0 +1,328 @@
+<title>Simulations of single- and two-phase shock tubes across abrupt changes of area and branched junctions</title>
+<author>1,F.Daude,2,P.Galon</author>
+<Affiliation>1,IMSIA, UMR EDF-CNRS-CEA-ENSTA 9219, Université Paris-Saclay, F-91762 Palaiseau, France;2,EDF R&D, ERMES, F-91120 Palaiseau, France;3,CEA Saclay, DEN/SEMT, Université Paris-Saclay, F-91191 Gif-sur-Yvette, France</Affiliation>
+<year>2020</year>
+<Jounral>Nuclear Engineering and Design</Journal>
+<Publishing_house>ELSEVIER</Publishing_house>
+<Text_Collector>XiaFan，HEU</Text_Collector>
+<DOI>10.1016/j.nucengdes.2020.110734</DOI>
+<URL>https://www.sciencedirect.com/science/article/pii/S0029549320302284</URL>
+Simulations of single- and two-phase shock tubes across abrupt changes of area and branched junctions
+F.Daude,P.Galon
+IMSIA, UMR EDF-CNRS-CEA-ENSTA 9219, Université Paris-Saclay, F-91762 Palaiseau, France
+EDF R&D, ERMES, F-91120 Palaiseau, France
+CEA Saclay, DEN/SEMT, Université Paris-Saclay, F-91191 Gif-sur-Yvette, France
+<Section>Abstract</Section>
+This work is devoted to the simulation of single- and two-phase shock-tubes. In particular, the interaction between pressure waves and an abrupt change of area (sudden expansion and sudden contraction) is also considered. For this purpose, the quasi 1-D Finite-Volume approach recently developed by the authors for compressible flows in pipelines is used and assessed on a variety of test-cases. The numerical solutions are compared with other numerical solutions obtained with codes as RELAP-5, WAHA or RELAP-7 or analytical solutions when available. Finally, the experimental pressure waves propagation in a network experiments is also considered. The carefully chosen test-cases assess the ability of the present approach to predict the complex dynamics of single- and two-phase pressure wave phenomena with satisfactory accuracy and efficiency.
+Keywords:Variable cross-section;Compressible two-phase flows;Finite volume;Pipe network;Junction;Abrupt change of area
+<Section>1. Introduction</Section>
+Propagation of pressure waves through piping systems is a field of interest for many years due to the potential damages induced by such physical phenomena. That is why one-dimensional unsteady compressible flow analysis is widely used to predict the pressure wave action phenomena in pipelines. Pressure surges are important in many fields of engineering applications as gas transmission piping systems, natural gas transport systems and nuclear reactor piping systems. Pressure waves or pressure shocks are very important in the design and the safety of nuclear reactor coolant systems. These pressure waves could have in certain situations destructive effects which could compromise the integrity of the nuclear reactor coolant systems as it was described in (Watkins and Berry, 1979). For nuclear reactor safety analysis, system codes such as RELAP-5 (Carlson et al., 1990), TRACE (Odar et al., 2004) and CATHARE (Bestion, 1990) have been developed. Recently, studies of pressure waves propagation have showed that the system code RELAP-5 (Sokolowski and Koszela, 2012) can achieve sufficient accuracy when sufficiently small time steps and grid size are used, even though the code was not initially designed for this purpose (Tiselj and Petelin, 1997). The WAHA code (Tiselj et al., 2004, Tiselj et al., 2008) was developed in order to circumvent some weaknesses exhibited by RELAP-5 and TRACE in simulating two-phase flow water-hammer events. In a similar manner, the RELAP-7 code (Berry et al., 2018) has been developed using a well-posed and unconditionally hyperbolic model to give correct pressure wave dynamics for fast transient situations and safety analysis. In addition, Delchini et al. (2017) have studied the capability of the RELAP-7 code to simulate pressure waves in single- and two-phase flows.
+The pipe systems are usually modelled as flow networks, where branched junctions or sudden changes of area are frequently encountered. In the numerical calculation of the flow networks, the boundary condition of pipe flows must be implemented at the junctions (Winterbone and Pearson, 2000). The incident, reflection, transmission, and attenuation of pressure waves appear at the junctions. Therefore, an improper specification of the boundary condition disturbs the flows. The different approaches encountered in the literature are based on the mass conservation at the junction. However, for non-isentropic or non-isothermal flows, additional conditions should be satisfied in order to couple all of the flow variables. In order to consider balance equations for the fluid of mass, energy and momentum at branched pipe junctions, a finite-volume treatment for the junction problem has been recently proposed in Daude and Galon (2018). This approach is based on the integral form of the equations in a multi-dimensional cell used for exchanging mass, momentum and energy with the adjacent pipes as in Hong and Kim, 2011, Bermúdez et al., 2017, Bellamoli et al., 2018. It has been shown that general Equations Of State (EOS) can be handled with this approach: ideal perfect gas EOS and steam-water tables (Daude and Galon, 2018). In addition, this numerical approach has been assessed in a satisfactory manner on water-hammer experiments with vapor generation and collapse in elastic pipes (Daude et al., 2018). The objective is here to assess this approach on single- and two-phase shock-tubes. In addition, the interaction of pressure waves with sudden duct contraction and expansion has also to be studied as well as the pressure wave propagation through networks.
+The paper is organized as follows. First, the governing equations and, then the associated numerical schemes used in the present work are recalled. Especially, the finite-volume treatment used for the junction and the abrupt change of area previously proposed by the authors in Daude and Galon (2018) is briefly evoked. Afterwards, numerical results of shock-tubes taken from the published literature are presented for the simulation of single- and two-phase pressure waves propagation in pipelines. Then, numerical shock-tubes interacting with an abrupt change of area, i.e. sudden expansion or contraction, are also considered. All numerical results presented herein are compared to numerical solutions obtained with other codes as RELAP-5 (Carlson et al., 1990), WAHA (Tiselj et al., 2004) and/or RELAP-7 (Berry et al., 2018) and to analytical or quasi-analytical solutions when available. Finally, the experimental propagation of pressure waves in a three- or four-pipe network filled by air at rest (William-Louis et al., 1998) is considered. The purpose of this work is to assess the robustness and the accuracy of the present approach.
+<Section>2. Governing equations and numerical procedure</Section>
+The conservation equations for one-dimensional, unsteady, compressible flows in ducts with variable cross-sectional area are considered in the following. It is based on the conservation equations of mass, momentum and total energy:
+(1)∂tρA+∂xρuA=0∂tρuA+∂xρu2A+pA-p∂xA=0∂tρeA+∂xρeuA+puA=0
+with t the time, x the spatial coordinate corresponding to the pipe axis, ρ the density of the mixture, u the cross-sectional average of velocity in the pipe direction, p the absolute pressure and e the specific total energy. The pipe cross-section is denoted by A and d is the inner diameter of the pipe, i.e. A=πd2/4. Eq. (1) corresponds to the Euler equations or the Homogeneous Equilibrium Model (HEM) (Clerc, 2000) where the slip between phases is neglected and instantaneous thermal, mechanical and chemical equilibria are assumed. As a consequence, in HEM, the two phases share the same velocity, the same pressure, the same temperature and the same Gibbs free energy. The specific internal energy ε is given by:
+ε=e-12u2
+It is linked to the density ρ and the absolute pressure p via an additional relation named equation of state:
+ε=εEOSρ,p
+In the present work, two different EOS are considered. The first one is the ideal perfect gas EOS for single-phase given by the analytical relation: p=ργ-1ε with γ the specific heat ratio. The second is the steam-water tables based on the 1984 NBS/NRC (National Bureau of Standards/National Research Council of Canada) formulation (Haar et al., 1984) retained for steam-water flows. Thermodynamic values listed in the tables are calculated from an analytic polynomial equation that is an accurate approximation to the Helmholtz function (specific Helmholtz free-energy) for ordinary (not pure) water and steam. In practice, instead of the expensive direct use of this analytic equation, a tabulation is considered at the beginning of the simulation using interpolation algorithms. Then, at each time step, determining the thermodynamic properties of steam and water as a function of absolute pressure and density from such accurate tabulation requires an iterative inversion as the steam-water tables are developed in a 3-D p-ν-T diagram (p absolute pressure, ν=1/ρ specific volume and T absolute temperature). This iterative process is detailed in M. Lepareux et al. (1994).
+Following the assumptions of the HEM, the steam-water mixture is supposed to be at its saturation point. As a consequence, the vapor fraction αv is directly given by:
+(2)αv=0whenρl,sat⩽ρρ-ρl,satρv,sat-ρl,satwhenρv,sat⩽ρ⩽ρl,sat1whenρ⩽ρv,sat
+where ρl,sat and ρv,sat are the liquid and vapor densities at saturation obtained from the steam-water tables, respectively:
+ρl,sat=ρl,satEOSTandρv,sat=ρv,satEOST
+with the absolute temperature T given by the EOS: T=TEOSρ,p. As a consequence, the vapor fraction αv is directly given by the mixture density ρ and the absolute pressure p as the two-phase mixture is supposed to be at saturation, i.e. αv=αvρ,p.
+In the following sections, comparisons with RELAP-5 (Carlson et al., 1990), RELAP-7 (Berry et al., 2018) or WAHA (Tiselj et al., 2004) codes are performed. However, it has to be noticed that the models used in these different codes are different from the HEM model described previously. The model retained in the RELAP-5 and in the WAHA codes is the one-pressure and two-velocity six-equation two-phase flow model assuming pressure-equilibrium between phases whereas the model retained in the RELAP-7 system code is a two-pressure and two-velocity seven-equation two-phase flow model with distinct pressures (composed by two mass, two momentum and two energy balance equations for the six-equation model plus a transport equation of the void fraction in the case of the seven-equation model). It is thus meaningful to recall that the considered comparisons make only sense in the case where the seven-equation model and the six-equation model relax to the HEM model. That means in single-phase flow configuration and in two-phase flow situations under mechanical, thermal, chemical and kinetic equilibrium assumptions. For this purpose, as recalled or shown in Delchini et al. (2017) for the seven-equation model and in Tiselj et al., 2004, Tiselj et al., 2003 for the six-equation model, using infinitely fast inter-phase exchange, i.e. quasi instantaneous relaxations between phases, can be considered in order to relax the seven-equation and the six-equation models to the three-equation homogeneous equilibrium model (HEM).
+Eq. (1) is solved using the Finite-Volume method proposed in Daude and Galon (2018) which can be written under the form:
+(3)ViUin+1-Uin+ΔtnFi+1/2Ai+1/2-Fi-1/2Ai-1/2-ΔtnpinRin=0
+with Δtn the time step, Ui the cell average of the state vector, Fi±1/2 the inviscid numerical fluxes and Rin the term linked to the spatial changes of area given by:
+U=ρρuρe,F=ρuρu2+pρeu+puandRin=0Ai+1/2-Ai-1/20
+The volume Vi is computed as:
+(4)Vi=πhi12di+1/22+di+1/2di-1/2+di-1/22
+with hi the length of the control volume.
+The numerical fluxes are obtained using the HLLC scheme (Toro, 2009, Toro et al., 1994, Toro, 2019):
+Fi+1/2=FLif0<SLFL∗ifSL≤0<SMFR∗ifSM≤0<SRFRifSL≤0
+with
+FK=ρKuKρKuK2+pKρKeKuK+pKuKwhereK=L,R
+with the left (K=L) or right (K=R) state of the interface i+1/2 and with
+FK∗=1SK-SMρKSK-uKSMρKuKSK-uKSM+pMSK-pKSMρKeKSK-uKSM+pMSKSM-pKSMuK
+where the pressure pM is given by:
+pM=ρLSL-uLSM-uL+pL=ρRSR-uRSM-uR+pR
+and the speed SM defined as:
+SM=ρRuRSR-uR-ρLuLSL-uL+pL-pRρRSR-uR-ρLSL-uL
+The speeds SL and SR corresponding to the fastest waves at each side of the interface are computed as proposed in Batten et al. (1997):
+SL=minuL-cL,û-ĉandSR=maxuR+cR,û+ĉ
+where û and ĉ are the Roe average of the velocity u and speed of sound c variables (Roe, 1981):
+f̂=ρLfL+ρRfRρL+ρR
+The first-order accuracy in time and in space is obtained using UL=Uin and UR=Ui+1n.
+In addition, realistic configurations are characterized by the presence of several pipes connected to specific points (called junctions in the following) leading to potentially complex networks with several junctions and branches. As detailed in Daude and Galon (2018), the junction coupling is here solved with the integral form of the 3-D equations in a similar manner as proposed by Hong and Kim (2011) and also developed by Bermúdez et al. (2017). This consists in considering the junction as a multi-dimensional fictitious cell exchanging mass, momentum and energy with its adjacent pipes. The junction coupling reduces in the resolution of the 3-D equations at the junction cell and the associated coupling with the 1-D equations in the adjacent pipes through the normal averaged fluxes. This approach is also used to tackle the abrupt change of duct cross-sections. In this configuration, two pipes with different cross-sections meet at the junction. The discrete form of the governing equations on the 3-D junction cell Vj can be written as:
+VjQjn+1-Qjn+Δtn∑lFl3-DAl+ΔtnFw3-DAw=0withQ=ρρuρe,F3-D=ρunρunu+pnρe+punandun=u·n
+where the fluxes are decomposed into contributions coming from the pipes connected at the junction and contributions coming from the walls surrounding the junction. n is the unit outward normal of Vj. Using a slip condition at the wall, the wall flux Fw3-D is given by:
+Fw3-D=0pwnw0
+The fluxes associated with an interface connected to the neighboring pipe cells are directly given by the HLLC solver using left and right states coming from the junction and the adjacent pipe cells (Daude and Galon, 2018). The expression of the wall contribution is obtained assuming that the wall pressure is the cell-averaged pressure at the junction cell (i.e. pw=pjn) and using the Surface Conservation Law given by:
+∑lnlAl+nwAw=0
+Finally, the balance equations at the junction cell can be written as:
+VjQjn+1-Qjn+Δtn∑lFl3-DAl-Δtnpjn∑lGlAl=0withGl=0nl0
+In the present computations, the volume of the junction cell denoted by Vj is taken to be equal to the average of the volumes of the neighboring pipe cells of the junction.
+The time step Δtn is given by the Courant number C defined as:
+(5)C=Δtnmaxi|uin|+cinhi
+with c the speed of sound in an unconfined fluid given by the EOS: c=cEOSρ,p. In the case of the ideal gas EOS, the speed of sound is c=γp/ρ.
+All of the algorithms described previously have been implemented in the fast transient dynamics software for fluids and structures Europlexus (Joint Research Centre (JRC) et al., 2020) (http://www-epx.cea.fr/) co-owned by the French Commissariat à l’énergie atomique et aux énergies alternatives (CEA) and by the European Commission. Électricité de France (EDF) is involved as a major partner of the consortium built for Europlexus software development.
+<Section>3. Numerical tests: shock-tubes in a duct with constant cross-section</Section>
+The ability of the present approach to predict pressure waves propagation is first assessed on perfect gas and steam-water shock-tubes commonly used in the literature. In order to study the influence of the cell size on the present numerical results, the shock-tubes are computed with several successively refined meshes using 500, 1000, 2000 and 5000 cells. Finally, comparisons with the numerical solutions obtained with RELAP-5 (Carlson et al., 1990), RELAP-7 (Berry et al., 2018) and/or WAHA (Tiselj et al., 2004) or analytical solutions when available are performed. We recall that, in steam-water two-phase flow situations, the present comparisons with RELAP-5, RELAP-7 and WAHA only make sense in the case where the six-equation (one-pressure and two-velocity) model for RELAP-5 or WAHA and the seven-equation (two-pressure and two-velocity) model for RELAP-7 devolve to the HEM model as the HEM model is considered in the present computations.
+3.1. Test 1: Single-phase gas shock-tube
+The first test-case considered in this paper consists of a 1-m long tube filled by air at rest. The tube is composed of a high-pressure chamber at p=1 bar and a low-pressure chamber at p=0.1 bar as shown in Fig. 1. The pressure discontinuity is initially located at x=0.5 m. This corresponds to a ideal air shock-tube with the perfect gas EOS where γ=1.4 and the corresponding initial conditions are given in Table 1 and was originally proposed by Sod (Sod, 1978). The numerical solutions obtained with 500, 1000, 2000 and 5000 cells in conjunction with the Courant number C=0.8 are compared with the analytical solution of this Riemann problem which is composed of a left rarefaction wave, a contact discontinuity and a right shock-wave as shown in Fig. 2. Good agreement is obtained as all of the intermediate states are obtained in the numerical solution with a satisfactory manner. Using 500 cells seems to be sufficient with the present numerical approach to capture the three different waves involved in this test-case
+Fig. 1. Sketch of the single-phase gas shock-tube with transmissive boundary conditions at the inlet (x=0 m) and at the outlet (x=1 m) of the tube.
+Table 1. Initial conditions for the single-phase gas shock-tube.
+Fig. 2. Numerical solutions obtained on the single-phase gas shock-tube at t=4.5125×10-4 s with 500, 1000, 2000 and 5000 cells in conjunction with C=0.8 corresponding to the averaged time step value of Δt≈2.3×10-6 s, Δt≈1.15×10-6 s, Δt≈5.77×10-7 s and Δt≈2.3×10-7 s, respectively; comparison with the analytical solution: (a) pressure, (b) density and (c) velocity.
+In order to investigate the influence of the Courant number on the numerical solutions, several computations have been performed using a mesh of 500 cells with three different Courant number values: C=0.8, C=0.4 and C=0.2. The corresponding numerical results are shown in Fig. 3. No significant influence has been observed.
+Fig. 3. Numerical solutions obtained on the single-phase gas shock-tube at t=4.5125×10-4 s with in conjunction with C=0.8,C=0.4 and C=0.2 corresponding to the averaged time step value of Δt≈2.3×10-6 s, Δt≈1.15×10-6 s and Δt≈5.77×10-7 s, respectively: (a) pressure and (b) density.
+Finally, for comparison, similar gas shock-tube problems have been computed using RELAP-5 code as it is reported in Sokolowski and Koszela (2012) (cf. Fig. 2, Fig. 3, Fig. 4 pages 152–153), using WAHA code as it is shown in Tiselj et al. (2004) (cf. Fig. 1, Fig. 2 in Section 8.1.1) and using RELAP-7 (Delchini et al., 2017) (cf. Fig. 1 page 110). It has to be noticed that the numerical results obtained with RELAP-5 code exhibit spurious oscillations behind the shock wave. In addition, the exact value of the velocity plateau between the rarefaction wave and the shock wave is not well captured in Sokolowski and Koszela (2012) in contrast to the simulations obtained with RELAP-7 reported in Delchini et al. (2017) and the present ones. Finally, concerning the WAHA results depicted in Tiselj et al. (2004), it has to be noticed that, as a non-conservative scheme is used, inaccuracies are observed for the shock wave which is not the case here.
+Fig. 4. Sketch of the single-phase liquid shock-tube with transmissive boundary conditions at the inlet (x=0 m) and at the outlet (x=10 m) of the tube.
+3.2. Test 2: Single-phase liquid shock-tube
+This test corresponds to a liquid water shock-tube in a 10-m long pipe shown in Fig. 4 and previously considered in Tiselj et al., 2004, Tiselj et al., 2008, Sokolowski and Koszela, 2012, Delchini et al., 2017 for which the initial conditions are given in Table 2. In the present test, the initial pressure discontinuity is located at x=5 m. The numerical results obtained using 500, 1000, 2000 and 5000 cells with a Courant number C=0.8 at t=1.64 ms are plotted in Fig. 5. A rarefaction wave propagates leftwards and is located at x≈2.5 m whereas a contact discontinuity propagates rightwards and is located at x≈5 m only visible on the temperature profile and a shock-wave propagates also rightwards and is visible at x≈7.5 m. The present results are compared in a satisfactory manner with the numerical solutions previously obtained with the RELAP-7 code (Delchini et al., 2017) using 800 nodes and a CFL (Courant-Friedrichs-Lewy) condition of 0.1. As in the previous case, 500 cells seem to be enough to obtain a sufficiently accurate numerical solution.
+Table 2. Initial conditions for the single-phase liquid shock-tube.
+Fig. 5. Numerical solutions obtained on the single-phase liquid shock-tube at t=1.64 ms with 500, 1000, 2000 and 5000 cells in conjunction with C=0.8 corresponding to the averaged time step value of Δt≈1.05×10-5 s, Δt≈5.25×10-6 s, Δt≈2.62×10-6 s and Δt≈1.05×10-6 s, respectively; comparison with the RELAP-7 results issued from (Delchini et al., 2017): (a) pressure, (b) void fraction, (c) temperature and (d) velocity.
+3.3. Test 3: Single-phase vapor shock-tube
+This test was proposed in Tiselj et al. (2004) which consists of a single-phase vapor shock-tube in a pipe of length L=2 m as shown in Fig. 6 The initial pressure discontinuity is located at x=1 m separating the two initial states given in Table 3. The numerical results obtained using 500, 1000, 2000 and 5000 cells in conjunction with the Courant number C=0.8 at t=1.2 ms are plotted in Fig. 7 and compared with the numerical solutions using WAHA (Tiselj et al., 2004) using 200 cells. Good agreement is observed between the present results and the ones obtained with WAHA. Finally, the three discontinuities (the rarefaction wave located at x≈0.25m-0.5 m, the contact discontinuity located at x≈1.2 m and the shock wave located at x≈1.8 m) are satisfactorily captured by the present finite-volume approach even using 500 cells. see Fig. 8.
+Fig. 6. Sketch of the single-phase vapor shock-tube with transmissive boundary conditions at the inlet (x=0 m) and at the outlet (x=2 m) of the tube.
+Table 3. Initial conditions for the single-phase vapor shock-tube.
+Fig. 7. Numerical solutions obtained on the single-phase vapor shock-tube at t=1.2 ms with 500, 1000, 2000 and 5000 cells in conjunction with C=0.8 corresponding to the averaged time step value of Δt≈4.25×10-6 s, Δt≈2.12×10-6 s, Δt≈1.06×10-6 s and Δt≈4.25×10-7 s, respectively; comparison with the WAHA results issued from Tiselj et al. (2004): (a) pressure, (b) void fraction, (c) density and (d) velocity.
+Fig. 8. Sketch of the two-phase shock-tube with transmissive boundary conditions at the inlet (x=0 m) and at the outlet (x=100 m) of the tube.
+3.4. Test 4: Two-phase shock-tube
+The fourth test-case was proposed in Tiselj et al. (2004) and used in Sokolowski and Koszela, 2012, Delchini et al., 2017. A sketch of this test is depicted in Fig. 4. The two initial states are given in Table 4 corresponding to a pressure and temperature jumps in a two-phase flow at the saturation point. The numerical results obtained using 500, 1000, 2000 and 5000 cells and the Courant number C=0.8 at t=81 ms are plotted in Fig. 9. Three discontinuities (the rarefaction wave located at x≈40 m, the contact discontinuity at x≈50 m and the shock wave at x≈60 m) are clearly visible on the void fraction profile. The numerical solution obtained with RELAP-7 (Delchini et al., 2017) using 400 cells and a CFL of 0.1 is also plotted for comparison. In the computation presented in Delchini et al. (2017) on the present test-case, very large interfacial relaxation parameters are used such as mechanical, thermal and kinematic equilibria are achieved. Under these assumptions the 7-equation model used in RELAP-7 relaxes to the Homogeneous Equilibrium Model used here where the phasic pressures, velocities and temperatures are equal. As a consequence it allows for the comparison with the present numerical solutions showing that the three discontinuities are well captured even using 500 cells. In addition, in Delchini et al. (2017), the RELAP-7 results have been compared with the RELAP-5 and the WAHA results issued from Sokolowski and Koszela, 2012, Tiselj et al., 2004, respectively. It has been shown that the WAHA and the RELAP-7 results are in good agreement. Some discrepancies have been observed for the velocity plateau value between the rarefaction and shock waves between RELAP-5 and RELAP-7 results. Finally, it is observed that both the rarefaction and the shock waves are associated to an increase of void fraction, i.e. vaporization.
+Table 4. Initial conditions for the two-phase shock-tube.
+Fig. 9. Numerical solutions obtained on the two-phase shock-tube at t=81 ms with 500, 1000, 2000 and 5000 cells and C=0.8 corresponding to the averaged time step value of Δt≈4.96×10-4 s, Δt≈2.48×10-4 s, Δt≈1.24×10-4 s and Δt≈4.96×10-5 s, respectively; comparison with the RELAP-7 results issued from Delchini et al. (2017): (a) pressure, (b) void fraction, (c) temperature and (d) velocity.
+<Section>4. Numerical tests: shock-tubes with an abrupt change of area</Section>
+In order to demonstrate the potentiality of the proposed numerical method, several single-phase and steam-water shock-tube problems involving a sudden change of duct cross-sections are considered. The present test-cases were initially proposed in Tiselj et al., 2004, Tiselj et al., 2008. The computational domain is 5-m long. A shock-tube is initially located at x=2 m whereas an abrupt change of area with a cross-section ratio of 20 is located at x=3 m. Both contraction and expansion of the pipe cross-section are studied in the following. Transmissive boundary conditions are considered at the inlet (x=0 m) and at the outlet (x=5 m) of the tube. As previously, successive computations using 500, 1000, 2000 and 5000 cells are considered to assess the influence of the grid size on the accuracy of the present numerical solutions. At each computation, the volume of the junction used in the junction modeling described in Daude and Galon (2018) is set to be equal to the average between the two neighboring pipe cells of the junction. Comparisons with the numerical solutions obtained with RELAP-5 (Carlson et al., 1990) or WAHA (Tiselj et al., 2004, Tiselj et al., 2008) when available are performed. Once again, we recall that these comparisons with RELAP-5 and WAHA are meaningful in the case where the unequal velocity unequal temperature six-equation model used in these two codes degenerates to the HEM one considered in the present computations.
+4.1. Test 5: Single-phase liquid shock-tube interaction with an abrupt expansion
+The present test-case is proposed in Tiselj et al. (2004) and is represented in Fig. 10. The initial conditions are given in Table 5. The numerical results obtained with 500, 1000, 2000, 5000 cells and the Courant number C=0.6 at t=1 ms are plotted in Fig. 11. The rarefaction wave travels on the left side and is located at x≈0.5 m which is visible on the pressure, temperature and velocity profiles. Then the transmitted shock wave after the expansion is visible at x≈3.5 m whereas the reflected rarefaction wave due to the expansion is located at x≈2.5 m. The contact discontinuity is located at x≈2 m which is only visible on the temperature profile and the change of area is located at x=3 m. The present numerical results are in agreement with those obtained with WAHA (Tiselj et al., 2004) using 125 nodes and with the analytical solution obtained with the Joukowsky theory (Wylie et al., 1993, Chaudhry, 2014). We recall that the computations with WAHA are second-order accurate while the present ones are first-order accurate. Once again, 500 cells seem to be sufficient for this test-case.
+Fig. 10. Sketch of the single-phase liquid shock-tube interaction with an abrupt expansion (at x=3 m) using transmissive boundary conditions at the inlet (x=0 m) and at the outlet (x=5 m) of the tube.
+Table 5. Initial conditions for the single-phase liquid shock-tube interaction with an abrupt expansion.
+Fig. 11. Numerical solutions obtained on the single-phase liquid shock-tube interaction with an abrupt expansion at t=1 ms with 500, 1000, 2000, 5000 cells and C=0.6 corresponding to the averaged time step value of Δt≈3.97×10-6 s, Δt≈1.98×10-6 s, Δt≈9.93×10-7 s and Δt≈3.97×10-7 s, respectively; comparison with the WAHA results issued from Tiselj et al. (2004) and with the Joukowsky-type solution: (a) pressure, (b) void fraction, (c) temperature and (d) velocity.
+4.2. Test 6: Single-phase liquid shock-tube interaction with an abrupt contraction
+The present shock-tube is represented in Fig. 12. The two initial thermo-dynamical states of the present test proposed in Tiselj et al. (2004) are detailed in Table 6. The numerical results with 500, 1000, 2000, 5000 cells and the Courant number C=0.6 at t=1 ms are given in Fig. 13. As in the previous case, the rarefaction wave travelling on the left side of the pipe is visible on the pressure, temperature and velocity profiles at x=0.5 m. The transmitted and reflected shock waves due to the interaction with the abrupt contraction are located at x=3.5 m and x=2.5 m, respectively. In addition, the contact discontinuity, only visible on the temperature profile, is located at x≈2 m and the change of area at x=3 m. The comparisons with the numerical solutions previously obtained with the WAHA code (Tiselj et al., 2004) using 125 nodes and with the analytical solution obtained with the Joukowsky theory (Wylie et al., 1993, Chaudhry, 2014) are satisfying. According to the present numerical results, it seems that using 500 cells is sufficient for this test-case.
+Fig. 12. Sketch of the single-phase liquid shock-tube interaction with an abrupt contraction (at x=3 m) using transmissive boundary conditions at the inlet (x=0 m) and at the outlet (x=5 m) of the tube.
+Table 6. Initial conditions for the single-phase liquid shock-tube interaction with an abrupt contraction.
+Fig. 13. Numerical solutions obtained on the single-phase liquid shock-tube interaction with an abrupt contraction at t=1 ms with 500, 1000, 2000, 5000 cells and C=0.6 corresponding to the averaged time step value of Δt≈3.97×10-6 s, Δt≈1.98×10-6 s, Δt≈9.93×10-7 s and Δt≈3.97×10-7 s, respectively; comparison with the WAHA results issued from Tiselj et al. (2004) and with the Joukowsky-type solution: (a) pressure, (b) void fraction, (c) temperature and (d) velocity.
+4.3. Test 7: Single-phase vapor shock-tube interaction with an abrupt expansion
+The present single-phase vapor shock-tube interaction with an abrupt expansion initially proposed in Tiselj et al. (2004) is depicted in Fig. 14.The corresponding initial conditions are given in Table 7. The numerical solutions obtained with 500, 1000, 2000, 5000 cells and a Courant number C=0.8 at t=2.5 ms are plotted in Fig. 15 and compared in a satisfactory manner with the results previously obtained with WAHA (Tiselj et al., 2004) using 125 nodes. Five discontinuities are observed in the numerical solutions: the left rarefaction wave located at x≈0.8 m, the right contact discontinuity at x≈2.25 m (only visible on the temperature profile), the reflected rarefaction wave due to the expansion of the pipe at x≈2.7 m, the discontinuity at the change of area (x=3 m) and the transmitted shock wave at x≈3.4 m. Once again, using 500 cells makes it possible to capture all the intermediate states of the solutions with a satisfactory agreement with the numerical results obtained with WAHA.
+Fig. 14. Sketch of the single-phase vapor shock-tube interaction with an abrupt expansion (at x=3 m) using transmissive boundary conditions at the inlet (x=0 m) and at the outlet (x=5 m) of the tube.
+Table 7. Initial conditions for the single-phase vapor shock-tube interaction with an abrupt expansion.
+Fig. 15. Numerical solutions obtained on the single-phase vapor shock-tube interaction with an abrupt expansion at t=2.5 ms with 500, 1000 cells, 2000 cells, 5000 cells and C=0.8 corresponding to the averaged time step value of Δt≈1.38×10-5 s, Δt≈6.89×10-6 s, Δt≈3.44×10-6 s and Δt≈1.38×10-6 s, respectively; comparison with the WAHA results issued from Tiselj et al. (2004): (a) pressure, (b) void fraction, (c) temperature and (d) velocity.
+4.4. Test 8: Single-phase vapor shock-tube interaction with an abrupt contraction
+The present single-phase vapor shock-tube with an abrupt contraction proposed in Tiselj et al. (2004) is shown in Fig. 16 and the corresponding initial conditions are detailed in Table 8. The numerical results obtained with 500, 1000, 2000, 5000 cells and a Courant number C=0.8 at t=2.5 ms are plotted in Fig. 17. For comparison, the numerical solutions obtained with WAHA (Tiselj et al., 2004) using 125 nodes are also given. Once again, five discontinuities are clearly visible on the temperature profile: the rarefaction wave located at x≈0.8 m, the contact discontinuity at x≈2.25 m, the reflected shock wave at x≈2.65 m, the change of area at x=3 m and the transmitted shock located at x≈3.45 m in the WAHA results (Tiselj et al., 2004) and located at x≈3.42 m in the present results. The grid independent solution of the transmitted shock after the abrupt contraction requires at least 2000 cells. However, significant differences with the WAHA results are observed for this shock wave. Due to the difference between the two sets of 1-D numerical results in front of the sudden contraction, a reference 2-D axisymmetrical Finite-Volume computation is also considered. The corresponding 2-D computational domain considers the following space steps: Δr=h=2.5×10-3 m. This corresponds to the grid size obtained with 2000 cells in 1-D. The 2-D numerical solution is obtained using a Courant number of C2-D=0.6. The numerical profiles of the pressure and temperature at the center-line of the 2-D computations are plotted in Fig. 18. The comparison of the corresponding pressure profiles clearly demonstrates the satisfactory behavior of the Finite-Volume junction modeling (Daude and Galon, 2018) used here. Obviously, the details of the 2-D computation can not be exactly retrieved with a simple 1-D computation.
+Fig. 16. Sketch of the single-phase vapor shock-tube interaction with an abrupt contraction (at x=3 m) using transmissive boundary conditions at the inlet (x=0 m) and at the outlet (x=5 m) of the tube.
+Table 8. Initial conditions for the single-phase vapor shock-tube interaction with an abrupt contraction.
+Fig. 17. Numerical solutions obtained on the single-phase vapor shock-tube interaction with an abrupt contraction at t=2.5 ms with 500, 1000 cells, 2000 cells, 5000 cells and C=0.8 corresponding to the averaged time step value of Δt≈1.38×10-5 s, Δt≈6.89×10-6 s, Δt≈3.44×10-6 s and Δt≈1.38×10-6 s, respectively; comparison with the WAHA results issued from Tiselj et al. (2004) and with a 2-D axisymmetrical computation: (a) pressure, (b) void fraction, (c) temperature and (d) velocity.
+Fig. 18. Numerical solutions obtained on the single-phase vapor shock-tube interaction with an abrupt contraction at t=2.5 ms with 2000 cells and C=0.8 corresponding to the averaged time step value of Δt≈3.44×10-6 s; comparison with the WAHA results issued from Tiselj et al. (2004) and with a 2-D axisymmetrical computation: (a) pressure and (b) temperature.
+4.5. Test 9: Two-phase shock-tube interaction with an abrupt expansion
+Fig. 19 displays the present two-phase shock-tube interacting with an expansion initially proposed in Tiselj et al. (2004). The associated initial conditions are given in Table 9. The numerical results obtained with 500, 1000, 2000, 5000 cells and a Courant number C=0.8 are depicted in Fig. 20. As in the present test-case, the thermo-dynamical conditions are at the saturation curve, the comparison of the present results using HEM model with the numerical results obtained with RELAP-5 can be considered. In this thermal and chemical equilibrium two-phase flow situation, the six-equation model used in the RELAP-5 code degenerates to the HEM model. It has to be noticed that the present numerical results are satisfactorily compared with the solutions obtained with RELAP-5 code issued form Tiselj et al. (2004). The present numerical results seem to be less dissipative than the ones obtained with RELAP-5 which is particularly visible on the void fraction profile. In particular, the contact discontinuity located at x≈2.7 m is only visible with the present approach whereas the four other discontinuities appear in the two solutions, i.e. the rarefaction wave located at x≈0.8 m, the reflected rarefaction wave at x≈2.25 m, the change of area at x=3 m and the transmitted shock wave at x≈4.45 m. According to the numerical results depicted in Fig. 20, it seems that 500 cells are sufficient to capture the different waves involved in this test-case with the present numerical approach.
+Fig. 19. Sketch of the two-phase shock-tube interaction with an abrupt expansion (at x=3 m) using transmissive boundary conditions at the inlet (x=0 m) and at the outlet (x=5 m) of the tube.
+Table 9. Initial conditions for the two-phase shock-tube interaction with an abrupt expansion.
+Fig. 20. Numerical solutions obtained on the two-phase shock-tube interaction with an abrupt expansion at t=9 ms with 500, 1000, 2000, 5000 cells and C=0.8 corresponding to the averaged time step value Δt≈2.4×10-5 s, Δt≈1.2×10-5 s, Δt≈6×10-6 s and Δt≈2.4×10-6 s, respectively; comparison with the RELAP-5 results issued from Tiselj et al. (2004): (a) pressure and (b) void fraction.
+4.6. Test 10: Two-phase shock-tube interaction with an abrupt contraction
+The present test-case was also proposed in Tiselj et al. (2004) and is shown in Fig. 21, the corresponding initial conditions are detailed in Table 10. The numerical results obtained with the 1-D Finite-Volume approach proposed in Daude and Galon (2018) using 500, 1000, 2000, 5000 cells and the Courant number C=0.8 are displayed in Fig. 22. The thermo-dynamical conditions of the present test-case are the same as the previous one allowing the comparison with the RELAP-5 code as the thermal, chemical, mechanical and kinematic equilibrium assumptions are verified. Thus, the present numerical results are compared with those obtained with the RELAP-5 code given in Tiselj et al. (2004). Five discontinuities can be observed on the void fraction profile: a left rarefaction wave located at x≈0.8 m, a reflected shock wave at x≈2.05 m, a contact discontinuity at x≈2.4 m, the change of area at x=3 m and the transmitted shock wave. In this test-case, it is observed that the depressurisation wave is associated with an increase of void fraction, i.e. vaporization, as well as the contact discontinuity, the change of pressure across the contraction and the transmitted shock wave. In contrast, the reflected shock wave corresponds to a decrease of void fraction. As in Test 8, the transmitted shock after the contraction seems more challenging to be captured. First, with the present approach, at least 2000 cells seem to be necessary to obtain a grid-independent solution. Then, even if the location of the transmitted shock wave obtained with a grid-converged solution (x≈4.6) is approximately the same with the RELAP-5 results (Tiselj et al., 2004), its amplitude is significantly different. This is the main discrepancy between the two 1-D numerical results. In order to have a reference numerical solutions, a 2-D axisymmetrical Finite-Volume inviscid computation of the present test-case based on the three-equation homogeneous equilibrium model is also considered. The corresponding 2-D computational domain considers the following space steps: Δr=h=2.5×10-3 m (which corresponds to the grid size obtained with 2000 cells in 1-D) and the 2-D numerical solution is obtained using a Courant number of C2-D=0.6. The pressure and void fraction profiles at the center-line of the 2-D computational domain is considered. The corresponding results depicted in Fig. 23 show that the present 1-D Finite-Volume modeling of the contraction (Daude and Galon, 2018) has a satisfactory behavior.
+Fig. 21. Sketch of the two-phase shock-tube interaction with an abrupt contraction (at x=3 m) using transmissive boundary conditions at the inlet (x=0 m) and at the outlet (x=5 m) of the tube.
+Table 10. Initial conditions for the two-phase shock-tube interaction with an abrupt contraction.
+Fig. 22. Numerical solutions obtained on the two-phase shock-tube interaction with an abrupt contraction at t=9 ms with 500, 1000, 2000, 5000 cells and C=0.8 corresponding to the averaged time step value Δt≈2.4×10-5 s, Δt≈1.2×10-5 s, Δt≈6×10-6 s and Δt≈2.4×10-6 s, respectively; comparison with the RELAP-5 results issued from Tiselj et al. (2004): (a) pressure and (b) void fraction.
+Fig. 23. Numerical solutions obtained on the two-phase shock-tube interaction with an abrupt contraction at t=9 ms with 2000 cells and C=0.8 corresponding to the averaged time step value Δt≈6×10-6 s; comparison with the RELAP-5 results issued from Tiselj et al. (2004) and with a 2-D axisymmetrical computation: (a) pressure and (b) void fraction.
+The previous shock-tubes are some idealized test-cases used for the verification of the present numerical finite-volume approach. In the following section, experiments with available data are considered for validation.
+<Section>5. Shock tube’s experiments with a branched junction</Section>
+The three shock-tube experiments with a branched junction conducted by William-Louis et al. (1998) are now considered for validation as in Chae et al. (2006). This consists of a shock tube with a high-pressure chamber of 0.53 m long and a low-pressure chamber of 3.10 m long. This tube is connected to other pipes by a junction: three or four pipes with open or closed ends, depending of the considered test-case as represented in Fig. 24. The pressure measurements are carried out far enough from the junction in order to ensure that the waves are planar at these locations (William-Louis et al., 1998). The difference between the high-pressure and the low-pressure regions is Δp=15 kPa. All of the computations performed here are obtained with the Euler equations in conjunction with the ideal perfect EOS (with γ=1.4) using a space step h=1/3 cm and a Courant number C=0.95. The open ends are here modeled as “tank” boundary conditions detailed in Daude and Galon (2018) whereas as the closed ends are modeled using a classical wall boundary based on a mirror state as recalled in Daude and Galon (2018).
+Fig. 24. Sketch of William-Louis et al.’s experimental apparatus from William-Louis et al. (1998): (a) with three open branches, (b) with four open branches and (c) with four closed branches.
+5.1. Experiment with a three-branch junction and open ends
+The first case consists of a three-pipe network with open ends. The longitudinal branch denoted by Pipe 3 and the sided branch denoted by Pipe 2 are respectively 1.725 and 2.595 m long with the same cross-section. The initial conditions of this case are given in Table 11. A shock wave is generated in Pipe 1 and propagates towards the junction. Then, this pressure wave interacts with the junction. This leads to a reflected rarefaction wave propagating in Pipe 1 from the junction towards the end of the pipe and two transmitted shock waves propagating from the junction in Pipe 2 and Pipe 3. Afterwards, these pressure waves interacts with the boundaries of each pipe and then the reflected pressure waves propagate in each pipe towards the junction generating other interactions. Fig. 25 represents the time evolution of the pressure at three locations (one per pipe). Good agreement between the present numerical results and the experimental data obtained by (William-Louis et al., 1998) is obtained showing the accuracy of the present approach. Otherwise, the present numerical method is not based on an iterative procedure as the one proposed in William-Louis et al. (1998). This avoids the problem of divergence and multiple solutions and this leads to a gain in efficiency. In addition, in contrast to the numerical method proposed by Chae et al. (2006) based on the Thompson’s boundary conditions, the present numerical treatment of the junction problem is not EOS-dependent.
+Table 11. Initial conditions for the William-Louis et al.’s experiment with a three-branch junction (William-Louis et al., 1998).
+Fig. 25. Comparison between numerical solutions obtained with h=1/3 cm, C=0.95 and the data of William-Louis et al.’s shock-tube experiment with three pipes and open ends: pressure history (a) in Pipe 1 at x=0.48 m from the junction, (b) in Pipe 2 at x=0.52 m from the junction and (c) in Pipe 3 at x=0.48 m from the junction.
+5.2. Experiment with a four-branch junction and open ends
+The same tube composed of a high-pressure and a low-pressure chambers is joined to three pipes in a 90degr junction. The second sided branch denoted by Pipe 4 is 0.845 m long. As in the previous case, open ends modeled as “tank” conditions given in Daude and Galon (2018) are considered here. The initial conditions of this case are given in Table 12. The length of each tube is different such as a clear dephasing between the secondary waves generated at the boundaries of each pipe is obtained. As a consequence, numerous interactions of pressure waves with the junction are obtained leading to a quite complex flow pattern. Fig. 26 shows the comparison between calculation and experimental data at different locations. Once again, the numerical solution is in agreement with the experiments.
+Table 12. Initial conditions for the two William-Louis et al.’s experiments with a four-branch junction (William-Louis et al., 1998).
+Fig. 26. Comparison between numerical solutions obtained with h=1/3 cm, C=0.95 and the data of William-Louis et al.’s shock-tube experiment with four pipes and open ends: pressure history (a) in Pipe 1 at x=0.48 m from the junction, (b) in Pipe 2 at x=0.52 m from the junction, (c) in Pipe 3 at x=0.48 m from the junction and (d) in Pipe 4 at x=0.43 m from the junction.
+5.3. Experiment with a four-branch junction and closed ends
+The same configuration of the previous four-pipe network is considered here in conjunction with closed ends for all tubes which are obtained using wall-type boundary conditions. The initial conditions of this case are given in Table 12. The comparison between the present numerical solution with the experimental data collected at different locations is given in Fig. 27. Due to the reflections at each pipe ends, this test-case is very challenging showing the ability of the present approach to represent the complex wave interaction with a junction.
+Fig. 27. Comparison between numerical solutions obtained with h=1/3 cm, C=0.95 and the data of William-Louis et al.’s shock-tube experiment with four pipes and closed ends: pressure history (a) in Pipe 1 at x=0.48 m from the junction, (b) in Pipe 2 at x=0.52 m from the junction, (c) in Pipe 3 at x=0.48 m from the junction and (d) in Pipe 4 at x=0.43 m from the junction.
+<Section>6. Further discussions</Section>
+In the previous sections, the quasi 1-D numerical approach previously proposed in Daude and Galon (2018) is assessed on a carefully chosen series of shock-tubes involving constant cross-section and then sudden contraction/expansion of the tube cross-section or a junction of three or four branches. The present section is devoted to two complementary topics: the 3-D effects generated at a junction and the potentially significant fluid–structure interaction mechanism which can appear at a junction.
+6.1. Three-dimensional effects
+Compressible flows passing through a sudden contraction/expansion or a bifurcation are naturally multi-dimensional even if the incoming flow is purely one-dimensional. For example, it has been experimentally observed in Marty et al. (2019) in the case of the propagation of a planar shock wave in air through a Y bifurcation that the flow behind the transmitted shock is unsteady and multi-dimensional. As a consequence, multi-dimensional computations are required to capture these 3-D flow features and the corresponding pressure loss as in Marty et al. (2019). However, due to their high computational cost (w.r.t. 1-D approaches), 3-D numerical computations can not be considered for the simulation of pressure waves in complex piping systems as those involved in power plants. For this purpose, local 1-D/3-D coupling as the one used in Bellamoli et al. (2018) combining a 1-D model for pipes and a 3-D (or 2-D) model for junctions can be considered to capture the 3-D flow pattern at the junction and its vicinity keeping the computational savings of a classical 1-D approach.
+6.2. Fluid–structure interaction effects
+Due to the potential destructive effects of pressure waves occurring in single- or two-phase flow situations, these phenomena are of a major interest for the design and the safety of nuclear reactors. As a consequence, even if the hydro- or thermo–hydraulic pressure loads are evaluated in a satisfactory manner in the computations, the mechanical consequences due to this loading have also to be computed for performing structural integrity analyses. For this purpose, both fluid and structural dynamics have to be taken into account as well as their interactions. For fast fluid-transient events in piping systems inducing fluid–structure interaction, quasi 1-D two-way coupled modeling is considered where 1-D fluid equations and Euler–Bernoulli or Timoshenko beam equations are treated simultaneously as reviewed in Wiggert, 1986, Wiggert and Tijsseling, 2001, Tijsseling, 1996. In this way, both pressure waves propagation in fluids and stress waves propagation in pipes are considered in the modeling as well as the pipe displacements and deformations.
+<Section>7. Conclusions and perspectives</Section>
+Several test-cases and experiments involving single- and two-phase flows developing pressure waves are here considered to assess the finite-volume method proposed in Daude and Galon (2018). Several configurations are considered for this assessment: tubes with a constant cross-section or with a sudden change of area (involving both sudden expansion and sudden contraction) and three experiments with a multi-branch junction. Single-phase shock tubes are considered with air, liquid water and vapor using ideal and real equations of state showing that the present approach can accurately resolved the shock, contact and rarefaction waves. Single-phase as well as two-phase numerical results compared well against analytical solutions or numerical solutions obtained with the RELAP-7, RELAP-5 and WAHA system codes on tubes with a constant cross-section presented in Delchini et al., 2017, Sokolowski and Koszela, 2012, Tiselj et al., 2004, respectively. In addition, numerical results obtained on sudden expansion or contraction are compared to numerical solutions presented in Tiselj et al. (2004). In particular, the incident, reflection, transmission, and attenuation of pressure waves are well retrieved in the present computations. In addition, a mesh sensitivity analysis is also considered for each test-case showing that refining the mesh makes it possible to improve the accuracy of the numerical solution. According to the present results, capturing the transmitted shock-wave across a sudden contraction in the vapor single-phase and two-phase flow situations in a satisfactory manner appears to be quite challenging. Overall, all the mentioned tests demonstrate the capabilities of the present approach to solve single- and two-phase shock tubes when using steam-water tables. Finally, the calculation of the unsteady flow in a shock-tube with three-branch and four-branch junctions (William-Louis et al., 1998) is considered showing a good agreement between the calculation and the measurements. The multiplicity of flow patterns or waves-junction interaction encountered in these tests and the level of agreement obtained confirm the accuracy and the robustness of the present approach.
+Further investigations may concern the dynamic fluid–structure interaction necessary to estimate the displacement of the pipeline system due to the mechanical loads caused by pressure waves. For example, in realistic pipe systems involving movable bends or knees, the fluid–structure interaction mechanism called the junction coupling has to be considered. Furthermore, in order to take into account the 3-D flow pattern at the junction and its vicinity without increasing drastically the computational cost of computations, local 1-D/3-D coupling can be considered. Finally, the finite-volume approach assessed in the present paper have been recently extended to compressible non-equilibrium two-phase flows using the Baer-Nunziato model (Daude et al., 2019). Further analysis will be done on condensation-induced water-hammer problems characterized by an initial counter-current flow condition. Appropriate heat and mass transfer modeling are required for the computation of such physical phenomena.
+<Section>CRediT authorship contribution statement</Section>
+F. Daude: Conceptualization, Software, Investigation, Writing - original draft. P. Galon: Conceptualization, Software, Writing - review & editing.
+<Section>Declaration of Competing Interest</Section>
+The authors declare that they have no known competing financial interests or personal relationships that could have appeared to influence the work reported in this paper.
+<Section>Acknowledgements</Section>
+This work has been achieved within the framework of the “FAST” project of the EDF/CEA/Framatome tripartite Institute. Computational facilities were provided by EDF. Numerical simulations have been performed with the Europlexus software.
+<Section>References</Section>
+Batten et al., 1997
+P. Batten, N. Clarke, C. Lambert, D.M. Causon
+On the choice of wavespeeds for the HLLC Riemann solver
+SIAM J. Sci. Comput., 18 (6) (1997), pp. 1553-1570
+View Record in ScopusGoogle Scholar
+Bellamoli et al., 2018
+F. Bellamoli, L.O. Müller, E.F. Toro
+A numerical method for junctions in networks of shallow-water channels
+Appl. Math. Comput., 337 (2018), pp. 190-213
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+Bermúdez et al., 2017
+A. Bermúdez, X. López, M.E. Vázquez-Cendón
+Treating network junctions in finite volume solution of transient gas flow models
+J. Comput. Phys., 344 (2017), pp. 187-209
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+Berry et al., 2018
+Berry, R.A., Zou, L., Zhao, H., Zhang, H., Peterson, J., Martineau, R.C., Kadioglu, S.Y., Andrs, D., 2018. RELAP-7 Theory Manual, Tech. Rep. INL/EXT-14-31366 (Revision 3), Idaho National Laboratory.
+Google Scholar
+Bestion, 1990
+D. Bestion
+The physical closure laws in the CATHARE code
+Nuclear Eng. Design, 124 (3) (1990), pp. 229-245
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+Carlson et al., 1990
+Carlson, K.E., Riemke, R.A., Rouhani, S.Z., Shumway, R.W., Weaver, W.L., 1990. RELAP5/MOD3 Code Manual, Volume 1-7, Tech. Rep. NURE G/CR-5535, EG & G Idaho, Idaho Falls.
+Google Scholar
+Chae et al., 2006
+K.S. Chae, K.T. Lee, C.J. Hwang, D.J. Lee
+Formulation and validation of boundary conditions at a branched junction for nonlinear waves
+J. Sound Vib., 295 (1–2) (2006), pp. 13-27
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+Chaudhry, 2014
+M.H. Chaudhry
+Applied Hydraulic Transients
+(3d ed.), Springer (2014)
+Google Scholar
+Clerc, 2000
+S. Clerc
+Numerical simulation of the homogeneous equilibrium model for two-phase flows
+J. Comput. Phys., 161 (1) (2000), pp. 354-375
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+Daude and Galon, 2018
+F. Daude, P. Galon
+A Finite-Volume approach for compressible single- and two-phase flows in flexible pipelines with fluid-structure interaction
+J. Comput. Phys., 362 (C) (2018), pp. 375-408
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+Daude et al., 2018
+F. Daude, A.S. Tijsseling, P. Galon
+Numerical investigations of water-hammer with column-separation induced by vaporous cavitation using a one-dimensional Finite-Volume approach
+J. Fluids Struct., 83 (2018), pp. 91-118
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+Daude et al., 2019
+F. Daude, R.A. Berry, P. Galon
+A Finite-Volume method for compressible non-equilibrium two-phase flows in networks of elastic pipelines using the Baer-Nunziato model
+Comput. Methods Appl. Mech. Engrg., 354 (2019), pp. 820-849
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+Delchini et al., 2017
+M.O. Delchini, J.C. Ragusa, R.A. Berry
+Simulations of single- and two-phase shock tubes and gravity-driven wave problems with the RELAP-7 nuclear reactor system analysis code
+Nuclear Eng. Design, 319 (2017), pp. 106-116
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+Haar et al., 1984
+L. Haar, J.S. Gallangher, G.S. Kell
+NBS/NRC Steam Tables: Thermodynamic and Transport Properties and Computer Programs for Vapor and Liquid States of Water in SI Units
+Hemisphere Publishing Co. (1984)
+Google Scholar
+Hong and Kim, 2011
+S.W. Hong, C. Kim
+A new finite volume method on junction coupling and boundary treatment for flow network system analyses
+Int. J. Numer. Meth. Fluids, 65 (6) (2011), pp. 707-742
+CrossRefView Record in ScopusGoogle Scholar
+Joint Research Centre (JRC) et al., 2020
+Joint Research Centre (JRC), 2020. Commissariat à l’énergie atomique et aux énergies alternatives (CEA), Europlexus user’s manual, http://europlexus.jrc.ec.europa.eu/.
+Google Scholar
+Marty et al., 2019
+A. Marty, E. Daniel, J. Massoni, L. Biamino, L. Houas, D. Leriche, G. Jourdan
+Experimental and numerical investigations of shock wave propagation through a bifurcation
+Shock Waves, 29 (2019), pp. 285-296
+CrossRefView Record in ScopusGoogle Scholar
+M. Lepareux et al., 1994
+Lepareux, M., 1994. Programme PLEXUS. Matériau EAU. Modèle homogène équilibré, Tech. Rep. DRN/DMT 94.398, CEA, (in French).
+Google Scholar
+Odar et al., 2004
+F. Odar, C. Murray, R. Shumway, M. Bolander, D. Barber, J. Mahaffy
+TRACE V4.0 User’s Manual, Tech. rep.
+U.S. Nuclear Regulatory Commission (2004)
+Google Scholar
+Roe, 1981
+P.L. Roe
+Approximate Riemann solvers, parameter vectors, and difference schemes
+J. Comput. Phys., 43 (1981), pp. 357-372
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+Sod, 1978
+G.A. Sod
+A survey of several finite difference methods for systems of nonlinear hyperbolic conservation laws
+J. Comput. Phys., 27 (1) (1978), pp. 1-31
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+Sokolowski and Koszela, 2012
+L. Sokolowski, Z. Koszela
+RELAP5 capability to predict pressure wave propagation in single- and two-phase flow conditions
+J. Power Technol., 92 (2012), pp. 150-165
+View Record in ScopusGoogle Scholar
+Tijsseling, 1996
+A.S. Tijsseling
+Fluid-structure interaction in liquid-filled pipe systems: A review
+J. Fluids Struct., 10 (1996), pp. 395-420
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+Tiselj and Petelin, 1997
+I. Tiselj, S. Petelin
+Modelling of two-phase flow with second-order accurate scheme
+J. Comput. Phys., 136 (2) (1997), pp. 503-521
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+Tiselj et al., 2003
+Tiselj, I., Gale, J., Horvat, A., Parzer, I., 2003. Characteristic and propagation velocities of the two-fluid models, 10th International Topical Meeting on Nuclear Reactor Thermal Hydraulics (NURETH-10), Seoul, Korea, October 5–9, 2003.
+Google Scholar
+Tiselj et al., 2004
+Tiselj, I., Horvat, A., Cerne, G., Gale, J., Parzer, I., Mavko, B., Giot, M., Seynhaeve, J.-M., Kucienska, B., Lemonnier, H., 2004. WAHA3 code manual, Final report of the WAHALoads project, Tech. Rep. FIKS-CT-2000-00106, EU 6th program.
+Google Scholar
+Tiselj et al., 2008
+I. Tiselj, A. Horvat, J. Gale
+Numerical scheme for the WAHA Code
+Multiph. Sci. Technol., 20 (3–4) (2008), pp. 323-354
+View Record in ScopusGoogle Scholar
+Toro, 2009
+E.F. Toro
+Riemann Solvers and Numerical Methods for Fluid Dynamics. A Practical Introduction
+(3rd ed.), Springer (2009)
+Google Scholar
+Toro, 2019
+E.F. Toro
+The HLLC Riemann solver
+Shock Waves, 4 (1) (2019), pp. 25-34
+View Record in ScopusGoogle Scholar
+Toro et al., 1994
+E.F. Toro, M. Spruce, W. Speares
+Restoration of the contact surface in the HLL-Riemann solver
+Shock Waves, 4 (1) (1994), pp. 25-34
+View Record in ScopusGoogle Scholar
+Watkins and Berry, 1979
+J.C. Watkins, R.A. Berry
+State-of-the-art literature review of water hammer, Tech. Rep. RE-A-79-044
+National Laboratory, Idaho (1979)
+Google Scholar
+Wiggert, 1986
+D.C. Wiggert
+Fluid transients and fluid-structure interaction in flexible liquid-filled piping
+ASME Pressure Vessels and Piping Conference, Chicago, USA (1986)
+Google Scholar
+Wiggert and Tijsseling, 2001
+D.C. Wiggert, A.S. Tijsseling
+Fluid transients and fluid-structure interaction in flexible liquid-filled piping
+ASME Appl. Mech. Rev., 54 (2001), pp. 455-481
+View Record in ScopusGoogle Scholar
+William-Louis et al., 1998
+M.J.P. William-Louis, A. Ould-El-Hadrami, C. Tournier
+On the calculation of unsteady compressible flow through an N-branch junction
+Proc. Instn. Mech. Engrs., 212 (1998), pp. 49-56
+View Record in ScopusGoogle Scholar
+Winterbone and Pearson, 2000
+D.E. Winterbone, R.J. Pearson
+Theory of Engine Manifold Design: Wave Action Methods for IC Engines
+Professional Engineering Publishing Ltd., London (2000)
+Google Scholar
+Wylie et al., 1993
+E.B. Wylie, V.L. Streeter, L. Suo
+Fluid Transients in Systems
+Prentice Hall, Englewood Cliffs, NJ (1993)
+Google Scholar

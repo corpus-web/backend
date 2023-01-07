@@ -1,0 +1,443 @@
+<title>Simultaneous estimation of fluid temperature and convective heat transfer coefficient by sequential function specification method</title>
+<author>1,PingXiong,2,ZhifangQiu,3,QiLu,4,TaoLu,5,JianDeng,6,YuLiu,7,YongZhang</author>
+<Affiliation>1,School of Mechanic and Electronic Engineering, Beijing University of Chemical Technology, Beijing, 100029, China;2,Science and Technology on Reactor System Design Technology Laboratory, Nuclear Power Institute of China, Chengdu, 610041, China</Affiliation>
+<year>2021</year>
+<Jounral>Progress in Nuclear Energy</Journal>
+<Publishing_house>ELSEVIER</Publishing_house>
+<Text_Collector>XiaFan，HEU</Text_Collector>
+<DOI>10.1016/j.pnucene.2020.103588</DOI>
+<URL>https://www.sciencedirect.com/science/article/pii/S0149197020303358</URL>
+Simultaneous estimation of fluid temperature and convective heat transfer coefficient by sequential function specification method
+PingXiong,ZhifangQiu,QiLu,TaoLu,JianDeng,YuLiu,YongZhang
+School of Mechanic and Electronic Engineering, Beijing University of Chemical Technology, Beijing, 100029, China
+Science and Technology on Reactor System Design Technology Laboratory, Nuclear Power Institute of China, Chengdu, 610041, China
+<Section>Highlights</Section>
+The sequential function specification method is implemented to simultaneously predict the spatially and temporally varying internal fluid temperature and convective heat transfer coefficient.
+Numerical experiments of natural convection cooling are carried out to evaluate the proposed method.
+The effects of the number of future time steps and measurement noise on the inversion results are investigated.
+<Section>Abstract</Section>
+In pressurized water reactor (PWR) with multiple loops, abnormal working conditions occur when coolant pumps do not work in some loops. In these closed-loop pipelines, thermal stratification is formed under the effect of natural convection cooling and this poses a threat to the safe operation of the reactor. In this paper, the sequential function specification method (SFSM) is implemented to simultaneously predict the spatially and temporally varying internal fluid temperature and convective heat transfer coefficient of two-dimensional pipe under thermal stratification. In the direct problem, the finite volume method (FVM) is adopted to solve the governing equations subjected to initial and boundary conditions. In the inverse problem, the least-square method is employed to obtain the heat flux of the inner wall, and then Newton's law of cooling and the natural-convection correlation are adopted to obtain the fluid temperature and convective heat transfer coefficient. Numerical experiments of natural convection cooling are carried out under different outer wall boundary conditions to demonstrate the effectiveness of the proposed inversion method. The results of temperature estimation are consistent with the results of natural cooling numerical experiment and the relative error is below 4%, whereas the convective heat transfer coefficient is slightly worse due to the difference in the extraction positions. The effects of the number of involved future time steps and the measurement noise on the accuracy of the inverse analysis are also investigated in detail. Our results show that the fluid temperature and convective heat transfer coefficient of natural cooling may be effectively estimated using the proposed inverse method.
+Keywords:Inverse heat conduction problem;Thermal stratification;Sequential function specification method;Natural convection cooling
+<Section>1. Introduction</Section>
+The pressurized water reactor (PWR) system consists of multiple loops. If the coolant pumps in one or more loops are completely cut off for device repairment or fuel rods replacement, it is called that the PWR is operating asymmetrically (Cheng et al., 2016; Xie et al., 2004). In these closed-loops pipelines, thermal stratification caused by density difference is formed due to external convection cooling (Ashwini et al., 2013). However, the variation of fluid temperature in the temporal and spatial domain is unknown, and this poses a great threat to the safe operation of the reactor when the coolant pumps are restarted (Um et al., 1999). Therefore, it is crucial to monitor the internal fluid temperature. However, it is difficult or even impossible to obtain the fluid temperature directly for these pipelines while ensuring safety and structural integrity (Han et al., 2019). The inverse heat conduction problem (IHCP) is an effective method to monitor the internal fluid temperature. Over the past few decades, a variety of numerical inverse methods have been proposed including Tikhonov regularization (TR) (Tikhonov and Arsenin, 1977; Woodbury and Beck, 2013), gradient methods (Lu et al., 2011; Chen and Huang, 2000), Laplace transform technique (Chen et al., 2001), sequential function specification method (SFSM) (Mohammadiun et al., 2014; Lin, 2011; Beck et al., 1985) and dynamic matrix control (DMC) (Li et al., 2015). Some methods have been described in detail by Ozisik (Ozisik and Orlande, 2000) and Taler (Taler and Duda, 2006).
+The SFSM, proposed by Beck (Beck et al., 1985), is a powerful technique for solving the linear and nonlinear IHCP. This method estimates the unknown parameters in a sequential manner, which requires less memory and computing time compared to other techniques. Therefore, it is suitable for online monitoring. Chantasiriwan et al. (Chantasiriwan, 1999) have compared three algorithms using piecewise constant function, linear function, and uniform slope function to implement SFSM and estimate the heat flux. Lin et al. (Lin, 2011) have employed SFSM to calculate several unknown heat sources, analyzed what factors cause the error sensitivity to growing and revealed the principle of SFSM to improve stability. In recent years, SFSM has been applied to the estimation of unknown parameters in many practical engineering applications. Somasundaram et al. (Somasundaram and Andrew, 2012) have applied SFSM to determine the transient heat transfer coefficient of the IC chip cooled by intermittent spray cooling. Wang et al. (2016) have employed SFSM and sequential quadratic programming to reconstruct the temporal and spatial variation of heat flux during bone grinding with high-speed abrasive tools. Farzan et al. (2017) have estimated the unknown heat flux at the moving surface of ablation materials via SFSM, indicating that the excursions and fluctuations of inverse analysis are decreased drastically with the increase of the number of future time steps. Xiong et al. (2020) have applied SFSM to reconstruct the heat flux of fuel cladding surfaces during quenching.
+For the fluid temperature or convective heat transfer coefficient estimation, Kadam et al. (Kadama et al., 2018) have applied the Duhamel theorem to estimate the heat transfer coefficient and the reference temperature of impinging flame jets by fitting the transient heat flux data for the corresponding wall temperature. Razzaghi et al. (2019) have used the conjugate gradient method with adjoint problems to estimate the spatial and temporal variations of the convective heat transfer coefficient of a heated vertical plate under forced convective cooling procedures. Lu et al. (2010) have estimated the fluid temperature in a pipeline based on CGM under the condition of artificially setting the convective heat transfer coefficient of the inner wall to 2500 W/(m2·K). Han et al. (Han et al., 2019; Lu et al., 2015) have applied IHCP to estimate the heat convection coefficient, fluid temperature and wall temperature simultaneously. In these approaches, the convective heat transfer coefficient on the inner wall is considered as an average value, and this assumption inevitably affects the reliability of the inversion results, especially in the case of large temperature fluctuations.
+In this paper, the sequential function specification method, which is characterized by high computational efficiency and is suitable for quasi-online monitoring, is proposed to directly estimate spatially and temporally varying internal fluid temperature and convective heat transfer coefficient simultaneously. The inverse heat conduction problem is formulated as an optimization problem and the least-square method is employed for its solution. In the process of inversion calculation, the SFSM iterative method is adopted to obtain the heat flux of the inner wall. And then, Newton's law of cooling and the natural-convection correlation are adopted to obtain the fluid temperature and the convective heat transfer coefficient. The inverse method is illustrated together with a detailed description of the computational procedure. The effectiveness of the proposed method is demonstrated by natural convection numerical experiments. The effects of the number of future time steps and uncertainty of the inversion results are discussed in detail.
+<Section>2. Methodology</Section>
+The two-dimensional pipe with an outer diameter of D1 = 356 mm and thickness of δ = 36 mm is shown in Fig. 1. The pipe is exposed to the surrounding atmosphere at temperature T∞ = 20 °C. The pipe and fluid with initial temperature T0 = 250 °C are cooled naturally under the free convection. The thermophysical properties of the stainless steel pipe are summarized in Table 1.
+Fig. 1. Physical model.
+Table 1. Thermophysical properties of the stainless steel pipe.
+2.1. Simulation of the natural convection experiment
+In order to verify the reliability of IHCP under different heat transfer cooling conditions, we have performed natural convection numerical experiments with two different Biot number cases (): Case Ⅰ)@= 0.02, Case Ⅱ)@= 0.2. The thermal conductivity is set to k = 16.3 W/(m·K) and the variation of Biot number is done in a way that keeps the convective heat transfer coefficient between the pipe wall and the surrounding equal to 9.06 W/(m2·K) and 90.6 W/(m2·K), respectively. The temperature distributions of the entire domain for all cases are obtained using commercial solver ANSYS FLUENT. The grid independence test has been carried out, and one hundred and fifty thousand grids have been chosen to obtain the results. Fig. 2 shows the temperature distributions of circular pipe and fluid during the cooling time for Case Ⅰ. Because of the density difference, the temperature shows the stratification phenomenon, i.e. the upper part of the horizontal pipe is filled by the hot fluid, and the cold fluid stays in the lower part.
+Fig. 2. The temperature distributions of circular pipe and fluid at four cooling times for Case Ⅰ.
+In our numerical experiments, the time interval for the FLUENT solver used for generating data is 0.005 s, and the outer surface temperature calculated at intervals of 1 s (every other two hundred of the calculated data) is taken as the measured temperature of IHCP. In addition, an average value of fluid temperature within the time span of 1 min is used as the verification data for the IHCP. The data acquisition time is 20 min in all cases. In order to obtain an easily available surface temperature, eighteen thermal monitoring points are assumed to be uniformly distributed on the surface of the pipe, as shown in Fig. 3. Choosing fewer thermal monitoring points may yield large inversion deviations or even multiple solutions, while choosing more monitoring points will result in more reliable solutions. Lu et al. (2010) have discussed in detail the influence of the number of measurement points on the inversion results and concluded that when the number of measurement points on the surface of pipe reaches thirteen, reliable results may be achieved. Therefore, eighteen temperature monitoring points can provide a better solution to the inverse problem.
+Fig. 3. The locations of thermal monitoring points.
+To avoid the influence of the thermal boundary layer, we extract the fluid temperature at 1 mm, 3 mm and 5 mm from the inner wall, respectively, as shown in Fig. 3. Fig. 4 shows the variation of fluid temperature as a function of time for the two cases. The fluid temperature at the 3 mm and 5 mm positions are almost equal except for the bottom (180°) of the pipe, where there is an obvious thermal stratification. On the other hand, the fluid temperature at the 1 mm position is significantly lower than that at the other two positions. Therefore, the fluid temperature at the 3 mm position (the solid line in Fig. 4) is taken as the mainstream temperature and used as the verification data of IHCP. Table 2 and Table 3 list the values of fluid temperature and convective heat transfer coefficient during the cooling period for Case I.
+Fig. 4. The fluid temperature at different locations.
+Table 2. The fluid temperature at the 3 mm position for Case Ⅰ
+Table 3. The convective heat transfer coefficient for Case Ⅰ
+2.2. Generation of the experimental data
+The goal of this paper is to exploit the inverse technique to determine the spatio-temporal profile of the fluid temperature and the convective heat transfer coefficient in the natural convection regime. The temperature obtained from the solution of simulated experiments is used in the inverse analysis. In order to make the data more realistic, the simulated measured temperature is perturbed by a random Gaussian noise value with a specific standard deviation. The definition is as follows:
+@(1)
+where@is the exact temperature generated from the solution of simulated experiments,@is a random Gaussian noise value, and@is the standard deviation. In this paper, the standard deviations of@and@are added to the temperature. These noisy temperature data () are considered as simulated measured temperature. Fig. 5 gives the noiseless and noisy () simulated measured temperature of three monitoring points (0°, 90° and 180°) for Case Ⅰ to Ⅱ.
+Fig. 5. The noiseless and noisy () simulated measured temperature of three monitoring points.
+2.3. Direct problem
+For the two-dimensional unsteady heat transfer, the geometry and boundary conditions are shown in Fig. 1. In order to improve the inversion rate and avoid multiple solutions, the boundary conditions of the inner wall of pipe are assumed as the heat flux boundary. The IHCP is used to reconstruct the heat flux on the inner wall and then the natural-convection correlation is used to calculate the internal fluid temperature and convective heat transfer coefficient. The governing equations with the corresponding boundary and initial conditions in cylindrical coordinate are given by
+@(2)
+@(3)
+@(4)
+@(5)
+In the above equations, ,@and@are the density, thermal conductivity and specific heat of the stainless steel pipe, respectively, which are presented Table 1. The ambient temperature of the pipe@is 20 °C,@is the outer wall temperature,@denotes the heat transfer coefficient, which is equal to 9.06 W/(m2·K) or 90.6 W/(m2·K) under the different Biot number, and@represents time-space variation heat flux.
+According to Newton's law of cooling, the heat flux is equal to:
+@(6)
+where@is the convective heat transfer coefficient between the fluid and the inner wall,@is the inner wall temperature and@is the fluid temperature.
+According to the Nusselt criteria:
+@(7)
+where@is the equivalent diameter, which is equal to the inner diameter of the pipe, and@is the thermal conductivity of fluid.
+According to the natural-convection correlation:
+@(8)
+where@is the Grashof number and@is the Prandtl number,@denotes the acceleration of gravity,@and@denote the volumetric expansion coefficient and the kinematic viscosity of fluid, respectively. In Eqs (7), (8), all of these thermophysical properties of the fluid are evaluated at the average temperature (), and Table 4 lists these properties of the fluid. In Eq (8),@and@are the experimental constants. According to reference (Theodore et al., 2011), one may set@and@for natural convection cooling of horizontal pipes.
+Table 4. The thermophysical properties of the fluid.
+The governing equations with initial and boundary conditions are solved by the finite volume method (FVM). A purely implicit scheme is used for the discretization of time terms and the spatial domains are discretized using uniform grids. The grid independence test has been carried out, and 1080 grids have been used to reconstruct the unknown parameters.
+2.4. Inverse heat conduction problem
+The inverse analysis deals with the estimation of heat flux and the subsequent use Newton's law of cooling and the natural-convection correlation to estimate the spatio-temporal profile of fluid temperature and convective heat transfer coefficient. Among the available inverse methods in the literature, the SFSM provides an efficient numerical tool to solve the IHCP in the present study. It is assumed that the previous time step heat flux@are the known and the aim is to estimate the present time step heat flux .
+To improve the stability of the ill-posed IHCP, several future time steps information is used. In estimation based on SFSM, a temporal assumption about the variation of heat flux over the future time steps is usually assumed, e.g. constant, linear, or parabolic. In the present study, we assume that the heat flux remains constant and equal to .
+@(9)
+The least-square method is employed to optimize the heat flux of the inner wall. The objective function is:
+@(10)
+where@is the current time step,@is the number of future time steps,@is the number of sensors,@denotes the measured temperature and@denotes the calculated temperature obtained by the solution of direct problem at the measurement locations.
+The iterative optimization formula at b-th step is:
+@(11)
+where@is the sensitivity coefficient, which means that the temperature at the measured point increases by@when the estimated heat flux has an increment . Therefore,@can be obtained by perturbing a heat flux increment and then subtracting the original heat conduction equations.
+@(12)
+@(13)
+@(14)
+@(15)
+Notice that the solution of sensitivity equations does not directly depend on the heat flux on the inner wall. The sensitivity equations can be solved by the same method as the direct problem.
+The iterative procedure is terminated when the objective function in Eq. (10) is within a specified tolerance.
+@(16)
+where@is a small positive number, . After reaching the convergence condition, the unknown parameters at the following time step are calculated.
+2.5. Computational procedure
+This section briefly summarizes the computational procedure of the IHCP to obtain the fluid temperature and convective heat transfer coefficient:
+Step 1
+Choose the number of future time steps, r.
+Step 2
+Set up the constant heat flux over r future time steps, .
+Step 3
+Select the initial heat flux, such as@and solve the direct problem for r future time steps to obtain the temperature field.
+Step 4
+Compute the sensitivity coefficient for r future time steps.
+Step 5
+Reconstruct the heat flux@by Eq. (11).
+Step 6
+Compute the direct problem again using the reconstructed heat flux .
+Step 7
+Check the convergence criterion of Eq. (16) at each time step. If it is not satisfied, use the reconstructed heat flux as the initial value and return to Step 3, else go to the following time step and return to Step 2 until the last time step.
+Step 8
+Compute the fluid temperature and convective heat transfer coefficient by Eqs. (6), (7), (8).
+<Section>3. Results and discussion</Section>
+In this section, we present our results about the reconstruction of the fluid temperature and convective heat transfer coefficient. The simulated numerical experiments in section 2.1 are used to demonstrate the accuracy and stability of the inversion method. The influence of measured noise with two standard deviations of@= 0.1 °C and@= 0.2 °C is assessed in all cases. The natural convection cooling process of the horizontally placed pipe is approximately symmetrical, as shown in Fig. 2. Therefore, only the data for the semicircular pipe (0°~180°) are shown in the subsequent figures.
+In order to quantitatively evaluate the precision of the inversion algorism, the relative error (RE) and the root mean squared error (RMSE) are introduced, which are defined as follows:
+@(17)
+@(18)
+where@denotes the fluid temperature or convective heat transfer coefficient.@and@are the total number of discrete time and the number of extracted simulated temperature, respectively.
+3.1. The influence of the number of future time steps
+The number of future time steps considered in the algorithm has a great influence on the accuracy and stability of the inversion results. Beck et al. (1985) have discussed the effect of the number of future time steps on the inversion accuracy in detail. Fig. 6 shows the root mean squared error for different values of r, using noiseless data. As it is apparent from the figure, the results are generally improved by increasing the number of future time steps in all cases. On the other hand, for a larger number of future time steps (r > 16), the improvement is no longer significant.
+Fig. 6. The root mean squared error under different future time steps using noiseless data.
+The effect of the number of future time steps on the inversion results of fluid temperature under different measured noise is shown in Table 5. It can be seen from Table 5 that larger σ leads to larger RMSE and the increasing of future time steps can effectively reduce the inversion error. In addition, the increasing of r has a significant effect on the results in situations where the noise is large, whereas the noise is small, the effects are not as apparent. Therefore, it can be concluded from the results that more future time steps are needed in calculation when the noise is large.
+Table 5. The effect of the number of future time steps on the inversion results under different measured noise.
+3.2. The inversion results of fluid temperature
+Fig. 7 shows the comparison between the exact and estimated fluid temperature obtained using r = 20 future time steps and noiseless data. As seen from Fig. 7, the temporal profile of the fluid temperature is well recovered. It is observed that the results at the bottom (180°) of the pipe are slightly worse than those in the other parts, due to the fact that the thermal stratification at the bottom is more relevant than the other parts. This effect may cause the difference between the simulated data and the inversion data due to the difference in the extraction position. In this study, the fluid temperature at the 3 mm position from the inner wall is used as the verification data of IHCP.
+Fig. 7. The estimated fluid temperature using noiseless data (r = 20).
+Fig. 8 shows the temperature as a function of time and angle, estimated using r = 30 future time steps and noiseless as well as noisy temperature data. It can be seen from Fig. 8 that the noisy temperature data cause fluctuations in the estimated fluid temperature around the exact temperature. In addition, upon comparing the results for@= 0.1 °C and@= 0.2 °C one observes that the larger is the standard deviation, the greater the fluctuation of the estimated fluid temperature. According to the results of the root mean squared error, as shown in Table 5, the fluctuations in the two cases are comparable. The relative error in the estimation of fluid temperature is given in Table 6. The relative error is 4% lower, showing that the inversion method has better accuracy, even in the presence of measurement noise.
+Fig. 8. The effect of noise on the estimated fluid temperature (r = 30).
+Table 6. The relative error of estimated fluid temperature (r = 30).
+3.3. The inversion results of convective heat transfer coefficient
+Fig. 9 shows the estimated convective heat transfer coefficient obtained using noiseless and noisy temperature data and r = 30 future time steps. As it is apparent from the plot, the inversion values are slightly smaller than the numerical experimental values at the top of the pipe, but slightly larger than the experimental values at the bottom. The reason is that the convective heat transfer coefficient obtained by numerical experiments is calculated using the local heat flux of the inner wall surface and the temperature near the inner wall surface. This causes a certain difference between the inversion value and the numerical experimental value. Nevertheless, the behavior of the estimated convective heat transfer coefficient in time and space is in good agreement with the numerical experiments. Besides, it can be observed from the figure that the convective heat coefficient values are not strongly affected by noise. The noise with a standard deviation of@= 0.2 °C is not detrimental to our estimation method. It is also worth noting that there is a region near the bottom (180°) where the values of convective heat transfer coefficient are significantly reduced. Indeed, the higher the fluid temperature, the greater the convective heat transfer coefficient. The temperature at the bottom of the tube is lower under the natural convection. Therefore, the values of convective heat transfer coefficient are smaller.
+Fig. 9. The inversion results of convective heat transfer coefficient (r = 30).
+<Section>4. Conclusions</Section>
+In this work, the SFSM has been employed to simultaneously predict the spatio-temporal variation of the fluid temperature and the convective heat transfer coefficient of a two-dimensional pipe under the natural convective cooling. The least-square method has been employed to obtain the heat flux of the inner wall, and then Newton's law of cooling and the natural-convection correlation have been adopted to obtain the fluid temperature and convective heat transfer coefficient. Numerical experiments of natural convection cooling have been carried out to extract the measured temperature and the verification parameters for the IHCP. The effects of the number of future time steps and of the measurement noise on the inversion accuracy have been investigated. The results showed that the number of future time steps has a great influence on the accuracy and stability of inversion results, and more time steps are required to reduce the influence of measurement noise. The estimated temperatures with the inversion method agree well with the numerical experimental results and the relative error is below 4%, even in the presence of measurement noise. However, the results for the convective heat transfer coefficient are slightly worse due to the difference in the extraction position. Nevertheless, the behavior of the estimated convective heat transfer coefficient in time and space is in good agreement with the numerical experiments.
+<Section>CRediT authorship contribution statement</Section>
+Ping Xiong: Conceptualization, Methodology, Investigation, Writing - review & editing, Writing - original draft. Zhifang Qiu: Validation, Formal analysis, Visualization, Supervision, Data curation. Qi Lu: Validation, Formal analysis, Visualization, Software. Tao Lu: Validation, Formal analysis, Visualization, Writing - review & editing. Jian Deng: Resources, Supervision, Data curation. Yu Liu: Resources, Supervision, Data curation. Yong Zhang: Writing - review & editing.
+<Section>Declaration of competing interest</Section>
+The authors declare that they have no known competing financial interests or personal relationships that could have appeared to influence the work reported in this paper.
+<Section>Acknowledgements</Section>
+This work was supported by the Natural Science Foundation of China (No. 11905212, No. 51776014), and the Applied Basic Research Program of Sichuan Province (No. 21YYJC3370).
+<Section>References</Section>
+Ashwini et al., 2013
+K.Y. Ashwini, P. Majumdar, R. Kumar, et al.
+Experimental simulation of asymmetric heat up of coolant Channel under small break LOCA condition for PHWR
+Nucl. Eng. Des., 255 (2013), pp. 138-145
+Google Scholar
+Beck et al., 1985
+J. Beck, B. Blackwell, C. Jr
+Inverse Heat Conduction: Ill Posed Problems
+John Wiley and Sons, New York (1985)
+Google Scholar
+Chantasiriwan, 1999
+S. Chantasiriwan
+Comparison of three sequential function specification algorithms for the inverse heat conduction problem
+Int. Commun. Heat Mass Tran., 26 (1999), pp. 115-124
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+Chen and Huang, 2000
+W. Chen, C. Huang
+A three-dimensional inverse heat conduction problem in estimated surface heat flux by conjugate gradient method
+Int. J. Heat Mass Tran., 43 (2000), pp. 3171-3181
+Google Scholar
+Chen et al., 2001
+H. Chen, S. Lin, L. Fang
+Estimation of surface temperature in two-dimensional inverse heat conduction problems
+Int. J. Heat Mass Tran., 44 (2001), pp. 1455-1463
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+Cheng et al., 2016
+J. Cheng, L. Yan, F. Li
+CFD simulation of a four-loop PWR at asymmetric operation conditions
+Nucl. Eng. Des., 300 (2016), pp. 591-600
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+Farzan et al., 2017
+H. Farzan, T. Loulou, S. Sarvari
+Estimation of applied heat flux at the surface of ablating materials by using sequential function specification method
+J. Mech. Sci. Technol., 31 (2017), pp. 3969-3976
+CrossRefView Record in ScopusGoogle Scholar
+Han et al., 2019
+W. Han, H. Chen, T. Lu
+Estimation of the time-dependent convective boundary condition in a horizontal pipe with thermal stratification based on inverse heat conduction problem
+Int. J. Heat Mass Tran., 132 (2019), pp. 723-730
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+Kadama et al., 2018
+A. Kadama, V. Siddini, H. Vijaykumar
+Simultaneous estimation of heat transfer coefficient and reference temperature from impinging flame jets
+Int. J. Therm. Sci., 131 (2018), pp. 48-57
+Google Scholar
+Li et al., 2015
+Y. Li, G. Wang, H. Chen
+Simultaneously estimation for surface heat fluxes of steel slab in a reheating furnace based on DMC predictive control
+Appl. Therm. Eng., 80 (2015), pp. 396-403
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+Lin, 2011
+S. Lin
+A sequential algorithm and error sensitivity analysis for the inverse heat conduction problems with multiple heat sources
+Appl. Math. Model., 35 (2011), pp. 2607-2617
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+Lu et al., 2010
+T. Lu, B. Liu, P. Jiang, et al.
+A two-dimensional inverse heat conduction problem inestimating the fluid temperature in a pipeline
+Appl. Therm. Eng., 30 (2010), pp. 1574-1579
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+Lu et al., 2011
+T. Lu, B. Liu, P. Jiang
+Inverse estimation of the inner wall temperature fluctuations in a pipe elbow
+Appl. Therm. Eng., 31 (2011), pp. 1976-1982
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+Lu et al., 2015
+T. Lu, W. Han, P. Jiang, et al.
+A two-dimensional inverse heat conduction problem for simultaneous estimation of heat convection coefficient, fluid temperature and wall temperature on the inner wall of a pipeline
+Prog. Nucl. Energy, 81 (2015), pp. 161-168
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+Mohammadiun et al., 2014
+M. Mohammadiun, H. Molavi, H. Bahrami, et al.
+Application of sequential function specification method in heat FLUX monitoring of receding solid surfaces
+Heat Tran. Eng., 35 (2014), pp. 933-941
+CrossRefView Record in ScopusGoogle Scholar
+Ozisik and Orlande, 2000
+M. Ozisik, R. Orlande
+Inverse Heat Transfer
+Taylor and Francis, New York (2000)
+Google Scholar
+Razzaghi et al., 2019
+H. Razzaghi, F. Kowsary, M. Ashjaee
+Derivation and application of the adjoint method for estimation of both spatially and temporally varying convective heat transfer coefficient
+Appl. Therm. Eng., 154 (2019), pp. 63-75
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+Somasundaram and Andrew, 2012
+S. Somasundaram, A. Andrew
+A study of intermittent spray cooling process through application of a sequential function specification method
+Inverse Problems in Science and Engineering, 20 (2012), pp. 553-569
+CrossRefView Record in ScopusGoogle Scholar
+Taler and Duda, 2006
+J. Taler, P. Duda
+Solving Direct and Inverse Heat Conduction Problems
+Springer, Berlin (2006)
+Google Scholar
+Theodore et al., 2011
+L. Theodore, S. Adrienne, F. Incropera, et al.
+Introduction to Heat Transfer
+(sixth ed.), John Wiley & Sons, US (2011)
+Google Scholar
+Tikhonov and Arsenin, 1977
+A. Tikhonov, V. Arsenin
+Solutions of Ill-Posed Problems
+Winston, Washington DC (1977)
+Google Scholar
+Um et al., 1999
+K. Um, S. Ryu, Y. Choi, et al.
+Experimental and computational study of the core inlet temperature pattern under asymmetric loop conditions
+Nucl. Technol., 125 (1999), pp. 305-315
+View Record in ScopusGoogle Scholar
+Wang et al., 2016
+G. Wang, L. Zhang, X. Wang, et al.
+An inverse method to reconstruct the heat flux produced by bone grinding tools
+Int. J. Therm. Sci., 101 (2016), pp. 85-92
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+Woodbury and Beck, 2013
+K. Woodbury, J. Beck
+Estimation metrics and optimal regularization in a Tikhonov digital filter for the inverse heat conduction problem
+Int. J. Heat Mass Tran., 32 (2013), pp. 31-39
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+Xie et al., 2004
+H. Xie, Z. Gao, Z. Zhou
+Three-dimensional numerical simulation of nuclear heating reactor under asymmetric operation condition
+Heat Tran. Eng., 25 (2004), pp. 62-71
+View Record in ScopusGoogle Scholar
+Xiong et al., 2020
+J. Xiong, Z. Wang, P. Xiong, et al.
+Experimental investigation on transient boiling heat transfer during quenching of fuel cladding surfaces
+Int. J. Heat Mass Tran., 148 (2020), pp. 119-131
+CrossRefView Record in ScopusGoogle Scholarize distribution, minimalizing the void fraction deviation for both cases investigated.
+Fig. 5. Grid size determination methodology.
+It has to be noted that the visualization technique adopted in the presented work was executed using a single view camera system. Subsequently the third dimension was not resolved in present study, and the void fraction is presented as a projected volume fraction onto a single plane perpendicular to the camera view. Overlapped bubbles are treated as a single bubble during image post-processing.
+Fig. 6 illustrates the results of spatial upscaling using a 15x15 gird size (not optimized) and the 5x5 grid size (optimal configuration used for the analysis). As it can be seen, the upscaling with coarse grid size of 15 × 15 pixels resulted in loss of information compared to the results obtained with the optimum grid size of 5 × 5 pixels. It has to be noted that size of the majority of the bubble observed resides within the 5 pixels length scale. The upscaled data were then downscaled back to the original resolution (129 × 253 pixels) using bi-cubic interpolation.
+Fig. 6. Sequential illustration of the spatial upscaling.
+2.2. Approach to uncertainty estimation
+Uncertainty estimation of two-phase flow measurements certainly include a higher level of complexity compared to single-phase measurements. The employment of advanced visualization techniques may overcome some effects typical of intrusive techniques, but it is important to identify the contributors to measurement uncertainty, and estimate their impact to the measurements’ error. When applying flow visualization techniques based on the use of cameras and image post-processing, contribution of the magnification factor, optical distortion, and image processing algorithm utilized need to be accounted.
+In our approach, the magnification factor is estimated by executing an in-situ spatial calibration. The conversion factor is then used to convert the camera pixels into an actual length (mm). The calibration was executed with the camera final layout and settings adopted during the test. Each riser's outer diameter was measured using a caliper (accuracy 0.01 mm) to account for fabrication tolerances.
+Results obtained during the experiment described in this article are presented in terms of time-dependent, spatial-averaged void fraction, and two-dimensional void fraction contours. These parameters are extracted from two-dimensional projected image of three-dimensional two-phase flow in a cylindrical geometry. Effects of optical distortion, and interference of the out-focused bubble in the depth of field were estimated following the methodology established by (Lau, 2013) for the case of a polydisperse bubbly flow with a depth of field (image depth) 2.5 times larger than the maximum bubble diameter. Contribution of the imaging processing to the measurement error was estimated following the approach proposed by (Ferreira. 2012), due to the similarity in the image post-processing adopted. These considerations have led to an estimated maximum uncertainty of the spatial average void fraction of approximately 30%. The two-dimensional void fraction contours account for an additional contribution from the grid size, which was discussed in previous section. This contribution was estimated to be up to 15%.
+There are certainly some intrinsic challenges in performing measurements of void fraction, particularly within the geometry, and under the operating conditions of a typical of an RCCS cooling panel. Among other measurement methods applicable to multi-phase flows, the one described in this article may offer unique advantages compared to other methods for being non-intrusive, providing high spatial resolution, and applicable to large scale (entire set of nine risers in this study). A comprehensive state-of-the-art overview of two-phase flow measurements and their uncertainty conducted by (Tompkins et al., 2018), reported a void fraction measurement uncertainty of ±10.5% for the conductivity-based wire-mesh sensors, when compared to other methods. It is also stated that this uncertainty strongly depends on particular flow conditions, with best results observed at higher flow rates. Considering the flow conditions observed during the transient, the overall uncertainty of the measurements achieved in this study is satisfactory for the type of analysis conducted, and very competitive to other methods.
+2.3. Overview of the transient experiment
+The experiment was conducted with a constant total power of the electric heaters 7.4 kW. The power was increased from the value adopted during steady-state tests (Holler et al., 2019; Quintanar et al., 2019). Test preparation consisted of filling the system with de-ionized water up to the top of visualization window of the water tank, setting the throttle valve to a fully open position, and initializing the data acquisition system, electric heaters, and cooling system. Once steady-conditions were achieved, the cooling system was shut down to initiate the transient. The test initial conditions (Power = 7.4 kW, Valve opening = 100%) are maintained throughout the duration of the test. Detailed information of the test preparation and steady-state results are available in (Holler et al., 2019; Quintanar et al., 2019). Loop flow rate and coolant temperatures were monitored and recorded during the entire duration of the test. A total of ten 30-s high-resolution movie sets were recorded by the high-speed cameras during the transient, triggered from the data acquisition system at times when two-phase conditions were established and observed. For the scope of this study, only the results obtained by the analysis and post-processing of two most representative sets of high-resolution movies will be reported.
+<Section>3. Results and discussion</Section>
+The transient's the loop flow rate and the water temperature at the inlet and outlet of the risers' panel are plotted in Fig. 7 (left) for the duration of the transient. The first part of the transient (0–~3 h) was characterized by a slow, steady increase of the coolant temperatures and flow rate. While the temperatures continued to increase beyond this time, coolant flow rate started a slow descend toward a point where flow stagnation was observed (at approximately 6 h into the transient), followed by generation of steam bubbles within the risers which helped reestablishing the flow within the system. This behavior cycled several times later in the transient, as it can be seen on Fig. 7 (right), until the test was terminated.
+Fig. 7. Flow rate and cavity inlet and outlet coolant temperatures. Left: Overview of the entire test duration. Right: View of the last phase of the transient.
+The same flow rate curve is plotted with the risers' outlet coolant temperatures in Fig. 8. These temperatures are recorded with thermocouples probes located right below the visualization windows and are most representative of the subcooled or saturation conditions of the coolant leaving the cooling panel. The zoomed view on the right of Fig. 8 shows the saturation temperature at the location of the probes. This is the temperature corresponding to local pressure (estimated from the hydrostatic column of water above the location of the probes) under saturation conditions. The same figure shows the instant where two of the cine movie sets have been recorded, which will be analyzed in the following plots. At about 7.30 h, the loop flow rate is observed to decrease, but still large enough (>30 LPM) to provide sufficient cooling water to the risers, maintaining the temperature below the estimated saturation temperature. The corresponding cine file (marked as movie 5 in the figure) was recorded to captured the two-phase flow under subcooled boiling conditions. At approximately 7.38 h, the loop flow rate reduced below 5 LPM while the temperature of the coolant at the risers’ outlet reached saturation. The corresponding cine file (marked as movie 6 in the figure) was recorded to capture the two-phase flow under saturated boiling conditions.
+Fig. 8. Flow rate and risers' outlet coolant temperatures. Left: Overview of the entire test duration. Right: View of the last phase of the transient with identification of the cine files.
+The spatial-average void fraction and the risers’ outlet temperature during subcooled boiling conditions are plotted in Fig. 9. This period is characterized by a relatively stable void fraction, with similar temperature and subcooling conditions within all nine risers. Slightly higher void fraction (approx. 0.3) is observed at risers 7, 8, and 9, compared to the rest of the risers (approx. 0.2). In general, the observation during the tests confirmed similar conditions within the nine risers for bubble size, as can also be seen from the two-dimensional void fraction contour plots of Fig. 10, representing a snapshot taken at point 1 of Fig. 9.
+Fig. 9. Subcooled Boiling Conditions - Spatially-averaged void fraction (blue curves) and risers' outlet coolant temperature (red curves) for (a) Riser 1, (b) Riser 2, (c) Riser 3, (d) Riser 4, (e) Riser 5, (f) Riser 6, (g) Riser 7, (h) Riser 8, and (i) Riser 9; (Dotted line: saturation temperature).
+Fig. 10. Two-Dimensional void fraction contour under subcooled boiling conditions at t = 15s from Movie 5 recording start time. The coolant outlet temperature (°C) is reported under each riser.
+Characteristics of the flow and temperature within the risers during saturated boiling conditions are unstable and asymmetric as can be seen from the spatial-average void fraction and the risers’ outlet temperature plotted in Fig. 11. To better understand the behavior of the flow within the risers, the coolant outlet temperature was plotted for an extended period (100 s), compared to the void fraction (limited to the 30s cine file duration). As it can be seen from the plots of Fig. 11, with coolant temperature at saturation, the flow in the risers is characterized by larger bubbles of relatively larger velocity compared to the ones observed during the subcooled phase. In addition, each riser experienced a rapid production of steam bubbles of larger size and velocity, with high void fraction reaching and exceeding 0.9, immediately followed by liquid flow (very low void fraction). Temperature of the coolant dropped after the peak indicating the arrival of subcooled water from the bottom manifold. The behavior is evidently asymmetric with peaks of void fraction occurring at different times and magnitude, but generally followed by a sudden decrease of the local coolant temperature. This is clearly seen through the void fraction contour snapshots of Fig. 12, taken at the times marked on the plots of Fig. 11.
+Fig. 11. Saturated Boiling Conditions - Spatially-averaged void fraction (blue curves) and risers' outlet coolant temperature (red curves) for (a) Riser 1, (b) Riser 2, (c) Riser 3, (d) Riser 4, (e) Riser 5, (f) Riser 6, (g) Riser 7, (h) Riser 8, and (i) Riser 9. (Dotted line: saturation temperature).
+Fig. 12. Two-Dimensional void fraction contour under saturated boiling conditions at (a) t = 0 s, (b) t = 7 s, (c) t = 18 s, (d) t = 24 s, and (e) t = 34 s from movie 6 recording start time. The coolant outlet temperature (°C) is reported under ach riser.
+Additional information is obtained from the high-resolution cine files recorded during the subcooled and saturated boiling phases. During subcooled boiling conditions (Fig. 13), flow characteristics appeared to be consistent among the risers (symmetric flow conditions). Bubbles are small in size and uniformly distributed within the risers’ volume. Due to the very low flow rates, the bubbles are able to leave each riser moving straight upward and collecting at the top of the upper manifold (manifold outlet is on the right in Fig. 13).
+Fig. 13. Flow Visualization during subcooled flow conditions.
+During saturated boiling conditions (Fig. 14), flow within the risers appear to be asymmetric, with liquid flow (very low void fraction) in some risers, and very high void fraction in others. Under these conditions, bubbles are generally larger in size and characterized by higher transition velocities.
+Fig. 14. Flow Visualization during saturated flow conditions (Snapshots are taken at different times for each set of risers).
+Of particular interest is the flow stagnation and inversion that is observed at different risers during saturated boiling conditions (Fig. 15). This behavior was observed immediately after the void fraction peak.
+Fig. 15. Reverse Flow at Riser 6 through snapshots taken at (a) 7.9 s, (b) 8.5 s, (c) 9.5 s, and (d) 11 s after Movie 6 recording start time.
+This particular behavior was observed after the riser was interested by the large production of steam (corresponding to the void fraction peaks of Fig. 11. The production of larger steam bubbles, and the higher bubble transition velocities, favorized higher flow rates of colder liquid from the bottom manifold through the riser under consideration, causing a sudden decrease in the temperature within the riser. As a result of the decreased buoyancy forces the net flow within the riser is expected to cease, with subsequent stagnation of the liquid water observed at the risers' outlet. As the temperature of the liquid within the heated section of the panel increases, colder, denser water originally stagnating at the riser's exit (outside the heated section of the panel), may now move downward, producing the inversion effect observed in Fig. 15. This condition persists until the temperature of liquid within the heated section of the panel increases sufficiently to re-established a net upward flow within the riser.
+<Section>4. Conclusion</Section>
+High resolution measurement of the void fraction at the risers’ outlet of a water-cooled scaled reactor cavity cooling system have been collected and analyzed to investigate the flow behavior under subcooled and saturated boiling conditions. Stable, uniform flow conditions were observed within the risers during the subcooled phase, characterized by low void fraction (<0.3), small bubble size, and lower transition velocities. During saturated boiling conditions, string asymmetries were observed within the risers. At different times in the risers, larger bubbles at higher velocities were discharged into the top manifold, with a peak of void fraction up to 0.9, immediately followed by subcooled liquid flow. Observation through the camera recording, also found downward flow in risers at different times following the void peak. The spatially resolved void fraction fields and spatial-averaged void fraction data obtained during this test activity is a unique reference dataset for quantitative and qualitative comparison with the predictions of specialized system-level codes, and more advanced computation tools adopted for WRCCS studies.
+<Section>Declaration of competing interest</Section>
+The authors declare that they have no known competing financial interests or personal relationships that could have appeared to influence the work reported in this paper.
+<Section>Acknowledgment</Section>
+The work presented in this article was partially supported by the Department of Energy Nuclear Energy University Programs, grant contract DE-NE0008552. The authors would like to thank Daniel Wacker for his contribution to the two-phase data post-processing.
+<Section>References</Section>
+Aoto et al., 2014
+K. Aoto, P. Dufour, Y. Hongyi, J.P. Glatz, Y. Kim, Y. Ashurko, R. Hill, N. Uto
+A summary of sodium-cooled fast reactor development
+Prog. Nucl. Energy, 77 (2014), pp. 247-265
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+Bao et al., 2018
+H. Bao, Y. Guo, S. Liu, C. Peng
+Experimental study on natural circulation heat transfer of square channel in water-cooled blanket
+IEEE Trans. Plasma Sci. Institute for Electrical and Electronics Engineers, 46 (2018), pp. 2291-2300
+CrossRefView Record in ScopusGoogle Scholar
+Besagni et al., 2016
+G. Besagni, P. Brazzale, A. Fiocca, F. Inzoli
+Estimation of bubble size distributions and shapes in two-phase bubble column using image analysis and optical probes
+Flow Meas. Instrum., 52 (2016), pp. 190-207
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+Chen et al., 2017
+L. Chen, T. Ma, Y. Zheng, H. Zhao, F. Li, X. Chen, Y. Ma
+Experimental verification on design model of the passive residual heat removal system of MHTGR
+Prog. Nucl. Energy, 98 (2017), pp. 23-28
+ArticleDownload PDFCrossRefView Record in ScopusGoogle Scholar
+Corvaro and Paroncini, 2009
+F. Corvaro, M. Paroncini
+An experimental study of natural convection in a differentially heated cavity through a 2d-piv system
+Int. J. Heat Mass Tran., 52 (1–2) (2009), pp. 355-365
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+Estrada-Perez et al., 2015
+C.E. Estrada-Perez, J. Yoo, Y.A. Hassan
+Feasibility investigation of experimental visualization techniques to study subcooled boiling flow
+Int. J. Multiphas. Flow, 73 (2015), pp. 17-33
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+Ferreira et al., 2012
+A. Ferreira, G. Pereira, J.A. Teixeira, F. Rocha
+Statistical tool combined with image analysis to characterize hydrodynamics and mass transfer in a bubble column
+Chem. Eng. J., 180 (2012), pp. 216-228
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+Gera and Gautam, 1995
+D. Gera, M. Gautam
+Bubble rise velocity in two-dimensional fluidized beds
+Powder Technol., 84 (1995), pp. 283-285
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+Holler et al., 2019
+D. Holler, R. Vaghetto, Y. Hassan
+High-resolution wall temperature measurements with distributed fiber optic sensors
+Int. J. Therm. Sci., 145 (2019), p. 106042
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+Holler et al., 2020
+D. Holler, R. Vaghetto, Y. Hassan
+Water temperature measurements with a Rayleigh backscatter distributed sensor
+Opt. Fiber Technol., 55 (2020), p. 102160
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+Ito et al., 2011
+D. Ito, H. Kikura, M. Aritomi
+Micro wire-mesh sensor for two-phase flow measurement in a rectangular narrow channel
+Flow Meas. Instrum., 22 (2011), pp. 377-382
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+INL/EXT-17-43218
+INL/EXT-17-43218, “Identification and Characterization of Thermal Fluid Phenomena Associated with Selected Operating/Accident Scenarios in Modular High Temperature Gas-cooled Reactors.
+Google Scholar
+Lau et al., 2013
+Y. Lau, K.T. Sujatha, M. Gaeini, N. Deen, J. Kuipers
+Experimental study of the bubble size distribution in a pseudo-2D bubble column
+Chem. Eng. Sci., 98 (2013), pp. 203-211
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+Lau et al., 2013
+Y. Lau, N. Deen, J. Kuipers
+Development of an image measurement technique for size distribution in dense bubbly flows
+Chem. Eng. Sci., 94 (2013), pp. 20-29
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+Liu et al., 2015
+L. Liu, H. Yan, G. Zhao
+Experimental studies on the shape and motion of air bubbles in viscous liquids
+Exp. Therm. Fluid Sci., 62 (2015), pp. 109-121
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+Lisowski et al., 2013
+D. Lisowski, T. Haskin, A. Tokuhiro, M. Anderson, M. Corradini
+Study on the behavior of an asymmetrically heated reactor cavity cooling system with water in single phase
+Nucl. Technol., 183 (2013), pp. 75-87
+View Record in ScopusGoogle Scholar
+Lisowski et al., 2014
+D. Lisowski, O. Omotowa, M. Muci, A. Tokuhiro, M. Anderson, M. Corradini
+Influences of boil-off on the behavior of a two-phase natural circulation loop
+Int. J. Multiphas. Flow, 60 (2014), pp. 135-148
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+Lommers et al., 2014
+L. Lommers, B. Mays, F. Shahrokhi
+Passive heat removal impact on AREVA HTR design
+Nucl. Eng. Des., 271 (2014), pp. 569-577
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+ML 20030A176, 2020
+ML 20030A176
+NRC Non-light Water Reactor (Non-LWR) Vision and Strategy, Volume 1 – Computer Code Suite for Non-LWR Plant Systems Analysis, vol. 1, ML20030A176 Rev (2020)
+Quintanar et al., 2019
+N.R. Quintanar, T. Nguyen, R. Vaghetto, Y.A. Hassan
+Natural circulation flow distribution within a multi-branch manifold
+Int. J. Heat Mass Tran., 135 (2019), pp. 1-15
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+Scarlat et al., 2014
+R.O. Scarlat, M.R. Laufer, E.D. Blandford, N. Zweibaum, D.L. Krumwiede, A.T. Cisneros Charalampos Andreades, C.W. Forsberg, E. Greenspan, L. Hu, P.F. Peterson
+Design and licensing strategies for thefluoride-salt-cooled,high-temperature reactor (FHR) technology
+Prog. Nucl. Energy, 77 (2014), pp. 406-420
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+Thalange et al., 2018
+V. Thalange, E. Pal, N. Minocha, A. Nayak, S. Mahajani, S. Panse, J. Joshi
+Thermal hydraulics of natural circulation loop in beam-down solar power tower
+Energy, 159 (2018), pp. 1088-1101
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+Thielman et al., 2005
+J. Thielman, P. Ge, Q. Wu, L. Parme
+‘‘Evaluation and optimization of general atomics’ GT-MHR reactor cavity cooling system using an axiomatic design approach
+Nucl. Eng. Des., 235 (2005), pp. 1389-1402
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+Tompkins et al., 2016
+C. Tompkins, M. Corradini, M. Anderson
+Temperature profiles and mixing in a natural-circulation cooling facility via distributed optical sensors
+Nucl. Technol., 196 (2016), pp. 346-354
+CrossRefView Record in ScopusGoogle Scholar
+Tompkins et al., 2018
+C. Tompkins, H.M. Prasser, M. Corradini
+Wire-mesh sensors: a review of methods and uncertainty in multiphase flows relative to other measurement techniques
+Nucl. Eng. Des., 337 (2018), pp. 205-220
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+Vaghetto and Hassan, 2014
+R. Vaghetto, Y. Hassan
+Experimental investigation of a scaled water-cooled reactor cavity cooling system
+Nucl. Technol., 187 (2014), pp. 282-293
+View Record in ScopusGoogle Scholar
+Yang et al., 2019
+S. Yang, J. Seo, Y.A. Hassan
+Thermal hydraulic characteristics of unstable bubbling of direct contact condensation of steam in subcooled water
+Int. J. Heat Mass Tran., 138 (2019), pp. 580-596
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+Yoo et al., 2016a
+J. Yoo, C.E. Estrada-Perez, Y.A. Hassan
+“Experimental study on bubble dynamics and wall heat transfer arising from a single nucleation site at subcooled flow boiling conditions – Part 1: experimental methods and data quality verification
+Int. J. Multiphas. Flow, 84 (2016), pp. 315-324
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+Yoo et al., 2016b
+J. Yoo, C.E. Estrada-Perez, Y.A. Hassan
+“Experimental study on bubble dynamics and wall heat transfer arising from a single nucleation site at subcooled flow boiling conditions – Part 2: data analysis on sliding bubble characteristics and associated wall heat transfer
+Int. J. Multiphas. Flow, 84 (2016), pp. 292-314
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+Wang and Dong, 2009
+H.Y. Wang, F. Dong
+A method for bubble volume calculating in vertical two-phase flow
+J. Phys. Conf., 147 (2009), Article 012018
+CrossRefView Record in ScopusGoogle Scholar
+Zhao et al., 2019
+H. Zhao, Y. Zheng, X. Chen, T. Ma, Y. Dong
+A one-dimensional code of the passive residual heat removal system for the modular high temperature gas-cooled reactor
+Prog. Nucl. Energy, 110 (2019), pp. 374-383
+ArticleDownload PDFView Record in ScopusGoogle Scholar

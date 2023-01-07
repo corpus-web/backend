@@ -1,0 +1,247 @@
+<title>Boundary effect on the dynamic response of a 7-hexagon fuel ducts submerged in fluid</title>
+<author>1,Q.Peng,2,X.SucJ.Li,3,F.Gao,4,X.Liu,5,Y.G.Wei</author>
+<Affiliation>1,LNM, Institute of Mechanics, Chinese Academy of Sciences, Beijing 100190, PR China;2,School of Engineering Science, University of Chinese Academy of Sciences, Beijing 100049, PR China;3,China Institute of Atomic Energy, Beijing 102413, PR China;4,Key Laboratory of Earthquake Engineering and Engineering Vibration, Institute of Engineering Mechanics, China Earthquake Administration, Harbin 150080, PR China;5,College of Engineering, Peking University, Beijing 100871, PR China</Affiliation>
+<year>2020</year>
+<Jounral>Nuclear Engineering and Design</Journal>
+<Publishing_house>ELSEVIER</Publishing_house>
+<Text_Collector>XiaFan，HEU</Text_Collector>
+<DOI>10.1016/j.nucengdes.2020.110870</DOI>
+<URL>https://www.sciencedirect.com/science/article/pii/S0029549320303642</URL>
+Boundary effect on the dynamic response of a 7-hexagon fuel ducts submerged in fluid
+Q.Peng,X.Suc,J.Li,F.Gao,X.Liu,Y.G.Wei
+LNM, Institute of Mechanics, Chinese Academy of Sciences, Beijing 100190, PR China
+School of Engineering Science, University of Chinese Academy of Sciences, Beijing 100049, PR China
+China Institute of Atomic Energy, Beijing 102413, PR China
+Key Laboratory of Earthquake Engineering and Engineering Vibration, Institute of Engineering Mechanics, China Earthquake Administration, Harbin 150080, PR China
+College of Engineering, Peking University, Beijing 100871, PR China
+<Section>Highlights</Section>
+Effects of boundary constraint for a 7-column core are investigated with a coupled acoustic structure model.
+Weak and strong boundary constraints provide a bracketing limit for real-world situation.
+Stronger coupling effect is more evident when gap size is smaller for the weak boundary constraint.
+<Section>Abstract</Section>
+Understanding the dynamic response of core structure in a fast reactor under earthquake could provide a guideline for the reactor design. A core consists hundreds of ducts; this fact challenges full-scale experiments or simulations. A popular solution is to use a matrix of 7 ducts to represent the whole core, yet the effect of boundary constraint on the experiment or simulation representation has not been reported so far. In this article, two types (type 1 and type 2 as in graphical abstract) of boundary constraint, as a bracketing limit to the real-world situation, has been investigated with a coupled acoustic-structural (CAS) model, and the effects of the gap size on the dynamics and the seismic response are explored. Results show that type 2 constraint exerts a stronger constraint than type 1 constraint does and synchronizes ducts with ground excitations. In addition, a smaller gap under type 1 boundary constraint reduces the eigenfrequencies and introduces stronger coupling effect between ducts.
+Keywords:Hexagon bundle;Seismic response;Coupled acoustic-structure;Finite element simulation;Fluid-structure interaction
+<Section>1. Introduction</Section>
+Fast Breeder Reactor (FBR) core, immersed in a liquid metal, has a hexagonal arrangement of ducts with gaps of only a few millimeters. This type of arrangement can introduce a strong coupling effect of fluid–structure interaction (FSI) to the reactor core when the gaps between the ducts are small. The coupling effect on dynamic response of rod assembly in fluid was studied by using fluid added mass approach (Chen, 1975). It was concluded that the coupled effect decreases the eigenfrequencies. However, the coupled effect in this study was not strictly considered because the fluid was assumed to be stationary and inviscid. Considering both viscosity and added mass, a closed-form solution was obtained and verified with experiments (Chen et al., 1976), but this solution only applies for one cylindrical rod and is not consistent with a real-world situation where the ducts often have hexagonal cross-sections. To study the coupling effect between a bundle of 7 hexagonal ducts, Yang and Moran developed a method to calculate the added mass coefficient matrix and the fluid damping coefficient matrix under small oscillatory excitations (Yang and Moran, 1980). The results showed that the viscosity cannot be neglected when the gap is small. These models provide an intrinsic view on the ducts-fluid coupling, but they are incapable of dealing with three-dimensional (3D) problem with arbitrary computation domain. With the aid of finite element simulation, Koo and Lee proposed a FAMD (Fluid Added Mass and Damping) algorithm to obtain the added mass matrix and damping matrix for FSI of arbitrary geometric sectional structures (Koo and Lee, 2003). Based on FAMD, Koo and Lee developed CFAM (Consistent Fluid Added Mass) algorithm to study the coupling effect of fluid on the dynamic response of a 7-ducts core (Koo and Lee, 2003), and revealed that the fluid coupling terms can significantly affect the seismic behavior of a liquid metal reactor (Koo and Lee, 2004). For these FSI problems involving small gaps, the added mass plays an important role in the dynamic response. In addition, for complex structures with small gaps, the added mass/damping can be measured. A series of experiments shows that the added mass approach is in agreement with observation (Lu et al., 2018) and the gap size has a remarkable influence on the added mass (Li et al., 2018, Liu et al., 2017, Lu et al., 2018).
+As a different approach, Broc et al. homogenized the ducts and the fluid in-between into a coarse finite element mesh with Navier-Stokes equations. Their method can be used to obtain dynamic responses for FSI simulation (Broc and Desbonnets, 2012, Desbonnets and Broc, 2012). Although the homogenization approach may lose some accuracy for the fluid coupling effect, yet has a huge advantage on computational cost, and thus makes the dynamics analysis of full FBR core possible. As a typical application, Broc et al. used a general computer code CAST3M to simulate the response of a full-scale core to vertical seismic load, with fluid–structure interaction considered by homogenization method (Broc et al., 2019). This method achieved great success. However, study on effects of surface wave and nonlinear structural vibration via this approach was limited.
+Besides analytical model and numerical simulation, experiment is another way to study the dynamics of the core. Because a typical FBR core is composed of several hundred core elements, conducting a complete full-scale experiment is extraordinarily hard and the costs will be very high. To circumvent this obstacle, one popular choice is single-row test where core ducts are arranged in a row on a supporting platform and excited in the row direction. A few examples of single-row experiment can be found in literatures: Sasaki and Muto used a row of 29 ducts to study the strain distribution and acceleration at component top (Sasaki and Muto, 1983). Bartholf used a row of 5 ducts to provide additional data in the supplement to Sasaki and Muto’s experiment (Bartholf et al., 1989). Horiuchi carried out experimental model of 11 ducts in a single row excited with a shaking table (Horiuchi et al., 1995). These tests concluded that a single-row arrangement gives a practical representation regarding a component cluster, and thus achieves a balance between economical cost and realistic representation. However, the constraint effect of the liquid in the transverse direction was not strictly considered, which inevitably resulted in an underestimation of the fluid coupling effect.
+Another choice is to adopt less core ducts in a matrix for the seismic experiment. Sasaki and Muto carried out an experiment on a matrix of 37 ducts (Sasaki and Muto, 1983). Nakagawa et al. used a 127-duct system to clarify the overall impact and fluid–structure interaction under a ground excitation and then used a 7-duct to test the natural frequency for a precise estimation (Nakagawa et al., 1989). Morishita and Iwata studied the dynamic properties with even one core duct, free-standing or restrained, by experiments and established an algorithm for the seismic analysis of a MONJU core, the Japanese protype liquid metal fast breeder reactor (Morishita and Iwata, 1993). These matrix-based experiments can capture the coupling effect in a more precise way. In these matrix-based experiments, a small group of ducts, as a representation for a real-world situation, was used to capture the coupling effect in a more precise way. However, the relationship between the experimental setup and the real-world situation remains unknown, i.e. which type of boundary constraint, free or confined, can properly represent an actual core?
+To enable an experiment on a large group of ducts and bring agility for the study, a scaled mock-up is often used as a representative to the real situation. Koo and Lee (Koo and Lee, 2007) used a 7-hex bundle mock-up to study the response of a liquid metal reactor core subject to seismic excitation. It was found that fluid coupling becomes stronger with an increasing number of the neighboring ducts. In the Symphony program, a mock-up of total 271 ducts, 5 FA (fuel assemblies) rows and 4 NS (Neutronic Shields) rows (Brochard et al., 1989), was designed to test the seismic response of the French Phénix reactor (Broc et al., 2013). The experiments were successful and later numerically interpreted by Broc et al (Broc et al., 2015); the simulation method was validated with the experimental data for both static excitation and dynamic response. It was confirmed that the fluid leads to a significant decrease of the frequencies and suspected that the damping plays an important role during relaxation. Iwasaki et al. used a 1/2.5 scaled mock-up with 313 core elements to validate a core element vibration analysis code (REVIAN-3D) and achieved good agreement (Iwasaki et al., 2017).
+Although 7-duct system was used in many studies to investigate the seismic response, one question remains: what is the difference of the dynamic responses between 7-duct and hundreds of ducts immersed in the liquid under seismic excitation? This boundary effect had been noticed and investigated more than 40 years ago. Fujita studied the seismic response of a group of hexagonal ducts (Fujita, 1981). In this study, they proposed an analytical theory considering flow channel, and found that both the boundary condition and the clearances between the ducts affects the vibration of the system. However, they only consider a two-dimensional model, which intrinsically cannot consider the flow in the axial direction, whereas in a real-world situation, axial flow cannot be ignored due to the coupled effect between bending of the duct and squeezing of the flow channel. By literature review, we find that the significance of this effect is still unknown.
+In the present study, we built up a three dimensional (3D) finite element model to study the effects of gap flow on the vibration of a 7-colume bundle. Two types of boundary constraint on fluid were applied to study the constraint effect on the eigenfrequencies and the modal shapes of the bundle. Further, based on that model, we investigated the constraint effect on the seismic response of the bundle with different sizes of the fluid channel.
+<Section>2. FEM model</Section>
+2.1. Formulation
+With the aid of supercomputers, we could use computational fluid method, such as finite volume method (FVM), smooth particle hydrodynamics (SPH), and acoustic element method, coupling with structure analysis method such as finite element method (FEM) and boundary element method (BEM) to the solve FSI problems. Among these methods, coupled acoustic-structure (CAS) method is one effective way. CAS method is widely applied for structural acoustics and fluid–structure interaction problems, and the state-of-art was summarized by Everstine (Everstine, 1997). It is concluded that such method can be effectively applicable for studying vibrations of submerged structures. CAS method was used to solve typical FSI problems (Wang and Bathe, 1997), and compared with Arbitrary Lagrange-Euler (ALE) technique for nonlinear wave theory (Virella et al., 2008). It was concluded that using CAS with linear wave theory is accurate for calculation the pressure distribution on the walls. CAS method was also confirmed being capable of predicting natural frequencies of submerged structures (Rodriguez et al., 2012), and performing dynamic analysis of a water-tank system under bi-directional earthquake (Rawat et al., 2015a) and tri-directional earthquake (Rawat et al., 2015b). In CAS method, the fluid domain is modeled as an acoustic domain, where the elements have only one degree of freedom (pressure) at each node. This treatment significantly reduces the computational cost (Rawat et al., 2019), and thus makes large-scale FSI calculation possible.
+In the present study, the 7-duct bundle system consists of three parts: the outer enclosure, the 7-duct bundle, and fluid (water) filling in the enclosure. The gap between ducts is about 0.05 percent of the axial length, which requires fine mesh for the fluid domain. As a result, for high computational efficiency, CAS method is used for FSI simulation of 7-duct bundle system.
+We used a governing equation for the fluid domain as follows:
+(1)@
+where @ is excess pressure (in excess of any static pressure) in the fluid domain, @ is position vector, @ represents an independent variable such as temperature, @ is density of the fluid, and @ is velocity vector. Constitutive relation for an inviscid, linear, and compressible fluid domain can be expressed as follows.
+(2)@
+where @ is bulk modulus of the fluid. It is assumed that the physical properties of the fluid are uniform over the domain, so that the density @ and the bulk modulus @ can be treated as constants. Boundary conditions are of two types: fluid-structural interaction and fluid surface condition. On a fluid-structural interface, we have the following relation:
+(3)@
+where @ is the normal of interface towards fluid domain and @ the @-component of acceleration. On a free surface, linearized surface wave condition is assumed so that only a fluctuation with a small amplitude of wave is formed (Rawat et al., 2015a). The boundary condition for a surface can be written as follows, also known as boundary impedance.
+(4)@
+where @ is a proportionality factor between normal velocity and time rate of change of pressure, and @ is a proportionality factor between normal velocity and pressure depending on acoustic reactive surface. In the case of a sloshing reactive surface, we can choose that @ where g is gravitational acceleration and@ = 0 (Virella et al., 2008). The fluid domain can thus be solved by using the governing equation, the coupled condition and the boundary condition as in Eqs. (1)–(4).
+2.2. Coupled Acoustic-Structure model
+To conduct the simulation, a commercial program ABAQUS (Dassualt Systèmes, Vélizy-Villacoublay, France) was used. Fig. 1 shows the schematic diagram for the present model. The ducts are partially locked to the enclosure and the ground. Geometries of current model are as follows. The diameter of the enclosure is 1 m and the height @ is 3 m. The diameter of the circumcircle of the duct is @. The moment of inertia of the section of the duct is @ in both x- and y- direction. The length @ of the free part of the duct is 2.7 m@ The duct bundle and the enclosure were modeled with shell elements (S4R), the size of which is 0.03 m. The shell thickness for the ducts and the enclosure is @ and 10 mm, respectively. The liquid was modeled with three-dimensional acoustic element AC3D8. The element size gradually increases along radical direction with a minimal size at the fluid–solid interface equal to 0.5 mm. Mesh convergence was checked for the cases with gap sizes of 2 mm and 20 mm. For the case with 2 mm gap, we built up 7 models with element count varied from 380,400 to 2341110, and for the cases with 20 mm gap, 8 models were built with element count from 400,800 to 2019900. Study on the eigenfrequencies showed that using a mesh with a minimal size of 0.5 mm (element count about 1300000) can approximate cases with the finest mesh within 0.15%. As a result, we adopted the meshes with element count about 1300000.
+Fig. 1. Schematic diagram for the present model: A) parts and meshes and B) geometries and boundary conditions.
+Material properties for the ducts and the enclosure are as follows. The modulus is 200 GPa, the Poisson’s ratio is 0.3, and the density is 7800 kg/m3. Rayleigh damping was adopted, so that for a given mode i, the fraction of critical damping, @, can be expressed in terms of the damping factors @ and @ as:
+(5)@
+In our case, @ and @ were chosen to be 0.6 and 0.0003, respectively. The bulk modulus for the fluid is 2.25 GPa, and the density is 1000 kg/m3.
+Boundary and interfacial conditions are defined as follows. Surface-based tie constraints are used to model the interactions between the fluid and the surfaces of the ducts, as well as the interaction between the fluid and the enclosure. The motion of an acoustic medium is directly coupled to the motion of a solid. On the acoustic-structural interface, the acoustic and structural media have the same displacement normal to the interface. The present CAS model was first used to study the eigenfrequencies and modal shapes of the 7-duct bundle system under different boundary constraints; the bottom of the enclosure is fixed, and the locking lines of the ducts are fixed in x- and y-directions. Then, by replacing the fixtures to ground excitations accordingly, this model was used to study the dynamic response of the system under seismic loads, in which ground excitations were applied accordingly (Fig. 1B) and the dynamic implicit integration technique was used with a time increment of 1 ms.
+2.3. Constraint of the system
+In a real-world situation, hundreds of ducts are closely packed and submerged in fluid medium, shown in Fig. 2B. In several experiments (Koo and Lee, 2007, Nakagawa et al., 1989), seven middle ducts were chosen to study the seismic response. The number of ducts in these experiments is significantly smaller than the number in the real situation. In the present study, we built up two types of constraint to represent a bracketing limit for the real-world situation: a weaker type (Fig. 2A, type 1) and a stronger type (Fig. 2C, type 2). In the case with type 1 boundary constraint, which was commonly adopted (Koo and Lee, 2007, Nakagawa et al., 1989), the ducts 1–6 have a looser constraint than real-world situation since there is no complete constrained flow passage around them. On the contrary, in type 2 boundary constraint situation, a rigid wall conformal to the 7-duct bundle is used to form a tighter boundary constraint. In sum, the two types of constraint, type 1 with no wall around and type 2 with rigid wall conformal to the bundle, represent a bracketing limit for the real-world situation.
+Fig. 2. Schematic for real-world situation and two extreme types of boundary conditions: A) type 1 boundary constraint, B) real-world situation, and C) type 2 boundary constraint.
+2.4. Ground excitation
+Imperial vally, Kobe, Loma Prieta and Northbridge earthquakes were commonly adopted in seismic research. A frequency domain analysis on these records was conducted. The results are listed in Table 1 showing the frequency span under 5% of the peak amplitude of the acceleration. For a comparative study on the effect of boundary constraints, we selected the Northridge (Newhall – Fire) record as the ground excitation based on that it has the widest frequency span on both y- and z- directions and a span on x-direction next to the widest.
+Table 1. Frequency span under 5% of the peak amplitude of acceleration for various earthquakes.
+The longitudinal, transversal and vertical components recorded for the 1994 Northridge (Newhall – Fire) were used as ground excitations, and the time-series and the spectrums of acceleration are plotted in Fig. 3, showing that the peak ground acceleration (PGA) is 0.6 g, 0.6 g and 0.5 g for x-, y- and z-direction respectively, where g is the gravitational acceleration. A principle component analysis (PCA) on the planar excitation (xy-plane) reveals that the planar excitation has feature vectors of @ and @, with associated eigenvalues of @ and @, respectively, illustrated in Fig. 3C. These two feature vectors were used as references for the acceleration responses of the 7 ducts. In addition, the peak planar ground acceleration (@) is indicated by the red circle in the upright of Fig. 3C.
+Fig. 3. Characteristics of seismic load: A) time history of acceleration components, B) spectrums of acceleration components, and C) feature vectors of x-y planar accelerations.
+<Section>3. Result and discussion</Section>
+3.1. Eigenfrequencies and modal shapes
+3.1.1. Effect of the gap size
+Fig. 4 plots the effect of the gap on the eigenfrequencies (number 1–14) of the 7-bundle CAS system. The eigenfrequencies are normalized by @, which is the eigenfrequency of the 1st bending mode of one single duct without the fluid-structural coupling effects. Because the excitation of earthquake ground is usually limited to a low frequency range, we show only the first 14 modes since that the 15th mode and above involve the higher bending mode of the duct. As the gap increases, the eigenfrequencies of the first 13 modes increase. Such trend is consistent with the result by Shinohara and Shimogo (Shinohara and Shimogo, 1981). However, the 14th mode shows a different trend; the eigenfrequency decreases with an increasing gap size. To unveil such irregularity, modal shapes were examined, shown in Fig. 5. In Fig. 5, since the ducts are fixed at the bottom, we can represent the deformation state of the ducts by plotting the displacement vectors of the top surfaces of the ducts. Unlike the first 13 modes, the 14th modal shape exhibits a rotationally symmetrical feature, which does not involve gap contraction or expansion. In this mode, the added mass can be related to the weight of the fluid trapped between the gaps of the 7 ducts. A larger gap results in a greater equivalent mass and in turn, a lower eigenfrequency.
+Fig. 4. Eigenfrequency as a function of the gap size.
+Fig. 5. Modal shapes (1st–14th) of 7-duct bundle under type 1 boundary constraint where gap sizes are 2 mm, 4 mm, 6 mm, and 10 mm.
+It is also shown that the sequence of modal shapes can be rearranged as the gap decreases. The modal shapes for the case @ are in the same order. Yet for the case @ the sequence is disrupted. For example, the 6th modal shape in the case @ corresponds to the 4th modal shape in the cases @ and @. Similar phenomena can also be found for the 7th, 8th, 9th, and 10th modal shapes of the case @. This indicates that the coupling effects of the 7 ducts by the fluid is stronger when the gap is smaller.
+Normally, besides gap size, fluid density can also affect the system eigenfrequencies. FEM analysis showed that replacing water with liquid sodium (density about 0.826 g/cm3) and maintaining the gap size at 6 mm will increase the 1st eigenfrequency by 9%. If we substitute water with Lead-bismuth (a heavy coolant, density about 10.078 g/cm3), the 1st eigenfrequency will decrease by 68%.
+3.1.2. Effect of boundary type
+The type of the boundary constraint influences the eigenfrequencies of the system. As stated in the previous subsection, we only discuss the first 14 modes. The eigenfrequencies of each type of boundary constraint are plotted in Fig. 6. First, type 2 boundary constraint reduces eigenfrequencies of the 1st–14th modes. Second, the 1st–8th modes are reduced to nearly degenerated states. Although the modal shapes are mostly different, the eigenfrequencies are remarkably close to each other. A unit cell can be used to estimate the degenerated mode, shown by the inset in the right bottom corner in each subplot. The unit cell is a single duct submerged in fluid and surrounding by a rigid surface with a given gap size. We denote the 1st eigenfrequency of the unit cell with @, @, @, and @ for gap size @, 6 @, @, and @, respectively. The lower dashed line in each subplot of Fig. 6 indicates that the degenerated modes are closed to the 1st mode for the unit cell. When the gap size decreases, the added mass increases, and thus the eigenfrequency decreases. Last, since these two types of boundary constraint form a bracketing limit to the real-world situation, the eigenfrequencies involving only the 1st bending of the duct will reside between the square markers and the circles.
+Fig. 6. Eigenfrequencies of two types of the boundary conditions.
+Fig. 7 illustrates the 1st–14th modal shapes for the system with the type 2 constraint. Unlike the type 1 constraint, disruption of the mode order cannot be found.
+Fig. 7. Modal shapes (1st–14th) of 7-duct bundle under type 2 boundary constraint where gap sizes are 2 mm, 6 mm, 10 mm, and 20 mm.
+3.2. Dynamic response to seismic excitation
+3.2.1. Effect of the boundary type
+As shown in the Section 3.1, the constraint type significantly affects the eigenfrequencies of the system. In this section, we study and differentiate the seismic responses of the systems with two types of boundary constraint by comparing following variables:
+a)
+The peak magnitude of planar acceleration of the top side of the duct defined by
+(6)@
+where @ is the x-component of the acceleration, @ is the y-component of the acceleration, and @ is the total time of the dynamic response.
+b)
+The relative displacement of the top of the duct to its bottom defined by
+(7)@
+where @ and @ are the top and bottom displacement, respectively.
+a)
+The deflection of the duct defined by
+(8)@
+with its peak value defined by
+(9)@
+and an average value in the sense that
+(10)@
+To study the constraint effect on seismic response, we calculated the feature vectors of the acceleration response for type 1 and type 2 constraints as shown in Fig. 8B and C, respectively. In addition, we plot the feature vectors of the seismic excitation as reference in these two figures. In the type 2 case, all the ducts share a constraint far stronger than ducts in the type 1 case. Thus, even though the coupling effect should be evident, it acts rather as a motion synchronizer over all the ducts than as a motion disrupter. This result can be also verified by comparing the peak planar accelerations, shown by Fig. 8A. First, compared with type 1 cases, the value of @ under type 2 boundary constraint is decreased about 15.6% for duct 0, and a decrease up to 36.3% can be found on the surrounding ducts. Second, statistically, by replacing the boundary constraint from type 1 to type 2, the mean and the deviation of @ over all ducts drop from 1.464 to 1.036 and from 0.128 to 0.006, respectively. The responses of the ducts under type 2 boundary constraint to the seismic excitation are not only synchronized to each other but also to the excitation itself.
+Fig. 8. A) Peak planar acceleration in xy-plane of 7 ducts under type 1 and type 2 boundary constraints. Feature vectors for acceleration responses under B) type 1 boundary constraints and C) type 2 boundary constraints.
+In addition, we found that the effect of constraint types on the z-component of the acceleration response, @, is very limited. As in the type 1 case, the relative peak responsive @ is 1.005 ± 0.004, and in the type 2 case, is 1.0000 ± 0.0005. So, no further discussion on dynamic response in the z-direction is needed.
+The displacement response is even more affected by the constraint of the core, as shown in Fig. 9. Fig. 9A, B, C, and D plot the trajectories of the relative displacement vector @ of duct 0, duct 1/4, duct 2/5, and duct 3/6, respectively. We plot the motions of 4 ducts because ducts 1/4 (2/5 and 3/6) have same responses as a result of symmetry. Type 2 boundary constraint confines the motions recognizably in comparison with those under type 1 constraint, shown by the red trajectories (type 2) as opposed to the blue trajectories (type 1). The average deflection calculated by Eq. (10) on duct 0 has a decrease of 55.9%. The decrease of the surrounding ducts is even more, up to 58%. The standard deviation of @ over the ducts also decreased from 0.016 to 0.007.
+Fig. 9. Trajectories of relative displacement vector of duct 0 (A), duct 1/4 (B), duct 2/5 (C) and duct 3/6 (D) for type 1 boundary constraint (blue) and type 2 boundary constraint (red), and average dimensionless deflection @ for each duct (E). (For interpretation of the references to colour in this figure legend, the reader is referred to the web version of this article.)
+In sum, compared with type 1 boundary constraint, type 2 boundary constraint provides a stronger constraint on the 7-duct core. On one hand, in the aspect of acceleration and displacement, both the peak and the average response are much larger for the type 1 case. On the other hand, statistically speaking, the variance over all ducts for the type 1 case is also larger than that for the type 2 case. For both types, the coupling effect is evident, yet type 2 boundary constraint synchronizes the motions of the ducts to some extent. It can be inferred that in a real-world situation, there are so many ducts in the matrix that the center ducts will response in a same way between type 1 and type 2 constraints under seismic excitation.
+3.2.2. Effect of the gap size
+As discussed in section 3.1, the eigenfrequencies are affected by the gap size. In this section, we investigate the effects of the gap size on the system response to the seismic excitation. Since the difference between acceleration response and seismic excitation is very small for type 2 boundary constraint. We only discuss the effect of the gap size for type 1 boundary constraint, which is popular adopted (Koo and Lee, 2007, Nakagawa et al., 1989).
+Fig. 10A plots the value of @ as a function of the gap size @. It can be seen that due to symmetry of the system, ducts 1–6 have the same accelerations as their central symmetrical counterparts; each central symmetrical pair shares an identical curve, as shown in Fig. 10A. With a small gap size @, duct 0 has the highest @, because a strong coupling effect is exerted on the surface of duct 0. Fig. 10B–E plot the feature vectors (the red arrows) of each duct with various gap sizes. For comparison, the feature vectors of the seismic excitation are shown as a reference (the blue lines). It can be seen that the feature vectors tend to be consistent with the references for a larger gap, showing that a smaller gap results in a stronger coupling effect.
+Fig. 10. A) Peak planar acceleration in xy-plane of 7 ducts as function of clearance under type 1 boundary constraints. Feature vectors for acceleration responses for the cases with B) @, C) @, D) @, and E) @.
+For the case of type 1 constraint with a gap size of 2 mm, Fig. 11A plots the relative displacement vector, @ as in Eq. (7), between the top and bottom section of the duct 0. The larger dashed circle indicates the maximum value @and the smaller one indicates the average value @. As the gap size increases, both @ and @ converge to a same value as shown in Fig. 11B and C, respectively. This indicates that the motions of the ducts become more independent as the gap size increases. We can also find that as the gap size decreases, the central duct 0 has higher values of @ and @ than its surrounding ducts. A small gap results in a strong coupling effect, which in turn, leads in a severer non-uniformity among those ducts. In addition, the dashes in Fig. 11B and C present a limit that prevent collision between ducts. In the present case, if the gap size is larger than 6 mm, collision can be safely ignored.
+Fig. 11. Ratio of deflection of ducts to clearance as function of clearance.
+<Section>4. Conclusion</Section>
+With a coupled-acoustic model, we studied the eigenfrequencies and modal shapes of a 7-hexgon-duct fuel bundle, as well as the dynamic response to a seismic excitation. The effects of the weak and strong types of boundary constraint were investigated to show the boundary effect in the experiment with the 7-duct matrix. Conclusions are listed as follows.
+1.
+For both two types of boundary, because coupling effect from the gap fluid is stronger when the gap is smaller, the eigenfrequencies associated with the first 13 modes decrease as the gap size decreases.
+2.
+Type 1 and type 2 boundary conditions can be viewed as a bracketing limit for the real-world situation. Because type 2 boundary constraint degenerates the first 8 modes to the states very close to the first mode, type 2 boundary constraint could synchronize the motions of the ducts to the ground excitation. While type 1 boundary constraint induces more divergent behavior over the 7 ducts.
+3.
+For type 1 boundary constraint, smaller gap size results in stronger coupling effect between ducts. Under a gap size of 2 mm, the central duct has the highest peak response of both acceleration and displacement. When the gap size increases to 6 mm, the peak response shifts from the central duct to duct 3/6. When the gap size is 20 mm, the ducts tend to response independently.
+<Section>CRediT authorship contribution statement</Section>
+Q. Peng: Methodology, Software, Writing - original draft, Formal analysis. X. Su: Validation, Resources, Writing - review & editing. J. Li: Resources, Writing - review & editing. F. Gao: Resources, Formal analysis. X. Liu: Conceptualization, Project administration, Funding acquisition, Supervision, Writing - review & editing, Formal analysis. Y.G. Wei: Project administration, Funding acquisition.
+<Section>Declaration of Competing Interest</Section>
+The authors declare that they have no known competing financial interests or personal relationships that could have appeared to influence the work reported in this paper.
+<Section>Acknowledgement</Section>
+This work was supported by the National Natural Science Foundation of China (11772334, 11890681), by the NSFC Basic Science Center Program for “Multiscale Problems in Nonlinear Mechanics” (No.11988102), by the Youth Innovation Promotion Association CAS (2018022), and by the Strategic Priority Research Program of the Chinese Academy of Sciences (XDB22040501).
+<Section>References</Section>
+Bartholf et al., 1989
+Bartholf, L.W., Julyk, L.J., Ryan, J.A., 1989. Vibrational characterization of hexagonal duct core assemblies under various support conditions, International conference on Structural Mechanics in Reactor Technology (SMIRT) 10. Westinghouse Hanford Co., Richland, WA (USA), Anaheim, CA, USA, p. 9.
+Google Scholar
+Broc et al., 2019
+Broc, D., Artini, G., Cardolaccia, J., Martin, L., 2019. Fast reactor cores seismic excitation in the vertical direction - numerical methods. Proceedings of the Asme Pressure Vessels and Piping Conference, 2018, vol. 8, p. 11.
+Google Scholar
+Broc et al., 2013
+D. Broc, J. Cardolaccia, S. Durand
+Dynamic behavior of the Fast Reactor cores: the Symphony program, Fast Reactors and Related Fuel Cycles: Safe Technologies and Sustainable Scenarios (FR13)
+International Atomic Energy Agency, France (2013)
+Google Scholar
+Broc et al., 2015
+Broc, D., Cardolaccia, J., Martin, L., Portier, J.L., 2015. Core mechanical dynamics experiment in the phenix reactor. In: Proceedings of the Asme Pressure Vessels and Piping Conference – 2015, vol. 4, p. 10.
+Google Scholar
+Broc and Desbonnets, 2012
+Broc, D., Desbonnets, Q., 2012. Fluid structure interaction modelling for the vibrartion of tube bundles, part ii: homogenization method based on the navier stokes equations. In: Proceedings of the Asme Pressure Vessels and Piping Conference (Pvp-2011), vol. 4, pp. 33–40.
+Google Scholar
+Brochard et al., 1989
+Brochard, D., Buland, P., Hammami, L., Gantenbein, F., 1989. F.B.R. core seismic analysis. In: International conference on Structural Mechanics in Reactor Technology (SMIRT) 10, Anaheim, CA, USA.
+Google Scholar
+Chen, 1975
+S.S. Chen
+Vibration of nuclear fuel bundles
+Nucl. Eng. Des., 35 (1975), pp. 399-422
+View Record in ScopusGoogle Scholar
+Chen et al., 1976
+S.S. Chen, M.W. Wambsganss, J.A. Jendrzejczyk
+Added mass and damping of a vibrating rod in confined viscous fluids
+J. Appl. Mech.-Trans. Asme, 43 (1976), pp. 325-329
+CrossRefView Record in ScopusGoogle Scholar
+Desbonnets and Broc, 2012
+Desbonnets, Q., Broc, D., 2012. Fluid structure interaction modelling for the vibration of tube bundles, part i: analysis of the fluid flow in a tube bundle. In: Proceedings of the Asme Pressure Vessels and Piping Conference (Pvp-2011), vol. 4, pp. 25–32.
+Google Scholar
+Everstine, 1997
+G.C. Everstine
+Finite element formulatons of structural acoustics problems
+Comput. Struct., 65 (1997), pp. 307-321
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+Fujita, 1981
+K. Fujita
+Vibrational characteristics and seismic response analysis of column group in liquid
+Bull. Jsme-Jpn. Soc. Mech. Eng., 24 (1981), pp. 1994-2002
+CrossRefView Record in ScopusGoogle Scholar
+Horiuchi et al., 1995
+T. Horiuchi, M. Nakagawa, H. Kasai
+Development of SAFA, a seismic analysis program for FBR core components
+Nucl. Eng. Des., 157 (1995), pp. 37-48
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+Iwasaki et al., 2017
+Iwasaki, A., Matsubara, S., Yamamoto, T., Kitamura, S., Okamura, S., 2017. Core seismic experiment and analysis of a large number of element models for fast reactor. In: Proceedings of the Asme Pressure Vessels and Piping Conference, , vol 8, p. 10.
+Google Scholar
+Koo and Lee, 2003
+G.H. Koo, J.H. Lee
+Development of FAMD code to calculate the fluid added mass and damping of arbitrary structures submerged in confined viscous fluid
+KSME Int. J., 17 (2003), pp. 457-466
+View Record in ScopusGoogle Scholar
+Koo and Lee, 2004
+G.H. Koo, J.H. Lee
+Fluid effects on the core seismic behavior of a liquid metal reactor
+KSME Int. J., 18 (2004), pp. 2125-2136
+View Record in ScopusGoogle Scholar
+Koo and Lee, 2007
+G.H. Koo, J.H. Lee
+An experimental study on LMR core seismic behavior with fluid couplings between closely spaced hexagons
+J. Mech. Sci. Technol., 21 (2007), pp. 1008-1017
+View Record in ScopusGoogle Scholar
+Li et al., 2018
+W.Z. Li, D.G. Lu, Y. Liu
+Study on the fluid added mass of CAP1400 spent fuel storage rack under vibration condition
+Nucl. Eng. Des., 337 (2018), pp. 439-449
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+Liu et al., 2017
+Y. Liu, D.G. Lu, W.Z. Li, W.Q. Zhuo
+Effect of neighboring wall on the fluid added mass of CAP1400 spent fuel storage rack
+Prog. Nucl. Energy, 101 (2017), pp. 177-187
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+Lu et al., 2018
+Lu, D.G., Liu, Y., Zheng, S., Asme, 2018. Influence of gap size on added mass for spent fuel storage rack. In: Proceedings of the 26th International Conference on Nuclear Engineering, 2018, vol. 2, p. 3.
+Google Scholar
+Morishita and Iwata, 1993
+M. Morishita, K. Iwata
+Seismic behavior of a freestanding core in a large LMFBR
+Nucl. Eng. Des., 140 (1993), pp. 309-318
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+Nakagawa et al., 1989
+M. Nakagawa, T. Horiuchi, K. Kaneto, S. Sawada
+Fluid Coupled Effect on Vibration Characteristics of Hexagonal Rod Assemblies, International conference on Structural Mechanics in Reactor Technology (SMIRT) 10
+Anaheim, CA, USA (1989)
+Google Scholar
+Rawat et al., 2015
+A. Rawat, V. Matsagar, A.K. Nagpal
+Coupled Acoustic-Structure Interaction in Cylindrical Liquid Storage Tank Subjected to Bi-directional Excitation
+Springer India, New Delhi (2015), pp. 1155-1166
+CrossRefView Record in ScopusGoogle Scholar
+Rawat et al., 2015b
+Rawat, A., Matsagar, V., Nagpal, A.K., 2015b. Finite element simulation of cylindrical liquid storage tank under tri-directional components of earthquake.
+Google Scholar
+Rawat et al., 2019
+A. Rawat, V. Mittal, T. Chakraborty, V. Matsagar
+Earthquake induced sloshing and hydrodynamic pressures in rigid liquid storage tanks analyzed by coupled acoustic-structural and Euler-Lagrange methods
+Thin-Walled Struct., 134 (2019), pp. 333-346
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+Rodriguez et al., 2012
+C.G. Rodriguez, P. Flores, F.G. Pierart, L.R. Contzen, E. Egusquiza
+Capability of structural-acoustical FSI numerical model to predict natural frequencies of submerged structures with nearby rigid surfaces
+Comput. Fluids, 64 (2012), pp. 117-126
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+Sasaki and Muto, 1983
+Sasaki, Y., Muto, T., 1983. Experimental studies on seismic vibration phenomena of FBR core components. In: International conference on Structural Mechanics in Reactor Technology (SMIRT) 7, Chicago, USA.
+Google Scholar
+Shinohara and Shimogo, 1981
+Y. Shinohara, T. Shimogo
+Vibrations of square and hexagonal cylinders in a liquid
+J. Press. Vessel Technol.-Trans ASME, 103 (1981), pp. 233-239
+CrossRefView Record in ScopusGoogle Scholar
+Virella et al., 2008
+J.C. Virella, C.A. Prato, L.A. Godoy
+Linear and nonlinear 2D finite element analysis of sloshing modes and pressures in rectangular tanks subject to horizontal harmonic motions
+J. Sound Vibr., 312 (2008), pp. 442-460
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+Wang and Bathe, 1997
+X.D. Wang, K.J. Bathe
+Displacement pressure based mixed finite element formulations for acoustic fluid-structure interaction problems
+Int. J. Numer. Methods Eng., 40 (1997), pp. 2001-2017
+View Record in ScopusGoogle Scholar
+Yang and Moran, 1980
+C.I. Yang, T.J. Moran
+Calculations of added mass and damping coefficients for hexagonal cylinders in a confined viscous-fluid
+J. Press. Vessel Technol.-Trans ASME, 102 (1980), pp. 152-157
+CrossRefView Record in ScopusGoogle Scholar

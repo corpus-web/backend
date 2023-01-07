@@ -1,0 +1,318 @@
+<title> Functional_JJ Generalized_VVD Inverse_JJ Beamforming_NN Based_VVN on_IN the_DT Double-Layer_NP Microphone_NN Array_NN Applied_VVN to_TO Separate_VV the_DT Sound_JJ Sources_NNS </title> <author> Li_NP ,_, Shu_NP ;_: Xu_NP ,_, Zhongming_VVG ;_: He_PP ,_, Yansong_NP ;_: Zhang_NP ,_, Zhifei_NP ;_: Song_NP ,_, Shaoyu_NP </author> <Affiliation> 1_CD State_NP Key_NP Laboratory_NP of_IN Mechanical_NP Transmission_NP ,_, Chongqing_NP University_NP ,_, No._NN 174_CD Shazhengjie_NN ,_, Shapingba_NP ,_, Chongqing_NP ;_: 400044_CD ,_, China_NP 2_CD College_NP of_IN Automotive_NP Engineering_NP ,_, Chongqing_NP University_NP ,_, No._NN 174_CD Shazhengjie_NN ,_, Shapingba_NP ,_, Chongqing_NP ;_: 400044_CD ,_, China_NP </Affiliation> <year> 2016_CD </year> <Jounral> Journal_NP of_IN Vibration_NN and_CC Acoustics_NNS ,_, Transactions_NNS of_IN the_DT ASME_NN </Journal> <Publishing_house> American_NP Society_NP of_IN Mechanical_NP Engineers_NPS (_( ASME_NN )_) </Publishing_house> <Text_Collector> Liu_NP Kai，HEU_NP </Text_Collector> <DOI> 10.1115/1.4032305_CD </DOI> <URL> https_NNS :_: //asmedigitalcollection-asme-org-443_NN ._SENT 
+wvpn_NP ._SENT 
+hrbeu_NP ._SENT 
+edu_NP ._SENT 
+cn/vibrationacoustics/article/138/2/021013/472702/Functional-Generalized-Inverse-Beamforming-Based_JJ </URL> <Section> Abstract_JJ </Section> Beamforming_NN based_VVN on_IN microphone_NN array_NN measurements_NNS is_VBZ a_DT popular_JJ method_NN for_IN identifying_VVG sound_JJ sources_NNS ._SENT 
+However_RB ,_, beamforming_NP has_VHZ many_JJ limitations_NNS that_WDT limit_VVP their_PP$ precision_NN ._SENT 
+These_DT limitations_NNS are_VBP addressed_VVN in_IN research_NN ._SENT 
+To_TO separate_VV the_DT contributions_NNS which_WDT come_VVP from_IN two_CD sides_NNS of_IN the_DT microphone_NN array_NN more_RBR accurately_RB ,_, an_DT innovative_JJ beamforming_JJ method_NN based_VVN on_IN a_DT double-layer_NP microphone_NN array_NN ,_, called_VVD functional_JJ generalized_VVN inverse_NN beamforming_VVG (_( FGIB_NP )_) ,_, is_VBZ proposed_VVN to_TO improve_VV beamforming_JJ performance_NN ._SENT 
+This_DT method_NN ,_, which_WDT involves_VVZ the_DT use_NN of_IN a_DT priori_NN beamforming_VVG regularization_NN matrix_NN and_CC a_DT matrix_NN function_NN to_TO redefine_VV the_DT inverse_JJ problem_NN ,_, is_VBZ combined_VVN with_IN the_DT advantages_NNS of_IN both_DT generalized_VVN inverse_NN beamforming_VVG (_( GIB_NN )_) and_CC functional_JJ beamforming_NN ._SENT 
+Compared_VVN with_IN GIB_NN ,_, with_IN reduced_VVN iterations_NNS ,_, the_DT computational_JJ efficiency_NN of_IN FGIB_NP is_VBZ greatly_RB improved_VVN ._SENT 
+The_DT dynamic_JJ range_NN of_IN the_DT proposed_VVN method_NN can_MD be_VB modestly_RB improved_VVN as_IN order_NN v_NN increases_NNS ._SENT 
+Furthermore_RB ,_, the_DT sidelobes_NNS gradually_RB disappear_VVP and_CC the_DT mainlobes_NNS become_VVP narrower_JJR ._SENT 
+Both_DT simulations_NNS and_CC experiments_NNS have_VHP shown_VVN that_IN the_DT sources_NNS are_VBP correctly_RB located_VVN and_CC separated_VVN ._SENT 
+The_DT proposed_VVN FGIB_NN demonstrates_VVZ the_DT good_JJ performance_NN when_WRB compared_VVN to_TO other_JJ beamforming_VVG methods_NNS in_IN terms_NNS of_IN resolution_NN and_CC sidelobes_NNS level_NN ._SENT 
+Keywords_NNS :_: Acoustic_JJ emission_NN ,_, Active_JJ vibration_NN ,_, Noise_NN control_NN ,_, Sensors_NNS and_CC actuators_NNS ,_, Noise_NN control_NN <Section> 1._CD Introduction_NN </Section> Noise_NN source_NN identification_NN by_IN source_NN map_NN imaging_NN using_VVG microphone_NN arrays_NNS has_VHZ much_JJ attention_NN in_IN the_DT recent_JJ years_NNS ._SENT 
+One_CD of_IN the_DT methods_NNS is_VBZ the_DT near-field_JJ acoustic_JJ holography_NN (_( NAH_NP )_) based_VVN on_IN the_DT microphone_NN array_NN ._SENT 
+Another_DT method_NN is_VBZ the_DT beamforming_NN ,_, which_WDT has_VHZ been_VBN used_VVN to_TO identify_VV noise_NN sources_NNS for_IN various_JJ applications_NNS ._SENT 
+Unlike_IN NAH_NP ,_, beamforming_NP can_MD provide_VV high-resolution_NN source_NN maps_NNS at_IN high_JJ frequency_NN ._SENT 
+It_PP only_RB requires_VVZ relatively_RB few_JJ microphones_NNS and_CC can_MD be_VB used_VVN to_TO identify_VV the_DT sound_JJ source_NN at_IN medium_NN or_CC long_JJ distance_NN ._SENT 
+The_DT main_JJ problem_NN of_IN the_DT conventional_JJ frequency_NN domain_NN beamforming_NP (_( FDBF_NP )_) is_VBZ its_PP$ poor_JJ resolution_NN which_WDT depends_VVZ on_IN the_DT size_NN of_IN the_DT microphone_NN array_NN ._SENT 
+To_TO overcome_VV this_DT issue_NN ,_, an_DT adaptive_JJ beamforming_NN has_VHZ been_VBN developed_VVN for_IN sound_JJ source_NN location_NN in_IN the_DT past_JJ years_NNS ._SENT 
+Compared_VVN with_IN FDBF_NP ,_, this_DT method_NN has_VHZ better_JJR resolution_NN and_CC interference_NN rejection_NN capability_NN ._SENT 
+However_RB ,_, the_DT adaptive_JJ beamforming_NN is_VBZ sensitive_JJ to_TO measurement_NN noise_NN and_CC other_JJ signal_NN errors_NNS ._SENT 
+Thus_RB ,_, an_DT intermediate_JJ method_NN between_IN FDBF_NP and_CC the_DT adaptive_JJ beamforming_NN ,_, called_VVD statistically_RB optimal_JJ array_NN processing_NN (_( SOAP_NN )_) ,_, is_VBZ proposed_VVN by_IN Pascal_NP ._SENT 
+The_DT adaptive_JJ beamforming_NN optimizes_VVZ statistically_RB the_DT beamforming_JJ processing_NN at_IN a_DT focusing_VVG source_NN plane_NN without_IN being_VBG dependent_JJ of_IN measured_JJ data_NNS ._SENT 
+A_DT further_JJR development_NN of_IN beamforming_NP is_VBZ DAMAS_NP ,_, which_WDT uses_VVZ deconvolution_NN techniques_NNS to_TO decline_VV accumulation_NN of_IN error_NN between_IN the_DT “_JJ true_JJ ”_JJ source_NN distribution_NN and_CC classical_JJ beamforming_VVG source_NN distribution_NN ._SENT 
+It_PP can_MD effectively_RB minimize_VV sidelobes_NNS level_NN or_CC mainlobe_NN beam_NN width_NN ._SENT 
+Another_DT strategy_NN is_VBZ adopted_VVN in_IN CLEAN-SC_NP ._SENT 
+It_PP is_VBZ an_DT alternative_JJ method_NN based_VVN on_IN the_DT coherent_JJ sources_NNS and_CC conventional_JJ CLEAN_JJ ._SENT 
+Compared_VVN with_IN other_JJ deconvolution_NN methods_NNS ,_, the_DT clearer_JJR maps_NNS can_MD be_VB obtained_VVN ,_, because_IN CLEAN-SC_NP does_VVZ not_RB assume_VV a_DT theoretical_JJ point_NN spread_NN function_NN ._SENT 
+Recently_RB ,_, a_DT new_JJ method_NN ,_, often_RB called_VVN L1_JJ GIB_NN which_WDT takes_VVZ into_IN account_NN spatially_RB distributed_VVN source_NN regions_NNS and_CC coherent_JJ higher-order_NN sources_NNS ,_, is_VBZ introduced_VVN ._SENT 
+By_IN predefining_VVG the_DT sound_JJ sources_NNS which_WDT are_VBP distributed_VVN over_IN a_DT presupposed_VVN plane_NN grid_NN ,_, the_DT source_NN distribution_NN of_IN GIB_NN can_MD be_VB iteratively_RB solved_VVN using_VVG “_NN generalized_VVD inverse_JJ ”_JJ techniques_NNS ._SENT 
+The_DT resolution_NN of_IN GIB_NN can_MD be_VB improved_VVN by_IN redefining_VVG the_DT source-location_NN problem_NN to_TO be_VB a_DT minimization_NN of_IN an_DT Lp_JJ cost_NN function_NN ._SENT 
+So_RB ,_, it_PP can_MD ensure_VV that_IN the_DT source_NN distribution_NN is_VBZ sparse_JJ and_CC the_DT source_NN field_NN can_MD be_VB accurately_RB reconstructed_VVN ._SENT 
+All_PDT the_DT methods_NNS above_RB can_MD be_VB used_VVN in_IN practical_JJ applications_NNS ._SENT 
+Selection_NN of_IN beamforming_VVG methods_NNS depends_VVZ on_IN the_DT application_NN and_CC what_WP acoustic_JJ results_NNS are_VBP required_VVN for_IN output_NN ._SENT 
+In_IN the_DT application_NN of_IN a_DT planar_JJ array-based_JJ measurement_NN technique_NN for_IN sound_JJ source_NN location_NN ,_, the_DT source_NN distribution_NN may_MD be_VB interfered_VVN by_IN perturbation_NN sources_NNS propagating_VVG from_IN behind_IN the_DT microphone_NN array_NN ._SENT 
+When_WRB focusing_VVG on_IN the_DT point_NN in_IN front_NN of_IN the_DT array_NN ,_, it_PP is_VBZ difficult_JJ to_TO distinguish_VV sources_NNS located_VVN on_IN both_DT sides_NNS of_IN the_DT array_NN and_CC the_DT source_NN maps_NNS may_MD be_VB less_RBR clear_JJ ._SENT 
+To_TO solve_VV this_DT problem_NN ,_, a_DT double-layer_NP microphone_NN array_NN applied_VVN in_IN beamforming_NP is_VBZ studied_VVN in_IN this_DT paper_NN ._SENT 
+Also_RB ,_, a_DT new_JJ inverse_NN beamforming_VVG method_NN called_VVD FGIB_NP is_VBZ introduced_VVN and_CC it_PP is_VBZ well_RB suited_VVN to_TO this_DT application_NN ._SENT 
+Combined_VVN with_IN the_DT advantages_NNS of_IN GIB_NN and_CC functional_JJ beamforming_NN ,_, FGIB_NP is_VBZ capable_JJ of_IN identifying_VVG the_DT sound_JJ source_NN with_IN high-resolution_NN and_CC reasonable_JJ computational_JJ cost_NN ._SENT 
+It_PP also_RB can_MD improve_VV source_NN resolution_NN accuracy_NN for_IN measurements_NNS and_CC enable_VV very_RB precise_JJ positioning_NN ._SENT 
+Compared_VVN with_IN GIB_NN and_CC DAMAS_NP ,_, with_IN a_DT few_JJ numbers_NNS of_IN iterations_NNS ,_, FGIB_VVP not_RB only_RB detects_VVZ the_DT source_NN position_NN accurately_RB but_CC also_RB improves_VVZ the_DT effectiveness_NN when_WRB focusing_VVG on_IN the_DT source_NN plane_NN with_IN a_DT reasonable_JJ size_NN ._SENT 
+Instead_RB of_IN using_VVG a_DT simple_JJ source_NN pressure_NN vector_NN as_IN the_DT input_NN variable_NN ,_, the_DT dynamic_JJ ranges_NNS of_IN FGIB_NN also_RB can_MD be_VB remarkably_RB increased_VVN by_IN introducing_VVG a_DT matrix_NN function_NN of_IN order_NN v_NN relating_VVG to_TO the_DT cross_NN spectral_NN matrix_NN (_( CSM_NN )_) and_CC functional_JJ beamforming_NN ._SENT 
+The_DT contribution_NN of_IN this_DT study_NN is_VBZ to_TO develop_VV a_DT new_JJ inverse_NN method_NN called_VVD FGIB_NN based_VVN on_IN the_DT double-layer_NP microphone_NN array_NN ._SENT 
+When_WRB the_DT major_JJ source_NN is_VBZ interfered_VVN by_IN the_DT perturbation_NN sources_NNS propagating_VVG from_IN behind_IN the_DT microphone_NN array_NN ,_, application_NN of_IN a_DT double-layer_NP microphone_NN array_NN has_VHZ advantages_NNS of_IN separating_VVG the_DT front/back_NN contributions_NNS ._SENT 
+A_DT combined_JJ method_NN of_IN FGIB_NP and_CC double-layer_NP microphone_NN array_NN can_MD greatly_RB improve_VV the_DT source_NN resolution_NN when_WRB testing_VVG under_IN nonideal_JJ acoustic_JJ conditions_NNS ._SENT 
+To_TO make_VV the_DT main_JJ process_NN easier_JJR to_TO be_VB understood_VVN ,_, the_DT principle_NN of_IN GIB_NN is_VBZ presented_VVN in_IN The_DT FGIB_NP Algorithm_NN section_NN ._SENT 
+The_DT FGIB_NP Algorithm_NN section_NN of_IN this_DT paper_NN also_RB explains_VVZ the_DT basic_JJ theory_NN of_IN the_DT acquirement_NN of_IN normal_JJ particle_NN velocity_NN and_CC the_DT source_NN pressure_NN estimated_VVN by_IN FGIB_NP ._SENT 
+Then_RB ,_, it_PP is_VBZ shown_VVN that_IN complementary_JJ algorithms_NNS can_MD be_VB used_VVN to_TO separate_VV and_CC remove_VV the_DT sources_NNS behind_IN the_DT double-layer_NP microphone_NN array_NN plane_NN ._SENT 
+To_TO demonstrate_VV the_DT capabilities_NNS of_IN FGIB_NN based_VVN on_IN the_DT double-layer_NP microphone_NN array_NN ,_, some_DT simulations_NNS and_CC experiments_NNS are_VBP presented_VVN in_IN the_DT Simulated_JJ Measurements_NNS and_CC Experimental_JJ Validation_NN sections_NNS ._SENT 
+<Section> 2._CD The_DT FGIB_NN Algorithm_NN </Section> The_DT FGIB_NN method_NN based_VVN on_IN a_DT double-layer_NP microphone_NN array_NN combines_VVZ GIB_NN and_CC functional_JJ beamforming_NN ._SENT 
+We_PP will_MD review_VV the_DT equations_NNS used_VVN in_IN both_DT cases_NNS ,_, starting_VVG with_IN the_DT direct_JJ formulation_NN ._SENT 
+GIB_NN Similar_JJ to_TO conventional_JJ frequency_NN beamforming_VVG ,_, we_PP can_MD define_VV the_DT target_NN source_NN domain_NN which_WDT has_VHZ N_NP acoustic_JJ monopole_NN sources_NNS in_IN the_DT focusing_VVG plane_NN ._SENT 
+Assumed_VVD that_IN the_DT source_NN signal_NN can_MD be_VB captured_VVN by_IN an_DT array_NN of_IN M_NP microphones_NNS ,_, the_DT relationship_NN between_IN the_DT target_NN source_NN domain_NN and_CC microphone_NN array_NN can_MD be_VB expressed_VVN by_IN @（1）_NP where_WRB O_NP =_SYM [_SYM h1_JJ ,_, …_JJ ,_, ht_RB ,_, …_NP ,_, hN_NP ]_SYM is_VBZ the_DT Green_NP function_NN between_IN the_DT sources_NNS and_CC microphones_NNS ,_, and_CC ht_RB is_VBZ the_DT transfer_NN function_NN vector_NN whose_WP$ elements_NNS can_MD be_VB written_VVN as_IN hm_NP ,_, t=e-jkRm_NP ,_, t/Rm_NP ,_, t⁠_NP ._SENT 
+The_DT vector_NN q_NN is_VBZ the_DT source_NN amplitude_NN distribution_NN ,_, and_CC p_NN stands_NNS for_IN the_DT output_NN of_IN the_DT array_NN ._SENT 
+For_IN the_DT case_NN of_IN a_DT double-layer_NP microphone_NN array_NN ,_, the_DT vector_NN p_NN can_MD be_VB estimated_VVN by_IN @（2）_NN The_DT terms_NNS p1_JJ and_CC p2_JJ represent_VVP the_DT measured_VVN pressure_NN at_IN each_DT layer_NN of_IN the_DT double-layer_NP microphone_NN array_NN ._SENT 
+To_TO increase_VV the_DT resolution_NN of_IN the_DT generalized_VVN inverse_NN approach_NN ,_, we_PP redefine_VV the_DT source-detection_NN problem_NN of_IN Eq_NP ._SENT 
+(_( 1_CD )_) to_TO be_VB a_DT minimization_NN of_IN a_DT weighted_JJ least_JJS squares_NNS function_VVP ._SENT 
+@（3）_NN where_WRB L_NP is_VBZ a_DT beamforming_VVG regularization_NN square_JJ matrix_NN ._SENT 
+The_DT influence_NN and_CC estimate_NN of_IN L_NP are_VBP discussed_VVN in_IN the_DT following_VVG section_NN ,_, Beamforming_VVG Regularization_NN Matrix_NN L._NP In_IN most_JJS measurements_NNS ,_, the_DT microphones_NNS and_CC data-acquisition_NN channels_NNS are_VBP limited_VVN ._SENT 
+Thus_RB ,_, we_PP only_RB consider_VVP the_DT problem_NN of_IN Eq_NP ._SENT 
+(_( 3_CD )_) for_IN an_DT underdetermined_JJ problem_NN ._SENT 
+Eventually_RB ,_, the_DT optimal_JJ solution_NN of_IN this_DT underdetermined_JJ problem_NN can_MD be_VB iteratively_RB solved_VVN by_IN using_VVG a_DT generalized_VVN inverse_JJ technique_NN @（4）_NN where_WRB A_NP =_SYM OL(n_NP )_) and_CC α_NP =_SYM (_( AAH_NP +_SYM βIM)−1_JJ are_VBP the_DT matrices_NNS which_WDT contain_VVP sound_JJ field_NN information_NN ._SENT 
+The_DT regularization_NN parameter_NN β_NN is_VBZ just_RB chosen_VVN to_TO be_VB 0.1–10_JJ %_NN of_IN the_DT greatest_JJS eigenvalue_NN of_IN AAH_NP ._SENT 
+q(n+1_NN )_) can_MD be_VB seen_VVN as_IN a_DT solution_NN of_IN regularized_VVN inverse_JJ problem_NN and_CC the_DT general_JJ form_NN q(n+1_NN )_) is_VBZ regularized_VVN ._SENT 
+With_IN a_DT simplified_VVN G_NP =_SYM L(n+1)A_NP =_SYM [_SYM g1_JJ ,_, …_NP ,_, gt_NP ,_, …_NP ,_, gN_NN ]_SYM ,_, at_IN the_DT focalization_NN point_NN t_NN of_IN the_DT source_NN domain_NN ,_, the_DT output_NN results_NNS with_IN normalization_NN constraint_NN can_MD be_VB written_VVN as_IN @（5）_NP To_TO simplify_VV the_DT analysis_NN of_IN the_DT inverse_JJ problem_NN ,_, the_DT general_JJ form_NN of_IN Eq_NP ._SENT 
+(_( 5_CD )_) can_MD be_VB transformed_VVN to_TO the_DT following_VVG form_NN :_: @（6）_NN where_WRB W_NP =_SYM [_SYM w1_JJ ,_, …_NP ,_, wt_NP ,_, …_NP ,_, wN_NNS ]_SYM represents_VVZ the_DT weight_NN matrix_NN which_WDT is_VBZ similar_JJ to_TO the_DT steering_VVG vector_NN in_IN the_DT conventional_JJ frequency_NN beamforming_NN ._SENT 
+Here_RB ,_, Q_NP =_SYM [_SYM Q1_JJ ,_, …_NP ,_, Qt_NP ,_, …_NP ,_, QN_NP ]_SYM is_VBZ the_DT output_NN vector_NN of_IN the_DT improved_VVN GIB_NN with_IN the_DT normalization_NN constraint_NN ._SENT 
+<Section> 3._CD Beamforming_JJ Regularization_NN Matrix_NN L_NP </Section> To_TO solve_VV the_DT source_NN distribution_NN in_IN Eq_NP ._SENT 
+(_( 1_CD )_) ,_, we_PP often_RB add_VVP an_DT artificial_JJ diagonal_JJ part_NN to_TO the_DT Green_NP function_NN product_NN AAH_NN by_IN the_DT traditional_JJ Tikhonov_NP regularization_NN ._SENT 
+However_RB ,_, the_DT traditional_JJ Tikhonov_NP regularization_NN does_VVZ not_RB take_VV into_IN account_NN any_DT information_NN about_IN sound_JJ sources_NNS ._SENT 
+In_IN order_NN to_TO obtain_VV a_DT better_JJR regularization_NN ,_, we_PP introduce_VV a_DT beamforming_JJ regularization_NN matrix_NN L_NP in_IN relation_NN to_TO the_DT solution_NN of_IN Eq_NP ._SENT 
+(_( 6_CD )_) @（7）_NP where_WRB |_SYM ⋅_NP |_SYM denotes_VVZ the_DT absolute_JJ value_NN of_IN the_DT vector_NN ,_, and_CC ∥_NP ⋅_NP ∥∞_NP is_VBZ the_DT infinite_JJ norm_NN ._SENT 
+The_DT key_JJ idea_NN of_IN Eq_NP ._SENT 
+(_( 7_CD )_) is_VBZ to_TO reconstructive_JJ a_DT beamforming_JJ regularization_NN matrix_NN depending_VVG on_IN the_DT output_NN results_NNS ._SENT 
+Instead_RB of_IN the_DT identity_NN matrix_NN which_WDT blindly_RB penalizes_VVZ the_DT sources_NNS ,_, the_DT beamforming_JJ regularization_NN matrix_NN also_RB considers_VVZ a_DT priori_NN information_NN about_IN the_DT source_NN size_NN and_CC strength_NN ._SENT 
+So_RB ,_, the_DT beamforming_JJ output_NN can_MD be_VB focused_VVN on_IN the_DT real_JJ source_NN and_CC it_PP can_MD provide_VV good_JJ performance_NN in_IN terms_NNS of_IN source_NN resolution_NN accuracy_NN ._SENT 
+<Section> 4._CD GIB_NN From_IN Particle_NN Velocity_NN Measurements_NNS </Section> To_TO distinguish_VV sources_NNS located_VVN on_IN both_DT sides_NNS of_IN the_DT microphone_NN array_NN ,_, the_DT sound_JJ power_NN results_NNS can_MD be_VB estimated_VVN by_IN using_VVG the_DT postprocessing_VVG results_NNS of_IN the_DT normalized_VVN particle_NN velocity_NN and_CC sound_JJ pressure_NN ._SENT 
+Because_IN a_DT double-layer_NP microphone_NN array_NN is_VBZ used_VVN in_IN this_DT paper_NN ,_, the_DT normalized_VVN particle_NN velocity_NN can_MD be_VB dealt_VVN with_IN by_IN the_DT improved_VVN GIB_NN method_NN and_CC finite-difference_NN approximation_NN ._SENT 
+If_IN the_DT sound_JJ pressures_NNS are_VBP measured_VVN by_IN the_DT double-layer_NP microphone_NN array_NN ,_, the_DT normal_JJ particle_NN velocity_NN u_NN can_MD be_VB estimated_VVN by_IN the_DT differential_JJ algorithm_NN ._SENT 
+Then_RB ,_, the_DT vector_NN p_NN in_IN Eq_NP ._SENT 
+(_( 1_CD )_) is_VBZ substituted_VVN by_IN the_DT vector_NN u_NN which_WDT is_VBZ the_DT normal_JJ component_NN of_IN the_DT particle_NN velocity_NN ._SENT 
+For_IN the_DT case_NN of_IN a_DT double-layer_NP microphone_NN array_NN ,_, the_DT normal_JJ particle_NN velocity_NN u_NN can_MD be_VB estimated_VVN by_IN @（8）_NN After_IN correcting_VVG the_DT errors_NNS due_JJ to_TO the_DT finite-difference_NN approximation_NN ,_, the_DT amplitude_NN of_IN the_DT source_NN can_MD be_VB estimated_VVN by_IN using_VVG the_DT vector_NN ht_NN whose_WP$ elements_NNS are_VBP given_VVN by_IN @（9）_NP where_WRB θm_NP ,_, t_NN is_VBZ the_DT angle_NN formed_VVN by_IN the_DT direction_NN of_IN focusing_VVG point_NN and_CC the_DT normal_JJ direction_NN of_IN the_DT microphone_NN array_NN ._SENT 
+Δ_NP is_VBZ the_DT distance_NN between_IN two_CD layers_NNS ._SENT 
+Rm_NP ,_, t_NN is_VBZ the_DT distance_NN between_IN the_DT source_NN s_NN and_CC the_DT microphone_NN m._NN By_IN substituting_VVG p_NN for_IN u_NN (_( Eq_NP ._SENT 
+(_( 8_CD )_) )_) and_CC taking_VVG the_DT expression_NN ht_NN (_( Eq_NP ._SENT 
+(_( 9_CD )_) )_) into_IN account_NN ,_, the_DT source_NN amplitude_NN Qu_NP can_MD be_VB obtained_VVN by_IN Eq_NP ._SENT 
+(_( 6_CD )_) @（10）_NN As_IN it_PP is_VBZ used_VVN in_IN SOAP_NN ,_, the_DT amplitude_NN Qu_NP can_MD be_VB applied_VVN to_TO identify_VV the_DT source_NN ._SENT 
+Although_IN the_DT results_NNS of_IN Eq_NP ._SENT 
+(_( 10_CD )_) would_MD cause_VV an_DT unexpected_JJ noise_NN source_NN distribution_NN ,_, the_DT output_NN vector_NN Qu_NP has_VHZ an_DT added_JJ advantage_NN of_IN reconstructing_VVG the_DT power_NN distribution_NN of_IN the_DT sound_JJ sources_NNS ._SENT 
+<Section> 5._CD FGIB_NN From_IN the_DT Pressure_NN Measurements_NNS </Section> The_DT output_NN vectors_VVZ of_IN GIB_NN described_VVN by_IN Eqs_NP ._SENT 
+(_( 6_CD )_) and_CC (_( 10_CD )_) are_VBP able_JJ to_TO separate_VV the_DT sources_NNS which_WDT are_VBP on_IN both_DT sides_NNS of_IN the_DT double-layer_NN microphones_NNS plane_NN ._SENT 
+However_RB ,_, the_DT dynamic_JJ range_NN and_CC resolution_NN of_IN the_DT output_NN vectors_NNS used_VVN for_IN this_DT estimation_NN are_VBP limited_VVN by_IN the_DT array_NN size_NN and_CC source_NN frequency_NN ._SENT 
+Hence_RB ,_, similar_JJ to_TO the_DT conventional_JJ frequency_NN beamforming_VVG with_IN CSM_NN ,_, we_PP reformulate_VVP the_DT solution_NN of_IN GIB_NN (_( Eq_NP ._SENT 
+(_( 5_CD )_) )_) ._SENT 
+Based_VVN on_IN the_DT CSM_NN of_IN the_DT sound_JJ pressure_NN ,_, the_DT results_NNS of_IN Eq_NP ._SENT 
+(_( 5_CD )_) can_MD be_VB redefined_VVN as_RB follows_VVZ :_: @（11）_NN The_DT vector_NN Bt_NN represents_VVZ the_DT beamforming_JJ output_NN when_WRB focusing_VVG on_IN the_DT source_NN t_NN in_IN the_DT source_NN plane_NN ._SENT 
+Here_RB ,_, C_NP denotes_VVZ the_DT CSM_NN of_IN the_DT sound_JJ pressure_NN p._NN Since_IN the_DT CSM_NN C_NP is_VBZ non-negative_JJ defined_VVN and_CC Hermitian_JJ ,_, it_PP can_MD be_VB decomposed_VVN as_IN the_DT following_VVG form_NN :_: @（12）_NN where_WRB U_NP is_VBZ a_DT unitary_JJ matrix_NN ,_, whose_WP$ columns_NNS are_VBP the_DT eigenvectors_NNS of_IN C._NP Σ_NP is_VBZ a_DT diagonal_JJ matrix_NN whose_WP$ diagonal_JJ elements_NNS are_VBP the_DT corresponding_JJ eigenvalue_NN ._SENT 
+Then_RB ,_, a_DT matrix_NN function_NN of_IN C_NP can_MD be_VB defined_VVN by_IN @（13）_NP Let_VVD the_DT matrix_NN function_NN f_SYM =_SYM t1/v_NP ,_, then_RB the_DT 1/v_NP power_NN of_IN the_DT C_NP becomes_VVZ @（14）_JJ Considering_VVG that_IN Eq_NP ._SENT 
+(_( 14_CD )_) is_VBZ enough_RB similar_JJ to_TO the_DT CSM_NN of_IN conventional_JJ frequency_NN beamforming_NN and_CC functional_JJ beamforming_VVG ,_, we_PP suggest_VVP a_DT beamforming_JJ output_NN Qp_NN related_VVN to_TO 1/v_NP power_NN of_IN C_NP and_CC the_DT output_NN of_IN GIB_NN (_( Eqs_NP ._SENT 
+(_( 5_CD )_) and_CC (_( 6_CD )_) )_) ._SENT 
+Then_RB ,_, we_PP express_VVP the_DT component_NN of_IN Qp_NN at_IN the_DT source_NN t_NN in_IN the_DT source_NN area_NN of_IN interest_NN as_RB follows_VVZ :_: @（15）_NP This_NP is_VBZ the_DT FGIB_NN of_IN order_NN v_NN based_VVN on_IN the_DT pressure_NN measurements_NNS ._SENT 
+The_DT order_NN v_NN must_MD be_VB kept_VVN within_IN a_DT reasonable_JJ interval_NN ,_, and_CC typical_JJ values_NNS of_IN order_NN v_NN are_VBP in_IN the_DT range_NN of_IN 1–20_NP ._SENT 
+Applying_VVG FGIB_NN of_IN order_NN v_NN ,_, the_DT average_JJ sidelobes_NP level_NN would_MD be_VB effectively_RB minimizing_VVG by_IN taking_VVG the_DT action_NN of_IN the_DT exponent_NN on_IN the_DT sidelobes_NNS ._SENT 
+So_RB ,_, the_DT sidelobes_NNS would_MD be_VB suppressed_VVN rapidly_RB and_CC the_DT energy_NN of_IN beamforming_VVG output_NN can_MD be_VB concentrated_VVN on_IN the_DT main_JJ lobe_NN ._SENT 
+However_RB ,_, because_IN of_IN the_DT measurement_NN errors_NNS ,_, there_EX is_VBZ a_DT difference_NN between_IN the_DT computed_VVN transfer_NN function_NN vector_NN and_CC actual_JJ transfer_NN function_NN vector_NN when_WRB focusing_VVG on_IN the_DT real_JJ sound_NN source_NN ._SENT 
+The_DT difference_NN in_IN the_DT transfer_NN function_NN vector_NN would_MD increase_VV rapidly_RB with_IN a_DT large_JJ order_NN v._CC So_RB applying_VVG FGIB_NN of_IN order_NN v_NN ,_, the_DT beamforming_JJ output_NN peak_NN values_NNS of_IN Eq_NP ._SENT 
+(_( 15_CD )_) may_MD be_VB smaller_JJR than_IN the_DT true_JJ values_NNS ._SENT 
+Hence_RB ,_, in_IN order_NN to_TO guarantee_VV the_DT true_JJ estimation_NN of_IN the_DT source_NN maps_NNS ,_, it_PP is_VBZ necessary_JJ to_TO modify_VV the_DT output_NN results_NNS of_IN Qp_NN according_VVG to_TO the_DT output_NN of_IN the_DT GIB_NN (_( Eq_NP ._SENT 
+(_( 6_CD )_) )_) ._SENT 
+Actually_RB ,_, the_DT final_JJ improved_VVN result_NN of_IN Qp_NN is_VBZ as_RB follows_VVZ :_: @（16）_NN Similar_JJ to_TO the_DT GIB_NN output_NN Eq_NP ._SENT 
+(_( 6_CD )_) ,_, the_DT FGIB_NP output_NN Qp_NN can_MD also_RB be_VB applied_VVN to_TO identify_VV the_DT source_NN ._SENT 
+However_RB ,_, since_IN the_DT FGIB_NP output_NN Qp_NN has_VHZ been_VBN applied_VVN with_IN the_DT order_NN v_NN ,_, the_DT source_NN resolution_NN is_VBZ improved_VVN and_CC dynamic_JJ range_NN can_MD be_VB continuously_RB increased_VVN ._SENT 
+So_RB ,_, the_DT proposed_VVN output_NN Qp_NN based_VVN on_IN the_DT double-layer_NP microphone_NN array_NN is_VBZ generally_RB better_JJR to_TO separate_VV the_DT front/back_JJ source_NN signals_NNS ._SENT 
+<Section> 6._CD Identification_NN and_CC Separation_NN of_IN Source_NN Power_NN Distribution_NN on_IN Each_DT Side_NN of_IN the_DT Array_NN </Section> The_DT amplitude_NN of_IN Qp_NN is_VBZ given_VVN by_IN Eq_NP ._SENT 
+(_( 15_CD )_) when_WRB the_DT pressure_NN is_VBZ measured_VVN by_IN the_DT microphone_NN array_NN ._SENT 
+The_DT amplitude_NN of_IN Qu_NP can_MD be_VB estimated_VVN by_IN Eq_NP ._SENT 
+(_( 10_CD )_) when_WRB using_VVG approximated_VVN value_NN u._NN Then_RB ,_, the_DT power_NN of_IN the_DT corresponding_JJ source_NN is_VBZ @（17）_JJ According_VVG to_TO Refs_NNS ._SENT 
+[_SYM 10_CD ]_SYM and_CC [_SYM 11_CD ]_SYM ,_, an_DT estimator_NN ,_, which_WDT combines_VVZ the_DT above_JJ two_CD equations_NNS into_IN a_DT single_JJ output_NN ,_, is_VBZ obtained_VVN by_IN the_DT following_VVG equation_NN :_: @（18）_JJ Equation_NN (_( 18_CD )_) is_VBZ similar_JJ to_TO the_DT acoustic_JJ intensity_NN and_CC reflects_VVZ the_DT energy_NN distribution_NN of_IN the_DT sound_JJ sources_NNS ._SENT 
+The_DT source_NN position_NN cannot_MD be_VB distinguished_VVN by_IN Sp_NP and_CC Su_NP ,_, whereas_IN the_DT sources_NNS on_IN each_DT side_NN of_IN the_DT double-layer_NP microphone_NN array_NN are_VBP well_RB detected_VVN by_IN the_DT results_NNS of_IN SI_NP ._SENT 
+The_DT values_NNS of_IN SI_NP correspond_VV to_TO the_DT resultant_JJ contribution_NN of_IN the_DT sources_NNS propagating_VVG from_IN back/front_NN of_IN the_DT array_NN ._SENT 
+To_TO separate_VV and_CC identify_VV the_DT sources_NNS ,_, another_DT formula_NN can_MD be_VB defined_VVN as_IN the_DT estimation_NN of_IN the_DT source_NN distribution_NN on_IN each_DT side_NN of_IN the_DT double-layer_NP microphone_NN array_NN ._SENT 
+If_IN two_CD sources_NNS with_IN the_DT identical_JJ amplitude_NN are_VBP symmetrically_RB placed_VVN on_IN both_DT sides_NNS of_IN the_DT double-layer_NP microphone_NN array_NN ,_, we_PP can_MD obtain_VV two_CD following_VVG power_NN estimators_NNS :_: @（19）_JJ With_IN the_DT output_NN results_NNS of_IN the_DT FGIB_NN described_VVN by_IN Eqs_NP ._SENT 
+(_( 10_CD )_) and_CC (_( 16_CD )_) ,_, an_DT estimator_NN which_WDT contains_VVZ information_NN about_IN the_DT particle_NN velocity_NN and_CC sound_JJ source_NN pressure_NN is_VBZ obtained_VVN by_IN Eq_NP ._SENT 
+(_( 18_CD )_) ._SENT 
+Then_RB ,_, it_PP is_VBZ possible_JJ to_TO distinguish_VV the_DT sources_NNS which_WDT are_VBP on_IN both_DT sides_NNS of_IN the_DT double-layer_NP microphone_NN planes_NNS ._SENT 
+The_DT source_NN positions_NNS can_MD be_VB located_VVN by_IN identifying_VVG the_DT peak_NN of_IN the_DT source_NN maps_NNS ._SENT 
+Eventually_RB ,_, assume_VVP that_IN the_DT source_NN model_NN consists_VVZ of_IN two_CD sources_NNS with_IN the_DT identical_JJ amplitude_NN ,_, we_PP can_MD separate_VV the_DT sources_NNS by_IN the_DT results_NNS of_IN Eq_NP ._SENT 
+(_( 19_CD )_) ._SENT 
+<Section> 7._CD Simulated_JJ Measurements_NNS </Section> Fig_VVP ._SENT 
+1_CD Geometry_NN used_VVN in_IN simulated_JJ measurements_NNS on_IN monopole_NN point_NN sources_NNS ._SENT 
+To_TO demonstrate_VV the_DT capabilities_NNS of_IN FGIB_NN based_VVN on_IN the_DT double-layer_NP microphone_NN array_NN ,_, several_JJ simulated_JJ examples_NNS are_VBP given_VVN to_TO show_VV the_DT performance_NN in_IN separating_VVG the_DT sources_NNS located_VVN on_IN both_DT sides_NNS of_IN the_DT microphone_NN array_NN ._SENT 
+In_IN simulation_NN ,_, the_DT double-layer_NP microphone_NN array_NN is_VBZ selected_VVN with_IN 72_CD microphones_NNS and_CC 3_CD cm_NN space_NN between_IN two_CD layers_NNS ._SENT 
+It_PP consists_VVZ of_IN two_CD parallel_JJ layers_NNS with_IN 6_CD ×_NN 6_CD microphones_NNS in_IN each_DT layer_NN and_CC 10_CD cm_NN microphone_NN pitches_VVZ (_( Fig_NN ._SENT 
+1_LS )_) ._SENT 
+Two_CD incoherent_JJ sources_NNS which_WDT are_VBP symmetrically_RB arranged_VVN on_IN both_DT sides_NNS of_IN the_DT microphone_NN array_NN are_VBP considered_VVN ,_, being_VBG located_VVN at_IN (_( −0.25_NP ,_, 0.25_CD ,_, 0.5_CD )_) m_NN and_CC (_( 0.25_CD ,_, −0.25_NP ,_, −0.5_NP )_) m._NP The_DT distance_NN between_IN the_DT source_NN and_CC double-layer_NN microphone_NN array_NN is_VBZ 0.5_CD m._NN The_DT reconstruction_NN source_NN plane_NN only_RB extends_VVZ a_DT 1_CD m_NN ×_JJ 1_CD m_NN scanning_VVG area_NN with_IN a_DT grid_NN interval_NN of_IN 2_CD cm_NN ._SENT 
+In_IN the_DT simulated_JJ measurement_NN ,_, the_DT regularization_NN parameters_NNS of_IN SOAP_NN and_CC FGIB_NN are_VBP chosen_VVN to_TO be_VB 1_CD %_NN of_IN the_DT greatest_JJS eigenvalue_NN of_IN AAH_NP ._SENT 
+An_DT additive_JJ white_JJ Gaussian_JJ noise_NN is_VBZ added_VVN to_TO the_DT signal_NN channel_NN and_CC it_PP has_VHZ a_DT signal-to-noise_NN ratio_NN (_( SNR_NP )_) of_IN 15_CD dB_NN ._SENT 
+All_PDT the_DT data_NNS presented_VVN are_VBP measured_VVN by_IN a_DT double-layer_NP microphone_NN array_NN (_( Fig_NN ._SENT 
+1_LS )_) ._SENT 
+One_CD microphone_NN is_VBZ used_VVN as_IN a_DT reference_NN ,_, and_CC variations_NNS of_IN the_DT sound_JJ source_NN can_MD be_VB assessed_VVN by_IN other_JJ microphones_NNS ._SENT 
+Average_JJ method_NN is_VBZ taken_VVN to_TO ensure_VV good_JJ coherence_NN between_IN the_DT reference_NN and_CC other_JJ microphones_NNS ._SENT 
+Then_RB ,_, a_DT good_JJ estimate_NN of_IN the_DT sources_NNS can_MD be_VB obtained_VVN by_IN use_NN of_IN Eq_NP ._SENT 
+(_( 18_CD )_) ._SENT 
+Fig_NN ._SENT 
+2_LS The_DT numerical_JJ results_NNS of_IN two_CD monopole_NN sources_NNS at_IN 1_CD kHz_NN :_: (_( a_DT )_) SOAP_NN ,_, (_( b_LS )_) FGIB_NN with_IN v_NN =_SYM 1_LS ,_, (_( c_LS )_) FGIB_NN with_IN v_NN =_SYM 5_CD ,_, and_CC (_( d_LS )_) FGIB_NN with_IN v_NN =_SYM 10._CD Figure_NN 2_CD shows_NNS the_DT source_NN maps_NNS estimated_VVN by_IN Eq_NP ._SENT 
+(_( 18_CD )_) ._SENT 
+The_DT negative_JJ values_NNS are_VBP attributed_VVN by_IN the_DT source_NN behind_IN the_DT microphone_NN array_NN ,_, and_CC the_DT positive_JJ values_NNS are_VBP the_DT source_NN in_IN front_NN of_IN the_DT microphone_NN array_NN ._SENT 
+We_PP compare_VVP the_DT source_NN maps_NNS generated_VVN by_IN SOAP_NN and_CC FGIB_NN ._SENT 
+All_PDT the_DT methods_NNS have_VHP identified_VVN the_DT peak_NN values_VVZ of_IN the_DT source_NN maps_NNS which_WDT represent_VVP the_DT true_JJ source_NN position_NN ._SENT 
+However_RB ,_, the_DT source_NN maps_NNS of_IN SOAP_NN exhibit_NN a_DT wide_JJ main_JJ lobe_NN and_CC cannot_MD accurately_RB locate_VV the_DT position_NN of_IN the_DT main_JJ source_NN ._SENT 
+Compared_VVN with_IN the_DT SOAP_NN map_NN ,_, the_DT proposed_VVN FGIB_NN with_IN a_DT different_JJ order_NN v_NN can_MD recover_VV the_DT sound_JJ field_NN quite_RB well_RB and_CC the_DT main_JJ lobe_NN width_NN of_IN the_DT source_NN maps_NNS is_VBZ much_RB narrower_JJR ._SENT 
+As_IN the_DT order_NN v_NN increases_NNS ,_, such_JJ as_IN v_NN =_SYM 5_CD and_CC 10_CD ,_, the_DT detected_VVN source_NN spot_NN of_IN FGIB_NN becomes_VVZ sharper_JJR and_CC the_DT position_NN of_IN the_DT sound_JJ source_NN can_MD be_VB well_RB identified_VVN ._SENT 
+In_IN principle_NN ,_, the_DT FGIB_NN based_VVN on_IN the_DT double-layer_NP microphone_NN array_NN is_VBZ quite_RB similar_JJ to_TO the_DT sound_JJ intensity_NN measurement_NN and_CC they_PP have_VHP the_DT same_JJ characteristics_NNS ._SENT 
+Since_IN a_DT method_NN of_IN finite-difference_NN approximation_NN is_VBZ employed_VVN ,_, the_DT proposed_VVN method_NN is_VBZ sensitive_JJ to_TO the_DT errors_NNS caused_VVN by_IN the_DT space_NN between_IN two_CD layers_NNS at_IN low_JJ frequencies_NNS ._SENT 
+However_RB ,_, because_IN the_DT error-sensitivity_NN of_IN FGIB_NN is_VBZ less_JJR than_IN that_IN for_IN sound_JJ intensity_NN measurement_NN and_CC SOAP_NN ,_, FGIB_NP can_MD provide_VV accurate_JJ source_NN distribution_NN with_IN a_DT low_JJ degree_NN of_IN false_JJ images_NNS ._SENT 
+Compared_VVN with_IN the_DT single-layer_NP beamforming_NP ,_, FGIB_NN based_VVN on_IN the_DT double-layer_NP microphone_NN array_NN requires_VVZ a_DT double_JJ microphone_NN to_TO cover_VV the_DT same_JJ array_NN aperture_NN and_CC the_DT total_JJ test_NN cost_NN may_MD be_VB increased_VVN ._SENT 
+However_RB ,_, FGIB_NN based_VVN on_IN the_DT double-layer_NP microphone_NN array_NN has_VHZ the_DT advantage_NN of_IN reducing_VVG the_DT sidelobes_NP level_NN and_CC separating_VVG source_NN signals_NNS ._SENT 
+To_TO remove_VV the_DT contributions_NNS of_IN the_DT generally_RB undesirable_JJ sources_NNS behind_IN the_DT microphone_NN array_NN ,_, the_DT estimation_NN of_IN Eq_NP ._SENT 
+(_( 19_CD )_) based_VVN on_IN the_DT sound_JJ field_NN measurements_NNS with_IN a_DT double-layer_NP microphone_NN array_NN is_VBZ used_VVN ._SENT 
+Under_IN some_DT simplified_VVN conditions_NNS ,_, the_DT new_JJ estimator_NN obtained_VVN by_IN Eq_NP ._SENT 
+(_( 19_CD )_) is_VBZ not_RB sensitive_JJ to_TO the_DT component_NN of_IN sound_JJ source_NN signal_NN produced_VVN by_IN the_DT source_NN behind_IN the_DT array_NN ._SENT 
+The_DT results_NNS of_IN simulation_NN are_VBP presented_VVN in_IN Fig_NN ._SENT 
+3._CD Fig_NN ._SENT 
+3_LS The_DT numerical_JJ results_NNS of_IN the_DT source_NN in_IN front_NN of_IN the_DT array_NN at_IN 1_CD kHz_NN :_: (_( a_DT )_) SOAP_NN ,_, (_( b_LS )_) FGIB_NN with_IN v_NN =_SYM 1_LS ,_, (_( c_LS )_) FGIB_NN with_IN v_NN =_SYM 5_CD ,_, and_CC (_( d_LS )_) FGIB_NN with_IN v_NN =_SYM 10._CD Figure_NN 3_CD shows_NNS the_DT similar_JJ sound_JJ source_NN distribution_NN in_IN front_NN of_IN the_DT microphone_NN array_NN at_IN 1_CD kHz_NP ._SENT 
+According_VVG to_TO the_DT results_NNS in_IN Fig_NN ._SENT 
+3_LS ,_, the_DT main_JJ lobe_NN of_IN the_DT source_NN in_IN front_NN of_IN the_DT microphone_NN array_NN is_VBZ stable_JJ ._SENT 
+The_DT contribution_NN of_IN the_DT source_NN behind_IN the_DT microphone_NN array_NN plane_NN is_VBZ suppressed_VVN and_CC removed_VVN ._SENT 
+For_IN two_CD incoherent_JJ monopole_NN sources_NNS with_IN equal_JJ strength_NN located_VVN at_IN (_( −0.25_NP ,_, 0.25_CD ,_, 0.5_CD )_) m_NN and_CC (_( 0.25_CD ,_, −0.25_NP ,_, −0.5_NP )_) m_NN ,_, FGIB_NP presents_VVZ more_RBR accurate_JJ estimation_NN than_IN SOAP_NN ._SENT 
+Furthermore_RB ,_, it_PP is_VBZ clear_JJ that_IN the_DT advantage_NN of_IN the_DT FGIB_NN with_IN a_DT larger_JJR order_NN v_NN is_VBZ in_IN the_DT dynamic_JJ range_NN ._SENT 
+Finally_RB ,_, there_EX are_VBP four_CD monopole_NN point_NN sources_NNS chosen_VVN as_IN the_DT simulation_NN object_NN (_( three_CD in_IN front_NN of_IN and_CC one_CD behind_IN the_DT microphone_NN array_NN )_) ,_, and_CC all_DT monopole_NN sources_NNS are_VBP mutually_RB incoherent_JJ with_IN equal_JJ amplitudes_NNS ._SENT 
+The_DT coordinates_VVZ of_IN the_DT four_CD point_NN sources_NNS are_VBP (_( −0.15_NP ,_, −0.15_NP ,_, 0.5_CD )_) m_NN ,_, (_( 0.25_CD ,_, −0.25_NP ,_, −0.5_NP )_) m_NN ,_, (_( −0.25_NP ,_, 0.25_CD ,_, 0.5_CD )_) m_NN ,_, and_CC (_( 0.2_CD ,_, 0.25_CD ,_, 0.5_CD )_) m._NP FGIB_NP can_MD be_VB used_VVN to_TO deal_VV with_IN the_DT signals_NNS collected_VVN by_IN the_DT double-layer_NP microphone_NN array_NN ._SENT 
+Then_RB ,_, the_DT sound_JJ source_NN maps_NNS are_VBP reconstructed_VVN in_IN the_DT source_NN plane_NN located_VVN at_IN 50_CD cm_NN behind_IN the_DT microphone_NN array_NN plane_NN ._SENT 
+It_PP is_VBZ shown_VVN in_IN Fig_NN ._SENT 
+4._CD Fig_NN ._SENT 
+4_LS The_DT numerical_JJ results_NNS of_IN the_DT sources_NNS at_IN 2.5_CD kHz_NN :_: (_( a_DT )_) SOAP_NN ,_, (_( b_LS )_) FGIB_NN with_IN v_NN =_SYM 1_LS ,_, (_( c_LS )_) FGIB_NN with_IN v_NN =_SYM 5_CD ,_, and_CC (_( d_LS )_) FGIB_NN with_IN v_NN =_SYM 10._CD In_IN Fig_NN ._SENT 
+4_LS ,_, each_DT grid_NN point_NN is_VBZ considered_VVN as_IN a_DT potential_JJ monopole_NN source_NN in_IN calculation_NN ._SENT 
+The_DT region_NN covered_VVN by_IN the_DT scanning_VVG grid_NN is_VBZ supposed_VVN as_IN the_DT dominant_JJ source_NN region_NN ._SENT 
+The_DT frequency_NN of_IN the_DT dominant_JJ source_NN is_VBZ at_IN approximately_RB 2.5_CD kHz_NN ._SENT 
+It_PP should_MD be_VB mentioned_VVN that_IN the_DT source_NN maps_NNS generated_VVN by_IN SOAP_NN and_CC FGIB_NN indicate_VVP the_DT peak_JJ source_NN value_NN ._SENT 
+However_RB ,_, the_DT conventional_JJ SOAP_NN exhibits_VVZ a_DT big_JJ main_JJ lobe_NN and_CC strong_JJ sidelobes_NNS ._SENT 
+For_IN the_DT source_NN maps_NNS of_IN FGIB_NP ,_, the_DT dominant_JJ sources_NNS regions_NNS are_VBP constrained_VVN within_IN a_DT relatively_RB smaller_JJR area_NN and_CC the_DT main_JJ sources_NNS can_MD be_VB clearly_RB identified_VVN ._SENT 
+Furthermore_RB ,_, FGIB_NN with_IN a_DT larger_JJR number_NN of_IN order_NN v_NN can_MD not_RB only_RB improve_VV the_DT resolution_NN and_CC suppress_VV sidelobes_NNS but_CC also_RB has_VHZ higher_JJR dynamic_JJ range_NN than_IN SOAP_NN when_WRB the_DT SNR_NN is_VBZ low_JJ and_CC the_DT frequency_NN is_VBZ high_JJ ._SENT 
+<Section> 8._CD Experimental_JJ Validation_NN </Section> Fig_NN ._SENT 
+5._CD Arrangement_NN of_IN the_DT virtual_JJ microphone_NN array_NN and_CC the_DT sound_JJ sources_NNS :_: (_( a_DT )_) the_DT virtual_JJ microphone_NN array_NN and_CC (_( b_LS )_) the_DT measuring_VVG order_NN of_IN three_CD microphones_NNS ._SENT 
+An_DT experimental_JJ application_NN of_IN different_JJ beamforming_JJ methods_NNS based_VVN on_IN the_DT double-layer_NP microphone_NN array_NN is_VBZ presented_VVN in_IN this_DT section_NN ._SENT 
+The_DT experiment_NN consists_VVZ of_IN a_DT virtual_JJ double-layer_NN microphone_NN array_NN and_CC B&K_NP LAN-XI_NP data_NNS collector_NN module_NN ._SENT 
+The_DT measurement_NN arrangements_NNS of_IN the_DT virtual_JJ double-layer_NN microphone_NN array_NN and_CC the_DT sound_JJ sources_NNS are_VBP shown_VVN in_IN Fig_NN ._SENT 
+5._CD The_DT virtual_JJ double-layer_NN microphone_NN array_NN is_VBZ created_VVN by_IN scanning_VVG measurement_NN techniques_NNS based_VVN on_IN mixing_VVG tracking_NN information_NN ._SENT 
+In_IN the_DT virtual_JJ double-layer_NN microphone_NN array_NN ,_, only_RB three_CD B&K_NN Type_NN 8192-A_NN microphones_NNS with_IN an_DT interval_NN of_IN 10_CD cm_NN are_VBP used_VVN to_TO measure_VV the_DT sound_JJ pressure_NN ,_, and_CC the_DT relative_JJ phase_NN can_MD be_VB preserved_VVN by_IN using_VVG a_DT fixed_VVN reference_NN microphone_NN (_( B&K_NN Type_NN 8192-A_NN )_) ._SENT 
+It_PP only_RB has_VHZ two_CD parallel_JJ layers_NNS with_IN 6_CD ×_NN 6_CD virtual_JJ elements_NNS in_IN each_DT layer_NN and_CC 10_CD cm_NN measurement_NN pitches_NNS ._SENT 
+The_DT measuring_VVG order_NN of_IN three_CD measurement_NN microphones_NNS in_IN each_DT layer_NN is_VBZ arranged_VVN as_RB in_IN Fig_NN ._SENT 
+5(b_NP )_) ._SENT 
+At_IN each_DT step_NN ,_, the_DT sound_JJ source_NN signals_NNS are_VBP sampled_VVN by_IN three_CD measuring_VVG microphones_NNS and_CC a_DT reference_NN one_CD synchronously_RB ._SENT 
+Through_IN multiple_JJ measurements_NNS ,_, a_DT total_NN of_IN 72_CD data_NN sets_NNS acquired_VVN at_IN the_DT different_JJ positions_NNS of_IN the_DT virtual_JJ double-layer_NN microphone_NN array_NN have_VHP been_VBN used_VVN to_TO calculate_VV the_DT beamforming_VVG output_NN results_NNS ._SENT 
+Two_CD D&S_NP type_NN 139-5_CD loudspeakers_NNS are_VBP symmetrical_JJ and_CC fixed_VVN in_IN two_CD scanning_VVG source_NN planes_NNS ._SENT 
+One_PP is_VBZ in_IN front_NN of_IN a_DT virtual_JJ double-layer_NN microphone_NN array_NN and_CC another_DT is_VBZ behind_IN the_DT array_NN ._SENT 
+The_DT loudspeaker_NN distance_NN to_TO the_DT double-layer_NN microphone_NN array_NN is_VBZ 0.5_CD m._NN The_DT loudspeaker_NN radiates_VVZ an_DT in-phase_NN sine_IN wave_NN varying_VVG the_DT frequency_NN between_IN 1_CD kHz_NP and_CC 3_CD kHz_NN to_TO simulate_VV the_DT emitting_VVG sound_NN sources_NNS ._SENT 
+The_DT sampling_NN frequency_NN is_VBZ 12.56_CD kHz_NN and_CC sampling_NN time_NN is_VBZ 5_CD s._NN The_DT frequency_NN domain_NN pressure_NN signals_NNS are_VBP calculated_VVN by_IN fast_JJ Fourier_NN transform_VV ._SENT 
+To_TO simplify_VV the_DT analysis_NN ,_, it_PP is_VBZ assumed_VVN that_IN the_DT propagation_NN between_IN the_DT speaker_NN and_CC virtual_JJ double-layer_NN microphone_NN array_NN is_VBZ in_IN free-field_NP ._SENT 
+The_DT effects_NNS introduced_VVN by_IN other_JJ interference_NN possibilities_NNS are_VBP not_RB taken_VVN into_IN account_NN in_IN the_DT algorithm_NN model_NN ._SENT 
+According_VVG to_TO the_DT beamforming_JJ theory_NN ,_, two_CD source_NN planes_NNS parallel_JJ to_TO the_DT virtual_JJ double-layer_NN microphone_NN array_NN are_VBP chosen_VVN as_IN the_DT reconstruction_NN source_NN planes_NNS ,_, on_IN which_WDT the_DT sound_JJ source_NN distribution_NN is_VBZ used_VVN for_IN analysis_NN ._SENT 
+The_DT reconstruction_NN source_NN plane_NN is_VBZ a_DT 0.8_CD m_NN ×_JJ 0.4_CD m_NN scanning_VVG area_NN with_IN a_DT grid_NN interval_NN of_IN 10_CD cm_NN ,_, and_CC the_DT scanning_VVG grids_NNS number_NN is_VBZ 81_CD ×_NN 41_CD =_SYM 3321._CD In_IN the_DT following_VVG data_NN processing_NN ,_, assume_VVP that_IN the_DT CSM_NN is_VBZ non-negative_JJ definite_JJ and_CC Hermitian_JJ ,_, the_DT results_NNS of_IN the_DT conventional_JJ FDBF_NN can_MD be_VB calculated_VVN by_IN using_VVG a_DT CSM_NN with_IN the_DT diagonal_NN removed_VVD ._SENT 
+The_DT results_NNS of_IN FGIB_NN are_VBP obtained_VVN after_IN ten_CD iterations_NNS and_CC the_DT order_NN v_NN is_VBZ set_VVN to_TO 1–4_NN ._SENT 
+For_IN SOAP_NN and_CC FGIB_NN ,_, Tikhonov_NP regularization_NN parameter_NN is_VBZ selected_VVN to_TO be_VB a_DT fraction_NN of_IN the_DT greatest_JJS eigenvalue_NN of_IN AA′_NN (_( A_DT is_VBZ a_DT transfer_NN matrix_NN representing_VVG the_DT sound_JJ radiation_NN patterns_NNS from_IN the_DT grid_NN points_NNS to_TO the_DT microphone_NN positions_NNS )_) ,_, say_VVP from_IN 0.1_CD %_NN to_TO 10_CD %_NN ._SENT 
+To_TO better_RBR compare_VV the_DT results_NNS of_IN FGIB_NN with_IN those_DT of_IN other_JJ methods_NNS ,_, all_DT data_NNS sets_NNS are_VBP normalized_VVN to_TO 1_CD at_IN the_DT maximum_NN of_IN the_DT beamforming_JJ output_NN ._SENT 
+So_RB ,_, the_DT contour_NN levels_NNS of_IN the_DT source_NN maps_NNS are_VBP between_IN −1_JJ and_CC 1._CD Fig_NN ._SENT 
+6_CD Contour_NN plots_NNS of_IN reconstructed_JJ sound_JJ distribution_NN at_IN 1.5_CD kHz_NN :_: (_( a_DT )_) FDBF_NP ,_, (_( b_LS )_) SOAP_NN ,_, (_( c_LS )_) FGIB_NN with_IN v_NN =_SYM 2_CD ,_, and_CC (_( d_LS )_) FGIB_NN with_IN v_NN =_SYM 4._CD The_DT test_NN results_NNS shown_VVN in_IN Fig_NN ._SENT 
+6_CD and_CC sound_JJ source_NN imaging_NN results_NNS are_VBP computed_VVN at_IN 1.5_CD kHz_NP ._SENT 
+The_DT results_NNS of_IN different_JJ beamforming_JJ methods_NNS are_VBP compared_VVN and_CC analyzed_VVN ._SENT 
+Figure_NN 6_CD shows_NNS the_DT source_NN maps_NNS for_IN the_DT two-loudspeaker_NN experiment_NN with_IN equal_JJ signal_NN levels_NNS ._SENT 
+Any_DT negative_JJ values_NNS (_( blue_JJ curves_NNS )_) in_IN the_DT source_NN maps_NNS are_VBP represented_VVN as_IN the_DT distribution_NN of_IN the_DT loudspeaker_NN behind_IN the_DT array_NN ,_, and_CC any_DT positive_JJ values_NNS (_( red_JJ curves_NNS )_) are_VBP shown_VVN as_IN the_DT results_NNS of_IN the_DT loudspeaker_NN in_IN front_NN of_IN the_DT array_NN ._SENT 
+Then_RB ,_, we_PP can_MD identify_VV the_DT back/front_JJ source_NN by_IN reading_VVG the_DT values_NNS of_IN the_DT sound_JJ source_NN maps_NNS which_WDT can_MD reflect_VV source_NN energy_NN distribution_NN in_IN the_DT reconstruction_NN source_NN plane_NN ._SENT 
+From_IN the_DT above_JJ methods_NNS ,_, the_DT peak_NN value_NN of_IN the_DT source_NN maps_NNS is_VBZ located_VVN at_IN the_DT position_NN of_IN the_DT loudspeakers_NNS in_IN the_DT measurement_NN results_NNS ._SENT 
+For_IN the_DT conventional_JJ FDBF_NN and_CC SOAP_NN ,_, no_DT iteration_NN and_CC order_NN being_VBG introduced_VVN ,_, the_DT source_NN maps_NNS of_IN them_PP create_VVP a_DT wider_JJR beam_NN around_IN the_DT speakers_NNS ._SENT 
+In_IN contrast_NN to_TO FDBF_NN and_CC SOAP_NN ,_, the_DT proposed_VVN FGIB_NN method_NN with_IN v_NN =_SYM 2_CD provides_VVZ more_RBR accurate_JJ position_NN of_IN the_DT speakers_NNS ._SENT 
+However_RB ,_, the_DT proposed_VVN FGIB_NN with_IN v_NN =_SYM 4_CD cannot_MD identify_VV the_DT loudspeaker_NN behind_IN the_DT array_NN ._SENT 
+The_DT main_JJ cause_NN is_VBZ that_DT FGIB_NN with_IN a_DT large_JJ order_NN v_NN would_MD underestimate_VV the_DT back_JJ source_NN because_IN of_IN the_DT existence_NN error_NN between_IN the_DT source_NN distribution_NN and_CC microphone_NN array_NN ._SENT 
+There_EX are_VBP two_CD ways_NNS which_WDT can_MD be_VB used_VVN to_TO solve_VV this_DT problem_NN at_IN low_JJ frequencies_NNS ._SENT 
+The_DT first_JJ involves_VVZ selecting_VVG the_DT optimum_JJ irregular_JJ geometry_NN microphone_NN array_NN to_TO reduce_VV the_DT possible_JJ effects_NNS of_IN spatial_JJ over-sampling_NN ._SENT 
+Second_RB ,_, if_IN a_DT regular_JJ geometry_NN array_NN is_VBZ used_VVN at_IN a_DT relatively_RB low_JJ frequency_NN in_IN the_DT practical_JJ measurements_NNS ,_, the_DT number_NN of_IN order_NN v_NN cannot_MD be_VB set_VVN too_RB large_JJ ._SENT 
+The_DT test_NN results_NNS investigated_VVD above_RB suggest_VV the_DT proposed_VVN FGIB_NN with_IN v_NN =_SYM 2_CD to_TO obtain_VV accurate_JJ source_NN maps_NNS at_IN 1.5_CD kHz_NP ._SENT 
+To_TO evaluate_VV the_DT source_NN intensity_NN at_IN high_JJ frequency_NN ,_, the_DT FGIB_NN and_CC other_JJ methods_NNS are_VBP also_RB applied_VVN to_TO cope_VV with_IN the_DT collected_VVN data_NNS at_IN 3_CD kHz_NP ._SENT 
+Fig_NN ._SENT 
+7_CD Contour_NN plots_NNS of_IN reconstructed_JJ sound_JJ distribution_NN at_IN 3_CD kHz_NN :_: (_( a_DT )_) FDBF_NP ,_, (_( b_LS )_) SOAP_NN ,_, (_( c_LS )_) FGIB_NN with_IN v_NN =_SYM 2_CD ,_, and_CC (_( d_LS )_) FGIB_NN with_IN v_NN =_SYM 4._CD Similarly_RB ,_, the_DT results_NNS of_IN Fig_NN ._SENT 
+7_CD also_RB demonstrate_VVP that_IN the_DT resolution_NN of_IN three_CD methods_NNS is_VBZ still_RB enough_JJ to_TO resolve_VV the_DT primary_JJ sources_NNS at_IN 3_CD Hz_NP ._SENT 
+However_RB ,_, FGIB_NP can_MD localize_VV these_DT two_CD loudspeakers_NNS accurately_RB and_CC even_RB can_MD pinpoint_VV them_PP ._SENT 
+Other_JJ methods_NNS only_RB fulfill_VVP the_DT basic_JJ source_NN location_NN ._SENT 
+As_IN expected_VVN ,_, the_DT smallest_JJS main_JJ lobe_NN and_CC best_JJS resolution_NN are_VBP given_VVN by_IN FGIB_NN with_IN v_NN =_SYM 4._CD The_NP results_NNS of_IN the_DT above_JJ numerical_JJ tests_NNS show_VVP that_IN FGIB_NN with_IN a_DT larger_JJR order_NN v_NN can_MD improve_VV the_DT resolution_NN of_IN source_NN maps_NNS at_IN relatively_RB high_JJ frequency_NN ._SENT 
+Its_PP$ dynamic_JJ range_NN can_MD also_RB be_VB increased_VVN by_IN increasing_VVG the_DT order_NN v_NN and_CC iterations_NNS n_NN in_IN the_DT iterative_JJ process_NN ._SENT 
+The_DT great_JJ advantages_NNS of_IN FGIB_NN based_VVN on_IN the_DT double-layer_NP microphone_NN array_NN are_VBP able_JJ to_TO separate_VV back/front_JJ source_NN signals_NNS ._SENT 
+Hence_RB ,_, based_VVN on_IN the_DT different_JJ beamforming_JJ methods_NNS ,_, the_DT results_NNS of_IN removing_VVG the_DT contributions_NNS of_IN the_DT back_JJ speaker_NN are_VBP shown_VVN in_IN Fig_NN ._SENT 
+8._CD Fig_NN ._SENT 
+8_CD Contour_NN plots_NNS of_IN reconstructed_JJ sound_JJ distribution_NN in_IN front_NN of_IN the_DT array_NN at_IN 3_CD kHz_NN :_: (_( a_DT )_) FDBF_NP ,_, (_( b_LS )_) SOAP_NN ,_, (_( c_LS )_) FGIB_NN with_IN v_NN =_SYM 2_CD ,_, and_CC (_( d_LS )_) FGIB_NN with_IN v_NN =_SYM 4._CD The_NP results_NNS of_IN reconstructed_JJ source_NN distribution_NN in_IN Fig_NN ._SENT 
+8_CD are_VBP obtained_VVN from_IN Eq_NP ._SENT 
+(_( 19_CD )_) ._SENT 
+As_IN the_DT reconstructed_JJ source_NN distribution_NN in_IN front_NN of_IN the_DT array_NN has_VHZ positive_JJ value_NN ,_, the_DT contour_NN levels_NNS are_VBP limited_VVN to_TO 0_CD to_TO 1._CD From_IN the_DT results_NNS ,_, the_DT conventional_JJ FDBF_NN loses_VVZ the_DT sound_JJ field_NN information_NN entirely_RB and_CC cannot_MD remove_VV the_DT contributions_NNS of_IN the_DT speaker_NN placed_VVN behind_IN the_DT microphone_NN array_NN ._SENT 
+The_DT source_NN maps_NNS of_IN the_DT conventional_JJ FDBF_NN are_VBP blurred_VVD ._SENT 
+For_IN FGIB_NN ,_, it_PP is_VBZ clearly_RB shown_VVN that_IN the_DT intensity_NN is_VBZ peaked_VVN only_RB at_IN the_DT front_JJ loudspeaker_NN in_IN the_DT source_NN maps_NNS and_CC the_DT front_JJ source_NN can_MD be_VB accurately_RB separated_VVN at_IN 3_CD kHz_NP ._SENT 
+Although_IN SOAP_NN can_MD separate_VV the_DT contributions_NNS of_IN the_DT front_JJ speaker_NN from_IN the_DT reconstructed_JJ source_NN distribution_NN ,_, FGIB_NN with_IN different_JJ numbers_NNS of_IN order_NN v_NN and_CC iterations_NNS n_NN appears_VVZ to_TO provide_VV accurate_JJ source_NN maps_NNS with_IN a_DT high_JJ dynamic_JJ range_NN ._SENT 
+<Section> 9._CD Conclusions_NNS </Section> The_DT application_NN of_IN the_DT microphone_NN array_NN to_TO arbitrary_JJ sound_NN sources_NNS is_VBZ often_RB hampered_VVN by_IN the_DT presence_NN of_IN reflecting_VVG objects_NNS and_CC reverberation_NN in_IN the_DT sound_JJ field_NN ._SENT 
+To_TO separate_VV the_DT contributions_NNS which_WDT come_VVP from_IN two_CD sides_NNS of_IN the_DT microphone_NN array_NN more_RBR accurately_RB ,_, this_DT study_NN demonstrates_VVZ a_DT new_JJ inverse_JJ method_NN based_VVN on_IN the_DT double-layer_NP microphone_NN array_NN ,_, called_VVD FGIB_NP ._SENT 
+The_DT simulation_NN and_CC test_NN results_NNS shown_VVN in_IN this_DT work_NN also_RB illustrate_VVP an_DT important_JJ advantage_NN of_IN the_DT FGIB_NN in_IN estimating_VVG the_DT source_NN strength_NN in_IN spite_NN of_IN interferences_NNS behind_IN the_DT microphone_NN array_NN ._SENT 
+The_DT dynamic_JJ range_NN of_IN the_DT calculated_VVN source_NN maps_NNS can_MD also_RB be_VB improved_VVN by_IN applying_VVG FGIB_NN of_IN an_DT exponent_NN parameter_NN called_VVD order_NN v._CC FGIB_NN based_VVN on_IN a_DT virtual_JJ double-layer_NN microphone_NN array_NN ,_, along_RB with_IN the_DT possibility_NN to_TO calculate_VV the_DT strength_NN on_IN partial_JJ regions_NNS ,_, allows_VVZ the_DT adoption_NN of_IN a_DT virtual_JJ target_NN grid_NN ._SENT 
+At_IN the_DT same_JJ time_NN ,_, with_IN only_RB a_DT few_JJ iterations_NNS ,_, the_DT computational_JJ efficiency_NN of_IN FGIB_NP is_VBZ improved_VVN ._SENT 
+So_RB ,_, it_PP opens_VVZ a_DT wide_JJ range_NN of_IN engineering_NN applications_NNS ._SENT 
+<Section> Acknowledgment_NN </Section> This_DT work_NN was_VBD supported_VVN in_IN part_NN by_IN the_DT National_NP Natural_NP Science_NP Foundation_NP of_IN China_NP (_( Grant_NP No._NN 51275540_CD )_) ._SENT 
+<Section> References_NNS </Section> Maynard_NP ,_, J._NP D._NP ,_, Williams_NP ,_, E._NP G._NP ,_, and_CC Lee_NP ,_, Y._NP ,_, 1984_CD ,_, “_NP Nearfield_NP Acoustic_JJ Holography_NN :_: I._NN Theory_NN of_IN Generalized_VVN Holography_NN and_CC the_DT Development_NP of_IN NAH_NP ,_, ”_NP J._NP Acoust_NP ._SENT 
+Soc_NP ._SENT 
+Am_RB ._SENT 
+,_, 78(4_NP )_) ,_, pp_NP ._SENT 
+1395–1412_NP ._SENT 
+Veronesi_NP ,_, W._NP A._NP ,_, and_CC Maynard_NP ,_, J._NP D._NP ,_, 1987_CD ,_, “_NP Nearfield_NP Acoustic_JJ Holography_NN (_( NAH_NP )_) II_NP ._SENT 
+Holographic_JJ Reconstruction_NN Algorithms_NNS and_CC Computer_NN Implementation_NN ,_, ”_NP J._NP Acoust_NP ._SENT 
+Soc_NP ._SENT 
+Am_RB ._SENT 
+,_, 81(5_NP )_) ,_, pp_NP ._SENT 
+1307–1321_JJ ._SENT 
+Vigoureux_NP ,_, D._NP ,_, Totaro_NP ,_, N._NP ,_, Lagneaux_NP ,_, J._NP ,_, and_CC Guyader_NP ,_, J._NP L._NP ,_, 2015_CD ,_, “_JJ Inverse_JJ Patch_NP Transfer_NN Functions_NNS Method_NN as_IN a_DT Tool_NP for_IN Source_NP Field_NP Identification_NN ,_, ”_JJ ASME_NN J._NP Vib_NP ._SENT 
+Acoust_NN ._SENT 
+,_, 137(2_NP )_) ,_, p._NP 021006._CD Hald_NP ,_, J._NP ,_, 2004_CD ,_, “_NP Combined_NP NAH_NP and_CC Beamforming_NP Using_VVG the_DT Same_JJ Microphone_NN Array_NN ,_, ”_JJ Sound_JJ Vib_NN ._SENT 
+,_, 38(12_NP )_) ,_, pp_NP ._SENT 
+18–25_NP ._SENT 
+Holland_NP ,_, K._NP R._NP ,_, and_CC Nelson_NP ,_, P._NP A._NP ,_, 2012_CD ,_, “_NP An_DT Experimental_JJ Comparison_NN of_IN the_DT Focused_VVN Beamformer_NN and_CC the_DT Inverse_JJ Method_NN for_IN the_DT Characterization_NN of_IN Acoustic_JJ Sources_NNS in_IN Ideal_NP and_CC Non-Ideal_JJ Acoustic_JJ Environments_NNS ,_, ”_NP J._NP Sound_NP Vib_NN ._SENT 
+,_, 331(20_NP )_) ,_, pp_NP ._SENT 
+4425–4437_JJ ._SENT 
+Sydow_NP ,_, C._NP ,_, 1994_CD ,_, “_NP Broadband_NP Beamforming_NP for_IN a_DT Microphone_NN Array_NN ,_, ”_NP J._NP Acoust_NP ._SENT 
+Soc_NP ._SENT 
+Am_RB ._SENT 
+,_, 96(2_NP )_) ,_, pp_NP ._SENT 
+845–849_NP ._SENT 
+Lee_NP ,_, C._NP ,_, and_CC Lee_NP ,_, J._NP H._NP ,_, 1994_CD ,_, “_JJ Robust_JJ Adaptive_JJ Array_NN Beamforming_VVG Under_IN Steering_VVG Vector_NP ,_, ”_NP IEEE_NP Trans_NP ._SENT 
+Antennas_NNS Propag_VVP ._SENT 
+,_, 45(1_JJ )_) ,_, pp_NP ._SENT 
+168–175_NP ._SENT 
+Cho_NP ,_, Y._NP T._NP ,_, and_CC Michael_NP ,_, J._NP R._NP ,_, 2009_CD ,_, “_JJ Adaptive_JJ Near-Field_NN Beamforming_VVG Techniques_NNS for_IN Sound_NP Source_NP Imaging_NP ,_, ”_NP J._NP Acoust_NP ._SENT 
+Soc_NP ._SENT 
+Am_RB ._SENT 
+,_, 125(2_NP )_) ,_, pp_NP ._SENT 
+944–957_JJ ._SENT 
+Li_NP ,_, M._NP ,_, Wei_NP ,_, L._NP ,_, Fu_NP ,_, Q._NP ,_, and_CC Yang_NP ,_, D._NP B._NP ,_, 2015_CD ,_, “_JJ Ghost_NN Image_NN Suppression_NN Based_VVN on_IN Particle_NN Swarm_NP Optimization-MVDR_NP in_IN Sound_NP Field_NP Reconstruction_NN ,_, ”_JJ ASME_NN J._NP Vib_NP ._SENT 
+Acoust_NN ._SENT 
+,_, 137(3_NP )_) ,_, p._NP 031007._CD Pascal_NP ,_, J._NP C._NP ,_, and_CC Li_NP ,_, J._NP F._NP ,_, 2006_CD ,_, “_NP Use_NP of_IN Double_NP Layer_NP Beamforming_VVG Antenna_NN to_TO Identify_VV and_CC Locate_VV Noise_NN Sources_NNS in_IN Cabins_NNS ,_, ”_JJ 6th_JJ European_JJ Conference_NN on_IN Noise_NN Control_NP :_: Advanced_JJ Solutions_NNS for_IN Noise_NN Control_NP (_( EURONOISE_NP 2006_CD )_) ,_, Tampere_NP ,_, Finland_NP ,_, May_NP 30–June_NP 1._CD Pascal_NP ,_, J._NP C._NP ,_, and_CC Li_NP ,_, J._NP F._NP ,_, 2003_CD ,_, “_JJ On_IN the_DT Use_NN of_IN Double_NP Layer_NP Beamforming_VVG Antenna_NN for_IN Industrial_NP Applications_NP ,_, ”_JJ 5th_JJ European_JJ Conference_NN on_IN Noise_NN Control_NP :_: Advanced_JJ Solutions_NNS for_IN Noise_NN Control_NP ,_, Naples_NP ,_, Italy_NP ,_, June_NP 19–21_NN ,_, Paper_NP No._NN 299._CD Brooks_NP ,_, T._NP F._NP ,_, and_CC Humphreys_NP ,_, W._NP M._NP ,_, 2006_CD ,_, “_NP A_NP Deconvolution_NN Approach_NN for_IN the_DT Mapping_NN of_IN Acoustic_JJ Sources_NNS (_( DAMAS_NP )_) Determined_VVN From_IN Phased_VVN Microphone_NN Arrays_NNS ,_, ”_NP J._NP Sound_NP Vib_NN ._SENT 
+,_, 294(4_NP )_) ,_, pp_NP ._SENT 
+856–879_NP ._SENT 
+Suzuki_NP ,_, T._NP ,_, 2010_CD ,_, “_JJ DAMAS2_NN Using_VVG a_DT Point_NP Spread_NN Function_NN Weakly_NP Varying_VVG in_IN Space_NP ,_, ”_NP AIAA_NP J._NP ,_, 48(9_NP )_) ,_, pp_NP ._SENT 
+2165–2169_NP ._SENT 
+Sijtsma_NP ,_, P._NP ,_, 2010_CD ,_, “_JJ CLEAN_JJ Based_VVN on_IN Spatial_JJ Source_NN Coherence_NN ,_, ”_NP Int_NP ._SENT 
+J._NP Aeroacoust_NP ._SENT 
+,_, 6(4_NP )_) ,_, pp_NP ._SENT 
+357–374_NP ._SENT 
+Suzuki_NP ,_, T._NP ,_, 2011_CD ,_, “_JJ L1_NN Generalized_VVD Inverse_JJ Beamforming_VVG Algorithm_NN Resolving_VVG Coherent_JJ Incoherent_JJ ,_, Distributed_NP and_CC Multipole_NP Sources_NNS ,_, ”_NP J._NP Sound_NP Vib_NN ._SENT 
+,_, 330(24_NP )_) ,_, pp_NP ._SENT 
+5835–5851_JJ ._SENT 
+Zavala_NP ,_, P._NP A._NP G._NP ,_, Roeck_NP ,_, W._NP D._NP ,_, Janssens_NP ,_, K._NP ,_, Arruda_NP ,_, J._NP R._NP F._NP ,_, Sas_NP ,_, P._NP ,_, and_CC Desmet_NP ,_, W._NP ,_, 2011_CD ,_, “_NP Generalized_VVD Inverse_JJ Beamforming_NN With_IN Optimized_VVN Regularization_NN Strategy_NN ,_, ”_NP Mech_NP ._SENT 
+Syst_NN ._SENT 
+Signal_NN Process_NN ._SENT 
+,_, 25(3_NP )_) ,_, pp_NP ._SENT 
+928–939_NP ._SENT 
+Gauthier_NP ,_, P._NP A._NP ,_, Camier_NP ,_, C._NP ,_, Pasco_NP ,_, Y._NP ,_, Berry_NP ,_, A._NP ,_, Chambatte_NP ,_, E._NP ,_, Lapointe_NP ,_, R._NP ,_, and_CC Delalay_NP ,_, M._NP A._NP ,_, 2011_CD ,_, “_JJ Beamforming_JJ Regularization_NN Matrix_NN and_CC Inverse_JJ Problems_NP Applied_NP to_TO Sound_VV Field_NP Measurement_NN and_CC Extrapolation_NN Using_VVG Microphone_NN Array_NN ,_, ”_NP J._NP Sound_NP Vib_NN ._SENT 
+,_, 330(24_NP )_) ,_, pp_NP ._SENT 
+5852–5877_JJ ._SENT 
+Padois_NP ,_, T._NP ,_, Gauthier_NP ,_, P._NP A._NP ,_, Berry_NP ,_, A._NP ,_, and_CC Berry_NP ,_, A._NP ,_, 2014_CD ,_, “_JJ Inverse_JJ Problem_NN With_IN Beamforming_VVG Regularization_NN Matrix_NN Applied_VVN to_TO Sound_VV Source_NN Localization_NN in_IN Closed_JJ Wind-Tunnel_NN Using_VVG Microphone_NN Array_NN ,_, ”_NP J._NP Sound_NP Vib_NN ._SENT 
+,_, 333(25_NP )_) ,_, pp_NP ._SENT 
+6858–6868_NP ._SENT 
+Dougherty_NP ,_, R._NP P._NP ,_, 2014_CD ,_, “_JJ Functional_JJ Beamforming_NN ,_, ”_JJ 5th_JJ Berlin_NP Beamforming_NP Conference_NP (_( BeBeC_NP )_) ,_, Berlin_NP ,_, Feb._NP 19–20_NP ,_, Paper_NP No._NN BeBeC-2014-01_NN ._SENT 
+Dougherty_NP ,_, R._NP P._NP ,_, 2014_CD ,_, “_JJ Functional_JJ Beamforming_NN for_IN Aeroacoustic_JJ Source_NN Distributions_NNS ,_, ”_JJ 20th_JJ AIAA/CEAS_NP Aeroacoustics_NP Conference_NP ,_, Atlanta_NP ,_, GA_NP ,_, June_NP 16–20_NP ,_, AIAA_NP Paper_NP No._NN 2014-3066_CD ._SENT 
+Calvetti_NP ,_, D._NP ,_, Morigi_NP ,_, S._NP ,_, Reichel_NP ,_, L._NP ,_, and_CC Sgallari_NP ,_, F._NP ,_, 2000_CD ,_, “_NP Tikhonov_NP Regularization_NN and_CC the_DT L-Curve_NN for_IN Large_JJ Discrete_JJ Ill-Posed_JJ Problems_NP ,_, ”_NP J._NP Comput_NN ._SENT 
+Appl_NN ._SENT 
+Math_NN ._SENT 
+,_, 123(1–2_NP )_) ,_, pp_NP ._SENT 
+423–446_NP ._SENT 
+Yoon_NP ,_, S._NP H._NP ,_, and_CC Nelson_NP ,_, P._NP A._NP ,_, 2000_CD ,_, “_JJ Estimation_NN of_IN Acoustic_JJ Source_NN Strength_NP by_IN Inverse_JJ Methods_NNS :_: Part_NP II_NP ,_, Experimental_JJ Investigation_NN of_IN Methods_NNS for_IN Choosing_VVG Regularization_NN Parameters_NNS ,_, ”_NP J._NP Sound_NP Vib_NN ._SENT 
+,_, 233(4_NP )_) ,_, pp_NP ._SENT 
+665–701_JJ ._SENT 
+Comesana_NP ,_, D._NP F._NP ,_, Wind_NP ,_, J._NP ,_, and_CC Grosso_NP ,_, A._NP ,_, 2011_CD ,_, “_NP Far_NP Field_NP Source_NN Localization_NN Using_VVG Two_CD Transducers_NNS :_: A_DT ‘_JJ Virtual_JJ Array_NN ’_NN Approach_NN ,_, ”_JJ 18th_JJ International_NP Congress_NP on_IN Sound_NP and_CC Vibration_NN Conference_NP (_( ICSV18_NP )_) ,_, Rio_NP de_NP Janeiro_NP ,_, Brazil_NP ,_, July_NP 10–14_NP ._SENT 
+Comesana_NP ,_, D._NP F._NP ,_, Holland_NP ,_, K._NP ,_, Wind_NP ,_, J._NP ,_, and_CC Bree_NP ,_, H._NP E._NP D._NP ,_, 2012_CD ,_, “_JJ Adapting_NN Beamforming_VVG Techniques_NNS for_IN Virtual_JJ Sensor_NN Arrays_NNS ,_, ”_JJ 4th_JJ Berlin_NP Beamforming_NP Conference_NP (_( BeBeC_NP )_) ,_, Berlin_NP ,_, Feb._NP 22–23_NP ,_, Paper_NP No._NN BeBeC-2012-10_NN ._SENT 

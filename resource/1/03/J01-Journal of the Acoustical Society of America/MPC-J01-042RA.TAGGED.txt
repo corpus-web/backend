@@ -1,0 +1,401 @@
+<title> A_DT double-difference_NN method_NN for_IN high-resolution_NN acoustic_JJ tracking_NN using_VVG a_DT deep-water_JJ vertical_JJ array_NN </title> <author> Tenorio-Hallé_NN ,_, Ludovic_NP 1_CD ;_: Thode_NP ,_, Aaron_NP M._NP 1_CD ;_: Sarkar_NP ,_, Jit_NP 1_CD ;_: Verlinden_NP ,_, Christopher_NP 1_CD ;_: Tippmann_NP ,_, Jeffrey_NP 1_CD ;_: Hodgkiss_NP ,_, William_NP S._NP 1_CD ;_: Kuperman_NP ,_, William_NP A._NP 1_CD </author> <Affiliation> 1_CD Marine_NP Physical_NP Laboratory_NP ,_, Scripps_NP Institution_NP of_IN Oceanography_NN ,_, University_NP of_IN California_NP San_NP Diego_NP ,_, San_NP Diego_NP ;_: CA_MD ;_: 92093-0238_CD ,_, United_NP States_NPS </Affiliation> <year> 2016_CD </year> <Jounral> Journal_NP of_IN the_DT Acoustical_JJ Society_NP of_IN America_NP </Journal> <Publishing_house> Acoustical_JJ Society_NP of_IN America_NP </Publishing_house> <Text_Collector> Wang_NP Shuaiyin，HEU_NP </Text_Collector> <DOI> 10.1121/1.5014050_CD </DOI> <URL> https_NNS :_: //asa-scitation-org-s_NNS ._SENT 
+wvpn_NP ._SENT 
+hrbeu_NP ._SENT 
+edu_NP ._SENT 
+cn/doi/10.1121/1.5014050_JJ </URL> <Section> ABSTRACT_JJ </Section> Ray-tracing_NN is_VBZ typically_RB used_VVN to_TO estimate_VV the_DT depth_NN and_CC range_NN of_IN an_DT acoustic_JJ source_NN in_IN refractive_JJ deep-water_JJ environments_NNS by_IN exploiting_VVG multipath_NN information_NN on_IN a_DT vertical_JJ array_NN ._SENT 
+However_RB ,_, mismatched_VVD array_NN inclination_NN and_CC uncertain_JJ environmental_JJ features_NNS can_MD produce_VV imprecise_JJ trajectories_NNS when_WRB ray-tracing_VVG sequences_NNS of_IN individual_JJ acoustic_JJ events_NNS ._SENT 
+"_`` Double-difference_NN "_'' methods_NNS have_VHP previously_RB been_VBN developed_VVN to_TO determine_VV fine-scale_JJ relative_JJ locations_NNS of_IN earthquakes_NNS along_IN a_DT fault_NN [_SYM Waldhauser_NP and_CC Ellsworth_NP (_( 2000_CD )_) ._SENT 
+Bull_NP ._SENT 
+Seismolog_NP ._SENT 
+Soc_NP ._SENT 
+Am_NP ._SENT 
+90_CD ,_, 1353-1368_CD ]_SYM ._SENT 
+This_DT technique_NN translates_VVZ differences_NNS in_IN travel_NN times_NNS between_IN nearby_JJ seismic_JJ events_NNS ,_, recorded_VVN at_IN multiple_NN widely_RB separated_VVN stations_NNS ,_, into_IN precise_JJ relative_JJ displacements_NNS ._SENT 
+Here_RB ,_, this_DT method_NN for_IN acoustic_JJ multipath_NN measurements_NNS on_IN a_DT single_JJ vertical_JJ array_NN of_IN hydrophones_NNS is_VBZ reformulated_VVN ._SENT 
+Changes_NNS over_IN time_NN in_IN both_CC the_DT elevation_NN angles_NNS and_CC the_DT relative_JJ arrival_NN times_NNS of_IN the_DT multipath_NN are_VBP converted_VVN into_IN relative_JJ changes_NNS in_IN source_NN position_NN ._SENT 
+This_DT approach_NN is_VBZ tested_VVN on_IN data_NNS recorded_VVN on_IN a_DT 128-element_NN vertical_JJ array_NN deployed_VVN in_IN 4_CD km_NN deep_JJ water_NN ._SENT 
+The_DT trajectory_NN of_IN a_DT controlled_VVN towed_VVD acoustic_JJ source_NN was_VBD accurately_RB reproduced_VVD to_TO within_IN a_DT few_JJ meters_NNS at_IN nearly_RB 50_CD km_NN range_NN ._SENT 
+The_DT positional_JJ errors_NNS of_IN the_DT double-difference_NN approach_NN for_IN both_CC the_DT towed_VVN source_NN and_CC an_DT opportunistically_RB detected_VVN sperm_NN whale_NN are_VBP an_DT order_NN of_IN magnitude_NN lower_JJR than_IN those_DT produced_VVN from_IN ray-tracing_VVG individual_JJ events_NNS ._SENT 
+Keywords_NNS :_: Ray-tracing；deep-water_NP environments；vertical_NP array；Double-difference_NP <Section> I._NP INTRODUCTION_NN </Section> Passive_NP acoustic_JJ monitoring_NN offers_VVZ a_DT non-invasive_JJ approach_NN for_IN localizing_VVG and_CC tracking_VVG acoustic_JJ sources_NNS such_JJ as_IN marine_JJ mammals_NNS ,_, and_CC has_VHZ numerous_JJ academic_JJ ,_, industrial_JJ ,_, and_CC naval_JJ applications_NNS ._SENT 
+A_DT standard_JJ approach_NN for_IN localizing_VVG impulsive_JJ signals_NNS is_VBZ to_TO measure_VV the_DT difference_NN in_IN detected_VVN arrival_NN times_NNS of_IN a_DT signal_NN across_IN multiple_JJ hydrophones_NNS ,_, assuming_VVG a_DT spatially_RB homogenous_JJ sound_JJ speed_NN and_CC conducting_VVG hyperbolic_JJ localization_NN (_( Watkins_NP and_CC Schevill_NP ,_, 1972_CD )_) ._SENT 
+However_RB ,_, the_DT separation_NN between_IN the_DT sensors_NNS generally_RB needs_VVZ to_TO be_VB at_IN least_JJS 20_CD %_NN of_IN a_DT source_NN 's_POS range_NN for_IN this_DT technique_NN to_TO work_VV ._SENT 
+Thus_RB ,_, in_IN order_NN to_TO locate_VV a_DT source_NN over_IN any_DT significant_JJ region_NN ,_, multiple_JJ hydrophone_NN stations_NNS need_VVP to_TO be_VB deployed_VVN across_IN at_IN least_JJS several_JJ kilometers_NNS range_VVP to_TO create_VV the_DT required_JJ aperture_NN ._SENT 
+More_RBR recently_RB ,_, methods_NNS for_IN long-range_JJ tracking_NN of_IN marine_JJ mammals_NNS in_IN deep_JJ water_NN using_VVG a_DT short_JJ aperture_NN array_NN of_IN hydrophones_NNS have_VHP been_VBN developed_VVN (_( Tiemann_NP et_NP al_NP ._SENT 
+,_, 2006_CD ;_: Mathias_NP et_NP al_NP ._SENT 
+,_, 2013_CD )_) ._SENT 
+The_DT term_NN “_NN short_JJ ”_NN refers_VVZ to_TO the_DT aperture_NN of_IN the_DT array_NN relative_JJ to_TO the_DT water_NN depth_NN ,_, not_RB relative_JJ to_TO an_DT acoustic_JJ wavelength_NN ,_, and_CC the_DT term_NN “_NN deep_JJ water_NN ”_NN refers_VVZ to_TO water_VV depths_NNS that_WDT greatly_RB exceed_VVP the_DT acoustic_JJ wavelength_NN of_IN the_DT lowest_JJS frequency_NN component_NN in_IN a_DT signal_NN ._SENT 
+These_DT tracking_NN techniques_NNS are_VBP mostly_RB based_VVN on_IN ray_NN theory_NN ,_, exploiting_VVG the_DT multipath_NP arrival_NN information_NN [_SYM elevation_NN angle_NN and_CC relative_JJ time_NN of_IN arrival_NN (_( RTOA_NP )_) ]_SYM present_JJ in_IN a_DT signal_NN 's_VBZ refracted_VVN and_CC reflected_VVN ray_NN arrivals_NNS across_IN the_DT array_NN aperture_NN ._SENT 
+By_IN modeling_VVG the_DT back-propagation_NN ,_, or_CC “_JJ ray-tracing_NN ,_, ”_NP detected_VVD ray_NN arrivals_NNS into_IN the_DT waveguide_NN ,_, the_DT source_NN 's_POS location_NN can_MD be_VB determined_VVN by_IN measuring_VVG where_WRB the_DT rays_NNS converge_VVP (_( Fig_NN ._SENT 
+1_LS )_) ._SENT 
+This_DT method_NN has_VHZ been_VBN defined_VVN as_IN either_DT ray-tracing_NN or_CC matched-field_NN processing_NN (_( MFP_NP ;_: Fizell_NP and_CC Wales_NP ,_, 1985_CD )_) ,_, the_DT latter_JJ term_NN covering_VVG situations_NNS where_WRB RTOA_NP information_NN has_VHZ been_VBN incorporated_VVN into_IN the_DT ray-propagation_NN model_NN ._SENT 
+Sperm_NN whales_NNS have_VHP been_VBN the_DT focus_NN of_IN several_JJ of_IN these_DT tracking_VVG studies_NNS because_IN of_IN the_DT nature_NN of_IN their_PP$ vocalizations_NNS ,_, which_WDT can_MD be_VB characterized_VVN as_IN a_DT series_NN of_IN loud_JJ and_CC impulsive_JJ broadband_NN clicks_NNS (_( Goold_NP and_CC Jones_NP ,_, 1995_CD )_) ,_, which_WDT are_VBP convenient_JJ for_IN multipath_NN detection_NN (_( Thode_NP et_NP al_NP ._SENT 
+,_, 2002_CD ;_: Zimmer_NP et_NP al_NP ._SENT 
+,_, 2003_CD ;_: Thode_NP ,_, 2004_CD )_) ._SENT 
+figure_NN While_IN ray-tracing_VVG methods_NNS allow_VV localizing_VVG at_IN long_JJ ranges_NNS relative_JJ to_TO the_DT array_NN aperture_NN ,_, they_PP often_RB yield_VV significant_JJ uncertainties_NNS in_IN the_DT position_NN of_IN the_DT source_NN due_JJ to_TO several_JJ factors_NNS ._SENT 
+Because_IN of_IN the_DT lack_NN of_IN extensive_JJ field_NN measurements_NNS ,_, environmental_JJ propagation_NN models_NNS are_VBP typically_RB assumed_VVN to_TO be_VB range_NN independent_JJ ,_, even_RB though_IN the_DT underlying_VVG environment_NN varies_VVZ with_IN range_NN ._SENT 
+The_DT resulting_VVG mismatch_NN in_IN the_DT modeled_VVN sound_JJ speed_NN profile_NN can_MD therefore_RB be_VB an_DT important_JJ source_NN of_IN error_NN when_WRB applying_VVG ray-tracing_NN ,_, especially_RB at_IN longer_JJR ranges_NNS ._SENT 
+Another_DT potential_JJ source_NN of_IN error_NN is_VBZ the_DT array_NN inclination_NN ,_, or_CC tilt_NN ,_, which_WDT affects_VVZ the_DT measured_VVN elevation_NN angles_NNS of_IN rays_NNS ._SENT 
+Because_IN of_IN these_DT errors_NNS ,_, tracking_VVG a_DT moving_VVG source_NN by_IN individually_RB ray-tracing_VVG a_DT series_NN of_IN acoustic_JJ events_NNS often_RB yields_VVZ a_DT trajectory_NN with_IN large_JJ error_NN estimates_NNS ._SENT 
+Various_JJ adaptive_JJ filtering_VVG and_CC state-state_VVG techniques_NNS like_IN Kalman_NP filtering_VVG can_MD be_VB adapted_VVN for_IN smoothing_VVG acoustic_JJ trajectories_NNS ,_, essentially_RB by_IN incorporating_VVG information_NN from_IN previous_JJ localizations_NNS into_IN the_DT next_JJ estimate_NN ._SENT 
+However_RB ,_, this_DT approach_NN requires_VVZ making_VVG assumptions_NNS about_IN the_DT behavior_NN of_IN the_DT system_NN ,_, such_JJ as_IN speed_NN and_CC heading_VVG ,_, for_IN example_NN (_( Evensen_NP ,_, 2009_CD )_) ._SENT 
+Here_RB ,_, we_PP are_VBP interested_JJ in_IN techniques_NNS that_WDT rely_VVP entirely_RB on_IN measured_VVN data_NNS and_CC not_RB on_IN interpolative_JJ or_CC smoothing_VVG approaches_NNS ._SENT 
+Methods_NNS for_IN high-resolution_NN relative_JJ localization_NN of_IN earthquakes_NNS are_VBP common_JJ in_IN seismology_NN whenever_WRB seismic_JJ events_NNS in_IN close_JJ spatial_JJ proximity_NN are_VBP detected_VVN at_IN multiple_JJ sensors_NNS (_( Poupinet_NP et_NP al_NP ._SENT 
+,_, 1984_CD ;_: Ito_NP ,_, 1985_CD ;_: Fremont_NP and_CC Malone_NP ,_, 1987_CD ;_: Shearer_NP ,_, 1997_CD )_) ._SENT 
+These_DT methods_NNS are_VBP based_VVN on_IN measuring_VVG the_DT differences_NNS in_IN travel_NN times_NNS between_IN sets_NNS of_IN events_NNS to_TO determine_VV the_DT relative_JJ location_NN of_IN these_DT events_NNS ._SENT 
+A_DT popular_JJ and_CC efficient_JJ formulation_NN of_IN this_DT approach_NN is_VBZ the_DT “_JJ double-difference_NN ”_NN method_NN by_IN Waldhauser_NP and_CC Ellsworth_NP (_( 2000_CD )_) ,_, which_WDT will_MD be_VB subsequently_RB labeled_VVN as_IN “_NP WE_PP ._SENT 
+”_NP The_DT technique_NN minimizes_VVZ the_DT residuals_NNS between_IN measured_VVN and_CC modeled_VVN travel_NN times_NNS for_IN clusters_NNS of_IN nearby_JJ earthquakes_NNS recorded_VVN across_IN common_JJ stations_NNS ._SENT 
+This_DT approach_NN assumes_VVZ the_DT propagation_NN paths_NNS of_IN sets_NNS of_IN nearby_JJ earthquakes_NNS are_VBP similar_JJ enough_RB that_IN they_PP share_VVP the_DT same_JJ systematic_JJ errors_NNS in_IN the_DT modeled_VVN travel_NN times_NNS caused_VVN by_IN environmental_JJ perturbations_NNS and/or_NN instrument_NN timing_NN error_NN ._SENT 
+The_DT double-difference_NN method_NN has_VHZ been_VBN adapted_VVN for_IN tracking_VVG fin_NN whales_NNS in_IN the_DT northeast_JJ Pacific_NP using_VVG a_DT network_NN of_IN seafloor_JJ seismic_JJ stations_NNS (_( Wilcock_NP ,_, 2012_CD )_) ,_, but_CC to_TO our_PP$ knowledge_NN has_VHZ not_RB been_VBN previously_RB applied_VVN to_TO multipath_VV tracking_VVG from_IN a_DT single_JJ array_NN deployment_NN ._SENT 
+This_DT paper_NN presents_VVZ how_WRB double-difference_NN methods_NNS can_MD be_VB adapted_VVN to_TO a_DT deep_JJ water_NN waveguide_NN to_TO track_VV a_DT moving_VVG acoustic_JJ source_NN at_IN long_JJ ranges_NNS ,_, using_VVG multipath_NN on_IN a_DT single_JJ vertical_JJ hydrophone_NN array_NN ,_, instead_RB of_IN separate_JJ direct_JJ arrivals_NNS on_IN a_DT seismic_JJ network_NN of_IN widely_RB spaced_VVN recorders_NNS ._SENT 
+This_DT approach_NN ,_, which_WDT usually_RB requires_VVZ relatively_RB high_JJ signal-to-noise_NN ratio_NN (_( SNR_NP )_) signals_VVZ ,_, is_VBZ shown_VVN to_TO yield_VV much_RB higher_JJR precision_NN than_IN standard_JJ ray-tracing_NN results_NNS ,_, and_CC can_MD reduce_VV systematic_JJ errors_NNS arising_VVG from_IN environmental_JJ mismatch_NN and_CC array_NN tilt_NN uncertainties_NNS ._SENT 
+The_DT method_NN is_VBZ tested_VVN on_IN a_DT towed_VVN acoustic_JJ source_NN whose_WP$ position_NN is_VBZ independently_RB measured_VVN throughout_IN its_PP$ deployment_NN ._SENT 
+Results_NNS from_IN applying_VVG this_DT technique_NN to_TO opportunistically_RB measured_VVN sperm_NN whales_NNS are_VBP also_RB presented_VVN and_CC discussed_VVN ._SENT 
+<Section> II_NP ._SENT 
+THEORY_NN </Section> A._NP Nomenclature_NN Consider_VV a_DT two-dimensional_JJ waveguide_NN (_( a_DT vertical_JJ range/depth_NN slice_NN of_IN the_DT ocean_NN )_) in_IN which_WDT multiple_JJ acoustic_JJ events_NNS from_IN a_DT moving_VVG source_NN are_VBP received_VVN on_IN a_DT vertical_JJ array_NN of_IN hydrophones_NNS ._SENT 
+Figure_NN 2_CD schematically_RB illustrates_VVZ two_CD acoustic_JJ ray_NN paths_NNS α_JJ and_CC β_JJ reaching_VVG the_DT vertical_JJ array_NN ,_, each_DT propagating_VVG from_IN two_CD time-separated_JJ events_NNS i_NP and_CC j._NP In_IN theory_NN ,_, the_DT events_NNS need_MD not_RB be_VB generated_VVN by_IN the_DT same_JJ source_NN ,_, but_CC must_MD be_VB sufficiently_RB spatially_RB and_CC temporally_RB close_VV to_TO each_DT other_JJ such_JJ that_IN the_DT difference_NN in_IN propagation_NN environments_NNS between_IN two_CD events_NNS is_VBZ nearly_RB homogenous_JJ ,_, and_CC that_IN at_IN least_JJS two_CD ray_NN paths_NNS from_IN each_DT event_NN traverse_JJ similar_JJ propagation_NN paths_NNS to_TO the_DT receiver_NN ._SENT 
+If_IN Tiα_NP represents_VVZ the_DT travel_NN time_NN along_IN a_DT particular_JJ ray_NN path_NN α_NN from_IN a_DT given_VVN acoustic_JJ event_NN i_NP to_TO the_DT array_NN ,_, then_RB the_DT RTOA_NN between_IN two_CD ray_NN paths_NNS α_NP and_CC β_NP is_VBZ defined_VVN here_RB as_RB @_SYM and_CC the_DT difference_NN between_IN the_DT RTOAs_NNS of_IN the_DT two_CD events_NNS i_NP and_CC j_NN becomes_VVZ @_SYM Note_VV that_IN Eq_NP ._SENT 
+(_( 2_LS )_) effectively_RB removes_VVZ the_DT effects_NNS of_IN range-dependent_JJ sound_JJ speed_NN fluctuations_NNS between_IN the_DT array_NN and_CC the_DT two_CD events_NNS ,_, because_IN the_DT time_NN perturbations_NNS generated_VVN by_IN these_DT fluctuations_NNS affect_VVP both_DT events_NNS and_CC are_VBP thus_RB subtracted_VVN out_RP in_IN Eq_NP ._SENT 
+(_( 2_CD )_) ._SENT 
+Let_VV the_DT “_JJ elevation_NN angle_NN ”_NN of_IN a_DT ray_NN across_IN the_DT vertical_JJ array_NN be_VB defined_VVN as_IN the_DT arrival_NN angle_NN measured_VVD relative_JJ to_TO the_DT horizontal_NN with_IN positive_JJ angles_NNS pointing_VVG toward_IN the_DT seafloor_NN and_CC negative_JJ angles_NNS pointing_VVG toward_IN the_DT surface_NN ._SENT 
+The_DT elevation_NN angle_NN of_IN ray_NN path_NN α_NN from_IN an_DT acoustic_JJ event_NN i_NP is_VBZ then_RB noted_VVN θiα_NN ._SENT 
+Following_VVG the_DT same_JJ logic_NN as_IN for_IN the_DT ray_NN travel_NN times_NNS ,_, Eq_NP ._SENT 
+(_( 2_LS )_) can_MD be_VB rewritten_VVN in_IN terms_NNS of_IN the_DT relative_JJ differences_NNS in_IN elevation_NN angles_NNS (_( RDEAs_NP )_) between_IN rays_NNS α_JJ and_CC β_JJ and_CC events_NNS i_NP and_CC j_NN ,_, @_SYM Note_VV that_IN Eq_NP ._SENT 
+(_( 3_LS )_) removes_VVZ any_DT measurement_NN bias_NN arising_VVG from_IN incorrect_JJ estimates_NNS of_IN array_NN inclination_NN ,_, assuming_VVG no_DT changes_NNS in_IN array_NN inclination_NN occur_VVP between_IN events_NNS i_NP and_CC j._NP figure_VVP B._NP Double-difference_NN equations_NNS for_IN a_DT vertical_JJ array_NN The_DT double-difference_NN method_NN minimizes_VVZ residuals_NNS between_IN differences_NNS in_IN measured_VVN and_CC modeled_VVN travel_NN times_NNS for_IN clusters_NNS of_IN nearby_JJ events_NNS recorded_VVN on_IN the_DT same_JJ sets_NNS of_IN sensors_NNS (_( WE_PP )_) ._SENT 
+The_DT technique_NN assumes_VVZ that_IN the_DT quantities_NNS in_IN Eqs_NP ._SENT 
+(_( 2_CD )_) and_CC (_( 3_LS )_) remove_VV or_CC reduce_VV systematic_JJ errors_NNS in_IN modeling_NN or_CC recording_NN ._SENT 
+Differences_NNS in_IN relative_JJ travel_NN times_NNS between_IN event_NN pairs_NNS are_VBP then_RB translated_VVN into_IN positional_JJ changes_NNS ,_, permitting_VVG high-resolution_NN relative_JJ localizations_NNS of_IN the_DT events_NNS ._SENT 
+The_DT original_JJ double-difference_NN equations_NNS in_IN WE_PP can_MD be_VB rewritten_VVN in_IN terms_NNS of_IN the_DT RTOA_NN [_SYM Eq_NP ._SENT 
+(_( 2_LS )_) ]_SYM and_CC RDEA_NNS [_SYM Eq_NP ._SENT 
+(_( 3_LS )_) ]_SYM instead_RB of_IN the_DT absolute_JJ travel_NN times_NNS ._SENT 
+For_IN a_DT pair_NN of_IN events_NNS i_NP and_CC j_NN ,_, whose_WP$ ray_NN paths_NNS α_NP and_CC β_NP are_VBP detected_VVN on_IN a_DT vertical_JJ array_NN of_IN sensors_NNS ,_, the_DT resulting_VVG “_JJ double_JJ difference_NN ”_NN equations_NNS are_VBP as_RB follows_VVZ :_: @_SYM where_WRB (_( )meas_NNS and_CC (_( )mod_NP denote_VVP the_DT measured_VVN and_CC modeled_VVN RTOAs_NNS and_CC RDEAs_NNS ,_, respectively_RB ,_, in_IN Eqs_NP ._SENT 
+(_( 2_CD )_) and_CC (_( 3_LS )_) ,_, and_CC (_( ΔRi_NP ,_, Δzi_NP )_) and_CC (_( ΔRj_NP ,_, Δzj_NP )_) represent_VVP the_DT range_NN and_CC depth_NN adjustments_NNS required_VVN for_IN events_NNS i_NP and_CC j_NN in_IN order_NN for_IN the_DT model_NN to_TO better_RBR fit_VV the_DT data_NNS ._SENT 
+For_IN N_NP events_NNS with_IN a_DT total_NN of_IN M_NP measurements_NNS (_( both_CC RTOA_NP and_CC RDEA_NP )_) ,_, Eqs_NP ._SENT 
+(_( 4_CD )_) and_CC (_( 5_LS )_) can_MD be_VB compactly_RB expressed_VVN in_IN matrix_NN form_NN as_RB @_SYM where_WRB G_NP is_VBZ a_DT M_NP ×_NP 2N_NP matrix_NN of_IN partial_JJ derivatives_NNS ,_, m_NN is_VBZ a_DT 2N_NN vector_NN of_IN positional_JJ adjustments_NNS ,_, and_CC d_LS is_VBZ the_DT set_NN of_IN M_NP residuals_NNS on_IN the_DT right-hand_JJ sides_NNS of_IN Eqs_NP ._SENT 
+(_( 4_CD )_) and_CC (_( 5_LS )_) ._SENT 
+Note_NN that_IN Eqs_NP ._SENT 
+(_( 2)–(5_NP )_) differ_VVP slightly_RB from_IN those_DT presented_VVN in_IN WE_PP ._SENT 
+The_DT equations_NNS presented_VVD here_RB use_VV α_JJ and_CC β_JJ to_TO represent_VV acoustic_JJ ray_NN paths_NNS ,_, instead_RB of_IN individually_RB placed_VVN seismic_JJ stations_NNS ._SENT 
+Furthermore_RB ,_, the_DT residuals_NNS on_IN the_DT right-hand_JJ sides_NNS of_IN Eqs_NP ._SENT 
+(_( 4_CD )_) and_CC (_( 5_LS )_) ,_, defined_VVN as_IN “_JJ double-differences_NNS ”_JJ in_IN the_DT original_JJ paper_NN ,_, have_VHP technically_RB become_VVN “_JJ triple-differences_NNS ”_NN here_RB ,_, as_IN they_PP represent_VVP differences_NNS between_IN measurements_NNS and_CC models_NNS of_IN differences_NNS between_IN two_CD events_NNS of_IN RTOAs_NNS or_CC RDEAs_NNS (_( which_WDT are_VBP themselves_PP differences_NNS of_IN arrival_NN times_NNS or_CC angles_NNS between_IN two_CD ray_NN paths_NNS )_) ._SENT 
+A_DT consequence_NN of_IN this_DT reformulation_NN is_VBZ that_IN the_DT absolute_JJ times_NNS at_IN which_WDT events_NNS i_NP and_CC j_NN are_VBP generated_VVN ,_, which_WDT were_VBD additional_JJ unknown_JJ variables_NNS in_IN the_DT original_JJ expressions_NNS ,_, have_VHP been_VBN eliminated_VVN ._SENT 
+For_IN a_DT given_VVN event_NN pair_NN i_NP and_CC j_NN ,_, Eqs_NP ._SENT 
+(_( 4_CD )_) and_CC (_( 5_LS )_) are_VBP first_RB solved_VVN using_VVG estimates_NNS of_IN the_DT absolute_JJ event_NN locations_NNS as_IN an_DT initial_JJ model_NN ,_, which_WDT can_MD be_VB provided_VVN by_IN initial_JJ ray-tracing_NN of_IN one_CD of_IN the_DT events_NNS ._SENT 
+Figure_NP 3(a_NP )_) shows_VVZ how_WRB the_DT resulting_VVG components_NNS of_IN m_NN are_VBP then_RB used_VVN to_TO readjust_VV event_NN positions_NNS ._SENT 
+This_DT process_NN is_VBZ then_RB re-iterated_VVN using_VVG the_DT updated_VVN modeled_VVD positions_NNS of_IN each_DT event_NN ,_, until_IN the_DT residuals_NNS on_IN the_DT right-hand_JJ sides_NNS of_IN Eqs_NP ._SENT 
+(_( 4_CD )_) and_CC (_( 5_LS )_) are_VBP minimized_VVN ._SENT 
+The_DT final_JJ value_NN of_IN the_DT residuals_NNS provides_VVZ an_DT estimate_NN of_IN the_DT localization_NN errors_NNS for_IN the_DT events_NNS ,_, as_RB will_MD be_VB discussed_VVN in_IN Sec_NN ._SENT 
+II_NP C._NP figure_VVP The_DT partial_JJ derivatives_NNS (_( or_CC “_JJ ray_NN derivatives_NNS ”_NN )_) in_IN these_DT equations_NNS are_VBP calculated_VVN for_IN the_DT current_JJ modeled_VVN position_NN of_IN the_DT source_NN ._SENT 
+From_IN basic_JJ ray_NN theory_NN ,_, it_PP can_MD be_VB shown_VVN that_RB @_SYM where_WRB c(z_NP )_) is_VBZ the_DT depth-dependent_JJ sound_JJ speed_NN and_CC zs_NNS denotes_VVZ the_DT depth_NN of_IN the_DT source_NN ._SENT 
+p_NN is_VBZ known_VVN as_IN the_DT ray_NN parameter_NN ,_, or_CC horizontal_JJ slowness_NN ,_, which_WDT is_VBZ constant_JJ along_IN a_DT given_VVN ray_NN path_NN in_IN a_DT range-independent_JJ propagation_NN environment_NN ,_, and_CC η(z_NP )_) is_VBZ known_VVN as_IN the_DT vertical_JJ slowness_NN on_IN the_DT medium_NN (_( Cornuelle_NP ,_, 1985_CD ;_: Frisk_NP ,_, 1994_CD ;_: Shearer_NP ,_, 1999_CD )_) ._SENT 
+C._NP Double-difference_NP equations_NNS for_IN a_DT homogeneous_JJ environment_NN It_PP is_VBZ possible_JJ for_IN an_DT environment_NN to_TO be_VB range_NN dependent_JJ over_IN long_JJ distances_NNS (_( e._NP g._NP ,_, on_IN the_DT order_NN of_IN tens_NNS of_IN kilometers_NNS between_IN an_DT event_NN cluster_NN and_CC receiver_NN )_) ,_, but_CC still_RB be_VB treated_VVN as_IN effectively_RB homogenous_JJ over_IN the_DT region_NN connecting_VVG two_CD consecutive_JJ events_NNS (_( e._NP g._NP ,_, tens_NNS of_IN meters_NNS for_IN consecutive_JJ events_NNS detected_VVN from_IN a_DT moving_VVG source_NN )_) ._SENT 
+Further_JJR simplifications_NNS in_IN Eqs_NP ._SENT 
+(_( 4_CD )_) and_CC (_( 5_LS )_) can_MD be_VB then_RB made_VVN by_IN assuming_VVG that_IN the_DT sound_JJ speed_NN gradients_NNS are_VBP effectively_RB identical_JJ inside_IN the_DT spatial_JJ region_NN containing_VVG events_NNS i_NP and_CC j._NP Equations_NNS (_( 4_CD )_) and_CC (_( 5_LS )_) then_RB reduce_VV to_TO @_SYM where_WRB the_DT derivatives_NNS above_RB are_VBP the_DT average_NN of_IN the_DT derivatives_NNS evaluated_VVN at_IN the_DT locations_NNS of_IN events_NNS i_NP and_CC j._NP Note_VV that_IN Eqs_NP ._SENT 
+(_( 10_CD )_) and_CC (_( 11_CD )_) now_RB solve_VV for_IN ΔRij_NP and_CC Δzij_NP ,_, the_DT adjustments_NNS in_IN range_NN and_CC depth_NN separation_NN between_IN events_NNS i_NP and_CC j_NN [_SYM Fig_NN ._SENT 
+3(b_NP )_) ]_SYM ,_, instead_RB of_IN ΔRi_NP ,_, Δzi_NP ,_, ΔRj_NP ,_, and_CC Δzj_NP ,_, which_WDT adjust_VVP the_DT range_NN and_CC depth_NN of_IN each_DT event_NN individually_RB ,_, as_IN seen_VVN in_IN Fig_NN ._SENT 
+3(a_NP )_) ._SENT 
+This_DT simplification_NN reduces_VVZ the_DT number_NN of_IN variables_NNS in_IN Eq_NP ._SENT 
+(_( 6_CD )_) from_IN 2N_NP to_TO 2(N_NP −_NP 1_CD )_) and_CC provides_VVZ an_DT option_NN for_IN Eqs_NP ._SENT 
+(_( 9_CD )_) and_CC (_( 10_CD )_) to_TO be_VB solved_VVN independently_RB from_IN other_JJ event_NN pairs_NNS ._SENT 
+The_DT movements_NNS of_IN a_DT source_NN can_MD therefore_RB be_VB estimated_VVN one_CD event_NN pair_NN at_IN a_DT time_NN ,_, instead_RB of_IN having_VHG to_TO solve_VV for_IN the_DT relative_JJ position_NN of_IN each_DT event_NN in_IN the_DT entire_JJ track_NN all_RB at_IN once_RB ,_, as_RB would_MD be_VB the_DT case_NN for_IN the_DT full_JJ “_JJ inhomogeneous_JJ ”_NN problem_NN ._SENT 
+For_IN each_DT pair_NN of_IN events_NNS there_EX are_VBP two_CD equations_NNS [_SYM Eqs_NP ._SENT 
+(_( 9_CD )_) and_CC (_( 10_CD )_) ]_SYM and_CC two_CD unknowns_NNS (_( ΔRij_NP and_CC Δzij_NP )_) ,_, so_RB a_DT minimum_NN of_IN two_CD shared_JJ ray_NN paths_NNS between_IN the_DT model_NN and_CC the_DT measurements_NNS is_VBZ required_VVN for_IN every_DT iteration_NN ._SENT 
+If_IN this_DT requirement_NN is_VBZ not_RB met_VVN ,_, the_DT system_NN becomes_VVZ under-determined_VVN and_CC the_DT separation_NN between_IN the_DT pair_NN of_IN events_NNS cannot_MD be_VB determined_VVN ._SENT 
+This_DT method_NN therefore_RB requires_VVZ that_IN pairs_NNS of_IN events_NNS occur_VVP close_RB enough_RB together_RB in_IN space_NN for_IN them_PP to_TO share_VV similar_JJ ray_NN paths_NNS ._SENT 
+It_PP is_VBZ possible_JJ for_IN the_DT model_NN and_CC the_DT measurements_NNS of_IN an_DT event_NN pair_NN to_TO share_VV more_JJR than_IN two_CD ray_NN paths_NNS in_IN common_JJ ._SENT 
+In_IN this_DT case_NN ,_, the_DT system_NN becomes_VVZ over-determined_VVN ,_, which_WDT gives_VVZ an_DT option_NN to_TO solve_VV the_DT system_NN using_VVG only_JJ Eq_NP ._SENT 
+(_( 9_CD )_) ,_, ignoring_VVG the_DT RDEA_NP elevation_NN angle_NN measurements_NNS ._SENT 
+This_DT approach_NN is_VBZ defined_VVN here_RB as_IN the_DT “_NN RTOA-only_RB ”_JJ double-difference_NN ,_, as_RB opposed_VVN to_TO the_DT “_JJ full_JJ ”_JJ double-difference_NN approach_NN that_WDT uses_VVZ the_DT RDEA_NN measurements_NNS ._SENT 
+Unless_IN otherwise_RB specified_JJ ,_, subsequent_JJ use_NN of_IN the_DT term_NN double-difference_NN method_NN below_RB refers_VVZ to_TO the_DT full_JJ reformulated_VVN double-difference_NN ._SENT 
+D._NP Error_NN estimates_NNS for_IN double-difference_NN computations_NNS Error_NN estimates_NNS for_IN double-difference_NN computations_NNS can_MD be_VB computed_VVN using_VVG bootstrap_NN or_CC jackknife_NN resampling_NN of_IN residual_JJ values_NNS ,_, or_CC singular-value_NN decomposition_NN (_( SVD_VV ;_: WE_PP )_) ._SENT 
+The_DT small_JJ numbers_NNS of_IN events_NNS used_VVN in_IN this_DT paper_NN makes_VVZ the_DT use_NN of_IN the_DT SVD_NNS approach_VVP straightforward_JJ and_CC practical_JJ (_( Press_NP ,_, 1992_CD )_) ._SENT 
+The_DT M_NP ×_NP 2(N_NP −_NP 1_CD )_) matrix_NN G_NP defined_VVN in_IN Eq_NP ._SENT 
+(_( 6_CD )_) has_VHZ a_DT SVD_NN of_IN G=UΛVT_NP ,_, where_WRB Λ_NP is_VBZ a_DT diagonal_JJ matrix_NN of_IN singular_JJ values_NNS ,_, U_NP is_VBZ an_DT M_NP ×_NP M_NP matrix_NN with_IN orthogonal_JJ columns_NNS ,_, and_CC V_NN is_VBZ a_DT 2(N_NP −_NP 1_CD )_) ×_NP 2(N_NP −_NP 1_CD )_) matrix_NN with_IN orthogonal_JJ columns_NNS ._SENT 
+Mimicking_VVG the_DT notation_NN of_IN WE_PP ,_, the_DT error_NN estimate_NN σi_NNS of_IN the_DT ith_JJ component_NN of_IN the_DT vector_NN m_NN in_IN Eq_NP ._SENT 
+(_( 6_CD )_) becomes_VVZ @_SYM where_WRB Cii_NP is_VBZ the_DT ith_JJ diagonal_JJ element_NN of_IN the_DT covariance_NN matrix_NN C=VΛ−2VT_NN ,_, and_CC σ2d_RB is_VBZ the_DT variance_NN of_IN the_DT final_JJ residuals_NNS [_SYM elements_NNS of_IN d_NN in_IN Eq_NP ._SENT 
+(_( 6_CD )_) ]_SYM @_SYM where_WRB d⎯⎯_NP is_VBZ the_DT mean_NN of_IN d_NN (_( WE_PP )_) ._SENT 
+In_IN the_DT full_JJ case_NN where_WRB both_DT RTOA_NN and_CC RDEA_NN measurements_NNS are_VBP made_VVN (_( and_CC thus_RB the_DT components_NNS of_IN d_NN have_VHP different_JJ units_NNS )_) ,_, Eq_NP ._SENT 
+(_( 12_CD )_) is_VBZ computed_VVN independently_RB for_IN the_DT RTOA_NP and_CC RDEA_NP residuals_NNS ,_, and_CC then_RB each_DT row_NN of_IN G_NP is_VBZ rendered_VVN unitless_JJ by_IN dividing_VVG it_PP by_IN the_DT appropriate_JJ value_NN of_IN σd_NN ,_, RTOA_NP or_CC σd_NP ,_, RDEA_NP ._SENT 
+The_DT SVD_NN is_VBZ performed_VVN ,_, and_CC Eq_NP ._SENT 
+(_( 11_CD )_) then_RB reduces_VVZ to_TO σi=Cii⎯⎯⎯⎯⎯√_NP <Section> III_NP ._SENT 
+METHODS_NNS </Section> ._SENT 
+Equipment_NP Acoustic_JJ data_NNS were_VBD collected_VVN on_IN the_DT mid-frequency_NN noise_NN array_NN (_( MFNA_NP )_) ,_, which_WDT was_VBD designed_VVN and_CC built_VVN by_IN the_DT Marine_NP Physical_NP Laboratory_NP (_( MPL_NP )_) at_IN the_DT Scripps_NP Institution_NP of_IN Oceanography_NN (_( see_VV supplementary_JJ material1_NN )_) ._SENT 
+This_DT drifting_VVG vertical_JJ array_NN consists_VVZ of_IN 128_CD elements_NNS with_IN 0.1_CD m_NN spacing_NN (_( 7.5_CD kHz_NP half_NN wavelength_NN )_) ,_, creating_VVG an_DT aperture_NN of_IN 12.7_CD m._JJ Vertical_JJ inclinometers_NNS were_VBD attached_VVN on_IN the_DT top_JJ and_CC bottom_JJ elements_NNS of_IN the_DT assembly_NN to_TO monitor_VV the_DT array_NN tilt_NN ._SENT 
+Data_NNS from_IN each_DT channel_NN were_VBD sampled_VVN at_IN 25_CD kHz_NP and_CC stored_VVD autonomously_RB with_IN 16-bit_JJ resolution_NN ._SENT 
+The_DT system_NN also_RB had_VHD the_DT capability_NN of_IN transmitting_VVG data_NNS via_IN an_DT 802.11_CD wireless_NN connection_NN close_NN to_TO a_DT monitoring_NN vessel_NN ._SENT 
+figure_VV An_DT ITC-2040X_NP acoustic_JJ source_NN built_VVN by_IN International_NP Transducer_NN Corporation_NP (_( ITC_NP ,_, Santa_NP Barbara_NP ,_, CA_MD )_) was_VBD used_VVN as_IN a_DT sound_JJ source_NN during_IN the_DT experiment_NN ._SENT 
+It_PP was_VBD programmed_VVN to_TO produce_VV one_CD second_JJ long_JJ ,_, frequency-modulated_JJ (_( FM_NP )_) linear_JJ sweeps_NNS from_IN 3_CD to_TO 9_CD kHz_NN at_IN 140_CD dB_NN re_IN 1_CD μPa_NN at_IN 1_CD m_NN ,_, which_WDT were_VBD repeated_VVN every_DT second_NN ._SENT 
+A_DT depth_NN sensor_NN attached_VVN to_TO the_DT source_NN recorded_VVD the_DT depth_NN of_IN the_DT tow_NN to_TO within_IN 1-m_NN resolution_NN once_IN every_DT 30_CD s._NP B._NP Experiment_NN The_DT MFNA_NN was_VBD deployed_VVN at_IN 330_CD m_NN depth_NN off_IN the_DT coast_NN of_IN San_NP Diego_NP ,_, CA_MD ,_, in_IN a_DT region_NN of_IN flat_JJ bathymetry_NN 4_CD km_NN deep_JJ ._SENT 
+The_DT deployment_NN occurred_VVD at_IN 22:00_CD UTC_NN on_IN February_NP 17_CD ,_, 2014_CD at_IN 31.72°_NP N_NP and_CC 122.12°_NP W_NP and_CC was_VBD recovered_VVN at_IN 14:00_CD UTC_NN on_IN February_NP 19_CD at_IN 31.7°_NP N_NP and_CC 122.01°_NP W_NP ,_, corresponding_JJ to_TO a_DT drift_NN of_IN ∼10_NP km_NP ._SENT 
+The_DT inclinometer_NN data_NNS on_IN February_NP 18_CD showed_VVD that_IN the_DT tilt_NN at_IN top_NN of_IN the_DT array_NN stayed_VVD fairly_RB constant_JJ ,_, just_RB below_IN 1_CD degree_NN ,_, whereas_IN at_IN the_DT lower_JJR end_NN of_IN the_DT array_NN ,_, the_DT tilt_NN showed_VVD slow_JJ fluctuations_NNS between_IN 1_CD and_CC 2_CD degrees_NNS throughout_IN the_DT day_NN ,_, suggesting_VVG a_DT slight_JJ catenary_NN ._SENT 
+Figure_NN 4_CD shows_NNS the_DT measured_VVN depth_NN and_CC range_NN of_IN the_DT towed_VVN acoustic_JJ source_NN with_IN respect_NN to_TO the_DT array_NN ,_, throughout_IN the_DT deployment_NN ._SENT 
+The_DT source_NN was_VBD deployed_VVN at_IN 32.12°_NP N_NP and_CC 122.18°_NP W_NP ,_, around_RB 17:00_CD UTC_NN on_IN February_NP 18_CD ,_, from_IN R/V_NP Melville_NP ._SENT 
+Between_IN 17:00_CD and_CC 19:00_CD UTC_NN ,_, it_PP was_VBD lowered_VVN to_TO almost_RB 300_CD m_NN depth_NN ,_, with_IN pauses_VVZ every_DT 100_CD m._NPS The_DT source_NN was_VBD then_RB towed_VVN away_RB from_IN the_DT array_NN at_IN a_DT depth_NN slightly_RB less_JJR than_IN 200_CD m_NN ,_, over_IN about_RB 7_CD km_NN ,_, from_IN 20:00_CD to_TO 22:00_CD UTC_NN ._SENT 
+After_IN that_DT ,_, the_DT source_NN was_VBD lowered_VVN to_TO almost_RB 300_CD m_NN depth_NN and_CC then_RB brought_VVD back_RB up_RB to_TO the_DT surface_NN ,_, once_RB again_RB pausing_VVG every_DT 100_CD m_NN ,_, until_IN it_PP was_VBD recovered_VVN shortly_RB before_IN 0:00_CD UTC_NN on_IN February_NP 19_CD ,_, at_IN 32.17°_NP N_NP and_CC 122.2°_NP W._NP The_DT drift_NN of_IN the_DT array_NN during_IN the_DT entire_JJ deployment_NN of_IN the_DT acoustic_JJ source_NN was_VBD about_RB 1.5_CD km_NN ._SENT 
+The_DT horizontal_JJ range_NN between_IN the_DT source_NN and_CC the_DT array_NN was_VBD assumed_VVN to_TO be_VB the_DT distance_NN between_IN the_DT array_NN and_CC the_DT vessel_NN ._SENT 
+Since_IN the_DT source_NN is_VBZ being_VBG towed_VVN ∼200_JJ m_NN behind_IN the_DT vessel_NN ,_, this_DT assumption_NN would_MD yield_VV an_DT absolute_JJ offset_VVN between_IN −200_JJ m_NN and_CC +200_JJ m_NN from_IN the_DT true_JJ position_NN ,_, depending_VVG on_IN the_DT vessel_NN 's_VBZ heading_VVG ._SENT 
+However_RB ,_, the_DT inclination_NN of_IN the_DT towed_VVN array_NN cable_NN remained_VVD steady_JJ throughout_IN the_DT tow_NN ,_, indicating_VVG that_IN the_DT relative_JJ range_NN separations_NNS between_IN towed_VVN array_NN positions_NNS was_VBD the_DT same_JJ as_IN the_DT relative_JJ range_NN shift_NN of_IN the_DT ship_NN measured_VVN via_IN the_DT Global_JJ Positioning_NN System_NP (_( GPS_NP )_) ._SENT 
+figure_NN In_IN addition_NN to_TO the_DT FM_JJ sweeps_NNS broadcasted_VVN from_IN the_DT towed_VVN source_NN ,_, sperm_NN whale_NN clicks_NNS were_VBD opportunistically_RB recorded_VVN over_IN the_DT same_JJ time_NN period_NN in_IN the_DT data_NNS collected_VVN on_IN the_DT vertical_JJ array_NN ._SENT 
+Occasional_JJ humpback_NN whale_NN and_CC dolphin_NN signals_NNS were_VBD also_RB encountered_VVN ._SENT 
+C._NP Sound_NP speed_NN profile_NN Figure_NP 5(a_NP )_) shows_VVZ the_DT sound_JJ speed_NN profile_NN used_VVN in_IN this_DT analysis_NN ._SENT 
+Over_IN the_DT course_NN of_IN the_DT experiment_NN 15_CD CTD_NNS (_( conductivity_NN temperature–depth_NN )_) measurements_NNS were_VBD conducted_VVN to_TO a_DT depth_NN of_IN 2_CD km_NN ,_, from_IN which_WDT an_DT average_JJ sound_JJ speed_NN profile_NN was_VBD derived_VVN for_IN the_DT upper_JJ portion_NN of_IN the_DT water_NN column_NN ._SENT 
+These_DT measured_VVN data_NNS are_VBP consistent_JJ with_IN historical_JJ data_NNS for_IN this_DT region_NN in_IN February_NP (_( Locarnini_NP et_NP al_NP ._SENT 
+,_, 2013_CD )_) and_CC shows_VVZ a_DT minimum_JJ sound_JJ speed_NN close_NN to_TO 500_CD m_NN depth_NN ._SENT 
+The_DT lower_JJR portion_NN of_IN the_DT profile_NN down_RB to_TO the_DT seafloor_NN was_VBD then_RB extrapolated_VVN based_VVN on_IN historical_JJ models_NNS ._SENT 
+A_DT decaying_VVG exponential_NN function_NN was_VBD used_VVN to_TO smoothly_RB transition_NN from_IN the_DT measured_VVN profile_NN to_TO the_DT extrapolated_VVN linear_JJ function_NN ._SENT 
+figure_NN D._NP Data_NP processing_NN :_: Measuring_VVG elevation_NN angle_NN and_CC RTOA_NN of_IN rays_NNS In_IN order_NN to_TO identify_VV and_CC measure_VV the_DT RTOA_NN and_CC RDEA_NN of_IN individual_JJ ray_NN arrivals_NNS ,_, acoustic_JJ events_NNS (_( towed_VVN source_NN signals_NNS or_CC sperm_NN whale_NN clicks_NNS )_) are_VBP plotted_VVN as_IN two-dimensional_JJ (_( 2D_NN )_) migration_NN plots_NNS ,_, which_WDT display_VVP arrival_NN angle_NN versus_CC time_NN ._SENT 
+These_DT plots_NNS are_VBP computed_VVN by_IN applying_VVG time-delay_NN and_CC sum_NN beamforming_VVG to_TO the_DT data_NNS with_IN an_DT angular_JJ resolution_NN of_IN 0.1_CD degrees_NNS ._SENT 
+For_IN the_DT towed_VVN source_NN ,_, the_DT FM_JJ nature_NN of_IN the_DT signals_NNS it_PP produces_VVZ makes_VVZ individual_JJ rays_NNS difficult_JJ to_TO identify_VV and_CC RTOA_VV measurements_NNS inaccurate_JJ if_IN the_DT migration_NN plot_NN is_VBZ produced_VVN directly_RB from_IN the_DT raw_JJ signal_NN ._SENT 
+Because_IN the_DT characteristics_NNS of_IN these_DT signals_NNS are_VBP known_VVN precisely_RB ,_, matched_VVN filtering_VVG was_VBD used_VVN to_TO increase_VV the_DT SNR_NN and_CC yield_VV more_JJR precise_JJ measurements_NNS (_( Skolnik_NP ,_, 1962_CD )_) ._SENT 
+This_DT process_NN converts_VVZ the_DT FM_JJ signals_NNS from_IN the_DT source_NN into_IN single_JJ impulses_NNS ,_, allowing_VVG RTOAs_NNS between_IN rays_NNS to_TO be_VB measured_VVN more_RBR precisely_RB ._SENT 
+Figure_NN 6_CD shows_NNS an_DT example_NN of_IN a_DT migration_NN plot_NN from_IN a_DT matched_VVN filtered_VVN towed_VVN source_NN signal_NN ._SENT 
+Note_NN that_IN for_IN sperm_NN whale_NN clicks_NNS ,_, it_PP was_VBD not_RB necessary_JJ to_TO apply_VV a_DT matched_VVN filter_NN as_IN their_PP$ signals_NNS are_VBP already_RB broadband_NN impulses_NNS ._SENT 
+figure_NN E._NP Implementing_VVG the_DT reformulated_VVN double-difference_NN algorithm_NN for_IN a_DT vertical_JJ array_NN The_DT modeled_VVN RTOA_NN and_CC RDEA_NN differences_NNS in_IN the_DT right-hand_JJ sides_NNS of_IN Eqs_NP ._SENT 
+(_( 9_CD )_) and_CC (_( 10_CD )_) were_VBD computed_VVN using_VVG the_DT ray-tracing_VVG program_NN BELLHOP_NN (_( Porter_NP and_CC Reiss_NP ,_, 1984_CD ;_: Porter_NP ,_, 1991_CD )_) ._SENT 
+Eigenrays_NNS were_VBD computed_VVN using_VVG a_DT fan_NN of_IN 3000_CD rays_NNS from_IN −16_NN to_TO 16_CD degrees_NNS ,_, and_CC a_DT step_NN size_NN of_IN 10_CD m_NN ,_, yielding_VVG an_DT estimated_JJ “_NN miss_VVP ”_JJ criteria_NNS of_IN ∼10_JJ m_NN for_IN logging_VVG an_DT eigenray_NN ._SENT 
+Each_DT modeled_VVN ray_NN is_VBZ then_RB matched_VVN with_IN a_DT particular_JJ measured_JJ ray_NN ,_, based_VVN on_IN the_DT smallest_JJS difference_NN in_IN elevation_NN angle_NN between_IN the_DT model_NN and_CC measurement_NN ._SENT 
+If_IN the_DT minimum_JJ difference_NN exceeded_VVD 1.5°_NN ,_, data_NNS associated_VVN with_IN that_DT measured_VVN ray_NN path_NN were_VBD discarded_VVN from_IN the_DT iteration_NN ._SENT 
+The_DT ray_NN derivatives_NNS in_IN Eq_NP ._SENT 
+(_( 9_CD )_) were_VBD computed_VVN analytically_RB in_IN terms_NNS of_IN the_DT ray_NN parameter_NN and_CC the_DT vertical_JJ slowness_NN ,_, using_VVG Eqs_NP ._SENT 
+(_( 7_CD )_) and_CC (_( 8_CD )_) ._SENT 
+The_DT ray_NN derivatives_NNS in_IN Eq_NP ._SENT 
+(_( 10_CD )_) ,_, while_IN also_RB having_VHG analytical_JJ solutions_NNS (_( see_VV Appendix_NN A_DT )_) ,_, were_VBD instead_RB calculated_VVN numerically_RB from_IN BELLHOP_NN by_IN modeling_VVG sources_NNS with_IN small_JJ offsets_NNS in_IN range_NN and_CC depth_NN from_IN a_DT reference_NN position_NN and_CC obtaining_VVG the_DT angular_JJ shifts_NNS ._SENT 
+Equations_NNS (_( 9_CD )_) and_CC (_( 10_CD )_) are_VBP iterated_VVN until_IN the_DT value_NN of_IN m_NN either_CC converges_VVZ or_CC settles_VVZ into_IN an_DT alternating_VVG cycle_NN ._SENT 
+In_IN the_DT latter_JJ case_NN ,_, the_DT maximum_JJ value_NN of_IN m_NN obtained_VVN during_IN the_DT cycle_NN is_VBZ used_VVN to_TO compute_VV the_DT final_JJ residuals_NNS d._JJ To_TO generate_VV a_DT complete_JJ trajectory_NN ,_, the_DT first_JJ set_NN of_IN events_NNS is_VBZ assigned_VVN initial_JJ modeled_VVN positions_NNS (_( i._NP e._NP ,_, initial_JJ guess_NN for_IN the_DT absolute_JJ position_NN )_) based_VVN on_IN either_DT ray-tracing_NN or_CC the_DT known_VVN position_NN ._SENT 
+For_IN subsequent_JJ events_NNS in_IN the_DT track_NN ,_, the_DT initial_JJ modeled_VVN positions_NNS are_VBP then_RB based_VVN on_IN the_DT result_NN of_IN the_DT previous_JJ double-difference_NN computation_NN ,_, as_RB discussed_VVN above_IN ._SENT 
+Positional_JJ errors_NNS for_IN the_DT double-difference_NN estimates_NNS are_VBP computed_VVN as_IN shown_VVN in_IN Sec_NN ._SENT 
+II_NP D._NP Figure_NP 5(b_NP )_) shows_VVZ a_DT typical_JJ example_NN where_WRB rays_NNS do_VVP not_RB converge_VV at_IN a_DT single_JJ point_NN ._SENT 
+The_DT algorithm_NN used_VVN to_TO produce_VV ray-tracing_VVG position_NN estimates_NNS as_RB well_RB as_IN their_PP$ associated_JJ errors_NNS is_VBZ presented_VVN in_IN Appendix_NN B._NP <Section> IV_NP ._SENT 
+RESULTS_VVZ </Section> The_DT vertical_JJ array_NN double-difference_NN algorithm_NN is_VBZ first_RB tested_VVN on_IN the_DT towed_VVN acoustic_JJ source_NN by_IN comparing_VVG the_DT results_NNS to_TO the_DT measured_VVN trajectory_NN of_IN the_DT source_NN during_IN two_CD distinct_JJ phases_NNS of_IN the_DT source_NN deployment_NN :_: a_DT horizontal_JJ source_NN tow_NN and_CC a_DT vertical_JJ haul_NN during_IN the_DT source_NN recovery_NN ._SENT 
+For_IN each_DT case_NN ,_, trajectories_NNS obtained_VVD from_IN individually_RB ray-tracing_VVG each_DT event_NN in_IN the_DT track_NN are_VBP also_RB shown_VVN ._SENT 
+A_DT comparison_NN between_IN the_DT full_JJ double-difference_NN and_CC the_DT RTOA-only_JJ approach_NN is_VBZ also_RB presented_VVN for_IN the_DT vertical_JJ haul_NN trajectory_NN ._SENT 
+Finally_RB ,_, the_DT full_JJ double-difference_NN technique_NN is_VBZ applied_VVN to_TO a_DT 25-min_NP sperm_NN whale_NN track_NN ._SENT 
+A._NP Towed_VVD acoustic_JJ source_NN 1._CD Horizontal_NN tow_NN Figures_NNS 7(a_NN )_) and_CC 7(c_NP )_) display_VVP the_DT depth_NN and_CC range_NN ,_, respectively_RB ,_, of_IN the_DT towed_VVN source_NN over_IN a_DT 20_CD min_NN period_NN ,_, when_WRB the_DT source_NN is_VBZ being_VBG towed_VVN from_IN 47_CD to_TO 48_CD km_NN range_NN from_IN the_DT array_NN ,_, bouncing_VVG between_IN depths_NNS of_IN 160_CD and_CC 180_CD m._JJ Figures_NNS 8(a_NN )_) and_CC 8(c_NP )_) plot_NN RTOA_NN and_CC elevation_NN angle_NN measurements_NNS ,_, respectively_RB ,_, from_IN nine_CD events_NNS ,_, which_WDT are_VBP 2–4_JJ min_NN apart_RB ,_, where_WRB three_CD rays_NNS were_VBD identified_VVN in_IN each_DT event_NN ._SENT 
+The_DT angular_JJ measurements_NNS show_VVP that_IN ray_NN 1_CD increases_NNS by_IN 1_CD degree_NN over_IN the_DT 20_CD min_NN period_NN at_IN a_DT fairly_RB constant_JJ rate_NN ,_, whereas_IN rays_NNS 2_CD and_CC 3_CD fluctuate_VVP over_IN a_DT 1–2_JJ degree_NN window_NN and_CC do_VVP not_RB show_VV a_DT clear_JJ trend_NN ._SENT 
+The_DT RTOA_NN of_IN rays_NNS 2_CD and_CC 3_CD both_CC show_VV a_DT fairly_RB steady_JJ increase_NN of_IN 8_CD and_CC 4_CD ms_NNS ,_, respectively_RB ,_, with_IN respect_NN to_TO ray_NN 1_CD ,_, chosen_VVN here_RB as_IN the_DT reference_NN ray_NN ._SENT 
+figure_NN Figure_NN 9_CD shows_NNS the_DT corresponding_JJ double-difference_NN results_NNS ,_, plotted_VVD both_DT in_IN terms_NNS of_IN absolute_JJ [_SYM Figs_VVZ ._SENT 
+9(a_NP )_) and_CC 9(c_NP )_) ]_SYM and_CC relative_NN [_SYM Figs_NNS ._SENT 
+9(b_NP )_) and_CC 9(d_VVN )_) ]_SYM depth_NN and_CC range_NN (_( with_IN the_DT latter_NN being_VBG defined_VVN relative_JJ to_TO the_DT location_NN of_IN the_DT first_JJ event_NN )_) ._SENT 
+Also_RB plotted_VVN are_VBP the_DT measured_VVN positions_NNS of_IN the_DT source_NN ,_, as_RB well_RB as_IN localization_NN estimates_NNS based_VVN on_IN ray-tracing_VVG individual_JJ events_NNS ._SENT 
+Vertical_JJ bars_NNS show_VVP the_DT uncertainties_NNS associated_VVN with_IN each_DT technique_NN ._SENT 
+The_DT initial_JJ modeled_VVN positions_NNS for_IN the_DT first_JJ pair_NN of_IN events_NNS were_VBD set_VVN to_TO 46.8_CD km_NN in_IN range_NN and_CC 150_CD m_NN in_IN depth_NN ._SENT 
+Figures_NNS 9(b_VVP )_) and_CC 9(d_NNS )_) illustrate_VVP how_WRB the_DT ray-tracing_VVG results_NNS diverge_VV from_IN the_DT measured_VVN range_NN of_IN the_DT source_NN ,_, while_IN also_RB yielding_VVG larger_JJR uncertainties_NNS for_IN both_DT range_NN (_( ±100–500_JJ m_NN )_) and_CC depth_NN (_( ±10–40_JJ m_NN )_) ,_, as_RB seen_VVN in_IN Figs_NNS ._SENT 
+9(b_NP )_) and_CC 9(d_NNS )_) ._SENT 
+By_IN contrast_NN ,_, the_DT double-difference_NN method_NN accurately_RB reconstructs_VVZ the_DT relative_JJ trajectory_NN of_IN the_DT source_NN within_IN a_DT few_JJ meters_NNS of_IN the_DT measured_VVN depth_NN trajectory_NN and_CC less_JJR than_IN 100_CD m_NN for_IN the_DT range_NN trajectory_NN ,_, with_IN uncertainties_NNS approximately_RB an_DT order_NN of_IN magnitude_NN smaller_JJR than_IN for_IN the_DT ray-tracing_NN ._SENT 
+figure_VV 2._CD Vertical_JJ haul_NN Over_IN this_DT 20_CD min_NN period_NN the_DT vessel_NN was_VBD stationary_JJ at_IN around_RB 49.75_CD km_NN range_NN ,_, while_IN hauling_VVG the_DT source_NN back_RB toward_IN the_DT surface_NN ,_, from_IN 280_CD to_TO 200_CD m_NN depth_NN ._SENT 
+Figures_NNS 7(b_VVP )_) and_CC 7(d_NNS )_) show_VVP the_DT depth_NN and_CC range_NN trajectories_NNS ,_, respectively_RB ,_, of_IN the_DT source_NN between_IN 22:28_CD and_CC 22:40_CD UTC_NN ._SENT 
+Over_IN that_DT same_JJ period_NN ,_, Figs_VVZ ._SENT 
+8(b_NP )_) and_CC 8(d_NNS )_) show_VVP the_DT RTOA_NN and_CC elevation_NN angles_NNS ,_, respectively_RB ,_, measured_VVN from_IN seven_CD events_NNS ,_, spaced_VVN in_IN 2_CD min_NN intervals_NNS ._SENT 
+Four_CD to_TO five_CD rays_NNS were_VBD identified_VVN for_IN each_DT event_NN ._SENT 
+The_DT elevation_NN angles_NNS of_IN all_PDT the_DT rays_NNS remain_VVP fairly_RB steady_JJ over_IN this_DT time_NN period_NN ,_, but_CC the_DT RTOA_NN of_IN rays_NNS 2_CD to_TO 5_CD (_( relative_JJ to_TO ray_NN 1_CD )_) begin_VVP decreasing_VVG at_IN a_DT fairly_RB constant_JJ rate_NN around_IN 22:32_CD UTC_NN ,_, which_WDT is_VBZ when_WRB the_DT source_NN begins_VVZ its_PP$ vertical_JJ ascent_NN ._SENT 
+The_DT decrease_NN of_IN RTOA_NN spans_NNS from_IN about_RB 5_CD ms_NN to_TO almost_RB 20_CD ms_NNS depending_VVG on_IN the_DT ray_NN ._SENT 
+Figures_NNS 9(e)–9(h_NP )_) show_VVP the_DT measured_JJ ,_, ray-traced_JJ ,_, and_CC double-difference_NN position_NN estimates_NNS for_IN each_DT event_NN ,_, in_IN terms_NNS of_IN both_DT absolute_NN [_SYM Figs_NNS ._SENT 
+9(e_NN )_) and_CC 9(g_NN )_) ]_SYM and_CC relative_NN [_SYM Figs_NNS ._SENT 
+9(f_NP )_) and_CC 9(h_NP )_) ]_SYM depth_NN and_CC range_NN ._SENT 
+The_DT initial_JJ modeled_VVN positions_NNS for_IN the_DT first_JJ pair_NN of_IN events_NNS were_VBD set_VVN to_TO 49.75_CD km_NN in_IN range_NN and_CC 270_CD m_NN in_IN depth_NN ._SENT 
+Figure_NN 9(f_NN )_) shows_VVZ that_IN both_DT the_DT double-difference_NN and_CC the_DT ray-tracing_NN produce_VV accurate_JJ depth_NN trajectories_NNS ,_, within_IN a_DT few_JJ meters_NNS of_IN the_DT measured_VVN position_NN ,_, but_CC Fig_NN ._SENT 
+9(h_NP )_) shows_VVZ that_IN ray-tracing_NN is_VBZ less_RBR accurate_JJ at_IN reproducing_VVG the_DT range_NN trajectory_NN ,_, with_IN biases_NNS on_IN the_DT order_NN of_IN 200_CD m_NN ,_, versus_CC the_DT 100_CD m_NN for_IN the_DT double-difference_NN ._SENT 
+Even_RB more_RBR striking_JJ are_VBP the_DT relative_JJ uncertainties_NNS in_IN position_NN estimates_NNS between_IN the_DT two_CD methods_NNS :_: ray-tracing_NN produces_VVZ uncertainties_NNS on_IN the_DT order_NN of_IN tens_NNS of_IN meters_NNS in_IN depth_NN and_CC hundreds_NNS of_IN meters_NNS in_IN range_NN [_SYM Fig_NN ._SENT 
+9(g_NP )_) ]_SYM ,_, in_IN comparison_NN with_IN the_DT uncertainty_NN in_IN depth_NN and_CC range_NN [_SYM Fig_NN ._SENT 
+9(h_NP )_) ]_SYM for_IN the_DT double_JJ difference_NN results_NNS ,_, which_WDT are_VBP an_DT order_NN of_IN magnitude_NN smaller_JJR ._SENT 
+Figure_NN 10_CD compares_VVZ the_DT full_JJ double-difference_NN results_NNS for_IN the_DT depth_NN trajectory_NN of_IN the_DT vertical_JJ haul_NN with_IN an_DT RTOA-only_JJ double-difference_NN computation_NN ._SENT 
+This_DT particular_JJ scenario_NN was_VBD selected_VVN for_IN this_DT comparison_NN because_IN it_PP was_VBD one_CD of_IN the_DT few_JJ situations_NNS where_WRB sufficient_JJ ray_NN paths_NNS existed_VVN per_IN event_NN to_TO provide_VV a_DT solution_NN in_IN terms_NNS of_IN RTOA_NN only_RB ._SENT 
+The_DT results_NNS show_VVP that_IN the_DT RTOA-only_JJ double-difference_NN performs_VVZ very_RB similarly_RB to_TO the_DT full_JJ double-difference_NN approach_NN ,_, but_CC fails_VVZ to_TO converge_VV for_IN the_DT last_JJ few_JJ events_NNS of_IN the_DT trajectory_NN ,_, yielding_VVG an_DT incomplete_JJ track_NN ._SENT 
+The_DT uncertainties_NNS of_IN the_DT RTOA-only_JJ approach_NN are_VBP also_RB greater_JJR than_IN the_DT full_JJ solution_NN ._SENT 
+figure_VV B._NP Sperm_NN whale_NN track_NN RTOA_NN and_CC elevation_NN angle_NN measurements_NNS were_VBD taken_VVN from_IN 15_CD sperm_NN whale_NN click_NN events_NNS over_IN a_DT 25_CD min_NN period_NN at_IN intervals_NNS of_IN 1_CD ,_, 2_CD ,_, and_CC 4_CD min_NN ._SENT 
+During_IN its_PP$ dive_NN the_DT whale_NN 's_POS inter-click_JJ interval_NN (_( average_JJ time_NN between_IN clicks_NNS in_IN a_DT series_NN of_IN clicks_NNS )_) stayed_VVD nearly_RB constant_JJ at_IN around_RB 0.7_CD s._NP Figure_NN 11_CD indicates_VVZ three_CD consistent_JJ ray_NN paths_NNS were_VBD identified_VVN throughout_IN the_DT track_NN ._SENT 
+The_DT angular_JJ measurements_NNS show_VVP that_IN ray_NN 1_CD increases_NNS by_IN about_RB 1_CD degree_NN at_IN a_DT relatively_RB steady_JJ rate_NN ,_, whereas_IN rays_NNS 2_CD and_CC 3_CD remain_VVP fairly_RB constant_JJ ._SENT 
+RTOA_NP measurements_NNS of_IN these_DT rays_NNS show_VVP a_DT clear_JJ overall_JJ increase_NN of_IN about_RB 15–20_JJ ms_NNS (_( relative_JJ to_TO ray_NN 1_CD )_) throughout_IN the_DT track_NN ._SENT 
+figure_VV The_DT true_JJ position_NN of_IN the_DT animal_NN is_VBZ unknown_JJ in_IN this_DT case_NN ,_, but_CC results_NNS from_IN applying_VVG the_DT double-difference_NN method_NN can_MD still_RB be_VB compared_VVN to_TO ray-tracing_VVG estimates_NNS from_IN the_DT individual_JJ events_NNS in_IN this_DT track_NN ._SENT 
+The_DT initial_JJ modeled_VVN positions_NNS for_IN the_DT first_JJ pair_NN of_IN events_NNS were_VBD set_VVN to_TO 46_CD km_NN in_IN range_NN and_CC 350_CD m_NN in_IN depth_NN ,_, based_VVN on_IN initial_JJ ray-tracing_NN estimates_NNS ._SENT 
+The_DT resulting_JJ trajectories_NNS (_( Fig_NN ._SENT 
+12_CD )_) show_VVP that_IN the_DT sperm_NN whale_NN remains_VVZ at_IN a_DT fairly_RB constant_JJ depth_NN ,_, between_IN approximately_RB 360_CD and_CC 380_CD m_NN ,_, and_CC travels_VVZ from_IN 45_CD to_TO 47_CD km_NN away_RB from_IN the_DT vertical_JJ array_NN ._SENT 
+The_DT double-difference_NN and_CC ray-tracing_NN produce_VVP similar_JJ trajectories_NNS ,_, but_CC once_RB again_RB the_DT double-difference_NN approach_NN yields_VVZ relative_JJ uncertainties_NNS that_WDT are_VBP almost_RB negligible_JJ (_( 6–22_JJ m_NN in_IN range_NN and_CC 1_CD m_NN in_IN depth_NN )_) compared_VVN to_TO ray-tracing_VVG uncertainties_NNS that_WDT are_VBP around_RB 80–250_JJ m_NN in_IN range_NN and_CC 5–20_JJ m_NN in_IN depth_NN ._SENT 
+Since_IN the_DT azimuth_NN of_IN the_DT whale_NN cannot_MD be_VB measured_VVN on_IN the_DT vertical_JJ array_NN ,_, the_DT exact_JJ speed_NN and_CC heading_VVG of_IN the_DT whale_NN cannot_MD be_VB calculated_VVN ._SENT 
+However_RB ,_, a_DT minimum_JJ and_CC maximum_JJ possible_JJ speed_NN can_MD be_VB estimated_VVN based_VVN on_IN the_DT geometry_NN of_IN the_DT problem_NN and_CC assuming_VVG constant_JJ velocity_NN ._SENT 
+The_DT minimum_JJ speed_NN assumes_VVZ zero_CD heading_VVG ,_, i._NP e._NP ,_, the_DT animal_NN is_VBZ swimming_VVG directly_RB away_RB from_IN the_DT array_NN ,_, whereas_IN the_DT maximum_JJ speed_NN assumes_VVZ of_IN heading_VVG of_IN 90_CD degrees_NNS ,_, with_IN the_DT whale_NN swimming_VVG tangentially_RB to_TO the_DT array_NN from_IN 45_CD to_TO 47_CD km_NN ._SENT 
+Taking_VVG into_IN account_NN the_DT 90_CD m_NN drift_NN of_IN the_DT array_NN during_IN time_NN period_NN ,_, the_DT possible_JJ speed_NN of_IN the_DT whale_NN ranges_VVZ from_IN 2.4_CD to_TO 17.9_CD knots_NNS <Section> V._NP DISCUSSION_NN </Section> Applying_VVG the_DT reformulated_VVN double-difference_NN algorithm_NN to_TO data_NNS gathered_VVN from_IN a_DT field_NN experiment_NN shows_VVZ how_WRB depth_NN and_CC range_NN trajectories_NNS of_IN both_CC a_DT towed_VVN acoustic_JJ source_NN and_CC a_DT sperm_NN whale_NN can_MD be_VB reconstructed_VVN ._SENT 
+This_DT approach_NN yields_VVZ trajectories_NNS that_WDT are_VBP sometimes_RB slightly_RB offset_VVN from_IN the_DT absolute_JJ position_NN of_IN the_DT source_NN ,_, but_CC accurately_RB reproduces_VVZ the_DT positions_NNS of_IN acoustic_JJ events_NNS relative_JJ to_TO each_DT other_JJ (_( relative_JJ trajectory_NN )_) ,_, as_RB seen_VVN throughout_IN Fig_NN ._SENT 
+9._CD These_DT double-difference_NN trajectories_NNS are_VBP also_RB shown_VVN to_TO be_VB more_RBR precise_JJ than_IN those_DT obtained_VVN using_VVG standard_JJ ray-tracing_NN ,_, with_IN localization_NN uncertainties_NNS an_DT order_NN of_IN magnitude_NN smaller_JJR than_IN the_DT ray-tracing_VVG uncertainties_NNS ._SENT 
+The_DT improved_VVN performance_NN of_IN the_DT double-difference_NN versus_CC ray-tracing_NN was_VBD particularly_RB obvious_JJ for_IN the_DT range_NN estimates_VVZ of_IN the_DT controlled_JJ acoustic_JJ source_NN ,_, as_RB seen_VVN in_IN Figs_NNS ._SENT 
+9(d_NN )_) and_CC 9(h_NP )_) ._SENT 
+Both_CC the_DT full_JJ and_CC RTOA-only_JJ double-difference_NN methods_NNS were_VBD tested_VVN on_IN the_DT same_JJ data_NNS (_( see_VV Fig_NN ._SENT 
+10_CD )_) ._SENT 
+The_DT outcome_NN of_IN this_DT analysis_NN demonstrates_VVZ that_IN both_DT approaches_NNS perform_VVP similarly_RB ,_, as_RB long_RB as_IN there_EX are_VBP enough_RB matching_VVG rays_NNS between_IN the_DT model_NN and_CC the_DT measurements_NNS for_IN a_DT given_VVN pair_NN of_IN events_NNS ._SENT 
+This_DT requires_VVZ not_RB only_RB that_IN the_DT ray_NN structure_NN between_IN two_CD events_NNS be_VB similar_JJ ,_, but_CC also_RB that_IN these_DT rays_NNS be_VB identified_VVN and_CC measured_VVN in_IN the_DT data_NNS ._SENT 
+If_IN this_DT requirement_NN is_VBZ not_RB met_VVN ,_, the_DT double-difference_NN equations_NNS become_VVP under-determined_JJ ._SENT 
+This_DT can_MD be_VB observed_VVN in_IN Fig_NN ._SENT 
+10_CD ,_, which_WDT shows_VVZ an_DT incomplete_JJ track_NN for_IN the_DT RTOA-only_JJ double-difference_NN that_WDT resulted_VVD from_IN insufficient_JJ numbers_NNS of_IN rays_NNS to_TO permit_VV a_DT least-squares_NP solution_NN ._SENT 
+Even_RB though_IN four_CD to_TO five_CD rays_NNS were_VBD identified_VVN in_IN this_DT trajectory_NN [_SYM see_VV Figs_NNS ._SENT 
+8(b_NP )_) and_CC 8(d_VVN )_) ]_SYM ,_, the_DT results_NNS suggest_VVP only_RB two_CD of_IN these_DT rays_NNS were_VBD successfully_RB matched_VVN with_IN the_DT model_NN ,_, which_WDT permitted_VVD solutions_NNS for_IN the_DT full_JJ double-difference_NN but_CC not_RB for_IN the_DT RTOA-only_JJ approach_NN ._SENT 
+An_DT advantage_NN however_RB ,_, of_IN the_DT RTOA-only_JJ algorithm_NN is_VBZ that_IN it_PP does_VVZ not_RB need_VV to_TO repeatedly_RB run_VV BELLHOP_NN to_TO compute_VV the_DT angular_JJ derivatives_NNS in_IN Eq_NP ._SENT 
+(_( 11_CD )_) ,_, making_VVG it_PP less_RBR computationally_RB expensive_JJ ._SENT 
+The_DT RTOA-only_JJ double-difference_NN can_MD therefore_RB be_VB a_DT more_RBR efficient_JJ approach_NN as_IN long_RB as_RB ,_, for_IN each_DT iteration_NN ,_, there_EX are_VBP at_IN least_JJS three_CD matching_VVG rays_NNS between_IN the_DT model_NN and_CC the_DT measurements_NNS of_IN a_DT given_VVN event_NN pair_NN ._SENT 
+This_DT is_VBZ sometimes_RB a_DT challenging_JJ requirement_NN ,_, so_RB the_DT full_JJ double-difference_NN approach_NN ,_, which_WDT requires_VVZ only_RB two_CD matching_NN rays_NNS and_CC also_RB produces_VVZ smaller_JJR errors_NNS ,_, is_VBZ generally_RB considered_VVN more_RBR robust_JJ ._SENT 
+The_DT importance_NN of_IN matching_VVG ray_NN arrivals_NNS between_IN the_DT model_NN and_CC the_DT data_NN is_VBZ also_RB clear_JJ whenever_WRB testing_VVG the_DT robustness_NN of_IN the_DT double-difference_NN method_NN to_TO uncertainties_NNS in_IN array_NN tilt_NN and_CC perturbations_NNS in_IN the_DT sound_JJ speed_NN profile_NN ._SENT 
+As_RB long_RB as_IN sufficient_JJ rays_NNS are_VBP matched_VVN ,_, the_DT double-difference_NN appears_VVZ to_TO be_VB fairly_RB robust_JJ to_TO uncertainties_NNS in_IN array_NN tilt_NN and_CC sound_JJ speed_NN ._SENT 
+However_RB ,_, small_JJ perturbations_NNS can_MD sometimes_RB cause_VV the_DT modeled_VVN ray_NN structure_NN to_TO change_VV substantially_RB ,_, reducing_VVG the_DT number_NN of_IN matching_VVG rays_NNS between_IN events_NNS and_CC making_VVG the_DT system_NN under-determined_VVD ._SENT 
+Another_DT key_JJ factor_NN that_WDT can_MD have_VH a_DT major_JJ impact_NN on_IN the_DT results_NNS is_VBZ the_DT initial_JJ modeled_VVN position_NN of_IN the_DT source_NN ._SENT 
+Small_JJ changes_NNS (_( sometimes_RB on_IN the_DT order_NN of_IN a_DT few_JJ meters_NNS for_IN the_DT depth_NN )_) in_IN the_DT initial_JJ modeled_VVN position_NN can_MD cause_VV the_DT ray_NN structure_NN to_TO change_VV enough_RB for_IN the_DT double-difference_NN to_TO produce_VV an_DT incomplete_JJ track_NN ._SENT 
+For_IN each_DT track_NN shown_VVN here_RB ,_, a_DT series_NN of_IN trial_NN initial_JJ event_NN locations_NNS was_VBD tested_VVN to_TO determine_VV the_DT positions_NNS that_WDT generated_VVD enough_JJ matching_VVG ray_NN paths_NNS across_IN the_DT entire_JJ sequence_NN of_IN events_NNS ._SENT 
+These_DT analyses_NNS ,_, including_VVG the_DT sensitivity_NN to_TO initial_JJ position_NN ,_, suggest_VVP that_IN the_DT depth-dependent_JJ sound_JJ speed_NN profile_NN variability_NN is_VBZ an_DT important_JJ factor_NN when_WRB considering_VVG the_DT robustness_NN of_IN the_DT approach_NN ._SENT 
+Indeed_RB ,_, the_DT depths_NNS analyzed_VVD here_RB are_VBP all_RB below_IN 400_CD m_NN ,_, a_DT region_NN where_WRB the_DT sound_JJ speed_NN changes_NNS rapidly_RB with_IN depth_NN ,_, as_RB seen_VVN in_IN Fig_NN ._SENT 
+5._CD The_DT ray_NN structure_NN can_MD therefore_RB vary_VV rapidly_RB with_IN depth_NN in_IN this_DT shallow_JJ region_NN ,_, which_WDT would_MD explain_VV why_WRB the_DT double-difference_NN results_NNS are_VBP sometimes_RB sensitive_JJ to_TO small_JJ changes_NNS in_IN initial_JJ modeled_VVN position_NN and_CC other_JJ perturbations_NNS such_JJ as_IN array_NN tilt_NN and_CC sound_JJ speed_NN ._SENT 
+If_IN true_JJ ,_, this_DT hypothesis_NN predicts_VVZ that_IN double-difference_NN approaches_NNS could_MD be_VB even_RB more_RBR robust_JJ for_IN deeper_JJR sources_NNS in_IN the_DT water_NN column_NN ,_, where_WRB the_DT variability_NN of_IN the_DT sound_JJ speed_NN profile_NN is_VBZ smaller_JJR ._SENT 
+This_DT depth-dependent_JJ environmental_JJ variability_NN might_MD also_RB explain_VV the_DT similarity_NN in_IN performance_NN between_IN the_DT double-difference_NN and_CC the_DT ray-tracing_VVG results_NNS for_IN the_DT vertical_JJ haul_NN ,_, as_RB seen_VVN in_IN Figs_NNS ._SENT 
+9(b_NP )_) and_CC 9(f_NP )_) ._SENT 
+The_DT double-difference_NN was_VBD implemented_VVN here_RB assuming_VVG a_DT locally_RB “_JJ homogenous_JJ ”_JJ environment_NN [_SYM Eqs_NP ._SENT 
+(_( 9_CD )_) and_CC (_( 10_CD )_) ]_SYM ,_, which_WDT permitted_VVD the_DT separations_NNS between_IN any_DT given_VVN pair_NN of_IN events_NNS to_TO be_VB solved_VVN separately_RB from_IN all_DT other_JJ events_NNS in_IN a_DT trajectory_NN ._SENT 
+Attempts_NNS to_TO implement_VV the_DT “_JJ inhomogeneous_JJ ”_JJ version_NN of_IN the_DT problem_NN [_SYM Eqs_NP ._SENT 
+(_( 4_CD )_) and_CC (_( 5_LS )_) ]_SYM ,_, where_WRB the_DT relative_JJ positions_NNS of_IN all_DT events_NNS in_IN a_DT trajectory_NN are_VBP computed_VVN simultaneously_RB in_IN one_CD single_JJ matrix_NN inversion_NN (_( WE_PP )_) ,_, were_VBD unsuccessful_JJ because_IN it_PP was_VBD challenging_VVG to_TO discover_VV initial_JJ modeled_VVN positions_NNS that_WDT yielded_VVD the_DT required_VVN number_NN of_IN matching_VVG rays_NNS throughout_IN the_DT entire_JJ sequence_NN of_IN events_NNS ._SENT 
+Had_VHD we_PP made_VVN RTOA_NP or_CC RDEA_NP measurements_NNS between_IN all_DT possible_JJ combinations_NNS of_IN events_NNS ,_, and_CC not_RB just_RB events_NNS adjacent_JJ in_IN time_NN ,_, we_PP might_MD have_VH made_VVN more_JJR progress_NN with_IN the_DT inhomogeneous_JJ formation_NN ._SENT 
+However_RB ,_, Fig_VVP ._SENT 
+9_CD shows_VVZ that_IN the_DT homogenous_JJ formulation_NN of_IN the_DT double-difference_NN equations_NNS produced_VVD satisfying_JJ results_NNS ,_, showing_VVG that_IN shifts_NNS in_IN source_NN position_NN on_IN the_DT order_NN of_IN a_DT few_JJ meters_NNS could_MD be_VB measured_VVN accurately_RB at_IN ranges_NNS of_IN nearly_RB 50_CD km_NN ,_, even_RB in_IN a_DT portion_NN of_IN the_DT water_NN column_NN with_IN a_DT strong_JJ sound_JJ speed_NN gradient_NN ._SENT 
+Results_NNS also_RB show_VVP that_IN this_DT method_NN could_MD track_VV a_DT sperm_NN whale_NN over_IN 25_CD min_NN ,_, as_RB seen_VVN in_IN Fig_NN ._SENT 
+12._CD The_DT double-difference_NN analysis_NN reveals_VVZ that_IN the_DT animal_NN is_VBZ holding_VVG a_DT fairly_RB steady_JJ depth_NN within_IN 10_CD m_NN of_IN its_PP$ original_JJ position_NN ,_, while_IN steadily_RB increasing_VVG its_PP$ range_NN ._SENT 
+Observations_NNS this_DT precise_JJ would_MD have_VH been_VBN impossible_JJ with_IN the_DT high-uncertainty_JJ trajectory_NN measurements_NNS resulting_VVG from_IN standard_JJ ray-tracing_NN ._SENT 
+The_DT estimated_JJ speed_NN window_NN of_IN 2.4–17.9_JJ knots_NNS spans_NNS known_VVN sperm_NN whale_NN swimming_NN speeds_NNS found_VVN in_IN the_DT literature_NN (_( Miller_NP et_NP al_NP ._SENT 
+,_, 2004_CD ;_: Aoki_NP et_NP al_NP ._SENT 
+,_, 2007_CD )_) ._SENT 
+<Section> VI_NP ._SENT 
+CONCLUSION_NN </Section> The_DT double-difference_NN method_NN ,_, initially_RB developed_VVN to_TO localize_VV earthquakes_NNS by_IN WE_PP and_CC recently_RB applied_VVN to_TO fin_VV whales_NNS (_( Wilcock_NP ,_, 2012_CD )_) ,_, has_VHZ been_VBN reformulated_VVN here_RB for_IN localizing_VVG sources_NNS using_VVG multipath_NN arrival_NN information_NN (_( RDEA_NP and_CC RTOA_NP )_) detected_VVD on_IN an_DT array_NN of_IN sensors_NNS ._SENT 
+This_DT reformulation_NN has_VHZ been_VBN applied_VVN for_IN long-range_JJ tracking_NN of_IN moving_VVG acoustic_JJ sources_NNS on_IN an_DT array_NN whose_WP$ aperture_NN is_VBZ short_RB relative_JJ to_TO the_DT water_NN depth_NN ._SENT 
+Results_NNS show_VVP that_IN relative_JJ depth_NN and_CC range_NN trajectories_NNS of_IN a_DT towed_VVN acoustic_JJ source_NN ,_, located_VVN about_IN 50_CD km_NN from_IN the_DT array_NN ,_, can_MD be_VB accurately_RB recovered_VVN using_VVG this_DT method_NN ._SENT 
+Comparing_VVG these_DT results_NNS to_TO a_DT standard_JJ ray-tracing_NN algorithm_NN found_VVD that_IN the_DT double-difference_NN method_NN yielded_VVD more_RBR accurate_JJ range_NN trajectories_NNS of_IN moving_VVG sources_NNS ,_, and_CC produced_VVN range_NN and_CC depth_NN error_NN estimates_VVZ at_IN least_JJS an_DT order_NN of_IN magnitude_NN smaller_JJR than_IN ray-tracing_VVG approaches_NNS ,_, even_RB those_DT that_WDT incorporated_VVD least-square_JJ fits_NNS of_IN RTOA_NN data_NNS ._SENT 
+This_DT method_NN was_VBD also_RB used_VVN to_TO track_VV the_DT movements_NNS of_IN a_DT sperm_NN whale_NN over_IN a_DT 25_CD min_NN period_NN ,_, yielding_VVG information_NN on_IN an_DT animal_NN 's_POS swimming_NN and_CC diving_JJ behavior_NN ._SENT 
+At_IN least_JJS two_CD common_JJ ray_NN paths_NNS must_MD be_VB identified_VVN between_IN the_DT model_NN and_CC the_DT measurements_NNS for_IN pairs_NNS of_IN events_NNS ,_, which_WDT can_MD be_VB challenging_VVG in_IN an_DT environment_NN in_IN which_WDT the_DT sound_JJ speed_NN changes_NNS rapidly_RB with_IN depth_NN ,_, but_CC becomes_VVZ feasible_JJ as_IN more_JJR events_NNS become_VVP available_JJ to_TO process_NN ,_, permitting_VVG RTOA_NP and_CC RDEA_NP measurements_NNS from_IN more_JJR combinations_NNS of_IN events_NNS ._SENT 
+<Section> ACKNOWLEDGMENTS_NNS </Section> We_PP would_MD like_VV to_TO thank_VV William_NP Wilcock_NP ,_, Peter_NP Shearer_NP ,_, and_CC John_NP Hildebrand_NP for_IN their_PP$ comments_NNS on_IN this_DT work_NN ,_, as_RB well_RB as_IN David_NP Ensberg_NP ,_, who_WP provided_VVD useful_JJ information_NN related_VVN to_TO the_DT data_NNS and_CC the_DT experiment_NN ._SENT 
+We_PP also_RB thank_VVP the_DT crew_NN of_IN the_DT R/V_NP Melville_NP ,_, who_WP assisted_VVN in_IN the_DT deployment_NN of_IN the_DT array_NN and_CC acoustic_JJ source_NN ._SENT 
+The_DT MFNA_NP experiment_NN was_VBD sponsored_VVN by_IN the_DT Office_NP of_IN Naval_NP Research_NP ._SENT 
+This_DT work_NN was_VBD also_RB partially_RB supported_VVN by_IN Grant_NP No._NN N000141410403_NN from_IN the_DT Office_NP of_IN Naval_NP Research_NP Marine_NP Mammal_NN Program_NN ._SENT 
+<Section> APPENDIX_NN A_NP :_: RAY_NN DERIVATIVES_NNS FOR_IN ELEVATION_NN ANGLE_NN </Section> The_DT analytical_JJ forms_NNS of_IN the_DT derivatives_NNS in_IN Eqs_NP ._SENT 
+(_( 5_CD )_) and_CC (_( 10_CD )_) are_VBP given_VVN by_RB @_SYM where_WRB τ_NN is_VBZ known_VVN as_IN the_DT delay_NN time_NN ,_, p_NN is_VBZ the_DT ray_NN parameters_NNS ,_, η_NP is_VBZ the_DT vertical_JJ slowness_NN ,_, and_CC zr_NP and_CC zs_NP are_VBP the_DT receiver_NN and_CC source_NN depths_NNS ,_, respectively_RB (_( Frisk_NP ,_, 1994_CD ;_: Shearer_NP ,_, 1999_CD )_) ._SENT 
+In_IN practice_NN ,_, the_DT evaluation_NN of_IN these_DT derivatives_NNS is_VBZ vulnerable_JJ to_TO numerical_JJ instabilities_NNS ,_, so_RB for_IN practical_JJ applications_NNS these_DT derivatives_NNS were_VBD simply_RB numerically_RB evaluated_VVN by_IN perturbing_VVG BELLHOP_NN runs_NNS ,_, as_RB explained_VVD in_IN Sec_NN ._SENT 
+III_NP E_NP <Section> APPENDIX_NN B_NN :_: RAY-TRACING_VVG LOCALIZATION_NN ALGORITHM_NN </Section> Acoustic_JJ events_NNS were_VBD localized_VVN based_VVN on_IN a_DT least-squares_NP approach_NN ,_, which_WDT was_VBD equivalent_JJ to_TO a_DT maximum-likelihood_NN approach_NN for_IN this_DT dataset_NN ._SENT 
+For_IN each_DT individual_JJ event_NN ,_, measured_VVN elevation_NN angles_NNS were_VBD first_RB propagated_VVN back_RB into_IN the_DT waveguide_NN from_IN the_DT array_NN using_VVG BELLHOP_NN ._SENT 
+A_DT rectangular_JJ region_NN was_VBD then_RB selected_VVN around_IN the_DT most_RBS likely_JJ convergence_NN zone_NN and_CC the_DT eigenrays_NNS were_VBD computed_VVN for_IN each_DT point_NN in_IN the_DT grid_NN (_( depth_NN interval_NN :_: 1_CD m_NN ,_, range_NN interval_NN :_: 10_CD m_NN )_) ._SENT 
+For_IN each_DT grid_NN point_NN that_WDT produced_VVD enough_JJ rays_NNS to_TO be_VB matched_VVN with_IN the_DT measurements_NNS ,_, the_DT log-likelihood_NN function_NN was_VBD computed_VVN based_VVN on_IN the_DT following_VVG expression_NN :_: @_SYM where_WRB θi_NP and_CC Ti_NP are_VBP the_DT elevation_NN angle_NN and_CC travel_NN time_NN of_IN the_DT ith_JJ ray_NN ,_, T0_NP is_VBZ the_DT travel_NN time_NN of_IN the_DT reference_NN ray_NN ,_, σ2θ_NP and_CC σ2T_NP are_VBP the_DT estimated_JJ variances_NNS in_IN the_DT measured_VVN elevation_NN angles_NNS and_CC travel_NN times_NNS ,_, respectively_RB ,_, using_VVG the_DT migration_NN plots_NNS shown_VVN in_IN Fig_NN ._SENT 
+6._CD The_DT depth_NN and_CC range_NN of_IN the_DT event_NN was_VBD then_RB determined_VVN by_IN locating_VVG the_DT minimum_NN of_IN the_DT log-likelihood_NN over_IN the_DT search_NN grid_NN ._SENT 
+The_DT error_NN was_VBD then_RB computed_VVN by_IN running_VVG the_DT localization_NN algorithm_NN 50_CD times_NNS with_IN random_JJ perturbations_NNS in_IN both_CC the_DT elevation_NN angle_NN and_CC RTOA_NN measurements_NNS ,_, following_VVG a_DT normal_JJ distribution_NN with_IN variances_NNS σ2θ_NP and_CC 2σ2T_NP ,_, respectively_RB ._SENT 
+The_DT error_NN bars_VVZ for_IN the_DT ray-tracing_NN displayed_VVN in_IN Figs_NNS ._SENT 
+9_CD and_CC 12_CD are_VBP the_DT standard_JJ deviations_NNS of_IN the_DT localization_NN results_NNS from_IN these_DT 50_CD iterations_NNS ._SENT 
+1_LS See_VV supplementary_JJ material_NN at_IN https_NNS :_: doi_NP ._SENT 
+org/10.1121/1.5014050_NN for_IN a_DT diagram_NN of_IN the_DT MFNA_NP deployment_NN configuration_NN ._SENT 
+<Section> REFERENCES_NNS </Section> 1._CD Aoki_NP ,_, K._NP ,_, Amano_NP ,_, M._NP ,_, Sugiyama_NP ,_, N._NP ,_, Muramoto_NP ,_, H._NP ,_, Suzuki_NP ,_, M._NP ,_, Yoshioka_NP ,_, M._NP ,_, Mori_NP ,_, K._NP ,_, Tokuda_NP ,_, D._NP ,_, Miyazaki_NP ,_, N._NP ,_, and_CC IEEE_NP (_( 2007_CD )_) ._SENT 
+“_JJ Measurement_NN of_IN swimming_VVG speed_NN in_IN sperm_NN whales_NNS ,_, ”_JJ in_IN 2007_CD Symposium_NN on_IN Underwater_JJ Technology_NN and_CC Workshop_NN on_IN Scientific_NP Use_NP of_IN Submarine_JJ Cables_NP and_CC Related_NP Technologies_NPS ,_, Vols_NPS ._SENT 
+1_CD and_CC 2_CD ,_, pp_NP ._SENT 
+467–471_JJ ._SENT 
+Google_NP ScholarCrossref_NP 2._CD Cornuelle_NP ,_, B._NP D._NP (_( 1985_CD )_) ._SENT 
+“_JJ Simulations_NNS of_IN acoustic_JJ tomography_NN array_NN performance_NN with_IN untracked_JJ or_CC drifting_VVG sources_NNS and_CC receivers_NNS ,_, ”_NP J._NP Geophys_NPS ._SENT 
+Res_NNS ._SENT 
+:_: Oceans_NNS 90_CD ,_, 9079–9088_NP ,_, https_NP :_: //doi_NP ._SENT 
+org/10.1029/JC090iC05p09079_NP ._SENT 
+Google_NP ScholarCrossref_NP 3._CD Evensen_NP ,_, G._NP (_( 2009_CD )_) ._SENT 
+Data_NP Assimilation_NN :_: The_DT Ensemble_NN Kalman_NP Filter_NP ,_, 2nd_JJ ed_NNS ._SENT 
+(_( Springer_NP ,_, Berlin_NP )_) ,_, pp_NP ._SENT 
+1–307_JJ ._SENT 
+Google_NP ScholarCrossref_NP 4._CD Fizell_NP ,_, R._NP G._NP ,_, and_CC Wales_NP ,_, S._NP C._NP (_( 1985_CD )_) ._SENT 
+“_JJ Source_NN localization_NN in_IN range_NN and_CC depth_NN in_IN an_DT Arctic_NP environment_NN ,_, ”_NP J._NP Acoust_NP ._SENT 
+Soc_NP ._SENT 
+Am_NP ._SENT 
+78_CD ,_, S57–S58_NP ._SENT 
+https_NNS :_: //doi_NP ._SENT 
+org/10.1121/1.2022889_NP ,_, Google_NP ScholarScitation_NP 5._CD Fremont_NP ,_, M._NP J._NP ,_, and_CC Malone_NP ,_, S._NP D._NP (_( 1987_CD )_) ._SENT 
+“_JJ High-precision_JJ relative_JJ locations_NNS of_IN earthquakes_NNS at_IN mount_VVP St._NP Helens_NP ,_, Washington_NP ,_, ”_NP J._NP Geophys_NPS ._SENT 
+Res_NNS ._SENT 
+,_, [_SYM Solid_NP Earth_NP Planets_NNS ]_SYM 92_CD ,_, 10223–10236_NP ,_, https_NP :_: //doi_NP ._SENT 
+org/10.1029/JB092iB10p10223_NP ._SENT 
+Google_NP ScholarCrossref_NP 6._CD Frisk_NP ,_, G._NP V._NP (_( 1994_CD )_) ._SENT 
+Ocean_NN and_CC Seabed_NN Acoustics_NNS :_: A_DT Theory_NN of_IN Wave_NP Propagation_NN (_( Prentice_NP Hall_NP ,_, Englewood_NP Cliffs_NPS ,_, NJ_NP )_) ,_, pp_NP ._SENT 
+1–300_NP ._SENT 
+Google_NP Scholar_NN 7._CD Goold_NP ,_, J._NP C._NP ,_, and_CC Jones_NP ,_, S._NP E._NP (_( 1995_CD )_) ._SENT 
+“_NP Time_NP and_CC frequency-domain_NP characteristics_NNS of_IN sperm_NN whale_NN clicks_NNS ,_, ”_NP J._NP Acoust_NP ._SENT 
+Soc_NP ._SENT 
+Am_NP ._SENT 
+98_CD ,_, 1279–1291_JJ ._SENT 
+https_NNS :_: //doi_NP ._SENT 
+org/10.1121/1.413465_NP ,_, Google_NP ScholarScitation_NP ,_, CAS_NP 8._CD Ito_NP ,_, A._NP (_( 1985_CD )_) ._SENT 
+“_JJ High-resolution_NN relative_JJ hypocenters_NNS of_IN similar_JJ earthquakes_NNS by_IN cross-spectral_JJ analysis_NN method_NN ,_, ”_NP J._NP Phys_NPS ._SENT 
+Earth_NP 33_CD ,_, 279–294_NP ._SENT 
+https_NNS :_: //doi_NP ._SENT 
+org/10.4294/jpe1952.33.279_NP ,_, Google_NP ScholarCrossref_NP 9._CD Locarnini_NP ,_, R._NP A._NP ,_, Mishonov_NP ,_, A._NP V._NP ,_, Antonov_NP ,_, J._NP I._NP ,_, Boyer_NP ,_, T._NP P._NP ,_, Garcia_NP ,_, H._NP E._NP ,_, Baranova_NP ,_, O._NP K._NP ,_, Zweng_NP ,_, M._NP M._NP ,_, Paver_NP ,_, C._NP R._NP ,_, Reagan_NP ,_, J._NP R._NP ,_, Johnson_NP ,_, D._NP R._NP ,_, Hamilton_NP ,_, M._NP ,_, Seidov_NP ,_, D._NP ,_, and_CC Levitus_NP ,_, S._NP (_( 2013_CD )_) ._SENT 
+World_NP Ocean_NP Atlas_NP 2013_CD ,_, Volume_NN 1_CD ,_, Temperature_NN (_( National_NP Oceanographic_JJ Data_NP Center_NP ,_, Ocean_NP Climate_NN Laboratory_NN ,_, and_CC United_NP States_NPS National_NP Environmental_NP Satellite_NP Data_NP and_CC Information_NP Service_NP ,_, Silver_NP Spring_NP ,_, MD_NP )_) ,_, pp_NP ._SENT 
+1–40_NP ._SENT 
+Google_NP Scholar_NN 10._CD Mathias_NP ,_, D._NP ,_, Thode_NP ,_, A._NP M._NP ,_, Straley_NP ,_, J._NP ,_, and_CC Andrews_NPS ,_, R._NP D._NP (_( 2013_CD )_) ._SENT 
+“_JJ Acoustic_JJ tracking_NN of_IN sperm_NN whales_NNS in_IN the_DT Gulf_NP of_IN Alaska_NP using_VVG a_DT two-element_NN vertical_JJ array_NN and_CC tags_NNS ,_, ”_NP J._NP Acoust_NP ._SENT 
+Soc_NP ._SENT 
+Am_NP ._SENT 
+134_CD ,_, 2446–2461_JJ ._SENT 
+https_NNS :_: //doi_NP ._SENT 
+org/10.1121/1.4816565_NP ,_, Google_NP ScholarScitation_NP 11._CD Miller_NP ,_, P._NP J._NP O._NP ,_, Johnson_NP ,_, M._NP P._NP ,_, Tyack_NP ,_, P._NP L._NP ,_, and_CC Terray_NP ,_, E._NP A._NP (_( 2004_CD )_) ._SENT 
+“_JJ Swimming_NN gaits_NNS ,_, passive_JJ drag_NN and_CC buoyancy_NN of_IN diving_JJ sperm_NN whales_NNS Physeter_NP macrocephalus_NP ,_, ”_NP J._NP Exp_NP ._SENT 
+Biol_NN ._SENT 
+207_CD ,_, 1953–1967_JJ ._SENT 
+https_NNS :_: //doi_NP ._SENT 
+org/10.1242/jeb.00993_NP ,_, Google_NP ScholarCrossref_NP 12._CD Porter_NP ,_, M._NP ,_, and_CC Reiss_NP ,_, E._NP L._NP (_( 1984_CD )_) ._SENT 
+“_NP A_NP numerical-method_NP for_IN ocean-acoustic_JJ normal-modes_NNS ,_, ”_NP J._NP Acoust_NP ._SENT 
+Soc_NP ._SENT 
+Am_NP ._SENT 
+76_CD ,_, 244–252_NP ._SENT 
+https_NNS :_: //doi_NP ._SENT 
+org/10.1121/1.391101_JJ ,_, Google_JJ ScholarScitation_NP 13._CD Porter_NP ,_, M._NP B._NP (_( 1991_CD )_) ._SENT 
+“_NP The_DT KRAKEN_NN normal_JJ mode_NN program_NN ,_, ”_NP SACLANT_NP Undersea_JJ Research_NP Centre_NP ,_, La_NP Spezia_NP ,_, Italy_NP ._SENT 
+Google_NP Scholar_NN 14._CD Poupinet_NN ,_, G._NP ,_, Ellsworth_NP ,_, W._NP L._NP ,_, and_CC Frechet_NP ,_, J._NP (_( 1984_CD )_) ._SENT 
+“_JJ Monitoring_VVG velocity_NN variations_NNS in_IN the_DT crust_NN using_VVG earthquake_NN doublets—An_NN application_NN to_TO the_DT Calaveras_NP fault_NN ,_, California_NP ,_, ”_NP J._NP Geophys_NPS ._SENT 
+Res_NNS ._SENT 
+89_CD ,_, 5719–5731_JJ ,_, https_VVZ :_: //doi_NP ._SENT 
+org/10.1029/JB089iB07p05719_NP ._SENT 
+Google_NP ScholarCrossref_NP 15._CD Press_NP ,_, W._NP H._NP (_( 1992_CD )_) ._SENT 
+Numerical_JJ Recipes_NNS in_IN FORTRAN_NP :_: The_DT Art_NN of_IN Scientific_NP Computing_NP (_( Cambridge_NP University_NP Press_NP ,_, Cambridge_NP ,_, UK_NP )_) ,_, pp_NP ._SENT 
+1–973_NP ._SENT 
+Google_NP Scholar_NN 16._CD Shearer_NP ,_, P._NP M._NP (_( 1997_CD )_) ._SENT 
+“_JJ Improving_NN local_JJ earthquake_NN locations_NNS using_VVG the_DT L1_JJ norm_NN and_CC waveform_NN cross_NN correlation_NN :_: Application_NN to_TO the_DT Whittier_NP Narrows_VVZ ,_, California_NP ,_, aftershock_NN sequence_NN ,_, ”_NP J._NP Geophys_NPS ._SENT 
+Res_NNS ._SENT 
+:_: Solid_JJ Earth_NP 102_CD ,_, 8269–8283_NP ,_, https_NP :_: //doi_NP ._SENT 
+org/10.1029/96JB03228_NP ._SENT 
+Google_NP ScholarCrossref_NP 17._CD Shearer_NP ,_, P._NP M._NP (_( 1999_CD )_) ._SENT 
+Introduction_NN to_TO Seismology_NN (_( Cambridge_NP University_NP Press_NP ,_, Cambridge_NP ,_, NY_NP )_) ,_, pp_NP ._SENT 
+1–396_NP ._SENT 
+Google_NP Scholar_NN 18._CD Skolnik_NP ,_, M._NP I._NP (_( 1962_CD )_) ._SENT 
+Introduction_NN to_TO Radar_NP Systems_NP (_( McGraw-Hill_NP ,_, New_NP York_NP )_) ,_, pp_NP ._SENT 
+1–581_JJ ._SENT 
+Google_NP Scholar_NN 19._CD Thode_NP ,_, A._NP (_( 2004_CD )_) ._SENT 
+“_JJ Tracking_NN sperm_NN whale_NN (_( Physeter_NP macrocephalus_NP )_) dive_NN profiles_NNS using_VVG a_DT towed_VVN passive_JJ acoustic_JJ array_NN ,_, ”_NP J._NP Acoust_NP ._SENT 
+Soc_NP ._SENT 
+Am_NP ._SENT 
+116_CD ,_, 245–253_NP ._SENT 
+https_NNS :_: //doi_NP ._SENT 
+org/10.1121/1.1758972_NP ,_, Google_NP ScholarScitation_NP ,_, ISI_NP 20._CD Thode_NP ,_, A._NP ,_, Mellinger_NP ,_, D._NP K._NP ,_, Stienessen_NP ,_, S._NP ,_, Martinez_NP ,_, A._NP ,_, and_CC Mullin_NP ,_, K._NP (_( 2002_CD )_) ._SENT 
+“_JJ Depth-dependent_JJ acoustic_JJ features_NNS of_IN diving_JJ sperm_NN whales_NNS (_( Physeter_NP macrocephalus_NP )_) in_IN the_DT Gulf_NP of_IN Mexico_NP ,_, ”_NP J._NP Acoust_NP ._SENT 
+Soc_NP ._SENT 
+Am_NP ._SENT 
+112_CD ,_, 308–321_JJ ._SENT 
+https_NNS :_: //doi_NP ._SENT 
+org/10.1121/1.1482077_JJ ,_, Google_NP ScholarScitation_NP ,_, ISI_NP 21._CD Tiemann_NP ,_, C._NP O._NP ,_, Thode_NP ,_, A._NP M._NP ,_, Straley_NP ,_, J._NP ,_, O'Connell_NP ,_, V._NP ,_, and_CC Folkert_NP ,_, K._NP (_( 2006_CD )_) ._SENT 
+“_JJ Three-dimensional_JJ localization_NN of_IN sperm_NN whales_NNS using_VVG a_DT single_JJ hydrophone_NN ,_, ”_NP J._NP Acoust_NP ._SENT 
+Soc_NP ._SENT 
+Am_NP ._SENT 
+120_CD ,_, 2355–2365_NP ._SENT 
+https_NNS :_: //doi_NP ._SENT 
+org/10.1121/1.2335577_JJ ,_, Google_JJ ScholarScitation_NP 22._CD Waldhauser_NP ,_, F._NP ,_, and_CC Ellsworth_NP ,_, W._NP L._NP (_( 2000_CD )_) ._SENT 
+“_NP A_NP double-difference_NN earthquake_NN location_NN algorithm_NN :_: Method_NN and_CC application_NN to_TO the_DT northern_JJ Hayward_NP fault_NN ,_, California_NP ,_, ”_NP Bull_NP ._SENT 
+Seismolog_NP ._SENT 
+Soc_NP ._SENT 
+Am_NP ._SENT 
+90_CD ,_, 1353–1368_NP ._SENT 
+https_NNS :_: //doi_NP ._SENT 
+org/10.1785/0120000006_NP ,_, Google_NP ScholarCrossref_NP 23._CD Watkins_NP ,_, W._NP A._NP ,_, and_CC Schevill_NP ,_, W._NP E._NP (_( 1972_CD )_) ._SENT 
+“_NP Sound_NP source_NN location_NN by_IN arrival-times_NNS on_IN a_DT non-rigid_JJ three-dimensional_JJ hydrophone_NN array_NN ,_, ”_JJ Deep-Sea_NN Res_NNS ._SENT 
+19_CD ,_, 691–706_NP ._SENT 
+https_NNS :_: //doi_NP ._SENT 
+org/10.1016/0011-7471(72)90061-7_JJ ,_, Google_JJ ScholarCrossref_NP 24._CD Wilcock_NP ,_, W._NP (_( 2012_CD )_) ._SENT 
+“_JJ Tracking_VVG fin_NN whales_NNS in_IN the_DT northeast_JJ Pacific_NP Ocean_NP with_IN a_DT seafloor_NN seismic_JJ network_NN ,_, ”_NP J._NP Acoust_NP ._SENT 
+Soc_NP ._SENT 
+Am_NP ._SENT 
+132_CD ,_, 2408–2419_NP ._SENT 
+https_NNS :_: //doi_NP ._SENT 
+org/10.1121/1.4747017_JJ ,_, Google_NP ScholarScitation_NP ,_, ISI_NP 25._CD Zimmer_NP ,_, W._NP M._NP X._NP ,_, Johnson_NP ,_, M._NP P._NP ,_, D'Amico_NP ,_, A._NP ,_, and_CC Tyack_NP ,_, P._NP L._NP (_( 2003_CD )_) ._SENT 
+“_JJ Combining_VVG data_NNS from_IN a_DT multisensor_NN tag_NN and_CC passive_JJ sonar_NN to_TO determine_VV the_DT diving_JJ behavior_NN of_IN a_DT sperm_NN whale_NN (_( Physeter_NP macrocephalus_NP )_) ,_, ”_NP IEEE_NP J._NP Ocean_NP ._SENT 
+Eng_NP ._SENT 
+28_CD ,_, 13–28_NP ._SENT 
+https_NNS :_: //doi_NP ._SENT 
+org/10.1109/JOE.2002.808209_NP ,_, Google_NP ScholarCrossref_NP 

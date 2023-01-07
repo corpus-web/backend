@@ -1,0 +1,212 @@
+<title>Numerical simulation on LMR molten-core centralized sloshing benchmark experiment using multi-phase smoothed particle hydrodynamics</title>
+<author>1,Young BeomJo,2,So-HyunPark,3,JuryongPark,4,Eung SooKim</author>
+<Affiliation>1,Department of Nuclear Engineering, Seoul National University, 559 Gwanak-ro, Gwanak-gu, Seoul, South Korea</Affiliation>
+<year>2021</year>
+<Jounral>Nuclear Engineering and Technology</Journal>
+<Publishing_house>Elsevier</Publishing_house>
+<Text_Collector>XiaFan，HEU</Text_Collector>
+<DOI>10.1016/j.net.2020.07.039</DOI>
+<URL>https://www.sciencedirect.com/science/article/pii/S1738573320308019</URL>
+Numerical simulation on LMR molten-core centralized sloshing benchmark experiment using multi-phase smoothed particle hydrodynamics
+Young BeomJo,So-HyunPark,JuryongPark,Eung SooKim
+Department of Nuclear Engineering, Seoul National University, 559 Gwanak-ro, Gwanak-gu, Seoul, South Korea
+<Section>Abstract</Section>
+The Smoothed Particle Hydrodynamics is one of the most widely used mesh-free numerical method for thermo-fluid dynamics. Due to its Lagrangian nature and simplicity, it is recently gaining popularity in simulating complex physics with large deformations. In this study, the 3D single/two-phase numerical simulations are performed on the Liquid Metal Reactor (LMR) centralized sloshing benchmark experiment using the SPH parallelized using a GPU. In order to capture multi-phase flows with a large density ratio more effectively, the original SPH density and continuity equations are re-formulated in terms of the normalized-density. Based upon this approach, maximum sloshing height and arrival time in various experimental cases are calculated by using both single-phase and multi-phase SPH framework and the results are compared with the benchmark results. Overall, the results of SPH simulations show excellent agreement with all the benchmark experiments both in qualitative and quantitative manners. According to the sensitivity study of the particle-size, the prediction accuracy is gradually increasing with decreasing the particle-size leading to a higher resolution. In addition, it is found that the multi-phase SPH model considering both liquid and air provides a better prediction on the experimental results and the reality.
+Keywords:Centralized sloshing;Liquid metal reactor;Core disruptive accident;Smoothed particle hydrodynamics;Multi-phase;Normalized-density
+<Section>1. Introduction</Section>
+The Smoothed Particle Hydrodynamics (SPH) method is one of the most widely used mesh-free numerical method. Especially, it is gaining popularity in simulating complex phenomena with large deformation in the various engineering fields. The SPH represents the fluid system as a set of particles, and solve the governing equations for the individual particles considering interaction with neighboring particles. Due to its Lagrangian nature and simplicity, it can easily handle free surface liquid motion with large deformation without any additional surface tracking methods. It is also effective for multi-fluid or multi-phase flow in which fluids for various densities coexist in the calculation domain. In this sense, the SPH has a large potential to become a good alternative of the conventional methods for various nuclear thermal-hydraulics and safety phenomena including free surface flow, multi-phase flow, or non-linear deformation such as tsunami, sloshing, molten corium behavior, etc.
+In this study, the feasibility of the SPH is investigated for simulating molten core sloshing phenomena which can occur during the severe accident in liquid metal reactors (LMRs). In a postulated core disruptive accident (CDA) of the LMRs following the event such as unprotected-loss-of-flow (ULOF), it is known that the accident may proceed into a non-energetic initial power transient from sodium boiling. This can lead to the transition phase in which the reactor core melts and forms a large-scale corium pool in the middle due to the blockage of the core by frozen fuel and steel [[1], [2], [3]]. Since the melts of fuel pellets and other structural materials are not sufficient in this phase, the molten fuel pool can be regarded as a multiphase system composed of the molten fuel, solid fuel, refrozen fuel, steel particles, fuel vapor, fission gas, and so on [2]. In this configuration, the local area of the pool can experience abrupt pressurization due to the vaporization of materials or sodium evaporation during fuel coolant interaction. Then, this sudden pressure build-up may push and move the molten corium away toward the peripheries. In this case, the liquid fuel returns to the center by gravity, and finally piles up in the central area (Fig. 1). The key safety issue behind this phenomenon called centralized sloshing is that it can trigger the re-criticality of the core with a subsequent nuclear power excursion since the molten pool in the transient phase of LMR contains sufficient fuel to exceed prompt criticality [1,2]. Therefore, understanding and prediction of the behaviors during the molten core sloshing are very important for the safety of the LMRs.
+Fig. 1. Centralized sloshing behavior of the molten core pool [2].
+In order to gain phenomenological insights and understandings into the centralized sloshing of the LMRs, Maschek et al. [4] carried out pioneering sloshing experiments in a cylindrical vessel geometry with and without disturbances of the flow. In their work, the effect of various parameters including diameters and heights of the initial water column were analyzed. For the realistic analysis of above-mentioned accident scenario, Morita et al. investigated the mitigation effect of hydraulic disturbances through injecting nitrogen gas into a sloshing pool [5], and Cheng at al [6]. performed a series of experiments assuming the local fuel-coolant interaction situation with the accumulation of solid particles. These experiments have also been used for the validation of numerical methods for centralized sloshing. Representatively, numerical simulations were carried out at JAEA using the SIMMER code [7] and also using the advanced 3D fast reactor safety analysis code to validate the solver associated with sloshing behavior. The alternative methods including the SPH technique have also been applied in order to overcome the fundamental limitation of Eulerian methods in terms of sloshing surface and geometry of the computational domain. Vorobyev et al. [8] carried out an SPH simulation to analyze the details of the overall sloshing motions, and Buruchenko et al. [9] conducted a 3D centralized sloshing simulation for validation of DualSPHysics code. These previous studies have demonstrated that Lagrangian particle-based methods are suitable for analyzing discontinuous and complex behavior of centralized sloshing motion.
+Though many successful achievements have been made in the modeling and the simulation of the centralized sloshing, further investigation still needs to be made. First, all the previous researches have been conducted based on the single-phase flow modeling despite the importance of multi-phase flow in the molten core sloshing in the LMRs. In the LMR severe accident, the sloshing behavior of the molten core is governed by multi-phase phenomena since it is triggered by sodium evaporation during fuel coolant interaction (FCI) or vaporization of fuel or steel with a high probability [2]. Also, the effect of vapor trapped in the liquid during the sloshing behavior can be significant since the pressure buildup due to the vapor phase occurs all of a sudden. Considering these phenomenological characteristics of the molten core sloshing, the simulation capability for the multi-phase flows is required and needs to well be validated by comparison with the experimental data.
+In this study, a three-dimensional (3D) multi-phase SPH model has been constructed based on graphical-processing-unit (GPU) parallelization and used for simulation of the benchmark experiment by Maschek [4]. In order to capture the multi-phase flow with large density-ratios using the SPH, a novel normalized density method has been newly suggested and replaced with the original density and continuity equations. The simulation results on the maximum sloshing height and the time in various conditions are compared with the experiments and the benchmark analyses. The SPH code with a novel normalized density estimation method is validated through these comparisons, and the results of the simulation are analyzed in various aspects such as the particle resolution, the multi-phase effect, etc.
+This paper is organized as follows. Section 2 summarizes the basic principles and a mathematical concept of the SPH method, and section 3 introduces the implementation strategies of the SPH code. In section 4, the numerical SPH simulation of centralized sloshing behavior is summarized including geometric conditions, validation results, and discussion. Finally, an overall summary and further work are described in section 5.
+<Section>2. Numerical method</Section>
+Smoothed particle hydrodynamics (SPH) is a meshless Lagrangian method that was first developed in 1977 [10] for astrophysical application. In the SPH method, the fluid system is represented by a finite number of particles that carry individual properties, and the governing equations of each particle are solved in discretized smoothing formulation over the neighboring particles. The SPH method exhibits large advantages that come from Lagrangian nature in dealing with free surface liquid motion, highly deformable geometry, multiphase flow, and so on. Also, the convective term in the conservation equation is naturally reflected in the standard SPH without solving any nonlinear matrix, so that the convective flow and convective heat transfer can be implemented with simplicity. In addition, it is relatively easy to implement a wide range of physics in the existing framework. In recent decades, applications of the SPH into the various engineering fields have been dramatically increasing, especially with the advancement of numerical methods and computational environment.
+2.1. Basic concept of SPH
+The SPH is based on an interpolation method which is basically the theory of integral interpolants using delta function.
+@(1)
+The variable x denotes the point in volume Ω, and δ denotes the Dirac delta function which has a value of zero everywhere except for at a certain point and whose integral over the entire region is equal to one. The SPH discretized formulation can be obtained by using the kernel functions that approximate a delta function.
+@(2)
+The variable fi is a function at the position i, subscript@represents the adjacent particles of particle i, V is the particle volume, and @ stands for the kernel function, where h denotes influencing area of the kernel weighting function. The kernel function is a symmetric weighting function of particle distance which should be normalized over its support domain. The particle system and conditions for kernel function are described in Fig. 2.
+Fig. 2. SPH particle system and conditions for kernel weighting function.
+2.2. SPH formulations for governing equations
+The main equations describing the motion of an isothermal, incompressible, Newtonian viscous fluid are the Continuity equation and the Navier-Stokes equations (momentum equation) which are formulated in a Lagrangian frame as,
+@(3)
+@(4)
+where ρ and @ are the density and velocity of the fluid, p,μ , and g denote pressure, dynamic viscosity, and the gravitational constant, respectively. The discretized SPH equations of the continuity equation (3) and each term of momentum equation (4) can be derived in various forms according to the integral method and interaction strategies between particles. The SPH formulations of each RHS term in the above equations (3), (4) are summarized in Table 1 including the density diffusion model (δ-SPH) which can prevent numerical oscillations in the density and pressure field. For the equation of state, it is common to use the Tait equation which assumes the incompressible fluid as a weakly compressible fluid, allowing the slight compressibility of the fluid.
+Table 1. General SPH formulations for governing equations.
+2.3. Treatment of multi-phase flow
+The standard SPH produces numerical pressure noise near the interface between the phases having different densities when it is directly applied. This problem is originated from handling the discontinuous density field in multi-phase flow as the continuous one. In order to simulate multi-phase flow with a high-density ratio using the SPH, the normalized density, which is a continuous function on the interface, is suggested as the primary variable rather than the density. This approach is briefly summarized below.
+The continuity equation (Eqn. (3)) can be split as below.
+@(11)
+The above equation (11) can be summarized in terms of normalized density # as following.
+@(12)
+When two miscible fluids are mixed together, the second term of RHS in the above equation (12) can be expressed as a diffusion equation. Hence equation (12) finally result in the discretized form as below.
+@(13)
+For immiscible situations such as liquid-vapor two-phase sloshing phenomena, the diffusion coefficient D becomes zero, so the above equation (13) is simplified as a normalized density form.
+@(14)
+This normalized density approach can also be simply applied to the direct mass summation, which is sued for all the simulation in this study.
+@(15)
+In terms of the multi-phase simulation with high-density ratios, this method can prevent the generation of numerical pressure noise near the phase interface, thus the numerical accuracy and stability can be highly improved. In detail, the physical discontinuity of density can be fully ensured in a multi-phase interface regardless of the density ratio, since the density of targeted particle is estimated by the relative density to the reference density as described in the above equation (15). Thus, the non-physical linearization of field variables including density at the multi-phase interface can be prevented, and the pressure noise from non-physical density field can also be reduced. The above normalized density formulation (14) and (15) become exactly the same as the standard SPH for single-phase flow which the reference density is constant in the whole calculation domain.
+A spurious fragmentation of the interface can take place for interface flows where the surface tension effects are relatively smaller than other dominant forces. In order to stabilize the interface between the phases, this study added an additional term between the phases, which is called the interface sharpness force [11].
+(16)
+where @ is a tuning parameter, which ranges between 0.01 and 0.1 [11]. It is proven to cause negligible effects on the accuracy of the surface tension model since this repulsive force is estimated as a small percentage of pressure gradient force at the phase interface [12]. In this study, the@value was set to 0.05 so that the effect on the overall behavior can be minimized.
+In the multi-phase flow simulation, surface tension force plays an important role if the characteristic length scale is smaller than the capillary length. In this study, the Continuum Surface Force (CSF) model is employed. The CSF model estimates the surface tension force on a macroscopic scale and is expressed as the product of the surface curvature and the surface normal [13]. Based on the extensive review of the previous literature [14,15], the following equations were used in this study.
+@(17)
+@(18)
+@(19)
+@(20)
+where@and d denote a surface tension coefficient, the curvature, surface normal vector and dimension .@denotes the unit surface normal vector. This CSF surface tension model is also applied in the two-phase simulation of centralized sloshing behavior in this study. However, even in the minimum particle spacing case (maximum resolution) in the two-phase sloshing simulation, the smallest droplet size was cm scale, so the surface tension force did not have a dominant effect on droplet or surface behavior in this study.
+<Section>3. Code implementation</Section>
+3.1. Basic algorithm
+Fig. 3 shows a basic algorithm of the numerical model. First, the positions, properties, and conditions of each particle are initially prepared. Then, based on the given particle positions, the nearest-neighboring particles search (NNPS) is conducted for each particle. Once the NNPS is completed, the density of each particle is estimated using Eq. (14) or Eq. (15). After then, the pressure is calculated for each particle by the equation-of-state (EOS) in Eq. (10). After the pressure of each particle is calculated, the forces of each particle are estimated using the SPH force equations such as pressure, viscous, gravity, surface tension, surface sharpness force, etc. Then, the velocity and position of each particle are updated using the calculated forces. If the particle positions are updated, the same calculation process is repeated from the NNPS. This iterative calculation is performed until the termination condition, which is imposed by the users, is reached.
+Fig. 3. Code algorithm.
+3.2. Time integration
+In this study, a modified predictor-corrector scheme is applied [16]. The predictor-corrector scheme divides the time integration into two steps. First, the prediction step extrapolates the physical variables as follows.
+@(21)
+where@and@denote time and time step, respectively. The superscript p denotes ‘predictor’. The time derivatives of position, velocity, and density are newly evaluated by solving the discretized SPH formulations. After that, the field variables are re-integrated over the full-time step using the updated time derivatives in the correction step.
+@(22)
+where the superscript c denotes ‘corrector’. These corrected values become initial values for the next time step.
+3.3. GPU parallelization
+In order to improve the calculation speed and computing capability of the numerical model, it has been parallelized using a graphical processing unit (GPU). The GPU is a graphic controller developed for large-scale data processing and graphic rendering. In this study, the code has been parallelized through NVDIA’s CUDA architecture, which is the most widely used general-purpose GPU (GPGPU) programing language. As shown in Fig. 3, various parallelization schemes such as parallel mapping, parallel reduction, etc. were used for each calculation step. The parallel mapping was applied for most of the particle functions, and the parallel reduction was performed in solving the force equations with neighboring particles. In the case of the nearest-neighboring particles search (NNPS) process, more complex parallelization mechanisms are implemented based on sorting [17]. According to the benchmark calculations, the parallelized GPU process shows much higher computational performance by two orders of magnitude compared with a single CPU process for 1.0 million particles (Fig. 4).
+Fig. 4. Speedup factor for GPU parallelization of SPH code.
+<Section>4. Numerical analysis</Section>
+4.1. Geometry of computational domain
+Maschek et al. [4] carried out basic water sloshing experiments in order to gain phenomenological insights into a centralized sloshing behavior of liquid metal reactors (LMRs). The experiments were composed of 5 series according to the geometry and initial condition. The influence of various intentionally introduced disturbances on sloshing such as asymmetries, vertical rod obstacles, and particles was investigated in an additional sequence of experiments [4]. Previously, the experiment by Mascheck has been being used as the main benchmark test for code validation regarding the centralized liquid sloshing phenomena. In this research, three out of five experimental cases are selected and simulated using 3-dimensional single/multi-phase SPH models. The three cases are as follows, and the geometry for each case is summarized in Fig. 5.
+-
+Case 1: Centralized Sloshing - perfect symmetric condition
+-
+Case 2: 12 Vertical Rods (inner/outer) - perfect symmetric condition
+-
+Case 3: Asymmetric Sloshing
+Fig. 5. Geometry and conditions for 3D SPH liquid sloshing simulation.
+4.2. Simulation results
+4.2.1. Single-phase simulation - case 1 (centralized sloshing)
+The 3-D simulation on the centralized sloshing has been carried out. A total of 3,621,592 particles are used in this simulation. The snapshots of simulation in various views are shown in Fig. 6. The water column collapses due to the gravity, and it makes a circular wave moves towards the container wall. After the collision with the wall, the water converges toward the central area, and it forms a high central water peak as seen in Fig. 6. Then the water peak collapses and another water wave emerges which contacts the outer wall and sloshes inward again. In comparison with the benchmarking experiment, the SPH model well reproduces this series of liquid sloshing behavior as shown in Fig. 7.
+Fig. 6. 3D SPH simulation results for single-phase centralized sloshing.
+Fig. 7. Qualitative comparison of SPH simulation with benchmarking experiment.
+4.2.2. Single-phase simulation - case 2 (12 vertical rods)
+The 3-D SPH simulation for 12 vertical inner/outer rods has been carried out with the same particle resolution as the centralized sloshing in the above. The snapshots for each rod condition are shown in Fig. 8. If vertical rods are placed in the container, the inherent instability of the water waves is amplified so that the centralized sloshing motion is damped out in comparisons with the centralized sloshing without any disturbances. Especially, if the vertical rods are placed further inside near to the center, the influence of wave disturbance is larger so that the water accumulation is almost disappeared as clearly shown in Fig. 8.
+Fig. 8. 3D SPH simulation results for single-phase vertical rods sloshing.
+4.2.3. Single-phase simulation - case 3 (asymmetric sloshing)
+The 3-D simulation on the centralized asymmetric sloshing has been carried out. According to the previous study, it is known that even slight asymmetries of the central water column may lead to large disturbances of inward sloshing motion [4]. Therefore, if the initial water column is asymmetrically located in the containment, the different traveling distance of water wave prevents large local accumulation and peak of water since there is no perfect overlap of water wave due to the different wave period for each direction. Therefore, the central sloshing behavior does not develop, rather moves chaotically in the container in this configuration (Fig. 9). Instead, the relatively small sloshing peak can be formed near the containment wall both for the left side and right side as shown in Fig. 9.
+Fig. 9. 3D SPH simulation results for single-phase asymmetric sloshing.
+4.2.4. Two-phase simulation - case 1 (centralized sloshing)
+The 3-D SPH simulation using the multi-phase flow mode has also been conducted. In this simulation, the vacant region out of the water column was initially filled with air particles. Using the normalized density formulation, the simulation was able to be stably conducted even for the high-density ratio (∼1000).
+In the multi-phase simulation, the computation domain should be closed, and the upper region should be filled with air particles, so there is a large restriction on the number of water particles. Despite this limitation, 3-D multi-phase sloshing simulation with sufficient particle resolution was conducted taking advantage of GPU-parallelization. Up to 10 million particles are used in the simulation including air particles, and the result is shown in Fig. 10. Overall behavior including sloshing height and time is not significantly different from single-phase simulations except for after breaking (Fig. 10). The detailed discussion is made in section 4.4.2.
+Fig. 10. 3D SPH simulation results for two-phase centralized sloshing.
+4.3. Comparisons of SPH simulation with experiments
+The maximum sloshing height and time for each case are compared with the benchmarking experiments and other benchmark results previously reported. The maximum sloshing height was defined as the maximum height of droplets with negative vertical velocity having an absolute value of vertical velocity less than . In addition, the fluid particles having less than 3 neighboring particles within the support domain were regarded as a numerical error of SPH simulations. As shown in Table 2, most of the results are in good agreement with experiments especially for the high-resolution simulation (Table 2). In detail, sloshing height on the wall is slightly over-estimated in simulation compared to the experiments, which seems to be due to the perfect symmetry assumption in the simulation. The maximum sloshing height is calculated to be slightly lower than the experimental data, which is caused by the local particle resolution and numerical accuracy at the sloshing peak. This issue is more discussed in section 4.4.1. A notable result is that the multi-phase simulation results are closer to the benchmarking experiment both in the centralized sloshing and the wall sloshing motion. This is also discussed in section 4.4.2.
+Table 2. Comparison of SPH simulation data with experiments.
+4.4. Discussions
+4.4.1. Effect of Particle Resolution
+As shown in Table 2, the maximum sloshing height of the high-resolution SPH simulation is closer to the experimental results compared to the lower resolution results. In other words, the prediction of the sloshing peak could be highly affected by the particle size and resolution. Thus, the sensitivity study on the particle size has been conducted for the maximum sloshing height.
+Generally, the lower resolution makes the lower number density of particles in center sloshing motion, finally result in a generation of fragmented particles that exhibits unphysical behavior. In other words, the bulk flow rate of piling up motion can be dropped significantly if the particle resolution gets poor. Thus, the sloshing height can be underestimated when the particle resolution is poor, and conversely, sufficient bulk flow can be ensured in the high-resolution simulation. As a result of the parametric study, the maximum sloshing height in SPH simulation converges to a certain value as the particle resolution increases as shown in Fig. 11.
+Fig. 11. Effect of Particle Resolution in SPH Sloshing Simulation. (a) Predicted maximum sloshing heights for different particle resolutions. (b) Convergence of results for particle size.
+In order to discuss the effect of particle size, more quantitative analysis has been conducted using the method similar to the grid convergence index (GCI) in the CFD field [18]. In this study, the particle resolution () is defined as an inverse of the total number of particles.
+@(23)
+The convergence order (@) and the GCI can be estimated as follows.
+@(24)
+@(25)
+where H denotes the estimated value by simulation, r denotes a refinement ratio (or resolution ratio). Fig. 12 shows the analysis results. As shown in this figure, the predicted sloshing height well converges with decreasing particle size (or increasing resolution). Moreover, the converging value (40.0), when the particle size approaching zero, is almost exactly the same as the experimental results (40.05.0). This figure also shows that the multi-phase model predicts the sloshing height better than the single-phase model for the same resolution. However, they are approaching the same value as the particle size decreases.
+Fig. 12. Sensitivity study on particle size.
+4.4.2. Effect of single-phase and multi-phase models
+The maximum sloshing of two-phase SPH simulation is closest to the benchmark experiment value as summarized in Table 2. This difference is due to the nature of the SPH method based on interaction with neighboring particles. Generally, the accuracy of the SPH approximation is highly affected by the distribution and number density of neighboring particles since the particles themselves are the numerical interpolation points for solving the governing equation in SPH methods. The kernel approximation in the SPH method basically has second-order accuracy in terms of smoothing length h due to several key conditions of the kernel weighting function. However, it does not hold for the free surface area since the unity condition and symmetry condition are no longer satisfied for the kernel weighting function. Although some basic kernel correction methods are applied in this study in order to restore the 1st order consistency, the intrinsic numerical errors coming from particle deficiency cannot be neglected in the free surface area. For this reason, relatively higher accuracy can be achieved in two-phase simulation (considering air particles), since there are sufficient interpolation particles in the support domain regardless of the particle resolution in the sloshing peak, while serious particle deficiency occurs in low-resolution single-phase simulation. As a result of particle deficiency in single-phase simulation, an unphysical high-speed stream of solitary particles can be created with a high probability as shown on the right side of Fig. 13. Likewise, the single-phase behavior near the gas trapping area may differ from two-phase simulation due to the particle deficiency issue. Since this small difference can be amplified as a large disturbance of a liquid wave, precise analysis based on the two-phase model is required for sloshing behavior.
+Fig. 13. Comparison between single-phase and two-phase SPH results.
+<Section>5. Conclusions</Section>
+In this study, the 3D single/two-phase centralized sloshing behavior has been simulated using GPU parallelized in-house SPH code. The original SPH density and continuity equations are re-formulated in terms of normalized densities in order to handle two-phase flow with a high-density ratio. Using this approach, maximum sloshing height and arrival time in various conditions are calculated with a single/two-phase SPH solver and compared with the benchmark experiments. The results of SPH simulations show good agreement with the benchmark experiments both in qualitative and quantitative manners, especially for the high-resolution simulation. Also, it has been identified that the two-phase SPH simulation best predicts the sloshing height since it can prevent the local numerical errors from particle deficiency in sloshing peak and gas trapping motions.
+<Section>Declaration of competing interest</Section>
+The authors declare that they have no known competing financial interests or personal relationships that could have appeared to influence the work reported in this paper.
+<Section>Acknowledgments</Section>
+This research was supported by Nuclear Energy Technology Development Program (U.S.-ROK I-NERI Program) through the National Research Foundation of Korea (NRF) funded by the Ministry of Science and ICT (2019M2A8A1000630) and the Nuclear Safety Research Program through the Korea Foundation Of Nuclear Safety (KoFONS) using the financial resource granted by the Nuclear Safety and Security Commission (NSSC) of the Republic of Korea. (No. 1903003).
+<Section>References</Section>
+[1]
+T. Suzuki, K. Kamiyama, H. Yamano, S. Kubo, Y. Tobita, R. Nakai, K. Koyama
+A scenario of core disruptive accident for Japan sodium-cooled fast reactor to achieve in-vessel retention
+J. Nucl. Sci. Technol., 51 (4) (2014), pp. 493-513
+CrossRefView Record in ScopusGoogle Scholar
+[2]
+W. Maschek, R. Li, C.M. Boccaccini, F. Gabrielli, K. Morita
+Investigation on upper bounds of recriticality energetics of hypothetical core disruptive accidents in sodium cooled fast reactors
+Nucl. Eng. Des., 326 (2018), pp. 392-402
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+[3]
+W. Maschek, C.D. Munz, L. Meyer
+Investigations of sloshing fluid motions in pools related to recriticalities in liquid-metal fast breeder reactor core meltdown accidents
+Nucl. Technol., 98 (1) (1992), pp. 27-43
+View Record in ScopusGoogle Scholar
+[4]
+W. Maschek, A. Roth, M. Kirstahler, L. Meyer
+Simulation experiments for centralized liquid sloshing motions
+Kernforsch. Karlsr. (KfK) (1992)
+Google Scholar
+[5]
+S. Cheng, S. Li, K. Li, N. Zhang, T. Zhang
+A two-dimensional experimental investigation on the sloshing behavior in a water pool
+Ann. Nucl. Energy, 114 (2018), pp. 66-73
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+[6]
+S. Cheng, S. Li, K. Li, T. Zhang
+An experimental study on pool sloshing behavior with solid particles
+Nucl. Eng. Technol., 51 (1) (2019), pp. 73-83
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+[7]
+S.L. Pigny
+Academic validation of multi-phase flow codes
+Nucl. Eng. Des., 240 (11) (2010), pp. 3819-3829
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+[8]
+A. Vorobyev
+A Smoothed Particle Hydrodynamics Method for the Simulation of Centralized Sloshing Experiments
+KIT Scientific Publishing (2012)
+Google Scholar
+[9]
+S.K. Buruchenko, A.J. Crespo
+Validation DualSPHysics code for liquid sloshing phenomena
+International Conference on Nuclear Engineering, vol. 45943, American Society of Mechanical Engineers (2014, July)
+V004T10A041
+Google Scholar
+[10]
+R.A. Gingold, J.J. Monaghan
+Smoothed particle hydrodynamics: theory and application to non-spherical stars
+Mon. Not. Roy. Astron. Soc., 181 (3) (1977), pp. 375-389
+CrossRefView Record in ScopusGoogle Scholar
+[11]
+N. Grenier, M. Antuono, A. Colagrossi, D. Le Touzé, B. Alessandrini
+An Hamiltonian interface SPH formulation for multi-fluid and free surface flows
+J. Comput. Phys., 228 (22) (2009), pp. 8380-8393
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+[12]
+K. Szewc, J. Pozorski, J.P. Minier
+Simulations of single bubbles rising through viscous liquids using smoothed particle hydrodynamics
+Int. J. Multiphas. Flow, 50 (2013), pp. 98-105
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+[13]
+J.U. Brackbill, D.B. Kothe, C. Zemach
+A continuum method for modeling surface tension
+J. Comput. Phys., 100 (2) (1992), pp. 335-354
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+[14]
+S. Adami, X.Y. Hu, N.A. Adams
+A new surface-tension formulation for multi-phase SPH using a reproducing divergence approximation
+J. Comput. Phys., 229 (13) (2010), pp. 5011-5021
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+[15]
+J.P. Morris
+Simulating surface tension with smoothed particle hydrodynamics
+Int. J. Numer. Methods Fluid., 33 (3) (2000), pp. 333-353
+View Record in ScopusGoogle Scholar
+[16]
+M. Gomez-Gesteira, B.D. Rogers, A.J. Crespo, R.A. Dalrymple, M. Narayanaswamy, J.M. Dominguez
+SPHysics–development of a free-surface fluid solver–Part 1: theory and formulations
+Comput. Geosci., 48 (2012), pp. 289-299
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+[17]
+K. Hegeman, N.A. Carr, G.S. Miller
+May). Particle-based fluid simulation on the GPU
+International Conference on Computational Science, Springer, Berlin, Heidelberg (2006), pp. 228-235
+CrossRefView Record in ScopusGoogle Scholar
+[18]
+P.J. Roache
+Verification and Validation in Computational Science and Engineering, vol. 895, Hermosa, Albuquerque, NM (1998)

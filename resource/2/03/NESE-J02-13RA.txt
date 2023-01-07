@@ -1,0 +1,272 @@
+<title>A morphological image processing method for simultaneous scrutinization of particle position and velocity in pebble flow</title>
+<author>1,QianWang, 2, NanGui，3，YujiaLiu，4，SifanPeng，5，XingtuanYang,6,JiyuanTu，7，ShengyaoJiang</author>
+<Affiliation>1，Institute of Nuclear and New Energy Technology, Collaborative Innovation Center of Advanced Nuclear Energy Technology, Key Laboratory of Advanced Reactor Engineering and Safety, Ministry of Education, Tsinghua University, Beijing 100084, China;2,School of Nuclear Science and Technology, Xi’an Jiaotong University, Xi'an, Shanxi, China;3,School of Engineering, RMIT University, Melbourne, VIC 3083, Australia</Affiliation>
+<year>2020</year>
+<Jounral>Annals of Nuclear Energy</Journal>
+<Publishing_house>ELSEVIER</Publishing_house>
+<Text_Collector>XiaFan，HEU</Text_Collector>
+<DOI>10.1016/j.anucene.2020.107704</DOI>
+<URL>https://www.sciencedirect.com/science/article/pii/S0306454920304023</URL>
+A morphological image processing method for simultaneous scrutinization of particle position and velocity in pebble flow
+QianWang, NanGui，YujiaLiu，SifanPeng，XingtuanYang,JiyuanTu，ShengyaoJiang
+Institute of Nuclear and New Energy Technology, Collaborative Innovation Center of Advanced Nuclear Energy Technology, Key Laboratory of Advanced Reactor Engineering and Safety, Ministry of Education, Tsinghua University, Beijing 100084, China
+School of Nuclear Science and Technology, Xi’an Jiaotong University, Xi'an, Shanxi, China
+School of Engineering, RMIT University, Melbourne, VIC 3083, Australia
+<Section>Highlights</Section>
+A digital image processing method is proposed to study particle motion features.
+It is based on the Lagrange method and can track each particle in images.
+It is demonstrated by experimental images at 1:5 scale of pebble bed real HTGR.
+It can recognize as many as more than 90% particles in pebble flow experiment.
+It is fast & used for calculating velocity field simultaneously in pebble flow.
+<Section>Abstract</Section>
+The flow field characteristic is vital to the design work and safety requirements of the pebble bed high temperature gas-cooled reactor (HTGR). It is necessary to study and analyze the particle location and velocity profile in pebble flow. A digital image processing (DIP) method is proposed to investigate the characteristics of particle motion, which contains two sections: mathematical morphology and threshold segmentation. These two theories are used to extract the particle position and binarize the particle image captured in the experiment, respectively. The post-processing of particle image can accurately obtain the center coordinates and velocity distribution of particles with the given time interval. Generally, the proposed algorithm can maintain a recognition accuracy of particles in pebble flow more than 90%. The calculation of particle velocity has shown that flow velocity in the middle region is much faster than in the near-wall region, and approximately forms a Gaussian distribution. The specific image processing and its conclusion can be used for dealing with relevant images and providing some reference for reactor design.
+Keywords：High temperature gas-cooled reactor；Pebble flowParticle velocity；Digital image processing；Morphological image post-processing
+<Section>1. Introduction</Section>
+The characteristics of pebble flow are of crucial significance in safely designing the pebble bed reactors (PBR). But as a mainly researched type in high temperature gas-cooled reactors (HTGRs), The basic physics of dense granular flow in PBR, to say precisely, the extremely slow pebble flow, is not fully understood yet (Jiang et al., 2019). Generally, the quick dilute flows can be described by the classical hydrodynamics. In contrast, the pebbles driven by gravity are flowing surprisingly slowly and it is termed as a quasi-static flow regime to be distinguished from the fast granules flow. The extremely slow pebble flow is difficult to explain completely with theory, for its discrete but closely packed solid pebbles and non-thermal fluctuations (Jia et al., 2016). Moreover, the dense granular flows can be applied in engineering practice (Ottino and Khakhar, 2000), e.g. the resident time in the reactor and the optimization of fuel composition were studied to promise the safety of the core (Ho and Obara, 2016), or the mechanical behavior of mixed fusion pebble beds was researched to examine the stiffness between the softer-solid system and stiffer-solids system (Li et al., 2017). Zhao et al. (2015) has presented a numerical study of the stationary and moving pebbles in a pebble bed reactor by means of the discrete element method (DEM). It indicated the DEM can be used for macroscopic and microscopic information. Therefore, further research on slow pebble flow is meaningful and necessary.
+Over the past decades, many experimental investigations and corresponding analysis have been devoted to the fundamental but controversial issues in the extremely slow pebble flow. For instance, the pebble flow dynamics were studied in a scaled-down experimental reactor with a non-invasive radioactive particle tracking (RPT) technique (Khane et al., 2016), or the experimental results obtained by phenomenological observation and analysis have intuitionally disclosed the physical mechanism from different perspectives of the quasi-static pebble flow (Yang et al., 2012), the experimental method of side area was proposed to investigate the interface features of different colored pebbles and analyze the stagnant zones in a pebble bed (Jia et al., 2014), as well as numerical simulations (Goda and Ebert, 2005, Gui et al., 2014) and related theoretical models (Silbert, 2005). A large-eddy numerical simulation of turbulent flow in pebble bed (Ebara et al., 2010) showed that the configuration and structure of the bed are vital to analyzing small scale phenomena in pebble bed. nearly all these studies concentrate on the real-time position of particle motion and its velocity profile, which have a fundamental meaning for the thermal–hydraulic and physical calculation and verification of PBR (Jiang et al., 2019).
+However, few of them have carried out approaches to measuring the position and velocity of particles in extremely slow pebble flow with digital image processing (DIP), during which the experimental image captured by a high-speed camera can be calculated directly and simultaneously. With regard to relevant fields, a new algorithm (Ohmi and Li, 2000) was proposed and examined with typical particle images showing a two-dimensional fluid flow and can be used for individual-particle detection. By the usage of improved new relaxation and the dynamic threshold-binarization methods, the individual-particle detection and particle-tracking velocimetry can be extracted in a high-density particle image. Huang et al. (2010) put forward a method for quantifying particle sizes and velocities of fuel sprays based on gray difference and autocorrelation, which has an overall theoretical demonstration and experimental verification by providing two kinds of standard particles of 35 μm and 75 μm. Wang et al. (2010) developed an experimental system that can online monitor the particle mass flow rate in bottom spray fluid bed coating, mean particle velocity and number of particles in the images were determined by particle image velocimetry (PIV) and morphological image processing method respectively. The difference of results was explained by the influences of partition gap and air accelerator insert. The flow patterns and velocity fields of granules in Dorfan impino filters (Hsiau et al., 2000) and moving bed filters (Hsiau et al., 1999) were studied experimentally. Furthermore, there are some practical methods proposed in dealing with particle images. Chen et al. (2017) introduced a granule impact indentation-based technique to record the two-dimensional particle dispersion and corresponding image processing to identify and locate the granules. A modified cross-correlation algorithm (Shi et al., 2015) for PIV image processing of particle–fluid two-phase flow was raised to enhance the performance of traditional methods, to be precise, the algorithm is based on the wavelet transform and multi-resolution analysis for post-processing PIV images. Cerqueira et al. (2018) improved a novel image processing in PTV to deal with shadow overlapping in two-phase bubbly pipe flows and resolved the bias due to particle reflection at interfaces in the velocity field with fluorescent tracer particles.
+Motivated by these considerations, the purpose of this article is to measure the location and velocity of particles in the extremely slow pebble flow on the basis of post-processing PIV images (Willert and Gharib, 1991, Adrian, 1991). And the main methods implemented here are mathematical morphology (Bai et al., 2012) and threshold segmentation, which can highlight and extract image features. The theory and effect of digital image processing in dense pebble flow are demonstrated later, this work will absolutely advance the understanding of the dense granular flow and the treatment of PIV images in PBR.
+<Section>2. Experimental system and methodology</Section>
+2.1. Experiment platform
+The experiment platform (Jiang et al., 2012) is designed on the basis of a real pebble-bed reactor at the scale 1:5 (Fig. 1a). The system operates in a recirculation mode that the pebble discharged from the vessel can be reloaded into the inlet tube. The vessel that is made of plexiglass is the main part of the experiment, it has three dimensions of 800 × 1000 × 120 mm in width, height, and thickness, respectively. The experimental set-up is filled with nearly 70,000 stainless black glass pebbles with a diameter of 12 mm. Above the vessel, three inlet tubes are settled down to make sure the pebbles unloaded from the vessel can reenter it. The discharging outlet is at the bottom of the vessel, with 120 mm in diameter and 200 mm in length.
+Fig. 1. Sketch of experimental set-up and theories. (a) The experiment setup; (b) Processing of median filtering; (c) Schematic of morphological opening.
+In this study, the movement of particles is recoded by videos and images. The flow rate of pebbles into the containment is approximately a constant with a low level of several particles per second. Therefore, there are only subtle differences between the two frames in the video, which means a suitable and high-resolution method of image processing should be adapted.
+2.2. Image denoising
+In general, the procedures of digital image processing (DIP) used in the present study can be divided into four stages: image denoising, image enhancement, edge detection, and image feature extraction. These four steps actually are a low-level to a high-level process, which utilizes various approaches to achieve the purpose of an advanced understanding of the image.
+Image denoising is a very important procedure in DIP, therefore, many researchers have put forward numerous algorithms to minimize noises that are relevant to the influences of experimental conditions and the human factors. In this paper, Median Filtering (MF) is employed in denoising the image of pebble flow (Huang et al., 1979). Compared to the Gauss Filtering (GF) which is a mainstream method, MF has a better performance in balancing the contradiction between the effect of image denoising and the cost of blurring the detail of the image, especially considering the sources of noises are mainly from uneven lighting during the picture.
+The algorithm of MF is similar to GF and other image smoothing filters to some extent, what they have in common is a pattern of neighboring entries, also known as sub-window, it slides entry by entry over the entire signal, then exploit the data in the sub-window and calculate a value to replace previous one (Fig. 1b). Here, a 3 × 3 square sub-window is applied.
+2.3. OTSU threshold segmentation
+OTSU’s method is adapted in this section to perform automatic image thresholding, which can be considered an approach to separate the target objects or regions of interest from the background (Otsu, 1979). OTSU is named after Nobuyuki Otsu and has gained widespread application in the image segmentation field. OTSU method is based on the pattern classification that treats pixel values or image gray values as data to be classified like the Maximum Entropy Method (MEM) or Minimum Error Threshold Method (METM). Generally, the pattern classification aims at the purpose that grayscale value in one class is as dense as possible while in different classes is as detached as possible.
+The criteria of judgment in OTSU is to ensure the threshold can keep the distinct classes maximum variance and inter-kind class minimum variance. According to OTSU’s theory, if there is an image with a revolution of M × N, the probabilities of all gray levels can be calculated as follows:
+@(1)
+where  @  is the frequency that gray level  appears in the image,  @ is the total gray levels in the image.
+The probability or frequency distributions provide the foundation for figuring out the variance of the foreground and the background. If T represents for the threshold that partitions the image into two sections, therefore the probability and the mean of gray values of them can be described like this:
+@(2)
+@(3)
+where @ and @ represent for the probability and the mean of gray values, respectively. the subscript @ and @ mean the divided parts of objective and background. The purpose of OTSU is searching for an optimized threshold which is relevant to the dissimilarity of variance. With the calculation of the probability and mean, the variance of intra-class and inter-class can be solved smoothly as follows:
+@(4)
+@(5)
+where @ and @ mean the inter-class and intra-class variance, respectively. In a word, the algorithm of OTSU is designed to seek out a threshold that guarantees the maximum intra-class variance and the minimum inter-class variance simultaneously.
+2.4. Mathematical morphology
+Morphological image processing (Soille, 2003) can extract regions of interest or implement other relevant image manipulations that are desired with another set of a known pattern called Structuring Element (SE). In this article, mathematical morphology was applied after OTSU segmentation to measure the precise position of the bright spots of black glass particles.
+Mathematical morphology contains two elementary operations such as dilation and erosion, nearly all the morphological operations are a combination of these two basic procedures. The definitions of dilation and erosion can be expressed as follow:
+@(6)
+and
+@(7)
+respectively, the dilation operation means to map the Structuring Element (SE) about the origin, and when the new set  derived from translation  of the resulting mapping intersects the original set  is not empty, the new set of reference points of SE is the resulting collection that  dilated by . Analogously, if the structural element S is completely included in the set  after translation, the obtained set of the reference point position of  is the outcome of  erodes .
+The combination of two basic morphological transforms can constitute the compound morphological transformation which is widely used in the morphological filtering and fringe extraction field. In this section, the opening operation was exploited to achieve the separation of clustered particle images from the dark background with inconsistent illumination. Actually, the morphological opening is an operation that morphological erosion followed by dilation, and its schematic diagram is shown in Fig. 1c.
+@(8)
+According to the methods above, the flow chart of morphological image processing is shown in Fig. 2a. Because of the effect of the opening operation is smoothing the image outline and removing redundant connections when the objects distribute too tightly. To emphasize the detail information of bright spots on the particle without misplacement, two different sized structural elements were used for image erosion and opening operations, respectively. The former SE is a flat and disk shape with 2-pixel diameter while the size of the latter one is 4-pixel.
+Fig. 2. Sketch of experimental set-up and theories. (a) Samples of each morphological image processing steps; (b) The experimental images of particles (left inset), the locations of particles marked by red dots, and the fringes reconstructed by white circles (right inset); (c) Velocity profiles between t = 0 s and t = 2 s. (For interpretation of the references to colour in this figure legend, the reader is referred to the web version of this article.)
+Generally speaking, the main purpose of adapting the basic and compound morphological transformations is to highlight the white fleck on the black particles, in this way, it provides detailed information for subsequent processing. Although there are numerous approaches in image enhancement, the main processes are performed in the frequency and space domains. When it comes to distinguishing a multitude of particles with some bright areas under uneven light and located in a relatively dark background, some space domain methods could classify the position and size characteristics of particles more efficiently and accurately.
+2.5. Top-hat transform
+Top-hat transform is an important theory for image enhancement, different from the binary morphology methods mentioned above, top-hat transform is an advanced gray morphology, which works directly on grayscale images. Besides this, the definition of morphological dilation and erosion is slightly different, which can be described as follows:
+@(9)
+@(10)
+where @ represents the structuring element and  is the domain of .
+As previously mentioned, top-hat transform assembles the dilation and erosion like this:
+@(11)
+the definition of the symbol @ is exactly the same as the opening operation in binary morphology. Analogously, the grayscale opening could smooth bright regions of an image corresponding to the shape and dimension of the SE. therefore, the top-hat transform is very effective for detecting pixel aggregates that are brightened in a dark background and is also visually called a peak detector.
+2.6. Particle feature extraction and reconstruction
+In this study, the center point and the downward velocity of these particles are the most concerned matter. Firstly, to locate the center coordinate of particles accurately, it’s of great significance to extract characteristics of particles from an image based on the fringe analysis and image enhancement, which were accomplished by the OTSU’s thresholding and mathematical morphology discussed above. Meanwhile, reasonable information about the particle center can also be used to reconstruct the image of pebble flow. Secondly, if given the center of particles in two consecutive frames respectively, the speed of particle motion can be calculated by designing a suitable algorithm. Here, because of the pebble flow in the reactor is very slow and dense, the speed measurement on the basis of detecting the nearest neighbor center between the front and back frames would be accurate enough, and the validation of this algorithm will be analyzed in next section.
+<Section>3. Results</Section>
+3.1. Particle center acquisition and identification
+Fig. 2a shows samples of processed images for every morphological image processing step. Well-defined characteristics of particles can be represented by white blotches on their surface, therefore, the target of image processing essentially is to give prominence to the features of bright spots and reconstruct particle image by this information. Firstly, median filtering was used to denoise the random noises in the background. Secondly, some methods of image enhancement such as top-hat transform and grayscale adjustment were exploited to eliminate points with lower gray values form the image. And then, OTSU’s thresholding was to binarize the image to logical data which could be convenient for subsequent processing. Finally, a few binary morphology methods were adapted to disconnect the aggregated flecks from each other and make the edges of image neat and transition natural.
+With the details of light spots, the center of black glass particles could be interpreted. However, the position of bright spots can not specify particles precisely due to the reflected light is not perpendicular to the background. Considering this, the center points were translated up 10 pixels along the ordinate. And then, we can reconstruct the particle image through selecting the right centers with appropriate area size and location. The result of particle recognition and reconstruction is shown in Fig. 2b. The left half of the figure is obtained by pebble flow experiment, and the right half is the results of recognizing with particle centers that were marked by red dots and particle fringes were depicted by white circles. In addition to this, there are some more noteworthy outcomes in it, the coordination information such as separation, tangency, and vacancy between those particles can be interpreted from the reconstructing image.
+3.2. Particle velocity profile
+According to the algorithm proposed, it can easily be applied to the batch processing in a multitude of frames of a video. Subsequently, the data obtained from the particle recognition and reconstruction can be used for measuring the particle velocity individually. Here we take the t = 0 and t = 2 s intercepted in the video as an example and the particle velocity profile is demonstrated in Fig. 2c. Based on the measurement of the individual particle velocity information extracted from processing, it can also calculate the velocity field at different heights and the overall mass flow rate, which will be expounded specifically in the next section.
+4. Discussion
+4.1. Particle recognition accuracy
+The direct outcome of image processing is the coordinates of the particle center, which is vital to both locate the positions of particles and track particles simultaneously. In this article, the proposed method based on the morphological image processing and OTSU’s image segmentation can extract the bright spots on black particles and ensure the one-to-one correspondence between particles and highlights. In order to visualize the result of classification, three interrogation regions with 400 × 600 pixels size were placed on the top, middle and bottom of the image respectively. Fig. 3 has demonstrated the discerning conclusions of the number and the recognition accuracy of particles under these three circumstances. Specifically, the computed data in Fig. 3 were resulted from a batch image processing in a five-second video of pebble flow experiment. The actual number in the result is obtained by manual statistics, and the identified number of particles in the fixed interrogation region is counted by searching those center points located in it, and the statistical data obtained by two different methods was compared with a bar chart in Fig. 3. Therefore, the accuracy of proposed algorithm can be determined by dividing the identified number of particles by the real number. The total number of particles also are shown in Table 1, which was calculated from the detected particle edges after making sure the area of every particle features enclosed by boundaries was suitable for particle size and the distance between adjacent particles was far enough. Generally, the proposed algorithm is very discriminative and maintains a correct recognition rate above 90%, and the total identified particles decreased over time because the particles were discharged from the bottom of pebble bed continuously. However, there are still some particles counted erroneously, especially those located on the periphery or corner of the experimental device. And it’s of great importance to figure out the possible reasons that a small number of particles were misidentified so that a continuing study can be implemented to improve the accuracy of algorithm in this direction. Firstly, the white and golden yellow stripes on the experimental set-up could be the main interference terms in morphological image processing. Although the filtering of suitable locations and boundary area sizes is introduced in the algorithm, there could be still some boundaries with similar areas mistaken for “particles” in pebble flow. Secondly, the blurring caused by uneven and unlit lighting in the experimental images also makes the results inaccurate, which induces the spots on black glass particles not luminous enough to be captured by a high-speed camera. Finally, manual counting could lead to some deviations from the actual value. To further reduce the number of unrecognized particles and advance the veracity of the algorithm, it is considered that a combination of image enhancement in space and frequency domain would contribute to the exactness of identification.
+Fig. 3. The identified particles and accuracy of three different regions in the pebble bed. The three interrogation regions with 400 × 600 pixels size were settled on the fixed top, middle and bottom position of the image, and the real and identified number of particles were calculated by manually counting and algorithm statistics during five frames in a 5-second video, respectively. The left black vertical axis represents the number of particles recognized by two different methods and displayed by a bar chart, the right blue vertical axis represents the accuracy of algorithm, which was calculated by dividing the identified number by the real number and demonstrated in a line chart. (For interpretation of the references to colour in this figure legend, the reader is referred to the web version of this article.)
+Table 1. Results of recognition algorithm.
+To demonstrate the accuracy of the particle recognition algorithm, the result of the morphological batch image processing in the 5-second video of pebble flow experiment was displayed in Fig. 4. As for those pictures were nearly all the same, we have extracted three frames and enlarged a local area in the image. The coordinate X is corresponding to the height of pebble bed because the image is displayed horizontally, therefore, the coordinate Y represents the radial direction of pebble bed. We have chosen two black particles randomly, and it seems that the particles move downwards extremely slowly with a speed of about 1 pixel per second. According to the scale of the experiment set-up and the real pebble bed, it can be deduced that the fuel pebble in a HTGR can move down at about a centimeter per second (Jiang, et al., 2019).
+Fig. 4. The result of morphological batch image processing in three seconds, (a) t = 0 s (b) t = 1 s (c) t = 2 s. The coordinate X is corresponding to the height of pebble bed because the image is displayed horizontally, the coordinate Y represents the radial direction of pebble bed. And the unit of the number is pixel.
+4.2. Characteristics of velocity distribution in pebble flow
+As shown in Fig. 5, the velocity profiles along the vertical direction on three different heights subdivided by the white stripes in the image are calculated by the displacement of particles. Assuming the average velocity in the horizontal direction is the same at each time interval, the statistical overlay of data can be used to demonstrate the overall movement trend. Therefore, the dots in Fig. 5 represent the magnitude of the velocity as corresponding coordinates.
+Fig. 5. The scatter plot of velocity distribution at three different heights divided by white stripes in the image.
+It can be inferred from the result that the velocity distribution in pebble flow has a great relationship with the height of the silo bed. In general, the vertical velocity has a tendency to fluctuate more drastically as the height decreases, which also means lower consistency and uniformity in pebble flow. This conclusion is similar to the experiment conducted by Garcimartin et al. (2011). And from a statistical perspective, the velocity distribution is approximately Gaussian distribution (Jia et al., 2016). In the near-wall region of pebble flow, particles have a minor velocity in the vertical direction. It is considered to be caused by the resistance of wall friction (Luo et al., 2010, Li et al., 2016). To some extent, the increase of downward velocity from the near-wall region to the center is similar to the increase of velocity in the boundary layer of fluid, the drag force of graphite wall can be transmitted inward through layers. In Fig. 5, there exist some zero values, because the particle velocity that does not meet the area range or are too close are assigned to zero during the initialization process. The negative values appear due to the position of the front and back two frames may occasionally jump in the extremely slow particle flow. However, in an actual pebble flow, the fluid heterogeneity can lead to the formation of a stagnation zone at the bottom of the silo bed, also called as the funnel flow. The flow velocity in the middle region is much quicker in this flow pattern than in the near-wall region. With the height of pebble bed increases, the influence of uneven velocity at the discharging outlet is gradually weakened because of the energy loss in the collision between a large number of particles. To achieve the mass flow pattern like higher height in the pebble bed, there are a few effective factors that might influence the flow pattern, such as the bed configurations in the pebble bed (Jia et al., 2017).
+4.3. Algorithm stability and comparison
+The aforementioned section has verified the accurateness of the algorithm, however, the robustness of the method and its dependence on selected parameters are also vital factors in judging its performance. Fig. 6a has demonstrated the grayscale histogram of the PIV image, the overall grayscale is biased towards the black background, which signifies the image enhancement based on the divergence of the object and the background can be used to testify the algorithm. Here, we replace the morphological processing in the algorithm with the Grayscale Window Slice processing (GWS) and keep other parameters in the algorithm unchanged (Bahadure, 2010). GWS is actually an approach of image enhancement based on the grayscale difference. The binarized image is obtained from double thresholds in different regions, where the low threshold of 70 is for the low-illumination area and 80 for the high-light area, and it is a previous and widely used method in image segmentation and enhancement. To give a comparison of the previous method and the morphological method, we have selected the same image in the experimental video and processed it with two methods respectively. The result compared with the original algorithm is shown in Fig. 6b. Except for the individual particle near the edges failed to identify, the majority of particles are recognized accurately. However, the particle recognition accuracy is slightly different in the near-wall region and areas with low illuminance, a 600 × 700 interrogation window was settled at the same position of two digital images after processing, and the previous GWS and the morphological method detected 163 and 184 particle positions respectively, which demonstrates that the latter has better applicability on detection issues in the experiment of pebble flow. It also indicates that the proposed algorithm does not rely heavily on given parameters.
+Fig. 6. (a) Grayscale histogram of the PIV image; (b) Comparison of the GWS processing and the morphological processing.
+4.4. Comparative advantageous of gauging particle velocity
+Measuring downwards moving particles within the Particle Image Velocimetry (PIV) is an alternative technique to gauge particle velocity and research on the basic physics of dense granular flow. However, there are two main factors affecting the conclusion of PIV measurement (Shi et al., 2015), one is the experimental hardware, such as high-speed cameras, lasers, and particles, etc.; the other is the post-processing technique to acquire valuable information like the real velocity or vorticity from PIV images. This article concentrates on the post-processing algorithm to improve the accuracy of recognizing particles and measure the velocity profile simultaneously. All the particles in extremely slow pebble flow cannot be fully captured by a camera because of shielding by white and golden streaks in the near-wall region. Therefore, further researches could focus on the precious identification of particles in pebble flow, improvement of hardware system and optimization of algorithms in blurry image processing.
+5. Conclusions
+This article mainly researches on the identification and velocity profile of downward particles in pebble flow using mathematical morphology and threshold segmentation methods. The proposed algorithm has an acceptable performance in extracting features of particles in experimental images and mainly consists of three parts, one is image preprocessing, such as image denoising, another is the body of algorithm to enhance and extract the features of particles through image processing, and the other is for particle image velocimetry with the acquired center coordinates of adjacent frames. However, there are still some limitations in the algorithm, one of them is that we have not testified the accuracy in different situations, such as the changed diameter of particles and different illumination conditions. In a similar circumstance of the pebble flow experiment, the process can be completed synchronously and instantly.
+@(1)
+The accuracy of particle recognition has reached more than 90% as a whole, which can be used for judging and analyzing the overall motion of particles in pebble flow.
+@(2)
+Characteristics of particle velocity field calculated by image processing have shown that the upper area of pebble bed tends to flow as a whole, while the lower area, especially the conical descending section, tends to form a funnel flow. The phenomenon could be considered when analyzing the consistency of pebble flow or designing a real silo bed reactor.
+@(3)
+Based on the comparison of results between the gray window slice processing and the proposed methods, only minor differences were founded and it can verify the stability of the recommended algorithm.
+<Section>CRediT authorship contribution statement</Section>
+Qian Wang: Methodology, Validation, Formal analysis, Visualization, Software, Writing - original draft. Nan Gui: Conceptualization, Methodology, Software, Investigation. Yujia Liu: Data curation. Sifan Peng: Software. Xingtuan Yang: Validation, Formal analysis, Visualization. Jiyuan Tu: Resources, Writing - review & editing, Supervision, Data curation. Shengyao Jiang: Conceptualization, Resources, Writing - review & editing, Supervision, Project administration, Funding acquisition.
+<Section>Declaration of Competing Interest</Section>
+The authors declare that they have no known competing financial interests or personal relationships that could have appeared to influence the work reported in this paper.
+<Section>Acknowledgments</Section>
+The authors are grateful for the support of this research by the National Science and Technology Major Project (2011ZX06901-003) and the National High Technology Research and Development Program of China (863) (2014AA052701).
+<Section>References</Section>
+Adrian, 1991
+R.J. Adrian
+Particle-imaging techniques for experimental fluid-mechanics
+Annu. Rev. Fluid Mech., 23 (1991), pp. 261-304
+CrossRefView Record in ScopusGoogle Scholar
+Bahadure, 2010
+N. Bahadure
+Image Processing: filtration, gray slicing, quantization, enhancement, edge detection and blurring of images in Matlab
+Int. J. Electron. Eng. Res., 2 (2010)
+Google Scholar
+Bai et al., 2012
+X. Bai, F. Zhou, B. Xue
+Image enhancement using multi scale image features extracted by top-hat transform
+Opt. Laser Technol., 44 (2012), pp. 328-336
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+Cerqueira et al., 2018
+R.F.L. Cerqueira, E.E. Paladino, B.K. Ynumaru, C.R. Maliska
+Image processing techniques for the measurement of two-phase bubbly pipe flows using particle image and tracking velocimetry (PIV/PTV)
+Chem. Eng. Sci., 189 (2018), pp. 1-23
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+Chen et al., 2017
+W. Chen, K.C. Williams, T.J. Donohue, A. Katterfeld
+Application of the image processing technique in identifying the particle dispersion from a centrifugal fertilizer spreader
+Part. Sci. Technol., 35 (2017), pp. 607-615
+CrossRefView Record in ScopusGoogle Scholar
+Ebara et al., 2010
+S. Ebara, T. Yokomine, A. Shimizu, H. Hashizume
+Numerical simulation of turbulent flow in microscopic pore scale of pebble bed by large-eddy simulation
+Fusion Eng. Des., 85 (2010), pp. 1638-1641
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+Garcimartin et al., 2011
+A. Garcimartin, I. Zuriguel, A. Janda, D. Maza
+Fluctuations of grains inside a discharging two-dimensional silo
+Phys. Rev. E, 84 (2011)
+Google Scholar
+Goda and Ebert, 2005
+T.J. Goda, F. Ebert
+Three-dimensional discrete element simulations in hoppers and silos
+Powder Technol., 158 (2005), pp. 58-68
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+Gui et al., 2014
+N. Gui, X. Yang, J. Tu, S. Jiang
+Effect of bed configuration on pebble flow uniformity and stagnation in the pebble bed reactor
+Nucl. Eng. Des., 270 (2014), pp. 295-301
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+Ho and Obara, 2016
+H.Q. Ho, T. Obara
+Design concept for a small pebble bed reactor with ROX fuel
+Ann. Nucl. Energy, 87 (2016), pp. 471-478
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+Hsiau et al., 1999
+S.S. Hsiau, J. Smid, C.Y. Wang, J.T. Kuo, C.S. Chou
+Velocity profiles of granules in moving bed filters
+Chem. Eng. Sci., 54 (1999), pp. 293-301
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+Hsiau et al., 2000
+S.S. Hsiau, J. Smid, H.H. Tsai, J.T. Kuo, C.S. Chou
+Flow patterns and velocity fields of granules in Dorfan Impingo filters for gas cleanup
+Chem. Eng. Sci., 55 (2000), pp. 4481-4494
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+Huang et al., 2010
+C.J. Huang, Z.J. Wu, Z.L. Li, L.G. Li
+Simultaneous measurement of particle velocity and size based on gray difference and autocorrelation
+Sci. China Technol. Sci., 53 (2010), pp. 2833-2838
+CrossRefGoogle Scholar
+Huang et al., 1979
+T. Huang, G. Yang, G. Tang
+A fast two-dimensional median filtering algorithm
+IEEE Trans. Acoustics, Speech, Signal Proc., 27 (1979), pp. 13-18
+CrossRefView Record in ScopusGoogle Scholar
+Jia et al., 2014
+X. Jia, X. Yang, N. Gui, Y. Li, J. Tu, S. Jiang
+Experimental and numerical study of stagnant zones in pebble bed
+Sci. Technol. Nucl. Ins. (2014)
+Google Scholar
+Jia et al., 2016
+X. Jia, N. Gui, X. Yang, J. Tu, S. Jiang
+Experimental study and analysis of velocity correlation and intermittency of very slow and dense pebble flow in a silo bed
+Nucl. Eng. Des., 305 (2016), pp. 626-638
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+Jia et al., 2017
+X. Jia, N. Gui, X. Yang, J. Tu, H. Jia, S. Jiang
+Experimental study of flow field characteristics on bed configurations in the pebble bed reactor
+Ann. Nucl. Energy, 102 (2017), pp. 1-10
+ArticleDownload PDFCrossRefView Record in ScopusGoogle Scholar
+Jiang et al., 2019
+S. Jiang, J. Tu, X. Yang, N. Gui
+A review of pebble flow study for pebble bed high temperature gas-cooled reactor
+Exp. Comput. Multiphase Flow., 1 (2019), pp. 159-176
+CrossRefView Record in ScopusGoogle Scholar
+Jiang et al., 2012
+S.Y. Jiang, X.T. Yang, Z.W. Tang, W.J. Wang, J.Y. Tu, Z.Y. Liu, et al.
+Experimental and numerical validation of a two-region-designed pebble bed reactor with dynamic core
+Nucl. Eng. Des., 246 (2012), pp. 277-285
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+Khane et al., 2016
+V. Khane, I.A. Said, M.H. Al-Dahhan
+Experimental investigation of pebble flow dynamics using radioactive particle tracking technique in a scaled-down Pebble Bed Modular Reactor (PBMR)
+Nucl. Eng. Des., 302 (2016), pp. 1-11
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+Li et al., 2016
+Y. Li, N. Gui, X. Yang, J. Tu, S. Jiang
+Effect of friction on pebble flow pattern in pebble bed reactor
+Ann. Nucl. Energy, 94 (2016), pp. 32-43
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+Li et al., 2017
+Y.J. Li, B. Jia, S. Zhang, X.L. Wang
+Study on the mechanical behaviors and elastic modulus of mixed fusion pebble beds
+Fusion Eng. Des., 121 (2017), pp. 356-360
+ArticleDownload PDFCrossRefView Record in ScopusGoogle Scholar
+Luo et al., 2010
+X.W. Luo, X.T. Li, S.Y. Yu
+Nuclear graphite friction properties and the influence of friction properties on the pebble bed
+Nucl. Eng. Des., 240 (2010), pp. 2674-2681
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+Ohmi and Li, 2000
+K. Ohmi, H.Y. Li
+Particle-tracking velocimetry with new algorithm
+Meas. Sci. Technol., 11 (2000), pp. 603-616
+View Record in ScopusGoogle Scholar
+Otsu, 1979
+N. Otsu
+A threshold selection method from gray-level histograms
+IEEE Trans. Systems, Man, Cybern., 9 (1979), pp. 62-66
+CrossRefView Record in ScopusGoogle Scholar
+Ottino and Khakhar, 2000
+J.M. Ottino, D.V. Khakhar
+Mixing and segregation of granular materials
+Annu. Rev. Fluid Mech., 32 (2000), pp. 55-91
+CrossRefView Record in ScopusGoogle Scholar
+Shi et al., 2015
+B. Shi, J. Wei, M. Pang
+A modified cross-correlation algorithm for PIV image processing of particle-fluid two-phase flow
+Flow Meas. Instrum., 45 (2015), pp. 105-117
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+Silbert, 2005
+L.E. Silbert
+Temporally heterogeneous dynamics in granular flows
+Phys. Rev. Lett., 94 (2005), p. 98002
+Google Scholar
+Soille, 2003
+P. Soille
+Morphological Image Analysis: Principles and Applications, Springer-Verlag New York, Inc., Secaucus NJ (2003)
+Google Scholar
+Wang et al., 2010
+L.K. Wang, P.W.S. Heng, C.V. Liew
+Online monitoring of particle mass flow rate in bottom spray fluid bed coating — Development and application
+Int. J. Pharmaceut., 395 (2010), pp. 215-221
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+Willert and Gharib, 1991
+C.E. Willert, M. Gharib
+Digital particle image velocimetry
+Exp. Fluids, 10 (1991), pp. 181-193
+View Record in ScopusGoogle Scholar
+Yang et al., 2012
+X.T. Yang, W.P. Hu, S.Y. Jiang, K.K.L. Wong, J.Y. Tu
+Mechanism analysis of quasi-static dense pebble flow in pebble bed reactor using phenomenological approach
+Nucl. Eng. Des., 250 (2012), pp. 247-259
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+Zhao et al., 2015
+X. Zhao, T. Montgomery, S. Zhang
+Modeling stationary and moving pebbles in a pebble bed reactor
+Ann. Nucl. Energy, 80 (2015), pp. 52-61
+ArticleDownload PDFView Record in ScopusGoogle Scholar

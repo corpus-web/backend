@@ -1,0 +1,369 @@
+<title>Strategies for thorium fuel cycle transition in the SD-TMSR</title>
+<author>1,Ashraf, 2, AndreiRykhlevskii,3,G.V.Tikhomirov,4,Kathryn D.Huff</author>
+<Affiliation>1,Dept. of Theoretical and Experimental Physics of Nuclear Reactors, Institute of Nuclear Physics and Engineering, National Research Nuclear University MEPhI, 31, Kashirskoe Shosse, Moscow 115409, Russian Federation；2,Physics Department, Faculty of Education, Ain Shams University, Cairo 11341, Egypt；3,Dept. of Nuclear, Plasma, and Radiological Engineering, University of Illinois at Urbana-Champaign, Urbana, IL 61801, United States</Affiliation>
+<year>2020</year>
+<Jounral>Annals of Nuclear Energy</Journal>
+<Publishing_house>ELSEVIER</Publishing_house>
+<Text_Collector>XiaFan,HEU</Text_Collector>
+<DOI>10.1016/j.anucene.2020.107656</DOI>
+<URL>https://www.sciencedirect.com/science/article/pii/S0306454920302851</URL>
+Strategies for thorium fuel cycle transition in the SD-TMSR
+Ashraf, AndreiRykhlevskii,G.V.Tikhomirov,Kathryn D.Huff
+Dept. of Theoretical and Experimental Physics of Nuclear Reactors, Institute of Nuclear Physics and Engineering, National Research Nuclear University MEPhI, 31, Kashirskoe Shosse, Moscow 115409, Russian Federation
+Physics Department, Faculty of Education, Ain Shams University, Cairo 11341, Egypt
+Dept. of Nuclear, Plasma, and Radiological Engineering, University of Illinois at Urbana-Champaign, Urbana, IL 61801, United States
+<Section>Highlights</Section>
+Five initial fissile loadings were studied for transitioning to the thorium fuel cycle
+The MSR burnup routine was used to simulate the online reprocessing and refueling.
+The dynamics of  and essential safety parameters were investigated in this work.
+The neutron energy spectrum shift during the reactor operation was calculated.
+Temperature coefficient of reactivity evolution during SD-TMSR operation was investigated.
+Abstract
+Liquid-fueled Molten Salt Reactor (MSR) systems represent advances in safety, economics, and sustainability. The MSR has been designed to operate with a Th/U fuel cycle with U used as startup fissile material. Since U does not exist in nature, we must examine other available fissile materials to start up these reactor concepts. This work investigates the fuel cycle and neutronics performance of the Single-fluid Double-zone Thorium-based Molten Salt Reactor (SD-TMSR) with different fissile material loadings at startup: High Assay Low Enriched Uranium (HALEU) (19.79%), Pu mixed with HALEU (19.79%), reactor-grade Pu (a mixture of Pu isotopes chemically extracted from Pressurized Water Reactor (PWR) spent nuclear fuel (SNF) with 33  burnup), transuranic elements (TRU) from Light Water Reactor (LWR) SNF, and U. The MSR burnup routine provided by SERPENT-2 is used to simulate the online reprocessing and refueling in the SD-TMSR. The effective multiplication factor, fuel salt composition evolution, and net production of U are studied in the present work. Additionally, the neutron spectrum shift during the reactor operation is calculated. The results show that the continuous flow of reactor-grade Pu helps transition to the thorium fuel cycle within a relatively short time (≈ years) compared to 26 years for U startup fuel. Finally, using TRU as the initial fuel materials offers the possibility of operating the SD-TMSR for an extended period of time (≈40 years) without any external feed of U.
+Keywords：MSRThorium fuel cycle；Transuranic；Burner；Online reprocessing；Monte carlo code
+<Section>1. Introduction</Section>
+The Generation IV International Forum (GIF) defines eight technological goals for the next generation nuclear systems. These goals are defined in four broad areas: safety and reliability, non-proliferation and physical protection, economics, and sustainability (DOE, 2002). The MSR has many advantages that agree with GIF’s goals, like: liquid fuel, inherent safety, online reprocessing and refueling, excellent neutron economy, and operation near atmospheric pressure in a primary loop (Siemer, 2015, Rosenthal et al., 1970). Thus, the GIF selected the MSR as one of the promising Generation-IV reactors (DOE, 2002, Pioro et al., 2016). In MSRs, the fuel is dissolved in a molten salt (e.g., LiF or NaCl) (Betzler et al., 2019); this liquid fuel salt (e.g., LiF–BeF-ThF-UF) constantly circulates through the core and allows fission heat to transfer from the reactor core to intermediate heat exchangers.
+The Single-fluid Double-zone Thorium-based Molten Salt Reactor (SD-TMSR) with a thermal power of 2,250 MW was proposed for the first time by ORNL as early as in the 1960s, which was called Molten Salt Breeder Reactor (MSBR) (Robertson, 1971). The SD-TMSR is a graphite-moderated thermal-spectrum MSR operating in Th/U fuel cycle. In the SD-TMSR, the fissile and fertile elements are integrated into a single salt. To improve the breeding ratio, the active core is divided into two zones: the radius of the fuel channels in the outer zone is modified to be larger than the radius of the fuel channels in the inner zone (Li et al., 2018).
+Historically, the thermal-spectrum MSR was designed for the Th/U fuel cycle (Rykhlevskii et al., 2019, Nuttin et al., 2005, Merle-Lucotte et al., 2004, Rosenthal et al., 1970). This design assumes that we have fissile U inventory to start up new MSRs. However, U does not exist in the Earth’s crust and can only be produced from fertile Th in specific nuclear facilities. Therefore, we examine alternative fissile materials to replace the U in the startup fuel composition (Betzler et al., 2016, Zou et al., 2018). The thorium fuel cycle transition can be achieved after reaching the doubling time of U (required time to produce enough U to start up a new unit) because in this case, all startup fissile material is being substituted by newly produced U.
+Betzler et al. (2016) discussed the simulation of the startup of a Molten Salt Breeder Reactor (MSBR) unit cell with low-enriched uranium (LEU) (19.79%) and Pu from Light Water Reactor (LWR) spent nuclear fuel (SNF) as initial fissile materials (Betzler et al., 2016). They concluded that the Pu vector extracted from LWR SNF is the best alternative source to U because it has a high ratio of fissile isotopes (Betzler et al., 2016). Zou et al. (2018) introduced two approaches for the thorium fuel cycle transition in the Thorium-based Molten Salt Reactor (TMSR): (1) in-core transition and (2) ex-core transition. In the first approach, the TMSR is launched with existing fissile material and thorium as a fertile material; then the U bred from thorium is rerouted into the core to maintain criticality. In contrast, the second approach tends to store produced U out of the core until there is enough to start a new TMSR (Zou et al., 2018).
+Zou et al. (2018) studied the transitioning to thorium fuel cycle in a small modular Thorium-based Molten Salt Reactor (smTMSR) using TRU as startup fuel. They concluded that the transition to a thorium fuel cycle can be achieved in a thermal smTMSR with a proper fuel fraction (Zou et al., 2018).
+Heuer et al. (2014) discussed the transition characteristics of the Molten Salt Fast Reactor (MSFR) under different launching scenarios (e.g., enriched uranium and TRU); they concluded that starting the thorium fuel cycle is feasible in the MSFR while closing the current fuel cycle and optimizing the management of the long-term wastes (Heuer et al., 2014).
+The research effort described in Cui et al., 2017, Cui et al., 2018 is most similar to the work presented in this paper. Cui et al. analyzed the fuel transition from enriched U/Th and Pu/Th to U/Th for the MSBR-like design. Cui et al. found that the fuel transition can be achieved by using: (1) enriched uranium with greater than 40% enrichment (Cui et al., 2018); (2) Pu from LWR (burn-up of 60 GWd/t) spent nuclear fuel (Cui et al., 2017, Cui et al., 2018).
+However, a few major differences follow: (1) Cui et al. employed an in–house tool named MSR Reprocessing Sequence (MSR-RS) (Zou et al., 2015) which couples with SCALE and employs a batch-wise approach while we used built-in truly continuous fuel depletion capabilities in SERPENT-2 (Aufiero et al., 2013); (2) Cui et al. studied a high-enriched uranium (40% of U) and plutonium partitioned from light water reactors spent fuel as the startup fissile materials while we considered different loading cases: HALEU, Pu mixed with HALEU, reactor-grade plutonium, TRU and U; (3) we adopted the SD-TMSR core geometry optimized by Li et al. (2018) which is different from the MSBR-like geometry by Mathieu et al. (2009) adopted by Cui et al.; (4) Cui et al. introduced two scenarios for thorium fuel cycle transition: a Breeding and Burning (B&B) scenario and a Pre-breeding scenario while we adopting different approach by introducing two different feed mechanisms: thorium and non-thorium.
+Comparing with Cui et al., we used different reactor design (geometry, volumes, densities, fuel salt compositions) and computation method (continuous online reprocessing instead of batch-wise approach). In Cui’s scenarios, the amount of thorium is kept constant. U is fed only in (B&B) scenario and extra fissile materials would have to be added into the core if the produced U is not enough to maintain the reactor criticality. In the Pre-breeding scenario, all the U produced from the decay of the extracted Pa stored outside the core until it reaches the required startup mass for a new reactor. Thus, the criticality of the core is maintained by refueling external fissile material. In the current work, using the thorium feed mechanism, we simultaneously feed thorium and all or fraction of produced U from the Pa-decay tank2 into the core. The excess U (if exists) is stored outside the core. In the non-thorium feed mechanism, we continuously inject external heavy metals (HALEU, Pu mixed with HALEU, reactor-grade Pu, or TRU) and fraction of produced U from the Pa-decay tank. For the non-thorium mechanism, we feed a part of produced U because in some cases (e.g., TRU) refueling only external heavy metals failed to maintain the core criticality (limitation is dm 0.1%).
+Various previous works explore starting the MSRs with fissile materials alternative to U. Many such publications have focused on the fast-spectrum MSRs (Heuer et al., 2014, Ashraf et al., 2019, Ashraf et al., 2018, Rykhlevskii et al., 2019, Betzler et al., 2019, Fiorina et al., 2013), while few focus on thermal-spectrum MSRs (Betzler et al., 2016, Zou et al., 2018, Zou et al., 2018). The main objective of the present paper is to establish feasible strategies for thorium fuel cycle transition in the SD-TMSR with various initial fissile materials and without any external feed of U. We investigate five different initial fissile materials: HALEU, Pu mixed with HALEU, reactor-grade Pu 1 (Marka, 1993), TRU from LWR SNF (de Saint Jean et al., 2000), and U. Two different feed mechanisms were selected:
+•
+Thorium feed mechanism: continuous feed flow of thorium from the external stockpile and U from the Pa-decay tank, where the removal rate of Pa = feed rate of U (Betzler et al., 2016).
+•
+Non-thorium feed mechanism: continuous injection of external heavy metals (HALEU, Pu mixed with HALEU, reactor-grade Pu, TRU) and simultaneous feed of all or fraction of U from the Pa-decay tank.
+U is contaminated with U, which produced from parasitic (n,2n) reactions in Pa, or in Th, or in U itself. Tl a daughter of U emits intense -radiation and this makes U undesirable for nuclear weapons. Moreover, for nonproliferation reasons, bred U could be diluted with U to produce denatured fuel, which not suitable for nuclear weapons (Dolan et al., 2017).
+All calculations presented in this paper are performed using SERPENT-2 version 2.1.313 (Leppänen et al., 2014). We use the MSR burnup routine provided by SERPENT-2 to simulate continuous online reprocessing and refueling. SERPENT-2 uses an internal calculation routine for solving the Bateman equations describing the changes in the material compositions caused by neutron-induced reactions and radioactive decay (Leppänen et al., 2014). Additionally, SERPENT-2 enables burnup calculations on computer clusters with multiple cores using distributed-memory MPI parallelization.
+This paper is organized as follows: Section 2 discusses the model description, Section 3 describes methodology and tools, Section 4 addresses extraction and feed mechanisms, Section 5 focuses on the results and discussion, and Section 6 highlights the conclusions.
+<Section>2. Model description</Section>
+2.1. Geometry
+The SD-TMSR design model was introduced by the Chinese Academy of Sciences as a part of the strategic project “Thorium-based Molten-Salt Reactor (TMSR) nuclear energy system” in 2018 (Li et al., 2018, Jiang et al., 2012, Li et al., 2015). The design of the SD-TMSR is inspired by the MSBR (Robertson, 1971) after modifying the geometry to control the positive moderator temperature coefficient in the MSBR. Fig. 1 illustrates the quarter-core view of the SD-TMSR. The active zone is a right cylinder with height and diameter equal to 460 cm. Assemblies of graphite4 hexagonal prisms fill the core. The optimal side length of the graphite hexagonal prism was found in previous work to be 7.5 cm (Li et al., 2018). The liquid fuel circulates continuously through fuel channels that pierce the graphite hexagonal prisms. Two radial zones divide the core to enhance Th/U breeding performance; the radii of the fuel channels in the outer and inner zone are 5 and 3.5 cm, respectively. The axial and radial graphite reflectors surround the core to minimize neutron leakage and maximize flux in the core. B4C cylinder surrounds the reflectors and acts as radiation shielding. The SD-TMSR pressure vessel is made of a Ni-based (hastelloy N) alloy holds the fuel salt, graphite elements, reflector, shielding, and intermediate heat exchanger. The main characteristics of the SD-TMSR are listed in Table 1.
+Fig. 1. XZ (a) and XY (b) section of the quarter-core model of the SD-TMSR (Ashraf et al., 2020).
+Table 1. The main characteristics of the SD-TMSR (Li et al., 2018, Ashraf et al., 2020).
+2.2. Fuel composition
+The general composition of the startup liquid fuel salt in this work is 70LiF – 17.5BeF – 12.5(HM) F mole%, where HM is the heavy metal (mixture of thorium and one of these fissile materials: HALEU, Pu mixed with HALEU, reactor-grade Pu, TRU, and U), and N is dependent on the chosen fissile material and the thermochemical state of the liquid fuel salt.
+The aim of this paper is to simulate the operation of the SD-TMSR for 60 years with various startup fissile compositions and without any external feed of fissile U which we assume is unavailable. For that reason, five different types of initial fissile materials are considered based on HALEU, Pu, and TRU from Light Water Reactor (LWR) spent nuclear fuel (SNF):
+(a) High Assay Low Enriched Uranium (HALEU) (19.79%),
+(b) Pu mixed with HALEU (19.79%),
+(c) reactor-grade Pu (Marka, 1993),
+(d) transuranic (TRU) elements from LWR SNF (de Saint Jean et al., 2000), and
+(e) U for comparison (Ashraf et al., 2020).
+All types of initial fissile materials are fed as fluorides. The reactor-grade Pu and TRU compositions are summarized in Table 2, Table 3, respectively.
+Table 2. Reactor-grade Pu vector (wt.%) (Marka, 1993).
+Table 3. TRU vector (wt.%) (de Saint Jean et al., 2000).
+For the reactor-grade Pu case, the composition is taken for Pu recovered from the SNF composition of a commercial Pressurized Water Reactor (PWR) with an average discharge burnup of 33  and after 10 years of cooling before reprocessing (OECD, 1989, Marka, 1993). Similarly, the isotopic compositions of TRU reflect the composition of the PWR UOX SNF (after one use, no multi-recycling) with an average discharge of 60  burnup and after 5 years of cooling (de Saint Jean et al., 2000). The molar composition of startup fuel for all five cases is listed in Table 4. Additionally, the corresponding initial nuclei inventories with various fissile fuel options are summarized in Table 5.
+Table 4. Molar composition for startup fuel salts (mole%).
+Table 5. Initial heavy metal inventories for various initial fissile loadings (kg).
+<Section>3. Methodology and tools</Section>
+Simulation of liquid-fueled Molten Salt Reactor (MSR) systems requires computational software that can support online fuel salt reprocessing and refueling (Serp et al., 2014). In this work, SERPENT-2 version 2.1.31 (Leppänen et al., 2014) simulates the SD-TMSR full-core with various initial fuel types. This extension of SERPENT accounts for continuous online reprocessing and refueling (Aufiero et al., 2013). The ENDF-VII.0 cross section library was used for all calculations in this work. The results demonstrate full-core runs of  neutron histories per depletion step. During the depletion step, the core was maintained critical and total fuel mass was almost constant (dm 0.1%). To determine the appropriate depletion step size, we conducted a time step refinement study. We started with  days and gradually increased the depletion time step until the error in  became significant. The difference in  between  year and  days was 0.02%; thus, we adopted a constant, 365-day-long time step for all simulation in this work. The full burnup time of the SD-TMSR was 60 years with statistical error in  equal to  12 pcm. During the molten salt reactor operation, part of fuel salt flows outside of the reactor core then the fission reaction has not happened in the external loop, however, the decay reactions happen everywhere. We used total fuel salt inventory in the primary loop to define the fuel material in the SERPENT input. Moreover, we accordingly adjusted power density in SERPENT burnup calculations because fission takes place only in the core region. But we did not consider processes, such as decay, which occurs outside of the core. Also, the drift of the delayed neutron precursors is not examined in this paper, but discussion about this can be found in Zhang et al. (2018).
+The liquid fuel is well-mixed all the time due to turbulent flow and mixing in the pump. We used the depletion mode 1 in SERPENT-2 (i.e. burn 1), which means that the fuel material is treated as a single depletion zone.
+The online extraction of fission products (FPs) and other neutron absorbers provides many benefits for MSRs. For example, it has the potential to reduce the initial fissile material inventory required to achieve criticality and improve the breeding ratio. Fig. 2 shows a flow chart of the calculation steps.
+Fig. 2. Flow chart of the calculation procedures (implemented by SERPENT-2).
+As shown in Fig. 2, after launching the input file, SERPENT solves the Bateman equation using an advanced matrix exponential solution based on the Chebyshev Rational Approximation Method (Isotalo and Pusa, 2016). Then, the system extracts gaseous FPs and other materials (non-dissolved metals, lanthanides, and soluble metals except Pa) with a suitable removal rate5. This is done by setting the flow rate of gaseous FPs and other materials from the fuel to the FP-waste tank6. Specifically, Pa is removed from the fuel with a certain flow rate into the Pa-decay tank to decay and produce U 7. The produced U is used as a fresh fissile fuel and the residual U (if exist) is the net production of U that required to start up a new SD-TMSR and achieve the transition to thorium fuel cycle. The MSR burnup routine provided by SERPENT-2 allows changes to the mass flow rates (mflow) of the isotopes during reactor operation (Aufiero et al., 2013). Specifically, the SERPENT user should determine the mass flow rate (mflow), which is the rate by which elements or nuclides are transferred between materials. After that, the flow rates must be connected to materials with a reprocessing scheme. The final step is to link the reprocessing schemes to depletion histories. In the present work, we adjust the transfer rates of fresh fuel to maintain core criticality and to keep fuel salt mass constant during burnup. The continuous feed constant calculation procedures are summarized as follows:
+1. The simulation starts without injecting refueling materials (i.e. only removing FPs and Pa).
+2. After the first depletion calculation step, we check the total mass density of FPs and Pa in the FP-waste tank and Pa-decay tank, respectively.
+3. A simple calculation yields the amount of heavy metal that must be added during this cycle:
+3a. Thorium feed mechanism: mass of injected U ≈mass of extracted Pa and mass of injected Th ≈mass of extracted FPs to maintain the total fuel mass constant.
+3b. Non-thorium feed mechanism: mass of injected U ≈mass of extracted Pa and mass of injected fuel (i.e., HALEU, Pu mixed with HALEU, reactor-grade Pu, or TRU) ≈mass of extracted FPs to maintain the total fuel mass constant.
+<Section>4. Dividing this mass by time and inventory of refueling material gives the corresponding feed constant (1/s).</Section>
+In both feed mechanisms (thorium and non-thorium) we continuously added U and the mass of injected U is equal to the mass of extracted Pa (Pa decays to U after ≈27 d). To keep the total fuel mass almost constant, for thorium feed mechanism, the mass of injected thorium must be equal to the mass of extracted FPs and for non-thorium feed mechanism, the mass of injected fuel (i.e., HALEU, Pu mixed with HALEU, reactor-grade Pu, or TRU) must be equal to the mass of extracted FPs.
+<Section>4. Feed and extraction rates</Section>
+In the present work, two different feed mechanisms are used: (1) thorium and (2) non-thorium. The first mechanism allows continuous feed flow of thorium from the external stockpile and U from the Pa-decay tank. In contrast, the second mechanism continuously injects external heavy metals (HALEU, Pu mixed with HALEU, reactor-grade Pu, TRU) and simultaneously feeds all or part of produced U from the Pa-decay tank. The fission products (FPs) act as poisons in nuclear reactors: they negatively impact the reactivity. Therefore, FPs must be extracted during reactor operation. Consider the MSR extracts  amount of particular element e during time dt, thus (Nuttin et al., 2005):
+@(1)
+where
+@
+Integration of Eq. 1 gives the removal constant   (the rate at which the material is removed), where . The removal constant  of gaseous and other fission products is precisely calculated and summarized in Table 6. The effective reprocessing time for the gaseous FPs and non-dissolved metals was set to 30 s (removal constant  =  ), because such elements must be extracted promptly and continuously via a gas removal system. In contrast, chemical processes (i.e. fluorination and reduction) extract the soluble FPs, lanthanides, and Pa. Therefore, the system reprocesses a specific amount of fuel salt daily. In the present work, the effective extraction time for soluble FPs is 10.59 days ( =  ), which is equivalent to a chemical reprocessing rate of 5 m3/d chosen by Nuttin et al. (2005) and Li et al. (2018). The effective feed rates of the heavy metals (HM) are changed during reactor operation to conserve the total fuel mass and criticality. The effective feed rates for Th/U, reactor-grade Pu, and TRU cases are listed in Table A.1, A.2, and A.3 in A.
+Table 6. The reprocessing table (Ashraf et al., 2020, Ashraf et al., 2020).
+<Section>5. Results and discussion</Section>
+The molar fraction of the heavy metal (HM) in the initial fuel was kept constant and equal to 12.5 mol% for all cases (see Table 4). Additionally, the initial fissile material fraction was increased for the five fuel salt compositions until the SD-TMSR reactor was sufficiently critical at the Beginning Of Life (BOL).
+5.1. Thorium feed mechanism
+The thorium feed mechanism continuously feeds thorium from the external stockpile and U from the Pa-decay tank. Fig. 3 illustrates the effective multiplication factor dynamics during reactor operation for the thorium feed mechanism. As shown in Fig. 3, the effective multiplication factor () decreases sharply during the first 25 effective full-power years (EFPY) of reactor operation for the first four cases.  decreases as a result of depletion of the initial fissile materials and production of poisonous fission products (FPs). The amount of U generated in the SD-TMSR is not enough to maintain the reactor criticality and counteract parasitic neutron absorption. Thus, the reactor becomes subcritical relatively quickly for alternative startup compositions, for example, ≈4 years in the TRU case and ≈12 years in the reactor-grade Pu case. For U-233 case, the continuous feed flow of thorium and U from the Pa-decay tank helps to operate the SD-TMSR for a full lifetime (60 year) (Fig. 3, U-233 case).
+Fig. 3. The change of the effective multiplication factor during 60 EFPY of reactor operation for thorium feed mechanism (confidence interval  is shaded).
+Notably, the molar fractions of HALEU and reactor-grade Pu in the initial fuel composition were increased more. Consequently, the initial  for these cases increased (see Fig. 3 for HALEU and reactor-grade Pu cases). For the HALEU fuel salt, the amount of U generated in the SD-TMSR after a few years is insufficient to counteract the absorption of the (non-fissile) U added at start-up after much of the original U is depleted. Consequently, the core becomes subcritical after ≈6 years of operation.
+For the Pu + HALEU case,  firstly increases during the first ≈3 EFPY and then gradually decreases. This is due to the conversion of U from HALEU into fissile plutonium, which often produces the majority of the neutrons until the transition to Th/U fuel cycle. Fig. 4 shows the variation in fissile plutonium isotopes (Pu, Pu, and Pu) inventory during reactor operation. For TRU and reactor-grade Pu, the fissile plutonium isotopes are gradually depleted, during operation (the fissile material is dominated by Pu in these cases). For the HALEU case, the fissile material is dominated by U, however, U is converted into fissile plutonium. Therefore, the mass of fissile plutonium increases during operation but its value still relatively low. For the Pu + HALEU case, the mass of the fissile plutonium isotopes increases within the first ≈3 EFPY and then decreases. The reactivity from the produced Pu is much greater than the depletion of the initial reactivity (due to the depletion of initial fissile isotopes). Consequently,  increases during the first ≈3 EFPY and then decreases; the amount of U generated in the Pu + HALEU case is insufficient to maintain the reactor criticality and counteract neutron absorption in non-fissile isotopes.
+Fig. 4. The variation of relative mass of fissile Pu (Pu, Pu, and Pu) during reactor operation.
+Fig. 3 shows that the decrease in  for reactor-grade Pu case occurs at the much later operation time than for other cases because the neutron spectrum in the reactor-grade Pu initial core is hardened; more Th is being converted to U. Nevertheless, this amount of the U is not enough to counteract the neutron absorption in the non-fissile Pu isotopes after much of the Pu and Pu is depleted (Betzler et al., 2016).
+5.2. Non-thorium feed mechanism
+The non-thorium feed mechanism continuously feeds U from the Pa-decay tank and external heavy metals (HALEU, Pu mixed with HALEU, reactor-grade Pu, TRU). Under the non-thorium feed mechanism, only four different initial fissile materials are studied: HALEU, Pu mixed with HALEU, reactor-grade Pu, and TRU. The continuous feed of U without Th will lead to a supercritical reactor, thus the U case is excluded from the non-thorium feed mechanism study. Fig. 5 shows the change of the effective multiplication factor during 60 EFPY of reactor operation for the non-thorium feed mechanism. Both the reactor-grade Pu and TRU cases show promising results relative to the other two cases (HALEU and Pu + HALEU) (see Fig. 5). For the reactor-grade Pu case, the amount of U generated in the SD-TMSR, in addition to the external feed flow of Pu, is sufficient to maintain the reactor criticality and counteract the neutron absorption in the initial non-fissile isotopes and FPs. For the TRU fuel salt, the amount of U and the external feed flow of TRU is barely enough to operate the reactor for a long period of time (≈40 years) without any external feed of U (U used only from the Pa-decay tank). Nevertheless,  decreases with the burnup because of the minor actinides MAs8 accumulating in the core as a result of continuous TRU feed. As shown in Fig. 5, the HALEU and Pu + HALEU fuel are less attractive for the non-thorium feed mechanism. The continuous HALEU feed increases the amount of fertile U and consequently, reduces the feasibility of such fissile materials. According to the  results, reactor-grade Pu and TRU are the only alternative fissile materials that can be used to startup and maintain operation of the SD-TMSR.
+Fig. 5. The change of the effective multiplication factor during 60 EFPY of reactor operation for non-thorium feed mechanism (confidence interval  is shaded).
+5.3. Reactor-grade Pu, TRU, and U initial fuel
+In this section, the simulation of the SD-TMSR with reactor-grade Pu and TRU fissile materials is discussed. Additionally, the previously studied U case is listed for comparison (Ashraf et al., 2020). Fig. 6 demonstrates the dynamics of the heavy metal refill rate during 60 EFPY of the SD-TMSR operation. The heavy metal refill rate was adjusted to maintain criticality and the total fuel mass almost constant9 during reactor operation. In the U case, the mean values of U and Th refill rate are  and  , respectively. Similarly, in the reactor-grade Pu case, the mean values of U and Pu refill rate are  and  , respectively. For the TRU case, the mean values of U and TRU refill rate are  and  , respectively.
+Fig. 6. Dynamics of heavy metal refill rate during 60 EFPY of reactor operation. Solid lines for the U case, dashed lines for the reactor-grade Pu case, and dotted lines for the TRU case.
+Fig. 7, Fig. 9 demonstrate the evolution of important nuclide inventories for the U, Pu, and TRU cases respectively. For the U case (Fig. 7), the mass of Pa in the fuel salt is almost constant and reaches  kg at the end of the operation time. Additionally, the mass of minor actinides (MA) and Pu increases with time. The level of Pu in the fuel salt correlates with the mass of the MA; however, MA need more time to reach equilibrium than Pu. Uranium inventory increases during operation and reaches equilibrium after ≈27 years. Fig. 7 shows that refueling the core with thorium helps maintain an almost constant inventory throughout the full operation time.
+Fig. 7. Evolution of important nuclide inventories for U startup fuel (MA involves Np, Am, Cm) (Ashraf et al., 2020).
+The target is to maintain the core criticality for a long period of time without any external feed of U. Fig. 8 shows how the Reprocessing Period (RP) affects the  and amount of U in the Pa-decay tank for the TRU-started SD-TMSR. The fast extraction of Pa from the core (RP = 30 s) leads to long operation time. Also, a relatively large amount of U can be obtained when we applied RP = 30 s against  d. The RP equal to  d is not suitable for TRU and reactor-grade Pu cases because additional U was required to supply the core after startup. Therefore, we selected the RP = 30 s. This produces barely enough U in the Pa-decay tank to operate the TRU-started SD-TMSR for a long period of time (≈40 years). For reactor-grade Pu case, the produced U is sufficient to maintain the core criticality within the 60-years of operation (see Fig. 5).
+Fig. 8. The effect of Reprocessing Period (RP) on the  and amount of U in the Pa-decay tank for the TRU-started SD-TMSR.
+Fig. 9 shows that the mass of Pa in the fuel salt is relatively low when compared with Pa mass in the U case (Fig. 7). Major elements for all three cases reach the equilibrium state after ≈30 years (see Fig. 7, Fig. 9).
+Fig. 9. Evolution of important nuclide inventories for the reactor-grade Pu case (solid lines) and for the TRU case (dashed lines).
+Fig. 10 illustrates the variation of thorium inventory in the fuel salt for the U, reactor-grade Pu, and TRU cases. The thorium inventory decreases in the U case by only % at the End Of Life (EOL) when the thorium feed mechanism is applied. In contrast, thorium total mass decreases significantly in the Pu and TRU cases when the non-thorium feed mechanism is applied. Thus, thorium mass decreases by % and % for the reactor-grade Pu and TRU cases, respectively.
+Fig. 10. Mass variation of all thorium isotopes in the fuel salt for the U, reactor-grade Pu, and TRU cases.
+Fig. 11 demonstrates the mass of U in the fuel salt for the U, reactor-grade Pu, and TRU cases. For U case, the mass of U increases with operation time and reaches ≈ t at the EOL. For reactor-grade Pu and TRU cases, the mass of U firstly, increases and after ≈35 and 45 years for Pu and TRU cases, respectively, decreases. The neutron spectrum shift during operation affects the inventory of U in the fuel salt. A harder neutron spectrum enhances U breeding from Th. For the reactor-grade Pu and TRU cases, during operation, the fissile Pu is depleted and the U becomes the major fissile isotope such that the neutron spectrum softens (low conversation of U from Th). However, for U case, the neutron spectrum is hardened at EOL due to the accumulation of Pu isotopes.
+Fig. 11. Mass of U in the fuel salt for the U, reactor-grade Pu, and TRU cases.
+In the non-thorium feed mechanism, the SD-TMSR is continuously refueled by heavy metals (Pu and TRU) for criticality, which increases the Pu mole concentration (%) in the molten salt. The Pu solubility in FLiBe is ≈ % (Ignatiev et al., 1239, Sood et al., 1975). Fig. 12 represents the Pu mole concentration variation in the fuel salt for the U, reactor-grade Pu, and TRU cases, respectively. In the U and reactor-grade Pu cases, the Pu mole concentration increases slightly but still below its solubility limit. On the other hand, the Pu mole concentration in the molten salt loaded by TRU increases during operation and reaches the Pu solubility limit after ≈40 years. This issue may be solved by increasing the reactor operation temperature or reducing the HM initial inventory (Zou et al., 2018). Notably, for TRU case, the time achieving Pu solubility limit is shorter than that for reactor-grade Pu case. The reason for this is the relatively high concentration of Pu in the initial heavy metal for the TRU-started SD-TMSR (≈ % compared with  % for Pu-started SD-TMSR, see Table 5).
+Fig. 12. The Pu mole concentration in the fuel salt for the U, reactor-grade Pu, and TRU cases.
+Fig. 13 demonstrates the net production of U during reactor operation for the U, reactor-grade Pu, and TRU cases, respectively. For the TRU case, the net production of U is almost zero. Although all produced U is used to refuel the core, the reactor is subcritical after 40 years of operation (see Fig. 5). In the U and reactor-grade Pu cases, the net production of U increases with burnup and reaches about  t and 10 t at EOL, respectively. Fig. 13 shows that for the U case the net production of U during the first 455 days is negative; about  kg of U must be added during this period. As shown in Fig. 13, for the U case, after 26 years the net production of U reaches  t; this is sufficient to start up another SD-TMSR (see Table 5). Similarly, one can see that the same amount of U ( t) can be achieved after ≈ years if we apply the non-thorium feed mechanism on the SD-TMSR that was initially loaded by reactor-grade Pu alternative to U. For nonproliferation reasons, U could be diluted with U which makes it impossible to use for nuclear weapons.
+Fig. 13. Net production of U with burnup (60 EFPY) for the U, reactor-grade Pu, and TRU cases.
+In conclusion, the thorium fuel cycle transition can be achieved by selecting the proper feed mechanism and initial fissile material. Specifically, applying the non-thorium feed mechanism on the SD-TMSR loaded by reactor-grade Pu allows the transition to the thorium fuel cycle after ≈ years. Additionally, applying the thorium feed mechanism on the SD-TMSR loaded by U allows the transition to the thorium fuel cycle after ≈26 years of operation. The comparison between the two feed mechanisms with various initial fuel types is listed in Table 7.
+Table 7. Comparison between the two feed mechanisms for the five different types of initial fuel.
+Zero U net production and critical configuration for 40 years of operation.
+Too large and increasing  during lifetime.
+5.4. Neutron spectrum
+Fig. 14 represents the neutron flux per unit lethargy for a full-core SD-TMSR model in the energy range from  to 10 MeV for the U, reactor-grade Pu, and TRU cases at BOL and EOL. In the U case, at the EOL, the neutron spectrum is harder than at BOL due to the accumulation of Pu and other strong thermal neutron absorbers in the fuel salt. For the reactor-grade Pu and TRU cases, during reactor operation, the fissile Pu is depleted and the U becomes the major fissile isotope (see Fig. 11); the neutron spectrum softens and becomes similar to the initial thermal spectrum of a U fueled SD-TMSR. The neutron spectrum of TRU case at BOL is softer than U case because Th inventory is much lower for the TRU case:  t instead of  t for the U. Th has a very high absorption cross section in the thermal region (b). Moreover, Th has resonance region between  and  which justify relatively low energy of neutrons for the TRU case in this energy range (see Fig. 14).
+Fig. 14. The neutron flux energy spectrum at BOL (solid lines) and EOL (dashed lines) for 3 different initial fuel salt compositions (for all cases, the neutron flux confidence intervals  at BOL and EOL are % and %, respectively).
+5.5. Neutron flux
+Fig. 15, Fig. 16 show the radial distribution of fast (energy range between 0.625 eV and 20 MeV) and thermal (energy range between  eV and 0.625 eV) neutron flux for three different initial fissile materials in the fuel salt (U, reactor-grade Pu, TRU) at startup and at equilibrium (after  years of operation). Actinides’ evolution and poisonous fission product accumulation for various initial fissile compositions demonstrates the different effects on the SD-TMSR neutronics performance. For the U case, the thermal neutron flux is suppressed at equilibrium because fissile U in the core is being substituted with heavier fissile actinides: U, Pu, and Pu. This agrees with results in literature (Rykhlevskii et al., 2019, Ashraf et al., 2020).
+Fig. 15. Radial fast neutron flux distribution for 3 different initial fuel salt compositions at startup and equilibrium (the fast flux confidence interval % for all cases).
+Fig. 16. Radial thermal neutron flux distribution for 3 different initial fuel salt compositions at startup and equilibrium (the thermal flux confidence interval % for all cases).
+Opposite behavior is observed for the reactor-grade Pu and TRU cases. For these cases, the thermal neutron flux increases during operation while fast neutron flux decreases. Fissile Pu nuclides (generate relatively hard spectrum) from initial fuel salt composition are gradually substituted with U (generates relatively soft spectrum), produced from fertile Th. During reactor operation, U becomes the primary fissile isotope, which softening the neutron spectrum of the reactor.
+Notably, the neutron flux change for both the fast and thermal energies is much larger for the reactor-grade Pu case than for TRU case (Fig. 15, Fig. 16). The reason is the much softer neutron spectrum for the TRU initial loading compared with the reactor-grade Pu as shown in Fig. 14: peak thermal neutron flux is about 4 times larger for the TRU case. The neutron spectrum in the SD-TMSR core initially loaded by TRU is much softer than the reactor-grade Pu case and even than the U-233 case because Th inventory is the lowest for the TRU case:  t instead of  t and  t for the reactor-grade Pu and U-233 cases, respectively (Table 5). Th greatly affects the neutron energy spectrum due to its large absorption cross section in the thermal energy range and resonance region between  and . Finally, when the TRU and the reactor-grade Pu cases reached equilibrium fuel salt composition ( years after startup), the radial fast and thermal neutron flux distribution became similar in both shape and magnitude.
+More changes in thermal neutron flux shape and magnitude during the reactor operation for the U case are observed in the inner core zone () than in the outer core zone. In the outer core zone, significant changes during reactor operation are observed for the thermal neutron flux for the reactor-grade Pu case. In contrast, for the TRU case, thermal neutron flux change in the outer core zone is almost negligible. Additionally, Fig. 16 shows relatively significant changes in thermal flux leakage from the core for the Pu (equilibrium composition) and TRU (initial and equilibrium composition) cases. The SD-TMSR core design was optimized for U (Li et al., 2018); thus, the core geometry (e.g., the channel lattice pitch) must be re-optimized for another type of fuel to obtain better neutronics performance.
+5.6. Temperature coefficient of reactivity
+The temperature coefficient of reactivity quantifies reactivity changes due to temperature increase in the core and is calculated in this work as follows:
+@(2)
+where
+@
+Table 8 summarizes temperature coefficients calculated for three different initial fissile loads at startup and at equilibrium. By propagating the  statistical error provided by SERPENT-2, uncertainty for each temperature coefficient is calculated using the following formula:
+(3)
+where
+@
+Table 8. Temperature coefficients of reactivity for 3 different initial fuel salt compositions at startup and equilibrium. Confidence interval  for all coefficients is between  and  pcm/K).
+Other sources of uncertainty are neglected, such as cross section measurement error and approximations inherent in the density dependence on temperature.
+When the fuel salt temperature increases, the density of the salt decreases, but at the same time, the total volume of fuel salt in the core remains constant because it is bounded by the vessel. When the graphite temperature increases, the density of graphite decreases, creating additional space for the salt. The cross section temperatures for the fuel and moderator were changed from 900 to 1000 K to determine the temperature coefficients. This work considered five different cases:
+1. Fuel salt temperature (Doppler Effect) rising from 900 to 1000 K (first row in Table 8).
+2. Fuel salt density decreasing from 3.3 to 3.233 g/cm3 (density change caused by temperature increase from 900 to 1000 K).
+3. Total fuel salt temperature (Doppler + density) rising from 900 to 1000 K.
+4. Graphite temperature (Doppler Effect) rising from 900 to 1000 K.
+5. Whole reactor temperature rising from 900 K to 1000 K.
+In the first case, the fuel temperature change only impacts cross section temperature. In the second case, changes in the fuel temperature only impact density, and the third case takes into account both effects. The geometry for these three cases is unchanged because the fuel is a liquid. However, when the graphite blocks heat up, both the density and the geometry change due to the thermal expansion of solid graphite. The graphite linear thermal expansion is not a dominating factor (Li et al., 2018), and herein we focus only on the Doppler Effect for the moderator temperature coefficient.
+The Fuel Temperature Coefficient (FTC) is negative for all considered fuel compositions due to thermal Doppler broadening of the resonance capture cross sections in the thorium. For the U case, the FTC decreases in magnitude by  due to neutron spectrum hardening during the reactor operation. For reactor-grade Pu and TRU cases, the FTC increases in magnitude at equilibrium, by  and , respectively.
+The FTC is a combination of the Doppler effect coefficient () and density coefficient () and significantly affected by the neutron spectrum. Li et al. reported that  in thermal MSR is always negative and increases by magnitude when spectrum hardening (see Table 8, first raw). In contrast,  is a combination of moderator-to-fuel volume ratio, absorption cross section of heavy metal, and the core leakage. When the fuel salt temperature increases, the salt becomes less dense, causing a reduction in the fuel concentration and the neutron spectrum become softer. Such spectrum softening is leading to a rise in macroscopic absorption cross section of the fissile isotopes. Moreover, the spectrum softening may leads to a larger fast fission reaction rate (Li et al., 2018). Thus, spectrum softening positively affects the density coefficient ():   and  pcm/K at the startup and equilibrium for the reactor-grade Pu case, respectively. More discussion about effects of fuel salt composition in the FTC can be found elsewhere (Li et al., 2018).
+The Moderator Temperature Coefficient (MTC) for the U case is positive and decreases during reactor operation because of spectrum hardening with fuel depletion. For other cases, the MTC is negative and also decreases in magnitude during reactor operation. Finally, the total temperature coefficient of reactivity is strongly negative for all considered scenarios but decreases in magnitude during reactor operation due to spectral shift. Notably, the total temperature coefficient is the most negative for the reactor-grade Pu case at startup, which has the hardest neutron spectrum (Fig. 14). These coefficients agree with earlier estimates for the SD-TMSR (Li et al., 2018, Ashraf et al., 2020) and MSBR (Rykhlevskii et al., 2019, Rykhlevskii et al., 2017, Robertson, 1971).
+Even after 30 years of operation, the total temperature coefficient of reactivity remains relatively large and negative (in the range between  and  pcm/K) compared with the conventional PWR, which has temperature coefficient of about  pcm/°F≈ − 3.08 pcm/K (Forget et al., 2018), and allows excellent reactor stability and control. The additional analysis must be performed taking graphite moderator density change and linear thermal expansion into account, but material properties for the SD-TMSR graphite are not available in published literature. Relatively well-studied reactor graphite (e.g., AXQ graphite (Robertson, 1971)) can be considered as a candidate for the SD-TMSR concept.
+<Section>6. Conclusion</Section>
+Five initial fissile loadings strategies have been studied for transitioning to the thorium fuel cycle in the SD-TMSR. We adopted two different feed mechanisms: thorium and non-thorium. This work determined that High Assay Low Enriched Uranium (HALEU), even mixed with Pu, is infeasible. Full lifetime (60 year) depletion for the whole-core SD-TMSR model was performed with reactor-grade Pu, TRU, and U as initial fissile materials. Additionally, the dynamics of the effective multiplication factor , major isotopes mass, neutron energy spectrum, and essential safety parameters have been investigated.
+Results demonstrate that continuous flow of reactor-grade Pu allows the transition to the thorium fuel cycle in a relatively short time (≈ years) compared to 26 years for Th/U startup fuel. Meanwhile, using TRU as initial fissile materials shows the possibility of operating the SD-TMSR for an extended time (≈40 years) without any external feed of U. Notably, the Pu mole concentration (%) in fuel salt was found to be below the solubility limit.
+The neutron energy spectrum shift during the reactor operation for the Pu and TRU cases is different from the U fueling scenario. The spectrum hardens for the U initial fissile isotope during operation, but thermalizes for the Pu and TRU cases. Notably, the most significant neutron energy spectrum shift was obtained for reactor-grade Pu startup loading.
+We compared the operational and safety parameters of the SD-TMSR for the three promising startup fuels at both initial and equilibrium states. The total temperature coefficient of reactivity is negative and relatively large in all cases. For the TRU case, the coefficient remained almost constant during operation:  pcm/K and  pcm/K for the initial and equilibrium states, respectively. For reactor-grade Pu, the coefficient evolved from  pcm/K to  during 60 years of operation.
+<Section>7. Future work</Section>
+The authors intend to verify obtained results using another tool: batch-wise code SaltProc (Rykhlevskii et al., 2018, Rykhlevskii and Huff, 2019). Additionally, the accident safety analysis using coupled neutronics/thermal–hydraulics software, Moltres (Lindsay et al., 2018) will be performed. The full-core SERPENT-2 model of the SD-TMSR and equilibrium fuel salt compositions, obtained in this work, will be employed to generate problem-oriented nuclear data libraries for Moltres. The ultimate goal of this effort is to develop a fast-running computational model for studying the dynamic behavior of generic MSRs, performing safety analysis for different accident scenarios, and optimizing the design of various reactor concepts.
+<Section>Declaration of Competing Interest</Section>
+The authors declare that they have no known competing financial interests or personal relationships that could have appeared to influence the work reported in this paper.
+<Section>Acknowledgments</Section>
+Osama Ashraf would like to thank the Egyptian Ministry of Higher Education (MoHE), as well as MEPhI’s Competitiveness Program for providing financial support for this research. The facility and tools needed to conduct this work were supported by MEPhI.
+The authors contributed to this work as described below.
+Osama Ashraf conceived and designed the simulations, wrote the paper, prepared figures and/or tables, performed the computation work, and reviewed drafts of the paper.
+Andrei Rykhlevskii conceived and designed the simulations, wrote the paper, prepared figures and/or tables, performed the computation work, and reviewed drafts of the paper. Andrei Rykhlevskii is supported by DOE ARPA-E MEITNER program award DE-AR0000983.
+G. V. Tikhomirov directed and supervised the work, conceived and designed the simulations and reviewed drafts of the paper. Prof. Tikhomirov is Deputy Director of the Institute of Nuclear Physics and Engineering MEPhI. Board member of Nuclear society of Russia.
+Kathryn D. Huff supervised the work, conceived and contributed to conception of the simulations, and reviewed drafts of the paper. Prof. Huff is supported by the Nuclear Regulatory Commission Faculty Development Program, the National Center for Supercomputing Applications, the International Institute for Carbon Neutral Energy Research (WPI-I2CNER), sponsored by the Japanese Ministry of Education, Culture, Sports, Science and Technology, and DOE ARPA-E MEITNER program award DE-AR0000983.
+This research is part of the Blue Waters sustained-petascale computing project, which is supported by the National Science Foundation (awards OCI-0725070 and ACI-1238993) and the state of Illinois. Blue Waters is a joint effort of the University of Illinois at Urbana-Champaign and its National Center for Supercomputing Applications.
+The authors thank members of the Advanced Reactors and Fuel Cycles (ARFC) group at the University of Illinois at Urbana-Champaign for helpful discussions relating to this paper. Finally, the authors would like to thank Matthew Kozak for constructive criticism of the manuscript.
+Appendix A. Feed rates for all cases
+Table 9, Table 10, Table 11.
+Table 9. The refueling table for Th/U case.
+Feed constant is the mass fraction of fertile or fissile nuclides (Th or U) transferred from the external storage to the core per second.
+Table 10. The refueling table for reactor-grade Pu case.
+<Section>References</Section>
+Ashraf et al., 2020
+O. Ashraf, G.V. Tikhomirov
+Preliminary study on the online reprocessing and refueling scheme for SD-TMS reactor
+J. Phys: Conf. Ser., 1439 (2020), Article 012005, 10.1088/1742-6596/1439/1/012005
+CrossRefGoogle Scholar
+Ashraf et al., 2018
+O. Ashraf, A.D. Smirnov, G.V. Tikhomirov
+Nuclear fuel optimization for molten salt fast reactor
+J. Phys: Conf. Ser., 1133 (2018), p. 012026, 10.1088/1742-6596/1133/1/012026
+CrossRefGoogle Scholar
+Ashraf et al., 2019
+O. Ashraf, A.D. Smirnov, G.V. Tikhomirov
+Modeling and criticality calculation of the molten salt fast reactor using serpent code
+J. Phys.: Conf. Ser., 1189 (2019), p. 012007, 10.1088/1742-6596/1189/1/012007
+CrossRefGoogle Scholar
+Ashraf et al., 2020
+O. Ashraf, A. Rykhlevskii, G. Tikhomirov, K.D. Huff
+Whole core analysis of the single-fluid double-zone thorium molten salt reactor (sd-tmsr)
+Ann. Nucl. Energy, 137 (2020), Article 107115, 10.1016/j.anucene.2019.107115
+URL:  http://www.sciencedirect.com/science/article/pii/S0306454919306255
+ArticleDownload PDFGoogle Scholar
+Aufiero et al., 2013
+M. Aufiero, A. Cammi, C. Fiorina, J. Leppänen, L. Luzzi, M.E. Ricotti
+An extended version of the serpent-2 code to investigate fuel burn-up and core material evolution of the molten salt fast reactor
+J. Nucl. Mater., 441 (1–3) (2013), pp. 473-486
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+Betzler et al., 2016
+B.R. Betzler, J.J. Powers, A. Worrall
+Modeling and simulation of the start-up of a thorium-based molten salt reactor
+Proc. Int. Conf. PHYSOR (2016)
+Google Scholar
+Betzler et al., 2019
+B.R. Betzler, A. Rykhlevskii, A. Worrall, K. Huff
+Impacts of fast-spectrum molten salt reactor characteristics on fuel cycle performance, Tech. rep
+Oak Ridge National Lab. (ORNL), Oak Ridge, TN (United States) (2019)
+Google Scholar
+Cui et al., 2017
+D.-Y. Cui, S.-P. Xia, X.-X. Li, X.-Z. Cai, J.-G. Chen
+Transition toward thorium fuel cycle in a molten salt reactor by using plutonium
+Nucl. Sci. Tech., 28 (10) (2017), p. 152
+View Record in ScopusGoogle Scholar
+Cui et al., 2018
+D. Cui, X. Li, S. Xia, X. Zhao, C. Yu, J. Chen, X. Cai
+Possible scenarios for the transition to thorium fuel cycle in molten salt reactor by using enriched uranium
+Prog. Nucl. Energy, 104 (2018), pp. 75-84
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+de Saint Jean et al., 2000
+de Saint Jean, C., Delpech, M., Tommasi, J., Youinou, G., Bourdot, P., 2000. Scénarios cne: réacteurs classiques, caractérisation à l’équilibre, rapport CEA DER/SPRC/LEDC/99-448.
+Google Scholar
+DOE, 2002
+DOE, US, 2002. A technology roadmap for generation iv nuclear energy systems. pp. 48–52.
+Google Scholar
+Dolan et al., 2017
+T.J. Dolan
+Molten salt reactors and thorium energy
+Woodhead Publishing (2017)
+Google Scholar
+Fiorina et al., 2013
+C. Fiorina, M. Aufiero, A. Cammi, F. Franceschini, J. Krepel, L. Luzzi, K. Mikityuk, M.E. Ricotti
+Investigation of the msfr core physics and fuel cycle characteristics
+Prog. Nucl. Energy, 68 (2013), pp. 153-168
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+Forget et al., 2018
+B. Forget, K. Smith, S. Kumar, M. Rathbun, J. Liang
+Integral Full Core Multi-Physics PWR Benchmark with Measured Data, Tech. rep
+Massachusetts Institute of Technology (2018)
+Google Scholar
+Heuer et al., 2014
+D. Heuer, E. Merle-Lucotte, M. Allibert, M. Brovchenko, V. Ghetta, P. Rubiolo
+Towards the thorium fuel cycle with molten salt fast reactors
+Ann. Nucl. Energy, 64 (2014), pp. 421-429
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+Ignatiev et al., 1239
+V. Ignatiev, O. Feynberg, A. Merzlyakov, A. Surenkov, A. Zagnitko, V. Afonichkin, A. Bovet, V. Khokhlov, V. Subbotin, R. Fazilov, et al.
+Progress in development of mosart concept with th support
+Proceedings of ICAPP, vol. 12394 (2012)
+Google Scholar
+Isotalo and Pusa, 2016
+A. Isotalo, M. Pusa
+Improving the accuracy of the chebyshev rational approximation method using substeps
+Nucl. Sci. Eng., 183 (1) (2016), pp. 65-77
+CrossRefView Record in ScopusGoogle Scholar
+Jiang et al., 2012
+M. Jiang, H. Xu, Z. Dai
+Advanced fission energy program-tmsr nuclear energy system
+Bull. Chin. Acad. Sci, 27 (3) (2012), pp. 366-374
+View Record in ScopusGoogle Scholar
+Leppänen et al., 2014
+Leppänen, J., Pusa, M., Viitanen, T., Valtavirta, V., Kaltiaisenaho, T., 2014. The serpent monte carlo code: Status, development and applications in 2013. In: SNA+ MC 2013-Joint International Conference on Supercomputing in Nuclear Applications+ Monte Carlo, EDP Sciences, p. 06021.
+Google Scholar
+Li et al., 2015
+X. Li, X. Cai, D. Jiang, Y. Ma, J. Huang, C. Zou, C. Yu, J. Han, J. Chen
+Analysis of thorium and uranium based nuclear fuel options in fluoride salt-cooled high-temperature reactor
+Prog. Nucl. Energy, 78 (2015), pp. 285-290
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+Li et al., 2018
+X.-X. Li, Y.-W. Ma, C.-G. Yu, C.-Y. Zou, X.-Z. Cai, J.-G. Chen
+Effects of fuel salt composition on fuel salt temperature coefficient (FSTC) for an under-moderated molten salt reactor (MSR)
+Nucl. Sci. Tech., 29 (8) (2018), p. 110, 10.1007/s41365-018-0458-1
+ArticleDownload PDFCrossRefView Record in ScopusGoogle Scholar
+Li et al., 2018
+G.C. Li, P. Cong, C.G. Yu, Y. Zou, J.Y. Sun, J.G. Chen, H.J. Xu
+Optimization of Th-U fuel breeding based on a single-fluid double-zone thorium molten salt reactor
+Prog. Nucl. Energy, 108 (2018), pp. 144-151, 10.1016/j.pnucene.2018.04.017
+URL:  http://www.sciencedirect.com/science/article/pii/S0149197018300970
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+Lindsay et al., 2018
+A. Lindsay, G. Ridley, A. Rykhlevskii, K. Huff
+Introduction to Moltres: an application for simulation of molten salt reactors
+Ann. Nucl. Energy, 114 (2018), pp. 530-540, 10.1016/j.anucene.2017.12.025
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+Marka, 1993
+J.C. Marka
+Explosive properties of reactor-grade plutonium
+Sci. Global Secur., 4 (1) (1993), pp. 111-128
+CrossRefGoogle Scholar
+Mathieu et al., 2009
+L. Mathieu, D. Heuer, E. Merle-Lucotte, R. Brissot, C.L. Brun, E. Liatard, J.-M. Loiseaux, O. Méplan, A. Nuttin, D. Lecarpentier
+Possible configurations for the thorium molten salt reactor and advantages of the fast nonmoderated version
+Nucl. Sci. Eng., 161 (1) (2009), pp. 78-89, 10.13182/NSE07-49
+View Record in ScopusGoogle Scholar
+Merle-Lucotte et al., 2004
+Merle-Lucotte, E., Heuer, D., Le Brun, C., Loiseaux, J., 2004. Scenarios for a worldwide deployment of nuclear energy production.
+Google Scholar
+Nuttin et al., 2005
+A. Nuttin, D. Heuer, A. Billebaud, R. Brissot, C. Le Brun, E. Liatard, J.-M. Loiseaux, L. Mathieu, O. Meplan, E. Merle-Lucotte, et al.
+Potential of thorium molten salt reactorsdetailed calculations and concept evolution with a view to large scale energy production
+Progr. Nucl. Energy, 46 (1) (2005), pp. 77-99
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+OECD, 1989
+OECD, N., 1989. Probabilistic safety assessment in nuclear power plant management: a report by a group of experts of the nea committee on the safety of nuclear installations. 112 (1989).
+Google Scholar
+Pioro et al., 2016
+I. Pioro
+Handbook of generation IV nuclear reactors
+Woodhead Publishing (2016)
+Google Scholar
+Robertson, 1971
+Robertson, R.C., 1971. Conceptual Design Study of a Single-Fluid Molten-Salt Breeder Reactor., Tech. Rep. ORNL-4541, comp.; Oak Ridge National Laboratory, Tenn. URL:  http://www.osti.gov/scitech/biblio/4030941.
+Google Scholar
+Rosenthal et al., 1970
+M. Rosenthal, P. Kasten, R. Briggs
+Molten-salt reactors–history, status, and potential
+Nucl. Appl. Technol., 8 (2) (1970), pp. 107-117
+CrossRefGoogle Scholar
+Rykhlevskii and Huff, 2019
+Rykhlevskii, A., Huff, K., 2019. Milestone 2.1 Report: Demonstration of SaltProc, Milestone Report UIUC-ARFC-2019-04 DOI: 10.5281/zenodo.3355649, University of Illinois at Urbana-Champaign, Urbana, IL (Jun. 2019).https://doi.org/10.5281/zenodo.3355649. URL:  https://zenodo.org/record/3355649#.XZuyEEFKjdI.
+Google Scholar
+Rykhlevskii et al., 2017
+Rykhlevskii, A., Lindsay, A., Huff, K.D., 2017. Full-core analysis of thorium-fueled Molten Salt Breeder Reactor using the SERPENT 2 Monte Carlo code. In: Transactions of the American Nuclear Society, American Nuclear Society, Washington, DC, United States.
+Google Scholar
+Rykhlevskii et al., 2018
+Rykhlevskii, A., Bae, J.W., Huff, K., 2018. arfc/saltproc: Code for online reprocessing simulation of molten salt reactor with external depletion solver SERPENT, Zenodohttps://doi.org/10.5281/zenodo.1196455. URL:  https://zenodo.org/record/1196455#.WqrE_BPwaA0.
+Google Scholar
+Rykhlevskii et al., 2019
+A. Rykhlevskii, B.R. Betzler, A. Worrall, K.D. Huff
+Fuel Cycle Performance of Fast Spectrum Molten Salt Reactor Designs
+Proceedings of Mathematics and Computation 2019, American Nuclear Society, Portland, OR (2019)
+Google Scholar
+Rykhlevskii et al., 2019
+A. Rykhlevskii, J.W. Bae, K.D. Huff
+Modeling and simulation of online reprocessing in the thorium-fueled molten salt breeder reactor
+Ann. Nucl. Energy, 128 (2019), pp. 366-379, 10.1016/j.anucene.2019.01.030
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+Serp et al., 2014
+J. Serp, M. Allibert, O. Beneš, S. Delpech, O. Feynberg, V. Ghetta, D. Heuer, D. Holcomb, V. Ignatiev, J.L. Kloosterman, et al.
+The molten salt reactor (msr) in generation iv: overview and perspectives
+Prog. Nucl. Energy, 77 (2014), pp. 308-319
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+Siemer, 2015
+D.D. Siemer
+Why the molten salt fast reactor (msfr) is the ”best” gen iv reactor
+Energy Sci. Eng., 3 (2) (2015), pp. 83-97
+CrossRefView Record in ScopusGoogle Scholar
+Sood et al., 1975
+D. Sood, P. Iyer, R. Prasad, V. Vaidya, K. Roy, V. Venugopal, Z. Singh, M. Ramaniah
+Plutonium trifluoride as a fuel for molten salt reactors-solubility studies
+Nucl. Technol., 27 (3) (1975), pp. 411-415
+View Record in ScopusGoogle Scholar
+Zhang et al., 2018
+D. Zhang, L. Liu, M. Liu, R. Xu, C. Gong, J. Zhang, C. Wang, S. Qiu, G. Su
+Review of conceptual design and fundamental research of molten salt reactors in china
+Int. J. Energy Res., 42 (5) (2018), pp. 1834-1848
+CrossRefView Record in ScopusGoogle Scholar
+Zou et al., 2015
+C. Zou, X. Cai, D. Jiang, C. Yu, X. Li, Y. Ma, J. Han, J. Chen
+Optimization of temperature coefficient and breeding ratio for a graphite-moderated molten salt reactor
+Nucl. Eng. Des., 281 (2015), pp. 114-120, 10.1016/j.nucengdes.2014.11.022
+URL:  http://www.sciencedirect.com/science/article/pii/S0029549314006323
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+Zou et al., 2018
+C. Zou, C. Cai, C. Yu, J. Wu, J. Chen
+Transition to thorium fuel cycle for tmsr
+Nucl. Eng. Des., 330 (2018), pp. 420-428
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+Zou et al., 2018
+C. Zou, G. Zhu, C. Yu, Y. Zou, J. Chen
+Preliminary study on trus utilization in a small modular th-based molten salt reactor (smtmsr)
+Nucl. Eng. Des., 339 (2018), pp. 75-82
+ArticleDownload PDFView Record in ScopusGoogle Scholar

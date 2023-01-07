@@ -1,0 +1,465 @@
+<title> Statistical_JJ sources_NNS for_IN broadband_NP shock-associated_JJ noise_NN using_VVG the_DT Navier-Stokes_NNS equations_NNS </title> <author> Patel_NP ,_, Trushant_NP K._NP 1_CD ;_: Miller_NP ,_, Steven_NP A._NP E._NP 1_CD </author> <Affiliation> 1_CD Department_NP of_IN Mechanical_NP and_CC Aerospace_NP Engineering_NP ,_, University_NP of_IN Florida_NP ,_, P._NP O._NP Box_NP 116250_CD ,_, Gainesville_NP ;_: FL_NP ;_: 32611_CD ,_, United_NP States_NPS </Affiliation> <year> 2019_CD </year> <Jounral> Journal_NP of_IN the_DT Acoustical_JJ Society_NP of_IN America_NP </Journal> <Publishing_house> Acoustical_JJ Society_NP of_IN America_NP </Publishing_house> <Text_Collector> Wang_NP Shuaiyin，HEU_NP </Text_Collector> <DOI> 10.1121/1.5139216_CD </DOI> <URL> https_NNS :_: //asa-scitation-org-s_NNS ._SENT 
+wvpn_NP ._SENT 
+hrbeu_NP ._SENT 
+edu_NP ._SENT 
+cn/doi/10.1121/1.5139216_JJ </URL> <Section> ABSTRACT_JJ </Section> A_DT decomposition_NN of_IN the_DT Navier-Stokes_NN equations_NNS is_VBZ used_VVN to_TO identify_VV the_DT equivalent_JJ source_NN term_NN for_IN broadband_NP shock-associated_JJ noise_NN (_( BBSAN_NP )_) ._SENT 
+An_DT analytical_JJ closed-form_NN model_NN to_TO predict_VV BBSAN_NP is_VBZ developed_VVN using_VVG an_DT acoustic_JJ analogy_NN based_VVN on_IN the_DT Navier-Stokes_NNS equations_NNS ._SENT 
+The_DT field-variables_NNS are_VBP decomposed_VVN into_IN the_DT base_NN flow_NN ,_, aerodynamic_JJ fluctuations_NNS ,_, and_CC acoustic_JJ fluctuations_NNS ._SENT 
+The_DT spectral_JJ densities_NNS of_IN fluctuating_VVG acoustic_JJ quantities_NNS are_VBP obtained_VVN by_IN convolving_VVG the_DT vector_NN Green_NN 's_POS function_NN with_IN the_DT source_NN terms_NNS involving_VVG the_DT two-point_NN cross-correlation_NN of_IN the_DT aerodynamic_JJ quantities_NNS ._SENT 
+The_DT scaling_NN of_IN the_DT source_NN term_NN with_IN the_DT off-design_JJ parameter_NN β_NN =_SYM (_( |_SYM M_NP j_NN 2-M_NP d_SYM 2_CD |_SYM )_) 1/2_CD is_VBZ compared_VVN with_IN experimental_JJ results_NNS ._SENT 
+The_DT base_NN flow_NN is_VBZ obtained_VVN using_VVG a_DT Reynolds-averaged_JJ Navier-Stokes_NN solution_NN ,_, while_IN the_DT fluctuating_VVG statistical_JJ quantities_NNS are_VBP obtained_VVN using_VVG theoretical_JJ and_CC experimental_JJ results_NNS ._SENT 
+This_DT paper_NN identifies_VVZ the_DT equivalent_JJ source_NN of_IN BBSAN_NN based_VVN on_IN the_DT scaling_VVG analysis_NN and_CC the_DT physical_JJ mechanism_NN of_IN shock-associated_JJ noise_NN ._SENT 
+The_DT identified_VVN source_NN term_NN resides_VVZ within_IN the_DT Navier-Stokes_NNS equations_NNS without_IN further_JJR rearrangement_NN and_CC correlates_VVZ very_RB highly_RB with_IN BBSAN_NP ._SENT 
+Predictions_NNS for_IN BBSAN_NP are_VBP made_VVN at_IN multiple_JJ observer_NN angles_NNS and_CC nozzle_NN pressure_NN ratios_NNS using_VVG the_DT identified_VVN source_NN term_NN ,_, and_CC these_DT predictions_NNS compare_VVP favorably_RB with_IN the_DT experimental_JJ results_NNS ._SENT 
+Finally_RB ,_, identification_NN of_IN the_DT source_NN locations_NNS in_IN the_DT jet_NN exhaust_NN responsible_JJ for_IN BBSAN_NN at_IN different_JJ Strouhal_JJ numbers_NNS is_VBZ performed_VVN ._SENT 
+Keywords_NNS :_: BBSAN；Navier-Stokes_NNS equations_NNS ；acoustic_JJ analogy_NN <Section> I._NN INTRODUCTION_NN </Section> Jet_NP noise_NN has_VHZ been_VBN a_DT major_JJ concern_NN for_IN over_RB 70_CD years_NNS in_IN military_JJ and_CC commercial_JJ aviation_NN and_CC has_VHZ a_DT negative_JJ impact_NN on_IN residential_JJ areas_NNS ._SENT 
+In_IN military_JJ applications_NNS ,_, jet_NN noise_NN creates_VVZ adverse_JJ effects_NNS on_IN the_DT health_NN and_CC hearing_NN of_IN the_DT military_JJ personnel_NNS working_VVG nearby_RB an_DT aircraft_NN ._SENT 
+Approximately_RB 107_CD 000_CD sailors_NNS are_VBP living_VVG and_CC working_VVG aboard_IN US_NP Navy_NP ships_NNS ,_, and_CC 800_CD ×_NN 106_CD dollars_NNS were_VBD spent_VVN for_IN hearing_NN loss_NN as_IN disability_NN benefits_NNS of_IN veterans_NNS in_IN 2005.1_CD Recently_RB ,_, disability_NN benefits_NNS have_VHP risen_VVN to_TO over_IN a_DT billion_CD dollars_NNS annually_RB ._SENT 
+In_IN order_NN to_TO maximize_VV the_DT thrust_NN during_IN take-off_NN on_IN short_JJ runways_NNS ,_, the_DT jet_NN engines_NNS are_VBP often_RB operated_VVN at_IN under-expanded_JJ conditions_NNS ._SENT 
+This_DT creates_VVZ a_DT large_JJ pressure_NN mismatch_NN at_IN the_DT exit_NN of_IN the_DT nozzle_NN ,_, resulting_VVG in_IN a_DT shock-cell_NN structure_NN within_IN the_DT jet_NN exhaust_NN ._SENT 
+The_DT large-scale_JJ turbulent_JJ structures_NNS in_IN the_DT shear_NN layer_NN interact_VVP with_IN the_DT shock-cell_NN structure_NN resulting_VVG in_IN shock-associated_JJ noise_NN ._SENT 
+Figure_NN 1_CD shows_NNS a_DT picture_NN of_IN military_JJ personnel_NNS in_IN close_JJ proximity_NN to_TO the_DT aircraft_NN during_IN take-off_NN ._SENT 
+The_DT shock-cells_NNS are_VBP observed_VVN within_IN the_DT exhaust_NN of_IN the_DT jet_NN engine_NN in_IN Fig_NN ._SENT 
+1._CD figure_NN An_DT off-design_JJ supersonic_JJ jet_NN generates_VVZ two_CD types_NNS of_IN noise_NN ,_, which_WDT are_VBP turbulent_JJ mixing_VVG noise_NN and_CC shock-associated_JJ noise_NN ._SENT 
+The_DT turbulent_JJ mixing_VVG noise_NN is_VBZ the_DT noise_NN directly_RB radiated_VVN from_IN turbulent_JJ structures_NNS and_CC can_MD be_VB categorized_VVN into_IN large-scale_JJ coherent_JJ noise_NN and_CC fine-scale_JJ incoherent_JJ noise.2_NN The_DT shock-associated_JJ noise_NN has_VHZ two_CD components_NNS as_RB well_RB ,_, one_CD with_IN discrete_JJ frequencies_NNS ,_, often_RB known_VVN as_IN “_JJ screech_NN ”_NN tones,3_NN while_IN the_DT other_JJ is_VBZ a_DT broadband_NN component_NN ,_, known_VVN as_IN broadband_NP shock-associated_JJ noise_NN (_( BBSAN_NP )_) ._SENT 
+An_DT excellent_JJ review_NN paper_NN on_IN the_DT different_JJ types_NNS of_IN noise_NN components_NNS and_CC their_PP$ characteristics_NNS is_VBZ written_VVN by_IN Tam.4_NN A_DT sample_NN pressure_NN spectrum_NN located_VVN at_IN 100_CD jet_NN diameters_NNS from_IN the_DT nozzle_NN exit_NN in_IN the_DT sideline_NN direction_NN (_( θ=90°_NP )_) is_VBZ shown_VVN in_IN Fig_NN ._SENT 
+2._CD The_DT experimental_JJ spectrum_NN is_VBZ from_IN the_DT small_JJ hot_JJ jet_NN acoustic_JJ rig_NN (_( SHJAR_NP )_) database5_NN from_IN NASA_NP Glenn_NP Research_NP Center_NP at_IN Lewis_NP Field_NP ._SENT 
+The_DT fine-scale_NN mixing_VVG noise_NN ,_, which_WDT is_VBZ relatively_RB spatially_RB incoherent_JJ ,_, and_CC the_DT BBSAN_NP are_NN plotted_VVD using_VVG the_DT empirical_JJ forms_NNS of_IN Tam_NP et_NP al.6_NP and_CC Kuo_NP et_NP al_NP ._SENT 
+,7_CD respectively_RB ._SENT 
+As_IN large-scale_JJ mixing_VVG noise_NN is_VBZ dominant_JJ in_IN the_DT downstream_JJ direction_NN ,_, it_PP is_VBZ not_RB plotted_VVD in_IN Fig_NN ._SENT 
+2._CD The_DT fine-scale_NN mixing_VVG noise_NN and_CC BBSAN_NN are_VBP dominant_JJ in_IN the_DT sideline_NN and_CC upstream_JJ direction_NN ._SENT 
+This_DT paper_NN focuses_VVZ on_IN the_DT identification_NN of_IN the_DT shock-noise_NP source_NN term_NN from_IN Navier-Stokes_NN equations_NNS and_CC its_PP$ subsequent_JJ prediction_NN and_CC analysis_NN ._SENT 
+figure_NN Harper-Bourne_NP and_CC Fisher8_NP were_VBD the_DT first_JJ to_TO study_VV and_CC develop_VV a_DT semi-empirical_JJ model_NN of_IN BBSAN_NP ._SENT 
+Each_DT shock-cell_NN was_VBD considered_VVN to_TO be_VB an_DT origin_NN of_IN the_DT noise_NN source_NN for_IN BBSAN_NP ._SENT 
+Noise_NN from_IN these_DT sources_NNS interferes_VVZ either_RB constructively_RB or_CC destructively_RB ,_, depending_VVG on_IN the_DT phase_NN speed_NN of_IN the_DT large_JJ eddies_NNS ._SENT 
+A_DT stochastic_JJ model_NN was_VBD developed_VVN by_IN Tam9_NN based_VVN on_IN the_DT theory_NN and_CC scaling_VVG of_IN BBSAN_NN with_IN nozzle_NN pressure_NN ratios_NNS (_( NPR_NP )_) and_CC total_JJ temperature_NN ratios_NNS (_( TTR_NP )_) ,_, given_VVN by_IN Tam_NP and_CC Tanna.10_NP Tam_NP and_CC Chen11_JJ modeled_VVN instability_NN waves_NNS from_IN the_DT large-scale_JJ structures_NNS separately_RB ,_, and_CC superposed_VVD the_DT instability_NN waves_NNS with_IN the_DT shock-cell_NN structure_NN of_IN imperfectly_RB expanded_VVN supersonic_JJ jets12_NN to_TO create_VV a_DT model_NN for_IN BBSAN_NP ._SENT 
+Morris_NP and_CC Miller13_NP developed_VVD an_DT acoustic_JJ analogy_NN based_VVN model_NN for_IN predicting_VVG the_DT BBSAN_NN based_VVN on_IN linearized_JJ Euler_NP equations_NNS (_( LEE_NN )_) and_CC Reynolds-averaged_JJ Navier-Stokes_NNS (_( RANS_NP )_) simulations_NNS ._SENT 
+Suzuki14_NP created_VVD a_DT model_NN to_TO predict_VV BBSAN_JJ using_VVG wave-packets_NNS and_CC large-eddy_NN simulation_NN (_( LES_FW )_) ._SENT 
+He_PP created_VVD a_DT semi-empirical_JJ model_NN of_IN the_DT cross-correlation_NN of_IN the_DT proper_JJ orthogonal_JJ decomposition_NN modes_NNS of_IN near-field_NP LES_FW data_NNS and_CC used_VVD those_DT to_TO predict_VV the_DT sound_JJ pressure_NN level_NN (_( SPL_NP )_) at_IN different_JJ Strouhal_JJ numbers_NNS in_IN the_DT far-field_NN ._SENT 
+Although_IN the_DT above_JJ prediction_NN models_NNS yield_VVP excellent_JJ prediction_NN results_NNS ,_, the_DT true_JJ source_NN term_NN responsible_JJ for_IN BBSAN_NP is_VBZ not_RB known_VVN ._SENT 
+Harper-Bourne_NP and_CC Fisher8_NP and_CC Suzuki14_NP use_VVP the_DT cross-spectral_JJ correlation_NN function_NN of_IN pressure_NN at_IN different_JJ shock-cell_NN locations_NNS for_IN prediction_NN of_IN BBSAN_NP ._SENT 
+The_DT cross-correlation_NN function_NN used_VVN by_IN Harper-Bourne_NP and_CC Fisher8_NP is_VBZ empirical_JJ in_IN nature_NN and_CC based_VVN on_IN the_DT experimental_JJ scaling_NN of_IN shock-noise_NP ,_, while_IN the_DT one_CD used_VVN by_IN Suzuki14_NP is_VBZ a_DT semi-empirical_JJ model_NN based_VVN on_IN a_DT wave-packet_NN model_NN and_CC LES_FW data_NNS ._SENT 
+Tam9_NP used_VVD the_DT method_NN of_IN matched_VVN asymptotic_JJ expansions_NNS to_TO solve_VV for_IN pressure_NN in_IN the_DT near-_NP and_CC far-field_NP ,_, and_CC very_RB little_JJ empiricism_NN is_VBZ present_JJ in_IN his_PP$ approach_NN ._SENT 
+The_DT amplitude_NN of_IN pressure_NN is_VBZ approximated_VVN by_IN an_DT analytical_JJ model_NN ,_, and_CC the_DT spectral_JJ density_NN of_IN pressure_NN is_VBZ found_VVN by_IN the_DT Fourier_NP transform_VV of_IN the_DT auto-correlation_NN of_IN pressure_NN ._SENT 
+Morris_NP and_CC Miller13_NP derived_VVD the_DT source_NN term_NN for_IN BBSAN_JJ using_VVG scaling_NN or_CC dimensional_JJ analysis_NN of_IN the_DT unsteady_JJ force_NN per_IN unit_NN volume_NN associated_VVN with_IN the_DT interactions_NNS between_IN the_DT turbulent_JJ velocity_NN fluctuations_NNS and_CC the_DT velocity_NN perturbations_NNS associated_VVN with_IN the_DT shock-cells_NNS ,_, which_WDT is_VBZ the_DT source_NN term_NN present_JJ on_IN the_DT right-hand_JJ side_NN of_IN the_DT acoustic_JJ analogy_NN based_VVN on_IN LEE_NN ._SENT 
+In_IN this_DT paper_NN ,_, we_PP identify_VVP the_DT source_NN terms_NNS for_IN BBSAN_NP using_VVG a_DT newly_RB formed_VVN acoustic_JJ analogy_NN based_VVN on_IN the_DT decomposition_NN of_IN the_DT Navier-Stokes_NNS equations_NNS ._SENT 
+To_TO identify_VV the_DT source_NN term_NN for_IN BBSAN_NP ,_, we_PP perform_VVP an_DT analysis_NN of_IN multiple_JJ terms_NNS obtained_VVN from_IN the_DT Navier-Stokes_NNS equations_NNS with_IN varying_VVG NPRs_NNS ._SENT 
+From_IN their_PP$ experiments_NNS ,_, Harper-Bourne_NP and_CC Fisher8_NP showed_VVD that_IN the_DT BBSAN_JJ scales_NNS as_IN β4_NN ._SENT 
+Here_RB β=(|||M2j−M2d|||)1/2_NP ,_, where_WRB Mj_NP is_VBZ the_DT fully-expanded_JJ jet_NN Mach_NP number_NN while_IN Md_NP is_VBZ the_DT design_NN Mach_NP number_NN ._SENT 
+Later_RBR ,_, Tanna15_NP and_CC Tam_NP and_CC Tanna10_NP confirmed_VVD the_DT scaling_NN of_IN BBSAN_NP as_IN β4_NP from_IN their_PP$ extensive_JJ experimental_JJ results_NNS ._SENT 
+Various_JJ experiments_NNS by_IN Seiner_NP and_CC Norum,16,17_JJ Norum_NP and_CC Seiner,18–20_NP and_CC Seiner_NP and_CC Yu21_JJ significantly_RB enhanced_VVN our_PP$ understanding_NN of_IN shock-associated_JJ noise_NN ._SENT 
+From_IN theory_NN ,_, Tam9_NP also_RB confirmed_VVD the_DT same_JJ scaling_NN factor_NN of_IN β4_NP ._SENT 
+Miller22_NP also_RB found_VVD that_IN the_DT source_NN term_NN in_IN the_DT Morris_NP and_CC Miller13_JJ model_NN scales_NNS as_IN β4_NN for_IN unheated_JJ jets_NNS ._SENT 
+Kandula23_NP proposed_VVD a_DT theory_NN based_VVN on_IN the_DT linear_JJ interaction_NN of_IN shock_NN waves_NNS and_CC vorticity_NN and_CC found_VVD that_IN the_DT intensity_NN of_IN BBSAN_JJ scales_NNS as_IN β4.2_NP ._SENT 
+Viswanathan_NP et_NP al.24_NP found_VVD that_IN the_DT scaling_NN of_IN BBSAN_NP varies_VVZ from_IN β2.7_JJ to_TO β6.17_JJ depending_VVG on_IN the_DT observer_NN angle_NN as_RB well_RB as_IN the_DT TTR_NN ._SENT 
+However_RB ,_, for_IN unheated_JJ jets_NNS in_IN the_DT sideline_NN direction_NN the_DT scaling_NN is_VBZ close_JJ to_TO β4_NN ._SENT 
+Various_JJ studies_NNS have_VHP been_VBN conducted_VVN to_TO ascertain_VV the_DT source_NN location_NN of_IN BBSAN_NP ._SENT 
+Norum_NP and_CC Seiner18,19_NP and_CC Seiner_NP and_CC Yu21_JJ found_VVD that_IN the_DT source_NN locations_NNS for_IN BBSAN_NP are_VBP located_VVN near_IN the_DT end_NN of_IN the_DT potential_JJ core_NN ,_, where_WRB the_DT large-scale_JJ instability_NN waves_NNS have_VHP reached_VVN maximum_JJ growth_NN before_IN breaking_VVG down_RP ._SENT 
+Seiner_NP and_CC Yu21_JJ identified_VVN the_DT source_NN locations_NNS of_IN BBSAN_JJ using_VVG correlations_NNS from_IN an_DT array_NN of_IN near-field_JJ microphones_NNS ._SENT 
+They_PP show_VVP that_IN the_DT maximum_JJ noise_NN comes_VVZ from_IN six_CD to_TO ten_CD nozzle_NN diameters_NNS downstream_JJ from_IN the_DT nozzle_NN exit_NN ._SENT 
+Podboy_NP et_NP al.25_NP used_VVD a_DT phased_VVN microphone_NN array_NN with_IN a_DT beamforming_JJ method_NN to_TO find_VV the_DT source_NN locations_NNS ._SENT 
+They_PP also_RB found_VVD that_IN the_DT maximum_JJ noise_NN radiates_VVZ from_IN the_DT weak_JJ shocks_NNS at_IN the_DT end_NN of_IN the_DT potential_JJ core_NN region_NN ,_, where_WRB the_DT shock-cell_NN spacing_NN is_VBZ comparable_JJ to_TO the_DT length_NN scale_NN of_IN the_DT large-scale_JJ structures_NNS ._SENT 
+Tan_NP et_NP al.26_NP reconstructed_VVD the_DT sources_NNS of_IN BBSAN_NP using_VVG the_DT Morris_NP and_CC Miller13_JJ model_NN ._SENT 
+They_PP used_VVD particle_NN image_NN velocimetry_NN and_CC RANS_NNS results_NNS as_IN an_DT input_NN to_TO the_DT model_NN and_CC found_VVD that_IN the_DT sources_NNS are_VBP located_VVN within_IN the_DT first_JJ four_CD to_TO five_CD shock-cells_NNS ._SENT 
+In_IN order_NN to_TO reduce_VV the_DT intensity_NN of_IN BBSAN_NP ,_, we_PP need_VVP to_TO understand_VV the_DT source_NN of_IN the_DT noise_NN ._SENT 
+The_DT basis_NN of_IN our_PP$ method_NN is_VBZ the_DT newly_RB developed_VVN acoustic_JJ analogy_NN approach_NN of_IN Miller.27_JJ In_IN the_DT work_NN of_IN Miller,27_JJ an_DT acoustic_JJ analogy_NN was_VBD used_VVN to_TO predict_VV the_DT noise_NN from_IN isotropic_JJ turbulence_NN ._SENT 
+However_RB ,_, as_IN the_DT analogy_NN is_VBZ based_VVN on_IN the_DT Navier-Stokes_NN equations_NNS ,_, it_PP contains_VVZ all_PDT the_DT noise_NN sources_NNS ._SENT 
+In_IN the_DT present_JJ work_NN ,_, we_PP try_VVP to_TO identify_VV the_DT shock-noise_NP source_NN term_NN from_IN all_PDT the_DT source_NN terms_NNS present_JJ in_IN the_DT Navier-Stokes_NN equations_NNS using_VVG this_DT analogy_NN ._SENT 
+The_DT rest_NN of_IN the_DT paper_NN is_VBZ organized_VVN as_RB follows_VVZ ._SENT 
+The_DT mathematical_JJ model_NN of_IN Miller27_JJ is_VBZ discussed_VVN briefly_RB in_IN Sec_NN ._SENT 
+II_NP A_NP in_IN the_DT new_JJ context_NN of_IN shock-noise_NP ._SENT 
+Relevant_JJ arguments_NNS for_IN the_DT model_NN are_VBP derived_VVN in_IN Secs_NNS ._SENT 
+II_NP B_NP and_CC II_NP C._NP Identification_NN of_IN the_DT source_NN term_NN for_IN BBSAN_NP is_VBZ performed_VVN in_IN Sec_NN ._SENT 
+II_NP D_NP ,_, and_CC the_DT arguments_NNS are_VBP integrated_VVN into_IN the_DT model_NN in_IN Sec_NN ._SENT 
+II_NP E._NP Predictions_NNS based_VVN on_IN the_DT newly_RB developed_VVN model_NN at_IN different_JJ angles_NNS and_CC with_IN different_JJ NPRs_NNS are_VBP shown_VVN in_IN Sec_NN ._SENT 
+III_NP A_NP ,_, and_CC source_NN locations_NNS for_IN BBSAN_NN at_IN different_JJ Strouhal_JJ numbers_NNS are_VBP shown_VVN in_IN Sec_NN ._SENT 
+III_NP B._NP <Section> II_NP ._SENT 
+MATHEMATICAL_JJ MODEL_NN </Section> A._NP Navier-Stokes_VVZ equations_NNS based_VVN acoustic_JJ analogy_NN A_DT flow-chart_NP for_IN the_DT acoustic_JJ analogy_NN based_VVN on_IN the_DT decomposition_NN of_IN the_DT Navier-Stokes_NN equations_NNS is_VBZ shown_VVN in_IN Fig_NN ._SENT 
+3._CD The_DT field-variables_NN in_IN the_DT Navier-Stokes_NNS equations_NNS are_VBP decomposed_VVN to_TO time-averaged_JJ base_NN flow_NN ,_, aerodynamic_JJ turbulent_JJ fluctuations_NNS ,_, and_CC the_DT radiating_VVG acoustic_JJ fluctuations_NNS ._SENT 
+The_DT resulting_VVG equations_NNS are_VBP rearranged_VVN such_JJ that_IN the_DT radiating_VVG components_NNS are_VBP kept_VVN on_IN the_DT left-hand_JJ side_NN ,_, while_IN the_DT base_NN flow_NN and_CC aerodynamic_JJ turbulent_JJ fluctuations_NNS are_VBP brought_VVN to_TO the_DT right-hand_JJ side_NN ._SENT 
+The_DT left-hand_JJ side_NN terms_NNS are_VBP linearized_VVN ,_, and_CC the_DT spectral_JJ density_NN of_IN the_DT radiating_VVG components_NNS is_VBZ obtained_VVN by_IN convolving_VVG the_DT vector_NN Green_NN 's_POS function_NN with_IN the_DT source_NN terms_NNS present_JJ on_IN the_DT right-hand_JJ side_NN ._SENT 
+figure_NN Assuming_VVG that_IN the_DT fluid_NN is_VBZ in_IN continuum_NN and_CC the_DT Navier-Stokes_NNS equations_NNS govern_VVP the_DT fluid_JJ flow_NN ,_, we_PP write_VVP the_DT continuity_NN ,_, momentum_NN ,_, and_CC energy_NN equation_NN as_RB @_SYM Here_RB ,_, ρ_NP ,_, u_NN ,_, p_NN ,_, and_CC T_NN represent_VVP the_DT instantaneous_JJ density_NN ,_, velocity_NN ,_, pressure_NN ,_, and_CC temperature_NN of_IN the_DT fluid_NN ,_, respectively_RB ._SENT 
+The_DT spatial_JJ position_NN and_CC time_NN is_VBZ denoted_VVN by_RB x_SYM and_CC t_NN ,_, respectively_RB ._SENT 
+Calorically_RB perfect_JJ gas_NN equations_NNS such_JJ as_IN p=ρRT_NN ,_, e=cvT_NP ,_, R=cp−cv_NP ,_, and_CC γ=cp/cv_NP are_VBP used_VVN for_IN closure_NN ,_, where_WRB R_NP is_VBZ the_DT universal_JJ gas_NN constant_JJ ,_, e_NN is_VBZ the_DT internal_JJ energy_NN ,_, and_CC cp_NP and_CC cv_NP are_VBP the_DT specific_NN heats_VVZ at_IN constant_JJ pressure_NN and_CC volume_NN ,_, respectively_RB ._SENT 
+The_DT Prandtl_NP number_NN is_VBZ denoted_VVN by_IN Pr=cpμ/λ_NP ,_, where_WRB μ_NP is_VBZ the_DT dynamic_JJ viscosity_NN and_CC λ_NN is_VBZ the_DT thermal_JJ conductivity_NN ._SENT 
+Kronecker_NP delta_NN function_NN is_VBZ represented_VVN by_IN δij_NP ._SENT 
+Note_NN that_IN the_DT energy_NN equation_NN is_VBZ converted_VVN to_TO the_DT pressure_NN form_NN using_VVG the_DT calorically_RB perfect_JJ gas_NN equations_NNS ,_, as_IN we_PP are_VBP interested_JJ in_IN the_DT pressure_NN of_IN the_DT sound_JJ field_NN at_IN the_DT observer_NN location_NN ._SENT 
+Miller27_JJ decomposes_VVZ the_DT field-variables_NNS such_JJ as_IN pressure_NN ,_, velocity_NN ,_, temperature_NN ,_, etc._FW ,_, as_RB @_SYM where_WRB q_NN is_VBZ any_DT field-variable_JJ ._SENT 
+The_DT over-bar_NP operator_NN represents_VVZ the_DT time-averaged_JJ base_NN flow_NN ._SENT 
+The_DT breve_NN operator_NN indicates_VVZ the_DT fluctuations_NNS of_IN spatially_RB incoherent_JJ isotropic_JJ turbulence_NN ,_, while_IN the_DT hat_NN operator_NN indicates_VVZ the_DT fluctuations_NNS from_IN coherent_JJ anisotropic_JJ turbulence_NN ._SENT 
+A_DT single_JJ prime_JJ denotes_VVZ the_DT radiating_VVG component_NN due_JJ to_TO the_DT anisotropic_JJ fluctuations_NNS ,_, while_IN a_DT double_JJ prime_JJ denotes_VVZ the_DT radiating_VVG component_NN due_JJ to_TO the_DT isotropic_JJ fluctuations_NNS ._SENT 
+Justification_NN of_IN this_DT approach_NN is_VBZ discussed_VVN by_IN Miller.27_JJ These_DT decomposed_VVN field-variables_NNS are_VBP substituted_VVN in_IN Eqs_NP ._SENT 
+(_( 1)–(3_NP )_) ._SENT 
+The_DT resulting_VVG equations_NNS are_VBP rearranged_VVN such_JJ that_IN the_DT radiating_VVG terms_NNS are_VBP on_IN the_DT left-hand_JJ side_NN of_IN the_DT equations_NNS ,_, and_CC the_DT time-averaged_JJ base_NN flow_NN ,_, isotropic_JJ fluctuations_NNS ,_, and_CC anisotropic_JJ fluctuations_NNS are_VBP brought_VVN to_TO the_DT right-hand_JJ side_NN ._SENT 
+The_DT right-hand_JJ side_NN of_IN the_DT equations_NNS results_NNS in_IN the_DT exact_JJ Navier-Stokes_NN equations_NNS operating_VVG on_IN the_DT summation_NN of_IN base_NN flow_NN and_CC turbulent_JJ fluctuations_NNS ._SENT 
+The_DT left-hand_JJ side_NN terms_NNS are_VBP viewed_VVN as_IN propagators_NNS ,_, while_IN the_DT right-hand_JJ side_NN terms_NNS of_IN the_DT equations_NNS are_VBP viewed_VVN as_IN source_NN terms_NNS ._SENT 
+The_DT source_NN terms_NNS on_IN the_DT right-hand_JJ side_NN can_MD be_VB written_VVN as_RB @_SYM where_WRB Θ0_NP represents_VVZ the_DT source_NN terms_NNS from_IN the_DT continuity_NN equation_NN ,_, Θi_NP (_( where_WRB i_NP =_SYM 1_CD ,_, 2_CD ,_, 3_CD )_) represents_VVZ the_DT three_CD components_NNS of_IN the_DT source_NN terms_NNS from_IN momentum_NN equations_NNS and_CC Θ4_NN represents_VVZ the_DT source_NN terms_NNS from_IN the_DT energy_NN equation_NN ._SENT 
+Note_NN that_IN the_DT Einstein_NP 's_POS convention_NN is_VBZ only_RB applied_VVN for_IN indices_NN ,_, i_NP =_SYM 1_CD ,_, 2_CD ,_, 3._CD The_DT under-bar_NN operator_NN in_IN Eqs_NP ._SENT 
+(_( 5)–(7_JJ )_) denotes_VVZ the_DT sum_NN of_IN the_DT base_NN quantity_NN and_CC fluctuating_VVG turbulent_JJ quantities_NNS ,_, i._NP e._NP ,_, q⎯⎯=q⎯⎯+q̂+q˘_NP ._SENT 
+The_DT propagators_NNS on_IN the_DT left-hand_JJ side_NN are_VBP linearized_VVN and_CC are_VBP written_VVN as_RB @_SYM where_WRB the_DT superscript_JJ ⊥_NN on_IN the_DT field-variables_NN denotes_VVZ the_DT summation_NN of_IN the_DT radiating_VVG fluctuations_NNS due_JJ to_TO anisotropic_JJ and_CC isotropic_JJ turbulence_NN respectively_RB ,_, i._NP e._NP ,_, q⊥=q′+q″_NP ._SENT 
+Miller27_JJ found_VVD the_DT solution_NN to_TO Eqs_NP ._SENT 
+(_( 8)–(10_NP )_) using_VVG vector_NN Green_NN 's_POS function_NN ,_, which_WDT satisfies_NNS @_SYM The_DT vector_NN Green_NN 's_POS function_NN is_VBZ written_VVN in_IN terms_NNS of_IN field-variable_JJ ,_, q⊥nk_RB ,_, g=[ρ⊥ng_NP ,_, u⊥ni_NP ,_, g_NN ,_, p⊥ng]T_NP ,_, which_WDT satisfies_VVZ Eqs_NNS ._SENT 
+(_( 11)–(13_NP )_) ._SENT 
+The_DT subscript_JJ g_NN denotes_VVZ the_DT Green_NP 's_POS function_NN ,_, x_NN and_CC y_NN represents_VVZ the_DT observer_NN location_NN and_CC source_NN location_NN ,_, respectively_RB ,_, δ_NP is_VBZ the_DT Dirac_NP delta_NN function_NN ,_, and_CC τ_NP is_VBZ the_DT source_NN emission_NN time_NN ._SENT 
+Using_VVG a_DT convolution_NN integral_JJ ,_, the_DT solution_NN to_TO the_DT above_IN Eqs_NP ._SENT 
+(_( 11)–(13_NP )_) can_MD be_VB written_VVN as_RB @_SYM Using_VVG the_DT Wiener-Khinchin_NP theorem,28_NN we_PP can_MD define_VV the_DT spectral_JJ density_NN as_IN the_DT inverse_JJ Fourier_NN transform_VV of_IN the_DT autocorrelation_NN function_VVP as_RB @_SYM Making_VVG simplifications_NNS after_IN substituting_VVG Eq_NP ._SENT 
+(_( 14_CD )_) in_IN Eq_NP ._SENT 
+(_( 15_CD )_) and_CC using_VVG the_DT definition_NN of_IN auto-correlation_NN ,_, we_PP write_VVP the_DT spectral_JJ density_NN of_IN pressure_NN as_RB @_SYM Here_RB ,_, the_DT two-point_NN space-time_NN cross-correlation_NN of_IN the_DT source_NN terms_NNS is_VBZ denoted_VVN by_IN Rm_NP ,_, n(y_NP ,_, η_NP ,_, τ_NP )_) and_CC written_VVN as_RB @_SYM where_WRB η=(ξ_NP ,_, η_NP ,_, ζ_NP )_) is_VBZ a_DT source_NN separation_NN vector_NN pointing_VVG from_IN one_CD source_NN location_NN to_TO the_DT other_JJ ,_, while_IN Δτ_NP is_VBZ the_DT time_NN delay_NN between_IN the_DT two_CD sources_NNS ._SENT 
+The_DT tilde_NN operator_NN q̃_NN represents_VVZ the_DT Fourier_NN transform_VV on_IN the_DT field_NN variable_JJ q_NN ,_, while_IN the_DT asterisk_NN superscript_NN q∗_NN represents_VVZ the_DT complex_NN conjugate_JJ of_IN the_DT complex_JJ variable_JJ q._NN To_TO evaluate_VV Eq_NP ._SENT 
+(_( 16_CD )_) ,_, we_PP require_VVP the_DT vector_NN Green_NN 's_POS function_NN as_RB well_RB as_IN the_DT two-point_NN cross-correlation_NN source_NN term(s_NNS )_) ._SENT 
+In_IN Sec_NN ._SENT 
+II_NP B_NP ,_, we_PP derive_VV the_DT vector_NN Green_NN 's_POS function_NN for_IN pressure_NN ,_, and_CC we_PP identify_VVP the_DT source_NN terms_NNS for_IN BBSAN_NN in_IN Sec_NN ._SENT 
+II_NP C._NP B._NP Vector_NP Green_NP 's_POS function_NN The_DT refraction_NN effects_NNS for_IN a_DT single_JJ stream_NN unheated_JJ jet_NN in_IN the_DT sideline_NN direction_NN are_VBP minimal.29–31_JJ We_PP also_RB assume_VVP that_IN the_DT environment_NN is_VBZ quiescent_JJ for_IN deriving_VVG the_DT vector_NN Green_NN 's_POS function_NN ._SENT 
+Atmospheric_JJ attenuation_NN due_JJ to_TO viscosity_NN ,_, humidity_NN ,_, and_CC heat_NN conduction_NN can_MD be_VB calculated_VVN from_IN the_DT work_NN of_IN Bass_NP et_NP al.32_NP at_IN different_JJ frequencies_NNS ._SENT 
+Standards_NNS such_JJ as_IN ISO_NP 9613-1:1993_CD and_CC ANSI_NP S1.26-1995_NP use_VVP minor_JJ variations_NNS of_IN the_DT same_JJ formula_NN ._SENT 
+The_DT attenuation_NN at_IN 20_CD °C_NN at_IN atmospheric_JJ pressure_NN with_IN 0_CD %_NN relative_JJ humidity_NN for_IN a_DT sound_JJ wave_NN with_IN a_DT frequency_NN of_IN 10_CD kHz_NP is_VBZ 0.05_CD dB/m_NN ._SENT 
+Considerable_JJ losses_NNS have_VHP to_TO be_VB taken_VVN into_IN account_NN for_IN high_JJ frequencies_NNS and_CC over_IN large_JJ distances_NNS ._SENT 
+However_RB ,_, for_IN the_DT current_JJ application_NN (_( frequency_NN ,_, f_LS <_SYM 0.1_CD MHz_NN ;_: distance_NN ,_, d_LS <_SYM 20_CD m_NN )_) ,_, we_PP can_MD neglect_VV the_DT viscous_JJ effects_NNS on_IN the_DT linear_JJ sound_NN propagation_NN ._SENT 
+To_TO obtain_VV the_DT vector_NN Green_NN 's_POS function_NN for_IN pressure_NN ,_, we_PP perform_VVP partial_JJ time_NN derivative_JJ on_IN the_DT energy_NN Green_NP 's_POS Eq_NP ._SENT 
+(_( 13_CD )_) and_CC take_VV a_DT gradient_NN of_IN the_DT momentum_NN Green_NP 's_POS Eq_NP ._SENT 
+(_( 12_CD )_) ._SENT 
+We_PP use_VVP the_DT relation_NN γp∞=c2∞ρ∞_NN ,_, multiply_VVP c2∞_JJ to_TO the_DT gradient_NN of_IN the_DT momentum_NN Green_NN 's_POS equation_NN ,_, and_CC subtract_VV the_DT result_NN from_IN the_DT time_NN derivative_JJ of_IN the_DT energy_NN Green_NN 's_POS equation_NN ._SENT 
+We_PP obtain_VVP @_SYM Performing_VVG the_DT Fourier_NN transform_VV with_IN respect_NN to_TO time_NN on_IN Eq_NP ._SENT 
+(_( 18_CD )_) we_PP obtain_VVP @_SYM The_DT solution_NN to_TO the_DT vector_NN Green_NN 's_POS function_NN for_IN pressure_NN is_VBZ @_SYM where_WRB r=||x−y||_JJ ._SENT 
+For_IN the_DT far-field_NN ,_, we_PP can_MD simplify_VV the_DT vector_NN Green_NN 's_POS function_NN to_TO @_SYM Following_VVG Tam_NP and_CC Auriault,33_NP we_PP obtain_VVP @_SYM which_WDT is_VBZ a_DT relation_NN for_IN the_DT phase_NN difference_NN between_IN two_CD stream-wise_JJ source_NN locations_NNS within_IN a_DT jet_NN after_IN the_DT far-field_NP assumption_NN has_VHZ been_VBN made_VVN ._SENT 
+Next_RB ,_, we_PP identify_VVP the_DT source_NN terms_NNS for_IN shock-associated_JJ noise_NN ._SENT 
+C._NP Source_NN terms_NNS for_IN shock-associated_JJ noise_NN The_DT source_NN term_NN in_IN Eq_NP ._SENT 
+(_( 16_CD )_) is_VBZ the_DT two-point_NN cross-correlation_NN of_IN the_DT sources_NNS of_IN Eqs_NP ._SENT 
+(_( 5)–(7_JJ )_) ._SENT 
+The_DT two-point_NN cross-correlation_NN can_MD be_VB written_VVN as_IN a_DT matrix_NN containing_VVG 25_CD elements_NNS formed_VVN from_IN the_DT cross-correlation_NN of_IN Eqs_NP ._SENT 
+(_( 5)–(7_JJ )_) as_RB @_SYM Here_RB ,_, R⊥00_NP represents_VVZ the_DT two-point_NN cross-correlation_NN of_IN continuity_NN equation_NN with_IN itself_PP ,_, R⊥01_JJ to_TO R⊥03_NN represents_VVZ the_DT two-point_NN cross-correlation_NN of_IN the_DT continuity_NN equation_NN with_IN the_DT three_CD components_NNS of_IN the_DT momentum_NN equations_NNS ,_, while_IN R⊥04_NP represents_VVZ the_DT two-point_NN cross-correlation_NN of_IN the_DT continuity_NN equation_NN with_IN the_DT energy_NN equation_NN ._SENT 
+Similarly_RB ,_, other_JJ terms_NNS represent_VVP the_DT two-point_NN cross-correlation_NN of_IN the_DT momentum_NN equations_NNS with_IN the_DT continuity_NN and_CC energy_NN equation_NN ,_, and_CC energy_NN equation_NN with_IN the_DT continuity_NN and_CC momentum_NN equations_NNS ._SENT 
+As_IN an_DT example_NN ,_, the_DT two-point_NN cross-correlation_NN for_IN the_DT continuity-continuity_NN equation_NN can_MD be_VB written_VVN as_RB @_SYM Expanding_VVG Eq_NP ._SENT 
+(_( 24_CD )_) ,_, we_PP can_MD write_VV the_DT two-point_NN cross-correlation_NN as_RB @_SYM Expanding_VVG all_PDT the_DT two-point_NN cross-correlation_NN terms_NNS in_IN Eq_NP ._SENT 
+(_( 23_CD )_) will_MD result_VV in_IN 576_CD terms_NNS ._SENT 
+In_IN Eqs_NP ._SENT 
+(_( 24_CD )_) and_CC (_( 25_CD )_) ,_, the_DT superscripts_NNS (_( 1_CD )_) and_CC (_( 2_LS )_) denote_VV the_DT location_NN of_IN two_CD different_JJ source_NN terms_NNS ,_, one_CD at_IN location_NN y_NN and_CC the_DT other_JJ at_IN y+η_NP ._SENT 
+The_DT derivatives_NNS in_IN the_DT source_NN terms_NNS are_VBP performed_VVN with_IN respect_NN to_TO y_NN and_CC τ_NN because_IN they_PP represent_VVP the_DT source_NN position_NN and_CC time_NN ,_, respectively_RB ._SENT 
+Following_VVG Ribner,34_JJ we_PP model_VV these_DT two-point_NN cross-correlation_NN terms_NNS as_RB @_SYM where_WRB 𝒜_NP represents_VVZ the_DT magnitude_NN of_IN the_DT two-point_NN cross-correlation_NN source_NN term_NN and_CC R_NN represents_VVZ the_DT normalized_VVN two-point_NN cross-correlation_NN term_NN ._SENT 
+The_DT magnitude_NN is_VBZ directly_RB obtained_VVN from_IN the_DT source_NN term_NN ,_, while_IN the_DT normalized_VVN two-point_NN cross-correlation_NN term_NN can_MD be_VB obtained_VVN from_IN numerical_JJ computations_NNS like_IN LES_FW or_CC direct_JJ numerical_JJ simulations_NNS (_( DNS_NP )_) ,_, or_CC can_MD be_VB estimated_VVN from_IN theoretical_JJ or_CC experimental_JJ results_NNS ._SENT 
+Note_NN that_IN the_DT normalized_VVN two-point_NN cross-correlation_NN term_NN will_MD be_VB different_JJ depending_VVG on_IN whether_IN the_DT source_NN terms_NNS are_VBP isotropic_JJ (_( R˘_NP )_) ,_, anisotropic_JJ (_( R̂_NP )_) ,_, or_CC is_VBZ an_DT interaction_NN of_IN the_DT anisotropic_JJ turbulence_NN with_IN the_DT isotropic_JJ turbulence_NN (_( R˘̂_NP )_) ._SENT 
+For_IN example_NN ,_, we_PP expand_VVP the_DT first_JJ term_NN of_IN the_DT continuity-continuity_NN correlation_NN into_IN its_PP$ respective_JJ base_NN flow_NN ,_, isotropic_JJ fluctuation_NN ,_, and_CC anisotropic_JJ fluctuation_NN components_NNS as_RB @_SYM Since_IN each_DT respective_JJ term_NN of_IN the_DT two-point_NN cross-correlation_NN is_VBZ decomposed_VVN into_IN three_CD components_NNS ,_, the_DT decomposed_VVN first_JJ term_NN of_IN Eq_NP ._SENT 
+(_( 25_CD )_) is_VBZ shown_VVN in_IN Eq_NP ._SENT 
+(_( 27_CD )_) ,_, which_WDT consists_VVZ of_IN nine_CD different_JJ terms_NNS ._SENT 
+The_DT magnitude_NN of_IN the_DT space_NN or_CC time_NN derivatives_NNS of_IN the_DT fluctuating_VVG terms_NNS is_VBZ approximated_VVN using_VVG an_DT order_NN of_IN magnitude_NN analysis_NN ._SENT 
+Their_PP$ magnitude_NN is_VBZ modeled_VVN as_IN the_DT ratio_NN of_IN the_DT fluctuating_VVG term_NN with_IN an_DT appropriate_JJ time_NN or_CC length_NN scale_NN corresponding_JJ to_TO that_DT term_NN ._SENT 
+From_IN Eq_NP ._SENT 
+(_( 26_CD )_) ,_, an_DT appropriate_JJ normalized_VVN two-point_NN cross-correlation_NN term_NN is_VBZ multiplied_VVN with_IN the_DT magnitude_NN of_IN the_DT source_NN term_NN ._SENT 
+The_DT second_JJ ,_, third_JJ ,_, and_CC fourth_JJ term_NN in_IN Eq_NP ._SENT 
+(_( 25_CD )_) consists_VVZ of_IN 27_CD ,_, 27_CD ,_, and_CC 81_CD terms_NNS ,_, respectively_RB ,_, if_IN expanded_VVN ._SENT 
+Note_NN that_IN the_DT correlation_NN between_IN two_CD constant_JJ quantities_NNS ,_, or_CC a_DT fluctuating_VVG quantity_NN and_CC a_DT constant_JJ is_VBZ zero_CD ,_, thus_RB we_PP can_MD eliminate_VV five_CD of_IN the_DT nine_CD terms_NNS in_IN Eq_NP ._SENT 
+(_( 27_CD )_) ._SENT 
+Decomposing_VVG each_DT of_IN the_DT 576_CD terms_NNS and_CC evaluating_VVG each_DT term_NN individually_RB is_VBZ tedious_JJ ._SENT 
+Also_RB ,_, one_CD of_IN the_DT terms_NNS within_IN the_DT energy-energy_JJ correlation_NN can_MD be_VB decomposed_VVN to_TO 6561_CD further_JJR terms_NNS ._SENT 
+To_TO find_VV the_DT BBSAN_JJ source_NN term_NN within_IN all_DT possible_JJ source_NN term_NN expansions_NNS ,_, we_PP eliminate_VVP various_JJ source_NN terms_NNS that_WDT do_VVP not_RB correlate_VVP with_IN the_DT scaling_NN of_IN BBSAN_NP ._SENT 
+We_PP then_RB focus_VV our_PP$ modeling_NN effort_NN on_IN the_DT physical_JJ mechanism_NN of_IN BBSAN_NP and_CC try_VV to_TO identify_VV terms_NNS that_WDT are_VBP related_VVN ._SENT 
+Lighthill35_NP noted_VVD that_DT “_NN The_DT viscous_JJ stresses_NNS are_VBP just_RB as_RB unimportant_JJ inside_IN the_DT flow_NN as_IN they_PP are_VBP known_VVN to_TO be_VB outside_IN it_PP ._SENT 
+”_NN For_IN air_NN ,_, we_PP can_MD neglect_VV the_DT viscous_JJ source_NN terms_NNS as_IN their_PP$ magnitude_NN are_VBP five_CD orders_NNS lower_JJR than_IN the_DT other_JJ source_NN terms_NNS ._SENT 
+Now_RB ,_, the_DT number_NN of_IN terms_NNS that_WDT require_VVP evaluation_NN is_VBZ drastically_RB reduced_VVN ._SENT 
+The_DT remaining_VVG source_NN terms_NNS from_IN the_DT momentum_NN and_CC energy_NN equations_NNS are_VBP written_VVN as_RB @_SYM Based_VVN on_IN the_DT physics_NN of_IN BBSAN_NP ,_, we_PP know_VVP that_IN the_DT source_NN term_NN depends_VVZ on_IN the_DT interaction_NN of_IN shocks_NNS with_IN the_DT large-scale_JJ turbulent_JJ structures_NNS ._SENT 
+From_IN the_DT remaining_VVG source_NN terms_NNS shown_VVN in_IN Eqs_NP ._SENT 
+(_( 28_CD )_) and_CC (_( 29_CD )_) ,_, we_PP find_VVP the_DT terms_NNS that_WDT represent_VVP the_DT shock_NN strength_NN as_RB well_RB as_IN the_DT large-scale_JJ turbulent_JJ structures_NNS ._SENT 
+The_DT shock_NN strength_NN is_VBZ either_RB represented_VVN by_IN the_DT gradient_NN of_IN mean_JJ pressure_NN or_CC the_DT gradient_NN of_IN the_DT mean_JJ density_NN ,_, while_IN the_DT large_JJ turbulent_JJ structures_NNS are_VBP represented_VVN by_IN anisotropic_JJ velocity_NN ._SENT 
+In_IN the_DT current_JJ paper_NN ,_, we_PP use_VVP the_DT RANS_NNS solutions_NNS to_TO obtain_VV the_DT mean_JJ quantities_NNS ,_, while_IN the_DT isotropic_JJ and_CC anisotropic_JJ fluctuations_NNS are_VBP modeled_VVN based_VVN on_IN theoretical_JJ and_CC experimental_JJ results_NNS ._SENT 
+However_RB ,_, given_VVN an_DT instantaneous_JJ flow-field_NN ,_, the_DT aerodynamic_JJ fluctuating_VVG quantities_NNS can_MD be_VB separated_VVN into_IN isotropic_JJ and_CC anisotropic_JJ fluctuations_NNS by_IN using_VVG decomposition_NN methods_NNS such_JJ as_IN proper_JJ orthogonal_JJ decomposition_NN or_CC singular_JJ value_NN decomposition_NN ._SENT 
+We_PP can_MD see_VV that_IN the_DT third_JJ term_NN in_IN Eq_NP ._SENT 
+(_( 28_CD )_) and_CC the_DT first_JJ term_NN in_IN Eq_NP ._SENT 
+(_( 29_CD )_) ,_, i._NP e._NP ,_, gradient_NN of_IN pressure_NN and_CC the_DT time_NN derivative_JJ of_IN pressure_NN do_VVP not_RB represent_VV the_DT source_NN term_NN for_IN BBSAN_NP ._SENT 
+Since_IN the_DT shocks_NNS are_VBP represented_VVN by_IN the_DT mean_JJ pressures_NNS ,_, the_DT fluctuating_VVG pressures_NNS do_VVP not_RB indicate_VV the_DT shock_NN locations_NNS as_RB well_RB as_IN the_DT shock_NN strength_NN ._SENT 
+The_DT time_NN derivatives_NNS of_IN mean_JJ quantities_NNS are_VBP zero_CD ,_, while_IN the_DT spatial_JJ derivative_NN of_IN the_DT mean_JJ quantities_NNS is_VBZ a_DT constant_JJ ._SENT 
+Hence_RB ,_, the_DT two-point_NN cross-correlation_NN of_IN both_CC these_DT terms_NNS with_IN any_DT of_IN the_DT other_JJ remaining_VVG terms_NNS is_VBZ zero_CD ._SENT 
+Similarly_RB ,_, the_DT first_JJ term_NN in_IN Eq_NP ._SENT 
+(_( 28_CD )_) and_CC the_DT second_JJ term_NN in_IN Eq_NP ._SENT 
+(_( 29_CD )_) can_MD be_VB eliminated_VVN as_RB both_CC involve_VV time_NN derivative_JJ terms_NNS ._SENT 
+However_RB ,_, the_DT two-point_NN cross-correlation_NN of_IN the_DT second_JJ term_NN in_IN Eq_NP ._SENT 
+(_( 29_CD )_) is_VBZ used_VVN by_IN Tam_NP and_CC Auriault33_NP as_IN a_DT source_NN of_IN fine-scale_JJ mixing_VVG noise_NN ._SENT 
+They_PP proposed_VVD this_DT source_NN term_NN using_VVG the_DT gas_NN kinetic_JJ theory_NN ._SENT 
+The_DT same_JJ source_NN term_NN is_VBZ independently_RB obtained_VVN by_IN the_DT approach_NN in_IN the_DT present_JJ paper_NN ._SENT 
+The_DT remaining_VVG terms_NNS are_VBP @_SYM which_WDT are_VBP candidates_NNS for_IN source_NN terms_NNS of_IN BBSAN_NP ._SENT 
+We_PP simplify_VVP Eq_NP ._SENT 
+(_( 30_CD )_) as_IN per_IN Eq_NP ._SENT 
+(_( 26_CD )_) and_CC obtain_VV @_SYM In_IN Sec_NN ._SENT 
+II_NP D_NP ,_, we_PP identify_VVP the_DT BBSAN_JJ source_NN term_NN by_IN comparing_VVG the_DT scaling_NN of_IN the_DT source_NN term_NN with_IN experimental_JJ scaling_NN laws_NNS of_IN BBSAN_NP ._SENT 
+After_IN identifying_VVG the_DT source_NN term_NN ,_, and_CC substituting_VVG the_DT source_NN term_NN and_CC vector_NN Green_NN 's_POS function_NN in_IN Eq_NP ._SENT 
+(_( 16_CD )_) ,_, we_PP integrate_VV Eq_NP ._SENT 
+(_( 16_CD )_) with_IN respect_NN to_TO τ_NN and_CC η_NN in_IN Sec_NN ._SENT 
+II_NP E_NP to_TO obtain_VV a_DT closed-form_NN model_NN for_IN BBSAN_NP ._SENT 
+D._NP Scaling_NN of_IN source_NN terms_NNS with_IN off-design_JJ parameter_NN We_PP perform_VVP a_DT scaling_VVG analysis_NN of_IN Eq_NP ._SENT 
+(_( 30_CD )_) with_IN the_DT off-design_JJ parameter_NN β_NN to_TO identify_VV the_DT source_NN of_IN BBSAN_NP ._SENT 
+We_PP use_VVP steady_JJ RANS_NNS computational_JJ fluid_JJ dynamics_NNS (_( CFD_NN )_) to_TO find_VV the_DT meanflow_JJ properties_NNS of_IN the_DT jet_NN ._SENT 
+The_DT RANS_NP simulation_NN is_VBZ closed_VVN by_IN the_DT Menter36_JJ K−Ω_JJ shear_NN stress_NN transport_NN model_NN ,_, where_WRB K_NP represents_VVZ the_DT turbulent_JJ kinetic_JJ energy_NN and_CC Ω_NN represents_VVZ the_DT specific_JJ dissipation_NN rate_NN ._SENT 
+The_DT FUN3D37_JJ code_NN is_VBZ used_VVN to_TO simulate_VV the_DT RANS_NNS solutions_NNS ._SENT 
+The_DT nozzle_NN used_VVN for_IN the_DT simulation_NN is_VBZ the_DT SMC016_JJ nozzle_NN ,_, where_WRB SMC_NP stands_VVZ for_IN small_JJ metal_NN chevron_NN ._SENT 
+SMC016_NP is_VBZ an_DT axisymmetric_JJ convergent-divergent_JJ nozzle_NN with_IN design_NN Mach_NP number_NN ,_, Md=1.5_NP ._SENT 
+The_DT domain_NN is_VBZ extended_VVN to_TO 100_CD D_NP in_IN the_DT downstream_JJ direction_NN ,_, and_CC 50_CD D_NP in_IN the_DT cross-stream_NP direction_NN ,_, where_WRB D_NP =_SYM 0.0508_CD m_NN is_VBZ the_DT diameter_NN of_IN the_DT nozzle_NN exit_NN ._SENT 
+As_IN the_DT nozzle_NN is_VBZ axisymmetric_JJ ,_, the_DT mesh_NN is_VBZ extruded_VVN by_IN rotating_VVG it_PP 90°_JJ ._SENT 
+Abdol-Hamid_NP et_NP al.38_NP performed_VVD nozzle_NN simulations_NNS on_IN the_DT ARN1_JJ nozzle_NN using_VVG FUN3D_NNS ._SENT 
+We_PP use_VVP the_DT same_JJ boundary_NN conditions_NNS as_IN Abdol-Hamid_NN et_CC al.38_JJ Symmetric_JJ plane_NN boundary_NN conditions_NNS are_VBP applied_VVN on_IN the_DT sides_NNS to_TO save_VV computational_JJ expense_NN ._SENT 
+Total_JJ pressure_NN and_CC total_JJ temperature_NN are_VBP specified_VVN at_IN the_DT inlet_NN of_IN the_DT nozzle_NN ,_, atmospheric_JJ pressure_NN is_VBZ specified_VVN at_IN the_DT outlet_NN ,_, an_DT adiabatic_JJ no-slip_NN wall_NN is_VBZ specified_VVN at_IN the_DT nozzle_NN walls_NNS ,_, and_CC a_DT zero_CD free-stream_NN velocity_NN is_VBZ specified_VVN on_IN the_DT top_NN and_CC side_NN boundaries_NNS of_IN the_DT domain_NN ._SENT 
+The_DT NPR_NP corresponding_JJ to_TO the_DT ideal_JJ operating_VVG condition_NN for_IN the_DT SMC016_JJ nozzle_NN is_VBZ 3.67_CD ._SENT 
+The_DT CFD_NN simulations_NNS are_VBP performed_VVN at_IN NPR_NP =_SYM [_SYM 3.693_CD ,_, 3.745_CD ,_, 3.858_CD ,_, 4.043_CD ,_, 4.32_CD ,_, 4.7_CD ,_, 5.2_CD ,_, 6_CD ]_SYM for_IN under-expanded_JJ cases_NNS ,_, and_CC at_IN NPR_NP =_SYM [_SYM 2.4_CD ,_, 2.75_CD ,_, 3.1_CD ,_, 3.382_CD ,_, 3.503_CD ,_, 3.593_CD ,_, 3.643_CD ]_SYM for_IN over-expanded_JJ cases_NNS ._SENT 
+All_PDT the_DT cases_NNS correspond_VV to_TO an_DT unheated_JJ jet_NN with_IN TTR_NP =_SYM 1.0_CD ._SENT 
+The_DT magnitude_NN of_IN all_PDT the_DT source_NN terms_NNS from_IN Eq_NP ._SENT 
+(_( 31_CD )_) are_VBP evaluated_VVN for_IN scaling_VVG analysis_NN using_VVG RANS_NNS results_NNS ._SENT 
+The_DT magnitude_NN of_IN ûjûm_NN in_IN the_DT source_NN terms_NNS from_IN Eq_NP ._SENT 
+(_( 31_CD )_) is_VBZ modeled_VVN by_IN turbulent_JJ kinetic_JJ energy_NN ,_, which_WDT is_VBZ obtained_VVN directly_RB from_IN the_DT RANS_NP simulations_NNS ._SENT 
+Note_NN that_IN this_DT approximation_NN is_VBZ only_RB for_IN the_DT scaling_VVG analysis_NN and_CC the_DT anisotropic_JJ velocities_NNS are_VBP modeled_VVN using_VVG an_DT anisotropic_JJ spectrum_NN in_IN Sec_NN ._SENT 
+II_NP E_NP ,_, for_IN predicting_VVG the_DT BBSAN_NN ._SENT 
+The_DT normalized_VVN two-point_NN cross-correlation_NN is_VBZ not_RB considered_VVN for_IN scaling_VVG analysis_NN ._SENT 
+The_DT scaling_NN of_IN BBSAN_NP for_IN both_DT under-expanded_JJ as_RB well_RB as_IN over-expanded_JJ cases_NNS is_VBZ shown_VVN in_IN Fig_NN ._SENT 
+4._CD The_DT normalized_VVN intensity_NN of_IN the_DT source_NN term_NN ,_, obtained_VVD using_VVG RANS_NP CFD_NN solutions_NNS ,_, is_VBZ plotted_VVN against_IN the_DT off-design_JJ parameter_NN β_NN in_IN Fig_NN ._SENT 
+4._CD For_IN the_DT over-expanded_JJ case_NN ,_, none_NN of_IN the_DT terms_NNS except_IN term-4_JJ scales_NNS with_IN β4_NP ._SENT 
+Term-4_NP is_VBZ initially_RB constant_JJ ,_, because_IN the_DT operating_VVG condition_NN of_IN the_DT jet_NN is_VBZ very_RB close_JJ to_TO the_DT ideally_RB expanded_VVN condition_NN ._SENT 
+Only_RB very_RB weak_JJ shocks_NNS are_VBP present_JJ in_IN the_DT jet_NN exhaust_NN and_CC other_JJ noise_NN sources_NNS dominate_VVP BBSAN_NN at_IN this_DT condition_NN ._SENT 
+The_DT BBSAN_JJ scales_NNS as_IN β4_NN for_IN NPR_NP =_SYM [_SYM 3.503_CD ,_, 3.382_CD ,_, 3.1_CD ]_SYM ._SENT 
+Mach_NP disk_NN formation_NN starts_VVZ when_WRB we_PP decrease_VVP the_DT NPR_NP less_JJR than_IN 3.1_CD ._SENT 
+Therefore_RB ,_, an_DT abrupt_JJ drop_NN of_IN amplitude_NN for_IN term-4_NP occurs_VVZ at_IN NPR_NP =_SYM 2.4_CD ._SENT 
+For_IN the_DT under-expanded_JJ condition_NN ,_, term-4_NP is_VBZ the_DT most_RBS correlated_VVN with_IN β4_NN among_IN all_DT possible_JJ source_NN terms_NNS ._SENT 
+Term-2_NP and_CC term-5_NP show_VVP rough_JJ scaling_NN with_IN β2_NN because_IN of_IN the_DT presence_NN of_IN the_DT gradient_NN of_IN pressure_NN term_NN ._SENT 
+Term-1_JJ ,_, 3_CD ,_, and_CC 6_CD are_VBP independent_JJ of_IN β_NN and_CC are_VBP not_RB candidates_NNS for_IN shock-noise_NP ._SENT 
+Term-4_JJ scales_NNS very_RB well_RB as_IN β4_NN except_IN at_IN NPR_NP =_SYM 3.693_CD ,_, which_WDT is_VBZ very_RB close_JJ to_TO the_DT ideally_RB expanded_VVN condition_NN of_IN NPR_NP =_SYM 3.67_CD ._SENT 
+From_IN the_DT scaling_VVG analysis_NN of_IN Eq_NP ._SENT 
+(_( 31_CD )_) ,_, it_PP could_MD be_VB inferred_VVN that_IN any_DT bi-product_NN of_IN the_DT gradient_NN of_IN mean_JJ pressure_NN term_NN can_MD scale_VV as_IN β4_NN ._SENT 
+However_RB ,_, that_WDT is_VBZ not_RB the_DT case_NN ,_, and_CC to_TO further_RBR confirm_VV that_IN there_EX are_VBP no_DT additional_JJ term_NN that_IN scales_NNS as_IN β4_NN ,_, we_PP perform_VVP the_DT scaling_VVG analysis_NN of_IN the_DT term_NN @_SYM as_IN an_DT example_NN ._SENT 
+Note_NN that_IN although_IN this_DT term_NN is_VBZ present_JJ in_IN the_DT momentum_NN equation_NN ,_, the_DT two-point_NN cross-correlation_NN of_IN this_DT term_NN is_VBZ zero_CD because_IN of_IN the_DT presence_NN of_IN only_JJ mean_JJ quantities_NNS ._SENT 
+The_DT scaling_NN of_IN the_DT term-7_JJ from_IN Eq_NP ._SENT 
+(_( 32_CD )_) is_VBZ shown_VVN in_IN Fig_NN ._SENT 
+4._CD Figure_NN 4_CD shows_VVZ that_IN the_DT term-7_JJ roughly_RB scales_NNS as_IN β5_NN ._SENT 
+Hence_RB ,_, the_DT only_JJ term_NN that_IN scales_NNS as_IN β4_NN is_VBZ term-4_JJ ._SENT 
+figure_VV The_DT source_NN term_NN for_IN BBSAN_NP is_VBZ given_VVN by_IN Eq_NP ._SENT 
+(_( 31d_NN )_) ,_, based_VVN on_IN the_DT correlation_NN with_IN the_DT variation_NN of_IN NPR_NP ._SENT 
+This_DT term_NN is_VBZ the_DT product_NN of_IN the_DT gradient_NN of_IN mean_JJ pressure_NN with_IN the_DT anisotropic_JJ velocity_NN ._SENT 
+The_DT gradient_NN of_IN mean_JJ pressure_NN represents_VVZ the_DT shock_NN strength_NN while_IN the_DT anisotropic_JJ velocities_NNS represent_VVP the_DT large-scale_JJ structures_NNS in_IN the_DT shear_NN layer_NN ._SENT 
+This_DT term_NN is_VBZ obtained_VVN from_IN the_DT acoustic_JJ analogy_NN based_VVN on_IN the_DT decomposition_NN of_IN the_DT Navier-Stokes_NNS equations_NNS ._SENT 
+The_DT source_NN term_NN is_VBZ evaluated_VVN by_IN making_VVG various_JJ empirical_JJ assumptions_NNS such_JJ as_IN modeling_VVG the_DT two-point_NN cross-correlation_NN as_RB well_RB as_IN the_DT anisotropic_JJ velocities_NNS while_IN using_VVG a_DT RANS_NNS simulation_NN ._SENT 
+In_IN Sec_NN ._SENT 
+II_NP E_NP ,_, we_PP evaluate_VVP the_DT spectral_JJ density_NN of_IN pressure_NN by_IN modeling_VVG the_DT anisotropic_JJ normalized_VVN two-point_NN cross-correlation_NN term_NN and_CC substituting_VVG the_DT arguments_NNS in_IN Eq_NP ._SENT 
+(_( 16_CD )_) ._SENT 
+E._NP Evaluation_NN of_IN the_DT spectral_JJ density_NN Following_VVG Ribner,34_JJ we_PP model_VV the_DT normalized_VVN two-point_NN cross-correlation_NN as_IN where_WRB τs_NP is_VBZ the_DT time_NN scale_NN ,_, l_NN and_CC l⊥_NN are_VBP the_DT length_NN scales_NNS in_IN the_DT streamwise_JJ and_CC cross-stream_JJ direction_NN ,_, respectively_RB ,_, and_CC uc_NP is_VBZ the_DT eddy_NN convection_NN speed_NN ._SENT 
+We_PP substitute_VV the_DT source_NN terms_NNS of_IN Eqs_NP ._SENT 
+(_( 31d_NN )_) and_CC (_( 33_CD )_) ,_, and_CC the_DT solution_NN to_TO the_DT vector_NN Green_NN 's_POS function_NN of_IN Eqs_NP ._SENT 
+(_( 21_CD )_) and_CC (_( 22_CD )_) in_IN Eq_NP ._SENT 
+(_( 16_CD )_) ,_, and_CC integrate_VV the_DT equation_NN with_IN respect_NN to_TO τ_NP and_CC η_NP ._SENT 
+We_PP follow_VVP Morris_NP and_CC Miller13_NP to_TO evaluate_VV the_DT gradient_NN of_IN pressure_NN at_IN two_CD different_JJ locations_NNS by_IN taking_VVG the_DT Fourier_NN transform_VV of_IN one_CD term_NN ._SENT 
+The_DT resulting_VVG spectral_NN density_NN is_VBZ very_RB similar_JJ to_TO the_DT model_NN of_IN Morris_NP and_CC Miller13_NP because_IN we_PP use_VVP the_DT same_JJ normalized_VVN two-point_NN cross-correlation_NN model_NN ._SENT 
+However_RB ,_, the_DT source_NN terms_NNS in_IN the_DT two_CD models_NNS are_VBP different_JJ ._SENT 
+After_IN integrating_VVG ,_, we_PP obtain_VVP where_WRB κ_NP is_VBZ the_DT wavenumber_NN ,_, Mc=ucc−1∞_NP represents_VVZ the_DT convective_JJ Mach_NP number_NN ,_, and_CC θ_NP is_VBZ the_DT polar_JJ observer_NN angle_NN ._SENT 
+The_DT implementation_NN of_IN Eq_NP ._SENT 
+(_( 34_CD )_) is_VBZ performed_VVN similarly_RB to_TO Morris_NP and_CC Miller.13_NP The_DT mean_JJ values_NNS are_VBP obtained_VVN using_VVG the_DT RANS_NP K−Ω_NP SST_NP model_NN ._SENT 
+The_DT gradient_NN of_IN mean_JJ pressure_NN and_CC the_DT turbulent_JJ kinetic_JJ energy_NN from_IN the_DT RANS_NP simulations_NNS are_VBP shown_VVN in_IN Fig_NN ._SENT 
+5_LS ,_, corresponding_JJ to_TO NPR_NP =_SYM 5.2_CD and_CC TTR_NP =_SYM 1.0_CD ._SENT 
+The_DT convection_NN velocity_NN of_IN large-scale_JJ turbulent_JJ structures_NNS is_VBZ modeled_VVN as_IN uc=u⎯⎯_NP ._SENT 
+The_DT dissipation_NN rate_NN ε_NN is_VBZ obtained_VVN using_VVG ϵ=0.09KΩ.36_NN A_DT length_NN scale_NN and_CC time_NN scale_NN are_VBP estimated_VVN from_IN turbulent_JJ kinetic_JJ energy_NN and_CC dissipation_NN rate_NN as_IN l=clK3/2ϵ−1_NN ,_, l⊥=0.33l_NP ,_, and_CC τs=cτKϵ−1_JJ ,_, where_WRB cτ_NP and_CC cl_NP are_VBP constants_NNS ._SENT 
+figure_VV The_DT composite_JJ energy_NN spectrum_NN for_IN velocity_NN can_MD be_VB modeled_VVN based_VVN on_IN Kolmogorov39_JJ theory_NN as_RB @_SYM where_WRB the_DT constant_JJ cu=1.5.40_NN The_DT spectrum_NN scales_NNS as_IN κ−5/3_NN in_IN the_DT inertial_JJ subrange_NN region_NN and_CC is_VBZ connected_VVN to_TO the_DT energy-containing_VVG range_NN and_CC the_DT dissipation_NN range_NN by_IN the_DT composite_JJ spectrum_NN proposed_VVN by_IN Pope40_NP as_RB @_SYM The_DT anisotropic_JJ velocities_NNS are_VBP modeled_VVN based_VVN on_IN the_DT numerical_JJ and_CC theoretical_JJ work_NN of_IN Ishihara_NP et_CC al.41_JJ They_PP showed_VVD that_IN the_DT anisotropic_JJ energy_NN spectrum_NN for_IN velocity_NN in_IN the_DT homogeneous_JJ turbulent_JJ shear_NN layer_NN scales_NNS as_RB @_SYM The_DT amplitude_NN in_IN the_DT energy-containing_VVG range_NN for_IN anisotropic_JJ spectra_NN is_VBZ matched_VVN with_IN the_DT Kolmogorov39_JJ theory_NN from_IN Eq_NP ._SENT 
+(_( 35_CD )_) using_VVG the_DT parameter_NN ĉu_NN ._SENT 
+The_DT isotropic_JJ spectrum_NN is_VBZ obtained_VVN by_IN subtracting_VVG the_DT anisotropic_JJ spectrum_NN from_IN the_DT total_JJ velocity_NN spectrum_NN ._SENT 
+The_DT isotropic_JJ and_CC anisotropic_JJ energy_NN spectra_NN are_VBP a_DT function_NN of_IN space_NN depending_VVG on_IN the_DT local_JJ turbulent_JJ kinetic_JJ energy_NN (_( K_NP )_) and_CC the_DT local_JJ specific_JJ dissipation_NN rate_NN (_( Ω_NP )_) at_IN each_DT point_NN inside_IN the_DT domain_NN ._SENT 
+The_DT energy_NN spectra_NN for_IN a_DT point_NN in_IN the_DT shear_NN layer_NN of_IN the_DT jet_NN exhaust_NN is_VBZ shown_VVN in_IN Fig_NN ._SENT 
+6._CD The_DT anisotropy_NN of_IN the_DT large-scale_JJ structures_NNS is_VBZ captured_VVN using_VVG an_DT anisotropic_JJ energy_NN spectrum_NN ._SENT 
+Figure_NN 6_CD shows_VVZ that_IN the_DT energy_NN contained_VVN at_IN low_JJ wavenumbers_NNS is_VBZ higher_JJR for_IN the_DT anisotropic_JJ spectrum_NN ._SENT 
+This_DT corresponds_VVZ to_TO the_DT large-scale_JJ coherent_JJ structures_NNS that_WDT have_VHP most_JJS of_IN its_PP$ energy_NN at_IN low_JJ wavenumbers_NNS ._SENT 
+Conversely_RB ,_, the_DT energy_NN contained_VVN at_IN high_JJ wavenumbers_NNS is_VBZ higher_JJR for_IN the_DT isotropic_JJ spectrum_NN ,_, which_WDT corresponds_VVZ to_TO the_DT energy_NN from_IN the_DT fine-scale_JJ incoherent_JJ structures_NNS ._SENT 
+The_DT anisotropic_JJ velocity_NN can_MD be_VB obtained_VVN from_IN the_DT energy_NN spectrum_NN as_RB @_SYM where_WRB c1=18/11_JJ and_CC c2=2/11_JJ are_VBP empirical_JJ constants_NNS ._SENT 
+The_DT limits_NNS of_IN the_DT integrations_NNS ,_, κ1_JJ and_CC κ2_JJ ,_, are_VBP determined_VVN from_IN the_DT frequency_NN which_WDT is_VBZ being_VBG evaluated_VVN ,_, i._NP e._NP ,_, ω=c∞(κ1+κ2)/2_NP ._SENT 
+The_DT wavenumbers_NNS ,_, κ1_JJ and_CC κ2_JJ ,_, are_VBP related_VVN as_IN κ2−κ1=ω/c∞_NP ._SENT 
+figure_NN Finally_RB ,_, the_DT numerical_JJ integration_NN of_IN Eq_NP ._SENT 
+(_( 34_CD )_) is_VBZ performed_VVN on_IN a_DT structured_JJ grid_NN ._SENT 
+The_DT CFD_NN solution_NN is_VBZ interpolated_VVN on_IN two_CD different_JJ structured_JJ grids_NNS ._SENT 
+One_CD grid_NN is_VBZ used_VVN to_TO perform_VV the_DT discrete_JJ Fourier_NN transform_VV (_( DFT_NP )_) of_IN the_DT gradient_NN of_IN pressure_NN ,_, while_IN the_DT other_JJ grid_NN is_VBZ for_IN numerical_JJ integration_NN of_IN the_DT spectral_JJ density_NN of_IN pressure_NN ._SENT 
+The_DT wavenumber_NN grid_NN ,_, i._NP e._NP ,_, the_DT grid_NN on_IN which_WDT the_DT DFT_NP is_VBZ performed_VVN ,_, extends_VVZ from_IN 0.00196D_NN to_TO 30_CD D_NP in_IN the_DT stream-wise_JJ direction_NN with_IN 1024_CD equidistant_JJ points_NNS and_CC extends_VVZ from_IN 0_CD to_TO D_NP in_IN the_DT cross-stream_NP direction_NN with_IN 100_CD equidistant_JJ points_NNS ._SENT 
+This_DT allows_VVZ us_PP to_TO resolve_VV Δκ=2.061_JJ m−1_NN while_IN the_DT wavenumber_JJ scale_NN ranges_NNS from_IN −2110.86_NN to_TO 2110.86_CD m−1_NN ._SENT 
+The_DT DFT_NP is_VBZ calculated_VVN after_IN mirroring_VVG the_DT gradient_NN of_IN pressure_NN across_IN κ_NP =_SYM 0_CD so_RB that_IN the_DT Fourier_NN transform_VV is_VBZ real_JJ and_CC symmetric_JJ ._SENT 
+The_DT low-frequency_NN component_NN near_IN zero_CD wavenumber_NN is_VBZ not_RB considered_VVN inside_IN the_DT integration_NN because_IN it_PP represents_VVZ a_DT fictitious_JJ amount_NN of_IN energy_NN due_JJ to_TO the_DT meanflow_NN of_IN the_DT RANS_NP solution_NN ._SENT 
+The_DT volume_NN integration_NN grid_NN extends_VVZ from_IN 0.00196D_NN to_TO 15_CD D_NP in_IN the_DT stream-wise_JJ direction_NN and_CC 0_CD to_TO D_NP in_IN the_DT cross-stream_NP direction_NN while_IN having_VHG 500_CD and_CC 100_CD equidistant_JJ points_NNS ,_, respectively_RB ,_, in_IN each_DT direction_NN ._SENT 
+The_DT wavenumber_NN spectrum_NN and_CC the_DT spatial_JJ region_NN for_IN obtaining_VVG the_DT spectral_JJ density_NN are_VBP integrated_VVN using_VVG the_DT trapezoidal_JJ rule_NN ._SENT 
+<Section> III_NP ._SENT 
+RESULTS_VVZ </Section> A._NP BBSAN_NP prediction_NN results_NNS The_DT prediction_NN results_NNS from_IN Eq_NP ._SENT 
+(_( 34_CD )_) are_VBP plotted_VVN against_IN the_DT previous_JJ prediction_NN model_NN by_IN Morris_NP and_CC Miller13_NP and_CC the_DT experimental_JJ SHJAR_NN database5_NN in_IN Fig_NN ._SENT 
+7._CD The_NP predictions_NNS are_VBP compared_VVN with_IN the_DT experimental_JJ SHJAR_NN database5_NN that_WDT contains_VVZ corrections_NNS for_IN atmospheric_JJ losses_NNS ._SENT 
+The_DT observer_NN is_VBZ located_VVN at_IN 100_CD D_NP from_IN the_DT nozzle_NN exit_NN at_IN multiple_JJ angles_NNS ._SENT 
+The_DT predictions_NNS and_CC measurements_NNS are_VBP shown_VVN as_IN the_DT SPL_NP per_IN unit_NN Strouhal_JJ number_NN versus_CC Strouhal_JJ number_NN ._SENT 
+The_DT Strouhal_JJ number_NN is_VBZ the_DT non-dimensionalized_JJ frequency_NN ,_, which_WDT is_VBZ defined_VVN as_IN St=fDj/uj_NP ,_, where_WRB Dj_NP and_CC uj_NP are_VBP the_DT fully-expanded_JJ jet_NN diameter_NN and_CC jet_NN velocity_NN ,_, respectively_RB ._SENT 
+We_PP first_RB calibrate_VVP our_PP$ model_NN with_IN the_DT experimental_JJ results_NNS using_VVG the_DT Mj=1.734_JJ case_NN for_IN the_DT observer_NN at_IN θ=90°_NP ._SENT 
+The_DT constants_NNS are_VBP calibrated_VVN once_RB with_IN the_DT experimental_JJ results_NNS for_IN one_CD operating_VVG condition_NN ,_, and_CC the_DT same_JJ constants_NNS are_VBP used_VVN for_IN predicting_VVG the_DT BBSAN_NN over_IN a_DT range_NN of_IN conditions_NNS ._SENT 
+The_DT calibrated_VVN constants_NNS used_VVN in_IN this_DT paper_NN are_VBP cl=0.75_JJ and_CC cτ=1.75_JJ ._SENT 
+The_DT amplitude_NN for_IN the_DT spectral_JJ density_NN of_IN BBSAN_NP is_VBZ scaled_VVN using_VVG a_DT constant_JJ ,_, A=100.778=6_JJ for_IN all_DT jet_NN conditions_NNS ._SENT 
+Same_JJ calibration_NN conditions_NNS (_( Mj=1.734_NP ;_: θ=90°_NP )_) ,_, but_CC different_JJ calibration_NN constants_NNS are_VBP used_VVN for_IN the_DT calibration_NN of_IN the_DT Morris_NP and_CC Miller13_JJ model_NN ._SENT 
+The_DT calibration_NN constants_NNS used_VVN for_IN the_DT Morris_NP and_CC Miller13_JJ model_NN are_VBP cl=1.0_JJ ,_, cτ=0.6_JJ ,_, and_CC A_NP =_SYM 6._CD The_NP predictions_NNS performed_VVN at_IN multiple_JJ angles_NNS ranging_VVG from_IN θ=70°_NN to_TO θ=130°_NP for_IN Mj=1.734_NP are_VBP shown_VVN in_IN Fig_NN ._SENT 
+7(a_NP )_) ,_, where_WRB θ_NN is_VBZ measured_VVN from_IN the_DT downstream_JJ jet_NN axis_NN ._SENT 
+The_DT predictions_NNS are_VBP compared_VVN with_IN the_DT experimental_JJ results_NNS at_IN various_JJ over-expanded_JJ and_CC under-expanded_JJ cases_NNS ranging_VVG from_IN Mj=1.294_NN to_TO Mj=1.8282_NN in_IN the_DT sideline_NN direction_NN shown_VVN in_IN Fig_NN ._SENT 
+7(b_NP )_) ._SENT 
+The_DT maximum_JJ SPL_NP of_IN the_DT individual_JJ experimental_JJ spectrum_NN is_VBZ annotated_VVN in_IN Fig_NN ._SENT 
+7._CD figure_NN When_WRB comparing_VVG the_DT results_NNS from_IN the_DT current_JJ model_NN with_IN the_DT experimental_JJ results_NNS in_IN Fig_NN ._SENT 
+7(a_NP )_) ,_, the_DT prediction_NN results_NNS match_VVP the_DT peak_JJ Strouhal_JJ numbers_NNS within_IN ΔSt=0.1_JJ ,_, while_IN the_DT amplitudes_NNS match_VVP within_IN 0.5_CD dB_NN for_IN the_DT peak_NN BBSAN_NN ._SENT 
+The_DT predictions_NNS from_IN the_DT Morris_NP and_CC Miller13_JJ model_NN are_VBP very_RB similar_JJ to_TO the_DT current_JJ model_NN predictions_NNS ._SENT 
+They_PP are_VBP offset_VVN by_IN a_DT maximum_JJ ΔSt=0.15_NN and_CC the_DT amplitude_NN is_VBZ underpredicted_VVN by_IN 1_CD dB_NN at_IN θ=70°_NP when_WRB compared_VVN to_TO the_DT experimental_JJ results_NNS ._SENT 
+For_IN θ=120°_NP and_CC θ=130°_NP ,_, the_DT current_JJ prediction_NN as_RB well_RB as_IN the_DT Morris_NP and_CC Miller13_NP prediction_NN over-predicts_VVZ the_DT multiple_JJ harmonics_NN of_IN BBSAN_NP by_IN about_RB 1_CD and_CC 2_CD dB_NN ,_, respectively_RB ._SENT 
+Using_VVG the_DT current_JJ prediction_NN model_NN in_IN Fig_NN ._SENT 
+7(b_NP )_) ,_, the_DT peak_JJ Strouhal_JJ number_NN matches_VVZ the_DT experimental_JJ spectrum_NN within_IN ΔSt=0.1_JJ ,_, except_IN for_IN the_DT over-expanded_JJ case_NN of_IN Mj=1.294_NP ,_, where_WRB the_DT peak_JJ Strouhal_JJ number_NN is_VBZ offset_VVN by_IN ΔSt=0.2_NP ._SENT 
+For_IN Mj=1.294_NP ,_, the_DT current_JJ prediction_NN under-predicts_VVZ the_DT peak_NN SPL_NP by_IN 3_CD dB_NN ._SENT 
+The_DT Morris_NP and_CC Miller13_NP model_NN under-predicts_VVZ the_DT peak_NN SPL_NP by_IN 5_CD dB_NN ,_, and_CC Strouhal_JJ number_NN is_VBZ offset_VVN by_IN ΔSt=0.03_NN for_IN the_DT Mj=1.294_JJ case_NN ._SENT 
+The_DT higher_JJR harmonics_NN in_IN the_DT current_JJ model_NN predictions_NNS are_VBP under-predicted_VVN by_IN 4_CD dB_NN for_IN the_DT over-expanded_JJ cases_NNS ,_, Mj=1.294_NN and_CC 1.381_CD ,_, while_IN they_PP are_VBP under-predicted_VVN by_IN 2_CD dB_NN for_IN the_DT under-expanded_JJ case_NN Mj=1.611_NN ._SENT 
+The_DT Morris_NP and_CC Miller13_NP model_NN under-predicts_VVZ the_DT higher_JJR harmonics_NN by_IN 7_CD and_CC 6_CD dB_NN for_IN Mj=1.294_NP and_CC 1.381_CD ,_, respectively_RB ._SENT 
+For_IN the_DT under-expanded_JJ case_NN Mj=1.611_NN ,_, the_DT peak_NN SPL_NP is_VBZ under-predicted_VVN by_IN 3_CD dB_NN ,_, while_IN the_DT higher_JJR harmonics_NNS are_VBP under-predicted_VVN by_IN 5_CD dB_NN by_IN the_DT Morris_NP and_CC Miller13_JJ model_NN ._SENT 
+There_EX is_VBZ over-prediction_NN in_IN the_DT second_JJ harmonic_JJ by_IN 3_CD dB_NN in_IN the_DT under-expanded_JJ case_NN Mj=1.8282_NN from_IN both_CC the_DT models_NNS ._SENT 
+Considerable_JJ discrepancies_NNS are_VBP present_JJ in_IN the_DT over-expanded_JJ case_NN when_WRB comparing_VVG prediction_NN results_NNS with_IN the_DT experimental_JJ results_NNS ._SENT 
+However_RB ,_, there_EX is_VBZ a_DT minor_JJ improvement_NN in_IN over-expanded_JJ conditions_NNS for_IN the_DT peak_NN SPL_NP when_WRB compared_VVN to_TO the_DT Morris_NP and_CC Miller13_JJ model_NN ._SENT 
+One_CD possible_JJ reason_NN for_IN the_DT discrepancy_NN between_IN the_DT current_JJ predictions_NNS and_CC the_DT experimental_JJ results_NNS in_IN the_DT Mj=1.294_JJ case_NN might_MD be_VB the_DT screech_NN effects_NNS ,_, as_IN they_PP modify_VV the_DT BBSAN_JJ spectrum.18,42_NN However_RB ,_, the_DT screech_NN effects_NNS are_VBP also_RB present_JJ in_IN Mj=1.381_JJ case_NN ,_, and_CC the_DT peak_NN SPL_NP is_VBZ predicted_VVN correctly_RB ._SENT 
+The_DT discrepancies_NNS might_MD have_VH been_VBN caused_VVN due_RB to_TO Mach_NP disk_NN formation_NN also_RB ,_, which_WDT occurs_VVZ at_IN the_DT Mj=1.294_JJ case_NN ,_, and_CC lowers_VVZ the_DT intensity_NN of_IN the_DT shock-associated_JJ noise_NN ._SENT 
+Another_DT reason_NN for_IN some_DT of_IN the_DT discrepancy_NN might_MD be_VB that_IN the_DT anisotropic_JJ velocities_NNS are_VBP estimated_VVN empirically_RB ,_, and_CC obtaining_VVG more_RBR accurate_JJ data_NNS from_IN DNS_NNS or_CC LES_FW simulations_NNS could_MD improve_VV the_DT prediction_NN results_NNS ._SENT 
+Also_RB ,_, the_DT decay_NN of_IN BBSAN_NP at_IN very_RB high_JJ frequency_NN does_VVZ not_RB match_VV the_DT experimental_JJ results_NNS ._SENT 
+Kalyan_NP and_CC Karabasov43_NP showed_VVD that_IN using_VVG frequency-dependent_JJ length_NN and_CC time_NN scales_NNS for_IN the_DT Morris_NP and_CC Miller13_JJ model_NN considerably_RB improves_VVZ the_DT high-frequency_NN prediction_NN ._SENT 
+The_DT same_JJ approach_NN can_MD be_VB adapted_VVN to_TO potentially_RB improve_VV high-frequency_NN predictions_NNS ._SENT 
+We_PP have_VHP not_RB followed_VVN their_PP$ approach_NN here_RB because_IN we_PP have_VHP set_VVN out_RP to_TO identify_VV the_DT correct_JJ source_NN term_NN within_IN the_DT Navier-Stokes_NNS equations_NNS ._SENT 
+B._NP BBSAN_NP source_NN locations_NNS The_DT source_NN locations_NNS are_VBP now_RB evaluated_VVN based_VVN on_IN the_DT model_NN ._SENT 
+To_TO obtain_VV the_DT source_NN locations_NNS ,_, we_PP do_VVP not_RB numerically_RB integrate_VV Eq_NP ._SENT 
+(_( 34_CD )_) in_IN the_DT spatial_JJ directions_NNS ._SENT 
+All_DT other_JJ operations_NNS inside_IN the_DT integral_JJ of_IN Eq_NP ._SENT 
+(_( 34_CD )_) such_JJ as_IN performing_VVG the_DT DFT_NP and_CC integrating_VVG into_IN wavenumber_NN space_NN ,_, are_VBP performed_VVN at_IN various_JJ Strouhal_JJ numbers_NNS ._SENT 
+We_PP then_RB plot_VV the_DT source_NN locations_NNS of_IN BBSAN_NN as_IN contours_NNS at_IN specific_JJ frequencies_NNS ._SENT 
+Contour_NN plots_NNS corresponding_JJ to_TO fully-expanded_JJ jet_NN Mach_NP number_NN Mj=1.611_NN at_IN two_CD different_JJ Strouhal_JJ numbers_NNS ,_, St_NP =_SYM 0.5094_CD and_CC St_NP =_SYM 1.0235_CD ,_, are_VBP shown_VVN in_IN Fig_NN ._SENT 
+8._CD These_DT Strouhal_JJ numbers_NNS correspond_VV to_TO the_DT peak_NN frequency_NN and_CC the_DT first_JJ harmonic_JJ frequency_NN for_IN BBSAN_NP ._SENT 
+figure_NN At_IN St_NP =_SYM 0.5094_CD ,_, the_DT source_NN locations_NNS are_VBP roughly_RB located_VVN between_IN 7_CD D_NP and_CC 9_CD D._NP Podboy25_NP observed_VVD that_IN the_DT peak_JJ source_NN location_NN is_VBZ between_IN 8_CD D_NP and_CC 15_NP D_NP for_IN the_DT same_JJ jet_NN condition_NN ._SENT 
+Seiner_NP and_CC Yu21_JJ found_VVD that_IN their_PP$ source_NN location_NN is_VBZ between_IN 6_CD D_NP and_CC 10_NP D_NP or_CC between_IN the_DT 4th_JJ and_CC 6th_JJ shock-cell_NN for_IN a_DT different_JJ jet_NN ._SENT 
+Qualitatively_RB ,_, the_DT sources_NNS from_IN the_DT current_JJ model_NN for_IN peak_NN BBSAN_NN are_VBP located_VVN at_IN the_DT end_NN of_IN the_DT potential_JJ core_NN ,_, where_WRB the_DT growth_NN of_IN large-scale_JJ instabilities_NNS is_VBZ at_IN a_DT maximum_NN ._SENT 
+Also_RB ,_, the_DT length_NN scale_NN of_IN large-structures_NNS is_VBZ approximately_RB similar_JJ to_TO the_DT shock-cell_NN spacing_NN ._SENT 
+This_DT corresponds_VVZ to_TO a_DT variety_NN of_IN experimental_JJ results.18,19,21,25_NN We_PP note_VVP that_IN the_DT source_NN locations_NNS in_IN the_DT present_JJ model_NN are_VBP correctly_RB predicted_VVN unlike_IN the_DT Morris_NP and_CC Miller13_JJ model_NN ,_, which_WDT predicted_VVD their_PP$ maximum_JJ strength_NN as_IN being_VBG near_IN the_DT nozzle_NN exit_NN ._SENT 
+For_IN the_DT first_JJ harmonic_JJ corresponding_JJ to_TO St_NP =_SYM 1.0235_CD in_IN Fig_NN ._SENT 
+8(b_NP )_) ,_, the_DT source_NN locations_NNS have_VHP shifted_VVN upstream_RB in_IN the_DT flow_NN ._SENT 
+The_DT maximum_JJ amplitude_NN of_IN the_DT sources_NNS in_IN Fig_NN ._SENT 
+8(b_NP )_) is_VBZ almost_RB half_JJ when_WRB compared_VVN to_TO the_DT sources_NNS in_IN Fig_NN ._SENT 
+8(a_NP )_) ._SENT 
+The_DT contour_NN plot_NN for_IN source_NN strength_NN at_IN different_JJ axial_JJ locations_NNS for_IN each_DT Strouhal_JJ number_NN corresponding_JJ to_TO the_DT Mj=1.734_JJ case_NN is_VBZ shown_VVN in_IN Fig_NN ._SENT 
+9(a_NP )_) ,_, while_IN the_DT contour_NN plot_NN of_IN shock_NN locations_NNS is_VBZ shown_VVN in_IN Fig_NN ._SENT 
+9(b_NP )_) ._SENT 
+Following_VVG Lovely_NP and_CC Haimes,44_NP the_DT shock_NN is_VBZ detected_VVN from_IN the_DT RANS_NP solution_NN as_IN ∇p⎯⎯·Mi/||∇p⎯⎯||_NP ._SENT 
+To_TO obtain_VV the_DT BBSAN_JJ source_NN strength_NN ,_, we_PP integrate_VV the_DT source_NN terms_NNS in_IN the_DT y-_NN and_CC z-direction_NN at_IN each_DT frequency_NN and_CC axial_JJ location_NN ._SENT 
+The_DT maximum_JJ BBSAN_JJ intensity_NN is_VBZ located_VVN at_IN the_DT end_NN of_IN the_DT potential_JJ core_NN at_IN a_DT distance_NN between_IN 7_CD D_NP and_CC 11_CD D._NP The_DT maximum_JJ intensity_NN corresponds_VVZ to_TO the_DT primary_JJ peak_NN of_IN BBSAN_NP and_CC is_VBZ observed_VVN at_IN the_DT peak_JJ Strouhal_JJ number_NN ._SENT 
+Also_RB ,_, the_DT maximum_JJ intensity_NN at_IN each_DT Strouhal_JJ number_NN is_VBZ marked_VVN with_IN a_DT black_JJ dot_VVP in_IN Fig_NN ._SENT 
+9(a_NP )_) ._SENT 
+This_DT maximum_JJ intensity_NN corresponds_VVZ to_TO the_DT shock-cell_NN locations_NNS shown_VVN in_IN Fig_NN ._SENT 
+9(b_NP )_) ._SENT 
+For_IN the_DT higher_JJR harmonics_NN of_IN BBSAN_NP ,_, the_DT source_NN location_NN gradually_RB shifts_VVZ upstream_RB towards_IN the_DT nozzle_NN ._SENT 
+However_RB ,_, the_DT intensity_NN reduces_VVZ as_IN we_PP move_VVP away_RB from_IN the_DT peak_JJ Strouhal_JJ number_NN ._SENT 
+A_DT similar_JJ trend_NN of_IN the_DT source_NN location_NN is_VBZ observed_VVN at_IN other_JJ jet_NN conditions_NNS ._SENT 
+However_RB ,_, the_DT dominant_JJ source_NN locations_NNS are_VBP located_VVN near_IN the_DT end_NN of_IN the_DT potential_JJ core_NN ._SENT 
+figure_NN <Section> IV_NP ._SENT 
+CONCLUSIONS_NNS </Section> A_DT model_NN for_IN BBSAN_NP using_VVG an_DT acoustic_JJ analogy_NN approach_NN based_VVN on_IN the_DT Navier-Stokes_NN equations_NNS has_VHZ been_VBN developed_VVN ._SENT 
+The_DT source_NN term_NN for_IN BBSAN_NP was_VBD determined_VVN by_IN eliminating_VVG various_JJ terms_NNS using_VVG the_DT physical_JJ mechanism_NN of_IN shock-noise_NN generation_NN ._SENT 
+A_DT vector_NN Green_NN 's_POS function_NN is_VBZ derived_VVN from_IN the_DT governing_VVG equations_NNS for_IN the_DT propagation_NN of_IN BBSAN_NP ,_, and_CC the_DT resultant_JJ Green_NP 's_POS function_NN is_VBZ substituted_VVN into_IN the_DT convolution_NN integral_JJ with_IN the_DT BBSAN_JJ source_NN term_NN to_TO obtain_VV a_DT closed-form_NN model_NN for_IN spectral_JJ density_NN of_IN acoustic_JJ pressure_NN ._SENT 
+These_DT terms_NNS are_VBP evaluated_VVN using_VVG RANS_NP CFD_NN results_NNS ,_, as_RB well_RB as_IN theoretical_JJ and_CC experimental_JJ models_NNS ._SENT 
+A_DT number_NN of_IN empirical_JJ and_CC semi-empirical_JJ assumptions_NNS have_VHP been_VBN made_VVN in_IN order_NN to_TO identify_VV and_CC model_VV the_DT BBSAN_NN ._SENT 
+A_DT model_NN for_IN two-point_NN space-time_NN cross-correlation_NN by_IN Ribner34_NP was_VBD used_VVN to_TO simplify_VV the_DT two-point_NN cross-correlation_NN into_IN its_PP$ magnitude_NN and_CC normalized_VVN correlation_NN ._SENT 
+The_DT multiplication_NN of_IN the_DT anisotropic_JJ velocities_NNS for_IN scaling_VVG analysis_NN was_VBD modeled_VVN using_VVG the_DT turbulent_JJ kinetic_JJ energy_NN ._SENT 
+RANS_NP CFD_NP turbulence_NN model_NN is_VBZ used_VVN for_IN the_DT scaling_VVG analysis_NN as_RB well_RB as_IN the_DT arguments_NNS for_IN the_DT prediction_NN model_NN ._SENT 
+In_IN order_NN to_TO predict_VV BBSAN_JJ ,_, we_PP used_VVD Gaussian_JJ functions_NNS in_IN the_DT normalized_VVN two-point_NN cross-correlation_NN for_IN the_DT ease_NN of_IN performing_VVG an_DT analytical_JJ integration_NN ._SENT 
+The_DT anisotropic_JJ velocity_NN in_IN the_DT prediction_NN model_NN is_VBZ calculated_VVN based_VVN on_IN the_DT Pope_NP 's_POS composite_JJ spectra40_NN and_CC on_IN the_DT work_NN of_IN Ishihara_NP et_CC al.41_JJ BBSAN_JJ predictions_NNS are_VBP performed_VVN using_VVG the_DT newly_RB created_VVN model_NN ,_, and_CC they_PP compare_VVP favorably_RB with_IN the_DT experimental_JJ results_NNS ._SENT 
+Source_NN location_NN predictions_NNS are_VBP made_VVN based_VVN on_IN the_DT model_NN and_CC it_PP was_VBD observed_VVN that_IN the_DT peak_JJ noise_NN sources_NNS are_VBP located_VVN downstream_JJ in_IN the_DT potential_JJ core_NN ._SENT 
+The_DT source_NN location_NN follows_VVZ some_DT of_IN the_DT experimental_JJ observations_NNS that_IN the_DT peak_NN noise_NN is_VBZ radiated_VVN by_IN the_DT interaction_NN of_IN weak_JJ shocks_NNS with_IN the_DT large-eddies_NNS in_IN the_DT shear_NN layer_NN ._SENT 
+However_RB ,_, for_IN higher_JJR harmonics_NNS of_IN BBSAN_NP ,_, the_DT peak_NN locations_NNS shift_VVP upstream_JJ <Section> ACKNOWLEDGMENTS_NNS </Section> This_DT research_NN was_VBD supported_VVN by_IN the_DT Office_NP of_IN Naval_NP Research_NP Grant_NP No._NN N00014-17-1-2583_NN ._SENT 
+Any_DT opinions_NNS ,_, findings_NNS ,_, and_CC conclusions_NNS or_CC recommendations_NNS expressed_VVN in_IN this_DT material_NN are_VBP those_DT of_IN the_DT author(s_NPS )_) and_CC do_VVP not_RB necessarily_RB reflect_VV the_DT views_NNS of_IN the_DT Office_NP of_IN Naval_NP Research_NP ._SENT 
+<Section> REFERENCES_NNS </Section> 1._CD J._NP Doychak_NP ,_, “_NP Department_NP of_IN Navy_NP Jet_NP Noise_NN Reduction_NP Project_NP Overview_NN ,_, ”_NN in_IN Proceedings_NNS of_IN the_DT 15th_JJ Annual_JJ Partners_NNS in_IN Environmental_NP Technology_NP Technical_NP Symposium_NN and_CC Workshop_NN ,_, Washington_NP DC_NP (_( November_NP 30–December_NP 2_CD ,_, 2010_CD )_) ._SENT 
+Google_NP Scholar_NN 2._CD E._NP Mollo-Christensen_NP ,_, “_NP Jet_NP noise_NN and_CC shear_NN flow_NN instability_NN seen_VVN from_IN an_DT experimenter_NN 's_POS viewpoint_NN ,_, ”_NP J._NP Appl_NP ._SENT 
+Mech_NP ._SENT 
+34(1_NN )_) ,_, 1–7_JJ (_( 1967_CD )_) ._SENT 
+https_NNS :_: //doi_NP ._SENT 
+org/10.1115/1.3607624_NP ,_, Google_NP ScholarCrossref_NP 3._CD A._NP Powell_NP ,_, “_NN On_IN the_DT mechanism_NN of_IN choked_VVN jet_NN noise_NN ,_, ”_NP Proc_NP ._SENT 
+Phys_NPS ._SENT 
+Soc_NP ._SENT 
+B._NP 66(12_NP )_) ,_, 1039–1056_NP (_( 1953_CD )_) ._SENT 
+https_NNS :_: //doi_NP ._SENT 
+org/10.1088/0370-1301/66/12/306_NP ,_, Google_NP ScholarCrossref_NP 4._CD C._NP K._NP W._NP Tam_NP ,_, “_JJ Supersonic_JJ jet_NN noise_NN ,_, ”_NP Ann_NP ._SENT 
+Rev._NP Fluid_JJ Mech_NP ._SENT 
+27(1_NN )_) ,_, 17–43_NP (_( 1995_CD )_) ._SENT 
+https_NNS :_: //doi_NP ._SENT 
+org/10.1146/annurev_NP ._SENT 
+fl.27.010195.000313_NP ,_, Google_NP ScholarCrossref_NP 5._CD C._NP Brown_NP and_CC J._NP E._NP Bridges_NP ,_, “_NP Small_NP Hot_NP Jet_NP Acoustic_JJ Rig_NN Validation_NN ,_, ”_NP Report_NP No._NN NASA/TM-2006-214234_NN ,_, NASA_NP ,_, Washington_NP ,_, DC_NP (_( 2006_CD )_) ._SENT 
+Google_NP Scholar_NN 6._CD C._NP K._NP W._NP Tam_NP ,_, M._NP Golebiowski_NP ,_, and_CC J._NP M._NP Seiner_NP ,_, “_NN On_IN the_DT two_CD components_NNS of_IN turbulent_JJ mixing_VVG noise_NN from_IN supersonic_JJ jets_NNS ,_, ”_NN in_IN Proceedings_NNS of_IN the_DT 2nd_JJ AIAA/CEAS_NP Aeroacoustics_NP Conference_NP ,_, 6–8_NP May_NP 1996_CD (_( State_NP College_NP ,_, PA_NN ,_, 1996_CD )_) ,_, AIAA_NP Paper_NP No._NN 96-1716_CD ,_, Google_NP ScholarCrossref_NP 7._CD C._NP -W_NNS ._SENT 
+Kuo_NP ,_, D._NP K._NP McLaughlin_NP ,_, P._NP J._NP Morris_NP ,_, and_CC K._NP Viswanathan_NP ,_, “_JJ Effects_NNS of_IN jet_NN temperature_NN on_IN broadband_NP shock-associated_JJ noise_NN ,_, ”_NP AIAA_NP J._NP 53(6_NP )_) ,_, 1515–1530_NP (_( 2015_CD )_) ._SENT 
+https_NNS :_: //doi_NP ._SENT 
+org/10.2514/1_JJ ._SENT 
+J053442_NP ,_, Google_NP ScholarCrossref_NP 8._CD M._NP Harper-Bourne_NP and_CC M._NP J._NP Fisher_NP ,_, “_NP The_DT noise_NN from_IN shocks_NNS waves_NNS in_IN supersonic_JJ jets_NNS ,_, ”_NP NATO_NP AGARD-CP-131_NN 11_CD (_( NATO_NP ,_, Brussels_NP ,_, Belgium_NP ,_, 1973_CD )_) ._SENT 
+Google_NP Scholar_NN 9._CD C._NP K._NP W._NP Tam_NP ,_, “_JJ Stochastic_JJ model_NN theory_NN of_IN broadband_NN shock_NN associated_VVN noise_NN from_IN supersonic_JJ jets_NNS ,_, ”_NP J._NP Sound_NP Vib_NP ._SENT 
+116(2_NP )_) ,_, 265–302_NP (_( 1987_CD )_) ._SENT 
+https_NNS :_: //doi_NP ._SENT 
+org/10.1016/S0022-460X(87)81303-2_NP ,_, Google_NP ScholarCrossref_NP 10._CD C._NP K._NP W._NP Tam_NP and_CC H._NP K._NP Tanna_NP ,_, “_NP Shock_NP associated_JJ noise_NN of_IN supersonic_JJ jets_NNS from_IN convergent-divergent_JJ nozzles_NNS ,_, ”_NP J._NP Sound_NP Vib_NP ._SENT 
+81(3_NP )_) ,_, 337–358_NP (_( 1982_CD )_) ._SENT 
+https_NNS :_: //doi_NP ._SENT 
+org/10.1016/0022-460X(82)90244-9_NP ,_, Google_NP ScholarCrossref_NP 11._CD C._NP K._NP W._NP Tam_NP and_CC K._NP C._NP Chen_NP ,_, “_NP A_DT statistical_JJ model_NN of_IN turbulence_NN in_IN two-dimensional_JJ mixing_VVG layers_NNS ,_, ”_NP J._NP Fluid_JJ Mech_NP ._SENT 
+92_CD ,_, 303–326_NP (_( 1979_CD )_) ._SENT 
+https_NNS :_: //doi_NP ._SENT 
+org/10.1017/S002211207900063X_NP ,_, Google_NP ScholarCrossref_NP 12._CD C._NP K._NP W._NP Tam_NP ,_, J._NP A._NP Jackson_NP ,_, and_CC J._NP M._NP Seiner_NP ,_, “_NP A_NP multiple-scales_NP model_NN of_IN the_DT shock-cell_NN structure_NN of_IN imperfectly_RB expanded_VVN supersonic_JJ jets_NNS ,_, ”_NP J._NP Fluid_JJ Mech_NP ._SENT 
+153_CD ,_, 123–149_NP (_( 1985_CD )_) ._SENT 
+https_NNS :_: //doi_NP ._SENT 
+org/10.1017/S0022112085001173_NP ,_, Google_NP ScholarCrossref_NP 13._CD P._NP J._NP Morris_NP and_CC S._NP A._NP E._NP Miller_NP ,_, “_JJ Prediction_NN of_IN broadband_NP shock-associated_JJ noise_NN using_VVG Reynolds-averaged_NN Navier-Stokes_VVZ computational_JJ fluid_JJ dynamics_NNS ,_, ”_NP AIAA_NP J._NP 48(12_NP )_) ,_, 2931–2944_NP (_( 2010_CD )_) ._SENT 
+https_NNS :_: //doi_NP ._SENT 
+org/10.2514/1_JJ ._SENT 
+J050560_NP ,_, Google_NP ScholarCrossref_NP 14._CD T._NP Suzuki_NP ,_, “_JJ Wave-packet_NN representation_NN of_IN shock-cell_NN noise_NN for_IN a_DT single_JJ round_NN jet_NN ,_, ”_NP AIAA_NP J._NP 54(12_NP )_) ,_, 3903–3917_JJ (_( 2016_CD )_) ._SENT 
+https_NNS :_: //doi_NP ._SENT 
+org/10.2514/1_JJ ._SENT 
+J055097_JJ ,_, Google_JJ ScholarCrossref_NP 15._CD H._NP K._NP Tanna_NP ,_, “_NP An_DT experimental_JJ study_NN of_IN jet_NN noise_NN part_NN II_NP :_: Shock_NN associated_VVN noise_NN ,_, ”_NP J._NP Sound_NP Vib_NP ._SENT 
+50(3_NP )_) ,_, 429–444_NP (_( 1977_CD )_) ._SENT 
+https_NNS :_: //doi_NP ._SENT 
+org/10.1016/0022-460X(77)90494-1_JJ ,_, Google_JJ ScholarCrossref_NP 16._CD J._NP M._NP Seiner_NP and_CC T._NP D._NP Norum_NP ,_, “_JJ Experiments_NNS of_IN shock_NN associated_VVN noise_NN of_IN supersonic_JJ jets_NNS ,_, ”_NN in_IN Proceedings_NNS of_IN the_DT 12th_JJ Fluid_NN and_CC Plasma_NN Dynamics_NPS Conference_NP ,_, Williamsburg_NP ,_, VA_NP (_( July_NP 23–25_NP ,_, 1979_CD )_) ,_, AIAA_NP Paper_NP No._NN 79-47341_CD ._SENT 
+Google_NP ScholarCrossref_NP 17._CD J._NP M._NP Seiner_NP and_CC T._NP D._NP Norum_NP ,_, “_JJ Aerodynamic_JJ aspects_NNS of_IN shock_NN containing_VVG jet_NN plumes_NNS ,_, ”_NN in_IN Proceedings_NNS of_IN the_DT 6th_JJ Aeroacoustics_NP Conference_NP ,_, Hartford_NP ,_, CT_NP (_( June_NP 4–6_NP ,_, 1980_CD )_) ,_, AIAA_NP Paper_NP No._NN 80-43600_CD ._SENT 
+Google_NP ScholarCrossref_NP 18._CD T._NP D._NP Norum_NP and_CC J._NP M._NP Seiner_NP ,_, “_NP Location_NP and_CC propagation_NN of_IN shock_NN associated_VVN noise_NN from_IN supersonic_JJ jets_NNS ,_, ”_NN in_IN Proceedings_NNS of_IN the_DT 6th_JJ Aeroacoustics_NP Conference_NP ,_, Hartford_NP ,_, CT_NP (_( June_NP 4–6_NP ,_, 1980_CD )_) ,_, AIAA_NP Paper_NP No._NN 80-43599_CD ._SENT 
+Google_NP ScholarCrossref_NP 19._CD T._NP D._NP Norum_NP and_CC J._NP M._NP Seiner_NP ,_, “_JJ Measurements_NNS of_IN mean_JJ static_JJ pressure_NN and_CC far-field_NN acoustics_NNS of_IN shock-containing_VVG supersonic_JJ jets_NNS ,_, ”_NP Report_NP No._NN NASA/TM-84521_JJ 19820025274_CD ,_, NASA_NP ,_, Washington_NP ,_, DC_NP (_( 1982_CD )_) ._SENT 
+Google_NP Scholar_NN 20._CD T._NP D._NP Norum_NP and_CC J._NP M._NP Seiner_NP ,_, “_NP Broadband_NP shock-noise_NP from_IN Supersonic_JJ Jets_NNS ,_, ”_NP AIAA_NP J._NP 20(1_NN )_) ,_, 68–73_NP (_( 1982_CD )_) ._SENT 
+https_NNS :_: //doi_NP ._SENT 
+org/10.2514/3.51048_NP ,_, Google_NP ScholarCrossref_NP 21._CD J._NP M._NP Seiner_NP and_CC J._NP C._NP Yu_NP ,_, “_JJ Acoustic_JJ near-field_NN properties_NNS associated_VVN with_IN broadband_NP shock-noise_NP ,_, ”_NP AIAA_NP J._NP 22(9_NP )_) ,_, 1207–1215_NP (_( 1984_CD )_) ._SENT 
+https_NNS :_: //doi_NP ._SENT 
+org/10.2514/3.8762_NP ,_, Google_NP ScholarCrossref_NP 22._CD S._NP A._NP E._NP Miller_NP ,_, “_NP The_DT prediction_NN of_IN broadband_NP shock-associated_JJ noise_NN using_VVG Reynolds-averaged_JJ Navier-Stokes_NNS solutions_NNS ,_, ”_NP Ph._NP D._NP thesis_NN ,_, The_DT Pennsylvania_NP State_NP University_NP ,_, College_NP Station_NP ,_, PA_NN ,_, 2009._CD Google_NN Scholar_NN 23._CD M._NP Kandula_NP ,_, “_NN On_IN the_DT scaling_VVG law_NN for_IN broadband_NP shock-noise_NP intensity_NN in_IN supersonic_JJ jets_NNS ,_, ”_NN in_IN Proceedings_NNS of_IN the_DT 15th_JJ AIAA/CEAS_NP Aeroacoustics_NP Conference_NP ,_, Miami_NP ,_, FL_NP (_( May_NP 11–13_NP ,_, 2009_CD )_) ,_, AIAA_NP Paper_NP No._NN 09-3318_CD ._SENT 
+Google_NP ScholarCrossref_NP 24._CD K._NP Viswanathan_NP ,_, M._NP B._NP Alkislar_NP ,_, and_CC M._NP J._NP Czech_NP ,_, “_JJ Characteristics_NNS of_IN the_DT shock-noise_NN Component_NN of_IN Jet_NP Noise_NN ,_, ”_NP AIAA_NP J._NP 48(1_NN )_) ,_, 25–46_NP (_( 2010_CD )_) ._SENT 
+https_NNS :_: //doi_NP ._SENT 
+org/10.2514/1.38521_JJ ,_, Google_JJ ScholarCrossref_NP 25._CD G._NP G._NP Podboy_NP ,_, M._NP P._NP Wernet_NP ,_, M._NP M._NP Clem_NP ,_, and_CC A._NP F._NP Fagan_NP ,_, “_JJ Noise_NN source_NN location_NN and_CC flow_NN field_NN measurements_NNS on_IN supersonic_JJ jets_NNS and_CC implications_NNS regarding_VVG broadband_NP shock-noise_NP ,_, ”_NP Report_NP No._NN NASA-TM-2017-219544_NN ,_, NASA_NP ,_, Washington_NP ,_, DC_NP (_( 2017_CD )_) ._SENT 
+Google_NP Scholar_NN 26._CD D._NP J._NP Tan_NP ,_, D._NP Honnery_NP ,_, A._NP Kalyan_NP ,_, V._NP Gryazev_NP ,_, S._NP A._NP Karabasov_NP ,_, and_CC D._NP Edgington-Mitchell_NP ,_, “_JJ Equivalent_JJ shock-associated_JJ noise_NN source_NN reconstruction_NN of_IN screeching_VVG underexpanded_JJ unheated_JJ round_NN jets_NNS ,_, ”_NP AIAA_NP J._NP 57(3_NP )_) ,_, 1200–1214_NP (_( 2019_CD )_) ._SENT 
+https_NNS :_: //doi_NP ._SENT 
+org/10.2514/1_JJ ._SENT 
+J057400_NP ,_, Google_NP ScholarCrossref_NP 27._CD S._NP A._NP E._NP Miller_NP ,_, “_JJ Noise_NN from_IN isotropic_JJ turbulence_NN ,_, ”_NP AIAA_NP J._NP 55(3_NP )_) ,_, 755–773_NP (_( 2017_CD )_) ._SENT 
+https_NNS :_: //doi_NP ._SENT 
+org/10.2514/1_JJ ._SENT 
+J055114_NP ,_, Google_NP ScholarCrossref_NP 28._CD N._NP Wiener_NP ,_, Time_NP Series_NP (_( MIT_NP Press_NP ,_, Cambridge_NP ,_, MA_NN ,_, 1964_CD )_) ._SENT 
+Google_NP Scholar_NN 29._CD C._NP K._NP W._NP Tam_NP and_CC L._NP Auriault_NP ,_, “_NP Mean_NP flow_NN refraction_NN effects_NNS on_IN sound_NN radiated_VVN from_IN localized_JJ sources_NNS in_IN a_DT jet_NN ,_, ”_NP J._NP Fluid_JJ Mech_NP ._SENT 
+370_CD ,_, 149–174_NP (_( 1998_CD )_) ._SENT 
+https_NNS :_: //doi_NP ._SENT 
+org/10.1017/S0022112098001852_NP ,_, Google_NP ScholarCrossref_NP 30._CD S._NP A._NP E._NP Miller_NP and_CC P._NP J._NP Morris_NP ,_, “_NP The_DT prediction_NN of_IN broadband_NP shock-associated_JJ noise_NN including_VVG propagation_NN effects_NNS ,_, ”_NP Int_NP ._SENT 
+J._NP Aeroacoust_NP ._SENT 
+11(7–8_NP )_) ,_, 755–781_JJ (_( 2012_CD )_) ._SENT 
+https_NNS :_: //doi_NP ._SENT 
+org/10.1260/1475-472X.11.7-8.755_NP ,_, Google_NP ScholarCrossref_NP 31._CD C._NP Henry_NP ,_, C._NP Bailly_NP ,_, and_CC G._NP Bodard_NP ,_, “_NP Statistical_NP modeling_NN of_IN BBSAN_JJ including_VVG refraction_NN effects_NNS ,_, ”_NN in_IN Proceedings_NNS of_IN the_DT 18th_JJ AIAA/CEAS_NP Aeroacoustics_NP Conference_NP ,_, Colorado_NP Springs_NP ,_, CO_NP (_( June_NP 4–6_NP ,_, 2012_CD )_) ,_, AIAA_NP Paper_NP No._NN 2012-2163_CD ._SENT 
+Google_NP ScholarCrossref_NP 32._CD H._NP E._NP Bass_NP ,_, L._NP C._NP Sutherland_NP ,_, A._NP J._NP Zuckerwar_NP ,_, D._NP T._NP Blackstock_NP ,_, and_CC D._NP M._NP Hester_NP ,_, “_JJ Atmospheric_JJ absorption_NN of_IN sound_JJ :_: Further_JJR developments_NNS ,_, ”_NP J._NP Acoust_NP ._SENT 
+Soc_NP ._SENT 
+Am_NP ._SENT 
+97(1_NN )_) ,_, 680–683_NP (_( 1995_CD )_) ._SENT 
+https_NNS :_: //doi_NP ._SENT 
+org/10.1121/1.412989_NP ,_, Google_NP ScholarScitation_NP ,_, ISI_NP 33._CD C._NP K._NP W._NP Tam_NP and_CC L._NP Auriault_NP ,_, “_NP Jet_NP mixing_VVG noise_NN from_IN fine-scale_JJ turbulence_NN ,_, ”_NP AIAA_NP J._NP 37(2_NP )_) ,_, 145–153_NP (_( 1999_CD )_) ._SENT 
+https_NNS :_: //doi_NP ._SENT 
+org/10.2514/2.691_JJ ,_, Google_JJ ScholarCrossref_NP 34._CD H._NP S._NP Ribner_NP ,_, “_JJ Theory_NN of_IN two-point_NN correlations_NNS of_IN jet_NN noise_NN ,_, ”_NP Report_NP No._NN NASA_NP TN_NP D-8330_NP ,_, NASA_NP ,_, Washington_NP ,_, DC_NP (_( 1976_CD )_) ._SENT 
+Google_NP Scholar_NN 35._CD M._NP J._NP Lighthill_NP ,_, “_NN On_IN sound_NN generated_VVD aerodynamically_RB I._NP General_NP theory_NN ,_, ”_NP Proc_NP ._SENT 
+R._NP Soc_NP ._SENT 
+A_DT 211(1107_JJ )_) ,_, 564–587_JJ (_( 1952_CD )_) ._SENT 
+https_NNS :_: //doi_NP ._SENT 
+org/10.1098/rspa.1952.0060_NP ,_, Google_NP ScholarCrossref_NP 36._CD F._NP R._NP Menter_NP ,_, “_JJ Two-equation_NN eddy-viscosity_NN turbulence_NN models_NNS for_IN engineering_NN applications_NNS ,_, ”_NP AIAA_NP J._NP 32(8_NP )_) ,_, 1598–1605_NP (_( 1994_CD )_) ._SENT 
+https_NNS :_: //doi_NP ._SENT 
+org/10.2514/3.12149_NP ,_, Google_NP ScholarCrossref_NP 37._CD R._NP T._NP Biedron_NP ,_, J._NP -R_NP ._SENT 
+Carlson_NP ,_, J._NP M._NP Derlaga_NP ,_, P._NP A._NP Gnoffo_NP ,_, D._NP P._NP Hammond_NP ,_, W._NP T._NP Jones_NP ,_, B._NP Kleb_NP ,_, E._NP M._NP Lee-Rausch_NP ,_, E._NP J._NP Nielsen_NP ,_, M._NP A._NP Park_NP ,_, C._NP L._NP Rumsey_NP ,_, J._NP L._NP Thomas_NP ,_, K._NP B._NP Thompson_NP ,_, and_CC W._NP A._NP Wood_NP ,_, “_JJ FUN3D_NN Manual_NP 13.4_CD ,_, ”_NP Report_NP No._NN NASA/TM-2018-220096_NN ,_, NASA_NP ,_, Washington_NP ,_, DC_NP (_( 2018_CD )_) ._SENT 
+Google_NP Scholar_NN 38._CD K._NP S._NP Abdol-Hamid_NP ,_, J._NP -R_NP ._SENT 
+Carlson_NP ,_, and_CC C._NP L._NP Rumsey_NP ,_, “_NP Verification_NP and_CC validation_NN of_IN the_DT k-kL_NP turbulence_NN model_NN in_IN FUN3D_NN and_CC CFL3D_NN codes_NNS ,_, ”_NN in_IN Proceedings_NNS of_IN the_DT 46th_NP AIAA_NP Fluid_JJ Dynamics_NPS Conference_NP ,_, Washington_NP ,_, DC_NP (_( June_NP 13–17_JJ ,_, 2016_CD )_) ,_, AIAA_NP Paper_NP No._NN 2016-3941_CD ._SENT 
+Google_NP ScholarCrossref_NP 39._CD A._NP N._NP Kolmogorov_NP ,_, “_NP The_DT local_JJ structure_NN of_IN turbulence_NN in_IN incompressible_JJ viscous_JJ fluid_NN for_IN very_RB large_JJ reynolds_NNS numbers_NNS ,_, ”_NP Proc_NP ._SENT 
+R._NP Soc_NP ._SENT 
+A_DT 434(1890_NN )_) ,_, 9–13_NP (_( 1991_CD )_) ._SENT 
+https_NNS :_: //doi_NP ._SENT 
+org/10.1098/rspa.1991.0075_NP ,_, Google_NP ScholarCrossref_NP 40._CD S._NP B._NP Pope_NP ,_, Turbulent_JJ Flows_NNS (_( Cambridge_NP University_NP Press_NP ,_, Cambridge_NP ,_, UK_NP ,_, 2000_CD )_) ._SENT 
+Google_NP ScholarCrossref_NP 41._CD T._NP Ishihara_NP ,_, K._NP Yoshida_NP ,_, and_CC Y._NP Kaneda_NP ,_, “_JJ Anisotropic_JJ velocity_NN correlation_NN spectrum_NN at_IN small_JJ scales_NNS in_IN a_DT homogeneous_JJ turbulent_JJ shear_NN flow_NN ,_, ”_NP Phys_NPS ._SENT 
+Rev._NP Lett_NP ._SENT 
+88(15_NP )_) ,_, 154501_CD (_( 2002_CD )_) ._SENT 
+https_NNS :_: //doi_NP ._SENT 
+org/10.1103/PhysRevLett.88.154501_JJ ,_, Google_JJ ScholarCrossref_NP 42._CD C._NP K._NP W._NP Tam_NP ,_, J._NP M._NP Seiner_NP ,_, and_CC J._NP C._NP Yu_NP ,_, “_NP Proposed_VVD relationship_NN between_IN broadband_NN shock_NN associated_VVN noise_NN and_CC screech_NN tones_NNS ,_, ”_NP J._NP Sound_NP Vib_NP ._SENT 
+110(2_NP )_) ,_, 309–321_JJ (_( 1986_CD )_) ._SENT 
+https_NNS :_: //doi_NP ._SENT 
+org/10.1016/S0022-460X(86)80212-7_JJ ,_, Google_JJ ScholarCrossref_NP 43._CD A._NP Kalyan_NP and_CC S._NP A._NP Karabasov_NP ,_, “_NP Broadband_NP shock_NN associated_VVN noise_NN predictions_NNS in_IN axisymmetric_JJ and_CC asymmetric_JJ jets_NNS using_VVG an_DT improved_VVN turbulence_NN scale_NN model_NN ,_, ”_NP J._NP Sound_NP Vib_NP ._SENT 
+394_CD ,_, 392–417_JJ (_( 2017_CD )_) ._SENT 
+https_NNS :_: //doi_NP ._SENT 
+org/10.1016/j_NP ._SENT 
+jsv.2017.01.027_JJ ,_, Google_JJ ScholarCrossref_NP 44._CD D._NP Lovely_NP and_CC R._NP Haimes_NP ,_, “_NP Shock_NP detection_NN from_IN computational_JJ fluid_JJ dynamics_NNS results_NNS ,_, ”_NN in_IN Proceedings_NNS of_IN the_DT 14th_JJ Computational_JJ Fluid_NN Dynamics_NP Conference_NP ,_, Norfolk_NP ,_, VA_NP (_( November_NP 1–5_NP ,_, 1999_CD )_) ,_, AIAA_NP Paper_NP No._NN 99-3285_CD ._SENT 
+Google_NP ScholarCrossref_NP 

@@ -1,0 +1,416 @@
+﻿_JJ <title> JANUS-Based_JJ Services_NPS for_IN Operationally_RB Relevant_JJ Underwater_JJ Applications_NP </title> <author> Roberto_NP Petroccia_NP ,_, João_NP Alves_NP ,_, Giovanni_NP Zappa_NP </author> <Affiliation> NATO_NP STO_NP Centre_NP for_IN Maritime_NP Research_NP and_CC Experimentation_NN ,_, La_NP Spezia_NP ,_, Italy_NP </Affiliation> <year> 2017_CD </year> <Jounral> IEEE_NN journal_NN of_IN oceanic_JJ engineering_NN </Journal> <Publishing_house> Institute_NP of_IN Electrical_NP and_CC Electronics_NP Engineers_NPS </Publishing_house> <Text_Collector> Zhang_NP San，HEU_NP </Text_Collector> <DOI> 10.1109/JOE.2017.2722018_NP </DOI> <URL> https://ieeexplore.ieee.org/document/7984786_NP </URL> JANUS-Based_JJ Services_NPS for_IN Operationally_RB Relevant_JJ Underwater_JJ Applications_NP Roberto_NP Petroccia_NP ,_, João_NP Alves_NP ,_, Giovanni_NP Zappa_NP NATO_NP STO_NP Centre_NP for_IN Maritime_NP Research_NP and_CC Experimentation_NN ,_, La_NP Spezia_NP ,_, Italy_NP <Section> Abstract_JJ </Section> This_DT paper_NN presents_VVZ the_DT design_NN ,_, test_NN ,_, and_CC experimentation_NN at_IN sea_NN of_IN four_CD JANUS-based_JJ services_NNS for_IN operationally_RB relevant_JJ underwater_JJ applications_NNS :_: 1_LS )_) first_JJ contact_NN and_CC language_NN switching_VVG ;_: 2_LS )_) transmission_NN of_IN automatic_JJ identification_NN system_NN data_NNS to_TO submerged_JJ assets_NNS ;_: 3_LS )_) transmission_NN of_IN meteorological_JJ and_CC oceanographic_JJ data_NNS to_TO underwater_JJ vessels_NNS ;_: and_CC 4_LS )_) support_NN in_IN distressed_JJ submarine_JJ operations_NNS ._SENT 
+On_IN March_NP 24_CD ,_, 2017_CD ,_, JANUS_NP was_VBD promulgated_VVN as_IN a_DT NATO_NP standard_NN (_( STANAG_NP 4748_CD )_) [_SYM 1_CD ]_SYM ,_, marking_VVG the_DT first_JJ time_NN that_IN a_DT digital_JJ acoustic_JJ communications_NNS protocol_NN is_VBZ adopted_VVN at_IN international_JJ level_NN ._SENT 
+JANUS_NP is_VBZ an_DT open_JJ ,_, simple_JJ ,_, and_CC robust_JJ modulation_NN and_CC coding_VVG scheme_NN developed_VVN by_IN the_DT NATO_NP STO_NP Centre_NP for_IN Maritime_NP Research_NP and_CC Experimentation_NN ,_, in_IN collaboration_NN with_IN academia_NN and_CC industry_NN ._SENT 
+The_DT implementation_NN of_IN the_DT services_NNS presented_VVN in_IN this_DT paper_NN is_VBZ based_VVN on_IN a_DT standardized_JJ protocol_NN and_CC offers_VVZ the_DT potential_NN to_TO widely_RB increase_VV the_DT safety_NN and_CC efficiency_NN in_IN maritime_JJ operations_NNS ._SENT 
+The_DT objective_NN of_IN this_DT paper_NN is_VBZ to_TO demonstrate_VV that_IN JANUS_NP can_MD be_VB used_VVN in_IN support_NN of_IN maritime_JJ operations_NNS ,_, potentially_RB increasing_VVG their_PP$ efficiency_NN ._SENT 
+Such_JJ demonstration_NN is_VBZ achieved_VVN through_IN experimentation_NN at_IN sea_NN of_IN four_CD operationally_RB relevant_JJ JANUS-based_JJ services_NNS ._SENT 
+The_DT four_CD JANUS-based_JJ services_NNS discussed_VVN were_VBD validated_VVN during_IN two_CD different_JJ sea_NN trials_NNS :_: REP15-Atlantic_JJ and_CC REP16-Atlantic_JJ ._SENT 
+During_IN those_DT trials_NNS ,_, various_JJ heterogeneous_JJ configurations_NNS were_VBD considered_VVN ,_, including_VVG the_DT use_NN of_IN a_DT state-of-the-art_JJ diesel-electric_JJ submarine_NN ,_, guaranteeing_VVG maximum_JJ relevance_NN for_IN validation_NN and_CC evaluation_NN of_IN the_DT designed_VVN solutions_NNS ._SENT 
+The_DT collected_VVN results_NNS demonstrate_VVP that_IN JANUS_NP is_VBZ a_DT viable_JJ solution_NN for_IN operationally_RB relevant_JJ underwater_JJ applications_NNS ,_, thus_RB validating_VVG the_DT objective_NN of_IN this_DT paper_NN ._SENT 
+Additionally_RB ,_, encouraging_JJ feedback_NN has_VHZ been_VBN provided_VVN by_IN the_DT operational_JJ community_NN participating_VVG to_TO the_DT trials_NNS ._SENT 
+The_DT capabilities_NNS demonstrated_VVD served_VVN as_IN an_DT initial_JJ proof_NN of_IN concept_NN and_CC will_MD certainly_RB lead_VV to_TO newer_JJR requirements_NNS and_CC eventually_RB even_RB more_JJR functionalities_NNS ._SENT 
+<Section> 1._CD Introduction_NN </Section> The_DT interest_NN in_IN underwater_JJ acoustic_JJ networks_NNS (_( UANs_NP )_) has_VHZ largely_RB increased_VVN in_IN the_DT past_JJ decade_NN as_IN an_DT enabling_VVG technology_NN to_TO support_VV a_DT wide_JJ range_NN of_IN emerging_VVG applications_NNS ._SENT 
+These_DT include_VVP monitoring_VVG of_IN the_DT environment_NN and_CC critical_JJ infrastructures_NNS ,_, coastline_NN protection_NN ,_, and_CC prediction_NN of_IN underwater_JJ seismic_JJ and_CC volcanic_JJ events_NNS [_SYM 2_CD ]_SYM ,_, [_SYM 3_CD ]_SYM ._SENT 
+To_TO support_VV these_DT applications_NNS ,_, novel_NN ,_, more_RBR reliable_JJ and_CC performing_VVG devices_NNS have_VHP been_VBN developed_VVN in_IN the_DT recent_JJ past_NN ,_, including_VVG underwater_JJ acoustic_JJ modems_NNS ,_, sensors_NNS ,_, and_CC unmanned_JJ maritime_JJ vehicles_NNS ._SENT 
+However_RB ,_, there_EX has_VHZ been_VBN a_DT main_JJ bottleneck_NN imposing_VVG severe_JJ limitations_NNS on_IN the_DT effectiveness_NN of_IN such_JJ new_JJ developments_NNS in_IN operationally_RB relevant_JJ scenarios_NNS :_: The_DT lack_NN of_IN standards_NNS and_CC common_JJ interfaces_NNS for_IN underwater_JJ digital_JJ communications_NNS and_CC information_NN sharing_NN among_IN heterogeneous_JJ network_NN nodes_NNS ._SENT 
+Given_VVN the_DT impairments_NNS of_IN optical_JJ and_CC radio_NN propagation_NN in_IN water_NN ,_, acoustic_JJ communication_NN remains_VVZ the_DT most_RBS efficient_JJ way_NN to_TO communicate_VV underwater_JJ over_IN distances_NNS in_IN the_DT order_NN of_IN hundreds_NNS of_IN meters_NNS and_CC beyond_IN ._SENT 
+Among_IN the_DT several_JJ manufacturers_NNS of_IN underwater_JJ digital_JJ modems_NNS ,_, none_NN is_VBZ currently_RB able_JJ to_TO communicate_VV with_IN systems_NNS produced_VVN by_IN different_JJ manufacturers_NNS ._SENT 
+This_DT imposes_VVZ severe_JJ limitations_NNS on_IN how_WRB cooperative_JJ networks_NNS of_IN underwater_JJ assets_NNS can_MD be_VB effectively_RB deployed_VVN ._SENT 
+To_TO break_VV this_DT interoperability_NN barrier_NN ,_, the_DT NATO_NP STO_NP Centre_NP for_IN Maritime_NP Research_NP and_CC Experimentation_NN (_( CMRE_NN )_) has_VHZ developed_VVN ,_, in_IN collaboration_NN with_IN academia_NN and_CC industry_NN ,_, a_DT simple_JJ and_CC robust_JJ signaling_VVG mechanism_NN to_TO be_VB used_VVN as_IN the_DT first_JJ standard_NN for_IN digital_JJ underwater_JJ communications_NNS ._SENT 
+The_DT proposed_VVN protocol_NN ,_, named_VVN JANUS_NP (_( after_IN the_DT Roman_NP God_NP of_IN transitions_NNS ,_, gateways_NNS ,_, and_CC portals_NNS )_) ,_, has_VHZ been_VBN iterated_VVN over_IN close_NN to_TO ten_CD years_NNS and_CC has_VHZ finally_RB been_VBN promulgated_VVN as_IN a_DT NATO_NP standard_NN (_( STANAG_NP 4748_CD )_) on_IN March_NP 24_CD ,_, 2017._CD Its_PP$ technical_JJ implementation_NN ,_, experimentation_NN ,_, and_CC validation_NN are_VBP documented_VVN in_RB [_SYM 4_CD ]_SYM –[12_NP ]_SYM ._SENT 
+JANUS_NP is_VBZ the_DT first_RB internationally_RB adopted_VVN digital_JJ underwater_JJ communications_NNS standard_JJ ._SENT 
+It_PP is_VBZ ,_, in_IN a_DT nutshell_NN ,_, a_DT modulation_NN and_CC coding_VVG scheme_NN (_( MCS_NP )_) plus_CC some_DT additional_JJ mechanisms_NNS to_TO render_VV it_PP practical_JJ in_IN real_JJ use_NN ._SENT 
+JANUS_NP is_VBZ not_RB intended_VVN to_TO be_VB limited_VVN to_TO solely_RB NATO_NP military_JJ use_NN ,_, but_CC also_RB for_IN civilian_JJ and_CC international_JJ adoption_NN ._SENT 
+To_TO promote_VV the_DT participation_NN of_IN industry_NN and_CC to_TO make_VV the_DT standard_JJ usable_JJ and_CC widely_RB accepted_VVN ,_, JANUS_NP has_VHZ been_VBN designed_VVN to_TO minimize_VV the_DT changes_NNS required_VVN to_TO bring_VV existing_VVG underwater_JJ communications_NNS equipment_NN into_IN compliance_NN ._SENT 
+It_PP is_VBZ computationally_RB simple_JJ and_CC does_VVZ not_RB require_VV power_NN control_NN nor_CC flat_JJ frequency_NN response_NN in_IN the_DT transducers_NNS ._SENT 
+During_IN the_DT final_JJ stages_NNS of_IN the_DT promulgation_NN process_NN ,_, NATO_NP sponsored_VVD an_DT Industry_NP Advisory_NP Group_NP (_( NIAG_NP )_) study_NN on_IN JANUS_NP (_( NIAG_NP SG190_NP )_) with_IN the_DT objective_NN of_IN gathering_VVG insight_NN from_IN industrial_JJ players_NNS on_IN how_WRB to_TO continue_VV the_DT development_NN path_NN of_IN JANUS_NP ._SENT 
+Among_IN the_DT topics_NNS addressed_VVN by_IN the_DT group_NN ,_, there_EX were_VBD :_: additional_JJ frequency_NN bands_NNS ;_: new_JJ application_NN classes_NNS ;_: protocol_NN extensions_NNS ;_: how_WRB to_TO define_VV JANUS_NP compliance_NN ._SENT 
+The_DT sponsored_VVN study_NN has_VHZ highlighted_VVN how_WRB the_DT use_NN of_IN standardized_JJ methods_NNS may_MD open_VV the_DT way_NN to_TO foster_VV underwater_JJ node_NN interoperability_NN ._SENT 
+This_DT would_MD catalyze_VV the_DT development_NN of_IN a_DT wide_JJ range_NN of_IN underwater_JJ applications_NNS of_IN operational_JJ relevance_NN ,_, including_VVG an_DT underwater_JJ digital_JJ emergency_NN channel_NN (_( that_WDT can_MD be_VB seen_VVN as_IN an_DT underwater_JJ version_NN of_IN the_DT “VHF_NP Channel_NP 16”_NP )_) ,_, underwater_JJ automatic_JJ identification_NN system_NN (_( AIS_NNS )_) ,_, node_NN discovery_NN ,_, and_CC negotiation_NN ._SENT 
+Until_IN today_NN ,_, however_RB ,_, the_DT use_NN of_IN JANUS_NP in_IN operationally_RB relevant_JJ application_NN scenarios_NNS has_VHZ been_VBN limited_VVN ._SENT 
+First_JJ attempts_NNS at_IN investigating_VVG and_CC testing_VVG the_DT use_NN of_IN JANUS_NP to_TO implement_VV a_DT “bilingual”_JJ underwater_JJ acoustic_JJ modem_NN were_VBD presented_VVN in_RB [_SYM 8_CD ]_SYM and_CC [_SYM 9_CD ]_SYM ._SENT 
+Petroccia_NP et_NP al_NP ._SENT 
+[_SYM 9_CD ]_SYM also_RB explored_VVN various_JJ message_NN formats_NNS to_TO transmit_VV AIS_NNS data_NNS underwater_JJ ._SENT 
+In_RB [_SYM 10_CD ]_SYM ,_, the_DT coexistence_NN of_IN JANUS_NP and_CC analog_JJ underwater_JJ telephone_NN (_( UT_NP )_) communication_NN systems_NNS was_VBD studied_VVN ._SENT 
+In_RB [_SYM 11_CD ]_SYM ,_, the_DT performance_NN of_IN JANUS_NP was_VBD investigated_VVN ,_, while_IN in_RB [_SYM 12_CD ]_SYM the_DT definition_NN of_IN various_JJ operationally_RB relevant_JJ services_NNS was_VBD presented_VVN ._SENT 
+The_DT main_JJ objective_NN of_IN the_DT field_NN work_NN behind_IN this_DT paper_NN is_VBZ to_TO promote_VV the_DT use_NN of_IN JANUS_NP among_IN the_DT operational_JJ community_NN by_IN demonstrating_VVG a_DT new_JJ range_NN of_IN capabilities_NNS that_WDT may_MD potentially_RB increase_VV the_DT efficiency_NN and_CC safety_NN of_IN maritime_JJ operations_NNS ._SENT 
+The_DT four_CD operational_JJ use_NN cases_NNS ,_, or_CC application_NN scenarios_NNS ,_, originally_RB introduced_VVN in_RB [_SYM 12_CD ]_SYM have_VHP been_VBN implemented_VVN ,_, tested_VVN ,_, and_CC validated_VVD at_IN sea_NN to_TO demonstrate_VV the_DT effective_JJ use_NN of_IN JANUS_NP ._SENT 
+These_DT four_CD JANUS-based_JJ services_NNS consist_VVP of_IN the_DT following_NN :_: first_JJ contact_NN and_CC language_NN switching_NN ;_: underwater_JJ AIS_NNS ;_: underwater_JJ meteorology_NN and_CC oceanography_NN (_( METOC_NP )_) ;_: support_VV in_IN distressed_JJ submarine_NN (_( DISSUB_NP )_) operations_NNS ._SENT 
+Regarding_VVG the_DT first_JJ contact_NN and_CC language_NN switching_VVG application_NN ,_, the_DT work_NN presented_VVN in_RB [_SYM 8_CD ]_SYM used_VVN the_DT JANUS_NP specification_NN transposed_VVD into_IN a_DT higher_JJR carrier_NN frequency_NN and_CC bandwidth_NN with_IN respect_NN to_TO that_DT specified_VVN by_IN the_DT standard_NN [_SYM 1_CD ]_SYM ._SENT 
+This_DT naturally_RB resulted_VVN in_IN a_DT higher_JJR transmission_NN rate_NN ._SENT 
+Additionally_RB ,_, no_DT structured_JJ procedures_NNS were_VBD defined_VVN for_IN the_DT discovery_NN of_IN the_DT network_NN nodes_NNS and_CC their_PP$ communication_NN capabilities_NNS ._SENT 
+In_RB [_SYM 9_CD ]_SYM an_DT initial_JJ design_NN of_IN the_DT underwater_JJ AIS_NNS service_NN was_VBD presented_VVN and_CC different_JJ data_NNS formats_NNS for_IN the_DT transmission_NN of_IN AIS_NNS contacts_NNS were_VBD explored_VVN ._SENT 
+These_DT data_NNS formats_NNS were_VBD tested_VVN at_IN sea_NN in_IN scenarios_NNS where_WRB up_RB to_TO three_CD contacts_NNS were_VBD detected_VVN and_CC transmitted_VVN acoustically_RB ._SENT 
+This_DT paper_NN expands_VVZ these_DT previous_JJ works_NNS by_IN investigating_VVG the_DT use_NN of_IN JANUS_NP following_VVG the_DT standard_JJ frequency_NN and_CC bandwidth_NN definitions_NNS ._SENT 
+A_DT full_JJ implementation_NN of_IN the_DT discovery_NN procedure_NN was_VBD achieved_VVN and_CC an_DT improved_VVN data_NN format_NN for_IN the_DT AIS_NNS service_NN messaging_VVG was_VBD developed_VVN ._SENT 
+Additionally_RB ,_, a_DT new_JJ set_NN of_IN field_NN experiments_NNS was_VBD conducted_VVN to_TO evaluate_VV the_DT applicability_NN of_IN JANUS_NP for_IN delivering_VVG a_DT large_JJ AIS_NNS picture_NN (_( including_VVG several_JJ tens_NNS of_IN contacts_NNS )_) to_TO a_DT submarine_NN ._SENT 
+Furthermore_RB ,_, two_CD additional_JJ services_NNS relevant_JJ to_TO the_DT operational_JJ community_NN have_VHP also_RB been_VBN tested_VVN and_CC demonstrated_VVN in_IN field_NN :_: the_DT underwater_JJ METOC_NN and_CC the_DT support_NN in_IN DISSUB_NN operations_NNS ,_, with_IN the_DT latter_NN being_VBG validated_VVN during_IN dedicated_JJ tests_NNS involving_VVG Portugal_NP 's_POS NRP_NP Arpão_NP submarine_NN ._SENT 
+Positive_JJ results_NNS have_VHP been_VBN collected_VVN during_IN two_CD sea_NN trials_NNS conducted_VVN in_IN Portuguese_JJ waters_NNS in_IN cooperation_NN with_IN operational_JJ assets_NNS of_IN the_DT Portuguese_NP Navy_NP ._SENT 
+During_IN those_DT campaigns_NNS ,_, a_DT very_RB strong_JJ case_NN was_VBD made_VVN for_IN how_WRB JANUS_NP can_MD effectively_RB contribute_VV to_TO the_DT increase_NN of_IN safety_NN in_IN maritime_JJ operations_NNS ._SENT 
+We_PP believe_VVP that_IN this_DT work_NN ,_, with_IN the_DT presented_VVN services_NNS ,_, results_NNS ,_, and_CC data_NNS formats_NNS ,_, represents_VVZ a_DT promising_JJ starting_VVG point_NN to_TO foster_VV underwater_JJ interoperability_NN ._SENT 
+The_DT remainder_NN of_IN this_DT paper_NN is_VBZ organized_VVN as_RB follows_VVZ ._SENT 
+A_DT description_NN of_IN JANUS_NP is_VBZ presented_VVN in_IN Section_NP II_NP ._SENT 
+In_IN Section_NP III_NP ,_, we_PP describe_VVP the_DT implemented_VVN JANUS-based_JJ services_NNS and_CC the_DT collected_VVN results_NNS ._SENT 
+Finally_RB ,_, Section_NP IV_NP concludes_VVZ this_DT paper_NN ._SENT 
+<Section> 2._CD JANUS_NP </Section> In_IN this_DT section_NN ,_, we_PP briefly_RB describe_VVP the_DT main_JJ features_NNS and_CC characteristics_NNS of_IN JANUS_NP (_( readers_NNS familiar_JJ with_IN the_DT JANUS_NP specification_NN may_MD choose_VV to_TO skip_VV this_DT section_NN )_) ._SENT 
+The_DT full_JJ technical_JJ specification_NN can_MD be_VB found_VVN in_RB [_SYM 1_CD ]_SYM ._SENT 
+JANUS_NP is_VBZ a_DT simple_JJ robust_JJ signaling_VVG method_NN for_IN digital_JJ underwater_JJ communications_NNS that_WDT uses_VVZ frequency-hopping_VVG binary_JJ frequency-shift_NN keying_VVG to_TO transmit_VV digital_JJ data_NNS as_IN a_DT sequence_NN of_IN short_JJ duration_NN tones_NNS ._SENT 
+It_PP was_VBD developed_VVN at_IN CMRE_NN with_IN the_DT collaboration_NN of_IN academia_NN ,_, industry_NN ,_, and_CC government_NN ._SENT 
+The_DT intention_NN is_VBZ for_IN JANUS_NP to_TO become_VV widely_RB adopted_VVN as_IN an_DT enabler_NN of_IN interoperability_NN between_IN underwater_JJ NATO_NP and_CC non-NATO_NN ,_, military_JJ ,_, and_CC civilian_JJ maritime_JJ assets_NNS ._SENT 
+The_DT main_JJ design_NN driver_NN behind_IN JANUS_NP has_VHZ always_RB been_VBN a_DT simplicity_NN of_IN implementation_NN and_CC robustness_NN ._SENT 
+The_DT simplicity_NN in_IN the_DT implementation_NN is_VBZ the_DT key_NN to_TO enable_VV the_DT testing_NN and_CC adoption_NN of_IN JANUS_NP by_IN acoustic_JJ modem_NN manufacturers_NNS ._SENT 
+Not_RB requiring_VVG latest_JJS generation_NN digital_JJ signal_NN processors_NNS or_CC any_DT type_NN of_IN advanced_JJ hardware_NN ,_, modem_NN producers_NNS can_MD implement_VV and_CC deploy_VV JANUS_NP on_IN their_PP$ existing_JJ commercial_JJ products_NNS ._SENT 
+The_DT robustness_NN is_VBZ required_VVN to_TO cope_VV with_IN challenging_VVG underwater_JJ channels_NNS ._SENT 
+This_DT typically_RB comes_VVZ at_IN the_DT cost_NN of_IN reduced_VVN data_NNS throughput_NN ,_, something_NN that_WDT can_MD be_VB well_RB accommodated_VVN in_IN JANUS_NP ,_, since_IN it_PP can_MD easily_RB scale_VV to_TO higher_JJR center_NN frequencies_NNS and_CC larger_JJR bandwidths_NNS (_( as_RB described_VVN in_IN Section_NP II-A_NP )_) ._SENT 
+A._NP Common_NP Frequency_NN Band(s_NNS )_) Fig_VVP ._SENT 
+1_CD shows_NNS a_DT time–frequency_NN representation_NN of_IN a_DT generic_JJ JANUS_NP packet_NN ._SENT 
+The_DT JANUS_NP packet_NN may_MD optionally_RB be_VB preceded_VVN by_IN three_CD “wake-up”_JJ tones_NNS that_WDT are_VBP intended_VVN for_IN use_NN in_IN the_DT cases_NNS where_WRB a_DT modem_NN needs_VVZ to_TO “wake-up”_NN from_IN a_DT low_JJ power_NN “sleep_NN mode.”_NN The_DT tones_NNS are_VBP followed_VVN by_IN a_DT short_JJ time_NN to_TO activate_VV the_DT receiver_NN electronics_NNS ,_, which_WDT precedes_VVZ a_DT fixed_VVN sequence_NN of_IN 32_CD chips_NNS ._SENT 
+This_DT sequence_NN is_VBZ used_VVN as_IN a_DT detection_NN and_CC synchronization_NN preamble_NN ._SENT 
+Once_IN the_DT fixed_VVN preamble_NN phase_NN of_IN the_DT waveform_NN is_VBZ complete_JJ ,_, we_PP are_VBP into_IN the_DT message_NN section_NN ,_, which_WDT is_VBZ composed_VVN by_IN the_DT “baseline_NP JANUS_NP Packet”_NP followed_VVD by_IN an_DT optional_JJ “Cargo”_JJ section_NN ,_, as_RB described_VVN in_IN Section_NN II-B_NN ._SENT 
+The_DT JANUS_NP waveform_NN has_VHZ been_VBN designed_VVN to_TO be_VB scalable_JJ in_IN frequency_NN with_IN all_DT parameters_NNS being_VBG ratiometrically_RB calculated_VVN from_IN the_DT center_NN frequency_NN ._SENT 
+This_DT provides_VVZ flexibility_NN in_IN both_DT definition_NN and_CC implementation_NN details_NNS ._SENT 
+Increasing_VVG the_DT center_NN frequency_NN will_MD increase_VV the_DT bandwidth_NN and_CC provide_VV higher_JJR data_NN rates_NNS ._SENT 
+This_DT will_MD be_VB achieved_VVN at_IN the_DT price_NN of_IN shorter_JJR communication_NN range_NN (_( due_JJ to_TO frequency_NN dependent_JJ absorption_NN )_) and_CC lower_JJR link_NN reliability_NN (_( due_JJ to_TO smaller_JJR chip_NN time_NN )_) ._SENT 
+Fig_NN ._SENT 
+1.JANUS_NN signal_NN in_IN a_DT time–frequency_NN plot_NN ._SENT 
+For_IN the_DT initial_JJ JANUS_NP specification_NN ,_, a_DT center_NN frequency_NN of_IN 11_CD 520_CD Hz_NP was_VBD chosen_VVN ,_, resulting_VVG in_IN a_DT frequency_NN band_NN between_IN 9400_CD and_CC 13_CD 600_CD Hz_NP and_CC in_IN a_DT bit_NN rate_NN of_IN 80_CD b/s_NNS ._SENT 
+The_DT choice_NN of_IN the_DT initial_JJ frequency_NN band_NN for_IN JANUS_NP is_VBZ twofold_RB :_: 1_LS )_) The_DT 9–14-kHz_NP band_NN is_VBZ attractive_JJ for_IN a_DT range_NN of_IN typical_JJ communication_NN operational_JJ scenarios_NNS [_SYM 13_CD ]_SYM ;_: and_CC 2_LS )_) there_EX are_VBP many_JJ devices_NNS operating_VVG in_IN this_DT frequency_NN band_NN ,_, thus_RB opening_VVG the_DT door_NN for_IN the_DT use_NN of_IN “hardware_NN of_IN opportunity”_NP and_CC the_DT possibility_NN of_IN exploring_VVG the_DT use_NN of_IN JANUS_NP to_TO achieve_VV interoperability_NN among_IN several_JJ existing_JJ proprietary_JJ solutions_NNS ._SENT 
+B._NP Flexible_NP Packet_NN Definition_NN The_DT JANUS_NP specification_NN defines_VVZ a_DT flexible_JJ nested_VVN bit_NN allocation_NN scheme_NN under_IN which_WDT digital_JJ packets_NNS can_MD be_VB composed_VVN ._SENT 
+A_DT “baseline_NP JANUS_NP Packet”_NP (_( see_VV Fig_NN ._SENT 
+2_LS )_) consists_VVZ of_IN an_DT acoustic_JJ waveform_NN encoding_VVG 64_CD bits_NNS of_IN information_NN ._SENT 
+Besides_IN control_NN and_CC specification_NN bits_NNS ,_, the_DT “core”_NN of_IN the_DT packet_NN is_VBZ primarily_RB defined_VVN by_IN the_DT user_NN class_NN ID_NN ,_, application_NN type_NN ,_, and_CC application_NN data_NNS block_NN ._SENT 
+The_DT logic_NN behind_IN this_DT arrangement_NN is_VBZ that_IN for_IN each_DT of_IN the_DT 256_CD available_JJ user_NN class_NN IDs_NNS (_( generic_JJ applications_NNS and_CC nations_NNS )_) ,_, different_JJ application_NN types_NNS can_MD be_VB specified_VVN along_RP with_IN their_PP$ respective_JJ application_NN data_NNS blocks_NNS ._SENT 
+Depending_VVG on_IN the_DT application_NN type_NN ,_, up_RB to_TO 34_CD bits_NNS can_MD be_VB defined_VVN by_IN the_DT user_NN to_TO include_VV additional_JJ data_NNS ._SENT 
+Additionally_RB ,_, a_DT JANUS_NP baseline_NN packet_NN can_MD be_VB complemented_VVN by_IN a_DT “Cargo”_JJ section_NN of_IN arbitrary_JJ length_NN ._SENT 
+This_DT approach_NN provides_VVZ almost_RB unlimited_JJ flexibility_NN in_IN the_DT nature_NN and_CC extent_NN of_IN the_DT data_NNS to_TO be_VB sent_VVN ._SENT 
+Fig_NN ._SENT 
+2.Structure_NN of_IN a_DT JANUS_NP packet_NN ._SENT 
+C._NP Medium_NN Access_NP in_IN JANUS_NP There_EX are_VBP two_CD key_JJ built-in_JJ mechanisms_NNS in_IN JANUS_NP to_TO handle_VV the_DT medium_JJ access_NN :_: a_DT channel_NN reservation_NN feature_NN ,_, and_CC a_DT built-in_JJ medium_NN access_NN control_NN (_( MAC_NN )_) ._SENT 
+The_DT channel_NN reservation_NN feature_NN can_MD be_VB enabled_VVN by_IN setting_VVG appropriate_JJ bits_NNS in_IN the_DT baseline_JJ JANUS_NP packets_NNS ,_, i.e._FW ,_, scheduling_VVG bit_NN (_( Sch_NP )_) and_CC repetition_NN bit_NN (_( Rpt_NN )_) in_IN Fig_NN ._SENT 
+2._CD By_IN setting_VVG these_DT bits_NNS ,_, a_DT JANUS_NP node_NN can_MD request_VV “silence”_NN from_IN its_PP$ neighbors_NNS for_IN a_DT defined_VVN period_NN of_IN time_NN ._SENT 
+The_DT MAC_NN component_NN of_IN JANUS_NP was_VBD specifically_RB introduced_VVN to_TO minimize_VV the_DT risk_NN of_IN collisions_NNS between_IN JANUS_NP and_CC legacy_NN technologies_NNS operating_VVG in_IN the_DT same_JJ band_NN (_( such_JJ as_IN the_DT analogue_NN UT_NP )_) ._SENT 
+The_DT task_NN of_IN the_DT JANUS_NP MAC_NN is_VBZ to_TO measure_VV the_DT energy_NN in_IN band_NN while_IN keeping_VVG track_NN of_IN the_DT background_NN noise_NN level_NN ._SENT 
+In_IN case_NN other_JJ energy_NN sources_NNS are_VBP detected_VVN in_IN the_DT occupied_JJ band_NN ,_, precedence_NN is_VBZ offered_VVN to_TO these_DT sources_NNS ._SENT 
+This_DT is_VBZ mainly_RB to_TO avoid_VV interfering_VVG with_IN possible_JJ on-going_JJ safety-critical_JJ UT_NP communications_NNS ._SENT 
+An_DT analysis_NN of_IN the_DT impact_NN of_IN the_DT JANUS_NP MCS_NP (_( without_IN MAC_NN )_) on_IN UT_NP intelligibility_NN is_VBZ presented_VVN in_RB [_SYM 10_CD ]_SYM ._SENT 
+It_PP shows_VVZ that_IN a_DT good_JJ intelligibility_NN could_MD also_RB be_VB obtained_VVN when_WRB JANUS_NP and_CC UT_NP transmissions_NNS overlap_VVP ._SENT 
+This_DT opens_VVZ to_TO new_JJ possible_JJ ways_NNS to_TO use_VV both_DT JANUS_NP and_CC UT_NP in_IN support_NN to_TO maritime_JJ operations_NNS ._SENT 
+D._NP JANUS_NP Plug-Ins_NNS The_DT usage_NN of_IN JANUS_NP as_IN a_DT simple_JJ encoder/decoder_NN of_IN arbitrary_JJ payloads_NNS can_MD be_VB seen_VVN as_IN the_DT operation_NN of_IN an_DT acoustic_JJ modem_NN “talking”_NN the_DT JANUS_NP language_NN ._SENT 
+JANUS_NP ,_, however_RB ,_, was_VBD designed_VVN to_TO be_VB something_NN more_RBR ,_, aiming_VVG at_IN defining_VVG a_DT standard_NN for_IN underwater_JJ digital_JJ communication_NN that_WDT can_MD coexist_VV alongside_IN proprietary_JJ solutions_NNS ,_, providing_VVG the_DT means_NN for_IN interoperability_NN rather_RB than_IN trying_VVG to_TO impose_VV a_DT new_JJ method_NN that_WDT replaces_VVZ the_DT previous_JJ ones_NNS ._SENT 
+To_TO ensure_VV interoperability_NN in_IN heterogeneous_JJ UANs_NNS ,_, a_DT baseline_NN requirement_NN is_VBZ the_DT ability_NN to_TO correctly_RB read_VV and_CC write_VV the_DT content_NN of_IN JANUS_NP messages_NNS ._SENT 
+Therefore_RB ,_, the_DT format_NN of_IN the_DT information_NN carried_VVN within_IN each_DT JANUS_NP message_NN needs_VVZ to_TO be_VB specified_VVN as_RB well_RB ._SENT 
+To_TO support_VV this_DT capability_NN while_IN maintaining_VVG flexibility_NN and_CC modularity_NN ,_, the_DT JANUS_NP services_NNS have_VHP been_VBN developed_VVN using_VVG a_DT design_NN based_VVN on_IN plug-ins_NNS ._SENT 
+A_DT plug-in_NN is_VBZ a_DT software_NN component_NN that_WDT is_VBZ in_IN charge_NN of_IN properly_RB formatting_VVG the_DT JANUS_NP data_NN packet_NN before_IN the_DT waveform_NN is_VBZ transmitted_VVN and_CC correctly_RB extracts_VVZ its_PP$ information_NN after_IN it_PP is_VBZ received_VVN ._SENT 
+More_RBR specifically_RB ,_, each_DT plug-in_NN writes_VVZ and_CC reads_VVZ the_DT appropriate_JJ bit_NN sequence_NN to/from_NP the_DT application_NN data_NN block_NN and_CC cargo_NN section_NN ._SENT 
+Each_DT plug-in_NN uses_VVZ a_DT specific_JJ combination_NN of_IN the_DT “user_NP class_NN ID”_NN and_CC “application_NN type”_NN fields_NNS to_TO implement_VV the_DT respective_JJ data_NN field_NN translation_NN ._SENT 
+It_PP can_MD be_VB simply_RB loaded_VVN on_IN the_DT JANUS_NP system_NN without_IN the_DT need_NN to_TO change_VV or_CC recompile_VV the_DT main_JJ code_NN ._SENT 
+For_IN each_DT of_IN the_DT JANUS-based_JJ services_NNS described_VVN in_IN this_DT paper_NN ,_, a_DT specific_JJ plug-in_NN and_CC the_DT corresponding_JJ data_NN format_NN have_VHP been_VBN defined_VVN and_CC implemented_VVN ._SENT 
+<Section> 3._CD JANUS-Based_JJ Services_NPS </Section> In_IN the_DT recent_JJ past_NN ,_, CMRE_NP has_VHZ investigated_VVN the_DT use_NN of_IN JANUS_NP to_TO support_VV four_CD different_JJ services_NNS to_TO be_VB used_VVN in_IN maritime_JJ operations_NNS [_SYM 9_CD ]_SYM ,_, [_SYM 12_CD ]_SYM :_: first_JJ contact_NN and_CC language_NN switching_NN ;_: underwater_JJ AIS_NNS ;_: underwater_JJ METOC_NN ;_: support_NN in_IN DISSUB_NN operations_NNS ._SENT 
+The_DT main_JJ objective_NN has_VHZ always_RB been_VBN to_TO foster_VV the_DT usage_NN of_IN a_DT standard_JJ MCS_NP and_CC standardized_JJ procedures_NNS to_TO improve_VV water_NN space_NN management_NN ,_, to_TO transmit_VV vital_JJ information_NN to_TO increase_VV mission_NN safety_NN ,_, and_CC ,_, in_IN general_JJ ,_, augment_VV the_DT capabilities_NNS available_JJ to_TO the_DT operators_NNS at_IN sea_NN ._SENT 
+Information_NN such_JJ as_IN AIS_NNS and_CC METOC_NN is_VBZ usually_RB not_RB available_JJ unless_IN the_DT submerged_JJ assets_NNS navigate_VV at_IN periscope_NN depth_NN and_CC become_VV radio_NN capable_JJ ,_, which_WDT is_VBZ typically_RB not_RB a_DT desirable_JJ operational_JJ condition_NN ._SENT 
+This_DT limitation_NN can_MD be_VB overcome_VVN with_IN JANUS_NP ._SENT 
+The_DT transmission_NN of_IN acoustic_JJ messages_NNS can_MD be_VB performed_VVN from_IN a_DT buoy_VV ,_, or_CC other_JJ available_JJ assets_NNS [_SYM e.g._FW ,_, a_DT surface_NN ship_NN or_CC mobile_JJ autonomous_JJ surface_NN vehicles_NNS (_( ASV_NP )_) ]_SYM ,_, bridging_VVG the_DT radio_NN and_CC the_DT underwater_JJ environment_NN ,_, as_RB depicted_VVN in_IN Fig_NN ._SENT 
+3._CD For_IN the_DT information_NN coming_VVG from_IN the_DT submerged_JJ asset_NN ,_, the_DT inverse_JJ path_NN is_VBZ followed_VVN ._SENT 
+Once_IN the_DT JANUS_NP packet_NN is_VBZ decoded_VVN on_IN a_DT deployed_VVN gateway_NN buoy_VV or_CC surface_VV vehicle_NN ,_, it_PP can_MD then_RB be_VB relayed_VVN via_IN radio_NN to_TO reach_VV other_JJ platforms_NNS of_IN interest_NN ._SENT 
+Acoustic_JJ transmissions_NNS can_MD be_VB configured_VVN to_TO be_VB prescheduled_JJ ,_, periodic_JJ or_CC triggered_VVN ,_, depending_VVG on_IN the_DT mission_NN profile_NN of_IN the_DT submarine_NN ,_, to_TO maintain_VV its_PP$ covertness_NN ,_, when_WRB needed_VVN ._SENT 
+This_DT concept_NN is_VBZ not_RB limited_VVN to_TO submarines_NNS and_CC it_PP can_MD be_VB applied_VVN to_TO any_DT manned_VVD or_CC unmanned_JJ underwater_JJ asset_NN ._SENT 
+Fig_NN ._SENT 
+3.JANUS-based_JJ services_NNS ,_, delivered_VVN to_TO underwater_JJ assets_NNS (_( manned_VVD or_CC unmanned_JJ )_) ._SENT 
+It_PP is_VBZ important_JJ to_TO notice_VV that_IN ,_, in_IN technological_JJ terms_NNS ,_, there_EX has_VHZ been_VBN nothing_NN stopping_VVG the_DT development_NN of_IN these_DT services_NNS to_TO happen_VV in_IN the_DT last_JJ couple_NN of_IN decades_NNS ._SENT 
+However_RB ,_, being_VBG able_JJ to_TO offer_VV such_JJ capabilities_NNS based_VVN on_IN a_DT consensus_NN solution_NN that_WDT is_VBZ now_RB an_DT accepted_JJ international_JJ standard_NN is_VBZ a_DT potential_JJ game_NN changer_NN ._SENT 
+All_PDT the_DT considered_VVN services_NNS have_VHP been_VBN designed_VVN and_CC tested_VVN at_IN sea_NN during_IN the_DT REP15-Atlantic_JJ and_CC REP16-Atlantic_JJ campaigns_NNS ._SENT 
+During_IN REP15-Atlantic_NP ,_, the_DT “First_NP contact_NN and_CC language_NN switching”_NN and_CC the_DT first_JJ version_NN of_IN the_DT “Underwater_NN AIS”_NN have_VHP been_VBN tested_VVN and_CC validated_VVN ._SENT 
+In_IN 2016_CD ,_, an_DT enhanced_JJ version_NN of_IN the_DT “Underwater_NP AIS”_NP has_VHZ been_VBN developed_VVN for_IN the_DT REP16-Atlantic_JJ exercise_NN ,_, together_RB with_IN the_DT testing_NN and_CC validation_NN of_IN two_CD novel_NN services_NNS :_: “underwater_NP METOC”_NP and_CC “support_NP in_IN distress_NN submarine_NN operations.”_NN All_PDT the_DT services_NNS tested_VVN during_IN REP16-Atlantic_JJ have_VHP been_VBN developed_VVN and_CC implemented_VVN with_IN the_DT support_NN of_IN the_DT Submarine_JJ Squadron_NN of_IN the_DT Portuguese_NP Navy_NP ._SENT 
+For_IN that_DT purpose_NN ,_, prototype_NN hardware_NN for_IN JANUS_NP transmissions_NNS and_CC receptions_NNS was_VBD installed_VVN on_IN board_NN the_DT NRP_NP Arpão_NP ,_, a_DT state-of-the-art_JJ diesel-electric_JJ submarine_NN ._SENT 
+Additionally_RB ,_, all_PDT these_DT services_NNS have_VHP been_VBN implemented_VVN and_CC integrated_VVN in_IN the_DT hybrid_JJ ,_, cognitive_JJ ,_, and_CC secure_JJ underwater_JJ networking_NN architecture_NN developed_VVN by_IN CMRE_NP to_TO provide_VV a_DT live_JJ feed_NN of_IN data_NNS to_TO the_DT system_NN operator_NN ._SENT 
+In_IN what_WP follows_VVZ ,_, we_PP describe_VVP the_DT considered_VVN application_NN scenarios_NNS and_CC the_DT conducted_VVN experiments_NNS presenting_VVG also_RB the_DT collected_VVN results_NNS ._SENT 
+A._NP First_NP Contact_NP and_CC Language_NP Switching_NP Service_NP When_WRB planning_VVG and_CC executing_VVG challenging_JJ cooperative_JJ tasks_NNS ,_, such_JJ as_IN underwater_JJ rescue_NN operations_NNS ,_, multiple_JJ surface_NN and_CC underwater_JJ assets_NNS can_MD be_VB employed_VVN ._SENT 
+These_DT devices_NNS may_MD be_VB equipped_VVN with_IN heterogeneous_JJ communication_NN capabilities_NNS ,_, e.g._FW ,_, different_JJ acoustic_JJ modems_NNS ,_, optical_JJ and_CC radio_NN interfaces_NNS ,_, and_CC various_JJ communication_NN protocols_NNS with_IN different_JJ settings_NNS ._SENT 
+In_IN such_JJ scenarios_NNS ,_, JANUS_NP can_MD be_VB used_VVN as_IN the_DT lingua_NN franca_NN to_TO support_VV the_DT interaction_NN and_CC cooperation_NN of_IN the_DT various_JJ devices_NNS ._SENT 
+Through_IN the_DT use_NN of_IN a_DT standardized_JJ MCS_NP ,_, discovery_NN and_CC language_NN switching_VVG procedures_NNS 1_CD can_MD be_VB adopted_VVN to_TO optimize_VV the_DT network_NN operations_NNS and_CC make_VV better_JJR use_NN of_IN the_DT underwater_JJ medium_NN and_CC node_NN capabilities/resources_NNS (_( see_VV Fig_NN ._SENT 
+4_LS )_) ._SENT 
+Fig_NN ._SENT 
+4.First_NP contact_NN and_CC language_NN switching_NN ._SENT 
+1_LS )_) Experimental_JJ Setting_NP and_CC Results_NNS To_TO implement_VV and_CC test_VV the_DT designed_VVN service_NN ,_, a_DT new_JJ JANUS_NP plug-in_NP was_VBD designed_VVN ._SENT 
+The_DT NIAG_NP SG190_NP has_VHZ investigated_VVN this_DT use_NN case_NN for_IN JANUS_NP with_IN the_DT definition_NN of_IN three_CD phases_NNS :_: node_NN discovery_NN ;_: communication_NN capability_NN discovery_NN ;_: language_NN switching_NN ._SENT 
+For_IN each_DT phase_NN ,_, the_DT use_NN of_IN an_DT handshaking_JJ approach_NN (_( request/response_NN )_) has_VHZ been_VBN suggested_VVN ._SENT 
+In_IN designing_VVG and_CC implementing_VVG the_DT JANUS_NP plug-in_NP ,_, the_DT NIAG_NP SG190_NN suggestions_NNS were_VBD considered_VVN with_IN the_DT addition_NN of_IN all_PDT the_DT retransmission_NN and_CC recovery_NN strategies_NNS that_WDT are_VBP necessary_JJ to_TO cope_VV with_IN errors_NNS and_CC packet_NN losses_NNS ._SENT 
+The_DT implemented_VVN proof-of-concept_NN solution_NN was_VBD tested_VVN and_CC validated_VVN during_IN the_DT REP15-Atlantic_JJ experiments_NNS ,_, conducted_VVN in_IN cooperation_NN with_IN the_DT Portuguese_NP Navy_NP and_CC the_DT Universities_NNS of_IN Porto_NP and_CC Azores_NP ._SENT 
+The_DT activity_NN took_VVD place_NN off_IN the_DT coast_NN of_IN Faial_JJ island_NN ,_, in_IN the_DT Azores_NP archipelago_NN ,_, Portugal_NP ,_, in_IN July_NP 2015._CD In_IN what_WP follows_VVZ ,_, we_PP better_JJR detail_NN these_DT three_CD phases_NNS ._SENT 
+Node_NN discovery_NN :_: During_IN this_DT phase_NN ,_, a_DT node_NN periodically_RB broadcasts_VVZ a_DT discovery_NN request_NN to_TO inform_VV the_DT others_NNS about_IN its_PP$ presence_NN and_CC to_TO know_VV about_IN the_DT other_JJ assets_NNS operating_VVG in_IN the_DT area_NN ._SENT 
+Upon_IN reception_NN of_IN a_DT node_NN discovery_NN request_NN ,_, a_DT node_NN can_MD send_VV back_RB a_DT reply_NN to_TO the_DT requester_NN to_TO make_VV it_PP aware_JJ about_IN its_PP$ presence_NN ._SENT 
+Both_DT discovery_NN request_NN and_CC reply_NN include_VVP the_DT node_NN type_NN ,_, possible_JJ node_NN types_NNS are_VBP autonomous_JJ underwater_JJ vehicle_NN (_( AUV_NP )_) ,_, ASV_NP ,_, moored_VVD buoy_VV ,_, and_CC ship_NN ._SENT 
+Each_DT node_NN introduces_VVZ a_DT random_JJ delay_NN before_IN transmitting_VVG its_PP$ reply_NN to_TO avoid_VV having_VHG overlapping_JJ receptions_NNS at_IN the_DT requesting_VVG node_NN ._SENT 
+The_DT delay_NN between_IN two_CD consecutive_JJ requests_NNS can_MD be_VB adapted_VVN over_IN time_NN ._SENT 
+A_DT shorter_JJR delay_NN can_MD be_VB used_VVN when_WRB no_DT other_JJ nodes_NNS are_VBP known_VVN ._SENT 
+This_DT delay_NN can_MD then_RB be_VB increased_VVN when_WRB other_JJ nodes_NNS are_VBP discovered_VVN and_CC messages_NNS for_IN the_DT other_JJ two_CD phases_NNS are_VBP exchanged_VVN in_IN the_DT network_NN ._SENT 
+Fig_NN ._SENT 
+5_CD depicts_VVZ an_DT example_NN of_IN the_DT node_NN discovery_NN phase_NN where_WRB node_NN A_DT broadcasts_NNS the_DT discovery_NN request_NN (_( D-Req_NP )_) ,_, while_IN node_NN B_NN and_CC node_NN C_NP broadcast_VVD their_PP$ responses_NNS (_( D-Resp_NP )_) ._SENT 
+Each_DT node_NN overhears_VVZ the_DT discovery_NN messages_NNS transmitted_VVN in_IN the_DT network_NN ._SENT 
+Therefore_RB ,_, node_NN B_NN is_VBZ informed_VVN about_IN the_DT presence_NN of_IN node_NN C_NP when_WRB it_PP receives_VVZ the_DT discovery_NN reply_NN transmitted_VVN by_IN node_NN C_NP and_CC vice_JJ versa_RB ._SENT 
+Fig_NN ._SENT 
+5.JANUS_NP node_NN discovery_NN ._SENT 
+Communication_NP capability_NN discovery_NN :_: During_IN this_DT phase_NN ,_, a_DT node_NN sends_VVZ a_DT request_NN to_TO another_DT node_NN to_TO be_VB informed_VVN about_IN the_DT communication_NN capabilities_NNS of_IN that_DT node_NN ._SENT 
+The_DT requesting_VVG node_NN adds_VVZ its_PP$ own_JJ communication_NN capabilities_NNS in_IN the_DT request_NN message_NN ._SENT 
+Once_RB a_DT node_NN receives_VVZ the_DT request_NN ,_, it_PP can_MD check_VV what_WP are_VBP the_DT communication_NN capabilities_NNS of_IN the_DT other_JJ node_NN and_CC then_RB reply_VV with_IN its_PP$ own_JJ information_NN ._SENT 
+For_IN this_DT reply_NN ,_, the_DT node_NN may_MD select_VV to_TO issue_VV all_RB or_CC just_RB a_DT relevant_JJ subset_NN of_IN its_PP$ capabilities_NNS (_( typically_RB the_DT ones_NNS in_IN common_JJ )_) ._SENT 
+Fig_NN ._SENT 
+6_CD depicts_VVZ an_DT example_NN of_IN the_DT communication_NN capability_NN discovery_NN phase_NN where_WRB node_NN A_DT requests_NNS the_DT communication_NN capability_NN of_IN node_NN C._NP The_DT modulation_NN schemes_NNS supported_VVN by_IN node_NN A_DT (_( MCS1_JJ ,_, MCS2_JJ ,_, and_CC MCS3_JJ )_) are_VBP added_VVN in_IN the_DT request_NN (_( C-Req_NP )_) ._SENT 
+When_WRB node_NN C_NP receives_VVZ the_DT request_NN ,_, it_PP decides_VVZ to_TO reply_VV with_IN a_DT message_NN (_( C-Resp_NN )_) including_VVG only_RB the_DT modulation_NN schemes_NNS in_IN common_JJ with_IN node_NN A_DT (_( MCS1_JJ and_CC MCS3_JJ )_) ._SENT 
+Fig_NN ._SENT 
+6(a_NP )_) shows_VVZ the_DT case_NN where_WRB node_NN A_DT correctly_RB receives_VVZ the_DT information_NN transmitted_VVN by_IN node_NN C_NP ,_, while_IN in_IN Fig_NN ._SENT 
+6(b_NP )_) an_DT error_NN occurs_VVZ and_CC the_DT request_NN procedure_NN has_VHZ to_TO be_VB repeated_VVN ._SENT 
+Fig_NN ._SENT 
+6.JANUS_NP communication_NN capability_NN discovery_NN :_: Node_NN A_DT requests_NNS information_NN to_TO node_NN C._NP (_( a_DT )_) Node_NP A_NP correctly_RB receives_VVZ information_NN from_IN node_NN C._NP (_( b_LS )_) Error_NN on_IN response_NN delivery_NN with_IN a_DT request_NN retransmission_NN ._SENT 
+Language_NN switching_NN :_: During_IN this_DT phase_NN ,_, the_DT requesting_VVG node_NN selects_VVZ the_DT MCS_NP or_CC “language”_NP to_TO be_VB used_VVN in_IN the_DT communications_NNS and_CC the_DT configuration_NN parameters_NNS (_( e.g._FW ,_, for_IN how_WRB long_JJ to_TO stay_VV on_IN this_DT non-JANUS_NN language_NN :_: Ttimeout_NP )_) ._SENT 
+This_DT selection_NN depends_VVZ on_IN the_DT information_NN obtained_VVN during_IN the_DT previous_JJ phase_NN and_CC on_IN the_DT switching_VVG strategy_NN adopted_VVN by_IN the_DT node_NN ._SENT 
+When_WRB a_DT language_NN switching_VVG request_NN is_VBZ received_VVN ,_, a_DT node_NN can_MD accept_VV or_CC decline_VV the_DT request_NN and_CC a_DT response_NN is_VBZ sent_VVN back_RB to_TO the_DT requesting_VVG node_NN ._SENT 
+The_DT following_VVG three_CD timers_NNS are_VBP used_VVN :_: request_NN timeout_NN ,_, used_VVN to_TO retransmit_VV the_DT request_NN if_IN no_DT reply_NN is_VBZ received_VVN ;_: data_NNS timeout_NN ,_, used_VVN to_TO switch_VV back_RB to_TO JANUS_NP if_IN no_DT data_NNS (_( transmitted_VVN with_IN the_DT selected_JJ modulation_NN scheme_NN )_) are_VBP received_VVN after_IN the_DT transmission_NN of_IN a_DT response_NN ;_: Ttimeout_NN ,_, used_VVN to_TO switch_VV back_RB to_TO JANUS_NP after_IN the_DT use_NN of_IN the_DT selected_JJ modulation_NN scheme_NN ._SENT 
+Fig_NN ._SENT 
+7_CD depicts_VVZ an_DT example_NN of_IN the_DT language_NN switching_VVG phase_NN where_WRB node_NN A_DT wants_VVZ to_TO use_VV the_DT selected_JJ modulation_NN scheme_NN (_( MCS3_NP )_) with_IN node_NN C_NP for_IN a_DT given_VVN time_NN Ttimeout_NN ._SENT 
+Fig_NN ._SENT 
+7(a_NP )_) shows_VVZ a_DT correct_JJ negotiation_NN between_IN the_DT two_CD nodes_NNS ._SENT 
+When_WRB node_NN C_NP receives_VVZ the_DT first_JJ message_NN transmitted_VVD using_VVG MCS3_NN ,_, the_DT data_NN timeout_NN is_VBZ stopped_VVN ._SENT 
+In_IN Fig_NN ._SENT 
+7(b_NP )_) ,_, instead_RB the_DT response_NN of_IN node_NN C_NP is_VBZ not_RB delivered_VVN to_TO node_NN A_DT and_CC the_DT two_CD nodes_NNS stay_VVP configured_VVN on_IN different_JJ modulation_NN schemes_NNS for_IN some_DT time_NN ._SENT 
+When_WRB the_DT data_NNS timeout_NN expires_VVZ and_CC node_NN C_NP has_VHZ not_RB received_VVN any_DT data_NNS message_NN ,_, it_PP reverts_VVZ back_RB to_TO JANUS_NP to_TO listen_VV for_IN possible_JJ request_NN retransmissions_NNS or_CC novel_NN requests_NNS ._SENT 
+Fig_NN ._SENT 
+7.JANUS_NP language_NN switching_NN :_: Node_NP A_NP wants_VVZ to_TO use_VV MCS3_NN with_IN node_NN C_NP for_IN a_DT given_VVN time_NN (_( Ttimeout_NN )_) ._SENT 
+(_( a_DT )_) Node_NP A_NP correctly_RB receives_VVZ information_NN from_IN node_NN C_NP and_CC they_PP start_VVP using_VVG MCS3_NN for_IN data_NN exchange_NN until_IN Ttimeout_NP expires_VVZ ._SENT 
+(_( b_LS )_) Error_NN on_IN response_NN delivery_NN ,_, node_NN A_NP and_CC node_NN C_NP stay_NN on_IN two_CD different_JJ MCSs_NP until_IN the_DT data_NNS timeout_NN expires_VVZ ._SENT 
+Given_VVN the_DT small_JJ amount_NN of_IN data_NNS that_WDT needs_VVZ to_TO be_VB exchanged_VVN to_TO implement_VV this_DT service_NN ,_, only_RB baseline_JJ JANUS_NP packets_NNS (_( no_DT cargo_NN )_) have_VHP been_VBN employed_VVN ._SENT 
+A_DT language_NN selection_NN policy_NN switching_VVG from_IN JANUS_NP to_TO any_DT language_NN with_IN a_DT faster_JJR (_( higher_JJR bit_NN rate_NN )_) transmission_NN parameter_NN was_VBD considered_VVN ._SENT 
+To_TO validate_VV this_DT JANUS-based_JJ service_NN ,_, two_CD nodes_NNS were_VBD employed_VVN and_CC various_JJ configurations_NNS were_VBD considered_VVN ._SENT 
+Three_CD different_JJ communication_NN interfaces_NNS were_VBD available_JJ on_IN these_DT two_CD nodes_NNS :_: One_PP had_VHD JANUS_NP ,_, Evologics_NNS modem_NN [_SYM 14_CD ]_SYM and_CC a_DT freewave_NN radio_NN (_( for_IN communications_NNS when_WRB surfacing_VVG )_) ,_, while_IN the_DT second_NN had_VHD JANUS_NP and_CC an_DT Evologics_NN modem_NN ._SENT 
+The_DT Evologics_NP S2C_NP R18/34_NP acoustic_JJ modem_NN provides_VVZ an_DT actual_JJ transmission_NN rate_NN of_IN 480_CD b/s_NNS (_( in_IN instant_JJ message_NN mode_NN ,_, higher_JJR rates_NNS are_VBP achievable_JJ in_IN burst_NN mode_NN )_) ,_, whereas_IN the_DT JANUS_NP transmission_NN rate_NN is_VBZ 80_CD b/s_NNS ._SENT 
+A_DT total_NN of_IN 830_CD baseline_JJ JANUS_NP packets_NNS were_VBD transmitted_VVN over_IN the_DT different_JJ days_NNS of_IN testing_NN ._SENT 
+Table_NN I_PP summarizes_VVZ the_DT percentage_NN of_IN packets_NNS transmitted_VVN for_IN each_DT of_IN the_DT different_JJ phases_NNS ,_, which_WDT sums_VVZ up_RP the_DT weight_NN of_IN each_DT phase_NN in_IN the_DT process_NN ._SENT 
+TABLE_NN I_NN First_NP Contact_NP and_CC Language_NP Switching_NP Service_NP Results_NNS After_IN the_DT node_NN discovery_NN and_CC communication_NN discovery_NN phases_NNS ,_, the_DT two_CD nodes_NNS negotiated_VVD a_DT switch_NN to_TO the_DT Evologics_NNS language_NN (_( the_DT only_RB faster_JJR language_NN they_PP had_VHD in_IN common_JJ )_) to_TO transmit_VV a_DT large_JJ amount_NN of_IN data_NNS at_IN a_DT higher_JJR speed_NN ._SENT 
+After_IN that_WDT they_PP reverted_VVN back_RB to_TO JANUS_NP for_IN further_JJR discovery_NN and_CC negotiation_NN ._SENT 
+Periodic_JJ transmissions_NNS of_IN discovery_NN requests_NNS were_VBD also_RB triggered_VVN over_IN time_NN ._SENT 
+This_DT was_VBD done_VVN to_TO check_VV the_DT presence_NN of_IN new_JJ nodes_NNS in_IN the_DT area_NN and_CC to_TO monitor_VV any_DT change_NN in_IN the_DT set_NN of_IN communication_NN capabilities_NNS available_JJ at_IN the_DT node.2_NN After_IN switching_VVG to_TO Evologics_NNS ,_, a_DT transmission_NN rate_NN approximately_RB six_CD times_NNS faster_RBR was_VBD used_VVN to_TO correctly_RB deliver_VV 1927_CD packets_NNS (_( ∼73_NP kB_NP )_) between_IN the_DT two_CD nodes_NNS ._SENT 
+Due_JJ to_TO the_DT unreliable_JJ acoustic_JJ channel_NN ,_, an_DT average_JJ packet_NN error_NN rate_NN of_IN ∼0.3_NP was_VBD experienced_VVN ._SENT 
+Various_JJ packets_NNS were_VBD lost_VVN during_IN the_DT different_JJ phases_NNS of_IN the_DT protocol_NN ,_, including_VVG 17_CD %_NN of_IN the_DT transmitted_JJ switch-over_NN responses_NNS ._SENT 
+This_DT resulted_VVD in_IN having_VHG the_DT two_CD nodes_NNS using_VVG different_JJ languages_NNS for_IN some_DT time_NN before_IN going_VVG back_RB to_TO JANUS_NP via_IN the_DT built-in_JJ data_NN timeout_NN mechanism_NN ._SENT 
+It_PP is_VBZ clear_JJ that_IN the_DT development_NN of_IN an_DT operational_JJ solution_NN will_MD require_VV a_DT more_RBR robust_JJ and_CC sophisticated_JJ language_NN selection_NN policy_NN and_CC negotiation_NN strategy_NN to_TO render_VV the_DT procedure_NN more_RBR reliable_JJ and_CC efficient_JJ ._SENT 
+The_DT selection_NN of_IN the_DT communication_NN hardware_NN ,_, MCS_NP ,_, and_CC protocol_NN solutions_NNS will_MD surely_RB needs_VVZ to_TO adapt_VV over_IN time_NN ,_, reacting_VVG to_TO the_DT status_NN of_IN the_DT single_JJ node_NN ,_, the_DT status_NN and_CC topology_NN of_IN the_DT network_NN ,_, and_CC the_DT status_NN of_IN the_DT underwater_JJ channel_NN ._SENT 
+Novel_NN procedures_NNS based_VVN on_IN protocols_NNS such_JJ as_IN DIVE_NN [_SYM 15_CD ]_SYM could_MD be_VB standardized_JJ and_CC adopted_VVN to_TO discover_VV the_DT network_NN and_CC the_DT capabilities_NNS of_IN each_DT node_NN and_CC to_TO also_RB assign_VV short_JJ unique_JJ IDs_NNS to_TO the_DT nodes_NNS ,_, thus_RB ,_, minimizing_VVG resource_NN consumption_NN and_CC promoting_VVG truly_RB ad_FW hoc_FW underwater_JJ networks_NNS ._SENT 
+2_LS )_) JANUS_NP Packets_NNS Employed_VVN Table_NN II_NP presents_VVZ the_DT full_JJ specification_NN of_IN the_DT JANUS_NP packets_NNS employed_VVN ._SENT 
+A_DT currently_RB open_JJ class_NN user_NN ID_NN field_NN (_( 13_CD )_) was_VBD used_VVN ._SENT 
+It_PP is_VBZ hoped_VVN that_IN experimental_JJ efforts_NNS such_JJ as_IN this_DT can_MD contribute_VV to_TO populate_VV the_DT class_NN user_NN ID_NN allocation_NN table_NN in_IN future_JJ JANUS_NP revisions_NNS ._SENT 
+TABLE_NN II_NP Specification_NN of_IN the_DT JANUS_NP Packets_NNS Employed_VVN in_IN First_NP Contact_NP and_CC Language_NP Switching_NP B._NP Underwater_JJ Automatic_NP Identification_NN System_NP Service_NP The_DT AIS_NNS is_VBZ a_DT status-reporting_VVG service_NN used_VVN to_TO broadcast_VV identification_NN and_CC localization_NN information_NN to_TO nearby_JJ vessels_NNS ._SENT 
+It_PP is_VBZ used_VVN as_IN an_DT automatic_JJ tracking_NN system_NN to_TO avoid_VV collisions_NNS between_IN vessels_NNS operating_VVG at_IN the_DT sea_NN surface_NN ._SENT 
+AIS_NNS is_VBZ mandatory_JJ for_IN vessels_NNS above_IN 300_CD tons_NNS and_CC all_DT passenger_NN ships_NNS ,_, and_CC is_VBZ electively_RB deployed_VVN by_IN many_JJ smaller_JJR vessels_NNS ._SENT 
+The_DT recent_JJ (_( July_NP 2016_CD )_) U.K._NP Astute-class_VVP nuclear_JJ submarine_JJ collision_NN with_IN a_DT merchant_NN vessel_NN in_IN Gibraltar_NP highlighted_VVD once_RB again_RB the_DT risks_NNS associated_VVN with_IN water_NN space_NN management_NN (_( or_CC lack_VVP thereof_RB )_) between_IN surface_NN and_CC underwater_JJ assets_NNS ._SENT 
+The_DT objective_NN of_IN this_DT service_NN is_VBZ to_TO use_VV JANUS_NP to_TO broadcast_VV to_TO submerged_JJ assets_NNS ,_, relevant_JJ AIS_NNS data_NNS collected_VVN above_IN the_DT water_NN ._SENT 
+The_DT idea_NN of_IN using_VVG JANUS_NP to_TO transmit_VV the_DT AIS_NNS picture_NN to_TO submarines_NNS navigating_VVG at_IN depth_NN had_VHD been_VBN proposed_VVN in_RB [_SYM 16_CD ]_SYM as_IN a_DT mechanism_NN to_TO reduce_VV the_DT probability_NN of_IN accidents_NNS between_IN surface_NN ships_NNS and_CC submerged_JJ assets_NNS ._SENT 
+In_IN 2015_CD ,_, during_IN the_DT REP15-Atlantic_JJ trials_NNS ,_, the_DT first_JJ implementation_NN of_IN a_DT JANUS-based_JJ underwater_JJ AIS_NNS service_NN was_VBD investigated_VVN and_CC different_JJ packet_NN configurations_NNS were_VBD explored_VVN [_SYM 9_CD ]_SYM ._SENT 
+During_IN REP16-Atlantic_NP ,_, this_DT initial_JJ work_NN was_VBD extended_VVN and_CC improved_VVN in_IN cooperation_NN with_IN the_DT Portuguese_NP Navy_NP and_CC their_PP$ submarine_JJ squadron_NN ._SENT 
+The_DT format_NN and_CC content_NN of_IN the_DT JANUS_NP messages_NNS was_VBD modified_VVN to_TO include_VV additional_JJ information_NN and_CC the_DT full_JJ system_NN was_VBD integrated_VVN with_IN a_DT graphical_JJ interface_NN (_( Neptus_NN [_SYM 17_CD ]_SYM )_) ready_JJ to_TO be_VB used_VVN by_IN an_DT operator_NN ._SENT 
+A_DT subset_NN (_( filtered_VVN in_IN space_NN )_) of_IN the_DT available_JJ AIS_NNS data_NNS was_VBD compressed_VVN and_CC transmitted_VVN using_VVG JANUS_NP ._SENT 
+While_IN in_IN regular_JJ AIS_NNS ,_, a_DT vessel_NN will_MD broadcast_VV MMSI_NP ,_, latitude_NN ,_, longitude_NN ,_, heading_VVG ,_, speed_VV ,_, and_CC status_NN ,_, in_IN our_PP$ implementation_NN two_CD more_JJR fields_NNS were_VBD added_VVN :_: depth_NN and_CC type_NN (_( i.e._FW ,_, AUV_NP ,_, ASV_NP ,_, moored_VVD buoy_VV ,_, etc._FW )_) ._SENT 
+The_DT reason_NN for_IN this_DT choice_NN was_VBD to_TO allow_VV submerged_JJ nodes_NNS to_TO broadcast_VV their_PP$ identification_NN and_CC localization_NN data_NNS to_TO any_DT other_JJ vessels_NNS in_IN communication_NN range_NN ,_, above_IN and_CC below_IN the_DT surface_NN ._SENT 
+This_DT contributes_VVZ to_TO reducing_VVG the_DT probability_NN of_IN accidents_NNS between_IN surface_NN and_CC submerged_JJ manned_VVD and_CC unmanned_JJ assets_NNS ._SENT 
+1_LS )_) Experimental_JJ Setting_NP and_CC Results_NNS During_IN this_DT experiment_NN ,_, one_CD gateway_NN buoy_VV (_( bridging_VVG the_DT radio_NN and_CC the_DT underwater_JJ environments_NNS )_) was_VBD used_VVN to_TO collect_VV and_CC broadcast_VV the_DT AIS_NNS information_NN to_TO the_DT other_JJ JANUS-capable_JJ assets_NNS operating_VVG in_IN the_DT area_NN ._SENT 
+Fig_NN ._SENT 
+8_CD shows_NNS a_DT subset_NN of_IN the_DT AIS_NNS contacts_NNS transmitted_VVD by_IN the_DT gateway_NN buoy_VV and_CC delivered_VVN to_TO the_DT NRP_NP Arpão_NP submarine_NN via_IN JANUS_NP transmissions_NNS during_IN REP16-Atlantic_JJ ._SENT 
+Fig_NN ._SENT 
+8.Subset_NN of_IN the_DT AIS_NNS contacts_NNS transmitted_VVD by_IN the_DT gateway_NN buoy_VV and_CC delivered_VVN to_TO the_DT NRP_NP Arpão_NP submarine_NN via_IN JANUS_NP transmissions_NNS ._SENT 
+Two_CD additional_JJ JANUS_NP nodes_NNS were_VBD deployed_VVN to_TO receive_VV the_DT AIS_NNS data_NNS :_: one_CD on_IN board_NN the_DT NRP_NP Arpão_NP submarine_NN and_CC one_CD from_IN the_DT NRV_NP Alliance_NP at_IN a_DT depth_NN ranging_VVG between_IN 40_CD and_CC 60_CD m._NN The_DT node_NN deployed_VVN from_IN the_DT NRV_NP Alliance_NP was_VBD used_VVN to_TO mimic_VV the_DT operation_NN of_IN an_DT additional_JJ underwater_JJ asset_NN with_IN no_DT radio_NN capability_NN ._SENT 
+All_DT data_NNS exchanges_NNS were_VBD performed_VVN acoustically_RB using_VVG JANUS_NP messages_NNS ._SENT 
+To_TO reduce_VV the_DT number_NN of_IN acoustic_JJ messages_NNS transmitted_VVN in_IN water_NN ,_, the_DT AIS_NNS information_NN was_VBD filtered_VVN in_IN space_NN and_CC time_NN ._SENT 
+A_DT large_JJ area3_NN was_VBD selected_VVN to_TO ensure_VV the_DT collection_NN of_IN multiple_JJ AIS_NNS contacts_NNS and_CC to_TO evaluate_VV the_DT usage_NN of_IN JANUS_NP to_TO deliver_VV the_DT obtained_VVN AIS_NNS picture_NN ._SENT 
+During_IN one_CD of_IN the_DT experiments_NNS that_WDT lasted_VVD approximately_RB 2_CD h_NN ,_, 58_CD contacts_NNS were_VBD detected_VVN by_IN the_DT gateway_NN buoy_VV inside_IN the_DT target_NN area_NN ._SENT 
+Overall_RB ,_, 861_CD JANUS_NP messages_NNS were_VBD transmitted_VVN ._SENT 
+The_DT system_NN was_VBD configured_VVN to_TO encode_VV the_DT data_NNS of_IN multiple_JJ contacts_NNS inside_IN the_DT one_CD single_JJ acoustic_JJ packet_NN ,_, making_VVG use_NN of_IN the_DT cargo_NN section_NN ._SENT 
+Due_JJ to_TO the_DT unreliable_JJ acoustic_JJ channel_NN ,_, an_DT average_JJ packet_NN error_NN rate_NN of_IN ∼0.2_NP was_VBD experienced_VVN ._SENT 
+The_DT node_NN on_IN the_DT NRV_NP Alliance_NP was_VBD able_JJ to_TO correctly_RB receive_VV 483_CD messages_NNS and_CC receive_VV updates_NNS on_IN 57_CD assets_NNS operating_VVG in_IN the_DT area_NN ._SENT 
+Some_DT of_IN the_DT messages_NNS were_VBD also_RB lost_VVN because_IN Alliance_NP moved_VVD out_RP of_IN the_DT acoustic_JJ communication_NN range_NN of_IN the_DT gateway_NN buoy_VV for_IN some_DT time_NN ._SENT 
+Regarding_VVG the_DT test_NN system_NN on_IN board_NN the_DT submarine_NN ,_, a_DT recurring_VVG hardware_NN malfunction_NN (_( identified_VVN during_IN execution_NN )_) resulted_VVD in_IN an_DT impaired_JJ reception_NN capability_NN ._SENT 
+For_IN this_DT reason_NN ,_, only_RB 207_CD messages_NNS were_VBD correctly_RB received_VVN by_IN the_DT submarine_NN ._SENT 
+However_RB ,_, since_IN the_DT scheme_NN incorporates_VVZ redundancy_NN ,_, 53_CD contacts_NNS were_VBD correctly_RB decoded_VVN ._SENT 
+The_DT implemented_VVN service_NN provided_VVD live_JJ AIS_NNS updates_NNS (_( with_IN a_DT dedicated_JJ display_NN in_IN the_DT combat_NN room_NN )_) to_TO the_DT NRP_NP Arpão_NP submarine_NN via_IN JANUS_NP transmissions_NNS ._SENT 
+A_DT subset_NN of_IN the_DT received_VVN contacts_NNS is_VBZ displayed_VVN in_IN Fig_NN ._SENT 
+8_CD ._SENT 
+This_DT capability_NN was_VBD very_RB welcomed_VVN by_IN the_DT submariners_NNS ._SENT 
+2_LS )_) JANUS_NP Packets_NNS Employed_VVN Table_NN III_NP presents_VVZ the_DT full_JJ specification_NN of_IN the_DT JANUS_NP packets_NNS employed_VVN for_IN the_DT underwater_JJ AIS_NNS scenario_NN ._SENT 
+The_DT implementation_NN uses_VVZ class_NN user_NN ID_NN 2_CD ,_, specifically_RB defined_VVN for_IN this_DT application_NN ._SENT 
+TABLE_NN III_NP Specification_NN of_IN the_DT JANUS_NP Packets_NNS Employed_VVN in_IN the_DT Underwater_JJ AIS_NNS Scenario_NP C._NP Underwater_JJ METOC_NP Service_NP Another_DT capability_NN of_IN great_JJ value_NN for_IN the_DT planning_NN and_CC execution_NN of_IN maritime_JJ operations_NNS is_VBZ the_DT availability_NN of_IN updated_VVN military_JJ METOC_NN data_NNS ._SENT 
+METOC_NN data_NNS can_MD be_VB used_VVN to_TO assess_VV the_DT impact_NN of_IN the_DT current_JJ and_CC forecasted_VVN environmental_JJ picture_NN on_IN the_DT mission_NN ,_, to_TO adapt_VV the_DT various_JJ mission_NN tasks_NNS ,_, and_CC to_TO make_VV go/no-go_NP decisions_NNS ,_, when_WRB needed_VVN ._SENT 
+To_TO date_NN ,_, this_DT information_NN is_VBZ available_JJ to_TO the_DT underwater_JJ assets_NNS when_WRB they_PP become_VVP radio_NN capable_JJ navigating_VVG at_IN periscope_NN depth_NN ._SENT 
+The_DT use_NN of_IN JANUS_NP could_MD represent_VV a_DT viable_JJ solution_NN to_TO deliver_VV METOC_NN data_NNS to_TO submerged_JJ assets_NNS in_IN support_NN to_TO their_PP$ activities_NNS ,_, contributing_VVG to_TO better_JJR planning_NN and_CC safety_NN of_IN operations_NNS ._SENT 
+The_DT possibility_NN of_IN supporting_VVG the_DT delivery_NN of_IN such_JJ information_NN to_TO submarines_NNS navigating_VVG at_IN depth_NN provides_VVZ extra_JJ flexibility_NN to_TO the_DT Commanding_JJ Officer_NP that_WDT may_MD choose_VV to_TO remain_VV at_IN depth_NN ._SENT 
+1_LS )_) Experimental_JJ Setting_NP and_CC Results_NNS During_IN the_DT REP16-Atlantic_JJ trials_NNS ,_, the_DT underwater_JJ METOC_NN service_NN was_VBD implemented_VVN in_IN close_JJ cooperation_NN with_IN the_DT hydrographic_JJ office_NN of_IN the_DT Portuguese_NP Navy_NP (_( IH_NP )_) and_CC was_VBD fully_RB integrated_VVN in_IN the_DT CMRE_NP networking_NN system_NN ._SENT 
+Two_CD JANUS-capable_JJ nodes_NNS were_VBD used_VVN for_IN this_DT test_NN ,_, one_CD transmitter_NN and_CC one_CD receiver_NN ._SENT 
+Wind_NN maps_NNS generated_VVN by_IN the_DT METOC_NN offices_NNS of_IN the_DT IH_NP were_VBD transmitted_VVN acoustically_RB ._SENT 
+Matrices_NNS of_IN wind_NN speed_NN and_CC direction_NN ,_, as_RB shown_VVN in_IN Fig_NN ._SENT 
+9(a_NP )_) ,_, were_VBD encoded_VVN in_IN a_DT total_NN of_IN 53_CD bytes_NNS ,_, suitable_JJ for_IN a_DT JANUS_NP acoustic_JJ transmission_NN with_IN cargo_NN section_NN ._SENT 
+Fig_NN ._SENT 
+9.Underwater_NP METOC_NP test_NN ._SENT 
+(_( a_DT )_) Example_NN wind_NN map_NN transmitted_VVD acoustically_RB ,_, via_IN JANUS_NP ,_, during_IN the_DT REP16-Atlantic_JJ experiment_NN ._SENT 
+(_( b_LS )_) Location_NP of_IN the_DT nodes_NNS deployed_VVN for_IN the_DT underwater_JJ METOC_NN test_NN ._SENT 
+The_DT packets_NNS were_VBD assembled_VVN at_IN a_DT gateway_NN buoy_VV and_CC sent_VVD acoustically_RB via_IN JANUS_NP to_TO a_DT node_NN deployed_VVN from_IN the_DT NRV_NP Alliance_NP at_IN a_DT depth_NN of_IN ∼60_NP m._NP This_DT node_NN was_VBD mimicking_VVG the_DT operations_NNS of_IN an_DT underwater_JJ asset_NN operating_VVG at_IN depth_NN ._SENT 
+During_IN this_DT experiment_NN ,_, the_DT distance_NN between_IN transmitter_NN and_CC receiver_NN was_VBD between_IN 5000_CD and_CC 5500_CD m_NN ,_, as_RB displayed_VVN in_IN Fig_NN ._SENT 
+9(b_NP )_) ._SENT 
+Although_IN a_DT difficult_JJ downward_JJ refracting_VVG and_CC spread_NN channel_NN produced_VVD an_DT average_JJ packet_NN error_NN rate_NN of_IN ∼0.25_NP ,_, the_DT addition_NN of_IN redundancy_NN at_IN the_DT transmitter_NN always_RB made_VVD possible_JJ the_DT delivery_NN of_IN the_DT intended_VVN wind_NN maps_NNS ,_, thus_RB demonstrating_VVG the_DT possibility_NN of_IN using_VVG JANUS_NP to_TO implement_VV underwater_JJ METOC_NN services_NNS ._SENT 
+2_LS )_) JANUS_NP Packets_NNS Employed_VVN Table_NN IV_NP presents_VVZ the_DT specification_NN of_IN the_DT JANUS_NP packet_NN employed_VVN for_IN the_DT underwater_JJ METOC_NN scenario_NN ._SENT 
+This_DT is_VBZ an_DT example_NN of_IN a_DT specification_NN that_WDT is_VBZ pushed_VVN at_IN national_JJ level_NN ,_, using_VVG the_DT respective_JJ class_NN user_NN ID_NN (_( in_IN this_DT case_NN 234-Portugal_NN )_) ._SENT 
+TABLE_NN IV_NP Specification_NN of_IN the_DT JANUS_NP Packets_NNS Employed_VVN in_IN the_DT Underwater_JJ METOC_NP Scenario_NP D._NP Support_NN in_IN Distressed_JJ Submarine_NN Operations_NP Service_NP The_DT use_NN of_IN JANUS_NP for_IN submarine_JJ search_NN and_CC rescue_NN operations_NNS has_VHZ always_RB been_VBN very_RB attractive_JJ ._SENT 
+Currently_RB ,_, the_DT doctrine_NN of_IN communications_NNS for_IN search_NN and_CC rescue_NN relies_VVZ on_IN the_DT analog_JJ UT_NP and_CC the_DT usage_NN of_IN the_DT phonetic_JJ codes_NNS alpha_NN to_TO zulu_NP ._SENT 
+The_DT UT_NP is_VBZ a_DT very_RB simple_JJ standard_NN (_( originally_RB STANAG_NP 1074_CD ,_, meanwhile_RB superseded_VVN by_IN STANAG_NP 1475_CD )_) specifying_VVG the_DT modulation_NN of_IN voice_NN into_IN a_DT carrier_NN by_IN upper_JJ single-sideband_NN modulation_NN with_IN 2.7_CD kHz_NN of_IN analog_JJ bandwidth_NN ,_, approximately_RB that_IN offered_VVN by_IN a_DT regular_JJ telephone_NN and_CC sufficient_JJ to_TO convey_VV speech_NN ._SENT 
+The_DT use_NN of_IN the_DT UT_NP has_VHZ the_DT clear_JJ problem_NN of_IN needing_VVG an_DT operator_NN (_( that_WDT may_MD be_VB required_VVN for_IN other_JJ equally_RB critical_JJ tasks_NNS )_) to_TO handle_VV the_DT communications_NNS on_IN the_DT submarine_JJ side_NN ._SENT 
+Additionally_RB ,_, it_PP avoids_VVZ the_DT use_NN of_IN any_DT data_NNS coding_VVG and_CC other_JJ strategies_NNS ,_, typical_JJ of_IN digital_JJ information_NN theory_NN ,_, to_TO increase_VV the_DT reliability_NN in_IN decoding_VVG the_DT received_VVN information_NN ._SENT 
+When_WRB employing_VVG human_JJ operators_NNS ,_, stress_NN and_CC language_NN phonetic_JJ biases_NNS may_MD also_RB play_VV a_DT role_NN in_IN the_DT success_NN of_IN the_DT data_NNS exchange_NN ._SENT 
+As_RB shown_VVN in_RB [_SYM 10_CD ]_SYM ,_, operator-dependent_JJ factors_NNS play_VVP an_DT important_JJ role_NN in_IN the_DT ability_NN to_TO properly_RB decode_VV analog_JJ UT_NP communications_NNS ._SENT 
+Therefore_RB ,_, JANUS_NP could_MD be_VB used_VVN to_TO replace_VV analog_JJ UT_NP systems_NNS or_CC in_IN combination_NN with_IN these_DT systems_NNS for_IN search_NN and_CC rescue_NN communications_NNS ._SENT 
+The_DT operator_NN requirement_NN may_MD be_VB removed_VVN and_CC semiautomated_VVN systems_NNS transmitting_VVG critical_JJ data_NNS could_MD be_VB used_VVN ._SENT 
+This_DT would_MD enable_VV increasing_VVG the_DT robustness_NN ,_, efficiency_NN ,_, and_CC reliability_NN in_IN delivering_VVG and_CC decoding_VVG critical_JJ information_NN in_IN DISSUB_NN operations_NNS ._SENT 
+1_LS )_) Experimental_JJ Setting_NP and_CC Results_NNS One_PP of_IN the_DT exercised_VVN scenarios_NNS during_IN the_DT REP16-Atlantic_JJ trials_NNS was_VBD a_DT distressed_JJ situation_NN on_IN board_NN the_DT NRP_NP Arpão_NP ._SENT 
+The_DT scenario_NN is_VBZ described_VVN as_RB follows_VVZ ._SENT 
+Once_RB an_DT alarm_NN is_VBZ raised_VVN on_IN board_NN ,_, 4_CD periodic_JJ packets_NNS with_IN vital_JJ data_NNS are_VBP automatically_RB and_CC periodically_RB sent_VVD out_RP via_IN JANUS_NP ,_, without_IN requiring_VVG the_DT intervention_NN of_IN an_DT operator_NN (_( see_VV Fig_NN ._SENT 
+10_CD )_) ._SENT 
+The_DT data_NNS encoded_VVN in_IN the_DT JANUS_NP packet_NN included_VVD latitude_NN ,_, longitude_NN ,_, depth_NN ,_, O2_NP ,_, CO2_NP ,_, CO_NP ,_, H2_NP ,_, pressure_NN ,_, temperature_NN ,_, and_CC the_DT number_NN of_IN survivors_NNS ._SENT 
+The_DT definition_NN of_IN such_JJ packet_NN was_VBD iterated_VVN with_IN the_DT submarine_NN Commanding_VVG Officer_NP to_TO guarantee_VV maximum_JJ relevance_NN and_CC alignment_NN with_IN current_JJ practices_NNS covered_VVN by_IN STANAG1390_NN and_CC described_VVD in_IN the_DT ATP-57_JJ document_NN “The_VVZ submarine_JJ search_NN and_CC rescue_NN manual”_NN [_SYM 18_CD ]_SYM ._SENT 
+The_DT experiments_NNS performed_VVN during_IN REP16-Atlantic_NP were_VBD a_DT proof-of-concept_JJ demonstration_NN for_IN this_DT JANUS-based_JJ service_NN ._SENT 
+There_EX was_VBD no_DT interface_NN with_IN the_DT systems_NNS on_IN board_NN the_DT submarine_NN and_CC the_DT data_NNS fed_VVN to_TO the_DT JANUS_NP system_NN was_VBD artificially_RB generated_VVN ._SENT 
+Fig_NN ._SENT 
+10.Support_NN in_IN DISSUB_NN operations_NNS ._SENT 
+As_IN shown_VVN in_IN Fig_NN ._SENT 
+10_CD ,_, the_DT objective_NN is_VBZ to_TO deliver_VV the_DT vital_JJ submarine_JJ information_NN to_TO JANUS-capable_JJ surface_NN stations_NNS ,_, which_WDT can_MD then_RB relay_VV the_DT collected_VVN information_NN via_IN radio_NN to_TO any_DT other_JJ relevant_JJ asset_NN ._SENT 
+For_IN this_DT experiment_NN ,_, a_DT gateway_NN buoy_VV and_CC the_DT NRV_NP Alliance_NP were_VBD used_VVN as_IN receivers_NNS ._SENT 
+Using_VVG this_DT setup_NN ,_, a_DT live_JJ feed_NN with_IN position_NN and_CC status_NN data_NNS was_VBD delivered_VVN to_TO the_DT control_NN room_NN installed_VVN on_IN board_NN the_DT NRV_NP Alliance_NP ._SENT 
+Fig_NN ._SENT 
+11_CD shows_NNS some_DT of_IN the_DT live_JJ data_NNS provided_VVN to_TO the_DT system_NN operator_NN in_IN the_DT control_NN room_NN on_IN the_DT NRV_NP Alliance_NP for_IN the_DT DISSUB_NP application_NN scenario_NN ._SENT 
+The_DT big_JJ circle_NN marker_NN represents_VVZ the_DT submarine_JJ position_NN ,_, while_IN the_DT data_NNS shown_VVN in_IN the_DT small_JJ box_NN on_IN the_DT left-bottom_NP corner_NN contain_VVP the_DT latest_JJS position_NN and_CC status_NN information_NN received_VVN via_IN JANUS_NP ._SENT 
+Fig_NN ._SENT 
+11.Distress_NN position_NN and_CC status_NN information_NN acoustically_RB received_VVD in_IN the_DT control_NN room_NN on_IN board_NN the_DT NRV_NP Alliance_NP ._SENT 
+AIS_NNS contacts_NNS received_VVD via_IN radio_NN are_VBP also_RB reported_VVN ._SENT 
+AIS_NNS data_NNS (_( received_VVN through_IN a_DT conventional_JJ AIS_NNS receiver_NN )_) are_VBP also_RB displayed_VVN so_RB that_IN the_DT vessels_NNS operating_VVG in_IN the_DT area_NN (_( which_WDT may_MD be_VB used_VVN in_IN support_NN to_TO search_NN and_CC rescue_NN operations_NNS )_) are_VBP clearly_RB identified_VVN ._SENT 
+To_TO encode_VV both_DT position_NN and_CC status_NN information_NN ,_, up_RB to_TO 22_CD B_NN were_VBD used_VVN ._SENT 
+This_DT means_VVZ that_IN JANUS_NP packets_NNS with_IN cargo_NN were_VBD transmitted_VVN ._SENT 
+The_DT overall_JJ transmission_NN duration_NN of_IN such_JJ packets_NNS was_VBD about_RB 3_CD s._NN 5_CD The_DT established_JJ doctrine_NN of_IN data_NN exchanges_NNS in_IN case_NN of_IN a_DT submarine_NN in_IN distress_NN is_VBZ published_VVN in_IN the_DT NATO_NP ATP-57_JJ document_NN [_SYM 18_CD ]_SYM ._SENT 
+These_DT exchanges_NNS are_VBP supported_VVN by_IN analog_JJ UT_NP transmissions_NNS ._SENT 
+A_DT comparison_NN (_( made_VVN just_RB for_IN reference_NN )_) of_IN the_DT channel_NN time_NN required_VVN by_IN JANUS_NP and_CC UT_NP to_TO transmit_VV the_DT same_JJ information_NN is_VBZ shown_VVN in_IN Fig_NN ._SENT 
+12_CD ,_, where_WRB the_DT efficiency_NN of_IN the_DT digital_JJ method_NN is_VBZ evident_JJ ._SENT 
+The_DT UT_NP transmission_NN was_VBD acquired_VVN by_IN employing_VVG an_DT officer_NN on_IN board_NN the_DT Portuguese_JJ submarine_NN NRP_NP Arpão_NP ._SENT 
+Additionally_RB ,_, one_PP can_MD state_VV that_IN a_DT digital_JJ system_NN opens_VVZ ways_NNS for_IN automated_JJ operations_NNS when_WRB interfaced_VVN with_IN the_DT on_IN board_NN systems_NNS ._SENT 
+Using_VVG JANUS_NP ,_, although_IN some_DT of_IN the_DT transmitted_JJ packets_NNS were_VBD lost_VVN (_( this_DT was_VBD due_JJ to_TO the_DT unreliable_JJ acoustic_JJ underwater_JJ channel_NN )_) ,_, the_DT redundancy_NN introduced_VVN by_IN the_DT automated_JJ transmission_NN procedure_NN made_VVD it_PP possible_JJ to_TO deliver_VV the_DT intended_VVN data_NNS in_IN real_JJ time_NN ,_, meaning_VVG that_IN the_DT latest_JJS available_JJ position_NN and_CC the_DT status_NN of_IN the_DT submarine_NN were_VBD available_JJ to_TO all_DT assets_NNS in_IN communication_NN range_NN with_IN negligible_JJ latency_NN ._SENT 
+Therefore_RB ,_, the_DT collected_VVN results_NNS demonstrate_VVP that_IN JANUS_NP is_VBZ a_DT viable_JJ solution_NN to_TO support_VV DISSUB_NN operations_NNS ._SENT 
+Fig_NN ._SENT 
+12.Comparison_NP of_IN transmission_NN duration_NN for_IN digital_JJ (_( JANUS_NP )_) and_CC analogue_NN (_( UT_NP )_) signals_NNS containing_VVG comparable_JJ information_NN ._SENT 
+Note_NN that_IN the_DT frequency_NN of_IN the_DT UT_NP signal_NN is_VBZ shown_VVN as_IN demodulated_VVN ,_, as_IN it_PP is_VBZ presented_VVN to_TO the_DT operator_NN ._SENT 
+2_LS )_) JANUS_NP Packets_NNS Employed_VVN Table_NN V_NN presents_VVZ the_DT full_JJ specification_NN of_IN the_DT JANUS_NP packets_NNS employed_VVN in_IN the_DT DISSUB_NN scenarios_NNS ._SENT 
+Therefore_RB ,_, DISSUB_NP is_VBZ currently_RB not_RB one_CD of_IN the_DT prespecified_JJ class_NN user_NN IDs_NNS and_CC an_DT open_JJ entry_NN (_( in_IN this_DT case_NN entry_NN 11_CD )_) was_VBD used_VVN ._SENT 
+DISSUB_NN applications_NNS are_VBP likely_JJ to_TO be_VB a_DT strong_JJ catalyzer_NN for_IN JANUS_NP and_CC full_JJ message_NN specifications_NNS are_VBP expected_VVN for_IN the_DT next_JJ revisions_NNS of_IN the_DT standard_NN ._SENT 
+TABLE_NN V_NN Specification_NN of_IN the_DT JANUS_NP Packets_NNS Employed_VVN in_IN DISSUB_NP Scenarios_NNS <Section> 4._CD Conclusion_NN </Section> In_IN this_DT paper_NN ,_, we_PP have_VHP investigated_VVN the_DT use_NN of_IN four_CD JANUS-based_JJ services_NNS for_IN operationally_RB relevant_JJ underwater_JJ applications_NNS ._SENT 
+The_DT collected_VVN results_NNS show_VVP that_IN JANUS_NP is_VBZ a_DT feasible_JJ solution_NN to_TO increase_VV the_DT maritime_JJ situational_JJ awareness_NN in_IN the_DT underwater_JJ domain_NN ._SENT 
+Vital_JJ information_NN can_MD be_VB transmitted_VVN to_TO guarantee_VV mission_NN safety_NN in_IN support_NN to_TO operations_NNS at_IN sea_NN and_CC to_TO reduce_VV the_DT risk_NN of_IN collisions_NNS involving_VVG underwater_JJ assets_NNS ._SENT 
+We_PP have_VHP demonstrated_VVN that_IN JANUS_NP is_VBZ a_DT suitable_JJ solution_NN for_IN a_DT first_JJ contact_NN capability_NN in_IN a_DT heterogeneous_JJ network_NN where_WRB nodes_NNS may_MD decide_VV to_TO switch_VV to_TO another_DT common_JJ and_CC more_RBR advanced_VVD MCSs_NP for_IN faster_JJR data_NNS transmission_NN ._SENT 
+Additionally_RB ,_, JANUS_NP can_MD be_VB effectively_RB used_VVN to_TO deliver_VV live_JJ AIS_NNS and_CC METOC_NN data_NNS ,_, collected_VVN at_IN the_DT surface_NN ,_, to_TO submerged_JJ assets_NNS ._SENT 
+Similarly_RB ,_, JANUS_NP is_VBZ well_RB adapted_VVN to_TO transmit_VV critical_JJ data_NNS from_IN a_DT submarine_NN in_IN distress_NN ._SENT 
+Therefore_RB ,_, JANUS_NP could_MD be_VB used_VVN to_TO replace_VV the_DT analog_JJ UT_NP ,_, or_CC be_VB used_VVN in_IN combination_NN with_IN such_PDT a_DT telephone_NN ,_, to_TO increase_VV the_DT robustness_NN ,_, efficiency_NN ,_, and_CC reliability_NN in_IN delivering_VVG and_CC decoding_VVG critical_JJ information_NN ,_, avoiding_VVG the_DT need_NN to_TO employ_VV a_DT human_JJ operator_NN ._SENT 
+All_PDT the_DT conducted_VVN experiments_NNS show_VVP that_IN the_DT use_NN of_IN a_DT standard_NN commonly_RB agreed_VVD “language”_NN for_IN underwater_JJ digital_JJ communications_NNS is_VBZ a_DT long_JJ overdue_JJ key_JJ enabler_NN of_IN cooperation_NN among_IN heterogeneous_JJ underwater_JJ assets_NNS ._SENT 
+Fostering_VVG the_DT use_NN of_IN JANUS_NP in_IN relevant_JJ application_NN scenarios_NNS is_VBZ a_DT key_JJ challenge_NN to_TO increase_VV the_DT safety_NN and_CC awareness_NN in_IN maritime_JJ operations_NNS and_CC to_TO make_VV a_DT better_JJR and_CC more_JJR efficient_JJ use_NN of_IN underwater_JJ networks_NNS ._SENT 
+<Section> ACKNOWLEDGEMENT_NN </Section> This_DT work_NN was_VBD made_VVN possible_JJ using_VVG data_NNS from_IN the_DT REP15-Atlantic_JJ sea_NN trial_NN ,_, co-organized_VVD by_IN the_DT Portuguese_NP Navy_NP ,_, FEUP_NN ,_, CMRE_NP ,_, and_CC the_DT DOP/UAz_NP ._SENT 
+This_DT work_NN acknowledges_VVZ also_RB the_DT use_NN of_IN acoustical_JJ data_NNS that_WDT was_VBD made_VVN possible_JJ by_IN the_DT REP16-Atlantic_JJ sea_NN trial_NN ,_, including_VVG as_IN participants_NNS CMRE_NP and_CC PRT-N_NP ,_, FEUP_NN ,_, University_NP of_IN Padova_NP ,_, Atlas_NP Elektronik_NP ._SENT 
+The_DT authors_NNS would_MD like_VV to_TO thank_VV the_DT CMRE_NP Engineering_NP Technical_NP Division_NP ,_, the_DT Captain_NP and_CC crew_NN of_IN the_DT NRP_NP Gago_NP Coutinho_NP ,_, of_IN the_DT NRV_NP Alliance_NP ,_, and_CC of_IN the_DT NRP_NP Arpão_NP for_IN the_DT excellent_JJ support_NN during_IN the_DT experiments_NNS ._SENT 
+<Section> References_NNS </Section> 1._CD "_`` NATO_NP Standardization_NN Office_NP STANAG_NP 4748_CD Ed_NP ._SENT 
+A_DT Ver_NP ._SENT 
+1_LS "_'' ,_, Digital_NP Underwater_JJ Signalling_VVG Standard_NP for_IN Network_NP Node_NP Discovery_NP &_CC Interoperability_NP ,_, 2017_CD ,_, [_SYM online_JJ ]_SYM Available_JJ :_: https://nso.nato.int_NN ._SENT 
+2._CD J._NP Heidemann_NP ,_, M._NP Stojanovic_NP and_CC M._NP Zorzi_NP ,_, "_`` Underwater_JJ sensor_NN networks_NNS :_: Applications_NNS advances_NNS and_CC challenges_NNS "_'' ,_, Philosph_NP ._SENT 
+Trans_NP ._SENT 
+Roy_NP ._SENT 
+Soc_NP ._SENT 
+A_DT ,_, vol_NP ._SENT 
+370_CD ,_, no_RB ._SENT 
+1958_CD ,_, pp_NP ._SENT 
+158-175_CD ,_, May_NP 2012._CD 3._CD L._NP Lanbo_NP ,_, Z._NP Shengli_NP and_CC C._NP Jun-Hong_NP ,_, "_'' Prospects_NNS and_CC problems_NNS of_IN wireless_NN communication_NN for_IN underwater_JJ sensor_NN networks_NNS "_'' ,_, Wireless_NP Commun_NP ._SENT 
+Mobile_JJ Comput_NN ._SENT 
+,_, vol_NP ._SENT 
+8_CD ,_, no_RB ._SENT 
+8_CD ,_, pp_NP ._SENT 
+977-994_CD ,_, Aug._NP 2008._CD 4._CD J._NP Alves_NP ,_, A._NP Vermeij_NP ,_, D._NP Hughes_NP and_CC G._NP Zappa_NP ,_, "_'' Software-defined_VVD JANUS_NP communication_NN support_NN for_IN AUVs_NP "_'' ,_, Proc_NP ._SENT 
+4th_JJ Int_NP ._SENT 
+Conf_NP ._SENT 
+Exhib_NP ._SENT 
+Underwater_JJ Acoust_NP ._SENT 
+Meas_NP ._SENT 
+Technol_NN ._SENT 
+Results_NNS ,_, pp_NP ._SENT 
+20-24_CD ,_, Jun_NN ._SENT 
+,_, 2011._CD 5._CD P._NP van_NP Walree_NP ,_, R._NP Otnes_NP ,_, G._NP Zappa_NP and_CC J._NP Potter_NP ,_, "_`` Comparison_NN between_IN JANUS_NP and_CC DSSS_NP in_IN Norwegian_JJ waters_NNS "_'' ,_, Proc_NP ._SENT 
+4th_JJ Int_NP ._SENT 
+Conf_NP ._SENT 
+Exhib_NP ._SENT 
+Underwater_JJ Acoust_NP ._SENT 
+Meas_NP ._SENT 
+Technol_NN ._SENT 
+Results_NNS ,_, pp_NP ._SENT 
+20-24_CD ,_, Jun_NN ._SENT 
+,_, 2011._CD 6._CD I._NP Nissen_NP ,_, G._NP Zappa_NP and_CC J._NP Potter_NP ,_, "_'' Doppler_NP compensation_NN for_IN JANUS_NP applied_VVD to_TO data_NNS collected_VVN in_IN the_DT Baltic_JJ sea_NN "_'' ,_, Proc_NP ._SENT 
+4th_JJ Int_NP ._SENT 
+Conf_NP ._SENT 
+Exhib_NP ._SENT 
+Underwater_JJ Acoust_NP ._SENT 
+Meas_NP ._SENT 
+Technol_NN ._SENT 
+Results_NNS ,_, pp_NP ._SENT 
+20-24_CD ,_, Jun_NN ._SENT 
+,_, 2011._CD 7._CD J._NP R._NP Potter_NP ,_, J._NP Alves_NP ,_, D._NP Green_NP ,_, G._NP Zappa_NP ,_, I._NP Nissen_NP and_CC K._NP McCoy_NP ,_, "_'' The_DT JANUS_NP underwater_JJ communications_NN standard_NN "_'' ,_, Proc_NP ._SENT 
+2nd_JJ IEEE_NP OES_NPS Int_NP ._SENT 
+Conf_NP ._SENT 
+Underwater_JJ Commun_NN ._SENT 
+Netw_NNS ._SENT 
+,_, pp_NP ._SENT 
+3-5_CD ,_, Sep_JJ ._SENT 
+,_, 2014._CD 8._CD R._NP Petroccia_NP ,_, G._NP Cario_NP ,_, M._NP Lupia_NP ,_, V._NP Djapic_JJ and_CC C._NP Petrioli_NP ,_, "_'' First_NP in-field_NP experiments_NNS with_IN a_DT “Bilingual”_JJ underwater_JJ acoustic_JJ modem_NN supporting_VVG the_DT JANUS_NP standard_NN "_'' ,_, Proc_NP ._SENT 
+MTS/IEEE_NN OCEANS_NNS ,_, pp_NP ._SENT 
+1-7_CD ,_, May_NP 18–21_JJ ,_, 2015._CD 9._CD R._NP Petroccia_NP ,_, J._NP Alves_NP and_CC G._NP Zappa_NP ,_, "_'' Fostering_VVG the_DT use_NN of_IN JANUS_NP in_IN operationally-relevant_JJ underwater_JJ applications_NNS "_'' ,_, Proc_NP ._SENT 
+3rd_NP IEEE_NP OES_NP Int_NP ._SENT 
+Conf_NP ._SENT 
+Underwater_JJ Commun_NN ._SENT 
+Netw_NNS ._SENT 
+,_, pp_NP ._SENT 
+1-5_CD ,_, Aug._NP 30–Sep_NNS ._SENT 
+1_CD ,_, 2016._CD 10._CD J._NP Alves_NP and_CC J._NP Fricke_NP ,_, "_'' Analysis_NP of_IN JANUS_NP and_CC underwater_JJ telephone_NN capabilities_NNS and_CC co-existence_NN "_'' ,_, Proc_NP ._SENT 
+3rd_NP IEEE_NP OES_NP Int_NP ._SENT 
+Conf_NP ._SENT 
+Underwater_JJ Commun_NN ._SENT 
+Netw_NNS ._SENT 
+,_, pp_NP ._SENT 
+1-5_CD ,_, Aug._NP 30–Sep_NNS ._SENT 
+1_CD ,_, 2016._CD 11._CD H._NP Dol_NN ,_, K._NP Blom_NP and_CC E._NP Van_NP Der_NP Spek_NP ,_, "_'' Experiences_VVZ with_IN JANUS_NP and_CC efforts_NNS towards_IN a_DT common_JJ heavy-duty_JJ underwater_JJ communication_NN stack_VV "_'' ,_, Proc_NP ._SENT 
+3rd_NP IEEE_NP OES_NP Int_NP ._SENT 
+Conf_NP ._SENT 
+Underwater_JJ Commun_NN ._SENT 
+Netw_NNS ._SENT 
+,_, pp_NP ._SENT 
+1-5_CD ,_, Aug._NP 30–Sep_NNS ._SENT 
+1_CD ,_, 2016._CD 12._CD J._NP Alves_NP et_CC al_NP ._SENT 
+,_, "_'' Moving_VVG JANUS_NP forward_RB :_: A_DT look_NN into_IN the_DT future_NN of_IN underwater_JJ communications_NNS interoperability_NN "_'' ,_, Proc_NP ._SENT 
+MTS/IEEE_NN OCEANS_NNS ,_, pp_NP ._SENT 
+1-6_CD ,_, Sep_NP ._SENT 
+19–23_NP ,_, 2016._CD 13._CD M._NP Stojanovic_NP and_CC J._NP Preisig_NP ,_, "_`` Underwater_JJ acoustic_JJ communication_NN channels_NNS :_: Propagation_NN models_NNS and_CC statistical_JJ characterization_NN "_'' ,_, IEEE_NP Commun_NP ._SENT 
+Mag_NN ._SENT 
+,_, vol_NP ._SENT 
+47_CD ,_, no_RB ._SENT 
+1_LS ,_, pp_NP ._SENT 
+84-89_CD ,_, Feb._NP 2009._CD 14._CD "_`` Evologics_NP S2C18/34_NP acoustic_JJ modems_NNS ._SENT 
+"_'' ,_, Nov._NP 2016_CD ,_, [_SYM online_JJ ]_SYM Available_JJ :_: http://www.evologics.de/_NN ._SENT 
+15._CD R._NP Petroccia_NP ,_, "_'' A_DT distributed_VVN ID_NN assignment_NN and_CC topology_NN discovery_NN protocol_NN for_IN underwater_JJ acoustic_JJ networks_NNS "_'' ,_, Proc_NP ._SENT 
+3rd_NP IEEE_NP OES_NP Int_NP ._SENT 
+Conf_NP ._SENT 
+Underwater_JJ Commun_NN ._SENT 
+Netw_NNS ._SENT 
+,_, pp_NP ._SENT 
+1-5_CD ,_, Aug._NP 30–Sep_NNS ._SENT 
+1_CD ,_, 2016._CD 16._CD J._NP Potter_NP and_CC R._NP Been_NP ,_, "_`` Underwater_JJ automated_JJ identification_NN system_NN for_IN deconfliction_NN for_IN submarine_NN &_CC surface_NN asset_NN situational_JJ awareness_NN "_'' ,_, Proc_NP ._SENT 
+Def_NP ._SENT 
+Technol_NN ._SENT 
+Asia_NP ,_, pp_NP ._SENT 
+1-8_CD ,_, May_NP 19–20_NP ,_, 2010._CD 17._CD P._NP Dias_NP et_CC al_NP ._SENT 
+,_, "_'' Neptus—A_NP framework_NN to_TO support_VV multiple_JJ vehicle_NN operation_NN "_'' ,_, Proc_NP ._SENT 
+Europe_NP OCEANS_NNS ,_, pp_NP ._SENT 
+20-23_CD ,_, Jun_NN ._SENT 
+,_, 2005._CD 18._CD "_`` NATO_NP Standardization_NN Office_NP STANAG_NP 1390_CD Ed_NP ._SENT 
+8_CD "_'' ,_, The_DT Submarine_JJ Search_NP and_CC Rescue_VV Manual_NP ,_, 2013_CD ,_, [_SYM online_JJ ]_SYM Available_JJ :_: https://nso.nato.int_NN ._SENT 

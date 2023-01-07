@@ -1,0 +1,454 @@
+<title> Optimization_NN procedure_NN to_TO minimize_VV fuel_NN consumption_NN of_IN a_DT four-stroke_JJ marine_NN turbocharged_VVD diesel_JJ engine_NN </title> <author> Tadros_NNS ,_, M_NP (_( Tadros_NP ,_, M._NP )[_NP 1_CD ]_SYM ;_: Ventura_NP ,_, M_NP (_( Ventura_NP ,_, M._NP )[_NP 1_CD ]_SYM ;_: Soares_NP ,_, CG_NP (_( Guedes_NP Soares_NP ,_, C._NP )[_NP 1_CD ]_SYM </author> <Affiliation> [_SYM 1_CD ]‎_NP Univ_NP Lisbon_NP ,_, Inst_NP Super_NP Tecn_NP ,_, Ctr_NP Marine_NP Technol_NN &_CC Ocean_NP Engn_NP CENTEC_NP ,_, Lisbon_NP ,_, Portugal_NP </Affiliation> <year> 2019_CD </year> <Jounral> Energy_NP </Journal> <Publishing_house> PERGAMON-ELSEVIER_NP SCIENCE_NN LTD_NP ,_, THE_DT BOULEVARD_NN ,_, LANGFORD_NP LANE_NN ,_, KIDLINGTON_NP ,_, OXFORD_NP OX5_NP 1GB_NP ,_, ENGLAND_NP </Publishing_house> <Text_Collector> Wang_NP Shuaiyin，HEU_NP </Text_Collector> <DOI> 10.1016/j_NP ._SENT 
+energy.2018.11.146_JJ </DOI> <URL> https_NNS :_: //www_NNS ._SENT 
+sciencedirect_NNS ._SENT 
+com/science/article/pii/S0360544218323570_NP ?_SENT 
+via%3Dihub_NN </URL> <Section> Abstract_JJ </Section> A_DT numerical_JJ optimization_NN model_NN is_VBZ developed_VVN to_TO simulate_VV the_DT performance_NN of_IN a_DT large_JJ four-stroke_JJ marine_JJ turbocharged_JJ diesel_NN engine_NN along_IN the_DT entire_JJ operating_VVG range_NN by_IN finding_VVG the_DT optimal_JJ value_NN of_IN the_DT adjustable_JJ parameters_NNS :_: speed_NN of_IN the_DT turbocharger_NN ,_, start_NN angle_NN of_IN injection_NN ,_, intake_NN valve_NN timing_NN and_CC amount_NN of_IN injected_VVN fuel_NN ._SENT 
+This_DT numerical_JJ model_NN assists_VVZ to_TO find_VV the_DT optimal_JJ values_NNS of_IN these_DT different_JJ parameters_NNS together_RB without_IN performing_VVG any_DT experimental_JJ trials_NNS for_IN different_JJ engine_NN speeds_NNS and_CC loads_NNS by_IN minimizing_VVG the_DT fuel_NN consumption_NN and_CC by_IN verifying_VVG the_DT exhaust_NN emissions_NNS limitation_NN ._SENT 
+This_DT model_NN couples_NNS a_DT nonlinear_JJ optimization_NN procedure_NN implemented_VVN in_IN Matlab/Simulink_NP and_CC 1D_JJ engine_NN simulation_NN software_NN ._SENT 
+Firstly_RB ,_, the_DT marine_JJ diesel_NN engine_NN model_NN is_VBZ established_VVN and_CC calibrated_VVN using_VVG data_NNS from_IN the_DT manufacturer_NN ,_, and_CC the_DT nonlinear_JJ optimization_NN model_NN is_VBZ constructed_VVN using_VVG the_DT fitness_NN function_NN ,_, static_JJ penalty_NN functions_NNS and_CC boundary_NN conditions_NNS ._SENT 
+The_DT optimizer_NN adopted_VVN showed_VVD a_DT good_JJ computing_NN performance_NN even_RB when_WRB running_VVG in_IN normal_JJ computers_NNS ._SENT 
+The_DT model_NN is_VBZ used_VVN to_TO calculate_VV the_DT BSFC_NN and_CC to_TO compute_VV the_DT amount_NN of_IN CO2_JJ and_CC NOx_JJ emissions_NNS for_IN different_JJ working_JJ conditions_NNS ._SENT 
+The_DT results_NNS are_VBP important_JJ because_IN in_IN marine_JJ diesel_JJ engines_NNS ,_, the_DT values_NNS of_IN the_DT parameters_NNS of_IN the_DT turbocharger_NN ,_, injection_NN system_NN and_CC valves_NNS timings_NNS and_CC thus_RB the_DT amount_NN of_IN BSFC_NP ,_, CO2_NP and_CC NOx_NP emissions_NNS are_VBP not_RB provided_VVN by_IN the_DT manufacturer_NN along_IN the_DT entire_JJ operating_VVG range_NN ,_, although_IN these_DT data_NNS are_VBP required_VVN in_IN different_JJ marine_JJ applications_NNS either_CC during_IN the_DT preliminary_JJ stage_NN of_IN ship_NN design_NN or_CC to_TO be_VB used_VVN in_IN ship_NN routing_VVG code_NN ._SENT 
+This_DT simulation_NN environment_NN based_VVN optimization_NN scheme_NN can_MD be_VB further_RBR used_VVN to_TO compute_VV the_DT performance_NN of_IN any_DT marine_JJ diesel_NN engine_NN and_CC to_TO be_VB a_DT part_NN of_IN a_DT numeric_JJ model_NN of_IN the_DT complete_JJ propulsion_NN system_NN ._SENT 
+Keywords_NNS :_: Marine_JJ diesel_JJ engine_NN ;_: Four-stroke_JJ ;_: Exhaust_NN emissions_NNS ;_: Nonlinear_JJ programming_NN ;_: Optimization_NP model_NN ;_: Fuel_NN economy_NN <Section> 1._CD Introduction_NN </Section> The_DT marine_JJ diesel_NN engine_NN ,_, either_CC two-stroke_JJ or_CC four-stroke_JJ ,_, is_VBZ the_DT main_JJ source_NN of_IN power_NN of_IN various_JJ types_NNS of_IN ships_NNS ,_, and_CC it_PP is_VBZ a_DT very_RB complex_JJ system_NN ._SENT 
+It_PP is_VBZ a_DT multi-disciplinary_JJ application_NN field_NN ,_, which_WDT deals_VVZ with_IN the_DT four_CD major_JJ academic_JJ disciplines_NNS in_IN mechanical_JJ systems_NNS :_: design_NN methodology_NN and_CC interactive_JJ graphics_NNS ,_, dynamic_JJ systems_NNS and_CC control_NN ,_, machine_NN dynamics_NNS and_CC tribology_NN [_SYM 1_CD ]_SYM ._SENT 
+The_DT fuel_NN conservation_NN and_CC the_DT reduction_NN in_IN exhaust_NN emissions_NNS are_VBP becoming_VVG critical_JJ issues_NNS for_IN the_DT success_NN of_IN the_DT reliability_NN of_IN marine_JJ diesel_JJ engines_NNS due_JJ to_TO the_DT restrictions_NNS applied_VVN by_IN the_DT International_NP Maritime_NP Organization_NP (_( IMO_NP )_) along_IN 3_CD levels_NNS (_( tiers_NNS )_) from_IN January_NP 2000_CD till_IN January_NP 2016_CD [_SYM 2_CD ]_SYM as_RB shown_VVN in_IN Fig_NN ._SENT 
+1._CD Fig_NN ._SENT 
+1_CD Download_NN :_: Download_NP high-res_NP image_NN (_( 84KB)Download_NP :_: Download_NP full-size_JJ image_NN Fig_NN ._SENT 
+1._CD Maximum_JJ allowable_JJ nitrogen_NN oxides_NNS (_( NOx_NP )_) emissions_NNS for_IN marine_JJ diesel_JJ engines_NNS [_SYM 2_CD ]_SYM ._SENT 
+Different_JJ numerical_JJ models_NNS were_VBD developed_VVN for_IN saving_VVG time_NN and_CC cost_NN in_IN order_NN to_TO simulate_VV the_DT behavior_NN of_IN the_DT engine_NN ,_, its_PP$ performance_NN ,_, fuel_NN consumption_NN and_CC exhaust_NN emissions_NNS ._SENT 
+Goodenough_NP and_CC Baker_NP [_SYM 3_CD ]_SYM presented_VVD a_DT thermodynamic_JJ analysis_NN to_TO compute_VV the_DT performance_NN of_IN both_DT Otto_NP and_CC Diesel_NP cycles_NNS and_CC show_VV some_DT improvement_NN in_IN the_DT engine_NN performance_NN due_JJ to_TO the_DT throttle_NN control_NN ._SENT 
+Assents_VVZ et_NP al_NP ._SENT 
+[_SYM 4_CD ]_SYM began_VVD to_TO use_VV computers_NNS to_TO simulate_VV the_DT performance_NN of_IN a_DT turbocharged_JJ heavy_JJ duty_NN diesel_NN engine_NN ._SENT 
+The_DT developed_VVN model_NN consisted_VVN of_IN several_JJ sub-models_NNS which_WDT allow_VVP for_IN the_DT calculation_NN of_IN the_DT thermodynamics_NN ,_, the_DT heat_NN transfer_NN and_CC the_DT mass_JJ flow_NN for_IN optimization_NN studies_NNS ._SENT 
+The_DT combustion_NN process_NN was_VBD modeled_VVN using_VVG the_DT heat_NN release_NN rate_NN and_CC the_DT Wiebe_NP function_NN ,_, taking_VVG into_IN consideration_NN the_DT ignition_NN delay_NN and_CC the_DT combustion_NN phases_NNS ._SENT 
+Since_IN then_RB ,_, many_JJ numerical_JJ models_NNS have_VHP been_VBN developed_VVN using_VVG different_JJ software_NN to_TO simulate_VV and_CC validate_VV the_DT performance_NN of_IN different_JJ types_NNS of_IN engines_NNS as_IN presented_VVN in_IN Refs_NNS ._SENT 
+[_SYM [_SYM 5_CD ]_SYM ,_, [_SYM 6_CD ]_SYM ,_, [_SYM 7_CD ]_SYM ,_, [_SYM 8_CD ]_SYM ,_, [_SYM 9_CD ]_SYM ,_, [_SYM 10_CD ]_SYM ]_SYM ._SENT 
+Recently_RB ,_, different_JJ 0D/1D_JJ engine_NN and_CC gas_NN dynamics_NNS simulation_NN software_NN packages_NNS are_VBP becoming_VVG very_RB popular_JJ to_TO develop_VV the_DT engine_NN design_NN ._SENT 
+In_IN these_DT numerical_JJ software_NN ,_, the_DT engine_NN is_VBZ represented_VVN as_IN a_DT network_NN of_IN pipes_NNS to_TO simulate_VV the_DT properties_NNS of_IN the_DT flow_NN (_( 1D_JJ model_NN )_) and_CC the_DT thermodynamic_JJ properties_NNS (_( 0D_JJ model_NN )_) along_IN its_PP$ different_JJ parts_NNS [_SYM 11_CD ]_SYM ._SENT 
+These_DT software_NN tools_NNS reduce_VVP the_DT amount_NN of_IN expensive_JJ experimental_JJ trials_NNS required_VVN to_TO evaluate_VV the_DT performance_NN of_IN the_DT engines_NNS ._SENT 
+They_PP allow_VVP for_IN calculations_NNS of_IN the_DT thermo-fluid_NN inside_IN the_DT cylinders_NNS of_IN the_DT engine_NN and_CC in_IN the_DT intake_NN and_CC the_DT exhaust_NN manifolds_VVZ to_TO be_VB taken_VVN in_IN relation_NN with_IN the_DT behavior_NN of_IN the_DT attached_VVN turbocharger_NN ._SENT 
+They_PP also_RB calculate_VVP the_DT combustion_NN process_NN inside_IN the_DT engine_NN ,_, being_VBG either_DT compression_NN ignition_NN (_( CI_NP )_) or_CC spark_NN ignition_NN (_( SI_NP )_) ,_, using_VVG the_DT suitable_JJ Wiebe_NP function_NN and_CC the_DT heat_NN release_NN method_NN ._SENT 
+Fig_NN ._SENT 
+2_CD presents_NNS the_DT position_NN of_IN the_DT 0D/1D_JJ model_NN during_IN the_DT development_NN of_IN the_DT numerical_JJ simulation_NN of_IN the_DT engine_NN performance_NN as_IN described_VVN by_IN Albrecht_NP et_CC al_NP ._SENT 
+[_SYM 12_CD ]_SYM ._SENT 
+These_DT models_NNS can_MD be_VB organized_VVN on_IN a_DT physical_JJ modelling_VVG level_NN axis_NN ,_, from_IN look_NN up_IN table_NN to_TO computational_JJ fluid_JJ dynamic_NN (_( CFD_NN )_) models_NNS taking_VVG into_IN account_NN the_DT details_NNS of_IN the_DT combustion_NN process_NN ._SENT 
+As_IN the_DT model_NN is_VBZ increasingly_RB complex_JJ ,_, an_DT increase_NN in_IN the_DT simulation_NN time_NN is_VBZ detected_VVN ._SENT 
+Fig_NN ._SENT 
+2_CD Download_NN :_: Download_NP high-res_NP image_NN (_( 262KB)Download_NP :_: Download_NP full-size_JJ image_NN Fig_NN ._SENT 
+2._CD Continuous_JJ modelling_VVG process_NN [_SYM 12_CD ]_SYM ._SENT 
+In_IN recent_JJ years_NNS ,_, several_JJ technologies_NNS and_CC methods_NNS have_VHP been_VBN introduced_VVN to_TO reduce_VV the_DT level_NN of_IN harmful_JJ emissions_NNS from_IN engines_NNS [_SYM 13_CD ]_SYM ._SENT 
+The_DT development_NN of_IN the_DT turbochargers_NNS ,_, the_DT optimization_NN of_IN the_DT injection_NN system_NN and_CC the_DT valve_NN timing_NN are_VBP the_DT main_JJ solutions_NNS considered_VVN to_TO increase_VV and_CC optimize_VV the_DT performance_NN of_IN the_DT engine_NN ._SENT 
+The_DT turbochargers_NNS have_VHP developed_VVN significantly_RB in_IN the_DT last_JJ decade_NN to_TO increase_VV the_DT compression_NN ratio_NN up_RB to_TO 5.5_CD and_CC are_VBP suitable_JJ for_IN marine_JJ diesel_JJ oil_NN (_( MDO_NP )_) ,_, heavy_JJ fuel_NN oil_NN (_( HVO_NP )_) and_CC gas_NN [_SYM 14_CD ]_SYM ._SENT 
+This_DT development_NN helps_VVZ to_TO increase_VV the_DT volumetric_JJ efficiency_NN of_IN the_DT engine_NN and_CC the_DT efficiency_NN of_IN the_DT combustion_NN process_NN [_SYM 15_CD ]_SYM ._SENT 
+Karabektas_NPS [_SYM 16_CD ]_SYM calculated_VVN the_DT performance_NN of_IN a_DT diesel_JJ engine_NN using_VVG two_CD types_NNS of_IN fuel_NN in_IN both_DT naturally_RB aspirated_VVN and_CC turbocharged_VVN conditions_NNS ._SENT 
+The_DT results_NNS show_VVP a_DT big_JJ improvement_NN in_IN the_DT performance_NN of_IN the_DT engine_NN and_CC a_DT significant_JJ reduction_NN in_IN exhaust_NN emissions_NNS when_WRB the_DT turbocharger_NN was_VBD installed_VVN ._SENT 
+Zhu_NP et_NP al_NP ._SENT 
+[_SYM 17_CD ]_SYM presented_VVD some_DT guidelines_NNS for_IN another_DT technology_NN concerning_VVG the_DT injection_NN system_NN that_WDT affects_VVZ the_DT behavior_NN of_IN the_DT combustion_NN process_NN ._SENT 
+In_IN general_NN ,_, an_DT increase_NN in_IN the_DT firing_NN pressure_NN (_( Pmax_NP )_) inside_IN the_DT cylinder_NN is_VBZ achieved_VVN when_WRB the_DT fuel_NN is_VBZ injected_VVN early_RB ,_, accompanied_VVN with_IN a_DT reduction_NN in_IN the_DT inlet_NN temperature_NN to_TO the_DT turbine_NN and_CC vice_JJ versa_RB depending_VVG on_IN the_DT amount_NN of_IN injected_VVN fuel_NN ._SENT 
+Other_JJ different_JJ researchers_NNS support_VVP the_DT same_JJ conclusions_NNS [_SYM [_SYM 18_CD ]_SYM ,_, [_SYM 19_CD ]_SYM ,_, [_SYM 20_CD ]_SYM ,_, [_SYM 21_CD ]_SYM ,_, [_SYM 22_CD ]_SYM ,_, [_SYM 23_CD ]_SYM ,_, [_SYM 24_CD ]_SYM ]_SYM using_VVG experimental_JJ work_NN and_CC simulation_NN software_NN ._SENT 
+The_DT variable_JJ valve_NN timing_NN (_( VVT_NP )_) is_VBZ also_RB an_DT important_JJ parameter_NN to_TO control_VV the_DT amount_NN of_IN intake_NN and_CC exhaust_NN flow_NN for_IN each_DT speed_NN and_CC load_NN to_TO maximize_VV the_DT engine_NN brake_NN power_NN and_CC to_TO reduce_VV the_DT consumption_NN of_IN fuel_NN ._SENT 
+Sher_NP and_CC Bar-Kohany_NP [_SYM 25_CD ]_SYM studied_VVD the_DT effect_NN of_IN VVT_NP on_IN SI_NP engine_NN ._SENT 
+An_DT increase_NN in_IN engine_NN torque_NN and_CC decrease_NN in_IN fuel_NN consumption_NN was_VBD achieved_VVN ._SENT 
+Kim_NP and_CC Kim_NP [_SYM 26_CD ]_SYM determined_VVN the_DT optimum_JJ intake_NN valve_NN closing_VVG time_NN of_IN a_DT large_JJ diesel_NN engine_NN for_IN less_JJR fuel_NN consumption_NN ,_, which_WDT in_IN turn_NN decreases_VVZ the_DT NOx_JJ emissions_NNS ._SENT 
+This_DT helps_VVZ to_TO predict_VV the_DT amount_NN of_IN volumetric_JJ efficiency_NN inside_IN the_DT cylinders_NNS ._SENT 
+Dollhopf_NP [_SYM 27_CD ]_SYM calculated_VVN the_DT exhaust_NN flow_NN as_IN functions_NNS of_IN the_DT dimensions_NNS of_IN the_DT exhaust_NN manifold_NN of_IN a_DT NASCAR_NP Restrictor_NN plate_NN internal_JJ combustion_NN engine_NN with_IN the_DT aid_NN of_IN Ricardo_NP Wave_NP software_NN [_SYM 28_CD ]_SYM and_CC validated_VVN by_IN experimental_JJ data_NNS ._SENT 
+Cornolti_NP et_NP al_NP ._SENT 
+[_SYM 29_CD ]_SYM studied_VVN both_CC the_DT intake_NN and_CC the_DT exhaust_NN systems_NNS of_IN a_DT turbocharged_JJ diesel_NN engine_NN for_IN different_JJ exhaust_NN gas_NN recirculation_NN (_( EGR_NP )_) configurations_NNS ._SENT 
+The_DT pressures_NNS and_CC temperatures_NNS in_IN the_DT piping_JJ systems_NNS are_VBP calculated_VVN for_IN different_JJ speeds_NNS ,_, loads_NNS and_CC EGR_NN rates_NNS ._SENT 
+Galindo_NP et_NP al_NP ._SENT 
+[_SYM 30_CD ]_SYM used_VVN the_DT heat_NN release_NN method_NN and_CC the_DT gas_NN exchange_NN processes_VVZ to_TO calculate_VV the_DT performance_NN of_IN a_DT two-stroke_JJ engine_NN to_TO provide_VV design_NN criteria_NNS for_IN different_JJ running_VVG conditions_NNS ._SENT 
+Kitanović_NP et_NP al_NP ._SENT 
+[_SYM 31_CD ]_SYM presented_VVD a_DT co-simulation_NN in_IN Ricardo_NP Wave_NP and_CC Matlab/Simulink_NP environments_NNS to_TO investigate_VV the_DT effects_NNS of_IN the_DT turbo-expansion_NN concept_NN on_IN gas-exchange_NN and_CC combustion_NN processes_NNS of_IN a_DT 1.4_CD L_NP spark-ignition_NN turbocharged_VVD engine_NN ._SENT 
+The_DT Wiebe-based_JJ spark-ignition_NN combustion_NN model_NN was_VBD used_VVN to_TO predict_VV the_DT influence_NN of_IN intake_NN and_CC exhaust_NN conditions_NNS on_IN combustion_NN duration_NN and_CC heat_NN release_NN dynamics_NNS ._SENT 
+The_DT brake_NN specific_JJ fuel_NN consumption_NN (_( BSFC_NP )_) showed_VVD a_DT reduction_NN by_IN 1.8_CD %_NN at_IN the_DT nominal_JJ speed_NN ._SENT 
+Fontana_NP and_CC Galloni_NNS [_SYM 32_CD ]_SYM ,_, Mahrous_JJ et_NP al_NP ._SENT 
+[_SYM 33_CD ]_SYM and_CC Jia_NP et_NP al_NP ._SENT 
+[_SYM 34_CD ]_SYM presented_VVD the_DT improvement_NN achieved_VVN in_IN the_DT fuel_NN economy_NN due_JJ to_TO the_DT control_NN of_IN VVT_NN of_IN different_JJ types_NNS of_IN engines_NNS using_VVG 1D_NNS and_CC 3D_JJ simulation_NN software_NN ._SENT 
+Due_JJ to_TO the_DT large_JJ number_NN of_IN parameters_NNS that_WDT affect_VVP the_DT engine_NN performance_NN ,_, different_JJ nonlinear_JJ programming_NN methods_NNS have_VHP been_VBN widely_RB used_VVN to_TO perform_VV optimization_NN of_IN the_DT design_NN and_CC operating_VVG variables_NNS to_TO reduce_VV fuel_NN consumption_NN and_CC thus_RB the_DT exhaust_NN emissions_NNS ._SENT 
+Wahlström_NP and_CC Eriksson_NP [_SYM 35_CD ]_SYM used_VVN the_DT weighted_JJ least-squares_NP optimization_NN to_TO tune_NN both_CC the_DT sub-models_NNS and_CC the_DT complete_JJ model_NN of_IN a_DT diesel_JJ engine_NN with_IN a_DT variable-geometry_NN turbocharger_NN (_( VGT_NP )_) and_CC exhaust_VV gas_NN recirculation_NN (_( EGR_NP )_) ._SENT 
+Verma_NP and_CC Lakshminarayanan_NP [_SYM 36_CD ]_SYM used_VVN a_DT genetic_JJ algorithm_NN (_( GA_NP )_) to_TO optimize_VV the_DT injection_NN timing_NN in_IN order_NN to_TO reduce_VV the_DT brake_NN specific_JJ fuel_NN consumption_NN (_( BSFC_NP )_) while_IN meeting_VVG the_DT limitation_NN of_IN the_DT exhaust_NN emissions_NNS ._SENT 
+Togun_NP and_CC Baysec_NP [_SYM 37_CD ]_SYM applied_VVD the_DT same_JJ method_NN of_IN optimization_NN to_TO predict_VV the_DT torque_NN and_CC BSFC_NN of_IN a_DT gasoline_NN engine_NN and_CC a_DT surrogate_JJ model_NN was_VBD developed_VVN and_CC show_VV correlation_NN with_IN the_DT experimental_JJ data_NNS ._SENT 
+Alonso_NP et_NP al_NP ._SENT 
+[_SYM 38_CD ]_SYM demonstrated_VVD the_DT capability_NN of_IN using_VVG artificial_JJ neural_JJ networks_NNS (_( ANNs_NPS )_) in_IN combination_NN with_IN GA_NP to_TO optimize_VV the_DT performance_NN of_IN the_DT diesel_JJ engine_NN in_IN which_WDT reductions_NNS in_IN emissions_NNS and_CC fuel_NN consumption_NN were_VBD achieved_VVN ._SENT 
+Hiroyasu_NP et_NP al_NP ._SENT 
+[_SYM 39_CD ]_SYM improved_VVN the_DT fuel_NN efficiency_NN and_CC reduced_VVD the_DT emissions_NNS by_IN applying_VVG the_DT multi-objective_JJ genetic_JJ algorithm_NN on_IN the_DT EGR_NP and_CC the_DT injection_NN timing_NN ._SENT 
+D'Errico_NP et_NP al_NP ._SENT 
+[_SYM 40_CD ]_SYM have_VHP chosen_VVN the_DT Mesh_NN Adaptive_JJ Direct_NP Search_NP (_( MADS_VVZ )_) and_CC compared_VVN with_IN GA_NP to_TO solve_VV both_DT single_JJ and_CC multi-objective_JJ problem_NN for_IN the_DT internal_JJ combustion_NN engine_NN (_( ICE_NN )_) based_VVN on_IN a_DT 1D_JJ fluid_JJ dynamic_JJ physical_JJ model_NN ._SENT 
+Millo_NP et_NP al_NP ._SENT 
+[_SYM 41_CD ]_SYM used_VVN GA_NP to_TO optimize_VV the_DT calibration_NN of_IN a_DT diesel_JJ engine_NN in_IN order_NN to_TO control_VV the_DT exhaust_NN emissions_NNS according_VVG to_TO the_DT international_JJ regulations_NNS ._SENT 
+Karra_NP and_CC Kong_NP [_SYM 42_CD ]_SYM implemented_VVN the_DT particle_NN swarm_NN optimization_NN (_( PSO_NP )_) in_IN engine_NN testing_NN to_TO decrease_VV the_DT exhaust_NN emissions_NNS during_IN 40–70_JJ experimental_JJ runs_NNS ._SENT 
+Wahono_NP and_CC Ogai_NNS [_SYM 43_CD ]_SYM also_RB used_VVN PSO_NP to_TO calculate_VV different_JJ control_NN parameters_NNS in_IN order_NN to_TO optimize_VV the_DT fuel_NN consumption_NN and_CC the_DT exhaust_NN emissions_NNS of_IN a_DT single_JJ cylinder_NN diesel_NN engine_NN ._SENT 
+Due_JJ to_TO the_DT lack_NN of_IN data_NNS of_IN the_DT parameters_NNS of_IN the_DT turbocharger_NN ,_, injection_NN system_NN and_CC valves_NNS timings_NNS and_CC thus_RB the_DT BSFC_NN ,_, CO2_JJ and_CC NOx_JJ emissions_NNS for_IN different_JJ engine_NN working_VVG conditions_NNS ,_, the_DT main_JJ objective_NN of_IN the_DT current_JJ study_NN is_VBZ to_TO focus_VV on_IN the_DT marine_JJ engines_NNS ,_, by_IN developing_VVG an_DT optimization_NN model_NN to_TO simulate_VV the_DT performance_NN and_CC exhaust_NN emissions_NNS of_IN a_DT large_JJ turbocharged_JJ four-stroke_JJ marine_JJ diesel_NN engine_NN along_IN the_DT load_NN diagram_NN of_IN the_DT engine_NN ,_, by_IN minimizing_VVG the_DT fuel_NN consumption_NN and_CC by_IN verifying_VVG the_DT exhaust_NN emissions_NNS ._SENT 
+This_DT model_NN will_MD be_VB a_DT part_NN of_IN a_DT numerical_JJ propulsion_NN system_NN and_CC can_MD be_VB connected_VVN to_TO a_DT ship_NN weather_NN routing_VVG system_NN to_TO allow_VV the_DT shipmaster_NN to_TO identify_VV the_DT most_RBS favorable_JJ route_NN regarding_VVG the_DT consumption_NN of_IN fuel_NN and_CC the_DT amount_NN of_IN exhaust_NN emissions_NNS [_SYM [_SYM 44_CD ]_SYM ,_, [_SYM 45_CD ]_SYM ,_, [_SYM 46_CD ]_SYM ,_, [_SYM 47_CD ]_SYM ]_SYM ._SENT 
+The_DT developed_VVN model_NN in_IN this_DT study_NN is_VBZ inspired_VVN from_IN the_DT model_NN of_IN Zhao_NP and_CC Xu_NP [_SYM 48_CD ]_SYM by_IN considering_VVG the_DT effect_NN of_IN the_DT limitation_NN of_IN NOx_JJ emissions_NNS on_IN the_DT performance_NN of_IN the_DT marine_JJ diesel_NN engine_NN into_IN the_DT main_JJ fitness_NN function_NN ,_, and_CC by_IN coupling_NN Ricardo_NP Wave_NP Software_NP [_SYM 28_CD ]_SYM as_IN a_DT 1D_JJ engine_NN simulation_NN instead_RB of_IN GT-Power_NN software_NN and_CC a_DT nonlinear_JJ optimization_NN method_NN (_( fmincon_NN )_) implemented_VVN in_IN Matlab_NN based_VVN on_IN the_DT interior_JJ point_NN algorithm_NN instead_RB of_IN GA_NP ._SENT 
+The_DT interior_JJ point_NN algorithm_NN was_VBD used_VVN by_IN DeLand_NP and_CC Dudgeon_NP [_SYM 49_CD ]_SYM to_TO perform_VV a_DT nonlinear_JJ optimization_NN method_NN coupling_NN Matlab_NN and_CC GT-Power_NN [_SYM 50_CD ]_SYM ,_, to_TO optimize_VV the_DT reaction_NN parameters_NNS in_IN the_DT catalyst_NN that_WDT affect_VVP the_DT after_IN treatment_NN system_NN for_IN the_DT purpose_NN of_IN calibration_NN with_IN experimental_JJ data_NNS ._SENT 
+The_DT main_JJ advantage_NN of_IN this_DT optimizer_NN that_IN it_PP quickly_RB reaches_VVZ the_DT local_JJ solution_NN within_IN its_PP$ starting_VVG basin_NN when_WRB using_VVG normal_JJ computers_NNS unlike_IN the_DT other_JJ optimization_NN methods_NNS and_CC as_RB mentioned_VVN in_IN Refs_NNS ._SENT 
+[_SYM [_SYM 51_CD ]_SYM ,_, [_SYM 52_CD ]_SYM ,_, [_SYM 53_CD ]_SYM ,_, [_SYM 54_CD ]_SYM ]_SYM ._SENT 
+Therefore_RB ,_, there_EX is_VBZ no_DT need_NN to_TO use_VV high_JJ performance_NN computers_NNS to_TO perform_VV the_DT simulation_NN ._SENT 
+The_DT fitness_NN function_NN ,_, the_DT boundaries_NNS and_CC the_DT penalty_NN functions_NNS of_IN the_DT nonlinear_JJ optimization_NN model_NN are_VBP defined_VVN ._SENT 
+The_DT speed_NN of_IN turbocharger_NN (_( TS_NP )_) ,_, timing_NN of_IN intake_NN valve_NN opening_NN (_( IVO_NP )_) ,_, start_NN of_IN fuel_NN injection_NN (_( SOI_NP )_) and_CC fuel_NN rate_NN (_( FR_NP )_) are_VBP the_DT different_JJ variables_NNS that_WDT can_MD be_VB further_RBR optimized_VVN ,_, to_TO minimize_VV the_DT fuel_NN consumption_NN of_IN the_DT selected_JJ marine_JJ engine_NN ._SENT 
+Firstly_RB ,_, the_DT engine_NN model_NN is_VBZ established_VVN in_IN Ricardo_NP Wave_NP to_TO be_VB calibrated_VVN and_CC validated_VVN using_VVG data_NNS of_IN four_CD working_VVG operating_VVG conditions_NNS along_IN the_DT theoretical_JJ propeller_NN curve_NN from_IN the_DT manufacturer_NN ._SENT 
+Then_RB ,_, different_JJ simulations_NNS are_VBP performed_VVN using_VVG the_DT proposed_VVN model_NN to_TO compute_VV the_DT engine_NN performance_NN of_IN a_DT given_VVN range_NN of_IN engine_NN speeds_NNS and_CC loads_NNS ._SENT 
+The_DT brake_NN power_NN ,_, BSFC_NP and_CC the_DT exhaust_NN emissions_NNS are_VBP the_DT main_JJ results_NNS produced_VVD ._SENT 
+<Section> 2._CD Engine_NN model_NN </Section> 2.1_CD ._SENT 
+Engine_NN specifications_NNS Table_NN 1_CD shows_NNS the_DT main_JJ specifications_NNS of_IN the_DT medium_NN speed_NN operated_VVD industrial_JJ sized_VVD marine_JJ 4-stroke_JJ diesel_NN engine_NN used_VVN in_IN this_DT study_NN ,_, a_DT MAN_NN 18V32/44CR_NP [_SYM 55_CD ]_SYM ._SENT 
+As_IN a_DT marine_JJ main_JJ engine_NN ,_, it_PP may_MD be_VB applied_VVN for_IN mechanical_JJ or_CC diesel-electric_JJ propulsion_NN drive_NN for_IN utilization_NN in_IN bulk_JJ carriers_NNS ,_, container_NN vessels_NNS ,_, tankers_NNS and_CC general_JJ cargo_NN vessels_NNS ._SENT 
+Two_CD turbochargers_NNS MAN_NN TCR22-42_NN ,_, with_IN high_JJ pressure_NN ratios_NNS ,_, are_VBP attached_VVN to_TO the_DT engine_NN to_TO increase_VV its_PP$ efficiency_NN and_CC thus_RB compensate_VV the_DT increase_NN in_IN BSFC_NN associated_VVN with_IN lower_JJR NOx_NN emissions_NNS ._SENT 
+The_DT intake_NN pressure_NN and_CC temperature_NN are_VBP set_VVN at_IN atmospheric_JJ conditions_NNS ,_, i._NP e._NP 100_CD kPa_NP and_CC 318_CD K_NN ,_, respectively_RB ._SENT 
+The_DT maximum_JJ power_NN of_IN the_DT engine_NN is_VBZ 9180_CD kW_NN at_IN 750_CD rpm_NN and_CC MDO_NP is_VBZ the_DT fuel_NN used_VVN for_IN combustion_NN ._SENT 
+Table_NN 1._CD Main_JJ engine_NN specifications_NNS ._SENT 
+Parameter_NN Value_NP Bore_VVD (_( mm_NP )_) 320_CD Stroke_NN (_( mm_NP )_) 440_CD No._NN of_IN cylinders_NNS 18_CD Displacement_NN (_( liter_NN )_) 640_CD Number_NP of_IN valves_NNS per_IN cylinder_NN 4_CD Compression_NN ratio_NN 17.3:1_CD bmep_NNS (_( bar_NN )_) 23.06_CD Piston_NN speed_NN (_( m/s_NP )_) 11_CD Engine_NN speed_NN (_( rpm_NN )_) 750_CD Brake_NP Specific_JJ fuel_NN consumption_NN (_( g/kW_NNS ._SENT 
+h_NN )_) 179_CD Power-to-weight_NN ratio_NN (_( kW/Kg_NN )_) 0.095_CD 2.2_CD ._SENT 
+Establishment_NN of_IN the_DT numerical_JJ models_NNS The_DT established_JJ optimization_NN model_NN couples_NNS Ricardo_NP Wave_NP as_IN 1D_JJ engine_NN simulation_NN software_NN ,_, to_TO calculate_VV the_DT performance_NN and_CC the_DT exhaust_NN emissions_NNS of_IN the_DT engine_NN ,_, with_IN a_DT nonlinear_JJ constrained_VVN optimizer_NN implemented_VVN in_IN Matlab/Simulink_NP as_RB presented_VVD in_IN Fig_NN ._SENT 
+3._CD Fig_NN ._SENT 
+3_CD Download_NN :_: Download_NP high-res_NP image_NN (_( 303KB)Download_NP :_: Download_NP full-size_JJ image_NN Fig_NN ._SENT 
+3._CD MATLAB/Simulink/Ricardo_NP Wave_NP coupling_NN scheme_NN ._SENT 
+2.2.1_CD ._SENT 
+Ricardo_NP Wave_NP The_DT marine_JJ diesel_NN engine_NN model_NN depends_VVZ on_IN a_DT large_JJ number_NN of_IN adjustable_JJ parameters_NNS that_WDT need_VVP to_TO be_VB optimized_VVN as_IN presented_VVN in_IN Fig_NN ._SENT 
+4_LS [_SYM 56_CD ]_SYM ._SENT 
+It_PP is_VBZ modeled_VVN using_VVG Ricardo_NP Wave_NP as_IN a_DT 1D_JJ engine_NN simulation_NN software_NN as_IN shown_VVN in_IN Fig_NN ._SENT 
+5_LS ,_, taking_VVG into_IN account_NN the_DT characteristics_NNS of_IN the_DT engine_NN ,_, the_DT two_CD turbochargers_NNS ,_, two_CD intercoolers_NNS ,_, the_DT intake_NN and_CC exhaust_NN systems_NNS and_CC the_DT fuel_NN injectors_NNS ._SENT 
+Fig_NN ._SENT 
+4_CD Download_NN :_: Download_NP high-res_NP image_NN (_( 94KB)Download_NP :_: Download_NP full-size_JJ image_NN Fig_NN ._SENT 
+4._CD Schematic_JJ diagram_NN of_IN the_DT engine_NN model_NN [_SYM 18_CD ]_SYM ._SENT 
+Fig_NN ._SENT 
+5_CD Download_NN :_: Download_NP high-res_NP image_NN (_( 847KB)Download_NP :_: Download_NP full-size_JJ image_NN Fig_NN ._SENT 
+5._CD Schematic_JJ diagram_NN of_IN the_DT 1D_JJ engine_NN model_NN implemented_VVN in_IN Ricardo_NP Wave_NP ._SENT 
+The_DT turbocharged_JJ diesel_NN engine_NN model_NN is_VBZ simulated_JJ by_IN the_DT energy_NN and_CC momentum_NN equations_NNS presented_VVN by_IN Watson_NP and_CC Janota_NP [_SYM 57_CD ]_SYM using_VVG the_DT concept_NN of_IN “_NN filling_VVG and_CC emptying_VVG ”_JJ method_NN which_WDT became_VVD an_DT essential_JJ tool_NN to_TO calculate_VV the_DT performance_NN of_IN any_DT engine_NN as_IN shown_VVN in_IN Fig_NN ._SENT 
+6._CD Fig_NN ._SENT 
+6_CD Download_NN :_: Download_NP high-res_NP image_NN (_( 554KB)Download_NP :_: Download_NP full-size_JJ image_NN Fig_NN ._SENT 
+6._CD Flow_NP diagram_NN for_IN fitting_NN and_CC emptying_VVG model_NN [_SYM 57_CD ]_SYM ._SENT 
+This_DT method_NN considers_VVZ each_DT manifold_NN or_CC cylinder_NN as_IN a_DT unique_JJ thermodynamic_JJ control_NN volume_NN ,_, in_IN which_WDT the_DT energy_NN and_CC continuity_NN equations_NNS are_VBP solved_VVN as_IN functions_NNS of_IN time_NN or_CC crank_VV angle_NN ,_, while_IN all_DT restrictions_NNS are_VBP simulated_JJ using_VVG quasi-steady_JJ flow_NN method_NN ._SENT 
+The_DT heat_NN transfer_NN inside_IN the_DT pipes_NNS and_CC conjunction_NN are_VBP calculated_VVN using_VVG the_DT Colburn_NP analogy_NN [_SYM 58_CD ]_SYM and_CC the_DT friction_NN coefficient_NN is_VBZ computed_VVN using_VVG the_DT equation_NN suggested_VVD by_IN Darcy_NP [_SYM 59_CD ]_SYM ,_, which_WDT is_VBZ widely_RB used_VVN and_CC considered_VVN in_IN different_JJ applications_NNS [_SYM 60,61_CD ]_SYM ._SENT 
+The_DT injection_NN timing_NN ,_, profile_NN ,_, pressure_NN ,_, and_CC the_DT amount_NN of_IN fuel_NN injected_VVN are_VBP the_DT parameters_NNS considered_VVN while_IN modelling_VVG the_DT fuel_NN injection_NN system_NN ._SENT 
+The_DT process_NN inside_IN the_DT cylinders_NNS are_VBP calculated_VVN according_VVG to_TO the_DT first_JJ law_NN of_IN thermodynamics_NNS [_SYM 15_CD ]_SYM taking_VVG into_IN consideration_NN the_DT heat_NN release_NN rate_NN (_( HRR_NP )_) during_IN the_DT combustion_NN process_NN as_IN presented_VVN by_IN Maroteaux_NP et_CC al_NP ._SENT 
+[_SYM 62_CD ]_SYM and_CC the_DT heat_NN transfer_NN using_VVG the_DT empirical_JJ formula_NN suggested_VVN by_IN Woschni_NP [_SYM 63_CD ]_SYM as_RB presented_VVN in_IN the_DT following_VVG equations_NNS :_: (_( 1)dPdθ=γ−1VdQdθ−γPVdVdθ_NP (_( 2)dTdθ=(γ−1)TPV[dQdθ−PdVdθ_NP ]_SYM (_( 3)dQ=Qcombdxb−dQw_NNS (_( 4)Qcomb=mfuelCV_NP (_( 5)dQw=hAwω(Tg−Tw)dθ_NN where_WRB V_NN ,_, P_NN ,_, T_NN are_VBP the_DT cylinder_NN volume_NN ,_, pressure_NN and_CC temperature_NN respectively_RB and_CC dV/dθ_NP ,_, dP/dθ_NP ,_, dT/dθ_NP ,_, are_VBP the_DT change_NN in_IN volume_NN ,_, pressure_NN and_CC temperature_NN respectively_RB and_CC γ_NP is_VBZ the_DT specific_JJ heat_NN ratio_NN ._SENT 
+dQ_NP is_VBZ the_DT total_JJ heat_NN added_VVD ,_, Qcomb_NP is_VBZ the_DT heat_NN generated_VVN from_IN combustion_NN ,_, mfuel_NN is_VBZ the_DT amount_NN of_IN injected_VVN fuel_NN ,_, CV_NP is_VBZ the_DT calorific_JJ value_NN of_IN the_DT injected_VVN fuel_NN ,_, dQw_NN is_VBZ the_DT heat_NN exchanged_VVN with_IN the_DT cylinder_NN walls_NNS ,_, h_NN is_VBZ the_DT heat_NN transfer_NN coefficient_NN suggested_VVN by_IN Woschni_NP ,_, Aw_NN is_VBZ the_DT area_NN of_IN cylinder_NN walls_NNS ,_, ω_NP is_VBZ the_DT engine_NN speed_NN ,_, Tg_NP is_VBZ the_DT burn_VVP gas_NN temperature_NN and_CC Tw_NN is_VBZ the_DT cylinder_NN wall_NN temperature_NN ._SENT 
+The_DT burned_JJ mass_NN fraction_NN ,_, xb_NP ,_, is_VBZ computed_VVN using_VVG the_DT equation_NN suggested_VVD by_IN Watson_NP et_CC al_NP ._SENT 
+[_SYM 64_CD ]_SYM as_RB expressed_VVN in_IN equation_NN (_( 6_CD )_) ._SENT 
+This_DT empirical_JJ formula_NN is_VBZ suitable_JJ for_IN the_DT combustion_NN in_IN diesel_JJ cycle_NN and_CC did_VVD not_RB require_VV any_DT calibration_NN unlike_IN the_DT single_JJ and_CC multi-Wiebe_NN functions_NNS ._SENT 
+The_DT concept_NN of_IN a_DT double_JJ Wiebe_NP function_NN based_VVN on_IN the_DT combustion_NN simulation_NN is_VBZ proposed_VVN as_IN an_DT alternative_NN to_TO the_DT single_JJ Wiebe_NP function_NN to_TO model_VV the_DT different_JJ phases_NNS of_IN the_DT combustion_NN process_NN ._SENT 
+(_( 6)xb=pf{1−[1−(0.75τ)2]5000}+df{1−[1−(cd3τ)1.75]5000}+tf{1−[1−(ct3τ)2.5]5000_NP }_) where_WRB Pf_NP ,_, df_NP ,_, tf_NP ,_, are_VBP mass_JJ fractions_NNS of_IN the_DT premix_NN ,_, diffusion_NN ,_, and_CC tail_NN burn_VVP curves_NNS ,_, respectively_RB ._SENT 
+cd3_NP ,_, ct3_NP ,_, are_VBP the_DT burn_VVP duration_NN coefficients_NNS for_IN the_DT diffusion_NN and_CC tail_NN burn_VVP curves_NNS ,_, respectively_RB and_CC τ_NP is_VBZ the_DT burn_VVP duration_NN ._SENT 
+Finally_RB ,_, the_DT carbon_NN dioxide_NN (_( CO2_JJ )_) emissions_NNS are_VBP calculated_VVN as_IN functions_NNS of_IN the_DT BSFC_NN using_VVG the_DT emission_NN factor_NN suggested_VVN by_IN Kristensen_NP [_SYM 65_CD ]_SYM and_CC the_DT formation_NN of_IN NOx_JJ emissions_NNS are_VBP calculated_VVN using_VVG the_DT extended_JJ Zeldovich_NP mechanism_NN ,_, taking_VVG into_IN account_NN the_DT two_CD zones_NNS of_IN combustion_NN (_( burned_VVN and_CC unburned_JJ zone_NN )_) [_SYM 15_CD ]_SYM ._SENT 
+The_DT Arrhenius_NP multipliers_NNS of_IN the_DT following_VVG chemical_NN reactions_NNS in_IN the_DT NOx_NP emissions_NNS model_NN are_VBP calibrated_VVN depending_VVG on_IN the_DT data_NNS of_IN NOx_JJ emissions_NNS provided_VVN from_IN the_DT datasheet_NN of_IN the_DT manufacturer_NN ._SENT 
+(_( 7)O+N2↔NO+N_NP (_( 8)N+O2↔NO+O_NP (_( 9)N+OH↔NO+H_NP where_WRB O_NP ,_, N_NP and_CC H_NP are_VBP oxygen_NN ,_, nitrogen_NN and_CC hydrogen_NN atoms_NNS ._SENT 
+2.2.2_CD ._SENT 
+Nonlinear_JJ optimizer_NN A_DT nonlinear_JJ optimization_NN solver_NN (_( fmincon_NP )_) [_SYM 66_CD ]_SYM from_IN Matlab_NN is_VBZ used_VVN to_TO find_VV the_DT minimum_NN of_IN constrained_VVN nonlinear_JJ multivariable_JJ function_NN starting_VVG at_IN an_DT initial_JJ estimate_NN using_VVG interior_JJ point_NN algorithm_NN for_IN large_JJ scale_NN [_SYM 67_CD ]_SYM ._SENT 
+This_DT solver_NN shows_VVZ a_DT good_JJ computational_JJ time_NN in_IN comparison_NN with_IN other_JJ optimization_NN methods_NNS [_SYM 51_CD ]_SYM ._SENT 
+The_DT optimization_NN problem_NN is_VBZ presented_VVN in_IN section_NN 2.4_CD ,_, including_VVG the_DT objective_NN of_IN this_DT study_NN and_CC the_DT boundary_NN conditions_NNS ,_, while_IN the_DT constraints_NNS are_VBP expressed_VVN by_IN the_DT penalty_NN functions_NNS proposed_VVN in_IN the_DT fitness_NN function_NN ,_, which_WDT show_VVP an_DT adept_JJ capability_NN with_IN the_DT optimization_NN of_IN complex_JJ systems_NNS [_SYM 68_CD ]_SYM ._SENT 
+2.3_CD ._SENT 
+Calibration_NN and_CC validation_NN of_IN the_DT developed_VVN model_NN After_IN establishing_VVG the_DT engine_NN model_NN in_IN Ricardo_NP Wave_NP ,_, the_DT next_JJ step_NN is_VBZ to_TO calibrate_VV and_CC validate_VV it_PP using_VVG real_JJ data_NNS ._SENT 
+Four_CD cases_NNS are_VBP used_VVN from_IN the_DT datasheet_NN of_IN the_DT manufacturer_NN with_IN different_JJ speeds_NNS and_CC loads_NNS ,_, taking_VVG into_IN account_NN the_DT thermodynamic_JJ properties_NNS ,_, the_DT amount_NN of_IN intake_NN air_NN before_IN and_CC after_IN the_DT compressor_NN and_CC after_IN the_DT intercooler_NN ,_, and_CC the_DT amount_NN of_IN injected_VVN fuel_NN in_IN order_NN to_TO reach_VV the_DT required_VVN power_NN and_CC to_TO fit_VV the_DT limitation_NN of_IN the_DT firing_NN pressure_NN and_CC the_DT temperature_NN of_IN the_DT exhaust_NN gases_NNS after_IN the_DT cylinders_NNS ._SENT 
+Also_RB ,_, the_DT timing_NN of_IN the_DT intake_NN valve_NN closing_NN (_( IVC_NP )_) is_VBZ considered_VVN according_VVG to_TO the_DT engine_NN description_NN from_IN the_DT datasheet_NN of_IN the_DT manufacturer_NN ._SENT 
+This_DT technique_NN ,_, called_VVD miller_NN valve_NN timing_NN ,_, helps_VVZ to_TO reduce_VV the_DT cylinder_NN temperature_NN due_JJ to_TO the_DT early_JJ closure_NN of_IN the_DT intake_NN valve_NN before_IN the_DT beginning_NN of_IN the_DT compression_NN stroke_NN ._SENT 
+Table_NN 2_CD shows_NNS the_DT percentage_NN error_NN between_IN the_DT real_JJ data_NNS from_IN the_DT manufacturer_NN and_CC the_DT simulated_JJ data_NNS calculated_VVN using_VVG the_DT optimization_NN model_NN developed_VVN for_IN the_DT four_CD cases_NNS along_IN the_DT theoretical_JJ propeller_NN curve_NN ._SENT 
+The_DT engine_NN model_NN shows_VVZ a_DT good_JJ accuracy_NN when_WRB comparing_VVG the_DT experimental_JJ and_CC the_DT simulated_JJ results_NNS for_IN the_DT different_JJ parameters_NNS ._SENT 
+The_DT maximum_JJ percentage_NN error_NN of_IN BSFC_NP is_VBZ 3.6_CD %_NN at_IN the_DT rated_VVN speed_NN ,_, while_IN the_DT manufacturer_NN gives_VVZ a_DT 5_CD %_NN tolerance_NN at_IN the_DT same_JJ speed_NN ._SENT 
+The_DT temperature_NN of_IN the_DT charged_VVN air_NN ,_, before_IN and_CC after_IN the_DT intercooler_NN ,_, the_DT amount_NN of_IN air_NN flow_NN and_CC the_DT charge_NN air_NN pressure_VVP also_RB show_VV a_DT good_JJ accuracy_NN during_IN the_DT validation_NN process_NN ._SENT 
+Due_JJ to_TO the_DT lack_NN of_IN the_DT data_NNS of_IN the_DT maps_NNS of_IN the_DT turbocharger_NN from_IN the_DT manufacturer_NN ,_, the_DT maps_NNS used_VVN in_IN the_DT simulation_NN are_VBP rescaled_VVN from_IN an_DT existing_JJ one_CD ,_, taking_VVG into_IN account_NN the_DT limitation_NN of_IN the_DT air_NN flow_NN rate_NN and_CC the_DT turbocharger_NN speed_NN presented_VVN in_IN catalogue_NN of_IN the_DT manufacturer_NN ._SENT 
+Due_JJ to_TO the_DT rescaling_VVG process_NN ,_, a_DT 12_CD %_NN error_NN at_IN the_DT fourth_JJ case_NN in_IN the_DT charge_NN air_NN pressure_NN is_VBZ achieved_VVN while_IN the_DT other_JJ parameters_NNS are_VBP in_IN a_DT good_JJ agreement_NN ._SENT 
+Table_NN 2._CD The_DT percentage_NN error_NN of_IN different_JJ parameters_NNS ._SENT 
+Engine_NN output_NN %_NN 100_CD 85_CD 75_CD 50_CD Speed_NN %_NN 100_CD 94.6_CD 91.0_CD 80.0_CD Engine_NN brake_NN power_NN 0.00_CD 0.00_CD 0.00_CD 0.00_CD BSFC_NN 3.60_CD 1.20_CD 2.00_CD 0.35_CD Air_NP data_NNS Temperature_NN of_IN charge_NN air_NN :_: after_IN compressor_NN 0.18_CD 0.19_CD 1.17_CD 3.50_CD after_IN intercooler_NP 0.30_CD 0.30_CD 0.30_CD 0.30_CD Air_NP flow_NN rate_NN 0.06_CD 1.49_CD 2.13_CD 0.36_CD Charge_NP air_NN pressure_NN 0.80_CD 0.99_CD 2.40_JJ 12.0_CD 2.4_CD ._SENT 
+Nonlinear_JJ programming_NN model_NN The_DT optimization_NN goal_NN in_IN this_DT study_NN ,_, is_VBZ to_TO minimize_VV the_DT fuel_NN consumption_NN of_IN a_DT large_JJ four-stroke_JJ marine_JJ turbocharged_JJ diesel_NN engine_NN at_IN a_DT certain_JJ required_JJ power_NN and_CC speed_NN by_IN finding_VVG the_DT optimal_JJ values_NNS of_IN the_DT TS_NP ,_, IVO_NP ,_, SOI_NP and_CC FR_NP which_WDT are_VBP therefore_RB the_DT design_NN variables_NNS ._SENT 
+The_DT individual_NN of_IN the_DT optimization_NN problem_NN is_VBZ presented_VVN by_IN a_DT vector_NN x_SYM =_SYM (_( TS_NP ,_, IVO_NP ,_, SOI_NP ,_, FR_NP )_) ._SENT 
+The_DT minimization_NN of_IN the_DT BSFC_NN as_IN the_DT main_JJ objective_NN of_IN the_DT optimization_NN problem_NN is_VBZ subjected_VVN to_TO an_DT equality_NN restriction_NN condition_NN as_IN presented_VVN in_IN the_DT following_VVG expression_NN in_IN order_NN to_TO reach_VV the_DT required_JJ engine_NN brake_NN power_NN at_IN a_DT given_VVN speed_NN :_: (_( 10)BrakePower(x)=BrakePowerobj_NP Also_RB ,_, the_DT nonlinear_JJ inequality_NN restriction_NN conditions_NNS for_IN the_DT thermodynamic_JJ properties_NNS and_CC the_DT exhaust_NN emissions_NNS of_IN the_DT gases_NNS inside_IN and_CC outside_IN the_DT cylinders_NNS of_IN the_DT diesel_JJ engine_NN are_VBP defined_VVN as_RB :_: (_( 11)TAfterCylinder(x)≤1173_NP (_( 12)Pmax(x)≤230_NP (_( 13)NOx(x)≤NOx−RatedSpeed_NP (_( 14)AFRmin≤AFR(x)≤AFRmax_NP where_WRB TAfterCylinder_NP in_IN K_NP ,_, Pmax_NN in_IN bar_NN ,_, NOx_NP and_CC NOx-rated_NP are_VBP in_IN g/kW_NNS ._SENT 
+h_NN are_VBP the_DT exhaust_NN temperature_NN after_IN cylinder_NN ,_, firing_VVG pressure_NN ,_, NOx_NN emissions_NNS and_CC NOx_JJ emissions_NNS at_IN the_DT rated_VVN speed_NN ._SENT 
+The_DT limits_NNS of_IN the_DT air_NN fuel_NN ratio_NN (_( AFR_NP )_) vary_VVP for_IN each_DT load_NN and_CC these_DT limits_NNS are_VBP very_RB important_JJ to_TO control_VV the_DT amount_NN of_IN AFR_NP during_IN the_DT optimization_NN process_NN for_IN each_DT speed_NN and_CC load_NN ._SENT 
+The_DT amount_NN of_IN AFR_NN increases_NNS with_IN the_DT reduction_NN of_IN the_DT loads_NNS to_TO recover_VV the_DT losses_NNS in_IN energy_NN due_JJ to_TO the_DT reduction_NN of_IN the_DT amount_NN of_IN injected_VVN fuel_NN ._SENT 
+The_DT four_CD optimization_NN variables_NNS are_VBP subjected_VVN to_TO specified_JJ ranges_NNS ,_, as_RB shown_VVN in_IN the_DT following_VVG equations_NNS :_: (_( 15)5,000rpm≤TS≤24,800rpm_NP (_( 16)250ATDC≤IVO≤339ATDC_NP (_( 17)−20ATDC≤SOI≤15ATDC_NP (_( 18)0.9×FR≤FR≤1.2×FR_NP where_WRB the_DT TS_NP is_VBZ in_IN rpm_NN ,_, IVO_NP and_CC SOI_NP are_VBP in_IN degrees_NNS after_IN top_JJ dead_JJ center_NN (_( ATDC_NP )_) ._SENT 
+FR_NP is_VBZ in_IN kg/h_NP and_CC is_VBZ calculated_VVN for_IN a_DT certain_JJ range_NN as_IN functions_NNS of_IN the_DT fuel_NN rate_NN at_IN the_DT rated_VVN speed_NN and_CC the_DT load_NN percentage_NN ._SENT 
+Before_IN constructing_VVG the_DT fitness_NN function_NN ,_, all_DT restrictions_NNS are_VBP presented_VVN as_IN a_DT simple_JJ static_JJ penalty_NN function_NN ._SENT 
+They_PP are_VBP presented_VVN as_IN a_DT violation_NN degree_NN where_WRB their_PP$ absolute_JJ values_NNS are_VBP less_JJR than_IN one_CD ,_, as_RB in_IN the_DT following_VVG expressions_NNS :_: (_( 19)h(x)=BrakePowerBrakePowerobj−1_JJ (_( 20)g1(x)=PmaxPLimit−1_JJ (_( 21)g2(x)=TAfterCylinderTAfterCylinder−Limit−1_JJ (_( 22)g3(x)=NOxNOx−Limit−1_JJ (_( 23)g4(x)=AFRAFRmax−1_JJ (_( 24)g5(x)=−AFRAFRmin+1_JJ Therefore_RB ,_, the_DT fitness_NN function_NN of_IN the_DT optimization_NN model_NN is_VBZ written_VVN as_RB :_: (_( 25)FitnessFunction=BSFC(x)+R[∑5i=1max(gi(x),0)+|h(x)|_NN ]_SYM where_WRB R_NP is_VBZ a_DT penalty_NN parameter_NN and_CC is_VBZ equal_JJ to_TO 1000_CD as_IN suggested_VVN by_IN Zhao_NP and_CC Xu_NP [_SYM 48_CD ]_SYM ._SENT 
+<Section> 3._CD Results_NNS and_CC discussions_NNS </Section> 3.1_CD ._SENT 
+Simulation_NN of_IN marine_JJ diesel_JJ engine_NN Based_VVN on_IN the_DT developed_VVN model_NN based_VVN optimization_NN ,_, the_DT performance_NN and_CC the_DT exhaust_NN emissions_NNS of_IN a_DT large_JJ four-stroke_JJ marine_JJ turbocharged_JJ diesel_NN engines_NNS are_VBP calculated_VVN for_IN different_JJ engine_NN speeds_NNS and_CC loads_NNS by_IN coupling_NN a_DT nonlinear_JJ optimization_NN method_NN implemented_VVN in_IN Matlab_NP and_CC Ricardo_NP Wave_NP as_IN 1D_JJ engine_NN simulation_NN software_NN ._SENT 
+Firstly_RB ,_, the_DT model_NN is_VBZ calibrated_VVN using_VVG four_CD operating_VVG points_NNS available_JJ from_IN the_DT datasheet_NN of_IN the_DT manufacturer_NN for_IN different_JJ speeds_NNS and_CC loads_NNS on_IN the_DT theoretical_JJ propeller_NN curve_NN ._SENT 
+Next_RB ,_, the_DT model_NN is_VBZ used_VVN to_TO compute_VV the_DT performance_NN of_IN the_DT engine_NN for_IN the_DT whole_JJ operating_VVG working_NN conditions_NNS ._SENT 
+The_DT model_NN presented_VVD helps_VVZ to_TO minimize_VV the_DT fuel_NN consumption_NN of_IN the_DT engine_NN and_CC to_TO verify_VV the_DT limitation_NN of_IN the_DT exhaust_NN emissions_NNS applied_VVN by_IN the_DT IMO_NP under_IN certain_JJ restrictions_NNS ._SENT 
+The_DT TS_NP ,_, IVO_NP ,_, SOI_NP and_CC FR_NP are_VBP the_DT individual_JJ parameters_NNS considered_VVN during_IN the_DT optimization_NN problem_NN in_IN order_NN to_TO verify_VV the_DT main_JJ objective_NN ._SENT 
+The_DT variation_NN of_IN BSFC_NN and_CC exhaust_NN emissions_NNS as_IN main_JJ calculated_JJ results_NNS are_VBP presented_VVN in_IN Fig_NN ._SENT 
+7_CD ,_, Fig_NN ._SENT 
+8_CD ,_, Fig_NN ._SENT 
+9_CD ,_, Fig_NN ._SENT 
+10_CD for_IN the_DT whole_JJ operating_VVG conditions_NNS of_IN the_DT selected_JJ engine_NN ._SENT 
+The_DT minimum_JJ values_NNS of_IN BSFC_NN are_VBP at_IN the_DT high_JJ loads_NNS and_CC increase_NN with_IN the_DT low_JJ loads_NNS ._SENT 
+The_DT CO2_JJ emissions_NNS presented_VVN in_IN Fig_NN ._SENT 
+8_CD is_VBZ proportional_JJ to_TO the_DT BSFC_NN due_RB the_DT emission_NN factor_NN considered_VVN as_IN described_VVN above_IN ._SENT 
+The_DT NOx_NP emissions_NNS are_VBP presented_VVN in_IN Figs_NNS ._SENT 
+9_CD and_CC 10_CD in_IN g/kW_NNS ._SENT 
+h_NN and_CC in_IN ppm_NN respectively_RB ._SENT 
+They_PP are_VBP based_VVN on_IN nitric_JJ oxide_NN (_( NO_UH )_) emissions_NNS then_RB the_DT total_JJ NOx_NN emissions_NNS are_VBP calculated_VVN as_IN nitrogen_NN dioxide_NN (_( NO2_NP )_) ._SENT 
+It_PP has_VHZ been_VBN noticed_VVN that_IN the_DT NOx_JJ emissions_NNS are_VBP decreased_VVN at_IN the_DT lower_JJR loads_NNS where_WRB they_PP depend_VVP on_IN the_DT amount_NN of_IN the_DT intake_NN air_NN ,_, the_DT amount_NN of_IN injected_VVN fuel_NN ,_, the_DT flame_NN temperature_NN ,_, the_DT SOI_NP and_CC the_DT VVT_NN to_TO control_VV the_DT early_JJ closure_NN of_IN the_DT intake_NN valve_NN ,_, all_DT of_IN which_WDT are_VBP optimized_VVN to_TO reduce_VV the_DT intake_NN temperature_NN and_CC then_RB the_DT burning_NN temperature_NN inside_IN the_DT cylinders_NNS ._SENT 
+This_DT diesel_JJ engine_NN complies_VVZ with_IN the_DT limitation_NN of_IN NOx_JJ emissions_NNS at_IN tier_NN 2_CD according_VVG to_TO the_DT international_JJ regulations_NNS applied_VVN by_IN the_DT IMO_NP where_WRB the_DT NOx_JJ emissions_NNS at_IN the_DT whole_JJ operating_VVG conditions_NNS are_VBP less_JJR than_IN the_DT NOx_JJ emissions_NNS at_IN the_DT rated_VVN speed_NN of_IN the_DT engine_NN which_WDT is_VBZ equal_JJ to_TO 9.59_CD g/kW_NNS ._SENT 
+h._NP Fig_NN ._SENT 
+7_CD Download_NN :_: Download_NP high-res_NP image_NN (_( 146KB)Download_NP :_: Download_NP full-size_JJ image_NN Fig_NN ._SENT 
+7._CD Optimized_VVN results_NNS of_IN BSFC_NN in_IN the_DT operative_JJ range_NN of_IN the_DT diesel_JJ engine_NN ._SENT 
+Fig_NN ._SENT 
+8_CD Download_NN :_: Download_NP high-res_NP image_NN (_( 143KB)Download_NP :_: Download_NP full-size_JJ image_NN Fig_NN ._SENT 
+8._CD Optimized_VVN results_NNS of_IN CO2_JJ emissions_NNS in_IN the_DT operative_JJ range_NN of_IN the_DT diesel_JJ engine_NN ._SENT 
+Fig_NN ._SENT 
+9_CD Download_NN :_: Download_NP high-res_NP image_NN (_( 151KB)Download_NP :_: Download_NP full-size_JJ image_NN Fig_NN ._SENT 
+9._CD Optimized_VVN results_NNS of_IN NOx_JJ emissions_NNS in_IN the_DT operative_JJ range_NN of_IN the_DT diesel_JJ engine_NN ._SENT 
+Fig_NN ._SENT 
+10_CD Download_NN :_: Download_NP high-res_NP image_NN (_( 145KB)Download_NP :_: Download_NP full-size_JJ image_NN Fig_NN ._SENT 
+10._CD Optimized_VVN results_NNS of_IN NOx_JJ emissions_NNS (_( ppm_NN )_) in_IN the_DT operative_JJ range_NN of_IN the_DT diesel_JJ engine_NN ._SENT 
+Fig_NN ._SENT 
+11_CD ,_, Fig_NN ._SENT 
+12_CD ,_, Fig_NN ._SENT 
+13_CD ,_, Fig_NN ._SENT 
+14_CD ,_, Fig_NN ._SENT 
+15_CD ,_, Fig_NN ._SENT 
+16_CD present_NN the_DT variation_NN of_IN some_DT important_JJ parameters_NNS that_WDT affect_VVP the_DT operating_VVG conditions_NNS of_IN the_DT marine_JJ diesel_NN engine_NN ._SENT 
+These_DT parameters_NNS play_VVP an_DT important_JJ role_NN in_IN optimizing_VVG the_DT performance_NN of_IN the_DT engine_NN ._SENT 
+The_DT variation_NN of_IN volumetric_JJ efficiency_NN is_VBZ presented_VVN in_IN Fig_NN ._SENT 
+11._CD The_DT volume_NN flow_NN rate_NN of_IN air_NN into_IN the_DT intake_NN system_NN reaches_VVZ 3.95_CD ,_, the_DT rate_NN at_IN which_WDT volume_NN is_VBZ displaced_VVN by_IN the_DT piston_NN at_IN the_DT high_JJ loads_NNS ._SENT 
+This_DT high_JJ value_NN is_VBZ reached_VVN due_RB to_TO the_DT high_JJ compression_NN ratio_NN and_CC high_JJ efficiency_NN of_IN the_DT turbocharger_NN ,_, the_DT number_NN of_IN valves_NNS per_IN cylinder_NN (_( 4_CD valves_NNS per_IN cylinder_NN )_) and_CC the_DT optimization_NN of_IN the_DT opening_NN and_CC closing_NN timing_NN of_IN the_DT intake_NN and_CC exhaust_NN valves_NNS ._SENT 
+The_DT value_NN of_IN the_DT volumetric_JJ efficiency_NN decreases_NNS with_IN the_DT low_JJ loads_NNS due_JJ to_TO the_DT reduction_NN in_IN the_DT speed_NN of_IN the_DT shaft_NN of_IN the_DT turbocharger_NN ._SENT 
+The_DT optimization_NN of_IN the_DT value_NN of_IN the_DT AFR_NN ,_, which_WDT does_VVZ not_RB exceed_VV 80_CD ,_, as_RB shown_VVN in_IN Fig_NN ._SENT 
+12_CD is_VBZ also_RB important_JJ in_IN order_NN to_TO reach_VV the_DT required_VVN power_NN and_CC to_TO not_RB exceed_VV the_DT limitation_NN of_IN the_DT exhaust_NN emissions_NNS ._SENT 
+Also_RB ,_, the_DT firing_NN pressure_NN in_IN Fig_NN ._SENT 
+15_CD and_CC the_DT exhaust_NN temperature_NN after_IN the_DT cylinder_NN in_IN Fig_NN ._SENT 
+16_CD are_VBP controlled_VVN using_VVG the_DT AFR_NN and_CC the_DT SOI_NN in_IN order_NN to_TO save_VV the_DT engine_NN from_IN failure_NN ._SENT 
+A_DT significant_JJ increase_NN in_IN AFR_NP in_IN the_DT low_JJ loads_NNS is_VBZ noticeable_JJ to_TO improve_VV the_DT behavior_NN of_IN combustion_NN process_NN and_CC to_TO reach_VV the_DT required_JJ power_NN ._SENT 
+This_DT technique_NN maximizes_VVZ the_DT engine_NN performance_NN by_IN recovering_VVG the_DT losses_NNS in_IN energy_NN due_JJ to_TO the_DT reduction_NN of_IN the_DT amount_NN of_IN injected_VVN fuel_NN for_IN the_DT purpose_NN of_IN fuel_NN economy_NN and_CC emission_NN reduction_NN ._SENT 
+Fig_NN ._SENT 
+11_CD Download_NN :_: Download_NP high-res_NP image_NN (_( 149KB)Download_NP :_: Download_NP full-size_JJ image_NN Fig_NN ._SENT 
+11._CD Optimized_VVN results_NNS of_IN volumetric_JJ efficiency_NN in_IN the_DT operative_JJ range_NN of_IN the_DT diesel_JJ engine_NN ._SENT 
+Fig_NN ._SENT 
+12_CD Download_NN :_: Download_NP high-res_NP image_NN (_( 153KB)Download_NP :_: Download_NP full-size_JJ image_NN Fig_NN ._SENT 
+12._CD Optimized_VVN results_NNS of_IN AFR_NN in_IN the_DT operative_JJ range_NN of_IN the_DT diesel_JJ engine_NN ._SENT 
+Fig_NN ._SENT 
+13_CD Download_NN :_: Download_NP high-res_NP image_NN (_( 177KB)Download_NP :_: Download_NP full-size_JJ image_NN Fig_NN ._SENT 
+13._CD Optimized_VVN results_NNS of_IN IVC_NN in_IN the_DT operative_JJ range_NN of_IN the_DT diesel_JJ engine_NN ._SENT 
+Fig_NN ._SENT 
+14_CD Download_NN :_: Download_NP high-res_NP image_NN (_( 150KB)Download_NP :_: Download_NP full-size_JJ image_NN Fig_NN ._SENT 
+14._CD Optimized_VVN results_NNS of_IN SOI_NP in_IN the_DT operative_JJ range_NN of_IN the_DT diesel_JJ engine_NN ._SENT 
+Fig_NN ._SENT 
+15_CD Download_NN :_: Download_NP high-res_NP image_NN (_( 156KB)Download_NP :_: Download_NP full-size_JJ image_NN Fig_NN ._SENT 
+15._CD Optimized_VVN results_NNS of_IN firing_VVG pressure_NN in_IN the_DT operative_JJ range_NN of_IN the_DT diesel_JJ engine_NN ._SENT 
+Fig_NN ._SENT 
+16_CD Download_NN :_: Download_NP high-res_NP image_NN (_( 142KB)Download_NP :_: Download_NP full-size_JJ image_NN Fig_NN ._SENT 
+16._CD Optimized_VVN results_NNS of_IN exhaust_NN temperature_NN after_IN cylinder_NN in_IN the_DT operative_JJ range_NN of_IN the_DT diesel_JJ engine_NN ._SENT 
+The_DT variation_NN of_IN the_DT timing_NN of_IN IVC_NP is_VBZ shown_VVN in_IN Fig_NN ._SENT 
+13._CD The_DT early_JJ closing_NN of_IN the_DT intake_NN valve_NN before_IN the_DT beginning_NN of_IN the_DT compression_NN stroke_NN is_VBZ considered_VVN in_IN many_JJ different_JJ working_NN conditions_NNS ._SENT 
+It_PP reduces_VVZ the_DT temperature_NN of_IN the_DT intake_NN air_NN inside_IN the_DT cylinder_NN due_JJ to_TO the_DT expansion_NN of_IN the_DT air_NN ._SENT 
+This_DT technique_NN is_VBZ called_VVN miller_NN cycle_NN ,_, and_CC it_PP reduces_VVZ the_DT maximum_JJ burning_NN temperature_NN during_IN the_DT combustion_NN process_NN and_CC thus_RB reduce_VV the_DT formation_NN of_IN NOx_JJ emissions_NNS ._SENT 
+The_DT variation_NN of_IN SOI_NP is_VBZ presented_VVN in_IN Fig_NN ._SENT 
+14_CD and_CC is_VBZ used_VVN to_TO control_VV the_DT combustion_NN process_NN in_IN addition_NN to_TO the_DT amount_NN of_IN injected_VVN fuel_NN ._SENT 
+High_JJ firing_NN pressure_NN and_CC temperature_NN are_VBP achieved_VVN due_RB to_TO the_DT early_JJ injection_NN and_CC vice_JJ versa_RB ,_, which_WDT affect_VVP the_DT formation_NN of_IN NOx_JJ emissions_NNS ._SENT 
+A_DT retarded_JJ injection_NN is_VBZ considered_VVN in_IN loads_NNS below_IN 50_CD %_NN of_IN the_DT rated_VVN load_NN for_IN the_DT purpose_NN of_IN NOx_JJ emissions_NNS reduction_NN ,_, while_IN the_DT power_NN is_VBZ achieved_VVN by_IN the_DT amount_NN of_IN higher_JJR AFR_NN ._SENT 
+In_IN high_JJ loads_NNS ,_, the_DT earlier_JJR SOI_NN and_CC the_DT reduction_NN of_IN AFR_NP help_VVP to_TO achieve_VV the_DT required_VVN power_NN at_IN a_DT certain_JJ speed_NN ._SENT 
+The_DT values_NNS of_IN firing_VVG pressure_NN and_CC exhaust_NN temperature_NN presented_VVN in_IN Figs_NNS ._SENT 
+15_CD and_CC 16_CD are_VBP affected_VVN by_IN cumulative_JJ simulation_NN process_NN depending_VVG on_IN the_DT different_JJ parameters_NNS presented_VVN above_IN where_WRB an_DT increasing_VVG in_IN their_PP$ values_NNS is_VBZ achieved_VVN in_IN high_JJ loads_NNS due_JJ to_TO the_DT increase_NN in_IN the_DT amount_NN of_IN injected_VVN fuel_NN and_CC vice_JJ versa_RB ._SENT 
+In_IN brief_NN ,_, this_DT developed_VVN model_NN combines_VVZ different_JJ parameters_NNS to_TO optimize_VV the_DT value_NN of_IN each_DT one_CD in_IN order_NN to_TO reach_VV the_DT main_JJ objective_NN under_IN certain_JJ limitations_NNS and_CC with_IN a_DT good_JJ time_NN consuming_NN ._SENT 
+3.2_CD ._SENT 
+Sensitivity_NN analysis_NN In_IN order_NN to_TO study_VV the_DT influence_NN of_IN injection_NN and_CC valve_NN parameters_NNS on_IN the_DT performance_NN of_IN diesel_JJ engine_NN ,_, sensitivity_NN analysis_NN as_IN in_IN Refs_NNS ._SENT 
+[_SYM [_SYM 69_CD ]_SYM ,_, [_SYM 70_CD ]_SYM ,_, [_SYM 71_CD ]_SYM ]_SYM is_VBZ performed_VVN in_IN this_DT section_NN based_VVN on_IN the_DT validated_VVN model_NN ._SENT 
+The_DT analysis_NN presents_VVZ the_DT effects_NNS of_IN the_DT variation_NN of_IN SOI_NP and_CC IVO_NP on_IN the_DT performance_NN of_IN the_DT four_CD operating_VVG points_NNS considered_VVN during_IN the_DT validation_NN process_NN ._SENT 
+3.2.1_CD ._SENT 
+Start_NN of_IN injection_NN In_IN order_NN to_TO study_VV the_DT effect_NN of_IN SOI_NP on_IN the_DT engine_NN performance_NN ,_, different_JJ angles_NNS are_VBP tested_VVN (_( −20_NP ,_, −10_NP ,_, −5_NP ,_, 5_CD ,_, 10_CD and_CC 20°_JJ ATDC_NN )_) based_VVN on_IN no_DT change_NN in_IN values_NNS of_IN injection_NN rate_NN ,_, speed_NN of_IN turbocharger_NN and_CC IVO_NP for_IN each_DT operating_VVG point_NN ._SENT 
+The_DT predicted_VVN results_NNS under_IN different_JJ SOI_NNS are_VBP presented_VVN in_IN Fig_NN ._SENT 
+17._CD Fig_NN ._SENT 
+17_CD Download_NN :_: Download_NP high-res_NP image_NN (_( 132KB)Download_NP :_: Download_NP full-size_JJ image_NN Fig_NN ._SENT 
+17_CD Download_NN :_: Download_NP high-res_NP image_NN (_( 75KB)Download_NP :_: Download_NP full-size_JJ image_NN Fig_NN ._SENT 
+17_CD Download_NN :_: Download_NP high-res_NP image_NN (_( 74KB)Download_NP :_: Download_NP full-size_JJ image_NN Fig_NN ._SENT 
+17_CD Download_NN :_: Download_NP high-res_NP image_NN (_( 120KB)Download_NP :_: Download_NP full-size_JJ image_NN Fig_NN ._SENT 
+17._CD Influence_NN of_IN SOI_NP on_IN the_DT performance_NN and_CC exhaust_NN emissions_NNS of_IN the_DT diesel_JJ engine_NN :_: (_( a_DT )_) ._SENT 
+Brake_NP Power_NP ;_: (_( b_LS )_) ._SENT 
+BSFC_NN ;_: (_( c_LS )_) ._SENT 
+Firing_NN pressure_NN ;_: (_( d_LS )_) ._SENT 
+NOx_JJ emissions_NNS ._SENT 
+Fig_NN ._SENT 
+17(a_NP )_) shows_VVZ the_DT variation_NN of_IN brake_NN power_NN with_IN different_JJ SOI_NNS ._SENT 
+The_DT brake_NN power_NN decreases_VVZ when_WRB the_DT SOI_NP is_VBZ retarded_JJ due_RB to_TO the_DT reduction_NN in_IN firing_VVG pressure_NN as_IN presented_VVN in_IN Fig_NN ._SENT 
+17(c_NN )_) according_VVG to_TO the_DT first_JJ law_NN of_IN thermodynamics_NNS ._SENT 
+The_DT BSFC_NN in_IN Fig_NN ._SENT 
+17(b_NP )_) is_VBZ minimized_VVN at_IN earlier_JJR SOI_NNS and_CC is_VBZ increased_VVN in_IN the_DT retarded_JJ SOI_NN depending_VVG on_IN the_DT value_NN of_IN the_DT brake_NN power_NN while_IN the_DT other_JJ injection_NN parameters_NNS are_VBP kept_VVN unchanged_JJ for_IN each_DT engine_NN speed_NN ._SENT 
+From_IN the_DT safety_NN aspect_NN ,_, SOI_NP in_IN the_DT different_JJ engine_NN speed_NN (_( 683_CD ,_, 710_CD and_CC 750_CD rpm_NN )_) must_MD not_RB be_VB earlier_RBR than_IN −5_JJ ATDC_NN due_JJ to_TO the_DT exceeding_VVG of_IN the_DT firing_NN pressure_NN the_DT specific_JJ limits_NNS (_( 230_CD bar_NN )_) ._SENT 
+The_DT formation_NN of_IN NOx_JJ emissions_NNS as_IN shown_VVN in_IN Fig_NN ._SENT 
+17(d_NN )_) ,_, which_WDT depends_VVZ mainly_RB on_IN the_DT cylinder_NN temperature_NN ,_, increases_NNS in_IN the_DT earlier_JJR SOI_NN due_JJ to_TO the_DT increase_NN in_IN firing_VVG pressure_NN and_CC thus_RB the_DT temperature_NN inside_IN the_DT cylinder_NN and_CC vice_JJ versa_RB during_IN the_DT retarded_JJ SOI_NN ._SENT 
+From_IN the_DT aspect_NN of_IN IMO_NP regulations_NNS ,_, it_PP is_VBZ recommended_VVN that_IN the_DT SOI_NP will_MD be_VB retarded_JJ ATDC_NN ,_, so_RB NOx_VVP emissions_NNS verify_VV the_DT limits_NNS of_IN regulations_NNS according_VVG to_TO tier_VV 2._CD 3.2.2_CD ._SENT 
+Intake_NN valve_NN opening_NN In_IN order_NN to_TO study_VV the_DT effect_NN of_IN IVO_NP on_IN the_DT engine_NN performance_NN ,_, different_JJ angles_NNS are_VBP tested_VVN (_( 256.5_CD ,_, 266.5_CD ,_, 276.5_CD ,_, 296.5_CD ,_, 306.5_CD ,_, and_CC 316.5°_NP ATDC_NP )_) assuming_VVG that_IN the_DT values_NNS of_IN injection_NN rate_NN ,_, speed_NN of_IN turbocharger_NN and_CC SOI_NP are_VBP kept_VVN constant_JJ for_IN each_DT operating_VVG point_NN ._SENT 
+The_DT results_NNS are_VBP predicted_VVN under_IN different_JJ IVO_NP as_IN shown_VVN in_IN Fig_NN ._SENT 
+18._CD Fig_NN ._SENT 
+18_CD Download_NN :_: Download_NP high-res_NP image_NN (_( 116KB)Download_NP :_: Download_NP full-size_JJ image_NN Fig_NN ._SENT 
+18_CD Download_NN :_: Download_NP high-res_NP image_NN (_( 86KB)Download_NP :_: Download_NP full-size_JJ image_NN Fig_NN ._SENT 
+18_CD Download_NN :_: Download_NP high-res_NP image_NN (_( 88KB)Download_NP :_: Download_NP full-size_JJ image_NN Fig_NN ._SENT 
+18_CD Download_NN :_: Download_NP high-res_NP image_NN (_( 78KB)Download_NP :_: Download_NP full-size_JJ image_NN Fig_NN ._SENT 
+18._CD Influence_NN of_IN IVO_NP on_IN the_DT performance_NN and_CC exhaust_NN emissions_NNS of_IN the_DT diesel_JJ engine_NN :_: (_( a_DT )_) ._SENT 
+Brake_NP Power_NP ;_: (_( b_LS )_) ._SENT 
+BSFC_NN ;_: (_( c_LS )_) ._SENT 
+Firing_NN pressure_NN ;_: (_( d_LS )_) ._SENT 
+NOx_JJ emissions_NNS ._SENT 
+A_DT reduction_NN in_IN brake_NN power_NN is_VBZ achieved_VVN when_WRB the_DT IVO_NP is_VBZ earlier_JJR (_( Fig_NN ._SENT 
+18(a_NP )_) )_) ,_, accompanied_VVN with_IN an_DT increase_NN in_IN BSFC_NP (_( Fig_NN ._SENT 
+18(b_NP )_) )_) for_IN constant_JJ fuel_NN rate_NN and_CC vice_JJ versa_RB ._SENT 
+For_IN constant_JJ valve_NN profile_NN ,_, IVC_NP depends_VVZ on_IN the_DT IVO_NP ._SENT 
+When_WRB the_DT IVC_NN occurs_VVZ before_IN the_DT beginning_NN of_IN compression_NN stroke_NN ,_, the_DT concept_NN of_IN miller_NN cycle_NN takes_VVZ place_NN and_CC the_DT temperature_NN of_IN the_DT intake_NN air_NN is_VBZ reduced_VVN which_WDT leads_VVZ to_TO a_DT reduction_NN in_IN the_DT temperature_NN and_CC in_IN the_DT firing_NN pressure_NN during_IN the_DT combustion_NN process_NN as_IN shown_VVN in_IN Fig_NN ._SENT 
+18(c_NP )_) ._SENT 
+This_DT concept_NN helps_VVZ to_TO reduce_VV the_DT formation_NN of_IN NOx_JJ emissions_NNS during_IN the_DT earlier_JJR IVO_NP (_( Fig_NN ._SENT 
+18(d_NN )_) )_) and_CC vice_JJ versa_RB in_IN the_DT retarded_JJ IVO_NP due_JJ to_TO the_DT increase_NN in_IN cylinder_NN pressure_NN and_CC temperature_NN ._SENT 
+<Section> 4._CD Conclusions_NNS and_CC future_JJ research_NN </Section> In_IN this_DT study_NN ,_, an_DT optimization_NN model_NN is_VBZ proposed_VVN to_TO optimize_VV the_DT performance_NN of_IN a_DT four-stroke_JJ marine_JJ turbocharged_JJ diesel_NN engine_NN for_IN different_JJ speeds_NNS and_CC loads_NNS ._SENT 
+It_PP has_VHZ been_VBN concluded_VVN that_RB :_: 1._CD The_DT model_NN helps_VVZ to_TO minimize_VV the_DT fuel_NN consumption_NN of_IN the_DT engine_NN by_IN optimizing_VVG the_DT values_NNS of_IN TS_NP ,_, SOI_NP ,_, IVO_NP and_CC FR_NP ._SENT 
+2._CD The_DT optimization_NN model_NN shows_VVZ a_DT good_JJ ability_NN to_TO simulate_VV the_DT performance_NN of_IN a_DT large_JJ marine_JJ diesel_NN engine_NN for_IN different_JJ working_JJ conditions_NNS ._SENT 
+3._CD The_DT simulation_NN of_IN the_DT numerical_JJ model_NN is_VBZ suitable_JJ for_IN normal_JJ computers_NNS ,_, considering_VVG the_DT time_NN consumed_VVN ,_, and_CC shows_VVZ a_DT good_JJ assessment_NN of_IN the_DT calculated_JJ results_NNS ._SENT 
+4._CD The_DT model_NN can_MD be_VB further_RBR used_VVN to_TO calculate_VV the_DT performance_NN of_IN any_DT diesel_JJ engine_NN and_CC be_VB a_DT part_NN of_IN a_DT numerical_JJ propulsion_NN system_NN to_TO be_VB used_VVN in_IN different_JJ marine_JJ applications_NNS ._SENT 
+Further_JJR research_NN could_MD concentrate_VV on_IN the_DT turbulence_NN of_IN the_DT flow_NN in_IN the_DT cylinders_NNS using_VVG the_DT 1D_JJ model_NN as_IN functions_NNS of_IN the_DT mean_JJ piston_NN speed_NN ,_, in_IN order_NN to_TO study_VV the_DT effect_NN of_IN swirl_NN on_IN the_DT behavior_NN of_IN combustion_NN ._SENT 
+Moreover_RB ,_, SOx_NNS emissions_NNS ,_, as_RB one_CD of_IN the_DT main_JJ exhaust_NN emissions_NNS considered_VVN in_IN the_DT Emission_NN Control_NN Areas_NNS (_( ECAs_NP )_) ,_, can_MD be_VB computed_VVN as_IN functions_NNS of_IN the_DT optimized_VVN values_NNS of_IN BSFC_NP and_CC AFR_NP along_IN the_DT entire_JJ load_NN diagram_NN due_JJ to_TO the_DT unavailability_NN of_IN the_DT computation_NN in_IN Ricardo_NP Wave_NP ._SENT 
+<Section> Acknowledgements_NNS </Section> This_DT study_NN was_VBD performed_VVN within_IN the_DT Strategic_NP Research_NP Plan_NP of_IN the_DT Center_NP for_IN Marine_NP Technology_NP and_CC Ocean_NP Engineering_NP ,_, which_WDT is_VBZ financed_VVN by_IN Portuguese_NP Foundation_NP for_IN Science_NP and_CC Technology_NP (_( Fundação_NP para_NN a_DT Ciência_NP e_NN Tecnologia-FCT_NN )_) ,_, under_IN contract_NN UID/Multi/00134/2013_NN -_: LISBOA-01-0145-FEDER-007629_NN ._SENT 
+<Section> References_NNS </Section> [_SYM 1_CD ]_SYM Q._NP Xin_NP Diesel_NP engine_NN system_NN design_NN Woodhead_NP (_( 2011_CD )_) Google_JJ Scholar_NN [_SYM 2_CD ]_SYM International_NP Maritime_NP Organization_NP Nitrogen_NN oxides_NNS (_( NOx_NP )_) –_NP regulation_NN 13_CD (_( 2016_CD )_) http_NN :_: //www_NNS ._SENT 
+imo_NP ._SENT 
+org/en/OurWork/environment/pollutionprevention/airpollution/pages/nitrogen-oxides-(nox)-%E2%80%93-regulation-13_NP ._SENT 
+aspx_NP ,_, Accessed_VVD 30th_JJ Jan_NP 2017_CD Google_JJ Scholar_NN [_SYM 3_CD ]_SYM G._NP A._NP Goodenough_NP ,_, J._NP B._NP Baker_NP A_DT thermodynamic_JJ analysis_NN of_IN internal_JJ combustion_NN engine_NN cycles_NNS University_NP of_IN Illinois_NP (_( 1927_CD )_) Google_JJ Scholar_NN [_SYM 4_CD ]_SYM D._NP N._NP Assents_VVZ ,_, J._NP E._NP Ekchian_NP ,_, R._NP M._NP Frank_NP ,_, J._NP B._NP Heywood_NP A_DT computer_NN simulation_NN of_IN the_DT turbocharged_JJ turbocompounded_JJ diesel_NN engine_NN system_NN :_: a_DT description_NN of_IN the_DT thermodynamic_JJ and_CC heat_NN transfer_NN models_NNS ._SENT 
+U._NP S._NP Department_NP of_IN energy_NN conservation_NN and_CC renewable_JJ energy_NN office_NN of_IN vehicle_NN and_CC engine_NN R&D_NN ,_, Washington_NP D._NP C._NP 20585_CD Sloan_NP Automotive_NP Laboratory_NP Massachusetts_NP Institute_NP of_IN Technology_NP Cambridge_NP ,_, Massachusetts_NP (_( 1985_CD )_) 02139_CD Google_JJ Scholar_NN [_SYM 5_CD ]_SYM G._NP Benvenuto_NP ,_, U._NP Campora_NP Dynamic_JJ simulation_NN of_IN a_DT high-performance_NN sequentially_RB turbocharged_VVD marine_JJ diesel_NN engine_NN Int_NP J_NP Engine_NP Res_NNS ,_, 3_LS (_( 3_LS )_) (_( 2002_CD )_) ,_, pp_NP ._SENT 
+115-125_CD https_NNS :_: //doi_NP ._SENT 
+org/10.1243/14680870260189244_NP View_NP Record_NP in_IN ScopusGoogle_JJ Scholar_NN [_SYM 6_CD ]_SYM C._NP Maftei_NP ,_, L._NP Moreira_NP ,_, C._NP Guedes_NP Soares_NP Simulation_NP of_IN the_DT dynamics_NNS of_IN a_DT marine_JJ diesel_NN engine_NN J_NP Mar_NP Eng_NP Technol_NN ,_, 8_CD (_( 3_LS )_) (_( 2009_CD )_) ,_, pp_NP ._SENT 
+29-43_CD https_NNS :_: //doi_NP ._SENT 
+org/10.1080/20464177.2009.11020225_NP CrossRefView_NP Record_NP in_IN ScopusGoogle_JJ Scholar_NN [_SYM 7_CD ]_SYM M._NP Altosole_NP ,_, M._NP Figari_NP Effective_JJ simple_JJ methods_NNS for_IN numerical_JJ modelling_VVG of_IN marine_JJ engines_NNS in_IN ship_NN propulsion_NN control_NN systems_NNS design_NN J_NP Nav_NP Architect_NN Mar_NP Eng_NP ,_, 8_CD (_( 2_LS )_) (_( 2011_CD )_) ,_, p._NP 19_CD https_NNS :_: //doi_NP ._SENT 
+org/10.3329/jname_NNS ._SENT 
+v8i2.7366_NP View_NP Record_NP in_IN ScopusGoogle_JJ Scholar_NN [_SYM 8_CD ]_SYM M._NP Tadros_NP ,_, M._NP Ventura_NP ,_, C._NP Guedes_NP Soares_NP Numerical_JJ simulation_NN of_IN a_DT two-stroke_JJ marine_JJ diesel_NN engine_NN C._NP Guedes_NP Soares_NP ,_, R._NP Dejhalla_NP ,_, D._NP Pavletic_NP (_( Eds_NPS ._SENT 
+)_) ,_, Towards_IN green_JJ marine_JJ technology_NN and_CC transport_NN ,_, Taylor_NP &_CC Francis_NP Group_NP ,_, London_NP (_( 2015_CD )_) ,_, pp_NP ._SENT 
+609-617_CD CrossRefGoogle_JJ Scholar_NN [_SYM 9_CD ]_SYM G._NP Benvenuto_NP ,_, M._NP Laviola_NP ,_, R._NP Zaccone_NP ,_, U._NP Campora_NP Comparison_NN of_IN a_DT natural_JJ gas_NN engine_NN with_IN a_DT diesel_JJ engine_NN for_IN marine_JJ propulsion_NN Mar_NP Technol_NN Eng_NP ,_, 3_CD (_( 2016_CD )_) ,_, pp_NP ._SENT 
+725-734_CD London_NP :_: Taylor_NP &_CC Francis_NP Group_NP CrossRefView_NP Record_NP in_IN ScopusGoogle_JJ Scholar_NN [_SYM 10_CD ]_SYM G._NP Theotokatos_NP ,_, S._NP Stoumpos_NP ,_, I._NP Lazakis_NP ,_, G._NP Livanos_NP Numerical_JJ study_NN of_IN a_DT marine_JJ dual-fuel_NN four-stroke_JJ engine_NN Guedes_NP Soares_NP ,_, Santos_NP (_( Eds_NPS ._SENT 
+)_) ,_, Maritime_NP technology_NN and_CC engineering_NN 3_CD ,_, Taylor_NP &_CC Francis_NP Group_NP ,_, London_NP (_( 2016_CD )_) ,_, pp_NP ._SENT 
+777-783_CD CrossRefGoogle_JJ Scholar_NN [_SYM 11_CD ]_SYM K._NP Chan_NP ,_, A._NP Ordys_NP ,_, K._NP Volkov_NP ,_, O._NP Duran_NP Comparison_NN of_IN engine_NN simulation_NN software_NN for_IN development_NN of_IN control_NN system_NN Model_NP Simulat_NP Eng_NP (_( 2013_CD )_) ,_, Article_NP 401643_CD 21_CD pages_NNS https_NNS :_: //doi_NP ._SENT 
+org/10.1155/2013/401643_JJ Google_JJ Scholar_NN [_SYM 12_CD ]_SYM A._NP Albrecht_NP ,_, O._NP Grondin_NP ,_, F._NP Le_NP Berr_NP ,_, G._NP Le_NP Solliec_NP Towards_IN a_DT stronger_JJR simulation_NN support_NN for_IN engine_NN control_NN design_NN :_: a_DT methodological_JJ point_NN of_IN view_NN Oil_NP Gas_NP Sci_NP Technol_NN Rev_NP IFP_NP ,_, 62_CD (_( 4_LS )_) (_( 2007_CD )_) ,_, pp_NP ._SENT 
+437-456_CD https_NNS :_: //doi_NP ._SENT 
+org/10.2516/ogst:2007039_NP CrossRefView_NP Record_NP in_IN ScopusGoogle_JJ Scholar_NN [_SYM 13_CD ]_SYM D._NP Woodyard_NP Pounder_NP 's_POS marine_JJ diesel_JJ engines_NNS (_( eighth_JJ ed_NNS ._SENT 
+ed_NNS ._SENT 
+)_) ,_, Butterworth-Heinemann_NP ,_, Oxford_NP (_( 2004_CD )_) Google_JJ Scholar_NN [_SYM 14_CD ]_SYM MAN_NN diesel_NN &_CC turbo_NN (_( 2016_CD )_) http_NN :_: //turbocharger_NN ._SENT 
+man_UH ._SENT 
+eu/_NP ,_, Accessed_VVD 16th_JJ Jan_NP 2017_CD Google_JJ Scholar_NN [_SYM 15_CD ]_SYM J._NP B._NP Heywood_NP Internal_NP combustion_NN engine_NN fundamentals_NNS McGraw-Hill_NP ,_, New_NP York_NP (_( 1988_CD )_) Google_JJ Scholar_NN [_SYM 16_CD ]_SYM M._NP Karabektas_NP The_DT effects_NNS of_IN turbocharger_NN on_IN the_DT performance_NN and_CC exhaust_NN emissions_NNS of_IN a_DT diesel_JJ engine_NN fuelled_VVN with_IN biodiesel_NP Renew_VV Energy_NP ,_, 34_CD (_( 4_LS )_) (_( 2009_CD )_) ,_, pp_NP ._SENT 
+989-993_CD https_NNS :_: //doi_NP ._SENT 
+org/10.1016/j_NP ._SENT 
+renene.2008.08.010_NP ArticleDownload_NP PDFView_NP Record_NP in_IN ScopusGoogle_JJ Scholar_NN [_SYM 17_CD ]_SYM Z._NP Zhu_NP ,_, F._NP Zhang_NP ,_, C._NP Li_NP ,_, T._NP Wu_NP ,_, K._NP Han_NP ,_, J._NP Lv_NP ,_, et_NP al_NP ._SENT 
+Genetic_JJ algorithm_NN optimization_NN applied_VVN to_TO the_DT fuel_NN supply_NN parameters_NNS of_IN diesel_JJ engines_NNS working_VVG at_IN plateau_NN Appl_NP Energy_NP ,_, 157_CD (_( 2015_CD )_) ,_, pp_NP ._SENT 
+789-797_CD https_NNS :_: //doi_NP ._SENT 
+org/10.1016/j_NP ._SENT 
+apenergy.2015.03.126_NP ArticleDownload_NP PDFView_NP Record_NP in_IN ScopusGoogle_JJ Scholar_NN [_SYM 18_CD ]_SYM M._NP Tadros_NP ,_, M._NP Ventura_NP ,_, C._NP Guedes_NP Soares_NP Assessment_NP of_IN the_DT performance_NN and_CC the_DT exhaust_NN emissions_NNS of_IN a_DT marine_JJ diesel_NN engine_NN for_IN different_JJ start_NN angles_NNS of_IN combustion_NN Guedes_NP Soares_NP ,_, Santos_NP (_( Eds_NPS ._SENT 
+)_) ,_, Maritime_NP technology_NN and_CC engineering_NN 3_CD ,_, Taylor_NP &_CC Francis_NP Group_NP ,_, London_NP (_( 2016_CD )_) ,_, pp_NP ._SENT 
+769-775_CD CrossRefGoogle_JJ Scholar_NN [_SYM 19_CD ]_SYM J._NP Liu_NP ,_, A._NP Yao_NP ,_, C._NP Yao_NP Effects_NNS of_IN injection_NN timing_NN on_IN performance_NN and_CC emissions_NNS of_IN a_DT HD_NP diesel_NN engine_NN with_IN DMCC_NN Fuel_NN ,_, 134_CD (_( 2014_CD )_) ,_, pp_NP ._SENT 
+107-113_CD https_NNS :_: //doi_NP ._SENT 
+org/10.1016/j_NP ._SENT 
+fuel.2014.05.075_NP ArticleDownload_NP PDFView_NP Record_NP in_IN ScopusGoogle_JJ Scholar_NN [_SYM 20_CD ]_SYM N._NP Raeie_NP ,_, S._NP Emami_NP ,_, O._NP Karimi_NP Sadaghiyani_NP Effects_NNS of_IN injection_NN timing_NN ,_, before_IN and_CC after_IN top_JJ dead_JJ center_NN on_IN the_DT propulsion_NN and_CC power_NN in_IN a_DT diesel_JJ engine_NN Propul_NP Power_NP Res_NNS ,_, 3_LS (_( 2_LS )_) (_( 2014_CD )_) ,_, pp_NP ._SENT 
+59-67_CD https_NNS :_: //doi_NP ._SENT 
+org/10.1016/j_NP ._SENT 
+jppr.2014.06.001_JJ ArticleDownload_NP PDFView_NP Record_NP in_IN ScopusGoogle_JJ Scholar_NN [_SYM 21_CD ]_SYM A._NP K._NP Agarwal_NP ,_, D._NP K._NP Srivastava_NP ,_, A._NP Dhar_NP ,_, R._NP K._NP Maurya_NP ,_, P._NP C._NP Shukla_NP ,_, A._NP P._NP Singh_NP Effect_NN of_IN fuel_NN injection_NN timing_NN and_CC pressure_NN on_IN combustion_NN ,_, emissions_NNS and_CC performance_NN characteristics_NNS of_IN a_DT single_JJ cylinder_NN diesel_NN engine_NN Fuel_NN ,_, 111_CD (_( 2013_CD )_) ,_, pp_NP ._SENT 
+374-383_CD https_NNS :_: //doi_NP ._SENT 
+org/10.1016/j_NP ._SENT 
+fuel.2013.03.016_NP ArticleDownload_NP PDFView_NP Record_NP in_IN ScopusGoogle_JJ Scholar_NN [_SYM 22_CD ]_SYM S._NP Gnanasekaran_NP ,_, N._NP Saravanan_NP ,_, M._NP Ilangkumaran_NP Influence_NN of_IN injection_NN timing_NN on_IN performance_NN ,_, emission_NN and_CC combustion_NN characteristics_NNS of_IN a_DT DI_NP diesel_NN engine_NN running_VVG on_IN fish_NN oil_NN biodiesel_NP Energy_NP ,_, 116_CD (_( 2016_CD )_) ,_, pp_NP ._SENT 
+1218-1229_CD https_NNS :_: //doi_NP ._SENT 
+org/10.1016/j_NP ._SENT 
+energy.2016.10.039_NP ArticleDownload_NP PDFView_NP Record_NP in_IN ScopusGoogle_JJ Scholar_NN [_SYM 23_CD ]_SYM C._NP D._NP Rakopoulos_NP ,_, D._NP C._NP Rakopoulos_NP ,_, G._NP C._NP Mavropoulos_NP ,_, G._NP M._NP Kosmadakis_NP Investigating_VVG the_DT EGR_NP rate_NN and_CC temperature_NN impact_NN on_IN diesel_JJ engine_NN combustion_NN and_CC emissions_NNS under_IN various_JJ injection_NN timings_NNS and_CC loads_NNS by_IN comprehensive_JJ two-zone_NN modeling_VVG Energy_NP ,_, 157_CD (_( 2018_CD )_) ,_, pp_NP ._SENT 
+990-1014_CD https_NNS :_: //doi_NP ._SENT 
+org/10.1016/j_NP ._SENT 
+energy.2018.05.178_NP ArticleDownload_NP PDFView_NP Record_NP in_IN ScopusGoogle_JJ Scholar_NN [_SYM 24_CD ]_SYM H._NP -W_NNS ._SENT 
+Wu_NP ,_, C._NP -M_NP ._SENT 
+Fan_NN ,_, J._NP -Y_NP ._SENT 
+He_PP ,_, T._NP -T_NP ._SENT 
+Hsu_NP Optimal_JJ factors_NNS estimation_NN for_IN diesel/methanol_NN engines_NNS changing_VVG methanol_NN injection_NN timing_NN and_CC inlet_NN air_NN temperature_NN Energy_NP ,_, 141_CD (_( 2017_CD )_) ,_, pp_NP ._SENT 
+1819-1828_CD https_NNS :_: //doi_NP ._SENT 
+org/10.1016/j_NP ._SENT 
+energy.2017.11.123_NP ArticleDownload_NP PDFView_NP Record_NP in_IN ScopusGoogle_JJ Scholar_NN [_SYM 25_CD ]_SYM E._NP Sher_NP ,_, T._NP Bar-Kohany_NP Optimization_NP of_IN variable_JJ valve_NN timing_NN for_IN maximizing_VVG performance_NN of_IN an_DT unthrottled_JJ SI_NP engine—a_NP theoretical_JJ study_NN Energy_NP ,_, 27_CD (_( 8_CD )_) (_( 2002_CD )_) ,_, pp_NP ._SENT 
+757-775_CD https_NNS :_: //doi_NP ._SENT 
+org/10.1016/S0360-5442(02)00022-1_JJ ArticleDownload_NP PDFView_NP Record_NP in_IN ScopusGoogle_JJ Scholar_NN [_SYM 26_CD ]_SYM K._NP -D_NNS ._SENT 
+Kim_NP ,_, D._NP -H_NP ._SENT 
+Kim_NP Improving_VVG the_DT NOx-BSFC_NN trade_NN off_RB of_IN a_DT turbocharged_JJ large_JJ diesel_NN engine_NN using_VVG performance_NN simulation_NN ASME_NN ,_, New_NP Orleans_NP ,_, Louisiana_NP ,_, USA_NP (_( 2002_CD )_) Google_JJ Scholar_NN [_SYM 27_CD ]_SYM M._NP J._NP Dollhopf_NP NASCAR_NP Restrictor_NN plate_NN exhaust_VVP manifold_JJ design_NN strategies_NNS University_NP of_IN Central_NP Florida_NP (_( 1998_CD )_) Google_JJ Scholar_NN [_SYM 28_CD ]_SYM Ricardo_NP Wave_NP software_NN ._SENT 
+Wave_NN 2016.1_CD help_NN system_NN (_( 2016_CD )_) Google_JJ Scholar_NN [_SYM 29_CD ]_SYM L._NP Cornolti_NP ,_, A._NP Onorati_NP ,_, T._NP Cerri_NP ,_, G._NP Montenegro_NP ,_, F._NP Piscaglia_NP 1D_JJ simulation_NN of_IN a_DT turbocharged_JJ Diesel_NP engine_NN with_IN comparison_NN of_IN short_JJ and_CC long_JJ EGR_NN route_NN solutions_NNS Appl_NP Energy_NP ,_, 111_CD (_( 2013_CD )_) ,_, pp_NP ._SENT 
+1-15_CD https_NNS :_: //doi_NP ._SENT 
+org/10.1016/j_NP ._SENT 
+apenergy.2013.04.016_NP ArticleDownload_NP PDFView_NP Record_NP in_IN ScopusGoogle_JJ Scholar_NN [_SYM 30_CD ]_SYM J._NP Galindo_NP ,_, H._NP Climent_NP ,_, B._NP Plá_NP ,_, V._NP D._NP Jiménez_NP Correlations_NNS for_IN Wiebe_NP function_NN parameters_NNS for_IN combustion_NN simulation_NN in_IN two-stroke_JJ small_JJ engines_NNS Appl_NN Therm_NN Eng_NP ,_, 31_CD (_( 6–7_JJ )_) (_( 2011_CD )_) ,_, pp_NP ._SENT 
+1190-1199_CD https_NNS :_: //doi_NP ._SENT 
+org/10.1016/j_NP ._SENT 
+applthermaleng.2010.12.020_NP ArticleDownload_NP PDFView_NP Record_NP in_IN ScopusGoogle_JJ Scholar_NN [_SYM 31_CD ]_SYM M._NP Kitanović_NP ,_, S._NP J._NP Popović_NP ,_, N._NP Miljić_NP ,_, M._NP Tomić_NP ,_, P._NP Mrđa_NP A_DT simulation_NN study_NN of_IN the_DT effects_NNS of_IN turboexpansion_NN concept_NN implementation_NN on_IN combustion_NN and_CC gas-exchange_NN of_IN a_DT 1.4_CD L_NP spark-ignition_NN engine_NN International_NP congress_NN motor_NN vehicles_NNS &_CC motors_NNS kragujevac_NP (_( 2012_CD )_) Google_JJ Scholar_NN [_SYM 32_CD ]_SYM G._NP Fontana_NP ,_, E._NP Galloni_NP Variable_JJ valve_NN timing_NN for_IN fuel_NN economy_NN improvement_NN in_IN a_DT small_JJ spark-ignition_NN engine_NN Appl_NP Energy_NP ,_, 86_CD (_( 1_LS )_) (_( 2009_CD )_) ,_, pp_NP ._SENT 
+96-105_CD https_NNS :_: //doi_NP ._SENT 
+org/10.1016/j_NP ._SENT 
+apenergy.2008.04.009_NP ArticleDownload_NP PDFView_NP Record_NP in_IN ScopusGoogle_JJ Scholar_NN [_SYM 33_CD ]_SYM A._NP F._NP M._NP Mahrous_NP ,_, A._NP Potrzebowski_NP ,_, M._NP L._NP Wyszynski_NP ,_, H._NP M._NP Xu_NP ,_, A._NP Tsolakis_NP ,_, P._NP Luszcz_NP A_DT modelling_VVG study_NN into_IN the_DT effects_NNS of_IN variable_JJ valve_NN timing_NN on_IN the_DT gas_NN exchange_NN process_NN and_CC performance_NN of_IN a_DT 4-valve_NN DI_FW homogeneous_JJ charge_NN compression_NN ignition_NN (_( HCCI_NP )_) engine_NN Energy_NP Convers_NP Manag_NP ,_, 50_CD (_( 2_LS )_) (_( 2009_CD )_) ,_, pp_NP ._SENT 
+393-398_CD https_NNS :_: //doi_NP ._SENT 
+org/10.1016/j_NP ._SENT 
+enconman.2008.09.018_NP ArticleDownload_NP PDFView_NP Record_NP in_IN ScopusGoogle_JJ Scholar_NN [_SYM 34_CD ]_SYM M._NP Jia_NP ,_, M._NP Xie_NP ,_, T._NP Wang_NP ,_, Z._NP Peng_NP The_DT effect_NN of_IN injection_NN timing_NN and_CC intake_NN valve_NN close_JJ timing_NN on_IN performance_NN and_CC emissions_NNS of_IN diesel_JJ PCCI_NP engine_NN with_IN a_DT full_JJ engine_NN cycle_NN CFD_NN simulation_NN Appl_NP Energy_NP ,_, 88_CD (_( 9_CD )_) (_( 2011_CD )_) ,_, pp_NP ._SENT 
+2967-2975_CD https_NNS :_: //doi_NP ._SENT 
+org/10.1016/j_NP ._SENT 
+apenergy.2011.03.024_NP ArticleDownload_NP PDFView_NP Record_NP in_IN ScopusGoogle_JJ Scholar_NN [_SYM 35_CD ]_SYM J._NP Wahlström_NP ,_, L._NP Eriksson_NP Modelling_VVG diesel_JJ engines_NNS with_IN a_DT variable-geometry_NN turbocharger_NN and_CC exhaust_NN gas_NN recirculation_NN by_IN optimization_NN of_IN model_NN parameters_NNS for_IN capturing_VVG non-linear_JJ system_NN dynamics_NNS Proc_NP Inst_NP Mech_NP Eng_NP -_: Part_NP D_NP J_NP Automob_NP Eng_NP ,_, 225_CD (_( 7_CD )_) (_( 2011_CD )_) ,_, pp_NP ._SENT 
+960-986_CD https_NNS :_: //doi_NP ._SENT 
+org/10.1177/0954407011398177_JJ CrossRefView_NP Record_NP in_IN ScopusGoogle_JJ Scholar_NN [_SYM 36_CD ]_SYM R._NP Verma_NP ,_, P._NP A._NP Lakshminarayanan_NP A_DT case_NN study_NN on_IN the_DT application_NN of_IN a_DT genetic_JJ algorithm_NN for_IN optimization_NN of_IN engine_NN parameters_NNS Proc_NP IMechE_NP vol_NP 220_CD Part_NP D_NP :_: J_NP automobile_NN ,_, engineering_NN (_( 2006_CD )_) ,_, pp_NP ._SENT 
+471-478_CD https_NNS :_: //doi_NP ._SENT 
+org/10.1243/09544070D09204_NP CrossRefView_NP Record_NP in_IN ScopusGoogle_JJ Scholar_NN [_SYM 37_CD ]_SYM N._NP Togun_NP ,_, S._NP Baysec_NP Genetic_NP programming_NN approach_NN to_TO predict_VV torque_NN and_CC brake_VV specific_JJ fuel_NN consumption_NN of_IN a_DT gasoline_NN engine_NN Appl_NP Energy_NP ,_, 87_CD (_( 11_CD )_) (_( 2010_CD )_) ,_, pp_NP ._SENT 
+3401-3408_CD https_NNS :_: //doi_NP ._SENT 
+org/10.1016/j_NP ._SENT 
+apenergy.2010.04.027_JJ ArticleDownload_NP PDFView_NP Record_NP in_IN ScopusGoogle_JJ Scholar_NN [_SYM 38_CD ]_SYM J._NP M._NP Alonso_NP ,_, F._NP Alvarruiz_NP ,_, J._NP M._NP Desantes_NP ,_, L._NP Hernández_NP ,_, L._NP Hernández_NP ,_, G._NP Moltó_NP Combining_VVG neural_JJ networks_NNS and_CC genetic_JJ algorithms_NNS to_TO predict_VV and_CC reduce_VV diesel_JJ engine_NN emissions_NNS IEEE_NP Trans_NP Evol_NP Comput_NP ,_, 11_CD (_( 1_LS )_) (_( 2007_CD )_) ,_, pp_NP ._SENT 
+46-55_CD https_NNS :_: //doi_NP ._SENT 
+org/10.1109/TEVC.2006.876364_NP CrossRefView_NP Record_NP in_IN ScopusGoogle_JJ Scholar_NN [_SYM 39_CD ]_SYM H._NP Hiroyasu_NP ,_, H._NP Miao_NP ,_, T._NP Hiroyasu_NP ,_, M._NP Miki_NP ,_, J._NP Kamiura_NP ,_, S._NP Watanabe_NP Genetic_NP algorithms_NNS optimization_NN of_IN diesel_JJ engine_NN emissions_NNS and_CC fuel_NN efficiency_NN with_IN air_NN swirl_NN ,_, EGR_NP ,_, injection_NN timing_NN and_CC multiple_JJ injections_NNS (_( 2003_CD )_) https_NNS :_: //doi_NP ._SENT 
+org/10.4271/2003-01-1853_JJ Google_JJ Scholar_NN [_SYM 40_CD ]_SYM G._NP D'Errico_NP ,_, T._NP Cerri_NP ,_, G._NP Pertusi_NP Multi-objective_JJ optimization_NN of_IN internal_JJ combustion_NN engine_NN by_IN means_NNS of_IN 1D_JJ fluid-dynamic_JJ models_NNS Appl_NP Energy_NP ,_, 88_CD (_( 3_LS )_) (_( 2011_CD )_) ,_, pp_NP ._SENT 
+767-777_CD https_NNS :_: //doi_NP ._SENT 
+org/10.1016/j_NP ._SENT 
+apenergy.2010.09.001_JJ ArticleDownload_NP PDFView_NP Record_NP in_IN ScopusGoogle_JJ Scholar_NN [_SYM 41_CD ]_SYM F._NP Millo_NP ,_, P._NP Arya_NP ,_, F._NP Mallamo_NP Optimization_NP of_IN automotive_JJ diesel_JJ engine_NN calibration_NN using_VVG genetic_JJ algorithm_NN techniques_NNS Energy_NP ,_, 158_CD (_( 2018_CD )_) ,_, pp_NP ._SENT 
+807-819_CD https_NNS :_: //doi_NP ._SENT 
+org/10.1016/j_NP ._SENT 
+energy.2018.06.044_NP ArticleDownload_NP PDFView_NP Record_NP in_IN ScopusGoogle_JJ Scholar_NN [_SYM 42_CD ]_SYM P._NP Karra_NP ,_, S._NP Kong_NP Application_NN of_IN particle_NN swarm_NN optimization_NN for_IN diesel_JJ engine_NN performance_NN optimization_NN (_( 2010_CD )_) https_NNS :_: //doi_NP ._SENT 
+org/10.4271/2010-01-1258_JJ Google_JJ Scholar_NN [_SYM 43_CD ]_SYM B._NP Wahono_NP ,_, H._NP Ogai_NP Combustion_NP model_NN and_CC control_NN parameter_NN optimization_NN methods_NNS for_IN single_JJ cylinder_NN diesel_NN engine_NN J_NP Optim_NP ,_, 2014_CD (_( 2014_CD )_) ,_, Article_NP 135163_CD 9_CD pages_NNS https_NNS :_: //doi_NP ._SENT 
+org/10.1155/2014/135163_JJ Google_JJ Scholar_NN [_SYM 44_CD ]_SYM A._NP A._NP Banawan_NP ,_, M._NP Mosleh_NP ,_, I._NP S._NP Seddiek_NP Prediction_NN of_IN the_DT fuel_NN saving_NN and_CC emissions_NNS reduction_NN by_IN decreasing_VVG speed_NN of_IN a_DT catamaran_NN J_NP Mar_NP Eng_NP Technol_NN ,_, 12_CD (_( 3_LS )_) (_( 2013_CD )_) ,_, pp_NP ._SENT 
+40-48_CD https_NNS :_: //doi_NP ._SENT 
+org/10.1080/20464177.2013.11020287_JJ View_NP Record_NP in_IN ScopusGoogle_JJ Scholar_NN [_SYM 45_CD ]_SYM R._NP Vettor_NP ,_, M._NP Tadros_NP ,_, M._NP Ventura_NP ,_, C._NP Guedes_NP Soares_NP Route_NP planning_NN of_IN a_DT fishing_NN vessel_NN in_IN coastal_JJ waters_NNS with_IN fuel_NN consumption_NN restraint_NN Guedes_NP Soares_NP ,_, Santos_NP (_( Eds_NPS ._SENT 
+)_) ,_, Maritime_NP technology_NN and_CC engineering_NN 3_CD ,_, Taylor_NP &_CC Francis_NP Group_NP ,_, London_NP (_( 2016_CD )_) ,_, pp_NP ._SENT 
+167-173_CD CrossRefGoogle_JJ Scholar_NN [_SYM 46_CD ]_SYM R._NP Vettor_NP ,_, C._NP Guedes_NP Soares_NP Development_NP of_IN a_DT ship_NN weather_NN routing_NN system_NN Ocean_NP Eng_NP ,_, 123_CD (_( 2016_CD )_) ,_, pp_NP ._SENT 
+1-14_CD https_NNS :_: //doi_NP ._SENT 
+org/10.1016/j_NP ._SENT 
+oceaneng.2016.06.035_NP ArticleDownload_NP PDFView_NP Record_NP in_IN ScopusGoogle_JJ Scholar_NN [_SYM 47_CD ]_SYM R._NP Vettor_NP ,_, M._NP Tadros_NP ,_, M._NP Ventura_NP ,_, C._NP Guedes_NP Soares_NP Influence_NN of_IN main_JJ engine_NN control_NN strategies_NNS on_IN fuel_NN consumption_NN and_CC emissions_NNS Guedes_NP Soares_NP ,_, Santos_NP (_( Eds_NPS ._SENT 
+)_) ,_, Progress_NN in_IN maritime_JJ technology_NN and_CC engineering_NN ,_, Taylor_NP &_CC Francis_NP Group_NP ,_, London_NP (_( 2018_CD )_) ,_, pp_NP ._SENT 
+157-163_CD CrossRefGoogle_JJ Scholar_NN [_SYM 48_CD ]_SYM J._NP Zhao_NP ,_, M._NP Xu_NP Fuel_NN economy_NN optimization_NN of_IN an_DT Atkinson_NP cycle_NN engine_NN using_VVG genetic_JJ algorithm_NN Appl_NP Energy_NP ,_, 105_CD (_( 2013_CD )_) ,_, pp_NP ._SENT 
+335-348_CD https_NNS :_: //doi_NP ._SENT 
+org/10.1016/j_NP ._SENT 
+apenergy.2012.12.061_JJ ArticleDownload_NP PDFView_NP Record_NP in_IN ScopusGoogle_JJ Scholar_NN [_SYM 49_CD ]_SYM S._NP DeLand_NP ,_, R._NP Dudgeon_NP Optimizing_VVG a_DT diesel_JJ engine_NN aftertreatment_NN system_NN with_IN MATLAB_NP and_CC GT-SUITE_NP (_( 2015_CD )_) https_NNS :_: //www_NNS ._SENT 
+mathworks_NNS ._SENT 
+com/company/newsletters/articles/optimizing-a-diesel-engine-aftertreatment-system-with-matlab-and-gt-suite_NN ._SENT 
+html_NP ,_, Accessed_VVD 30th_JJ Jan_NP 2017_CD Google_JJ Scholar_NN [_SYM 50_CD ]_SYM GT-SUITE_NN The_DT leading_VVG CAE_NP platform_NN for_IN multi-physics_NN system_NN simulations_NNS (_( 2016_CD )_) https_NNS :_: //www_NNS ._SENT 
+gtisoft_NP ._SENT 
+com/_NP ,_, Accessed_VVD 2nd_JJ Jan_NP 2017_CD Google_JJ Scholar_NN [_SYM 51_CD ]_SYM MathWorks_VVZ Comparison_NN of_IN five_CD solvers_NNS (_( 2017_CD )_) https_NNS :_: //www_NNS ._SENT 
+mathworks_NNS ._SENT 
+com/help/gads/example-comparing-several-solvers_NNS ._SENT 
+html_NP ,_, Accessed_VVD 2nd_JJ Jun_NP 2017_CD Google_JJ Scholar_NN [_SYM 52_CD ]_SYM G._NP K._NP Singh_NP ,_, A._NP Senthil_NP Kumar_NP ,_, R._NP P._NP Saini_NP Selection_NN of_IN capacitance_NN for_IN self-excited_JJ six-phase_NN induction_NN generator_NN for_IN stand-alone_JJ renewable_JJ energy_NN generation_NN Energy_NP ,_, 35_CD (_( 8_CD )_) (_( 2010_CD )_) ,_, pp_NP ._SENT 
+3273-3283_CD https_NNS :_: //doi_NP ._SENT 
+org/10.1016/j_NP ._SENT 
+energy.2010.04.012_NP ArticleDownload_NP PDFView_NP Record_NP in_IN ScopusGoogle_JJ Scholar_NN [_SYM 53_CD ]_SYM G._NP de_NP Koeijer_NP ,_, A._NP Røsjorde_NP ,_, S._NP Kjelstrup_NP Distribution_NN of_IN heat_NN exchange_NN in_IN optimum_JJ diabatic_JJ distillation_NN columns_NNS Energy_NP ,_, 29_CD (_( 12_CD )_) (_( 2004_CD )_) ,_, pp_NP ._SENT 
+2425-2440_CD https_NNS :_: //doi_NP ._SENT 
+org/10.1016/j_NP ._SENT 
+energy.2004.03.034_NP ArticleDownload_NP PDFView_NP Record_NP in_IN ScopusGoogle_JJ Scholar_NN [_SYM 54_CD ]_SYM M._NP Tadros_NP ,_, M._NP Ventura_NP ,_, C._NP Guedes_NP Soares_NP Optimization_NP scheme_NN for_IN the_DT selection_NN of_IN the_DT propeller_NN in_IN ship_NN concept_NN design_NN Guedes_NP Soares_NP ,_, Santos_NP (_( Eds_NPS ._SENT 
+)_) ,_, Progress_NN in_IN maritime_JJ technology_NN and_CC engineering_NN ,_, Taylor_NP &_CC Francis_NP Group_NP ,_, London_NP (_( 2018_CD )_) ,_, pp_NP ._SENT 
+233-239_CD CrossRefGoogle_JJ Scholar_NN [_SYM 55_CD ]_SYM MAN_NN Diesel_NP &_CC Turbo_NP MAN_NN 32/44CR_NN engineered_VVN to_TO set_VV benchmarks_NNS (_( 2016_CD )_) http_NN :_: //marine_NN ._SENT 
+man_UH ._SENT 
+eu/four-stroke/engines/32-44cr/profile_NP ,_, Accessed_VVD 18th_JJ Jan_NP 2017_CD Google_JJ Scholar_NN [_SYM 56_CD ]_SYM M._NP Tadros_NP ,_, M._NP Ventura_NP ,_, C._NP Guedes_NP Soares_NP Surrogate_JJ models_NNS of_IN the_DT performance_NN and_CC exhaust_NN emissions_NNS of_IN marine_JJ diesel_JJ engines_NNS for_IN ship_NN conceptual_JJ design_NN Guedes_NP Soares_NP ,_, Teixeira_NP (_( Eds_NPS ._SENT 
+)_) ,_, Maritime_NP transportation_NN and_CC harvesting_NN of_IN sea_NN resources_NNS ,_, Taylor_NP &_CC Francis_NP Group_NP ,_, London_NP (_( 2018_CD )_) ,_, pp_NP ._SENT 
+105-112_CD View_NP Record_NP in_IN ScopusGoogle_JJ Scholar_NN [_SYM 57_CD ]_SYM N._NP Watson_NP ,_, M._NP S._NP Janota_NP Turbocharging_VVG the_DT internal_JJ combustion_NN engine_NN Wiley_NP (_( 1982_CD )_) Google_JJ Scholar_NN [_SYM 58_CD ]_SYM T._NP L._NP Bergman_NP ,_, A._NP S._NP Lavine_NP ,_, F._NP P._NP Incropera_NP ,_, D._NP P._NP Dewitt_NP Fundamentals_NNS of_IN heat_NN and_CC mass_NN transfer_NN (_( seventh_JJ ed_NNS ._SENT 
+ed_NN )_) ,_, John_NP Wiley_NP &_CC Sons_NP ,_, Incorporated_JJ (_( 2011_CD )_) Google_JJ Scholar_NN [_SYM 59_CD ]_SYM H._NP Darcy_NP Recherches_NPS expérimentales_NP relatives_NNS au_NP mouvement_NP de_NP l'eau_NP dans_NNS les_FW tuyaux_NP Mallet-_NP Bachelier_NP (_( 1857_CD )_) Google_JJ Scholar_NN [_SYM 60_CD ]_SYM F._NP Sun_NP ,_, Y._NP Yao_NP ,_, M._NP Chen_NP ,_, X._NP Li_NP ,_, L._NP Zhao_NP ,_, Y._NP Meng_NP ,_, et_NP al_NP ._SENT 
+Performance_NN analysis_NN of_IN superheated_VVN steam_NN injection_NN for_IN heavy_JJ oil_NN recovery_NN and_CC modeling_NN of_IN wellbore_JJ heat_NN efficiency_NN Energy_NP ,_, 125_CD (_( 2017_CD )_) ,_, pp_NP ._SENT 
+795-804_CD https_NNS :_: //doi_NP ._SENT 
+org/10.1016/j_NP ._SENT 
+energy.2017.02.114_NP ArticleDownload_NP PDFView_NP Record_NP in_IN ScopusGoogle_JJ Scholar_NN [_SYM 61_CD ]_SYM F._NP Sun_NP ,_, Y._NP Yao_NP ,_, X._NP Li_NP ,_, P._NP Yu_NP ,_, L._NP Zhao_NP ,_, Y._NP Zhang_NP A_DT numerical_JJ approach_NN for_IN obtaining_VVG type_NN curves_NNS of_IN superheated_VVN multi-component_JJ thermal_JJ fluid_JJ flow_NN in_IN concentric_JJ dual-tubing_VVG wells_NNS Int_NP J_NP Heat_NP Mass_NP Tran_NP ,_, 111_CD (_( 2017_CD )_) ,_, pp_NP ._SENT 
+41-53_CD https_NNS :_: //doi_NP ._SENT 
+org/10.1016/j_NP ._SENT 
+ijheatmasstransfer.2017.03.103_NP ArticleDownload_NP PDFView_NP Record_NP in_IN ScopusGoogle_JJ Scholar_NN [_SYM 62_CD ]_SYM F._NP Maroteaux_NP ,_, C._NP Saad_NP ,_, F._NP Aubertin_NP Development_NP and_CC validation_NN of_IN double_JJ and_CC single_JJ Wiebe_NP function_NN for_IN multi-injection_NN mode_NN Diesel_NP engine_NN combustion_NN modelling_VVG for_IN hardware-in-the-loop_NN applications_NNS Energy_NP Convers_NP Manag_NP ,_, 105_CD (_( 2015_CD )_) ,_, pp_NP ._SENT 
+630-641_CD https_NNS :_: //doi_NP ._SENT 
+org/10.1016/j_NP ._SENT 
+enconman.2015.08.024_NP ArticleDownload_NP PDFView_NP Record_NP in_IN ScopusGoogle_JJ Scholar_NN [_SYM 63_CD ]_SYM G._NP Woschni_NP A_DT universally_RB applicable_JJ equation_NN for_IN the_DT instantaneous_JJ heat_NN transfer_NN coefficient_NN in_IN the_DT internal_JJ combustion_NN engine_NN (_( 1967_CD )_) SAE_NP Technical_NP Paper_NP 670931_CD https_NNS :_: //doi_NP ._SENT 
+org/10.4271/670931_JJ Google_JJ Scholar_NN [_SYM 64_CD ]_SYM N._NP Watson_NP ,_, A._NP D._NP Pilley_NP ,_, M._NP Marzouk_NP A_DT combustion_NN correlation_NN for_IN diesel_JJ engine_NN simulation_NN (_( 1980_CD )_) SAE_NP Paper_NP 800029_CD https_NNS :_: //doi_NP ._SENT 
+org/10.4271/800029_JJ Google_JJ Scholar_NN [_SYM 65_CD ]_SYM H._NP O._NP Kristensen_NP Energy_NP demand_NN and_CC exhaust_VV gas_NN emissions_NNS of_IN marine_JJ engines_NNS Technical_NP University_NP of_IN Denmark_NP :_: Univerisity_NN of_IN southern_JJ Denmark_NP (_( 2012_CD )_) Google_JJ Scholar_NN [_SYM 66_CD ]_SYM MathWorks_NNS ._SENT 
+fmincon_NP (_( 2016_CD )_) https_NNS :_: //www_NNS ._SENT 
+mathworks_NNS ._SENT 
+com/help/optim/ug/fmincon_NP ._SENT 
+html_NP ,_, Accessed_VVD 2nd_JJ Jun_NP 2017_CD Google_JJ Scholar_NN [_SYM 67_CD ]_SYM R._NP H._NP Byrd_NP ,_, E._NP H._NP Mary_NP ,_, J._NP Nocedal_NP An_DT interior_JJ point_NN Algorithm_NN for_IN large-scale_JJ nonlinear_JJ programming_NN SIAM_NP J_NP Optim_NP ,_, 9_CD (_( 4_LS )_) (_( 1999_CD )_) ,_, pp_NP ._SENT 
+877-900_CD https_NNS :_: //doi_NP ._SENT 
+org/10.1137/S1052623497325107_JJ View_NP Record_NP in_IN ScopusGoogle_JJ Scholar_NN [_SYM 68_CD ]_SYM Z._NP Michalewicz_NP ,_, M._NP Schoenauer_NP Evolutionary_JJ algorithms_NNS for_IN constrained_VVN parameter_NN optimization_NN problems_NNS Evol_NN Comput_NN ,_, 4_LS (_( 1_LS )_) (_( 1996_CD )_) ,_, pp_NP ._SENT 
+1-32_CD https_NNS :_: //doi_NP ._SENT 
+org/10.1162/evco.1996.4.1.1_JJ CrossRefView_NP Record_NP in_IN ScopusGoogle_JJ Scholar_NN [_SYM 69_CD ]_SYM F._NP Sun_NP ,_, Y._NP Yao_NP ,_, X._NP Li_NP ,_, L._NP Zhao_NP Type_NN curve_NN analysis_NN of_IN superheated_VVN steam_NN flow_NN in_IN offshore_JJ horizontal_JJ wells_NNS Int_NP J_NP Heat_NP Mass_NP Tran_NP ,_, 113_CD (_( 2017_CD )_) ,_, pp_NP ._SENT 
+850-860_CD https_NNS :_: //doi_NP ._SENT 
+org/10.1016/j_NP ._SENT 
+ijheatmasstransfer.2017.05.105_NP ArticleDownload_NP PDFView_NP Record_NP in_IN ScopusGoogle_JJ Scholar_NN [_SYM 70_CD ]_SYM F._NP Sun_NP ,_, Y._NP Yao_NP ,_, X._NP Li_NP The_DT heat_NN and_CC mass_JJ transfer_NN characteristics_NNS of_IN superheated_VVN steam_NN coupled_VVN with_IN non-condensing_VVG gases_NNS in_IN horizontal_JJ wells_NNS with_IN multi-point_JJ injection_NN technique_NN Energy_NP ,_, 143_CD (_( 2018_CD )_) ,_, pp_NP ._SENT 
+995-1005_CD https_NNS :_: //doi_NP ._SENT 
+org/10.1016/j_NP ._SENT 
+energy.2017.11.028_NP ArticleDownload_NP PDFView_NP Record_NP in_IN ScopusGoogle_JJ Scholar_NN [_SYM 71_CD ]_SYM F._NP Sun_NP ,_, Y._NP Yao_NP ,_, X._NP Li_NP ,_, G._NP Li_NP ,_, Y._NP Miao_NP ,_, S._NP Han_NP ,_, et_NP al_NP ._SENT 
+Flow_NN simulation_NN of_IN the_DT mixture_NN system_NN of_IN supercritical_JJ CO2_NN &_CC superheated_VVN steam_NN in_IN toe-point_JJ injection_NN horizontal_NN wellbores_NP J_NP Petrol_NN Sci_NP Eng_NP ,_, 163_CD (_( 2018_CD )_) ,_, pp_NP ._SENT 
+199-210_CD https_NNS :_: //doi_NP ._SENT 
+org/10.1016/j_NP ._SENT 
+petrol.2017.12.085_NP ArticleDownload_NP PDFView_NP Record_NP in_IN ScopusGoogle_NP Scholar_NN 

@@ -1,0 +1,426 @@
+<title> An_DT inverse_JJ direct_JJ time_NN domain_NN boundary_NN element_NN method_NN for_IN the_DT reconstruction_NN of_IN transient_JJ acoustic_JJ field_NN </title> <author> Zhang_NP ,_, Yang_NP ;_: Zhang_NP ,_, Xiao-Zheng_NP ;_: Bi_NP ,_, Chuan-Xing_NP ;_: Zhang_NP ,_, Yong-Bin_NP </author> <Affiliation> Institute_NP of_IN Sound_NP and_CC Vibration_NN Research_NP ,_, Hefei_NP University_NP of_IN Technology_NP ,_, 193_CD Tunxi_NP Road_NP ,_, Hefei_NP ;_: 230009_CD ,_, China_NP </Affiliation> <year> 2017_CD </year> <Jounral> Journal_NP of_IN Vibration_NN and_CC Acoustics_NNS ,_, Transactions_NNS of_IN the_DT ASME_NN </Journal> <Publishing_house> American_NP Society_NP of_IN Mechanical_NP Engineers_NPS (_( ASME_NN )_) </Publishing_house> <Text_Collector> Liu_NP Kai，HEU_NP </Text_Collector> <DOI> 10.1115/1.4035381_CD </DOI> <URL> https_NNS :_: //asmedigitalcollection-asme-org-443_NN ._SENT 
+wvpn_NP ._SENT 
+hrbeu_NP ._SENT 
+edu_NP ._SENT 
+cn/vibrationacoustics/article/139/2/021013/472734/An-Inverse-Direct-Time-Domain-Boundary-Element_NN </URL> <Section> Abstract_JJ </Section> An_DT inverse_JJ direct_JJ time_NN domain_NN boundary_NN element_NN method_NN (_( IDTBEM_NP )_) is_VBZ proposed_VVN for_IN the_DT reconstruction_NN of_IN transient_JJ acoustic_JJ field_NN radiated_VVN by_IN arbitrarily_RB shaped_VVN sources_NNS ._SENT 
+The_DT method_NN is_VBZ based_VVN on_IN the_DT theory_NN of_IN direct_JJ time_NN domain_NN boundary_NN element_NN method_NN (_( DTBEM_NP )_) ,_, which_WDT is_VBZ free_JJ from_IN the_DT calculation_NN of_IN hypersingular_JJ integrals_NNS ,_, and_CC thus_RB ,_, its_PP$ reconstruction_NN process_NN is_VBZ relatively_RB simple_JJ and_CC easy_JJ to_TO implement_VV ._SENT 
+However_RB ,_, the_DT formulations_NNS of_IN DTBEM_NN cannot_MD be_VB used_VVN directly_RB for_IN the_DT reconstruction_NN of_IN transient_JJ acoustic_JJ field_NN ,_, and_CC therefore_RB ,_, new_JJ formulations_NNS with_IN a_DT modified_JJ time_NN axis_NN are_VBP derived_VVN ._SENT 
+With_IN these_DT new_JJ formulations_NNS ,_, a_DT linear_JJ system_NN of_IN equations_NNS is_VBZ formed_VVN and_CC the_DT reconstruction_NN is_VBZ performed_VVN in_IN a_DT marching-on-time_JJ (_( MOT_NN )_) way_NN ._SENT 
+Meanwhile_RB ,_, to_TO deal_VV with_IN the_DT ill-posedness_NN involved_VVN in_IN the_DT inverse_JJ process_NN ,_, the_DT truncated_JJ singular_JJ value_NN decomposition_NN (_( TSVD_NN )_) is_VBZ employed_VVN ._SENT 
+Numerical_JJ simulations_NNS with_IN three_CD examples_NNS of_IN a_DT sphere_NN ,_, a_DT cylinder_NN ,_, and_CC a_DT simplified_VVN car_NN model_NN are_VBP carried_VVN out_RP to_TO verify_VV the_DT validity_NN of_IN IDTBEM_NP ,_, and_CC the_DT results_NNS demonstrate_VVP that_IN the_DT IDTBEM_NN is_VBZ effective_JJ in_IN reconstructing_VVG the_DT transient_JJ acoustic_JJ fields_NNS radiated_VVN by_IN arbitrarily_RB shaped_VVN sources_NNS in_IN both_DT time_NN and_CC space_NN domains_NNS ._SENT 
+Keywords_NNS :_: Propagation_NN ,_, Radiation_NN <Section> 1._CD Introduction_NN </Section> Nearfield_NN acoustic_JJ holography_NN (_( NAH_NP )_) was_VBD first_RB documented_VVN in_IN the_DT early_JJ 1980s_NNS for_IN the_DT reconstruction_NN of_IN acoustic_JJ field_NN based_VVN on_IN the_DT measurement_NN of_IN acoustic_JJ pressures_NNS on_IN a_DT hologram_NN plane_NN ._SENT 
+The_DT conventional_JJ NAH_NP was_VBD carried_VVN out_RP via_IN Fourier_NN acoustics_NNS and_CC it_PP achieved_VVD great_JJ success_NN in_IN analyzing_VVG sources_NNS of_IN planar_JJ ,_, cylindrical_JJ ,_, and_CC spherical_JJ shapes_NNS ._SENT 
+In_IN order_NN to_TO reconstruct_VV the_DT acoustic_JJ field_NN radiated_VVN by_IN arbitrarily_RB shaped_VVN sources_NNS ,_, an_DT inverse_JJ boundary_NN element_NN method_NN (_( IBEM_NP )_) was_VBD proposed_VVN in_IN the_DT late_JJ 1980s_NNS ._SENT 
+Since_IN then_RB ,_, a_DT large_JJ number_NN of_IN studies_NNS on_IN the_DT IBEM-based_JJ NAH_NP have_VHP emerged_VVN ._SENT 
+In_IN general_NN ,_, the_DT IBEM_NN can_MD be_VB classified_VVN into_IN two_CD types_NNS according_VVG to_TO the_DT equations_NNS they_PP deal_VVP with_IN :_: the_DT inverse_JJ direct_JJ boundary_NN element_NN method_NN (_( IDBEM_NP )_) ,_, which_WDT solves_VVZ the_DT Helmholtz–Kirchhoff_NP integral_JJ equation_NN (_( HIE_VV )_) ,_, and_CC the_DT inverse_JJ indirect_JJ boundary_NN element_NN method_NN (_( IIBEM_NP )_) ,_, which_WDT starts_VVZ from_IN the_DT single_JJ and/or_NN double_JJ layer_NN potential_JJ representation_NN of_IN the_DT sound_JJ field_NN ._SENT 
+The_DT first_JJ papers_NNS in_IN the_DT IBEM-based_JJ NAH_NP used_VVD the_DT IDBEM_NN for_IN the_DT reconstruction_NN of_IN acoustic_JJ field_NN ,_, and_CC they_PP were_VBD followed_VVN by_IN many_JJ later_JJR studies_NNS which_WDT also_RB preferred_VVD the_DT IDBEM_NN as_IN the_DT solution_NN to_TO HIE_VV ._SENT 
+Some_DT new_JJ works_NNS cooperating_VVG with_IN the_DT IDBEM_NP have_VHP been_VBN done_VVN ,_, such_JJ as_IN the_DT patch_NN NAH_NP based_VVN on_IN the_DT IDBEM_NN which_WDT only_RB performed_VVD partial_JJ reconstruction_NN of_IN the_DT whole_JJ surface_NN of_IN an_DT object_NN ,_, the_DT combined_JJ Helmholtz_NP equation–least_NN squares_NNS (_( HELS_NP )_) method_NN ,_, which_WDT combined_VVD the_DT HELS_NP method_NN and_CC IDBEM_NN to_TO improve_VV the_DT reconstruction_NN efficiency_NN ,_, and_CC a_DT method_NN to_TO recover_VV the_DT free_JJ field_NN conditions_NNS from_IN noisy_JJ bounded_VVN space_NN situations_NNS by_IN removing_VVG the_DT scattering_NN on_IN a_DT target_NN source_NN utilizing_VVG the_DT IDBEM-based_JJ NAH_NP ._SENT 
+The_DT IIBEM_NN was_VBD also_RB studied_VVN and_CC applied_VVN for_IN reconstructing_VVG acoustic_JJ pressures_NNS as_RB well_RB as_IN surface_NN velocities_NNS ._SENT 
+The_DT IIBEM_NN has_VHZ the_DT advantages_NNS over_IN the_DT IDBEM_NN on_IN solving_VVG problems_NNS in_IN which_WDT the_DT radiating_VVG object_NN is_VBZ a_DT thin_JJ body_NN and_CC on_IN solving_VVG problems_NNS at_IN the_DT characteristic_JJ frequencies_NNS where_WRB HIE_VVP fails_VVZ to_TO yield_VV a_DT unique_JJ solution_NN ._SENT 
+However_RB ,_, compared_VVN to_TO the_DT IDBEM_NN ,_, the_DT IIBEM_NN has_VHZ the_DT difficulty_NN in_IN dealing_VVG with_IN the_DT hypersingular_JJ integrals_NNS contained_VVN in_IN the_DT double_JJ layer_NN potential_NN ._SENT 
+Boundary_NN element_NN method_NN not_RB only_RB can_MD analyze_VV the_DT stationary_JJ problems_NNS in_IN the_DT frequency_NN domain_NN but_CC also_RB can_MD simulate_VV the_DT transient_JJ problems_NNS in_IN the_DT time_NN domain_NN ,_, which_WDT is_VBZ usually_RB called_VVN time_NN domain_NN boundary_NN element_NN method_NN (_( TBEM_NP )_) ._SENT 
+Many_JJ researches_VVZ on_IN acoustic_JJ radiation_NN and_CC scattering_NN problems_NNS have_VHP been_VBN conducted_VVN using_VVG the_DT TBEM_NN ,_, and_CC the_DT widely_RB known_VVN instability_NN problem_NN of_IN TBEM_NP also_RB has_VHZ been_VBN deeply_RB studied_VVN ._SENT 
+Recently_RB ,_, an_DT inverse_JJ indirect_JJ time_NN domain_NN boundary_NN element_NN method_NN (_( IITBEM_NP )_) was_VBD proposed_VVN to_TO identify_VV lift-off_NN noise_NN sources_NNS of_IN a_DT rocket_NN at_IN low_JJ frequencies_NNS (_( below_IN 40_CD Hz_NP )_) ._SENT 
+The_DT formulation_NN of_IN IITBEM_NN used_VVN in_IN that_DT paper_NN is_VBZ based_VVN on_IN the_DT normal_JJ derivative_NN of_IN the_DT double_JJ layer_NN potential_NN with_IN hypersingular_JJ kernels_NNS ._SENT 
+The_DT inverse_JJ procedure_NN is_VBZ controlled_VVN through_IN an_DT optimization_NN process_NN which_WDT is_VBZ performed_VVN with_IN the_DT help_NN of_IN a_DT cost_NN function_NN and_CC its_PP$ gradient_NN ._SENT 
+The_DT optimization_NN process_NN needs_VVZ to_TO loop_NN until_IN the_DT solution_NN is_VBZ convergent_JJ ._SENT 
+Note_NN that_IN in_IN that_DT method_NN ,_, the_DT calculation_NN of_IN hypersingular_JJ integrals_NNS is_VBZ quite_RB complicated_VVN ._SENT 
+In_IN addition_NN ,_, the_DT optimization_NN process_NN is_VBZ also_RB complicated_VVN due_JJ to_TO the_DT calculation_NN of_IN the_DT cost_NN function_NN and_CC its_PP$ gradient_NN ._SENT 
+In_IN the_DT present_JJ paper_NN ,_, an_DT IDTBEM_NN is_VBZ developed_VVN for_IN the_DT reconstruction_NN of_IN transient_JJ acoustic_JJ field_NN radiated_VVN by_IN arbitrarily_RB shaped_VVN sources_NNS ._SENT 
+Different_JJ from_IN the_DT method_NN presented_VVN in_IN Ref_NN ._SENT 
+[_SYM 30_CD ]_SYM ,_, the_DT proposed_VVN IDTBEM_NN is_VBZ based_VVN on_IN the_DT theory_NN of_IN DTBEM_NN which_WDT starts_VVZ from_IN the_DT time_NN domain_NN boundary_NN integral_JJ equation_NN derived_VVN by_IN Mansur_NP ]_SYM for_IN scalar_JJ wave_NN equations_NNS ._SENT 
+This_DT equation_NN does_VVZ not_RB contain_VV hypersingular_JJ kernels_NNS ,_, and_CC thus_RB ,_, no_DT special_JJ care_NN needs_VVZ to_TO be_VB taken_VVN during_IN the_DT calculation_NN of_IN integrals_NNS ._SENT 
+The_DT inverse_JJ process_NN is_VBZ carried_VVN out_RP through_IN a_DT MOT_NN process_NN ,_, and_CC no_DT loops_NNS for_IN optimization_NN are_VBP needed_VVN ._SENT 
+Therefore_RB ,_, the_DT whole_JJ reconstruction_NN process_NN is_VBZ relatively_RB simple_JJ and_CC easy_JJ to_TO implement_VV ._SENT 
+It_PP should_MD be_VB mentioned_VVN that_IN some_DT other_JJ methods_NNS also_RB have_VHP been_VBN proposed_VVN for_IN the_DT reconstruction_NN of_IN transient_JJ acoustic_JJ fields_NNS ._SENT 
+However_RB ,_, most_JJS of_IN them_PP are_VBP restricted_VVN to_TO planar_JJ or_CC spherical_JJ sources_NNS ._SENT 
+Although_IN the_DT general_JJ formulations_NNS derived_VVN from_IN the_DT Kirchhoff–Helmholtz_NP integral_JJ theory_NN and_CC the_DT time_NN domain_NN equivalent_JJ source_NN method_NN (_( TESM_NN )_) are_VBP effective_JJ in_IN reconstructing_VVG the_DT transient_JJ acoustic_JJ field_NN radiated_VVN by_IN arbitrarily_RB shaped_VVN sources_NNS ,_, the_DT former_JJ is_VBZ limited_VVN to_TO the_DT arbitrary_JJ object_NN with_IN a_DT uniform_JJ surface_NN velocity_NN distribution_NN and_CC the_DT latter_NN has_VHZ the_DT difficulty_NN of_IN determining_VVG the_DT number_NN and_CC positions_NNS of_IN equivalent_JJ sources_NNS ._SENT 
+Comparatively_RB ,_, the_DT IDTBEM_NN does_VVZ not_RB have_VH such_JJ problems_NNS and_CC thus_RB is_VBZ more_RBR attractive_JJ for_IN use_NN on_IN applications_NNS ._SENT 
+This_DT paper_NN is_VBZ organized_VVN as_RB follows_VVZ :_: The_DT theory_NN of_IN IDTBEM_NP is_VBZ first_RB given_VVN in_IN Sec_NN ._SENT 
+2_LS ,_, then_RB numerical_JJ simulations_NNS with_IN three_CD examples_NNS of_IN a_DT sphere_NN ,_, a_DT cylinder_NN ,_, and_CC a_DT simplified_VVN car_NN model_NN are_VBP performed_VVN in_IN Sec_NN ._SENT 
+3_LS ,_, and_CC finally_RB conclusions_NNS are_VBP drawn_VVN in_IN Sec_NN ._SENT 
+4._CD <Section> 2._CD Theory_NN </Section> 2.1_CD Formulations_NNS of_IN Direct_NP Time_NP Domain_NN Boundary_NP Element_NN Method_NN ._SENT 
+Consider_VV an_DT exterior_JJ radiation_NN problem_NN in_IN a_DT homogeneous_JJ medium_NN shown_VVN in_IN Fig_NN ._SENT 
+1_LS ,_, Γ_NP is_VBZ the_DT boundary_NN of_IN the_DT radiating_VVG body_NN ,_, n_NN is_VBZ the_DT inward_RB unit_NN normal_JJ vector_NN of_IN Γ⁠_NP ,_, y_NP is_VBZ the_DT point_NN on_IN the_DT boundary_NN Γ⁠_NN ,_, and_CC x_LS is_VBZ the_DT field_NN point_NN ._SENT 
+The_DT time_NN domain_NN boundary_NN integral_JJ equation_NN can_MD be_VB expressed_VVN as_IN @（1）_NP where_WRB p(x_NP ,_, τ_NP )_) is_VBZ the_DT pressure_NN at_IN point_NN x_SYM at_IN time_NN t，_NN u_NN is_VBZ the_DT normal_JJ derivative_NN of_IN p，_NN representing_VVG the_DT flux_NN ,_, τ_NP is_VBZ the_DT retarded_JJ time_NN ,_, r_NN is_VBZ the_DT distance_NN between_IN the_DT point_NN x_SYM and_CC the_DT surface_NN node_NN y，_NP c(x_NP )_) is_VBZ the_DT solid_JJ angle_NN at_IN point_NN x，and_NP g(r_NP ,_, τ_NP )_) represents_VVZ the_DT transient_JJ fundamental_JJ solution_NN which_WDT can_MD be_VB expressed_VVN as_IN @（2）_JJ Fig_NN ._SENT 
+1_CD Geometry_NN of_IN radiation_NN problem_NN where_WRB cs_NN is_VBZ the_DT sound_JJ speed_NN ,_, δ_NP is_VBZ the_DT Dirac_NP delta_NN function_NN ,_, and_CC ∂g/∂n_NP is_VBZ the_DT normal_JJ derivative_NN of_IN g._NP To_TO solve_VV the_DT integral_JJ equation_NN numerically_RB ,_, the_DT proper_JJ discretizations_NNS of_IN surface_NN Γ_NN and_CC time_NN t_NN are_VBP needed_VVN ,_, and_CC the_DT temporal_JJ and_CC spatial_JJ interpolations_NNS of_IN boundary_NN variables_NNS should_MD be_VB applied_VVN ._SENT 
+The_DT details_NNS of_IN discretization_NN and_CC interpolation_NN can_MD be_VB found_VVN in_IN many_JJ related_JJ publications_NNS ,_, which_WDT are_VBP omitted_VVN in_IN this_DT paper_NN ._SENT 
+After_IN the_DT discretization_NN and_CC interpolation_NN processes_NNS ,_, the_DT temporal_JJ integrals_NNS can_MD be_VB integrated_VVN analytically_RB and_CC the_DT spatial_JJ integrals_NNS can_MD be_VB carried_VVN out_IN using_VVG the_DT standard_JJ Gaussian_JJ quadrature_NN method_NN ._SENT 
+After_IN all_PDT the_DT integrals_NNS are_VBP done_VVN and_CC the_DT coefficients_NNS are_VBP assembled_VVN into_IN global_JJ matrices_NNS ,_, the_DT discretized_JJ integral_JJ equation_NN can_MD be_VB obtained_VVN as_IN @（3）_NP where_WRB the_DT superscripts_NNS of_IN all_PDT the_DT matrices_NNS represent_VVP the_DT order_NN of_IN time_NN step_NN ,_, for_IN example_NN ,_, P(n_NP )_) denotes_VVZ the_DT pressure_NN column_NN vector_NN at_IN the_DT nth_JJ time_NN step_NN tn=t0+nΔt⁠_NN ,_, where_WRB t0_NP is_VBZ the_DT initial_JJ time_NN ,_, and_CC Δt_NP is_VBZ the_DT length_NN of_IN a_DT time_NN step_NN ._SENT 
+The_DT matrices_NNS H(n−m+1_NN )_) and_CC G(n−m+1_JJ )_) are_VBP coefficient_NN matrices_NNS ._SENT 
+For_IN the_DT radiation_NN problem_NN ,_, Eq_NP ._SENT 
+(_( 1_CD )_) is_VBZ first_RB solved_VVN on_IN the_DT surface_NN Γ⁠_NN ,_, and_CC in_IN this_DT case_NN ,_, the_DT solid_JJ angle_NN is_VBZ 0.5_CD if_IN the_DT boundary_NN is_VBZ smooth_JJ ._SENT 
+After_IN that_DT ,_, Eq_NP ._SENT 
+(_( 1_CD )_) is_VBZ used_VVN to_TO calculate_VV pressures_NNS at_IN the_DT field_NN point_NN ,_, and_CC in_IN this_DT situation_NN ,_, the_DT solid_JJ angle_NN equals_VVZ to_TO 1._CD The_DT two_CD discretized_JJ equations_NNS can_MD be_VB distinguished_VVN by_IN adding_VVG a_DT subscript_JJ s_NN or_CC f_NN to_TO the_DT variables_NNS and_CC matrices_NNS @（4）_JJ @（5）_NN and_CC the_DT subscript_JJ s_NN represents_VVZ surface_NN and_CC the_DT subscript_NN f_SYM represents_VVZ field_NN ._SENT 
+Fig_NN ._SENT 
+2_CD Schematic_JJ view_NN of_IN the_DT minimum_JJ and_CC maximum_JJ distances_NNS between_IN source_NN point_NN and_CC field_NN point_NN From_IN Eqs_NP ._SENT 
+(_( 4_CD )_) and_CC (_( 5_LS )_) ,_, it_PP can_MD be_VB seen_VVN that_IN the_DT number_NN of_IN coefficient_NN matrices_NNS H_NP and_CC G_NP to_TO be_VB used_VVN in_IN the_DT calculation_NN increases_VVZ with_IN the_DT current_JJ time_NN step_NN n._NN However_RB ,_, many_JJ coefficient_NN matrices_NNS are_VBP zero_CD matrices_NNS and_CC they_PP do_VVP not_RB need_VV to_TO be_VB calculated_VVN ,_, which_WDT will_MD be_VB explained_VVN specifically_RB in_IN the_DT following_VVG part_NN ._SENT 
+In_IN fact_NN ,_, the_DT number_NN of_IN nonzero_NP coefficient_NN matrices_NNS that_WDT need_VVP to_TO be_VB calculated_VVN is_VBZ limited_VVN in_IN the_DT whole_JJ MOT_NN process_NN even_RB if_IN the_DT computational_JJ time_NN t_NN increases_NNS ._SENT 
+This_DT can_MD be_VB demonstrated_VVN through_IN Fig_NN ._SENT 
+2_LS where_WRB we_PP assume_VVP that_IN the_DT minimum_JJ distance_NN is_VBZ the_DT distance_NN between_IN point_NN A_DT and_CC point_NN B_NN ,_, denoted_VVN as_IN rmin_NP ,_, and_CC the_DT maximum_JJ distance_NN is_VBZ the_DT distance_NN between_IN point_NN C_NP and_CC point_NN D_NP ,_, denoted_VVN as_IN rmax_NP ._SENT 
+Before_IN the_DT time_NN t=t0+rmin/cs⁠_NN ,_, the_DT wavefront_NN emitted_VVN from_IN point_NN A_DT does_VVZ not_RB arrive_VV at_IN any_DT point_NN on_IN the_DT receiver_NN surface_NN ,_, and_CC therefore_RB ,_, the_DT coefficient_NN matrices_NNS are_VBP all_DT zeros_NNS if_IN their_PP$ superscripts_NNS are_VBP smaller_JJR than_IN [_SYM rmin/(csΔt_JJ )_) ]_SYM ,_, where_WRB [_SYM ⋯_NP ]_SYM means_VVZ round_NN up_RB to_TO the_DT nearest_JJS integer_NN ._SENT 
+Similarly_RB ,_, after_IN the_DT time_NN t=t0+rmax/cs_NNS ,_, signals_NNS emitted_VVN from_IN point_NN C_NP no_RB longer_RBR have_VH influence_NN on_IN any_DT point_NN on_IN the_DT receiver_NN surface_NN ,_, and_CC in_IN this_DT case_NN ,_, the_DT coefficient_NN matrices_NNS are_VBP all_DT zeros_NNS if_IN their_PP$ superscripts_NNS are_VBP greater_JJR than_IN [_SYM rmax/(csΔt)]⁠_NN ._SENT 
+Specifically_RB ,_, for_IN Eq_NP ._SENT 
+(_( 4_CD )_) ,_, rmin=0_NP and_CC rmax=rs_NP max_NP ,_, where_WRB rs_JJ max_NN is_VBZ the_DT maximum_JJ distance_NN between_IN points_NNS on_IN the_DT source_NN surface_NN ,_, and_CC for_IN Eq_NP ._SENT 
+(_( 5_CD )_) ,_, rmin=rf_NP min_NP and_CC rmax=rf_NP max⁠_NP ,_, where_WRB rf_NP min_NP and_CC rf_NP max_NP are_VBP the_DT minimum_JJ and_CC maximum_JJ distances_NNS between_IN the_DT source_NN point_NN and_CC field_NN point_NN ,_, respectively_RB ._SENT 
+Since_IN the_DT superscript_NN of_IN matrix_NN G_NP is_VBZ identical_JJ to_TO H⁠_NN ,_, only_RB the_DT superscript_NN of_IN H_NP is_VBZ discussed_VVN here_RB ._SENT 
+If_IN we_PP denote_VVP nsx_NN as_IN the_DT maximum_JJ superscript_NN of_IN nonzero_NP Hs_NNS (_( the_DT minimum_JJ superscript_NN of_IN nonzero_NP Hs_NN is_VBZ 1_CD )_) ,_, and_CC denote_VV nfm_NP and_CC nfx_NP as_IN the_DT minimum_JJ and_CC maximum_JJ superscripts_NNS of_IN nonzero_NP Hf_NP ,_, the_DT property_NN of_IN nonzero_NP matrix_NN H_NN can_MD be_VB expressed_VVN as_IN @（6）_JJ @（7）_NN By_IN applying_VVG this_DT property_NN ,_, Eqs_NP ._SENT 
+(_( 4_CD )_) and_CC (_( 5_LS )_) can_MD be_VB reformulated_VVN as_IN @（8）_JJ @（9）_NN where_WRB ns=max(1_JJ ,_, n−nsx+1_JJ )_) ,_, and_CC nf=max(1_JJ ,_, n−nfx+1_JJ )_) ._SENT 
+By_IN solving_VVG Eqs_NNS ._SENT 
+(_( 8_CD )_) and_CC (_( 9_CD )_) ,_, the_DT solutions_NNS of_IN transient_JJ radiation_NN problem_NN can_MD be_VB obtained_VVN ._SENT 
+2.2_CD Derivation_NN of_IN Inverse_JJ Direct_NP Time_NP Domain_NN Boundary_NP Element_NN Method_NN For_IN the_DT reconstruction_NN of_IN transient_JJ acoustic_JJ field_NN ,_, the_DT pressures_NNS on_IN a_DT hologram_NN surface_NN should_MD be_VB first_RB measured_VVN ,_, and_CC then_RB the_DT unknowns_NNS ,_, i._NP e._NP ,_, the_DT pressures_NNS P(n)s_NNS and_CC fluxes_NNS U(n)s_NNS ,_, on_IN the_DT source_NN surface_NN are_VBP to_TO be_VB calculated_VVN based_VVN on_IN Eqs_NP ._SENT 
+(_( 8_CD )_) and_CC (_( 9_CD )_) ._SENT 
+Move_VV the_DT unknowns_NNS to_TO the_DT left_NN of_IN the_DT equations_NNS and_CC move_NN others_NNS to_TO the_DT right_NN ,_, one_PP gets_VVZ @（10）_JJ @（11）_JJ Fig_NN ._SENT 
+3_CD Time_NP axes_NNS for_IN DTBEM_NP ._SENT 
+There_EX is_VBZ a_DT retarded_JJ time_NN between_IN source_NN surface_NN and_CC receiver_NN surface_NN ._SENT 
+From_IN Eq_NP ._SENT 
+(_( 11_CD )_) ,_, one_PP can_MD see_VV that_IN ,_, when_WRB n<nfm_NP ,_, Eq_NP ._SENT 
+(_( 11_CD )_) is_VBZ identical_JJ to_TO 0=0_NN ._SENT 
+The_DT reason_NN can_MD be_VB explained_VVN by_IN Fig_NN ._SENT 
+3_LS which_WDT shows_VVZ the_DT time_NN axes_VVZ of_IN radiation_NN problem_NN for_IN the_DT DTBEM_NN ._SENT 
+Note_NN that_IN the_DT time_NN axis_NN for_IN the_DT source_NN is_VBZ the_DT same_JJ as_RB that_IN for_IN the_DT receiver_NN ._SENT 
+Now_RB suppose_VVP that_IN a_DT signal_NN is_VBZ emitted_VVN at_IN t0_NP ._SENT 
+The_DT emitted_VVN signal_NN arrives_VVZ at_IN the_DT receiver_NN surface_NN at_IN tnfm_NP ._SENT 
+Thus_RB ,_, the_DT pressures_NNS on_IN the_DT receiver_NN surface_NN are_VBP null_JJ before_IN tnfm_NP ._SENT 
+In_IN the_DT IDTBEM_NN ,_, the_DT pressures_NNS on_IN the_DT receiver_NN surface_NN are_VBP used_VVN as_IN the_DT measured_VVN signals_NNS ._SENT 
+If_IN the_DT same_JJ time_NN axes_NNS as_IN the_DT DTBEM_NN are_VBP used_VVN ,_, the_DT inputs_NNS P(n)f_NN in_IN the_DT case_NN of_IN n<nfm_NP are_VBP equal_JJ to_TO zeros_NNS since_IN no_DT signal_NN can_MD be_VB measured_VVN before_IN tnfm⁠_NP ._SENT 
+According_VVG to_TO Eq_NP ._SENT 
+(_( 7_CD )_) ,_, it_PP is_VBZ known_VVN that_IN the_DT coefficient_NN matrices_NNS Hf_NN and_CC Gf_NN with_IN superscripts_NNS smaller_JJR than_IN nfm_NP are_VBP zero_CD matrices_NNS ._SENT 
+Due_JJ to_TO the_DT reason_NN mentioned_VVD previously_RB ,_, the_DT right-hand_JJ side_NN of_IN Eq_NP ._SENT 
+(_( 11_CD )_) is_VBZ made_VVN to_TO be_VB zero_CD ,_, leading_VVG to_TO a_DT 0=0_JJ type_NN equation_NN ._SENT 
+In_IN absence_NN of_IN Eq_NP ._SENT 
+(_( 11_CD )_) ,_, the_DT unknowns_NNS cannot_MD be_VB solved_VVN just_RB by_IN Eq_NP ._SENT 
+(_( 10_CD )_) since_IN the_DT number_NN of_IN unknowns_NNS is_VBZ greater_JJR than_IN the_DT number_NN of_IN equations_NNS ._SENT 
+As_IN a_DT result_NN ,_, the_DT reconstruction_NN process_NN in_IN the_DT IDTBEM_NN cannot_MD be_VB started_VVN if_IN the_DT same_JJ time_NN axes_NNS as_IN the_DT DTBEM_NN are_VBP used_VVN ._SENT 
+In_IN order_NN to_TO make_VV the_DT reconstruction_NN process_NN of_IN the_DT IDTBEM_NN feasible_JJ ,_, a_DT new_JJ initial_JJ time_NN for_IN measurement_NN points_NNS is_VBZ defined_VVN ,_, as_RB shown_VVN in_IN Fig_NN ._SENT 
+4._CD The_DT initial_JJ time_NN for_IN measurement_NN points_NNS can_MD be_VB defined_VVN as_IN @（12）_NN As_IN the_DT initial_JJ time_NN changes_NNS ,_, the_DT superscripts_NNS of_IN matrices_NNS related_VVN to_TO the_DT measurement_NN points_NNS should_MD also_RB be_VB changed_VVN when_WRB they_PP are_VBP used_VVN for_IN IDTBEM_NP ._SENT 
+If_IN the_DT same_JJ time_NN steps_NNS are_VBP adopted_VVN in_IN both_DT DTBEM_NP and_CC IDTBEM_NP ,_, the_DT discretized_JJ time_NN of_IN IDTBEM_NP can_MD be_VB written_VVN as_IN t′n=t′0+nΔt_NP ,_, and_CC the_DT new_JJ superscripts_NNS of_IN matrices_NNS for_IN IDTBEM_NN can_MD be_VB derived_VVN as_IN @（13）_NN After_IN applying_VVG the_DT new_JJ initial_JJ time_NN ,_, Eq_NP ._SENT 
+(_( 9_CD )_) can_MD be_VB rewritten_VVN as_IN @（14）_NP where_WRB n′f=max(1_JJ ,_, n′−nfx+1_JJ )_) ._SENT 
+In_IN this_DT way_NN ,_, the_DT inputs_NNS P(n′)f_NN are_VBP nonzeros_NNS and_CC the_DT zero_CD matrices_NNS Hf_NP and_CC Gf_NP are_VBP excluded_VVN ,_, making_VVG the_DT equations_NNS solvable_JJ ._SENT 
+Substituting_VVG Eq_NP ._SENT 
+(_( 13_CD )_) into_IN Eq_NP ._SENT 
+(_( 14_CD )_) ,_, a_DT new_JJ equation_NN of_IN IDTBEM_NN for_IN realizing_VVG the_DT reconstruction_NN of_IN transient_JJ acoustic_JJ field_NN can_MD be_VB obtained_VVN as_IN @（15）_NP where_WRB n′f=max(1_JJ ,_, n+nfm−nfx)⁠_JJ ._SENT 
+In_IN the_DT IDTBEM_NN ,_, unknowns_NNS are_VBP the_DT surface_NN variables_NNS at_IN the_DT current_JJ time_NN tn⁠_NN ,_, and_CC the_DT inputs_NNS are_VBP Pf_NP at_IN all_DT time_NN ._SENT 
+Combining_VVG Eq_NP ._SENT 
+(_( 15_CD )_) with_IN Eq_NP ._SENT 
+(_( 10_CD )_) ,_, one_PP gets_VVZ @（16）_JJ @（17）_JJ Fig_NN ._SENT 
+4_CD Time_NP axes_NNS for_IN IDTBEM_NP ._SENT 
+New_JJ initial_JJ time_NN is_VBZ defined_VVN on_IN the_DT measurement_NN surface_NN (_( receiver_NN surface_NN in_IN the_DT DTBEM_NN )_) ._SENT 
+The_DT equations_NNS above_RB can_MD be_VB written_VVN in_IN a_DT concise_JJ matrix_NN form_NN @（18）_NN where_WRB @（19）_JJ @（20）_JJ @（21）_NN Equation_NN (_( 18_CD )_) is_VBZ solved_VVN through_IN an_DT MOT_NN process_NN as_RB follows_VVZ :_: the_DT first_JJ time_NN step_NN is_VBZ proceeded_VVN for_IN n=1_JJ ,_, in_IN this_DT case_NN ,_, the_DT summation_NN items_NNS in_IN B(1_JJ )_) are_VBP all_DT zeros_NNS ,_, then_RB Eq_NP ._SENT 
+(_( 18_CD )_) becomes_VVZ @（22）_NP and_CC P(1)s_NPS and_CC U(1)s_NPS can_MD be_VB obtained_VVN ;_: for_IN n≥2_NP ,_, the_DT surface_NN pressures_NNS and_CC fluxes_NNS needed_VVN in_IN B(n_NP )_) have_VHP all_RB been_VBN calculated_VVN in_IN previous_JJ time_NN steps_NNS ,_, and_CC thus_RB ,_, all_DT φ(n)s_NPS can_MD be_VB calculated_VVN step-by-step_NN ._SENT 
+In_IN the_DT MOT_NN process_NN ,_, the_DT matrix_NN A_DT keeps_VVZ the_DT same_JJ at_IN every_DT time_NN step_NN since_IN nfm_NP is_VBZ constant_JJ once_IN the_DT source_NN surface_NN and_CC measurement_NN surface_NN are_VBP both_DT set_NN ._SENT 
+Usually_RB ,_, the_DT matrix_NN A_DT is_VBZ sparse_JJ and_CC ill-conditioned_JJ ,_, and_CC therefore_RB ,_, the_DT direct_JJ solving_VVG of_IN Eq_NP ._SENT 
+(_( 18_CD )_) will_MD lead_VV to_TO a_DT divergent_JJ result_NN ._SENT 
+Moreover_RB ,_, the_DT measured_VVN pressures_NNS Pf_NP may_MD contain_VV noise_NN in_IN practice_NN ,_, and_CC the_DT noise_NN will_MD greatly_RB affect_VV the_DT accuracy_NN of_IN the_DT reconstructed_JJ results_NNS if_IN it_PP is_VBZ not_RB properly_RB dealt_VVN with_IN ._SENT 
+In_IN order_NN to_TO get_VV stable_JJ and_CC accurate_JJ results_NNS ,_, a_DT regularization_NN process_NN is_VBZ needed_VVN ._SENT 
+In_IN this_DT paper_NN ,_, the_DT TSVD_NN which_WDT has_VHZ been_VBN proved_VVN to_TO be_VB effective_JJ in_IN solving_VVG inverse_JJ problems_NNS [_SYM 44–46_NP ]_SYM is_VBZ applied_VVN ._SENT 
+Since_IN the_DT TSVD_NN regularizes_VVZ the_DT ill-conditioned_JJ matrix_NN by_IN setting_VVG very_RB small_JJ singular_JJ values_NNS to_TO zeros_NNS ,_, here_RB a_DT parameter_NN ε_NN is_VBZ introduced_VVN to_TO indicate_VV the_DT ratio_NN of_IN retained_JJ nonzero_NP singular_NN values_NNS ._SENT 
+<Section> 3._CD Numerical_JJ Simulations_NNS </Section> To_TO validate_VV the_DT effectiveness_NN of_IN the_DT proposed_VVN method_NN ,_, three_CD examples_NNS are_VBP investigated_VVN ._SENT 
+Here_RB ,_, in_IN order_NN to_TO quantify_VV the_DT accuracy_NN of_IN reconstructed_JJ results_NNS ,_, a_DT root-mean-error_NN ,_, μ_NP ,_, between_IN the_DT reconstructed_JJ and_CC analytical_JJ pressures_NNS on_IN the_DT source_NN surface_NN is_VBZ defined_VVN as_IN @（23）_NP where_WRB Pr_NP and_CC Ps_NNS are_VBP the_DT reconstructed_JJ and_CC analytical_JJ pressures_NNS on_IN the_DT source_NN surface_NN ,_, respectively_RB ,_, and_CC ∥⋯∥_NP denotes_VVZ the_DT two-norm_NN ._SENT 
+Note_NN that_IN in_IN the_DT following_VVG use_NN of_IN Eq_NP ._SENT 
+(_( 23_CD )_) ,_, the_DT values_NNS of_IN vector_NN P_NN correspond_VV to_TO the_DT pressures_NNS at_IN different_JJ time_NN instants_NNS when_WRB assessing_VVG the_DT time-evolving_VVG signals_NNS at_IN one_CD space_NN point_NN ,_, while_IN in_IN the_DT assessment_NN of_IN the_DT spatial_JJ distribution_NN at_IN one_CD time_NN instant_NN ,_, the_DT vector_NN P_NN is_VBZ composed_VVN of_IN pressures_NNS at_IN different_JJ space_NN points_NNS ._SENT 
+3.1An_NP Impulsively_RB Accelerated_VVD Sphere_NN ._SENT 
+The_DT first_JJ example_NN considers_VVZ the_DT reconstruction_NN of_IN transient_JJ acoustic_JJ radiation_NN from_IN an_DT impulsively_RB accelerated_VVN sphere_NN in_IN a_DT free_JJ space_NN ._SENT 
+Figure_NN 5_CD shows_NNS the_DT geometry_NN of_IN the_DT sphere_NN with_IN a_DT source_NN surface_NN Γ_NN and_CC a_DT measurement_NN surface_NN H⁠_NN ._SENT 
+The_DT origin_NN of_IN the_DT spherical_JJ coordinate_VV system_NN O(r_NN ,_, θ⁠_NP ,_, φ_NP )_) is_VBZ located_VVN at_IN the_DT center_NN of_IN the_DT sphere_NN ._SENT 
+The_DT radius_NN of_IN the_DT sphere_NN is_VBZ rs=0.1_JJ m._NP The_DT measurement_NN surface_NN is_VBZ a_DT spherical_JJ surface_NN with_IN a_DT radius_NN of_IN rm=0.1181_JJ m_NN and_CC its_PP$ center_NN is_VBZ located_VVN at_IN the_DT origin_NN O⁠_NN ._SENT 
+A_DT discretization_NN of_IN 384_CD elements_NNS and_CC 386_CD nodes_NNS on_IN the_DT source_NN surface_NN is_VBZ applied_VVN ,_, and_CC the_DT discretization_NN on_IN the_DT measurement_NN surface_NN is_VBZ the_DT same_JJ as_IN the_DT source_NN surface_NN ._SENT 
+Here_RB ,_, constant_JJ elements_NNS are_VBP used_VVN ,_, and_CC thus_RB ,_, 384_CD measurement_NN points_NNS are_VBP set_VVN ._SENT 
+The_DT number_NN of_IN time_NN steps_NNS is_VBZ 300_CD ,_, the_DT time_NN step_NN is_VBZ Δt=2.6646×10−5_JJ s_NN ,_, and_CC the_DT ratio_NN of_IN retained_JJ nonzero_NP singular_NN values_NNS is_VBZ ε=0.6⁠_JJ ._SENT 
+The_DT sphere_NN is_VBZ excited_VVN at_IN a_DT given_VVN time_NN te_NN ,_, and_CC the_DT excitation_NN lasts_VVZ one_CD Δt_NN ._SENT 
+The_DT flux_NN distribution_NN on_IN the_DT sphere_NN at_IN time_NN t_NN can_MD be_VB expressed_VVN as_IN @（24）_NP where_WRB u0_NP is_VBZ the_DT amplitude_NN of_IN flux_NN ,_, in_IN this_DT simulation_NN ,_, u0=−45.41_JJ kg_NP s−2_NP m−2_NP ,_, and_CC H(x_NP )_) is_VBZ the_DT Heaviside_NP function_NN ._SENT 
+The_DT measured_VVN pressures_NNS Pf_NP are_VBP obtained_VVN through_IN the_DT following_VVG equation_NN :_: @_SYM where_WRB v0=−u0Δt/ρ_NP =_SYM 0.001_CD m/s_NNS ,_, ρ_NN =_SYM 1.21_CD kg/m3_NN is_VBZ the_DT density_NN of_IN air_NN ,_, ra_NN is_VBZ the_DT distance_NN between_IN the_DT field_NN point_NN and_CC the_DT center_NN of_IN the_DT sphere_NN ,_, and_CC Gaussian_JJ white_JJ noise_NN with_IN a_DT signal-to-noise_NN ratio_NN (_( SNR_NP )_) of_IN 20_CD dB_NN is_VBZ added_VVN to_TO Pf_NP ._SENT 
+The_DT reconstructed_JJ pressures_NNS Pr_NN on_IN the_DT source_NN surface_NN are_VBP then_RB compared_VVN with_IN the_DT surface_NN pressures_NNS Ps_RB calculated_VVN by_IN the_DT DTBEM_NN through_IN Eq_NP ._SENT 
+(_( 8_CD )_) ,_, which_WDT are_VBP used_VVN as_IN analytical_JJ results_NNS ._SENT 
+Fig_NN ._SENT 
+5_CD Geometry_NN of_IN the_DT impulsively_RB accelerated_VVN sphere_NN and_CC the_DT measurement_NN surface_NN H._NP The_DT origin_NN of_IN the_DT spherical_JJ coordinate_VV system_NN O(r_NN ;_: h_NN ;_: u_NN )_) is_VBZ located_VVN at_IN the_DT center_NN of_IN the_DT sphere_NN ._SENT 
+The_DT radius_NN of_IN the_DT sphere_NN is_VBZ 0.1_CD m._NN The_DT source_NN surface_NN C_NP is_VBZ the_DT surface_NN of_IN the_DT sphere_NN ._SENT 
+The_DT measurement_NN surface_NN H_NN is_VBZ a_DT spherical_JJ surface_NN whose_WP$ radius_NN is_VBZ 0.1181_CD m._JJ Fig_NN ._SENT 
+6_CD Time_NP domain_NN waveform_NN comparisons_NNS of_IN reconstructed_JJ pressures_NNS (_( dotted_VVN dot_VVP line_NN )_) without_IN using_VVG regularization_NN and_CC analytical_JJ pressures_NNS (_( solid_JJ line_NN )_) at_IN (_( a_DT )_) point_NN (_( 0.1_CD m_NN ,_, 0_CD rad_NN ,_, 0_CD rad_NN )_) and_CC (_( b_LS )_) point_NN (_( 0.1_CD m_NN ,_, 0.5416_CD rad_NN ,_, 0.7854_CD rad_NN )_) Figures_NNS 6_CD and_CC 7_CD show_NN the_DT time_NN domain_NN waveform_NN comparisons_NNS of_IN reconstructed_JJ and_CC analytical_JJ pressures_NNS at_IN points_NNS (_( 0.1_CD m_NN ,_, 0_CD rad_NN ,_, 0_CD rad_NN )_) m_NN and_CC (_( 0.1_CD m_NN ,_, 0.5416_CD rad_NN ,_, 0.7854_CD rad_NN )_) ._SENT 
+The_DT results_NNS in_IN Fig_NN ._SENT 
+6_CD are_VBP obtained_VVN without_IN using_VVG a_DT regularization_NN method_NN ,_, and_CC one_PP can_MD see_VV that_IN the_DT results_NNS completely_RB diverge_VV ._SENT 
+However_RB ,_, the_DT results_NNS in_IN Fig_NN ._SENT 
+7_CD using_VVG the_DT TSVD_NNS are_VBP stable_JJ and_CC show_VV excellent_JJ agreement_NN with_IN the_DT analytical_JJ ones_NNS ._SENT 
+This_DT demonstrates_VVZ that_IN the_DT regularization_NN method_NN is_VBZ necessary_JJ in_IN the_DT reconstruction_NN of_IN transient_JJ sound_JJ field_NN ._SENT 
+The_DT root_NN mean_VV errors_NNS at_IN these_DT two_CD points_NNS in_IN Fig_NN ._SENT 
+7_CD are_VBP 13.93_CD %_NN and_CC 14.27_CD %_NN ,_, respectively_RB ._SENT 
+Figure_NN 8_CD also_RB shows_VVZ the_DT comparison_NN of_IN spatial_JJ distributions_NNS of_IN reconstructed_JJ and_CC analytical_JJ pressures_NNS at_IN time_NN t=0.39969_NN ms_NNS and_CC t=0.53292_JJ ms_NNS ._SENT 
+The_DT comparison_NN demonstrates_VVZ that_IN the_DT reconstructed_JJ pressures_NNS consist_VVP with_IN the_DT analytical_JJ pressures_NNS ._SENT 
+According_VVG to_TO Eq_NP ._SENT 
+(_( 23_CD )_) ,_, the_DT root_NN mean_VV errors_NNS at_IN these_DT two_CD time_NN instants_NNS are_VBP 8.72_CD %_NN and_CC 10.59_CD %_NN ,_, respectively_RB ._SENT 
+3.2A_NP Vibrating_VVG Cylinder_NN ._SENT 
+In_IN the_DT second_JJ example_NN ,_, the_DT proposed_VVN method_NN is_VBZ validated_VVN through_IN the_DT reconstruction_NN of_IN transient_JJ acoustic_JJ radiation_NN from_IN a_DT vibrating_VVG cylinder_NN ._SENT 
+Figure_NN 9_CD shows_NNS the_DT geometry_NN of_IN the_DT cylinder_NN with_IN a_DT source_NN surface_NN Γ_NN and_CC a_DT measurement_NN surface_NN H⁠_NN ._SENT 
+The_DT origin_NN of_IN the_DT Cartesian_JJ coordinate_VV system_NN O(x_NN ,_, y_NP ,_, z_NN )_) is_VBZ located_VVN at_IN the_DT center_NN of_IN the_DT cylinder_NN ._SENT 
+The_DT diameter_NN of_IN the_DT cylinder_NN is_VBZ dc=0.064_JJ m_NN ,_, and_CC the_DT length_NN of_IN the_DT cylinder_NN is_VBZ hc=0.02_NP m._NP The_DT measurement_NN surface_NN is_VBZ conformal_JJ to_TO the_DT surface_NN of_IN the_DT cylinder_NN ._SENT 
+The_DT diameter_NN and_CC length_NN of_IN the_DT measurement_NN surface_NN are_VBP dm=0.0789_JJ m_NN and_CC hm=0.0349_JJ m_NN ,_, respectively_RB ._SENT 
+Both_DT surfaces_NNS are_VBP meshed_VVN to_TO 268_CD elements_NNS and_CC 266_CD nodes_NNS ._SENT 
+The_DT time_NN step_NN is_VBZ Δt=1.0827×10−5_JJ s_NN ,_, and_CC 300_CD time_NN steps_NNS are_VBP calculated_VVN ._SENT 
+The_DT ratio_NN of_IN retained_JJ nonzero_NP singular_NN values_NNS is_VBZ ε=0.6⁠_JJ ._SENT 
+A_DT z-coordinate_JJ dependent_JJ flux_NN distribution_NN is_VBZ initiated_VVN on_IN the_DT surface_NN of_IN the_DT cylinder_NN ,_, which_WDT is_VBZ @（26）_JJ where_WRB R_NP is_VBZ the_DT distance_NN between_IN the_DT node_NN on_IN the_DT cylinder_NN and_CC the_DT origin_NN O_NN ,_, and_CC f(Δt_NP )_) is_VBZ a_DT filter_NN function_NN that_WDT can_MD be_VB expressed_VVN as_IN @（27）_JJ Fig_NN ._SENT 
+7_CD Time_NP domain_NN waveform_NN comparisons_NNS of_IN reconstructed_JJ pressures_NNS (_( dotted_VVN solid_JJ line_NN )_) with_IN the_DT TSVD_NN and_CC analytical_JJ pressures_NNS (_( solid_JJ line_NN )_) at_IN (_( a_DT )_) point_NN (_( 0.1_CD m_NN ,_, 0_CD rad_NN ,_, 0_CD rad_NN )_) and_CC (_( b_LS )_) point_NN (_( 0.1_CD m_NN ,_, 0.5416_CD rad_NN ,_, 0.7854_CD rad_NN )_) Fig_NN ._SENT 
+8_CD Spatial_JJ distributions_NNS of_IN analytical_JJ pressures_NNS at_IN t_NN 5_CD 0:39969_CD ms_NNS (_( a_DT )_) and_CC t_NN 5_CD 0:53292_CD ms_NNS (_( b_LS )_) and_CC reconstructed_JJ pressures_NNS at_IN t_NN 5_CD 0:39969_CD ms_NNS (_( c_LS )_) and_CC t_NN 5_CD 0:53292_CD ms_NNS (_( d_LS )_) on_IN the_DT source_NN surface_NN Fig_NN ._SENT 
+9_CD Geometry_NN of_IN the_DT vibrating_VVG cylinder_NN and_CC the_DT measurement_NN surface_NN H._NP The_DT origin_NN of_IN the_DT Cartesian_JJ coordinate_VV system_NN O(x_NN ;_: y_NN ;_: z_SYM )_) is_VBZ located_VVN at_IN the_DT center_NN of_IN the_DT cylinder_NN ._SENT 
+The_DT diameter_NN of_IN the_DT cylinder_NN is_VBZ dc_NP 5_CD 0:064_CD m_NN ,_, and_CC the_DT length_NN of_IN the_DT cylinder_NN is_VBZ hc_NP 5_CD 0:02_CD m._NP The_DT source_NN surface_NN C_NP is_VBZ the_DT surface_NN of_IN the_DT cylinder_NN ._SENT 
+Fig_NN ._SENT 
+10_CD Time_NP domain_NN waveform_NN comparisons_NNS of_IN reconstructed_JJ pressures_NNS (_( dotted_VVN solid_JJ line_NN )_) and_CC analytical_JJ pressures_NNS (_( solid_JJ line_NN )_) at_IN (_( a_DT )_) point_NN (_( 0.0288_CD ,_, 0.01_CD ,_, 20.0139_CD )_) m_NN and_CC (_( b_LS )_) point_NN (_( 20.0112_CD ,_, 0.01_CD ,_, 20.0178_CD )_) m_NN The_DT diameter_NN and_CC length_NN of_IN the_DT measurement_NN surface_NN H_NN are_VBP dm_NP 5_CD 0:0789_CD m_NN and_CC hm_NN 5_CD 0:0349_CD m_NN ,_, respectively_RB The_DT measured_VVN pressures_NNS Pf_NP are_VBP obtained_VVN by_IN the_DT DTBEM_NN through_IN Eq_NP ._SENT 
+(_( 9_CD )_) ,_, and_CC Gaussian_JJ white_JJ noise_NN with_IN an_DT SNR_NN of_IN 20_CD dB_NN is_VBZ added_VVN to_TO Pf⁠_NN ._SENT 
+The_DT surface_NN pressures_NNS Ps_RB calculated_VVN by_IN the_DT DTBEM_NN are_VBP used_VVN as_IN the_DT analytical_JJ values_NNS for_IN comparison_NN with_IN the_DT reconstructed_JJ pressures_NNS Pr⁠_JJ ._SENT 
+The_DT comparison_NN between_IN the_DT reconstructed_JJ and_CC analytical_JJ pressures_NNS at_IN points_NNS (_( 0.0288_CD ,_, 0.01_CD ,_, −0.0139_NP )_) m_NN and_CC (_( −0.0112_NP ,_, 0.01_CD ,_, −0.0178_NP )_) m_NN is_VBZ shown_VVN in_IN Fig_NN ._SENT 
+10._CD It_PP can_MD be_VB seen_VVN from_IN Fig_NN ._SENT 
+10_CD that_IN the_DT reconstructed_JJ pressures_NNS at_IN the_DT beginning_VVG and_CC ending_VVG of_IN the_DT waveform_NN are_VBP sensitive_JJ to_TO noise_NN since_IN the_DT pressures_NNS at_IN these_DT time_NN steps_NNS are_VBP zeros_NNS in_IN theory_NN ._SENT 
+However_RB ,_, the_DT noise_NN is_VBZ well_RB suppressed_VVN as_IN the_DT amplitudes_NNS of_IN the_DT input_NN signals_VVZ become_VVN nonzeros_NNS ._SENT 
+The_DT entire_JJ waveform_NN of_IN the_DT reconstructed_JJ pressures_NNS matches_VVZ well_RB with_IN that_IN of_IN analytical_JJ pressures_NNS ._SENT 
+The_DT root_NN mean_VV errors_NNS at_IN these_DT two_CD points_NNS are_VBP 8.5_CD %_NN and_CC 8.55_CD %_NN according_VVG to_TO Eq_NP ._SENT 
+(_( 23_CD )_) ._SENT 
+Figure_NN 11_CD shows_NNS the_DT spatial_JJ distribution_NN of_IN the_DT reconstructed_JJ pressures_NNS along_IN with_IN the_DT corresponding_JJ analytical_JJ pressures_NNS at_IN time_NN t=1.1416_NN ms_NNS and_CC t=2.0029_JJ ms_NNS ._SENT 
+This_DT figure_NN indicates_VVZ that_IN the_DT reconstructed_JJ pressures_NNS agree_VVP well_RB with_IN the_DT analytical_JJ ones_NNS at_IN these_DT two_CD time_NN instants_NNS ._SENT 
+The_DT root_NN mean_VV errors_NNS at_IN time_NN t=1.4616_NN ms_NNS and_CC t=2.0029_JJ ms_NNS are_VBP 3.47_CD %_NN and_CC 11.9_CD %_NN ,_, respectively_RB ._SENT 
+Fig_NN ._SENT 
+11_CD Spatial_JJ distributions_NNS of_IN analytical_JJ pressures_NNS at_IN t_NN 5_CD 1:4616_CD ms_NNS (_( a_DT )_) and_CC t_NN 5_CD 2:0029_CD ms_NNS (_( b_LS )_) and_CC reconstructed_JJ pressures_NNS at_IN t_NN 5_CD 1:4616_CD ms_NNS (_( c_LS )_) and_CC t_NN 5_CD 2:0029_CD ms_NNS (_( d_LS )_) on_IN the_DT source_NN surface_NN Fig_NN ._SENT 
+12_CD The_DT simplified_VVN car_NN model_NN and_CC the_DT mesh_NN of_IN the_DT surface_NN with_IN 1155_CD elements_NNS and_CC 1139_CD nodes_NNS ._SENT 
+The_DT origin_NN of_IN the_DT Cartesian_JJ coordinate_VV system_NN Oðx_NN ;_: y_NP ;_: zÞ_NP is_VBZ located_VVN at_IN the_DT geometrical_JJ center_NN of_IN the_DT car_NN model_NN ._SENT 
+The_DT size_NN of_IN the_DT car_NN is_VBZ 5:832:431:5_CD m3_NN ._SENT 
+The_DT marked_JJ patches_NNS indicate_VVP the_DT location_NN where_WRB the_DT flux_NN initiated_VVD ._SENT 
+Fig_NN ._SENT 
+13_CD Time_NP domain_NN waveform_NN comparisons_NNS of_IN reconstructed_JJ pressures_NNS (_( dotted_VVN solid_JJ line_NN )_) and_CC analytical_JJ pressures_NNS (_( solid_JJ line_NN )_) at_IN (_( a_DT )_) point_NN (_( 1.1152_CD ,_, 20.7789_CD ,_, 20.2665_CD )_) m_NN and_CC (_( b_LS )_) point_NN (_( 0.3186_CD ,_, 1.203_CD ,_, 0.6122_CD )_) m_NN Fig_NN ._SENT 
+14_CD Spatial_JJ distributions_NNS of_IN analytical_JJ pressures_NNS at_IN t_NN 5_CD 45:464_CD ms_NNS (_( a_DT )_) and_CC t_NN 5_CD 53:884_CD ms_NNS (_( b_LS )_) and_CC reconstructed_JJ pressures_NNS at_IN t_NN 5_CD 45:464_CD ms_NNS (_( c_LS )_) and_CC t_NN 5_CD 53:884_CD ms_NNS (_( d_LS )_) on_IN the_DT source_NN surface_NN 3.3A_NN Simplified_VVN Car_NP Model_NP ._SENT 
+The_DT third_JJ example_NN investigates_VVZ the_DT reconstruction_NN of_IN transient_JJ acoustic_JJ field_NN of_IN a_DT simplified_VVN car_NN model_NN whose_WP$ surface_NN is_VBZ relatively_RB complicated_VVN ._SENT 
+The_DT model_NN of_IN the_DT car_NN and_CC the_DT mesh_NN on_IN the_DT surface_NN are_VBP shown_VVN in_IN Fig_NN ._SENT 
+12._CD The_DT origin_NN of_IN the_DT Cartesian_JJ coordinate_VV system_NN O(x_NN ,_, y_NP ,_, z_NN )_) is_VBZ located_VVN at_IN the_DT geometrical_JJ center_NN of_IN the_DT car_NN model_NN ._SENT 
+The_DT size_NN of_IN the_DT car_NN is_VBZ 5.8×2.4×1.5_JJ m3_NN ,_, and_CC a_DT mesh_NN of_IN 1155_CD elements_NNS and_CC 1139_CD nodes_NNS is_VBZ employed_VVN ._SENT 
+The_DT measurement_NN surface_NN is_VBZ conformal_JJ to_TO the_DT car_NN surface_NN ,_, and_CC the_DT minimum_JJ distance_NN between_IN these_DT two_CD surfaces_VVZ is_VBZ 0.389_CD m._NN The_DT number_NN of_IN measurement_NN points_NNS is_VBZ 1155_CD ,_, identical_JJ to_TO the_DT number_NN of_IN elements_NNS ._SENT 
+The_DT time_NN step_NN is_VBZ Δt=3.3677×10−4_JJ s_NN ,_, and_CC the_DT number_NN of_IN time_NN steps_NNS to_TO be_VB calculated_VVN is_VBZ 300._CD The_DT ratio_NN of_IN retained_JJ nonzero_NP singular_NN values_NNS is_VBZ ε=0.8⁠_JJ ._SENT 
+A_DT weighted_JJ sinusoidal_JJ flux_NN is_VBZ loaded_VVN at_IN the_DT location_NN of_IN the_DT right_JJ front_NN wheel_NN as_IN the_DT boundary_NN condition_NN which_WDT can_MD be_VB defined_VVN as_IN @（28）_NN The_DT spatial_JJ distribution_NN of_IN flux_NN is_VBZ shown_VVN in_IN Fig_NN ._SENT 
+12_CD ,_, which_WDT can_MD be_VB identified_VVN by_IN the_DT marker_NN ._SENT 
+The_DT measured_VVN pressures_NNS Pf_NP are_VBP obtained_VVN by_IN the_DT DTBEM_NN through_IN Eq_NP ._SENT 
+(_( 9_CD )_) using_VVG the_DT initial_JJ boundary_NN condition_NN defined_VVN in_IN Eq_NP ._SENT 
+(_( 28_CD )_) ,_, and_CC Gaussian_JJ white_JJ noise_NN with_IN an_DT SNR_NN of_IN 20_CD dB_NN is_VBZ added_VVN to_TO Pf⁠_NN ._SENT 
+The_DT reconstructed_JJ pressures_NNS Pr_NN are_VBP then_RB compared_VVN with_IN the_DT analytical_JJ surface_NN pressures_NNS Ps_RB calculated_VVN by_IN the_DT DTBEM_NN ._SENT 
+Figure_NN 13_CD shows_NNS the_DT comparison_NN of_IN the_DT reconstructed_JJ and_CC analytical_JJ pressures_NNS at_IN points_NNS (_( 1.1152_CD ,_, −0.7789_NP ,_, −0.2665_NP )_) m_NN and_CC (_( 0.3186_CD ,_, 1.203_CD ,_, 0.6122_CD )_) m._JJ Pressures_NNS at_IN both_DT points_NNS show_VVP excellent_JJ agreements_NNS ._SENT 
+The_DT root_NN mean_VV errors_NNS at_IN these_DT two_CD points_NNS are_VBP 8.23_CD %_NN and_CC 7.25_CD %_NN ,_, respectively_RB ._SENT 
+Figure_NN 14_CD shows_NNS the_DT spatial_JJ distribution_NN of_IN reconstructed_JJ and_CC analytical_JJ pressures_NNS at_IN two_CD time_NN instants_NNS ,_, t=45.464_JJ ms_NNS and_CC t=53.884_JJ ms_NNS ._SENT 
+The_DT comparison_NN shows_VVZ that_IN the_DT spatial_JJ distribution_NN of_IN the_DT reconstructed_JJ pressures_NNS is_VBZ accurate_JJ ._SENT 
+Root_VV mean_VV errors_NNS at_IN these_DT two_CD time_NN instants_NNS according_VVG to_TO Eq_NP ._SENT 
+(_( 23_CD )_) are_VBP 17.7_CD %_NN and_CC 7.57_CD %_NN ,_, respectively_RB ._SENT 
+<Section> 4._CD Conclusions_NNS </Section> In_IN this_DT paper_NN ,_, an_DT IDTBEM_NN is_VBZ developed_VVN to_TO realize_VV the_DT reconstruction_NN of_IN transient_JJ acoustic_JJ field_NN radiated_VVN by_IN arbitrarily_RB shaped_VVN sources_NNS ._SENT 
+The_DT method_NN is_VBZ developed_VVN based_VVN on_IN the_DT DTBEM_NN ._SENT 
+Because_IN the_DT formulations_NNS of_IN DTBEM_NN cannot_MD be_VB used_VVN directly_RB for_IN reconstruction_NN due_JJ to_TO the_DT retarded_JJ time_NN caused_VVN by_IN sound_JJ propagation_NN between_IN source_NN and_CC receiver_NN ,_, a_DT new_JJ time_NN axis_NN is_VBZ defined_VVN to_TO exclude_VV the_DT retarded_JJ time_NN ._SENT 
+With_IN the_DT new_JJ time_NN axis_NN ,_, new_JJ formulations_NNS which_WDT can_MD be_VB used_VVN directly_RB for_IN the_DT reconstruction_NN of_IN transient_JJ acoustic_JJ field_NN are_VBP derived_VVN ._SENT 
+With_IN these_DT new_JJ formulations_NNS ,_, a_DT linear_JJ system_NN of_IN equations_NNS is_VBZ formed_VVN and_CC the_DT reconstruction_NN is_VBZ realized_VVN by_IN solving_VVG the_DT equations_NNS in_IN an_DT MOT_NN way_NN ._SENT 
+Considering_VVG the_DT noise_NN in_IN the_DT measured_VVN pressures_NNS which_WDT is_VBZ common_JJ sense_NN in_IN practice_NN and_CC the_DT ill-posedness_NN of_IN inverse_JJ problem_NN ,_, the_DT TSVD_NN is_VBZ applied_VVN to_TO suppress_VV the_DT noise_NN for_IN obtaining_VVG stable_JJ results_NNS ._SENT 
+The_DT validation_NN of_IN the_DT proposed_VVN method_NN is_VBZ illustrated_VVN through_IN the_DT reconstruction_NN of_IN transient_JJ acoustic_JJ radiations_NNS from_IN a_DT sphere_NN ,_, a_DT cylinder_NN ,_, and_CC a_DT simplified_VVN car_NN model_NN ._SENT 
+The_DT results_NNS demonstrate_VVP that_IN the_DT proposed_VVN method_NN is_VBZ effective_JJ in_IN reconstructing_VVG the_DT transient_JJ acoustic_JJ fields_NNS radiated_VVN by_IN arbitrarily_RB shaped_VVN sources_NNS in_IN both_DT time_NN and_CC space_NN domains_NNS ._SENT 
+<Section> Acknowledgment_NN </Section> This_DT work_NN was_VBD supported_VVN by_IN the_DT National_NP Natural_NP Science_NP Foundation_NP of_IN China_NP (_( Grant_NP Nos._NP 51322505_CD and_CC 51405125_CD )_) ._SENT 
+<Section> References_NNS </Section> Williams_NP ,_, E._NP G._NP ,_, and_CC Maynard_NP ,_, J._NP D._NP ,_, 1980_CD ,_, “_JJ Holographic_JJ Imaging_NP Without_IN the_DT Wavelength_NN Resolution_NP Limit_NP ,_, ”_NP Phys_NPS ._SENT 
+Rev._NP Lett_NP ._SENT 
+,_, 45(7_JJ )_) ,_, pp_NP ._SENT 
+554–557_JJ ._SENT 
+Williams_NP ,_, E._NP G._NP ,_, Maynard_NP ,_, J._NP D._NP ,_, and_CC Skudrzky_NP ,_, E._NP ,_, 1980_CD ,_, “_JJ Sound_JJ Source_NN Reconstructions_NNS Using_VVG a_DT Microphone_NN Array_NN ,_, ”_NP J._NP Acoust_NP ._SENT 
+Soc_NP ._SENT 
+Am_RB ._SENT 
+,_, 68(1_JJ )_) ,_, pp_NP ._SENT 
+340–344_NP ._SENT 
+Williams_NP ,_, E._NP G._NP ,_, 1999_CD ,_, Fourier_NP Acoustics_NNS :_: Sound_JJ Radiation_NN and_CC Nearfield_JJ Acoustical_JJ Holography_NN ,_, Academic_NP Press_NP ,_, London_NP ,_, Chap_NN ._SENT 
+3._CD Gardner_NP ,_, B._NP K._NP ,_, and_CC Bernhard_NP ,_, R._NP J._NP ,_, 1988_CD ,_, “_NP A_NP Noise_NN Source_NN Identification_NN Technique_NN Using_VVG an_DT Inverse_JJ Helmholtz_NP Integral_NP Equation_NN Method_NN ,_, ”_JJ ASME_NN J._NP Vib_NP ._SENT 
+Acoust_NP ._SENT 
+Stress_NN Reliab_NN ._SENT 
+Des_FW ._SENT 
+,_, 110(1_JJ )_) ,_, pp_NP ._SENT 
+84–90_NP ._SENT 
+Veronesi_NP ,_, W._NP A._NP ,_, and_CC Maynard_NP ,_, J._NP D._NP ,_, 1989_CD ,_, “_NP Digital_NP Holographic_JJ Reconstruction_NN of_IN Sources_NNS With_IN Arbitrarily_RB Shaped_JJ Surfaces_VVZ ,_, ”_NP J._NP Acoust_NP ._SENT 
+Soc_NP ._SENT 
+Am_RB ._SENT 
+,_, 85(2_NP )_) ,_, pp_NP ._SENT 
+588–598_NP ._SENT 
+Kim_NP ,_, B._NP K._NP ,_, and_CC Ih_NP ,_, J._NP G._NP ,_, 1996_CD ,_, “_JJ On_IN the_DT Reconstruction_NN of_IN Vibro-Acoustic_JJ Field_NN Over_IN the_DT Surface_NP Enclosing_VVG an_DT Interior_NP Space_NP Using_VVG the_DT Boundary_NP Element_NN Method_NN ,_, ”_NP J._NP Acoust_NP ._SENT 
+Soc_NP ._SENT 
+Am_RB ._SENT 
+,_, 100(5_NP )_) ,_, pp_NP ._SENT 
+3030–3016_NP ._SENT 
+Kim_NP ,_, Y._NP K._NP ,_, and_CC Kim_NP ,_, Y._NP H._NP ,_, 1999_CD ,_, “_JJ Holographic_JJ Reconstruction_NN of_IN Active_JJ Sources_NNS and_CC Surface_NP Admittance_NN in_IN an_DT Enclosure_NN ,_, ”_NP J._NP Acoust_NP ._SENT 
+Soc_NP ._SENT 
+Am_RB ._SENT 
+,_, 105(4_NP )_) ,_, pp_NP ._SENT 
+2377–2383_NP ._SENT 
+Kim_NP ,_, G._NP T._NP ,_, and_CC Lee_NP ,_, B._NP T._NP ,_, 1990_CD ,_, “_JJ 3-D_JJ Sound_JJ Source_NN Reconstruction_NN and_CC Field_NN Reproduction_NN Using_VVG the_DT Helmholtz_NP Integral_NP Equation_NN ,_, ”_NP J._NP Sound_NP Vib_NN ._SENT 
+,_, 136(2_NP )_) ,_, pp_NP ._SENT 
+245–261_JJ ._SENT 
+Bai_NP ,_, M._NP R._NP ,_, 1992_CD ,_, “_JJ Application_NN of_IN BEM_NP (_( Boundary_NP Element_NN Method)-Based_JJ Acoustic_JJ Holography_NN to_TO Radiation_NN Analysis_NN of_IN Sound_JJ Sources_NNS With_IN Arbitrarily_RB Shaped_VVN Geometries_NNS ,_, ”_NP J._NP Acoust_NP ._SENT 
+Soc_NP ._SENT 
+Am_RB ._SENT 
+,_, 92(1_JJ )_) ,_, pp_NP ._SENT 
+533–548_NP ._SENT 
+Chappell_NP ,_, D._NP J._NP ,_, and_CC Harris_NP ,_, P._NP J._NP ,_, 2009_CD ,_, “_NP A_NP Burton-Miller_NP Inverse_JJ Boundary_NP Element_NN Method_NN for_IN Near-Field_NP Acoustic_JJ Holography_NN ,_, ”_NP J._NP Acoust_NP ._SENT 
+Soc_NP ._SENT 
+Am_RB ._SENT 
+,_, 126(1_JJ )_) ,_, pp_NP ._SENT 
+149–157_JJ ._SENT 
+Sarkissian_NP ,_, A._NP ,_, Gaumond_NP ,_, C._NP F._NP ,_, Williams_NP ,_, E._NP G._NP ,_, and_CC Houston_NP ,_, B._NP H._NP ,_, 1993_CD ,_, “_JJ Reconstruction_NN of_IN the_DT Acoustic_JJ Field_NN Over_IN a_DT Limited_NP Surface_NP Area_NP on_IN a_DT Vibrating_VVG Cylinder_NN ,_, ”_NP J._NP Acoust_NP ._SENT 
+Soc_NP ._SENT 
+Am_RB ._SENT 
+,_, 93(1_JJ )_) ,_, pp_NP ._SENT 
+48–54_NP ._SENT 
+Valdivia_NP ,_, N._NP P._NP ,_, Williams_NP ,_, E._NP G._NP ,_, and_CC Herdic_NN ,_, P._NP C._NP ,_, 2008_CD ,_, “_JJ Approximations_NNS of_IN Inverse_JJ Boundary_NP Element_NN Methods_NNS With_IN Partial_JJ Measurements_NNS of_IN the_DT Pressure_NN Field_NP ,_, ”_NP J._NP Acoust_NP ._SENT 
+Soc_NP ._SENT 
+Am_RB ._SENT 
+,_, 123(1_JJ )_) ,_, pp_NP ._SENT 
+109–120_NP ._SENT 
+Wu_NP ,_, S._NP F._NP ,_, and_CC Zhao_NP ,_, X._NP ,_, 2002_CD ,_, “_NP Combined_NP Helmholtz_NP Equation-Least_NN Squares_NNS Method_NN for_IN Reconstructing_VVG Acoustic_JJ Radiation_NN From_IN Arbitrarily_RB Shaped_VVN Objects_NNS ,_, ”_NP J._NP Acoust_NP ._SENT 
+Soc_NP ._SENT 
+Am_RB ._SENT 
+,_, 112(1_JJ )_) ,_, pp_NP ._SENT 
+179–188_NP ._SENT 
+Wu_NP ,_, S._NP F._NP ,_, 2004_CD ,_, “_JJ Hybrid_JJ Near-Field_JJ Acoustic_JJ Holography_NN ,_, ”_NP J._NP Acoust_NP ._SENT 
+Soc_NP ._SENT 
+Am_RB ._SENT 
+,_, 115(1_JJ )_) ,_, pp_NP ._SENT 
+207–217_JJ ._SENT 
+Langrenne_NP ,_, C._NP ,_, Melon_NN ,_, M._NP ,_, and_CC Garcia_NP ,_, A._NP ,_, 2007_CD ,_, “_NP Boundary_NP Element_NN Method_NN for_IN the_DT Acoustic_JJ Characterization_NN of_IN a_DT Machine_NN in_IN Bounded_VVN Noisy_JJ Environment_NP ,_, ”_NP J._NP Acoust_NP ._SENT 
+Soc_NP ._SENT 
+Am_RB ._SENT 
+,_, 121(5_NP )_) ,_, pp_NP ._SENT 
+2750–2757_JJ ._SENT 
+Langrenne_NP ,_, C._NP ,_, Melon_NN ,_, M._NP ,_, and_CC Garcia_NP ,_, A._NP ,_, 2009_CD ,_, “_JJ Measurement_NN of_IN Confined_VVN Acoustic_JJ Sources_NNS Using_VVG Near-Field_JJ Acoustic_JJ Holography_NN ,_, ”_NP J._NP Acoust_NP ._SENT 
+Soc_NP ._SENT 
+Am_RB ._SENT 
+,_, 126(3_NP )_) ,_, pp_NP ._SENT 
+1250–1256_NP ._SENT 
+Valdivia_NP ,_, N._NP ,_, and_CC Williams_NP ,_, E._NP G._NP ,_, 2004_CD ,_, “_JJ Implicit_JJ Methods_NNS of_IN Solution_NN to_TO Integral_NP Formulations_NNS in_IN Boundary_NP Element_NN Method_NN Based_VVN Nearfield_NP Acoustic_JJ Holography_NN ,_, ”_NP J._NP Acoust_NP ._SENT 
+Soc_NP ._SENT 
+Am_RB ._SENT 
+,_, 116(3_NP )_) ,_, pp_NP ._SENT 
+1559–1572_NP ._SENT 
+Zhang_NP ,_, Z._NP ,_, Vlahopoulos_NP ,_, N._NP ,_, Allen_NP ,_, T._NP ,_, and_CC Zhang_NP ,_, K._NP Y._NP ,_, 2001_CD ,_, “_NP A_NP Source_NN Reconstruction_NN Process_NN Based_VVN on_IN an_DT Indirect_JJ Variational_JJ Boundary_NP Element_NN Formulation_NN ,_, ”_NP Eng_NP ._SENT 
+Anal_JJ ._SENT 
+Boundary_NP Elem_NP ._SENT 
+,_, 25(2_NP )_) ,_, pp_NP ._SENT 
+93–114_NP ._SENT 
+Vlahopoulos_NP ,_, N._NP ,_, and_CC Raveerdra_NP ,_, S._NP T._NP ,_, 1998_CD ,_, “_JJ Formulation_NN ,_, Implementation_NN and_CC Validation_NN of_IN Multiple_JJ Connection_NN and_CC Free_JJ Edge_NN Constraints_NNS in_IN an_DT Indirect_JJ Boundary_NP Element_NN Formulation_NN ,_, ”_NP J._NP Sound_NP Vib_NN ._SENT 
+,_, 210(1_JJ )_) ,_, pp_NP ._SENT 
+137–152_NP ._SENT 
+Friedman_NP ,_, M._NP B._NP ,_, and_CC Shaw_NP ,_, R._NP P._NP ,_, 1962_CD ,_, “_JJ Diffraction_NN of_IN Pulses_NNS by_IN Cylindrical_JJ Obstacles_NNS of_IN Arbitrary_JJ Cross_NP Section_NP ,_, ”_JJ ASME_NN J._NP Appl_NP ._SENT 
+Mech_NN ._SENT 
+,_, 29(1_JJ )_) ,_, pp_NP ._SENT 
+40–46_NP ._SENT 
+Mitzner_NP ,_, K._NP M._NP ,_, 1967_CD ,_, “_JJ Numerical_JJ Solution_NN for_IN Transient_JJ Scattering_NN From_IN a_DT Hard_NP Surface_NP of_IN Arbitrary_JJ Shape-Retarded_JJ Potential_JJ Technique_NN ,_, ”_NP J._NP Acoust_NP ._SENT 
+Soc_NP ._SENT 
+Am_RB ._SENT 
+,_, 42(2_NP )_) ,_, pp_NP ._SENT 
+391–397_JJ ._SENT 
+Ding_NP ,_, Y._NP ,_, Forestier_NP ,_, A._NP ,_, and_CC Duong_NP ,_, T._NP H._NP ,_, 1989_CD ,_, “_NP A_NP Galerkin_NP Scheme_NN for_IN the_DT Time_NP Domain_NN Integral_NP Equation_NN of_IN Acoustic_JJ Scattering_NN From_IN a_DT Hard_NP Surface_NP ,_, ”_NP J._NP Acoust_NP ._SENT 
+Soc_NP ._SENT 
+Am_RB ._SENT 
+,_, 86(4_NP )_) ,_, pp_NP ._SENT 
+1566–1572_NP ._SENT 
+Bluck_NP ,_, M._NP J._NP ,_, and_CC Walker_NP ,_, S._NP P._NP ,_, 1996_CD ,_, “_NP Analysis_NP of_IN Three-Dimensional_JJ Transient_JJ Acoustic_JJ Wave_NP Propagation_NN Using_VVG the_DT Boundary_NP Integral_NP Equation_NN Method_NN ,_, ”_NP Int_NP ._SENT 
+J._NP Numer_NP ._SENT 
+Methods_NNS Eng_NP ._SENT 
+,_, 39(8_NP )_) ,_, pp_NP ._SENT 
+1419–1431_JJ ._SENT 
+Chappell_NP ,_, D._NP J._NP ,_, 2011_CD ,_, “_JJ Convolution_NN Quadrature_NN Galerkin_NP Boundary_NP Element_NN Method_NN for_IN the_DT Wave_NP Equation_NN With_IN Reduced_VVN Quadrature_NN Weight_NP Computation_NN ,_, ”_NP IMA_NP J._NP Numer_NP ._SENT 
+Anal_JJ ._SENT 
+,_, 31(2_NP )_) ,_, pp_NP ._SENT 
+640–666_NP ._SENT 
+Rynne_NP ,_, B._NP P._NP ,_, 1985_CD ,_, “_NP Stability_NP and_CC Convergence_NN of_IN Time_NP Marching_VVG Methods_NNS in_IN Scattering_VVG Problems_NP ,_, ”_NP IMA_NP J._NP Appl_NP ._SENT 
+Math_NN ._SENT 
+,_, 35(3_NP )_) ,_, pp_NP ._SENT 
+297–310_NP ._SENT 
+Ergin_NP ,_, A._NP A._NP ,_, Shanker_NP ,_, B._NP ,_, and_CC Michielssen_NP ,_, E._NP ,_, 1999_CD ,_, “_NP Analysis_NP of_IN Transient_JJ Wave_NP Scattering_NN From_IN Rigid_JJ Bodies_NNS Using_VVG a_DT Burton–Miller_NN Approach_NN ,_, ”_NP J._NP Acoust_NP ._SENT 
+Soc_NP ._SENT 
+Am_RB ._SENT 
+,_, 106(5_NP )_) ,_, pp_NP ._SENT 
+2396–2404_NP ._SENT 
+Chappell_NP ,_, D._NP J._NP ,_, Harris_NP ,_, P._NP J._NP ,_, Henwood_NP ,_, D._NP ,_, and_CC Chakrabarti_NP ,_, R._NP ,_, 2006_CD ,_, “_NP A_NP Stable_JJ Boundary_NP Element_NN Method_NN for_IN Modeling_VVG Transient_JJ Acoustic_JJ Radiation_NN ,_, ”_NP J._NP Acoust_NP ._SENT 
+Soc_NP ._SENT 
+Am_RB ._SENT 
+,_, 120(1_JJ )_) ,_, pp_NP ._SENT 
+76–80_NP ._SENT 
+Jang_NP ,_, H._NP W._NP ,_, and_CC Ih_NP ,_, J._NP G._NP ,_, 2012_CD ,_, “_JJ Stabilization_NN of_IN Time_NP Domain_NN Acoustic_JJ Boundary_NP Element_NN Method_NN for_IN the_DT Interior_JJ Problem_NN With_IN Impedance_NN Boundary_NP Conditions_NNS ,_, ”_NP J._NP Acoust_NP ._SENT 
+Soc_NP ._SENT 
+Am_RB ._SENT 
+,_, 131(4_NP )_) ,_, pp_NP ._SENT 
+2742–2752_NP ._SENT 
+Jang_NP ,_, H._NP W._NP ,_, and_CC Ih_NP ,_, J._NP G._NP ,_, 2012_CD ,_, “_JJ Stabilization_NN of_IN Time_NP Domain_NN Acoustic_JJ Boundary_NP Element_NN Method_NN for_IN the_DT Exterior_NP Problem_NN Avoiding_VVG the_DT Nonuniqueness_NN ,_, ”_NP J._NP Acoust_NP ._SENT 
+Soc_NP ._SENT 
+Am_RB ._SENT 
+,_, 133(3_NP )_) ,_, pp_NP ._SENT 
+1237–1244_NP ._SENT 
+Troclet_NP ,_, B._NP ,_, Alestra_NP ,_, S._NP ,_, Srithammavanh_NP ,_, V._NP ,_, and_CC Terrasse_NP ,_, I._NP ,_, 2011_CD ,_, “_NP A_NP Time_NP Domain_NN Inverse_NN Method_NN for_IN Identification_NN of_IN Random_NP Acoustic_JJ Sources_NNS at_IN Launch_NN Vehicle_NN Lift-Off_NN ,_, ”_JJ ASME_NN J._NP Vib_NP ._SENT 
+Acoust_NN ._SENT 
+,_, 133(2_NP )_) ,_, pp_NP ._SENT 
+1–11_JJ ._SENT 
+Mansur_NP ,_, W._NP J._NP ,_, 1983_CD ,_, “_NP A_NP Time-Stepping_VVG Technique_NN to_TO Solve_VV Wave_NP Propagation_NN Problems_NP Using_VVG the_DT Boundary_NP Element_NN Method_NN ,_, ”_NP Ph._NP D._NP thesis_NN ,_, Southampton_NP University_NP ,_, Southampton_NP ,_, UK_NP ._SENT 
+Hald_NP ,_, J._NP ,_, 2001_CD ,_, “_NP Time_NP Domain_NN Acoustical_JJ Holography_NN and_CC Its_PP$ Applications_NP ,_, ”_NP J._NP Sound_NP Vib_NN ._SENT 
+,_, 35(2_NP )_) ,_, pp_NP ._SENT 
+16–24_NP ._SENT 
+Rochefoucauld_NP ,_, O._NP D._NP L._NP ,_, Melon_NN ,_, M._NP ,_, and_CC Garcia_NP ,_, A._NP ,_, 2004_CD ,_, “_NP Time_NP Domain_NN Holography_NN :_: Forward_RB Projection_NN of_IN Simulated_JJ and_CC Measured_JJ Sound_JJ Pressure_NN Fields_NP ,_, ”_NP J._NP Acoust_NP ._SENT 
+Soc_NP ._SENT 
+Am_RB ._SENT 
+,_, 116(1_JJ )_) ,_, pp_NP ._SENT 
+142–153_NP ._SENT 
+Blais_NP ,_, J._NP -F_NN ._SENT 
+,_, and_CC Ross_NP ,_, A._NP ,_, 2009_CD ,_, “_NP Forward_NP Projection_NN of_IN Transient_JJ Sound_JJ Pressure_NN Fields_NP Radiated_VVD by_IN Impacted_VVN Plates_NNS Using_VVG Numerical_JJ Laplace_NP Transform_VV ,_, ”_NP J._NP Acoust_NP ._SENT 
+Soc_NP ._SENT 
+Am_RB ._SENT 
+,_, 125(5_NP )_) ,_, pp_NP ._SENT 
+3120–3128_NP ._SENT 
+Deblauwe_NP ,_, F._NP ,_, Leuridan_NP ,_, J._NP ,_, Chauray_NP ,_, J._NP L._NP ,_, and_CC Béguet_NP ,_, B._NP ,_, 1999_CD ,_, “_JJ Acoustic_JJ Holography_NN in_IN Transient_JJ Conditions_NNS ,_, ”_NP Sixth_NP International_NP Congress_NP on_IN Sound_NP and_CC Vibration_NN ,_, Copenhagen_NP ,_, Denmark_NP ,_, pp_NP ._SENT 
+899–906_NP ._SENT 
+Grulier_NP ,_, V._NP ,_, Paillasseur_NP ,_, S._NP ,_, Thomas_NP ,_, J._NP -H_NP ._SENT 
+,_, and_CC Pascal_NP ,_, J._NP -C_NN ._SENT 
+,_, 2009_CD ,_, “_NP Forward_NP Propagation_NN of_IN Time_NP Evolving_VVG Acoustic_JJ Pressure_NN :_: Formulation_NN and_CC Investigation_NN of_IN the_DT Impulse_NN Response_NP in_IN Time-Wavenumber_NP Domain_NN ,_, ”_NP J._NP Acoust_NP ._SENT 
+Soc_NP ._SENT 
+Am_RB ._SENT 
+,_, 126(5_NP )_) ,_, pp_NP ._SENT 
+2367–2378_NP ._SENT 
+Thomas_NP ,_, J._NP -H_NP ._SENT 
+,_, Grulier_NP ,_, V._NP ,_, Paillasseur_NP ,_, S._NP ,_, Pascal_NP ,_, J._NP -C_NN ._SENT 
+,_, and_CC Le_NP Roux_NP ,_, J._NP -C_NN ._SENT 
+,_, 2010_CD ,_, “_JJ Real-Time_JJ Nearfield_JJ Acoustical_JJ Holography_NN for_IN Continuously_RB Visualizing_VVG Nonstationary_JJ Acoustic_JJ Fields_NP ,_, ”_NP J._NP Acoust_NP ._SENT 
+Soc_NP ._SENT 
+Am_RB ._SENT 
+,_, 128(6_NP )_) ,_, pp_NP ._SENT 
+3554–3567_JJ ._SENT 
+Wu_NP ,_, S._NP F._NP ,_, Lu_NP ,_, H._NP ,_, and_CC Bajwa_NP ,_, M._NP S._NP ,_, 2004_CD ,_, “_JJ Reconstruction_NN of_IN Transient_JJ Acoustic_JJ Radiation_NN From_IN a_DT Sphere_NN ,_, ”_NP J._NP Acoust_NP ._SENT 
+Soc_NP ._SENT 
+Am_RB ._SENT 
+,_, 117(4_NP )_) ,_, pp_NP ._SENT 
+2065–2077_JJ ._SENT 
+Wu_NP ,_, S._NP F._NP ,_, 2014_CD ,_, “_JJ Reconstructing_VVG Transient_JJ Acoustic_JJ Radiation_NN From_IN an_DT Arbitrary_JJ Object_NN With_IN a_DT Uniform_JJ Surface_NP Velocity_NN Distribution_NN ,_, ”_NP J._NP Acoust_NP ._SENT 
+Soc_NP ._SENT 
+Am_RB ._SENT 
+,_, 136(2_NP )_) ,_, pp_NP ._SENT 
+514–524_NP ._SENT 
+Zhang_NP ,_, X._NP Z._NP ,_, Bi_NP ,_, C._NP X._NP ,_, Zhang_NP ,_, Y._NP B._NP ,_, and_CC Xu_NP ,_, L._NP ,_, 2011_CD ,_, “_JJ Transient_JJ Nearfield_JJ Acoustic_JJ Holography_NN Based_VVN on_IN an_DT Interpolated_VVN Time-Domain_NN Equivalent_NN Source_NN Method_NN ,_, ”_NP J._NP Acoust_NP ._SENT 
+Soc_NP ._SENT 
+Am_RB ._SENT 
+,_, 130(3_NP )_) ,_, pp_NP ._SENT 
+1430–1440_NP ._SENT 
+Bi_NP ,_, C._NP X._NP ,_, Geng_NP ,_, L._NP ,_, and_CC Zhang_NP ,_, X._NP Z._NP ,_, 2013_CD ,_, “_JJ Cubic_JJ Spline_NN Interpolation-Based_JJ Time-Domain_NP Equivalent_NN Source_NN Method_NN for_IN Modeling_VVG Transient_JJ Acoustic_JJ Radiation_NN ,_, ”_NP J._NP Sound_NP Vib_NN ._SENT 
+,_, 332(22_NP )_) ,_, pp_NP ._SENT 
+5939–5952_NP ._SENT 
+Rizos_NP ,_, D._NP C._NP ,_, and_CC Zhou_NP ,_, S._NP ,_, 2006_CD ,_, “_NP An_NP Advanced_NP Direct_NP Time_NP Domain_NN BEM_NP for_IN 3-D_NP Wave_NP Propagation_NN in_IN Acoustic_JJ Media_NP ,_, ”_NP J._NP Sound_NP Vib_NN ._SENT 
+,_, 293(1_JJ )_) ,_, pp_NP ._SENT 
+196–212_NP ._SENT 
+Duong_NP ,_, T._NP H._NP ,_, Ludwig_NP ,_, B._NP ,_, and_CC Terrasse_NP ,_, I._NP ,_, 2003_CD ,_, “_NP A_NP Galerkin_NP BEM_NP for_IN Transient_JJ Acoustic_JJ Scattering_NN by_IN an_DT Absorbing_VVG Obstacle_NN ,_, ”_NP Int_NP ._SENT 
+J._NP Numer_NP ._SENT 
+Methods_NNS Eng_NP ._SENT 
+,_, 57(13_NP )_) ,_, pp_NP ._SENT 
+1845–1882_NP ._SENT 
+Williams_NP ,_, E._NP G._NP ,_, Houston_NP ,_, B._NP H._NP ,_, and_CC Herdic_NN ,_, P._NP C._NP ,_, 2003_CD ,_, “_NP Fast_NP Fourier_NP Transform_VV and_CC Singular_JJ Value_NP Decomposition_NN Formulations_NNS for_IN Patch_NP Nearfield_NP Acoustical_JJ Holography_NN ,_, ”_NP J._NP Acoust_NP ._SENT 
+Soc_NP ._SENT 
+Am_RB ._SENT 
+,_, 114(3_NP )_) ,_, pp_NP ._SENT 
+1322–1333_NP ._SENT 
+Nelson_NP ,_, P._NP A._NP ,_, and_CC Yoon_NP ,_, S._NP H._NP ,_, 2000_CD ,_, “_JJ Estimation_NN of_IN Acoustic_JJ Source_NN Strength_NP by_IN Inverse_JJ Methods—Part_NNS I_PP :_: Conditioning_NN of_IN the_DT Inverse_JJ Problem_NN ,_, ”_NP J._NP Sound_NP Vib_NN ._SENT 
+,_, 233(4_NP )_) ,_, pp_NP ._SENT 
+643–668_NP ._SENT 
+Nelson_NP ,_, P._NP A._NP ,_, and_CC Yoon_NP ,_, S._NP H._NP ,_, 2000_CD ,_, “_JJ Estimation_NN of_IN Acoustic_JJ Source_NN Strength_NP by_IN Inverse_JJ Methods—Part_NN II_NP :_: Experimental_JJ Investigation_NN of_IN Methods_NNS for_IN Choosing_VVG Regularization_NN Parameters_NNS ,_, ”_NP J._NP Sound_NP Vib_NN ._SENT 
+,_, 233(4_NP )_) ,_, pp_NP ._SENT 
+669–705_NP ._SENT 
+Wu_NP ,_, S._NP F._NP ,_, 1993_CD ,_, “_JJ Transient_JJ Sound_JJ Radiation_NN From_IN Impulsively_RB Accelerated_VVN Bodies_NNS ,_, ”_NP J._NP Acoust_NP ._SENT 
+Soc_NP ._SENT 
+Am_RB ._SENT 
+,_, 94(1_JJ )_) ,_, pp_NP ._SENT 
+542–553_NP ._SENT 

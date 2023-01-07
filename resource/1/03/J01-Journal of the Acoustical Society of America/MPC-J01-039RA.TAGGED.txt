@@ -1,0 +1,572 @@
+<title> Sequential_JJ inversion_NN of_IN self-noise_NP using_VVG adaptive_JJ particle_NN filter_NN in_IN shallow_JJ water_NN </title> <author> Bo_NP ,_, Liankun_NP 1_CD ;_: Xiong_NP ,_, Jinyu_NP 1_CD ;_: Ma_NP ,_, Shuqing_NP 2_CD </author> <Affiliation> 1_CD Science_NP and_CC Technology_NP on_IN Blind_NP Signal_NP Processing_NP Laboratory_NP ,_, Chengdu_NP ,_, Sichuan_NP ;_: 610041_CD ,_, China_NP 2_CD College_NP of_IN Meteorology_NN and_CC Oceanology_NN ,_, National_NP University_NP of_IN Defense_NP Technology_NP ,_, Changsha_NP ,_, Hunan_NP ;_: 410073_CD ,_, China_NP </Affiliation> <year> 2018_CD </year> <Jounral> Journal_NP of_IN the_DT Acoustical_JJ Society_NP of_IN America_NP </Journal> <Publishing_house> Acoustical_JJ Society_NP of_IN America_NP </Publishing_house> <Text_Collector> Wang_NP Shuaiyin，HEU_NP </Text_Collector> <DOI> 10.1121/1.5032195_CD </DOI> <URL> https_NNS :_: //asa-scitation-org-s_NNS ._SENT 
+wvpn_NP ._SENT 
+hrbeu_NP ._SENT 
+edu_NP ._SENT 
+cn/doi/10.1121/1.5032195_JJ </URL> <Section> ABSTRACT_JJ </Section> The_DT geoacoustic_JJ inversion_NN based_VVN on_IN a_DT horizontal_NN towed_VVD array_NN sonar_NN receiving_VVG tow-ship_NN noise_NN has_VHZ demonstrated_VVN a_DT promising_JJ technique_NN for_IN the_DT parameter_NN inversion_NN in_IN shallow_JJ water_NN ._SENT 
+In_IN order_NN to_TO characterize_VV the_DT evolution_NN of_IN parameters_NNS in_IN the_DT time-varying_VVG environment_NN ,_, the_DT adaptive_JJ particle_NN filter_NN for_IN the_DT sequential_JJ inversion_NN is_VBZ presented_VVN in_IN this_DT paper_NN ._SENT 
+The_DT inversion_NN problem_NN is_VBZ formulated_VVN as_IN a_DT dynamic_JJ and_CC nonlinear_JJ process_NN in_IN the_DT Bayesian_JJ framework_NN ,_, due_JJ to_TO the_DT fact_NN that_IN the_DT self-noise_NN is_VBZ recorded_VVN sequentially_RB in_IN space_NN and_CC time_NN ._SENT 
+To_TO deal_VV with_IN the_DT interparameter_NN correlations_NNS and_CC time-varying_VVG noise_NN process_NN ,_, the_DT adaptive_JJ sequential_JJ importance_NN sampling_NN is_VBZ carried_VVN out_IN based_VVN on_IN the_DT estimated_JJ covariance_NN matrix_NN of_IN parameters_NNS that_WDT is_VBZ updated_VVN on-line_JJ ._SENT 
+And_CC the_DT particles_NNS are_VBP proposed_VVN with_IN an_DT adaptive_JJ shift_NN to_TO handle_VV the_DT rapidly_RB varying_VVG parameters_NNS ._SENT 
+The_DT tonal_JJ components_NNS at_IN low_JJ frequencies_NNS of_IN the_DT self-noise_NN are_VBP used_VVN in_IN the_DT inversion_NN ._SENT 
+The_DT sequential_JJ inversion_NN method_NN is_VBZ verified_VVN through_IN the_DT processing_NN of_IN both_DT synthetic_JJ data_NNS and_CC the_DT sea-trial_JJ data_NNS in_IN the_DT shallow_JJ water_NN environment_NN ._SENT 
+The_DT results_NNS show_VVP that_IN the_DT adaptive_JJ particle_NN filter_NN method_NN can_MD achieve_VV a_DT more_RBR stable_JJ and_CC accurate_JJ estimate_NN than_IN successively_RB running_VVG global_JJ optimization_NN algorithms_NNS and_CC can_MD do_VV better_JJR than_IN particle_NN filter_NN inversion_NN in_IN a_DT rapidly_RB varying_VVG environment_NN ._SENT 
+Keywords_NNS :_: horizontal_JJ towed_VVN array_NN sonar_NN ；tow-ship_NN noise；parameter_NN inversion；adaptive_JJ particle_NN filter_NN <Section> I._NN INTRODUCTION_NN </Section> Environment_NP information_NN is_VBZ important_JJ for_IN various_JJ acoustic_JJ applications_NNS such_JJ as_IN sonar_NN performance_NN prediction_NN in_IN shallow_JJ water_NN ,_, and_CC a_DT number_NN of_IN works_NNS have_VHP been_VBN carried_VVN out_RP to_TO infer_VV environmental_JJ parameters_NNS from_IN ocean_NN acoustic_JJ data_NNS for_IN decades_NNS ._SENT 
+Typically_RB ,_, the_DT environmental_JJ parameters_NNS such_JJ as_IN sediment_NN sound_NN speed_NN ,_, sediment_NN density_NN ,_, sediment_NN thickness_NN ,_, attenuation_NN ,_, etc._FW ,_, are_VBP estimated_VVN by_IN matching_VVG the_DT measured_VVN data_NNS with_IN the_DT replica_NN fields_NNS generated_VVN from_IN an_DT acoustic_JJ model_NN ._SENT 
+The_DT most_RBS popular_JJ type_NN of_IN inversion_NN method_NN is_VBZ Matched-Field-Inversion_NN (_( MFI_NP )_) ,_, which_WDT exploits_VVZ the_DT spatial_JJ diversity_NN of_IN the_DT channel_NN 's_POS response_NN ._SENT 
+It_PP has_VHZ been_VBN widely_RB accepted_VVN that_IN geoacoustic_JJ inversion_NN is_VBZ a_DT multi-dimensional_JJ and_CC nonlinear_JJ process.1_JJ Due_JJ to_TO the_DT operational_JJ advantages_NNS in_IN terms_NNS of_IN mobility_NN and_CC measurement_NN ,_, the_DT horizontal_NN towed_VVD array_NN (_( HTA_NP )_) is_VBZ receiving_VVG increasing_VVG attention_NN for_IN the_DT geoacoustic_JJ inversion.2–7_JJ The_DT tow-ship_NN noise_NN (_( also_RB called_VVN self-noise_NN )_) is_VBZ a_DT promising_JJ candidate_NN source_NN for_IN performing_VVG the_DT inversion_NN ._SENT 
+The_DT original_JJ objective_NN of_IN inversion_NN techniques_NNS is_VBZ to_TO achieve_VV the_DT optimal_JJ matched_VVN model_NN parameters_NNS using_VVG global_JJ optimization_NN techniques_NNS ,_, such_JJ as_IN simulated_JJ annealing_VVG (_( SA_NP )_) and_CC genetic_JJ algorithm_NN (_( GA).8,9_NN For_IN example_NN ,_, Battle_NP et_NP al.10_NP utilized_VVD GA_NP technique_NN to_TO invert_VV the_DT geoacoustic_JJ parameters_NNS from_IN the_DT self-noise_NP data_NNS received_VVD by_IN HTA_NP in_IN shallow_JJ water_NN ._SENT 
+For_IN the_DT inversion_NN in_IN a_DT large_JJ area_NN ,_, the_DT time-varying_VVG environment_NN should_MD be_VB considered_VVN ._SENT 
+Although_IN the_DT problem_NN can_MD be_VB dealt_VVN with_IN by_IN successively_RB performing_VVG GA_NP runs_VVZ ,_, it_PP has_VHZ low_JJ efficiency_NN and_CC cannot_MD quantify_VV the_DT inversion_NN uncertainty_NN ._SENT 
+In_IN this_DT work_NN ,_, we_PP are_VBP interested_JJ in_IN the_DT sequential_JJ Bayesian_JJ inversion_NN of_IN self-noise_NP using_VVG adaptive_JJ methods_NNS ._SENT 
+The_DT aim_NN is_VBZ to_TO make_VV the_DT self-noise_NP inversion_NN more_RBR efficient_JJ and_CC accurate_JJ in_IN the_DT time-varying_VVG environment_NN ,_, especially_RB the_DT rapidly_RB varying_VVG environment_NN ._SENT 
+This_DT is_VBZ important_JJ for_IN the_DT application_NN of_IN self-noise_NN inversion_NN ._SENT 
+In_IN order_NN to_TO characterize_VV the_DT uncertainties_NNS of_IN parameters_NNS ,_, Bayesian_JJ inference_NN method_NN has_VHZ been_VBN applied_VVN increasingly_RB to_TO evaluate_VV the_DT posterior_JJ probability_NN density_NN (_( PPD_NP )_) of_IN parameters_NNS based_VVN on_IN the_DT Markov_NP Chain_NP Monte_NP Carlo_NP (_( MCMC_NP )_) technique_NN in_IN the_DT past_JJ decade.11–19_NN The_DT optimal_JJ parameter_NN estimates_NNS ,_, parameter_NN uncertainties_NNS ,_, and_CC interparameter_NN correlations_NNS can_MD be_VB quantified_VVN in_IN terms_NNS of_IN PPD_NN in_IN the_DT Bayesian_JJ framework.13_NN For_IN example_NN ,_, the_DT statistical_JJ estimate_NN of_IN transmission_NN loss_NN was_VBD obtained_VVN by_IN Bayesian_JJ inversion_NN using_VVG a_DT towed_VVN array.7_JJ For_IN the_DT self-noise_NP inversion_NN ,_, Battle_NP et_NP al.20_NP obtained_VVD PPD_NN of_IN the_DT seabed_NN parameters_NNS using_VVG Gibbs_NP sampling_NN technique_NN ._SENT 
+Information_NN on_IN the_DT evolution_NN of_IN the_DT parameter_NN and_CC the_DT corresponding_JJ uncertainty_NN is_VBZ important_JJ in_IN some_DT applications_NNS (_( e._NP g._NP ,_, the_DT performance_NN evaluation_NN of_IN sonar_NN in_IN a_DT time-varying_VVG or_CC space-varying_VVG environment_NN )_) ._SENT 
+So_RB ,_, estimating_VVG the_DT parameter_NN value_NN as_RB well_RB as_IN their_PP$ uncertainties_NNS in_IN a_DT sequential_JJ Bayesian_JJ framework_NN has_VHZ been_VBN an_DT important_JJ developing_VVG direction_NN in_IN the_DT study_NN of_IN geoacoustic_JJ inversion_NN recently.21–26_NN The_DT sequential_JJ inversion_NN procedure_NN also_RB provides_VVZ a_DT benefit_NN of_IN a_DT long_JJ integration_NN time_NN for_IN the_DT dynamic_JJ low-level_JJ signal_NN processing_NN ._SENT 
+Yardim_NP et_NP al.27_JJ reviewed_VVD the_DT sequential_JJ Bayesian_JJ approaches_NNS in_IN ocean_NN acoustics_NNS ,_, and_CC several_JJ application_NN examples_NNS were_VBD presented_VVN to_TO show_VV the_DT superiority_NN of_IN particle_NN filter_NN (_( PF_NP )_) technique_NN to_TO deal_VV with_IN the_DT nonlinear_JJ problem_NN in_IN geoacoustic_JJ inversion_NN ._SENT 
+The_DT PF_NP technique_NN was_VBD adopted_VVN to_TO track_VV the_DT moving_VVG source_NN location_NN as_RB well_RB as_IN the_DT geoacoustic_JJ parameters_NNS using_VVG a_DT vertical_JJ line_NN array.28–30_NN In_IN their_PP$ studies_NNS ,_, the_DT focus_NN was_VBD the_DT tracking_NN of_IN geoacoustic_JJ parameters_NNS ,_, as_RB well_RB as_IN the_DT source_NN position_NN parameter_NN ,_, and_CC the_DT performance_NN depends_VVZ on_IN some_DT prior_JJ information_NN (_( e._NP g._NP ,_, the_DT process_NN noise_NN and_CC the_DT measurement_NN noise_NN covariance_NN matrices_NNS )_) ._SENT 
+When_WRB the_DT environment_NN is_VBZ rapidly_RB varying_VVG ,_, the_DT conventional_JJ filters_NNS may_MD perform_VV badly_RB ._SENT 
+The_DT rapidly_RB varying_VVG environment_NN should_MD be_VB addressed_VVN particularly_RB using_VVG adaptive_JJ techniques_NNS ._SENT 
+Besides_RB ,_, the_DT sequential_JJ Bayesian_JJ inversion_NN of_IN self-noise_NN in_IN the_DT time-varying_VVG environment_NN has_VHZ not_RB been_VBN investigated_VVN yet_RB ._SENT 
+This_DT paper_NN focuses_VVZ on_IN the_DT sequential_JJ Bayesian_JJ inversion_NN of_IN self-noise_NP ._SENT 
+The_DT mobility_NN of_IN HTA_NP makes_VVZ the_DT self-noise_NN inversion_NN applicable_JJ to_TO the_DT dynamic_JJ environment_NN in_IN the_DT sequential_JJ framework_NN ._SENT 
+This_DT is_VBZ the_DT motivation_NN of_IN our_PP$ work_NN ._SENT 
+The_DT main_JJ contributions_NNS are_VBP (_( 1_LS )_) modifying_VVG the_DT PF_NP with_IN some_DT adaptive_JJ techniques_NNS to_TO make_VV it_PP perform_VV well_RB in_IN the_DT rapidly_RB varying_VVG environment_NN ._SENT 
+The_DT method_NN is_VBZ named_VVN as_IN adaptive_JJ PF_NP in_IN this_DT paper_NN ;_: (_( 2_LS )_) applying_VVG the_DT adaptive_JJ PF_NP method_NN to_TO the_DT sequential_JJ inversion_NN of_IN self-noise_NP ._SENT 
+The_DT covariance_NN matrix_NN of_IN parameters_NNS used_VVN in_IN the_DT sequential_JJ importance_NN sampling_NN stage_NN is_VBZ updated_VVN on-line_JJ ,_, rather_RB than_IN an_DT assumed_JJ diagonal_JJ matrix_NN ._SENT 
+In_IN addition_NN ,_, particles_NNS are_VBP proposed_VVN with_IN an_DT adaptive_JJ shift_NN to_TO deal_VV with_IN the_DT rapidly_RB varying_VVG parameters_NNS ._SENT 
+The_DT evolving_VVG PPDs_NNS of_IN the_DT parameters_NNS are_VBP also_RB evaluated_VVN by_IN the_DT histogram_NN of_IN the_DT resampled_JJ particles_NNS ._SENT 
+The_DT adaptive_JJ sequential_JJ inversion_NN method_NN is_VBZ verified_VVN through_IN the_DT processing_NN of_IN both_DT synthetic_JJ data_NNS and_CC the_DT sea-trial_JJ data_NNS in_IN a_DT shallow_JJ water_NN experiment_NN ._SENT 
+The_DT evolution_NN of_IN the_DT geoacoustic_JJ parameters_NNS and_CC their_PP$ uncertainties_NNS are_VBP evaluated_VVN effectively_RB ._SENT 
+The_DT remainder_NN of_IN this_DT paper_NN is_VBZ organized_VVN as_RB follows_VVZ :_: Sec_JJ ._SENT 
+II_NP gives_VVZ the_DT description_NN of_IN the_DT acoustic_JJ model_NN and_CC the_DT theory_NN of_IN sequential_JJ Bayesian_JJ inversion_NN ._SENT 
+The_DT adaptive_JJ PF_NP method_NN is_VBZ introduced_VVN in_IN Sec_NN ._SENT 
+III_NP ._SENT 
+Section_NP IV_NP starts_VVZ with_IN sensitivity_NN analysis_NN ,_, followed_VVN by_IN a_DT sequential_JJ inversion_NN example_NN to_TO demonstrate_VV the_DT performance_NN of_IN the_DT adaptive_JJ PF_NP inversion_NN method_NN ._SENT 
+The_DT processing_NN results_NNS of_IN the_DT sea_NN trial_NN data_NNS in_IN a_DT shallow_JJ water_NN experiment_NN are_VBP illustrated_VVN in_IN Sec_NN ._SENT 
+V._CC Finally_RB ,_, the_DT paper_NN is_VBZ concluded_VVN in_IN Sec_NN ._SENT 
+VI_NP ._SENT 
+<Section> II_NP ._SENT 
+SEQUENTIAL_JJ BAYESIAN_JJ INVERSION_NN </Section> A._NP Acoustic_JJ model_NN For_IN the_DT receiving_VVG array_NN ,_, the_DT tow-ship_NN noise_NN is_VBZ a_DT near-field_JJ source_NN ._SENT 
+The_DT self-noise_NN recorded_VVN by_IN HTA_NP can_MD be_VB described_VVN in_IN wave-guide_NN terms_NNS ,_, and_CC the_DT bottom-interacting_VVG paths_NNS make_VV it_PP possible_JJ to_TO infer_VV information_NN about_IN the_DT water_NN and_CC seabed_NN through_IN a_DT multi-parameters_NNS forward_RB propagation_NN model_NN ._SENT 
+The_DT real_JJ sea-trial_JJ data_NNS has_VHZ been_VBN examined_VVN to_TO illustrate_VV the_DT characteristic_NN of_IN recorded_JJ self-noise_NN (_( see_VV the_DT analysis_NN in_IN Sec_NN ._SENT 
+V_NN )_) ._SENT 
+At_IN a_DT short_JJ receiving_VVG range_NN ,_, the_DT towed-array_NN can_MD record_VV the_DT high_JJ order_NN of_IN modes_NNS with_IN large_JJ grazing_NN angles_NNS that_WDT can_MD penetrate_VV deep_RB into_IN the_DT seabed.10,21,31_JJ This_NP will_MD increase_VV the_DT information_NN of_IN seabed_NN in_IN the_DT collected_VVN data,21_JJ and_CC it_PP is_VBZ very_RB helpful_JJ for_IN the_DT inversion_NN of_IN the_DT sediment_NN and_CC basement_NN parameters_NNS such_JJ as_IN the_DT basement_NN sound_NN speed_NN and_CC sediment_NN thickness_NN ._SENT 
+Besides_RB ,_, range_NN dependence_NN can_MD be_VB ignored_VVN over_IN such_PDT a_DT short_JJ propagation_NN range_NN ._SENT 
+This_DT makes_VVZ it_PP applicable_JJ to_TO the_DT dynamic_JJ range-dependent_JJ environment_NN through_IN the_DT temporal_JJ stationary_JJ assumption_NN at_IN one_CD processing_NN moment_NN ._SENT 
+In_IN practice_NN ,_, the_DT tow-ship_NN noise_NN source_NN is_VBZ likely_JJ to_TO be_VB distributed_VVN throughout_IN the_DT tow-ship_NN ._SENT 
+Note_NN that_IN the_DT tow-ship_NN noise_NN can_MD be_VB treated_VVN as_IN a_DT point_NN source_NN for_IN the_DT inversion_NN problem_NN approximately.10,32_NN This_DT is_VBZ because_IN self-noise_NN inversion_NN has_VHZ a_DT low_JJ sensitivity_NN to_TO the_DT source_NN depth_NN and_CC range_NN within_IN the_DT proper_JJ search_NN bounds_NNS ._SENT 
+This_DT will_MD be_VB illustrated_VVN in_IN the_DT following_VVG simulation_NN in_IN Sec_NN ._SENT 
+IV_NP A._NP Note_VV that_IN ,_, if_IN the_DT distribution_NN of_IN the_DT source_NN is_VBZ known_VVN a_DT priori_NN ,_, it_PP is_VBZ available_JJ to_TO calculate_VV the_DT acoustic_JJ replica_NN fields_NNS based_VVN on_IN the_DT distributed_VVN source_NN ._SENT 
+However_RB ,_, this_DT will_MD suffer_VV a_DT computational_JJ burden_NN ._SENT 
+Generally_RB ,_, the_DT forward_JJ propagation_NN model_NN for_IN self-noise_NN inversion_NN is_VBZ illustrated_VVN in_IN Fig_NN ._SENT 
+1._CD The_DT acoustic_JJ model_NN can_MD be_VB assumed_VVN to_TO be_VB a_DT range-independent_JJ environment_NN model_NN at_IN a_DT certain_JJ measurement_NN time_NN ,_, while_IN the_DT environment_NN may_MD vary_VV as_IN the_DT tow-ship_NN moves_NNS ._SENT 
+The_DT model_NN parameters_NNS include_VVP the_DT source_NN parameters_NNS ,_, the_DT water_NN column_NN parameters_NNS ,_, the_DT array_NN shape_NN parameters_NNS ,_, the_DT seabed_NN parameters_NNS ,_, and_CC so_RB on_IN ._SENT 
+The_DT source-receiver_NP relative_JJ geometry_NN keeps_VVZ almost_RB invariable_JJ for_IN HTA_NP ,_, and_CC this_DT is_VBZ very_RB helpful_JJ to_TO the_DT determination_NN of_IN the_DT source_NN parameters_NNS (_( e._NP g._NP ,_, the_DT depth_NN z0_NN and_CC the_DT range_NN r0_NN )_) ._SENT 
+Actually_RB ,_, if_IN some_DT geometric_JJ parameters_NNS (_( e._NP g._NP ,_, the_DT source_NN parameters_NNS and_CC the_DT array_NN depth_NN )_) are_VBP known_VVN exactly_RB ,_, they_PP can_MD be_VB treated_VVN as_IN known_VVN parameters_NNS in_IN the_DT inversion_NN ._SENT 
+The_DT water_NN parameters_NNS include_VVP the_DT water_NN depth_NN D_NP and_CC the_DT empirical_JJ orthogonal_JJ function_NN (_( EOF_JJ )_) coefficients_NNS of_IN the_DT sound_JJ speed_NN profiles_NNS (_( SSP_NP )_) ,_, and_CC the_DT EOFs_NNS can_MD be_VB obtained_VVN from_IN the_DT multiple_JJ conductivity-temperature-depth_NN (_( CTD_NN )_) measurements_NNS ._SENT 
+In_IN the_DT following_VVG analysis_NN ,_, the_DT first_JJ three_CD EOF_JJ coefficients_NNS are_VBP mainly_RB considered_VVN ,_, denoted_VVN as_IN EOF1_JJ ,_, EOF2_JJ ,_, and_CC EOF3_NP ,_, respectively_RB ._SENT 
+The_DT array_NN shape_NN is_VBZ modeled_VVN by_IN three_CD parameters,10_NN including_VVG the_DT depth_NN at_IN the_DT head_NN point_NN za_NP ,_, the_DT array_NN tilt_NN ϕa_NN ,_, and_CC the_DT array_NN bow_NN Ba_NP ._SENT 
+The_DT depth_NN of_IN each_DT element_NN along_IN the_DT array_NN is_VBZ given_VVN by_RB @_SYM where_WRB L_NP is_VBZ the_DT horizontal_JJ length_NN of_IN the_DT array_NN ,_, and_CC r_NN denotes_VVZ the_DT horizontal_JJ range_NN to_TO the_DT array_NN head_NN ._SENT 
+figure_NN In_IN the_DT inversion_NN model_NN ,_, the_DT seabed_NN is_VBZ characterized_VVN as_IN an_DT upper_JJ sediment_NN layer_NN with_IN parameters_NNS of_IN the_DT layer_NN thickness_NN H_NP ,_, the_DT sound_JJ speeds_NNS cp1T_NP and_CC cp1B_NP (_( the_DT subscripts_NNS T_NN and_CC B_NP denote_VVP the_DT top_NN and_CC bottom_NN of_IN the_DT sediment_NN layer_NN ,_, respectively_RB )_) ,_, the_DT density_NN ρ1_NN ,_, and_CC attenuation_NN α1_NN ,_, overlying_VVG a_DT semi-infinite_NN basement_NN with_IN corresponding_JJ parameters_NNS cp2_JJ ,_, ρ2_JJ ,_, and_CC α2_NP ._SENT 
+For_IN low-shear-speed_NN sediments_NNS ,_, shear_VVP wave_NN parameters_NNS have_VHP negligible_JJ effect_NN on_IN acoustic_JJ propagation_NN ._SENT 
+Thus_RB ,_, only_RB compressional_JJ wave_NN parameters_NNS in_IN the_DT sediment_NN and_CC basement_NN layers_NNS are_VBP considered_VVN here_RB ._SENT 
+To_TO take_VV account_NN of_IN the_DT high_JJ order_NN of_IN modes_NNS that_WDT result_VVP from_IN super-critical_JJ angles_NNS of_IN bottom_JJ incidence_NN ,_, the_DT wave-number_NP integration_NN approach33_NN is_VBZ selected_VVN to_TO characterize_VV the_DT self-noise_NN field_NN received_VVN by_IN HTA_NP ._SENT 
+In_IN this_DT paper_NN ,_, the_DT scooter_NN program_NN in_IN Acoustics_NN Toolbox34_NN is_VBZ used_VVN to_TO calculate_VV the_DT replica_NN fields_NNS ._SENT 
+B._NP Likelihood_NN formulation_NN Assuming_VVG the_DT HTA_NP contains_VVZ N_NP omni-directional_NP elements_NNS ,_, the_DT vector_NN of_IN the_DT received_VVN narrow-band_NN complex_JJ acoustic_JJ pressure_NN data_NNS corresponding_JJ to_TO the_DT parameter_NN vector_NN m_NN (_( defining_VVG as_IN the_DT vector_NN of_IN M_NP unknown_JJ model_NN parameters_NNS )_) can_MD be_VB expressed_VVN as_RB @_SYM where_WRB d(fj_NP ,_, m_NN )_) denotes_VVZ the_DT replica_NN field_NN vector_NN corresponding_JJ to_TO m_NN at_IN jth_NP (_( j_NN =_SYM 1_CD ,_, 2_CD ,_, …_NP ,_, J_NP )_) frequency_NN fj_NN ,_, and_CC it_PP actually_RB represents_VVZ the_DT acoustic_JJ response_NN vector_NN of_IN the_DT self-noise_NN ._SENT 
+The_DT scale_NN factor_NN α(fj_NP )_) represents_VVZ the_DT complex_JJ strength_NN of_IN the_DT source_NN ._SENT 
+The_DT v(fj_NP )_) is_VBZ the_DT vector_NN of_IN data_NN errors_NNS at_IN N_NP elements_NNS ,_, and_CC it_PP contains_VVZ background_NN noise_NN and_CC acoustic_JJ model_NN error.35_NN In_IN theory_NN ,_, the_DT data_NN error_NN is_VBZ correlated_VVN ._SENT 
+However_RB ,_, the_DT statistical_JJ characteristic_NN of_IN the_DT data_NN error_NN is_VBZ usually_RB unavailable_JJ in_IN practice_NN ._SENT 
+Thus_RB ,_, it_PP is_VBZ assumed_VVN to_TO be_VB a_DT complex_JJ zero-mean_JJ Gaussian_JJ random_JJ process_NN with_IN a_DT covariance_NN matrix_NN (_( CM_NP )_) of_IN σ2(fj_NP )_) I_PP here_RB ,_, which_WDT is_VBZ usually_RB proper_JJ for_IN HTA_NP in_IN practice.19_NP Assuming_VVG the_DT data_NNS errors_NNS at_IN different_JJ frequencies_NNS are_VBP uncorrelated_VVN ,_, the_DT joint_JJ likelihood_NN function_NN of_IN J_NP frequencies_NNS is_VBZ given_VVN by_RB @_SYM where_WRB R̂(fj)=⟨y(fj)yH(fj)⟩_NP denotes_VVZ the_DT cross_NN spectral_JJ density_NN matrix_NN (_( CSDM_NN )_) obtained_VVN from_IN multiple_JJ data_NNS snapshots_NNS ,_, and_CC Tr{·_JJ }_) and_CC ⟨·⟩_NP represent_VVP the_DT matrix_NN trace_VV operation_NN and_CC snap-shot_NN averaging_NN ,_, respectively_RB ._SENT 
+The_DT B(fj_NP ,_, m_NN )_) denotes_VVZ the_DT normalized_VVN Bartlett_NP mismatch_NN ,_, expressed_VVN as_IN B(fj_NP ,_, m)=1−dH(fj_NP ,_, m)R̂(fj)d(fj_NP ,_, m)/(||||||d(fj_NP ,_, m)||||||2Tr[R̂(fj_NP )_) ]_SYM )_) ._SENT 
+And_CC V̂(fj_NP )_) denotes_VVZ the_DT normalized_VVN data_NN error_NN variance_NN ,_, expressed_VVN as_IN V̂(fj)=B(fj_NP ,_, m̂_NP )_) with_IN m̂_NN is_VBZ the_DT optimal_JJ estimate_NN of_IN the_DT parameter_NN vector_NN ._SENT 
+The_DT normalized_VVN data_NN error_NN variance_NN V̂(fj_NP )_) has_VHZ a_DT relationship_NN with_IN the_DT effective_JJ signal-to-noise_NN ratio_NN (_( ESNR_NP )_) ,_, expressed_VVN as_IN ESNR̂_JJ =10lg[(1−V̂(fj))/V̂(fj)].12,36_NN The_DT likelihood_NN function_NN is_VBZ the_DT essence_NN of_IN the_DT Bayesian_JJ inference_NN ._SENT 
+However_RB ,_, because_IN of_IN the_DT exponential_JJ term_NN in_IN Eq_NP ._SENT 
+(_( 3_CD )_) ,_, a_DT large_JJ value_NN of_IN N_NP may_MD result_VV in_IN a_DT very_RB narrow_JJ likelihood_NN function_NN ._SENT 
+In_IN this_DT case_NN ,_, Bayesian_JJ inversion_NN will_MD be_VB intractable_JJ ._SENT 
+Gerstoft_NP and_CC Mecklenbraüker37_JJ suggested_VVD replacing_VVG N_NP by_IN the_DT effective_JJ number_NN of_IN propagating_VVG modes_NNS Ne_NP ,_, i._NP e._NP ,_, the_DT number_NN of_IN modes_NNS carrying_VVG significant_JJ acoustic_JJ energy_NN of_IN the_DT source_NN signal_NN ._SENT 
+In_IN practice_NN ,_, Ne_NP can_MD be_VB estimated_VVN from_IN a_DT principal_JJ component_NN analysis_NN of_IN the_DT data_NNS CSDM_NN ._SENT 
+This_DT approach_NN seems_VVZ to_TO be_VB widely_RB used_VVN in_IN the_DT Bayesian_JJ inversion_NN of_IN the_DT high-number_JJ element_NN array.12,14,20,36_NN So_IN replacing_VVG N_NP by_IN Ne_NP is_VBZ a_DT compromising_VVG and_CC practical_JJ approach_NN for_IN the_DT calculation_NN of_IN likelihood_NN function_NN ._SENT 
+Due_JJ to_TO a_DT similar_JJ reason_NN ,_, the_DT snapshot_NN factor_NN L_NP is_VBZ not_RB considered_VVN explicitly_RB here_RB ,_, while_IN the_DT CSDM_NN plays_VVZ an_DT import_NN role_NN in_IN the_DT likelihood_NN function_NN ._SENT 
+In_IN this_DT paper_NN ,_, an_DT empirical_JJ Ne_NP =_SYM 5_CD by_IN the_DT principal_JJ component_NN analysis_NN of_IN the_DT data_NN CSDM_NN is_VBZ chosen_VVN through_IN the_DT whole_JJ analysis_NN ._SENT 
+In_IN the_DT application_NN of_IN HTA_NP ,_, the_DT recorded_VVN data_NNS may_MD contain_VV the_DT signal_NN of_IN other_JJ sources_NNS coming_VVG from_IN different_JJ directions_NNS ,_, such_JJ as_IN the_DT other_JJ ship_NN radiated_VVD noise_NN of_IN opportunity_NN ._SENT 
+If_IN the_DT undesired_JJ sources_NNS come_VVN from_IN the_DT directions_NNS that_WDT are_VBP out_RB of_IN the_DT angle_NN sector_NN of_IN self-noise_NP ,_, the_DT influence_NN can_MD be_VB eliminated_VVN by_IN the_DT beamspace_NN preprocessing_VVG technique_NN ._SENT 
+The_DT beamspace_NP transformation_NN matrix_NN is_VBZ formed_VVN by_IN the_DT beamforming_JJ weights_NNS associated_VVN with_IN directions_NNS within_IN the_DT angle_NN sector_NN of_IN self-noise_NP ,_, expressed_VVN as_IN T=[w(θ1_JJ )_) ,_, …_NP ,_, w(θNB_NP )_) ]_SYM ,_, where_WRB w(θ_NP )_) is_VBZ the_DT conventional_JJ beamforming_JJ weight_NN associated_VVN with_IN the_DT direction_NN θ_NN ,_, NB_NP is_VBZ the_DT beam_NN number_NN ,_, and_CC θ_NP is_VBZ located_VVN in_IN the_DT angle_NN sector_NN of_IN self-noise_NP ._SENT 
+For_IN the_DT case_NN in_IN our_PP$ work_NN ,_, self-noise_NN source_NN comes_VVZ from_IN 0°–25°_NN to_TO the_DT heading_VVG of_IN the_DT array_NN ._SENT 
+Then_RB the_DT beamspace_NN likelihood_NN formulation_NN can_MD be_VB still_RB expressed_VVN as_IN Eq_NP ._SENT 
+(_( 3_CD )_) ,_, while_IN R̂(fj_NP )_) and_CC B(fj_NP ,_, m_NN )_) should_MD be_VB replaced_VVN by_IN R̃(fj)=THR̂(fj)T_NP and_CC B̃(fj_NP ,_, m)=1−d̃H(fj_NP ,_, m)R̃(fj)d̃(fj_NP ,_, m)/(||||||d̃(fj_NP ,_, m)||||||2Tr[R̃(fj_NP )_) ]_SYM )_) with_IN d̃(fj_NP ,_, m)=THd(fj_NP ,_, m_NN )_) ,_, respectively_RB ._SENT 
+In_IN addition_NN ,_, V̂(fj_NP )_) should_MD be_VB replaced_VVN by_IN the_DT beamspace_NN normalized_VVD data_NNS error_NN variance_NN ,_, expressed_VVN as_IN Ṽ(fj)=B̃(fj_NP ,_, m̂_NP )_) ._SENT 
+Usually_RB ,_, NB_NP ≥_NP Ne_NP is_VBZ needed_VVN to_TO make_VV sure_JJ R̃(fj_NN )_) is_VBZ full_JJ rank_NN ._SENT 
+Through_IN the_DT beamspace_NN transformation_NN ,_, the_DT covariance_NN matrix_NN R̃(fj_NP )_) will_MD be_VB dominated_VVN by_IN self-noise_NP ,_, and_CC the_DT energy_NN of_IN other_JJ sources_NNS coming_VVG from_IN other_JJ directions_NNS will_MD be_VB eliminated_VVN ._SENT 
+C._NP Sequential_JJ inversion_NN model_NN In_IN the_DT problem_NN of_IN tracking_VVG geoacoustic_JJ parameters_NNS ,_, the_DT dynamic_JJ model_NN is_VBZ determined_VVN by_IN two_CD equations_NNS ._SENT 
+One_PP is_VBZ the_DT state_NN equation_NN that_WDT characterizes_VVZ the_DT evolution_NN of_IN parameters_NNS in_IN the_DT dynamic_JJ environment_NN ,_, and_CC the_DT other_JJ is_VBZ the_DT measurement_NN equation_NN that_WDT relates_VVZ the_DT geoacoustic_JJ parameters_NNS to_TO the_DT received_VVN acoustic_JJ data_NNS ,_, derived_VVN from_IN Eq_NP ._SENT 
+(_( 2_CD )_) ._SENT 
+Considering_VVG the_DT frame_NN k_NN ,_, two_CD equations_NNS are_VBP given_VVN as_RB @_SYM where_WRB f(·_NP )_) denotes_VVZ the_DT state_NN transition_NN function_NN ,_, and_CC h(·_NN )_) is_VBZ the_DT measurement_NN equation_NN ._SENT 
+wk_NP is_VBZ the_DT process_NN noise_NN vector_NN ,_, and_CC it_PP can_MD be_VB modeled_VVN as_IN a_DT zero-mean_JJ Gaussian_JJ process_NN with_IN a_DT CM_NN of_IN Qk_NN ,_, allowing_VVG the_DT filter_NN to_TO capture_VV the_DT parameter_NN changes_NNS in_IN each_DT iteration_NN that_WDT are_VBP not_RB included_VVN in_IN f(·_NN )_) ._SENT 
+The_DT probability_NN density_NN function_NN (_( PDF_NP )_) of_IN wk_NN determines_VVZ the_DT sequential_JJ important_JJ sampling_NN of_IN the_DT particles_NNS ._SENT 
+If_IN the_DT evolution_NN of_IN environment_NN parameter_NN is_VBZ linear_JJ ,_, f(·_NP )_) can_MD be_VB modeled_VVN as_IN a_DT matrix_NN ._SENT 
+For_IN the_DT sequential_JJ inversion_NN problem_NN without_IN enough_JJ prior_JJ information_NN about_IN the_DT parameter_NN changes_NNS ,_, f(·_NP )_) is_VBZ usually_RB simplified_VVN as_IN IM_NP for_IN the_DT assumed_VVN slowly_RB varying_VVG environment_NN ,_, where_WRB the_DT subscript_JJ M_NP denotes_VVZ the_DT dimension_NN of_IN mk_NP ._SENT 
+Note_NN that_IN ,_, IM_NP is_VBZ used_VVN in_IN this_DT paper_NN ._SENT 
+The_DT parameter_NN changes_NNS in_IN each_DT iteration_NN are_VBP captured_VVN by_IN wk_NN for_IN the_DT time-varying_VVG environment_NN ._SENT 
+If_IN the_DT parameter_NN change_NN rate_NN is_VBZ high_JJ ,_, then_RB a_DT high_JJ Qk_NN is_VBZ needed_VVN for_IN the_DT filter_NN ._SENT 
+Usually_RB ,_, an_DT assumed_JJ diagonal_JJ Qk_NN is_VBZ used_VVN for_IN the_DT PF_NP tracking_NN problem_NN ._SENT 
+Here_RB ,_, we_PP model_VV it_PP as_IN a_DT time-varying_NN correlated_VVD matrix_NN ,_, which_WDT is_VBZ estimated_VVN online_JJ ._SENT 
+The_DT off-diagonal_JJ elements_NNS of_IN Qk_NP indicate_VVP the_DT interparameter_NN correlations_NNS ._SENT 
+Then_RB ,_, the_DT particles_NNS are_VBP proposed_VVN by_IN the_DT multivariate_JJ Gauss_NP function_NN with_IN the_DT coupling_NN between_IN the_DT parameters_NNS ._SENT 
+This_DT will_MD be_VB illustrated_VVN in_IN Sec_NN ._SENT 
+III_NP ._SENT 
+The_DT function_NN h(·_NN )_) denotes_VVZ the_DT nonlinear_JJ implicit_JJ measurement_NN function_NN that_WDT relates_VVZ the_DT model_NN parameters_NNS mk_NN and_CC the_DT measured_VVN acoustic_JJ data_NNS yk_NP ._SENT 
+Furthermore_RB ,_, vk_NP denotes_VVZ the_DT measurement_NN noise_NN or_CC the_DT data_NNS error_NN vector_NN ._SENT 
+For_IN the_DT acoustic_JJ data_NNS collected_VVN at_IN J_NP frequencies_NNS ,_, h(mk_NP )_) can_MD be_VB expressed_VVN as_IN h(mk)=[α(f1)dT(f1_JJ ,_, m_NN )_) ,_, …_NP ,_, α(fJ)dT(fJ_NP ,_, m)]T_NP ._SENT 
+The_DT vectors_NNS yk_NP and_CC vk_NP have_VHP the_DT same_JJ stacking_VVG form_NN expressed_VVN as_IN yk=[yT(f1_JJ )_) ,_, …_NP ,_, yT(fJ)]T_NP and_CC vk=[vT(f1_JJ )_) ,_, …_NP ,_, vT(fJ)]T_NP ,_, respectively_RB ._SENT 
+According_VVG to_TO Sec_NN ._SENT 
+II_NP B_NP ,_, v(fj_NP )_) is_VBZ modeled_VVN as_IN a_DT complex_JJ white_JJ noise_NN with_IN a_DT CM_NN of_IN σ2(fj_NP )_) I._NP Then_RB vk_NN is_VBZ modeled_VVN as_IN a_DT complex_JJ zero-mean_JJ Gaussian_JJ stochastic_JJ process_NN with_IN a_DT diagonal_JJ CM_NN of_IN Ek=diag{σ2(f1_JJ )_) ,_, …_NP ,_, σ2(f1_JJ )_) ,_, …_NP ,_, σ2(fJ_NP )_) ,_, …_NP ,_, σ2(fJ_NP )_) }_) under_IN the_DT assumption_NN that_IN data_NN error_NN is_VBZ uncorrelated_VVN at_IN different_JJ frequencies_NNS ._SENT 
+The_DT CM_NP Ek_NP usually_RB cannot_MD be_VB known_VVN precisely_RB for_IN real_JJ applications_NNS ._SENT 
+One_CD practicable_JJ approach_NN is_VBZ to_TO estimate_VV σ2(f1_JJ )_) ,_, …_NP ,_, σ2(fJ_NP )_) during_IN the_DT tracking_NN process_NN ._SENT 
+In_IN the_DT sequential_JJ Bayesian_JJ framework_NN ,_, the_DT self-noise_NP inversion_NN problem_NN is_VBZ converted_VVN to_TO the_DT estimate_NN of_IN multi-dimensional_JJ posterior_JJ PDF_NN of_IN mk_NN based_VVN on_IN the_DT sequence_NN of_IN the_DT received_VVN acoustic_JJ data_NNS ._SENT 
+Let_VV m1_JJ :_: k={m1_NN ,_, m2_NP ,_, …_NP ,_, mk_NP }_) and_CC y1_JJ :_: k={y1_NN ,_, y2_NP ,_, …_NP ,_, yk_NP }_) denote_VVP the_DT sequence_NN of_IN unknown_JJ parameter_NN vectors_NNS and_CC measurement_NN data_NNS up_RB to_TO the_DT frame_NN k._NN Using_VVG the_DT Bayes_NP theorem_NN and_CC the_DT Markov_NP property_NN ,_, the_DT posterior_JJ PDF_NN can_MD be_VB given_VVN as_RB @_SYM where_WRB p(yk||mk_NP )_) is_VBZ actually_RB the_DT likelihood_NN function_NN expressed_VVN as_IN ℒ(mk_NN )_) shown_VVN in_IN Eq_NP ._SENT 
+(_( 3_CD )_) ._SENT 
+The_DT probability_NN p(mk||y1_NN :_: k−1_JJ )_) denotes_VVZ the_DT prior_JJ knowledge_NN obtained_VVN from_IN all_PDT the_DT previous_JJ measurements_NNS ._SENT 
+In_IN addition_NN ,_, p(mk||mk−1_JJ )_) denotes_VVZ the_DT transition_NN probability_NN from_IN mk–1_JJ to_TO mk_VV ._SENT 
+According_VVG to_TO the_DT state_NN equation_NN Eq_NP ._SENT 
+(_( 4_CD )_) ,_, p(mk||mk−1_JJ )_) is_VBZ actually_RB dominated_VVN by_IN the_DT PDF_NN of_IN wk_NP ._SENT 
+<Section> III_NP ._SENT 
+ADAPTIVE_JJ PF_NP INVERSION_NN METHOD_NN </Section> As_IN one_CD of_IN the_DT sequential_JJ Monte_NP Carlo_NP methods_NNS ,_, PF_NP estimates_VVZ the_DT PPD_NN based_VVN on_IN the_DT state_NN samples_NNS (_( also_RB called_VVN as_IN particles_NNS )_) in_IN the_DT filter_NN process_NN ._SENT 
+The_DT particles_NNS are_VBP generated_VVN from_IN the_DT sequential_JJ importance_NN sampling_NN (_( SIS_NN )_) stage_NN and_CC resampled_JJ according_VVG to_TO the_DT weights_NNS ._SENT 
+Let_VV {_( m(i)k_NP ,_, w(i)k}Npi=1_JJ denote_VVP the_DT set_NN of_IN weighted_JJ particles_NNS that_WDT characterizes_VVZ the_DT PPD_NN at_IN the_DT frame_NN k_NN ,_, where_WRB w(i)k_NP is_VBZ the_DT normalized_VVN weight_NN for_IN the_DT ith_JJ particle_NN and_CC Np_NN denotes_VVZ the_DT number_NN of_IN particles_NNS ,_, then_RB we_PP have_VHP @_SYM Assuming_VVG q(mk||mk−1_NN ,_, yk_NP )_) denotes_VVZ the_DT proposal_NN density_NN that_WDT depends_VVZ on_IN the_DT last_JJ state_NN mk–1_NN and_CC the_DT current_JJ measurement_NN yk_NP ,_, then_RB the_DT sampling_NN particles_NNS will_MD have_VH a_DT distribution_NN the_DT same_JJ as_IN q(mk||mk−1_NN ,_, yk_NP )_) ._SENT 
+This_DT step_NN is_VBZ called_VVN SIS_NN ._SENT 
+According_VVG to_TO Eq_NP ._SENT 
+(_( 6_CD )_) ,_, the_DT weight_NN becomes_VVZ @_SYM where_WRB w(i)k−1=p(m(i)k−1|||y1_JJ :_: k−1_JJ )_) ._SENT 
+The_DT recursive_JJ transition_NN of_IN {_( m(i)k_NP ,_, w(i)k}Npi=1_JJ makes_VVZ it_PP possible_JJ to_TO estimate_VV p(mk||y1_JJ :_: k_NN )_) sequentially_RB as_IN a_DT new_JJ measurement_NN is_VBZ available_JJ ._SENT 
+A_DT good_JJ proposal_NN density_NN q(mk|||m(i)k−1_NN ,_, yk_NP )_) determines_VVZ the_DT quality_NN of_IN the_DT sampled_VVN particles_NNS ._SENT 
+A_DT practicable_JJ choice_NN is_VBZ p(mk|||m(i)k−1_JJ )_) ,_, which_WDT does_VVZ not_RB depend_VV on_IN the_DT measurement.38_NN To_TO counter_VV the_DT degeneracy_NN phenomenon_NN of_IN SIS_NN ,_, a_DT resampling_VVG strategy_NN is_VBZ adopted_VVN to_TO concentrate_VV on_IN high-weight_JJ particles_NNS in_IN the_DT updating_VVG stage,27_JJ and_CC the_DT weights_NNS of_IN all_PDT the_DT particles_NNS are_VBP reset_JJ to_TO be_VB equal_JJ ,_, expressed_VVN as_IN {_( m(i)k_NP ,_, w(i)k}Npi=1↦{m̃(i)k,1/Np}Npi=1_JJ ._SENT 
+Hence_RB ,_, the_DT PPD_NN can_MD be_VB given_VVN in_IN terms_NNS of_IN the_DT normalized_VVN histograms_NNS of_IN the_DT resampled_JJ particles_NNS ,_, expressed_VVN as_IN p(mk|||y1_JJ :_: k)≈(1/Np)∑Npi=1δ(mk−m̃(i)k_NP )_) ._SENT 
+Then_RB ,_, the_DT maximum_NN a_DT posteriori_NP (_( MAP_NN )_) and_CC CM_NP can_MD be_VB obtained_VVN as_RB @_SYM where_WRB m̂Meank=(1/Np)∑Npi=1m̃(i)k_NP denotes_VVZ the_DT posterior_JJ mean_JJ estimate_NN ._SENT 
+The_DT PF_NP estimate_NN relies_VVZ on_IN the_DT high-quality_JJ particles_NNS and_CC the_DT associated_VVN weights_NNS ,_, determined_VVN by_IN p(mk||mk−1_JJ )_) and_CC p(yk||mk_NP )_) ,_, respectively_RB ._SENT 
+p(mk||mk−1_NN )_) is_VBZ related_VVN to_TO the_DT process_NN noise_NN CM_NP (_( Qk_NP )_) ,_, which_WDT is_VBZ usually_RB not_RB directly_RB observable_JJ in_IN real_JJ applications_NNS ,_, especially_RB for_IN the_DT time-varying_VVG environment_NN ._SENT 
+An_DT assumed_VVN diagonal_NN Qk_NN may_MD result_VV in_IN not_RB enough_JJ particles_NNS with_IN nonzero_NP weights_NNS at_IN the_DT SIS_NN stage_NN ,_, finally_RB giving_VVG an_DT inaccurate_JJ PPD_NN ._SENT 
+A_DT more_RBR important_JJ issue_NN is_VBZ the_DT rapidly_RB varying_VVG environment_NN ,_, where_WRB the_DT value_NN of_IN the_DT parameter_NN at_IN the_DT current_JJ measurement_NN may_MD be_VB far_RB from_IN the_DT previous_JJ one_CD ._SENT 
+This_DT will_MD result_VV in_IN no_DT particles_NNS with_IN nonzero_NP weight_NN being_VBG used_VVN to_TO evaluate_VV the_DT PPD_NN of_IN mk_NP ._SENT 
+This_DT case_NN is_VBZ illustrated_VVN in_IN Fig_NN ._SENT 
+2(a_NP )_) ,_, where_WRB the_DT “_NN Predict_VVP ”_JJ step_NN is_VBZ to_TO propose_VV the_DT particles_NNS using_VVG the_DT transition_NN probability_NN p(mk||mk−1_NN )_) ._SENT 
+In_IN this_DT case_NN ,_, only_RB few_JJ marginal_JJ particles_NNS with_IN very_RB low_JJ weights_NNS are_VBP available_JJ for_IN the_DT evaluation_NN of_IN PPD_NP ._SENT 
+Thus_RB ,_, the_DT evaluated_VVN PPD_NN will_MD be_VB inaccurate_JJ ._SENT 
+figure_NN In_IN order_NN to_TO ensure_VV the_DT high_JJ quality_NN of_IN the_DT proposed_VVN particles_NNS ,_, two_CD adaptive_JJ techniques_NNS are_VBP adopted_VVN here_RB :_: (_( 1_LS )_) Adding_VVG a_DT shift_VV to_TO all_PDT the_DT proposed_VVN particles_NNS ._SENT 
+The_DT parameter_NN values_NNS may_MD differ_VV between_IN the_DT sequential_JJ measurements_NNS in_IN the_DT dynamic_JJ environment_NN ,_, especially_RB for_IN the_DT rapidly_RB varying_VVG environment_NN ._SENT 
+In_IN order_NN to_TO remedy_VV this_DT difference_NN to_TO get_VV a_DT better_JJR sampling_NN ,_, a_DT shift_NN operation_NN is_VBZ taken_VVN to_TO make_VV the_DT particles_NNS concentrated_VVN near_IN the_DT true_JJ values_NNS of_IN the_DT parameters_NNS at_IN the_DT next_JJ measurement_NN ._SENT 
+Estimating_VVG the_DT parameter_NN vector_NN based_VVN on_IN p(mk−1||y1_JJ :_: k−1_JJ )_) and_CC yk_NP ,_, yields_NNS @_SYM where_WRB p(mk−1||y1_JJ :_: k−1_JJ )_) can_MD be_VB interpreted_VVN as_IN the_DT prior_JJ probability_NN density_NN of_IN mk_NN here_RB ,_, and_CC G_NP is_VBZ a_DT normalization_NN constant_JJ of_IN the_DT weights_NNS ._SENT 
+The_DT probability_NN p(yk||mk−1_NN )_) denotes_VVZ the_DT likelihood_NN function_NN conditioned_VVN upon_IN mk–1_JJ ._SENT 
+Then_RB the_DT shift_NN is_VBZ calculated_VVN as_IN Δmk=m̂k|k−1−m̂Meank−1_JJ ,_, where_WRB m̂Meank−1_NN denotes_VVZ the_DT posterior_JJ mean_JJ estimate_NN of_IN the_DT last_JJ state_NN ;_: (_( 2_LS )_) Replacing_VVG Qk_NN with_IN β2Ĉk|k−1_JJ to_TO propose_VV the_DT particles_NNS at_IN frame_NN k._NP The_DT Ĉk|k−1_NN denotes_VVZ the_DT forecast_NN CM_NN of_IN the_DT parameters_NNS at_IN kth_JJ frame_NN derived_VVN from_IN p(mk−1||y1_JJ :_: k−1_JJ )_) and_CC yk_NP ,_, expressed_VVN as_RB @_SYM The_DT coefficient_NN β_NN is_VBZ determined_VVN by_IN β=max{1,2_NP ln(lMaxk−1/bMaxk|k−1)√/3_NP }_) ,_, where_WRB lMaxk−1_NN is_VBZ the_DT maximum_JJ likelihood_NN probability_NN of_IN the_DT last_JJ measurement_NN ,_, denoted_VVN as_IN lMaxk−1=max{{p(yk−1|||m(i)k−1)}Npi=1_JJ }_) ._SENT 
+Futhermore_NP ,_, bMaxk|k−1_NN is_VBZ given_VVN by_IN bMaxk|k−1=max{{p(yk|||m(i)k−1)}Npi=1_JJ }_) ._SENT 
+Assuming_VVG the_DT shape_NN of_IN likelihood_NN function_NN remains_VVZ unchanged_JJ approximately_RB ,_, then_RB lMaxk−1≃max{p(yk||mk_NP )_) }_) ._SENT 
+2_CD ln(lMaxk−1/bMaxk|k−1)√_NN can_MD indicate_VV the_DT relative_JJ position_NN of_IN the_DT parameter_NN with_IN a_DT likelihood_NN value_NN of_IN bMaxk|k−1_JJ in_IN the_DT Gaussian_JJ distribution_NN ._SENT 
+Expanding_VVG Ĉk|k−1_JJ with_IN β2_NP ,_, can_MD ensure_VV mk_NN within_IN the_DT range_NN of_IN 3_CD times_NNS standard_JJ deviation_NN ._SENT 
+Thus_RB ,_, the_DT proposed_VVN particles_NNS can_MD cover_VV the_DT true_JJ value_NN of_IN mk_NN if_IN the_DT number_NN of_IN particles_NNS is_VBZ large_JJ enough_RB ._SENT 
+The_DT case_NN of_IN 2_CD ln(lMaxk−1/bMaxk|k−1)√/3<1_JJ means_NNS mk_NN is_VBZ already_RB within_IN the_DT range_NN with_IN high_JJ proposal_NN density_NN ._SENT 
+Particularly_RB ,_, for_IN the_DT slowly_RB varying_VVG environment_NN ,_, 2_CD ln(lMaxk−1/bMaxk|k−1)⎯√/3_NN is_VBZ about_RB 0._CD For_IN this_DT case_NN ,_, no_DT modification_NN is_VBZ needed_VVN ._SENT 
+The_DT schematic_JJ diagram_NN is_VBZ shown_VVN in_IN Fig_NN ._SENT 
+2(b_NP )_) ._SENT 
+Compared_VVN with_IN the_DT standard_JJ PF_NP ,_, the_DT adaptive_JJ PF_NP adds_VVZ a_DT step_NN named_VVN “_NP Pre-Shift_NP ”_NP before_IN the_DT particle_NN proposal_NN ._SENT 
+When_WRB the_DT state_NN transition_NN is_VBZ modeled_VVN by_IN the_DT Gaussian_JJ stochastic_JJ process_NN with_IN a_DT CM_NN of_IN β2Ĉk|k−1_JJ ,_, the_DT proposed_VVN particles_NNS can_MD cover_VV the_DT high-likelihood_NN area_NN of_IN parameters_NNS efficiently_RB ._SENT 
+And_CC the_DT interparameter_NN correlations_NNS are_VBP also_RB considered_VVN in_IN the_DT SIS_NN stage_NN ._SENT 
+Finally_RB ,_, the_DT transition_NN of_IN all_PDT the_DT particles_NNS is_VBZ drawn_VVN from_IN @_SYM where_WRB 𝒩(Δmk_NP ,_, β2Ĉk|k−1_JJ )_) indicates_VVZ the_DT adaptive_JJ transition_NN density_NN based_VVN on_IN the_DT information_NN of_IN the_DT previous_JJ state_NN and_CC the_DT current_JJ measurement_NN ,_, illustrated_VVN as_IN p̃(mk||mk−1_JJ )_) in_IN Fig_NN ._SENT 
+2(b_NP )_) ._SENT 
+If_IN the_DT proposed_VVN particles_NNS cover_VVP the_DT changing_VVG parameter_NN at_IN the_DT next_JJ measurement_NN ,_, this_DT technique_NN is_VBZ always_RB effective_JJ to_TO ensure_VV the_DT tracking_VVG performance_NN in_IN the_DT time_NN varying_VVG environment_NN ._SENT 
+Although_IN the_DT data_NNS error_NN term_NN Ek_NP is_VBZ usually_RB unavailable_JJ ,_, m̂k|k−1_NN can_MD be_VB utilized_VVN to_TO estimate_VV the_DT data_NNS error_NN variance_NN as_IN σ̂2(fj)=B(fj_NP ,_, m̂k|k−1)Tr[R̂(fj)]/Ne_NP approximately_RB ._SENT 
+The_DT initial_JJ set_NN of_IN particles_NNS are_VBP drawn_VVN from_IN the_DT prior_JJ density_NN p0(m_NN )_) with_IN identical_JJ weights_NNS ,_, which_WDT can_MD be_VB chosen_VVN to_TO be_VB a_DT Gaussian_JJ density_NN 𝒩(m̂0_NN ,_, Ĉ0_NP )_) ._SENT 
+The_DT m̂0_NN can_MD be_VB set_VVN as_IN the_DT estimate_NN value_NN at_IN frame_NN k_NN =_SYM 0_CD ,_, for_IN example_NN the_DT inversion_NN result_NN obtained_VVN by_IN performing_VVG the_DT global_JJ optimization_NN ._SENT 
+The_DT CM_NN is_VBZ initialized_VVN as_IN Ĉ0=diag([(bu−bl)/2]2_NP )_) ,_, where_WRB bu_NP and_CC bl_NP are_VBP the_DT upper_JJ and_CC lower_JJR bounds_NNS of_IN the_DT parameter_NN search_NN scope_NN ._SENT 
+Although_IN the_DT initialization_NN is_VBZ based_VVN on_IN the_DT limited_JJ prior_JJ information_NN ,_, the_DT adaptive_JJ approach_NN can_MD ensure_VV the_DT fast_JJ convergence_NN of_IN the_DT sequential_JJ filter_NN ._SENT 
+The_DT pseudo_JJ code_NN for_IN sequential_JJ inversion_NN using_VVG adaptive_JJ PF_NP is_VBZ summarized_VVN in_IN Table_NN I._NN The_DT PPD_NN is_VBZ updated_VVN recursively_RB as_IN the_DT new_JJ measurement_NN is_VBZ available_JJ ,_, and_CC the_DT parameter_NN values_NNS and_CC associated_VVN uncertainties_NNS can_MD be_VB estimated_VVN as_IN m̂MAPk_NP and_CC Ĉk_NP sequentially_RB ._SENT 
+In_IN the_DT process_NN ,_, the_DT computation_NN complexity_NN mainly_RB lies_VVZ in_IN the_DT calculation_NN of_IN the_DT acoustic_JJ models_NNS corresponding_JJ to_TO the_DT particles_NNS ._SENT 
+Due_JJ to_TO the_DT combination_NN of_IN a_DT large_JJ state_NN space_NN and_CC inadequate_JJ number_NN of_IN particles_NNS ,_, a_DT sample_NN impoverishment_NN problem_NN may_MD occur_VV in_IN the_DT first_JJ several_JJ iterations.29_NN Then_RB a_DT protective_JJ threshold_NN of_IN parameter_NN variance_NN is_VBZ utilized_VVN to_TO ensure_VV the_DT high_JJ quality_NN of_IN the_DT sampling_VVG particles_NNS in_IN the_DT first_JJ several_JJ iterations_NNS ._SENT 
+In_IN each_DT recursive_JJ cycle_NN ,_, a_DT number_NN of_IN particles_NNS are_VBP proposed_VVN with_IN high_JJ quality_NN ,_, hence_RB giving_VVG a_DT precise_JJ evaluation_NN of_IN the_DT parameter_NN PPDs_NNS ._SENT 
+Besides_RB ,_, the_DT adaptive_JJ PF_NP method_NN has_VHZ an_DT advantage_NN in_IN the_DT dynamic_JJ or_CC even_RB rapidly_RB varying_VVG environment_NN ._SENT 
+TABLE_NN I._NP <Section> IV_NP ._SENT 
+SIMULATION_NN RESULTS_NNS </Section> This_DT section_NN examines_VVZ the_DT adaptive_JJ PF_NP method_NN using_VVG a_DT sequential_JJ inversion_NN example_NN in_IN a_DT dynamical_JJ range-dependent_JJ environment_NN ._SENT 
+The_DT purpose_NN of_IN the_DT simulation_NN is_VBZ to_TO demonstrate_VV how_WRB the_DT adaptive_JJ PF_NP tracks_VVZ the_DT parameter_NN and_CC evaluates_VVZ the_DT evolution_NN of_IN PPD_NP ._SENT 
+The_DT acoustic_JJ model_NN containing_VVG 17_CD parameters_NNS of_IN source_NN ,_, array_NN ,_, water_NN ,_, sediment_NN ,_, and_CC basement_NN in_IN Fig_NN ._SENT 
+1_CD is_VBZ adopted_VVN here_RB to_TO generate_VV the_DT synthetic_JJ self-noise_NN data_NNS ._SENT 
+Some_DT parameters_NNS are_VBP assumed_VVN to_TO be_VB time-varying_VVG as_IN the_DT tow-ship_NN moves_NNS ._SENT 
+The_DT SSPs_NNS collected_VVN by_IN several_JJ CTD_JJ measurements_NNS in_IN a_DT shallow_JJ water_NN experiment_NN is_VBZ directly_RB utilized_VVN in_IN the_DT simulation_NN ,_, shown_VVN in_IN Fig_NN ._SENT 
+3(a_NP )_) ._SENT 
+And_CC the_DT EOF_JJ analysis_NN is_VBZ carried_VVN out_RP to_TO depict_VV the_DT SSP_NP ._SENT 
+The_DT first_JJ three_CD EOFs_NNS are_VBP shown_VVN in_IN Fig_NN ._SENT 
+3(b_NP )_) ._SENT 
+figure_NN In_IN the_DT simulation_NN scene_NN ,_, the_DT tow-ship_NN noise_NN source_NN is_VBZ assumed_VVN to_TO be_VB near_IN the_DT water_NN surface_NN with_IN a_DT depth_NN of_IN z0_NP =_SYM 6.0_CD m._NN In_IN addition_NN ,_, an_DT HTA_NN of_IN 48_CD equi-spaced_JJ hydrophones_NNS with_IN an_DT element_NN spacing_NN of_IN 4.8_CD m_NN is_VBZ towed_VVN about_IN r0_NP =_SYM 1250_CD m_NN behind_IN the_DT tow-ship_NN ._SENT 
+The_DT array_NN depth_NN varies_VVZ between_IN 50_CD and_CC 60_CD m_NN during_IN the_DT towing_VVG process_NN ._SENT 
+The_DT true_JJ values_NNS of_IN other_JJ parameters_NNS and_CC their_PP$ evolutions_NNS are_VBP described_VVN in_IN the_DT following_VVG subsections_NNS ._SENT 
+A._NP Sensitivity_NN analysis_NN The_DT sensitivity_NN analysis_NN is_VBZ first_RB carried_VVN out_RP at_IN frame_NN k_NN =_SYM 1_CD ,_, and_CC it_PP has_VHZ a_DT common_JJ guidance_NN for_IN all_PDT the_DT measurements_NNS ._SENT 
+The_DT baseline_NN values_VVZ for_IN the_DT parameters_NNS are_VBP shown_VVN as_IN vertical_JJ dashed_VVN lines_NNS in_IN Fig_NN ._SENT 
+4._CD The_DT purpose_NN is_VBZ to_TO illustrate_VV the_DT reliability_NN of_IN self-noise_NN inversion_NN and_CC to_TO assess_VV how_WRB each_DT parameter_NN affects_VVZ the_DT received_VVN acoustic_JJ field_NN data_NNS ._SENT 
+Then_RB ,_, the_DT insensitive_JJ parameters_NNS can_MD be_VB removed_VVN from_IN the_DT parameter_NN set_VVN of_IN the_DT sequential_JJ inversion_NN ._SENT 
+The_DT sensitivity_NN analysis_NN is_VBZ performed_VVN by_IN sweeping_VVG one_CD parameter_NN while_IN fixing_VVG the_DT other_JJ parameters_NNS to_TO their_PP$ true_JJ values_NNS to_TO examine_VV the_DT variation_NN of_IN Bartlett_NP Matched-Field-Processing_NP (_( MFP_NP )_) output_NN versus_IN each_DT parameter_NN ._SENT 
+figure_VV The_DT sensitivity_NN curves_VVZ of_IN all_PDT the_DT parameters_NNS are_VBP shown_VVN in_IN Fig_NN ._SENT 
+4_CD at_IN frequencies_NNS of_IN 100_CD ,_, 200_CD ,_, and_CC 400_CD Hz_NP ,_, respectively_RB ._SENT 
+The_DT results_NNS for_IN the_DT given_VVN model_NN show_VVP that_IN the_DT received_VVN acoustic_JJ field_NN has_VHZ little_JJ sensitivity_NN to_TO EOF_JJ coefficients_NNS ,_, indicating_VVG that_IN the_DT little_JJ variation_NN of_IN SSP_NP does_VVZ not_RB make_VV a_DT significant_JJ change_NN to_TO the_DT received_VVN acoustic_JJ field_NN at_IN such_PDT a_DT short_JJ range_NN ._SENT 
+Then_RB the_DT mean_JJ SSP_NP can_MD be_VB used_VVN in_IN the_DT inversion_NN in_IN practice_NN ._SENT 
+The_DT sensitivity_NN curve_NN of_IN the_DT source_NN depth_NN (_( z0_NP )_) is_VBZ rather_RB flat_JJ near_IN the_DT water_NN surface_NN ._SENT 
+Hence_RB it_PP can_MD be_VB taken_VVN as_IN a_DT known_VVN parameter_NN according_VVG to_TO the_DT prior_JJ information_NN ,_, and_CC it_PP does_VVZ not_RB influence_VV the_DT inversion_NN of_IN other_JJ parameters_NNS ._SENT 
+The_DT results_NNS show_VVP that_IN ,_, for_IN the_DT given_VVN model_NN ,_, the_DT received_VVN acoustic_JJ field_NN has_VHZ little_JJ sensitivity_NN to_TO the_DT density_NN and_CC attenuation_NN (_( ρ2_NP ,_, α2_NP )_) of_IN the_DT basement_NN layer_NN ._SENT 
+Furthermore_RB ,_, it_PP is_VBZ insensitive_JJ to_TO the_DT density_NN and_CC attenuation_NN (_( ρ1_JJ ,_, α1_JJ )_) of_IN sediment_NN layer_NN while_IN sensitive_JJ to_TO the_DT sound_JJ speeds_NNS (_( cp1T_NP ,_, cp1B_NP )_) ._SENT 
+For_IN the_DT simulation_NN case_NN ,_, the_DT sensitivities_NNS of_IN cp1T_NP and_CC cp1B_NP seem_VVP to_TO be_VB better_JJR at_IN 200_CD Hz_NP than_IN at_IN 100_CD and_CC 400_CD Hz_NP ._SENT 
+The_DT sensitivity_NN curve_NN of_IN sediment_NN thickness_NN (_( H_NP )_) seems_VVZ to_TO become_VV flat_RB when_WRB the_DT frequency_NN increases_VVZ over_IN a_DT certain_JJ value_NN ,_, and_CC so_RB is_VBZ the_DT basement_NN sound_NN speed_NN (_( cp2_NP )_) ._SENT 
+When_WRB the_DT frequency_NN is_VBZ high_JJ enough_RB ,_, the_DT result_NN of_IN increasing_VVG attention_NN is_VBZ that_IN the_DT self-noise_NN cannot_MD penetrate_VV the_DT sediment_NN layer_NN to_TO reach_VV the_DT interface_NN between_IN the_DT sediment_NN and_CC basement_NN layer_NN ._SENT 
+Thus_RB ,_, H_NP and_CC cp2_NP will_MD become_VV insensitive_JJ at_IN high_JJ frequency_NN ._SENT 
+Note_NN that_IN the_DT sensitivity_NN of_IN array_NN shape_NN parameters_NNS (_( za_NP ,_, Ba_NP ,_, ϕa_NP )_) at_IN relative_JJ high_JJ frequency_NN is_VBZ greater_JJR than_IN that_IN at_IN low_JJ frequency_NN ._SENT 
+Thus_RB ,_, a_DT two-step_JJ inversion_NN strategy_NN can_MD be_VB applied_VVN in_IN practice_NN ,_, which_WDT means_VVZ that_IN the_DT array_NN shape_NN parameters_NNS can_MD be_VB estimated_VVN at_IN relatively_RB high_JJ frequency_NN ,_, then_RB the_DT low_JJ frequency_NN component_NN is_VBZ focused_VVN on_IN the_DT inversion_NN of_IN geoacoustic_JJ parameters_NNS ._SENT 
+Particularly_RB ,_, the_DT low_JJ frequency_NN component_NN of_IN the_DT received_VVN self-noise_NN is_VBZ chosen_VVN to_TO estimate_VV and_CC track_VV the_DT geometric_JJ parameters_NNS (_( including_VVG the_DT source_NN parameters_NNS (_( r0_NP )_) ,_, water_NN depth_NN (_( D_NP )_) ,_, and_CC (_( za_NP ,_, Ba_NP ,_, ϕa_NP )_) ,_, the_DT sediment_NN parameters_NNS (_( H_NP ,_, cp1T_NP ,_, cp1B_NP ,_, ρ1_JJ ,_, α1_JJ )_) ,_, and_CC the_DT sound_JJ speed_NN of_IN basement_NN (_( cp2_NP )_) in_IN this_DT paper_NN ._SENT 
+At_IN low_JJ frequency_NN ,_, the_DT array_NN shape_NN parameters_NNS still_RB have_VHP a_DT good_JJ sensitivity_NN for_IN the_DT inversion_NN ._SENT 
+In_IN the_DT following_VVG simulations_NNS ,_, the_DT insensitive_JJ parameters_NNS are_VBP not_RB inverted_VVN ._SENT 
+B._NP Sequential_JJ inversion_NN example_NN The_DT evolution_NN of_IN the_DT time-varying_VVG parameters_NNS in_IN the_DT simulation_NN are_VBP given_VVN as_IN dashed_VVN lines_NNS in_IN Fig_NN ._SENT 
+5._CD The_DT water_NN depth_NN varies_VVZ as_IN a_DT quasi-parabolic_JJ shape_NN ._SENT 
+The_DT sound_JJ speeds_NNS of_IN the_DT sediment_NN and_CC basement_NN vary_VVP linearly_RB ._SENT 
+The_DT sediment_NN thickness_NN H_NN jumps_VVZ from_IN 20_CD to_TO 32_CD m_NN at_IN frame_NN k_NN =_SYM 15_CD ,_, and_CC the_DT sediment_NN attenuation_NN α1_JJ jumps_NNS from_IN 0.45_CD to_TO 0.25_CD dB/λ_NN at_IN the_DT same_JJ time_NN ._SENT 
+According_VVG to_TO the_DT sensitivity_NN analysis_NN ,_, H_NP is_VBZ a_DT high_JJ sensitive_JJ parameter_NN ,_, while_IN α1_NN is_VBZ moderate_JJ sensitive_JJ ._SENT 
+The_DT array_NN depth_NN decreases_NNS at_IN frame_NN k_NN =_SYM 50_CD due_JJ to_TO the_DT speeding_VVG up_RP of_IN the_DT tow-ship_NN ,_, and_CC the_DT array_NN bow_NN and_CC tilt_NN change_NN at_IN the_DT same_JJ time_NN ._SENT 
+The_DT purpose_NN is_VBZ to_TO verify_VV the_DT parameter_NN tracking_VVG in_IN the_DT time-varying_VVG environments_NNS ._SENT 
+In_IN the_DT inversion_NN ,_, the_DT parameters_NNS are_VBP assumed_VVN to_TO be_VB range-independent_JJ at_IN a_DT certain_JJ frame_NN due_JJ to_TO the_DT fact_NN of_IN near-field_NP acoustic_JJ propagation_NN ._SENT 
+figure_VV The_DT synthetic_JJ data_NN is_VBZ generated_VVN from_IN the_DT SCOOTER_NN program_NN at_IN frequencies_NNS of_IN 91.9_CD ,_, 110.4_CD ,_, and_CC 128.7_CD Hz_NP ._SENT 
+The_DT normalized_VVN data_NN error_NN variances_NNS are_VBP initialized_VVN as_IN 0.2_CD ,_, 0.1_CD ,_, and_CC 0.2_CD ,_, respectively_RB ._SENT 
+And_CC they_PP jump_VVP into_IN 0.3_CD ,_, 0.3_CD ,_, and_CC 0.4_CD at_IN the_DT frame_NN k_NN =_SYM 30_CD ,_, respectively_RB ._SENT 
+This_DT is_VBZ to_TO simulate_VV the_DT strength_NN changes_NNS of_IN the_DT processing_NN frequencies_NNS ._SENT 
+The_DT results_NNS of_IN the_DT adaptive_JJ PF_NP method_NN and_CC the_DT GA_NP method_NN are_VBP compared_VVN in_IN Fig_NN ._SENT 
+5_CD ,_, where_WRB APF–MAP_NN denotes_VVZ the_DT MAP_NN estimates_NNS obtained_VVN by_IN adaptive_JJ particle_NN filter_NN (_( APF_NP )_) inversion_NN ,_, and_CC the_DT evolution_NN of_IN the_DT one-dimensional_JJ (_( 1D_JJ )_) marginal_JJ PPDs_NNS are_VBP also_RB obtained_VVN from_IN APF_NP inversion_NN ._SENT 
+For_IN the_DT GA_NP runs_VVZ ,_, the_DT population_NN size_NN is_VBZ set_VVN as_IN 300_CD and_CC the_DT number_NN of_IN iterations_NNS as_IN 200._CD The_DT PPDs_NNS are_VBP given_VVN in_IN terms_NNS of_IN the_DT normalized_VVN histograms_NNS of_IN particles_NNS ,_, and_CC a_DT large_JJ number_NN of_IN particles_NNS can_MD ensure_VV the_DT accuracy_NN of_IN PDFs_NNS ._SENT 
+Thus_RB ,_, 10_CD 000_CD particles_NNS are_VBP used_VVN in_IN the_DT adaptive_JJ PF_NP inversion_NN ._SENT 
+For_IN the_DT adaptive_JJ PF_NP inversion_NN ,_, the_DT initial_JJ value_NN is_VBZ obtained_VVN from_IN the_DT GA_NP result_NN at_IN frame_NN k_NN =_SYM 1._CD In_IN addition_NN ,_, the_DT initial_JJ Ĉ0_NN is_VBZ derived_VVN from_IN the_DT lower_JJR and_CC upper_JJ bounds_NNS ,_, which_WDT are_VBP determined_VVN by_IN the_DT minimum_JJ and_CC maximum_JJ value_NN of_IN the_DT y-axis_NN shown_VVN in_IN Fig_NN ._SENT 
+5_CD for_IN each_DT parameter_NN ,_, respectively_RB ._SENT 
+In_IN this_DT simulation_NN and_CC the_DT following_VVG processing_NN ,_, Ne_NP is_VBZ chosen_VVN as_IN 5_CD by_IN the_DT principal_JJ component_NN analysis_NN of_IN the_DT data_NNS CSDM_NN ._SENT 
+In_IN practice_NN ,_, other_JJ values_NNS are_VBP also_RB examined_VVN ,_, and_CC a_DT small_JJ variation_NN of_IN Ne_NP does_VVZ not_RB significantly_RB affect_VV the_DT results.36_NN The_DT results_NNS in_IN Fig_NN ._SENT 
+5_LS show_VVP that_IN ,_, for_IN the_DT sensitive_JJ parameters_NNS (_( e._NP g._NP ,_, D_NP ,_, H_NP ,_, cp1T_NP ,_, cp1B_NP ,_, cp2_NP ,_, za_NP ,_, Ba_NP ,_, ϕa_NP )_) ,_, the_DT 1D_JJ marginal_JJ PPDs_NNS ,_, GA_NP results_NNS ,_, and_CC APF–MAP_NN results_NNS follow_VVP the_DT true_JJ parameter_NN trajectories_NNS ,_, and_CC each_DT of_IN them_PP owns_VVZ a_DT sharp_JJ PPD_NN with_IN a_DT high_JJ probability_NN at_IN the_DT true_JJ value_NN ._SENT 
+The_DT parameters_NNS r0_NN and_CC ρ1_JJ have_VHP a_DT rather_RB flat_JJ 1D_JJ marginal_JJ PPD_NN ,_, which_WDT indicates_VVZ that_IN those_DT parameters_NNS have_VHP relatively_RB large_JJ uncertainties_NNS within_IN the_DT inversion_NN ranges_NNS ,_, shown_VVN in_IN Fig_NN ._SENT 
+5._CD The_NP uncertainties_NNS of_IN parameters_NNS are_VBP characterized_VVN by_IN the_DT evolving_VVG variances_NNS ._SENT 
+Although_IN the_DT variance_NN of_IN each_DT parameter_NN is_VBZ initialized_VVN as_IN a_DT large_JJ value_NN to_TO cover_VV the_DT prior_JJ ranges_NNS ,_, it_PP finally_RB converges_VVZ fast_RB to_TO a_DT certain_JJ value_NN and_CC evolves_VVZ with_IN measurements_NNS ._SENT 
+In_IN this_DT simulation_NN ,_, it_PP only_RB takes_VVZ about_RB five_CD iterations_NNS to_TO converge_VV ._SENT 
+As_IN GA_NP inversion_NN does_VVZ not_RB take_VV advantage_NN of_IN successive_JJ measurements_NNS ,_, the_DT GA_NP result_NN has_VHZ a_DT larger_JJR variation_NN than_IN the_DT adaptive_JJ PF_NP ._SENT 
+For_IN the_DT simulation_NN case_NN ,_, the_DT GA_NP requires_VVZ 60_CD 000_CD forward_JJ model_NN runs_VVZ for_IN one_CD measurement_NN ._SENT 
+The_DT results_NNS show_VVP that_IN the_DT adaptive_JJ PF_NP inversion_NN result_NN is_VBZ better_JJR than_IN that_IN of_IN successively_RB running_VVG GA_NP ,_, while_IN the_DT former_JJ uses_NNS relatively_RB less_RBR forward_JJ model_NN runs_VVZ in_IN the_DT example_NN ._SENT 
+A_DT relevant_JJ physical_JJ insight_NN into_IN this_DT problem_NN is_VBZ that_IN the_DT adaptive_JJ PF_NP method_NN estimates_VVZ the_DT parameters_NNS sequentially_RB ,_, so_IN the_DT previous_JJ results_NNS are_VBP used_VVN for_IN the_DT current_JJ estimate_NN ,_, meaning_VVG a_DT lot_NN of_IN prior_JJ information_NN is_VBZ utilized_VVN effectively_RB ._SENT 
+This_DT will_MD result_VV in_IN the_DT computation_NN saving_VVG of_IN some_DT unnecessary_JJ forward_JJ model_NN runs_VVZ ._SENT 
+While_IN the_DT global_JJ optimization_NN class_NN algorithm_NN (_( such_JJ as_IN GA_NP )_) performs_VVZ the_DT inversions_NNS for_IN each_DT measurement_NN independently_RB ._SENT 
+Thus_RB ,_, the_DT inversion_NN for_IN each_DT measurement_NN starts_VVZ from_IN the_DT initial_JJ global_JJ optimization_NN ,_, resulting_VVG in_IN more_RBR forward_JJ model_NN runs.21_NN The_DT results_NNS in_IN Fig_NN ._SENT 
+5_CD also_RB show_VVP that_IN ,_, due_JJ to_TO the_DT increase_NN of_IN the_DT normalized_VVN data_NN error_NN variances_NNS (_( equivalent_JJ to_TO the_DT reduction_NN of_IN ESNR_NP )_) at_IN frame_NN k_NN =_SYM 30_CD ,_, the_DT PPDs_NNS seem_VVP to_TO become_VV flatter_NN ._SENT 
+Therefore_RB ,_, the_DT ESNR_NP is_VBZ a_DT practical_JJ criterion_NN for_IN the_DT selection_NN of_IN frequency_NN ._SENT 
+The_DT 1D_JJ marginal_JJ PPDs_NNS and_CC two-dimensional_JJ (_( 2D)-joint_JJ marginal_JJ PPDs_NNS of_IN the_DT model_NN parameters_NNS at_IN frame_NN k_NN =_SYM 50_CD are_VBP illustrated_VVN in_IN Fig_NN ._SENT 
+6._CD The_DT 1D_JJ marginal_JJ PPDs_NNS are_VBP the_DT vertical_JJ slices_NNS at_IN frame_NN k_NN =_SYM 50_CD in_IN Fig_NN ._SENT 
+5._CD The_DT APF–MAP_NN estimates_NNS (_( shown_VVN as_IN the_DT dashed_VVN lines_NNS with_IN ○_NN )_) are_VBP near_IN the_DT true_JJ values_NNS (_( shown_VVN as_IN the_DT dashed_VVN lines_NNS with_IN ×_NN )_) ._SENT 
+The_DT 2D-joint_NN PPDs_NNS are_VBP given_VVN as_IN the_DT 2D_NN normalized_VVD histograms_NNS of_IN 10_CD 000_CD particles_NNS in_IN the_DT adaptive_JJ PF_NP inversion_NN ._SENT 
+The_DT results_NNS indicate_VVP a_DT high_JJ degree_NN of_IN ambiguity_NN between_IN the_DT insensitive_JJ parameters_NNS ,_, such_JJ as_IN r0_NN ,_, and_CC ρ1_JJ ._SENT 
+Note_NN that_IN some_DT insensitive_JJ parameters_NNS are_VBP not_RB illustrated_VVN here_RB ._SENT 
+The_DT 2D-joint_NN PPDs_VVZ also_RB provide_VV information_NN about_IN the_DT interparameter_NN correlations_NNS ._SENT 
+The_DT results_NNS show_VVP a_DT strong_JJ positive_JJ correlation_NN between_IN r0_NP and_CC D_NP ,_, as_RB well_RB as_IN a_DT strong_JJ negative_JJ correlation_NN between_IN D_NP and_CC H._NP The_DT sediment_NN thickness_NN H_NN is_VBZ positively_RB correlated_VVN with_IN cp1B_NP ,_, cp2_NP ,_, and_CC za_NP ._SENT 
+And_CC ,_, negative_JJ correlations_NNS exist_VVP between_IN the_DT parameter_NN pairs_NNS of_IN (_( r0_NP ,_, cp2_NP )_) ,_, (_( cp1T_NP ,_, cp1B_NP )_) ,_, (_( cp1T_NP ,_, ρ1_JJ )_) ,_, (_( cp1T_NP ,_, α1_JJ )_) ,_, (_( za_NP ,_, Ba_NP )_) ,_, (_( za_NP ,_, ϕa_NP )_) ,_, etc._FW These_DT correlations_NNS are_VBP basically_RB consistent_JJ with_IN previous_JJ studies_NNS in_IN other_JJ inversions_NNS ,_, and_CC some_DT of_IN them_PP been_VBN discussed_VVN elsewhere.36,39_JJ A_DT simple_JJ physical_JJ explanation_NN for_IN the_DT correlations_NNS is_VBZ that_IN ,_, in_IN terms_NNS of_IN matching_VVG the_DT acoustic_JJ field_NN ,_, the_DT increase_NN or_CC decrease_NN of_IN a_DT certain_JJ parameter_NN can_MD be_VB compensated_VVN for_IN by_IN making_VVG an_DT adjustment_NN on_IN other_JJ parameters_NNS ._SENT 
+The_DT interparameter_NN correlations_NNS may_MD increase_VV parameter_NN uncertainties.4,13_NN In_IN the_DT adaptive_JJ PF_NP inversion_NN ,_, the_DT interparameter_NN correlations_NNS are_VBP utilized_VVN to_TO sample_NN the_DT particles_NNS ._SENT 
+Hence_RB ,_, more_JJR sampling_NN particles_NNS cover_VVP the_DT high-likelihood_NN area_NN of_IN parameters_NNS ,_, giving_VVG an_DT accurate_JJ characterization_NN of_IN PPD_NP ._SENT 
+figure_VV The_DT tracking_VVG results_NNS of_IN adaptive_JJ PF_NP (_( APF_NP )_) and_CC standard_JJ PF_NP for_IN the_DT rapidly_RB varying_VVG parameters_NNS are_VBP compared_VVN in_IN Fig_NN ._SENT 
+7._CD Two_CD cases_NNS of_IN 10_CD 000_CD particles_NNS and_CC 2000_CD particles_NNS as_RB well_RB as_IN two_CD parameters_NNS are_VBP considered_VVN here_RB ._SENT 
+APFs_NNS using_VVG 2000_CD and_CC 10_CD 000_CD particles_NNS are_VBP designated_VVN by_IN APF-2000_NP and_CC APF-10_NP 000_CD ,_, while_IN PFs_NNS using_VVG 2000_CD and_CC 10_CD 000_CD particles_NNS are_VBP designated_VVN by_IN PF-2000_NP and_CC PF-10_NP 000_CD ,_, respectively_RB ._SENT 
+For_IN the_DT high_JJ sensitive_JJ parameter_NN ,_, i._NP e._NP ,_, sediment_NN thickness_NN H_NN ,_, both_CC of_IN the_DT APF-10_JJ 000_CD and_CC APF-2000_NP are_VBP able_JJ to_TO track_VV the_DT rapid_JJ change_NN of_IN H_NP well_RB ,_, while_IN the_DT PF-2000_NN fails_VVZ to_TO track_VV H._NP Although_IN increasing_VVG the_DT number_NN of_IN particles_NNS can_MD improve_VV the_DT performance_NN of_IN PF_NP ,_, the_DT PF-10_JJ 000_CD is_VBZ still_RB worse_JJR than_IN the_DT APF-10_JJ 000_CD and_CC APF-2000_NP [_SYM see_VV Fig_NN ._SENT 
+7(a_NP )_) ]_SYM ._SENT 
+It_PP is_VBZ interesting_JJ to_TO note_VV that_IN ,_, although_IN the_DT PF_NP cannot_MD track_VV the_DT parameter_NN immediately_RB as_IN the_DT parameter_NN suddenly_RB jumps_VVZ ,_, it_PP will_MD finally_RB track_VV it_PP as_IN time_NN goes_VVZ on_IN ._SENT 
+This_DT depends_VVZ the_DT number_NN of_IN the_DT particles_NNS ._SENT 
+For_IN the_DT moderate_JJ sensitive_JJ parameter_NN ,_, i._NP e._NP ,_, sediment_NN attention_NN α1_NN ,_, the_DT APF-10_JJ 000_CD can_MD track_VV the_DT parameter_NN well_RB ,_, while_IN all_DT of_IN the_DT APF-2000_NN ,_, PF-10_NP 000_CD ,_, and_CC PF-2000_NP fail_VVP to_TO track_VV it_PP ._SENT 
+Compared_VVN with_IN the_DT tracking_VVG result_NN of_IN H_NP ,_, the_DT result_NN of_IN α1_JJ has_VHZ a_DT larger_JJR variation_NN due_JJ to_TO the_DT relatively_RB low_JJ sensitivity_NN ._SENT 
+More_RBR repeated_JJ experiments_NNS have_VHP verified_VVN the_DT superiority_NN of_IN adaptive_JJ PF_NP for_IN the_DT inversion_NN of_IN rapidly_RB varying_VVG parameter_NN ._SENT 
+In_IN practice_NN ,_, the_DT particle_NN number_NN is_VBZ scenario_NN dependent_JJ ,_, and_CC usually_RB empirical_JJ values_NNS are_VBP chosen_VVN under_IN the_DT compromise_NN between_IN performance_NN and_CC computation.21_JJ More_JJR particles_NNS can_MD lead_VV to_TO a_DT more_RBR accurate_JJ result_NN and_CC can_MD make_VV the_DT adaptive_JJ PF_NP work_NN better_RBR in_IN the_DT rapidly_RB varying_VVG environment_NN ,_, while_IN bringing_VVG an_DT expensive_JJ computation_NN ._SENT 
+figure_VV <Section> V._NP SEA_NN TRIAL_NP DATA_NNS PROCESSING_VVG </Section> A._NP Data_NP processing_NN In_IN this_DT section_NN ,_, the_DT sequential_JJ inversion_NN method_NN is_VBZ verified_VVN by_IN the_DT trial_NN data_NNS processing_VVG in_IN a_DT shallow_JJ water_NN experiment_NN ._SENT 
+The_DT experiment_NN was_VBD conducted_VVN in_IN July_NP 2015_CD in_IN the_DT northern_JJ area_NN of_IN the_DT South_NP China_NP Sea_NP off_IN the_DT coast_NN of_IN Sanya_NP ,_, Hainan_NP province_NN ._SENT 
+A_DT towed-array_NN of_IN 48_CD equi-spaced_JJ hydrophones_NNS with_IN an_DT element_NN spacing_NN of_IN 4.8_CD m_NN was_VBD towed_VVN about_IN 1305_CD m_NN behind_IN the_DT tow-ship_NN ,_, which_WDT is_VBZ the_DT same_JJ as_IN the_DT configuration_NN of_IN HTA_NP in_IN the_DT sequential_JJ inversion_NN example_NN described_VVN in_IN Sec_NN ._SENT 
+IV_NP ._SENT 
+The_DT depth_NN of_IN tow-ship_NN noise_NN source_NN was_VBD about_RB 6_CD m_NN ,_, and_CC it_PP is_VBZ treated_VVN as_IN a_DT known_VVN parameter_NN for_IN the_DT inversion_NN here_RB ._SENT 
+The_DT SSP_NP in_IN the_DT water_NN column_NN was_VBD measured_VVN by_IN CTD_JJ measurements_NNS in_IN the_DT sea_NN trial_NN area_NN ,_, shown_VVN in_IN Fig_NN ._SENT 
+3(a_NP )_) ._SENT 
+The_DT acoustic_JJ data_NNS that_WDT collected_VVD during_IN the_DT steady_JJ movement_NN of_IN the_DT tow-ship_NN was_VBD chosen_VVN for_IN the_DT self-noise_NP inversion_NN ._SENT 
+During_IN this_DT period_NN ,_, the_DT tow-ship_NN moved_VVD as_IN a_DT straight_JJ line_NN with_IN a_DT stationary_JJ speed_NN of_IN about_RB 6–7_JJ knots_NNS ._SENT 
+In_IN addition_NN ,_, the_DT array_NN depth_NN varies_VVZ between_IN 50_CD and_CC 60_CD m._NN The_DT seabed_NN is_VBZ flat_JJ with_IN a_DT water_NN depth_NN varying_VVG between_IN 110_CD and_CC 115_CD m_NN in_IN the_DT sea_NN trial_NN area_NN associated_VVN with_IN the_DT choosing_VVG data_NNS set_VVD ._SENT 
+The_DT acoustic_JJ data_NNS and_CC the_DT SSPs_NNS are_VBP the_DT only_JJ available_JJ data_NNS sets_VVZ here_RB without_IN other_JJ information_NN about_IN the_DT seabed_NN of_IN this_DT area_NN ._SENT 
+Thus_RB ,_, we_PP focus_VVP on_IN the_DT data_NN processing_NN using_VVG the_DT adaptive_JJ PF_NP method_NN ._SENT 
+Futhermore_NP ,_, the_DT GA_NP runs_NNS are_VBP also_RB carried_VVN out_RP to_TO be_VB compared_VVN with_IN the_DT adaptive_JJ PF_NP method_NN ._SENT 
+Some_DT discussions_NNS are_VBP presented_VVN here_RB to_TO analyze_VV the_DT reliability_NN of_IN the_DT inversion_NN results_NNS ._SENT 
+Because_IN the_DT parameters_NNS of_IN sediment_NN and_CC basement_NN are_VBP unknown_JJ ,_, they_PP are_VBP inverted_VVN in_IN a_DT large_JJ parameter_NN scope_NN ,_, shown_VVN in_IN Table_NN II_NP ._SENT 
+Array_NN parameters_NNS are_VBP also_RB unknown_JJ because_IN of_IN the_DT absence_NN of_IN pressure_NN sensors_NNS in_IN the_DT experiment_NN ._SENT 
+Note_NN that_IN the_DT sudden_JJ jumps_NNS did_VVD not_RB appear_VV throughout_IN the_DT processing_NN due_JJ to_TO the_DT relatively_RB flat_JJ seabed_NN ._SENT 
+Thus_RB ,_, the_DT coefficient_NN β_NN is_VBZ almost_RB equal_JJ to_TO 1._CD The_DT collected_VVN data_NNS is_VBZ split_VVN into_IN 105_CD frames_NNS ,_, each_DT of_IN which_WDT has_VHZ a_DT duration_NN of_IN 20_CD s_NNS ,_, and_CC the_DT total_JJ processing_NN time_NN is_VBZ 35_CD min_NN ._SENT 
+For_IN each_DT frame_NN ,_, 12_CD half-overlapping_JJ data_NNS snapshots_NNS of_IN length_NN 3.07_CD s_NNS are_VBP averaged_VVN to_TO estimate_VV the_DT CSDM_NN with_IN a_DT frequency_NN bin_NN width_NN of_IN 0.33_CD Hz_NP ._SENT 
+To_TO illustrate_VV the_DT characteristic_NN of_IN the_DT collected_VVN self-noise_NN data_NNS ,_, the_DT range-frequency_NN spectrogram_NN for_IN the_DT broadband_NN component_NN of_IN self-noise_NN at_IN frame_NN k_NN =_SYM 61_CD is_VBZ given_VVN in_IN Fig_NN ._SENT 
+8_CD ,_, where_WRB the_DT interference_NN pattern_NN demonstrates_VVZ that_IN the_DT collected_VVN self-noise_NN can_MD be_VB described_VVN in_IN wave-guide_NN terms_NNS ._SENT 
+More_JJR analyses_NNS using_VVG the_DT beamforming_JJ technique_NN show_VVP that_IN the_DT energy_NN of_IN the_DT recorded_JJ self-noise_NN is_VBZ mainly_RB distributed_VVN around_IN 0°–25°_NN to_TO the_DT heading_VVG of_IN the_DT array_NN ._SENT 
+TABLE_NN II_NP ._SENT 
+figure_VV The_DT tonal_JJ components_NNS at_IN frequencies_NNS of_IN 91.9_CD ,_, 110.4_CD ,_, and_CC 128.7_CD Hz_NP emitted_VVN by_IN the_DT tow-ship_NN are_VBP selected_VVN for_IN the_DT inversion_NN because_IN they_PP have_VHP high_JJ ESNR_NN ._SENT 
+These_DT tonal_JJ frequencies_NNS remain_VVP constant_JJ throughout_IN the_DT data_NNS ._SENT 
+It_PP is_VBZ worth_JJ noting_VVG that_IN other_JJ frequencies_NNS can_MD also_RB be_VB used_VVN in_IN the_DT inversion_NN ._SENT 
+The_DT parameter_NN bounds_NNS and_CC the_DT inversion_NN results_NNS at_IN frame_NN k_NN =_SYM 61_CD are_VBP shown_VVN in_IN Table_NN II_NP ._SENT 
+The_DT uncertainty_NN of_IN the_DT parameter_NN is_VBZ given_VVN as_IN the_DT standard_JJ deviation_NN (_( s._NP d._NP )_) of_IN the_DT posterior_JJ distribution_NN ._SENT 
+The_DT adaptive_JJ PF_NP results_NNS are_VBP consistent_JJ with_IN that_DT of_IN GA_NP ._SENT 
+The_DT GA_NP inversion_NN uses_VVZ 60_CD 000_CD forward_JJ model_NN runs_VVZ at_IN each_DT frame_NN ._SENT 
+In_IN addition_NN ,_, the_DT number_NN of_IN particles_NNS for_IN the_DT adaptive_JJ PF_NP inversion_NN is_VBZ set_VVN as_IN 20_CD 000_CD to_TO ensure_VV the_DT tracking_VVG performance_NN of_IN the_DT parameters_NNS ._SENT 
+The_DT sequential_JJ inversion_NN results_NNS are_VBP shown_VVN in_IN Fig_NN ._SENT 
+9._CD figure_NN The_DT results_NNS show_VVP that_IN the_DT water_NN depth_NN D_NP ,_, the_DT sediment_NN thickness_NN H_NN ,_, and_CC the_DT array_NN depth_NN za_NNS are_VBP well_RB determined_VVN through_IN the_DT sequential_JJ inversions_NNS ._SENT 
+D_SYM varies_VVZ between_IN 110_CD and_CC 120_CD m_NN ,_, while_IN H_NP varies_VVZ between_IN 40_CD and_CC 50_CD m_NN in_IN the_DT experiment_NN area_NN ._SENT 
+za_NP varies_VVZ between_IN 50_CD and_CC 60_CD m._NN The_DT D_NP and_CC za_NP are_VBP very_RB consistent_JJ with_IN the_DT prior_JJ information_NN ._SENT 
+Although_IN the_DT true_JJ model_NN parameters_NNS are_VBP unknown_JJ ,_, the_DT MAP_NN estimates_NNS and_CC the_DT corresponding_JJ uncertainties_NNS obtained_VVN from_IN the_DT adaptive_JJ PF_NP inversion_NN seem_VVP to_TO be_VB consistent_JJ for_IN consecutive_JJ measurements_NNS throughout_IN a_DT long_JJ processing_NN time_NN ,_, especially_RB for_IN the_DT parameters_NNS of_IN D_NP and_CC H._NP Besides_RB ,_, the_DT APF–MAP_NN estimates_VVZ follow_VV the_DT GA_NP results_NNS ,_, and_CC the_DT former_JJ seem_VVP to_TO be_VB more_RBR stable_JJ and_CC smooth_JJ ._SENT 
+It_PP is_VBZ common_JJ knowledge_NN that_IN GA_NP has_VHZ been_VBN widely_RB and_CC successfully_RB applied_VVN to_TO the_DT geoacoustic_JJ inversion_NN problems_NNS ._SENT 
+The_DT consistency_NN of_IN the_DT inversion_NN results_NNS can_MD demonstrate_VV the_DT reliability_NN of_IN the_DT adaptive_JJ PF_NP inversion_NN in_IN some_DT degree_NN ,_, and_CC this_DT empirical_JJ approach_NN has_VHZ already_RB been_VBN proposed_VVN to_TO determine_VV the_DT reliability_NN of_IN inversion_NN results_NNS in_IN Ref_NN ._SENT 
+32._CD The_DT 1D_JJ marginal_JJ PPDs_NNS and_CC 2D-joint_JJ marginal_JJ PPDs_NNS at_IN frame_NN k_NN =_SYM 61_CD are_VBP illustrated_VVN in_IN Fig_NN ._SENT 
+10._CD The_NP PPDs_NNS of_IN the_DT parameters_NNS shown_VVN in_IN Fig_NN ._SENT 
+10_CD seem_VVP to_TO be_VB better_JJR than_IN the_DT simulation_NN results_NNS in_IN Sec_NN ._SENT 
+IV_NP B_NP (_( see_VV Fig_NN ._SENT 
+6_CD )_) ._SENT 
+This_DT is_VBZ because_IN the_DT corresponding_JJ data_NN error_NN variances_NNS are_VBP smaller_JJR ._SENT 
+At_IN this_DT frame_NN ,_, the_DT normalized_VVN data_NN error_NN variances_NNS at_IN frequencies_NNS of_IN 91.9_CD ,_, 110.4_CD ,_, and_CC 128.7_CD Hz_NP are_VBP estimated_VVN to_TO be_VB 0.38_CD ,_, 0.13_CD ,_, and_CC 0.06_CD ,_, respectively_RB ._SENT 
+The_DT corresponding_JJ ESNRs_NNS are_VBP 2.1_CD ,_, 8.3_CD ,_, and_CC 11.9_CD dB_NN ,_, respectively_RB ._SENT 
+In_IN practice_NN ,_, more_RBR prior_JJ information_NN and_CC smaller_JJR data_NNS error_NN will_MD give_VV more_RBR accurate_JJ inversion_NN results_NNS ._SENT 
+figure_VV The_DT strength_NN of_IN the_DT self-noise_NN recorded_VVN at_IN different_JJ elements_NNS can_MD indicate_VV the_DT relative_JJ transmission_NN loss_NN (_( TL_NP )_) versus_CC receiving_VVG range_NN ._SENT 
+Thus_RB ,_, the_DT power_NN spectral_NN density_NN (_( PSD_NN )_) of_IN the_DT self-noise_NN at_IN the_DT strong_JJ line_NN frequency_NN is_VBZ compared_VVN with_IN the_DT predicted_VVN TL_NP ._SENT 
+The_DT PPD_NN of_IN the_DT predicted_VVN TL_NP is_VBZ obtained_VVN by_IN mapping_VVG the_DT uncertainties_NNS of_IN the_DT parameters_NNS to_TO the_DT TL_NP domain,7_JJ and_CC the_DT 20_CD 000_CD particles_NNS in_IN the_DT adaptive_JJ PF_NP inversions_NNS are_VBP used_VVN ._SENT 
+The_DT frequencies_NNS of_IN 91.9_CD ,_, 110.4_CD ,_, and_CC 128.7_CD Hz_NP are_VBP considered_VVN here_RB ._SENT 
+The_DT results_NNS at_IN frame_NN k_NN =_SYM 61_CD are_VBP shown_VVN in_IN Figs_NNS ._SENT 
+11(a)–11(c_NP )_) ._SENT 
+At_IN this_DT moment_NN ,_, the_DT tilt_NN and_CC bow_VV of_IN the_DT array_NN are_VBP close_JJ to_TO 0_CD (_( see_VV Table_NN II_NP )_) ,_, indicating_VVG that_IN the_DT towed-array_NN is_VBZ in_IN the_DT horizontal_JJ position_NN approximately_RB ._SENT 
+Then_RB ,_, the_DT PSDs_NNS recorded_VVN by_IN the_DT elements_NNS at_IN the_DT same_JJ depth_NN can_MD indicate_VV the_DT relative_JJ TL_NP versus_FW range_NN ._SENT 
+The_DT source_NN depth_NN is_VBZ set_VVN to_TO 6_CD m_NN ,_, and_CC the_DT array_NN depth_NN is_VBZ set_VVN to_TO the_DT estimated_JJ value_NN 57.7_CD m_NN at_IN this_DT frame_NN ._SENT 
+The_DT results_NNS show_VVP that_IN ,_, at_IN each_DT frequency_NN ,_, the_DT variations_NNS of_IN PSD_NN along_IN the_DT array_NN is_VBZ consistent_JJ with_IN the_DT predicted_VVN TL_NP ._SENT 
+This_DT can_MD demonstrate_VV the_DT reliability_NN of_IN predicted_VVN TL_NP using_VVG the_DT inverted_JJ model_NN to_TO some_DT degree_NN ,_, thus_RB demonstrating_VVG the_DT reliability_NN of_IN the_DT inversion_NN results_NNS indirectly_RB ._SENT 
+figure_VV B._NP Discussions_NNS The_DT data_NN error_NN v(fj_NP )_) in_IN Eq_NP ._SENT 
+(_( 2_LS )_) contains_VVZ background_NN noise_NN and_CC acoustic_JJ model_NN error.35_NN Furthermore_RB ,_, the_DT background_NN noise_NN for_IN the_DT towed-array_NN includes_VVZ the_DT ocean_NN ambient_JJ noise_NN and_CC the_DT flow_NN noise_NN ._SENT 
+The_DT model_NN error_NN includes_VVZ a_DT lot_NN of_IN error_NN terms_NNS coming_VVG from_IN various_JJ factors_NNS ._SENT 
+The_DT ocean_NN ambient_JJ noise_NN is_VBZ usually_RB assumed_VVN to_TO be_VB isotropic_JJ with_IN a_DT sinc_NP (_( three-dimesional_NP )_) or_CC a_DT zeroth-order_NP Bessel_NP (_( 2D_NN )_) CM_NN for_IN equally-spaced_JJ line_NN array.40_NN Thus_RB ,_, the_DT data_NN error_NN is_VBZ should_MD be_VB modeled_VVN as_IN the_DT sum_NN of_IN an_DT incoherent_JJ component_NN and_CC a_DT coherent_JJ component_NN with_IN a_DT covariance_NN matrix_NN Σn=Σnc+σ2I_NP ,_, where_WRB Σnc_NP and_CC σ2I_NP denote_VVP the_DT coherent_JJ and_CC incoherent_JJ components_NNS ,_, respectively_RB ._SENT 
+If_IN the_DT statistical_JJ characteristic_NN of_IN data_NN error_NN is_VBZ known_VVN in_IN advance_NN ,_, the_DT prewhitening_VVG technique_NN can_MD be_VB used_VVN to_TO deal_VV with_IN the_DT correlated_VVN noise_NN case.35_NN However_RB ,_, this_DT is_VBZ usually_RB unavailable_JJ in_IN practice_NN ._SENT 
+Then_RB the_DT white_JJ noise_NN model_NN is_VBZ a_DT compromising_VVG and_CC practicable_JJ choice_NN ._SENT 
+Fortunately_RB ,_, the_DT eigenvalue_NN spectrum_NN of_IN the_DT CSDM_NN in_IN our_PP$ experiment_NN is_VBZ much_RB similar_JJ to_TO the_DT one_CD of_IN incoherent_JJ noise_NN ._SENT 
+Thus_RB ,_, it_PP can_MD be_VB inferred_VVN that_IN the_DT data_NN error_NN is_VBZ dominated_VVN by_IN incoherent_JJ noise_NN ._SENT 
+The_DT commonly_RB used_VVN two-layer_NN model_NN is_VBZ an_DT equivalent_JJ model_NN to_TO characterize_VV the_DT average_JJ information_NN of_IN acoustic_JJ propagation_NN ._SENT 
+In_IN some_DT applications_NNS ,_, a_DT multiple-layer_NN model_NN with_IN varying_VVG layer_NN number_NN is_VBZ required_VVN to_TO obtain_VV a_DT more_RBR accurate_JJ characterization_NN ._SENT 
+Recently_RB ,_, the_DT trans-dimensional_JJ Bayesian_JJ methodology_NN was_VBD developed_VVN for_IN the_DT geoacoustic_JJ inversion_NN to_TO address_VV this_DT problem.26,41_JJ This_NP is_VBZ implemented_VVN by_IN using_VVG the_DT reversible-jump_NN MCMC_NN algorithm_NN ._SENT 
+The_DT birth-death_NN methodology_NN that_WDT allows_VVZ transitions_NNS between_IN dimensions_NNS by_IN adding_VVG or_CC removing_VVG interfaces_NNS is_VBZ the_DT essence_NN in_IN the_DT implementation_NN ._SENT 
+However_RB ,_, this_DT requires_VVZ a_DT numerous_JJ computation_NN of_IN forward_JJ models_NNS to_TO reach_VV the_DT balance_NN of_IN Markov_NP chain_NN ._SENT 
+Here_RB ,_, the_DT birth-death_NP methodology_NN can_MD be_VB utilized_VVN in_IN the_DT Predict_VVP step_NN for_IN the_DT adaptive_JJ PF_NP method_NN in_IN Fig_NN ._SENT 
+2(b_NP )_) ._SENT 
+The_DT layer_NN number_NN of_IN each_DT model_NN varies_VVZ by_IN adding_VVG or_CC removing_VVG one_CD interface_NN with_IN a_DT prior_JJ probability_NN at_IN each_DT iteration_NN ._SENT 
+Thus_RB ,_, the_DT proposed_VVN particles_NNS will_MD have_VH different_JJ layer_NN number_NN ,_, and_CC finally_RB converge_VV to_TO the_DT optimal_JJ multiple-layer_NN model_NN ._SENT 
+This_DT is_VBZ different_JJ from_IN the_DT multiple_JJ model_NN particle_NN filter_NN (_( MMPF_NP )_) where_WRB multiple_JJ PFs_NNS are_VBP needed_VVN to_TO be_VB carried_VVN out_RP in_IN parallel_NN for_IN each_DT possible_JJ model.21,25_NN The_DT reliability_NN of_IN the_DT real_JJ data_NN inversion_NN results_NNS has_VHZ been_VBN illustrated_VVN in_IN three_CD aspects_NNS ._SENT 
+One_PP is_VBZ the_DT physical_JJ insight_NN into_IN the_DT low_JJ frequency_NN self-noise_NN inversion_NN (_( i._NP e._NP ,_, the_DT sensitivity_NN analysis_NN )_) ,_, followed_VVN by_IN the_DT comparison_NN of_IN GA_NP result_NN and_CC adaptive_JJ PF_NP result_NN ,_, and_CC the_DT final_JJ one_CD is_VBZ the_DT predicted_VVN TL_NP ._SENT 
+However_RB ,_, they_PP are_VBP all_RB indirect_JJ means_NNS ._SENT 
+The_DT reliability_NN of_IN the_DT inversion_NN results_NNS can_MD be_VB demonstrated_VVN to_TO some_DT degree_NN ._SENT 
+The_DT deep_JJ studies_NNS deserve_VVP to_TO be_VB continued_VVN ,_, and_CC more_RBR direct_JJ and_CC critical_JJ verification_NN will_MD be_VB carried_VVN out_RP in_IN the_DT future_NN when_WRB conditions_NNS are_VBP available_JJ ._SENT 
+Besides_RB ,_, the_DT multiple-layer_NN model_NN for_IN complicated_JJ scenarios_NNS should_MD be_VB considered_VVN in_IN the_DT following_VVG work_NN ._SENT 
+Considering_VVG the_DT universality_NN of_IN the_DT method_NN ,_, the_DT adaptive_JJ PF_NP method_NN can_MD be_VB extended_VVN to_TO other_JJ inversion_NN applications_NNS ,_, such_JJ as_IN the_DT horizontal_JJ line_NN array_NN (_( HLA_NP )_) or_CC vertical_JJ line_NN array_NN (_( VLA_NP )_) inversion_NN using_VVG the_DT controlled_VVN sources_NNS ._SENT 
+<Section> VI_NP ._SENT 
+CONCLUSIONS_NNS </Section> In_IN this_DT paper_NN ,_, a_DT sequential_JJ method_NN based_VVN on_IN the_DT adaptive_JJ PF_NP is_VBZ applied_VVN to_TO the_DT self-noise_NN inversion_NN ._SENT 
+The_DT inversion_NN problem_NN is_VBZ formulated_VVN as_IN a_DT dynamic_JJ process_NN as_IN the_DT tow-ship_NN moves_VVZ in_IN the_DT time-varying_VVG environment_NN ._SENT 
+The_DT adaptive_JJ sequential_JJ importance_NN sampling_NN technique_NN is_VBZ proposed_VVN for_IN the_DT rapidly_RB varying_VVG environment_NN ,_, and_CC the_DT tonal_JJ components_NNS at_IN low_JJ frequencies_NNS of_IN the_DT self-noise_NN recorded_VVN by_IN HTA_NP are_VBP utilized_VVN in_IN the_DT inversion_NN ._SENT 
+The_DT sensitivity_NN analysis_NN result_NN shows_VVZ that_IN the_DT sound_JJ speed_NN and_CC attenuation_NN of_IN the_DT basement_NN as_RB well_RB as_IN the_DT EOF_JJ coefficients_NNS own_VVP little_JJ sensitivities_NNS for_IN the_DT self-noise_NP inversion_NN ._SENT 
+The_DT sequential_JJ inversion_NN result_NN of_IN the_DT synthetic_JJ data_NN demonstrates_VVZ that_IN the_DT adaptive_JJ PF_NP inversion_NN method_NN is_VBZ superior_JJ to_TO the_DT standard_JJ PF_NP in_IN the_DT rapidly_RB varying_VVG environment_NN ._SENT 
+Compared_VVN with_IN successively_RB running_VVG GA_NP ,_, the_DT adaptive_JJ PF_NP gives_VVZ a_DT more_RBR stable_JJ and_CC smooth_JJ inversion_NN result_NN and_CC yields_VVZ a_DT significant_JJ saving_NN of_IN computation_NN ._SENT 
+The_DT 2D-joint_JJ marginal_JJ PPDs_NNS show_VVP strong_JJ correlations_NNS between_IN the_DT parameter_NN pairs_NNS of_IN (_( source_NN range_NN ,_, water_NN depth_NN )_) ,_, (_( water_NN depth_NN ,_, sediment_NN thickness_NN )_) ,_, (_( sediment_NN thickness_NN ,_, sediment_NN sound_NN speed_NN )_) ,_, (_( sediment_NN thickness_NN ,_, basement_NN sound_NN speed_NN )_) ,_, etc._FW These_DT correlations_NNS are_VBP utilized_VVN in_IN the_DT sequential_JJ inversion_NN ._SENT 
+The_DT adaptive_JJ PF_NP method_NN is_VBZ also_RB applied_VVN to_TO the_DT trial_NN data_NNS collected_VVN in_IN a_DT shallow_JJ sea_NN experiment_NN ,_, giving_VVG a_DT consistent_JJ and_CC stable_JJ inversion_NN result_NN for_IN consecutive_JJ measurements_NNS ._SENT 
+In_IN addition_NN ,_, the_DT adaptive_JJ PF_NP result_NN is_VBZ very_RB consistent_JJ with_IN the_DT GA_NP result_NN ._SENT 
+For_IN the_DT strong_JJ tonal_JJ frequency_NN ,_, the_DT variation_NN of_IN PSD_NN along_IN the_DT array_NN is_VBZ consistent_JJ with_IN the_DT predicted_VVN TL_NP ._SENT 
+It_PP is_VBZ demonstrated_VVN that_IN the_DT self-noise_NN recorded_VVN by_IN HTA_NP is_VBZ a_DT promising_JJ source_NN for_IN the_DT sequential_JJ inversion_NN due_JJ to_TO its_PP$ inherent_JJ characteristic_NN of_IN mobility_NN and_CC short-range_JJ acoustic_JJ propagation_NN <Section> ACKNOWLEDGMENT_NN </Section> This_DT work_NN was_VBD supported_VVN by_IN the_DT National_NP University_NP of_IN Defense_NP Technology_NP under_IN Grant_NP No._NN ZDYYJCYJ20140701_NN ._SENT 
+The_DT authors_NNS would_MD like_VV to_TO thank_VV the_DT reviewers_NNS for_IN their_PP$ professional_JJ suggestions_NNS and_CC useful_JJ discussions_NNS ._SENT 
+<Section> REFERENCES_NNS </Section> 1._CD S._NP E._NP Dosso_NP ,_, C._NP W._NP Holland_NP ,_, and_CC M._NP Sambridge_NP ,_, “_JJ Parallel_NN tempering_VVG for_IN strongly_RB nonlinear_JJ geoacoustic_JJ inversion_NN ,_, ”_NP J._NP Acoust_NP ._SENT 
+Soc_NP ._SENT 
+Am_NP ._SENT 
+132(5_NP )_) ,_, 3030–3040_NP (_( 2012_CD )_) ._SENT 
+https_NNS :_: //doi_NP ._SENT 
+org/10.1121/1.4757639_NP ,_, Google_NP ScholarScitation_NP ,_, ISI_NP 2._CD M._NP Siderius_NP ,_, P._NP L._NP Nielsen_NP ,_, and_CC P._NP Gerstoft_NP ,_, “_JJ Range-dependent_JJ seabed_NN characterization_NN by_IN inversion_NN of_IN acoustic_JJ data_NNS from_IN a_DT towed_VVN receiver_NN array_NN ,_, ”_NP J._NP Acoust_NP ._SENT 
+Soc_NP ._SENT 
+Am_NP ._SENT 
+112(4_NP )_) ,_, 1523–1535_NP (_( 2002_CD )_) ._SENT 
+https_NNS :_: //doi_NP ._SENT 
+org/10.1121/1.1502264_NP ,_, Google_NP ScholarScitation_NP ,_, ISI_NP 3._CD M._NP R._NP Fallat_NP ,_, P._NP L._NP Nielsen_NP ,_, S._NP E._NP Dosso_NP ,_, and_CC M._NP Siderius_NP ,_, “_JJ Geoacoustic_JJ characterization_NN of_IN a_DT range-dependent_JJ ocean_NN environment_NN using_VVG towed_VVN array_NN data_NNS ,_, ”_NP IEEE_NP J._NP Ocean_NP ._SENT 
+Eng_NP ._SENT 
+30(1_NN )_) ,_, 198–206_NP (_( 2005_CD )_) ._SENT 
+https_NNS :_: //doi_NP ._SENT 
+org/10.1109/JOE.2004.838067_JJ ,_, Google_JJ ScholarCrossref_NP 4._CD D._NP Tollefsen_NP ,_, S._NP E._NP Dosso_NP ,_, and_CC M._NP J._NP Wilmut_NP ,_, “_NP Matched-field_NP geoacoustic_JJ inversion_NN with_IN a_DT horizontal_JJ array_NN and_CC low-level_JJ source_NN ,_, ”_NP J._NP Acoust_NP ._SENT 
+Soc_NP ._SENT 
+Am_NP ._SENT 
+120(1_NN )_) ,_, 221–230_NP (_( 2006_CD )_) ._SENT 
+https_NNS :_: //doi_NP ._SENT 
+org/10.1121/1.2205132_NP ,_, Google_NP ScholarScitation_NP ,_, ISI_NP 5._CD D._NP Tollefsen_NP and_CC S._NP E._NP Dosso_NP ,_, “_JJ Geoacoustic_JJ information_NN content_NN of_IN horizontal_JJ line_NN array_NN data_NNS ,_, ”_NP IEEE_NP J._NP Ocean_NP ._SENT 
+Eng_NP ._SENT 
+32(3_NP )_) ,_, 651–662_NP (_( 2007_CD )_) ._SENT 
+https_NNS :_: //doi_NP ._SENT 
+org/10.1109/JOE.2007.900901_JJ ,_, Google_JJ ScholarCrossref_NP 6._CD C._NP Park_NP ,_, W._NP Seong_NP ,_, and_CC P._NP Gerstoft_NP ,_, “_JJ Geoacoustic_JJ inversion_NN in_IN time_NN domain_NN using_VVG ship_NN of_IN opportunity_NN noise_NN recorded_VVN on_IN a_DT horizontal_NN towed_VVD array_NN ,_, ”_NP J._NP Acoust_NP ._SENT 
+Soc_NP ._SENT 
+Am_NP ._SENT 
+117(4_NP )_) ,_, 1933–1941_JJ (_( 2005_CD )_) ._SENT 
+https_NNS :_: //doi_NP ._SENT 
+org/10.1121/1.1862574_NP ,_, Google_NP ScholarScitation_NP ,_, ISI_NP 7._CD Y._NP H._NP Goh_NP ,_, P._NP Gerstoft_NP ,_, W._NP S._NP Hodgkiss_NP ,_, and_CC C._NP -F_NP ._SENT 
+Huang_NP ,_, “_NP Statistical_NP estimation_NN of_IN transmission_NN loss_NN from_IN geoacoustic_JJ inversion_NN using_VVG a_DT towed_VVN array_NN ,_, ”_NP J._NP Acoust_NP ._SENT 
+Soc_NP ._SENT 
+Am_NP ._SENT 
+122(5_NP )_) ,_, 2571–2579_NP (_( 2007_CD )_) ._SENT 
+https_NNS :_: //doi_NP ._SENT 
+org/10.1121/1.2782915_NP ,_, Google_NP ScholarScitation_NP ,_, ISI_NP 8._CD C._NP E._NP Lindsay_NP and_CC N._NP R._NP Chapman_NP ,_, “_NP Matched_VVD field_NN inversion_NN for_IN geoacoustic_JJ model_NN parameters_NNS using_VVG adaptive_JJ simulated_JJ annealing_VVG ,_, ”_NP IEEE_NP J._NP Ocean_NP ._SENT 
+Eng_NP ._SENT 
+18(3_NP )_) ,_, 224–231_JJ (_( 1993_CD )_) ._SENT 
+https_NNS :_: //doi_NP ._SENT 
+org/10.1109/JOE.1993.236360_NP ,_, Google_NP ScholarCrossref_NP 9._CD N._NP R._NP Chapman_NP and_CC C._NP E._NP Lindsay_NP ,_, “_NP Matched-field_NP inversion_NN for_IN geoacoustic_JJ model_NN parameters_NNS in_IN shallow_JJ water_NN ,_, ”_NP IEEE_NP J._NP Ocean_NP ._SENT 
+Eng_NP ._SENT 
+21(4_NP )_) ,_, 347–354_NP (_( 1996_CD )_) ._SENT 
+https_NNS :_: //doi_NP ._SENT 
+org/10.1109/48.544045_NP ,_, Google_NP ScholarCrossref_NP 10._CD D._NP J._NP Battle_NP ,_, P._NP Gerstoft_NP ,_, W._NP A._NP Kuperman_NP ,_, W._NP S._NP Hodgkiss_NP ,_, and_CC M._NP Siderius_NP ,_, “_JJ Geoacoustic_JJ inversion_NN of_IN tow-ship_NN noise_NN via_IN near-field-matched-field_NP processing_NN ,_, ”_NP IEEE_NP J._NP Ocean_NP ._SENT 
+Eng_NP ._SENT 
+28(3_NP )_) ,_, 454–467_JJ (_( 2003_CD )_) ._SENT 
+https_NNS :_: //doi_NP ._SENT 
+org/10.1109/JOE.2003.816679_NP ,_, Google_NP ScholarCrossref_NP 11._CD S._NP E._NP Dosso_NP and_CC J._NP Dettmer_NP ,_, “_NP Bayesian_NP matched-field_NP geoacoustic_JJ inversion_NN ,_, ”_JJ Inverse_JJ Probl_NN ._SENT 
+27_CD ,_, 055009_CD (_( 2011_CD )_) ._SENT 
+https_NNS :_: //doi_NP ._SENT 
+org/10.1088/0266-5611/27/5/055009_NP ,_, Google_NP ScholarCrossref_NP 12._CD S._NP E._NP Dosso_NP ,_, P._NP L._NP Nielsen_NP ,_, and_CC M._NP J._NP Wilmut_NP ,_, “_NP Data_NP error_NN covariance_NN in_IN matched-field_NP geoacoustic_JJ inversion_NN ,_, ”_NP J._NP Acoust_NP ._SENT 
+Soc_NP ._SENT 
+Am_NP ._SENT 
+119(1_NN )_) ,_, 208–219_NP (_( 2006_CD )_) ._SENT 
+https_NNS :_: //doi_NP ._SENT 
+org/10.1121/1.2139625_NP ,_, Google_NP ScholarScitation_NP ,_, ISI_NP 13._CD S._NP E._NP Dosso_NP and_CC M._NP J._NP Wilmut_NP ,_, “_JJ Uncertainty_NN estimation_NN in_IN simultaneous_JJ Bayesian_JJ tracking_NN and_CC environmental_JJ inversion_NN ,_, ”_NP J._NP Acoust_NP ._SENT 
+Soc_NP ._SENT 
+Am_NP ._SENT 
+124(1_NN )_) ,_, 82–97_JJ (_( 2008_CD )_) ._SENT 
+https_NNS :_: //doi_NP ._SENT 
+org/10.1121/1.2918244_NP ,_, Google_NP ScholarScitation_NP ,_, ISI_NP 14._CD S._NP E._NP Dosso_NP and_CC M._NP J._NP Wilmut_NP ,_, “_NP Data_NP uncertainty_NN estimation_NN in_IN matched-field_NP geoacoustic_JJ inversion_NN ,_, ”_NP IEEE_NP J._NP Ocean_NP ._SENT 
+Eng_NP ._SENT 
+31(2_NP )_) ,_, 470–479_NP (_( 2006_CD )_) ._SENT 
+https_NNS :_: //doi_NP ._SENT 
+org/10.1109/JOE.2006.875099_NP ,_, Google_NP ScholarCrossref_NP 15._CD C._NP -F_NP ._SENT 
+Huang_NP ,_, P._NP Gerstoft_NP ,_, and_CC W._NP S._NP Hodgkiss_NP ,_, “_JJ Uncertainty_NN analysis_NN in_IN matched-field_JJ geoacoustic_JJ inversions_NNS ,_, ”_NP J._NP Acoust_NP ._SENT 
+Soc_NP ._SENT 
+Am_NP ._SENT 
+119(1_NN )_) ,_, 197–207_JJ (_( 2006_CD )_) ._SENT 
+https_NNS :_: //doi_NP ._SENT 
+org/10.1121/1.2139075_NP ,_, Google_NP ScholarScitation_NP ,_, ISI_NP 16._CD Y._NP -M_NP ._SENT 
+Jiang_NP and_CC N._NP R._NP Chapman_NP ,_, “_NP Bayesian_NP geoacoustic_JJ inversion_NN in_IN a_DT dynamic_JJ shallow_JJ water_NN environment_NN ,_, ”_NP J._NP Acoust_NP ._SENT 
+Soc_NP ._SENT 
+Am_NP ._SENT 
+123(6_NP )_) ,_, EL155–EL161_JJ (_( 2008_CD )_) ._SENT 
+https_NNS :_: //doi_NP ._SENT 
+org/10.1121/1.2908405_NP ,_, Google_NP ScholarScitation_NP ,_, ISI_NP 17._CD Z._NP -H_NP ._SENT 
+Michalopoulou_NP ,_, “_JJ Multiple_JJ source_NN localization_NN using_VVG a_DT maximum_NN a_DT posteriori_NP gibbs_NP sampling_NN approach_NN ,_, ”_NP J._NP Acoust_NP ._SENT 
+Soc_NP ._SENT 
+Am_NP ._SENT 
+120(5_NP )_) ,_, 2627–2634_NP (_( 2006_CD )_) ._SENT 
+https_NNS :_: //doi_NP ._SENT 
+org/10.1121/1.2354027_JJ ,_, Google_NP ScholarScitation_NP ,_, ISI_NP 18._CD C._NP -F_NP ._SENT 
+Huang_NP ,_, P._NP Gerstoft_NP ,_, and_CC W._NP S._NP Hodgkiss_NP ,_, “_NP Statistical_NP estimation_NN of_IN source_NN location_NN in_IN presence_NN of_IN geoacoustic_JJ inversion_NN uncertainty_NN ,_, ”_NP J._NP Acoust_NP ._SENT 
+Soc_NP ._SENT 
+Am_NP ._SENT 
+125(4_NP )_) ,_, EL171–EL176_NP (_( 2009_CD )_) ._SENT 
+https_NNS :_: //doi_NP ._SENT 
+org/10.1121/1.3097690_NP ,_, Google_NP ScholarScitation_NP ,_, ISI_NP 19._CD D._NP Tollefsen_NP and_CC S._NP E._NP Dosso_NP ,_, “_NP Bayesian_NP geoacoustic_JJ inversion_NN of_IN ship_NN noise_NN on_IN a_DT horizontal_JJ array_NN ,_, ”_NP J._NP Acoust_NP ._SENT 
+Soc_NP ._SENT 
+Am_NP ._SENT 
+124(2_NP )_) ,_, 788–795_NP (_( 2008_CD )_) ._SENT 
+https_NNS :_: //doi_NP ._SENT 
+org/10.1121/1.2940581_JJ ,_, Google_NP ScholarScitation_NP ,_, ISI_NP 20._CD D._NP J._NP Battle_NP ,_, P._NP Gerstoft_NP ,_, W._NP S._NP Hodgkiss_NP ,_, W._NP A._NP Kuperman_NP ,_, and_CC P._NP L._NP Nielsen_NP ,_, “_JJ Bayesian_JJ model_NN selection_NN applied_VVN to_TO self-noise_VV geoacoustic_JJ inversion_NN ,_, ”_NP J._NP Acoust_NP ._SENT 
+Soc_NP ._SENT 
+Am_NP ._SENT 
+116(4_NP )_) ,_, 2043–2056_NP (_( 2004_CD )_) ._SENT 
+https_NNS :_: //doi_NP ._SENT 
+org/10.1121/1.1785671_JJ ,_, Google_NP ScholarScitation_NP ,_, ISI_NP 21._CD C._NP Yardim_NP ,_, P._NP Gerstoft_NP ,_, and_CC W._NP S._NP Hodgkiss_NP ,_, “_JJ Tracking_NN of_IN geoacoustic_JJ parameters_NNS using_VVG kalman_NP and_CC particle_NN filters_NNS ,_, ”_NP J._NP Acoust_NP ._SENT 
+Soc_NP ._SENT 
+Am_NP ._SENT 
+125(2_NP )_) ,_, 746–760_NP (_( 2009_CD )_) ._SENT 
+https_NNS :_: //doi_NP ._SENT 
+org/10.1121/1.3050280_NP ,_, Google_NP ScholarScitation_NP ,_, ISI_NP 22._CD O._NP Carrière_NP and_CC J._NP P._NP Hermand_NP ,_, “_JJ Sequential_JJ Bayesian_JJ geoacoustic_JJ inversion_NN for_IN mobile_JJ and_CC compact_JJ source-receiver_NN configuration_NN ,_, ”_NP J._NP Acoust_NP ._SENT 
+Soc_NP ._SENT 
+Am_NP ._SENT 
+131(4_NP )_) ,_, 2668–2681_JJ (_( 2012_CD )_) ._SENT 
+https_NNS :_: //doi_NP ._SENT 
+org/10.1121/1.3689552_NP ,_, Google_NP ScholarScitation_NP ,_, ISI_NP 23._CD B._NP A._NP Tan_NP ,_, P._NP Gerstoft_NP ,_, C._NP Yardim_NP ,_, and_CC W._NP S._NP Hodgkiss_NP ,_, “_JJ Recursive_JJ Bayesian_JJ synthetic_JJ aperture_NN geoacoustic_JJ inversion_NN in_IN the_DT presence_NN of_IN motion_NN dynamics_NNS ,_, ”_NP J._NP Acoust_NP ._SENT 
+Soc_NP ._SENT 
+Am_NP ._SENT 
+136(3_NP )_) ,_, 1187–1198_NP (_( 2014_CD )_) ._SENT 
+https_NNS :_: //doi_NP ._SENT 
+org/10.1121/1.4892788_NP ,_, Google_NP ScholarScitation_NP ,_, ISI_NP 24._CD B._NP A._NP Tan_NP ,_, P._NP Gerstoft_NP ,_, C._NP Yardim_NP ,_, and_CC W._NP S._NP Hodgkiss_NP ,_, “_JJ Change-point_NN detection_NN for_IN recursive_JJ bayesian_JJ geoacoustic_JJ inversions_NNS ,_, ”_NP J._NP Acoust_NP ._SENT 
+Soc_NP ._SENT 
+Am_NP ._SENT 
+137(4_NP )_) ,_, 1962–1970_NP (_( 2015_CD )_) ._SENT 
+https_NNS :_: //doi_NP ._SENT 
+org/10.1121/1.4916887_JJ ,_, Google_NP ScholarScitation_NP ,_, ISI_NP 25._CD Z._NP -H_NP ._SENT 
+Michalopoulou_NP ,_, C._NP Yardim_NP ,_, and_CC P._NP Gerstoft_NP ,_, “_JJ Particle_NN filtering_VVG for_IN passive_JJ fathometer_NN tracking_NN ,_, ”_NP J._NP Acoust_NP ._SENT 
+Soc_NP ._SENT 
+Am_NP ._SENT 
+131(1_NN )_) ,_, EL74–EL80_NP (_( 2012_CD )_) ._SENT 
+https_NNS :_: //doi_NP ._SENT 
+org/10.1121/1.3670004_NP ,_, Google_NP ScholarScitation_NP ,_, ISI_NP 26._CD J._NP Dettmer_NP ,_, S._NP E._NP Dosso_NP ,_, and_CC C._NP W._NP Holland_NP ,_, “_JJ Sequential_JJ trans-dimensional_JJ Monte_NP Carlo_NP for_IN range-dependent_JJ geoacoustic_JJ inversion_NN ,_, ”_NP J._NP Acoust_NP ._SENT 
+Soc_NP ._SENT 
+Am_NP ._SENT 
+129(4_NP )_) ,_, 1794–1806_NP (_( 2011_CD )_) ._SENT 
+https_NNS :_: //doi_NP ._SENT 
+org/10.1121/1.3557052_NP ,_, Google_NP ScholarScitation_NP ,_, ISI_NP 27._CD C._NP Yardim_NP ,_, Z._NP -H_NP ._SENT 
+Michalopoulou_NP ,_, and_CC P._NP Gerstoft_NP ,_, “_NP An_DT overview_NN of_IN sequential_JJ Bayesian_NN filtering_VVG in_IN ocean_NN acoustics_NNS ,_, ”_NP IEEE_NP J._NP Ocean_NP ._SENT 
+Eng_NP ._SENT 
+36(1_NN )_) ,_, 71–89_NP (_( 2011_CD )_) ._SENT 
+https_NNS :_: //doi_NP ._SENT 
+org/10.1109/JOE.2010.2098810_NP ,_, Google_NP ScholarCrossref_NP 28._CD C._NP Yardim_NP ,_, P._NP Gerstoft_NP ,_, and_CC W._NP S._NP Hodgkiss_NP ,_, “_JJ Geoacoustic_NN and_CC source_NN tracking_NN using_VVG particle_NN filtering_VVG :_: Experimental_JJ results_NNS ,_, ”_NP J._NP Acoust_NP ._SENT 
+Soc_NP ._SENT 
+Am_NP ._SENT 
+128(75_NP )_) ,_, 75–87_JJ (_( 2010_CD )_) ._SENT 
+https_NNS :_: //doi_NP ._SENT 
+org/10.1121/1.3438475_NP ,_, Google_NP ScholarScitation_NP 29._CD C._NP Yardim_NP ,_, P._NP Gerstoft_NP ,_, and_CC W._NP S._NP Hodgkiss_NP ,_, “_JJ Sequential_JJ geoacoustic_JJ inversion_NN at_IN the_DT continental_JJ shelfbreak_NN ,_, ”_NP J._NP Acoust_NP ._SENT 
+Soc_NP ._SENT 
+Am_NP ._SENT 
+131(2_NP )_) ,_, 1722–1732_NP (_( 2012_CD )_) ._SENT 
+https_NNS :_: //doi_NP ._SENT 
+org/10.1121/1.3666012_NP ,_, Google_NP ScholarScitation_NP ,_, ISI_NP 30._CD C._NP Yardim_NP ,_, P._NP Gerstoft_NP ,_, and_CC W._NP S._NP Hodgkiss_NP ,_, “_JJ Particle_NN smoothers_NNS in_IN sequential_JJ geoacoustic_JJ inversion_NN ,_, ”_NP J._NP Acoust_NP ._SENT 
+Soc_NP ._SENT 
+Am_NP ._SENT 
+134(2_NP )_) ,_, 971–981_JJ (_( 2013_CD )_) ._SENT 
+https_NNS :_: //doi_NP ._SENT 
+org/10.1121/1.4807819_NP ,_, Google_NP ScholarScitation_NP ,_, ISI_NP 31._CD W._NP A._NP Kuperman_NP ,_, M._NP F._NP Werby_NP ,_, K._NP E._NP Gilbert_NP ,_, and_CC G._NP J._NP Tango_NP ,_, “_NP Beamforming_NP on_IN bottom-interacting_VVG tow-ship_NN noise_NN ,_, ”_NP IEEE_NP J._NP Ocean_NP ._SENT 
+Eng_NP ._SENT 
+10_CD ,_, 290–298_NP (_( 1985_CD )_) ._SENT 
+https_NNS :_: //doi_NP ._SENT 
+org/10.1109/JOE.1985.1145106_NP ,_, Google_NP ScholarCrossref_NP 32._CD L._NP T._NP Fialkowski_NP ,_, T._NP C._NP Yang_NP ,_, K._NP Yoo_NP ,_, E._NP Kim_NP ,_, and_CC D._NP K._NP Dacol_NP ,_, “_JJ Consistency_NN and_CC reliability_NN of_IN geoacoustic_JJ inversions_NNS with_IN a_DT horizontal_JJ line_NN array_NN ,_, ”_NP J._NP Acoust_NP ._SENT 
+Soc_NP ._SENT 
+Am_NP ._SENT 
+120(1_NN )_) ,_, 231–246_NP (_( 2006_CD )_) ._SENT 
+https_NNS :_: //doi_NP ._SENT 
+org/10.1121/1.2208453_NP ,_, Google_NP ScholarScitation_NP ,_, ISI_NP 33._CD F._NP B._NP Jensen_NP ,_, W._NP A._NP Kuperman_NP ,_, M._NP B._NP Porter_NP ,_, and_CC H._NP Schmidt_NP ,_, Computational_JJ Ocean_NP Acoustics_NNS ,_, 2nd_JJ ed_NNS ._SENT 
+(_( Springer_NP ,_, New_NP York_NP ,_, 2011_CD )_) ,_, Chap_NN ._SENT 
+4._CD Google_NN ScholarCrossref_NP 34._CD M._NP B._NP Porter_NP ,_, “_NP The_DT kraken_NN normal_JJ mode_NN program_NN ,_, ”_NP SACLANTCEN_NP SM-254_NP ,_, SACLANT_JJ Undersea_JJ Research_NP Centre_NP ,_, La_NP Spezia_NP ,_, Italy_NP (_( 1991_CD )_) ._SENT 
+Google_NP Scholar_NN 35._CD C._NP -F_NP ._SENT 
+Huang_NP ,_, P._NP Gerstoft_NP ,_, and_CC W._NP S._NP Hodgkiss_NP ,_, “_NN On_IN the_DT effect_NN of_IN error_NN correlation_NN on_IN matched-field_NP geoacoustic_JJ inversion_NN ,_, ”_NP J._NP Acoust_NP ._SENT 
+Soc_NP ._SENT 
+Am_NP ._SENT 
+121(2_NP )_) ,_, EL64–EL69_NP (_( 2007_CD )_) ._SENT 
+https_NNS :_: //doi_NP ._SENT 
+org/10.1121/1.2424267_JJ ,_, Google_NP ScholarScitation_NP ,_, ISI_NP 36._CD S._NP E._NP Dosso_NP and_CC P._NP L._NP Nielsen_NP ,_, “_JJ Quantifying_VVG uncertainty_NN in_IN geoacoustic_JJ inversion_NN ._SENT 
+II_NP ._SENT 
+Application_NN to_TO broadband_NP ,_, shallow-water_NN data_NNS ,_, ”_NP J._NP Acoust_NP ._SENT 
+Soc_NP ._SENT 
+Am_NP ._SENT 
+111(1_NN )_) ,_, 143–159_NP (_( 2002_CD )_) ._SENT 
+https_NNS :_: //doi_NP ._SENT 
+org/10.1121/1.1419087_JJ ,_, Google_NP ScholarScitation_NP ,_, ISI_NP 37._CD P._NP Gerstoft_NP and_CC C._NP F._NP Mecklenbräuker_NP ,_, “_NP Ocean_NP acoustic_JJ inversion_NN with_IN estimation_NN of_IN a_DT posteriori_NP probability_NN distributions_NNS ,_, ”_NP J._NP Acoust_NP ._SENT 
+Soc_NP ._SENT 
+Am_NP ._SENT 
+104(2_NP )_) ,_, 808–819_NP (_( 1998_CD )_) ._SENT 
+https_NNS :_: //doi_NP ._SENT 
+org/10.1121/1.423355_NP ,_, Google_NP ScholarScitation_NP ,_, ISI_NP 38._CD F._NP Gustafsson_NP ,_, “_JJ Particle_NN filter_NN theory_NN and_CC practice_NN with_IN positioning_NN applications_NNS ,_, ”_NP IEEE_NP Aerosp_NP ._SENT 
+Electron_NP ._SENT 
+Syst_NN ._SENT 
+Mag_NP ._SENT 
+25(7_JJ )_) ,_, 53–80_NP (_( 2010_CD )_) ._SENT 
+https_NNS :_: //doi_NP ._SENT 
+org/10.1109/MAES.2010.5546308_NP ,_, Google_NP ScholarCrossref_NP 39._CD Y._NP -M_NP ._SENT 
+Jiang_NP ,_, N._NP R._NP Chapman_NP ,_, and_CC M._NP Badiey_NP ,_, “_NN Quantifying_VVG the_DT uncertainty_NN of_IN geoacoustic_JJ parameter_NN estimates_NNS for_IN the_DT New_NP Jersey_NP shelf_NN by_IN inverting_VVG air_NN gun_NN data_NNS ,_, ”_NP J._NP Acoust_NP ._SENT 
+Soc_NP ._SENT 
+Am_NP ._SENT 
+121(4_NP )_) ,_, 1879–1894_NP (_( 2007_CD )_) ._SENT 
+https_NNS :_: //doi_NP ._SENT 
+org/10.1121/1.2642137_JJ ,_, Google_NP ScholarScitation_NP ,_, ISI_NP 40._CD P._NP Gerstoft_NP ,_, R._NP Menon_NP ,_, W._NP S._NP Hodgkiss_NP ,_, and_CC C._NP F._NP Mecklenbrauker_NP ,_, “_JJ Eigenvalues_NNS of_IN the_DT sample_NN covariance_NN matrix_NN for_IN a_DT towed_VVN array_NN ,_, ”_NP J._NP Acoust_NP ._SENT 
+Soc_NP ._SENT 
+Am_NP ._SENT 
+132(4_NP )_) ,_, 2388–2396_NP (_( 2012_CD )_) ._SENT 
+https_NNS :_: //doi_NP ._SENT 
+org/10.1121/1.4746024_NP ,_, Google_NP ScholarScitation_NP ,_, ISI_NP 41._CD J._NP Dettmer_NP ,_, S._NP E._NP Dosso_NP ,_, and_CC C._NP W._NP Holland_NP ,_, “_JJ Trans-dimensional_JJ geoacoustic_JJ inversion_NN ,_, ”_NP J._NP Acoust_NP ._SENT 
+Soc_NP ._SENT 
+Am_NP ._SENT 
+128(6_NP )_) ,_, 3393–3405_NP (_( 2010_CD )_) ._SENT 
+https_NNS :_: //doi_NP ._SENT 
+org/10.1121/1.3500674_NP ,_, Google_NP ScholarScitation_NP ,_, ISI_NP 

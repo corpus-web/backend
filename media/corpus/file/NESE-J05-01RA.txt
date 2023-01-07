@@ -1,0 +1,211 @@
+<title>Radiation shielding properties of selected alloys using EPICS2017 data library</title>
+<author>1,Aljawhara H.Almuqrin,2,J.F.M.Jecong,3,F.C.Hila,4,C.V.Balderas,5,M.I.Sayyed</author>
+<Affiliation>1,Department of Physics, College of Science, Princess Nourah bint Abdulrahman University, Riyadh, Saudi Arabia;2,Department of Science and Technology – Philippine Nuclear Research Institute (DOST-PNRI), Commonwealth Avenue, Diliman, Quezon City, 1101, Philippines;3,Department of Physics, Faculty of Science, Isra University, Amman, Jordan;4,Department of Nuclear Medicine Research, Institute for Research and Medical Consultations (IRMC), Imam Abdulrahman Bin Faisal University (IAU), P.O. Box 1982, Dammam, 31441, Saudi Arabia</Affiliation>
+<year>2021</year>
+<Jounral>Progress in Nuclear Energy</Journal>
+<Publishing_house>ELSEVIER</Publishing_house>
+<Text_Collector>XiaFan，HEU</Text_Collector>
+<DOI>10.1016/j.pnucene.2021.103748</DOI>
+<URL>https://www.sciencedirect.com/science/article/pii/S0149197021001153</URL>
+Radiation shielding properties of selected alloys using EPICS2017 data library
+Aljawhara H.Almuqrin,J.F.M.Jecong,F.C.Hila,C.V.Balderas,M.I.Sayyed
+Department of Physics, College of Science, Princess Nourah bint Abdulrahman University, Riyadh, Saudi Arabia
+Department of Science and Technology – Philippine Nuclear Research Institute (DOST-PNRI), Commonwealth Avenue, Diliman, Quezon City, 1101, Philippines
+Department of Physics, Faculty of Science, Isra University, Amman, Jordan
+Department of Nuclear Medicine Research, Institute for Research and Medical Consultations (IRMC), Imam Abdulrahman Bin Faisal University (IAU), P.O. Box 1982, Dammam, 31441, Saudi Arabia
+<Section>Abstract</Section>
+This paper evaluated the radiation shielding features of different 19 alloy samples utilizing the EPICS2017 library for cross section interpolation. The alloys include the ternary Fe, Cr, and Ni based alloys, nickel silver alloys, ternary Cu, Zn, Pb based alloys, and four binary Ag/Cu, Ag/Cu, Pd/Cr and Pd/Cu based alloys. Comparative results were provided by the XCOM and several experimental and Monte Carlo based values in literature. All results described a decreasing trend of mass attenuation coefficient with increasing photon energy. A good agreement was obtained among EPICS2017, MCNPX and experiments. The strongest agreement was obtained between EPICS2017 and XCOM with relative differences between 0.00 and 0.36%. The obtained results highlight the capability of EPICS2017 as a new and accurate theoretical method for future radiation shielding research and development of alloys.
+Keywords:EPICS2017 library;Alloys;Shielding;Gamma radiation
+<Section>1. Introduction</Section>
+In the current century, the application of ionizing radiations is growing speedily and entered in almost all aspects of life including medical field, dental field, industrial field and even food preparation and other fields (Mhareb, 2020; Sayyed et al., 2021a; Al-Hadeethi and Sayyed, 2020). Consequently, the information about the radiation's interaction with the medium is gaining great importance in the areas of photon-protection. The essential target of radiation protection is to diminish the radiation influence on the health of humans. So, some shielding factors including the mass/linear attenuation coefficients, quarter value layer, transmission ratio of the photons, effective atomic number and other factors are fundamental parameters and must be determined carefully to assess the radiation shielding effectiveness of any developed shielding medium (Alajerami et al., 2020; Almuqrin and Sayyed, 2021; Akkurt et al., 2006). Among the aforementioned factors, the mass attenuation coefficient (MAC) is the most essential factor, since it provides a direct information about the likelihood of gamma photons interaction with the shield medium. Also, we consider it as essential factor since other factors for a certain attenuator are generated from the MAC values (Bhosale et al., 2017). So, it is very important to determine the MAC. Accordingly, it became necessary to accurately determine the MAC value for certain shielding materials, because if there is an error in the MAC value, we will not get correct results for the rest of the quantities. The first common way to determine the MAC for any medium is the experimental approach. In this method, we conduct an experiment in the laboratory whereby we expose the target sample to a beam of photons and through a detector we can know the intensity of the photons that can penetrate the sample, and also we measure the intensity of the photons without the presence of the target material. Through some calculations and applying basic equations such as Lambert-Beer, we can measure the MAC value at certain energies (Aygün et al., 2019; Sayyed et al., 2021b). Despite the importance of this method, there must be other methods to verify the accuracy of the measured values in the lab. One of the most important methods in this regard is the simulation method using different Monte Carlo codes (Aşkın, 2020; Sayyed et al., 2021c; Dong et al., 2019). There is another method for the MAC evaluation that is no less important than these two methods, which is a theoretical method where the MAC values are determined using some programs such as WinXCom or Phy-X program (Gerward et al., 2004; Şakar et al., 2020).
+A new photon database for the theoretical method is available under the name Electron-Photon Interaction Cross Sections 2017 (EPICS2017) (Cullen, 2018). EPICS2017 database was designated to supersede or replace all prior libraries to its release. The predecessors of EPICS2017 that are broadly used today include the EPDL89, EPDL97, and EPICS2014. These are embedded in major Monte Carlo code systems (e.g. MCNP6, Geant4, PHITS, FLUKA). Furthermore, EPICS2017 is now the official ENDF/B-VIII electron-photon collective library. EPISC2017 can be used through interpolations via simple linear-linear scales. The conversion of this library into linearly interpolable data has turned this database into a user-friendly source of mass attenuation coefficients (Hila et al., 2020). Most importantly, the EPICS2017 database was improved with new binding energies and cross section values.
+Among several radiation shielding materials, alloys have noticeably attracted researchers' attention lately due to their excellent physical and mechanical properties and it is known that the alloys have a high density, and this is very important to absorb much amount. Generally, a good radiation shielding absorber must have a high density and must contain elements with high atomic numbers. Alloys possess these important features and are thus widely used in radiation protection in several nuclear facilities (Kaur et al., 2017; Singh et al., 2018; Akkurt, 2009). In this work, the photon attenuation features of several alloys were evaluated utilizing the EPICS2017 data library. EPICS2017 was extracted and interpolated in several gamma photon energies. The theoretical EPICS2017 based values for MAC are compared with experimental and with other theoretical methods.
+<Section>2. Materials and methods</Section>
+2.1. Alloy samples
+Different alloys were selected in the current work that were characterized in terms of radiation attenuation features by the experimental method. Previously, the radiation shielding characteristics of ternary alloys comprised of Fe, Cr, and Ni elements were evaluated by Akman et al. (2019a) using the HPGe detector for gamma ray energies between 81 and 1333 keV. Moreover, the shielding properties of nickel silver (NS) alloys composed of Cu, Ni, and Zn elements were evaluated by Şakar (2020) using Si(Li) and NaI(Tl) detectors for several X-ray and gamma ray energies between 30.8 and 1333 keV. Also, synthesized alloys composed of Cu, Zn, Pb elements were characterized by Şakar et al. (2019) using an HPGe detector in the 133Ba gamma ray energies between 53 and 383 keV. Finally, the radiation attenuation properties of these alloy samples: Ag92.5/Cu7.5, Ag72/Cu28, Pd60/Cu40 and Pd94/Cr6 were evaluated by Akman et al. (2019b) experimentally using an HPGe detector and theoretically utilizing the MCNPX code, in the discrete gamma ray energies between 81 and 1333 keV.
+All 19 alloys were evaluated in this work using the latest EPICS2017 database. The XCOM (NIST) web program was also used for comparative evaluation. The elemental compositions of each of the alloys are summarized in Table 1. These are described per elemental component in weight percent.
+Table 1. Chemical compositions of the alloys under study.
+2.2. EPICS2017 extraction and interpolation
+The EPICS2017 (Cullen, 2018) database is considered the official ENDF/B-VIII.0 (Brown et al., 2018) electron-photon collection. EPICS2017 is available for download from the IAEA NDS website in two data formats, the ENDL and ENDF. In this work, the data is based on the ENDF-6 (Trkov and Brown, 2018) formatted version of the EPICS2017. A short snippet of iron element is displayed in Fig. 1 for aided description of the library extraction. Illustrated in Fig. 1, the photon energy data are in blue text; the cross section data are in red text. Towards the right columns, the element atomic number is in green text and the type of cross section (or other scattering data) are in purple text. For this purple text, several possible data types include the partial cross sections for coherent scattering (23,502), incoherent scattering (23,504), triplet production (23,515), pair production (23,517), and photoelectric for each subshell (23,534–23,570).
+Fig. 1
+Download : Download high-res image (296KB)Download : Download full-size image
+Fig. 1. A two-line snippet of the EPICS2017 data of iron element in ENDF-6 formatting.
+A consistent method to get total cross section values at the desired energy is to interpolate the partial cross sections. Furthermore, the recommended interpolation law of all cross-section data is through linear-linear scales only. After obtaining values for the partial cross sections at the user desired energies, the (σT) which denoted the total atomic cross section of the element can be obtained as the summation:
+@(1)
+where partial cross sections correspond to coherent (σCOH) and incoherent scattering (σINC), pair production in nuclear field (σPPN), triplet production (σPPE), and total photoelectric absorption (ΣσPE,i). From the calculated σT of the element, the MAC (μ/ρ) of the element is derived with the relationship:
+@(2)
+The MAC of materials is easily calculable by using the MACs of the consisting elements, in what is known as the mixture rule:
+@(3)
+<Section>3. Results and discussion</Section>
+MAC is an important quantity for assessing the photon attenuation characteristics of any designated shielding medium. The conventional way of evaluating this parameter is through experiment and through the XCOM (NIST) (Berger et al., 2010) web-based platform. The radiation shielding characteristics of several alloys were evaluated using the latest photoatomic library of the ENDF/B-VIII called EPICS2017 database. The EPICS2017 by IAEA was used through direct interpolation of the elemental partial cross sections. The evaluated shielding materials include ternary alloys based on Fe, Cr, and Ni elements, NS alloys composed of Cu, Ni, and Zn, ternary alloys composed of Cu, Zn, Pb elements, and four binary alloys of Ag/Cu, Ag/Cu, Pd/Cr and Pd/Cu. All 19 alloys were previously characterized using experimental transmission method. Furthermore, the binary alloys Ag/Cu, Ag/Cu, Pd/Cr and Pd/Cu were previously characterized using the MCNPX code. Comparative XCOM based values were also obtained for each alloy.
+For the total of 19 selected alloys, the EPICS2017, XCOM, MCNPX, and experiment MAC values were tabulated in Table 2, Table 3, Table 4, Table 5 and were observed to have similarly decreasing trend as a consequence of increasing energy. This can be related to the different gamma ray interactions. In radiation measurement, the three interaction mechanisms that play an important role for gamma rays or X-rays in matter are photoelectric absorption, Compton scattering, and pair production. For relatively low photon energies, the predominant mode of interaction is photoelectric absorption. This type of interaction is a strong function of Z and E and is roughly proportional to Z4 to 5/E3.5. For the alloys evaluated, this interaction is predominant up until the photon energies of 115–240 keV, depending on the composition of the alloy. The most probable interaction changes to Compton scattering for intermediate photon energies. As the energy increases beyond the threshold 1022 keV, the possibility of pair production in nuclear field exists and with increasing probability with energy.
+Table 2. Comparison of MAC (cm2g−1) of Fe, Cr, and Ni based alloys using EPICS2017, XCOM, and experiment (Akman et al., 2019a).
+Table 3. Comparison of MAC (cm2g−1) of NS alloys based on Cu, Ni, and Zn using EPICS2017, XCOM, and experiment (Şakar, 2020).
+Table 4. Comparison of MAC (cm2g−1) of Cu, Zn, and Pb based alloys using EPICS2017, XCOM, and experiment (Şakar et al., 2019).
+Table 5. Comparison of MAC (cm2g−1) of Ag/Cu, Ag/Cu, Pd/Cr and Pd/Cu based alloys using EPICS2017, XCOM, MCNPX, and experiment (Akman et al., 2019b).
+The MAC results for 5 ternary alloys based on Fe, Cr, and Ni elements are described in Table 2, for the energies between 81 and 1333 keV. The relative differences between the EPICS2017 and experiment by Akman et al. (2019a) are in the range between 0.3 and 6.2%. This is a reasonable agreement especially since the experimental standard uncertainties were reported to be in the range of 0.9–4.0%. The experimental results are also found to be lower than EPICS2017 on average by 1.7%. This can be attributed to deviations from narrow beam geometry of the experimental method. For 4 NS alloys composed of Cu, Ni, and Zn elements, the MAC values are described in Table 3, for the energies between 30.8 and 1333 keV. The relative differences between the EPICS2017 and experiment by Şakar (2020) are between 0.0 and 1.1%, hence denoting a strong agreement. This experimental data was also previously found to have a maximum relative deviation of 1.2% in comparison with WinXCom based Phy-X/PSD (Şakar, 2020). This was attributed to the effective narrow beam setup and excellent counting statistics and peak area analysis used by Şakar (2020). Moreover, for 6 ternary alloys based on Cu, Zn, Pb elements, the experimental results by Şakar et al. (2019) are described in Table 4, for the photon energies between 53.2 and 384 keV. These results show larger relative differences between EPICS2017 averaged at 8.0%. This can be sourced from experimental uncertainties but can also be due to the two decimal place values reported for the results in Şakar et al. (2019). Furthermore, the experimental MAC values of Akman et al. (2019b) for some heavy alloys are described in Table 5, for the photon energies between 81 and 1333 keV. These results also indicate a good agreement with EPICS2017, with relative differences between 0.0 and 6.1%. This is reasonably within the standard uncertainties reported in the experiment which were between 1.0 and 4.6%. It is also found that experiment values are on average 3.0% lower than EPICS2017. This may be due to deviation from narrow beam geometry of the experiment. It can be stated that a clear agreement is found between the EPICS2017 and experimental MAC values for the selected 19 radiation shielding alloys.
+Strongest agreement is achieved between the EPICS2017 and XCOM (NIST) based MAC values. In all 19 alloys evaluated, the relative differences between XCOM and EPICS2017 range between 0.00 and 0.36%. It is worth mentioning that the XCOM (NIST) is one of the major libraries compared with EPICS2017 in the survey of photon cross section data for EPICS2017 (Cullen, 2018). It is known that both of the major photoatomic libraries are largely different (>1%) in the low energy regions near the X-ray absorption edges (Cullen, 2018; Hila et al., 2020). For the alloys in Table 2, Table 3, Table 5, the comprising elements have X-ray absorption edge energies much lower than the evaluated gamma energies. For the ternary Cu, Zn, Pb based alloys in Table 4, several samples have Pb in the chemical composition. Pb has a K-absorption edge energy at 88 keV. This K-edge energy is not in proximity with any gamma ray energies considered in Table 4. There is hence a strong agreement between XCOM and EPICS2017.
+The MCNPX simulation method was used by Akman et al. (2019b) to derive the MAC values of Ag/Cu, Ag/Cu, Pd/Cr and Pd/Cu alloys shown in Table 5. The relative differences between MCNPX with EPICS2017 range between 0.0 and 4.7%. On average, the MCNPX results are 0.96% lower than EPICS2017. It is worth emphasizing that for radiation transport via typical Monte Carlo method, the mean free path is calculated prior to the transport of particles. This is calculated via the mixture rule using the elemental library declared in the input file. Since mean free path and density can be used to derive mass attenuation coefficient, it is seen that the MAC is obtained by the code prior to simulation. The simulation method is hence unique, since like the experimental transmission method, the MACs obtained by simulation are subjected to some form of buildup factor due to the deviation from narrow beam geometry from scattering in the model. It is also important to state that the MCNPX is based on the EPDL89 photoatomic library. This has been superseded by the EPDL97, by the EPICS2014, and most recently by the EPICS2017. Hence, values from the EPICS2017 are in general more up to date comparing to the MCNPX simulations.
+<Section>4. Conclusion</Section>
+This work evaluated the radiation attenuation capabilities of selected 19 alloys utilizing the EPICS2017 library of the ENDF/B-VIII. The alloys considered were comprised of 5 ternary alloys based on Fe, Cr, and Ni elements, 4 NS alloys composed of Cu, Ni, and Zn, 6 ternary alloys composed of Cu, Zn, Pb elements, and binary alloys of Ag/Cu, Ag/Cu, Pd/Cr and Pd/Cu. All alloys were previously characterized using experimental transmission method, while the binary alloys Ag/Cu, Ag/Cu, Pd/Cr and Pd/Cu were previously characterized using the MCNPX code. Furthermore, XCOM program was used for comparative evaluations with EPICS2017. The results from EPICS2017, XCOM, MCNPX, and experiment described a decreasing trend of MAC with increasing photon energy. Furthermore, a good agreement was described between EPICS2017, experiment, and MCNPX. The strongest agreement was found between EPICS2017 and XCOM. The EPICS2017 was shown to be an effective tool for obtaining MAC. It is of large importance that the EPICS2017 contains the latest data libraries for coupled photon-electron transport. When used as a system for evaluation of MAC, this database will generally give more up to date values in comparison with present Monte Carlo codes. For instance, the MCNP5, Geant4, PHITS, and FLUKA are based on the preceded EPDL97. Therefore, direct EPICS2017 interpolation is currently the latest MAC determination method that gives consistent values comparable or possibly favorable to XCOM.
+<Section>Declaration of competing interest</Section>
+The authors declare that they have no known competing financial interests or personal relationships that could have appeared to influence the work reported in this paper.
+<Section>Acknowledgement</Section>
+This research was funded by the Deanship of Scientific Research at Princess Nourah bint Abdulrahman University through the Fast-track Research Funding Program.
+<Section>References</Section>
+Akkurt, 2009
+I. Akkurt
+Effective atomic and electron numbers of some steels at different energies
+Ann. Nucl. Energy, 36 (11–12) (2009), pp. 1702-1705
+(‏)
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+Akkurt et al., 2006
+I. Akkurt, C. Basyigit, S. Kilincarslan, B. Mavi, A. Akkurt
+Radiation shielding of concretes containing different aggregates
+Cement Concr. Compos., 28 (2) (2006), pp. 153-157
+(‏)
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+Akman et al., 2019a
+F. Akman, M.R. Kaçal, M.I. Sayyed, H.A. Karataş
+Study of gamma radiation attenuation properties of some selected ternary alloys
+J. Alloys Compd., 782 (2019), pp. 315-322
+(‏)
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+Akman et al., 2019b
+F. Akman, M.I. Sayyed, M.R. Kaçal, H.O. Tekin
+Investigation of photon shielding performances of some selected alloys by experimental data, theoretical and MCNPX code in the energy range of 81 keV–1333 keV
+J. Alloys Compd., 772 (2019), pp. 516-524
+(‏)
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+Al-Hadeethi and Sayyed, 2020
+Y. Al-Hadeethi, M.I. Sayyed
+BaO–Li2O–B2O3 glass systems: potential utilization in gamma radiation protection
+Prog. Nucl. Energy, 129 (2020), p. 103511
+(‏)
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+Alajerami et al., 2020
+Y.S. Alajerami, D. Drabold, M.H.A. Mhareb, K.L.A. Cimatu, G. Chen, M. Kurudirek
+Radiation shielding properties of bismuth borate glasses doped with different concentrations of cadmium oxides
+Ceram. Int., 46 (8) (2020), pp. 12718-12726
+(‏)
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+Almuqrin and Sayyed, 2021
+A.H. Almuqrin, M.I. Sayyed
+Radiation shielding characterizations and investigation of TeO 2–WO 3–Bi 2 O 3 and TeO 2–WO 3–PbO glasses
+Appl. Phys. A, 127 (3) (2021), pp. 1-11
+(‏)
+Google Scholar
+Aşkın, 2020
+A. Aşkın
+Assesment of the gamma and neutron shielding capabilities of the boro-tellurite glass quaternary containing heavy metal oxide using Geant4 and Phy-X/PSD database
+Ceram. Int., 46 (9) (2020), pp. 14090-14096
+(‏)
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+Aygün et al., 2019
+B. Aygün, E. Şakar, T. Korkut, M.I. Sayyed, A. Karabulut, M.H.M. Zaid
+Fabrication of Ni, Cr, W reinforced new high alloyed stainless steels for radiation shielding applications
+Results in Physics, 12 (2019), pp. 1-6
+(‏)
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+Berger et al., 2010
+M.J. Berger, J.H. Hubbell, S.M. Seltzer, J. Chang, J.S. Coursey, R. Sukumar, D.S. Zucker, K. Olsen
+XCOM: Photon Cross Section Database
+National Institute of Standards and Technology, Gaithersburg, MD (2010)
+(version 1.5), [Online] Available:
+http://physics.nist.gov/xcom
+[2020, November 19]
+Google Scholar
+Bhosale et al., 2017
+R.R. Bhosale, C.V. More, D.K. Gaikwad, P.P. Pawar, M.N. Rode
+Radiation shielding and gamma ray attenuation properties of some polymers
+Nucl. Technol. Radiat. Protect., 32 (3) (2017), pp. 288-293
+(‏)
+View Record in ScopusGoogle Scholar
+Brown et al., 2018
+D.A. Brown, M.B. Chadwick, R. Capote, et al.
+ENDF/B-VIII. 0: the 8th major release of the nuclear reaction data library with CIELO-project cross sections, new standards and thermal scattering data
+Nucl. Data Sheets, 148 (2018), pp. 1-142
+(‏)
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+Cullen, 2018
+D.E. Cullen
+A Survey of Photon Cross Section Data for Use in Epics2017
+IAEA Nuclear Data Services (2018), p. 30
+IAEA-NDS-225 (rev. 1)
+View Record in ScopusGoogle Scholar
+Dong et al., 2019
+M.G. Dong, O. Agar, H.O. Tekin, O. Kilicoglu, K.M. Kaky, M.I. Sayyed
+A comparative study on gamma photon shielding features of various germanate glass systems
+Compos. B Eng., 165 (2019), pp. 636-647
+(‏)
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+Gerward et al., 2004
+L. Gerward, N. Guilbert, K.B. Jensen, H. Levring
+WinXCom—a program for calculating X-ray attenuation coefficients
+Radiat. Phys. Chem., 71 (3–4) (2004), pp. 653-654
+(‏)
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+Hila et al., 2020
+F.C. Hila, A.V. Amorsolo Jr., A.M.V. Javier-Hila, N.R.D. Guillermo
+A simple spreadsheet program for calculating mass attenuation coefficients and shielding parameters based on EPICS2017 and EPDL97 photoatomic libraries
+Radiat. Phys. Chem., 177 (2020), p. 109122
+(‏)
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+Kaur et al., 2017
+T. Kaur, J. Sharma, T. Singh
+Thickness optimization of Sn–Pb alloys for experimentally measuring mass attenuation coefficients
+Nuclear Energy and Technology, 3 (1) (2017), pp. 1-5
+(‏)
+ArticleDownload PDFCrossRefView Record in ScopusGoogle Scholar
+Mhareb, 2020
+M.H.A. Mhareb
+Physical, optical and shielding features of Li 2 O–B 2 O 3–MgO–Er 2 O 3 glasses co-doped of Sm 2 O 3
+Appl. Phys. A, 126 (1) (2020), pp. 1-8
+(‏)
+Google Scholar
+Şakar, 2020
+E. Şakar
+Determination of photon-shielding features and build-up factors of nickel–silver alloys
+Radiat. Phys. Chem., 172 (2020), p. 108778
+(‏)
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+Şakar et al., 2019
+E. Şakar, M. Büyükyıldız, B. Alım, B.C. Şakar, M. Kurudirek
+Leaded brass alloys for gamma-ray shielding applications
+Radiat. Phys. Chem., 159 (2019), pp. 64-69
+(‏)
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+Şakar et al., 2020
+E. Şakar, Ö.F. Özpolat, B. Alım, M.I. Sayyed, M. Kurudirek
+Phy-X/PSD: development of a user friendly online software for calculation of parameters relevant to radiation shielding and dosimetry
+Radiat. Phys. Chem., 166 (2020), p. 108496
+(‏)
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+Sayyed et al., 2021a
+M.I. Sayyed, K.A. Mahmoud, E. Lacomme, M.M. AlShammari, N. Dwaikat, Y.S.M. Alajerami, M.H.A. Mhareb
+Development of a novel MoO 3-doped borate glass network for gamma-ray shielding applications
+The European Physical Journal Plus, 136 (1) (2021), pp. 1-16
+(‏)
+View Record in ScopusGoogle Scholar
+Sayyed et al., 2021b
+M.I. Sayyed, Y. Al-Hadeethi, M.M. AlShammari, M. Ahmed, S.H. Al-Heniti, Y.S. Rammah
+Physical, optical and gamma radiation shielding competence of newly boro-tellurite based glasses: TeO2–B2O3–ZnO–Li2O3–Bi2O3
+Ceram. Int., 47 (1) (2021), pp. 611-618
+(‏)
+ArticleDownload PDFGoogle Scholar
+Sayyed et al., 2021c
+M.I. Sayyed, Aljawhara H. Almuqrin, Recep Kurtulus, Abigaile Mia V. Javier-Hila, Kawa Kaky, Taner Kavas
+X-ray shielding characteristics of P2O5–Nb2O5 glass doped with Bi2O3 by using EPICS2017 and Phy-X/PSD
+Appl. Phys. A, 127 (2021), p. 243
+View Record in ScopusGoogle Scholar
+Singh et al., 2018
+T. Singh, A. Kaur, J. Sharma, P.S. Singh
+Gamma rays' shielding parameters for some Pb-Cu binary alloys
+Engineering science and technology, an international journal, 21 (5) (2018), pp. 1078-1085
+(‏)
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+Trkov and Brown, 2018
+A. Trkov, D.A. Brown
+ENDF-6 Formats Manual: Data Formats and Procedures for the Evaluated Nuclear Data Files (No. BNL-203218-2018-INRE)
+Brookhaven National Lab.(BNL) ‏, Upton, NY (United States) (2018)
+Google Scholar

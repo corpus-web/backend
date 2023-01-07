@@ -1,0 +1,342 @@
+<title>Assessment of CASL VERA for BWR analysis and application to accident tolerant SiC/SiC channel box</title>
+<author>1,Jacob P.Gorton,2,Benjamin S.Collins,3,Aaron J.Wysocki,4,Nicholas R.Brown</author>
+<Affiliation>1,University of Tennessee, Knoxville, TN 37916, United States;2,Oak Ridge National Laboratory, Oak Ridge, TN 37830, United States</Affiliation>
+<year>2020</year>
+<Jounral>Nuclear Engineering and Design</Journal>
+<Publishing_house>ELSEVIER</Publishing_house>
+<Text_Collector>XiaFan，HEU</Text_Collector>
+<DOI>10.1016/j.nucengdes.2020.110732</DOI>
+<URL>https://www.sciencedirect.com/science/article/pii/S0029549320302260</URL>
+Assessment of CASL VERA for BWR analysis and application to accident tolerant SiC/SiC channel box
+Jacob P.Gorton,Benjamin S.Collins,Aaron J.Wysocki,Nicholas R.Brown
+University of Tennessee, Knoxville, TN 37916, United States
+Oak Ridge National Laboratory, Oak Ridge, TN 37830, United States
+<Section>Highlights</Section>
+MPACT can accurately generate two-group cross sections for boiling water reactors.
+VERA predicts BWR performance at least as well as current licensing tools.
+VERA is an advanced multiphysics tool that can solve novel and complex problems.
+VERA’s advanced features make it an attractive tool for use in the nuclear industry.
+<Section>Abstract</Section>
+Application of the Virtual Environment for Reactor Applications (VERA) to BWR analysis is assessed in this paper by comparing results to those calculated using other widely-used modeling tools, namely the U.S. Nuclear Regulatory Commission’s PARCS/PATHS and the Serpent Monte Carlo particle transport code. Additionally, VERA is used to calculate 3-D temperature and fast neutron flux distributions in silicon carbide (SiC) fiber-reinforced, SiC matrix composite (SiC/SiC) BWR channel boxes, which are being studied as an Accident Tolerant Fuel core structural material concept. The code-to-code comparisons were favorable, and the SiC/SiC channel box evaluation demonstrates the many advanced modeling features VERA provides while also highlighting the non-uniformity in fast neutron flux distributions that can play a role in potential SiC/SiC channel box deformation. Traditional BWR analysis tools do not have the calculation fidelity necessary for coupled assessment of flux and temperature gradients in a SiC/SiC channel box. VERA is a state-of-the-art modeling environment that was developed to increase the safety and economic competitiveness of nuclear power through improved modeling accuracy. While VERA has already been deployed in the nuclear industry for PWR applications, the current study is a vital initial step in the extensive development, validation, and verification that VERA must go through to be useful for BWR applications.
+Keywords:Boiling water reactor;Multiphysics;High-fidelity;Code-to-code comparison;Accident Tolerant Fuel
+<Section>1. Introduction</Section>
+The Consortium for Advanced Simulation of Light Water Reactors (CASL) has been developing the Virtual Environment for Reactor Applications (VERA) to improve the accuracy of light water reactor (LWR) modeling through the coupling of subsidiary computational tools that employ multiphysics techniques and a high-fidelity discretization structure (Turner et al., 2016). VERA has previously been validated for pressurized water reactor (PWR) analysis (Godfrey et al., 2015, Collins and Godfrey, 2015). However, application of VERA to boiling water reactor (BWR) analysis is under development, and this capability has not yet been fully validated against experimental data or benchmarked against other modeling tools (Gorton et al., 2019a). This paper and the analysis capability we demonstrate was motivated by the need identified in the literature to perform very high-fidelity coupled assessments of Accident Tolerant Fuel (ATF) materials in BWRs (Singh et al., 2019).
+This paper has two objectives, the first of which is to provide an initial assessment of VERA’s capability to perform BWR analysis by comparing results calculated for models based on the Peach Bottom Unit 2 reactor to those calculated by other widely-used modeling tools for a select set of progression problems. This set of progression problems is a novel contribution to the literature. The second objective of this paper is to use VERA to evaluate modern BWR fuel assemblies with silicon carbide (SiC) fiber-reinforced, SiC matrix (SiC/SiC) composite channel boxes, which is a potential ATF core structural material concept. The importance of this work is grounded in the need for increased accuracy in modeling predictions that can improve the economic competitiveness of nuclear power, as well as the need for advanced modeling tools that can solve complex and novel problems. For example, the unique contribution demonstrated in this paper to determine high fidelity neutron flux and temperature boundary conditions for stress and deformation analysis of SiC/SiC channel boxes in BWRs.
+Motivation for the assessment of VERA lies in the foundational objectives of CASL, which was established to improve the economic competitiveness of nuclear power by addressing key challenges facing the nuclear industry. This can be achieved through the integration of subsidiary nuclear modeling tools into VERA (Turinsky and Kothe, 2016). Several example approaches for increasing the competitiveness of nuclear energy include uprating nominal reactor power, achieving higher burnup and fuel cycle lengths, and extending the lifetime of nuclear power plants. However, each of these approaches may increase the likelihood and/or severity of operational occurrences, such as grid-to-rod fretting, pellet-cladding interactions (PCI), departure from nucleate boiling (DNB), CRUD-induced power shifts (CIPS), and CRUD-induced localized corrosion (CILC) (Zinkle and Was, 2013). Any of these phenomena may increase the probability of cladding or fuel failure during normal operation and accident scenarios, which has operational and safety related consequences. Current modeling tools used in industry and for reactor licensing purposes either lack the multiphysics integration or the spatial fidelity required to fully capture the localized effects caused by these phenomena, which can result in large uncertainties and overly conservative safety margin estimates. This drives the need for tools like VERA, which, compared to current regulatory licensing tools, uses higher-order neutron transport and thermal hydraulic solution methods and a higher-fidelity spatial discretization scheme. These advanced modeling features suggest that VERA could be integrated into the nuclear industry to improve the accuracy of reactor performance predictions and reduce costs (Turinsky and Kothe, 2016, Ivanov and Avramova, 2007).
+The code-to-code comparisons in this paper are made for steady-state BWR performance parameters and two-group nuclear cross sections for BWR fuel lattices. A set of code-to-code progression problems was developed with increasing complexity to perform the comparisons, analogous to past efforts in the literature for PWRs. The modeling tools used for the comparisons are the U.S. Nuclear Regulatory Commission’s (NRC’s) reactor kinetics code PARCS (Purdue Advanced Reactor Core Simulator), (Downar et al., 2002) coupled to PATHS (PARCS Advanced Thermal Hydraulics Simulator), (Collins et al., 2011) and the Monte Carlo particle transport code, Serpent (Leppänen, 2013). VERA’s primary subsidiary tools that are employed in the comparisons and in the evaluation of SiC/SiC channel boxes are the deterministic neutron transport solver, MPACT (Collins et al., 2016), and the thermal hydraulics subchannel code, CTF (Salko and Avramova, 2016). The few-group nuclear cross section data used in PARCS in this study are provided by MPACT, which has its own cross section libraries. While the code-to-code comparisons use historical Peach Bottom BWR fuel assembly designs with typical Zircaloy-4 channel boxes, a section of this paper is dedicated to a high-fidelity, multiphysics evaluation of modern BWR fuel assembly designs equipped with accident tolerant SiC/SiC channel boxes. This type of analysis can only be performed with a tool like VERA and would be impossible to carry out with the same level of output resolution using current regulatory tools. This portion of the study not only demonstrates the advanced capabilities of VERA, but also furthers ATF research, which, following the 2011 accident at the Fukushima-Daiichi nuclear power plant, has become a global effort.
+<Section>2. Background</Section>
+2.1. Modeling tool descriptions
+VERA is a multiphysics, multiscale modeling environment that is intended to improve the economic competitiveness and safety of nuclear energy. The modeling environment contains a host of nuclear modeling tools that can capture a range of scale and physical phenomena, including neutronics, thermal hydraulics, fuel performance, chemistry, and mechanics, using a variety of solution methods. For example, VERA contains both deterministic and Monte Carlo neutronics solvers, as well as subchannel and computational fluid dynamics (CFD) thermal hydraulic solvers. A full list of the modeling tools included in VERA is detailed by Turner et al. (2016).
+Multiphysics simulators like VERA must undergo an extensive validation and verification (V&V) procedure to ensure safety margin estimates for nuclear reactors are produced with a high level of confidence. This procedure includes V&V exercises first for each of the single-physics tools, followed by additional exercises for the multiphysics coupling of those tools. V&V is supplemented by uncertainty quantification to define the confidence bounds of predicted safety margins (Avramova and Ivanov, 2010). VERA has undergone this procedure for PWR applications, with the final demonstration being a simulation of 20 years of the Watts Bar Nuclear Power Station Unit 1 operating history (Godfrey et al., 2015, Godfrey et al., 2016). This V&V process is yet to be performed for VERA’s application to BWR analysis, although the primary VERA codes leveraged in the current study, MPACT and CTF, have undergone single-physics assessments. Kochunas et al. (2017) compared eigenvalue predictions from MPACT for Peach Bottom fuel assemblies to the KENO Monte Carlo code from the SCALE framework (Bowman, 2011), and demonstrated MPACT’s ability to model 3-D BWR control cells and a 2-D BWR full core problem. Porter and Avramova (2018) compared CTF pressure drop and void fraction predictions to data contained in the Japanese Nuclear Power Engineering Corporation (NUPEC) BWR database, and also summarized other BWR-relevant validation exercises performed using the COBRA-TF line of codes from which CTF originates. Parametric studies were performed by Avramova et al., 2009, Gorton et al., 2019b that showed single and two-phase turbulent mixing coefficients and interfacial drag coefficients significantly contribute to uncertainties in void fraction distributions. The current study is the first to assess VERA’s capability to perform multiphysics evaluations of BWR fuel assemblies and is an integral part of the broader V&V process that VERA must go through to be applied with confidence for BWR applications.
+PARCS/PATHS was chosen as the computational tool to compare VERA against because it is considered state-of-the-art for coupled regulatory analysis in the United States and is the NRC’s primary tool for BWR depletion analysis (Wysocki et al., 2015, Yarsky et al., 2017). It is worth noting that PARCS has been coupled to other regulatory thermal hydraulic solvers, including RELAP5 (Costa et al., 2008) and TRACE (Xu et al., 2009). However, PATHS offers faster simulation times compared to these other thermal hydraulic solvers, and a comparative study by Wysocki et al. (2015) showed that PATHS is able to predict steady-state BWR performance similarly to both TRACE and SIMULATE-3, a nodal diffusion code with thermal hydraulic feedback that is commonly used in industry for BWR analysis (Studsvik Scandpower, 2005).
+Primary differences between MPACT and PARCS are that MPACT uses the method of characteristics (MOC) and a 2-D radial and 1-D axial approximation to the 3-D Boltzmann transport equation, while PARCS solves the 3-D nodal diffusion equation. Further, few-group cross sections must be generated for PARCS using a separate lattice physics code, while cross section libraries with up to 252 energy groups have been developed and optimized for MPACT (Kim et al., 2019). Differences between the thermal hydraulics tools are that CTF considers three separate fluid fields (liquid film, liquid droplets, and vapor) that each have their own set of conservation equations while PATHS uses the drift flux model. Further, because CTF is pin-resolved, it is capable of modeling crossflow between coolant channels due to pressure differences, turbulent mixing, and void drift. A final key difference is that VERA uses finer spatial meshes that are on a pin-resolved scale, whereas PARCS/PATHS homogenizes fuel assemblies into a single radial node, or a few radial nodes at most. This homogenization leads to an inability to capture localized phenomena, and is the reason why a tool like VERA is required to perform analyses that require a high level of output fidelity, such as the SiC/SiC channel box evaluation presented in this paper. A VERA calculation is able to provide a neutron flux and temperature value at channel box segments adjacent to each peripheral fuel rod at each axial node, meaning a VERA 1010 fuel assembly model would provide 44 data points in the channel box per axial node (10 points per side plus 1 point per corner), compared to just 1 data point per axial node in a PARCS/PATHS calculation that radially homogenizes the fuel assembly.
+Serpent was chosen as the neutronics tool for the two-group cross section comparisons against MPACT because it is a continuous-energy Monte Carlo code that has been employed in a wide range of nuclear applications. Validated continuous-energy Monte Carlo tools are known to be more accurate than deterministic solvers because no approximations are made in cross section energy dependence and exact geometries can be modeled without introducing discretization error. Still, deterministic solvers are typically preferred for large scale multiphysics applications due to reduced computational burden and faster runtimes compared to Monte Carlo methods (Martin, 2012), hence the selection of a deterministic code in VERA. In this context, Serpent is used to verify the two-group cross sections generated by MPACT using infinite 2-D fuel lattice models, an exercise that has been carried out with Serpent for a number of deterministic codes with LWR applications (Fridman and Leppänen, 2011, Hursin et al., 2015, Bennett and Martin, 2019).
+2.2. SiC/SiC channel box motivation
+ATF technologies have been extended to include fuel, cladding, and core structural materials that are capable of increasing the coping time during a severe accident while having little to no impact on reactor operations, performance, and economics (Zinkle et al., 2014). A key characteristic that can increase accident coping time is improved oxidation resistance because this will reduce heat and hydrogen generation in the core during an accident. Reduced hydrogen production mitigates the likelihood of explosions and the compromise of reactor containment structures, which is what occurred at the Fukushima-Daiichi nuclear power plant in 2011 and led to the release of radioactive material into the environment. The oxidation reaction between typical zirconium-based alloys in the reactor core and the core coolant releases additional heat beyond the decay heat generated by a shutdown reactor, so in addition to increased coping time, improved oxidation resistance also reduces the burden on the emergency core cooling system (ECCS) and reduces the chances of core melt (Terrani, 2018). SiC/SiC composites have previously been identified as having excellent oxidation resistance and other material properties that may make it suitable for LWR application, hence its selection as a channel box material in the current study.
+SiC/SiC composites have been studied in high temperature and pressure steam environments, and it has been shown that the material exhibits less material recession and oxidation kinetics that are at least two orders of magnitude slower compared to zirconium alloys (Cheng et al., 2012, Pint et al., 2013, Terrani et al., 2014). Aside from favorable oxidation kinetics, SiC/SiC is also considered as a potential LWR material due to its low neutron absorption cross section (Yueh and Terrani, 2014), ability to maintain adequate strength at elevated temperatures (Deck et al., 2015), irradiation stability after reaching saturation (Katoh et al., 2011, Katoh et al., 2014), and resistance to irradiation creep (Katoh et al., 2013). Irradiation creep resistance is an important characteristic because creep can lead to geometry changes that can then cause control rod or control blade interference, power shifts due to changes in water channel geometry, and fuel assembly loading and offloading issues (Yueh and Terrani, 2014).
+The specific SiC/SiC concept analyzed in this paper is its application as a BWR channel box material. Every fuel assembly in a BWR core is surrounded by a thin-walled channel box that is primarily intended to prevent void drift from fuel regions to the bypass regions between assemblies. Channel boxes also help maintain the pressure boundary in fuel assemblies and add structural support, and they currently account for approximately 40% of the zirconium in a BWR core (Yueh and Terrani, 2014). Replacing the Zircaloy channel boxes with SiC/SiC may provide additional coping time during an accident scenario due to the slower oxidation reaction kinetics. The primary challenge this concept faces is the irradiation swelling of SiC/SiC before saturation is reached at approximately 1 dpa (Katoh et al., 2014). Gradients in neutron flux can cause nonuniform swelling rates in the channel box, which then leads to deformation and potentially to control blade interference. Only a very high-fidelity coupled tool, like VERA, is capable of best-estimate predictions of these flux gradients.
+Deformation of SiC/SiC channel boxes have previously been studied using finite element models that implemented dose-dependent swelling correlations (Singh et al., 2019). In that study, 3-D fast neutron flux and temperature boundary conditions were separately generated in a single BWR fuel assembly and channel box model using Serpent and CASL CTF, respectively. The boundary conditions were used in finite element tools, and results showed that the maximum channel box deformation early in the cycle was more than enough to cause interference with control blades. However, after the irradiation swelling saturated in the entire channel box, the residual deformation, which is caused by temperature gradients and thermal expansion, was within the typical clearance between the channel box and control blade. A follow-up to that study uses VERA’s coupled capabilities to generate additional boundary conditions in single fuel assembly models for different control blade configurations (Singh et al., 2020). That study also found that control blade interference would occur early in the cycle for some configurations, but found that saturation is not reached within one year of operation if the control blade is halfway inserted, and interference could be a longer-term issue.
+In the current study, we present temperature and fast neutron flux boundary conditions in SiC/SiC channel boxes calculated using a mini-core model developed in VERA that consists of sixteen fuel assemblies with a centrally-located control blade. This expands upon previous work in which only a single fuel assembly was analyzed. The boundary conditions generated in this study could be used for future channel box deformation studies that account for control blade proximity and other effects induced by an assembly’s location within the core. The generation of these boundary conditions using the high-fidelity, multiphysics capabilities of VERA highlights the synergy between advanced modeling development and the progression of ATF research initiatives. Specifically, this portion of the study is presented to illustrate the advanced capabilities of VERA for BWR fuel and structural material analysis, which current regulatory and industry tools are unable to perform.
+<Section>3. BWR model descriptions and study organization</Section>
+This section details the BWR models developed for this work and the general organization of the study. Section 3.1 details the Peach Bottom fuel assembly models that were used for the code-to-code comparisons between MPACT and Serpent for two-group cross sections and between VERA and PARCS/PATHS for steady-state reactor performance parameters. Section 3.2 describes a sixteen-assembly mini-core model developed in VERA that comprises of modern BWR fuel assembly designs with SiC/SiC channel boxes. Analysis of the mini-core model with VERA is intended to highlight the tool’s advanced modeling capabilities and potential utilization of VERA for ATF research and in the broader nuclear industry. Lastly, Section 3.3 summarizes the organization of this study and reiterates the role that each computational tool plays in this analysis.
+3.1. Peach Bottom fuel assembly model descriptions
+The BWR fuel assembly designs used for the code-to-code comparison part of this study are based on the six types of fuel assemblies used in cycles 1 and 2 of the Peach Bottom Unit 2 reactor (Larsen, 1978). Assembly types 1 through 3 contain 77 fuel pin lattices, and types 4 through 6 contain 88 fuel pin lattices. Types 1 through 5 have a heated length of 365.76 cm, while type 6 is a lead test assembly (LTA) design with a heated length of 381.00 cm and contains natural uranium blankets at the top and bottom of the assembly. Of the six assemblies, type 1 is the simplest and contains a single fuel loading pattern for the entire assembly and contains no gadolinia. The other five fuel assemblies have four or five gadolinia-containing rods, and assembly types 2, 3, and 6 have axially varying fuel loading patterns. Grid spacers are not considered for this analysis, and none of the Peach Bottom BWR fuel assemblies have part-length rods. Zircaloy-4 is used as the channel box material for all Peach Bottom fuel assembly models. Additional geometric parameters of the fuel assembly designs are given in Table 1, which were used in the VERA, Serpent, and PARCS/PATHS models. Each fuel assembly model used for the VERA-to-PARCS/PATHS comparison had identical boundary conditions, which are listed in Table 2. The assembly power of 4.31 MW and coolant mass flow rate of 16.904 kg/s were calculated by dividing the total rated core power and flow rate by the 764 assemblies in the Peach Bottom 2 core.
+Table 1. Peach Bottom fuel assembly geometry (Larsen, 1978).
+Table 2. Boundary conditions for all fuel assemblies.
+For the VERA-to-PARCS/PATHS comparisons, reflective boundary conditions were used on the radial sides of the assemblies, while axial leakage was allowed on the top and bottom of the models. Seventy-three axial nodes were used in each assembly model in both computational tools. On the fuel pin level, 8 azimuthal angles and 8 radial regions were used for modeling fuel rods in MPACT. Eight fuel rings were used in CTF’s conduction model in each rod, while 10 rings were used in PATHS’s homogenized fuel conduction model. By default, PARCS/PATHS provides radially averaged outputs at each axial node while VERA provides results on a pin- and subchannel-resolved scale. This means that PARCS/PATHS can provide homogenized centerline, average, and surface fuel temperatures, averaged power profiles, and averaged coolant properties, while VERA provides radial fuel pellet temperatures in each rod, axial power distributions in each rod, and coolant properties in every subchannel. Due to the finer mesh used in the VERA models, additional computational resources were used to run the models. All VERA and PARCS/PATHS models were ran on Oak Ridge National Laboratory (ORNL) computing clusters, where VERA used 64 cores over two computing nodes, while PARCS/PATHS used a single core.
+To ensure a direct comparison, the CTF models were designed to use the default temperature-dependent polynomials used for UO2 and Zircaloy-2 thermal conductivities in PATHS. A constant pellet-cladding gap heat transfer coefficient of 5700 W/m2-K was used in both CTF and PATHS, as was the Churchill wall friction correlation (Churchill, 1977). The Lellouche-Zolotar model (Lellouche and Zolotar, 1982) was used in PATHS for subcooled boiling, while the Chen model (Chen, 1966) was used in CTF. Neither PARCS/PATHS nor the version of VERA used for this analysis currently has the capability to explicitly model the bypass region that exists between BWR fuel assemblies, meaning that the models were considered to be adiabatic. Bypass flow modeling is currently under development by CASL.
+3.2. Mini-core model description
+For the accident-tolerant SiC/SiC channel box analysis, a mini-core model was developed in VERA that consisted of sixteen identical BWR fuel assemblies. Each assembly contains a 1010 fuel pin lattice, two large water rods, seven distinct axial fuel regions with varying fuel enrichments and gadolinia content (Fensin, 2004), and seven grid spacers. Modern 1010 BWR fuel assemblies often feature part-length rods, however, this modeling feature is still under development in VERA. As a workaround, part-length rods were modeled as full-length rods that have extremely low fuel density and 235U enrichment (both values on the order of 10-6) in the regions where the part-length rods would have disappeared. The neutronic impact of this workaround is negligible, but it will have some impact on thermal hydraulic calculations in CTF. Seventy-five axial nodes were used in the mini-core model, and 5 conduction rings were used in the CTF fuel model to shorten run times. Eight azimuthal angles and 8 radial regions were again used in MPACT for modeling the fuel rods.
+The mini-core is arranged into a 44 array of fuel assemblies with a cruciform control blade modeled in the center of the core, with the control blade design based on that from the LaSalle Unit 1 reactor (Gauld, 2000). Typical UO2 fuel and Zircaloy-2 cladding were used, along with the default thermal properties for these materials in CTF, while SiC/SiC was used as the channel box material. Because the thermal conductivity of SiC/SiC degrades under irradiation, the thermal properties of preirradiated SiC/SiC were used (Katoh et al., 2014) in CTF. The dynamic pellet-cladding gap conductance model in CTF was turned on for this analysis, and heat transfer from the channel box to the coolant in the bypass region was not modeled. Although the bypass region was not explicitly modeled, VERA automatically adjusts the flow rate in each fuel assembly so that the same axial pressure drop is experienced across all assemblies in the mini-core. Due to the symmetry of the model, results are presented from a single control cell (cluster of four fuel assemblies), which is shown in Fig. 1, where “Asm” is short for “assembly.” Note that the mini-core analysis is the only portion of this study that utilized SiC/SiC channel boxes.
+Fig. 1. BWR control cell.
+3.3. Summary of modeling tools and study organization
+This study can be broken down into three primary segments:
+1.
+Two-group cross section comparisons between MPACT and Serpent for BWR fuel lattices
+2.
+Comparison of steady-state performance parameter predictions between VERA and PARCS/PATHS for BWR fuel assemblies
+3.
+Analysis of modern BWR fuel assemblies with SiC/SiC channel boxes using VERA
+The two-group cross section comparison is a neutronics-only study and is presented in Section 4. The purpose of this comparison is to show how well MPACT can generate few-group cross sections to be used in nodal diffusion codes compared to a widely-used, continuous-energy Monte Carlo code. Comparisons of steady-state BWR performance parameter calculations are made between VERA and PARCS/PATHS in Section 5. These comparisons assess VERA’s ability to model BWR fuel assemblies relative to a regulatory-grade tool. The high-fidelity outputs provided by VERA are post-processed to match the output fidelity of PARCS/PATHS in order to make direct comparisons between the two modeling tools. To better illustrate VERA’s state-of-the-art modeling features, an analysis of a BWR mini-core model with SiC/SiC channel boxes is presented in Section 6. The purpose of this analysis is to present a unique study that can only be performed with a tool like VERA with high-fidelity and high-order modeling capabilities while also providing an evaluation of an accident tolerant material that is useful in and of itself. This demonstration that VERA can carry out an analysis of a novel problem that currently-used regulatory tools are unable to perform incentivizes its use in the broader nuclear industry.
+Fig. 2 provides a graphical summary of the three primary components of this paper. Note that historical Peach Bottom fuel assembly designs are used for the code-to-code comparisons, meaning that Zircaloy-4 is used as the channel box material, while modern BWR fuel assembly designs with SiC/SiC channel boxes are used for the mini-core analysis in VERA.
+Fig. 2. Organization of the current study and summary of modeling tools used.
+<Section>4. Few-Group cross section comparisons</Section>
+Three fuel loading patterns from the six fuel assembly types were modeled as infinite 2-D lattices in MPACT and Serpent to verify MPACT’s ability to generate few-group macroscopic cross sections from a lattice physics calculation using a finer energy group structure. Fuel loading patterns from assembly types 1, 3, and 5 were used for this comparison, and were chosen because these lattices cover a range of design complexity. The loading patterns from assembly types 1 and 5 are the only loading patterns used in these assemblies, while the loading pattern from type 3 only extends a portion of the assembly length and is referred to as lattice type D by Larsen (1978). Each MPACT calculation utilized a 51-group cross section library, and a fuel temperature of 900 K, coolant temperature of 548 K, and a void fraction of 40% were used as boundary conditions for all lattice calculations in both Serpent and MPACT. These comparisons are made for fresh fuel only.
+Table 3 shows a comparison of  and Fig. 3 shows comparisons of macroscopic cross sections pertinent to two-group diffusion calculations calculated by Serpent and MPACT for the three lattices examined. A transport-corrected, zeroth-order Legendre polynomial expansion for scattering (the TCP0 approximation) was used to obtain the results in Fig. 3. Scattering in Group 1 is excluded from the figure and is discussed separately. Results are presented as a ratio of the Serpent-predicted value to the MPACT-predicted value, so values close to 1.0 indicate better agreement. Because Serpent is a Monte Carlo code, the statistical uncertainty in the cross section predictions is propagated into the ratios.
+Table 3. Comparison of infinite multiplication factor between Serpent and MPACT.
+Fig. 3. Comparison of cross sections from Serpent and MPACT for assembly types a) 1, b) 3, and c) 5.
+The Group 1 scattering cross sections include within group scattering  and upscattering from Group 2 . For , the Serpent-to-MPACT ratios are 1.036, 1.966, and 1.962 for assembly types 1, 3, and 5, respectively, and have negligible uncertainties. In a two-group energy structure, MPACT assumes there is no upscatter, while Serpent calculated  cross sections of 6.87910-4 1/cm, 1.04910-3 1/cm, and 1.10710-3 1/cm for types 1, 3, and 5, respectively. The calculated uncertainty for each of these values is more than 100%, meaning that MPACT’s assumption of no upscatter falls within the range of possible values predicted by Serpent.
+When the statistical uncertainty in the Serpent calculations are taken into account, most of the Group 1 cross sections match within a few percent. In Group 2, Serpent consistently predicted macroscopic cross sections that were approximately 10–20% greater than those predicted by MPACT. In terms of the multiplication factor, the tools matched within about 304 pcm or less. Some of the differences may be accounted for by the use of different cross section library versions, since MPACT used an ENDF/B-VII.1 library (Chadwick et al., 2011) while Serpent used an ENDF/B-VII.0 library (Chadwick et al., 2006). The largest discrepancy occurs for the within group scattering cross sections,  and , specifically in the cases where gadolinia is present. For assembly types 3 and 5, Serpent predicted a nearly 100% larger Group 1 self-scattering cross section and approximately 50% greater Group 2 self-scattering cross section.
+To address the differences in scattering cross section predictions, two additional cases were run using the assembly type 3 lattice in which both cases utilized the higher-order P2 approximation for scattering. In one case, the same 51-group cross section library was used, and in the other case, a 252-group cross section library was used. Fig. 4 shows the Serpent-to-MPACT ratio for the various cross sections using a 51-group library and the P2 approximation in MPACT.
+Fig. 4. Comparison of cross sections calculated by Serpent and MPACT for Assembly Type 3 using the P2 scattering approximation.
+From Fig. 4, it is shown that most of the Serpent-to-MPACT ratios did not change significantly, but the Group 2 self-scattering cross section ratio dropped from 1.495 to 1.061. Additionally, the Group 1 self-scattering cross section ratio decreased from 1.966 to 1.039, showing significantly better agreement between the codes. For , however, the difference between the Serpent and MPACT predictions increased from 28 ± 36 pcm to 163 ± 36 pcm. The final MPACT case, which used the P2 approximation and a 252-group cross section library, showed marginal improvement over the case using P2 and 51-group library in terms of cross section agreement, but the difference between Serpent and MPACT decreased to just 1 ± 36 pcm. These cross section differences may lead to somewhat harder spectrum predictions in MPACT since each of the predicted thermal cross sections were less than those predicted by Serpent, and the lower transport cross section in MPACT will decrease axial streaming.
+<Section>5. VERA to PARCS/PATHS comparisons</Section>
+5.1. Code-to-code comparison of BWR analysis
+Comparisons of a number of neutronic and thermal hydraulic parameters were made between VERA and PARCS/PATHS for the six Peach Bottom BWR fuel assemblies described in Section 3.1. To perform these comparisons, PARCS/PATHS requires two-group cross sections and other diffusion parameters generated by a reactor physics code for a given reference state and a number of branch cases with different thermal hydraulic parameters. For this study, MPACT was used in standalone mode to generate these parameters, which include two-group cross sections, the diffusion coefficient, and assembly discontinuity factors. The MPACT models used a 252-group cross section library, the P2 approximation for scattering, and reflective boundary conditions on the radial sides of the assemblies but vacuum conditions on the top and bottom. The reference state used a coolant temperature of 548 K, a fuel temperature of 900 K, and a void fraction of 40%. Six coolant density branches were calculated with void fractions of 0%, 10%, 30%, 50%, 70%, and 90%, and three fuel temperature branches were calculated off of the reference state and each density branch using fuel temperatures of 500 K, 1500 K, and 2500 K. Additionally, two coolant temperature branches were calculated at void fractions of 40% and 70% using a coolant temperature of 561 K and fuel temperature of 900 K. This branch structure more than encapsulates the recommendation by the NRC for BWR analysis using PARCS/PATHS (Wang et al., 2013).
+For each fuel assembly type, keff, relative power profile, void fraction, outlet equilibrium quality, average fuel temperature, and coolant pressure drop are compared. Because PARCS/PATHS uses a single radial node per fuel assembly, the pin-resolved results from VERA had to be radially averaged to match the fidelity of PARCS/PATHS. For fuel pin parameters, such as relative power and fuel temperature, the values were simply averaged at each axial level. Subchannel area was used as a weighting factor when averaging void fraction and pressure because the corner and side subchannels have different areas than inner subchannels, while subchannel coolant mass flow rate was used to weight the quality. Figures shown in this section are only for assembly types 1 and 2 since the single fuel loading pattern of type 1 and the gadolinia content and axially-varying fuel loading pattern of type 2 make these assemblies representative of all six assembly types. A table is used to quantify the differences between the two modeling tools for all six assembly types.
+Fig. 5 shows the comparison of relative power and keff between VERA and PARCS/PATHS for assembly types 1 and 2. Comparisons for void fraction, coolant pressure, and average fuel temperature for the two assemblies are shown in Fig. 6 through Fig. 8, respectively. Fig. 6 also lists the outlet equilibrium quality predicted by PATHS and CTF, and Fig. 7 also lists the total pressure drop.
+Fig. 5. Comparison of relative power and keff for assembly types 1 (left) and 2 (right).
+Fig. 6. Comparison of void fraction and outlet equilibrium quality for assembly types 1 (left) and 2 (right).
+Fig. 7. Comparison of coolant pressure drop for assembly types 1 (left) and 2 (right).
+Fig. 8. Comparison of average fuel temperature for assembly types 1 (left) and 2 (right).
+Qualitatively, PARCS/PATHS predicted a greater peak relative power and greater peak fuel temperature for both fuel assemblies. The exit void fraction was slightly greater in PARCS/PATHS for both cases, although the void fraction predicted by VERA was greater at lower axial regions. The same outlet equilibrium quality was predicted by both modeling tools, and VERA predicted a greater pressure drop for the two assemblies shown. Table 4 is shown below to better quantify the differences between the two tools for all six assembly types. The differences in keff are presented as absolute differences in units of pcm while all other differences are relative to the values predicted by PARCS/PATHS. It should also be noted that the computing time of the VERA models on 64 cores required runtimes from approximately 32 to 78 min, while the PARCS/PATHS models run in approximately 1 s. However, PARCS requires few-group cross sections that are generated using a separate lattice physics code and converted into the PARCS format, while VERA has its own cross section data libraries.
+Table 4. Comparison of key parameter predictions between PARCS/PATHS and VERA.
+From Table 4, it is shown that a greater multiplication factor was predicted by PARCS/PATHS for all six assembly types, and the differences are within several hundred pcm. In terms of axial power profiles, the root mean square error (RMSE) across all six fuel assemblies and all axial locations between the two modeling tools is 10.36%. PARCS/PATHS also predicted a greater peak fuel temperature for all six assembly types. For most of the assemblies, the agreement in peak fuel temperature was from 4% to 7%, however, the tools differed by nearly 18% for assembly type 3. In terms of void fraction, PARCS/PATHS predicted a greater exit void in all cases by about 1.3% or less, but, as is shown in Fig. 6, VERA predicted greater void at lower axial regions in the fuel assemblies for all six cases. VERA predicted a greater total pressure drop in four out of the six cases, and relative differences of 1.14% to 4.37% were demonstrated for all assembly types.
+5.2. Discussion
+Further discussion on the code-to-code comparisons made in Section 5.1 is provided here to provide additional understanding of the differences between the predictions from the two modeling tools. Some differences between results from VERA and PARCS/PATHS may be expected based on the different methodologies used each in of the codes. Recall that PARCS uses the diffusion approximation with few-group cross sections, while MPACT uses MOC to solve a 2-D radial, 1-D axial approximation to the 3-D Boltzmann transport equation and a much finer energy group structure. CTF solves conservation equations for each of the three fluid fields (liquid film, liquid droplets, and vapor) modeled in the code, while PATHS uses the drift flux model. Also, both PARCS and PATHS homogenize fuel assemblies into a single radial node, while MPACT and CTF use a higher-fidelity spatial mesh. Comparisons of detailed transport and homogenized diffusion solutions for BWRs performed by Tada et al. (2008) showed differences between the two solution methods in  predictions of as much as 2200 pcm. Although assembly discontinuity factors, which were used in this analysis, have been shown to significantly reduce the discrepancy (Fujita et al., 2015), some differences between PARCS/PATHS and VERA predictions are expected to occur due to different spatial meshes, energy group structures, and solution methodologies.
+Discrepancies similar to those presented in this paper between PARCS/PATHS and VERA have been shown before between other commonly used modeling tools and experimental and reactor data. Comparisons of thermal hydraulic results for a BWR fuel assembly were made by Wysocki et al. (2015) using PATHS, TRACE, and SIMULATE. The results from that study showed that PATHS predicted the lowest void fraction in the lower axial regions of the assembly but predicted the greatest exit void fraction out of the three modeling tools. Validation work for CTF has shown that compared to measured data from several two-phase flow experimental facilities, CTF often overpredicts two-phase pressure drop and void fraction in the bubbly and slug flow regimes (Zhao et al., 2019, Porter and Avramova, 2018). The study by Wysocki et al. (2015) also presented a comparison of axial power profiles from a BWR core that were measured using a traveling in-core probe (TIP) and calculated using PARCS/PATHS that showed a 9.9% RMSE across all TIP measurement locations, which is similar to the RMSE for relative power predicted between VERA and PARCS/PATHS of 10.36%. Yarsky et al. (2017) also compared PARCS/PATHS power profiles to TIP data from Edwin Hatch Unit 1, Cycle 2 and found that compared to the measured data, PARCS/PATHS always predicted a greater peak power as well as a lower relative power at the top and bottom nodes of the model. Each of these observations are consistent with those made in the present study.
+The observed differences in relative power and void fraction between the codes and measured data will have cascading effects on other key parameters and on each other. Relative power directly impacts fuel temperature and void fraction, which then impacts pressure drop and relative power due to increased neutron absorption. To understand the first-order cause of the discrepancies between VERA and PARCS/PATHS, standalone neutronics and thermal hydraulics calculations were performed for assembly type 1. Fig. 9 shows a comparison of relative power and keff predicted by MPACT and PARCS for assembly type 1 at a void fraction of 40%, while Fig. 10, Fig. 11, and Fig. 12 show comparisons of void fraction, pressure, and average fuel temperature, respectively, calculated by CTF and PATHS using the power profile calculated by the MPACT model.
+Fig. 9. Comparison of relative power and keff predictions from MPACT and PARCS for assembly type 1.
+Fig. 10. Comparison of void fraction and outlet equilibrium quality predicted by CTF and PATHS for assembly type 1.
+Fig. 11. Comparison of pressure drop predicted by CTF and PATHS for assembly type 1.
+Fig. 12. Comparison of average fuel temperature predicted by CTF and PATHS for assembly type 1.
+For this particular set of boundary conditions, the difference in keff predictions is 58 pcm and the RMSE in relative power across all axial nodes is 0.92%, while the RMSE for the coupled analysis of assembly type 1 shown in Fig. 4 was 2.60%. The relative difference in peak fuel temperatures predicted in the standalone CTF and PATHS models is 2.02%, less than half of the relative error found in the coupled analysis for assembly type 1. CTF and PATHS each predicted a smaller pressure drop in standalone mode compared to the coupled values, although the relative difference in pressure drop is −3.35%, similar to the −3.41% difference observed in the coupled case. In terms of void fraction, the predictions from CTF and PATHS are essentially identical to those from the coupled analyses using VERA and PARCS/PATHS. Contributing factors to the discrepancies between the modeling tools are the use of different subcooled boiling correlations, different solution methodologies, and different spatial resolution. Void fraction discrepancies likely cause the differences in pressure drop because of the use of two-phase friction multipliers in both CTF and PATHS. The improved agreement for relative power, keff, and fuel temperature with little change in pressure drop and void fraction predictions suggest that void fraction discrepancies are the primary cause of other discrepancies found in the coupled cases.
+Another potential source of the discrepancies between the VERA and PARCS/PATHS results is the CASL mission and philosophy from which VERA was designed. CASL was established to improve the economic competitiveness of nuclear energy by more accurately predicting nuclear reactor performance (Turinsky and Kothe, 2016). Historically speaking, conservative and best-estimate approaches have been employed in nuclear reactor modeling and simulation, which can predict safety margins that are overly cautious and thereby induce additional costs (Ivanov and Avramova, 2007). While some conservatism is removed through the use of coupled methodology, like that of PARCS/PATHS, some accuracy is still lost due to the lack of spatial fidelity. VERA was developed with high-fidelity spatial resolution with the intention to reduce reactor operational costs by further increasing accuracy of LWR assessments and capturing highly-localized phenomena, which could potentially result in stronger negative feedback from local void and fuel temperature. It is possible that some of the discrepancies between VERA and PARCS/PATHS, which showed that VERA always predicted lower relative power and peak fuel temperatures, may be the result of reduced conservatism from higher-order multiphysics solution methods and finer spatial resolution.
+<Section>6. Evaluation of SiC/SiC channel box</Section>
+To demonstrate an example analysis that requires the high-fidelity spatial resolution provided by VERA, a coupled analysis of the BWR mini-core model described in Section 2.2 was performed using VERA to generate 3-D temperature and fast neutron flux boundary conditions in SiC/SiC channel boxes. The purpose of performing this study is twofold. First, this study is intended to expand upon previous ATF work by Singh et al., 2019, Singh et al., 2020 by using more complex models to gain additional understanding of spatial effects on channel box deformation, especially in regard to control blade configuration and assembly location in the core, and to more accurately capture the multiphysics phenomena at play. Second, this study aims to highlight VERA’s high resolution output structure and multiphysics capabilities, without which a study like this would not be possible.
+Three-dimensional distributions of temperature in the SiC/SiC channel boxes from the control cell identified in Fig. 1 are shown in Fig. 13 with the control blade fully inserted. The assembly number designations correspond to those in Fig. 1, with Assembly 4 (prominent on the right-hand side of the figure) being closest to the control blade location and Assembly 1 (prominent on the left-hand side of the figure) being the farthest from the control blade. Fast neutron flux in the channel boxes ranges from 8.341011 to 4.241014 neutrons/cm2-s with an average value of 1.811014 neutrons/cm2-s. Fig. 14 shows the relative difference of the fast neutron flux from the average value in the SiC/SiC channel boxes. The flux gradient ranges from an approximately −99% to 130% difference from the average value, and the figure highlights the significant axial and radial gradient in fast flux that contributes to channel box deformation.
+Fig. 13. Temperature distributions in SiC/SiC channel boxes of a control cell with fully inserted control blade.
+Fig. 14. Fast neutron flux gradient in SiC/SiC channel boxes of a control cell with fully inserted control blade.
+Fig. 13 and Fig. 14 show the expected behavior caused by the control blade: the temperature and fast flux are lowest on right-hand side of the figures, which depict the two faces of Assembly 4 nearest the blade. Gradients in the fast neutron flux are the first order cause of channel box deformation, so these results indicate that the Assembly 4 channel box may undergo the most deformation since it has the greatest radial fast flux gradient. Additionally, temperature gradients are the cause of residual deformation once irradiation swelling occurs in the entire channel box, so Assembly 4 may also have the largest degree of post-saturation deformation. Further analyses similar to those performed by Singh et al., 2019, Singh et al., 2020 would be required to confirm these hypotheses. The impact of not modeling the bypass region is expected to be small since the channel box temperature is dominated by the coolant temperature within the fuel assemblies and by the heat generated in nearby fuel rods. Further, temperature gradients in the channel box have a secondary effect on deformation compared to the fast flux gradient. At a high level, this analysis highlights the advanced modeling features available in VERA while also assessing a potential ATF concept. Although a specific case study is presented here, these results pave the way for a number of future studies that take into account other spatial and temporal effects such as control blade history, fuel assembly location within the core, and core shuffling.
+<Section>7. Summary and conclusions</Section>
+This paper focused on code-to-code comparisons between CASL VERA and other widely-used modeling tools and on an analysis of a sixteen-assembly BWR mini-core equipped with accident tolerant SiC/SiC channel boxes. The goals of this work were to assess VERA’s BWR analysis capability and to perform a high-fidelity characterization of SiC/SiC channel box boundary conditions. Two types of comparisons were made, the first between two-group cross sections generated using VERA’s neutronics code MPACT and the Monte Carlo code Serpent, and the second between steady-state BWR performance predictions between VERA and the NRC’s PARCS/PATHS. Two-group cross sections generated by Serpent and MPACT were typically in good agreement for the 2-D fuel lattices investigated, especially when the statistical uncertainties in the Monte Carlo estimates from Serpent were taken into account. The greatest discrepancies between the two modeling tools occurred in the scattering cross sections produced from the lattices that contained gadolinia, but it was found that using the P2 approximation for scattering significantly reduced the differences.
+Predictions of several key reactor parameters made by VERA and PARCS/PATHS were compared for six historical fuel assembly designs from the Peach Bottom Unit 2 reactor. To perform the comparisons, the high-fidelity results from VERA were radially averaged to match the output resolution produced by PARCS/PATHS. In terms of keff, the two modeling tools agreed within approximately 150–410 pcm, and the differences in relative power, exit void fraction, pressure drop, and fuel temperature were mostly on the order of 1–10%. While the exit void fractions predicted by the two codes were similar, VERA always predicted noticeably greater voids at lower regions in the assemblies. Standalone comparisons between CTF and PATHS showed that these void fraction discrepancies are a primary cause of other discrepancies in the coupled calculations. Differences between the two modeling codes may also be explained through differences in methodology and design philosophy since VERA was specifically designed to utilize multiphysics capabilities, a high-fidelity output structure, and higher-order solution methods compared to PARCS/PATHS.
+Calculations of temperature and fast neutron flux distributions in SiC/SiC channel boxes showed that the fast neutron flux varies significantly in both the radial and axial directions, especially in the channel box nearest the control blade. These distributions are important because fast flux gradients are the primary cause of potential SiC/SiC channel box deformation due to nonuniform irradiation swelling rates. Previous studies have calculated these gradients in single fuel assembly models, but the current study is the first to analyze multi-assembly models and underline the impact of fuel assembly and control blade proximity on fast neutron flux gradients for ATF applications.
+Results from this study suggest that VERA is capable of predicting steady-state BWR performance at least as well as current regulatory tools, while also offering numerous advanced modeling features that allow it to solve complex and novel problems. To further improve confidence in the application of VERA to BWRs, uncertainty quantification studies, code-to-code comparisons of full-core and depletion analyses, additional cross section comparisons in fuel lattices at different states and burnup, and validation against measured BWR data should be performed. Benchmarking of VERA’s ability to model grid spacers in BWRs also needs addressed. Overprediction of void fraction in bubbly and slug flow regimes by CTF compared to experimental data has been highlighted in previous studies and is an area of continued development within CASL. From an ATF standpoint, analyses of SiC/SiC channel boxes can also be expanded upon to account for operational procedures such as varying control blade configurations and core shuffling maneuvers, and additional deformation studies could be performed using the boundary conditions generated in this study.
+<Section>CRediT authorship contribution statement</Section>
+Jacob P. Gorton: . : Conceptualization, Methodology, Software, Formal analysis, Investigation, Data curation, Writing - original draft, Writing - review & editing, Visualization. Benjamin S. Collins: Conceptualization, Software, Resources, Supervision, Project administration, Funding acquisition. Aaron J. Wysocki: Resources, Writing - review & editing, Supervision. Nicholas R. Brown: Conceptualization, Methodology, Resources, Writing - review & editing, Supervision, Project administration, Funding acquisition.
+<Section>Declaration of Competing Interest</Section>
+The authors declare that they have no known competing financial interests or personal relationships that could have appeared to influence the work reported in this paper.
+<Section>Acknowledgments</Section>
+The authors would like to thank the Department of Energy Office of Nuclear Energy Advanced Fuels Campaign and the Consortium for Advanced Simulation of Light Water Reactors for their support of this work. The authors would also like to thank Dr. Andrew Ward from the University of Michigan for providing a pre-released version of GenPMAXS. While not used in this analysis, the willingness to collaborate is greatly appreciated. All computational simulations were performed at the Oak Ridge National Laboratory.
+<Section>Appendix A. Supplementary data</Section>
+The following are the Supplementary data to this article:
+Supplementary data 1.
+<Section>References</Section>
+Avramova et al., 2009
+Avramova, M., et al., 2009. Uncertainty analysis of COBRA-TF void distribution predictions for the OECD/NRC BFBT Benchmark. Saratoga Springs, NY, International Conference on Mathematics, Computational Methods & Reactor Physics (M&C).
+Google Scholar
+Avramova and Ivanov, 2010
+M.N. Avramova, K.N. Ivanov
+Verification, validation and uncertainty quantification in multi-physics modeling for nuclear reactor design and safety analysis
+Prog. Nucl. Energy, 52 (2010), pp. 601-614
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+Bennett and Martin, 2019
+Bennett, A., Martin, N., 2019. Validation of APOLLO2-A Against Serpent 2 on BWR Lattices. Portland, OR, International Conference on Mathematics, Computational Methods, and Reactor Physics.
+Google Scholar
+Bowman, 2011
+S.M. Bowman
+SCALE 6: comprehensive nuclear safety analysis code system
+Nucl. Technol., 174 (2) (2011), pp. 126-148
+View Record in ScopusGoogle Scholar
+Chadwick et al., 2011
+M.B. Chadwick, et al.
+ENDF/B-VII.1 nuclear data for science and technology: cross sections, covariances, fission product yields and decay data
+Nucl. Data Sheets, 112 (2011), pp. 2887-2996
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+Chadwick et al., 2006
+M.B. Chadwick, et al.
+ENDF/B-VII.0: next generation evaluated nucleat data library for nuclear science and technology
+Nucl. Data Sheets, 107 (2006), pp. 2931-3060
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+Cheng et al., 2012
+T. Cheng, et al.
+Oxidation of fuel cladding candidate materials in steam environments at high temperature and pressure
+J. Nucl. Mater., 427 (2012), pp. 396-400
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+Chen, 1966
+J.C. Chen
+Correlation for boiling heat transfer to saturated fluids in convective flow
+Ind. Eng. Chem. Process Des. Dev., 5 (3) (1966), pp. 322-329
+CrossRefView Record in ScopusGoogle Scholar
+Churchill, 1977
+S.W. Churchill
+Friction-factor equation spans all fluid-flow regimes
+Chem. Eng., 84 (24) (1977), pp. 91-92
+View Record in ScopusGoogle Scholar
+Collins and Godfrey, 2015
+Collins, B., Godfrey, A., 2015. Analysis of the BEAVRS Benchmark Using VERA-CS. Nashville, Tennessee, ANS MC2015.
+Google Scholar
+Collins et al., 2011
+Collins, B., et al., 2011. PATHS: A Steady State Two-Phase Thermal-Hydraulics Solver for PARCS Depletion. Toronto, Ontario, NURETH-14.
+Google Scholar
+Collins et al., 2016
+B. Collins, et al.
+Stability and accuracy of 3D neutron transport simulations using the 2D/1D method in MPACT
+J. Comput. Phys., 326 (2016), pp. 612-628
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+Costa et al., 2008
+A.L. Costa, C. Pereira, W. Ambrosini, F. D'Auria
+Simulation of an hypothetical out-of-phase instability case in boiling water reactor by RELAP5/PARCS coupled codes
+Ann. Nucl. Energy, 35 (2008), pp. 947-957
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+Deck et al., 2015
+C.P. Deck, et al.
+Characterization of SiC-SiC composites for accident tolerant fuel cladding
+J. Nucl. Mater., 466 (2015), pp. 667-681
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+Downar, et al., 2002
+Downar, T.J., et al., 2002. PARCS: Purdue advanced reactor core simulator. s.l., Proc. Int. Conf. on the New Frontiers of Nuclear Technology: Reactor Physics, Safety and High Performace Computing.
+Google Scholar
+Fensin, 2004
+Fensin, M.L., 2004. Optimum Boiling Water Reactor Fuel Design Strategies to Enhance Reactor Shutdown by the Standby Liquid Control System, University of Florida: Master's Thesis.
+Google Scholar
+Fridman and Leppänen, 2011
+E. Fridman, J. Leppänen
+On the use of the Serpent Monte Carlo code for few-group cross section generation
+Ann. Nucl. Energy, 38 (2011), pp. 1399-1405
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+Fujita et al., 2015
+T. Fujita, T. Endo, A. Yamamoto
+Application of correction technique using leakage index combined with SPH or discontinuity factors for energy collapsing on pin-by-pin BWR core analysis
+J. Nucl. Sci. Technol., 52 (3) (2015), pp. 355-370
+CrossRefView Record in ScopusGoogle Scholar
+Gauld, 2000
+Gauld, I.C., 2000. Scale-4 Analysis of LaSalle Unit 1 BWR Commercial Reactor Critical Configurations, ORNL/TN-1999/247: Oak Ridge National Laboratory.
+Google Scholar
+Godfrey et al., 2015
+Godfrey, A., et al., 2015. VERA Benchmarking Results for Watts Bar Nuclear Plant Unit 1 Cycles 1-12, CASL-U-2015-0206-000: Oak Ridge National Laboratory.
+Google Scholar
+Godfrey et al., 2016
+Godfrey, A., et al., 2016. VERA benchmarking results for Watts Bar Nuclear Plant Unit 1 Cycles 1-12. Sun Valley, ID, PHYSOR 2016.
+Google Scholar
+Gorton et al., 2019
+Gorton, J.P., Collins, B.S., Brown, N.R., 2019a. A Demonstration of BWR Coupled Analysis and Potential ATF Applications Using CASL's MPACT/CTF. Minneapolis, MN, Transactions of the American Nuclear Society, Vol. 120.
+Google Scholar
+Gorton et al., 2019b
+Gorton, J.P., Collins, B.S., Brown, N.R., 2019b. Effect of crossflow modeling on vapor void fraction and criticality in a BWR fuel assembly using MPACT/CTF. Seattle, WA, 14th International Nuclear Fuel Cycle Conference, GLOBAL 2019 and Light Water Reactor Fuel Performance Conference, TOP FUEL 2019.
+Google Scholar
+Hursin et al., 2015
+Hursin, M., Rossinelli, L., Ferroukhi, H., Pautz, A., 2015. BWR full core analysis with Seprent/SIMULATE-3 hybrid stochastic/deterministic code sequence. Nashville, TN, Joint International Conference Mathematics and Computation, Supercomputing in Nuclear applications and the Monte Carlo Method.
+Google Scholar
+Ivanov and Avramova, 2007
+K. Ivanov, M. Avramova
+Challenges in coupled thermal-hydraulics and neutronics simulations for LWR safety analysis
+Ann. Nucl. Energy, 34 (2007), pp. 501-513
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+Katoh et al., 2011
+Y. Katoh, et al.
+Stability of SiC and its composites at high neutron fluence
+J. Nucl. Mater., 417 (2011), pp. 400-405
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+Katoh et al., 2014
+Y. Katoh, et al.
+Continuous SiC fiber, CVI SiC matrix composites for nuclear applications: Properties and irradiation effects
+J. Nucl. Mater., 448 (2014), pp. 448-476
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+Katoh et al., 2013
+Y. Katoh, L.L. Snead, C.M. Parish, T. Hinoki
+Observation and possible mechanisms of irradiation induced creep in ceramics
+J. Nucl. Mater., 434 (2013), pp. 141-151
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+Kim et al., 2019
+K.S. Kim, M.L. Williams, D. Wiarda, K.T. Clarno
+Development of the multigroup cross section library for the CASL neutronics simulator MPACT: Method and procedure
+Ann. Nucl. Energy, 133 (2019), pp. 46-58
+ArticleDownload PDFCrossRefView Record in ScopusGoogle Scholar
+Kochunas et al., 2017
+Kochunas, B., et al., 2017. Initial BWR Modeling Capacility for MPACT. Jeju, Korea, International Conference on Mathmatics & Computational Methods Applied to Nuclear Science and Engineering.
+Google Scholar
+Larsen, 1978
+Larsen, N.H., 1978. Core Design and Operating Data for Cycles 1 and 2 of Peach Bottom 2, General Electric Company: No. EPRI NP-563.
+Google Scholar
+Lellouche and Zolotar, 1982
+Lellouche, G., Zolotar, B., 1982. Mechanistic Model for Predicting the Two-Phase Void Fraction in Vertical Tubes, Channels, and Rod Bundles, Electric Power Research Institute: EPRI NP-2246-SR.
+Google Scholar
+Leppänen, 2013
+Leppänen, J., 2013. Serpent – a Continuous-energy Monte Carlo Reactor Physics Burnup Calculation Code. s.l.:VTT Technical Research Centre of Finland.
+Google Scholar
+Martin, 2012
+W.R. Martin
+Challenges and prospects for whole-core Monte Carlo analysis
+Nucl. Eng. Technol., 44 (2012), pp. 151-160
+CrossRefView Record in ScopusGoogle Scholar
+Pint et al., 2013
+B.A. Pint, et al.
+High temperatrue oxidation of fuel cladding candidate materials in steam-hydrogen environments
+J. Nucl. Mater., 440 (2013), pp. 420-427
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+Porter and Avramova, 2018
+N.W. Porter, M.N. Avramova
+Validation of CTF pressure drop and void predictions for the NUPEC BWR database
+Nucl. Eng. Des., 337 (2018), pp. 291-299
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+Salko and Avramova, 2016
+Salko, R.K., Avramova, M.N., 2016. CTF Theory Manual, CASL-U-2016-1110-000: Consortium for Advanced Simulation of LWRs.
+Google Scholar
+Singh et al., 2019
+G. Singh, et al.
+Deformation analysis of SiC-SiC channel box for BWR applications
+J. Nucl. Mater., 513 (2019), pp. 71-85
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+Singh et al., 2020
+G. Singh, et al.
+Impact of control blade insertion on the deformation behavior of SiC-SiC channel boxes in BWRs
+Nucl. Eng. Design, 363 (2020), Article 110621
+ArticleDownload PDFGoogle Scholar
+Studsvik Scandpower, 2005
+Studsvik Scandpower, 2005. SIMULATE-3 Advanced Three-Dimensional Two-Group Reactor Analysis Code, SSP-95/15 Rev. 3: s.n.
+Google Scholar
+Tada et al., 2008
+K. Tada, A. Yamamoto, Y. Yamane, Y. Kitamuray
+Applicability of the diffusion and simplified P3 theories for pin-by-pin geometry of BWR
+J. Nucl. Sci. Technol., 45 (10) (2008), pp. 997-1008
+CrossRefView Record in ScopusGoogle Scholar
+Terrani, 2018
+K.A. Terrani
+Accident tolerant fuel cladding development: promise, status, and challenges
+J. Nucl. Mater., 501 (2018), pp. 13-30
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+Terrani et al., 2014
+K.A. Terrani, et al.
+Silicon carbide oxidation in steam up to 2 MPa
+J. Am. Ceram. Soc., 97 (8) (2014), pp. 2331-2352
+CrossRefView Record in ScopusGoogle Scholar
+Turinsky and Kothe, 2016
+P.J. Turinsky, D.B. Kothe
+Modeling and simulation challenges pursued by the Consortium for Advanced Simulation of Light Water Reactors (CASL)
+J. Comput. Phys., 313 (2016), pp. 367-376
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+Turner et al., 2016
+J.A. Turner, et al.
+The virtual eenvironment for reactor applications (VERA): design and architecture
+J. Comput. Phys., 326 (2016), pp. 544-568
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+Wang et al., 2013
+Wang, D., Ade, B.J., Ward, A., 2013. Cross Section Generation Guidelines for TRACE-PARCS, Oak Ridge National Laborartory: No. ORNL/TM-2012/518.
+Google Scholar
+Wysocki et al., 2015
+A. Wysocki, et al.
+The modeling of advanced BWR fuel designs with the NRC fuel depletion codes PARCS/PATHS
+Nucl. Technol., 190 (3) (2015), pp. 323-335
+View Record in ScopusGoogle Scholar
+Xu et al., 2009
+Y. Xu, et al.
+Application of TRACE/PARCS to BWR stability analysis
+Ann. Nucl. Energy, 36 (2009), pp. 317-323
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+Yarsky et al., 2017
+P. Yarsky, et al.
+BWR control rod drift analysis capability in the U.S. NRC Core Simulator PATHS/PARCS
+Nucl. Technol., 197 (3) (2017), pp. 265-283
+CrossRefView Record in ScopusGoogle Scholar
+Yueh and Terrani, 2014
+K. Yueh, K.A. Terrani
+Silicon carbide composite for light water reactor fuel assembly applications
+J. Nucl. Mater., 448 (2014), pp. 380-388
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+Zhao et al., 2019
+X. Zhao, A.J. Wysocki, K. Shirvan, R.K. Salko
+Assessment of the subchannel code CTF for single- and two-phase flows
+Nucl. Technol., 205 (1–2) (2019), pp. 338-351
+CrossRefView Record in ScopusGoogle Scholar
+Zinkle et al., 2014
+S.J. Zinkle, et al.
+Accident tolerant fuels for LWRs: a perspective
+J. Nucl. Mater., 448 (2014), pp. 374-379
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+Zinkle and Was, 2013
+S.J. Zinkle, G.S. Was
+Materials challenges in nuclear energy
+Acta Mater., 61 (2013), pp. 735-758
+ArticleDownload PDFView Record in ScopusGoogle Scholar

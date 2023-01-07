@@ -1,0 +1,422 @@
+<title> Robust_JJ numerical_JJ approach_NN to_TO steady-state_NN calibration_NN of_IN mean-value_JJ models_NNS </title> <author> Beňo_NP ,_, Radek_NP ;_: Pachner_NP ,_, Daniel_NP ;_: Havlena_NP ,_, Vladimír_NP </author> <Affiliation> 1_CD MAN_NN Diesel_NP &_CC Turbo_NP ,_, Teglholmsgade_NN 41_CD ,_, Copenhagen_NP ,_, Denmark_NP 2_CD Automation_NN and_CC Control_NP Group_NP ,_, Department_NP of_IN Electrical_NP Engineering_NP ,_, Technical_NP University_NP of_IN Denmark_NP ,_, Kgs_NNS ._SENT 
+,_, Lyngby_NP ,_, Denmark_NP 3_CD AMOS_NP CoE_NP ,_, Institute_NP of_IN Technical_NP Cybernetics_NNS ,_, Norwegian_NP University_NP of_IN Science_NP and_CC Technology_NP ,_, Trondheim_NP ,_, Norway_NP 4_CD Vehicular_JJ Systems_NPS ,_, Department_NP of_IN Electrical_NP Engineering_NP ,_, Linköping_NP University_NP ,_, Linköping_NP ,_, Sweden_NP </Affiliation> <year> 2017_CD </year> <Jounral> Control_NP Engineering_NP Practice_NN </Journal> <Publishing_house> Elsevier_NP Ltd_NP </Publishing_house> <Text_Collector> Liu_NP Kai，HEU_NP </Text_Collector> <DOI> 10.1016/j_NP ._SENT 
+conengprac.2016.04.009_JJ </DOI> <URL> https_NNS :_: //www_NNS ._SENT 
+sciencedirect_NNS ._SENT 
+com/science/article/pii/S0967066116300776_NP ?_SENT 
+via%3Dihub_NN </URL> <Section> Abstract_JJ </Section> A_DT numerically_RB robust_JJ approach_NN to_TO steady-state_NN calibration_NN of_IN nonlinear_JJ dynamic_JJ models_NNS is_VBZ presented_VVN ._SENT 
+The_DT approach_NN is_VBZ based_VVN on_IN explicit_JJ formulation_NN of_IN the_DT constraints_NNS on_IN validity_NN of_IN internal_JJ model_NN signals_NNS by_IN set_NN of_IN inequalities_NNS ._SENT 
+The_DT constrained_VVN optimization_NN with_IN feasible_JJ iterates_VVZ guarantees_NNS that_IN the_DT model_NN will_MD never_RB be_VB evaluated_VVN with_IN invalid_JJ internal_JJ signals_NNS ._SENT 
+This_DT overcomes_VVZ numerical_JJ difficulties_NNS often_RB encountered_VVD when_WRB dealing_VVG with_IN highly_RB nonlinear_JJ models_NNS ._SENT 
+Because_IN the_DT approach_NN uses_VVZ a_DT large_JJ number_NN of_IN slack_JJ variables_NNS ,_, distributed_VVD least_JJS squares_NNS algorithm_NN is_VBZ proposed_VVN ._SENT 
+The_DT robustness_NN of_IN this_DT approach_NN is_VBZ demonstrated_VVN on_IN a_DT steady-state_NN calibration_NN of_IN turbocharged_JJ diesel_JJ engine_NN model_NN starting_VVG from_IN grossly_RB inaccurate_JJ initial_JJ estimates_NNS ._SENT 
+Keywords：System_NP identification；Engine_NP modeling；Nonlinear_NP systems；Parameter_NN identificationInternal_JJ combustion_NN engines_NNS <Section> 1._CD Introduction_NN </Section> Control_NP oriented_JJ models_NNS are_VBP gaining_VVG popularity_NN in_IN the_DT automotive_JJ industry_NN due_JJ to_TO the_DT increased_VVN complexity_NN of_IN modern_JJ engines_NNS ,_, stringent_JJ emission_NN standards_NNS (_( Hallstrom_NP and_CC Schiavon_NP ,_, 2007_CD ,_, Ohrnberger_NP et_CC al_NP ._SENT 
+,_, 2012_CD )_) ,_, on-board_NN diagnostics_NNS legislation_NN (_( Regulation_NP (_( ec_NP )_) no_RB 595/2009_CD ,_, 2009_CD ,_, Section_NP 1968.2_CD ,_, 2013_CD )_) and_CC their_PP$ short_JJ innovation_NN cycles_NNS ._SENT 
+Dynamic_JJ models_NNS of_IN Internal_NP Combustion_NP Engines_NNS (_( ICE_NN )_) vary_VVP widely_RB in_IN both_DT form_NN and_CC complexity_NN ._SENT 
+The_DT model_NN is_VBZ usually_RB built_VVN for_IN a_DT specific_JJ subclass_NN of_IN control_NN problems_NNS ,_, required_VVN accuracy_NN and_CC the_DT time_NN scale_NN ,_, see_VVP Guzzella_NP and_CC Onder_NP (_( 2009_CD )_) ._SENT 
+The_DT models_NNS often_RB combine_VVP empirical_JJ ,_, mechanical_JJ and_CC thermodynamical_JJ law_NN and_CC chemical_NN kinetics_NNS ._SENT 
+The_DT models_NNS range_VVP from_IN simple_JJ local_JJ linear_JJ models_NNS to_TO complex_JJ Computational_JJ Fluid_NN Dynamics_NP (_( CFD_NN )_) models_NNS ._SENT 
+The_DT high_JJ fidelity_NN first-principles_NNS models_NNS are_VBP used_VVN mainly_RB for_IN off-line_NN analysis_NN ,_, system_NN optimization_NN ,_, diagnostics_NNS design_NN ._SENT 
+Besides_IN the_DT dynamic_JJ models_NNS ,_, the_DT global_JJ steady-state_NN nonlinear_JJ high_JJ fidelity_NN models_NNS are_VBP often_RB used_VVN in_IN set-point_NN optimization_NN ._SENT 
+In_IN contrast_NN ,_, the_DT real_JJ time_NN feedback_NN control_NN design_NN is_VBZ still_RB predominantly_RB not_RB model_NN based_VVN ,_, or_CC it_PP is_VBZ based_VVN on_IN local_JJ linear_JJ models_NNS ._SENT 
+The_DT reason_NN is_VBZ that_IN it_PP is_VBZ difficult_JJ to_TO develop_VV a_DT first-principles-based_JJ model_NN with_IN sufficient_JJ accuracy_NN ._SENT 
+However_RB ,_, such_JJ models_NNS would_MD have_VH a_DT clear_JJ advantage_NN of_IN global_JJ validity_NN and_CC better_JJR extrapolation_NN capabilities_NNS ._SENT 
+With_IN the_DT growing_VVG complexity_NN of_IN engines_NNS ,_, their_PP$ interactions_NNS with_IN after-treatment_NN systems_NNS ,_, and_CC increasing_VVG number_NN of_IN actuators_NNS ,_, the_DT black_JJ box_NN model_NN development_NN is_VBZ becoming_VVG a_DT problem_NN as_IN it_PP is_VBZ difficult_JJ to_TO cover_VV the_DT high-dimensional_JJ operating_VVG space_NN with_IN experimental_JJ data_NNS ._SENT 
+The_DT Mean_NP Value_NP Models_NNS (_( MVM_NP )_) represent_VVP an_DT example_NN of_IN such_JJ first-principles_NNS models_NNS potentially_RB useful_JJ for_IN model-based_JJ controls_NNS (_( Guzzella_NP and_CC Onder_NP ,_, 2009_CD ,_, Isermann_NP ,_, 2014_CD ,_, Nikzadfar_NP and_CC Shamekhi_NP ,_, 2015_CD )_) ._SENT 
+They_PP are_VBP “_JJ zero_CD dimensional_JJ ”_JJ models_NNS which_WDT consider_VVP the_DT average_JJ mass_NN and_CC energy_NN flows_NNS over_IN the_DT engine_NN cycles_NNS ,_, neglecting_VVG their_PP$ pulsations_NNS caused_VVN by_IN the_DT periodic_JJ emptying_VVG and_CC filling_VVG of_IN cylinders_NNS (_( Heywood_NP ,_, 1988_CD )_) ._SENT 
+These_DT models_NNS are_VBP primarily_RB used_VVN for_IN design_NN of_IN air_NN path_NN controls_NNS ._SENT 
+The_DT model_NN is_VBZ built_VVN mainly_RB around_IN the_DT differential_JJ equations_NNS of_IN the_DT gas_NN pressure_NN and_CC temperature_NN at_IN certain_JJ control_NN volumes_NNS ,_, where_WRB the_DT pressure_NN and_CC temperature_NN is_VBZ assumed_VVN to_TO be_VB constant_JJ ._SENT 
+In_IN automotive_JJ industry_NN ,_, it_PP is_VBZ the_DT common_JJ practice_NN that_IN physical_JJ models_NNS are_VBP calibrated_VVN component-wise_RB ._SENT 
+This_DT is_VBZ a_DT different_JJ situation_NN from_IN the_DT process_NN industry_NN ,_, where_WRB ingenious_JJ nonlinear_JJ model_NN identification_NN methods_NNS were_VBD developed_VVN (_( Kozma_NP ,_, Savorgnan_NP ,_, &_CC Diehl_NP ,_, 2012_CD )_) ._SENT 
+A_DT typical_JJ engine_NN test_NN cell_NN is_VBZ equipped_VVN with_IN sufficient_JJ number_NN of_IN sensors_NNS which_WDT provide_VVP inputs_NNS and_CC output_NN signals_NNS to_TO component_NN sub-models_NNS ._SENT 
+This_DT makes_VVZ the_DT model_NN calibration_NN problem_NN a_DT static_JJ fitting_JJ problem_NN ;_: the_DT individual_JJ nonlinearities_NNS are_VBP fitted_VVN separately_RB ._SENT 
+Such_JJ calibration_NN approach_NN is_VBZ simpler_JJR compared_VVN to_TO the_DT general_JJ nonlinear_JJ dynamic_JJ model_NN identification_NN ._SENT 
+The_DT minimization_NN of_IN prediction_NN errors_NNS on_IN the_DT component_NN level_NN does_VVZ not_RB guarantee_VV the_DT minimum_JJ prediction_NN error_NN of_IN the_DT resulting_VVG dynamic_JJ model_NN ._SENT 
+Accuracy_NN of_IN the_DT model_NN built_VVN from_IN separately_RB fitted_VVN components_NNS may_MD be_VB sub-optimal_JJ ._SENT 
+There_EX are_VBP two_CD reasons_NNS for_IN this_DT ._SENT 
+Firstly_RB ,_, the_DT model_NN structure_NN is_VBZ imperfect_JJ ._SENT 
+The_DT fitted_JJ components_NNS models_NNS may_MD require_VV some_DT adjustment_NN to_TO compensate_VV the_DT effect_NN of_IN the_DT structure_NN simplifications_NNS ._SENT 
+Secondly_RB ,_, the_DT turbocharged_JJ ICE_NN represents_VVZ a_DT feedback_NN structure_NN where_WRB the_DT component_NN errors_NNS are_VBP propagated_VVN and_CC possibly_RB amplified_VVN ._SENT 
+It_PP is_VBZ thus_RB necessary_JJ to_TO minimize_VV the_DT errors_NNS which_WDT are_VBP most_RBS amplified_VVN even_RB at_IN the_DT cost_NN of_IN making_VVG the_DT component_NN fit_NN worse_JJR on_IN a_DT local_JJ level_NN ._SENT 
+This_DT is_VBZ why_WRB a_DT system_NN level_NN optimization_NN based_VVN calibration_NN approach_NN has_VHZ been_VBN proposed_VVN (_( Pachner_NP ,_, Germann_NP ,_, &_CC Stewart_NP ,_, 2012_CD )_) ._SENT 
+The_DT idea_NN is_VBZ to_TO start_VV from_IN the_DT component_NN level_NN model_NN and_CC run_VV an_DT optimization_NN of_IN model_NN parameters_NNS to_TO fit_VV the_DT global_JJ model_NN predictions_NNS to_TO the_DT data_NNS ._SENT 
+This_DT automated_JJ model_NN calibration_NN is_VBZ still_RB relatively_RB new_JJ in_IN automotive_JJ industry_NN and_CC models_NNS are_VBP often_RB adjusted_VVN manually_RB based_VVN on_IN physical_JJ insight_NN ._SENT 
+The_DT reason_NN is_VBZ that_IN the_DT optimization_NN can_MD drive_VV model_NN parameters_NNS to_TO incorrect_JJ values_NNS or_CC values_NNS which_WDT make_VVP some_DT of_IN the_DT internal_JJ signals_NNS physically_RB incorrect_JJ albeit_IN the_DT prediction_NN errors_NNS of_IN the_DT optimized_VVN signals_NNS are_VBP minimized_VVN ._SENT 
+This_DT could_MD be_VB improved_VVN by_IN constraining_VVG model_NN parameters_NNS during_IN the_DT optimization_NN to_TO certain_JJ a_DT priori_NN described_VVD sets_NNS ,_, regularizing_VVG the_DT problem_NN enforcing_VVG the_DT prior_JJ information_NN about_IN model_NN components_NNS (_( Wahlström_NP &_CC Eriksson_NP ,_, 2011_CD )_) ._SENT 
+It_PP is_VBZ also_RB important_JJ to_TO fit_VV all_DT available_JJ measurements_NNS during_IN the_DT automated_JJ calibration_NN ._SENT 
+The_DT automotive_JJ engineering_NN community_NN often_RB regards_VVZ such_JJ optimized_VVN models_NNS with_IN some_DT suspicion_NN and_CC their_PP$ predictions_NNS are_VBP considered_VVN less_RBR reliable_JJ compared_VVN to_TO models_NNS built_VVN from_IN components_NNS ._SENT 
+At_IN the_DT same_JJ time_NN ,_, the_DT MVM_NP of_IN turbocharged_JJ engines_NNS contain_VVP nonlinear_JJ functions_NNS with_IN singularities_NNS and_CC constrained_VVN domains_NNS ._SENT 
+In_IN Jankovic_JJ ,_, Jankovic_JJ ,_, and_CC Kolmanovsky_NP (_( 1998_CD )_) ,_, it_PP has_VHZ been_VBN proven_VVN that_IN the_DT states_NNS of_IN this_DT physical_JJ system_NN remain_VVP in_IN certain_JJ invariant_JJ set_NN Ω_NN within_IN the_DT singularities_NNS and_CC argument_NN to_TO functions_NNS remain_VVP in_IN their_PP$ domains_NNS ._SENT 
+An_DT accurate_JJ simulation_NN of_IN a_DT properly_RB calibrated_VVN model_NN started_VVN in_IN Ω_NP should_MD stay_VV there_RB ._SENT 
+Nonetheless_RB ,_, a_DT numerical_JJ simulation_NN of_IN the_DT model_NN can_MD fail_VV if_IN the_DT solution_NN will_MD fall_VV outside_JJ Ω_NN due_JJ to_TO discretization_NN errors_NNS ;_: crossing_VVG the_DT singularity_NN ._SENT 
+System_NN level_NN calibration_NN of_IN such_PDT a_DT model_NN is_VBZ difficult_JJ ._SENT 
+As_IN the_DT set_VVN Ω_NN can_MD depend_VV on_IN model_NN parameters_NNS ,_, the_DT optimization_NN can_MD hit_VV infeasible_JJ signal_NN values_NNS when_WRB optimizing_VVG the_DT parameters_NNS which_WDT makes_VVZ the_DT numerical_JJ properties_NNS of_IN the_DT optimization_NN problematic_JJ ._SENT 
+The_DT model_NN Jacobians_NNS can_MD be_VB ill-conditioned_VVN close_RB to_TO singularities_NNS ,_, models_NNS can_MD be_VB unstable_JJ or_CC even_RB have_VH finite_JJ escape_NN time_NN outside_IN Ω_NP ._SENT 
+How_WRB system_NN level_NN model_NN calibration_NN can_MD be_VB approached_VVN in_IN such_JJ situation_NN is_VBZ studied_VVN in_IN this_DT paper_NN ._SENT 
+The_DT idea_NN is_VBZ to_TO use_VV constraints_NNS on_IN both_DT parameters_NNS and_CC model_JJ internal_JJ signals_NNS as_IN a_DT regularization_NN of_IN the_DT optimization_NN process_NN to_TO prevent_VV the_DT optimization_NN from_IN exploring_VVG infeasible_JJ areas_NNS ._SENT 
+The_DT model_NN singularities_NNS also_RB affect_VVP the_DT numerical_JJ solution_NN of_IN the_DT differential_JJ equations_NNS ._SENT 
+Close_JJ to_TO a_DT singularity_NN ,_, or_CC to_TO a_DT point_NN where_WRB the_DT right-hand_JJ side_NN of_IN the_DT differential_JJ equation_NN is_VBZ not_RB differentiable_JJ ,_, the_DT model_NN Jacobian_NN is_VBZ ill-conditioned_JJ which_WDT is_VBZ a_DT manifestation_NN of_IN model_NN stiffness_NN (_( Hairer_NP &_CC Wanner_NP ,_, 1999_CD )_) ._SENT 
+The_DT numerical_JJ solution_NN may_MD then_RB be_VB difficult_JJ and_CC special_JJ implicit_JJ solvers_NNS are_VBP required_VVN ._SENT 
+At_IN a_DT singularity_NN ,_, the_DT differential_JJ equations_NNS are_VBP even_RB not_RB guaranteed_VVN to_TO have_VH unique_JJ solution_NN (_( Picard_NP Lipschitz_NP Theorem_NN )_) ._SENT 
+A_DT typical_JJ example_NN of_IN a_DT point_NN where_WRB the_DT right-hand_JJ side_NN of_IN the_DT model_NN differential_NN equation_NN is_VBZ not_RB differentiable_JJ is_VBZ a_DT model_NN with_IN the_DT valve_NN flow_NN equation_NN when_WRB the_DT pressure_NN ratio_NN across_IN the_DT valve_NN is_VBZ one_CD ._SENT 
+A_DT regularization_NN of_IN the_DT valve_NN flow_NN function_NN for_IN such_JJ pressure_NN ratios_NNS is_VBZ discussed_VVN by_IN Guzzella_NP and_CC Onder_NP (_( 2009_CD )_) ._SENT 
+There_EX has_VHZ been_VBN shown_VVN how_WRB a_DT smooth_JJ polynomial_JJ approximation_NN can_MD replace_VV the_DT non-differentiable_JJ function_NN close_NN to_TO the_DT point_NN of_IN non-differentiability_NN ._SENT 
+The_DT model_NN differential_NN equations_NNS treated_VVN in_IN this_DT way_NN will_MD be_VB less_RBR stiff_JJ ,_, and_CC will_MD definitely_RB be_VB Picard_NP Lipschitz_NP ,_, which_WDT means_VVZ easier_JJR numerical_JJ solution_NN ._SENT 
+The_DT approach_NN proposed_VVN by_IN this_DT paper_NN is_VBZ different_JJ as_IN it_PP is_VBZ steady-state_NN only_RB ._SENT 
+It_PP constrains_VVZ the_DT model_NN signals_VVZ to_TO be_VB always_RB in_IN certain_JJ ϵ_JJ distance_NN from_IN the_DT singularities_NNS ._SENT 
+The_DT model_NN is_VBZ not_RB allowed_VVN to_TO enter_VV “_JJ forbidden_VVN ground_NN ”_NN during_IN the_DT steady-state_NN calibration_NN ._SENT 
+This_DT avoids_VVZ not_RB only_JJ singularities_NNS but_CC also_RB other_JJ undesired_JJ or_CC physically_RB implausible_JJ signal_NN values_NNS ._SENT 
+Very_RB often_RB slow_JJ and_CC problematic_JJ model_NN simulations_NNS are_VBP avoided_VVN ._SENT 
+<Section> 2._CD Problem_NN formulation_NN </Section> Model_NP calibration_NN :_: The_DT nonlinear_JJ continuous-time_JJ dynamical_JJ model_NN is_VBZ defined_VVN in_IN the_DT usual_JJ form_NN (_( Khalil_NP ,_, 2002_CD )_) :_: (_( 1)dxt/dt=f(xt_NN ,_, ut_RB ,_, p_NN )_) ,_, (_( 2)yt=g(xt_NN ,_, ut_RB ,_, p_NN )_) ._SENT 
+The_DT model_NN calibration_NN problem_NN is_VBZ formulated_VVN as_IN a_DT deterministic_JJ nonlinear_JJ least_JJS squares_NNS optimization_NN solved_VVN with_IN respect_NN to_TO vector_NN of_IN model_NN parameters_NNS p_NN considering_VVG measured_JJ sampled_VVN sequences_NNS of_IN model_NN input_NN and_CC output_NN vectors_NNS ,_, uk_NP and_CC yk_NP respectively_RB ;_: k=1_JJ ,_, …_NP ,_, K._NP Here_RB yk_NP and_CC uk_NP denote_VVP signal_NN values_NNS of_IN the_DT continuous_JJ time_NN signals_NNS yt_NN and_CC ut_NNS sampled_VVN at_IN discrete_JJ sampling_NN instants_NNS tk=limϵ→0+(kTs−ϵ_NN )_) ;_: with_IN sampling_VVG period_NN Ts_NNS ._SENT 
+The_DT minimized_VVN sum_NN of_IN prediction_NN error_NN squares_NNS will_MD be_VB referred_VVN as_IN the_DT cost_NN function_NN :_: (_( 3)pˆ=argminp_NP ,_, x0∑Kk=1∥∥g(xk_NP ,_, uk_NP ,_, p)−yk∥∥22_NP ._SENT 
+Here_RB g_NN is_VBZ the_DT output_NN function_NN of_IN (_( 2_LS )_) and_CC pˆ_NP denotes_VVZ the_DT vector_NN of_IN parameter_NN estimates_NNS ._SENT 
+Steady-state_NN calibration_NN :_: For_IN stable_JJ nonlinear_JJ models_NNS ,_, one_CD of_IN the_DT steps_NNS of_IN model_NN calibration_NN can_MD be_VB fitting_JJ the_DT model_NN steady-state_NN responses_NNS towards_IN steady-state_NN data_NNS ._SENT 
+The_DT steady-state_NN data_NNS are_VBP often_RB obtained_VVN by_IN sampling_VVG the_DT signals_NNS after_IN a_DT sufficient_JJ time_NN from_IN the_DT last_JJ change_NN of_IN inputs_NNS ;_: thus_RB allowing_VVG the_DT process_NN to_TO settle_VV ._SENT 
+It_PP assumes_VVZ that_IN the_DT system_NN is_VBZ strictly_RB stable_JJ and_CC the_DT effect_NN of_IN unmeasured_JJ disturbances_NNS is_VBZ negligible_JJ ._SENT 
+The_DT steady-state_NN calibration_NN problem_NN is_VBZ easier_JJR to_TO solve_VV and_CC it_PP is_VBZ easier_JJR to_TO represent_VV the_DT global_JJ steady-state_NN response_NN by_IN a_DT limited_JJ data_NN size_NN which_WDT spans_VVZ the_DT whole_JJ operating_VVG range_NN ._SENT 
+Following_VVG text_NN will_MD concentrate_VV on_IN the_DT steady-state_NN calibration_NN only_RB because_IN the_DT transient_JJ calibration_NN is_VBZ usually_RB easier_JJR once_IN the_DT model_NN steady-state_NN is_VBZ reasonable_JJ ._SENT 
+In_IN the_DT steady-state_NN ,_, the_DT model_NN equations_NNS (_( 1_CD )_) will_MD become_VV a_DT set_NN of_IN equality_NN constraints_NNS for_IN each_DT of_IN the_DT steady_JJ state_NN responses_NNS fitted_VVD :_: f(xk_NP ,_, uk_NP ,_, p)=0_NP ._SENT 
+Constrained_VVN optimization_NN approach_NN :_: The_DT proposed_VVN approach_NN focuses_VVZ on_IN functions_NNS f_SYM ,_, g_NN which_WDT were_VBD derived_VVN from_IN first_JJ principles_NNS and_CC which_WDT can_MD have_VH limited_VVN domains_NNS :_: (_( xt_NN ,_, ut_RB ,_, p)∈Ω_NP ._SENT 
+The_DT functions_NNS should_MD be_VB differentiable_JJ in_IN a_DT closed_JJ set_NN Ω_NN and_CC they_PP are_VBP supposed_VVN to_TO represent_VV the_DT correct_JJ physics_NN there_RB ._SENT 
+As_IN an_DT example_NN ,_, the_DT oxygen_NN concentration_NN in_IN the_DT combustion_NN products_NNS can_MD be_VB evaluated_VVN as_IN a_DT simple_JJ fraction_NN ,_, provided_VVD both_DT numerator_NN and_CC denominator_NN are_VBP positive_JJ ._SENT 
+For_IN negative_JJ values_NNS ,_, the_DT formula_NN does_VVZ not_RB represent_VV reality_NN :_: (_( 4)[O2]o=(ṁ_NP i[O2]i−ξṁ_NP fuel)/(ṁ_NP i+ṁ_NP fuel_NN )_) ,_, Ω={ṁ_JJ i[O2]i≥ξṁ_JJ fuel_NN ,_, ṁ_NP fuel≥ϵ_NP }_) ._SENT 
+Outside_IN Ω_JJ functions_NNS f_SYM ,_, g_NN represent_VVP some_DT formal_JJ continuation_NN of_IN the_DT physical_JJ formulae_NNS ._SENT 
+The_DT model_NN optimization_NN can_MD become_VV difficult_JJ outside_JJ Ω_NN ._SENT 
+The_DT possibility_NN of_IN exploring_VVG exterior_NN of_IN Ω_NP also_RB increases_VVZ risk_NN of_IN finding_VVG incorrect_JJ local_JJ optimum_JJ ._SENT 
+In_IN general_NN ,_, f_LS ,_, g_NN can_MD contain_VV fractions_NNS of_IN functions_NNS ,_, square_JJ roots_NNS of_IN certain_JJ nonlinear_JJ expressions_NNS ,_, etc._FW It_PP can_MD be_VB usually_RB proven_VVN that_IN the_DT fraction_NN denominators_NNS and_CC square_JJ root_NN arguments_NNS at_IN physical_JJ formulae_NNS must_MD be_VB positive_JJ ._SENT 
+This_DT defines_VVZ certain_JJ constraints_NNS on_IN internal_JJ signals_NNS ._SENT 
+Proposed_VVN approach_NN formulates_VVZ the_DT calibration_NN as_IN a_DT constrained_VVN optimization_NN problem_NN with_IN feasible_JJ iterates_VVZ (_( Diehl_NP et_NP al_NP ._SENT 
+,_, 2005_CD ,_, Tenny_NP et_CC al_NP ._SENT 
+,_, 2004_CD )_) to_TO ensure_VV that_IN the_DT model_NN variables_NNS will_MD stay_VV within_IN the_DT closed_JJ set_NN Ω_NN during_IN the_DT whole_JJ iteration_NN process_NN ,_, i._NP e._NPS f_SYM ,_, g_NN will_MD not_RB be_VB evaluated_VVN for_IN infeasible_JJ values_NNS during_IN the_DT iterations_NNS ._SENT 
+The_DT constraints_NNS for_IN any_DT internal_JJ model_NN signals_NNS ,_, functions_NNS of_IN states_NNS ,_, inputs_NNS ,_, and_CC parameters_NNS will_MD be_VB allowed_VVN ._SENT 
+This_DT should_MD lead_VV to_TO fast_JJ convergence_NN because_IN there_EX is_VBZ no_DT risk_NN of_IN falling_VVG outside_JJ Ω_NN when_WRB making_VVG optimization_NN steps_NNS aggressively_RB ._SENT 
+The_DT risk_NN of_IN ending_VVG in_IN a_DT non-physical_JJ local_JJ optimum_JJ is_VBZ mitigated_VVN ._SENT 
+<Section> 3._CD The_DT algorithm_NN </Section> Constrained_VVN least_JJS squares_NNS :_: The_DT optimization_NN method_NN to_TO solve_VV the_DT constrained_VVN steady-state_NN calibration_NN is_VBZ developed_VVN in_IN this_DT section_NN ._SENT 
+The_DT usual_JJ approach_NN to_TO steady-state_NN calibration_NN might_MD involve_VV elimination_NN of_IN the_DT state_NN vectors_VVZ xk_NN at_IN each_DT of_IN the_DT steady-state_NN operating_VVG points_NNS solving_VVG f(xk_NP ,_, uk_NP ,_, p)=0_NN with_IN respect_NN to_TO xk_VV and_CC locally_RB approximating_VVG of_IN this_DT solution_NN with_IN p_NN as_IN a_DT parameter_NN ._SENT 
+The_DT local_JJ approximation_NN could_MD be_VB derived_VVN from_IN first_JJ order_NN expansion_NN around_IN the_DT current_JJ iterate_VVP x(i)k_NN ,_, p(i_NP )_) :_: (_( 5)xk=x(i)k−⎛⎝⎜⎜∂f(x(i)k_NP ,_, uk_NP ,_, p(i))∂x⎞⎠⎟⎟−1∂f(x(i)k_NP ,_, uk_NP ,_, p(i))∂p⎛⎝⎜⎜⎜p−p(i)⎞⎠⎟⎟⎟+⋯⋯+O((p−p(i))2_NP )_) ._SENT 
+Substituting_VVG (_( 5_LS )_) to_TO (_( 3_LS )_) turns_VVZ the_DT optimization_NN problem_NN into_IN optimization_NN with_IN respect_NN to_TO p_NN only_RB ._SENT 
+The_DT proposed_VVN approach_NN is_VBZ based_VVN on_IN similar_JJ elimination_NN which_WDT also_RB approximates_VVZ xk_NN by_IN a_DT linear_JJ function_NN of_IN p._NP As_RB opposed_VVD to_TO (_( 5_LS )_) ,_, the_DT approximation_NN will_MD be_VB derived_VVN from_IN the_DT optimality_NN conditions_NNS of_IN a_DT constrained_VVN optimization_NN problem_NN ._SENT 
+Suppose_VVP Ω_NP is_VBZ described_VVN by_IN set_VVN of_IN linear_JJ and_CC nonlinear_JJ inequalities_NNS :_: (_( 6)Ω_NP :_: App≤bp_NP ,_, Axxk≤bx_NP ,_, h(xk_NP ,_, uk_NP ,_, p)≤0_NP ._SENT 
+The_DT first_JJ step_NN is_VBZ linearization_NN of_IN the_DT nonlinear_JJ inequality_NN constraints_NNS introducing_VVG slack_JJ variables_NNS vk_NN ,_, one_CD variable_NN per_IN nonlinear_JJ inequality_NN :_: (_( 7)vk≤0_NP ,_, vk=h(xk_NP ,_, uk_NP ,_, p_NN )_) ._SENT 
+The_DT proposed_VVD least_JJS squares_NNS optimization_NN is_VBZ formulated_VVN with_IN linear_JJ inequalities_NNS and_CC considering_VVG all_DT equality_NN constraints_NNS as_IN soft_JJ constraints_NNS ._SENT 
+The_DT diagonal_JJ weights_NNS matrices_NNS Wf_NN ,_, Wg_NP and_CC Wh_NP with_IN positive_JJ coefficients_NNS are_VBP used_VVN to_TO normalize_VV the_DT problem_NN and_CC prioritize_VV the_DT soft_JJ constraints_NNS :_: (_( 8)minp_NP ,_, vk_NP ,_, xk∑Kk=1∥∥∥∥∥∥∥∥∥∥Wff(xk_NP ,_, uk_NP ,_, p)Wg(g(xk_NP ,_, uk_NP ,_, p)−yk)Wh(h(xk_NP ,_, uk_NP ,_, p)−vk)∥∥∥∥∥∥∥∥∥∥22_NP ,_, AxxkAppvk≤bx_NP ,_, ≤bp_NP ,_, ≤0_NP ._SENT 
+The_DT purpose_NN of_IN inequality_NN constraints_NNS linearization_NN is_VBZ having_VHG the_DT guarantee_NN of_IN feasible_JJ iterates_VVZ ;_: i._NP e._NP no_RB iterate_VVP will_MD violate_VV the_DT linear_JJ constraints_NNS once_IN a_DT single_JJ feasible_JJ point_NN was_VBD found_VVN ._SENT 
+To_TO achieve_VV this_DT ,_, the_DT constrained_VVN functions_NNS h(xk_NN ,_, uk_NP ,_, p_NN )_) have_VH to_TO be_VB replaced_VVN with_IN vk_NN in_IN model_JJ functions_NNS f_SYM ,_, g._JJ In_IN this_DT way_NN the_DT model_NN equations_NNS are_VBP regularized_VVN ._SENT 
+As_IN an_DT example_NN :_: let_VV the_DT model_NN functions_NNS contain_VVP a_DT fraction_NN of_IN two_CD positive_JJ nonlinear_JJ functions_NNS ϕ(xk_NN ,_, uk_NP ,_, p)/ψ(xk_NP ,_, uk_NP ,_, p_NN )_) ._SENT 
+To_TO regularize_VV this_DT fraction_NN ,_, a_DT non-negative_JJ slack_JJ variable_JJ vk=ψ(xk_NN ,_, uk_NP ,_, p)−ϵ_NP has_VHZ to_TO be_VB defined_VVN ;_: with_IN ϵ_NN being_VBG a_DT threshold_NN ._SENT 
+Then_RB the_DT fraction_NN has_VHZ to_TO be_VB written_VVN as_IN ϕ(xk_NP ,_, uk_NP ,_, p)/(vk+ϵ_NP )_) in_IN the_DT model_NN equations_NNS which_WDT will_MD guarantee_VV no_DT division_NN by_IN a_DT number_NN less_RBR than_IN ϵ_NP will_MD happen_VV ._SENT 
+This_DT is_VBZ equivalent_JJ to_TO model_VV structure_NN modification_NN as_IN in_IN Fig_NN ._SENT 
+1._CD For_IN such_PDT a_DT modified_JJ model_NN ,_, a_DT feasible_JJ starting_VVG point_NN can_MD be_VB found_VVN easily_RB because_IN of_IN the_DT linearity_NN of_IN all_DT inequality_NN constraints_NNS ._SENT 
+The_DT increased_VVN number_NN of_IN the_DT optimized_VVN variables_NNS is_VBZ the_DT cost_NN for_IN this_DT augmentation_NN ._SENT 
+Introducing_VVG an_DT augmented_JJ state_NN vector_NN z′k=(x′k_NN ,_, v′k_NP )_) ,_, the_DT problem_NN can_MD be_VB formulated_VVN in_IN a_DT compact_JJ way_NN ._SENT 
+In_IN this_DT formulation_NN :_: (_( 9)minp_NP ,_, zk∑Kk=1∥∥F(zk_NP ,_, uk_NP ,_, p)∥∥22_NP ,_, AzzkApp≤bz_NP ,_, ≤bp_NP ._SENT 
+Gauss–Newton_NP method_NN :_: This_DT regularized_VVN nonlinear_JJ least_JJS squares_NNS problem_NN (_( 9_CD )_) with_IN linear_JJ inequality_NN constraints_NNS will_MD be_VB solved_VVN iteratively_RB by_IN a_DT variant_NN of_IN Gauss–Newton_NP method_NN (_( Fletcher_NP ,_, 1987_CD )_) linearizing_VVG the_DT function_NN F_NN at_IN every_DT iteration_NN around_IN the_DT current_JJ estimates_NNS z(i)k_NN ,_, p(i_NP )_) :_: (_( 10)minp_NP ,_, zk∑Kk=1∥∥∥M(i)kzk+N(i)kp−n(i)k∥∥∥22_NP ,_, AzzkApp≤bz_NP ,_, ≤bp_NP ,_, with_IN the_DT sensitivity_NN matrices_NNS M(i)k_NN and_CC N(i)k_NN being_VBG Jacobian_JJ matrices_NNS evaluated_VVN at_IN the_DT current_JJ estimates_NNS :_: (_( 11)N(i)k=∂F(zk_NP ,_, uk_NP ,_, p)∂p∣∣∣∣z(i)k_NP ,_, uk_NP ,_, p(i_NP )_) ,_, M(i)k=∂F(zk_NP ,_, uk_NP ,_, p)∂z∣∣∣∣z(i)k_NP ,_, uk_NP ,_, p(i_NP )_) ,_, n(i)k=−F⎛⎝⎜⎜⎜⎜z(i)k_NP ,_, uk_NP ,_, p(i)⎞⎠⎟⎟⎟⎟+N(i)kp(i)+M(i)kz(i)k_NN For_IN the_DT sake_NN of_IN clarity_NN the_DT iteration_NN index_NN (_( i_NP )_) will_MD be_VB omitted_VVN below_RB ,_, assuming_VVG that_IN the_DT linearization_NN was_VBD made_VVN around_IN the_DT last_JJ estimates_NNS ._SENT 
+For_IN complex_JJ models_NNS ,_, the_DT Jacobians_NNS can_MD be_VB approximated_VVN by_IN the_DT method_NN of_IN finite_JJ differences_NNS ._SENT 
+Let_VV us_PP analyze_VV the_DT optimal_JJ zk_NN at_IN an_DT operating_VVG point_NN k_NN for_IN a_DT fixed_VVN p_NN using_VVG the_DT optimality_NN conditions_NNS for_IN this_DT problem_NN :_: (_( 12)minzk∥∥Mkzk+Nkp−nk∥∥22_NP ,_, Azzk≤bz_NP ._SENT 
+Fig_NN ._SENT 
+1._CD Model_NP structure_NN modified_VVN with_IN slack_JJ variables_NNS ._SENT 
+The_DT Karush–Kuhn–Tucker_NP conditions_NNS (_( Bertsekas_NP ,_, 1995_CD )_) for_IN (_( 12_CD )_) state_NN that_IN the_DT cost_NN function_NN gradient_NN with_IN respect_NN to_TO zk_VV at_IN the_DT optimal_JJ point_NN is_VBZ a_DT combination_NN of_IN the_DT constraints_NNS with_IN vector_NN of_IN non-negative_JJ Lagrange_NP multipliers_NNS μk_NN :_: (_( 13)∂∂zk∥∥Mkzk+Nkp−nk∥∥22=M′kMkzk+M′kNkp−M′knk=−A′z_NP ,_, kμk_NP ,_, A+z_NP ,_, kzk=b+z_NP ,_, k_NN ,_, μ+k≥0_NP ,_, A−z_NP ,_, kzk≤b−z_NP ,_, k_NN ,_, μ−k=0_NP ._SENT 
+The_DT matrix_NN A+z_NP ,_, k_NN consists_VVZ of_IN the_DT so-called_JJ active_JJ rows_NNS ._SENT 
+The_DT matrix_NN A−z_NP ,_, k_NN consists_VVZ of_IN the_DT remaining_VVG rows_NNS of_IN inactive_JJ constraints_NNS ._SENT 
+Let_VV the_DT set_NN of_IN indices_NN of_IN the_DT active_JJ rows_NNS is_VBZ A+z_NP ,_, k_NN and_CC the_DT set_NN of_IN indices_NN of_IN inactive_JJ rows_NNS is_VBZ A−z_NP ,_, k._NP Then_RB sub-vectors_VVZ μ+k_NP (_( μ−k_NP )_) are_VBP the_DT corresponding_JJ active_JJ (_( inactive_JJ )_) elements_NNS from_IN the_DT vector_NN of_IN Lagrange_NP multipliers_NNS ._SENT 
+Using_VVG (_( 13_CD )_) ,_, one_PP can_MD express_VV the_DT Lagrange_NP multipliers_NNS μ+k_NN and_CC the_DT minimizer_NN zk_NN in_IN terms_NNS of_IN an_DT affine_JJ function_NN of_IN p._NP Defining_VVG an_DT auxiliary_JJ matrix_NN Qk_NN :_: (_( 14)Qk=⎡⎣⎢⎢⎢⎢M′kMkA+z_NP ,_, k−A+'z_NP ,_, kO⎤⎦⎥⎥⎥⎥−1_JJ ._SENT 
+The_DT inversion_NN of_IN a_DT singular_JJ matrix_NN (_( 14_CD )_) may_MD happen_VV when_WRB the_DT active_JJ inequality_NN constraints_NNS are_VBP linearly_RB dependent_JJ or_CC the_DT matrix_NN Mk_NN columns_NNS are_VBP dependent_JJ ._SENT 
+In_IN such_JJ case_NN ,_, the_DT matrix_NN Qk_NN can_MD still_RB be_VB obtained_VVN after_IN a_DT simple_JJ regularization_NN ._SENT 
+Lagrange_NN multipliers_NNS and_CC the_DT optimal_JJ vector_NN zk_NN are_VBP then_RB the_DT following_VVG affine_JJ functions_NNS of_IN the_DT model_NN parameters_NNS p_NN :_: (_( 15)⎡⎣⎢zk−μ+k⎤⎦⎥=Qk⎛⎝⎜⎜⎜⎡⎣⎢⎢⎢−M′kNkO⎤⎦⎥⎥⎥p+⎡⎣⎢⎢⎢M′knkb+z_NP ,_, k⎤⎦⎥⎥⎥⎞⎠⎟⎟⎟_NP ._SENT 
+Substituting_VVG (_( 15_CD )_) to_TO the_DT inequalities_NNS μ+k≥0_NN for_IN all_DT active_JJ constraints_NNS and_CC A−z_NP ,_, kzk≤b−z_NP ,_, k_NN for_IN all_DT inactive_JJ ,_, the_DT set_NN of_IN inequalities_NNS (_( 16_CD )_) is_VBZ defined_VVN ._SENT 
+Each_DT inequality_NN in_IN Azzk≤bz_NP produces_VVZ one_CD inequality_NN in_IN (_( 16_CD )_) ._SENT 
+The_DT inequalities_NNS (_( 16_CD )_) define_VV the_DT ranges_NNS for_IN the_DT vector_NN p_NN which_WDT define_VV constant_JJ set_NN of_IN active_JJ constraints_NNS on_IN zk_NN at_IN the_DT operating_VVG point_NN k_NN :_: (_( 16)RkQk⎡⎣⎢−M′kNkO⎤⎦⎥p≤⎡⎣⎢b−z_NP ,_, ko⎤⎦⎥−RkQk⎡⎣⎢⎢⎢M′knkb+z_NP ,_, k⎤⎦⎥⎥⎥_NP ,_, Rk=⎡⎣⎢A−z_NP ,_, kOOI⎤⎦⎥_NP ._SENT 
+Here_RB Rk_NN is_VBZ an_DT auxiliary_JJ matrix_NN to_TO simplify_VV the_DT expression_NN ._SENT 
+In_IN the_DT following_NN ,_, the_DT inequalities_NNS (_( 16_CD )_) will_MD be_VB abbreviated_VVN to_TO Ap_NN ,_, kp≤bp_NP ,_, k_NN and_CC the_DT corresponding_JJ active_JJ rows_NNS indices_NN A+p_NN ,_, k._NP Collectively_RB for_IN all_DT k_NN ,_, these_DT inequalities_NNS (_( 16_CD )_) represent_VVP the_DT domain_NN of_IN p_NN in_IN which_WDT the_DT cost_NN function_NN (_( 10_CD )_) can_MD be_VB locally_RB represented_VVN as_IN a_DT sum_NN of_IN norms_NNS of_IN affine_JJ functions_NNS of_IN parameters_NNS p_NN only_RB ;_: thus_RB removing_VVG the_DT dependence_NN on_IN zk_NP ._SENT 
+In_IN this_DT way_NN ,_, zk_NN have_VHP been_VBN eliminated_VVN from_IN the_DT optimization_NN provided_VVD the_DT parameters_NNS p_NN will_MD be_VB varied_VVN only_RB within_IN these_DT bounds_NNS ._SENT 
+Later_RBR the_DT same_JJ step_NN can_MD be_VB repeated_VVN if_IN the_DT set_NN of_IN active_JJ constraints_NNS on_IN zk_NN is_VBZ modified_VVN ._SENT 
+Respecting_VVG inequalities_NNS (_( 16_CD )_) ,_, the_DT cost_NN function_NN (_( 10_CD )_) will_MD be_VB minimized_VVN with_IN respect_NN to_TO p_NN only_RB ._SENT 
+The_DT active_JJ constraints_NNS resulting_VVG from_IN this_DT optimization_NN can_MD be_VB understood_VVN as_RB follows_VVZ ._SENT 
+First_JJ inequalities_NNS Ap_NN ,_, kp≤bp_NP ,_, k_NN in_IN (_( 16_CD )_) originate_VV from_IN the_DT inequalities_NNS A−z_NP ,_, kzk≤b−z_NP ,_, k._NP The_DT activity_NN of_IN the_DT corresponding_JJ constraint_NN in_IN Ap_NN ,_, kp≤bp_NP ,_, k_NN indicates_VVZ that_IN the_DT cost_NN function_NN descent_NN is_VBZ blocked_VVN by_IN the_DT corresponding_JJ constraint_NN which_WDT should_MD be_VB put_VVN to_TO A+z_NP ,_, k_NN to_TO improve_VV ._SENT 
+The_DT remaining_VVG inequalities_NNS originate_VV from_IN the_DT inequalities_NNS μ+k≥0_NN which_WDT ensure_VV that_IN the_DT active_JJ constraints_NNS A+z_NP ,_, k_NN will_MD remain_VV active_JJ ._SENT 
+Therefore_RB ,_, activity_NN of_IN the_DT corresponding_JJ constraints_NNS in_IN (_( 16_CD )_) means_VVZ the_DT descent_NN direction_NN of_IN the_DT cost_NN function_NN is_VBZ pointing_VVG from_IN this_DT constraint_NN and_CC the_DT corresponding_JJ element_NN of_IN A+z_NP ,_, k_NN should_MD be_VB inactivated_VVN ._SENT 
+Both_DT cases_NNS can_MD be_VB conveniently_RB described_VVN as_RB follows_VVZ :_: the_DT activity_NN of_IN a_DT constraint_NN in_IN (_( 16_CD )_) means_VVZ that_IN the_DT corresponding_JJ constraint_NN should_MD be_VB put_VVN to_TO or_CC removed_VVN from_IN A+z_NP ,_, k_NN ,_, thus_RB its_PP$ activity_NN being_VBG toggled_VVN ._SENT 
+For_IN all_DT elements_NNS of_IN A+p_NP ,_, k_NN ,_, the_DT corresponding_JJ elements_NNS should_MD be_VB interchanged_VVN between_IN A+z_NP ,_, k_NN and_CC A−z_NP ,_, k._NP Finally_RB ,_, the_DT solution_NN is_VBZ a_DT global_JJ minimizer_NN of_IN (_( 10_CD )_) in_IN case_NN no_DT constraint_NN among_IN (_( 16_CD )_) is_VBZ active_JJ ;_: A+p_NP ,_, k_NN is_VBZ empty_JJ for_IN k=1_NN ,_, …_NP ,_, K._NP This_DT active_JJ set_NN based_VVN optimization_NN algorithm_NN can_MD be_VB summarized_VVN as_RB follows_VVZ :_: Inputs_NNS :_: Current_JJ estimate_NN of_IN the_DT parameters_NNS p_NN ,_, zk_NP and_CC an_DT array_NN of_IN linearized_JJ summands_NNS (_( 12_CD )_) given_VVN by_IN Mk_NP ,_, Nk_NN ,_, nk_RB ._SENT 
+(_( A1_JJ )_) Active_JJ sets_NNS A+z_NP ,_, k_NN for_IN all_DT k_NN are_VBP determined_VVN optimizing_VVG (_( 12_CD )_) numerically_RB for_IN all_DT operating_VVG points_NNS one_CD by_IN one_CD and_CC checking_VVG the_DT Lagrange_NP multipliers_NNS μk>0_NN ._SENT 
+(_( A2_NP )_) Active_JJ sets_NNS A+p_NN ,_, k_NN for_IN all_DT k_NN are_VBP initialized_VVN to_TO contain_VV all_DT constraints_NNS (_( 16_CD )_) ._SENT 
+(_( A3_NP )_) The_DT algorithm_NN finishes_VVZ when_WRB the_DT active_JJ sets_NNS A+p_NN ,_, k_NN are_VBP empty_JJ for_IN all_DT k._NP This_NP cannot_MD happen_VV at_IN iteration_NN one_CD ._SENT 
+(_( A4_NP )_) For_IN all_DT operating_VVG points_NNS k∈A+p_NN ,_, k_NN ,_, the_DT active_JJ sets_NNS A+z_NP ,_, k_NN are_VBP transformed_VVN into_IN constraints_NNS on_IN parameters_NNS using_VVG the_DT formula_NN (_( 16_CD )_) ._SENT 
+(_( A5_JJ )_) The_DT cost_NN function_NN is_VBZ expressed_VVN as_IN a_DT sum_NN of_IN norms_NNS of_IN functions_NNS of_IN p_NN only_RB ._SENT 
+This_DT is_VBZ done_VVN substituting_VVG the_DT affine_JJ parametric_JJ optimizers_NNS zk_NN given_VVN by_IN (_( 15_CD )_) to_TO the_DT corresponding_JJ summands_NNS for_IN all_DT k∈A+p_NN ,_, k_NN in_IN (_( 10_CD )_) ._SENT 
+(_( A6_NP )_) The_DT cost_NN (_( 10_CD )_) is_VBZ optimized_VVN with_IN respect_NN to_TO p_NN solving_VVG the_DT constrained_VVN linear_JJ least_JJS squares_NNS problem_NN ._SENT 
+This_DT optimization_NN considers_VVZ constraints_NNS App≤bp_VVP as_RB well_RB as_IN (_( 16_CD )_) ._SENT 
+The_DT positive_JJ Lagrange_NP multipliers_NNS define_VV the_DT active_JJ sets_NNS A+p_NN ,_, k_NN for_IN each_DT k._NP (_( A7_JJ )_) The_DT active_JJ sets_NNS A+z_NP ,_, k_NN are_VBP updated_VVN based_VVN on_IN A+p_NP ,_, k_NN inverting_VVG the_DT constraint_NN activity_NN for_IN all_DT elements_NNS of_IN A+p_NP ,_, k._NP This_NP is_VBZ based_VVN on_IN one_CD to_TO one_CD correspondence_NN between_IN Azzk≤bz_NP and_CC Ap_NP ,_, kp≤bp_NP ,_, k._NP Go_NP to_TO A3_JJ Outputs_NNS :_: Optimal_JJ solution_NN to_TO the_DT linear_JJ least_JJS squares_NNS problem_NN (_( 10_CD )_) :_: pˆ_NP ,_, zˆ1_NN ,_, …_NP ,_, zˆk_NP ._SENT 
+This_DT solution_NN satisfies_VVZ the_DT inequality_NN constraints_NNS and_CC approximates_VVZ the_DT equality_NN constraints_NNS in_IN the_DT least_JJS squares_NNS sense_VVP ._SENT 
+To_TO solve_VV the_DT nonlinear_JJ least_JJS squares_NNS problem_NN (_( 9_CD )_) ,_, this_DT constrained_VVN linear_JJ least_JJS squares_NNS algorithm_NN is_VBZ used_VVN iteratively_RB together_RB with_IN a_DT convenient_JJ step_NN control_NN method_NN from_IN convex_JJ optimization_NN theory_NN ._SENT 
+E._NP g._NP the_DT Levenberg–Marqaurdt_NP approach_NN (_( Fletcher_NP ,_, 1987_CD )_) can_MD be_VB used_VVN to_TO penalize_VV the_DT second_JJ norm_NN of_IN step_NN in_IN both_DT p_NN and_CC zk_VVP more_RBR when_WRB the_DT above_JJ algorithm_NN has_VHZ not_RB led_VVN to_TO cost_VV function_NN decrease_NN ._SENT 
+The_DT model_NN linearization_NN may_MD be_VB triggered_VVN only_RB when_WRB the_DT estimates_NNS p_NN ,_, zk_NN become_VVN feasible_JJ ;_: satisfying_VVG all_DT inequalities_NNS ._SENT 
+Until_IN then_RB ,_, the_DT matrices_NNS Mk_NN ,_, Nk_RB ,_, nk_NNS can_MD be_VB set_VVN to_TO zero_VV and_CC the_DT algorithm_NN searches_VVZ for_IN a_DT feasible_JJ point_NN ._SENT 
+Feasible_JJ optimization_NN methods_NNS must_MD be_VB used_VVN at_IN steps_NNS (_( A1_JJ )_) and_CC (_( A6_NP )_) ,_, such_JJ as_IN active_JJ set_NN based_VVN linear_JJ least_JJS squares_NNS ._SENT 
+It_PP is_VBZ to_TO be_VB noted_VVN that_IN this_DT optimization_NN scheme_NN optimizes_VVZ all_DT augmented_JJ states_NNS zk_NN and_CC the_DT parameters_NNS p_NN without_IN optimizing_VVG all_PDT the_DT variables_NNS simultaneously_RB ._SENT 
+The_DT optimization_NN is_VBZ done_VVN with_IN respect_NN to_TO either_DT zk_NN ,_, k=1_JJ ,_, …_NP ,_, K_NN for_IN a_DT fixed_VVN k_NN ,_, p_NN ,_, or_CC with_IN respect_NN to_TO p_NN without_IN considering_VVG zk_NN ,_, k=1_JJ ,_, …_NP ,_, K._NP The_DT algorithm_NN is_VBZ thus_RB sufficiently_RB effective_JJ even_RB for_IN large_JJ K_NN (_( thousands_NNS )_) ._SENT 
+The_DT presented_VVN algorithm_NN was_VBD developed_VVN by_IN the_DT authors_NNS based_VVN on_IN the_DT lecture_NN notes_VVZ on_IN distributed_VVN optimization_NN techniques_NNS (_( Boyd_NP &_CC Johansson_NP ,_, 2010_CD )_) ._SENT 
+<Section> 4._CD Mean_NP value_NN model_NN of_IN internal_JJ combustion_NN engine_NN </Section> A_DT turbocharged_JJ diesel_NN engine_NN is_VBZ an_DT example_NN of_IN a_DT model_NN which_WDT is_VBZ valid_JJ for_IN limited_JJ signal_NN ranges_NNS ._SENT 
+Some_DT limits_NNS are_VBP defined_VVN by_IN singularities_NNS ._SENT 
+The_DT following_NN paragraphs_VVZ highlight_VV how_WRB these_DT ranges_NNS are_VBP related_VVN to_TO the_DT engine_NN physics_NN ._SENT 
+Such_JJ ranges_NNS should_MD not_RB be_VB understood_VVN as_IN hard_JJ limits_NNS ._SENT 
+It_PP depends_VVZ on_IN modeler_NN 's_POS decision_NN whether_IN certain_JJ conditions_NNS will_MD be_VB modeled_VVN ,_, or_CC whether_IN a_DT limit_NN on_IN model_NN validity_NN will_MD be_VB set_VVN ._SENT 
+A_DT simple_JJ MVM_NP which_WDT is_VBZ valid_JJ in_IN relatively_RB narrow_JJ conditions_NNS is_VBZ considered_VVN in_IN this_DT paper_NN ._SENT 
+Turbocharger_NN nonlinearity_NN :_: From_IN the_DT modeling_NN perspective_NN ,_, even_RB the_DT basic_JJ turbocharger_NN represents_VVZ a_DT highly_RB nonlinear_JJ feedback_NN in_IN the_DT dynamical_JJ model_NN ._SENT 
+A_DT part_NN of_IN exhaust_NN gas_NN enthalpy_NN is_VBZ converted_VVN to_TO the_DT rotational_JJ kinetic_JJ energy_NN in_IN the_DT radial_JJ turbine_NN ._SENT 
+This_DT energy_NN capture_NN is_VBZ usually_RB controlled_VVN partially_RB bypassing_VVG the_DT flow_NN through_IN waste-gate_NN or_CC changing_VVG the_DT aspect_NN ratio_NN of_IN the_DT turbine_NN blades_NNS in_IN variable_JJ geometry_NN turbine_NN ._SENT 
+The_DT turbine_NN power_NN is_VBZ used_VVN to_TO compress_VV the_DT fresh_JJ air_NN in_IN the_DT centrifugal_JJ compressor_NN which_WDT is_VBZ installed_VVN on_IN the_DT same_JJ rotating_VVG shaft_NN with_IN the_DT turbine_NN ._SENT 
+The_DT air_NN compression_NN modulates_VVZ the_DT air_NN supply_NN to_TO the_DT combustion_NN process_NN which_WDT produces_VVZ the_DT exhaust_NN gas_NN enthalpy_NN flow_NN ._SENT 
+There_EX is_VBZ clearly_RB a_DT closed_JJ loop_NN from_IN the_DT turbine_NN to_TO compressor_NN ,_, and_CC through_IN the_DT combustion_NN process_NN back_RB to_TO turbine_NN ._SENT 
+There_EX are_VBP several_JJ significantly_RB nonlinear_JJ multivariate_NN functions_NNS in_IN this_DT closed_JJ loop_NN ._SENT 
+Calibration_NN of_IN such_JJ model_NN is_VBZ non-trivial_JJ ._SENT 
+The_DT physics_NN based_VVN models_NNS of_IN both_DT turbine_NN and_CC compressor_NN are_VBP usually_RB valid_JJ in_IN certain_JJ ranges_NNS only_RB ._SENT 
+With_IN the_DT nonlinearity_NN in_IN the_DT closed_JJ loop_NN ,_, it_PP is_VBZ hard_JJ to_TO guarantee_VV that_IN the_DT initial_JJ model_NN parametrization_NN will_MD lead_VV to_TO model_NN signals_NNS for_IN which_WDT the_DT turbocharger_NN model_NN makes_VVZ physical_JJ sense_NN ._SENT 
+That_DT is_VBZ why_WRB the_DT proposed_VVN calibration_NN approach_NN is_VBZ convenient_JJ ._SENT 
+From_IN the_DT modeling_VVG point_NN of_IN view_NN ,_, the_DT turbocharger_NN is_VBZ typically_RB calibrated_VVN using_VVG manufacturer_NN maps_NNS (_( Hiereth_NP ,_, Drexl_NP ,_, &_CC Prenninger_NP ,_, 2007_CD )_) ._SENT 
+The_DT maps_NNS define_VV the_DT corrected_VVN mass_NN flows_NNS and_CC the_DT efficiencies_NNS of_IN both_DT compressor_NN and_CC turbine_NN ;_: a_DT measure_NN of_IN how_WRB much_JJ power_NN is_VBZ lost_VVN relative_JJ to_TO the_DT isentropic_JJ process_NN ._SENT 
+The_DT corrected_VVN flows_NNS are_VBP defined_VVN for_IN normalized_VVN inlet_NN pressure_NN and_CC temperature_NN ._SENT 
+Flow_NN for_IN general_JJ inlet_NN conditions_NNS can_MD be_VB then_RB expressed_VVN :_: ṁ_NP =ṁ_NP refp1/prefTref/T1−−−−−−√_NP ._SENT 
+Compressor_NN singularities_NNS :_: At_IN a_DT constant_JJ speed_NN ,_, the_DT centrifugal_JJ compressor_NN flow_NN decreases_NNS with_IN increased_VVN compression_NN ratio_NN ._SENT 
+At_IN a_DT certain_JJ point_NN ,_, the_DT air_NN flow_NN is_VBZ disrupted_VVN and_CC the_DT compressor_NN stalls_VVZ ._SENT 
+This_DT happens_VVZ before_IN the_DT point_NN where_WRB the_DT mass_JJ flow_NN through_IN the_DT compressor_NN gets_VVZ reversed_VVN ._SENT 
+The_DT phenomenon_NN is_VBZ known_VVN as_IN compressor_NN surge_NN (_( Ng_NP &_CC Liu_NP ,_, 2007_CD )_) ._SENT 
+The_DT compressor_NN flow_NN becomes_VVZ unstable_JJ ,_, exhibiting_VVG oscillations_NNS due_JJ to_TO locally_RB negative_JJ sensitivity_NN of_IN the_DT flow_NN with_IN respect_NN to_TO pressure_VV ratio_NN ._SENT 
+Exact_JJ modeling_NN of_IN such_JJ unstable_JJ flow_NN is_VBZ usually_RB beyond_IN the_DT scope_NN of_IN a_DT simple_JJ MVM_NP ._SENT 
+On_IN the_DT opposite_JJ end_NN ,_, the_DT compressor_NN flow_NN increases_NNS with_IN decreased_VVN compression_NN ratio_NN up_RB to_TO a_DT point_NN where_WRB the_DT flow_NN reaches_VVZ sonic_JJ conditions_NNS ,_, when_WRB the_DT flow_NN is_VBZ choked_VVN ._SENT 
+This_DT changes_NNS the_DT flow_NN nature_NN again_RB ._SENT 
+Mass_JJ flow_NN is_VBZ saturated_VVN and_CC cannot_MD be_VB increased_VVN even_RB if_IN the_DT compression_NN ratio_NN would_MD be_VB further_RBR decreased_VVN ._SENT 
+The_DT normal_JJ compressor_NN model_NN is_VBZ valid_JJ only_RB between_IN the_DT surge_NN and_CC choke_VV conditions_NNS ._SENT 
+Numerically_RB ,_, the_DT surge_NN and_CC choke_VV make_VV the_DT model_NN calibration_NN problematic_JJ because_IN the_DT gradients_NNS either_CC vanish_VV (_( choke_VV )_) or_CC become_VV unbounded_JJ (_( surge_NN )_) ._SENT 
+An_DT accidental_NN crossing_VVG of_IN the_DT surge_NN limit_NN causes_VVZ the_DT compressor_NN model_NN to_TO reverse_VV the_DT flow_NN which_WDT usually_RB cannot_MD be_VB handled_VVN correctly_RB by_IN the_DT rest_NN of_IN the_DT model_NN because_IN the_DT locations_NNS of_IN causes_NNS and_CC effects_NNS are_VBP interchanged_VVN ._SENT 
+The_DT centrifugal_JJ compressor_NN mechanical_JJ power_NN is_VBZ given_VVN as_RB follows_VVZ (_( Guzzella_NP &_CC Onder_NP ,_, 2009_CD )_) :_: (_( 17)Pc=1ηccpṁ_JJ cT1((p2/p1)(γ−1)/γ−1_NN )_) ._SENT 
+Isentropic_JJ efficiency_NN ηc_NN ranges_VVZ approximately_RB between_IN 0.3_CD and_CC 0.8_CD during_IN normal_JJ operation_NN ._SENT 
+Outside_IN the_DT normal_JJ operation_NN ranges_NNS ,_, the_DT efficiency_NN falls_VVZ to_TO zero_VV very_RB rapidly_RB towards_IN both_DT surge_NN and_CC choke_VV conditions_NNS ._SENT 
+Using_VVG Eq_NP ._SENT 
+(_( 17_CD )_) with_IN the_DT efficiency_NN map_NN fitted_VVN by_IN e._NP g._NP a_DT rational_JJ polynomial_JJ function_NN leads_VVZ to_TO division_NN by_IN zero_CD easily_RB ._SENT 
+Formally_RB ,_, zero_CD compressor_NN efficiency_NN leads_VVZ to_TO infinite_JJ deceleration_NN of_IN the_DT turbocharger_NN and_CC infinite_JJ compressor_NN outlet_NN temperature_NN ._SENT 
+This_DT is_VBZ another_DT manifestation_NN of_IN the_DT fact_NN the_DT compressor_NN operates_VVZ in_IN ranges_NNS surrounded_VVN by_IN singularities_NNS in_IN the_DT equations_NNS ._SENT 
+These_DT singularities_NNS define_VV a_DT feedback_NN which_WDT does_VVZ not_RB allow_VV the_DT physical_JJ system_NN to_TO escape_VV from_IN Ω_NN ._SENT 
+However_RB ,_, the_DT numerical_JJ model_NN simulation_NN and_CC calibration_NN are_VBP not_RB protected_VVN ._SENT 
+Turbine_NN :_: The_DT ranges_NNS of_IN turbine_NN model_NN validity_NN are_VBP similar_JJ to_TO the_DT compressor_NN ._SENT 
+The_DT flow_NN exhibits_VVZ unbounded_JJ sensitivity_NN with_IN respect_NN to_TO the_DT pressure_NN ratio_NN for_IN zero_CD flows_NNS ._SENT 
+For_IN increased_VVN pressure_NN ratio_NN ,_, the_DT corrected_VVN flow_NN chokes_NNS and_CC becomes_VVZ constant_JJ ._SENT 
+The_DT turbine_NN model_NN is_VBZ regular_JJ only_RB for_IN certain_JJ reasonable_JJ range_NN of_IN the_DT pressure_NN ratios_NNS ._SENT 
+Flow_NN restrictions_NNS :_: The_DT flow_NN restrictions_NNS and_CC valves_NNS cause_VVP the_DT pressure_NN drops_VVZ of_IN the_DT gas_NN flows_VVZ in_IN the_DT engine_NN ._SENT 
+The_DT following_VVG equation_NN based_VVN on_IN flow_NN function_NN Ψ_NN is_VBZ usually_RB used_VVN for_IN flows_NNS which_WDT are_VBP not_RB choked_VVN (_( Guzzella_NP &_CC Onder_NP ,_, 2009_CD )_) :_: (_( 18)ṁ_NP =cdAρiΨ(pi/po_NP )_) ,_, (_( 19)Ψ(pi/po)=(pipo)1/γ⎷2/γγ−1⎡⎣1−(pipo)γ−1γ⎤_NP ._SENT 
+This_DT function_NN has_VHZ infinite_JJ derivative_NN for_IN the_DT pressure_NN ratio_NN pi/po=1_JJ and_CC should_MD be_VB used_VVN only_RB for_IN pi/po>1_NN ._SENT 
+In_IN our_PP$ approach_NN ,_, a_DT minimum_JJ pressure_NN ratio_NN can_MD be_VB set_VVN as_IN a_DT linear_JJ constraint_NN :_: pi≥po+ϵ_NN ._SENT 
+Recirculation_NN loops_NNS :_: Modern_JJ engines_NNS are_VBP equipped_VVN with_IN exhaust_NN gas_NN recirculation_NN (_( EGR_NP )_) ._SENT 
+The_DT normal_JJ EGR_NP flow_NN direction_NN through_IN the_DT recirculation_NN valve_NN is_VBZ from_IN exhaust_NN to_TO intake_NN ._SENT 
+The_DT energy_NN and_CC mass_NN balances_NNS are_VBP based_VVN on_IN the_DT fact_NN that_IN the_DT recirculated_JJ gas_NN temperature_NN starts_VVZ from_IN the_DT exhaust_NN temperature_NN ._SENT 
+When_WRB the_DT flow_NN direction_NN changes_NNS ,_, sign_NN reversal_NN happens_VVZ in_IN the_DT equations_NNS ._SENT 
+However_RB ,_, it_PP should_MD also_RB be_VB assumed_VVN that_IN the_DT recirculation_NN temperature_NN is_VBZ switched_VVN from_IN T3_NP (_( exhaust_NN )_) to_TO T2_NP (_( intake_NN )_) ._SENT 
+Thus_RB ,_, there_EX may_MD be_VB a_DT discontinuity_NN of_IN gradients_NNS in_IN the_DT equations_NNS ._SENT 
+Formal_JJ (_( incorrect_JJ )_) use_NN of_IN the_DT equations_NNS leads_VVZ to_TO models_NNS which_WDT do_VVP not_RB satisfy_VV energy_NN conservation_NN ._SENT 
+It_PP is_VBZ probably_RB easier_JJR to_TO put_VV a_DT linear_JJ constraint_NN on_IN pressures_NNS which_WDT makes_VVZ the_DT flow_NN reversal_NN impossible_JJ rather_RB than_IN trying_VVG to_TO model_VV such_JJ phenomena_NNS ._SENT 
+The_DT flow_NN reversal_NN rarely_RB happens_VVZ on_IN real_JJ engines_NNS ._SENT 
+<Section> 5._CD Example_NN engine_NN model_NN </Section> To_TO demonstrate_VV the_DT calibration_NN method_NN ,_, a_DT highly_RB simplified_VVN MVM_NP of_IN Mercedes-Benz_NP OM646_NP 2.2_CD l_NN straight_JJ four_CD cylinder_NN turbocharged_JJ diesel_NN engine_NN was_VBD used_VVN (_( Schommers_NP et_NP al_NP ._SENT 
+,_, 2007_CD )_) ._SENT 
+The_DT engine_NN schematics_NNS is_VBZ in_IN Fig_NN ._SENT 
+2._CD The_DT fresh_JJ air_NN is_VBZ compressed_VVN by_IN the_DT compressor_NN ._SENT 
+The_DT compressed_VVN air_NN is_VBZ cooled_VVN by_IN the_DT charged_VVN air_NN cooler_NN to_TO increase_VV its_PP$ density_NN ._SENT 
+The_DT cooled_VVN air_NN is_VBZ then_RB mixed_VVN with_IN a_DT fraction_NN of_IN cooled_VVN exhaust_NN gases_NNS into_IN a_DT reservoir_NN of_IN 8_CD l_NN in_IN order_NN to_TO smooth_VV the_DT boost_NN pressure_NN ._SENT 
+The_DT cylinders_NNS are_VBP filled_VVN from_IN this_DT reservoir_NN and_CC the_DT diesel_JJ fuel_NN is_VBZ injected_VVN directly_RB into_IN the_DT cylinders_NNS ._SENT 
+The_DT exhaust_NN gas_NN recirculation_NN is_VBZ controlled_VVN by_IN the_DT Exhaust_NN Gas_NN Recirculation_NN (_( EGR_NP )_) butterfly_NN valve_NN ._SENT 
+The_DT remaining_VVG exhaust_NN gas_NN is_VBZ expanded_VVN in_IN the_DT variable_JJ geometry_NN turbine_NN to_TO capture_VV part_NN of_IN its_PP$ energy_NN ._SENT 
+The_DT turbine_NN drives_VVZ the_DT compressor_NN by_IN the_DT connecting_VVG shaft_NN ._SENT 
+The_DT state_NN variables_NNS include_VVP the_DT intake_NN and_CC exhaust_NN pressures_NNS and_CC temperatures_NNS and_CC the_DT turbocharger_NN speed_NN ._SENT 
+In_IN this_DT simplified_VVN scheme_NN ,_, a_DT number_NN of_IN flow_NN restrictions_NNS and_CC heat_NN transfers_NNS have_VHP been_VBN neglected_VVN for_IN simplicity_NN ._SENT 
+Fig_NN ._SENT 
+2._CD Turbocharged_JJ diesel_JJ engine_NN model_NN schematics_NNS ._SENT 
+Each_DT model_NN component_NN was_VBD modeled_VVN by_IN equations_NNS briefly_RB explained_VVD in_IN the_DT subsequent_JJ paragraphs_NNS ._SENT 
+Compressor_NN :_: The_DT compressor_NN map_NN has_VHZ been_VBN fitted_VVN by_IN a_DT model_NN almost_RB identical_JJ to_TO model_VV suggested_VVN by_IN Jensen_NP ,_, Kristensen_NP ,_, Sorenson_NP ,_, Houbak_NP ,_, and_CC Hendricks_NP (_( 1991_CD )_) ,_, see_VV Fig_NN ._SENT 
+3._CD The_DT model_NN is_VBZ based_VVN on_IN a_DT rational_JJ functional_JJ representation_NN of_IN the_DT dimensionless_JJ flow_NN rate_NN Φc_NN as_IN a_DT function_NN of_IN dimensionless_JJ head_NN parameter_NN Ψc_NN ._SENT 
+The_DT coefficients_NNS of_IN the_DT rational_JJ function_NN are_VBP considered_VVN to_TO be_VB dependent_JJ on_IN flow_NN Mach_NP number_NN M._NP Compared_VVN to_TO Jensen_NP et_CC al_NP ._SENT 
+(_( 1991_CD )_) also_RB quadratic_JJ terms_NNS of_IN Mach_NP number_NN were_VBD considered_VVN :_: (_( 20)Φc=k3Ψc−k1k2+Ψc_NP ,_, ki=ki,0+ki,1M+ki,2M2_NP ._SENT 
+The_DT dimensionless_JJ parameters_NNS are_VBP defined_VVN as_RB follows_VVZ :_: (_( 21)Ψc=cpT1((p2/p1)(γ−1)/γ−1)/U2c_NP ,_, Φc=4ṁ_NP c/(ρ1πd2cUc_NP )_) ._SENT 
+The_DT isentropic_JJ compressor_NN efficiency_NN has_VHZ been_VBN fitted_VVN by_IN a_DT rational_JJ polynomial_JJ function_NN of_IN the_DT dimensionless_JJ head_NN parameter_NN and_CC the_DT pressure_NN ratio_NN as_IN in_IN Fig_NN ._SENT 
+4._CD The_NP figures_NNS demonstrate_VVP a_DT significant_JJ nonlinearity_NN ._SENT 
+Fig_NN ._SENT 
+3._CD Compressor_NN flow_NN map_NN and_CC its_PP$ fit_NN by_IN rational_JJ polynomial_JJ function_NN ._SENT 
+Fig_NN ._SENT 
+4._CD Compressor_NN efficiency_NN map_NN and_CC its_PP$ fit_NN by_IN rational_JJ polynomial_JJ function_NN ._SENT 
+Heat_NN exchangers_NNS :_: Both_DT charged_VVN air_NN and_CC recirculation_NN coolers_NNS were_VBD modeled_VVN by_IN the_DT algebraic_JJ equation_NN (_( Holmgren_NP ,_, 2005_CD )_) :_: (_( 22)To=Ti−ηhe(ṁ_NP )(Ti−Tcm_NP )_) ,_, where_WRB Tcm_NP is_VBZ the_DT cooling_VVG medium_NN temperature_NN and_CC ηhe(ṁ_NN )_) is_VBZ the_DT heat_NN exchanger_NN effectiveness_NN between_IN zero_CD and_CC one_CD ._SENT 
+Supposedly_RB the_DT effectiveness_NN equals_VVZ one_CD for_IN zero_CD gas_NN flow_NN and_CC tends_VVZ to_TO zero_VV for_IN flow_NN approaching_VVG infinity_NN ._SENT 
+Therefore_RB ,_, the_DT effectiveness_NN was_VBD represented_VVN by_IN an_DT exponential_JJ function_NN ηhe=2−ṁ_NN /α_NN ,_, with_IN a_DT parameter_NN α_NN equal_JJ to_TO gas_NN mass_NN flow_NN value_NN for_IN which_WDT the_DT effectiveness_NN drops_VVZ to_TO 50_CD %_NN ._SENT 
+The_DT exponential_JJ form_NN was_VBD chosen_VVN empirically_RB ._SENT 
+Charge_NN flow_NN :_: The_DT engine_NN charge_NN mass_NN flow_NN was_VBD represented_VVN by_IN the_DT known_VVN formula_NN :_: (_( 23)ṁ_NP eng=Vdηvolρ2Ne/120_NP ._SENT 
+The_DT volumetric_JJ efficiency_NN ηvol_NN was_VBD represented_VVN by_IN an_DT empirical_JJ polynomial_JJ function_NN of_IN Ne_NP and_CC the_DT pressure_NN ratio_NN p3/p2_NN ,_, see_VVP De_NP Nicolao_NP ,_, Scattolini_NP ,_, and_CC Siviero_NP (_( 1996_CD )_) ._SENT 
+Combustion_NN :_: To_TO keep_VV the_DT model_NN simple_NN ,_, the_DT combustion_NN process_NN was_VBD not_RB modeled_VVN in_IN detail_NN ._SENT 
+The_DT exhaust_NN manifold_NN temperature_NN was_VBD modeled_VVN by_IN an_DT empirical_JJ modification_NN of_IN the_DT energy_NN balance_NN ._SENT 
+Maximal_JJ exhaust_NN gas_NN temperature_NN ,_, the_DT temperature_NN without_IN any_DT engine_NN heat_NN or_CC mechanical_JJ losses_NNS ,_, can_MD be_VB expressed_VVN from_IN energy_NN conservation_NN law_NN :_: (_( 24)T¯¯¯o=caṁ_NP iTi+cfṁ_NP fuelTfuel+HLVṁ_NP fuel−Pengcexh(ṁ_NP i+ṁ_NP fuel_NN )_) ,_, where_WRB input_NN flow_NN ṁ_NP i_NP is_VBZ equal_JJ to_TO sum_VV of_IN mass_JJ air_NN flow_NN and_CC EGR_NN mass_NN flow_NN ,_, ca_MD ,_, cf_NP and_CC cexh_NP are_VBP air_NN ,_, fuel_NN and_CC exhaust_VV specific_JJ heat_NN capacities_NNS respectively_RB and_CC Peng_NP is_VBZ the_DT net_JJ mechanical_JJ power_NN ._SENT 
+The_DT power_NN was_VBD fitted_VVN to_TO a_DT simple_JJ bilinear_JJ function_NN (_( 25)Peng=(a0+a1ṁ_NP fuel)(a2+a3Ne_NP )_) ._SENT 
+The_DT temperature_NN T¯¯¯o_NN is_VBZ a_DT theoretical_JJ upper_JJ limit_NN and_CC the_DT exhaust_NN manifold_NN temperature_NN To_TO has_VHZ to_TO be_VB lower_JJR ._SENT 
+The_DT ratio_NN of_IN the_DT measured_JJ and_CC maximal_JJ exhaust_NN gas_NN temperature_NN will_MD be_VB smaller_JJR than_IN one_CD :_: (_( 26)rT=ToT¯¯¯o_NP ._SENT 
+The_DT ratio_NN rT_NN can_MD be_VB fitted_VVN to_TO an_DT empirical_JJ model_NN easier_JJR than_IN fitting_NN To_TO directly_RB ._SENT 
+A_DT quadratic_JJ function_NN of_IN air_NN to_TO fuel_VV ratio_NN ,_, injection_NN quantity_NN and_CC engine_NN speed_NN was_VBD used_VVN to_TO represent_VV rT_NNS in_IN this_DT case_NN ._SENT 
+The_DT combustion_NN model_NN was_VBD not_RB configured_VVN to_TO model_VV sub-stoichiometric_JJ combustion_NN which_WDT defines_VVZ another_DT constraint_NN on_IN model_NN validity_NN ._SENT 
+This_DT limit_NN is_VBZ associated_VVN with_IN a_DT discontinuity_NN in_IN sensitivity_NN ._SENT 
+Adding_VVG more_JJR fuel_NN above_IN the_DT stoichiometric_JJ value_NN does_VVZ not_RB increase_VV the_DT exhaust_NN temperature_NN but_CC decreases_VVZ it_PP ._SENT 
+This_DT simplified_VVN combustion_NN model_NN did_VVD not_RB use_VV full_JJ information_NN about_IN the_DT injection_NN pattern_NN ,_, rail_NN pressure_NN ,_, etc._FW Only_RB the_DT total_NN injected_VVD fuel_NN quantity_NN was_VBD considered_VVN ._SENT 
+Turbine_NN :_: The_DT turbine_NN reference_NN flow_NN was_VBD fitted_VVN to_TO an_DT empirical_JJ modification_NN of_IN the_DT orifice_NN equation_NN ._SENT 
+We_PP slightly_RB modified_VVN formula_NN from_IN (_( Dinescu_NP &_CC Tazerout_NP ,_, 2010_CD )_) :_: (_( 27)ṁ_NP t=√C(uVGT_NP ,_, Ntc)(p3/p4)κ(uVGT)(p3/p4)−2/γ−(p3/p4)−(γ+1)/γ_NP ._SENT 
+The_DT discharge_NN coefficient_NN C_NP and_CC the_DT exponent_NN parameter_NN κ_NN were_VBD considered_VVN to_TO be_VB polynomial_JJ functions_NNS of_IN the_DT turbine_NN geometry_NN parameter_NN uVGT_NN and_CC speed_NN Ntc_NN ._SENT 
+The_DT turbine_NN efficiency_NN was_VBD fitted_VVN by_IN a_DT rational_JJ polynomial_JJ function_NN of_IN the_DT pressure_NN ratio_NN ,_, turbine_NN speed_NN ,_, and_CC uVGT_NP ._SENT 
+Assume_VV u˜VGT[_JJ %_NN ]_SYM is_VBZ an_DT input_NN to_TO an_DT actuator_NN which_WDT rotates_VVZ the_DT turbine_NN vanes_NNS to_TO a_DT position_NN ._SENT 
+In_IN the_DT manufacturer_NN turbine_NN map_NN ,_, the_DT VGT_NP position_NN was_VBD represented_VVN by_IN a_DT dimensionless_JJ number_NN uVGT_NN between_IN zero_CD (_( turbine_NN closed_VVN )_) and_CC one_CD (_( turbine_NN open_NN )_) ._SENT 
+In_IN order_NN to_TO use_VV the_DT turbine_NN map_NN in_IN the_DT MVM_NP ,_, the_DT correspondence_NN between_IN uVGT_NP (_( map_NN value_NN )_) and_CC u˜VGT_NP (_( ECU_NP value_NN )_) was_VBD modeled_VVN ._SENT 
+A_DT simple_JJ affine_JJ function_NN equation_NN was_VBD used_VVN :_: u˜VGT=k1uVGT+k0_JJ ._SENT 
+The_DT optimization_NN resulted_VVN into_IN values_NNS almost_RB equal_JJ to_TO 1−0.01uVGT_NN which_WDT indicates_VVZ that_IN the_DT control_NN signal_NN orientation_NN was_VBD opposite_JJ but_CC the_DT extreme_JJ values_NNS of_IN both_DT signals_NNS matched_VVD the_DT extreme_JJ points_NNS in_IN the_DT map_NN ._SENT 
+Model_NN constraints_NNS :_: This_DT paragraph_NN explains_VVZ how_WRB this_DT MVM_NP validity_NN was_VBD represented_VVN by_IN a_DT set_NN of_IN linear_JJ constraints_NNS on_IN model_NN states_NNS ,_, slack_JJ variables_NNS and_CC parameters_NNS ._SENT 
+The_DT equations_NNS defined_VVN by_IN the_DT model_NN structure_NN are_VBP valid_JJ for_IN defined_VVN flow_NN directions_NNS only_RB ._SENT 
+Flow_NN reversal_NN modeling_NN would_MD require_VV reconfiguration_NN of_IN the_DT model_NN equations_NNS which_WDT may_MD be_VB impractical_JJ ._SENT 
+To_TO this_DT end_NN ,_, three_CD linear_JJ inequalities_NNS pamb<p1<p2<p3_NN were_VBD introduced_VVN ._SENT 
+These_DT constraints_NNS made_VVD the_DT negative_JJ flows_NNS through_IN the_DT EGR_NP and_CC the_DT turbine_NN impossible_JJ ._SENT 
+The_DT compressor_NN flow_NN direction_NN constraint_NN is_VBZ more_RBR complicated_JJ ._SENT 
+It_PP was_VBD necessary_JJ to_TO introduce_VV a_DT slack_JJ variable_JJ ṁ_JJ c≥l(ṁ_NN fuel_NN )_) which_WDT was_VBD used_VVN as_IN an_DT input_NN to_TO the_DT rest_NN of_IN the_DT model_NN (_( the_DT charged_VVN air_NN cooler_NN )_) ._SENT 
+The_DT limit_NN l(ṁ_NN fuel_NN )_) was_VBD set_VVN to_TO a_DT value_NN slightly_RB above_IN the_DT stoichiometric_JJ air_NN to_TO fuel_VV ratio_NN ;_: considering_VVG the_DT limits_NNS of_IN validity_NN of_IN the_DT exhaust_NN temperature_NN model_NN used_VVD ._SENT 
+Thus_RB the_DT model_NN never_RB sees_VVZ a_DT negative_JJ flow_NN value_NN from_IN the_DT compressor_NN equation_NN ._SENT 
+If_IN this_DT happens_VVZ ,_, the_DT optimization_NN tries_VVZ to_TO correct_VV the_DT rest_NN of_IN the_DT model_NN to_TO change_VV the_DT compressor_NN flow_NN direction_NN decreasing_VVG p2_NN ._SENT 
+Positive_JJ slack_NN variables_NNS were_VBD also_RB introduced_VVN for_IN all_DT three_CD denominators_NNS of_IN rational_JJ polynomial_JJ functions_NNS existing_VVG in_IN the_DT model_NN :_: compressor_NN flow_NN parameter_NN (_( 3_CD )_) and_CC both_DT compressor_NN and_CC turbine_NN efficiency_NN ._SENT 
+Additionally_RB all_DT state_NN variables_NNS ,_, including_VVG the_DT turbocharger_NN speed_NN and_CC the_DT temperatures_NNS ,_, were_VBD constrained_VVN by_IN upper_JJ and_CC lower_JJR limits_NNS ._SENT 
+The_DT model_NN parameters_NNS were_VBD also_RB constrained_VVN by_IN box_NN or_CC linear_JJ constraints_NNS whenever_WRB possible_JJ ._SENT 
+As_IN examples_NNS :_: the_DT discharge_NN coefficient_NN of_IN the_DT EGR_NP valve_NN must_MD be_VB positive_JJ ,_, the_DT effectiveness_NN of_IN the_DT coolers_NNS must_MD decrease_VV with_IN the_DT mass_JJ flows_NNS which_WDT implies_VVZ α≥0_NN for_IN the_DT heat_NN exchanger_NN ,_, etc._FW The_DT exact_JJ configuration_NN of_IN constraints_NNS and_CC slack_NN variables_NNS was_VBD based_VVN not_RB only_RB on_IN the_DT knowledge_NN of_IN chief_JJ singularities_NNS and_CC model_NN validity_NN limits_NNS but_CC also_RB on_IN experimentation_NN with_IN the_DT optimization_NN approach_NN ._SENT 
+Model_NN calibration_NN :_: A_DT collection_NN of_IN 768_CD steady-state_NN points_NNS measured_VVN on_IN the_DT test_NN cell_NN dynamometer_NN as_RB well_RB as_IN the_DT turbine_NN and_CC compressor_NN maps_NNS from_IN the_DT turbocharger_NN manufacturer_NN have_VHP been_VBN used_VVN to_TO calibrate_VV the_DT engine_NN model_NN ._SENT 
+Each_DT steady-state_NN point_NN has_VHZ been_VBN measured_VVN setting_VVG engine_NN speed_NN and_CC injection_NN quantity_NN to_TO certain_JJ values_NNS and_CC then_RB exploring_VVG a_DT grid_NN of_IN EGR_NP valve_NN and_CC VGT_JJ actuator_NN positions_NNS ._SENT 
+All_DT other_JJ parameters_NNS ,_, e._NP g._NP the_DT injection_NN pattern_NN ,_, were_VBD set_VVN to_TO their_PP$ normal_JJ operating_VVG point_NN dependent_JJ values_NNS ._SENT 
+At_IN each_DT point_NN the_DT engine_NN was_VBD left_VVN 120_CD s_NNS running_VVG for_IN the_DT temperatures_NNS to_TO settle_VV ._SENT 
+Then_RB ,_, measurement_NN values_NNS were_VBD collected_VVN from_IN the_DT following_VVG sensors_NNS :_: air_NN flow_NN ,_, temperature_NN after_IN compressor_NN ,_, temperature_NN after_IN charge_NN air_NN cooler_NN ,_, pressure_NN and_CC temperature_NN in_IN the_DT intake_NN manifold_NN ,_, engine_NN torque_NN ,_, pressure_NN and_CC temperature_NN before_IN turbine_NN ,_, exhaust_NN gas_NN recirculation_NN rate_NN based_VVN on_IN CO2_JJ sensors_NNS ,_, lambda_NN sensor_NN located_VVN after_IN the_DT turbine_NN ,_, turbine_NN speed_NN ._SENT 
+It_PP was_VBD ensured_VVN that_IN all_DT data_NNS were_VBD satisfying_VVG model_NN validity_NN constraints_NNS ;_: thus_RB excluding_VVG data_NNS with_IN low_JJ air_NN to_TO fuel_VV ratio_NN or_CC data_NNS with_IN slight_JJ negative_JJ EGR_NN pressure_NN difference_NN ,_, etc._FW The_DT model_NN components_NNS were_VBD calibrated_VVN independently_RB to_TO define_VV reasonable_JJ initial_JJ parameters_NNS ._SENT 
+In_IN this_DT step_NN ,_, the_DT component-wise_JJ calibration_NN approach_NN was_VBD used_VVN using_VVG a_DT standard_JJ nonlinear_JJ least_JJS squares_NNS algorithm_NN ._SENT 
+The_DT exceptions_NNS were_VBD model_NN components_NNS expressed_VVN as_IN rational_JJ polynomials_NNS :_: the_DT compressor_NN flow_NN and_CC both_DT compressor_NN and_CC turbine_NN efficiency_NN ._SENT 
+Here_RB ,_, the_DT proposed_VVN algorithm_NN was_VBD used_VVN introducing_VVG constrained_VVN slack_JJ variables_NNS as_IN denominators_NNS of_IN the_DT functions_NNS ._SENT 
+This_DT prevents_VVZ singularity_NN crossing_VVG provided_VVN the_DT initial_JJ parameter_NN values_NNS are_VBP set_VVN reasonably_RB ._SENT 
+Then_RB the_DT proposed_VVN system_NN level_NN calibration_NN algorithm_NN was_VBD used_VVN to_TO improve_VV the_DT fit_NN with_IN respect_NN to_TO all_DT sensors_NNS ._SENT 
+At_IN this_DT point_NN ,_, the_DT focus_NN shifted_VVN from_IN the_DT individual_JJ components_NNS to_TO the_DT global_JJ model_NN ,_, which_WDT included_VVD the_DT causal_JJ links_NNS between_IN the_DT components_NNS ._SENT 
+The_DT optimization_NN varied_VVD all_DT model_NN parameters_NNS ._SENT 
+The_DT parameters_NNS were_VBD box_NN constrained_VVN to_TO vary_VV not_RB more_JJR than_IN ±20_JJ %_NN from_IN the_DT initial_JJ values_NNS ._SENT 
+The_DT parameters_NNS related_VVN to_TO the_DT turbomaps_NNS were_VBD allowed_VVN to_TO vary_VV in_IN yet_RB narrower_JJR range_NN of_IN ±5_JJ %_NN ._SENT 
+The_DT optimization_NN used_VVD only_RB 20_CD %_NN of_IN the_DT data_NNS taking_VVG every_DT fifth_JJ point_NN ._SENT 
+The_DT remaining_VVG 80_CD %_NN data_NNS were_VBD used_VVN for_IN verification_NN only_RB ._SENT 
+The_DT model_NN calibration_NN was_VBD based_VVN on_IN implementing_VVG the_DT function_NN F_NN from_IN (_( 9_CD )_) as_IN Matlab_NN function_NN ._SENT 
+This_DT function_NN was_VBD called_VVN iteratively_RB by_IN an_DT algorithm_NN A_DT prototype_NN also_RB implemented_VVN in_IN Matlab_NP ._SENT 
+The_DT partial_JJ derivatives_NNS of_IN F_NN were_VBD evaluated_VVN using_VVG symmetric_JJ finite_JJ differences_NNS ._SENT 
+Calibration_NN results_NNS :_: The_DT model_NN accuracy_NN before_IN and_CC after_IN the_DT system_NN level_NN optimization_NN step_NN is_VBZ summarized_VVN in_IN Table_NN 1_CD and_CC visualized_VVN in_IN Fig_NN ._SENT 
+5._CD R2_NN is_VBZ the_DT coefficient_NN of_IN determination_NN used_VVN as_IN a_DT measure_NN of_IN fit_JJ quality_NN ._SENT 
+It_PP is_VBZ defined_VVN as_IN squared_VVN correlation_NN coefficient_NN between_IN the_DT model_NN prediction_NN and_CC the_DT measurement_NN ,_, including_VVG both_DT calibration_NN and_CC verification_NN sets_NNS ._SENT 
+The_DT optimization_NN based_VVN on_IN the_DT proposed_VVN algorithm_NN and_CC the_DT Levenberg–Marquardt_NP step_NN control_NN took_VVD a_DT few_JJ minutes_NNS on_IN standard_JJ PC_NN and_CC no_DT numerical_JJ problems_NNS occurred_VVD even_RB when_WRB testing_NN randomly_RB varied_VVD initial_JJ parameters_NNS ._SENT 
+The_DT calibration_NN could_MD be_VB successfully_RB completed_VVN even_RB if_IN started_VVN from_IN initial_JJ parameters_NNS with_IN which_WDT the_DT model_NN could_MD not_RB be_VB simulated_JJ for_IN numerical_JJ reasons_NNS ;_: e._NP g._NP defining_VVG the_DT initial_JJ EGR_NP valve_NN discharge_NN coefficient_NN very_RB large_JJ ._SENT 
+System_NN level_NN approach_NN improved_VVD the_DT fit_JJ quality_NN significantly_RB as_RB expected_VVN ._SENT 
+The_DT accuracy_NN of_IN the_DT model_NN built_VVN from_IN components_NNS which_WDT were_VBD calibrated_VVN separately_RB is_VBZ worse_JJR ._SENT 
+Fig_NN ._SENT 
+5_CD shows_VVZ steady-state_NN model_NN predictions_NNS obtained_VVN by_IN simulating_VVG the_DT calibrated_VVN model_NN for_IN four_CD important_JJ model_NN variables_NNS ._SENT 
+These_DT results_NNS were_VBD obtained_VVN solving_VVG the_DT differential_JJ equations_NNS of_IN the_DT model_NN without_IN considering_VVG the_DT slack_JJ variables_NNS ._SENT 
+Thus_RB ,_, these_DT results_NNS are_VBP not_RB affected_VVN by_IN effect_NN of_IN soft_JJ constraints_NNS formulation_NN ._SENT 
+There_EX is_VBZ no_DT significant_JJ difference_NN between_IN the_DT calibration_NN and_CC validation_NN data_NNS sets_NNS ;_: thus_RB the_DT model_NN was_VBD not_RB over-parametrized_VVN ._SENT 
+Table_NN 1._CD Calibration_NN results_NNS before_IN and_CC after_IN running_VVG global_JJ level_NN calibration_NN ._SENT 
+Fig_NN ._SENT 
+5._CD Steady-state_NN identification_NN results_NNS ._SENT 
+After_IN the_DT steady-state_NN calibration_NN :_: Though_IN the_DT proposed_VVN approach_NN is_VBZ focused_VVN on_IN the_DT steady-state_NN calibration_NN only_RB ,_, the_DT question_NN whether_IN the_DT model_NN calibrated_VVN in_IN this_DT way_NN can_MD be_VB useful_JJ for_IN transient_JJ simulation_NN and_CC controller_NN design_NN is_VBZ a_DT valid_JJ one_CD ._SENT 
+In_IN our_PP$ experience_NN ,_, the_DT MVM_NP with_IN a_DT reasonable_JJ steady-state_NN response_NN can_MD be_VB easily_RB adjusted_VVN optimizing_VVG a_DT subset_NN of_IN parameters_NNS to_TO match_VV also_RB the_DT transient_JJ data_NNS quite_RB well_RB ._SENT 
+If_IN only_JJ parameters_NNS which_WDT do_VVP not_RB affect_VV the_DT steady_JJ state_NN solution_NN are_VBP chosen_VVN then_RB both_DT problems_NNS are_VBP decoupled_VVN ._SENT 
+The_DT parameters_NNS to_TO be_VB optimized_VVN in_IN this_DT step_NN can_MD be_VB actuator_NN and_CC sensor_NN delays_NNS ,_, heat_NN capacities_NNS ,_, turbocharger_NN inertia_NN ,_, and_CC intake_NN manifold_NN volume_NN ._SENT 
+Transient_JJ step_NN response_NN of_IN a_DT model_NN calibrated_VVN in_IN this_DT way_NN is_VBZ shown_VVN in_IN Fig_NN ._SENT 
+6._CD Fig_NN ._SENT 
+6._CD Transient_JJ response_NN of_IN the_DT MVM_NP to_TO EGR_NP valve_NN position_NN step_NN from_IN 20_CD %_NN to_TO 40_CD %_NN ._SENT 
+<Section> 6._CD Concluding_VVG remarks_NNS </Section> The_DT proposed_VVN algorithm_NN has_VHZ been_VBN tested_VVN calibrating_VVG more_JJR than_IN ten_CD of_IN both_DT diesel_NN and_CC gasoline_NN MVM_NP 's_POS ._SENT 
+Based_VVN on_IN the_DT models_NNS ,_, multivariate_VVG controllers_NNS for_IN the_DT air_NN paths_NNS have_VHP been_VBN designed_VVN ._SENT 
+The_DT MVM_NP structure_NN used_VVN was_VBD similar_JJ to_TO the_DT presented_VVN example_NN ._SENT 
+The_DT model_NN accuracy_NN was_VBD sufficient_JJ to_TO get_VV reasonable_JJ air_NN path_NN control_NN performance_NN very_RB quickly_RB ,_, at_IN initial_JJ iterations_NNS of_IN the_DT control_NN development_NN ._SENT 
+Before_IN having_VHG developed_VVN the_DT presented_VVN approach_NN ,_, the_DT optimization_NN based_VVN model_NN calibration_NN sometimes_RB suffered_VVD from_IN numerical_JJ problems_NNS which_WDT were_VBD difficult_JJ to_TO solve_VV ._SENT 
+The_DT optimization_NN had_VHD to_TO be_VB tuned_VVN very_RB conservatively_RB to_TO make_VV only_RB small_JJ steps_NNS during_IN iterations_NNS in_IN order_NN to_TO avoid_VV singularity_NN crossing_VVG ._SENT 
+Also_RB ,_, the_DT initial_JJ values_NNS of_IN model_NN parameters_NNS had_VHD to_TO be_VB set_VVN cautiously_RB ._SENT 
+Even_RB then_RB the_DT optimization_NN sometimes_RB ended_VVN in_IN a_DT solution_NN which_WDT did_VVD not_RB make_VV any_DT physical_JJ sense_NN ._SENT 
+Sometimes_RB the_DT solution_NN methods_NNS resembled_VVD trying_VVG to_TO change_VV something_NN randomly_RB ,_, without_IN a_DT proper_JJ systematic_JJ method_NN ._SENT 
+If_IN an_DT error_NN was_VBD made_VVN ,_, it_PP was_VBD very_RB difficult_JJ to_TO find_VV it_PP ._SENT 
+With_IN the_DT proposed_VVN approach_NN ,_, the_DT problem_NN can_MD usually_RB be_VB localized_VVN by_IN examining_VVG which_WDT equality_NN constraints_NNS were_VBD not_RB satisfied_VVN ._SENT 
+On_IN the_DT other_JJ hand_NN ,_, the_DT proposed_VVN approach_NN is_VBZ not_RB a_DT universal_JJ global_JJ optimization_NN method_NN ._SENT 
+The_DT found_VVN parameters_NNS can_MD represent_VV just_RB a_DT local_JJ optimum_JJ ._SENT 
+It_PP should_MD be_VB noted_VVN that_IN the_DT proposed_VVN calibration_NN approach_NN cannot_MD improve_VV the_DT model_NN accuracy_NN by_IN itself_PP ._SENT 
+The_DT model_NN accuracy_NN is_VBZ mostly_RB given_VVN by_IN model_NN structure_NN which_WDT must_MD properly_RB capture_VV the_DT chief_JJ physics_NN ._SENT 
+The_DT results_NNS obtained_VVD using_VVG different_JJ calibration_NN methods_NNS with_IN the_DT same_JJ model_NN structure_NN and_CC same_JJ data_NNS should_MD be_VB almost_RB identical_JJ provided_VVN the_DT global_JJ optimum_JJ was_VBD found_VVN ._SENT 
+The_DT difference_NN is_VBZ that_IN the_DT calibration_NN process_NN can_MD be_VB faster_JJR and_CC easier_JJR ._SENT 
+The_DT initial_JJ concern_NN with_IN the_DT proposed_VVN approach_NN was_VBD related_VVN to_TO the_DT soft_JJ constraints_NNS in_IN the_DT formulation_NN (_( 8_CD )_) ._SENT 
+The_DT model_NN has_VHZ more_JJR degrees_NNS of_IN freedom_NN during_IN the_DT calibration_NN than_IN simulation_NN because_IN the_DT equalities_NNS are_VBP not_RB satisfied_VVN at_IN the_DT terminal_NN iteration_NN ,_, though_IN the_DT errors_NNS should_MD be_VB small_JJ setting_VVG the_DT weights_NNS Wf_NN ,_, Wg_NP ,_, Wh_NN in_IN (_( 8_CD )_) properly_RB ._SENT 
+However_RB ,_, it_PP seems_VVZ that_IN these_DT additional_JJ degrees_NNS of_IN freedom_NN plays_VVZ role_NN similar_JJ to_TO optimizing_VVG errors_NNS of_IN independent_JJ variables_NNS in_IN the_DT Total_JJ Least_JJS Squares_NNS method_NN (_( Markovsky_NP &_CC Van_NP Huffel_NP ,_, 2007_CD )_) ._SENT 
+The_DT hypothesis_NN is_VBZ that_IN the_DT use_NN of_IN slack_JJ variables_NNS actually_RB improves_VVZ the_DT statistical_JJ robustness_NN ._SENT 
+However_RB ,_, the_DT latest_JJS research_NN showed_VVD that_IN the_DT algorithm_NN performs_VVZ better_RBR if_IN the_DT equality_NN constraints_NNS which_WDT become_VVP feasible_JJ are_VBP turned_VVN into_IN real_JJ equality_NN constraints_NNS during_IN the_DT process_NN ._SENT 
+The_DT three_CD main_JJ elements_NNS of_IN the_DT proposed_VVN calibration_NN approach_NN are_VBP (_( 1_LS )_) the_DT constrained_VVN optimization_NN methods_NNS (_( 2_CD )_) the_DT slack_JJ variables_NNS to_TO make_VV the_DT constraints_NNS linear_JJ and_CC feasible_JJ (_( 3_LS )_) using_VVG the_DT distributed_VVN optimization_NN methods_NNS to_TO solve_VV the_DT resulting_VVG large_JJ scale_NN optimization_NN problem_NN ._SENT 
+This_DT method_NN allows_VVZ several_JJ interpretations_NNS ._SENT 
+The_DT slack_JJ variables_NNS can_MD be_VB viewed_VVN as_IN additional_JJ degrees_NNS of_IN freedom_NN in_IN the_DT model_NN structure_NN ._SENT 
+They_PP make_VVP the_DT critical_JJ causal_JJ links_NNS between_IN model_NN components_NNS less_RBR stringent_JJ ,_, converting_VVG them_PP to_TO soft_JJ constraints_NNS ._SENT 
+The_DT component_NN level_NN calibration_NN approach_NN neglects_VVZ the_DT causal_JJ links_NNS between_IN components_NNS completely_RB ._SENT 
+At_IN the_DT same_JJ time_NN ,_, the_DT system_NN level_NN calibration_NN fully_RB relies_VVZ on_IN these_DT causal_JJ links_NNS ._SENT 
+It_PP follows_VVZ that_IN the_DT proposed_VVN approach_NN can_MD be_VB understood_VVN as_IN a_DT generalization_NN of_IN both_DT component_NN and_CC system_NN level_NN calibration_NN approaches_NNS depending_VVG on_IN the_DT weights_NNS put_VVN on_IN the_DT soft_JJ constraints_NNS ._SENT 
+It_PP can_MD be_VB described_VVN as_IN a_DT reconciliation_NN of_IN model_NN components_NNS to_TO meet_VV a_DT set_NN of_IN constraints_NNS and_CC minimize_VV the_DT system_NN model_NN predictions_NNS at_IN the_DT same_JJ time_NN ._SENT 
+<Section> Acknowledgments_NNS </Section> The_DT second_JJ author_NN 's_POS work_NN was_VBD partly_RB supported_VVN by_IN ALFA_NP programme_NN of_IN Technology_NP Agency_NP of_IN the_DT Czech_NP Republic_NP ,_, Project_NP TA01030170_NP ._SENT 
+The_DT first_JJ and_CC third_JJ author_NN gratefully_RB acknowledge_VVP the_DT financial_JJ support_NN of_IN the_DT Grant_NP Agency_NP of_IN the_DT Czech_JJ republic_NN ,_, Grant_NP P103/11/1353_NP ._SENT 
+<Section> References_NNS </Section> Bertsekas_NNS ,_, 1995_CD D._NP Bertsekas_NP Nonlinear_JJ programming_NN Athena_NP Scientific_NP ,_, Cambridge_NP ,_, MA_NN ,_, USA_NP (_( 1995_CD )_) Google_NP Scholar_NN Boyd_NP and_CC Johansson_NP ,_, 2010_CD Boyd_NP ,_, S._NP ,_, &_CC Johansson_NP ,_, M._NP (_( 2010_CD )_) ._SENT 
+Lectures_VVZ on_IN distributed_VVN optimization_NN ._SENT 
+Stockholm_NP :_: KTH_NN ._SENT 
+Google_NP Scholar_NN De_NP Nicolao_NP et_CC al_NP ._SENT 
+,_, 1996_CD G._NP De_NP Nicolao_NP ,_, R._NP Scattolini_NP ,_, C._NP Siviero_NP Modelling_VVG the_DT volumetric_JJ efficiency_NN of_IN ic_JJ engines_NNS :_: Parametric_NP ,_, non-parametric_JJ and_CC neural_JJ techniques_NNS Control_NP Engineering_NP Practice_NN ,_, 4_CD (_( 1996_CD )_) ,_, pp_NP ._SENT 
+1405-1415_CD ArticleDownload_NP PDFView_NP Record_NP in_IN ScopusGoogle_NP Scholar_NN Diehl_NP et_NP al_NP ._SENT 
+,_, 2005_CD M._NP Diehl_NP ,_, H._NP Bock_NP ,_, J._NP Schlöder_NP A_DT real-time_JJ iteration_NN scheme_NN for_IN nonlinear_JJ optimization_NN in_IN optimal_JJ feedback_NN control_NN SIAM_NP Journal_NP of_IN Control_NP and_CC Optimization_NP ,_, 43_CD (_( 5_LS )_) (_( 2005_CD )_) ,_, pp_NP ._SENT 
+1714-1736_CD CrossRefView_NP Record_NP in_IN ScopusGoogle_NP Scholar_NN Dinescu_NP and_CC Tazerout_NP ,_, 2010_CD D._NP Dinescu_NP ,_, M._NP Tazerout_NP Mean_NP value_NN modeling_NN of_IN a_DT variable_JJ nozzle_NN turbocharger_NN (_( VNT_NP )_) UPB_NP Scientific_NP Bulletin_NP ,_, 72_CD (_( 2010_CD )_) ,_, pp_NP ._SENT 
+109-116_CD View_NP Record_NP in_IN ScopusGoogle_NP Scholar_NN Fletcher_NP ,_, 1987_CD Fletcher_NP ,_, R._NP (_( 1987_CD )_) ._SENT 
+Practical_JJ methods_NNS of_IN optimization_NN (_( Vol_NP ._SENT 
+1_LS )_) ._SENT 
+Wiley-Interscience_NN Publication_NN ,_, Wiley_NP ._SENT 
+Google_NP Scholar_NN Guzzella_NP and_CC Onder_NP ,_, 2009_CD L._NP Guzzella_NP ,_, C._NP Onder_NP Introduction_NN to_TO modeling_NN and_CC control_NN of_IN internal_JJ combustion_NN engine_NN systems_NNS Springer_NP ,_, New_NP York_NP (_( 2009_CD )_) Google_NP Scholar_NN Hairer_NP and_CC Wanner_NP ,_, 1999_CD E._NP Hairer_NP ,_, G._NP Wanner_NP Stiff_NP differential_NN equations_NNS solved_VVN by_IN Radau_NP methods_NNS Journal_NP of_IN Computational_JJ and_CC Applied_NP Mathematics_NNS ,_, 111_CD (_( 1–2_NP )_) (_( 1999_CD )_) ,_, pp_NP ._SENT 
+93-111_CD ArticleDownload_NP PDFView_NP Record_NP in_IN ScopusGoogle_NP Scholar_NN Hallstrom_NP and_CC Schiavon_NP ,_, 2007_CD Hallstrom_NP ,_, K._NP ,_, &_CC Schiavon_NP ,_, J._NP (_( 2007_CD )_) ._SENT 
+Euro_NP IV_NP and_CC V_NN diesel_NN emission_NN control_NN system_NN review_NN ._SENT 
+SAE_NP Technical_NP Paper_NP 2007-01-2617_CD ._SENT 
+http_NN :_: //dx_NP ._SENT 
+doi_NP ._SENT 
+org/10.4271/2007-01-2617_JJ ._SENT 
+Google_NP Scholar_NN Heywood_NP ,_, 1988_CD J._NP Heywood_NP Internal_NP combustion_NN engine_NN fundamentals_NNS ,_, Automotive_JJ technology_NN series_NN ,_, McGraw-Hill_NP Education_NP ,_, New_NP York_NP (_( 1988_CD )_) Google_NP Scholar_NN Hiereth_NP et_NP al_NP ._SENT 
+,_, 2007_CD H._NP Hiereth_NP ,_, K._NP Drexl_NP ,_, P._NP Prenninger_NP Charging_VVG the_DT internal_JJ combustion_NN engine_NN ,_, powertrain_NN Springer_NP ,_, Berlin_NP ,_, Heidelberg_NP (_( 2007_CD )_) Google_NP Scholar_NN Holmgren_NP ,_, 2005_CD Holmgren_NP ,_, A._NP (_( 2005_CD )_) ._SENT 
+Mean_JJ value_NN modelling_VVG of_IN the_DT intake_NN manifold_NN temperature_NN (_( Master_NP 's_POS thesis_NN )_) ._SENT 
+Linköpings_NP universitet_NP ._SENT 
+Reg_NP nr_NP :_: LiTH-ISY-EX-3648-2005_NN ._SENT 
+Google_NP Scholar_NN Isermann_NP ,_, 2014_CD R._NP Isermann_NP Engine_NP modeling_NN and_CC control_NN :_: Modeling_NN and_CC electronic_JJ management_NN of_IN internal_JJ combustion_NN engines_NNS Springer_NP ,_, Berlin_NP ,_, Heidelberg_NP (_( 2014_CD )_) Google_NN Scholar_NN Jankovic_JJ et_NP al_NP ._SENT 
+,_, 1998_CD Jankovic_NN ,_, M._NP ,_, Jankovic_NP ,_, M._NP ,_, &_CC Kolmanovsky_NP ,_, I._NP (_( 1998_CD )_) ._SENT 
+Robust_JJ nonlinear_JJ controller_NN for_IN turbocharged_JJ diesel_JJ engines_NNS ._SENT 
+In_IN Proceedings_NNS of_IN the_DT 1998_CD American_NP Control_NP Conference_NP (_( Vol_NP ._SENT 
+3_LS ,_, pp_NP ._SENT 
+1389–1394_NP )_) ._SENT 
+Philadelphia_NP :_: IEEE_NP ._SENT 
+Google_NP Scholar_NN Jensen_NP et_NP al_NP ._SENT 
+,_, 1991_CD Jensen_NP ,_, J._NP ,_, Kristensen_NP ,_, A._NP ,_, Sorenson_NP ,_, S._NP ,_, Houbak_NP ,_, N._NP ,_, &_CC Hendricks_NP ,_, E._NP (_( 1991_CD )_) ._SENT 
+Mean_JJ value_NN modeling_NN of_IN a_DT small_JJ turbocharged_JJ diesel_NN engine_NN ._SENT 
+In_IN International_NP congress_NN and_CC exposition_NN ._SENT 
+SAE_NP Technical_NP Papers_NP Series_NP ._SENT 
+http_NP :_: //dx_NP ._SENT 
+doi_NP ._SENT 
+org/10.4271/910070_NP ._SENT 
+Google_NP Scholar_NN Khalil_NP ,_, 2002_CD H._NP Khalil_NP Nonlinear_JJ systems_NNS Prentice_NP Hall_NP ,_, New_NP Jersey_NP (_( 2002_CD )_) Google_NP Scholar_NN Kozma_NP et_NP al_NP ._SENT 
+,_, 2012_CD A._NP Kozma_NP ,_, C._NP Savorgnan_NP ,_, M._NP Diehl_NP Distributed_NP multiple_JJ shooting_NN for_IN large_JJ scale_NN nonlinear_JJ systems_NNS Springer_NP ,_, Berlin_NP ,_, Heidelberg_NP (_( 2012_CD )_) Google_NP Scholar_NN Markovsky_NP and_CC Van_NP Huffel_NP ,_, 2007_CD I._NP Markovsky_NP ,_, S._NP Van_NP Huffel_NP Overview_NN of_IN total_JJ least_JJS squares_NNS methods_NNS Signal_NP Processing_NP ,_, 87_CD (_( 2007_CD )_) ,_, pp_NP ._SENT 
+2283-2302_CD ArticleDownload_NP PDFView_NP Record_NP in_IN ScopusGoogle_NP Scholar_NN Ng_NP and_CC Liu_NP ,_, 2007_CD E._NP Ng_NP ,_, N._NP Liu_NP Compressor_NN instability_NN with_IN integral_JJ methods_NNS ,_, Springer_NP ._SENT 
+Springerlink_NP Engineering_NP ,_, Berlin_NP ,_, Heidelberg_NP (_( 2007_CD )_) Google_NP Scholar_NN Nikzadfar_NP and_CC Shamekhi_NP ,_, 2015_CD K._NP Nikzadfar_NP ,_, A._NP Shamekhi_NP An_DT extended_JJ mean_JJ value_NN model_NN (_( EMVM_NP )_) for_IN control-oriented_JJ modeling_NN of_IN diesel_JJ engines_NNS transient_JJ performance_NN and_CC emissions_NNS Fuel_NN ,_, 154_CD (_( 2015_CD )_) ,_, pp_NP ._SENT 
+275-292_CD ,_, 10.1016/j_NP ._SENT 
+fuel.2015.03.070_NP ArticleDownload_NP PDFView_NP Record_NP in_IN ScopusGoogle_NP Scholar_NN Ohrnberger_NP et_NP al_NP ._SENT 
+,_, 2012_CD Ohrnberger_NP ,_, T._NP ,_, Becker_NP ,_, C._NP ,_, &_CC Doehring_NP ,_, C._NP (_( 2012_CD )_) ._SENT 
+Assessment_NN of_IN tier_NN 4_CD final_JJ aftertreatment_NN strategies_NNS ._SENT 
+SAE_NP Technical_NP Paper_NP 2012-01-1953_CD ,_, http_NP :_: //dx_NP ._SENT 
+doi_NP ._SENT 
+org/10.4271/2012-01-1953_NP ._SENT 
+Google_NP Scholar_NN Pachner_NP et_NP al_NP ._SENT 
+,_, 2012_CD Pachner_NP ,_, D._NP ,_, Germann_NP ,_, D._NP ,_, &_CC Stewart_NP ,_, G._NP (_( 2012_CD )_) ._SENT 
+Identification_NN techniques_NNS for_IN control_NN oriented_VVN models_NNS of_IN internal_JJ combustion_NN engines_NNS ._SENT 
+In_IN Lecture_NN notes_NNS in_IN control_NN and_CC information_NN sciences_NNS (_( Vol_NP ._SENT 
+418_CD ,_, pp_NP ._SENT 
+257–282_NP )_) ._SENT 
+Google_NP Scholar_NN Regulation_NP (_( ec_NP )_) no_RB 595/2009_CD ,_, 2009_CD Regulation_NN (_( ec_NP )_) no_RB 595/2009_CD of_IN the_DT European_JJ parliament_NN and_CC of_IN the_DT council_NN of_IN 18_CD June_NP 2009_CD on_IN type-approval_NN of_IN motor_NN vehicles_NNS and_CC engines_NNS with_IN respect_NN to_TO emissions_NNS from_IN heavy_JJ duty_NN vehicles_NNS (_( euro_NP vi_NP )_) and_CC on_IN access_NN to_TO vehicle_NN repair_NN and_CC maintenance_NN information_NN and_CC amending_VVG regulation_NN (_( ec_NP )_) no_DT 715/2007_CD and_CC directive_NN 2007/46/ec_NN and_CC repealing_VVG directives_NNS 80/1269/eec_NP ,_, 2005/55/ec_NP and_CC 2005/78/ec_NP ,_, July_NP 2009._CD Google_NN Scholar_NN Schommers_NNS et_CC al_NP ._SENT 
+,_, 2007_CD J._NP Schommers_NNS ,_, F._NP Gulde_NP ,_, M._NP Hoppenstedt_NP ,_, G._NP Gruber_NP ,_, W._NP Fick_NP ,_, W._NP Ruisinger_NP ,_, et_NP al_NP ._SENT 
+Evolution_NN of_IN Mercedes-Benz_NP 's_POS four-cylinder_NN diesel_NN engine_NN MTZ_NP –_NP Motortechnische_NP Zeitschrift_NN ,_, 68_CD (_( 2007_CD )_) ,_, pp_NP ._SENT 
+6-9_CD View_NP Record_NP in_IN ScopusGoogle_NP Scholar_NN Section_NP 1968.2_CD ,_, 2013_CD Section_NN 1968.2_CD ._SENT 
+Malfunction_NN and_CC diagnostic_JJ system_NN requirements—2004_NN and_CC subsequent_JJ model-year_NN passenger_NN cars_NNS ,_, light-duty_NN trucks_NNS ,_, and_CC medium-duty_NN vehicles_NNS and_CC engines_NNS ._SENT 
+Barclays_NP Official_NP California_NP Code_NP of_IN Regulations_NNS ,_, September_NP 2013._CD Google_NN Scholar_NN Tenny_NP et_NP al_NP ._SENT 
+,_, 2004_CD M._NP Tenny_NP ,_, S._NP Wright_NP ,_, J._NP Rawlings_NP Nonlinear_JJ model_NN predictive_JJ control_NN via_IN feasibility-perturbed_JJ sequential_JJ quadratic_NN programming_NN Computational_JJ Optimization_NP and_CC Applications_NP ,_, 28_CD (_( 2004_CD )_) ,_, pp_NP ._SENT 
+87-121_CD View_NP Record_NP in_IN ScopusGoogle_NP Scholar_NN Wahlström_NP and_CC Eriksson_NP ,_, 2011_CD J._NP Wahlström_NP ,_, L._NP Eriksson_NP Modelling_VVG diesel_JJ engines_NNS with_IN a_DT variable-geometry_NN turbocharger_NN and_CC exhaust_NN gas_NN recirculation_NN by_IN optimization_NN of_IN model_NN parameters_NNS for_IN capturing_VVG non-linear_JJ system_NN dynamics_NNS Proceedings_NNS of_IN the_DT Institution_NP of_IN Mechanical_NP Engineers_NPS ,_, Part_NP D_NP :_: Journal_NP of_IN Automobile_NP Engineering_NP ,_, 255_CD (_( 7_CD )_) (_( 2011_CD )_) ,_, pp_NP ._SENT 
+960-986_CD 

@@ -1,0 +1,148 @@
+<title>Supporting Business Privacy Protection in Wireless Sensor Networks</title>
+<author>Nan Feng,1 Zhiqi Hao,1 Sibo Yang,1 and Harris Wu2</author>
+<Affiliation>1 Department of Information Management, Tianjin University, Tianjin 300072, China
+2Old Dominion University, Norfolk, VA 23529, USA</Affiliation>
+<year>2016</year>
+<Jounral> Science and Technology of Nuclear Installation</Journal>
+<Publishing_house>Hindawi</Publishing_house>
+<Text_Collector>田苗，BFSU</Text_Collector>
+<DOI>10.1155/2016/7638149</DOI>
+<URL>http://dx.doi.org/10.1155/2016/7638149</URL>
+With the pervasive use of wireless sensor networks (WSNs) within commercial environments, business privacy leakage due to the exposure of sensitive information transmitted in a WSN has become a major issue for enterprises. We examine business privacy protection in the application of WSNs. We propose a business privacy-protection system (BPS) that is modeled as a hierarchical profile in order to filter sensitive information with respect to enterprise-specified privacy requirements. The BPS aims at solving a tradeoff between metrics that are defined to estimate the utility of information and the business privacy risk. We design profile, risk assessment, and filtration agents to implement the BPS based on multiagent technology. The effectiveness of our proposed BPS is validated by experiments.
+1.Introduction
+Wireless sensor networks (WSNs) are highly distributed networks that are enabled with wireless communication tech- nologies and composed of devices with sensing capabilities [1, 2]. The rapid development of WSNs is  changing  the way people live and work. Extensive research has focused on a broad range of applications of WSNs, including both the military and civilian domains  [3,  4].  However, it  is  the issue of privacy protection that has drawn considerable attention from the research community. This is because of the implementation of WSNs in commercial scenarios involving businesses and individuals.
+Privacy protection has been studied in many fields associated with the applications of WSNs. Nevertheless, the following inherent characteristics lead to some challenges for privacy protection in WSNs.
+(i)Uncontrollable environment: sensors are commonly employed in an environment without sufficient secu- rity control.
+(ii)Resource constraints: the ability of a sensor node    to store, process, and transmit the sensed data is generally limited by its power supply.
+(iii)Topological constraints: due to the limited commu- nication range of sensor nodes, multiple hops are required for transmitting data. Such a transmission scheme may cause an unbalanced network load.
+In addition to the above challenges, employers must pay much attention to the threat of business privacy leakage  due to the accessibility of WSNs [5, 6]. The attributes of WSNs may lead to the disclosure of sensitive information regarding the enterprise. This is susceptible to being collected and analyzed by an adversary, who can in turn harm the enterprise’s business privacy [7]. Thus, when an enterprise employs a WSN for commercial transactions, the disclosure of sensitive or confidential information will be inevitable without effective business privacy protection.
+Although business privacy protection is imperative in the applications of WSNs, there has been minimal attention devoted to the threat of business privacy leakage for enter- prises. Existing studies focus mainly on how to protect the individual’s privacy in the context of WSNs [8–11]. Therefore, in this paper, we propose a business privacy-protection system (BPS) that is designed specifically for enterprises in order to reduce the threat of business privacy leakage in WSNs. The BPS is implemented by three types of agent:
+a profile agent, a risk assessment agent, and a filtration agent, all based on multiagent technology. Integrating the current risk level of privacy leakage, the BPS makes a tradeoff between the utility of information transmitted in a WSN and the risk of privacy leakage and finally generates the optimal filtered profile that satisfies the security requirements.
+The remaining sections of this paper are organized as follows. We first review the relevant literature. Then, Section 3 presents the components of our proposed BPS in detail.    In Section 4, the BPS is validated further by extensive experiments. Finally, we summarize our contributions.
+2.Literature Review
+Privacy protection in WSNs can be categorized as data-oriented and context-oriented [12]. Data-oriented privacy protection focuses on protecting the privacy of the data sensed by the nodes [13] and the queries posted to the WSN [14]. Context-oriented privacy protection focuses instead on protecting the metadata related to the transmission of data, such as the information of time and location. This paper aims at solving the issues in data-oriented privacy protection.
+To understand the challenges of privacy protection in WSNs, it is necessary first to review the privacy issues and privacy-protection approaches as follows.
+Privacy concerns related to sensed-data management have been proposed in several different systems [15]. ( ) Data- collection system: the privacy-protection methods com- monly employed in data-collection systems are random- perturbation techniques [16, 17]. ( ) Information-sharing sys-
+tem: such systems commonly use cryptographic secure mul-tiparty computation techniques [18, 19]. (
+anonymity [20] and system: the system’s purpose is to facilitate data-analysis
+applications. In these systems, algorithms based on
+-diversity [21] are widely used to protect privacy. Privacy issues have also been investigated in privacy- protection schemes. In [22, 23], the researchers emphasized that the sender’s location information is the most important data that need to be protected. Some researchers have tried to hide the origin of the message [24]. Mehta et al.  [25]  first focused on the location privacy of sensor networks in the global environment, the assumption which became the basis for future research. In order to protect the location privacy, some scholars proposed a new approach for network topology discovery that allows the sink to obtain a global view of the topology without revealing its own location [26]. Some scholars addressed the importance of location privacy of both the source and sink and proposed four schemes, respectively, to deliver messages from source to sink, which can protect the end-to-end location privacy against local eavesdropper [27]. In order to resist the attacks targeted at the base station of WSNs, some scholars present HISP-NC (Homogenous Injection for Sink Privacy with Node Compromise Protec- tion), a receiver-location privacy solution that consists of two complementary schemes which protect the location of the base station [10].
+In recent years, multiagent technology has been widely applied in the field of privacy protection. A multiagent system (MAS) is a system consisting of several agents. Agents Table 1: Comparison between BPS and other approaches.coordinate among the various members, provide service for one another, and together complete a task. The goal of a MAS is to convert large and complex systems into small, well- communicated, well-coordinated, and easy-to-manage sys- tems [28]. In a MAS, each agent is independent, autonomous, and able to solve a given problem. Simultaneously, it is a coordinated system in which agents solve large complex problems in coordination with one another. As for the privacy protection related to privacy leakage, some researchers have focused on a secure model that shows how to maintain the secrecy in a cloud environment by using a MAS. Yang  et al.
+[29]focused on developing an active defense for emergency- management system engineering using a MAS. Bishop et al.
+[30]proposed a mobile agent-based approach to automate
+the process of detecting and monitoring a colored file system profile, risk assessment, and filtration agents, that interact technology to build our proposed BPS. There are three agents,
+with each other for the common goal of privacy protection in a WSN.
+In this paper, we examine the business privacy protection in a WSN. We model the sensed information as a hierarchical profile. Furthermore, we utilize multiagent technology to build our proposed BPS. There are three agents, profile,  risk assessment, and filtration agents, that interact with each other for the common goal of privacy protection in     a WSN. In the filtration agent, a filtration is developed to filter sensitive information from the profile with respect to enterprise-specified privacy requirements. In addition, the effectiveness and the scalability of the filtration are validated by experiments.
+Table 1 shows the comparison results between our pro- posed BPS and other widely used three approaches, namely, DCARP [26], FRW [27], and HISP-NC [10], where NA means
+information not found in the related references.
+The first issue is the capability of risk level evaluation. In WSN, the entire system faces many risks, and we need to assess the risk and determine the risk level that the enterprise is now facing. As a result, it can be determined which appropriate measures need to be taken immediately to reduce the risks. In BPS, based on BN, we can analyze the current risk level of the enterprise. The second issue is about the information filtration. Faced with the risk, enterprise must Figure 1: BPS architecture.
+make adjustment to change the situation. In WSN, a lot of data is related to enterprise’s sensitive information, so we have to make filtration before it is published. In the BPS,  we have established a filtration agent which seeks a tradeoff between risk and utility to carry out this work. The third issue is the location privacy protection that refers to the sensors’ location information in WSN. It is vital because it is related to the source and sink. In BPS, we consider this problem   in the enterprise profile as the case in chapter 5 described. The fourth issue is about resisting traffic analysis. Both of DCARP and HISP-NC are good at resisting traffic analysis. We will do some work about it later to enrich our BPS. The fifth issue is about tool support. Hugin expert is used in BPS HISP-NC. Supporting tools for DCARP have not been found and TOSSIM is used in FRW, whereas MATLAB is used in
+3.Business Privacy-Protection System
+In this section, we propose a business privacy-protection system (BPS) based on multiagent technology and discuss the characteristics and functions for each of the agents. Figure 1 demonstrates the BPS architecture and shows the agents and their interactions.
+A Bayesian network (BN) is a directed acyclic graph (DAG), composed of representatives of the variable nodes and edges connecting these nodes. Nodes represent random variables and directed edges represent the mutual relation- ship between the nodes (by the parent node to its child nodes). The intensity of the relationship is expressed by the conditional probability between nodes and the no parent nodes express information with a priori probability. A BN can be used to learn causal relationships and hence can be used to gain understanding about a problem domain and to predict the consequences of intervention. Also, the BN is an ideal representation for combining prior knowledge (which often comes in causal form) and data because it has both causal and probabilistic semantics. Based on these characteristics of BN, it is suitable to predict the risk of privacy leakage.
+In the BPS, there are three types of agents to be considered for simulating the process of business privacy risk protection in a WSN. These agents are described as follows:
+(1)The profile agent is responsible for establishing the enterprise profile . It includes two phases: construct- ing profile and customizing privacy requirement.
+(2)The risk assessment agent encapsulates a BN that is employed to estimate the risk of privacy leakage. The nodes of the BN are variables that describe the risk environment for privacy leakage. The outcome of this agent is used to determine the risk threshold.
+(3)The filtration agent aims to work out all possible filtered profiles to find the optimal filtration. The process of the filtration is based on two conflicting metrics named utility and risk. The outcome of this agent is a filtered profile that has highest utility and satisfies the business privacy requirement.
+3.1.Profile Agent. The formal definition of enterprise profile is presented as follows.
+Definition 1 (enterprise profile). The enterprise profile
+is a hierarchical representation of the topic domain of an enterprise.
+n be found in 𝐸, with the subtree (𝑡, 𝐸) as the taxonomy
+satisfies the assumption that, given a topic  related to the enterprise, upport, denoted by sup𝐸	, represents the frequency of the the result of a random walk from its parent topic Par(𝑡, 𝐸)
+in , the profile support can be recursively aggregated as the@1
+where	is the children of within the tree .
+The procedure of profile agent consists of the following two steps:
+(1)Constructing profile.
+(2)Customizing privacy requirement.
+(1)Constructing Profile. The original enterprise profile	is constructed in a form of topic hierarchy as follows:
+(1)Build the enterprise profile as a topic path trie with
+(2)For topic, initialize the profile support sup with (1).
+Algorithm 1: The ACO-based algorithm for learning the BN structure.
+and the sensitivity sen V  for each V     are specified by the enterprise in this step. A vulnerable node set means that a node set belongs to the enterprise profile and may lead
+V
+represents the severity of the business privacy leakage for the enterprise due to disclosing V.
+3.2.Risk Assessment Agent. This part involves risk assess- ment, and the risk threshold applied in profile filtration can accompany the outcome of the agent.
+Ant colony optimization (ACO) algorithm [31] is an algo- rithm that solves the problem by simulating the embodied intelligent behavior of artificial ants groups in the process of foraging. It isa method used to find the optimal path in graph. ACO was originally used to solve TSP problem. After years of development, it has gradually penetrated other areas.
+With the risk assessment agent, a BN is developed to
+represent the factors related to assessing the risk of business
+privacy leakage. To indicate the relationships among privacy
+tively by the ants on the basis of a candidate network. Each ant picks an edge at random and then decides the state of that edge based on the pheromones and heuristics in iteration. More specifically, the performances consisting of two steps of each ant are as follows.
+(1)Random selection of the next edge:  all  edges  of  the graph are candidates, and the next edge will be evaluated from the set of candidates.
+(2)Assignment of an edge state: this assignment is made based on probability and searches for the balance between the pheromone information and the locally computed heuristic information.
+The network is changed by the ant when it finds the assignment with the highest score improvement, but the premise is that the change does not lead to any  cycle in    the network structure. If no higher scoring network can    be found, the pheromone information is updated with the
+and the best network found so far,
+colony optimization (ACO) is generated to learn the BN When 𝑁	= 𝑁	, that is, when the current number of terations is equal to the maximum number of iterations, the Figure 2: The filtration procedure.
+process of iteration ends.	max should be set to a value high enough to allow the pheromone matrix to become saturated.
+The equations shown in Algorithm 1 are as follows.
+@2
+@3
+@4
+) 𝑖𝑗  is the level of pheromone in the arc 𝑥𝑗 → 𝑥𝑖, 𝜌 (∗0 < is a parameter controlling the pheromone, and 𝐺 is the best graph found so far.
+(3)Probabilistic Transition Rule. Select  @5
+where 𝐼, 𝐽 are two nodes chosen based on the following
+@6
+In this agent, maximum likelihood estimation (MLE) is employed to calculate the parameters (conditional proba- bility tables) of each node in the BN based on the expert’s knowledge.
+After the construction of the BN of privacy leakage risk, the BN begins to act as a risk assessment tool and provides
+Table 2: The risk threshold.
+updated information about each observable node in the BN as inference evidence. The BN finally yields the occurrence probability of the risk of privacy leakage.To  update previous estimates, the new evidence  should
+it is available in the process of the risk assessment. In BN,be plugged into the BN by probabilistic inference whenever
+probabilistic inference is a task that computes all posterior marginals of nonevidence variables based on the given evi-dence. In this paper, an inference engine based on a junction
+The result of privacy risk assessment is used to determine relationship between the risk threshold and the risk level is shown in Table 2..
+3.3Filtration Agent.  This agent filters the enterprise profile
+in an iterative manner based on the utility and privacy risk metrics. The filtration agent is to work out all possible filtered profiles for sensed data in a WSN to find the optimal filtration. The specific procedure is as in Figure 2.
+Based on the risk level estimated by risk assessment agent,
+the enterprise faces different levels of the privacy leakage risk.The risk may come from following four aspects.
+Policy  making  is  the  first  step  of  prevention  and the
+manage the WSN  firstly. An effective policy for WSN  usage should describe permissible usage, impermissible usage, and behavioral regulations on WSN as well as access rights. In addition, the penalties for violations of the policy, includ- ing security violations and system vandalism, should also  be covered. Before deploying WSN, enterprises should be required to sign a policy declaration, avowing that they
+Table 3: Motivation of attacker.
+Table 4: Skill of attacker.
+understand that it will be kept on file as a legally binding document.
+Training is another proactive measure that can prevent data misuse in the company. Enterprises can effectively con- vey and update policies to employees by means of training, which is aimed at increasing awareness of the issues, reducing occurrence of possible incidents, and decreasing corporate liability. The components that the training focuses on are topics such as defining accessible and inaccessible data, identifying the warning signs of misuse in the workplace, and identifying risk factors that may contribute to privacy leak- age. Furthermore, comprehensive employee training should cover how the company will address incidents of misuse.
+The attack events are modeled with an exponential probability distribution. A successful attack on the social network is based on hackers’ motivations and skills and on the vulnerability of the social network. As shown in Tables 3 and 4, the motivation range is (Weak, Intensive) and the skill range is (Low, Medium, High), both of which are obtained by expert evaluation based on the information from monitor agent.
+What is more, the profile sensitivity is an important factor because different nodes have different privacy concerns. The severity of the business privacy leakage for the enterprise due to disclosure is various. Therefore, the sensitivity has a certain impact on risk. Enterprise should control the profile’s sensitivity.
+When confronted with the utility of the profile, the enterprise profile should be established firstly. The basic information and data about enterprise are contained. It is constructed as a tree and we can find the node in certain layer. Then we can list the keywords for every profile. The keywords help us find the current node in the tree. Based on the profile, we can also determine the information content and information importance. All these are about the utility of the profile.
+Based on the risk assessment agent, we can get a risk threshold about the current situation. It is necessary to control the risk level value lower than the risk threshold. Under the premise of guaranteed risk threshold value, we
+Figure 3: System architecture of medical WSN.
+establish the tradeoff to mitigate the risk and improve the utility as much as possible. Then some sensitive keywords in the profile are filtrated and the new profile is formed.
+4.BPS Validation
+Recently, the application scope of wireless sensor networks (WSNs) is wide. Many enterprises take advantage of WSN technology to expand their business [31]. In this section, the proposed BPS is applied to an Internet medical enterprise to control its privacy leakage threat.
+By placing sensor nodes in the human body surface or in vivo, patients use the personal smart terminal equipment (such as PDA, smartphones) to build up WSN through self-organizing method. The network structure is shown in Figure 3. The sensors distributed in various parts of the body are used to detect physiological data (such as ECG, EEG, Pulse IPI, and Blood pressure) or peripheral status informa- tion. This collected physiological data is sent to the personal handheld devices via short-range wireless communication. Then it will be transmitted to a remote database server through the remote network. Remote medical personnel and care officers analyze the local electronic medical data to detect abnormal physiological condition of the patients and perform remote feedback treatment.
+The specific workflow of the application of WSN is described as follows. By  placing  biological  sensor  nodes in patient’s body, the system can detect physiological data and surrounding circumstances. Then  the  collected  data is transmitted by wireless network to remote  databases  and services. After the data processing, the patients and doctors will receive the patient’s current physical condition information on their personal smart terminal equipment (such as smartphone) through wireless network. Remote doctors analyze the received medical data and contact the patients in abnormal physiological conditions, and then the remote treatment and communication through the intelligent terminal are formed.
+The Internet medical enterprise must attach great impor- tance to privacy protection in WSN, because the patients’ privacy disclosure will lead to very serious consequences. For example, if a patient’s identification information, location information, or physical conditions are intercepted by illegal persons, it is a serious problem. Based on the patient’s information, medicine marketing or some spam may be caused. Of course, these will affect people’s normal life.
+Figure 4: Sample of Internet medical enterprise profile.
+Table 5: Privacy of threat node in BN.
+A sample of the enterprise profile is illustrated in Figure 4, which is established according to the domain knowledge about the enterprise.
+As shown in Figure 4, there is some information about patients in the enterprise, and here we just list a portion of distinct information that sensors in WSN can accept. When patients and doctors interact, they would generate incomplete information. For example, a patient may use vague words  to describe his feelings, so that it will produce medium and ambiguous keywords. These keywords may contain sensitive information that patients do not want more people to know. Thus, every node in the tree has its own sensitivity value that represents the loss amount once privacy leakage happens.
+4.1.Implementation. Based on the ACO-based algorithm presented in Section 4.2, we develop the BN encapsulated  in the risk assessment agent. For the algorithm, different parameter levels are examined, following the research pre-
+𝜌 ∈ {0, 0.25, 0.5, 0.75; }four  different  evaporation  rate  levels, is set to 100. The initial pheromone intensity on all arcs 𝜏0 is fixed at 1. Meanwhile, different numbers of iterations were
+tested, and we found that the algorithm’s performance no longer improved significantly after 500 iterations. Thus, the max . Insum, our experiments show that!
+Table 7: The risk level.
+Table 8: The probabilities of threat occurrence are the best choices for the parameter values for the algorithm.
+threat managers hope to predict ultimately are shown in Table 5, whereas Table 6 presents the information regarding the factor nodes of the risk node R1, that is, the causes that lead to the privacy leakage. Figure 5 shows the BN structure
+of privacy leakage risk and the conditional probability tables of the nodes are shown in Appendix. Moreover, the IDs of the BN nodes in Tables 9–11 and Figure 5 are explained in Tables 5 and 6.
+Table 9: CPT of     (RF  5 RF  1, RF  2, and RF  3).
+Table 10: CPT of     (RF  6 RF  4).
+The relationship between the risk level and the probability of each risk state is shown in Table 7. We offer the updated information about each observable node in the BN as infer- ence evidence. With regard to the privacy leakage risk, the estimated probabilities of risk state and risk level by security threat assessment are shown in Table 8. Since the privacy risk level is high, the risk threshold is set as 0.2 according to Table 2.
+4.2.Experiment Results. In this section, the experimental results of BPS are presented. In this experiment, we analyze and compare the results of utility and privacy risk in the iterative process of the filtration.
+Figures 6 and 7 demonstrate the results of the utility and risk during the filtration, respectively. In order to show the trend of the results clearly, we link the results on each iteration with dotted line.
+In Figure 6, the graph means that, with the number of iterations increasing, the amounts of utility are gradually decreased. We can observe that the utility displays an incre- mental decrease during filtration. This means that the higher level topics improve the sensed information strength more effectively. Figure 7 shows the results of the metric of risk during the filtration. We observe that the privacy risk first decreases incrementally, but the decline becomes slow as more vulnerable node is pruned from the profile of sensed data.
+Figure 5: BN structure of privacy leakage risk.
+Figure 8 illustrates the tradeoff between the utility (i.e., IS) and the privacy risk. For the keywords issued to the WSN, we can find that the utility increases incrementally with slight compromise on risk, while, after a turning point, any small utility will be improved at the cost of a great increase in privacy risk. Therefore, the turning point is a near-optimal solution for the tradeoff.
+5.Conclusions
+This paper proposes a business privacy-protection system called BPS to mitigate the threat of enterprise’s privacy leak- age in the application of wireless sensor networks (WSNs). The main contributions are summarized as follows.
+(1)In the BPS, we develop a filtration to filter sensitive information from sensed data transmitted in a WSN
+Table 11: CPT of P (R  1 RF  4, RF  5, and RF  6).
+Figure 6: Results of utility.
+with respect to enterprise-specified privacy require- ments.
+We formulate a tradeoff between two conflicting metrics named utility and risk in the process of profile filtration. The former one is defined as the
+Figure 7: Results of privacy risk.
+information strength of the filtered profile of sensed data, while the latter one represents the risk of the profile exposure.
+(3)We design three agents, profile agent, risk assessment agent, and filtration agent, which are interrelated and
+interact with each other to implement the BPS based on multiagent technology.
+In future work, we will focus on the automatic retrieval of the profile of sensed data based on the enterprise profile. In addition, we also try to improve the current metrics to test the performance of our proposed BPS.
+Appendix
+The conditional probability tables of the nodes (i.e., RF 5, RF 6, and R1) in Figure 5 are shown in Tables 9–11.
+Competing Interests
+The authors declare that there are no competing interests.
+Acknowledgments
+The research was supported by the National Natural Science Foundation of China (no. 71271149) and the Program for New Century Excellent Talents in University.

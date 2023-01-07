@@ -1,0 +1,605 @@
+<title> A_DT Voronoi-diagram-based_JJ dynamic_JJ path-planning_NN system_NN for_IN underactuated_JJ marine_JJ vessels_NNS </title> <author> Candeloro_NP ,_, Mauro_NP ;_: Lekkas_NP ,_, Anastasios_NP M._NP ;_: Sørensen_NP ,_, Asgeir_NP J._NP </author> <Affiliation> 1_CD Department_NP of_IN Marine_NP Technology_NP ,_, NTNU_NP ,_, Trondheim_NP ,_, Norway_NP 2_CD Centre_NP for_IN Autonomous_JJ Marine_NP Operations_NP and_CC Systems_NP ,_, NTNU_NP ,_, Trondheim_NP ,_, Norway_NP </Affiliation> <year> 2017_CD </year> <Jounral> Control_NP Engineering_NP Practice_NN </Journal> <Publishing_house> Elsevier_NP Ltd_NP </Publishing_house> <Text_Collector> Liu_NP Kai，HEU_NP </Text_Collector> <DOI> 10.1016/j_NP ._SENT 
+conengprac.2017.01.007_JJ </DOI> <URL> https_NNS :_: //www_NNS ._SENT 
+sciencedirect_NNS ._SENT 
+com/science/article/pii/S0967066117300072_NP ?_SENT 
+via%3Dihub_NP </URL> <Section> Highlights_VVZ </Section> •_JJ A_DT dynamic_JJ path-planning_NN system_NN for_IN marine_JJ vehicles_NNS based_VVN on_IN the_DT Voronoi_NP Diagram_NN ._SENT 
+•_NP The_DT processing_NN of_IN nautical_JJ charts_NNS data_NNS to_TO take_VV into_IN account_NN depth/land_NN constraints_NNS ._SENT 
+•_NP A_DT fast_JJ replanning_NN system_NN that_WDT respects_VVZ the_DT COLREGS_NNS and_CC current_JJ dynamic_JJ constraints_NNS ._SENT 
+•_NP A_NP novel_NN methodology_NN for_IN path_NN following_VVG of_IN paths_NNS with_IN Fermat_NP 's_POS Spirals_NNS segments_NNS ._SENT 
+<Section> Abstract_JJ </Section> The_DT main_JJ contribution_NN of_IN this_DT paper_NN is_VBZ the_DT development_NN of_IN a_DT rapid_JJ ,_, dynamic_JJ path-planning_JJ system_NN for_IN 3-DOF_JJ marine_JJ surface_NN vessels_NNS navigating_VVG in_IN environments_NNS where_WRB other_JJ marine_JJ vehicles_NNS might_MD be_VB operating_VVG too_RB ._SENT 
+The_DT method_NN is_VBZ based_VVN on_IN the_DT Voronoi_NP diagram_NN and_CC generates_VVZ the_DT initial_JJ path_NN while_IN ensuring_VVG that_IN clearance_NN constraints_NNS are_VBP satisfied_VVN with_IN respect_NN to_TO both_DT land_NN and_CC shallow_JJ waters_NNS ._SENT 
+Fermat_NP 's_POS Spiral_NN (_( FS_NNS )_) segments_NNS are_VBP used_VVN to_TO connect_VV successive_JJ straight_JJ lines_NNS ,_, hence_RB ,_, resulting_VVG in_IN curvature-continuous_JJ paths_NNS that_WDT are_VBP rapidly_RB computed_VVN ._SENT 
+When_WRB a_DT ship_NN is_VBZ detected_VVN ,_, the_DT range_NN of_IN its_PP$ position_NN during_IN a_DT given_VVN time_NN frame_NN is_VBZ estimated_VVN ,_, and_CC the_DT path-planning_VVG system_NN produces_VVZ in_IN real_JJ time_NN a_DT new_JJ safe_JJ and_CC smooth_JJ path_NN ._SENT 
+The_DT International_NP Regulations_NNS for_IN Preventing_VVG Collisions_NNS at_IN Sea_NP (_( COLREG_NP )_) are_VBP taken_VVN into_IN account_NN in_IN the_DT replanning_JJ procedure_NN ._SENT 
+An_DT indirect_JJ adaptive_JJ Line-Of-Sight_NN (_( LOS_NP )_) guidance_NN algorithm_NN from_IN the_DT existing_JJ literature_NN is_VBZ implemented_VVN to_TO ensure_VV the_DT underactuated_JJ vessel_NN will_MD counteract_VV the_DT effects_NNS of_IN unknown_JJ environmental_JJ forces_NNS ,_, such_JJ as_IN ocean_NN currents_NNS ,_, while_IN converging_VVG to_TO the_DT safe_JJ path_NN ._SENT 
+Simulations_NNS show_VVP the_DT effectiveness_NN of_IN the_DT proposed_VVN approach_NN ._SENT 
+Keywords：Path-planning；Underactuated_JJ vessels；Replanning；Navigation_NN support_NN systems_NNS <Section> 1._CD Introduction_NN </Section> Considerable_JJ progress_NN has_VHZ been_VBN achieved_VVN over_IN the_DT last_JJ years_NNS in_IN the_DT field_NN of_IN autonomous_JJ marine_JJ vehicles_NNS and_CC systems_NNS ,_, with_IN unquestionably_RB visible_JJ positive_JJ results_NNS for_IN a_DT large_JJ number_NN of_IN applications_NNS within_IN the_DT ocean_NN sector_NN ._SENT 
+The_DT works_NNS by_IN Seto_NP (_( 2013_CD )_) ,_, Ludvigsen_NP and_CC Sørensen_NP (_( 2016_CD )_) ,_, and_CC Marino_NP ,_, Antonelli_NP ,_, Aguiar_NP ,_, Pascoal_NP ,_, and_CC Chiaverini_NP (_( 2015_CD )_) present_VV an_DT overview_NN of_IN advances_NNS of_IN autonomy_NN for_IN marine_JJ applications_NNS ,_, a_DT new_JJ autonomous_JJ architecture_NN for_IN marine_JJ vehicles_NNS ,_, and_CC autonomous_JJ strategies_NNS for_IN coordinated_VVN operations_NNS of_IN marine_JJ robots_NNS ,_, respectively_RB ._SENT 
+Increased_VVN autonomy_NN can_MD provide_VV great_JJ added_JJ value_NN in_IN several_JJ contexts_NNS ,_, with_IN two_CD of_IN the_DT most_RBS important_JJ ones_NNS being_VBG increased_VVN efficiency_NN and_CC safety_NN of_IN operations_NNS ._SENT 
+Despite_IN the_DT efforts_NNS to_TO increase_VV the_DT autonomy_NN level_NN of_IN marine_JJ operations_NNS ,_, many_JJ open_JJ issues_NNS are_VBP still_RB to_TO be_VB addressed_VVN in_IN order_NN to_TO make_VV the_DT current_JJ systems_NNS safe_JJ and_CC efficient_JJ enough_NN for_IN their_PP$ actual_JJ employment_NN ,_, especially_RB when_WRB interaction_NN with_IN humans_NNS or_CC other_JJ assets_NNS is_VBZ expected_VVN ._SENT 
+In_IN the_DT case_NN of_IN motion_NN planning_NN for_IN marine_JJ vessels_NNS ,_, route_NN planning_NN and_CC replanning_NN (_( as_IN response_NN to_TO unexpected_JJ changes_NNS in_IN the_DT environment_NN )_) are_VBP two_CD important_JJ challenges_NNS that_WDT need_VVP to_TO be_VB tackled_VVN ._SENT 
+These_DT tasks_NNS become_VVP rather_RB complex_JJ when_WRB there_EX are_VBP dynamic_JJ elements_NNS in_IN the_DT environment_NN ,_, uncertainties_NNS in_IN the_DT sensors_NNS data_NNS ,_, and_CC safety_NN requirements_NNS to_TO satisfy_VV ._SENT 
+Planning_VVG of_IN operations_NNS is_VBZ underlined_VVN by_IN many_JJ authors_NNS as_IN a_DT substantial_JJ limitation_NN that_WDT prevents_VVZ systems_NNS from_IN reaching_VVG a_DT higher_JJR autonomous_JJ level_NN ._SENT 
+According_VVG to_TO Watson_NP and_CC Scheidt_NP (_( 2005_CD )_) “_JJ automation_NN of_IN planning_VVG processes_NNS has_VHZ been_VBN a_DT central_JJ problem_NN in_IN the_DT field_NN of_IN artificial_JJ intelligence_NN for_IN more_JJR than_IN 30_CD years_NNS [_SYM …_NP ]_SYM ”_NN ._SENT 
+As_IN a_DT matter_NN of_IN fact_NN ,_, autonomous_JJ surface_NN vessels_NNS navigating_VVG on_IN sea_NN ,_, or_CC autonomous_JJ passenger_NN flights_NNS are_VBP still_RB not_RB allowed_VVN ._SENT 
+However_RB ,_, new_JJ initiatives_NNS on_IN autonomous_JJ ships_NNS are_VBP currently_RB being_VBG taken_VVN forward_RB ,_, with_IN the_DT establishment_NN of_IN a_DT part_NN of_IN the_DT Trondheim_NP Fjord_NN ,_, Norway_NP ,_, as_IN test_NN site_NN for_IN new_JJ systems_NNS ,_, Kongsberg_NP (_( 2016_CD )_) ._SENT 
+Extensive_JJ research_NN pertaining_VVG to_TO path-planning_NN and_CC obstacle_NN avoidance_NN has_VHZ been_VBN conducted_VVN in_IN the_DT last_JJ years_NNS ._SENT 
+The_DT work_NN by_IN Tsourdos_NP ,_, White_NP ,_, and_CC Shanmugavel_NP (_( 2010_CD )_) focuses_VVZ on_IN the_DT particular_JJ challenges_NNS of_IN cooperative_JJ path_NN planning_NN for_IN UAVs_NP ,_, whereas_IN LaValle_NP (_( 2006_CD )_) and_CC Choset_NP et_NP al_NP ._SENT 
+(_( 2005_CD )_) present_VV a_DT wider_JJR and_CC more_JJR generic_JJ scope_NN from_IN the_DT computer_NN science_NN perspective_NN ._SENT 
+The_DT work_NN by_IN Zeng_NP et_CC al_NP ._SENT 
+(_( 2015_CD )_) gives_VVZ a_DT literature_NN review_NN w._NP r._NP t._NP to_TO Autonomous_JJ Underwater_JJ Vehicles_NNS (_( AUVs_NP )_) ,_, Caiti_NP (_( 2014_CD )_) presents_VVZ a_DT complete_JJ and_CC recent_JJ review_NN of_IN motion_NN planning_VVG algorithms_NNS for_IN marine_JJ control_NN systems_NNS ,_, and_CC Antonelli_NP ,_, Chiaverini_NP ,_, Finotello_NP ,_, and_CC Schiavon_NP (_( 2001_CD )_) present_VV a_DT practical_JJ application_NN of_IN dynamic_JJ path_NN planning_NN and_CC obstacle_NN avoidance_NN for_IN an_DT AUV_NP ._SENT 
+One_CD classification_NN of_IN path-planning_VVG methods_NNS distinguishes_VVZ between_IN global_JJ and_CC local_JJ path-planning_VVG algorithms_NNS ._SENT 
+Global_JJ path-planning_NN algorithms_NNS evaluate_VVP the_DT whole_JJ information_NN available_JJ on_IN a_DT certain_JJ area_NN in_IN order_NN to_TO generate_VV an_DT obstacle-free_JJ path_NN between_IN the_DT departure_NN location_NN ,_, or_CC initial_JJ waypoint_NN ,_, and_CC the_DT destination_NN ,_, or_CC final_JJ waypoint_NN ._SENT 
+The_DT generated_VVN path_NN must_MD satisfy_VV certain_JJ constraints_NNS ,_, such_JJ as_IN the_DT dynamic_JJ constraints_NNS of_IN the_DT vehicle_NN and_CC environment-related_JJ constraints_NNS (_( weather_NN conditions_NNS ,_, and_CC minimum_JJ allowed_VVN distance_NN from_IN obstacles_NNS ,_, for_IN instance_NN )_) ._SENT 
+A_DT large_JJ number_NN of_IN methods_NNS and_CC tools_NNS addressing_VVG these_DT challenges_NNS have_VHP been_VBN developed_VVN in_IN the_DT path_NN planning_NN literature_NN ._SENT 
+A_DT few_JJ notable_JJ examples_NNS are_VBP the_DT rapidly-exploring_VVG random_JJ trees_NNS (_( Lavalle_NP ,_, 1998_CD )_) ,_, the_DT Voronoi_NP Diagram_NN (_( VD_NN )_) (_( Aurenhammer_NP ,_, 1991_CD )_) ,_, the_DT visibility_NN (_( Lozano-Pérez_NP &_CC Wesley_NP ,_, 1979_CD )_) ,_, the_DT potential_JJ field_NN method_NN (_( Khatib_NP ,_, 1985_CD ,_, Lee_NP et_CC al_NP ._SENT 
+,_, 2004_CD )_) ,_, the_DT occupancy_NN grid_NN methods_NNS (_( Elfes_NP ,_, 1987_CD )_) ,_, and_CC optimization_NN methods_NNS ,_, such_JJ as_IN Semi-Lagrangian_JJ methods_NNS (_( Falcone_NP &_CC Ferretti_NP ,_, 2013_CD )_) ,_, pseudospectral_JJ optimal_JJ control_NN (_( Lekkas_NP ,_, Roald_NP ,_, &_CC Breivik_NP ,_, 2016_CD )_) and_CC the_DT A*_JJ algorithm_NN (_( Dolgov_NP et_NP al_NP ._SENT 
+,_, 2010_CD ,_, Hart_NP et_CC al_NP ._SENT 
+,_, 1968_CD ,_, Larson_NP et_CC al_NP ._SENT 
+,_, 2006_CD ,_, Larson_NP et_CC al_NP ._SENT 
+,_, 2007_CD ,_, Naeem_NP et_CC al_NP ._SENT 
+,_, 2012_CD )_) ._SENT 
+Local_JJ path-planning_NN algorithms_NNS ,_, on_IN the_DT other_JJ hand_NN ,_, take_VV into_IN account_NN the_DT surrounding_VVG space_NN of_IN the_DT vehicle_NN and_CC are_VBP able_JJ to_TO respond_VV to_TO unpredicted_JJ factors_NNS ,_, such_JJ as_IN unmapped_JJ obstacles_NNS etc._NN A_DT few_JJ examples_NNS of_IN local_JJ methods_NNS are_VBP the_DT dynamic_JJ window_NN (_( Fox_NP ,_, Burgard_NP ,_, &_CC Thrun_NP ,_, 1997_CD )_) ,_, the_DT virtual_JJ force_NN field_NN (_( Borenstein_NP &_CC Koren_NP ,_, 1991_CD )_) and_CC its_PP$ extension_NN ,_, the_DT modified_JJ virtual_JJ force_NN field_NN (_( Lee_NP et_NP al_NP ._SENT 
+,_, 2004_CD )_) ,_, and_CC the_DT velocity_NN obstacle_NN method_NN (_( Fiorini_NP &_CC Shiller_NP ,_, 1993_CD )_) ._SENT 
+Global_JJ and_CC local_JJ algorithms_NNS often_RB complement_VV each_DT other_JJ ._SENT 
+Dynamic_JJ collision_NN avoidance_NN (_( CA_MD )_) for_IN marine_JJ vehicles_NNS has_VHZ been_VBN widely_RB investigated_VVN in_IN literature_NN ._SENT 
+Statheros_NP ,_, Howells_NP ,_, and_CC Maier_NP (_( 2008_CD )_) presents_VVZ a_DT state-of-art_NP report_NN describing_VVG the_DT mathematical_JJ methods_NNS utilized_VVD to_TO model_VV marine_JJ vehicles_NNS ,_, the_DT most_RBS common_JJ CA_MD algorithms_NNS ,_, and_CC the_DT navigation_NN systems_NNS employed_VVN in_RP CA_MD scenarios_NNS ._SENT 
+Campbell_NP ,_, Naeem_NP ,_, and_CC Irwin_NP (_( 2012_CD )_) present_VV a_DT review_NN of_IN intelligent_JJ USV_NP collision_NN avoidance_NN research_NN in_IN terms_NNS of_IN control_NN ,_, path_NN planning_NN and_CC collision_NN avoidance_NN architecture_NN with_IN regards_VVZ to_TO COLREGs_NNS incorporation_NN ._SENT 
+Other_JJ examples_NNS of_IN recent_JJ works_NNS on_RB CA_MD are_VBP the_DT following_NN :_: Naeem_NP et_NP al_NP ._SENT 
+(_( 2012_CD )_) ,_, uses_VVZ the_DT Velocity_NN Obstacle_NN methods_NNS to_TO provide_VV a_DT CA_MD system_NN which_WDT respects_VVZ the_DT COLREGS_NNS (_( IMO_NP ,_, 1977_CD )_) ._SENT 
+Perera_NP ,_, Ferrari_NP ,_, Santos_NP ,_, Hinostroza_NP ,_, and_CC Soares_NP (_( 2015_CD )_) presents_VVZ a_DT fuzzy-based_JJ CA_MD system_NN with_IN experimental_JJ results_NNS on_IN a_DT scaled_VVN ship_NN model_NN ._SENT 
+Woerner_NP (_( 2016_CD )_) considers_VVZ the_DT problem_NN of_IN collision_NN avoidance_NN for_IN marine_JJ vehicles_NNS by_IN extending_VVG the_DT traditional_JJ obstacle_NN velocity_NN into_IN a_DT multi-threshold_NN based_VVN approach_NN in_IN order_NN to_TO represent_VV and_CC evaluate_VV human_JJ ship_NN driving_VVG practices_NNS more_RBR realistically_RB ._SENT 
+The_DT current_JJ paper_NN develops_VVZ a_DT VD-based_JJ dynamic_JJ path-planning_NN and_CC CA_MD system_NN ,_, which_WDT incorporates_VVZ the_DT benefits_NNS of_IN local_JJ and_CC global_JJ approaches_NNS ,_, as_RB in_IN van_NN den_NN Berg_NP ,_, Ferguson_NP ,_, and_CC Kuffner_NP (_( 2006_CD )_) ._SENT 
+Due_JJ to_TO its_PP$ simplicity_NN and_CC low_JJ computational_JJ cost_NN ,_, the_DT Voronoi_NP diagram_NN has_VHZ been_VBN used_VVN consistently_RB for_IN path-planning_VVG purposes_NNS ,_, including_VVG aerial_JJ operations_NNS (_( Bellingham_NP et_NP al_NP ._SENT 
+,_, 2002_CD ,_, Bortoff_NP ,_, 2000_CD ,_, Chandler_NP et_CC al_NP ._SENT 
+,_, 2000_CD )_) and_CC marine_JJ operations_NNS ._SENT 
+More_RBR specifically_RB ,_, Christopher_NP Gold_NP and_CC co-workers_NNS have_VHP advocated_VVN the_DT use_NN of_IN VDs_NNS (_( static_JJ and_CC dynamic_JJ )_) for_IN collision_NN avoidance_NN in_IN marine_JJ applications_NNS (_( Gold_NP ,_, 1998_CD ,_, Gold_NP ,_, 2016_CD ,_, Gold_NP et_CC al_NP ._SENT 
+,_, 2005_CD ,_, Goralski_NP and_CC Gold_NP ,_, 2007_CD )_) ._SENT 
+However_RB ,_, none_NN of_IN the_DT aforementioned_JJ works_NNS give_VVP any_DT details_NNS regarding_VVG the_DT technical_JJ aspects_NNS of_IN such_PDT an_DT approach_NN ._SENT 
+In_IN Marino_NP ,_, Antonelli_NP ,_, Aguiar_NP ,_, and_CC Pascoal_JJ (_( 2012_CD )_) ,_, the_DT authors_NNS addressed_VVD a_DT harbour-patrolling_VVG problem_NN and_CC exploited_VVN the_DT advantages_NNS of_IN Voronoi_NP tessellation_NN 's_VBZ to_TO automatically_RB distribute_VV a_DT number_NN of_IN marine_JJ vehicles_NNS over_IN the_DT environment_NN ._SENT 
+A_DT similar_JJ application_NN was_VBD considered_VVN by_IN Antonelli_NP ,_, Chiaverini_NP ,_, and_CC Marino_NP (_( 2012_CD )_) ._SENT 
+In_IN these_DT works_NNS ,_, the_DT VD_NN edges_NNS were_VBD not_RB used_VVN to_TO assist_VV generate_VV the_DT path_NN of_IN a_DT vehicle_NN ,_, but_CC to_TO determine_VV the_DT locations_NNS of_IN the_DT marine_JJ vehicles_NNS so_RB as_RB to_TO achieve_VV full_JJ coverage_NN of_IN an_DT area_NN ._SENT 
+In_IN Candeloro_NP ,_, Lekkas_NP ,_, Sørensen_NP ,_, and_CC Fossen_NP (_( 2013_CD )_) we_PP considered_VVD a_DT static_JJ environment_NN and_CC the_DT first_JJ step_NN was_VBD to_TO generate_VV a_DT roadmap_NN using_VVG the_DT VD_NN ._SENT 
+Then_RB a_DT number_NN of_IN heuristic_JJ techniques_NNS was_VBD used_VVN in_IN order_NN to_TO produce_VV a_DT set_NN of_IN successive_JJ waypoints_NNS in_IN between_IN the_DT initial_JJ and_CC final_JJ waypoints_NNS ._SENT 
+All_PDT the_DT successive_JJ waypoints_NNS were_VBD then_RB connected_VVN using_VVG paths_NNS consisting_VVG of_IN straight_JJ lines_NNS and_CC Fermat_NP 's_POS Spiral_NN (_( FS_NNS )_) segments_NNS ._SENT 
+The_DT final_JJ path_NN was_VBD curvature-continuous_JJ and_CC the_DT whole_JJ process_NN had_VHD a_DT low_JJ computational_JJ cost_NN ,_, thus_RB making_VVG it_PP a_DT good_JJ candidate_NN for_IN online_JJ implementation_NN ._SENT 
+In_IN this_DT paper_NN ,_, we_PP consider_VVP a_DT dynamic_JJ 2-D_NN environment_NN and_CC the_DT Voronoi_NP diagram_NN is_VBZ used_VVN in_IN both_CC the_DT path-planning_VVG and_CC replanning_VVG phase_NN ,_, where_WRB additional_JJ heuristics_NNS allow_VVP to_TO speed_VV up_RP the_DT process_NN and_CC create_VV flyable_JJ and_CC intuitive_JJ paths_NNS ._SENT 
+In_IN the_DT first_JJ phase_NN a_DT map_NN is_VBZ supposed_VVN to_TO be_VB known_VVN ,_, while_IN in_IN the_DT second_JJ phase_NN the_DT path_NN is_VBZ replanned_VVN locally_RB on_IN the_DT basis_NN of_IN real-time_JJ sensor_NN information_NN ._SENT 
+This_DT paper_NN extends_VVZ the_DT work_NN by_IN Candeloro_NP et_CC al_NP ._SENT 
+(_( 2013_CD )_) through_IN the_DT following_VVG contributions_NNS :_: •_JJ Depth_NN constraints_NNS are_VBP taken_VVN into_IN account_NN in_IN order_NN to_TO avoid_VV the_DT problem_NN of_IN grounding_VVG during_IN operations_NNS in_IN shallow_JJ (_( for_IN a_DT given_VVN vehicle_NN )_) waters.1_JJ This_DT makes_VVZ it_PP possible_JJ to_TO exploit_VV in_IN a_DT more_RBR useful_JJ manner_NN the_DT information_NN included_VVD in_IN the_DT nautical_JJ charts_NNS and_CC adjust_VV the_DT method_NN to_TO a_DT wide_JJ number_NN of_IN marine_JJ vehicles_NNS ._SENT 
+•_NP A_NP novel_NN methodology_NN for_IN path_NN following_VVG of_IN paths_NNS with_IN FS_NNS segments_NNS is_VBZ developed_VVN to_TO test_VV the_DT path-planning_VVG and_CC replanning_VVG algorithms_NNS in_IN the_DT dynamic_JJ case_NN ,_, thus_RB adding_VVG the_DT time_NN variable_NN to_TO the_DT simulated_JJ case_NN ._SENT 
+In_IN addition_NN ,_, the_DT influence_NN of_IN unknown_JJ ocean_NN currents_NNS is_VBZ taken_VVN into_IN account_NN ._SENT 
+•_NP A_NP fast_RB ,_, VD-based_JJ replanning_NN strategy_NN ,_, which_WDT is_VBZ based_VVN on_IN the_DT same_JJ principles_NNS and_CC procedure_NN of_IN the_DT initial_JJ path-planning_NN algorithm_NN ,_, is_VBZ implemented_VVN in_IN a_DT modular_JJ way_NN ._SENT 
+•_NP The_DT replanning_VVG algorithm_NN generates_VVZ alternative_JJ local_JJ paths_NNS which_WDT are_VBP compliant_JJ with_IN the_DT COLREGs_NNS ._SENT 
+When_WRB an_DT obstacle_NN is_VBZ detected_VVN ,_, it_PP is_VBZ treated_VVN as_IN a_DT local_JJ disturbance_NN and_CC a_DT deviation_NN from_IN the_DT original_JJ path_NN is_VBZ computed_VVN ._SENT 
+The_DT new_JJ local_JJ path_NN takes_VVZ into_IN account_NN the_DT COLREGS_NNS and_CC the_DT current_JJ dynamic_JJ constraints_NNS (_( vehicle_NN velocity_NN and_CC estimated_JJ motion_NN of_IN the_DT dynamic_JJ obstacle_NN )_) so_RB as_RB to_TO ensure_VV collision_NN avoidance_NN and_CC reconnection_NN to_TO the_DT original_JJ path_NN ._SENT 
+In_IN Candeloro_NP ,_, Lekkas_NP ,_, Hegde_NP ,_, and_CC Sørensen_NP (_( 2016_CD )_) ,_, this_DT work_NN is_VBZ further_RBR extended_VVN for_IN the_DT underwater_JJ domain_NN ,_, thus_RB demonstrating_VVG the_DT ability_NN of_IN our_PP$ approach_NN to_TO tackle_VV planning_VVG and_CC replanning_VVG in_IN the_DT three-dimensional_JJ case_NN ._SENT 
+Due_JJ to_TO the_DT complexity_NN of_IN the_DT problem_NN though_RB ,_, Candeloro_NP et_CC al_NP ._SENT 
+(_( 2016_CD )_) considered_VVD only_RB the_DT geometrical_JJ aspects_NNS of_IN the_DT problem_NN without_IN taking_VVG into_IN account_NN temporal_JJ constraints_NNS ,_, an_DT aspect_NN which_WDT is_VBZ addressed_VVN in_IN detail_NN in_IN the_DT current_JJ paper_NN ._SENT 
+The_DT paper_NN is_VBZ structured_VVN as_RB follows_VVZ :_: Section_NN 2_CD describes_VVZ the_DT maps_NNS and_CC the_DT preprocessing_NN of_IN the_DT environmental_JJ data_NNS ._SENT 
+Section_NN 3_CD describes_VVZ the_DT path-planning_JJ algorithm_NN ._SENT 
+In_IN Section_NP 4_CD ,_, the_DT path_NN following_VVG algorithm_NN is_VBZ developed_VVN ._SENT 
+Section_NN 5_CD presents_NNS the_DT motion_NN control_NN objective_NN ._SENT 
+Section_NN 6_CD presents_VVZ the_DT simulated_JJ vessel_NN model_NN ._SENT 
+Section_NN 7_CD focuses_VVZ on_IN the_DT LOS_NP guidance_NN algorithm_NN ._SENT 
+8_CD defines_VVZ the_DT characteristics_NNS on_IN the_DT unknown_JJ obstacles_NNS and_CC describes_VVZ the_DT obstacle_NN tracking_NN algorithm_NN ._SENT 
+9_CD presents_VVZ the_DT on-line_JJ path_NN replanning_VVG system_NN and_CC the_DT actions_NNS that_WDT are_VBP taken_VVN when_WRB an_DT obstacle_NN is_VBZ encountered_VVN ._SENT 
+Section_NN 10_CD presents_NNS the_DT case_NN study_NN and_CC simulation_NN results_NNS ._SENT 
+Finally_RB ,_, Section_NN 11_CD states_NNS the_DT conclusions_NNS and_CC further_JJR work_NN ._SENT 
+<Section> 2._CD Geographical_JJ data_NNS sources_NNS </Section> The_DT data_NNS used_VVN in_IN this_DT paper_NN is_VBZ obtained_VVN from_IN Global_NP Administrative_NP Areas_NNS ,_, GADM_NN (_( which_WDT is_VBZ developed_VVN by_IN the_DT Universities_NNS of_IN California_NP ,_, Berkeley_NP and_CC Davis_NP and_CC the_DT International_NP Rice_NP Research_NP Institute).2_NP These_DT maps_NNS come_VVN in_IN vectorial_JJ and_CC raster_NN file_NN formats_NNS ._SENT 
+The_DT shapefile_JJ (_( ._SENT 
+shp_NN )_) is_VBZ a_DT popular_JJ geospatial_JJ vector_NN data_NNS format_NN used_VVN by_IN many_JJ Geographic_NP Information_NP System_NP (_( GIS_NP )_) program_NN packages_NNS ._SENT 
+These_DT data_NNS need_VVP to_TO be_VB manipulated_VVN in_IN a_DT certain_JJ way_NN to_TO be_VB used_VVN into_IN the_DT proposed_VVN planning_NN software_NN ._SENT 
+In_IN particular_JJ :_: 1._CD A_DT rectangular_JJ portion_NN of_IN the_DT map_NN (_( ROI_NP ,_, i._NP e._NP Region_NN Of_IN Interest_NN )_) containing_VVG the_DT starting_VVG and_CC ending_VVG point_NN of_IN the_DT route_NN is_VBZ chosen_VVN (_( AOI1_JJ in_IN Fig_NN ._SENT 
+1_CD ,_, where_WRB start_NN and_CC final_JJ points_NNS are_VBP marked_VVN as_IN WPs_NP and_CC WPf_NP )_) ;_: Fig_VV ._SENT 
+1._CD Red_JJ and_CC blue_JJ full_JJ lines_NNS represent_VVP depth_NN contour_NN lines_NNS ._SENT 
+WPs_NP and_CC WPf_NP are_VBP starting_VVG and_CC final_JJ waypoints_NNS of_IN the_DT path_NN ._SENT 
+The_DT AOI_NP is_VBZ partitioned_VVN in_IN two_CD parts_NNS to_TO simplify_VV the_DT calculations_NNS ._SENT 
+The_DT waypoints_NNS WP1_NN ,_, WP2_NP and_CC WP3_NP ,_, need_VVP to_TO be_VB added_VVN to_TO connect_VV the_DT two_CD sub-paths_NNS defined_VVN in_IN the_DT two_CD AOIs_NNS ._SENT 
+Finally_RB ,_, the_DT path_NN passing_VVG through_IN WP1_NN is_VBZ selected_JJ because_IN is_VBZ the_DT shortest_JJS in_IN the_DT set_NN ._SENT 
+(_( For_IN interpretation_NN of_IN the_DT references_NNS to_TO color_VV in_IN this_DT figure_NN caption_NN ,_, the_DT reader_NN is_VBZ referred_VVN to_TO the_DT web_NN version_NN of_IN this_DT paper_NN ._SENT 
+)_) 2._CD Only_RB the_DT map_NN data_NNS in_IN the_DT ROI_NP is_VBZ loaded_VVN in_IN memory_NN ;_: 3._CD Many_JJ land_NN portions_NNS that_WDT are_VBP close_JJ to_TO the_DT borders_NNS of_IN the_DT ROI_NP are_VBP naturally_RB cut_VVN ._SENT 
+These_DT areas_NNS should_MD be_VB closed_VVN ,_, so_RB that_IN a_DT closed_JJ convex_JJ polygon_NN is_VBZ generated_VVN again_RB (_( for_IN example_NN by_IN connecting_VVG the_DT segments_NNS DE¯¯¯¯¯_JJ ,_, EF¯¯¯¯¯_JJ and_CC FA¯¯¯¯¯_JJ to_TO the_DT segments_NNS AB¯¯¯¯¯_NN and_CC CD¯¯¯¯¯_NN )_) ;_: 4._CD It_PP is_VBZ observed_JJ that_IN lines_NNS that_WDT should_MD represent_VV the_DT same_JJ pieces_NNS of_IN land_NN are_VBP often_RB segmented_VVN ._SENT 
+Moreover_RB these_DT structures_NNS are_VBP often_RB missing_VVG some_DT connection_NN points_NNS ._SENT 
+This_DT should_MD be_VB corrected_VVN by_IN unifying_VVG the_DT structures_NNS and_CC including_VVG the_DT missing_JJ data_NNS (_( for_IN example_NN one_CD contour_NN lines_NNS in_IN Fig_NN ._SENT 
+1_CD is_VBZ divided_VVN in_IN 4_CD segments_NNS :_: GH¯¯¯¯¯¯_NP ,_, IL¯¯¯¯_NP ,_, MN¯¯¯¯¯¯_NP ,_, OP¯¯¯¯¯_NP ._SENT 
+By_IN adding_VVG the_DT segments_NNS NO¯¯¯¯¯_NN ,_, PG¯¯¯¯¯_NP ,_, HI¯¯¯¯_NP ,_, LM¯¯¯¯¯¯_NP it_PP is_VBZ possible_JJ to_TO obtain_VV a_DT correctly_RB defined_VVN polygon_NN )_) ._SENT 
+If_IN the_DT map_NN is_VBZ too_RB big_JJ to_TO be_VB processed_VVN in_IN a_DT reasonable_JJ time_NN ,_, it_PP can_MD be_VB partitioned_VVN into_IN sub-areas_NNS ,_, solutions_NNS for_IN every_DT partition_NN can_MD be_VB found_VVN and_CC subsequently_RB merged_JJ (_( Fig_NN ._SENT 
+1_LS )_) ._SENT 
+3._CD Path-planning_NN system_NN :_: initial_JJ path_NN generation_NN In_IN this_DT section_NN the_DT main_JJ steps_NNS of_IN the_DT path-planning_JJ system_NN are_VBP presented_VVN ._SENT 
+Both_DT land_NN ,_, water_NN depth_NN ,_, and_CC clearance_NN constraints_NNS will_MD be_VB explained_VVN and_CC considered_VVN in_IN the_DT following_NN ._SENT 
+3.1_CD ._SENT 
+Land_NN and_CC depth_NN constraints_NNS The_DT most_RBS important_JJ performance_NN requirement_NN that_IN a_DT path_NN should_MD satisfy_VV is_VBZ safety_NN ._SENT 
+The_DT vessel_NN must_MD not_RB collide_VV with_IN ,_, or_CC get_VVP too_RB close_VV (_( hence_RB putting_VVG itself_PP closer_JJR to_TO a_DT possible_JJ risky_JJ situation_NN )_) to_TO any_DT obstacle_NN located_VVN in_IN the_DT navigation_NN space_NN ._SENT 
+A_DT minimum_JJ clearance_NN ,_, i._NP e._NP the_DT minimum_JJ vessel-obstacles_NNS distance_NN ,_, is_VBZ defined_VVN to_TO achieve_VV this_DT purpose_NN ._SENT 
+Moreover_RB ,_, surface_NN vessels_NNS may_MD have_VH navigation_NN constraints_NNS due_JJ to_TO shallow_JJ water_NN depths_NNS depending_VVG on_IN their_PP$ dimensions_NNS and_CC operations_NNS ._SENT 
+Some_DT operations_NNS may_MD have_VH to_TO be_VB carried_VVN along_IN the_DT coastline_NN ,_, and_CC the_DT vessel_NN should_MD not_RB encounter_VV the_DT risk_NN of_IN grounding_VVG ._SENT 
+In_IN this_DT work_NN ,_, the_DT obstacles_NNS (_( e._NP g._NP the_DT coastlines_NNS ,_, the_DT depth_NN contours_NNS or_CC other_JJ vehicles_NNS )_) are_VBP represented_VVN as_IN polygons_NNS ._SENT 
+This_DT allows_VVZ to_TO represent_VV complex_JJ environments_NNS as_IN simple_JJ geometrical_JJ structures_NNS ._SENT 
+The_DT number_NN of_IN vertexes_NNS defines_VVZ the_DT detail_NN level_NN and_CC depends_VVZ by_IN the_DT scaling_NN and_CC the_DT size_NN of_IN the_DT map_NN ._SENT 
+3.2_CD ._SENT 
+Path-planning_VVG system_NN steps_NNS The_DT path-planning_NN module_NN aims_VVZ to_TO generate_VV the_DT waypoints_NNS on_IN which_WDT the_DT path_NN should_MD be_VB built_VVN upon_RP ._SENT 
+This_DT algorithm_NN provides_VVZ a_DT safe_JJ path_NN that_WDT connects_VVZ a_DT starting_NN with_IN a_DT final_JJ waypoint_NN that_WDT respects_VVZ the_DT kinematics_NNS and_CC dynamics_NNS constraints_NNS of_IN the_DT vessel_NN ._SENT 
+Notice_VV that_IN this_DT stage_NN is_VBZ performed_VVN before_IN the_DT vessel_NN starts_VVZ its_PP$ navigation_NN ,_, and_CC provide_VV an_DT initial_JJ path_NN that_WDT can_MD be_VB modified_VVN at_IN any_DT time_NN if_IN an_DT obstacle_NN or_CC some_DT unexpected_JJ event_NN happens_VVZ on_IN the_DT way_NN ._SENT 
+Once_RB the_DT map_NN data_NN is_VBZ loaded_VVN and_CC the_DT obstacles_NNS are_VBP acquired_VVN as_IN polygons_NNS ,_, the_DT waypoints_NNS generation_NN module_NN can_MD be_VB activated_VVN ._SENT 
+Fig_NN ._SENT 
+2_CD shows_NNS the_DT main_JJ steps_NNS of_IN this_DT algorithm_NN :_: the_DT Voronoi_NP diagram_NN gives_VVZ a_DT raw_JJ obstacle-free_JJ roadmap_NN (_( 3a_NP )_) ,_, and_CC the_DT paths_NNS that_WDT are_VBP outside_IN the_DT AOI_NP are_VBP removed_VVN (_( 3b_NP )_) ._SENT 
+The_DT shortest_JJS path_NN among_IN the_DT feasible_JJ ones_NNS is_VBZ chosen_VVN ,_, and_CC its_PP$ (_( almost)-collinear_JJ waypoints_NNS are_VBP removed_VVN (_( 3f_NP )_) since_IN having_VHG fewer_JJR waypoints_NNS reduces_VVZ the_DT length_NN of_IN the_DT path_NN ,_, heading_VVG changes_NNS and_CC ,_, consequently_RB ,_, the_DT fuel_NN consumption_NN ._SENT 
+The_DT clearance_NN constraints_NNS is_VBZ checked_VVN ,_, and_CC an_DT alternative_JJ path_NN is_VBZ chosen_VVN if_IN the_DT safety_NN constraints_NNS are_VBP not_RB met_VVD (_( 3g_NN )_) ._SENT 
+Finally_RB ,_, unnecessary_JJ waypoints_NNS (_( these_DT which_WDT are_VBP not_RB almost-collinear_JJ and_CC could_MD be_VB removed_VVN without_IN breaking_VVG the_DT clearance_NN constraints_NNS )_) are_VBP removed_VVN (_( 3h_NP )_) ._SENT 
+This_DT module_NN produces_VVZ a_DT series_NN of_IN waypoints_NNS which_WDT need_VVP to_TO be_VB connected_VVN in_IN a_DT smooth_JJ way_NN to_TO produce_VV a_DT flyable_JJ path_NN for_IN an_DT underactuated_JJ vessel_NN ,_, see_VVP also_RB Candeloro_NP et_NP al_NP ._SENT 
+(_( 2013_CD )_) ._SENT 
+Fig_NN ._SENT 
+2._CD Block_NP diagram_NN representing_VVG the_DT Waypoints_NP Generation_NP module_NN of_IN the_DT path-planning_JJ system_NN ._SENT 
+From_IN the_DT map_NN data_NNS a_DT series_NN of_IN waypoints_NNS that_WDT respect_VV the_DT constraints_NNS and_CC connect_VV the_DT starting_VVG waypoint_NN with_IN the_DT final_JJ one_CD ,_, is_VBZ produced_VVN ._SENT 
+An_DT important_JJ property_NN for_IN the_DT path_NN is_VBZ its_PP$ curvature_NN continuity_NN ._SENT 
+This_DT requirement_NN is_VBZ important_JJ to_TO avoid_VV unwanted_JJ phenomena_NNS ,_, such_JJ as_IN discontinuities_NNS in_IN the_DT cross-track_NN error_NN ._SENT 
+This_DT is_VBZ dealt_VVN with_IN in_IN the_DT path_NN smoothing_VVG module_NN ,_, that_WDT produces_VVZ a_DT path_NN that_WDT is_VBZ formed_VVN by_IN straight_JJ and_CC FS_NNS segments_NNS ._SENT 
+A_DT new_JJ clearance_NN check_NN is_VBZ performed_VVN also_RB with_IN the_DT final_JJ ,_, smoothed_VVN ,_, path_NN ._SENT 
+3.3_CD ._SENT 
+The_DT Voronoi_NP diagram_NN and_CC resulting_VVG waypoints_NNS A_DT Voronoi_NP diagram_NN is_VBZ a_DT tool_NN to_TO divide_VV a_DT geometrical_JJ space_NN in_IN a_DT number_NN of_IN regions_NNS determined_VVN by_IN the_DT distribution_NN of_IN the_DT objects_NNS present_JJ in_IN that_DT space_NN ._SENT 
+This_DT general_JJ approach_NN allowed_VVD many_JJ scientists_NNS to_TO use_VV this_DT tool_NN in_IN a_DT wide_JJ number_NN of_IN fields_NNS and_CC applications_NNS (_( Aurenhammer_NP ,_, 1991_CD )_) ._SENT 
+In_IN applications_NNS such_JJ as_IN path_NN planning_NN (_( and_CC specifically_RB path_NN planning_NN for_IN marine_JJ vehicles_NNS )_) ,_, the_DT Voronoi_NP diagram_NN can_MD be_VB useful_JJ for_IN its_PP$ property_NN of_IN producing_VVG a_DT roadmap_NN with_IN edges_NNS that_WDT are_VBP maximally_RB distant_JJ to_TO the_DT generator_NN points_NNS (_( Candeloro_NP et_NP al_NP ._SENT 
+,_, 2013_CD ,_, Candeloro_NP et_CC al_NP ._SENT 
+,_, 2016_CD )_) ._SENT 
+The_DT vertexes_NNS Vo_NP ,_, i_NP of_IN the_DT obstacles_NNS '_'' (_( modeled_VVN as_IN polygons_NNS ,_, as_RB in_IN Section_NP 2_CD )_) are_VBP selected_VVN as_IN the_DT generator_NN vertexes_NNS of_IN the_DT Voronoi_NP diagram_NN ._SENT 
+The_DT resulting_VVG Voronoi_NP diagram_NN edges_NNS ,_, are_VBP shown_VVN as_IN black_JJ lines_NNS in_IN Fig_NN ._SENT 
+3._CD Notice_NN that_IN ,_, in_IN order_NN to_TO limit_VV the_DT Voronoi_NP diagram_NN to_TO the_DT area_NN of_IN interest_NN (_( corresponding_JJ surroundings_NN of_IN the_DT production_NN factory_NN )_) ,_, a_DT number_NN of_IN random_JJ vertexes_NNS are_VBP generated_VVN in_IN the_DT obstacle-free_JJ edges_NNS of_IN the_DT scenario_NN ._SENT 
+Fig_NN ._SENT 
+3._CD (_( A_NP )_) shows_VVZ the_DT land_NN obstacles_NNS ,_, modeled_VVN as_IN polygons_NNS ._SENT 
+Their_PP$ vertexes_NNS are_VBP used_VVN as_IN a_DT generator_NN points_NNS for_IN the_DT Voronoi_NP diagram_NN (_( black_JJ lines_NNS )_) ._SENT 
+The_DT waypoints_NNS and_CC Voronoi_NN edges_NNS too_RB close_VV to_TO the_DT obstacles_NNS (_( i._NP e._NP not_RB respecting_VVG the_DT clearance_NN constraints_NNS )_) will_MD be_VB eliminated_VVN producing_VVG the_DT diagram_NN as_IN in_IN Fig_NN ._SENT 
+4A_NP (_( in_IN this_DT figure_NN the_DT diagram_NN is_VBZ kept_VVN in_IN its_PP$ original_JJ form_NN for_IN clarity_NN )_) ._SENT 
+The_DT Yen-Dijkstra_NP algorithm_NN is_VBZ able_JJ to_TO find_VV the_DT shortest_JJS available_JJ path_NN in_IN the_DT roadmap_NN ,_, and_CC further_JJR simplification_NN steps_NNS allows_VVZ to_TO find_VV the_DT minimum_JJ number_NN of_IN waypoints_NNS which_WDT can_MD connect_VV starting_VVG and_CC final_JJ waypoints_NNS respecting_IN the_DT clearance_NN constraints_NNS ._SENT 
+In_IN (_( B_NP )_) a_DT final_JJ ,_, curvature-continuous_JJ path_NN (_( constituted_VVD by_IN straight_JJ segments_NNS and_CC Fermat_NP spirals_NNS )_) is_VBZ obtained_VVN from_IN the_DT final_JJ waypoints_NNS ._SENT 
+Given_VVN the_DT Voronoi_NP diagram_NN 's_POS edges_NNS ,_, the_DT candidate_NN waypoints_NNS can_MD be_VB identified_VVN in_IN the_DT edges_NNS extreme_JJ points_NNS (_( Voronoi_NP diagram_NN vertexes_NNS )_) ._SENT 
+The_DT waypoints_NNS which_WDT represent_VVP the_DT shortest_JJS path_NN among_IN the_DT ones_NNS provided_VVN by_IN the_DT roadmap_NN ,_, are_VBP selected_VVN through_IN the_DT Yen_NP modification_NN (_( Yen_NP ,_, 1970_CD )_) of_IN the_DT Dijkstra_NP optimization_NN algorithm_NN (_( Dijkstra_NP ,_, 1959_CD )_) ._SENT 
+This_DT algorithm_NN is_VBZ able_JJ to_TO find_VV the_DT k-shortest_JJ paths_NNS ._SENT 
+In_IN this_DT way_NN ,_, suboptimal_JJ solutions_NNS can_MD be_VB found_VVN if_IN the_DT optimal_JJ solution_NN do_VVP not_RB respect_VV the_DT preassigned_JJ clearance_NN constraints_NNS ._SENT 
+Notice_VV that_IN the_DT Voronoi_NP edges_NNS and_CC vertexes_NNS which_WDT are_VBP too_RB close_JJ to_TO the_DT obstacles_NNS ,_, i._NP e._NP do_VVP not_RB respect_VV the_DT predefined_JJ clearance_NN constraints_NNS ,_, are_VBP eliminated_VVN ,_, originating_VVG the_DT modified_JJ diagram_NN which_WDT is_VBZ possible_JJ to_TO see_VV in_IN Fig_NN ._SENT 
+4A_NP ._SENT 
+Fig_NN ._SENT 
+4._CD Path-planning_VVG algorithm_NN running_VVG on_IN a_DT real_JJ map_NN ._SENT 
+The_DT area_NN covers_VVZ 45000×65000m2_NN in_IN the_DT region_NN of_IN Sør_NP Trondelag_NP ,_, Norway_NP ._SENT 
+The_DT (_( n_NN ,_, e_NN )_) coordinates_VVZ have_VH centered_VVN in_IN (_( x0_NP ,_, y0)=(515000,7050000_NP )_) ._SENT 
+The_DT map_NN data_NNS was_VBD processed_VVN as_IN shown_VVN in_IN Section_NP 2._CD A_NP shows_VVZ the_DT Vononoi_NP diagram_NN 's_POS edges_NNS and_CC the_DT waypoints_NNS (_( WPs_NP )_) that_WDT connect_VVP starting_VVG with_IN final_JJ points_NNS respecting_IN land_NN and_CC ocean_NN depths_NNS constraints_NNS (_( depth_NN contour_NN lines_NNS are_VBP reported_VVN in_IN B_NP )_) ._SENT 
+The_DT intermediate_JJ WPs_NNS are_VBP also_RB shown_VVN ,_, to_TO illustrate_VV how_WRB the_DT implemented_VVN heuristic_JJ can_MD simplify_VV the_DT problem_NN ._SENT 
+B_SYM shows_VVZ the_DT paths_NNS produced_VVN by_IN the_DT path-planning_VVG algorithm_NN :_: the_DT red_JJ and_CC green_JJ paths_NNS shows_VVZ respectively_RB the_DT one_CD obtained_VVD considering_VVG land_NN constraints_NNS and_CC land_NN plus_CC depth_NN constraints_NNS ._SENT 
+Blue_JJ lines_NNS represent_VVP the_DT contour_NN ocean_NN depth_NN lines_NNS corresponding_JJ to_TO the_DT constraint_NN 's_POS value_NN ._SENT 
+These_DT paths_NNS have_VHP been_VBN calculated_VVN as_IN shown_VVN in_IN Section_NP 3._CD C_NP presents_VVZ the_DT detailed_JJ path_NN between_IN the_DT WPs_NNS P1_JJ and_CC P2_JJ ._SENT 
+Green_NP crosses_VVZ and_CC blue_JJ diamonds_NNS are_VBP ,_, respectively_RB ,_, the_DT WPs_NNS after_IN the_DT steps_NNS 3(e_NN )_) and_CC 3(f_NP )_) of_IN Fig_NN ._SENT 
+2._CD Red_JJ circles_NNS are_VBP the_DT WPs_NNS after_IN step_NN 3(h_NN )_) ._SENT 
+Red_JJ path_NN is_VBZ produced_VVN after_IN step_NN 4(g_NN )_) ._SENT 
+(_( For_IN interpretation_NN of_IN the_DT references_NNS to_TO color_VV in_IN this_DT figure_NN caption_NN ,_, the_DT reader_NN is_VBZ referred_VVN to_TO the_DT web_NN version_NN of_IN this_DT paper_NN ._SENT 
+)_) The_DT implementation_NN detail_NN to_TO obtain_VV the_DT Voronoi_NP diagram_NN are_VBP not_RB given_VVN ,_, since_IN they_PP are_VBP extensively_RB treated_VVN in_IN the_DT literature_NN ,_, see_VVP Ledoux_NP (_( 2007_CD )_) or_CC Candeloro_NP et_NP al_NP ._SENT 
+(_( 2016_CD )_) for_IN a_DT general_JJ procedure_NN ._SENT 
+<Section> 4._CD Path_NN generation_NN using_VVG Fermat_NP 's_POS spiral_NN </Section> The_DT idea_NN of_IN using_VVG FS_NNS segments_NNS for_IN path-planning_VVG purposes_NNS was_VBD introduced_VVN and_CC developed_VVN in_IN Dahl_NP (_( 2013_CD )_) and_CC Lekkas_NP ,_, Dahl_NP ,_, Breivik_NP ,_, and_CC Fossen_NP (_( 2013_CD )_) ._SENT 
+In_IN this_DT paper_NN it_PP is_VBZ presented_VVN the_DT whole_JJ methodology_NN necessary_JJ for_IN a_DT vessel_NN to_TO follow_VV a_DT path_NN ,_, despite_IN to_TO the_DT presence_NN of_IN ocean_NN currents_NNS ._SENT 
+In_IN this_DT context_NN ,_, it_PP is_VBZ convenient_JJ to_TO parametrize_VV the_DT FS_NNS segments_NNS as_IN a_DT bijective_JJ function_NN of_IN θ_NP ,_, so_RB that_IN any_DT point_NN on_IN the_DT path_NN P=(x_NN ,_, y)=f(θ_NP )_) ._SENT 
+Therefore_RB ,_, given_VVN a_DT vessel_NN position_NN P=(x_NP ,_, y_NP )_) ,_, there_EX are_VBP two_CD possible_JJ cases_NNS :_: P_NN is_VBZ on_IN the_DT desired_VVN path_NN ,_, in_IN which_WDT case_NN the_DT goal_NN is_VBZ to_TO continue_VV moving_VVG on_IN the_DT path_NN ,_, or_CC P_NN is_VBZ not_RB on_IN the_DT desired_VVN path_NN (_( i._NP e._NP nonzero_NP cross-track_NP error_NN )_) ,_, in_IN which_WDT case_NN the_DT closest_JJS point_NN on_IN the_DT path_NN must_MD be_VB determined_VVN and_CC fed_VVN to_TO the_DT guidance_NN algorithm_NN to_TO lead_VV the_DT vessel_NN back_RB on_IN the_DT path_NN ._SENT 
+If_IN external_JJ disturbances_NNS ,_, as_IN ocean_NN currents_NNS ,_, or_CC wind_NN ,_, are_VBP present_JJ ,_, it_PP is_VBZ necessary_JJ to_TO compute_VV the_DT heading_VVG angle_NN correction_NN that_WDT will_MD counteract_VV them_PP and_CC minimize_VV the_DT cross-track_NN error_NN ._SENT 
+An_DT example_NN of_IN FS_NNS is_VBZ illustrated_VVN in_IN Fig_NN ._SENT 
+5_CD ,_, together_RB with_IN some_DT of_IN the_DT variables_NNS introduced_VVN in_IN the_DT next_JJ subsections_NNS ._SENT 
+Fig_NN ._SENT 
+5._CD Initial_JJ and_CC mirrored_VVD Fermat_NP 's_POS spiral_NN segments_NNS connecting_VVG two_CD straight_JJ lines_NNS ._SENT 
+The_DT resulting_VVG path_NN is_VBZ curvature-continuous_JJ ._SENT 
+The_DT parameter_NN on_IN which_WDT the_DT mathematical_JJ formulation_NN of_IN the_DT FS_NNS is_VBZ based_VVN ,_, θ_NP ,_, is_VBZ reported_VVN ,_, together_RB with_IN the_DT course_NN angle_NN χ_NN ._SENT 
+Similarly_RB to_TO clothoids_NNS ,_, connecting_VVG two_CD lines_NNS using_VVG FS_NNS requires_VVZ two_CD segments_NNS :_: the_DT first_JJ one_CD starts_NNS at_IN the_DT end_NN of_IN the_DT first_JJ line_NN (_( where_WRB the_DT curvature_NN is_VBZ zero_CD )_) and_CC reaches_VVZ up_RP to_TO the_DT middle_NN of_IN the_DT total_JJ turn_NN ._SENT 
+The_DT second_JJ segment_NN is_VBZ the_DT mirrored_VVD version_NN of_IN the_DT former_JJ one_CD ,_, starts_VVZ where_WRB the_DT initial_JJ segment_NN ended_VVD ,_, and_CC goes_VVZ all_PDT the_DT way_NN to_TO the_DT second_JJ line_NN ._SENT 
+The_DT advantage_NN of_IN using_VVG FS_NNS instead_RB of_IN clothoids_NNS is_VBZ that_IN it_PP requires_VVZ much_RB less_RBR computational_JJ time_NN ,_, due_JJ to_TO the_DT fact_NN that_IN FS_NNS can_MD be_VB described_VVN by_IN simple_JJ parametric_JJ equations_NNS ,_, whereas_IN clothoids_NNS require_VVP the_DT numerical_JJ solution_NN of_IN Fresnel_NN integrals_NNS ._SENT 
+In_IN Dahl_NP (_( 2013_CD )_) and_CC Lekkas_NP et_NP al_NP ._SENT 
+(_( 2013_CD )_) ,_, FS_NNS equations_NNS in_IN Cartesian_JJ coordinates_NNS were_VBD proposed_VVN ,_, which_WDT introduce_VV singularities_NNS when_WRB differentiated_VVN with_IN respect_NN to_TO θ_NN ._SENT 
+By_IN substituting_VVG θu=θ√_JJ it_PP is_VBZ possible_JJ to_TO obtain_VV a_DT singularity-free_JJ formulation_NN :_: (_( 1)pFS(θu)=√[x0+ksθucos(ρθ2u+χ0)y0+kskθusin(ρθ2u+χ0_JJ )_) ]_SYM ,_, for0<θu<θmax_NP ,_, where_WRB p0=[x0_NP ,_, y0]T_NP is_VBZ the_DT starting_VVG position_NN of_IN the_DT segment_NN ,_, ks_RB denotes_VVZ the_DT scaling_NN factor_NN ,_, χ0_JJ the_DT initial_JJ tangent_JJ angle_NN ,_, and_CC (_( 2)ρ={1−1forananti-clockwiseturnforaclockwiseturn_NP ._SENT 
+Regarding_VVG the_DT parameter_NN θ_NN ,_, it_PP holds_VVZ θ=0_NN at_IN the_DT starting_VVG point_NN of_IN the_DT initial_JJ segment_NN where_WRB the_DT spiral_NN is_VBZ connected_VVN to_TO a_DT straight_JJ line_NN and_CC the_DT curvature_NN is_VBZ zero_CD ,_, and_CC θ=θmax_NN at_IN the_DT end_NN point_NN of_IN the_DT initial_JJ segment_NN ,_, which_WDT is_VBZ located_VVN midway_NN the_DT end_NN of_IN the_DT total_JJ turn_NN ._SENT 
+The_DT formulation_NN in_IN (_( 5_LS )_) gives_VVZ the_DT singularity-free_JJ expression_NN for_IN the_DT velocity_NN and_CC acceleration_NN :_: (_( 3)ddθupFS(θu)=ks[cos(ρθ2u+χ0)−2ρθ2usin(ρθ2u+χ0)sin(ρθ2u+χ0)+2ρθ2ucos(ρθ2u+χ0_JJ )_) ]_SYM ,_, (_( 4)d2dθ2upFS(θu)=ks[−6ρusin(ρθ2u+χ0)−4ρ2u3cos(ρθ2u+χ0)6ρucos(ρθ2u+χ0)−4ρ2u3sin(ρθ2u+χ0_NP )_) ]_SYM ._SENT 
+Similarly_RB ,_, for_IN the_DT mirrored_VVD segment_NN will_MD hold_VV :_: (_( 5)pFS¯¯¯¯(θu)=√[xend−ksθucos(ρθ2u−χend)yend+ksθusin(ρθ2u−χend_NP )_) ]_SYM ,_, for0<θu<θmax_VVP where_WRB pend=[xend_NP ,_, yend]T_NP is_VBZ the_DT position_NN at_IN the_DT end_NN of_IN the_DT curve_NN ,_, i._NP e._NP pend=pFS¯¯¯¯(θend_NP )_) ,_, and_CC χend_NP is_VBZ the_DT course_NN angle_NN at_IN that_DT point_NN ._SENT 
+Fig_NN ._SENT 
+6_CD depicts_VVZ an_DT illustration_NN of_IN how_WRB the_DT initial_JJ and_CC mirrored_VVD segment_NN connect_VV two_CD straight_JJ lines_NNS ._SENT 
+Equations_NNS related_VVN to_TO the_DT mirrored_VVD segment_NN are_VBP not_RB reported_VVN here_RB for_IN space_NN issue_NN ._SENT 
+Section_NN 5_CD explains_VVZ why_WRB the_DT first_JJ and_CC second_JJ derivatives_NNS are_VBP needed_VVN when_WRB implementing_VVG a_DT path-following_JJ scenario_NN where_WRB no_DT temporal_JJ constraints_NNS are_VBP present_JJ ._SENT 
+Fig_NN ._SENT 
+6._CD Main_JJ variables_NNS concerning_VVG the_DT LOS_NP algorithm_NN are_VBP reported_VVN in_IN this_DT figure_NN :_: the_DT lookahead_NN distance_NN Δ_NN is_VBZ directing_VVG the_DT vessel_NN over_IN a_DT point_NN along_IN the_DT path_NN tangent_NN ,_, oriented_VVN at_IN an_DT angle_NN γp_NN ._SENT 
+The_DT control_NN objective_NN tries_VVZ to_TO reduce_VV the_DT cross_NN track_NN error_NN ye_NN ._SENT 
+<Section> 5._CD Motion_NP control_NN objective_NN </Section> For_IN each_DT vessel_NN position_NN (_( x(t_NP )_) ,_, y(t_NP )_) )_) it_PP is_VBZ necessary_JJ to_TO determine_VV the_DT closest_JJS corresponding_JJ point_NN on_IN the_DT path_NN ,_, (_( xd(θ∗_NP )_) ,_, yd(θ∗_NP )_) )_) ,_, which_WDT corresponds_VVZ to_TO a_DT unique_JJ parameter_NN value_NN θ∗_NN ,_, see_VVP also_RB Fig_VV ._SENT 
+6._CD The_DT minimum_JJ distance_NN between_IN the_DT vessel_NN and_CC the_DT monotonic_JJ curve_NN between_IN two_CD active_JJ waypoints_NNS will_MD be_VB defined_VVN as_IN the_DT cross-track_NN error_NN (_( Lekkas_NP &_CC Fossen_NP ,_, 2014a_NP )_) ._SENT 
+The_DT tangent_JJ and_CC normal_JJ lines_NNS through_IN the_DT point_NN (_( xd(θ_NP )_) ,_, yd(θ_NP )_) )_) are_VBP given_VVN by3_JJ :_: (_( 6)yt−yd(θ)=y'd(θ)x'd(θ)(xt−xd(θ_JJ )_) )_) ,_, (_( 7)yn−yd(θ)=−1y'd(θ)x'd(θ)(xn−xd(θ_NP )_) )_) ._SENT 
+The_DT θ_JJ value_NN corresponding_JJ to_TO the_DT path-normal_NN that_WDT intersects_VVZ the_DT vessel_NN is_VBZ found_VVN by_IN requiring_VVG that_IN (_( xn_NP ,_, yn)=(x_NP ,_, y_NP )_) ._SENT 
+Moreover_RB ,_, from_IN (_( 7_CD )_) it_PP follows_VVZ that_DT :_: (_( 8)y'd(θ∗)(y−yd(θ∗))+x'd(θ∗)(x−xd(θ∗))=0_NP ._SENT 
+This_DT involves_VVZ solving_VVG the_DT roots_NNS of_IN the_DT third-order_NP cubic_JJ function_NN for_IN θ∗_NP ._SENT 
+Instead_RB of_IN using_VVG an_DT analytical_JJ solution_NN a_DT numerical_JJ solution_NN based_VVN on_IN Newton–Raphson_NP method_NN will_MD converge_VV quite_RB fast_RB ._SENT 
+For_IN instance_NN ,_, (_( 9)θ∗j+1=θ∗j−f(θ∗j)f'(θ∗j_NP )_) ,_, where_WRB :_: (_( 10)f(θ∗j)=y'd(θ∗j)(y−yd(θ∗j))+x'd(θ∗j)(x−xd(θ∗j_NP )_) )_) ,_, (_( 11)f'(θ∗j)=y''d(θ∗j)(y−yd(θ∗j))+x''d(θ∗j)(x−xd(θ∗j))−x'd(θ∗j)2−y'd(θ∗j)2_NP ,_, will_MD converge_VV in_IN a_DT few_JJ iterations_NNS if_IN the_DT initial_JJ path_NN variable_NN θ∗0_NN is_VBZ taken_VVN as_IN the_DT last_JJ θi_NP value_NN when_WRB moving_VVG along_IN the_DT path_NN between_IN two_CD waypoints_NNS parametrized_VVN on_IN the_DT interval_NN [_SYM θ1_JJ ,_, θn_NP ]_SYM ._SENT 
+The_DT normal_JJ line_NN from_IN the_DT point_NN (_( xd(θ∗_NP )_) ,_, yd(θ∗_NP )_) )_) on_IN the_DT path_NN through_IN the_DT point_NN (_( x_SYM ,_, y_NP )_) on_IN the_DT vessel_NN defines_VVZ the_DT along-track_NN and_CC cross-track_NN errors_NNS (_( xe_NP ,_, ye_NP )_) ._SENT 
+Moreover_RB :_: (_( 12)[xeye]=RT(γp)[x−xd(θ∗)y−yd(θ∗_JJ )_) ]_SYM ,_, where_WRB R(γp)∈SO(2_NP )_) is_VBZ the_DT rotation_NN matrix_NN in_IN yaw_VV (_( Fossen_NP ,_, 2011_CD )_) ._SENT 
+In_IN algebraic_JJ form_NN ,_, the_DT equations_NNS of_IN the_DT along-track_NN and_CC the_DT cross-track_JJ error_NN for_IN a_DT given_VVN vessel_NN position_NN (_( x_SYM ,_, y_NP )_) become_VVP :_: (_( 13)xe=(x−xd(θ∗))cos(γp)+(y−yd(θ∗))sin(γp_NP )_) ,_, (_( 14)ye=−(x−xd(θ∗))sin(γp)+(y−yd(θ∗))cos(γp_NP )_) ,_, where_WRB γp_NN is_VBZ the_DT path-tangential_JJ angle_NN :_: (_( 15)γp=atan2(y'd(θ∗_NP )_) ,_, x'd(θ∗_NP )_) )_) ._SENT 
+For_IN a_DT path-following_JJ scenario_NN xe=0_NN ,_, which_WDT leads_VVZ to_TO the_DT following_VVG control_NN objective_NN for_IN curved_VVN path-following_NN (_( Lekkas_NP &_CC Fossen_NP ,_, 2014a_NP )_) :_: (_( 16)limt→+∞ye(t)=0_NP ._SENT 
+<Section> 6._CD Vessel_NP model_NN and_CC control_NN system_NN </Section> Consider_VV a_DT surface_NN vessel_NN at_IN the_DT position_NN (_( x_SYM ,_, y_NP )_) moving_VVG with_IN the_DT ground_NN speed_NN :_: (_( 17)U=√u2+v2_NP ,_, where_WRB u_NN and_CC v_NN are_VBP the_DT velocities_NNS in_IN surge_NN and_CC sway_VV respectively_RB ._SENT 
+The_DT speed_NN U_NP is_VBZ assumed_VVN to_TO be_VB positive_JJ and_CC bounded_VVD :_: (_( 18)Umin≤U≤Umax,0<Umin_NP ._SENT 
+In_IN the_DT following_NN ,_, however_RB ,_, the_DT relative_JJ surge_NN and_CC sway_NN velocities_NNS will_MD be_VB mostly_RB considered_VVN ,_, ur=u−uc_NP and_CC vr=v−vc_NP ,_, where_WRB uc_NP and_CC vc_NP will_MD be_VB defined_VVN below_RB ._SENT 
+In_IN this_DT way_NN ,_, the_DT three_CD DOFs_NNS horizontal_JJ dynamics_NNS of_IN the_DT surface_NN vessel_NN can_MD be_VB represented_VVN by_IN three_CD differential_JJ equations_NNS Fossen_NP (_( 2011_CD )_) :_: (_( 19a)u˙=fur(ur_NP ,_, vr_NP ,_, r_NN ,_, τ_NP )_) ,_, (_( 19b)v˙=fvr(ur_NP ,_, vr_NP ,_, r_NN ,_, τ_NP )_) ,_, (_( 19c)r˙=fr(ur_NP ,_, vr_NP ,_, r_NN ,_, τ_NP )_) ,_, The_DT vessel_NN kinematic_JJ equations_NNS for_IN horizontal_JJ plane_NN motion_NN can_MD be_VB expressed_VVN in_IN terms_NNS of_IN the_DT relative_JJ surge_NN and_CC sway_NN velocities_NNS according_VVG to_TO Fossen_NP (_( 2011_CD )_) :_: (_( 20a)x˙=urcos(ψ)−vrsin(ψ)+Vx_NP (_( 20b)y˙=ursin(ψ)+vrcos(ψ)+Vy_NN (_( 20c)ψ˙=r_NN where_WRB ψ_NN and_CC r_NN are_VBP the_DT yaw_VVP angle_NN and_CC rate_NN ,_, respectively_RB ._SENT 
+The_DT body-fixed_JJ ocean_NN current_JJ velocities_NNS (_( uc_NP ,_, vc_NP )_) and_CC North-East_JJ current_JJ velocities_NNS (_( Vx_NP ,_, Vy_NP )_) satisfy_VV :_: (_( 21)[uc_NP ,_, vc]⊤=R⊤(ψ)[Vx_NP ,_, Vy]⊤_NP Notice_NP that_IN the_DT pair_NN (_( Vx_NP ,_, Vy_NP )_) is_VBZ constant_JJ in_IN NED_NP ,_, while_IN the_DT body-fixed_JJ current_JJ velocities_NNS (_( uc_NP ,_, vc_NP )_) depend_VVP on_IN the_DT heading_VVG angle_NN ψ_NN ._SENT 
+<Section> 7._CD Guidance_NN system_NN and_CC ocean_NN current_JJ compensation_NN </Section> The_DT LOS_NP guidance_NN method_NN is_VBZ widely_RB used_VVN to_TO generate_VV reference_NN trajectories_NNS for_IN the_DT heading_VVG angle_NN ,_, so_RB that_IN the_DT vessel_NN 's_POS trajectory_NN will_MD converge_VV on_IN the_DT desired_VVN path_NN ._SENT 
+Consequently_RB ,_, a_DT wide_JJ literature_NN is_VBZ available_JJ ,_, see_VV ,_, for_IN instance_NN ,_, Caharija_NP ,_, Pettersen_NP ,_, Sørensen_NP ,_, Candeloro_NP ,_, and_CC Gravdahl_NP (_( 2014_CD )_) and_CC the_DT references_NNS therein_RB ._SENT 
+In_IN this_DT work_NN ,_, an_DT adaptive_JJ version_NN of_IN the_DT LOS_NP algorithm_NN is_VBZ used_VVN in_IN order_NN to_TO compensate_VV for_IN environmental_JJ disturbances_NNS ._SENT 
+7.1_CD ._SENT 
+Indirect_JJ adaptive_JJ LOS_NP for_IN ocean_NN current_JJ compensation_NN An_DT additional_JJ term_NN ,_, αy_NP is_VBZ added_VVN to_TO the_DT classic_JJ LOS_NP algorithm_NN with_IN the_DT purpose_NN of_IN disturbance_NN rejection_NN (_( Lekkas_NP &_CC Fossen_NP ,_, 2014b_NP )_) :_: (_( 22)ψd=γp−βr+arctan(−ye+αyΔ_NP )_) ,_, which_WDT gives_VVZ the_DT desired_VVN heading_VVG angles_NNS ψd_NNS ._SENT 
+Δ>0_NP is_VBZ the_DT user_NN specified_VVN lookahead_NP distance_NN and_CC βr=atan2(vr_NP ,_, ur_NP )_) ._SENT 
+Equation_NN (_( 22_CD )_) results_NNS in_IN the_DT following_VVG cross-track_NN error_NN dynamics_NNS :_: (_( 23)y˙e=−Ur(ye+αy)Δ2+(ye+αy)2√+θy_NP ,_, with_IN θy_NN denoting_VVG the_DT effect_NN of_IN the_DT unknown_JJ current_NN that_WDT needs_VVZ to_TO be_VB compensated_VVN for_IN ,_, and_CC the_DT relative_JJ speed_NN is_VBZ recognized_VVN as_IN Ur=u2r+v2r−−−−−−√_NP ._SENT 
+In_IN the_DT same_JJ work_NN the_DT following_VVG adaptive_JJ observers_NNS providing_VVG estimates_NNS for_IN ye_NP ,_, θy_NP were_VBD proposed_VVN (_( Fossen_NP &_CC Lekkas_NP ,_, 2015_CD )_) :_: (_( 24)yˆ˙e=−Ur(yˆe+αy)Δ2+(ye+αy)2√+θˆy+k1(ye−yˆe_NN )_) ,_, (_( 25)θˆ˙y=k2(ye−yˆe_NNS )_) ,_, where_WRB k1_JJ and_CC k2_JJ are_VBP tuning_VVG constants_NNS ,_, Ur_NP is_VBZ the_DT relative_JJ speed_NN ,_, and_CC Δ_NP is_VBZ the_DT user_NN specified_VVN lookahead_NP distance_NN ._SENT 
+Choosing_VVG αy_NN as_RB :_: (_( 26)αy=√Δθˆy/Ur1−(θˆy/Ur)2_NP minimizes_VVZ the_DT cross-track_JJ error_NN dynamics_NNS ,_, i._NP e._NP ye(t)→∞_NP ,_, Fossen_NP and_CC Lekkas_NP (_( 2015_CD )_) ._SENT 
+This_DT indirect_JJ adaptive_JJ LOS_NP is_VBZ implemented_VVN by_IN computing_VVG the_DT desired_VVN heading_VVG angles_NNS according_VVG to_TO (_( 22_CD )_) with_IN αy_NN given_VVN by_IN (_( 26_CD )_) ._SENT 
+<Section> 8._CD Obstacles_NNS classification_NN and_CC tracking_VVG </Section> In_IN this_DT paper_NN ,_, an_DT obstacle_NN tracking_NN algorithm_NN is_VBZ utilized_VVN to_TO detect_VV and_CC estimate_VV the_DT state_NN of_IN the_DT encountered_VVN obstacles_NNS ._SENT 
+This_DT approach_NN introduces_VVZ uncertainties_NNS in_IN the_DT knowledge_NN of_IN the_DT obstacles_NNS state_NN ,_, and_CC in_IN the_DT time_NN utilized_VVN for_IN the_DT detection_NN itself_PP ,_, allowing_VVG to_TO create_VV a_DT more_RBR realistic_JJ and_CC challenging_JJ scenario_NN ._SENT 
+An_DT approach_NN similar_JJ to_TO the_DT one_CD in_IN Karoui_NP ,_, Quidu_NP ,_, and_CC Legris_NP (_( 2015_CD )_) is_VBZ utilized_VVN ,_, and_CC briefly_RB presented_VVN in_IN the_DT following_NN ._SENT 
+Notice_VV that_IN two_CD assumptions_NNS holds_VVZ :_: Assumption_NN 1_CD Obstacles_NNS are_VBP supposed_VVN to_TO be_VB defined_VVN by_IN a_DT nearly-constant_JJ velocity_NN vector_NN ,_, where_WRB changes_NNS in_IN magnitude_NN and_CC direction_NN are_VBP bounded_VVN ._SENT 
+Assumption_NN 2_CD Moving_VVG obstacles_NNS are_VBP assumed_VVN to_TO follow_VV the_DT COLREG_NN ._SENT 
+Assumption_NN 1_CD allows_VVZ the_DT replanning_VVG algorithm_NN to_TO plan_VV a_DT proper_JJ anti-collision_NN maneuver_NN based_VVN on_IN a_DT predictable_JJ behavior_NN of_IN the_DT obstacle_NN ,_, while_IN Assumption_NP 2_CD gives_VVZ indications_NNS on_IN how_WRB to_TO safely_RB replan_JJ ,_, i._NP e._NP ,_, following_VVG the_DT COLREG_NN ._SENT 
+Given_VVN Assumption_NP 1_CD it_PP is_VBZ possible_JJ to_TO use_VV the_DT constant_JJ velocity_NN dynamical_JJ model_NN described_VVN in_IN Lerro_NP and_CC Bar-Shalom_NP (_( 1993_CD )_) ._SENT 
+Karoui_NP et_NP al_NP ._SENT 
+(_( 2015_CD )_) propose_VVP an_DT obstacle_NN detection_NN and_CC identification_NN method_NN that_WDT could_MD be_VB implemented_VVN in_IN synergy_NN with_IN the_DT obstacle_NN tracking_VVG and_CC planning_VVG techniques_NNS here_RB proposed_VVN ._SENT 
+The_DT considered_VVN model_NN is_VBZ composed_VVN by_IN the_DT following_VVG dynamic_NN and_CC measurement_NN equations4_NN :_: (_( 27a)xno(k)=Fxno(k−1)+Gw1(k_NP )_) ,_, (_( 27b)yn(k)=Hxno(k)+w2(k_NP )_) ,_, where_WRB k>0∈I_NP is_VBZ the_DT discrete_JJ time_NN index_NN ,_, xno(k)=[pno(k_NP )_) ,_, vno(k)]T∈R4×1_NN is_VBZ the_DT state_NN of_IN the_DT moving_VVG obstacle_NN (_( position_NN and_CC velocity_NN )_) at_IN sensor_NN ping_NN k_NN in_IN the_DT NED_NP frame_NN ._SENT 
+ξ=Gw1(k)∈R4×1_JJ is_VBZ the_DT process_NN noise_NN modeled_VVN by_IN the_DT covariance_NN matrix_NN Q∈R4×4_NN :_: ξ∼N(0_NP ,_, Q_NP )_) ,_, w1∈R4×1_NN is_VBZ the_DT Gaussian_JJ measurement_NN noise_NN modeled_VVN by_IN the_DT covariance_NN matrix_NN R∈R2×2_NN :_: w2∈R2×1∼N(0_NP ,_, R_NP )_) ._SENT 
+A_DT linear_JJ Kalman_NP Filter_NP ,_, which_WDT includes_VVZ a_DT bias_NN correction_NN is_VBZ implemented_VVN to_TO obtain_VV an_DT estimation_NN of_IN the_DT state_NN of_IN the_DT obstacle_NN and_CC of_IN the_DT related_JJ error_NN covariance_NN ,_, as_RB discussed_VVN in_IN Lerro_NP and_CC Bar-Shalom_NP (_( 1993_CD )_) ._SENT 
+The_DT resulting_VVG filter_NN is_VBZ known_VVN as_IN de-biased_NN converted_VVN Kalman_NP Filter_NP ._SENT 
+More_JJR details_NNS can_MD be_VB found_VVN in_IN Karoui_NP et_CC al_NP ._SENT 
+(_( 2015_CD )_) ._SENT 
+Assuming_VVG a_DT Gaussian_JJ behavior_NN of_IN the_DT sensor_NN noise_NN is_VBZ a_DT standard_JJ practice_NN in_IN literature_NN ._SENT 
+Although_IN in_IN reality_NN the_DT sensor_NN noise_NN might_MD follow_VV a_DT different_JJ behavior_NN ,_, the_DT practical_JJ application_NN has_VHZ shown_VVN that_IN the_DT Kalman_NP filter_NN is_VBZ a_DT reliable_JJ estimator_NN ._SENT 
+This_DT approach_NN is_VBZ also_RB utilized_VVN in_IN Quidu_NP ,_, Jaulin_NP ,_, Bertholom_NP ,_, and_CC Dupas_NP (_( 2012_CD )_) and_CC Karoui_NP et_NP al_NP ._SENT 
+(_( 2015_CD )_) ._SENT 
+The_DT obstacle_NN detection_NN and_CC identification_NN module_NN is_VBZ out_RP of_IN the_DT scope_NN of_IN this_DT paper_NN ,_, so_RB the_DT position_NN measurements_NNS are_VBP available_JJ as_RB soon_RB as_IN the_DT obstacle_NN enters_VVZ the_DT sensor_NN 's_POS field_NN of_IN view_NN (_( FOV_NP )_) ._SENT 
+Notice_VV that_IN ,_, in_IN this_DT work_NN ,_, the_DT obstacle_NN is_VBZ estimated_VVN as_IN a_DT point_NN ._SENT 
+In_IN Section_NP 9.4_CD a_DT certain_JJ ,_, predefined_JJ shape_NN will_MD be_VB associated_VVN to_TO it_PP ._SENT 
+The_DT process_NN that_WDT has_VHZ been_VBN used_VVN in_IN this_DT work_NN to_TO originate_VV the_DT simulated_JJ measurements_NNS is_VBZ described_VVN in_IN Section_NP 10._CD Fig_NN ._SENT 
+7_CD shows_NNS an_DT example_NN of_IN obstacle_NN tracking_NN ._SENT 
+The_DT covariance_NN of_IN the_DT estimation_NN error_NN (_( provided_VVN by_IN the_DT de-biased_NN converted_VVN Kalman_NP filter_NN )_) is_VBZ used_VVN to_TO generate_VV the_DT confidence_NN ellipse_NN around_IN the_DT estimated_JJ position_NN of_IN the_DT obstacle_NN which_WDT ,_, in_IN turns_NNS ,_, are_VBP used_VVN to_TO generate_VV the_DT Projected_JJ Obstacle_NN Area_NP (_( POA_NP )_) ._SENT 
+Fig_NN ._SENT 
+7._CD An_DT obstacle_NN is_VBZ first_RB detected_VVN when_WRB it_PP enters_VVZ the_DT sensor_NN 's_POS FOV_NP ,_, but_CC the_DT tracking_NN commences_VVZ when_WRB the_DT covariance_NN is_VBZ sufficiently_RB low_JJ ._SENT 
+The_DT POA_NN is_VBZ the_DT convex_JJ hull_NN containing_VVG the_DT two_CD covariance_NN ellipses_NNS corresponding_JJ to_TO the_DT first_JJ acceptable_JJ estimation_NN and_CC the_DT estimation_NN at_IN CPA_NP ._SENT 
+<Section> 9._CD Path-planning_NN system_NN :_: replanning_VVG phase_NN </Section> In_IN order_NN to_TO safely_RB avoid_VV the_DT obstacles_NNS identified_VVN by_IN the_DT tracker_NN ,_, the_DT replanning_VVG procedure_NN adds_VVZ extra_JJ waypoints_NNS and_CC produces_VVZ a_DT flyable_JJ deviation_NN from_IN the_DT original_JJ path_NN ._SENT 
+The_DT algorithm_NN also_RB guarantees_VVZ smooth_JJ re-convergence_NN to_TO the_DT original_JJ path_NN ._SENT 
+9.1_CD ._SENT 
+Timing_NN Safe_NP path_NN replanning_NN requires_VVZ accuracy_NN in_IN both_DT obstacle_NN tracking_NN and_CC the_DT timing_NN of_IN the_DT sequential_JJ steps_NNS ._SENT 
+The_DT following_VVG time_NN variables_NNS and_CC periods_NNS are_VBP defined_VVN (_( see_VV Fig_NN ._SENT 
+8_CD )_) :_: •_JJ Tracking_NN time_NN (_( tt_NP )_) :_: the_DT obstacle_NN enters_VVZ the_DT sensor_NN area_NN and_CC it_PP is_VBZ identified_VVN ._SENT 
+From_IN this_DT moment_NN the_DT obstacle_NN tracking_NN runs_VVZ for_IN a_DT period_NN Tt_NP ,_, until_IN the_DT state_NN of_IN the_DT obstacle_NN is_VBZ estimated_VVN with_IN a_DT certain_JJ precision_NN ;_: •_NP Replanning_NP time_NN (_( tr_NP )_) :_: the_DT path_NN replanning_VVG system_NN starts_VVZ to_TO re-calculate_VV the_DT route_NN ._SENT 
+The_DT replanning_NP period_NN Tr_NP lasts_VVZ until_IN the_DT algorithm_NN produces_VVZ a_DT result_NN ;_: •_NP Action_NP time_NN (_( ta_NN )_) :_: the_DT vessel_NN changes_VVZ its_PP$ course_NN to_TO follow_VV the_DT new_JJ segment_NN ._SENT 
+Fig_NN ._SENT 
+8._CD Time_NP variables_NNS and_CC periods_NNS involved_VVN in_IN path_NN replanning_NN ._SENT 
+9.2_CD ._SENT 
+Closest_JJS point_NN of_IN approach_NN The_DT Closest_JJS Point_NP of_IN Approach_NN (_( CPA_NP )_) is_VBZ a_DT way_NN to_TO evaluate_VV the_DT hazard_NN due_JJ to_TO the_DT minimum_JJ potential_JJ distance_NN between_IN the_DT target_NN vessel_NN and_CC the_DT obstacle_NN (_( Kuwata_NP ,_, Wolf_NP ,_, Zarzhitsky_NP ,_, &_CC Huntsberger_NP ,_, 2014_CD )_) ._SENT 
+In_IN this_DT work_NN ,_, the_DT CPA_NP is_VBZ used_VVN to_TO determine_VV whether_IN a_DT replan_NN is_VBZ necessary_JJ or_CC not_RB ,_, and_CC to_TO build_VV the_DT Projected_JJ Obstacle_NN Area_NP (_( POA_NP )_) in_IN Section_NP 9.4_CD ._SENT 
+The_DT CPA_NP is_VBZ described_VVN by_IN dCPA_NP ,_, tCPA_NP ,_, the_DT minimum_JJ distance_NN and_CC the_DT time_NN instant_NN when_WRB the_DT target_NN vessel_NN and_CC the_DT obstacle_NN reach_VV it_PP ,_, respectively_RB :_: (_( 28)tCPA=(pv−po)⋅(vv−vo)∥vv−vo∥_NP ,_, (_( 29)dCPA=∥(pv+vvtCPA)−(po+votCPA)∥_NP ,_, where_WRB p_NN and_CC v_NN are_VBP he_PP position_NN and_CC velocity_NN vectors_NNS of_IN the_DT target_NN vessel_NN and_CC the_DT obstacle_NN ._SENT 
+It_PP is_VBZ clear_JJ that_IN if_IN ∥vv−vo∥→0_NN then_RB tCPA→∞_JJ it_PP is_VBZ implied_VVN that_IN the_DT obstacle_NN and_CC target_NN vessel_NN are_VBP on_IN the_DT same_JJ course_NN with_IN equal_JJ speed_NN ._SENT 
+The_DT replanning_VVG procedure_NN starts_NNS if_IN the_DT target_NN vessel_NN is_VBZ in_IN a_DT collision_NN risk_NN :_: Definition_NN 1_CD The_DT target_NN vessel_NN is_VBZ in_IN a_DT collision_NN risk_NN if_IN :_: (_( 30)(0<tCPA≤trisk)∧(dCPA≤drisk_NN )_) ._SENT 
+9.3_CD ._SENT 
+Compliance_NN to_TO COLREG_VV guidelines_NNS The_DT International_NP Maritime_NP Organization_NP (_( IMO_NP )_) established_VVD the_DT COLREGs_NNS in_IN IMO_NP (_( 1977_CD )_) ._SENT 
+For_IN the_DT replanning_JJ phase_NN we_PP consider_VVP the_DT rules_NNS found_VVN in_IN Section_NP 2_CD of_IN the_DT COLREG_NP (_( Conduct_NP of_IN Vessels_NP in_IN Sight_NN of_IN One_CD Another_DT )_) and_CC mainly_RB refer_VV to_TO Rules_NP 14–15_NP (_( head-on_JJ situation_NN and_CC crossing_VVG situation_NN )_) ,_, both_CC illustrated_VVN in_IN Fig_NN ._SENT 
+9._CD Another_DT relevant_JJ rule_NN ,_, although_IN not_RB considered_VVN in_IN this_DT work_NN ,_, is_VBZ Rule_NP 13_CD (_( overtaking_VVG situation_NN )_) ._SENT 
+In_IN general_NN ,_, the_DT target_NN vessel_NN should_MD always_RB leave_VV the_DT moving_VVG obstacle_NN on_IN its_PP$ port_JJ side_NN ._SENT 
+In_IN the_DT case_NN of_IN a_DT crossing_VVG situation_NN ,_, the_DT target_NN vessel_NN may_MD keep_VV its_PP$ course_NN if_IN the_DT vehicle_NN comes_VVZ from_IN his_PP$ starboard_JJ side_NN ,_, but_CC leave_VV the_DT obstacle_NN on_IN his_PP$ port_JJ side_NN otherwise_RB (_( as_IN in_IN Fig_NN ._SENT 
+9A_NP )_) ._SENT 
+To_TO determine_VV the_DT situation_NN ,_, the_DT relative_JJ course_NN αr_NN can_MD be_VB calculated_VVN in_IN the_DT following_VVG way_NN :_: (_( 31)αr=atan2(yv−yo_NP ,_, xv−xo)−ψo_NP ,_, where_WRB x_SYM and_CC y_NP are_VBP the_DT Cartesian_JJ coordinates_VVZ of_IN the_DT target_NN vehicle/obstacle_NN ,_, and_CC ψo_NP is_VBZ the_DT obstacle_NN heading_VVG angle_NN ._SENT 
+The_DT angle_NN αr_NN determines_VVZ the_DT situation_NN as_IN defined_VVN in_IN Fig_NN ._SENT 
+9A_NP ._SENT 
+Fig_NN ._SENT 
+9._CD The_DT possible_JJ mutual_JJ situations_NNS between_IN the_DT target_NN vehicle_NN and_CC moving_VVG obstacle_NN are_VBP showed_VVN in_IN (_( A_NP )_) ._SENT 
+A_DT crossing_VVG and_CC a_DT head-on_JJ situation_NN are_VBP depicted_VVN in_IN (_( B_NP )_) and_CC (_( C_NP )_) ,_, respectively_RB ._SENT 
+Solid_JJ blue_JJ lines_NNS indicate_VVP the_DT approved_VVN maneuver_NN from_IN the_DT target_NN vehicle_NN perspective_NN ,_, whereas_IN red_JJ dashed_VVN lines_NNS are_VBP maneuvers_NNS to_TO avoid_VV ._SENT 
+(_( For_IN interpretation_NN of_IN the_DT references_NNS to_TO color_VV in_IN this_DT figure_NN caption_NN ,_, the_DT reader_NN is_VBZ referred_VVN to_TO the_DT web_NN version_NN of_IN this_DT paper_NN ._SENT 
+)_) 9.4_CD ._SENT 
+Projected_JJ obstacle_NN area_NN When_WRB a_DT dynamic_JJ obstacle_NN is_VBZ detected_VVN ,_, it_PP is_VBZ possible_JJ to_TO predict_VV its_PP$ near-future_NN positions_NNS ,_, thus_RB generating_VVG the_DT Projected_JJ Obstacle_NN Area_NP (_( POA_NP )_) (_( Larson_NP et_NP al_NP ._SENT 
+,_, 2006_CD ,_, Larson_NP et_CC al_NP ._SENT 
+,_, 2007_CD )_) ._SENT 
+The_DT size_NN of_IN the_DT POA_NN is_VBZ a_DT function_NN of_IN the_DT uncertainty_NN in_IN tracking_VVG the_DT obstacle_NN (_( high_JJ uncertainty_NN will_MD result_VV in_IN a_DT higher_JJR number_NN of_IN probable_JJ near-future_NN positions_NNS )_) and_CC the_DT speed_NN of_IN the_DT obstacle_NN ._SENT 
+In_IN this_DT paper_NN ,_, the_DT KF_NP obstacle_NN position_NN estimates_NNS are_VBP used_VVN to_TO compute_VV the_DT POA_NN ._SENT 
+In_IN particular_JJ ,_, the_DT covariance_NN is_VBZ used_VVN for_IN :_: (_( a_DT )_) assessing_VVG whether_IN the_DT obstacle_NN tracking_NN is_VBZ reliable_JJ enough_RB to_TO be_VB used_VVN in_IN the_DT replanning_JJ phase_NN ,_, and_CC (_( b_LS )_) building_VVG the_DT POA_NN ._SENT 
+As_RB soon_RB as_IN the_DT tracking_NN accuracy_NN is_VBZ acceptable_JJ ,_, i._NP e._NP the_DT estimation_NN covariance_NN is_VBZ low_JJ enough_RB ,_, the_DT prediction_NN of_IN the_DT obstacle_NN 's_POS future_JJ states_NNS starts_NNS ._SENT 
+The_DT last_JJ considered_VVN prediction_NN is_VBZ the_DT one_CD corresponding_JJ to_TO the_DT CPA_NP ._SENT 
+The_DT convex_JJ hull_NN containing_VVG the_DT first_JJ and_CC last_JJ obstacle_NN state_NN estimations_NNS '_POS covariance_NN ellipses_NNS obtained_VVN during_IN this_DT procedure_NN defines_VVZ the_DT POA_NN ,_, as_RB shown_VVN in_IN Fig_NN ._SENT 
+7._CD If_IN vo≈0_NP ,_, the_DT POA_NN is_VBZ approximated_VVN as_IN a_DT circle_NN with_IN a_DT certain_JJ radius_NN (_( Fig_NN ._SENT 
+14_CD )_) ._SENT 
+The_DT POA_NN is_VBZ then_RB further_RBR refined_VVN so_RB as_RB to_TO exclude_VV the_DT paths_NNS that_WDT do_VVP not_RB satisfy_VV the_DT COLREG_NN ._SENT 
+This_DT is_VBZ illustrated_VVN in_IN Fig_NN ._SENT 
+13_CD ,_, where_WRB the_DT POA_NN is_VBZ extended_VVN towards_IN the_DT border_NN of_IN the_DT replanning_VVG area_NN to_TO exclude_VV the_DT routes_NNS that_WDT would_MD take_VV the_DT obstacle_NN on_IN the_DT port_JJ side_NN ._SENT 
+9.5_CD ._SENT 
+Path_NN replanning_VVG system_NN steps_NNS In_IN the_DT case_NN where_WRB replanning_NN is_VBZ needed_VVN ,_, the_DT same_JJ algorithm_NN that_WDT generated_VVD the_DT initial_JJ path_NN is_VBZ now_RB applied_VVN to_TO a_DT restricted_JJ area_NN centered_VVN on_IN the_DT current_JJ position_NN of_IN the_DT target_NN vessel_NN ._SENT 
+The_DT size_NN of_IN that_DT area_NN is_VBZ determined_VVN based_VVN on_IN a_DT compromise_NN between_IN the_DT need_NN for_IN a_DT fast_JJ solution_NN and_CC the_DT need_NN to_TO consider_VV a_DT large_JJ enough_JJ area_NN that_WDT can_MD give_VV valid_JJ replanning_NN alternatives_NNS ._SENT 
+When_WRB an_DT obstacle_NN is_VBZ detected_VVN and_CC tracking_NN commences_VVZ ,_, the_DT replanning_VVG module_NN follows_VVZ the_DT routine_NN below_RB :_: 1._CD Define_VV the_DT replanning_VVG area_NN (_( local_JJ map_NN )_) ._SENT 
+2._CD Compute_VV and_CC add_VV the_DT POA_NN to_TO the_DT local_JJ map_NN ._SENT 
+3._CD Compute_VV the_DT first_JJ WP_NP of_IN the_DT replanned_JJ segment_NN ._SENT 
+4._CD Compute_VV the_DT last_JJ WP_NP of_IN the_DT replanned_JJ segment_NN ._SENT 
+5._CD Generate_VV the_DT VD_NN on_IN the_DT local_JJ map_NN ._SENT 
+6._CD Connect_VVP the_DT first_JJ and_CC last_JJ WPs_NNS to_TO the_DT VD_NN ._SENT 
+7._CD Compute_VV the_DT shortest_JJS path_NN ._SENT 
+8._CD Simplify_VV and_CC smooth_VV the_DT path_NN ._SENT 
+If_IN no_DT solution_NN is_VBZ found_VVN ,_, the_DT process_NN is_VBZ repeated_VVN after_IN increasing_VVG the_DT dimension_NN of_IN the_DT replanning_JJ area_NN ._SENT 
+During_IN the_DT replanning_NP period_NN Tr_NP ,_, the_DT CPA_NP is_VBZ continuously_RB monitored_VVN and_CC an_DT emergency_NN stop_NN can_MD be_VB executed_VVN ,_, should_MD the_DT need_MD arise_VV ._SENT 
+The_DT procedure_NN to_TO calculate_VV the_DT POA_NP (_( Step_NN 2_CD )_) was_VBD given_VVN in_IN Section_NP 9.4_CD and_CC Steps_VVZ 5–8_JJ are_VBP identical_JJ with_IN those_DT presented_VVN in_IN Section_NP 3._CD The_DT procedure_NN that_WDT follows_VVZ explains_VVZ in_IN detail_NN how_WRB the_DT replanning_VVG area_NN (_( Step_NN 1_CD )_) ,_, as_RB well_RB as_IN the_DT first_JJ and_CC last_JJ WPs_NNS ,_, are_VBP computed_VVN (_( see_VV also_RB Figs_NNS ._SENT 
+8_CD and_CC 10_CD )_) :_: 1._CD The_DT first_JJ waypoint_NN WPs_NNS of_IN the_DT replanned_JJ segment_NN is_VBZ obtained_VVN calculating_VVG the_DT position_NN of_IN the_DT target_NN vessel_NN at_IN the_DT time_NN T∗>tc+Tr_NN ,_, where_WRB T*_NP is_VBZ a_DT conservative_JJ estimation_NN of_IN the_DT time_NN that_IN the_DT replanning_VVG algorithm_NN takes_VVZ to_TO give_VV a_DT solution_NN for_IN the_DT selected_JJ area_NN ,_, and_CC tc_NP is_VBZ the_DT current_JJ time_NN ;_: 2._CD d→wp_NN (_( the_DT versor_NN representing_VVG the_DT direction_NN of_IN the_DT line_NN connecting_VVG the_DT waypoints_NNS WPk_NN and_CC WPk+1_JJ )_) is_VBZ calculated_VVN ._SENT 
+This_DT direction_NN defines_VVZ the_DT orientation_NN of_IN the_DT replanning_VVG frame_NN {_( r_NN }_) ._SENT 
+The_DT x_NN and_CC y_NN axis_NN of_IN this_DT frame_NN are_VBP respectively_RB perpendicular_JJ and_CC parallel_JJ to_TO d→wp_VV ._SENT 
+Its_PP$ center_NN is_VBZ located_VVN on_IN the_DT target_NN vessel_NN COG_NN ._SENT 
+All_PDT the_DT following_VVG variables_NNS are_VBP defined_VVN in_IN this_DT frame_NN ;_: 3._CD The_DT following_NN values_NNS are_VBP calculated_VVN :_: ox=min(ox_NP )_) ,_, oX=max(ox_NP )_) ,_, oy=min(oy_NP )_) and_CC oY=max(o_NP ,_, y_NP )_) that_WDT are_VBP the_DT minimum_NN and_CC maximum_NN coordinates_VVZ of_IN the_DT POA_NN ._SENT 
+Notice_VV that_IN pro=(ox_NP ,_, oy)∈POA_NP ;_: 4._CD The_DT replanning_NN area_NN ABCD¯¯¯¯¯¯¯¯¯¯_NN is_VBZ defined_VVN from_IN the_DT intersections_NNS of_IN four_CD lines_NNS parallel_JJ to_TO the_DT axis_NN of_IN the_DT frame_NN {_( r_NN }_) :_: l1_JJ ,_, l2_JJ ,_, s1_JJ ,_, s2_JJ ;_: 5._CD The_DT following_NN values_NNS are_VBP calculated_VVN :_: l1y=vy_RB ,_, l2y=oY+Δyl2_NP ;_: 6._CD The_DT intersection_NN of_IN l2_NN with_IN the_DT original_JJ path_NN r(θ_NN )_) gives_VVZ WPf_NP ,_, that_WDT is_VBZ the_DT final_JJ waypoint_NN of_IN the_DT replanned_JJ segment_NN ;_: 7._CD The_DT following_NN values_NNS are_VBP calculated_VVN :_: s1x=min{pv_NP ,_, x_NN ,_, ox_NN ,_, wpf_NP ,_, x}−Δxs1_NN ,_, s2x=max{pv_NP ,_, x_NN ,_, oX_RB ,_, wpf_NP ,_, x}+Δxs2_NP define_VV the_DT side_NN lines_NNS ._SENT 
+Notice_VV that_IN WPf=(WPf_NP ,_, x_NN ,_, WPf_NP ,_, y_NP )_) and_CC pv=(pv_NP ,_, x_NN ,_, pv_NP ,_, y_NP )_) ;_: 8._CD The_DT following_NN values_NNS are_VBP calculated_VVN :_: Δxs1=100_NP ,_, Δxs2=2000−|oX|_NP ,_, Δxl2=2000−oY_NP 9._CD In_IN case_NN of_IN moving_VVG obstacle_NN ,_, the_DT forbidden_VVN navigation_NN area_NN (_( see_VV Fig_NN ._SENT 
+10_CD )_) limited_VVN by_IN the_DT coordinates_VVZ oy_NNS ,_, oY_NNS and_CC s1x_NP and_CC WPf_NP ,_, x_NN is_VBZ added_VVN as_IN an_DT additional_JJ obstacle_NN ._SENT 
+Fig_NN ._SENT 
+10._CD Illustration_NN of_IN the_DT replanning_JJ area_NN ._SENT 
+The_DT replanning_VVG frame_NN (_( blue_JJ axes_NNS )_) is_VBZ oriented_VVN towards_IN the_DT line_NN connecting_VVG the_DT WPk_NN to_TO WPk+1_JJ ._SENT 
+(_( For_IN interpretation_NN of_IN the_DT references_NNS to_TO color_VV in_IN this_DT figure_NN caption_NN ,_, the_DT reader_NN is_VBZ referred_VVN to_TO the_DT web_NN version_NN of_IN this_DT paper_NN ._SENT 
+)_) The_DT values_NNS of_IN Δs1_NN ,_, Δs2_NP and_CC Δl2_NP are_VBP defined_VVN arbitrarily_RB to_TO have_VH a_DT replanning_VVG area_NN of_IN around_RB 2000×2000_JJ square_JJ meters_NNS ,_, that_WDT extends_VVZ in_IN both_DT directions_NNS for_IN an_DT extension_NN of_IN around_RB 4_CD times_NNS the_DT range_NN of_IN the_DT sensor_NN ._SENT 
+This_DT area_NN can_MD be_VB successfully_RB replanned_VVN in_IN less_JJR than_IN Tr=0.6_JJ s_NNS ,_, so_RB it_PP is_VBZ possible_JJ to_TO define_VV T∗=2s_NNS ._SENT 
+If_IN a_DT solution_NN cannot_MD be_VB found_VVN ,_, the_DT replanning_VVG area_NN is_VBZ increased_VVN and_CC the_DT procedure_NN repeated_VVD again_RB ._SENT 
+If_IN during_IN this_DT process_NN the_DT CPA_NP becomes_VVZ critical_JJ ,_, the_DT navigation_NN is_VBZ stopped_VVN ._SENT 
+Moreover_RB ,_, this_DT paper_NN considers_VVZ dynamic_JJ obstacles_NNS with_IN realistic_JJ dynamics_NNS ._SENT 
+In_IN this_DT sense_NN it_PP is_VBZ supposed_VVN that_IN changes_NNS in_IN their_PP$ speed_NN or_CC direction_NN cannot_MD occur_VV instantly_RB ,_, and_CC can_MD be_VB identified_VVN by_IN the_DT obstacle_NN tracking_NN algorithm_NN ._SENT 
+If_IN the_DT new_JJ conditions_NNS do_VVP not_RB allow_VV a_DT replanning_NN in_IN the_DT safety_NN time_NN margins_NNS ,_, the_DT system_NN would_MD notify_VV the_DT captain_NN that_IN an_DT emergency_NN stop_NN may_MD be_VB needed_VVN ._SENT 
+<Section> 10._CD Case_NN study_NN and_CC simulation_NN results_NNS </Section> In_IN this_DT section_NN ,_, we_PP present_VVP information_NN related_VVN to_TO setting-up_NN and_CC running_VVG the_DT simulations_NNS ._SENT 
+A_DT block_NN diagram_NN illustrating_VVG the_DT logic_NN flow_NN of_IN the_DT whole_JJ path-planning_NN system_NN and_CC the_DT sections_NNS within_IN the_DT paper_NN that_WDT describe_VVP its_PP$ elements_NNS can_MD be_VB seen_VVN in_IN Fig_NN ._SENT 
+11._CD Fig_NN ._SENT 
+11._CD Illustration_NN of_IN the_DT algorithm_NN 's_POS block_NN elements_NNS and_CC their_PP$ correspondence_NN with_IN the_DT sections_NNS of_IN this_DT paper_NN ._SENT 
+The_DT upper_JJ part_NN is_VBZ executed_VVN offline_NN ,_, while_IN the_DT red_JJ dashed_VVN line_NN contains_VVZ the_DT online_JJ processes_NNS ._SENT 
+(_( For_IN interpretation_NN of_IN the_DT references_NNS to_TO color_VV in_IN this_DT figure_NN caption_NN ,_, the_DT reader_NN is_VBZ referred_VVN to_TO the_DT web_NN version_NN of_IN this_DT paper_NN ._SENT 
+)_) 10.1_CD ._SENT 
+Map_NN and_CC environmental_JJ conditions_NNS The_DT simulations_NNS are_VBP carried_VVN out_RP on_IN real_JJ map_NN data_NNS ,_, representing_VVG a_DT region_NN of_IN around_RB 3000_CD Km2_NN in_IN the_DT Sør-Trøndelag_NP region_NN of_IN Norway_NP ._SENT 
+The_DT data_NNS have_VHP been_VBN obtained_VVN from_IN the_DT sources_NNS reported_VVN in_IN Section_NP 2._CD We_PP considered_VVD a_DT constant_JJ (_( w._NP r._NP t._NP the_DT inertial_JJ frame_NN )_) ocean_NN current_JJ of_IN magnitude_NN Uc=2m/s_NNS and_CC direction_NN βc=90°_NN (_( from_IN West_NP to_TO East_NP )_) ._SENT 
+10.2_CD ._SENT 
+Obstacles_NNS motion_NN As_IN mentioned_VVN in_IN Section_NP 8_CD ,_, we_PP consider_VVP dynamic_JJ obstacles_NNS with_IN unknown_JJ velocity_NN ,_, which_WDT is_VBZ estimated_VVN online_JJ along_IN with_IN the_DT obstacle_NN 's_POS position_NN ._SENT 
+In_IN particular_JJ ,_, the_DT obstacle_NN speed_NN is_VBZ modified_VVN by_IN adding_VVG a_DT Gaussian_JJ noise_NN around_IN its_PP$ average_JJ speed_NN :_: (_( 32)|uo|∼N(|u¯o|_NP ,_, |u¯o|3_NP )_) where_WRB u_NN is_VBZ the_DT surge_NN speed_NN ,_, that_WDT is_VBZ the_DT first_JJ element_NN of_IN the_DT vo_NP obstacle_NN velocity_NN vector_NN ._SENT 
+The_DT course_NN angle_NN evolves_VVZ following_VVG a_DT random_JJ walking_NN process_NN ,_, where_WRB at_IN every_DT step_NN the_DT probabilities_NNS of_IN changing_VVG direction_NN is_VBZ set_VVN at_IN 0.4_CD ,_, giving_VVG as_IN a_DT result_NN a_DT motion_NN with_IN a_DT certain_JJ variability_NN in_IN the_DT course_NN ._SENT 
+The_DT heading_VVG varies_VVZ with_IN steps_NNS of_IN Δψ=1°_NP ,_, where_WRB the_DT period_NN that_WDT is_VBZ used_VVN for_IN generating_VVG the_DT moving_VVG obstacle_NN motion_NN is_VBZ set_VVN to_TO 0.01_CD s._NN The_DT random_JJ walking_NN process_NN that_WDT generates_VVZ the_DT heading_VVG can_MD then_RB be_VB defined_VVN by_IN the_DT following_VVG discrete_JJ probability_NN function_NN :_: (_( 33)P[ψo(k+1)=ψo(k)+Δψ]=0.2_JJ ;_: (_( 34)P[ψo(k+1)=ψo(k)]=0.6_JJ ;_: (_( 35)P[ψo(k+1)=ψo(k)−Δψ]=0.2_NP ;_: This_DT adds_VVZ a_DT certain_JJ level_NN of_IN unpredictability_NN to_TO the_DT simulated_JJ obstacle_NN motion_NN ,_, that_WDT is_VBZ useful_JJ to_TO test_VV and_CC challenge_VV the_DT assumptions_NNS stated_VVN in_IN Section_NP 8._CD 10.3_CD ._SENT 
+Simulations_NNS parameters_NNS The_DT simulations_NNS were_VBD implemented_VVN using_VVG the_DT model_NN for_IN Cybership_NP II_NP ,_, a_DT 1:70_CD replica_NN of_IN a_DT supply_NN ship_NN (_( the_DT model_NN parameters_NNS can_MD be_VB found_VVN in_IN Skjetne_NP ,_, 2005_CD )_) ._SENT 
+The_DT target_NN vessel_NN is_VBZ moving_VVG with_IN a_DT relative_JJ total_JJ speed_NN of_IN Ur=5m/s_NP ._SENT 
+The_DT LOS_NP tuning_VVG constants_NNS from_IN (_( 24_CD )_) ,_, (_( 25_CD )_) were_VBD chosen_VVN as_RB :_: K1=10_NP ,_, K2=0.8_NP ._SENT 
+Moreover_RB ,_, the_DT lookahead_NN distance_NN of_IN (_( 22_CD )_) and_CC following_NN is_VBZ set_VVN to_TO Δ=20_JJ m._NP 10.4_CD ._SENT 
+Sensor_NN characteristics_NNS A_DT variety_NN of_IN sensors_NNS can_MD be_VB used_VVN for_IN obstacle_NN detection_NN ,_, from_IN passive-ranging_VVG cameras_NNS (_( in_IN monocular_JJ and_CC stereo_JJ configurations_NNS )_) to_TO active-ranging_VVG radars_NNS ,_, sonars_NNS and_CC lidars_NNS ._SENT 
+Configurations_NNS that_IN fuse_NN data_NNS from_IN radars_NNS and_CC cameras_NNS ,_, or_CC range_NN finders_NNS and_CC cameras_NNS are_VBP the_DT most_RBS widely_RB utilized_VVN ones_NNS (_( Almeida_NP et_NP al_NP ._SENT 
+,_, 2009_CD ,_, Heidarsson_NP and_CC Sukhatme_NP ,_, 2011_CD ,_, Larson_NP et_CC al_NP ._SENT 
+,_, 2006_CD ,_, Larson_NP et_CC al_NP ._SENT 
+,_, 2007_CD )_) ._SENT 
+This_DT paper_NN does_VVZ not_RB treat_VV the_DT sensing_VVG module_NN itself_PP nor_CC the_DT data_NNS interpretation_NN ,_, in_IN fact_NN the_DT obstacle_NN is_VBZ detected_VVN as_RB soon_RB as_IN it_PP enters_VVZ the_DT sensor_NN 's_POS FOV_NP ._SENT 
+The_DT interested_JJ reader_NN is_VBZ referred_VVN to_TO Quidu_NP et_CC al_NP ._SENT 
+(_( 2012_CD )_) and_CC Karoui_NP et_NP al_NP ._SENT 
+(_( 2015_CD )_) instead_RB ,_, since_IN the_DT solution_NN therein_RB can_MD be_VB used_VVN to_TO detect_VV and_CC avoid_VV both_DT above_JJ and_CC sub-surface_JJ obstacles_NNS in_IN the_DT middle-short_NN range_NN by_IN using_VVG only_RB one_CD sensor_NN (_( sonar_NN )_) ._SENT 
+A_DT similar_JJ solution_NN is_VBZ also_RB utilized_VVN in_IN Heidarsson_NP and_CC Sukhatme_NP (_( 2011_CD )_) ._SENT 
+In_IN our_PP$ case_NN ,_, the_DT following_VVG values_NNS define_VV the_DT accuracy_NN and_CC other_JJ characteristics_NNS of_IN the_DT simulated_JJ sensor_NN :_: (_( 36)σd=0.05m_NP ,_, (_( 37)σδ=1.5°_NP ,_, (_( 38)σv=10−3m/s2_NP ._SENT 
+where_WRB σd_JJ ,_, σδ_JJ are_VBP the_DT standard_JJ deviations_NNS of_IN the_DT measurement_NN errors_NNS '_POS range_NN and_CC bearing_NN ,_, respectively_RB ,_, and_CC σv_NP the_DT standard_JJ deviation_NN of_IN the_DT model_NN error_NN ._SENT 
+These_DT variables_NNS are_VBP used_VVN to_TO tune_VV the_DT obstacle_NN tracking_VVG algorithms_NNS ,_, as_RB in_IN Karoui_NP et_CC al_NP ._SENT 
+(_( 2015_CD )_) ._SENT 
+Moreover_RB ,_, the_DT sensor_NN is_VBZ supposed_VVN to_TO have_VH a_DT range_NN of_IN 500_CD m_NN ,_, and_CC to_TO span_NN an_DT angle_NN δ∈[−60°,60°_NN ]_SYM ._SENT 
+10.5_CD ._SENT 
+Simulation_NP results_VVZ This_DT section_NN presents_VVZ a_DT simulation_NN study_NN where_WRB two_CD consecutive_JJ replanning_NN sessions_NNS are_VBP needed_VVN to_TO avoid_VV two_CD obstacles_NNS ._SENT 
+The_DT simulation_NN is_VBZ based_VVN on_IN the_DT map_NN area_NN from_IN Fig_NN ._SENT 
+4._CD However_RB ,_, in_IN this_DT case_NN study_NN we_PP do_VVP not_RB consider_VV depth_NN constraints_NNS because_IN the_DT resulting_VVG paths_NNS are_VBP safer_JJR by_IN keeping_VVG the_DT vehicle_NN further_RBR away_RB from_IN small_JJ islands_NNS ,_, hence_RB making_VVG the_DT replanning_VVG phase_NN easier_JJR to_TO execute_VV successfully_RB ._SENT 
+On_IN the_DT contrary_NN ,_, we_PP choose_VVP to_TO perform_VV the_DT dynamic_JJ replanning_NN algorithm_NN at_IN a_DT crammed_VVD area_NN with_IN small_JJ islands_NNS and_CC two_CD additional_JJ obstacles_NNS (_( one_CD static_JJ and_CC one_CD dynamic_NN )_) ._SENT 
+The_DT selected_JJ path_NN segment_NN is_VBZ between_IN WP22–WP23_NN ,_, see_VV Fig_NN ._SENT 
+12._CD The_DT vehicle_NN encounters_VVZ the_DT dynamic_JJ obstacle_NN first_JJ and_CC starts_VVZ following_VVG the_DT first_JJ replanned_JJ segment_NN (_( or_CC deviation_NN )_) ._SENT 
+Before_IN returning_VVG to_TO the_DT original_JJ path_NN ,_, the_DT vehicle_NN encounters_VVZ the_DT static_JJ obstacle_NN and_CC needs_VVZ to_TO perform_VV a_DT second_JJ replanning_NN ._SENT 
+Notice_VV that_IN ,_, after_IN travelling_VVG on_IN the_DT second_JJ replanned_JJ segment_NN (_( green_JJ curve_NN )_) ,_, the_DT vehicle_NN converges_VVZ initially_RB back_RB to_TO the_DT first_JJ replanned_JJ segment_NN (_( blue_JJ curve_NN )_) and_CC then_RB to_TO the_DT original_JJ path_NN (_( red_JJ curve_NN )_) ,_, that_WDT is_VBZ ,_, it_PP does_VVZ not_RB go_VV directly_RB from_IN the_DT green_NN to_TO the_DT red_JJ path_NN ._SENT 
+The_DT FOVs_NNS of_IN the_DT sensor_NN in_IN the_DT two_CD moments_NNS in_IN which_WDT the_DT obstacles_NNS are_VBP first_RB identified_VVN are_VBP also_RB shown_VVN ._SENT 
+Notice_VV that_IN an_DT unknown_JJ ocean_NN current_NN is_VBZ flowing_VVG from_IN West_NP to_TO East_NP ._SENT 
+Fig_NN ._SENT 
+12._CD Demonstration_NN of_IN consecutive_JJ replanning_NN involving_VVG a_DT dynamic_JJ obstacle_NN followed_VVN by_IN a_DT static_JJ obstacle_NN ._SENT 
+The_DT initial_JJ path_NN (_( left_VVN plot_NN )_) is_VBZ generated_VVN based_VVN on_IN land_NN constraints_NNS ._SENT 
+The_DT second_JJ plot_NN focuses_VVZ on_IN the_DT area_NN between_IN WP22_NP and_CC WP23_NP ,_, where_WRB the_DT two_CD obstacles_NNS are_VBP detected_VVN and_CC evaded_VVN ._SENT 
+The_DT two_CD resulting_VVG replanning_NN areas_NNS are_VBP highlighted_VVN with_IN blue_JJ and_CC green_JJ colors_NNS ._SENT 
+The_DT Voronoi_NP diagram_NN edges_NNS used_VVN for_IN determining_VVG the_DT replanned_JJ segments_NNS waypoints_NNS are_VBP also_RB visible_JJ ._SENT 
+(_( For_IN interpretation_NN of_IN the_DT references_NNS to_TO color_VV in_IN this_DT figure_NN caption_NN ,_, the_DT reader_NN is_VBZ referred_VVN to_TO the_DT web_NN version_NN of_IN this_DT paper_NN ._SENT 
+)_) Fig_NN ._SENT 
+13_CD ,_, Fig_NN ._SENT 
+14_CD ,_, Fig_NN ._SENT 
+15_CD represent_VVP zoomed_VVN areas_NNS of_IN Fig_NN ._SENT 
+12._CD They_PP show_VVP respectively_RB :_: •_NN The_DT first_JJ deviation_NN from_IN the_DT original_JJ path_NN is_VBZ due_JJ to_TO the_DT moving_VVG obstacle_NN 1_CD (_( black_JJ vehicle_NN )_) ._SENT 
+Notice_VV that_IN this_DT case_NN falls_VVZ in_IN the_DT crossing_VVG situation_NN of_IN the_DT COLREGs_NNS (_( from_IN Section_NP 9.3_CD )_) ._SENT 
+The_DT moving_VVG obstacle_NN is_VBZ at_IN the_DT starboard_JJ side_NN of_IN the_DT target_NN vehicle_NN when_WRB it_PP enters_VVZ the_DT field_NN of_IN view_NN of_IN the_DT sensor_NN ,_, consequently_RB the_DT target_NN vehicle_NN should_MD change_VV its_PP$ course_NN in_IN order_NN to_TO leave_VV the_DT obstacle_NN on_IN its_PP$ port_JJ side_NN ._SENT 
+For_IN this_DT purpose_NN a_DT virtual_JJ obstacle_NN is_VBZ added_VVN to_TO the_DT replanning_JJ area_NN ,_, excluding_VVG alternative_JJ paths_NNS that_WDT do_VVP not_RB satisfy_VV the_DT COLREGS_NNS (_( light_JJ green_JJ box_NN in_IN Fig_NN ._SENT 
+13_CD )_) ._SENT 
+•_NP The_DT deviation_NN from_IN the_DT blue_JJ path_NN due_JJ to_TO the_DT static_JJ obstacle_NN (_( approximated_VVN as_IN a_DT circle_NN of_IN standard_JJ dimension_NN ,_, as_RB explained_VVN in_IN Section_NP 9.4_CD )_) ._SENT 
+Notice_VV that_IN in_IN this_DT case_NN the_DT POA_NN is_VBZ not_RB modified_VVN ,_, since_IN the_DT COLREGs_NNS do_VVP not_RB apply_VV ._SENT 
+•_NP The_DT moments_NNS when_WRB the_DT target_NN vessel_NN joins_VVZ again_RB the_DT first_JJ replanned_JJ path_NN (_( blue_JJ )_) ,_, and_CC the_DT initial_JJ path_NN (_( red_JJ )_) ._SENT 
+In_IN the_DT aforementioned_JJ figure_NN the_DT measures_NNS positions_NNS of_IN the_DT obstacles_NNS (_( black_JJ crosses_VVZ )_) and_CC their_PP$ estimated_JJ positions_NNS (_( violet_NN circles_NNS )_) ,_, are_VBP also_RB depicted_VVN ._SENT 
+It_PP can_MD be_VB seen_VVN how_WRB smoothly_RB the_DT vessel_NN is_VBZ deviated_VVN from_IN the_DT original_JJ path_NN and_CC joins_VVZ it_PP again_RB after_IN the_DT escaped_VVN risk_NN ._SENT 
+The_DT following_VVG plots_NNS show_VVP the_DT details_NNS of_IN the_DT control_NN performance_NN along_IN the_DT path_NN ._SENT 
+Fig_NN ._SENT 
+13._CD Detail_NN of_IN the_DT first_JJ replanning_NN and_CC of_IN the_DT tracking_NN of_IN Obstacle_NN 1._CD Black_NP crosses_NNS are_VBP the_DT measured_VVN position_NN of_IN the_DT obstacle_NN ,_, violet_NN dots_VVZ the_DT estimated_JJ positions_NNS ._SENT 
+The_DT POA_NN is_VBZ also_RB indicated_VVN ,_, together_RB with_IN the_DT artifact_NN obstacle_NN added_VVD due_JJ to_TO the_DT COLREG_NN constraints_NNS ._SENT 
+(_( For_IN interpretation_NN of_IN the_DT references_NNS to_TO color_VV in_IN this_DT figure_NN caption_NN ,_, the_DT reader_NN is_VBZ referred_VVN to_TO the_DT web_NN version_NN of_IN this_DT paper_NN ._SENT 
+)_) Fig_NN ._SENT 
+14._CD Detail_NN of_IN the_DT second_JJ replanning_NN and_CC of_IN the_DT tracking_NN of_IN the_DT second_JJ obstacle_NN ._SENT 
+Black_JJ crosses_NNS are_VBP the_DT measured_VVN position_NN of_IN the_DT obstacle_NN ,_, violet_NN dots_VVZ the_DT estimated_JJ positions_NNS ._SENT 
+In_IN this_DT case_NN the_DT POA_NN is_VBZ approximated_VVN as_IN a_DT disc_NN of_IN standard_JJ dimensions_NNS ,_, and_CC COLREGs_NNS do_VVP not_RB need_VV to_TO be_VB included_VVN ._SENT 
+(_( For_IN interpretation_NN of_IN the_DT references_NNS to_TO color_VV in_IN this_DT figure_NN caption_NN ,_, the_DT reader_NN is_VBZ referred_VVN to_TO the_DT web_NN version_NN of_IN this_DT paper_NN ._SENT 
+)_) Fig_NN ._SENT 
+15._CD Detail_NN of_IN path_NN convergence_NN :_: the_DT second_JJ replanned_JJ path_NN (_( green_JJ )_) converges_VVZ smoothly_RB on_IN the_DT first_JJ replanned_NP one_CD (_( blue_JJ )_) ,_, the_DT first_JJ replanned_JJ path_NN ,_, finally_RB ,_, converges_VVZ smoothly_RB to_TO the_DT original_JJ one_CD (_( red_NN )_) ._SENT 
+(_( For_IN interpretation_NN of_IN the_DT references_NNS to_TO color_VV in_IN this_DT figure_NN caption_NN ,_, the_DT reader_NN is_VBZ referred_VVN to_TO the_DT web_NN version_NN of_IN this_DT paper_NN ._SENT 
+)_) Fig_NN ._SENT 
+16_CD shows_NNS the_DT CTE_NN for_IN the_DT simulated_JJ example_NN ._SENT 
+t=252_NP s_RB corresponds_VVZ to_TO the_DT time_NN of_IN action_NN ta_NNS ,_, introduced_VVN in_IN Section_NP 9.1_CD and_CC Fig_NN ._SENT 
+8._CD The_DT end_NN of_IN the_DT plot_NN corresponds_VVZ to_TO the_DT moment_NN when_WRB the_DT vessel_NN reach_NN WP24_NN of_IN the_DT original_JJ path_NN ._SENT 
+Small_JJ oscillations_NNS in_IN the_DT CTE_NN due_JJ to_TO the_DT replanning_NN can_MD be_VB noticed_VVN :_: in_IN these_DT points_NNS the_DT vessel_NN changes_VVZ its_PP$ course_NN rapidly_RB ,_, and_CC the_DT controller_NN must_MD adjust_VV for_IN the_DT new_JJ current_JJ estimation_NN ._SENT 
+Despite_IN of_IN these_DT aspects_NNS ,_, the_DT CTE_NN is_VBZ kept_VVN under_IN 0.4_CD m_NN along_IN the_DT whole_JJ replanned_JJ segment_NN ._SENT 
+The_DT initial_JJ oscillations_NNS are_VBP due_JJ to_TO the_DT fact_NN that_IN the_DT starting_VVG vessel_NN 's_VBZ heading_VVG is_VBZ not_RB aligned_VVN with_IN the_DT path_NN direction_NN at_IN the_DT starting_VVG waypoint_NN (_( WP22_NP )_) ._SENT 
+Fig_NN ._SENT 
+16._CD Cross-track_NN error_NN along_IN the_DT path_NN ._SENT 
+Small_JJ disturbances_NNS (_( always_RB below_IN 0.4_CD m_NN )_) can_MD be_VB observed_VVN whenever_WRB a_DT replanning_VVG process_NN takes_VVZ place_NN ._SENT 
+The_DT initial_JJ oscillations_NNS are_VBP due_JJ to_TO the_DT vessel_NN 's_POS initial_JJ heading_VVG ,_, which_WDT is_VBZ not_RB aligned_VVN with_IN the_DT path_NN direction_NN at_IN WP22_NP ._SENT 
+<Section> 11._CD Conclusions_NNS </Section> We_PP presented_VVD a_DT dynamic_JJ path-planning_NN system_NN for_IN underactuated_JJ marine_JJ surface_NN vehicles_NNS based_VVN on_IN the_DT Voronoi_NP Diagram_NN (_( VD_NN )_) ._SENT 
+Given_VVN a_DT departure_NN and_CC a_DT destination_NN location_NN ,_, the_DT algorithm_NN first_RB plans_VVZ an_DT initial_JJ path_NN at_IN global_JJ level_NN (_( that_WDT is_VBZ ,_, considering_VVG the_DT whole_JJ available_JJ map_NN )_) by_IN refining_VVG significantly_RB the_DT original_JJ VD_NN roadmap_NN through_IN a_DT number_NN of_IN heuristics_NNS ._SENT 
+One_CD more_JJR new_JJ element_NN is_VBZ that_IN ,_, in_IN addition_NN to_TO land_NN constraints_NNS ,_, the_DT sea_NN depth_NN data_NNS available_JJ in_IN nautical_JJ charts_NNS are_VBP exploited_VVN in_IN order_NN to_TO avoid_VV navigating_VVG in_IN shallow_JJ waters_NNS ._SENT 
+Successive_JJ straight-line_NN segments_NNS are_VBP connected_VVN using_VVG Fermat_NP 's_POS Spiral_NN (_( FS_NNS )_) segments_NNS ,_, which_WDT ensures_VVZ low_JJ computational_JJ cost_NN and_CC results_NNS in_IN practical_JJ and_CC intuitive_JJ paths_NNS that_WDT satisfy_VV the_DT dynamic_JJ constraints_NNS (_( curvature_NN continuity_NN and_CC maximum_NN value_NN )_) of_IN the_DT underactuated_JJ vehicle_NN ._SENT 
+A_DT methodology_NN for_IN FS_NNS path_NN following_NN was_VBD also_RB developed_VVN and_CC presented_VVN for_IN the_DT first_JJ time_NN here_RB ._SENT 
+When_WRB an_DT obstacle_NN (_( static_JJ or_CC dynamic_JJ )_) is_VBZ detected_VVN and_CC its_PP$ motion_NN is_VBZ tracked_VVN using_VVG the_DT onboard_JJ sonar_NN ,_, the_DT algorithm_NN enters_VVZ a_DT replanning_VVG phase_NN and_CC generates_VVZ a_DT path_NN deviation_NN at_IN local_JJ level_NN that_WDT ensures_VVZ collision_NN avoidance_NN while_IN respecting_VVG the_DT COLREGs_NNS ._SENT 
+Apart_RB from_IN the_DT predicted_VVN future_JJ trajectory_NN of_IN the_DT obstacle_NN itself_PP ,_, the_DT replanning_VVG phase_NN also_RB takes_VVZ into_IN account_NN the_DT time_NN intervals_NNS needed_VVN for_IN the_DT algorithm_NN to_TO replan_NP and_CC the_DT vehicle_NN to_TO change_VV its_PP$ course_NN ,_, so_RB as_RB to_TO produce_VV a_DT useful_JJ deviation_NN ._SENT 
+The_DT process_NN is_VBZ very_RB similar_JJ to_TO the_DT initial_JJ planning_NN phase_NN ,_, but_CC additional_JJ heuristics_NNS are_VBP developed_VVN so_RB as_RB to_TO select_VV a_DT sensible_JJ map_NN area_NN size_NN wherein_RB to_TO seek_VV path_NN deviations_NNS ,_, and_CC to_TO connect_VV this_DT local_JJ deviation_NN to_TO the_DT original_JJ path_NN smoothly_RB after_IN a_DT collision_NN has_VHZ been_VBN avoided_VVN ._SENT 
+The_DT simulated_JJ case_NN study_NN focused_VVN on_IN a_DT crammed_VVD area_NN with_IN many_JJ small_JJ islands_NNS and_CC two_CD (_( a_DT priori_NN unknown_NN )_) obstacles_NNS ,_, one_CD dynamic_JJ and_CC one_CD static_JJ ._SENT 
+The_DT locations_NNS of_IN the_DT obstacles_NNS resulted_VVN in_IN consecutive_JJ double_JJ replanning_NN of_IN the_DT local_JJ path_NN ._SENT 
+The_DT marine_JJ vehicle_NN avoided_VVD both_DT obstacles_NNS and_CC then_RB continued_VVD smoothly_RB onto_IN the_DT original_JJ path_NN ._SENT 
+Without_IN any_DT special_JJ effort_NN to_TO optimize_VV the_DT algorithm_NN running_VVG time_NN in_IN Matlab_NP ,_, the_DT replanning_VVG time_NN never_RB overcame_VVD the_DT threshold_NN of_IN 0.6_CD s._NP This_NP concerned_VVD a_DT map_NN area_NN of_IN approximatively_NP 2000×2000_NP m2_NP ,_, hence_RB making_VVG this_DT solution_NN very_RB promising_VVG for_IN real_JJ applications_NNS ._SENT 
+<Section> Acknowledgments_NNS </Section> This_DT work_NN has_VHZ been_VBN carried_VVN out_RP at_IN the_DT Centre_NP for_IN Autonomous_JJ Marine_NP Operations_NP and_CC Systems_NP (_( AMOS_NP )_) ._SENT 
+The_DT Norwegian_JJ Research_NP Council_NP (_( RCN_NP )_) is_VBZ acknowledged_VVN as_IN the_DT main_JJ sponsor_NN of_IN NTNU_NP AMOS_NP through_IN the_DT Centres_NNS of_IN Excellence_NN funding_NN scheme_NN ,_, Project_NP number_NN 223254._CD Christian_NP Malmquist_NP from_IN Kartverket_NN is_VBZ acknowledged_VVN for_IN sharing_VVG his_PP$ great_JJ knowledge_NN about_IN maps_NNS ._SENT 
+The_DT second_JJ author_NN was_VBD supported_VVN by_IN RCN_NP through_IN the_DT project_NN Next_JJ Generation_NP Subsea_NN IMR_NP Operations_NP ,_, Project_NP number_NN 234108._CD <Section> References_NNS </Section> Almeida_NP et_CC al_NP ._SENT 
+,_, 2009_CD Almeida_NP ,_, C._NP ,_, Franco_NP ,_, T._NP ,_, Ferreira_NP ,_, H._NP ,_, Martins_NP ,_, A._NP ,_, Santos_NP ,_, R._NP ,_, Almeida_NP ,_, J._NP M._NP ,_, Carvalho_NP ,_, J._NP ,_, &_CC Silva_NP ,_, E._NP (_( May_NP 2009_CD )_) ._SENT 
+Radar_NN based_VVN collision_NN detection_NN developments_NNS on_IN USV_NP ROAZ_NP II_NP ._SENT 
+In_IN Proceedings_NNS of_IN MTS/IEEE_NN OCEANS_NNS ._SENT 
+Google_NP Scholar_NN Antonelli_NP et_NP al_NP ._SENT 
+,_, 2001_CD G._NP Antonelli_NP ,_, S._NP Chiaverini_NP ,_, R._NP Finotello_NP ,_, R._NP Schiavon_NP Real-time_JJ path_NN planning_NN and_CC obstacle_NN avoidance_NN for_IN RAIS_NP :_: An_DT autonomous_JJ underwater_JJ vehicle_NN IEEE_NP Journal_NP of_IN Oceanic_JJ Engineering_NP ,_, 26_CD (_( 2_LS )_) (_( 2001_CD )_) ,_, pp_NP ._SENT 
+216-227_CD View_NP Record_NP in_IN ScopusGoogle_NP Scholar_NN Antonelli_NP et_NP al_NP ._SENT 
+,_, 2012_CD Antonelli_NP ,_, G._NP ,_, Chiaverini_NP ,_, S._NP ,_, &_CC Marino_NP ,_, A._NP (_( May_NP 2012_CD )_) ._SENT 
+A_DT coordination_NN strategy_NN for_IN multi-robot_NN sampling_NN of_IN dynamic_JJ fields_NNS ._SENT 
+In_IN Proceedings_NNS of_IN the_DT IEEE_NP International_NP Conference_NP on_IN Robotics_NP and_CC Automation_NN (_( ICRA_NP )_) (_( pp_NP ._SENT 
+1113–1118_NP )_) ._SENT 
+Google_NP Scholar_NN Aurenhammer_NN ,_, 1991_CD F._NP Aurenhammer_NP Voronoi_NP diagrams_VVZ –_JJ A_DT survey_NN of_IN a_DT fundamental_JJ geometric_JJ data_NNS structure_NN ACM_NP Computing_NP Surveys_NNS ,_, 3_CD (_( 1991_CD )_) ,_, pp_NP ._SENT 
+345-404_CD CrossRefView_NP Record_NP in_IN ScopusGoogle_NP Scholar_NN Bellingham_NP et_NP al_NP ._SENT 
+,_, 2002_CD Bellingham_NP ,_, J._NP S._NP ,_, Tillerson_NP ,_, M._NP ,_, Alighanbari_NP ,_, M._NP ,_, &_CC How_WRB ,_, J._NP P._NP (_( December_NP 2002_CD )_) ._SENT 
+Cooperative_JJ path_NN planning_NN for_IN multiple_JJ UAVs_NNS in_IN dynamic_JJ and_CC uncertain_JJ environments_NNS ._SENT 
+In_IN Proceedings_NNS of_IN the_DT 41st_NP IEEE_NP Conference_NP on_IN Decision_NN and_CC Control_NP (_( CDC_NP )_) (_( Vol_NP ._SENT 
+3_LS ,_, pp_NP ._SENT 
+2816–2822_NP )_) ._SENT 
+Google_NP Scholar_NN Borenstein_NP and_CC Koren_NP ,_, 1991_CD J._NP Borenstein_NP ,_, Y._NP Koren_NP The_DT vector_NN field_NN histogram-fast_NN obstacle_NN avoidance_NN for_IN mobile_JJ robots_NNS IEEE_VVP Transactions_NNS on_IN Robotics_NP and_CC Automation_NN ,_, 7_CD (_( June_NP (_( 3_LS )_) )_) (_( 1991_CD )_) ,_, pp_NP ._SENT 
+278-288_CD CrossRefView_NP Record_NP in_IN ScopusGoogle_NP Scholar_NN Bortoff_NN ,_, 2000_CD Bortoff_NN ,_, S._NP A._NP (_( September_NP 2000_CD )_) ._SENT 
+Path_NN planning_NN for_IN uavs_NP ._SENT 
+In_IN Proceedings_NNS of_IN the_DT American_NP Control_NP Conference_NP (_( ACC_NP )_) (_( Vol_NP ._SENT 
+1_LS ,_, pp_NP ._SENT 
+364–368_NP )_) ._SENT 
+Google_NP Scholar_NN Caharija_NP et_NP al_NP ._SENT 
+,_, 2014_CD W._NP Caharija_NP ,_, K._NP Y._NP Pettersen_NP ,_, A._NP J._NP Sørensen_NP ,_, M._NP Candeloro_NP ,_, J._NP T._NP Gravdahl_NP Relative_JJ velocity_NN control_NN and_CC integral_JJ line_NN of_IN sight_NN for_IN path_NN following_VVG of_IN autonomous_JJ surface_NN vessels_NNS :_: Merging_VVG intuition_NN with_IN theory_NN Journal_NP of_IN Engineering_NP for_IN the_DT Maritime_NP Environment_NP ,_, 228_CD (_( March_NP (_( 2_LS )_) )_) (_( 2014_CD )_) ,_, pp_NP ._SENT 
+180-191_CD CrossRefView_NP Record_NP in_IN ScopusGoogle_NP Scholar_NN Caiti_NP ,_, 2014_CD A._NP Caiti_NP Motion_NP planning_NN for_IN marine_JJ control_NN systems_NNS Springer_NP London_NP ,_, London_NP (_( 2014_CD )_) Google_NP Scholar_NN Campbell_NP et_NP al_NP ._SENT 
+,_, 2012_CD S._NP Campbell_NP ,_, W._NP Naeem_NP ,_, G._NP Irwin_NP A_DT review_NN on_IN improving_VVG the_DT autonomy_NN of_IN unmanned_JJ surface_NN vehicles_NNS through_IN intelligent_JJ collision_NN avoidance_NN manoeuvres_VVZ Annual_JJ Reviews_NNS in_IN Control_NP ,_, 36_CD (_( 2_LS )_) (_( 2012_CD )_) ,_, pp_NP ._SENT 
+267-283_CD ArticleDownload_NP PDFView_NP Record_NP in_IN ScopusGoogle_NP Scholar_NN Candeloro_NP et_NP al_NP ._SENT 
+,_, 2016_CD Candeloro_NP ,_, M._NP ,_, Lekkas_NP ,_, A._NP M._NP ,_, Hegde_NP ,_, J._NP ,_, &_CC Sørensen_NP ,_, A._NP J._NP (_( 2016_CD )_) ._SENT 
+A_DT 3D_NN dynamic_JJ voronoi_NP diagram-based_JJ path-planning_NN system_NN for_IN UUVs_NP ._SENT 
+In_IN OCEANS_NNS 2016_CD MTS/IEEE_NP Monterey_NP ,_, 1-8_CD ._SENT 
+Google_NP Scholar_NN Candeloro_NP et_NP al_NP ._SENT 
+,_, 2013_CD Candeloro_NP ,_, M._NP ,_, Lekkas_NP ,_, A._NP M._NP ,_, Sørensen_NP ,_, A._NP J._NP ,_, &_CC Fossen_NP ,_, T._NP I._NP (_( 2013_CD )_) ._SENT 
+Continuous_JJ curvature_NN path_NN planning_NN using_VVG voronoi_NP diagrams_NNS and_CC fermat_NP 's_POS spirals_NNS ._SENT 
+9th_JJ IFAC_JJ conference_NN on_IN control_NN applications_NNS in_IN marine_JJ systems_NNS (_( Vol_NP ._SENT 
+9_CD ,_, issue_NN no_RB ._SENT 
+1_LS ,_, pp_NP ._SENT 
+132–137_JJ )_) ._SENT 
+Google_NP Scholar_NN Chandler_NP et_NP al_NP ._SENT 
+,_, 2000_CD Chandler_NP ,_, P._NP ,_, Rasmussen_NP ,_, S._NP ,_, &_CC Pachter_NP ,_, M._NP (_( August_NP 2000_CD )_) ._SENT 
+Uav_NP cooperative_JJ path_NN planning_NN ._SENT 
+In_RB :_: of_IN Aeronautics_NP ,_, A._NP I._NP ,_, Astronautics_NNS (_( Eds_NPS ._SENT 
+)_) ,_, Proceedings_NNS of_IN the_DT AIAA_NP guidance_NN ,_, navigation_NN ,_, and_CC control_NN conference_NN and_CC exhibit_NN ._SENT 
+Google_NP Scholar_NN Choset_NP et_NP al_NP ._SENT 
+,_, 2005_CD H._NP Choset_NP ,_, K._NP M._NP Lynch_NP ,_, S._NP Hutchinson_NP ,_, G._NP A._NP Kantor_NP ,_, W._NP Burgard_NP ,_, L._NP E._NP Kavraki_NP ,_, et_NP al_NP ._SENT 
+Principles_NNS of_IN robot_NN motion_NN :_: Theory_NN ,_, algorithms_NNS ,_, and_CC implementations_NNS MIT_NP Press_NP ,_, Cambridge_NP ,_, MA_NN (_( 2005_CD )_) Google_NP Scholar_NN Dahl_NP ,_, 2013_CD Dahl_NP ,_, A._NP R._NP (_( 2013_CD )_) ._SENT 
+Path_NN planning_NN and_CC guidance_NN for_IN marine_JJ surface_NN vessels_NNS ._SENT 
+(_( Master_NP 's_POS thesis_NN )_) ,_, Department_NP of_IN Engineering_NP Cybernetics_NNS ,_, Norwegian_NP University_NP of_IN Science_NP and_CC Technology_NP ,_, Trondheim_NP ,_, Norway_NP ._SENT 
+Google_NP Scholar_NN Dijkstra_NP ,_, 1959_CD E._NP W._NP Dijkstra_NP A_DT note_NN on_IN two_CD problems_NNS in_IN connexion_NN with_IN graphs_NNS Numerische_NP Mathematik_NP ,_, 1_CD (_( 1959_CD )_) ,_, pp_NP ._SENT 
+269-271_CD CrossRefView_NP Record_NP in_IN ScopusGoogle_NP Scholar_NN Dolgov_NP et_NP al_NP ._SENT 
+,_, 2010_CD Dolgov_NP ,_, D._NP ,_, Thrun_NP ,_, S._NP ,_, M._NP ,_, M._NP ,_, J._NP ,_, D._NP (_( January_NP 2010_CD )_) ._SENT 
+Path_NN planning_NN for_IN autonomous_JJ vehicles_NNS in_IN unknown_JJ semi-structured_JJ environments_NNS ._SENT 
+The_DT International_NP Journal_NP of_IN Robotics_NP 29(5_NP )_) ,_, 485–501_JJ ._SENT 
+Google_NP Scholar_NN Elfes_NNS ,_, 1987_CD A._NP Elfes_NNS Sonar-based_JJ real-world_NN mapping_NN and_CC navigation_NN IEEE_NP Journal_NP on_IN Robotics_NP and_CC Automation_NN ,_, 3_CD (_( June_NP (_( 3_LS )_) )_) (_( 1987_CD )_) ,_, pp_NP ._SENT 
+249-265_CD CrossRefView_NP Record_NP in_IN ScopusGoogle_NP Scholar_NN Falcone_NP and_CC Ferretti_NP ,_, 2013_CD M._NP Falcone_NP ,_, R._NP Ferretti_NP Semi-Lagrangian_JJ approximation_NN schemes_NNS for_IN linear_JJ and_CC Hamilton-Jacobi_NP equations_NNS Society_NP for_IN Industrial_NP and_CC Applied_NP Mathematics_NNS ,_, Philadelphia_NP ,_, PA_NN (_( 2013_CD )_) Google_NP Scholar_NN Fiorini_NP and_CC Shiller_NP ,_, 1993_CD Fiorini_NP ,_, P._NP &_CC Shiller_NP ,_, Z._NP (_( May_NP 1993_CD )_) ._SENT 
+Motion_NN planning_NN in_IN dynamic_JJ environments_NNS using_VVG the_DT relative_JJ velocity_NN paradigm_NN ._SENT 
+In_IN Proceedings_NNS of_IN the_DT IEEE_NP International_NP Conference_NP on_IN Robotics_NP and_CC Automation_NN (_( ICRA_NP )_) (_( Vol_NP ._SENT 
+1_LS ,_, pp_NP ._SENT 
+560–565_NP )_) ._SENT 
+Google_NP Scholar_NN Fossen_NP ,_, 2011_CD T._NP I._NP Fossen_NP Handbook_NN of_IN marine_JJ craft_NN hydrodynamics_NNS and_CC motion_NN control_NN John_NP Wiley_NP and_CC Sons_NP Ltd_NP ,_, Chichester_NP ,_, West_NP Sussex_NP ,_, U._NP K_NP (_( 2011_CD )_) ,_, 10.1002/9781119994138_CD Google_NN Scholar_NN Fossen_NP and_CC Lekkas_NP ,_, 2015_CD Fossen_NP ,_, T._NP I._NP &_CC Lekkas_NP ,_, A._NP M._NP (_( 2015_CD )_) ._SENT 
+Direct_JJ and_CC indirect_JJ adaptive_JJ integral_JJ line-of-sight_NN path-following_VVG controllers_NNS for_IN marine_JJ craft_NN exposed_VVN to_TO ocean_NN currents_NNS ._SENT 
+International_NP Journal_NP of_IN Adaptive_JJ Control_NP and_CC Signal_NP Processing_NP ._SENT 
+〈http_NP :_: //dx_NP ._SENT 
+doi_NP ._SENT 
+org/10.1002/acs.2550〉_NP Google_NP Scholar_NN Fox_NP et_NP al_NP ._SENT 
+,_, 1997_CD D._NP Fox_NP ,_, W._NP Burgard_NP ,_, S._NP Thrun_NP The_DT dynamic_JJ window_NN approach_NN to_TO collision_NN avoidance_NN IEEE_NP Robotics_NP Automation_NN Magazine_NP ,_, 4_CD (_( March_NP (_( 1_LS )_) )_) (_( 1997_CD )_) ,_, pp_NP ._SENT 
+23-33_CD View_NP Record_NP in_IN ScopusGoogle_NP Scholar_NN Gold_NP ,_, 2016_CD C._NP Gold_NP Tessellations_NNS in_IN GIS_NP :_: Part_NN II-making_NN changes_NNS Geo-spatial_JJ Information_NP Science_NP ,_, 19_CD (_( 2_LS )_) (_( 2016_CD )_) ,_, pp_NP ._SENT 
+157-167_CD CrossRefView_NP Record_NP in_IN ScopusGoogle_NP Scholar_NN Gold_NP et_NP al_NP ._SENT 
+,_, 2005_CD C._NP Gold_NP ,_, M._NP Chau_NP ,_, M._NP Dzieszko_NP ,_, R._NP Goralski_NP 3D_VVZ geographic_JJ visualization_NN :_: The_DT marine_JJ GIS_NP Springer_NP ,_, Berlin_NP ,_, Heidelberg_NP (_( 2005_CD )_) ,_, pp_NP ._SENT 
+17-28_CD CrossRefGoogle_NN Scholar_NN Gold_NP ,_, 1998_CD Gold_NP ,_, C._NP M._NP ,_, 1998._CD The_DT use_NN of_IN the_DT dynamic_JJ Voronoi_NP data_NNS structure_NN in_IN autonomous_JJ marine_JJ navigation_NN ._SENT 
+Proceedings_NNS ,_, Advanced_NP Robotics_NP :_: Beyond_IN 2000_CD ,_, pp.217-220_NP ._SENT 
+Google_NP Scholar_NN Goralski_NP and_CC Gold_NP ,_, 2007_CD Goralski_NP ,_, I._NP R._NP &_CC Gold_NP ,_, C._NP M._NP (_( July_NP 2007_CD )_) ._SENT 
+Maintaining_VVG the_DT Spatial_JJ Relationships_NNS of_IN Marine_NP Vessels_NP Using_VVG the_DT Kinetic_JJ Voronoi_NP Diagram_NN ._SENT 
+In_IN Proceedings_NNS of_IN the_DT 4th_JJ International_NP Symposium_NN on_IN Voronoi_NP Diagrams_NNS in_IN Science_NP and_CC Engineering_NP (_( ISVD_NP )_) (_( pp_NP ._SENT 
+84–90_NP )_) ._SENT 
+Google_NP Scholar_NN Hart_NP et_NP al_NP ._SENT 
+,_, 1968_CD P._NP E._NP Hart_NP ,_, N._NP J._NP Nilsson_NP ,_, B._NP Raphael_NP A_DT formal_JJ basis_NN for_IN the_DT heuristic_JJ determination_NN of_IN minimum_JJ cost_NN paths_NNS IEEE_VVP Transactions_NNS on_IN Systems_NP Science_NP and_CC Cybernetics_NNS ,_, 4_CD (_( July_NP (_( 2_LS )_) )_) (_( 1968_CD )_) ,_, pp_NP ._SENT 
+100-107_CD CrossRefView_NP Record_NP in_IN ScopusGoogle_NP Scholar_NN Heidarsson_NP and_CC Sukhatme_NP ,_, 2011_CD Heidarsson_NP ,_, H._NP K._NP &_CC Sukhatme_NP ,_, G._NP S._NP (_( May_NP 2011_CD )_) ._SENT 
+Obstacle_NN detection_NN and_CC avoidance_NN for_IN an_DT autonomous_JJ surface_NN vehicle_NN using_VVG a_DT profiling_VVG sonar_NN ._SENT 
+In_IN Proceedings_NNS of_IN the_DT IEEE_NP international_JJ conference_NN on_IN robotics_NNS and_CC automation_NN (_( ICRA_NP )_) (_( pp_NP ._SENT 
+731–736_NP )_) ._SENT 
+Google_NP Scholar_NN IMO_NP ,_, 1977_CD IMO_NP ,_, 1977._CD International_NP Maritime_NP Organization_NP -_: The_DT International_NP Regulations_NNS for_IN Preventing_VVG Collisions_NNS at_IN Sea_NP ._SENT 
+〈https_NNS :_: //goo_NN ._SENT 
+gl/7mPxS7〉_NP ,_, accessed_VVN in_IN November_NP 2016._CD Google_NN Scholar_NN Karoui_NP et_NP al_NP ._SENT 
+,_, 2015_CD I._NP Karoui_NP ,_, I._NP Quidu_NP ,_, M._NP Legris_NP Automatic_NP sea-surface_JJ obstacle_NN detection_NN and_CC tracking_NN in_IN forward-looking_JJ sonar_NN image_NN sequences_NNS IEEE_VVP Transactions_NNS on_IN Geoscience_NN and_CC Remote_JJ Sensing_VVG ,_, 53_CD (_( August_NP (_( 8_CD )_) )_) (_( 2015_CD )_) ,_, pp_NP ._SENT 
+4661-4669_CD CrossRefView_NP Record_NP in_IN ScopusGoogle_NP Scholar_NN Khatib_NP ,_, 1985_CD Khatib_NP ,_, O._NP (_( March_NP 1985_CD )_) ._SENT 
+Real-time_JJ obstacle_NN avoidance_NN for_IN manipulators_NNS and_CC mobile_JJ robots_NNS ._SENT 
+In_IN Proceedings_NNS of_IN the_DT IEEE_NP International_NP Conference_NP on_IN Robotics_NP and_CC Automation_NN (_( ICRA_NP )_) (_( Vol_NP ._SENT 
+2_LS ,_, pp_NP ._SENT 
+500–505_NP )_) ._SENT 
+Google_NP Scholar_NN Kongsberg_NP ,_, 2016_NP Kongsberg_NP (_( October_NP 2016_CD )_) ._SENT 
+World_NP 's_POS first_JJ official_JJ test_NN bed_NN for_IN autonomous_JJ shipping_NN opens_VVZ in_IN Norway_NP ._SENT 
+〈https_NNS :_: //goo_NN ._SENT 
+gl/oEdLk2〉_NP ,_, accessed_VVN in_IN November_NP 2016._CD Google_NN Scholar_NN Kuwata_NP et_NP al_NP ._SENT 
+,_, 2014_CD Y._NP Kuwata_NP ,_, M._NP T._NP Wolf_NP ,_, D._NP Zarzhitsky_NP ,_, T._NP L._NP Huntsberger_NP Safe_NP maritime_JJ autonomous_JJ navigation_NN with_IN COLREGS_NNS ,_, using_VVG velocity_NN obstacles_NNS IEEE_NP Journal_NP of_IN Oceanic_JJ Engineering_NP ,_, 39_CD (_( January_NP (_( 1_LS )_) )_) (_( 2014_CD )_) ,_, pp_NP ._SENT 
+110-119_CD CrossRefView_NP Record_NP in_IN ScopusGoogle_NP Scholar_NN Larson_NP et_NP al_NP ._SENT 
+,_, 2006_CD Larson_NP ,_, J._NP ,_, Bruch_NP ,_, M._NP ,_, &_CC Ebken_NP ,_, J._NP (_( May_NP 2006_CD )_) ._SENT 
+Autonomous_JJ navigation_NN and_CC obstacle_NN avoidance_NN for_IN unmanned_JJ surface_NN vehicles_NNS ._SENT 
+Society_NN of_IN Photo-Optical_JJ Instrumentation_NN Engineers_NNS (_( SPIE_NP )_) Conference_NP Series_NP 6230_CD ,_, 623007._CD Google_NN Scholar_NN Larson_NP et_NP al_NP ._SENT 
+,_, 2007_CD Larson_NP ,_, J._NP ,_, Bruch_NP ,_, M._NP ,_, Ebken_NP ,_, J._NP ,_, Rogers_NP ,_, J._NP ,_, &_CC Webster_NP ,_, R._NP (_( 2007_CD )_) ._SENT 
+Advances_NNS in_IN autonomous_JJ obstacle_NN avoidance_NN for_IN unmanned_JJ surface_NN vehicles_NNS 〈www_VVP ._SENT 
+dtic_JJ ._SENT 
+mil/cgi-bin/GetTRDoc_NP ?_SENT 
+AD=ADA475547〉_NP ._SENT 
+Google_NP Scholar_NN Lavalle_NP ,_, 1998_CD Lavalle_NP ,_, S._NP M._NP (_( November_NP 1998_CD )_) ._SENT 
+Rapidly-exploring_VVG random_JJ trees_NNS :_: A_DT new_JJ tool_NN for_IN path_NN planning_NN ._SENT 
+Technical_JJ report_NN ,_, Computer_NP Science_NP Department_NP ,_, Iowa_NP State_NP University_NP ._SENT 
+Google_NP Scholar_NN LaValle_NP ,_, 2006_CD S._NP M._NP LaValle_NP Planning_NP algorithms_NNS Cambridge_NP University_NP Press_NP ,_, New_NP York_NP ,_, NY_NP ,_, USA_NP (_( 2006_CD )_) Google_NP Scholar_NN Ledoux_NP ,_, 2007_CD Ledoux_NP ,_, H._NP (_( July_NP 2007_CD )_) ._SENT 
+Computing_VVG the_DT 3D_JJ voronoi_NP diagram_NN robustly_RB :_: An_DT easy_JJ explanation_NN ._SENT 
+In_IN Proceedings_NNS of_IN the_DT 4th_JJ International_NP Symposium_NN on_IN Voronoi_NP Diagrams_NNS in_IN Science_NP and_CC Engineering_NP (_( ISVD_NP )_) (_( pp_NP ._SENT 
+117–129_NP )_) ._SENT 
+Google_NP Scholar_NN Lee_NP et_NP al_NP ._SENT 
+,_, 2004_CD S._NP M._NP Lee_NP ,_, K._NP Y._NP Kwon_NP ,_, J._NP Joh_NP A_DT fuzzy_JJ logic_NN for_IN autonomous_JJ navigation_NN of_IN marine_JJ vehicles_NNS satisfying_VVG COLREG_NN guidelines_NNS International_NP Journal_NP of_IN Control_NP Automation_NN and_CC Systems_NP ,_, 2_CD (_( June_NP (_( 2_LS )_) )_) (_( 2004_CD )_) ,_, pp_NP ._SENT 
+171-181_CD View_NP Record_NP in_IN ScopusGoogle_NP Scholar_NN Lekkas_NP et_NP al_NP ._SENT 
+,_, 2013_CD A._NP M._NP Lekkas_NP ,_, A._NP R._NP Dahl_NP ,_, M._NP Breivik_NP ,_, T._NP I._NP Fossen_NP Continuous-curvature_NN path_NN generation_NN using_VVG Fermat_NP 's_POS spiral_NN Modeling_NN ,_, Identification_NN and_CC Control_NP (_( MIC_NP )_) ,_, 34_CD (_( 4_LS )_) (_( 2013_CD )_) ,_, pp_NP ._SENT 
+183-198_CD CrossRefView_NP Record_NP in_IN ScopusGoogle_NP Scholar_NN Lekkas_NP and_CC Fossen_NP ,_, 2014a_NP A._NP M._NP Lekkas_NP ,_, T._NP I._NP Fossen_NP Integral_NP LOS_NP path_NN following_VVG for_IN curved_VVN paths_NNS based_VVN on_IN a_DT monotone_NN cubic_JJ Hermite_NN spline_NN parametrization_NN IEEE_NN Transactions_NNS on_IN Control_NP Systems_NPS Technology_NP ,_, 22_CD (_( 6_CD )_) (_( 2014_CD )_) ,_, pp_NP ._SENT 
+2287-2301_CD View_NP Record_NP in_IN ScopusGoogle_NP Scholar_NN Lekkas_NP and_CC Fossen_NP ,_, 2014b_NP Lekkas_NP ,_, A._NP M._NP &_CC Fossen_NP ,_, T._NP I._NP (_( October_NP 2014b_NP )_) ._SENT 
+Trajectory_NN tracking_NN and_CC ocean_NN current_JJ estimation_NN for_IN marine_JJ underactuated_JJ vehicles_NNS ._SENT 
+In_IN IEEE_NP Conference_NP on_IN Control_NP Applications_NP (_( CCA_NP )_) (_( pp_NP ._SENT 
+905–910_NP )_) ._SENT 
+Google_NP Scholar_NN Lekkas_NP et_NP al_NP ._SENT 
+,_, 2016_CD Lekkas_NNS ,_, A._NP M._NP ,_, Roald_NP ,_, A._NP L._NP ,_, &_CC Breivik_NP ,_, M._NP (_( 2016_CD )_) ._SENT 
+Online_JJ path_NN planning_NN for_IN surface_NN vehicles_NNS exposed_VVN to_TO unknown_JJ ocean_NN currents_NNS using_VVG pseudospectral_JJ optimal_JJ control_NN (_( Vol_NP ._SENT 
+49_CD ,_, pp_NP ._SENT 
+1–7_JJ )_) ,_, 10th_JJ IFAC_NP Conference_NP on_IN Control_NP Applications_NP in_IN Marine_NP Systems_NPS (_( CAMS_NNS )_) ._SENT 
+Google_NP Scholar_NN Lerro_NP and_CC Bar-Shalom_NP ,_, 1993_CD D._NP Lerro_NP ,_, Y._NP Bar-Shalom_NP Tracking_NN with_IN debiased_JJ consistent_JJ converted_JJ measurements_NNS versus_IN EKF_NP IEEE_NP Transactions_NNS on_IN Aerospace_NP and_CC Electronic_NP Systems_NP ,_, 29_CD (_( July_NP (_( 3_LS )_) )_) (_( 1993_CD )_) ,_, pp_NP ._SENT 
+1015-1022_CD View_NP Record_NP in_IN ScopusGoogle_NP Scholar_NN Lozano-Pérez_NP and_CC Wesley_NP ,_, 1979_CD T._NP Lozano-Pérez_NP ,_, M._NP A._NP Wesley_NP An_DT algorithm_NN for_IN planning_VVG collision-free_JJ paths_NNS among_IN polyhedral_JJ obstacles_NNS Communications_NPS of_IN the_DT ACM_NP (_( CAMC_NP )_) ,_, 22_CD (_( October_NP (_( 10_CD )_) )_) (_( 1979_CD )_) ,_, pp_NP ._SENT 
+560-570_CD View_NP Record_NP in_IN ScopusGoogle_NP Scholar_NN Ludvigsen_NP and_CC Sørensen_NP ,_, 2016_CD Ludvigsen_NP ,_, M._NP &_CC Sørensen_NP ,_, A._NP J._NP (_( 2016_CD )_) ._SENT 
+Towards_IN integrated_JJ autonomous_JJ underwater_JJ operations_NNS for_IN ocean_NN mapping_NN and_CC monitoring_NN ._SENT 
+Annual_JJ Reviews_NNS in_IN Control_NP ._SENT 
+〈http_NP :_: //dx_NP ._SENT 
+doi_NP ._SENT 
+org/10.1016/j_NP ._SENT 
+arcontrol.2016.09.013〉_NP Google_NP Scholar_NN Marino_NP et_NP al_NP ._SENT 
+,_, 2012_CD Marino_NP ,_, A._NP ,_, Antonelli_NP ,_, G._NP ,_, Aguiar_NP ,_, A._NP P._NP ,_, &_CC Pascoal_NP ,_, A._NP (_( October_NP 2012_CD )_) ._SENT 
+A_DT new_JJ approach_NN to_TO multi-robot_NN harbour_NN patrolling_VVG :_: Theory_NN and_CC experiments_NNS ._SENT 
+In_IN 2012_CD IEEE/RSJ_NP international_JJ conference_NN on_IN intelligent_JJ robots_NNS and_CC systems_NNS (_( pp_NP ._SENT 
+1760–1765_NP )_) ._SENT 
+Google_NP Scholar_NN Marino_NP et_NP al_NP ._SENT 
+,_, 2015_CD A._NP Marino_NP ,_, G._NP Antonelli_NP ,_, A._NP P._NP Aguiar_NP ,_, A._NP Pascoal_NP ,_, S._NP Chiaverini_NP A_DT decentralized_JJ strategy_NN for_IN multirobot_NP sampling/patrolling_NP :_: Theory_NN and_CC experiments_NNS IEEE_VVP Transactions_NNS on_IN Control_NP Systems_NPS Technology_NP ,_, 23_CD (_( January_NP (_( 1_LS )_) )_) (_( 2015_CD )_) ,_, pp_NP ._SENT 
+313-322_CD CrossRefGoogle_NN Scholar_NN Naeem_NP et_NP al_NP ._SENT 
+,_, 2012_CD W._NP Naeem_NP ,_, G._NP W._NP Irwin_NP ,_, A._NP Yang_NP COLREGs-based_JJ collision_NN avoidance_NN strategies_NNS for_IN unmanned_JJ surface_NN vehicles_NNS Special_JJ Issue_NN on_IN Intelligent_JJ Mechatronics_NNS ,_, 22_CD (_( September_NP (_( 6_CD )_) )_) (_( 2012_CD )_) ,_, pp_NP ._SENT 
+669-678_CD ArticleDownload_NP PDFView_NP Record_NP in_IN ScopusGoogle_NP Scholar_NN Perera_NP et_NP al_NP ._SENT 
+,_, 2015_CD L._NP P._NP Perera_NP ,_, V._NP Ferrari_NP ,_, F._NP P._NP Santos_NP ,_, M._NP A._NP Hinostroza_NP ,_, C._NP G._NP Soares_NP Experimental_JJ evaluations_NNS on_IN ship_NN autonomous_JJ navigation_NN and_CC collision_NN avoidance_NN by_IN intelligent_JJ guidance_NN IEEE_NP Journal_NP of_IN Oceanic_JJ Engineering_NP ,_, 40_CD (_( April_NP (_( 2_LS )_) )_) (_( 2015_CD )_) ,_, pp_NP ._SENT 
+374-387_CD CrossRefView_NP Record_NP in_IN ScopusGoogle_NP Scholar_NN Quidu_NP et_NP al_NP ._SENT 
+,_, 2012_CD I._NP Quidu_NP ,_, L._NP Jaulin_NP ,_, A._NP Bertholom_NP ,_, Y._NP Dupas_NP Robust_JJ multitarget_NN tracking_VVG in_IN forward-looking_JJ sonar_NN image_NN sequences_NNS using_VVG navigational_JJ data_NNS IEEE_NP Journal_NP of_IN Oceanic_JJ Engineering_NP ,_, 37_CD (_( July_NP (_( 3_LS )_) )_) (_( 2012_CD )_) ,_, pp_NP ._SENT 
+417-430_CD CrossRefView_NP Record_NP in_IN ScopusGoogle_NP Scholar_NN Seto_NP ,_, 2013_CD M._NP Seto_NP Marine_NP robot_NN autonomy_NN Springer_NP ,_, New_NP York_NP (_( 2013_CD )_) ,_, 10.1007/978-1-4614-5659-9_CD Google_NN Scholar_NN Skjetne_NN ,_, 2005_CD Skjetne_NN ,_, R._NP (_( 2005_CD )_) ._SENT 
+The_DT maneuvering_NN problem_NN ._SENT 
+(_( Ph._NP D._NP thesis_NN )_) ._SENT 
+Trondheim_NP ,_, Norway_NP :_: Department_NP of_IN Marine_NP Technology_NP ,_, Norwegian_NP University_NP of_IN Science_NP and_CC Technology_NP ._SENT 
+Google_NP Scholar_NN Statheros_NP et_NP al_NP ._SENT 
+,_, 2008_CD T._NP Statheros_NP ,_, G._NP Howells_NP ,_, K._NP M._NP Maier_NP Autonomous_JJ ship_NN collision_NN avoidance_NN navigation_NN concepts_NNS ,_, technologies_NNS and_CC techniques_NNS Journal_NP of_IN Navigation_NP ,_, 61_CD (_( January_NP (_( 1_LS )_) )_) (_( 2008_CD )_) ,_, pp_NP ._SENT 
+129-142_CD CrossRefView_NP Record_NP in_IN ScopusGoogle_NP Scholar_NN Tsourdos_NP et_NP al_NP ._SENT 
+,_, 2010_CD A._NP Tsourdos_NP ,_, B._NP White_NP ,_, M._NP Shanmugavel_NP Cooperative_JJ path_NN planning_NN of_IN unmanned_JJ aerial_JJ vehicles_NNS Wiley_NP ,_, Chichester_NP ,_, West_NP Sussex_NP ,_, U._NP K_NP (_( 2010_CD )_) ,_, 10.1002/9780470974636_CD Google_NN Scholar_NN van_NN den_NN Berg_NP et_NP al_NP ._SENT 
+,_, 2006_CD van_NN den_NN Berg_NP ,_, J._NP ,_, Ferguson_NP ,_, D._NP ,_, &_CC Kuffner_NP ,_, J._NP (_( May_NP 2006_CD )_) ._SENT 
+Anytime_RB path_NN planning_VVG and_CC replanning_VVG in_IN dynamic_JJ environments_NNS ._SENT 
+In_IN Proceedings_NNS of_IN the_DT IEEE_NP International_NP Conference_NP on_IN Robotics_NP and_CC Automation_NN (_( ICRA_NP )_) (_( pp_NP ._SENT 
+2366–2371_NN )_) ._SENT 
+Google_NP Scholar_NN Watson_NP and_CC Scheidt_NP ,_, 2005_CD D._NP P._NP Watson_NP ,_, D._NP H._NP Scheidt_NP Autonomous_JJ systems_NNS Johns_NP Hopkins_NP APL_NP Technical_NP Digest_NP ,_, 26_CD (_( 4_LS )_) (_( 2005_CD )_) Google_NP Scholar_NN Woerner_NP ,_, 2016_CD Woerner_NP ,_, K._NP (_( 2016_CD )_) ._SENT 
+Multi-contact_JJ protocol-constrained_JJ collision_NN :_: Avoidance_NN for_IN autonomous_JJ marine_JJ vehicles_NNS (_( Ph._NP D._NP thesis_NN )_) ._SENT 
+Massachusetts_NP Institute_NP of_IN Technology_NP ._SENT 
+Google_NP Scholar_NN Yen_NP ,_, 1970_CD J._NP Y._NP Yen_NP An_DT algorithm_NN for_IN finding_VVG shortest_JJS routes_NNS from_IN all_DT source_NN nodes_NNS to_TO a_DT given_VVN destination_NN in_IN general_JJ networks_NNS Quarterly_JJ of_IN Applied_NP Mathematics_NNS ,_, 27_CD (_( 1970_CD )_) ,_, pp_NP ._SENT 
+526-530_CD CrossRefGoogle_NN Scholar_NN Zeng_NP et_NP al_NP ._SENT 
+,_, 2015_CD Z._NP Zeng_NP ,_, L._NP Liana_NP ,_, K._NP Sammut_NP ,_, F._NP He_PP ,_, Y._NP Tang_NP ,_, A._NP Lammas_NP A_DT survey_NN on_IN path_NN planning_NN for_IN persistent_JJ autonomy_NN of_IN autonomous_JJ underwater_JJ vehicles_NNS Ocean_NP Engineering_NP ,_, 110_CD (_( December_NP (_( A_NP )_) )_) (_( 2015_CD )_) ,_, pp_NP ._SENT 
+303-313_CD 

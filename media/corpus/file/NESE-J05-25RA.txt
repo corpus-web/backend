@@ -1,0 +1,178 @@
+<title>The numerical simulation of the flow distribution and flow-induced vibration analysis for intermediate heat exchanger in a pool-type fast breeder reactor</title>
+<author>1,BinbinQiu,2,BowenDu,3,ChenxiHuang,4,WeixiongChen,5,unjieYan,6,BoWang</author>
+<Affiliation>1,State Key Laboratory of Multiphase Flow in Power Engineering, Xi'an Jiaotong University, Xi'an, 710049, China;2,Dongfang Electric Corporation Limited, Chengdu, 611731, China</Affiliation>
+<year>2021</year>
+<Jounral>Progress in Nuclear Energy</Journal>
+<Publishing_house>ELSEVIER</Publishing_house>
+<Text_Collector>XiaFan，HEU</Text_Collector>
+<DOI>10.1016/j.pnucene.2020.103605</DOI>
+<URL>https://www.sciencedirect.com/science/article/pii/S0149197020303206</URL>
+The numerical simulation of the flow distribution and flow-induced vibration analysis for intermediate heat exchanger in a pool-type fast breeder reactor
+BinbinQiu,BowenDu,ChenxiHuang,WeixiongChen,unjieYan,BoWang
+State Key Laboratory of Multiphase Flow in Power Engineering, Xi'an Jiaotong University, Xi'an, 710049, China
+Dongfang Electric Corporation Limited, Chengdu, 611731, China
+<Section>Highlights</Section>
+The flow fields of IHX are obtained by using dual cell coupling porous media model.
+The velocity distribution in the inlet and outlet windows has been analyzed.
+Support plates need to be installed on the outlet window to avoid flow-induced vibration.
+<Section>Abstract</Section>
+Intermediate heat exchanger in a pool-type fast breeder reactor transfers heat from the primary sodium to secondary sodium. A dual cell coupling porous media model is used to simulate flow field in both primary and secondary side at the same time. The velocity distribution in the inlet and outlet are also studied in order to find the velocity change of inlet and outlet. Flow-induced vibration is investigated. On the top of primary side outlet, it is easy to occur flow-induced vibration, support plates or baffles need to be installed here to reduce the radial velocity to avoid flow-induced vibration.
+Graphical abstract
+Keywords:Intermediate heat exchanger;Numerical simulation;Dual-cell coupling porous media model
+<Section>1. Introduction</Section>
+Heat exchangers are widely used in chemical industry, electric power, oil and nuclear energy. In nuclear power plant, intermediate heat exchanger (IHX) in a pool-type fast breeder reactor is an important heat exchanger as it forms a boundary and transfers heat between the primary sodium and secondary sodium. The IHX is a large-scale heat exchanger with thousands of heat exchange tubes. It is easy to create uneven distribution of flow and temperature field, which will result in flow-induced vibration and large thermal stress. Thus, it is very important to investigate the flow field and flow resistance of IHX (Marcellin and Guidez, 1984a, 1984b).
+However, due to the large size and huge number of heat exchange tubes, it is difficult to investigate it experimentally. Many scholars adopt the method of numerical simulation to investigate the large heat exchanger. In order to reduce the mesh number, porous media model is often used (Bhutta et al, 1974, 2012), Sha et al. (1982) used porous media model to investigate the influence of the supporting baffle on the flow field in the primary side. Karayannis et al.(Karayannis and Markatos, 1994) simulated the primary side flow field of HX using porous media model. The results were used for the design of the HX. Missirlis et al., 2009, 2010, Yakinthos et al. (2009), Zhao et al. (Zhao et al., 2017; Zhao and Gronstedt, 2015)developed a non-adiabatic anisotropic porosity model to predict the macroscopic behavior of a specially designed HX for aero-engine. Gajapathy et al. (2008) simulated the IHX in a pool-type fast breeder reactor using the porous media model. The flow field was analyzed. Mochizuki et al.(Mochizuki et al., 2015; Mochizuki and Takano, 2009)]simulated the IHX of the “Monju” reactor with the CFX. The heat transfer between primary and the secondary sides was calculated. As mentioned above, although many scholars used porous media model to investigate the flow field of HX and IHX, they used porous media model with only one piece of mesh for primary side or secondary side alone. Thus, they can only get flow field for one side (primary side or secondary side). Kim et al. (2019) used the dual cell coupling porous media model to simulate the heat exchanger of aero-engine. The flow fields of both primary and secondary sides can be calculated at the same time. The purpose of this paper is to simulate the performance of the IHX using the dual cell coupling porous media model. The flow field of both primary and secondary side can be captured at the same time. Based on the flow field of primary side, the flow-induced vibration is also analyzed. It is very useful for the analysis and design of the IHX.
+<Section>2. Derivation of the dual cell coupling porous media model</Section>
+2.1. Geometric model and boundary conditions
+The structure of the heat exchanger is the same as the structure of the heat exchanger in Gajapathy s’ research (Gajapathy et al., 2008). The entire heat exchanger is composed of a central pipe, a lower head, a tube bundle area, a discharge chamber, an inlet and an outlet. The geometric model is shown in Fig. 1. The tube bundle area consists of 3600 heat exchange tubes, which are distributed in 25 layers in the radial direction. For the secondary side, the liquid sodium enters the central pipe from the inlet on the secondary side, then enters the lower head, the heat exchange tubes in the tube bundle area, the discharge chamber, then discharged from the tube side outlet. For the primary side, the liquid sodium enters the primary side of the heat exchanger through the inlet, after exchanging heat with the liquid sodium on the secondary side, it is discharged through the outlet. The boundary conditions of the primary-side and secondary-side inlets are set as mass flow inlets, the tube-side inlet flow is 1460 kg/s, and the temperature is 628 K; The primary-side inlet flow is 1650 kg/s, and the temperature is 817 K. Both of the outlet boundary conditions are set as pressure outlets, and the outlet pressures are equal to atmospheric pressure. The secondary-side outlet temperature is set to 798 K; The primary-side outlet temperature is set to 668 K. The remaining faces are set as wall boundary conditions. The total height of the model is 17.2 m, and the height of the central pipe is 16.5 m.
+Fig. 1. The geometric model of IHX.
+ANSYS Mesh is used for mesh division. The secondary-side grids corresponding to the positions of the primary-side outlet, tube bundle area, and inlet are copied to obtain a new set of grids as primary-side grids, as shown in Fig. 2. Two sets of grids store the information of the secondary-side and primary-side fluids respectively.
+Fig. 2. Dual cell model for the primary and secondary side.
+2.2. Mathematical model
+The flow and heat transfer of the secondary-side and primary-side fluids in IHX satisfy mass conservation, energy conservation, and momentum conservation. The continuity equation is shown in Eq. (1):
+(1)∂ρ∂t+div(ρU)=0
+As the steady-state simulation calculation is chosen in this article, the above formula can be simplified to:
+(2)div(U)=0
+where, U is the speed vector.
+The momentum equation is:
+(3)∇⋅(γρvv)=−γ∇p+∇⋅(γμ∇v)+γρg+F
+where, γ is the porosity, 0.37; ρ is the density, kg/m3; v is the speed, m/s; p is the pressure, Pa; g is gravitational acceleration, m/s2; F is resistance source terms for porous media, which can be divided into two parts: inertia term and viscosity term:
+(4)F=−[Dμv+C(12ρ|v|v)]
+where, D is the viscosity coefficient; μ is the dynamic viscosity; C is the inertia force coefficient.
+The energy equation is:
+(5)∂∂xi(ui(ρfT))=∂∂xi(λeff∂T∂xi)+ST
+(6)λeff=γλf+(1−γ)λs
+where, T is temperature, λf is thermal conductivity of fluid, λs is the thermal conductivity of the solid, λeff is effective thermal conductivity, ST is energy source term. The k-epsilon turbulence model is used in the simulation process.
+The heat transfer is substituted into the primary and secondary energy equation source terms. The empirical relationships of Nu on the primary and secondary side are the same with that of Gajapathy's research (Gajapathy et al., 2008), as shown in Eqs. (7), (8), (9)).
+Secondary side:
+(7)Nu=4.82+0.0185⋅Pe0.827,58<Pe<1.31×104
+Primary side axial flow:
+(8)Nu=6.0+0.006⋅Pe,30<Pe<4000,1.2<P/d0<1.75
+where, P is the distance between the heat transfer tubes, m; do is outer diameter of heat exchange tube, m.
+Primary side cross flow:
+(9)Nu=4.03+0.228⋅Pe0.67,20000<Re<200000
+The pipe wall heat conduction model is:
+(10)q=(Ti−To)×(rλln(dodi))−1
+The overall heat transfer coefficient of the heat exchanger is:
+(11)K=1[(1/h0)+(d0/2λ)ln(d0/di)+(1/hi)(d0/di)]
+The heat exchange capacity of a single grid is:
+(12)S=KnπΔldo(To−Ti)=K×Acell×(Tcell,P−Tcell,S)
+where, Acellis the heat exchange area per unit volume.
+2.3. Grid independence verification
+The middle cross-section of the tube bundle area on the secondary side is selected as the temperature reference surface. The grid independence is verified by comparing the average temperature on this cross-section under different numbers of grids. Grids with the numbers of 204733, 343227, 804180, 2046706, 3194756, and 3536455 are chosen for grid independence verification, as shown in Fig. 3. Finally, a grid number of 2046706 is selected for the simulation.
+Fig. 3. Grid independence verification.
+<Section>3. Results analysis</Section>
+3.1. The flow fields of both primary and secondary sides
+By adopting the dual-cell coupling porous media model, velocity distribution on primary-side and secondary-side can be obtained at the same time. Fig. 4 shows the flow field of primary side, the fluid velocity at the upper part of the primary-side inlet and the lower part of the outlet is relatively low, and the fluid velocity distributes uniformly in the tube bundle area. The fluid velocity is the highest at the up outer layers of the outlet. Fig. 5 shows the flow field of secondary side, there is a fluid vortex in the lower head.
+Fig. 4. Velocity distribution on the primary side.
+Fig. 5. Velocity distribution on the secondary side.
+The flow distribution factors of the 25-layer heat exchange tubes can be calculated using Eq. (13). The simulated results of flow distribution factors on the secondary side are compared with the experimental values (Gajapathy et al., 2008) under the same working conditions, as shown in Fig. 6.
+(13)ηi=qi125∑i=125qi
+Fig. 6. Comparison of experimental flow distribution factors and simulated values in bundle area.
+It can be found that under the same working conditions, the experimental values of the flow distribution factor of each layer agree well with the simulated values. The maximum error is in the first layer, and the errors are within −11.9%.
+3.2. Flow field distribution of inlet and outlet windows on primary side
+Fig. 7 and Fig. 8 show the velocity vector distribution of inlet and outlet on the primary side. It can be seen from the figures, the fluid changes from radial flow to axial flow after entering the inlet. After entering the area of outlet, the fluid changes from axial flow to radial flow. Radial flow is the main factor that causes the vibration of the tube bundle. In order to find the velocity change of inlet and outlet, different lines have been chosen in Fig. 9.
+Fig. 7. Velocity vector distribution of primary side inlet.
+Fig. 8. Velocity vector distribution of primary side outlet.
+Fig. 9. Velocity-lines distribution of primary side.
+Fig. 10 shows the axial velocity distribution on the primary-side inlet. As the sodium flow into the inlet, the axial velocity increased with the decrease of the axial position. On line y1, the axial velocity is about 0.2 m/s, and on line y4, the axial velocity is about 0.8–1.0 m/s. The maximum axial velocity is at the outer layers of the inlet, which is about 1 m/s.
+Fig. 10. Axial velocity distribution of the primary side inlet.
+Fig. 11 shows the distribution of the radial velocity of the fluid at the primary-side inlet. The radial velocity of the fluid decreases as the fluid flow into the inlet, and decreased as the fluid penetrate through the tube layer. The maximum radial velocity is about 0.65 m/s.
+Fig. 11. Radial velocity distribution of the primary side inlet.
+Fig. 12 and Fig. 13 show the distribution of axial and radial velocities at the primary-side outlet. Contrary to the inlet, as the fluid penetrate the tube bundle outward, the axial velocity decreases and the radial velocity increases at outlet. More attention should be paid to the up point of outlet. Since the axial and radial velocities of the fluid at this point increase sharply, the fluid is concentrated on flowing here, the maximum value of radial velocity is about 2.33 m/s, and it is most likely to cause flow-induced vibration here.
+Fig. 12. Axial velocity distribution of the primary side outlet.
+Fig. 13. Radial velocity distribution of primary side outlet.
+3.3. Calculation of fluid induced vibration
+Based on the structure of the tube bundle area, the natural frequency of tube bundle and the fluid-induced vibration frequency of tube bundle are calculated. The heat exchange tube material is 1Cr18Ni9Ti. According to GB/T 151–2014, the natural frequency of the heat exchange tube can be calculated as follows:
+(14)fn=35.3λnE(d04−di4)ml4
+where, fn is natural frequency of heat exchange tube; The subscript n indicates the number of spans, n = 4; λnis frequency constant of straight span pipe, 11.514 rad; d0is the outer diameter of the heat exchange tube, 0.019 m; di is the inner diameter of the heat exchange tube, 0.0174 m; E is the modulus of elasticity, 1980 Mpa, l is the span, 2.0125 m; m is the mass of unit heat exchange tube length, 0.8766 kg/m.
+Then, the natural frequency of the heat exchange tube is 56.69 Hz.
+When the fluid elastic instability of tube bundle occurs, the critical radial velocity Vcof the primary-side fluid can be calculated as follows:
+(15)Vc=Kcfnd0δsb
+where, δsis the mass damping coefficient, 0.8703; Kcis the scale factor, Kc=3.58(s/d−0.9)=2.18, b = 0.1. Then, the critical cross-flow velocity is obtained: Vc = 2.32 m/s.
+According to the simulation results, the radial velocity at the up point of outlet is 2.33 m/s, which is higher than the critical cross-flow velocity, thus it may cause vibration here. Support plates or baffles need to be installed here to reduce the radial velocity to avoid flow-induced vibration.
+<Section>4. Conclusion</Section>
+In this paper, the dual-cell coupling porous media model was used to numerically study the flow fields of IHX. The flow field both on the primary and secondary sides were obtained at the same time. The axial velocity and radial velocity on inlet and outlet were analyzed. The radial velocities were within the range of 0–0.65 m/s on the inlet. The radial velocities were within the range of 0–2.33 m/s on the outlet. Through the vibration analysis, at the up point of outlet, it may cause vibration since the high radial velocity. Thus, Support plates or baffles need to be installed here to reduce the radial velocity to avoid flow-induced vibration.
+<Section>Declaration of competing interest</Section>
+The authors declare no conflict of interest.
+<Section>Acknowledgements</Section>
+The authors gratefully acknowledge the financial support of National Science Foundation of China (No. 51606145 and No.51876166).
+<Section>Appendix A. Supplementary data</Section>
+The following is the Supplementary data to this article:
+Multimedia component 1.
+<Section>Author contributions</Section>
+Binbin Qiu: Investigation, Simulation method, Writing original draft. Bowen Du: Simulation work. Chenxi Huang: Writing - Review & Editing. Weixiong Chen: Writing - Review & Editing, Supervision, Junjie Yan: Writing - Review & Editing, Supervision, Bo Wang: Writing: Review & Editing.
+<Section>Research data for this article</Section>
+Data not available / The data that has been used is confidential
+About research data
+References
+Bhutta et al., 2012
+M.M.A. Bhutta, et al.
+CFD applications in various heat exchangers design: a review
+Appl. Therm. Eng., 32 (2012), pp. 1-12
+View Record in ScopusGoogle Scholar
+Gajapathy et al., 2008
+R. Gajapathy, et al.
+Thermal hydraulic investigations of intermediate heat exchanger in a pool-type fast breeder reactor
+Nucl. Eng. Des., 238 (2008), pp. 1577-1591
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+Karayannis and Markatos, 1994
+N. Karayannis, N.C. Markatos
+Mathematical modeling of heat exchangers
+Proceedings of the Tenth International Heat Transfer Conference (1994), pp. 13-18
+View Record in ScopusGoogle Scholar
+Kim et al., 2019
+J. Kim, et al.
+Compound porous media model for simulation of flat top U-tube compact heat exchanger
+Int. J. Heat Mass Tran., 138 (2019), pp. 1029-1041
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+Marcellin and Guidez, 1984a
+C. Marcellin, J. Guidez
+Hydrothermicbehaviour of Intermediate Heat Exchangers in a Pool-type Fast Breeder Reactor
+CEA Centre d'EtudesNucleaires de Cadarache (1984)
+Google Scholar
+Marcellin and Guidez, 1984b
+C. Marcellin, J. Guidez
+38 Hydrothermicbehaviour of intermediate heat exchangers in a pool-type fast breeder reactor
+Liquid Metal Engineering and Technology, Thomas Telford Publishing (1984), pp. 211-214
+View Record in ScopusGoogle Scholar
+Missirlis et al., 2009
+D. Missirlis, et al.
+Heat and fluid flow investigations on a heat exchanger for aero engine applications
+ISABE 2009: 19th ISABE Conference (2009)
+Google Scholar
+Missirlis et al., 2010
+D. Missirlis, et al.
+Numerical development of a heat transfer and pressure drop porosity model for a heat exchanger for aero engine applications
+Appl. Therm. Eng., 30 (2010), pp. 1341-1350
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+Mochizuki and Takano, 2009
+H. Mochizuki, M. Takano
+Heat transfer in heat exchangers of sodium cooled fast reactor systems
+Nucl. Eng. Des., 239 (2) (2009), pp. 295-307
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+Mochizuki et al., 2015
+H. Mochizuki, et al.
+A thermal hydraulic calculation method of an intermediate heat exchanger of a loop type FBR
+J. Nucl. Sci. Technol., 52 (11) (2015), pp. 1436-1447
+CrossRefView Record in ScopusGoogle Scholar
+Sha et al., 1982
+W. Sha, et al.
+Multidimensional numerical modeling of heat exchangers
+J. Heat Tran., 104 (1982), pp. 417-425
+CrossRefView Record in ScopusGoogle Scholar
+Yakinthos et al., 2009
+K. Yakinthos, et al.
+Derivation of an anisotropic model for the pressure loss through a heat exchanger for aero engine applications
+ASME Turbo Expo 2009: Power for Land, Sea, and Air, American Society of Mechanical Engineers Digital Collection (2009)
+Google Scholar
+Zhao and Gronstedt, 2015
+X. Zhao, T. Gronstedt
+Conceptual design of a two-pass cross-flow aeroengine intercooler
+Proc. IME G J. Aero. Eng., 229 (11) (2015), pp. 2006-2023
+CrossRefView Record in ScopusGoogle Scholar
+Zhao et al., 2017
+X. Zhao, et al.
+Experimental validation of the aerodynamic characteristics of an aero-engine intercooler
+J. Eng. Gas Turbines Power, 139 (5) (2017)
+Google Scholar

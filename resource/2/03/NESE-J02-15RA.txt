@@ -1,0 +1,200 @@
+<title>Dynamic simulation of the CEFR control rod drop experiments with the Monte Carlo code Serpent</title>
+<author>1,EmilFridman, 2,XingkaiHuo</author>
+<Affiliation>1，Helmholtz-Zentrum Dresden-Rossendorf, Bautzner Landstraße 400, 01328 Dresden, Germany;2,China Institute of Atomic Energy, POB 275(95), Beijing 102413, China</Affiliation>
+<year>2020</year>
+<Jounral>Annals of Nuclear Energy</Journal>
+<Publishing_house>ELSEVIER</Publishing_house>
+<Text_Collector>XiaFan，HEU</Text_Collector>
+<DOI>10.1016/j.anucene.2020.107707</DOI>
+<URL>https://wwws.ciencedirect.com/science/article/pii/S0306454920304059</URL>
+Dynamic simulation of the CEFR control rod drop experiments with the Monte Carlo code Serpent
+EmilFridman, XingkaiHuo
+Helmholtz-Zentrum Dresden-Rossendorf, Bautzner Landstraße 400, 01328 Dresden, Germany
+China Institute of Atomic Energy, POB 275(95), Beijing 102413, China
+<Section>Highlights</Section>
+Control rod (CR) drop experiments during the CEFR physical start-up tests.
+Dynamic simulation of the CR drop experiments with Serpent.
+Comparison of the measured and calculated parameters.
+Compared parameters: neutron population, dynamic reactivity, CR worth.
+A very good agreement between measurements and calculations.
+<Section>Abstract</Section>
+The China Experimental Fast Reactor (CEFR) is the first SFR operated in China. The CEFR physical start-up tests, conducted in 2010, included control rod (CR) worth (CRW) measurements by the rod drop method.
+In this study, the transient simulations of the actual course of eigth CR drop experiments have been performed with the Monte Carlo code Serpent using a detailed 3D heterogeneous CEFR core model. For each of the eight cases, the calculated time-depended neutron population, dynamic reactivity, and CRW have been compared to the measurements. The experimental and calculated reactivity curves have shown a very close behavior for the entire simulated time interval. With regard to the CRW results, a very good compliance between the experiment and simulations as well as among the applied computational approaches has been observed. The obtained results indicate that Serpent can be routinely applied to transient simulations, the area which until recently was limited to deterministic methods.
+Keywords：CEFR；Serpent；Dynamic； Monte ；CarloRod drop experiments
+<Section>1. Introduction</Section>
+Serpent (Leppänen et al., 2015), one of the most widely used Monte Carlo reactor analysis codes, is being developed since 2004 at VTT Technical Research Centre of Finland. Its applicability ranges from traditional reactor physics calculations to radiation transport analyses and coupled multi-physics simulations. A detailed description and up-to-date status of the code can be found on the project website (Serpent developer team, 2020a). One of the interesting and promising Serpent features is the availability of the time-dependent simulation mode. The initial implementation accounted for prompt neutrons only and was limited to short reactivity transients either without (Leppänen, 2013) or with thermal feedback (Valtavirta et al., 2014). Later, Serpent was extended with a delayed neutron emission model (Valtavirta et al., 2016, Valtavirta, 2016) and velocity and acceleration-based geometry transformation capabilities (Valtavirta, 2016, Valtavirta et al., 2016) enabling simulation of realistic transient scenarios. A theoretical overview of the current time-depended Serpent capabilities can be found elsewhere (Levinsky et al., 2019, Serpent developer team, 2020b).
+In recent years, these capabilities were successfully tested on several numerical benchmarks and real-live problems either in a stand-alone or coupled mode. As a stand-alone code, Serpent was used to model a number of experiments such as control rod (CR) insertion experiments performed at the Jožef Stefan Institute (JSI) TRIGA reactor (Valtavirta et al., 2018), the T-32 transient in the SPERT III E-core (Levinsky et al., 2019), and CR drop transients at the VR-1 reactor (Novak et al., 2020). In the framework of the EU project McSAFE (Sanchez-Espinoza et al., 2018), Serpent was coupled with sub-channel thermal-hydraulic code SUBCHANFLOW. The coupled code system was applied to model reactivity initiated transients (RIA) in a PWR-type minicore (Ferraro et al., 2020a) and to simulate hot full power transient tests conducted in the SPERT III E-core (Ferraro et al., 2020b).
+In 2018, International Atomic Energy Agency (IAEA) has launched a new coordinated research project1 (CRP) on neutronic benchmark of start-up tests conducted at China Experimental Fast Reactor (CEFR) operated by China Institute of Atomic Energy (CIAE). As the initiator of the CRP, CIAE provided the benchmark specifications and supplied the measurement data that can be used for validation of the computational tools (Huo et al., 2017). In the current study, we applied the Serpent code to simulate CR drop transients conducted during the CEFR start-up tests. Our main objective is to further demonstrate and validate the transient modeling capabilities of Serpent by comparing the numerical results to the available measurement data. A quick overview of CEFR and a description of the CR drop experiments are provided in the following two section. The computational methodology is presented in Section 4. The results of the study are summarizes in 5 Results, 6 Summary and conclusions.
+<Section>2. A brief overview of CEFR</Section>
+This section presents a basic description of the CEFR core. A significantly more detailed description of the geometry, materials, and operating conditions is provided in the benchmark specifications (Huo et al. 2019) while some information on the primary coolant system can be found elsewhere (Cui et al., 2013, Xia et al., 2020).
+CEFR is a 65MWth pool-type Sodium-cooled Fast-spectrum Reactor (SFR) located at CIAE in southwest suburb of Beijing. The CEFR physical start-up tests, conducted in 2010, comprised a series of measurements such as initial fuel loading and criticality, measurement of control rod worth (CRW) at different core states, estimation of various reactivity effects, and measurement of axial and radial traverses through foil activation (Huo et al., 2017).
+The current study focuses on the CRW measurements performed for the first operational loading at cold zero power (CZP) conditions. The corresponding core layout is presented in Fig. 1 Some relevant operating parameters are summarized in Table 1. The considered core configuration includes 79 fuel sub-assemblies (SAs), 1 neutron source SA, 230 boron-shielding SAs, and 394 stainless steel (SS) SAs of 4 types. The radial layouts of the core SAs are shown in Fig. 2 The fuel SAs contain 61 fuel rods loaded with 64.4 wt% enriched UO2. The fuel region is surrounded by lower and upper blanket containing depleted UO2 as shown in Fig. 4. The corresponding axial dimensions can be found in Table 1. The radial layout of the fuel and blanket regions are presented in Fig. 2a and b respectively. The shielding SA is built from seven absorber rods loaded with B4C at natural abundance of B10 (see Fig. 2c). The main difference between various SS reflector SAs is the numbers and dimensions of the SS rods and nozzles. While the SAs of Type I and II contain seven rods per SA, the SAs of Type III and IV have a single SS rod of a larger diameter (see Fig. 2d and e). The design differences were motivated by different requirements for SA cooling due to the different positioning in the core.
+Fig. 1. CEFR core layout.
+Table 1. Main operating parameters of the CEFR core at CZP conditions.
+Fig. 2. Radial layout of the core SAs.
+The CEFR reactivity control system comprises 8 CRs. All CRs contain 7 sodium bonded B4C pins of a similar geometry shown in Fig. 2f and variable B10 content. The CRs are divided in 3 distinct groups according to intended mode of application:
+-
+regulating CRs (designated as RE1 and RE2) with natural B10. The primary use is the regulation of small reactivities, including fine power control;
+-
+shim CRs (designated as SH1, SH2, and SH3) with 92% enriched B10. The shim CRs are intended for compensation of large reactivity changes due to burn-up, temperature and power effects;
+-
+safety CRs (designated as SA1, SA2, and SA3) with 92% enriched B10. The safety CRs are dedicated to emergency shutdown.
+The locations of the CRs is shown in Fig. 1 According to safety regulation, a combination of all shim and regulating CRs constitutes the first shutdown system. The second shutdown system consists of the 3 safety CRs.
+<Section>3. Description of the CRW measurement</Section>
+In the course of the start-up tests, the CRW measurements have been performed by a normal CR movement with the reactivity compensation and using the rod drop method. The former approach is based on a stepwise axial movement of the measured CR and counter movements of other CRs required to balance the introduced reactivity changes. The method allows for the estimation of the differential and integral CRW. However, due to a large number of the varying CR positions, the proper modeling of the compensation measurements can pose a significant computation burden. Therefore, the compensation measurements were excluded from the CEFR benchmark.
+As compared to the compensation measurements, the rod drop method is considerably simpler. Its objective is to evaluate the integral CRW of measured CRs. During the experiment, a measured CR was completely withdrawn from the core. The positions of other CRs were adjusted to introduce a small positive reactivity and, consequently, to increase the neutron flux levels. When the counting rate of neutron detectors reached a certain level, the CR drop process was initiated. Table 2 summarizes the important information on the rod drop tests including initial and final position of all CRs, approximate drop duration, and rod insertion speed. It should be noted that this study is limited to the measurements of the CRW of individual CRs while the CEFR benchmark specifications also include the data for different CR groups such as the first and the second shutdown systems.
+Table 2. Information about the considered CR drop experiments.
+As described in Section 2, the considered rod drop experiments were conducted at isothermal CZP conditions (see Table 1) for the first operational loading shown in Fig. 1 Boron-lined proportional counters were used as out-of-core source range detectors to monitor the neutron flux during the CRW measurements. The radial position of the detectors is shown in Fig. 3. In the axial directions, the detectors were located at the core mid-plane. The detectors were connected to a reactivity meter, which recorded the count rates. To reduce the dead-time effect, the maximum neutron count rates were typically kept below 35,000 counts/s (Hu et al., 2013). Based on the acquired data, the reactivity was calculated in a real time with the help of the inverse point kinetics (IPK) method and using pre-calculated kinetic parameters shown in Table 3. No spatial correction or dynamic corrections were applied.
+Fig. 3. Radial position of the detectors used for the CRW measurements.
+Table 3. Point kinetics parameters used for the online reactivity calculation.
+<Section>4. Computational methodology</Section>
+4.1. Modeling of the CR drop experiments
+This study aimed at the time-depended simulation of the actual course of the conducted CR drop experiments. For every dropped CR considered in Table 2, the time-depended modeling comprised two major stages. First, a preparatory static simulation of the initial core state was performed to produce steady state population of live neutrons and delayed neutron precursors. Second, a dynamic simulation of the CR drop process was carried out using the steady states populations generated at the previous stage as a starting point. In Serpent, a modeled CR was inserted at constant speed indicated in Table 2 until the final rodded core state was reached. The time-dependent geometry transformation was performed in a discrete manner that is the CR movements occurred at pre-defined time points. In all simulated cases, the rod drop process was initiated at t = 0.5 sec. Position update intervals and total simulated time varied as follows:
+-
+RE and SH CRs: Position update – every 0.1 sec. Total simulated time interval − 7 sec.
+-
+SA CRs: Position update – every 0.05 sec. Total simulated time interval − 5 sec.
+All Serpent calculations were carried out employing a 3D heterogeneous model of the CEFR core. The model reproduces the benchmark specifications (Huo et al., 2019) without any major simplifications and features an explicit representation of the core SAs including fuel, neutron source, SS reflectors and boron shielding. Fig. 4 shows horizontal and vertical cuts of the full CEFR core model with the partially inserted SH2 CR. The calculations were performed using Serpent 2.1.31 and the JEFF-3.1 based cross section data.
+Fig. 4. Serpent model of the CEFR core: horizontal and vertical cuts.
+Calculation of the integral CRW and dynamic reactivity
+The primary goal of the CR drop experiments and corresponding simulations was to estimate the integral CRW of the dropped CRs. In this study, we used static and dynamic methods for the CRW estimation. The typical static method is based on two eigenvalue MC calculations. Here, the static CRW was calculated as a difference in a static reactivity between the initial and rodded core states presented in Table 2:
+@(1)
+In the dynamic method, the CRW was derived from the dynamic reactivity. The latter was computed using two different approaches. The first one is based on the solution of the IPK Eq. (2):
+@(2)
+Here, ρIPK(t) is the IPK-based reactivity; n(t) is the neutron density; β is the total delayed neutron fraction; Λ is the prompt neutron generation time; βi, and λi are, respectively, the delayed neutron fraction and the precursor decay constant in group i; and nd is the total number of delayed neutron groups. A derivation of the current form of the IPK equation can be found in Appendix I.
+The second approach, proposed in (Valtavirta, 2017) and used in (Levinsky et al., 2019), is based on the time-dependent global neutron balance (NB). By introducing time-depended effective neutron multiplication factor (keffNB), the NB-based dynamic reactivity (ρNB) can be calculated as follows:
+@(3)
+@(4)
+where P, C, F, L and S are the core average neutron production, capture, fission, leakage, and scattering production rates respectively.
+All time-depended quantities required for the solution of (2), (3) were directly tallied by Serpent using a uniform time binning with a time step of 0.02 sec. The resulting data is not point-wise but rather integrated over the time step. The effective point kinetic parameters were calculated by Serpent during preparatory static simulations of the initial core states using the iterated fission probability (IFP) method (Leppänen et al., 2014). In order to assess the effect of the point kinetics parameters on the CRWs, the IPK equation was also solved using the point kinetics parameters from the experimental reactivity meter (Table 3).
+<Section>5. Results</Section>
+This section presents the result of the study focusing on the comparison of the measured and calculated time-depended neutron population, dynamic reactivity, and CRW. For all considered CRs, the temporal evolution of the neutron population is compared in Fig. 5 Here, the measured values are the normalized counts from the out-of-core source range detectors. The calculated values are the normalized core average neutron densities obtained with Serpent. The computed neutron population data was used as an input to the IPK equation (Eq. (2)) to evaluate the time-depended reactivity. In addition to the IPK approach, the time-depended reactivity was also calculated using the NB approach ((3), (4)). The measured dynamic reactivity is plotted along with the calculated NB- and IPK-based reactivities in Fig. 6. In all presented cases, the computed neutron population consistently replicates the experimental data (Fig. 5) while the measured and calculated reactivity curves exhibit a very comparable behavior during the entire simulated time interval (Fig. 6).
+Fig. 5. Measured and calculated neutron population.
+Fig. 6. Measured and calculated reactivity.
+The CRW was obtained by first, applying the linear polynomial fitting to the pre-drop and post-drop reactivity data and then, finding the difference between the corresponding intercepts with the vertical line at t = 0.5 sec (rod drop start time). The fitting was performed using the Matlab functions polyfit and polyval because they allow to estimate the standard error of the predicted results. The procedure is visualized in Fig. 7.
+Fig. 7. Visualization of the CRW evaluation approach.
+The experimental and calculated CRWs of all individual CRs are compared in Fig. 8a. The difference between the calculated and experimental CRWs is shown in Fig. 8b. The numerical values are presented in Table 4. The calculated CRWs include the results obtained with the static, IPK and NB dynamic methods. As shown in Fig. 8a, the regulating rods RE1 and RE2 have the lowest weight of about 150 pcm due to the use of the natural boron as a control material and their peripheral location (Fig. 1). Both shim (SH) and safety (SA) rods utilize enriched boron and have significantly higher CRW of about 1900 and 900 pcm respectively. The shim rods feature the highest CRW due to the more central position (Fig. 1). The results presented in Fig. 8 demonstrate a very good agreement between the experiment and simulations as well as among the applied computational approaches. All calculated CRWs agree well within less than one standard deviation with the corresponding measured values (Fig. 8b). The discrepancy between the calculated and measured CRWs is up to 20 pcm for the RE rods and up to 45 pcm for the SA rods and the SH2 and SH3 rods.
+Fig. 8. Comparison of the measured and calculated CRWs. Difference in the CRW is calculated as “calculated” – “experiment” (C-E).
+Table 4. CRW summary.
+However, a somewhat different picture can be observed for the SH1 rod where the measured CRW is higher than the calculated one by about 100 pcm. This discrepancy can be partially attributed to a certain simplification of the simulation procedure. So far, the calculated CRWs were obtained using the global neutron population. For instance, the IPK equation (Eq. (2)) was solved using the time-dependent core average neutron density. The NB-based reactivity was obtained via the global core neutron balance. In reality, however, the core average neutron density could not be measured. The measured neutron data was only available at the ex-core source-range detector locations. Since these locations are far beyond the boundaries of the neutronic model (see Fig. 3), these detectors cannot be simulated precisely.
+As can be seen in Fig. 3, the SH1 is the closest rod to the out-of-core neutron detectors and is not “shielded” by other CRs. Due to this arrangement, the detectors are more sensitive to the localized deformation of the spatial neutron distribution caused by the SH1 rod movements. The variation in the neutron population seen by the detectors during the SH1 drop is higher than the variation in the core average neutron population. This, consequently, can lead to a higher experimental CRW of the SH1 rod.
+To support this statement, we approximated the detector behavior by tallying the neutron density at the D1 position shown in Fig. 1 and re-calculated the CRW of all SH rods. As shown in Fig. 9, the CRW of the SH1 rod obtained with the neutron density from the D1 position is higher by about 120 pcm as compared to that calculated from the core average neutron density. Moreover, the discrepancy between the experimental and calculated CRW dropped from about 100 pcm to −25 pcm. On the other hand, the SH2 and SH3 rods are affected to a lesser extent. The CRWs of the SH2 and SH3 rods calculated from D1 neutron density deviate by about 40 and 25 pcm respectively from those calculated using the global neutron density. In general, however, all CRW calculated using the D1 neutron densities are still agree with the experimental ones within the measurement uncertainty.
+Fig. 9. Comparison of the CRW of the SH rods obtained with the core average and the localized neutron densities.
+Up to this point, all IPK calculations were performed using the point kinetics parameters estimated by Serpent with the IFP method. These parameter somewhat differ from those employed by the reactivity meter for the on-line reactivity monitoring during the CR experiments (see Table 5). In order to assess the effect of the point kinetics parameters on the obtained CRWs, the CRWs of all CRs were re-evaluated using the point kinetics parameters from the experimental reactivity meter. Fig. 10 compares the previously and newly obtained CRWs. Here, the observed effect of the point kinetics data is relatively minor while the difference is limited by about 4, 45, and 20 pcm for the RE, SH, and SA CRs respectively. It should be noted that more comprehensive nuclear data sensitivity studies are planned for the future.
+Table 5. Comparison of the point kinetics parameters.
+Fig. 10. Effect of the point kinetics parameters on the calculated CRW.
+<Section>6. Summary and conclusions</Section>
+In this study, the MC code Serpent was used to perform dynamic simulations of the CR drop experiments conducted during the CEFR start-up test. The time-depended simulations of the actual course of the CR drop experiments were performed using a very detailed 3D heterogeneous CEFR core model.
+The time-depended data tallied by Serpent included global reaction rates, core average and localized neutron densities. The reactions rates were used to evaluate the dynamic reactivity through the global NB. The neutron density data was employed to calculate the dynamic reactivity with the help of the IPK equation. The NB- and IPK-based dynamic reactivities were used to derive the CRW of the individual CEFR CRs. The CRWs were also calculated by a typical static method relying on two eigenvalue MC simulations.
+The calculated quantities including time-depended neutron population, dynamic reactivity, and estimated CRWs were compared to the measurements. For all CRs, the tallied neutron population consistently replicates the experimental data indicating that the out-of-core detector responses were adequately approximated by the core average neutron population. The experimental and calculated reactivity curves showed a very close behavior for the entire simulated time interval. With regard to the CRW results, a very good compliance between the experiment and simulations as well as among the applied computational approaches was observed. The calculated and measured CRW values agreed well within measurement uncertainty. In addition, the NB- and IPK-based results were in an excellent agreement as well, suggesting that the two methods can be seen as complementary approaches.
+To summarize, the dynamic modeling capabilities of the continuous energy (CE) MC code Serpent were successfully tested against the real-life fast reactor experiments. The obtained results indicate that Serpent can be routinely applied to transient simulations, the area which until recently was limited to deterministic methods. In general, due to the more accurate interaction physics combined with practically unlimited geometry complexity, the MC codes have a strong potential to produce high-fidelity references solutions for verification of deterministic codes not just in static neutronic calculations as they are widely used so far, but also in transient analyses.
+<Section>Declaration of Competing Interest</Section>
+The authors declare that they have no known competing financial interests or personal relationships that could have appeared to influence the work reported in this paper.
+<Section>Appendix I:. Derivation of the inverse kinetic equation used for dynamic reactivity calculation with Serpent</Section>
+The source-free point kinetics equations are given by Eqs. (1) and (2) (Hetrick, 1971):
+@(1)
+@(2)
+where n(t) is the neutron density; ρ(t) is the reactivity; β is the total delayed neutron fraction; Λ is the prompt neutron generation time; Ci(t), βi, and λi are respectively the precursor concentration, the delayed neutron fraction, and the precursor decay constant in group i; and nd is the total number of delayed neutron groups.
+The goal of the current derivation is to inverse the relation between n(t) and ρ(t) that is to express the time-depended reactivity in terms of time-depended neutron density. The formula for reactivity can be obtained from Eq. (1):
+@(1)
+Eq. (3) cannot be directly applied to the dynamic reactivity calculations due to the presence of the Ci(t) term. In order to illuminate the dependence on Ci(t), the latter should be expressed in terms of the neutron density with the help of Eq. (2). Re-writing Eq. (2) in a standard form gives the following:
+(4)
+Eq. (4) can be solved using the integrating factor (IF)  as proposed, for example, in (Hetrick, 1971). By multiplying Eq. (4) by the IF:
+@(5)
+then applying the product rule for derivatives to Eq. (5):
+@(6)
+and integrating both sides of Eq. (6) one can obtain the expression for precursor concentration Ci(t):
+@(7)
+The integral from Eq. (7) can be split into two parts:
+@(8)
+Assuming criticality conditions for t ≤ 0 (i.e. steady-state neutron density and precursor concentration) the first integral on the right-hand side can be simplified:
+@(9)
+Using Eqs. (7)–(9),  can be expressed as follows:
+@(10)
+Final expression for  can be obtained by substituting Eq. (10) into Eq. (3)
+@(11)
+<Section>Appendix B. Supplementary data</Section>
+The following are the Supplementary data to this article:
+Supplementary data 1.
+<Section>References</Section>
+Cui et al., 2013
+M. Cui, Y. Guo, Z. Zhang
+Transient simulation code development of primary coolant system of Chinese Experimental Fast Reactor
+Ann. Nucl. Energy, 53 (2013), pp. 158-169, 10.1016/j.anucene.2012.09.022
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+Ferraro et al., 2020a
+D. Ferraro, M. García, V. Valtavirta, U. Imke, R. Tuominen, J. Leppänen, V. Sanchez-Espinoza
+Serpent/SUBCHANFLOW pin-by-pin coupled transient calculations for a PWR minicore
+Ann. Nucl. Energy, 137 (2020), 10.1016/j.anucene.2019.107090
+Google Scholar
+Ferraro et al., 2020b
+D. Ferraro, M. García, V. Valtavirta, U. Imke, R. Tuominen, J. Leppänen, V. Sanchez-Espinoza
+Serpent/SUBCHANFLOW pin-by-pin coupled transient calculations for the SPERT-IIIE hot full power tests
+Ann. Nucl. Energy, 142 (2020), Article 107387, 10.1016/j.anucene.2020.107387
+ArticleDownload PDFGoogle Scholar
+Hetrick, 1971
+Hetrick, D.L., 1971. Dynamics of nuclear reactors. University of Chicago Press.
+Google Scholar
+Hu et al., 2013
+Y. Hu, Y. Zhao, X. Chen, L. Xu
+Proposing of a new fitting and iteration method (FIM) to correct measured reactor core reactivity
+Nucl. Eng. Des., 254 (2013), pp. 33-42, 10.1016/j.nucengdes.2012.08.034
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+Huo et al., 2019
+Huo, X., Hu, Y., Chen, Xiaoliang, Xu, L., Zhang, J., Chen, Xiaoxian, Cao, P., 2019. Technical Specifications for neutronics benchmark of CEFR start-up tests (CRP-I31032). KY-IAEA-CEFRCRP-001, Department of Reactor Engineering, China Institute of Atomic Energy.
+Google Scholar
+Huo et al., 2017
+Huo, X., Yu, H., Hu, Y., Yang, X., Yang, Y., Chen, Y., ZHOU, K., FAN, Z., CHEN, X., XU, L., ZHANG, J., 2017. IAEA CRP Proposal for Benchmark Analysis on Physical Start-Up Experiments of China Experimental Fast Reactor, in: IAEA FR2017, IAEA-CN245-501. Ekaterinburg, Russian Federation.
+Google Scholar
+Leppänen, 2013
+Leppänen, J., 2013. Development of a dynamic simulation mode in serpent 2 Monte Carlo code, in: M&C 2013. Sun Valley, ID, USA.
+Google Scholar
+Leppänen et al., 2014
+J. Leppänen, M. Aufiero, E. Fridman, R. Rachamin, S. van der Marck
+Calculation of effective point kinetics parameters in the Serpent 2 Monte Carlo code
+Ann. Nucl. Energy, 65 (2014), pp. 272-279, 10.1016/j.anucene.2013.10.032
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+Leppänen et al., 2015
+J. Leppänen, M. Pusa, T. Viitanen, V. Valtavirta, T. Kaltiaisenaho
+The Serpent Monte Carlo code: Status, development and applications in 2013
+Ann. Nucl. Energy, 82 (2015), pp. 142-150, 10.1016/j.anucene.2014.08.024
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+Levinsky et al., 2019
+A. Levinsky, V. Valtavirta, F.P. Adams, V.N.P. Anghel
+Modeling of the SPERT transients using Serpent 2 with time-dependent capabilities
+Ann. Nucl. Energy, 125 (2019), pp. 80-98, 10.1016/j.anucene.2018.09.038
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+Novak et al., 2020
+O. Novak, L. Sklenka, F. Fejt, I. Maldonado, O. Chvala
+Rod drop transient at VR-1 reactor – experiment and Serpent transient calculation analysis
+Ann. Nucl. Energy, 141 (2020), Article 107296, 10.1016/J.ANUCENE.2019.107296
+ArticleDownload PDFGoogle Scholar
+Sanchez-Espinoza et al., 2018
+Sanchez-Espinoza, V.H., Leppänen, J., Mercatali, L., Hoogenboom, J.E., Vodcka, R., Dufek, J., 2018. McSAFE - High Performance Monte Carlo Methods for SAFEty Analysis, in: NUGENIA Annual Forum 2018. Prague, Czech Republic.
+Google Scholar
+Serpent developer team, 2020a
+Serpent developer team, 2020a. An official website of the Serpent project [WWW Document]. URL http://montecarlo.vtt.fi/ (accessed 4.15.20).
+Google Scholar
+Serpent developer team, 2020b
+Serpent developer team, 2020b. Serpent Wiki [WWW Document]. URL http://serpent.vtt.fi/mediawiki/index.php/Transient_simulations (accessed 4.15.20).
+Google Scholar
+Valtavirta, 2017
+Valtavirta, V., 2017. Coupled calculations with Serpent 2.1.29, in: The 7th International Serpent User Group Meeting. Gainesville, Florida, USA.
+Google Scholar
+Valtavirta, 2016
+Valtavirta, V., 2016. Coupled time dependent simulations with Serpent 2.1.27, in: The 6th International Serpent User Group Meeting. Milan, Italy.
+Google Scholar
+Valtavirta et al., 2016
+Valtavirta, V., Hessan, M., Leppänen, J., 2016. Delayed neutron emission model for time dependent simulations with the serpent 2 Monte Carlo code - First results, in: PHYSOR 2016. Sun Valley, ID, USA.
+Google Scholar
+Valtavirta et al., 2018
+Valtavirta, V., Hessan, M., Leppänen, J., Allelein, H.-J., Merljak, V., Calic, D., Stancar, Z., Snoj, L., 2018. Time-Dependent Modelling Of The JSI TRIGA With Serpent 2, in: NENE-2018. Portoroz, Slovenia.
+Google Scholar
+Valtavirta et al., 2014
+Valtavirta, V., Ikonen, T., Viitanen, T., Leppänen, J., 2014. Simulating Fast Transients With Fuel Behavior Feedback Using the Serpent 2 Monte Carlo Code, in: PHYSOR 2014. Tokyo, Japan.
+Google Scholar
+Xia et al., 2020
+Z. Xia, D. Lu, J. Tang, Y. Liu, J. Yang, L. Feng, S. Ye, Z. Guo, Y. Zhang
+Three-dimensional thermal hydraulic transient calculation of coupled cold and hot sodium pools under a loss of feedwater accident in the China experimental fast reactor
+Ann. Nucl. Energy, 139 (2020), Article 107217, 10.1016/j.anucene.2019.107217
+ArticleDownload PDFGoogle Scholar

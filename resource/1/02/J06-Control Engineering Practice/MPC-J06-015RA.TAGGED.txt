@@ -1,0 +1,336 @@
+<title> A_DT fault_NN detection_NN scheme_NN for_IN ship_NN propulsion_NN systems_NNS using_VVG randomized_VVN algorithm_NN techniques_NNS </title> <author> Zhou_NP ,_, Jing_NP ;_: Yang_NP ,_, Ying_NP ;_: Zhao_NP ,_, Zhengen_NP ;_: Ding_NP ,_, Steven_NP X._NP </author> <Affiliation> 1_CD State_NP Key_NP Lab_NP for_IN Turbulence_NN and_CC Complex_JJ Systems_NPS ,_, Department_NP of_IN Mechanics_NNS and_CC Engineering_NP Science_NP ,_, College_NP of_IN Engineering_NP ,_, Peking_NP University_NP ,_, Beijing_NP ;_: 100871_CD ,_, China_NP 2_CD Institute_NP for_IN Automatic_NP Control_NP and_CC Complex_JJ Systems_NPS ,_, University_NP of_IN Duisburg–Essen_NP ,_, Duisburg_NP ;_: 47057_CD ,_, Germany_NP </Affiliation> <year> 2018_CD </year> <Jounral> Control_NP Engineering_NP Practice_NN </Journal> <Publishing_house> Elsevier_NP Ltd_NP </Publishing_house> <Text_Collector> Liu_NP Kai，HEU_NP </Text_Collector> <DOI> 10.1016/j_NP ._SENT 
+conengprac.2018.09.008_JJ </DOI> <URL> https_NNS :_: //www_NNS ._SENT 
+sciencedirect_NNS ._SENT 
+com/science/article/pii/S0967066118305227_JJ ?_SENT 
+via%3Dihub_NP </URL> <Section> Highlights_VVZ </Section> •_JJ The_DT ship_NN propulsion_NN system_NN is_VBZ modeled_VVN by_IN normalized_VVN left_JJ coprime_NN factorization_NN ._SENT 
+•_NP The_DT K-gap_NN metric_NN is_VBZ adopted_VVN to_TO measure_VV the_DT difference_NN between_IN two_CD systems_NNS ._SENT 
+•_NP The_DT probabilistic_JJ properties_NNS of_IN uncertain_JJ and_CC faulty_JJ parameters_NNS are_VBP known_VVN previously_RB ._SENT 
+•_NP The_DT threshold_NN setting_VVG and_CC FDR_NP estimation_NN are_VBP achieved_VVN by_IN randomized_VVN algorithms_NNS ._SENT 
+<Section> Abstract_JJ </Section> This_DT paper_NN studies_VVZ the_DT fault_NN detection_NN problem_NN in_IN ship_NN propulsion_NN systems_NNS based_VVN on_IN randomized_VVN algorithms_NNS ._SENT 
+The_DT nominal_JJ propulsion_NN system_NN model_NN ,_, model_NN with_IN uncertainties_NNS and_CC model_NN with_IN additive_JJ and_CC multiplicative_JJ faults_NNS are_VBP first_RB addressed_VVN in_IN the_DT form_NN of_IN normalized_VVN left_JJ coprime_NN factorization_NN (_( LCF_NP )_) ,_, respectively_RB ._SENT 
+The_DT K-gap_NN metric_NN is_VBZ then_RB introduced_VVN to_TO measure_VV how_WRB far_RB the_DT system_NN deviates_VVZ from_IN the_DT nominal_JJ operation_NN ._SENT 
+To_TO reduce_VV the_DT conservatism_NN in_IN the_DT norm-based_JJ threshold_NN ,_, a_DT threshold_NN setting_VVG law_NN and_CC the_DT estimation_NN of_IN fault_NN detection_NN rate_NN (_( FDR_NP )_) are_VBP formulated_VVN on_IN the_DT probabilistic_JJ assumption_NN of_IN uncertain_JJ and_CC faulty_JJ parameters_NNS ._SENT 
+The_DT simulation_NN results_NNS on_IN the_DT ship_NN propulsion_NN system_NN show_VVP that_IN the_DT randomized_VVN technique_NN is_VBZ an_DT efficient_JJ solution_NN to_TO deal_VV with_IN the_DT fault_NN detection_NN issues_NNS ._SENT 
+Keywords：Fault_NP detection；Coprime_NP factorization；Randomized_VVD algorithm；Ship_NN propulsion_NN system_NN <Section> 1._CD Introduction_NN </Section> The_DT propulsion_NN system_NN is_VBZ the_DT most_RBS essential_JJ part_NN in_IN vessels_NNS ,_, hence_RB its_PP$ fault_NN detection_NN is_VBZ of_IN great_JJ significance_NN in_IN the_DT long-term_JJ safety_NN operation_NN and_CC entire_JJ lifecycle_NN management_NN of_IN ships_NNS ._SENT 
+The_DT benchmark_JJ work_NN by_IN Izadi-Zamanabadi_NP and_CC Blanke_NP (_( 1999_CD )_) has_VHZ established_VVN a_DT complete_JJ framework_NN of_IN the_DT fault_NN detection_NN system_NN design_NN for_IN ship_NN propulsion_NN systems_NNS ,_, since_IN then_RB numerous_JJ fault_NN detection_NN strategies_NNS have_VHP been_VBN published_VVN Blanke_NP (_( 2005_CD )_) ,_, Blanke_NP et_CC al_NP ._SENT 
+(_( 1998_CD )_) ,_, Edwards_NP and_CC Spurgeon_NP (_( 1999_CD )_) ,_, Lootsma_NP et_CC al_NP ._SENT 
+(_( 2001_CD )_) ,_, Zhang_NP et_CC al_NP ._SENT 
+(_( 2008_CD )_) ._SENT 
+The_DT main_JJ idea_NN of_IN these_DT works_NNS is_VBZ to_TO construct_VV a_DT residual_JJ signal_NN based_VVN on_IN which_WDT a_DT decision_NN logic_NN is_VBZ formulated_VVN to_TO indicate_VV whether_IN the_DT system_NN is_VBZ in_IN abnormal_JJ condition_NN ._SENT 
+The_DT decision_NN logic_NN consists_VVZ of_IN an_DT evaluation_NN function_NN and_CC a_DT threshold_NN ._SENT 
+Since_IN the_DT evaluation_NN function_NN is_VBZ influenced_VVN not_RB only_RB by_IN the_DT faults_NNS but_CC also_RB by_IN the_DT parameter_NN uncertainties_NNS and_CC external_JJ disturbances_NNS ,_, the_DT threshold_NN setting_VVG law_NN will_MD greatly_RB influence_VV the_DT fault_NN detection_NN performance_NN ._SENT 
+A_DT larger_JJR threshold_NN means_VVZ the_DT smaller_JJR false_JJ alarm_NN rate_NN (_( FAR_RB )_) but_CC the_DT poorer_JJR fault_NN detectability_NN ,_, while_IN a_DT smaller_JJR threshold_NN stands_VVZ for_IN the_DT better_JJR fault_NN detection_NN rate_NN (_( FDR_NP )_) but_CC the_DT higher_JJR false_JJ alarm_NN rate_NN ._SENT 
+In_IN the_DT norm-based_JJ framework_NN ,_, the_DT maximal_JJ norm_NN of_IN the_DT residual_JJ signal_NN in_IN fault_NN free_JJ case_NN is_VBZ chosen_VVN as_IN the_DT threshold_NN (_( Ding_NP ,_, 2008_CD )_) ,_, which_WDT is_VBZ rather_RB conservative_JJ because_IN the_DT extreme_JJ situation_NN ,_, as_IN the_DT residual_JJ reaches_VVZ the_DT maximal_JJ value_NN is_VBZ rare_JJ in_IN real_JJ operations_NNS ._SENT 
+In_IN recent_JJ years_NNS ,_, the_DT randomized_VVN algorithm_NN has_VHZ been_VBN proposed_VVN to_TO deal_VV with_IN uncertainties_NNS as_IN an_DT alternative_JJ method_NN of_IN the_DT robust_JJ control_NN theory_NN ._SENT 
+Most_JJS of_IN the_DT researches_NNS are_VBP aiming_VVG to_TO design_VV controllers_NNS by_IN randomized_VVN algorithms_NNS to_TO achieve_VV some_DT control_NN performance_NN in_IN the_DT probabilistic_JJ sense_NN ,_, such_JJ as_IN in_IN Calafiore_NP ,_, Dabbene_NP ,_, and_CC Tempo_NN (_( 2011_CD )_) ,_, controllers_NNS that_WDT guarantee_VVP the_DT “_JJ probabilistic_JJ robust_JJ ”_JJ performance_NN are_VBP synthesized_VVN ._SENT 
+Compared_VVN with_IN the_DT deterministic_JJ techniques_NNS ,_, the_DT probabilistic_JJ methods_NNS can_MD significantly_RB reduce_VV the_DT conservatism_NN and_CC computational_JJ burden_NN though_IN at_IN the_DT cost_NN of_IN small_JJ failure_NN risks_NNS ._SENT 
+In_IN Ding_NP ,_, Zhang_NP ,_, Frank_NP ,_, and_CC Ding_NP (_( 2003_CD )_) and_CC Zhang_NP ,_, Ding_NP ,_, Sader_NP ,_, and_CC Noack_NP (_( 2005_CD )_) ,_, the_DT application_NN of_IN probabilistic_JJ robustness_NN technique_NN to_TO the_DT fault_NN detection_NN system_NN design_NN has_VHZ been_VBN formulated_VVN for_IN the_DT first_JJ time_NN ._SENT 
+The_DT utilizations_NNS of_IN randomized_VVN algorithms_NNS in_IN controller_NN design_NN and_CC fault_NN detection_NN can_MD be_VB found_VVN in_IN noisy_JJ MIMO_NP uncertain_JJ systems_NNS (_( Ma_NP ,_, Sznaier_NP ,_, &_CC Lagoa_NP ,_, 2007_CD )_) and_CC in_IN UAVs_NP Capello_NP et_CC al_NP ._SENT 
+(_( 2013_CD )_) ,_, Capello_NP and_CC Tempo_NN (_( 2013_CD )_) ,_, Lorefice_NP et_CC al_NP ._SENT 
+(_( 2009_CD )_) ,_, Zhong_NP et_CC al_NP ._SENT 
+(_( 2017_CD )_) ._SENT 
+As_RB for_IN the_DT fault_NN detection_NN of_IN ship_NN propulsion_NN systems_NNS ,_, the_DT norm-based_JJ threshold_NN will_MD lead_VV to_TO poor_JJ fault_NN detection_NN rates_NNS which_WDT is_VBZ not_RB coincident_JJ with_IN the_DT safety-critical_JJ requirements_NNS ._SENT 
+In_IN this_DT paper_NN ,_, we_PP use_VVP the_DT well-established_JJ coprime_NN factorization_NN technique_NN to_TO model_VV the_DT propulsion_NN system_NN ._SENT 
+The_DT K-gap_NN is_VBZ adopted_VVN as_IN the_DT measurement_NN of_IN system_NN deviation_NN ._SENT 
+A_DT fault_NN detection_NN strategy_NN based_VVN on_IN randomized_VVN algorithms_NNS to_TO achieve_VV better_JJR trade-off_NN between_IN FAR_RB and_CC FDR_NP for_IN the_DT ship_NN propulsion_NN system_NN is_VBZ studied_VVN ._SENT 
+The_DT proposed_VVN method_NN can_MD significantly_RB enhance_VV the_DT fault_NN detection_NN performance_NN while_IN keeping_VVG the_DT false_JJ alarm_NN rate_NN below_IN an_DT accepted_JJ level_NN ._SENT 
+The_DT paper_NN is_VBZ organized_VVN as_RB follows_VVZ ._SENT 
+Section_NN 2_CD gives_VVZ a_DT detailed_JJ description_NN of_IN the_DT ship_NN propulsion_NN model_NN with_IN one_CD engine_NN and_CC one_CD propeller_NN ._SENT 
+Four_CD kinds_NNS of_IN fault_NN scenarios_NNS are_VBP also_RB included_VVN ._SENT 
+In_IN Section_NP 3_CD ,_, the_DT nominal_JJ system_NN model_NN ,_, model_NN with_IN uncertain_JJ parameters_NNS ,_, model_NN with_IN sensor_NN and_CC actuator_NN faults_NNS are_VBP formulated_VVN by_IN the_DT normalized_VVN left_JJ coprime_NN factorization_NN ,_, respectively_RB ._SENT 
+In_IN Section_NP 4_CD ,_, a_DT novel_NN method_NN for_IN fault_NN detection_NN of_IN ship_NN propulsion_NN systems_NNS based_VVN on_IN randomized_VVN algorithms_NNS is_VBZ given_VVN ._SENT 
+Both_CC the_DT threshold_NN setting_VVG strategy_NN and_CC fault_NN detection_NN rate_NN estimation_NN scheme_NN are_VBP included_VVN ._SENT 
+Section_NN 5_CD is_VBZ the_DT implementation_NN and_CC simulation_NN on_IN the_DT ship_NN propulsion_NN system_NN ._SENT 
+The_DT conclusion_NN is_VBZ addressed_VVN in_IN Section_NP 6._CD <Section> 2._CD Ship_NN propulsion_NN system_NN model_NN </Section> 2.1_CD ._SENT 
+Nonlinear_JJ model_NN of_IN ship_NN propulsion_NN system_NN The_DT typical_JJ mechanical_JJ structure_NN of_IN a_DT ship_NN propulsion_NN system_NN consists_VVZ of_IN four_CD main_JJ subsystems_NNS ._SENT 
+They_PP are_VBP diesel_JJ engine_NN ,_, reduction_NN gearbox_NN ,_, transmission_NN shaft_NN and_CC propeller_NN ._SENT 
+For_IN low_JJ speed_NN and_CC heavy_JJ duty_NN vessels_NNS ,_, the_DT diesel_JJ engine_NN directly_RB drives_VVZ the_DT propeller_NN thus_RB the_DT reduction_NN gearbox_NN can_MD be_VB omitted_VVN ._SENT 
+The_DT screw_NN propeller_NN considered_VVN in_IN this_DT paper_NN is_VBZ the_DT controllable_JJ pitch_NN propeller_NN (_( CPP_NP )_) ,_, the_DT pitch_NN of_IN which_WDT can_MD be_VB controlled_VVN to_TO meet_VV the_DT requirements_NNS for_IN ship_NN speed_NN ._SENT 
+Ships_NNS can_MD move_VV backward_RB or_CC change_VV speed_NN while_IN the_DT diesel_JJ engines_NNS need_VVP not_RB to_TO change_VV the_DT rotation_NN speed_NN frequently_RB ._SENT 
+(_( 1)τcQ̇_NP e=−Qe+kyY_NP (_( 2)Imṅ_NP =Qe−Qp−Qf_NP ._SENT 
+The_DT driving_VVG torque_NN Qe_NNS generated_VVN by_IN diesel_JJ engine_NN is_VBZ relevant_JJ with_IN the_DT fuel_NN consumption_NN Y._NP As_IN Eq_NP ._SENT 
+(_( 1_LS )_) indicates_VVZ ,_, the_DT diesel_JJ engine_NN can_MD be_VB approximatively_RB modeled_VVN as_IN a_DT first-order_NN inertial_NN loop_NN ._SENT 
+ky_NN is_VBZ the_DT engine_NN gain_NN and_CC τc_NN is_VBZ the_DT time_NN constant_JJ ._SENT 
+Im_NP is_VBZ the_DT rotational_JJ inertia_NN of_IN shaft_NN ,_, Qp_NP is_VBZ the_DT resisting_VVG torque_NN caused_VVN by_IN propeller_NN and_CC Qf_NN is_VBZ the_DT unknown_JJ friction_NN torque_NN ._SENT 
+(_( 3)mV̇_JJ =(1−κ)Tp−RV−Text_NN (_( 4)RV=λV2_NP ._SENT 
+Fig_NN ._SENT 
+1._CD Diagram_NN of_IN ship_NN propulsion_NN system_NN ._SENT 
+The_DT above_JJ two_CD equations_NNS are_VBP dynamics_NNS of_IN hull_NN ._SENT 
+m_NN is_VBZ the_DT total_JJ mass_NN of_IN the_DT ship_NN ,_, Tp_NP is_VBZ the_DT driving_VVG force_NN generated_VVN by_IN propeller_NN and_CC Text_NN is_VBZ the_DT unknown_JJ disturbance_NN caused_VVN by_IN wind_NN or_CC waves_NNS ._SENT 
+κ_NP is_VBZ the_DT thrust_NN deduction_NN number_NN which_WDT has_VHZ a_DT typical_JJ value_NN in_IN the_DT interval_NN [_SYM 0.05_CD 0.2_CD ]_SYM ._SENT 
+The_DT main_JJ drag_NN force_NN on_IN passage_NN is_VBZ due_JJ to_TO flow_VV resistance_NN RV_NN which_WDT can_MD be_VB approximately_RB calculated_VVN as_IN the_DT quadratic_JJ function_NN of_IN ship_NN speed_NN V_NN (_( Izadi-Zamanabadi_NP &_CC Blanke_NP ,_, 1999_CD )_) ._SENT 
+λ_NP is_VBZ the_DT empirical_JJ coefficient_NN ._SENT 
+(_( 5)Tp=Tp(n_NP ,_, θ)=ρD4KTn2_NP (_( 6)Qp=Qp(n_NP ,_, θ)=ρD5KQn2_NP ._SENT 
+As_IN Eqs_NP ._SENT 
+(_( 5)–(6_NP )_) indicates_VVZ ,_, the_DT force_NN and_CC torque_NN generated_VVN by_IN the_DT controllable_JJ pitch_NN propeller_NN are_VBP complex_JJ functions_NNS of_IN shaft_NN speed_NN and_CC propeller_NN pitch_NN angle_NN ._SENT 
+ρ_NP is_VBZ the_DT density_NN of_IN sea_NN water_NN ._SENT 
+D_NP is_VBZ the_DT diameter_NN of_IN propeller_NN ._SENT 
+KT_NP and_CC KQ_NP are_VBP the_DT non-dimensional_JJ propeller_NN thrust_NN and_CC propeller_NN torque_NN coefficients_NNS ._SENT 
+They_PP are_VBP relevant_JJ with_IN propeller’s_NP mechanism_NN and_CC can_MD be_VB obtained_VVN from_IN real_JJ voyage_NN tests_NNS ._SENT 
+Referring_VVG to_TO the_DT benchmark_JJ paper_NN (_( Izadi-Zamanabadi_NP &_CC Blanke_NP ,_, 1999_CD )_) ,_, we_PP have_VHP approximatively_RB obtained_VVN their_PP$ functional_JJ relationship_NN with_IN respect_NN to_TO θ_NN and_CC n_NN as_IN (_( 7)KT=α1θ+α2J_NP (_( 8)KQ=β1θ+β2J_NP where_WRB αi_NP ,_, βi_NP ,_, i=1,2_JJ are_VBP constants_NNS determined_VVN by_IN ship_NN types_NNS ._SENT 
+J=2π(1−μ)VnD_NP is_VBZ the_DT open_JJ water_NN advance_NN coefficient_NN ._SENT 
+μ_NP is_VBZ the_DT wake_NN fraction_NN number_NN which_WDT has_VHZ a_DT typical_JJ value_NN between_IN 0.1_CD and_CC 0.4_CD ._SENT 
+It_PP indicates_VVZ the_DT influence_NN on_IN advance_NN speed_NN caused_VVN by_IN non-uniform_JJ shape_NN of_IN the_DT water_NN flow_NN under_IN the_DT ship_NN hull_NN (_( Izadi-Zamanabadi_NP &_CC Blanke_NP ,_, 1999_CD )_) ._SENT 
+The_DT component_NN structure_NN of_IN ship_NN propulsion_NN system_NN is_VBZ illustrated_VVN in_IN Fig_NN ._SENT 
+1._CD Given_VVN a_DT reference_NN signal_NN Vref_NN ,_, the_DT control_NN objective_NN is_VBZ to_TO make_VV the_DT ship_NN speed_NN Vm_NP track_VVP its_PP$ reference_NN ._SENT 
+As_IN the_DT ship_NN speed_NN is_VBZ determined_VVN by_IN both_CC the_DT rotation_NN speed_NN n_NN and_CC propeller_NN pitch_NN θ_NN ,_, the_DT efficient_JJ optimizer_NN takes_VVZ Vref_NN as_IN input_NN and_CC generates_VVZ two_CD optimal_JJ control_NN signals_NNS Y_NP and_CC θref_NP ._SENT 
+These_DT two_CD signals_NNS serve_VVP as_IN the_DT input_NN of_IN shaft_NN speed_NN control_NN loop_NN and_CC propeller_NN pitch_NN control_NN loop_NN ._SENT 
+In_IN our_PP$ study_NN ,_, the_DT shaft_NN speed_NN is_VBZ assumed_VVN to_TO be_VB an_DT open_JJ control_NN loop_NN while_IN the_DT pitch_NN controller_NN is_VBZ simplified_VVN as_IN an_DT integral_JJ feedback_NN controller_NN which_WDT has_VHZ the_DT form_NN (_( 9)θ̇_NP =kt(θref−θm_NP )_) ._SENT 
+2.2_CD ._SENT 
+Fault_NN scenarios_NNS Four_CD main_JJ fault_NN scenarios_NNS in_IN the_DT above_JJ ship_NN propulsion_NN model_NN are_VBP considered_VVN in_IN this_DT paper_NN ._SENT 
+They_PP are_VBP diesel_JJ engine_NN gain_NN fault_NN ΔB_NN ,_, shaft_NN speed_NN sensor_NN fault_NN Δn_NP ,_, pitch_NN angle_NN sensor_NN fault_NN Δθ_NN and_CC hydraulic_JJ system_NN leakage_NN Δθ̇_NN ._SENT 
+The_DT causes_NNS and_CC effects_NNS of_IN these_DT faults_NNS are_VBP listed_VVN in_IN Table_NN 1._CD All_PDT these_DT faults_NNS must_MD be_VB detected_VVN in_IN a_DT short_JJ time_NN since_IN they_PP would_MD lead_VV to_TO abrupt_JJ changes_NNS in_IN ship_NN speed_NN and_CC even_RB cause_VV severe_JJ collision_NN damage_NN ._SENT 
+x(t)=[θnVQe]T_NP is_VBZ the_DT state_NN vector_NN ,_, u(t)=[θrefY]T_NP is_VBZ the_DT input_NN vector_NN ,_, f(t)=[Δθ̇_NP ΔθΔn]T_NP is_VBZ the_DT additive_JJ fault_NN ,_, ΔB_NP is_VBZ the_DT multiplicative_JJ fault_NN ,_, y(t)=[θmnmVm]T_NP is_VBZ the_DT measurement_NN output_NN ._SENT 
+The_DT nonlinear_JJ model_NN of_IN ship_NN propulsion_NN system_NN is_VBZ given_VVN as_IN (_( 10)ẋ_NP (_( t)=g(x(t))+(B+ΔB)u(t)+F1f(t)+D1d1(t)y(t)=Cx(t)+F2f(t)+D2d2(t_NP )_) g(x(t))=⎡⎣⎢⎢⎢⎢⎢−kt1Im(Qe−Qp)1m((1−κ)Tp−RV)−1τcQe⎤⎦⎥⎥⎥⎥⎥_NP ._SENT 
+Table_NN 1._CD Fault_NP scenarios_NNS in_IN ship_NN propulsion_NN systems_NNS ._SENT 
+2.3_CD ._SENT 
+Linearized_JJ model_NN of_IN ship_NN propulsion_NN system_NN This_DT paper_NN studies_VVZ the_DT integrated_JJ influence_NN of_IN faults_NNS and_CC uncertain_JJ parameters_NNS on_IN fault_NN detection_NN performance_NN ,_, thus_RB the_DT influence_NN of_IN disturbances_NNS is_VBZ omitted_VVN ._SENT 
+Select_VV the_DT steady_JJ working_VVG point_NN as_IN x0=[θ0n0V0Qe0]T_NP ,_, nonlinear_JJ model_NN (_( 10_CD )_) can_MD be_VB linearized_VVN as_RB (_( 11)ẋ_NP (_( t)=A(ω)x(t)+(B+ΔB)u(t)+F1f(t)y(t)=Cx(t)+F2f(t_NP )_) where_WRB ω=[κμ]T_NP denotes_VVZ system_NN uncertain_JJ parameters_NNS and_CC A(ω_NN )_) is_VBZ the_DT complex_JJ function_NN matrix_NN of_IN ω_NP ._SENT 
+The_DT linearized_JJ parameter_NN matrix_NN is_VBZ given_VVN below_RB ._SENT 
+A(ω)=⎡⎣⎢⎢⎢⎢⎢⎢−kt−b1n20Im(1−κ)a1n20m00−2b1θ0n0+b2V0Im2(1−κ)a1θ0n0+(1−κ)a2V0m00−b2n0Im(1−κ)a2n0−2λV0m00kyImτc0−1τc⎤⎦⎥⎥⎥⎥⎥⎥_NN where_WRB a1=ρα1D4_NP ,_, a2=2πρα2D3(1−μ_NP )_) b1=ρβ1D5_NP ,_, b2=2πρβ2D4(1−μ_NP )_) ._SENT 
+<Section> 3._CD System_NP model_NN representation_NN by_IN coprime_JJ factorization_NN </Section> Coprime_NN factorization_NN is_VBZ a_DT powerful_JJ technique_NN for_IN modeling_VVG of_IN dynamic_JJ systems_NNS affected_VVN by_IN uncertainties_NNS ._SENT 
+The_DT factorizations_NNS have_VHP been_VBN employed_VVN to_TO synthesize_VV the_DT set_NN of_IN all_DT stabilizing_VVG controllers_NNS for_IN uncertain_JJ systems_NNS in_IN robust_JJ control_NN theory_NN (_( Zhou_NP ,_, Doyle_NP ,_, Glover_NP ,_, et_NP al_NP ._SENT 
+,_, 1996_CD )_) ._SENT 
+The_DT factorization_NN technique_NN based_VVN FDI_NP framework_NN for_IN both_DT in_IN the_DT open-_NN and_CC closed-loop_NN configurations_NNS has_VHZ been_VBN addressed_VVN in_IN Ding_NP (_( 2015a_NP )_) ._SENT 
+In_IN this_DT section_NN ,_, we_PP first_RB give_VVP a_DT brief_JJ introduction_NN to_TO the_DT coprime_JJ factorization_NN and_CC then_RB derive_VV the_DT coprime_JJ factorization_NN representations_NNS for_IN ship_NN propulsion_NN systems_NNS ._SENT 
+3.1_CD ._SENT 
+Coprime_JJ factorization_NN Given_VVN M˜(s)∈RHm×m∞_NP and_CC N˜(s)∈RHm×p∞_NP ,_, if_IN there_EX exist_VV X˜(s)∈RHm×m∞_JJ and_CC Y˜(s)∈RHp×m∞_JJ such_JJ that_DT M˜(s)X˜(s)+N˜(s)Y˜(s)=Im×m_NN ,_, then_RB M˜(s_NP )_) and_CC N˜(s_NNS )_) are_VBP left_VVN coprime_NN over_IN RH∞_NP ._SENT 
+If_IN M˜(s_NP )_) and_CC N˜(s_NNS )_) are_VBP the_DT left_JJ coprime_NN factorization_NN pair_NN ,_, then_RB G(s)=M˜−1(s)N˜(s_NP )_) is_VBZ the_DT left_JJ coprime_NN factorization_NN (_( LCF_NP )_) representation_NN of_IN G(s_NNS )_) ._SENT 
+Similarly_RB ,_, if_IN there_EX exist_VV coprime_JJ transfer_NN functions_NNS M(s)∈RHp×p∞_JJ and_CC N(s)∈RHm×p∞_JJ satisfying_JJ G(s)=N(s)M−1(s_NNS )_) ,_, we_PP say_VVP M(s_NPS )_) and_CC N(s_NNS )_) are_VBP the_DT right_JJ coprime_NN factorization_NN (_( RCF_NP )_) representation_NN of_IN G(s_NP )_) (_( Ding_NP ,_, 2015a_NP )_) ._SENT 
+On_IN the_DT assumption_NN of_IN an_DT LCF_NN of_IN G(s_NP )_) ,_, a_DT linear_JJ time_NN invariant_NN (_( LTI_NP )_) system_NN y=G(s)u_NN can_MD be_VB equivalently_RB written_VVN as_IN (_( 12)[−N˜M˜][uy]=0_NP ._SENT 
+If_IN M˜M˜∗+N˜N˜∗=I_NP ,_, M˜_NP and_CC N˜_NP are_VBP called_VVN normalized_VVN left_JJ coprime_NN factorization_NN (_( NLCF_NP )_) ._SENT 
+Given_VVN the_DT minimal_JJ realization_NN (_( A_NP ,_, B_NP ,_, C_NP ,_, D_NP )_) of_IN G(s_NP )_) ,_, the_DT NLCF_NN is_VBZ obtained_VVN in_IN the_DT following_VVG form_NN (_( Zhou_NP et_NP al_NP ._SENT 
+,_, 1996_CD )_) ._SENT 
+(_( 13)where_RB L=−(BD∗+YC∗)W˜−1_JJ ,_, W=I+D∗D_RB ,_, W˜=I+DD∗_NP ._SENT 
+Y_NP is_VBZ the_DT solution_NN of_IN the_DT Riccati_NP equation_NN (_( A−BD∗W˜−1C)Y+Y(A−BD∗W˜−1C)∗−YC∗W˜−1C+BW−1B∗=0_NP ._SENT 
+It_PP is_VBZ straightforward_JJ to_TO check_VV that_IN the_DT NLCF_NN can_MD be_VB interpreted_VVN as_IN the_DT observer-based_JJ residual_JJ generator_NN driven_VVN by_RB [_SYM uy]T_NP ._SENT 
+(_( 14)xˆ̇_NP =(A+LC)xˆ+(B+LD)u−Ly_NP (_( 15)r0=W˜−12(Cxˆ+Du−y_NP )_) ._SENT 
+The_DT system_NN (_( 12_CD )_) with_IN inputs_NNS u_NN ,_, y_NP is_VBZ called_VVN the_DT stable_JJ kernel_NN representation_NN (_( SKR_NP )_) of_IN system_NN G(s_NNS )_) (_( Ding_NP ,_, 2015a_NP )_) ._SENT 
+The_DT notation_NN is_VBZ adopted_VVN as_IN KG=[−N˜M˜_NP ]_SYM ._SENT 
+Consider_VV the_DT kernel_NN space_NN of_IN G_NP {_( [_SYM uy_NN ]_SYM :_: [_SYM −N˜M˜][uy]=0_JJ ,_, [_SYM uy]∈H2_NP ._SENT 
+}_) It_PP is_VBZ a_DT subspace_NN in_IN H2_NP ._SENT 
+There_EX exists_VVZ such_PDT a_DT subspace_NN linked_VVN with_IN the_DT system_NN no_DT matter_NN what_WP states_VVZ it_PP is_VBZ in_IN ._SENT 
+K-gap_NP is_VBZ generally_RB a_DT measurement_NN of_IN the_DT distance_NN between_IN that_DT two_CD kernel_NN subspaces_NNS in_IN H2_NN ._SENT 
+It_PP is_VBZ a_DT new_JJ gap_NN definition_NN and_CC is_VBZ adopted_VVN as_IN a_DT tool_NN for_IN system_NN analysis_NN in_IN the_DT FDI_NP framework_NN ._SENT 
+In_IN the_DT fault_NN detection_NN system_NN ,_, we_PP adopt_VVP the_DT K-gap_NN of_IN nominal_JJ and_CC uncertain_JJ system_NN as_IN the_DT measurement_NN of_IN how_WRB far_RB the_DT system_NN deviates_VVZ from_IN the_DT nominal_JJ operation_NN when_WRB there_RB exist_VV uncertainties_NNS ._SENT 
+Similarly_RB ,_, the_DT K-gap_NN is_VBZ also_RB used_VVN to_TO indicate_VV how_WRB much_JJ the_DT nominal_JJ system_NN is_VBZ influenced_VVN when_WRB the_DT faults_NNS occur_VVP ._SENT 
+The_DT differences_NNS between_IN the_DT two_CD metrics_NNS serve_VVP as_IN the_DT criterion_NN of_IN fault_NN detection_NN ._SENT 
+The_DT basic_JJ definition_NN and_CC properties_NNS of_IN K-gap_NN can_MD be_VB found_VVN in_IN the_DT paper_NN by_IN Ding_NP (_( 2015b_NP )_) ._SENT 
+The_DT idea_NN of_IN using_VVG gap_NN metric_JJ to_TO measure_VV distance_NN between_IN systems_NNS can_MD be_VB found_VVN in_IN other_JJ industrial_JJ applications_NNS such_JJ as_IN Galán_NP ,_, Romagnoli_NP ,_, Palazolu_NP ,_, and_CC Arkun_NP (_( 2003_CD )_) ,_, the_DT concept_NN of_IN distance_NN between_IN dynamic_JJ systems_NNS is_VBZ used_VVN as_IN a_DT criterion_NN for_IN selecting_VVG a_DT set_NN of_IN models_NNS that_WDT can_MD explain_VV the_DT nonlinear_JJ plant_NN behavior_NN in_IN a_DT given_VVN operating_VVG range_NN ._SENT 
+The_DT theory_NN is_VBZ then_RB applied_VVN to_TO design_VV controllers_NNS for_IN a_DT continuous_JJ stirred_VVD tank_NN reactor_NN (_( CSTR_NP )_) and_CC pH_NN neutralization_NN reactor_NN ._SENT 
+Gap_NN metric_NN is_VBZ also_RB used_VVN to_TO validate_VV mathematical_JJ models_NNS of_IN aircraft_NN dynamics_NNS (_( Dorobantu_NP ,_, Balas_NP ,_, &_CC Georgiou_NP ,_, 2014_CD )_) ._SENT 
+The_DT following_VVG lemma_NN in_IN Ding_NP (_( 2015b_NP )_) gives_VVZ the_DT computation_NN of_IN K-gap_NN between_IN two_CD systems_NNS ,_, which_WDT motivates_VVZ us_PP to_TO combine_VV it_PP with_IN the_DT threshold_NN setting_VVG strategy_NN in_IN the_DT next_JJ section_NN ._SENT 
+Lemma_NP 3.1_CD Given_VVN [_SYM −N˜iM˜i_NP ]_SYM ,_, i=1,2_JJ as_IN the_DT SKR_NN of_IN two_CD systems_NNS ,_, then_RB it_PP holds_VVZ (_( 16)δK(KG1_JJ ,_, KG2)=infQ∈H∞(∥∥[−N˜1M˜1]−Q[−N2˜M2˜]∥∥∞_JJ )_) ._SENT 
+3.2_CD ._SENT 
+Model_NN representation_NN Consider_VV the_DT ship_NN propulsion_NN system_NN dynamic_JJ in_IN fault-_NN and_CC uncertainty-free_JJ case_NN (_( 17)ẋ_NP (_( t)=Ax(t)+Bu(t)y(t)=Cx(t_NP )_) where_WRB A=A(ω0_NP )_) ,_, ω0=[κ0μ0]T_NP is_VBZ the_DT nominal_JJ value_NN of_IN uncertain_JJ parameters_NNS ._SENT 
+The_DT transfer_NN function_NN matrix_NN from_IN u(s_NNS )_) to_TO y(s_NPS )_) is_VBZ denoted_VVN as_IN G0_NP ._SENT 
+Define_VV M˜0_NN and_CC N˜0_NN as_IN the_DT normalized_VVN left_JJ coprime_NN pair_NN of_IN G0_NN ,_, we_PP have_VHP (_( 18)y=G0u=M˜−10N˜0u_NP ._SENT 
+From_IN (_( 11_CD )_) ,_, the_DT system_NN matrix_NN of_IN the_DT ship_NN propulsion_NN system_NN dynamic_NN is_VBZ affected_VVN by_IN uncertain_JJ parameter_NN vector_NN ω_NN ._SENT 
+For_IN a_DT special_JJ uncertainty_NN realization_NN ,_, the_DT normalized_VVN left_JJ coprime_JJ factorization_NN pair_NN is_VBZ M˜_JJ and_CC N˜_JJ ._SENT 
+(_( 19)ẋ_NP (_( t)=Aωx(t)+Bu(t)y(t)=Cx(t_NP )_) (_( 20)y=M˜−1N˜u=(M˜0+ΔM˜0)−1(N˜0+ΔN˜0)u_NP ._SENT 
+ΔM˜0_NP and_CC ΔN˜0_NP are_VBP denoted_VVN as_IN model_NN uncertainty_NN ,_, which_WDT is_VBZ also_RB called_VVN the_DT coprime_JJ factor_NN uncertainty_NN ._SENT 
+(_( 21)[ΔM˜0ΔN˜0]=[M˜N˜]−[M˜0N˜0_NP ]_SYM ._SENT 
+Consider_VV the_DT faulty_JJ model_NN of_IN ship_NN propulsion_NN system_NN (_( 22)ẋ_NP (_( t)=Ax(t)+(B+ΔB)u(t)+F1fy(t)=Cx(t)+F2f_NP (_( 23)y=M˜−1fN˜fu+Gff=(M˜0+ΔM˜f)−1(N˜0+ΔN˜f)u+Gff_NP where_WRB M˜f_NP and_CC N˜f_NP are_VBP the_DT normalized_VVN left_JJ coprime_NN pair_NN of_IN faulty_JJ system_NN (_( A_NP ,_, B+ΔB_NP ,_, C,0_NP )_) and_CC Gf=C(sI−A)−1F1+F2_NP is_VBZ the_DT transfer_NN function_NN from_IN additive_JJ fault_NN f_SYM to_TO y._NPS [_SYM ΔM˜fΔN˜f_NP ]_SYM are_VBP the_DT coprime_JJ pair_NN representations_NNS of_IN multiplicative_JJ faults_NNS ._SENT 
+In_IN our_PP$ paper_NN we_PP do_VVP not_RB limit_VV the_DT vessel_NN types_NNS or_CC working_VVG conditions_NNS ._SENT 
+The_DT linearization_NN is_VBZ independent_JJ with_IN ship_NN parameters_NNS and_CC operating_VVG speeds_NNS ._SENT 
+As_RB long_RB as_IN the_DT ship_NN can_MD be_VB modeled_VVN by_IN normalized_VVN left_JJ coprime_NN factorization_NN and_CC the_DT differences_NNS between_IN two_CD systems_NNS can_MD be_VB measured_VVN by_IN K-gap_NN metric_JJ ,_, the_DT fault_NN detection_NN problem_NN can_MD be_VB handled_VVN with_IN randomized_VVN algorithms_NNS in_IN the_DT same_JJ way_NN ._SENT 
+Assumption_NN 3.1_CD The_DT uncertain_JJ parameter_NN ω_NN is_VBZ a_DT random_JJ vector_NN with_IN known_VVN probability_NN density_NN function_NN (_( p._NP d._NP f_SYM )_) D(ω_NN )_) and_CC support_NN Dω_NN ._SENT 
+The_DT fault_NN scenarios_NNS are_VBP determined_VVN by_IN the_DT random_JJ vector_NN f=[fafm]T_NN ,_, where_WRB fa_NN denotes_VVZ the_DT additive_JJ fault_NN vector_NN and_CC fm_NP is_VBZ the_DT multiplicative_JJ fault_NN vector_NN ._SENT 
+The_DT density_NN function_NN D(f_NN )_) and_CC support_NN Df_NN are_VBP also_RB known_VVN as_IN prior_JJ knowledge_NN ._SENT 
+Remark_NN 3.1_CD Assumption_NP 3.1_CD is_VBZ the_DT basic_JJ assumption_NN of_IN our_PP$ work_NN ._SENT 
+Generally_RB ,_, the_DT probability_NN density_NN function_NN may_MD be_VB estimated_VVN directly_RB from_IN available_JJ data_NNS or_CC prior_JJ information_NN ,_, but_CC if_IN this_DT prior_JJ information_NN is_VBZ not_RB available_JJ ,_, then_RB the_DT selection_NN of_IN the_DT distribution_NN should_MD be_VB performed_VVN with_IN great_JJ care_NN ._SENT 
+The_DT uncertain_JJ parameters_NNS in_IN ship_NN propulsion_NN systems_NNS depend_VVP largely_RB on_IN the_DT shape_NN of_IN the_DT hull_NN ,_, and_CC also_RB on_IN the_DT propeller’s_NP location_NN and_CC size_NN ._SENT 
+They_PP can_MD be_VB determined_VVN approximatively_RB only_RB with_IN the_DT aid_NN of_IN model_NN experiments_NNS Artyszuk_NN (_( 2003_CD )_) ,_, Benedek_NP and_CC Balogh_NP (_( 1968_CD )_) ,_, Lin_NP and_CC Kouh_NP (_( 2015_CD )_) ._SENT 
+However_RB ,_, it_PP is_VBZ very_RB difficult_JJ or_CC even_RB impossible_JJ to_TO get_VV the_DT accurate_JJ values_NNS of_IN κ_NN and_CC μ_NN in_IN practice_NN since_IN they_PP are_VBP influenced_VVN by_IN many_JJ factors_NNS in_IN a_DT complex_JJ way_NN and_CC changing_VVG constantly_RB ._SENT 
+Most_JJS of_IN the_DT papers_NNS regard_VVP the_DT wake_NN fraction_NN number_NN μ_NN and_CC thrust_NN deduction_NN number_NN κ_NN as_IN their_PP$ nominal_JJ values_NNS when_WRB designing_VVG fault_NN detection_NN system_NN ,_, in_IN this_DT paper_NN we_PP think_VVP it_PP is_VBZ more_RBR reasonable_JJ to_TO regard_VV them_PP as_IN random_JJ variables_NNS varying_VVG in_IN empirical_JJ intervals_NNS and_CC deal_NN with_IN uncertainties_NNS in_IN the_DT probabilistic_JJ framework_NN ._SENT 
+As_RB for_IN the_DT sensor_NN and_CC actuator_NN faults_NNS ,_, the_DT failure_NN probabilities_NNS of_IN these_DT components_NNS have_VHP been_VBN studied_VVN in_IN the_DT field_NN of_IN reliability_NN analysis_NN ._SENT 
+The_DT magnitude_NN or_CC direction_NN of_IN fault_NN parameters_NNS can_MD be_VB viewed_VVN as_IN random_JJ variables_NNS ,_, thus_RB their_PP$ probabilistic_JJ density_NN functions_NNS and_CC supports_NNS are_VBP also_RB known_VVN as_IN prior_JJ knowledge_NN ._SENT 
+The_DT technique_NN has_VHZ been_VBN widely_RB applied_VVN in_IN industrial_JJ applications_NNS ._SENT 
+For_IN example_NN in_IN Beg_VV (_( 2016_CD )_) ,_, the_DT MOS_NNS transistor’s_NNS probabilistic_JJ behavior_NN with_IN different_JJ inputs_NNS is_VBZ given_VVN with_IN a_DT mathematics_NN model_NN ._SENT 
+In_IN Ye_NP ,_, Revie_NP ,_, and_CC Walls_NP (_( 2014_CD )_) ,_, the_DT component_NN CWL’s_NN failure_NN follows_VVZ an_DT inverse_JJ Gaussian_JJ distribution_NN ._SENT 
+The_DT distribution_NN models_NNS and_CC parameters_NNS are_VBP obtained_VVN by_IN experiences_NNS or_CC historical_JJ data_NNS ._SENT 
+<Section> 4._CD Fault_NP detection_NN system_NN design_NN </Section> Threshold_NN setting_NN is_VBZ of_IN great_JJ significance_NN in_IN fault_NN detection_NN system_NN ._SENT 
+It_PP has_VHZ strong_JJ influence_NN on_IN the_DT fault_NN detection_NN performance_NN ._SENT 
+Under_IN Assumption_NP 3.1_CD ,_, this_DT part_NN gives_VVZ a_DT probabilistic_JJ threshold_NN setting_VVG strategy_NN which_WDT considers_VVZ the_DT trade-off_NN between_IN FAR_RB and_CC FDR_NP and_CC can_MD enhance_VV the_DT fault_NN detection_NN performance_NN ._SENT 
+Fig_NN ._SENT 
+2_CD is_VBZ the_DT coprime_JJ factor_NN model_NN of_IN dynamic_JJ system_NN affected_VVN by_IN parameter_NN uncertainties_NNS ,_, additive_JJ faults_NNS and_CC multiplicative_JJ faults_NNS ._SENT 
+Assumption_NN 3.1_CD indicates_VVZ that_IN ΔM˜0_NP and_CC ΔN˜0_NP are_VBP functions_NNS of_IN uncertain_JJ parameter_NN ω_NN ,_, ΔM˜f_NP and_CC ΔN˜f_NP are_VBP functions_NNS of_IN the_DT multiplicative_JJ faults_NNS (_( also_RB called_VVN parameter_NN faults_NNS )_) fm_NP ._SENT 
+fa_NN is_VBZ the_DT additive_JJ fault_NN ._SENT 
+ω_NP ,_, fm_NP and_CC fa_NN are_VBP random_JJ vectors_NNS with_IN known_VVN probabilistic_JJ density_NN function_NN and_CC support_NN ._SENT 
+The_DT residual_JJ is_VBZ influenced_VVN by_IN both_CC the_DT uncertain_JJ and_CC faulty_JJ parameters_NNS ,_, thus_RB the_DT evaluation_NN function_NN is_VBZ also_RB determined_VVN by_IN ω_NP and_CC f._NP We_PP denote_VVP the_DT evaluation_NN function_NN as_IN J(ω_NN ,_, f_LS )_) ._SENT 
+FAR_RB is_VBZ the_DT probability_NN that_IN the_DT evaluation_NN function_NN J(ω_NN ,_, f_LS )_) exceeds_VVZ a_DT threshold_NN in_IN the_DT fault-free_JJ case_NN ,_, while_IN FDR_NP is_VBZ the_DT probability_NN that_IN the_DT evaluation_NN function_NN J(ω_NN ,_, f_LS )_) exceeds_VVZ a_DT threshold_NN in_IN the_DT faulty_JJ case_NN ._SENT 
+The_DT following_VVG definitions_NNS of_IN fault_NN detection_NN performance_NN index_NN from_IN probabilistic_JJ viewpoint_NN play_VV a_DT vital_JJ role_NN in_IN the_DT threshold_NN computation_NN and_CC FDR_NP estimation_NN ._SENT 
+Fig_NN ._SENT 
+2._CD Propulsion_NN model_NN in_IN the_DT LCF_NN representation_NN ._SENT 
+Definition_NN 4.1_CD Given_VVN the_DT threshold_NN Jth_NN and_CC evaluation_NN function_NN J(ω_NN ,_, f_LS )_) ,_, the_DT following_VVG conditional_JJ probability_NN (_( 24)Pr{J(ω_NP ,_, f)>Jth|f=0_NP }_) is_VBZ called_VVN false_JJ alarm_NN rate(FAR_NN )_) ._SENT 
+Definition_NN 4.2_CD Given_VVN the_DT threshold_NN Jth_NN and_CC evaluation_NN function_NN J(ω_NN ,_, f_LS )_) ,_, the_DT following_VVG conditional_JJ probability_NN (_( 25)Pr{J(ω_NP ,_, f)>Jth|fa≠0orfm≠0_NP }_) is_VBZ called_VVN fault_NN detection_NN rate_NN (_( FDR_NP )_) ._SENT 
+4.1_CD ._SENT 
+Threshold_NN setting_VVG scheme_NN The_DT core_JJ idea_NN of_IN norm-based_JJ threshold_NN setting_NN is_VBZ to_TO figure_VV out_RP the_DT maximal_JJ influence_NN of_IN uncertainties_NNS on_IN the_DT residual_JJ in_IN fault_NN free_JJ case_NN ._SENT 
+Suppose_VV the_DT norm_NN of_IN coprime_JJ factor_NN uncertainty_NN satisfies_NNS ∥∥[ΔN˜0−ΔM˜0]∥∥∞≤δΔ_NN ,_, the_DT norm-based_JJ threshold_NN guarantees_VVZ the_DT zero_CD false_JJ alarm_NN rate_NN ._SENT 
+(_( 26)r0=[−N˜0M˜0][uy]=[ΔN˜0−ΔM˜0][uy_NP ]_SYM (_( 27)JthI=sup∥∥[ΔN˜0−ΔM˜0]∥∥∞≤δΔ∥∥∥∥[ΔN˜0−ΔM˜0][uy]∥∥∥∥2=√δΔ∥_JJ u_NN ∥22+∥_NP y_NP ∥22_NP ._SENT 
+Note_NN that_IN −N˜u+M˜y=0_NP ,_, (_( 26_CD )_) can_MD be_VB equivalently_RB written_VVN as_IN (_( 28)r0=([−N˜0M˜0]−Q[−N˜M˜])[uy_NN ]_SYM ._SENT 
+Let_VV (_( 29)Q∗=arginfQ∈H∞∥∥∥[−N˜0M˜0]−Q[−N˜M˜]∥∥∥∞_NP ._SENT 
+It_PP turns_VVZ out_RP ,_, by_IN the_DT K-gap_NN computation_NN (_( 16_CD )_) ,_, we_PP have_VHP (_( 30)δK(KG0_NP ,_, KG)=∥∥[−N˜0M˜0]−Q∗[−N˜M˜]∥∥∞_NP ._SENT 
+Notice_VV that_IN for_IN Q=I_NP ,_, [_SYM −N˜0M˜0]−Q[−N˜M˜]=[ΔN˜0−ΔM˜0_NP ]_SYM ._SENT 
+So_RB that_IN in_IN general_JJ δK(KG0_NN ,_, KG)≤∥∥[ΔN˜0−ΔM˜0]∥∥∞_NP ._SENT 
+The_DT threshold_NN is_VBZ further_RBR set_VVN as_IN (_( 31)JthII=√δK(KG0_NP ,_, KGl)∥_JJ u_NN ∥22+∥_NN y_NN ∥22_NN where_WRB KGl=[−N˜lM˜l_NN ]_SYM is_VBZ the_DT uncertain_JJ system_NN that_WDT has_VHZ the_DT largest_JJS distance_NN from_IN the_DT nominal_JJ system_NN ._SENT 
+Compared_VVN with_IN JthI_NP ,_, JthII_NP is_VBZ less_RBR conservative_JJ and_CC can_MD achieve_VV better_JJR fault_NN detection_NN performance_NN ._SENT 
+In_IN (_( 30_CD )_) ,_, [_SYM −N˜0M˜0_NP ]_SYM and_CC [_SYM −N˜M˜_NP ]_SYM denote_VV kernel_NN space_NN of_IN nominal_JJ system_NN and_CC uncertain_JJ system_NN respectively_RB ._SENT 
+Since_RB [_SYM −N˜M˜_NP ]_SYM is_VBZ the_DT complex_JJ matrix_NN functions_NNS of_IN random_JJ variable_JJ ω_NN ,_, the_DT gap_NN metric_JJ δK(KG0_NN ,_, KG_NP )_) is_VBZ also_RB determined_VVN by_IN ω_NP ._SENT 
+The_DT maximal_JJ K-gap_NN between_IN KG0_NP and_CC KG_NP is_VBZ difficult_JJ to_TO calculate_VV despite_IN the_DT norm_NN bound_VVN of_IN uncertainties_NNS is_VBZ known_VVN ._SENT 
+Based_VVN on_IN Assumption_NP 3.1_CD ,_, Theorem_NN 4.1_CD provides_VVZ a_DT strategy_NN to_TO obtain_VV the_DT estimation_NN of_IN the_DT maximal_JJ gap_NN when_WRB ω_NN varies_VVZ in_IN Dω_NN ._SENT 
+Furthermore_RB ,_, a_DT threshold_NN setting_VVG law_NN which_WDT guarantees_VVZ the_DT fault_NN alarm_NN rate_NN can_MD be_VB set_VVN arbitrarily_RB small_JJ with_IN high_JJ probability_NN is_VBZ also_RB proposed_VVN ._SENT 
+Theorem_NN 4.1_CD For_IN any_DT previously_RB given_VVN ϵ∈(0,1_JJ )_) and_CC β∈(0,1_JJ )_) ,_, if_IN N_NP holds_VVZ for_IN the_DT log-over-log_NN bound_VVN (_( 32)N≥log1βlog11−ϵ_NN then_RB with_IN confidence_NN greater_JJR than_IN 1−β_NN ,_, we_PP have_VHP (_( 33)Pr{δK(KG0_NP ,_, KG)≤Km}≥1−ϵ_NN where_WRB Km=maxi=1,2_NP ,_, …_NP ,_, NδK(KG0_NP ,_, KGi_NP )_) KGi=[−N˜iM˜i_NP ]_SYM ._SENT 
+[_SYM −N˜iM˜i_NP ]_SYM is_VBZ the_DT normalized_VVN left_JJ coprime_NN factorization_NN of_IN (_( Aωi_NP ,_, B_NP ,_, C_NP ,_, D_NP )_) ._SENT 
+The_DT theorem_NN is_VBZ derived_VVN by_IN the_DT results_NNS given_VVN in_IN Tempo_NN ,_, Calafiore_NP ,_, and_CC Dabbene_NP (_( 2012_CD )_) ._SENT 
+The_DT proof_NN can_MD be_VB found_VVN in_IN the_DT Appendix_NN ._SENT 
+It_PP gives_VVZ an_DT explicit_JJ number_NN of_IN samples_NNS to_TO estimate_VV the_DT maximal_JJ value_NN of_IN δK(KG0_NP ,_, KGl_NP )_) ,_, namely_RB Km_NN ._SENT 
+Therefore_RB ,_, the_DT threshold_NN in_IN (_( 31_CD )_) can_MD be_VB determined_VVN as_RB (_( 34)JthIII=Km√∥_JJ u_NN ∥22+∥_NP y_NP ∥22_NP ._SENT 
+The_DT fault_NN detection_NN logic_NN is_VBZ (_( 35){J≥JthIII_NP ,_, faultyJ<JthIII_NP ,_, faultfree_NP ._SENT 
+The_DT statement_NN (_( 33_CD )_) can_MD be_VB written_VVN as_IN Pr{δK(KG0_NP ,_, KG)√∥_JJ u_NN ∥22+∥_NP y_NP ∥22≤Km√∥_NP u_NN ∥22+∥_NP y_NP ∥22}≥1−ϵ_NP ._SENT 
+Equivalently_RB ,_, we_PP obtain_VVP (_( 36)Pr{∥r0∥2>JthIII}<ϵ_NP ._SENT 
+Comparing_VVG with_IN the_DT definition_NN of_IN FAR_RB in_IN (_( 24_CD )_) ,_, we_PP conclude_VVP with_IN confidence_NN greater_JJR than_IN 1−β_NN the_DT false_JJ alarm_NN rate_NN determined_VVN by_IN JthIII_NP is_VBZ less_RBR than_IN ϵ_NP ._SENT 
+Notice_VV that_IN the_DT accuracy_NN and_CC confidence_NN level_NN can_MD be_VB arbitrarily_RB chosen_VVN according_VVG to_TO the_DT safety_NN requirements_NNS ,_, the_DT threshold_NN setting_VVG law_NN by_IN randomized_VVN algorithm_NN can_MD guarantee_VV an_DT integrated_JJ fault_NN detection_NN performance_NN ,_, which_WDT is_VBZ more_RBR reasonable_JJ in_IN practical_JJ applications_NNS ._SENT 
+As_RB for_IN some_DT ships_NNS that_WDT have_VHP rigorous_JJ requirements_NNS on_IN safety_NN operation_NN ,_, the_DT fault_NN detection_NN rate_NN is_VBZ the_DT vital_JJ index_NN that_WDT needs_VVZ to_TO be_VB guaranteed_VVN above_IN some_DT level_NN while_IN the_DT false_JJ alarm_NN rate_NN needs_VVZ not_RB to_TO be_VB strictly_RB restricted_VVN ._SENT 
+In_IN this_DT case_NN ,_, we_PP regard_VVP the_DT gap_NN between_IN nominal_JJ system_NN and_CC uncertain_JJ system_NN as_IN random_JJ variable_NN when_WRB there_EX exists_VVZ uncertain_JJ random_JJ variable_JJ ω_NN ._SENT 
+We_PP have_VHP (_( 37)δ̄_NP K=1N∑Ni=1δK(KG0_NP ,_, KGi_NP )_) (_( 38)var(δK)=1N∑Ni=1(δ̄_NP K−δK(KG0_NP ,_, KGi))2_NP ._SENT 
+The_DT threshold_NN can_MD be_VB set_VVN as_RB (_( 39)JthIV=√δ̄_NP K+ξvar(δK_NP )_) where_WRB ξ_NN is_VBZ often_RB chosen_VVN as_IN 1_CD ,_, 2_CD or_CC 3_CD for_IN different_JJ safety_NN requirements_NNS ._SENT 
+4.2_CD ._SENT 
+FDR_NP estimation_NN Given_VVN a_DT threshold_NN Jth_NN ,_, it_PP is_VBZ usually_RB hard_JJ to_TO evaluate_VV the_DT fault_NN detection_NN rate_NN in_IN the_DT norm-based_JJ framework_NN since_IN only_RB the_DT norm_NN bound_VVN of_IN fault_NN vectors_NNS is_VBZ available_JJ ._SENT 
+The_DT fault_NN detection_NN performance_NN can_MD only_RB be_VB verified_VVN in_IN the_DT real_JJ applications_NNS ._SENT 
+In_IN the_DT probabilistic_JJ framework_NN ,_, the_DT statistical_JJ properties_NNS of_IN fault_NN parameters_NNS provide_VVP extra_JJ information_NN for_IN the_DT estimation_NN of_IN fault_NN detection_NN rate_NN ._SENT 
+Consider_VV the_DT general_JJ system_NN model_NN with_IN uncertainties_NNS ,_, additive_JJ and_CC multiplicative_JJ faults_NNS (_( 40)y=(M˜0+ΔM˜0+ΔM˜f)−1(N˜0+ΔN˜0+ΔN˜f)u+Gffa_NP (_( 41)r0=[ΔN˜0+ΔN˜f−(ΔM˜0+ΔM˜f)(M˜0+ΔM˜0+ΔM˜f)Gf]⎡⎣⎢uyfa⎤⎦⎥_NP ._SENT 
+The_DT evaluation_NN function_NN is_VBZ J=∥∥(ΔN˜0+ΔN˜f)u−(ΔM˜0+ΔM˜f)y+(M˜0+ΔM˜0+ΔM˜f)Gffa∥∥2_JJ ._SENT 
+Since_IN ΔN˜0_NP ,_, ΔM˜0_NP ,_, ΔN˜f_NP ,_, ΔM˜f_NN and_CC fa_NN are_VBP random_JJ variables_NNS ,_, the_DT evaluation_NN function_NN J_NP is_VBZ also_RB a_DT random_JJ variable_NN ._SENT 
+The_DT fault_NN detection_NN rate_NN can_MD be_VB obtained_VVN by_IN solving_VVG an_DT integral_JJ problem_NN ._SENT 
+Define_VV the_DT vector_NN ϕ=[ωf]T_NN ,_, the_DT p._NP d._NPS f_SYM of_IN ϕ_NN is_VBZ D(ϕ_JJ )_) ._SENT 
+According_VVG to_TO Definition_NN 4.2_CD ,_, the_DT fault_NN detection_NN rate_NN is_VBZ obtained_VVN by_IN (_( 42)pFDR=∫ϕ∈ΩD(ϕ)dϕ_NN where_WRB Ω={f∈Df_NP ,_, ω∈Dω|J(ω_NP ,_, f)>Jth_NP }_) ._SENT 
+The_DT integrality_NN is_VBZ difficult_JJ to_TO solve_VV since_IN we_PP have_VHP no_DT detailed_JJ information_NN of_IN the_DT set_VVN Ω_NN ._SENT 
+The_DT following_VVG theorem_NN (_( Tempo_NN et_NP al_NP ._SENT 
+,_, 2012_CD )_) provides_VVZ an_DT alternative_JJ way_NN to_TO estimate_VV FDR_NP ._SENT 
+Theorem_NN 4.2_CD For_IN any_DT previously_RB given_VVN ϵ∈(0,1_JJ )_) and_CC β∈(0,1_JJ )_) ,_, if_IN N_NP holds_VVZ for_IN the_DT Chernoff_NP bound_VVN (_( 43_CD )_) and_CC N_NP independent_NN identically_RB distributed_VVD (_( i._NP i._NP d_SYM )_) samples_NNS ϕi_NP ,_, i=1,2_NP ..._: N_NP are_VBP drawn_VVN from_IN Dϕ_NP (_( 43)N≥12ϵ2log2β_NP ._SENT 
+then_RB with_IN confidence_NN greater_JJR than_IN 1−β_NN ,_, we_PP have_VHP (_( 44)|pFDR−pˆFDR|<ϵ_NN where_WRB (_( 45)pˆFDR=1N∑Ni=1Φ(ϕi_NP )_) ._SENT 
+Φ(ϕi_NP )_) is_VBZ the_DT indicator_NN function_NN defined_VVN by_IN Φ(ϕi)={1J(ϕi)≥Jth0J(ϕi)<Jth_NP ._SENT 
+The_DT theorem_NN is_VBZ indeed_RB a_DT Monte_NP Carlo_NP method_NN for_IN solving_VVG complex_JJ integration_NN problem_NN (_( Tempo_NN et_NP al_NP ._SENT 
+,_, 2012_CD )_) ._SENT 
+The_DT proof_NN is_VBZ given_VVN in_IN the_DT Appendix_NN ._SENT 
+Notice_VV that_IN ϵ_NP and_CC β_NP can_MD be_VB arbitrarily_RB chosen_VVN ,_, it_PP means_VVZ the_DT estimation_NN error_NN of_IN FDR_NP can_MD be_VB arbitrarily_RB small_JJ ._SENT 
+In_IN the_DT practical_JJ applications_NNS ,_, it_PP is_VBZ the_DT normal_JJ routine_NN to_TO design_VV a_DT threshold_NN first_RB and_CC then_RB evaluate_VV the_DT fault_NN detection_NN performance_NN in_IN real_JJ processes_NNS ._SENT 
+The_DT randomized_VVN algorithm_NN provides_VVZ an_DT alternative_JJ way_NN to_TO assess_VV the_DT FDR_NP as_RB long_RB as_IN the_DT threshold_NN is_VBZ given_VVN ._SENT 
+On_IN the_DT contrary_NN ,_, we_PP can_MD also_RB use_VV this_DT method_NN to_TO calculate_VV a_DT threshold_NN to_TO meet_VV the_DT predetermined_VVN requirements_NNS ._SENT 
+The_DT estimation_NN strategy_NN is_VBZ implemented_VVN in_IN Algorithm_NN 2._CD From_IN (_( 44_CD )_) ,_, we_PP obtain_VVP the_DT bound_VVN of_IN FDR_NP as_IN mN−ϵ<pFDR<mN+ϵ_NP ._SENT 
+The_DT randomized_VVN algorithms_NNS are_VBP applied_VVN in_IN two_CD ways_NNS ._SENT 
+Under_IN the_DT assumption_NN that_IN we_PP have_VHP known_VVN the_DT probability_NN density_NN distribution_NN and_CC support_NN of_IN uncertain_JJ parameters_NNS ,_, we_PP can_MD set_VV a_DT much_RB lower_JJR threshold_NN than_IN the_DT norm-based_JJ one_CD ._SENT 
+The_DT estimation_NN of_IN FDR_NP for_IN a_DT given_VVN threshold_NN can_MD also_RB be_VB obtained_VVN by_IN randomized_VVN algorithms_NNS suppose_VVP that_IN the_DT statistical_JJ properties_NNS of_IN faulty_JJ parameters_NNS are_VBP known_VVN ._SENT 
+Fault_NN detection_NN is_VBZ in_IN fact_NN a_DT pattern_NN recognition_NN problem_NN ._SENT 
+The_DT more_JJR information_NN we_PP obtained_VVD from_IN systems_NNS and_CC environment_NN in_IN advance_NN ,_, the_DT more_RBR accurate_JJ and_CC less_RBR conservative_JJ the_DT detection_NN result_NN is_VBZ ._SENT 
+The_DT randomized_VVN algorithms_NNS utilize_VV statistical_JJ information_NN of_IN uncertain_JJ and_CC faulty_JJ parameters_NNS ._SENT 
+Therefore_RB ,_, as_IN is_VBZ demonstrated_VVN by_IN the_DT fault_NN detection_NN of_IN ship_NN propulsion_NN systems_NNS in_IN the_DT next_JJ section_NN ,_, the_DT proposed_VVN methods_NNS can_MD achieve_VV better_JJR fault_NN detection_NN performance_NN ._SENT 
+<Section> 5._CD Simulation_NP </Section> The_DT proposed_VVN randomized_VVN algorithms_NNS are_VBP applied_VVN to_TO the_DT fault_NN detection_NN of_IN the_DT ship_NN propulsion_NN system_NN given_VVN in_IN Izadi-Zamanabadi_NP and_CC Blanke_NP (_( 1999_CD )_) ._SENT 
+The_DT uncertain_JJ parameters_NNS are_VBP the_DT thrust_NN deduction_NN number_NN κ_NN and_CC wake_NN fraction_NN number_NN μ_NN ._SENT 
+They_PP are_VBP supposed_VVN to_TO be_VB evenly_RB distributed_VVN in_IN the_DT interval_NN [_SYM 0.050.2_CD ]_SYM and_CC [_SYM 0.10.4_CD ]_SYM ._SENT 
+The_DT constant_JJ coefficients_NNS of_IN ship_NN propulsion_NN system_NN are_VBP listed_VVN in_IN Table_NN 2._CD The_DT working_NN point_NN for_IN linearization_NN is_VBZ [_SYM 0.8510.665Qe0_NP ]_SYM ,_, the_DT coefficients_NNS in_IN (_( 7)–(8_NN )_) are_VBP obtained_VVN by_IN interpolation_NN of_IN tables_NNS given_VVN in_IN Izadi-Zamanabadi_NP and_CC Blanke_NP (_( 1999_CD )_) ._SENT 
+α1=0.4428_NP ,_, α2=−1.034_NP ,_, β1=0.0396_NP ,_, β2=−0.0377_JJ ._SENT 
+The_DT control_NN signal_NN is_VBZ θref=0.6_JJ ,_, Y=25_JJ ._SENT 
+The_DT parameter_NN matrixes_NNS are_VBP as_RB A(ω)=⎡⎣⎢⎢⎢⎢−0.15−158.45.45−5.45κ00−18.45−6.81μ0.29−0.29κ+0.57μ0014.52−14.52μ−1.23+1.23κ+1.23μ008.530−1.88⎤⎦⎥⎥⎥⎥_JJ B=⎡⎣⎢⎢⎢⎢0.150000001⎤⎦⎥⎥⎥⎥_NN ,_, F1=⎡⎣⎢⎢⎢⎢1000−0.150000000⎤⎦⎥⎥⎥⎥_NP ,_, F2=⎡⎣⎢000100010⎤⎦⎥_NP ,_, C=⎡⎣⎢100010001000⎤⎦⎥_NP ._SENT 
+Table_NN 2._CD Ship_NN characteristic_JJ data_NNS ._SENT 
+The_DT fault_NN parameters_NNS are_VBP supposed_VVN to_TO be_VB evenly_RB distributed_VVN in_IN the_DT corresponding_JJ intervals_NNS ,_, i._NP e._NP ,_, Δθ̇_NP ∈[0.81.2_NP ]_SYM ,_, Δθ∈[0.50.7_JJ ]_SYM ,_, Δn∈[46_NN ]_SYM ,_, Δky∈[00.4_NN ]_SYM ._SENT 
+The_DT parameters_NNS in_IN Algorithm_NN 1_CD are_VBP chosen_VVN as_IN β=0.001_JJ ,_, ϵ1=0.01_JJ ,_, ϵ2=0.15_JJ and_CC ϵ3=0.3_JJ ._SENT 
+The_DT thresholds_NNS returned_VVN by_IN Algorithm_NN 1_CD are_VBP listed_VVN in_IN Table_NN 3._CD We_PP then_RB conclude_VVP with_IN confidence_NN greater_JJR than_IN 0.999_CD ,_, that_DT Jth1_NN guarantees_VVZ a_DT FAR_RB less_RBR then_RB 0.01_CD ,_, Jth2_NP guarantees_VVZ a_DT FAR_RB less_RBR then_RB 0.15_CD and_CC Jth3_NP guarantees_VVZ a_DT FAR_RB less_RBR then_RB 0.3_CD ._SENT 
+We_PP can_MD set_VV a_DT lower_JJR threshold_NN at_IN the_DT cost_NN of_IN a_DT small_JJ FAR_RB ,_, which_WDT is_VBZ more_RBR effective_JJ in_IN the_DT fault_NN detection_NN of_IN safety-critical_JJ equipments_NNS ._SENT 
+In_IN addition_NN ,_, we_PP have_VHP obtained_VVN a_DT threshold_NN Jth4=3.085_NN according_VVG to_TO the_DT statistical_JJ property_NN of_IN K-gap_NN in_IN (_( 39_CD )_) ._SENT 
+This_DT threshold_NN can_MD be_VB applied_VVN if_IN we_PP pay_VVP less_JJR attention_NN to_TO FAR_RB ._SENT 
+Algorithm_NN 2_CD is_VBZ implemented_VVN to_TO estimate_VV the_DT fault_NN detection_NN rate_NN for_IN the_DT three_CD thresholds_NNS given_VVN above_IN ._SENT 
+We_PP chose_VVD β=0.001_JJ ,_, ϵ=0.01_JJ ,_, after_IN 38005_CD trials_NNS ,_, the_DT fault_NN detection_NN rates_NNS for_IN both_DT additive_JJ faults_NNS and_CC multiplicative_JJ faults_NNS are_VBP obtained_VVN in_IN Table_NN 3._CD Taking_VVG Jth2_NN as_IN an_DT example_NN ,_, we_PP can_MD assert_VV that_IN with_IN confidence_NN greater_JJR than_IN 0.999_CD ,_, the_DT FDR_NP for_IN additive_JJ faults_NNS is_VBZ between_IN 0.945_CD (_( 0.955–0.01_JJ )_) and_CC 0.965_CD (_( 0.955+0.01_JJ )_) while_IN the_DT FDR_NP for_IN multiplicative_JJ faults_NNS is_VBZ between_IN 0.656_CD (_( 0.666–0.01_JJ )_) and_CC 0.676_CD (_( 0.666+0.01_JJ )_) ._SENT 
+This_DT is_VBZ a_DT quite_RB accurate_JJ estimation_NN ._SENT 
+As_IN Fig_NN ._SENT 
+3_LS ,_, Fig_VV ._SENT 
+4_LS ,_, Fig_VV ._SENT 
+5_LS illustrate_VVP ,_, the_DT norm-based_JJ threshold_NN JNorm_NN guarantees_VVZ a_DT zero_NN FAR_RB but_CC has_VHZ poor_JJ fault_NN detectability_NN for_IN additive_JJ faults_NNS and_CC can_MD hardly_RB detect_VV the_DT multiplicative_JJ faults_NNS ,_, which_WDT demonstrates_VVZ that_IN a_DT lower_JJR threshold_NN obtained_VVN by_IN randomized_VVN algorithms_NNS can_MD indeed_RB enhance_VV the_DT fault_NN detection_NN performance_NN significantly_RB compared_VVN with_IN the_DT norm-based_JJ one_CD ._SENT 
+Table_NN 3._CD FAR_RB and_CC FDR_NP for_IN 4_CD thresholds_NNS ._SENT 
+Fig_NN ._SENT 
+3._CD Thresholds_NNS comparison_NN in_IN fault_NN free_JJ case_NN ._SENT 
+The_DT above_JJ interpretation_NN of_IN thresholds_NNS is_VBZ from_IN the_DT residual_JJ signal_NN since_IN the_DT left_JJ coprime_NN factorization_NN is_VBZ in_IN fact_NN an_DT observer-based_JJ residual_JJ generator_NN ._SENT 
+We_PP can_MD also_RB explain_VV the_DT thresholds_NNS directly_RB from_IN the_DT concept_NN of_IN K-Gap_NN ._SENT 
+The_DT last_JJ column_NN of_IN Table_NN 3_CD is_VBZ the_DT K-Gap_NN threshold_NN ._SENT 
+Considering_VVG Jth2_NN ,_, the_DT maximal_JJ deviation_NN caused_VVN by_IN uncertainties_NNS μ_JJ and_CC κ_JJ from_IN the_DT nominal_JJ state_NN is_VBZ deemed_VVN to_TO be_VB 0.19_CD if_IN we_PP tolerate_VV a_DT 15_CD %_NN FAR_RB ._SENT 
+The_DT monitor_NN generates_VVZ an_DT alarm_NN signal_NN once_IN the_DT gap_NN metric_NN exceeds_VVZ 0.19_CD ._SENT 
+The_DT gap_NN metric_NN provides_VVZ us_PP with_IN a_DT new_JJ index_NN to_TO monitor_VV system_NN changes_NNS and_CC randomized_VVD algorithms_NNS make_VV it_PP more_RBR flexible_JJ to_TO achieve_VV desired_VVN trade-off_NN between_IN FAR_RB and_CC FDR_NP ._SENT 
+Fig_NN ._SENT 
+4._CD Thresholds_NNS comparison_NN with_IN additive_JJ faults_NNS ._SENT 
+Fig_NN ._SENT 
+5._CD Thresholds_NNS comparison_NN with_IN multiplicative_JJ faults_NNS ._SENT 
+<Section> 6._CD Conclusion_NN </Section> This_DT paper_NN has_VHZ proposed_VVN an_DT alternative_JJ approach_NN using_VVG randomized_VVN algorithms_NNS to_TO design_VV the_DT fault_NN detection_NN system_NN for_IN ship_NN propulsion_NN systems_NNS ._SENT 
+Unlike_IN the_DT deterministic_JJ norm-based_JJ threshold_NN law_NN ,_, the_DT randomized_VVN algorithms_NNS can_MD provide_VV a_DT much_RB lower_JJR threshold_NN to_TO enhance_VV the_DT fault_NN detection_NN performance_NN significantly_RB ,_, although_IN at_IN the_DT risk_NN of_IN non-zero_NP false_JJ alarm_NN rate_NN ._SENT 
+In_IN industrial_JJ applications_NNS ,_, the_DT performance_NN index_NN of_IN FDR_NP is_VBZ often_RB more_RBR important_JJ than_IN that_DT of_IN the_DT FAR_RB since_IN an_DT undetected_JJ fault_NN may_MD lead_VV to_TO serious_JJ consequences_NNS ._SENT 
+Therefore_RB ,_, the_DT zero-FAR_NP should_MD not_RB be_VB the_DT design_NN objective_NN ._SENT 
+The_DT paper_NN also_RB gives_VVZ the_DT algorithm_NN to_TO estimate_VV FDR_NP for_IN a_DT given_VVN threshold_NN ,_, which_WDT has_VHZ much_RB practical_JJ guiding_JJ significance_NN in_IN the_DT design_NN process_NN ._SENT 
+Both_CC the_DT threshold_NN setting_VVG and_CC FDR_NP estimation_NN scheme_NN can_MD be_VB conducted_VVN with_IN the_DT help_NN of_IN randomized_VVN algorithms_NNS on_IN the_DT assumption_NN of_IN known_VVN probabilistic_JJ distributions_NNS ._SENT 
+The_DT application_NN of_IN probabilistic_JJ technique_NN to_TO the_DT fault_NN isolation_NN and_CC fault_NN tolerant_JJ control_NN of_IN ship_NN propulsion_NN systems_NNS will_MD be_VB our_PP$ future_JJ research_NN direction_NN ._SENT 
+<Section> Acknowledgments_NNS </Section> This_DT work_NN has_VHZ been_VBN supported_VVN in_IN part_NN by_IN the_DT National_NP Natural_NP Science_NP Foundation_NP of_IN China_NP under_IN Grant_NP 61633001_CD ,_, Grant_NP 61473004_CD ,_, and_CC Grant_NP U1713223_NP and_CC in_IN part_NN by_IN the_DT China’s_NP Ministry_NP of_IN Industry_NP and_CC Information_NP Technology_NP under_IN the_DT R&D_NN project_NN of_IN intelligent_JJ ship_NN under_IN Grant_NP 1.0([2016]544_NP )_) ._SENT 
+<Section> Appendix_NN A._NP </Section> A.1_NN ._SENT 
+Proof_NN of_IN Theorem_NN 4.1_CD Since_IN [_SYM −N˜M˜_NP ]_SYM is_VBZ the_DT complex_JJ matrix_NN functions_NNS of_IN random_JJ variable_JJ ω_NN ,_, the_DT gap_NN metric_JJ δK(KG0_NN ,_, KG_NP )_) is_VBZ also_RB determined_VVN by_IN ω_NP ._SENT 
+For_IN simplicity_NN ,_, we_PP denote_VVP it_PP by_IN δK(ω_NN )_) ._SENT 
+Let_VV minδK(ω)=a_NP ,_, maxδK(ω)=b_NP and_CC σ_NP is_VBZ the_DT minimum_JJ value_NN in_IN the_DT interval_NN [_SYM a_DT ,_, b_LS ]_SYM such_PDT that_DT FδK(σ)=1−ϵ_NN ,_, where_WRB FδK_NP is_VBZ the_DT distribution_NN function_NN of_IN δK_NN and_CC is_VBZ continuous_JJ ._SENT 
+Thus_RB we_PP have_VH (_( A.1)Pr(FδK(Km)≥1−ϵ)=Pr(Km≥σ)=1−Pr(Km<σ)=1−FδK(σ)N_NP ._SENT 
+Notice_VV that_DT FδK(σ)=1−ϵ_NN ._SENT 
+Then_RB (_( A.2)Pr(FδK(Km)≥1−ϵ)=1−(1−ϵ)N_NP ._SENT 
+Rewrite_VV (_( 32_CD )_) as_IN (_( 1−ϵ)N≤β_NP ,_, we_PP obtain_VVP (_( A.3)Pr(FδK(Km)≥1−ϵ)≥1−β_NP ._SENT 
+Thus_RB with_IN confidence_NN greater_JJR than_IN 1−β_NN ,_, we_PP have_VHP (_( A.4)FδK(Km)=Pr(δK(ω)≤Km)≥1−ϵ_NP ._SENT 
+A.2_NP ._SENT 
+Proof_NN of_IN Theorem_NN 4.2_CD Consider_VV the_DT following_VVG Hoeffding_NN Inequality_NN Hoeffding_NN (_( 1963_CD )_) ,_, Serfling_NN (_( 1974_CD )_) ,_, Tempo_NN et_CC al_NP ._SENT 
+(_( 2012_CD )_) ._SENT 
+Let_VV xi∈[ai_NP ,_, bi_NP ]_SYM be_VB independent_JJ bounded_VVN random_JJ variables_NNS ._SENT 
+E(⋅_NP )_) denotes_VVZ expectation_NN ._SENT 
+For_IN any_DT ϵ̄_JJ >0_NN ,_, it_PP holds_VVZ Pr(∑Ni=1xi−E(∑Ni=1xi)≥ϵ̄_NP )≤e−2ϵ̄_NP 2∑Ni=1(bi−ai)2_NP Pr(∑Ni=1xi−E(∑Ni=1xi)≤−ϵ̄_NP )≤e−2ϵ̄_NP 2∑Ni=1(bi−ai)2_NP ._SENT 
+Notice_VV that_IN the_DT indicator_NN function_NN Φ(ϕi_NP )_) ,_, i=1_NN ,_, …_NP ,_, N_NP in_IN (_( 45_CD )_) are_VBP independent_JJ bounded_VVN random_JJ variables_NNS with_IN ai=0_JJ ,_, bi=1_JJ ._SENT 
+According_VVG to_TO the_DT above_JJ Hoeffding_NN Inequalities_NNS ,_, we_PP have_VHP (_( A.5)Pr(∑Ni=1Φ(ϕi)−E(∑Ni=1Φ(ϕi))≥ϵ̄_NP )≤e−2ϵ̄_NP 2N%tagA5_NP (_( A.6)Pr(∑Ni=1Φ(ϕi)−E(∑Ni=1Φ(ϕi))≤−ϵ̄_NP )≤e−2ϵ̄_NP 2N._NP ._SENT 
+In_IN the_DT probabilistic_JJ framework_NN ,_, the_DT fault_NN detection_NN rate_NN (_( FDR_NP )_) and_CC its_PP$ estimation_NN can_MD be_VB formulated_VVN as_IN pFDR=E(1N∑Ni=1Φ(ϕi_NP )_) )_) ,_, pˆFDR=1N∑Ni=1Φ(ϕi_NP )_) ._SENT 
+Thus_RB (_( A.5)–(A.6_NN )_) are_VBP equivalent_JJ to_TO Pr(N|pFDR−pˆFDR|<ϵ̄_NP )≥1−2e−2ϵ̄_NP 2N_NP ._SENT 
+Rewrite_VV (_( 43_CD )_) as_IN 2e−2Nϵ2≤β_NN ._SENT 
+Let_VV ϵ=1Nϵ̄_NN ,_, we_PP have_VHP (_( A.7)Pr(|pFDR−pˆFDR|<ϵ)≥1−2e−2Nϵ2≥1−β_NN which_WDT completes_VVZ the_DT proof_NN ._SENT 
+<Section> References_NNS </Section> Artyszuk_NN (_( 2003_CD )_) Artyszuk_NP J._NP Wave_NP fraction_NN and_CC thrust_NN deduction_NN during_IN ship_NN astern_RB manoeuvres_VVZ WIT_NN Transactions_NNS on_IN The_DT Built_VVN Environment_NP ,_, 68_CD (_( 2003_CD )_) Google_NN Scholar_NN Beg_VV (_( 2016_CD )_) Beg_VV A._NP Modeling_VVG the_DT probabilities_NNS of_IN failures_NNS of_IN 22_CD nm_NP CMOS_NP logic_NN cells_NNS 2016_CD third_JJ international_JJ conference_NN on_IN mathematics_NNS and_CC computers_NNS in_IN sciences_NNS and_CC in_IN industry_NN ,_, MCSI_NP ,_, IEEE_NP (_( 2016_CD )_) ,_, pp_NP ._SENT 
+94-99_CD CrossRefView_NP Record_NP in_IN ScopusGoogle_NP Scholar_NN Benedek_NP and_CC Balogh_NP (_( 1968_CD )_) Benedek_NP Z._NP ,_, Balogh_NP B._NP The_DT scale_NN effect_NN on_IN nominal_JJ wake_NN fraction_NN of_IN single-screw_JJ ships_NNS Periodica_NP Polytechnica_NP ._SENT 
+Engineering_NN ._SENT 
+Mechanical_JJ Engineering_NP ,_, 12_CD (_( 1_LS )_) (_( 1968_CD )_) ,_, p._NP 27_CD View_NP Record_NP in_IN ScopusGoogle_NP Scholar_NN Blanke_NP (_( 2005_CD )_) Blanke_NP M._NP Diagnosis_NN and_CC fault-tolerant_JJ control_NN for_IN ship_NN station_NN keeping_VVG Proceedings_NNS of_IN the_DT 2005_CD IEEE_NN international_JJ symposium_NN on_IN ,_, Mediterrean_JJ conference_NN on_IN control_NN and_CC automation_NN intelligent_JJ control_NN ,_, 2005_CD ,_, IEEE_NP (_( 2005_CD )_) ,_, pp_NP ._SENT 
+1379-1384_CD CrossRefView_NP Record_NP in_IN ScopusGoogle_NP Scholar_NN Blanke_NP et_NP al_NP ._SENT 
+(_( 1998_CD )_) Blanke_NP M._NP ,_, Izadi-Zamanabadi_NP R._NP ,_, Lootsma_NP T._NP F._NP Fault_NP monitoring_NN and_CC re-configurable_JJ control_NN for_IN a_DT ship_NN propulsion_NN plant_NN International_NP Journal_NP of_IN Adaptive_JJ Control_NP and_CC Signal_NP Processing_NP ,_, 12_CD (_( 8_CD )_) (_( 1998_CD )_) ,_, pp_NP ._SENT 
+671-688_CD View_NP Record_NP in_IN ScopusGoogle_NP Scholar_NN Calafiore_NP et_NP al_NP ._SENT 
+(_( 2011_CD )_) Calafiore_NP G._NP C._NP ,_, Dabbene_NP F._NP ,_, Tempo_NN R._NP Research_NP on_IN probabilistic_JJ methods_NNS for_IN control_NN system_NN design_NN Automatica_NP ,_, 47_CD (_( 7_CD )_) (_( 2011_CD )_) ,_, pp_NP ._SENT 
+1279-1293_CD ArticleDownload_NP PDFView_NP Record_NP in_IN ScopusGoogle_NP Scholar_NN Capello_NP et_NP al_NP ._SENT 
+(_( 2013_CD )_) Capello_NP E._NP ,_, Quagliotti_NP F._NP ,_, Tempo_NN R._NP Randomized_VVD approaches_NNS and_CC adaptive_JJ control_NN for_IN quadrotor_NP UAVs_NPS 2013_CD international_JJ conference_NN on_IN unmanned_JJ aircraft_NN systems_NNS ,_, ICUAS_NP ,_, IEEE_NP (_( 2013_CD )_) ,_, pp_NP ._SENT 
+461-470_CD View_NP Record_NP in_IN ScopusGoogle_NP Scholar_NN Capello_NP and_CC Tempo_NN (_( 2013_CD )_) Capello_NP E._NP ,_, Tempo_NN R._NP A_NP randomized_VVD approach_NN for_IN robust_JJ control_NN of_IN uncertain_JJ UAVs_NP IFAC_NP Proceedings_NNS Volumes_NNS ,_, 46_CD (_( 30_CD )_) (_( 2013_CD )_) ,_, pp_NP ._SENT 
+226-231_CD ArticleDownload_NP PDFView_NP Record_NP in_IN ScopusGoogle_NP Scholar_NN Ding_NP (_( 2008_CD )_) Ding_NP S._NP Model-based_JJ fault_NN diagnosis_NN techniques_NNS :_: design_NN schemes_NNS ,_, algorithms_NNS ,_, and_CC tools_NNS Springer_NP Science_NP &_CC Business_NP Media_NP (_( 2008_CD )_) Google_NP Scholar_NN Ding_NP (_( 2015a_NP )_) Ding_NP S._NP Application_NN of_IN factorization_NN and_CC gap_NN metric_JJ techniques_NNS to_TO fault_NN detection_NN and_CC isolation_NN Part_NN I_PP :_: A_DT factorization_NN technique_NN based_VVN FDI_NP framework_NN IFAC-PapersOnLine_NN ,_, 48_CD (_( 21_CD )_) (_( 2015_CD )_) ,_, pp_NP ._SENT 
+113-118_CD ArticleDownload_NP PDFCrossRefView_NP Record_NP in_IN ScopusGoogle_NP Scholar_NN Ding_NP (_( 2015b_NP )_) Ding_NP S._NP Application_NN of_IN factorization_NN and_CC gap_NN metric_JJ techniques_NNS to_TO fault_NN detection_NN and_CC isolation_NN Part_NN II_NP :_: Gap_NN metric_JJ technique_NN aided_VVN FDI_NP performance_NN analysis_NN IFAC-PapersOnLine_NN ,_, 48_CD (_( 21_CD )_) (_( 2015_CD )_) ,_, pp_NP ._SENT 
+119-124_CD ArticleDownload_NP PDFView_NP Record_NP in_IN ScopusGoogle_NP Scholar_NN Ding_NP et_NP al_NP ._SENT 
+(_( 2003_CD )_) Ding_NP S._NP ,_, Zhang_NP P._NP ,_, Frank_NP P._NP ,_, Ding_NP E._NP Application_NN of_IN probabilistic_JJ robustness_NN technique_NN to_TO the_DT fault_NN detection_NN system_NN design_NN Proceedings_NNS ._SENT 
+42nd_NP IEEE_NP conference_NN on_IN decision_NN and_CC control_NN ,_, 2003_CD ,_, vol_NP ._SENT 
+1_LS ,_, IEEE_NP (_( 2003_CD )_) ,_, pp_NP ._SENT 
+972-977_CD View_NP Record_NP in_IN ScopusGoogle_NP Scholar_NN Dorobantu_NP et_NP al_NP ._SENT 
+(_( 2014_CD )_) Dorobantu_NP A._NP ,_, Balas_NP G._NP J._NP ,_, Georgiou_NP T._NP T._NP Validating_VVG aircraft_NN models_NNS in_IN the_DT gap_NN metric_JJ Journal_NP of_IN Aircraft_NP ,_, 51_CD (_( 6_CD )_) (_( 2014_CD )_) ,_, pp_NP ._SENT 
+1665-1672_CD CrossRefView_NP Record_NP in_IN ScopusGoogle_NP Scholar_NN Edwards_NP and_CC Spurgeon_NP (_( 1999_CD )_) Edwards_NP C._NP ,_, Spurgeon_NP S._NP K._NP A_DT sliding_VVG mode_NN observer_NN based_VVN FDI_NP scheme_NN for_IN the_DT ship_NN benchmark_JJ 1999_CD European_JJ control_NN conference_NN ,_, ECC_NP ,_, IEEE_NP (_( 1999_CD )_) ,_, pp_NP ._SENT 
+4614-4619_CD CrossRefView_NP Record_NP in_IN ScopusGoogle_NP Scholar_NN Galán_NP et_NP al_NP ._SENT 
+(_( 2003_CD )_) Galán_NP O._NP ,_, Romagnoli_NP J._NP A._NP ,_, Palazoǧlu_NP A._NP ,_, Arkun_NP Y._NP Gap_NP metric_JJ concept_NN and_CC implications_NNS for_IN multilinear_JJ model-based_JJ controller_NN design_NN Industrial_NP &_CC Engineering_NP Chemistry_NN Research_NP ,_, 42_CD (_( 10_CD )_) (_( 2003_CD )_) ,_, pp_NP ._SENT 
+2189-2197_CD View_NP Record_NP in_IN ScopusGoogle_NP Scholar_NN Hoeffding_NN (_( 1963_CD )_) Hoeffding_NP W._NP Probability_NN inequalities_NNS for_IN sums_NNS of_IN bounded_VVN random_JJ variables_NNS Journal_NP of_IN the_DT American_NP Statistical_NP Association_NP ,_, 58_CD (_( 301_CD )_) (_( 1963_CD )_) ,_, pp_NP ._SENT 
+13-30_CD View_NP Record_NP in_IN ScopusGoogle_NP Scholar_NN Izadi-Zamanabadi_NP and_CC Blanke_NP (_( 1999_CD )_) Izadi-Zamanabadi_NP R._NP ,_, Blanke_NP M._NP A_DT ship_NN propulsion_NN system_NN as_IN a_DT benchmark_NN for_IN fault-tolerant_JJ control_NN Control_NP Engineering_NP Practice_NN ,_, 7_CD (_( 2_LS )_) (_( 1999_CD )_) ,_, pp_NP ._SENT 
+227-239_CD ArticleDownload_NP PDFView_NP Record_NP in_IN ScopusGoogle_NP Scholar_NN Lin_NP and_CC Kouh_NP (_( 2015_CD )_) Lin_NP T._NP Y._NP ,_, Kouh_NP J._NP S._NP On_IN the_DT scale_NN effect_NN of_IN thrust_NN deduction_NN in_IN a_DT judicious_JJ self-propulsion_NN procedure_NN for_IN a_DT moderate-speed_NN containership_NN Journal_NP of_IN Marine_NP Science_NP and_CC Technology_NP ,_, 20_CD (_( 2_LS )_) (_( 2015_CD )_) ,_, pp_NP ._SENT 
+373-391_CD CrossRefView_NP Record_NP in_IN ScopusGoogle_NP Scholar_NN Lootsma_NP et_NP al_NP ._SENT 
+(_( 2001_CD )_) Lootsma_NP T._NP F._NP ,_, Izadi-Zamanabadi_NP R._NP ,_, Nijmeijer_NP H._NP Observer-based_JJ FDI_NN for_IN gain_NN fault_NN detection_NN in_IN ship_NN propulsion_NN benchmark_JJ —_NN a_DT geometric_JJ approach_NN IFAC_NN Proceedings_NNS Volumes_NNS ,_, 34_CD (_( 7_CD )_) (_( 2001_CD )_) ,_, pp_NP ._SENT 
+125-130_CD ArticleDownload_NP PDFView_NP Record_NP in_IN ScopusGoogle_NP Scholar_NN Lorefice_NN et_NP al_NP ._SENT 
+(_( 2009_CD )_) Lorefice_NP L._NP ,_, Pralio_NP B._NP ,_, Tempo_NN R._NP Randomization-based_JJ control_NN design_NN for_IN mini-UAVs_NP Control_NP Engineering_NP Practice_NN ,_, 17_CD (_( 8_CD )_) (_( 2009_CD )_) ,_, pp_NP ._SENT 
+974-983_CD ArticleDownload_NP PDFView_NP Record_NP in_IN ScopusGoogle_NP Scholar_NN Ma_NP et_NP al_NP ._SENT 
+(_( 2007_CD )_) Ma_NP W._NP ,_, Sznaier_NP M._NP ,_, Lagoa_NP C._NP A_DT risk_NN adjusted_VVN approach_NN to_TO robust_JJ simultaneous_JJ fault_NN detection_NN and_CC isolation_NN Automatica_NN ,_, 43_CD (_( 3_LS )_) (_( 2007_CD )_) ,_, pp_NP ._SENT 
+499-504_CD ArticleDownload_NP PDFView_NP Record_NP in_IN ScopusGoogle_NP Scholar_NN Serfling_NN (_( 1974_CD )_) Serfling_NN R._NP J._NP Probability_NN inequalities_NNS for_IN the_DT sum_NN in_IN sampling_VVG without_IN replacement_NN The_DT Annals_NN of_IN Statistics_NP (_( 1974_CD )_) ,_, pp_NP ._SENT 
+39-48_CD CrossRefView_NP Record_NP in_IN ScopusGoogle_NP Scholar_NN Tempo_NN et_NP al_NP ._SENT 
+(_( 2012_CD )_) Tempo_NN R._NP ,_, Calafiore_NP G._NP ,_, Dabbene_NP F._NP Randomized_VVD algorithms_NNS for_IN analysis_NN and_CC control_NN of_IN uncertain_JJ systems_NNS :_: with_IN applications_NNS Springer_NP Science_NP &_CC Business_NP Media_NP (_( 2012_CD )_) Google_NP Scholar_NN Ye_NP et_NP al_NP ._SENT 
+(_( 2014_CD )_) Ye_NP Z._NP ,_, Revie_NP M._NP ,_, Walls_NP L._NP A_DT load_NN sharing_VVG system_NN reliability_NN model_NN with_IN managed_JJ component_NN degradation_NN IEEE_NN Transactions_NNS on_IN Reliability_NN ,_, 63_CD (_( 3_LS )_) (_( 2014_CD )_) ,_, pp_NP ._SENT 
+721-730_CD CrossRefView_NP Record_NP in_IN ScopusGoogle_NP Scholar_NN Zhang_NP et_NP al_NP ._SENT 
+(_( 2005_CD )_) Zhang_NP P._NP ,_, Ding_NP S._NP ,_, Sader_NP M._NP ,_, Noack_NP R._NP Fault_NP detection_NN of_IN uncertain_JJ systems_NNS based_VVN on_IN probabilistic_JJ robustness_NN theory_NN American_JJ control_NN conference_NN ,_, 2005_CD ,_, Proceedings_NNS of_IN the_DT 2005_CD ,_, IEEE_NP (_( 2005_CD )_) ,_, pp_NP ._SENT 
+1648-1653_CD CrossRefView_NP Record_NP in_IN ScopusGoogle_NP Scholar_NN Zhang_NP et_NP al_NP ._SENT 
+(_( 2008_CD )_) Zhang_NP Y._NP ,_, Wu_NP N._NP E._NP ,_, Jiang_NP B._NP Fault_NP detection_NN and_CC isolation_NN applied_VVN to_TO a_DT ship_NN propulsion_NN benchmark_JJ IFAC_NP Proceedings_NNS Volumes_NNS ,_, 41_CD (_( 2_LS )_) (_( 2008_CD )_) ,_, pp_NP ._SENT 
+1908-1913_CD ArticleDownload_NP PDFCrossRefGoogle_NP Scholar_NN Zhong_NP et_NP al_NP ._SENT 
+(_( 2017_CD )_) Zhong_NP M._NP ,_, Zhang_NP L._NP ,_, Ding_NP S._NP X._NP ,_, Zhou_NP D._NP A_DT probabilistic_JJ approach_NN to_TO robust_JJ fault_NN detection_NN for_IN a_DT class_NN of_IN nonlinear_JJ systems_NNS IEEE_VVP Transactions_NNS on_IN Industrial_NP Electronics_NP ,_, 64_CD (_( 5_LS )_) (_( 2017_CD )_) ,_, pp_NP ._SENT 
+3930-3939_CD View_NP Record_NP in_IN ScopusGoogle_NP Scholar_NN Zhou_NP et_NP al_NP ._SENT 
+(_( 1996_CD )_) Zhou_NP K._NP ,_, Doyle_NP J._NP C._NP ,_, Glover_NP K._NP ,_, et_NP al_NP ._SENT 
+Robust_JJ and_CC optimal_JJ control_NN ,_, vol_NP ._SENT 
+40_CD Prentice_NP Hall_NP ,_, New_NP Jersey_NP (_( 1996_CD )_) 

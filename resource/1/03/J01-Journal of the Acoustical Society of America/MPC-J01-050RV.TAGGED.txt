@@ -1,0 +1,446 @@
+<title> Bayesian_JJ source_NN localization_NN with_IN uncertain_JJ Green_NP 's_POS function_NN in_IN an_DT uncertain_JJ shallow_JJ water_NN ocean_NN </title> <author> Le_NP Gall_NP ,_, Yann_NP 1_CD ,_, 4_CD ;_: Dosso_NP ,_, Stan_NP E._NP 2_CD ;_: Socheleau_NP ,_, François-Xavier_NP 3_CD ;_: Bonnel_NP ,_, Julien_NP 1_CD </author> <Affiliation> 1_CD ENSTA_NP Bretagne_NP ,_, UMR_NP CNRS_VVZ 6285_CD Lab-STICC_NN ,_, 2_CD rue_NN François_NP Verny_NP ,_, Brest_NP Cedex_NP 9_CD ;_: 29806_CD ,_, France_NP 2_CD School_NP of_IN Earth_NP and_CC Ocean_NP Sciences_NPS ,_, University_NP of_IN Victoria_NP ,_, Victoria_NP ;_: BC_NP ;_: V8W_NP 3P6_NP ,_, Canada_NP 3_CD Institut_NP Mines-Telecom/Telecom_NP Bretagne_NP ,_, UMR_NP CNRS_VVZ 6285_CD Lab-STICC_NN ,_, Technopôle_NP Brest-Iroise_NP ,_, Brest_NP ;_: 29238_CD ,_, France_NP 4_CD Thales_NP Underwater_JJ Systems_NPS ,_, Route_NP de_NP Sainte_NP Anne_NP du_NP Portzic_NP ,_, Brest_NP ;_: 29601_CD ,_, France_NP </Affiliation> <year> 2016_CD </year> <Jounral> Journal_NP of_IN the_DT Acoustical_JJ Society_NP of_IN America_NP </Journal> <Publishing_house> Acoustical_JJ Society_NP of_IN America_NP </Publishing_house> <Text_Collector> Wang_NP Shuaiyin，HEU_NP </Text_Collector> <DOI> 10.1121/1.4941997_CD </DOI> <URL> https_NNS :_: //asa-scitation-org-s_NNS ._SENT 
+wvpn_NP ._SENT 
+hrbeu_NP ._SENT 
+edu_NP ._SENT 
+cn/doi/10.1121/1.4941997_JJ </URL> <Section> ABSTRACT_JJ </Section> Matched-field_JJ acoustic_JJ source_NN localization_NN is_VBZ a_DT challenging_JJ task_NN when_WRB environmental_JJ properties_NNS of_IN the_DT oceanic_JJ waveguide_NN are_VBP not_RB precisely_RB known_VVN ._SENT 
+Errors_NNS in_IN the_DT assumed_VVN environment_NN (_( mismatch_NN )_) can_MD cause_VV severe_JJ degradations_NNS in_IN localization_NN performance_NN ._SENT 
+This_DT paper_NN develops_VVZ a_DT Bayesian_JJ approach_NN to_TO improve_VV robustness_NN to_TO environmental_JJ mismatch_NN by_IN considering_VVG the_DT waveguide_NN Green_NN 's_POS function_NN to_TO be_VB an_DT uncertain_JJ random_JJ vector_NN whose_WP$ probability_NN density_NN accounts_NNS for_IN environmental_JJ uncertainty_NN ._SENT 
+The_DT posterior_JJ probability_NN density_NN is_VBZ integrated_VVN over_IN the_DT Green_NP 's_POS function_NN probability_NN density_NN to_TO obtain_VV a_DT joint_JJ marginal_JJ probability_NN distribution_NN for_IN source_NN range_NN and_CC depth_NN ,_, accounting_NN for_IN environmental_JJ uncertainty_NN and_CC quantifying_VVG localization_NN uncertainty_NN ._SENT 
+Because_IN brute-force_NN integration_NN in_IN high_JJ dimensions_NNS can_MD be_VB costly_JJ ,_, an_DT efficient_JJ method_NN is_VBZ developed_VVN in_IN which_WDT the_DT multi-dimensional_JJ Green_NP 's_POS function_NN integration_NN is_VBZ approximated_VVN by_IN one-dimensional_JJ integration_NN over_IN a_DT suitably_RB defined_VVN correlation_NN measure_NN ._SENT 
+An_DT approach_NN to_TO approximate_JJ the_DT Green_NP 's_POS function_NN covariance_NN matrix_NN ,_, which_WDT represents_VVZ the_DT environmental_JJ mismatch_NN ,_, is_VBZ developed_VVN based_VVN on_IN modal_JJ analysis_NN ._SENT 
+Examples_NNS are_VBP presented_VVN to_TO illustrate_VV the_DT method_NN and_CC Monte-Carlo_NP simulations_NNS are_VBP carried_VVN out_RP to_TO evaluate_VV its_PP$ performance_NN relative_JJ to_TO other_JJ methods_NNS ._SENT 
+The_DT proposed_VVN method_NN gives_VVZ efficient_JJ ,_, reliable_JJ source_NN localization_NN and_CC uncertainties_NNS with_IN improved_VVN robustness_NN toward_IN environmental_JJ mismatch_NN ._SENT 
+Keywords_NNS :_: Matched-field_NP ;_: Bayesian_JJ approach_NN ;_: Green_NP 's_POS function_NN ;_: environmental_JJ mismatch_NN <Section> I._NN INTRODUCTION_NN </Section> Matched-field_NN processing_NN (_( MFP_NN )_) is_VBZ an_DT appealing_JJ technique_NN for_IN source_NN localization_NN in_IN underwater_JJ acoustics.1_JJ MFP_NN takes_VVZ full_JJ advantage_NN of_IN the_DT oceanic_JJ waveguide_NN propagation_NN features_VVZ to_TO infer_VV the_DT source_NN position_NN by_IN comparing_VVG data_NNS measured_VVN on_IN an_DT array_NN of_IN spatially_RB distributed_VVN sensors_NNS with_IN replicas_NNS of_IN the_DT acoustic_JJ field_NN derived_VVN from_IN the_DT wave_NN equation_NN and_CC a_DT model_NN of_IN the_DT oceanic_JJ waveguide.2,3_NN However_RB ,_, mismatch_NN between_IN the_DT assumed_JJ oceanic_JJ waveguide_NN and_CC the_DT true_JJ environment_NN (_( e._NP g._NP ,_, errors_NNS in_IN bathymetry_NN ,_, bottom_JJ properties_NNS ,_, or_CC sound_JJ speed_NN profile_NN )_) may_MD result_VV in_IN poor_JJ localization_NN performance_NN ._SENT 
+Mismatch_NN introduces_VVZ biased_VVN estimates_NNS at_IN a_DT high_JJ signal-to_NP noise_NN ratio_NN (_( SNR)4–6_NN and_CC degrades_VVZ performance_NN with_IN respect_NN to_TO noise.7_JJ Since_IN it_PP is_VBZ unlikely_JJ to_TO have_VH accurate_JJ knowledge_NN of_IN the_DT oceanic_JJ waveguide_NN environment_NN in_IN realistic_JJ applications_NNS of_IN MFP_NP ,_, mismatch_NN is_VBZ a_DT serious_JJ problem_NN ._SENT 
+Several_JJ methods_NNS have_VHP been_VBN put_VVN forward_RB to_TO tackle_VV this_DT problem_NN and_CC make_VV source_NN localization_NN robust_JJ to_TO uncertainty_NN in_IN the_DT environment_NN ._SENT 
+The_DT matched-mode_NN processing_NN (_( MMP_NP )_) approach_NN is_VBZ an_DT alternative_NN to_TO MFP_NN that_WDT explicitly_RB uses_VVZ the_DT modal_JJ description_NN of_IN the_DT acoustic_JJ field_NN to_TO estimate_VV source_NN position_NN ._SENT 
+MMP_NN methods_NNS first_RB require_VVP the_DT decomposition_NN of_IN the_DT acoustic_JJ field_NN into_IN its_PP$ propagating_VVG modes_NNS and_CC then_RB compare_VV the_DT measured_VVN modes_NNS to_TO simulated_JJ mode_NN replicas_NNS to_TO infer_VV the_DT desired_VVN parameter_NN values.8–10_NP Working_NP in_IN mode_NN space_NN provides_VVZ physical_JJ insight_NN into_IN the_DT estimation_NN scheme_NN and_CC robustness_NN is_VBZ achieved_VVN by_IN retaining_VVG only_RB the_DT modes_NNS that_WDT are_VBP less_RBR affected_VVN by_IN environmental_JJ mismatch.10–12_NN However_RB ,_, modal_JJ decomposition_NN is_VBZ a_DT critical_JJ step_NN which_WDT is_VBZ often_RB inaccurate_JJ ,_, particularly_RB when_WRB the_DT array_NN does_VVZ not_RB provide_VV an_DT adequate_JJ spatial_JJ sampling_NN of_IN the_DT acoustic_JJ field_NN ,_, and_CC errors_NNS in_IN modal_JJ amplitudes_NNS may_MD considerably_RB reduce_VV MMP_NN localization_NN performance.10,11,13_JJ To_TO overcome_VV this_DT issue_NN ,_, Tabrikian_NP et_NP al.14_NP derived_VVD a_DT maximum_JJ likelihood_NN (_( ML_NP )_) MFP_NN estimator_NN ,_, considering_VVG the_DT acoustic_JJ field_NN as_IN the_DT sum_NN of_IN two_CD kinds_NNS of_IN modes_NNS :_: predictable_JJ modes_NNS weakly_RB affected_VVN by_IN the_DT environment_NN and_CC unpredictable_JJ modes_NNS strongly_RB affected_VVN by_IN the_DT environment_NN and_CC regarded_VVN as_IN nuisance_JJ parameters_NNS ._SENT 
+This_DT estimator_NN showed_VVD significantly_RB better_JJR performance_NN than_IN standard_JJ MMP_NN in_IN the_DT presence_NN of_IN mismatch_NN ._SENT 
+Extending_VVG this_DT idea_NN ,_, Liu_NP et_CC al.15_NP recently_RB derived_VVD another_DT ML_NP MFP_NN estimator_NN that_WDT was_VBD found_VVN to_TO be_VB slightly_RB more_RBR robust_JJ ._SENT 
+These_DT mode-based_JJ approaches_NNS address_VVP the_DT mismatch_NN problem_NN by_IN ignoring_VVG the_DT information_NN carried_VVN by_IN the_DT parts_NNS of_IN the_DT acoustic_JJ field_NN that_WDT are_VBP the_DT most_RBS sensitive_JJ to_TO the_DT oceanic_JJ waveguide_NN environment_NN and_CC therefore_RB imply_VVP a_DT trade-off_NN between_IN the_DT loss_NN of_IN information_NN on_IN source_NN location_NN and_CC sensitivity_NN to_TO mismatch_NN ._SENT 
+Other_JJ approaches_NNS incorporate_VV uncertain_JJ environmental_JJ parameters_NNS as_IN additional_JJ unknowns_NNS constrained_VVN by_IN a_DT priori_NN information_NN in_IN the_DT localization_NN problem,16–24_NN which_WDT makes_VVZ the_DT localization_NN robust_JJ to_TO mismatch_NN with_IN respect_NN to_TO these_DT parameters_NNS ._SENT 
+Two_CD general_JJ approaches_NNS ,_, namely_RB ,_, focalization_NN and_CC marginalization_NN ,_, have_VHP been_VBN considered_VVN ._SENT 
+The_DT focalization_NN approach_NN consists_VVZ of_IN finding_VVG the_DT globally_RB optimal_JJ solution_NN jointly_RB for_IN the_DT localization_NN and_CC environmental_JJ parameters.16–18_NN The_DT marginalization_NN approach_NN formulates_VVZ the_DT problem_NN within_IN a_DT Bayesian_NP framework.19–24_NP Bayes_NP '_POS rule_NN relates_VVZ the_DT a_DT priori_NN probability_NN density_NN and_CC the_DT likelihood_NN to_TO the_DT posterior_JJ probability_NN density_NN (_( PPD_NP )_) which_WDT quantifies_VVZ the_DT probability_NN of_IN the_DT unknown_JJ parameters_NNS given_VVN the_DT measured_VVN data_NNS and_CC prior_JJ information_NN ._SENT 
+The_DT analysis_NN is_VBZ carried_VVN out_RP for_IN the_DT extended_JJ PPD_NN involving_VVG the_DT localization_NN parameters_NNS as_RB well_RB as_IN the_DT environmental_JJ parameters_NNS ._SENT 
+Integration_NN (_( marginalization_NN )_) of_IN the_DT multidimensional_JJ PPD_NN over_IN the_DT environmental_JJ parameters_NNS gives_VVZ the_DT joint_JJ marginal_JJ probability_NN distribution_NN over_IN source_NN range_NN and_CC depth_NN ._SENT 
+Hence_RB ,_, marginalization_NN can_MD provide_VV a_DT robust_JJ estimate_NN of_IN the_DT source_NN position_NN as_RB well_RB as_IN a_DT quantitative_JJ measure_NN of_IN localization_NN uncertainty_NN which_WDT may_MD be_VB of_IN critical_JJ importance_NN in_IN an_DT operational_JJ context_NN for_IN decision_NN making_NN ._SENT 
+Focalization_NN and_CC marginalization_NN rely_VVP on_IN a_DT parameterization_NN of_IN the_DT waveguide_NN and_CC are_VBP computationally_RB expensive_JJ since_IN they_PP require_VVP numerical_JJ propagation_NN modeling_NN for_IN a_DT large_JJ number_NN of_IN realizations_NNS of_IN the_DT unknown_JJ environmental_JJ parameters_NNS ._SENT 
+In_IN this_DT paper_NN we_PP propose_VVP a_DT novel_JJ Bayesian_JJ approach_NN to_TO address_VV the_DT mismatch_NN problem_NN with_IN no_DT unknown_JJ environmental_JJ parameters_NNS added_VVD to_TO the_DT localization_NN problem_NN and_CC no_DT requirement_NN for_IN repeated_JJ propagation_NN modeling_NN ._SENT 
+The_DT idea_NN is_VBZ to_TO relax_VV the_DT assumption_NN that_IN the_DT Green_NP 's_POS function_NN of_IN the_DT supposed_VVN oceanic_JJ waveguide_NN is_VBZ a_DT deterministic_JJ quantity_NN ._SENT 
+Instead_RB ,_, the_DT Green_NP 's_POS function_NN is_VBZ considered_VVN a_DT random_JJ vector_NN that_WDT accounts_VVZ for_IN environmental_JJ uncertainty_NN through_IN its_PP$ probability_NN density_NN ._SENT 
+The_DT analysis_NN is_VBZ carried_VVN out_RP for_IN a_DT PPD_NN involving_VVG the_DT localization_NN parameters_NNS as_RB well_RB as_IN the_DT uncertain_JJ Green_NP 's_POS function_NN ._SENT 
+Integrating_VVG (_( marginalizing_VVG )_) the_DT PPD_NN over_IN the_DT uncertain_JJ Green_NP 's_POS function_NN provides_VVZ the_DT joint_JJ marginal_JJ probability_NN distribution_NN over_IN source_NN range_NN and_CC depth_NN ,_, quantifying_VVG the_DT uncertainties_NNS in_IN localization_NN ._SENT 
+This_DT integration_NN does_VVZ not_RB require_VV repeated_JJ propagation_NN modeling_NN ._SENT 
+Furthermore_RB ,_, it_PP is_VBZ reduced_VVN to_TO a_DT one-dimensional_JJ integral_NN which_WDT greatly_RB increases_VVZ computational_JJ efficiency_NN ._SENT 
+The_DT impact_NN of_IN environmental_JJ uncertainty_NN on_IN the_DT Green_NP 's_POS function_NN is_VBZ handled_VVN by_IN making_VVG some_DT general_JJ assumptions_NNS regarding_VVG the_DT effect_NN of_IN mismatch_NN on_IN modal_JJ propagation_NN ._SENT 
+This_DT approach_NN has_VHZ the_DT additional_JJ advantage_NN that_IN the_DT uncertainty_NN is_VBZ not_RB limited_VVN to_TO mismatch_NN in_IN specifically-chosen_NP environmental_JJ parameters_NNS ,_, but_CC applies_VVZ generally_RB to_TO all_DT factors_NNS influencing_VVG propagation_NN (_( e._NP g._NP ,_, waveguide_NN structure_NN ,_, range-dependent_JJ effects_NNS )_) ._SENT 
+The_DT ability_NN of_IN the_DT method_NN to_TO give_VV reliable_JJ marginal_JJ PPDs_NNS for_IN source_NN location_NN is_VBZ illustrated_VVN through_IN simulated_JJ examples_NNS ,_, and_CC the_DT performance_NN of_IN the_DT method_NN is_VBZ assessed_VVN by_IN Monte-Carlo_NP simulations_NNS ._SENT 
+The_DT remainder_NN of_IN this_DT paper_NN is_VBZ organized_VVN as_RB follows_VVZ ._SENT 
+Section_NP II_NP presents_VVZ the_DT Bayesian_JJ formulation_NN of_IN the_DT MFP_JJ inverse_JJ problem_NN ._SENT 
+Section_NP III_NP describes_VVZ our_PP$ Bayesian_JJ MFP_NN approach_NN including_VVG the_DT marginalization_NN technique_NN and_CC provides_VVZ a_DT discussion_NN on_IN the_DT Green_NP 's_POS function_NN model_NN for_IN uncertain_JJ ocean_NN environments_NNS ._SENT 
+Section_NP IV_NP presents_VVZ the_DT results_NNS of_IN the_DT proposed_VVN method_NN through_IN simulated_JJ examples_NNS and_CC Monte-Carlo_NP performance_NN analyses_NNS ._SENT 
+Finally_RB ,_, Sec_NN ._SENT 
+V_NN summarizes_VVZ and_CC discusses_VVZ the_DT results_NNS of_IN this_DT work_NN ._SENT 
+Notation_NN ._SENT 
+Throughout_IN this_DT paper_NN ,_, lowercase_JJ boldface_JJ letters_NNS denote_VVP vectors_NNS ,_, e._NP g._NP ,_, x_NN ,_, and_CC uppercase_JJ boldface_JJ letters_NNS denote_VVP matrices_NNS ,_, e._NP g._NP ,_, A._NP The_DT superscripts_NNS T_NN and_CC H_NN mean_VVP transposition_NN and_CC Hermitian_JJ transposition_NN ,_, respectively_RB ._SENT 
+The_DT trace_NN operator_NN is_VBZ denoted_VVN tr(⋅_JJ )_) ._SENT 
+We_PP use_VVP diag(x_NN )_) to_TO designate_VV a_DT diagonal_JJ square_JJ matrix_NN whose_WP$ main_JJ diagonal_NN contains_VVZ the_DT elements_NNS of_IN vector_NN x._NP The_NP N×N_NP identity_NN matrix_NN is_VBZ denoted_VVN by_IN IN_IN ._SENT 
+The_DT operator_NN |_SYM ⋅_NP |_SYM means_VVZ the_DT determinant_NN for_IN matrices_NNS and_CC modulus_NN for_IN scalars_NNS ._SENT 
+The_DT operator_NN ‖_NP ⋅_NP ‖_NP designates_VVZ the_DT standard_JJ Euclidean_JJ norm_NN ._SENT 
+The_DT distribution_NN of_IN a_DT jointly_RB proper_JJ complex_JJ Gaussian_JJ random_JJ vector_NN with_IN mean_JJ m_NN and_CC covariance_NN matrix_NN R_NN is_VBZ denoted_VVN CN(m_NN ,_, R_NP )_) ._SENT 
+Finally_RB ,_, E[⋅_NP ]_SYM denotes_VVZ expectation_NN ,_, Pr(⋅_NP )_) denotes_VVZ probability_NN ,_, and_CC p(⋅_NN )_) is_VBZ a_DT probability_NN density_NN function_NN <Section> II_NP ._SENT 
+BAYESIAN_NP MFP_NP </Section> A._NP Bayesian_JJ inference_NN In_IN a_DT Bayesian_JJ framework_NN ,_, inference_NN about_IN an_DT unknown_JJ parameter_NN set_NN θ_NN is_VBZ made_VVN through_IN the_DT analysis_NN of_IN the_DT conditional_JJ probability_NN density_NN function_NN p(θ|y_NN )_) of_IN θ_JJ given_VVN the_DT measured_VVN data_NNS y._JJ This_DT quantity_NN ,_, referred_VVD to_TO as_IN the_DT PPD_NN ,_, is_VBZ obtained_VVN using_VVG Bayes_NP '_POS rule_NN which_WDT can_MD be_VB expressed_VVN as_RB @_SYM where_WRB p(θ_NP )_) is_VBZ the_DT prior_JJ information_NN about_IN θ_NP and_CC p(y|θ_NP )_) is_VBZ the_DT probability_NN of_IN obtaining_VVG the_DT measured_VVN data_NN y_NN given_VVN a_DT realization_NN of_IN the_DT parameter_NN set_VVN θ_NP ._SENT 
+The_DT distribution_NN p(y|θ_NN )_) is_VBZ defined_VVN as_IN the_DT likelihood_NN function_NN when_WRB interpreted_VVN as_IN a_DT function_NN of_IN θ_NP ._SENT 
+The_DT PPD_NN represents_VVZ the_DT state_NN of_IN knowledge_NN of_IN θ_NN incorporating_VVG both_DT prior_JJ information_NN and_CC data_NN information_NN ._SENT 
+Therefore_RB ,_, it_PP provides_VVZ all_DT available_JJ information_NN to_TO make_VV inferences_NNS on_IN the_DT unknown_JJ parameters_NNS ._SENT 
+The_DT PPD_NN can_MD be_VB used_VVN to_TO estimate_VV the_DT parameters_NNS through_IN several_JJ Bayesian_JJ estimation_NN methods_NNS such_JJ as_IN the_DT maximum_NN a_DT posteriori_NP (_( MAP_NN )_) estimator_NN or_CC the_DT posterior_JJ mean_JJ estimator_NN ._SENT 
+The_DT MAP_NN estimator_NN is_VBZ defined_VVN as_RB @_SYM and_CC the_DT posterior_JJ mean_NN is_VBZ defined_VVN as_RB @_SYM The_DT MAP_NN has_VHZ the_DT minimum_JJ probability_NN of_IN error_NN when_WRB the_DT parameters_NNS have_VHP discrete_JJ probability_NN distributions_NNS whereas_IN the_DT posterior_JJ mean_NN is_VBZ the_DT minimum_JJ mean-squared_JJ error_NN estimator.25_NN Further_JJR analysis_NN of_IN the_DT PPD_NN can_MD provide_VV indications_NNS of_IN the_DT reliability_NN of_IN the_DT estimate_NN and_CC of_IN other_JJ possible_JJ solutions_NNS to_TO the_DT inverse_JJ problem_NN ._SENT 
+B._NP MFP_NP likelihood_NN function_VVP The_DT likelihood_NN function_NN is_VBZ determined_VVN by_IN the_DT statistical_JJ distribution_NN of_IN the_DT data_NNS ._SENT 
+In_IN MFP_NP ,_, the_DT data_NNS are_VBP the_DT output_NN of_IN an_DT N-element_NN array_NN on_IN which_WDT impinge_VVP the_DT waveforms_NNS from_IN an_DT acoustic_JJ source_NN located_VVN some_DT distance_NN away_RB in_IN the_DT ocean_NN waveguide_NN ._SENT 
+For_IN each_DT time_NN segment_NN (_( snapshot_NN )_) l_NN and_CC each_DT frequency_NN fm_NP ,_, the_DT complex_JJ (_( frequency_NN domain_NN )_) array_NN output_NN is_VBZ modeled_VVN by_IN the_DT N×1_JJ vector_NN @_SYM where_WRB •_NP L_NP is_VBZ the_DT number_NN of_IN snapshots_NNS available_JJ for_IN each_DT of_IN the_DT M_NP frequencies_NNS ,_, •_NP g(fm_NP ,_, θ_NP )_) is_VBZ a_DT complex_JJ N×1_JJ vector_NN representing_VVG the_DT transfer_NN function_NN or_CC Green_NP 's_POS function_NN of_IN the_DT waveguide_NN at_IN frequency_NN fm_NP for_IN propagation_NN from_IN the_DT source_NN to_TO each_DT of_IN the_DT N_NP receivers_NNS ,_, •_NP sl(fm_NP )_) is_VBZ a_DT complex_JJ scalar_NN representing_VVG the_DT source_NN amplitude_NN and_CC phase_NN ,_, and_CC •_NP wl(fm_NP )_) is_VBZ a_DT complex_JJ N×1_JJ vector_NN representing_VVG circularly-symmetric_JJ ,_, zero-mean_JJ Gaussian_JJ noise_NN that_WDT is_VBZ independent_JJ of_IN the_DT source_NN signal_NN ._SENT 
+The_DT noise_NN is_VBZ assumed_VVN to_TO be_VB white_JJ in_IN frequency_NN and_CC time_NN with_IN positive_JJ definite_JJ spatial_JJ covariance_NN matrix_NN Σw(fm)=σ2w(fm)Cw(fm_NP )_) ,_, where_WRB σ2w(fm_NP )_) is_VBZ the_DT noise_NN variance_NN and_CC Cw(fm_NP )_) is_VBZ the_DT noise_NN spatial_JJ correlation_NN matrix_NN over_IN the_DT array_NN ._SENT 
+This_DT noise_NN model_NN is_VBZ suited_VVN to_TO ambient_JJ noise_NN which_WDT is_VBZ always_RB present_JJ in_IN an_DT operational_JJ context_NN ._SENT 
+Its_PP$ interpretation_NN is_VBZ sometimes_RB broadened_VVN to_TO include_VV modeling_NN errors_NNS such_JJ as_IN environmental_JJ mismatch.26,27_JJ However_RB ,_, since_IN modeling_NN errors_NNS are_VBP generally_RB not_RB temporally-independent_JJ and_CC additive_JJ ,_, this_DT interpretation_NN may_MD be_VB problematic_JJ particularly_RB when_WRB these_DT errors_NNS are_VBP large_JJ ._SENT 
+In_IN this_DT paper_NN ,_, environmental_JJ mismatch_NN is_VBZ addressed_VVN in_IN terms_NNS of_IN an_DT uncertain_JJ Green_NP 's_POS function_NN ,_, and_CC is_VBZ not_RB considered_VVN a_DT component_NN of_IN the_DT noise_NN model_NN ._SENT 
+Since_IN the_DT matrices_NNS Cw(fm_NP )_) are_VBP positive_JJ definite_JJ ,_, their_PP$ square_JJ root_NN decompositions_NNS are_VBP invertible_JJ and_CC can_MD be_VB obtained_VVN via_IN the_DT Cholesky_NP decomposition_NN Cw(fm)=Lw(fm)LHw(fm_NP )_) ._SENT 
+Therefore_RB ,_, the_DT whitening_NN transform_VV @_SYM can_MD be_VB applied_VVN if_IN the_DT matrix_NN Cw(fm_NP )_) is_VBZ known_VVN ,_, which_WDT allows_VVZ reduction_NN to_TO the_DT white_JJ noise_NN case_NN ._SENT 
+In_IN the_DT remainder_NN of_IN this_DT paper_NN we_PP will_MD work_VV in_IN whitened_VVN coordinates_VVZ and_CC assume_VV that_DT Σw(fm)=σ_JJ 2_CD w_NN (_( fm)IN_NN to_TO simplify_VV subsequent_JJ derivations_NNS and_CC analyses_NNS ._SENT 
+It_PP should_MD be_VB noted_VVN that_IN characterizing_VVG the_DT ambient_JJ noise_NN field_NN by_IN a_DT spatial_JJ covariance_NN matrix_NN may_MD not_RB provide_VV a_DT precise_JJ representation_NN in_IN all_DT cases_NNS ,_, and_CC that_IN accurately_RB estimating_VVG the_DT correlation_NN matrix_NN Cw(fm_NP )_) can_MD be_VB a_DT challenging_JJ task_NN ._SENT 
+Errors_NNS between_IN the_DT assumed_VVN noise_NN statistics_NNS and_CC the_DT true_JJ statistics_NNS may_MD hinder_VV the_DT estimation_NN of_IN θ_NP ,_, particularly_RB when_WRB SNR_NP is_VBZ low_JJ ._SENT 
+This_DT problem_NN has_VHZ been_VBN considered_VVN in_IN other_JJ work,28–31_NN and_CC is_VBZ not_RB considered_VVN further_JJR in_IN the_DT present_JJ paper_NN which_WDT focuses_VVZ on_IN localization_NN with_IN environmental_JJ mismatch_NN ._SENT 
+In_IN the_DT original_JJ development_NN of_IN Bayesian_JJ MFP_NN by_IN Richardson_NP and_CC Nolte,19_NP the_DT source_NN signal_NN was_VBD regarded_VVN as_IN an_DT unknown_JJ quantity_NN s(fm_NP )_) =sl(fm_NP )_) with_IN a_DT Rayleigh_RB distributed_VVN amplitude_NN and_CC a_DT uniform_JJ phase_NN ._SENT 
+However_RB ,_, a_DT deterministic_JJ model_NN which_WDT considers_VVZ the_DT source_NN term_NN sl(fm_NP )_) as_IN a_DT deterministic_JJ quantity_NN is_VBZ more_RBR flexible_JJ and_CC has_VHZ been_VBN used_VVN in_IN many_JJ recent_JJ applications_NNS (_( e._NP g._NP ,_, Refs_NNS ._SENT 
+22–24_NP ,_, 26,27_CD ,_, and_CC 32–34_JJ )_) ._SENT 
+In_IN what_WP follows_VVZ we_PP use_VV this_DT deterministic_JJ source_NN signal_NN model_NN ._SENT 
+Thus_RB ,_, the_DT likelihood_NN can_MD be_VB expressed_VVN as_IN The_DT source_NN terms_NNS sl(fm_NP )_) and_CC the_DT noise_NN variances_NNS σ2w(fm_NP )_) are_VBP usually_RB not_RB known_VVN in_IN realistic_JJ applications_NNS of_IN MFP_NN and_CC must_MD be_VB treated_VVN as_IN nuisance_JJ parameters_NNS in_IN the_DT Bayesian_JJ inversion_NN process_NN ._SENT 
+A_DT few_JJ techniques_NNS have_VHP been_VBN investigated_VVN to_TO deal_VV with_IN these_DT nuisance_JJ parameters.26,27_JJ A_DT convenient_JJ and_CC reliable_JJ technique_NN involves_VVZ replacing_VVG the_DT source_NN terms_NNS and/or_VVP the_DT noise_NN variance_NN by_IN their_PP$ ML_NP estimate_NN (_( which_WDT are_VBP functions_NNS of_IN the_DT model_NN parameters_NNS θ).22–24,26,27,32–34_JJ When_WRB the_DT source_NN terms_NNS are_VBP unknown_JJ but_CC the_DT noise_NN variances_NNS are_VBP known_VVN ,_, this_DT procedure_NN leads_VVZ to_TO [_SYM Ref_NN ._SENT 
+33_CD ,_, Eq_NP ._SENT 
+(_( 3.3_CD )_) ]_SYM @_SYM and_CC when_WRB both_CC the_DT source_NN terms_NNS and_CC the_DT noise_NN variances_NNS are_VBP unknown_JJ we_PP get_VVP [_SYM Ref_NN ._SENT 
+33_CD ,_, Eq_NP ._SENT 
+(_( 3.11_CD )_) ]_SYM @_SYM One_CD of_IN these_DT two_CD likelihood_NN functions_NNS can_MD be_VB used_VVN depending_VVG upon_IN the_DT information_NN available_JJ on_IN the_DT noise_NN variance_NN ._SENT 
+Note_NN that_IN ϕm_NP is_VBZ based_VVN on_IN the_DT linear_JJ Bartlett_NP correlator_NN between_IN measured_VVN and_CC modeled_VVN fields_NNS ,_, as_RB commonly_RB applied_VVN in_IN matched-field_NP localization_NN ._SENT 
+<Section> III_NP ._SENT 
+BAYESIAN_JJ SOURCE_NN LOCALIZATION_NN WITH_IN UNCERTAIN_JJ GREEN'S_NNS FUNCTION_VVP </Section> For_IN source_NN localization_NN ,_, the_DT unknown_JJ parameter_NN set_VVN θ_NP represents_VVZ the_DT range_NN and_CC depth_NN of_IN the_DT source_NN ._SENT 
+In_IN a_DT Bayesian_JJ framework_NN ,_, uncertainty_NN in_IN the_DT environment_NN is_VBZ generally_RB handled_VVN by_IN adding_VVG environmental_JJ parameters_NNS θenv_NP to_TO θ.19–24_NP The_DT PPD_NN over_IN the_DT source_NN position_NN parameter_NN θ_NN is_VBZ then_RB obtained_VVN by_IN integrating_VVG the_DT full_JJ PPD_NN over_IN the_DT environmental_JJ parameters_NNS @_SYM This_DT approach_NN ,_, known_VVN as_IN marginalization_NN ,_, is_VBZ attractive_JJ ;_: however_RB ,_, it_PP is_VBZ also_RB computationally_RB intensive_JJ because_IN it_PP requires_VVZ repeatedly_RB simulating_VVG the_DT acoustic_JJ field_NN for_IN the_DT enlarged_JJ set_NN of_IN environmental_JJ parameters_NNS sampled_VVN during_IN the_DT integration_NN ._SENT 
+In_IN this_DT paper_NN ,_, no_DT environmental_JJ parameters_NNS are_VBP added_VVN to_TO θ_NN ._SENT 
+Instead_RB ,_, environmental_JJ uncertainty_NN is_VBZ addressed_VVN by_IN considering_VVG its_PP$ approximate_JJ effect_NN on_IN the_DT Green_NP 's_POS function_NN ._SENT 
+In_IN particular_JJ ,_, the_DT Green_NP 's_POS function_NN is_VBZ considered_VVN as_IN a_DT random_JJ vector_NN whose_WP$ probability_NN density_NN accounts_NNS for_IN environmental_JJ uncertainty_NN ._SENT 
+The_DT marginal_JJ PPD_NN over_IN range_NN and_CC depth_NN is_VBZ obtained_VVN by_IN integrating_VVG the_DT full_JJ PPD_NN over_IN the_DT uncertain_JJ Green_NP 's_POS function_NN ._SENT 
+The_DT integral_JJ is_VBZ reduced_VVN to_TO a_DT one-dimensional_JJ integral_NN which_WDT greatly_RB speeds_VVZ up_RP the_DT integration_NN and_CC makes_VVZ the_DT whole_JJ process_NN computationally_RB efficient_JJ (_( much_RB more_RBR efficient_JJ than_IN focalization_NN or_CC marginalization_NN over_IN specific_JJ environmental_JJ parameters_NNS )_) ._SENT 
+This_DT section_NN presents_VVZ this_DT approach_NN to_TO MFP_VV source_NN localization_NN ._SENT 
+First_RB ,_, the_DT theory_NN of_IN Bayesian_JJ source_NN localization_NN with_IN an_DT uncertain_JJ Green_NP 's_POS function_NN is_VBZ presented_VVN in_IN Sec_NN ._SENT 
+III_NP A._NP The_DT proposed_VVN methodology_NN requires_VVZ a_DT computationally_RB efficient_JJ integration_NN technique_NN over_IN the_DT Green_NP 's_POS function_NN probability_NN density_NN and_CC a_DT probabilistic_JJ model_NN of_IN the_DT Green_NP 's_POS function_NN uncertainty_NN ._SENT 
+The_DT efficient_JJ integration_NN technique_NN is_VBZ described_VVN in_IN Sec_NN ._SENT 
+III_NP B_NP and_CC Green_NP 's_POS function_NN models_NNS for_IN uncertain_JJ environment_NN are_VBP discussed_VVN in_IN Sec_NN ._SENT 
+III_NP C._NP For_IN simplicity_NN ,_, only_JJ single-frequency_NN MFP_NN is_VBZ presented_VVN in_IN what_WP follows_VVZ ._SENT 
+The_DT results_NNS can_MD easily_RB be_VB extended_VVN to_TO the_DT multi-frequency_NN problem_NN since_IN the_DT multi-frequency_NN likelihood_NN is_VBZ the_DT product_NN of_IN the_DT single-frequency_NN counterparts_NNS under_IN the_DT common_JJ assumption_NN of_IN uncorrelated_JJ errors_NNS over_IN frequency_NN ._SENT 
+A._NP Theory_NN It_PP is_VBZ important_JJ to_TO note_VV here_RB that_IN the_DT Green_NP 's_POS function_NN is_VBZ taken_VVN to_TO be_VB constant_JJ in_IN time_NN assuming_VVG the_DT environment_NN does_VVZ not_RB vary_VV significantly_RB over_IN the_DT time_NN of_IN the_DT L_NP snapshots_NNS considered_VVD ._SENT 
+The_DT unknown_JJ parameter_NN set_VVN θ_NP solely_RB represents_VVZ the_DT localization_NN parameters_NNS ._SENT 
+Suppose_VV that_IN the_DT Green_NP 's_POS function_NN of_IN the_DT assumed_VVN waveguide_NN is_VBZ a_DT random_JJ vector_NN with_IN a_DT prior_JJ density_NN function_NN p(g||θ_NN )_) that_WDT accounts_VVZ for_IN environmental_JJ uncertainty_NN ;_: the_DT PPD_NN of_IN the_DT localization_NN parameters_NNS can_MD then_RB be_VB obtained_VVN through_IN marginalization_NN over_IN p(g||θ_NN )_) @_SYM In_IN what_WP follows_VVZ ,_, the_DT dependence_NN of_IN the_DT Green_NP 's_POS function_NN g_NN on_IN θ_NN will_MD be_VB omitted_VVN for_IN clarity_NN ._SENT 
+The_DT prior_JJ p(g_NN )_) aims_VVZ at_IN characterizing_VVG the_DT a_DT priori_NN knowledge_NN of_IN the_DT possible_JJ mismatch_NN by_IN its_PP$ effect_NN on_IN the_DT Green_NP 's_POS function_NN of_IN the_DT waveguide_NN ._SENT 
+It_PP represents_VVZ the_DT state_NN of_IN belief_NN on_IN the_DT mismatch_NN ._SENT 
+When_WRB the_DT environment_NN is_VBZ uncertain_JJ ,_, the_DT Green_NP 's_POS function_NN is_VBZ no_RB longer_RBR a_DT deterministic_JJ vector_NN but_CC a_DT random_JJ vector_NN which_WDT could_MD ,_, in_IN principle_NN ,_, lie_VVP anywhere_RB in_IN the_DT N-dimensional_JJ space_NN ._SENT 
+However_RB ,_, in_IN practice_NN ,_, the_DT Green_NP 's_POS function_NN generally_RB retains_VVZ some_DT structure_NN and_CC lies_VVZ preferentially_RB in_IN some_DT regions_NNS of_IN this_DT space_NN ._SENT 
+A_DT simple_JJ and_CC flexible_JJ way_NN to_TO characterize_VV this_DT is_VBZ to_TO consider_VV the_DT Green_NP 's_POS function_NN as_IN a_DT zero-mean_JJ Gaussian_JJ random_JJ vector_NN characterized_VVN by_IN a_DT positive_JJ definite_JJ spatial_JJ covariance_NN matrix_NN Σg_NN ,_, i._NP e._NP ,_, g∼𝒞𝒩(0_NP ,_, Σg_NP )_) ._SENT 
+This_DT spatial_JJ covariance_NN matrix_NN parameterizes_VVZ the_DT statistical_JJ dispersion_NN of_IN the_DT Green_NP 's_POS function_NN ,_, and_CC reflects_VVZ our_PP$ physical_JJ knowledge_NN of_IN the_DT propagation_NN (_( see_VV Fig_NN ._SENT 
+1_CD for_IN a_DT schematic_JJ illustration_NN of_IN this_DT concept_NN )_) ._SENT 
+Note_NN that_IN as_IN we_PP are_VBP considering_VVG unknown_JJ source_NN terms_NNS ,_, only_RB the_DT directivity_NN of_IN the_DT Green_NP 's_POS function_NN is_VBZ important_JJ and_CC not_RB its_PP$ magnitude_NN [_SYM see_VV Eq_NP ._SENT 
+(_( 9_CD )_) ]_SYM ._SENT 
+figure_VV The_DT description_NN of_IN environmental_JJ uncertainty_NN within_IN the_DT covariance_NN matrix_NN Σg_NN is_VBZ discussed_VVN later_RBR in_IN Sec_NN ._SENT 
+III_NP C._NP Section_NP II_NP B_NP describes_VVZ the_DT marginalization_NN technique_NN used_VVN to_TO evaluate_VV the_DT integral_JJ in_IN Eq_NP ._SENT 
+(_( 11_CD )_) assuming_VVG that_IN the_DT covariance_NN matrix_NN Σg_NN is_VBZ available_JJ ._SENT 
+B._NP Green_NP 's_POS function_NN marginalization_NN The_DT marginalization_NN of_IN the_DT Green_NP 's_POS function_NN over_IN the_DT PPD_NN involves_VVZ an_DT N-dimensional_JJ integral_JJ since_IN g_NN is_VBZ a_DT N×1_JJ vector_NN ._SENT 
+Monte_NP Carlo_NP integration_NN of_IN such_PDT a_DT high-dimensional_JJ integral_JJ is_VBZ prohibitively_RB costly_JJ in_IN general_JJ and_CC more_RBR efficient_JJ techniques_NNS are_VBP required_VVN ._SENT 
+The_DT idea_NN here_RB is_VBZ to_TO reduce_VV this_DT N-dimensional_JJ integral_JJ to_TO a_DT one-dimensional_JJ integral_JJ ._SENT 
+Denote_VV u_NN the_DT scalar_JJ quantity_NN @_SYM with_IN R_NN defined_VVN in_IN Eq_NP ._SENT 
+(_( 9_CD )_) ._SENT 
+The_DT likelihoods_NNS in_IN Eqs_NP ._SENT 
+(_( 7_CD )_) and_CC (_( 8_CD )_) can_MD be_VB expressed_VVN as_IN functions_NNS of_IN u_NN instead_RB of_IN g_NN since_IN ϕ_NP in_IN Eq_NP ._SENT 
+(_( 9_CD )_) can_MD be_VB written_VVN as_IN ϕ=tr(R)(1−u_NP )_) ._SENT 
+The_DT PPD_NN of_IN the_DT localization_NN parameters_NNS ,_, Eq_NP ._SENT 
+(_( 11_CD )_) ,_, can_MD therefore_RB be_VB obtained_VVN without_IN any_DT approximation_NN through_RB @_SYM as_IN u_NN is_VBZ a_DT random_JJ variable_NN in_IN the_DT interval_NN [_SYM 0,1_CD ]_SYM (_( the_DT Cauchy-Schwarz_NP inequality_NN applies_VVZ to_TO the_DT positive_JJ semi-definite_NN matrices_NNS R_NP and_CC ggH_NP with_IN the_DT trace_NN operator_NN as_IN the_DT inner_JJ product_NN which_WDT leads_VVZ to_TO a_DT proof_NN that_IN u≤1_NN )_) ._SENT 
+Note_NN that_IN u_NN is_VBZ similar_JJ to_TO a_DT squared_VVN correlation_NN between_IN the_DT observed_JJ data_NN covariance_NN matrix_NN and_CC the_DT Green_NP 's_POS function_NN ._SENT 
+The_DT integration_NN in_IN Eq_NP ._SENT 
+(_( 13_CD )_) requires_VVZ the_DT evaluation_NN of_IN p(u_NP )_) ._SENT 
+The_DT variable_JJ u_NN is_VBZ a_DT ratio_NN of_IN quadratic_JJ forms_NNS in_IN the_DT Gaussian-distributed_JJ Green_NP 's_POS function_NN vector_NN g_NN with_IN covariance_NN matrix_NN Σg_NN ._SENT 
+Its_PP$ probability_NN density_NN p(u_NN )_) is_VBZ not_RB known_VVN analytically_RB but_CC can_MD be_VB computed_VVN using_VVG results_NNS on_IN quadratic_JJ forms_NNS in_IN Gaussian_JJ variables.35_NN The_DT cumulative_JJ distribution_NN function_NN (_( CDF_NP )_) FU(u_NP )_) of_IN u_NN can_MD be_VB written_VVN as_RB @_SYM Let_VV h_NN be_VB defined_VVN such_JJ that_IN g=Σ1/2gh_NP ._SENT 
+This_DT operation_NN is_VBZ actually_RB a_DT whitening_NN transform_VV and_CC h∼𝒞𝒩(0_NP ,_, IN_IN )_) ._SENT 
+The_DT CDF_NP FU(u_NP )_) can_MD then_RB be_VB expressed_VVN as_RB @_SYM Therefore_RB ,_, FU(u_NP )_) is_VBZ equivalent_JJ to_TO the_DT CDF_NN at_IN zero_CD of_IN the_DT quadratic_JJ form_NN hHAuh_NP ._SENT 
+Let_VV {_( λui_NP ,_, i=1,._NP ._SENT 
+,P_NP }_) be_VB the_DT positive_JJ eigenvalues_NNS of_IN the_DT matrix_NN Au_FW and_CC assume_VV that_DT none_NN of_IN them_PP are_VBP repeated_VVN ;_: the_DT CDF_NN can_MD then_RB be_VB computed_VVN as35_NP @_SYM where_WRB P_NN is_VBZ the_DT number_NN of_IN positive_JJ eigenvalues_NNS of_IN Au_FW ._SENT 
+None_NN of_IN the_DT positive_JJ eigenvalues_NNS of_IN the_DT matrix_NN [_SYM R/tr(R)−uIN_NP ]_SYM are_VBP repeated_VVN ,_, but_CC we_PP are_VBP unaware_JJ if_IN this_DT is_VBZ sufficient_JJ to_TO ensure_VV that_DT none_NN of_IN the_DT positive_JJ eigenvalues_NNS of_IN Au_NP are_VBP repeated_VVN ._SENT 
+However_RB ,_, this_DT seems_VVZ logical_JJ and_CC has_VHZ always_RB been_VBN true_JJ for_IN all_DT cases_NNS we_PP have_VHP considered_VVN ._SENT 
+In_IN any_DT case_NN ,_, a_DT more_RBR complex_JJ expression_NN may_MD be_VB used_VVN if_IN some_DT positive_JJ eigenvalues_NNS are_VBP repeated.35_JJ The_DT probability_NN density_NN p(u_NN )_) can_MD be_VB calculated_VVN by_IN the_DT numerical_JJ differentiation_NN of_IN FU(u_NP )_) ,_, and_CC the_DT integrand_NN in_IN Eq_NP ._SENT 
+(_( 13_CD )_) can_MD therefore_RB be_VB evaluated_VVN at_IN a_DT finite_JJ set_NN of_IN points_NNS to_TO carry_VV out_RP the_DT numerical_JJ integration_NN ._SENT 
+In_IN practice_NN ,_, integration_NN on_IN a_DT regular_JJ grid_NN with_IN 100_CD sampling_VVG points_NNS has_VHZ been_VBN shown_VVN to_TO provide_VV good_JJ results_NNS ._SENT 
+This_DT section_NN introduced_VVD the_DT marginalization_NN technique_NN over_IN the_DT uncertain_JJ random_JJ Green_NP 's_POS function_NN assuming_VVG that_IN its_PP$ covariance_NN matrix_NN Σg_NN is_VBZ available_JJ ._SENT 
+Section_NP III_NP C_NP presents_VVZ an_DT approach_NN to_TO approximate_JJ this_DT covariance_NN matrix_NN ._SENT 
+C._NP Green_NP 's_POS function_NN model_NN for_IN environmental_JJ uncertainty_NN The_DT covariance_NN matrix_NN Σg_NN characterizes_VVZ the_DT uncertainty_NN about_IN the_DT Green_NP 's_POS function_NN of_IN the_DT waveguide_NN due_JJ to_TO uncertainty_NN in_IN the_DT oceanic_JJ waveguide_NN environment_NN ._SENT 
+The_DT method_NN presented_VVD above_RB applies_VVZ for_IN any_DT positive_JJ definite_JJ matrix_NN Σg_NN and_CC many_JJ approaches_NNS may_MD be_VB considered_VVN to_TO design_VV such_PDT a_DT matrix_NN ._SENT 
+For_IN example_NN ,_, the_DT matrix_NN Σg_NN could_MD be_VB simply_RB estimated_VVN once_RB and_CC for_IN all_DT by_IN computing_VVG some_DT Monte_NP Carlo_NP realizations_NNS of_IN the_DT Green_NP 's_POS function_NN from_IN realizations_NNS of_IN environmental_JJ parameters.20,36_NN However_RB ,_, uncertainty_NN in_IN the_DT environment_NN is_VBZ addressed_VVN here_RB through_IN an_DT uncertain_JJ Green_NP 's_POS function_NN ,_, which_WDT can_MD more_RBR generally_RB represent_VV uncertainty_NN on_IN propagation_NN as_IN a_DT whole_NN ._SENT 
+In_IN this_DT paper_NN ,_, we_PP introduce_VV some_DT assumptions_NNS regarding_VVG the_DT effect_NN of_IN mismatch_NN on_IN modal_JJ propagation_NN that_WDT allow_VVP the_DT construction_NN of_IN a_DT matrix_NN Σg_NN that_WDT approximately_RB characterizes_VVZ the_DT Green_NP 's_POS function_NN uncertainty_NN ._SENT 
+This_DT approach_NN has_VHZ the_DT advantage_NN that_IN the_DT uncertainty_NN is_VBZ not_RB limited_VVN to_TO mismatch_NN in_IN specifically-chosen_NP parameters_NNS ,_, but_CC may_MD apply_VV generally_RB to_TO all_DT factors_NNS influencing_VVG propagation_NN (_( e._NP g._NP ,_, waveguide_NN structure_NN ,_, range-dependent_JJ effects_NNS )_) ._SENT 
+The_DT assumptions_NNS on_IN the_DT effect_NN of_IN mismatch_NN on_IN modal_JJ propagation_NN are_VBP first_RB introduced_VVN ,_, and_CC then_RB the_DT methodology_NN to_TO construct_VV the_DT matrix_NN Σg_NN using_VVG these_DT assumptions_NNS is_VBZ presented_VVN ._SENT 
+1._CD Impact_NN of_IN environmental_JJ uncertainty_NN on_IN acoustic_JJ propagation_NN In_IN shallow_JJ water_NN ,_, acoustic_JJ propagation_NN can_MD be_VB described_VVN by_IN normal_JJ mode_NN theory.37_JJ For_IN an_DT acoustic_JJ source_NN at_IN depth_NN zs_NNS in_IN a_DT shallow-water_NN waveguide_NN ,_, the_DT transfer_NN function_NN of_IN the_DT waveguide_NN after_IN propagation_NN over_IN a_DT range_NN rs_NN for_IN a_DT receiver_NN at_IN depth_NN zr_NN is_VBZ a_DT sum_NN of_IN modes_NNS given_VVN by37_JJ @_SYM where_WRB krm_NP and_CC ψm_NP are_VBP the_DT horizontal_JJ wavenumber_NN and_CC modal_JJ depth_NN function_NN of_IN mode_NN m_NN ,_, and_CC M_NP is_VBZ the_DT number_NN of_IN propagating_VVG modes_NNS ._SENT 
+The_DT quantity_NN Q=e−jπ/4/8π⎯⎯⎯⎯√ρ(zs_NNS )_) represents_VVZ a_DT constant_JJ factor_NN with_IN ρ(zs_NNS )_) as_IN the_DT water_NN density_NN at_IN the_DT source_NN depth_NN ._SENT 
+The_DT horizontal_JJ wavenumbers_NNS krm_JJ and_CC modal_JJ depth_NN functions_NNS ψm_NN depend_VVP on_IN the_DT oceanic_JJ waveguide_NN environment_NN (_( bathymetry_NN ,_, geoacoustic_JJ properties_NNS of_IN the_DT bottom_NN ,_, and_CC water_NN column_NN sound_NN speed_NN )_) ._SENT 
+In_IN practice_NN ,_, different_JJ kinds_NNS of_IN modes_NNS experience_VVP different_JJ kinds_NNS of_IN propagation_NN in_IN a_DT shallow_JJ water_NN waveguide_NN ._SENT 
+For_IN example_NN ,_, lower_JJR order_NN modes_NNS tend_VVP to_TO be_VB trapped_VVN in_IN the_DT water_NN column_NN and_CC are_VBP strongly_RB affected_VVN by_IN the_DT details_NNS of_IN the_DT water_NN sound_NN speed_NN profile_NN ,_, while_IN higher_JJR order_NN modes_NNS tend_VVP to_TO penetrate_VV more_RBR significantly_RB into_IN the_DT bottom_NN and_CC are_VBP more_RBR strongly_RB affected_VVN by_IN the_DT bottom_JJ properties_NNS ._SENT 
+However_RB ,_, intermediate_JJ modes_NNS are_VBP less_RBR affected_VVN by_IN the_DT water_NN sound_NN speed_NN profile_NN and_CC bottom_NN properties_NNS ._SENT 
+The_DT mode-based_JJ approaches_NNS to_TO the_DT mismatch_NN problem_NN build_VV on_IN these_DT considerations_NNS by_IN rejecting_VVG lower_JJR order_NN modes_NNS and/or_VVP higher_JJR order_NN modes.10–12,14,15_NN To_TO proceed_VV with_IN the_DT method_NN developed_VVD here_RB ,_, the_DT acoustic_JJ field_NN is_VBZ separated_VVN into_IN groups_NNS of_IN modes_NNS that_WDT experience_VVP the_DT same_JJ kind_NN of_IN propagation_NN (_( e._NP g._NP ,_, the_DT group_NN of_IN modes_NNS that_WDT are_VBP refracted_VVN in_IN the_DT water_NN column_NN and_CC have_VHP approximately_RB the_DT same_JJ turning_VVG point_NN ,_, the_DT group_NN of_IN modes_NNS reflected_VVN at_IN the_DT surface_NN and_CC bottom_NN that_WDT penetrate_VV a_DT similar_JJ distance_NN into_IN the_DT bottom_NN )_) ._SENT 
+The_DT perturbations_NNS to_TO different_JJ groups_NNS of_IN modes_NNS caused_VVN by_IN perturbations_NNS to_TO environmental_JJ parameters_NNS may_MD be_VB considered_VVN uncorrelated_JJ because_IN different_JJ mode_NN groups_NNS are_VBP sensitive_JJ to_TO the_DT environment_NN in_IN different_JJ ways_NNS ._SENT 
+Conversely_RB ,_, the_DT perturbations_NNS to_TO modes_NNS within_IN a_DT single_JJ group_NN may_MD be_VB considered_VVN correlated_VVN and_CC roughly_RB predictable_JJ because_IN they_PP have_VHP similar_JJ sensitivity_NN to_TO environmental_JJ parameters_NNS ._SENT 
+Further_RBR ,_, for_IN a_DT specific_JJ group_NN of_IN modes_NNS a_DT perturbation_NN to_TO environmental_JJ parameters_NNS may_MD be_VB considered_VVN roughly_RB equivalent_JJ to_TO a_DT perturbation_NN in_IN frequency_NN ._SENT 
+For_IN instance_NN ,_, in_IN generalized_VVN waveguide_NN invariant_JJ theory_NN ,_, changes_NNS in_IN environmental_JJ parameters_NNS are_VBP associated_VVN to_TO frequency_NN shifts_NNS in_IN acoustic_JJ intensity.38–43_JJ Such_JJ frequency_NN shifts_NNS caused_VVN by_IN dynamical_JJ processes_NNS inside_IN the_DT ocean_NN (_( tides_NNS ,_, internal_JJ waves_NNS ,_, slope-water_NN intrusions_NNS )_) have_VHP been_VBN observed_VVN in_IN several_JJ experiments.39–43_NN Although_IN the_DT above_JJ assumptions_NNS may_MD not_RB be_VB precisely_RB correct_JJ ,_, they_PP capture_VV basic_JJ characteristics_NNS of_IN shallow-water_NN modal_JJ propagation_NN sufficiently_RB for_IN our_PP$ purposes_NNS ,_, i._NP e._NP ,_, the_DT localization_NN algorithm_NN based_VVN on_IN them_PP (_( developed_VVN below_IN )_) is_VBZ shown_VVN to_TO be_VB efficient_JJ and_CC robust_JJ to_TO environmental_JJ mismatch_NN in_IN simulations_NNS in_IN Sec_NN ._SENT 
+IV_NP ._SENT 
+2._CD Green_NP 's_POS function_NN model_NN In_IN this_DT paper_NN ,_, the_DT environmental_JJ model_NN representing_VVG the_DT best_RBS available_JJ knowledge_NN is_VBZ referred_VVN to_TO as_IN the_DT assumed_VVN model_NN ,_, and_CC the_DT corresponding_JJ Green_NP 's_POS function_NN as_IN the_DT assumed_VVN Green_NP 's_POS function_NN ,_, ga_NP ._SENT 
+The_DT assumed_VVN model_NN and_CC assumed_VVD Green_NP 's_POS function_NN are_VBP potentially_RB erroneous_JJ ,_, but_CC we_PP assume_VVP the_DT truth_NN lies_VVZ somewhere_RB around_IN these_DT initial_JJ assumptions_NNS ._SENT 
+Therefore_RB ,_, the_DT Green_NP 's_POS function_NN is_VBZ not_RB considered_VVN to_TO be_VB a_DT deterministic_JJ vector_NN ga_NN but_CC a_DT random_JJ vector_NN g_NN in_IN the_DT N-dimensional_JJ space_NN defined_VVN by_IN the_DT set_NN of_IN Green_NP 's_POS functions_NNS corresponding_JJ to_TO all_DT possible_JJ models_NNS ._SENT 
+We_PP assume_VVP that_IN the_DT probability_NN distribution_NN for_IN g_NN around_IN ga_NP in_IN the_DT Green_NP 's_POS function_NN space_NN is_VBZ defined_VVN by_IN a_DT covariance_NN matrix_NN Σg_NN which_WDT has_VHZ the_DT form_NN @_SYM with_IN U=[g⎯⎯a_NP ,_, Q_NP ]_SYM ,_, where_WRB g⎯⎯a_NP is_VBZ the_DT assumed_VVN Green_NP 's_POS function_NN after_IN normalization_NN and_CC Q_NP is_VBZ any_DT N×(N−1_JJ )_) matrix_NN that_WDT forms_VVZ an_DT orthonormal_JJ basis_NN in_IN the_DT space_NN orthogonal_JJ to_TO g⎯⎯a_NP ._SENT 
+The_DT matrix_NN UH_UH is_VBZ an_DT orthonormal_JJ matrix_NN which_WDT represents_VVZ a_DT rotation_NN (_( change_NN of_IN basis_NN )_) matrix_NN from_IN the_DT standard_JJ basis_NN to_TO a_DT basis_NN defined_VVN by_IN the_DT vectors_NNS of_IN U_NP (_( e._NP g._NP ,_, z=UHx_NP is_VBZ a_DT vector_NN whose_WP$ coordinates_NNS are_VBP expressed_VVN in_IN the_DT basis_NN defined_VVN by_IN (_( u1_JJ ,_, u2_JJ ,_, …_JJ ,_, uN_JJ )_) where_WRB U=[u1_JJ ,_, u2_NP ,_, …_NP ,_, uN_NN ]_SYM )_) ._SENT 
+Thus_RB ,_, σ2ga_NP represents_VVZ the_DT variance_NN in_IN the_DT direction_NN of_IN the_DT assumed_VVN Green_NP 's_POS function_NN ._SENT 
+The_DT ratio_NN σ2ga/tr(Σg_NN )_) determines_VVZ how_WRB much_JJ the_DT true_JJ Green_NP 's_POS function_NN is_VBZ expected_VVN to_TO depart_VV from_IN the_DT assumed_JJ one_CD ;_: in_IN other_JJ words_NNS ,_, it_PP characterizes_VVZ the_DT strength_NN of_IN its_PP$ variability_NN ._SENT 
+The_DT matrix_NN Cg_NN describes_VVZ the_DT covariance_NN of_IN the_DT true_JJ Green_NP 's_POS function_NN in_IN the_DT space_NN orthogonal_JJ to_TO the_DT assumed_VVN Green_NP 's_POS function_NN ._SENT 
+It_PP determines_VVZ in_IN which_WDT directions_NNS the_DT true_JJ Green_NP 's_POS function_NN may_MD lie_VV preferentially_RB when_WRB it_PP departs_VVZ from_IN the_DT assumed_JJ one_CD ._SENT 
+The_DT considerations_NNS on_IN the_DT effect_NN of_IN mismatch_NN introduced_VVN in_IN Sec_NN ._SENT 
+III_NP C_NP 1_CD may_MD be_VB used_VVN to_TO build_VV the_DT matrix_NN Cg_NN in_IN Eq_NP ._SENT 
+(_( 20_CD )_) as_RB follows_VVZ (_( summarized_VVD in_IN the_DT flowchart_NP of_IN Fig_NN ._SENT 
+2_LS )_) ._SENT 
+This_DT covariance_NN matrix_NN is_VBZ approximated_VVN using_VVG the_DT covariances_NNS of_IN the_DT Green_NP 's_POS function_NN responses_NNS computed_VVD when_WRB the_DT source_NN frequency_NN is_VBZ varied_VVN for_IN different_JJ groups_NNS of_IN modes_NNS ._SENT 
+The_DT goal_NN is_VBZ to_TO mimic_VV the_DT effect_NN of_IN mismatch_NN on_IN the_DT Green_NP 's_POS function_NN ._SENT 
+First_RB ,_, groups_NNS of_IN modes_NNS that_WDT experience_VVP the_DT same_JJ kind_NN of_IN propagation_NN are_VBP formed_VVN (_( see_VV Sec_JJ ._SENT 
+III_NP C_NP 1_CD for_IN an_DT explanation_NN or_CC Sec_NN ._SENT 
+IV_NP A_NP for_IN an_DT example_NN )_) ._SENT 
+The_DT matrix_NN Cg_NN is_VBZ divided_VVN into_IN a_DT sum_NN of_IN matrices_NNS Ckg_NN ,_, with_IN each_DT matrix_NN corresponding_JJ to_TO a_DT group_NN of_IN modes_NNS k._JJ For_IN each_DT group_NN of_IN modes_NNS ,_, the_DT acoustic_JJ field_NN is_VBZ simulated_JJ for_IN multiple_JJ frequencies_NNS in_IN the_DT neighborhood_NN of_IN the_DT source_NN frequency_NN using_VVG the_DT assumed_VVN model_NN of_IN the_DT environment_NN ._SENT 
+These_DT replicas_NNS are_VBP then_RB projected_VVN on_IN the_DT space_NN orthogonal_JJ to_TO the_DT assumed_VVN Green_NP 's_POS function_NN ga_NN and_CC used_VVN to_TO build_VV the_DT empirical_JJ covariance_NN matrix_NN Ckg_NN ._SENT 
+Varying_VVG the_DT frequency_NN independently_RB for_IN each_DT group_NN of_IN modes_NNS (_( the_DT matrices_NNS Ckg_NN are_VBP summed_VVN )_) randomizes_VVZ the_DT phase_NN which_WDT effectively_RB decorrelates_VVZ these_DT groups_NNS ._SENT 
+This_DT procedure_NN is_VBZ justified_VVN in_IN part_NN since_IN within_IN a_DT group_NN of_IN modes_NNS environmental_JJ perturbations_NNS may_MD be_VB roughly_RB equivalent_JJ to_TO frequency_NN perturbations_NNS (_( see_VV Sec_JJ ._SENT 
+III_NP C_NP 1_CD )_) ._SENT 
+The_DT range_NN of_IN frequency_NN perturbations_NNS determines_VVZ how_WRB the_DT modes_NNS vary_VVP within_IN a_DT group_NN ._SENT 
+Different_JJ strategies_NNS may_MD be_VB adopted_VVN to_TO set_VV this_DT range_NN ._SENT 
+The_DT range_NN of_IN frequency_NN perturbations_NNS may_MD be_VB determined_VVN from_IN long_JJ term_NN observations_NNS of_IN frequency_NN shifts_NNS caused_VVN by_IN dynamical_JJ processes_NNS inside_IN the_DT ocean_NN (_( tides_NNS ,_, internal_JJ waves_NNS ,_, water-slope_NN intrusions_NNS ,_, fronts_NNS …_NN )_) in_IN a_DT given_VVN environment39–43_JJ and/or_NN from_IN the_DT generalized_VVN waveguide_NN invariant_NN values_NNS of_IN some_DT uncertain_JJ environmental_JJ parameters_NNS together_RB with_IN their_PP$ expected_VVN variations.38,40,42_JJ Note_NN that_IN an_DT alternative_JJ methodology_NN here_RB could_MD be_VB to_TO carry_VV out_RP perturbations_NNS in_IN specific_JJ environmental_JJ parameters_NNS ,_, but_CC frequency-based_JJ perturbations_NNS are_VBP more_RBR general_JJ ._SENT 
+Similarly_RB ,_, determining_VVG an_DT appropriate_JJ value_NN for_IN σ2ga_NP may_MD be_VB based_VVN on_IN long_JJ term_NN observations_NNS of_IN the_DT acoustic_JJ field_NN in_IN a_DT particular_JJ situation_NN or_CC on_IN some_DT a_DT priori_NN knowledge_NN of_IN the_DT degree_NN of_IN variability_NN of_IN the_DT environment_NN ._SENT 
+In_IN the_DT latter_JJ case_NN ,_, σ2ga_NP may_MD be_VB obtained_VVN from_IN a_DT quick_JJ sensitivity_NN analysis_NN of_IN the_DT acoustic_JJ field_NN conducted_VVN by_IN varying_VVG randomly_RB the_DT environmental_JJ parameters_NNS in_IN their_PP$ expected_VVN range,44_NN with_IN a_DT sensitivity_NN measure_NN on_IN the_DT ratio_NN of_IN energy_NN of_IN the_DT Green_NP 's_POS function_NN staying_VVG in_IN the_DT assumed_VVN Green_NP 's_POS function_NN direction_NN g⎯⎯a_NP [_SYM i._NP e._NP ,_, on_IN the_DT ratio_NN σ2ga/tr(Σg_NN )_) ]_SYM ._SENT 
+The_DT potential_NN of_IN the_DT proposed_VVN approach_NN to_TO characterize_VV the_DT mismatch_NN is_VBZ validated_VVN by_IN the_DT results_NNS presented_VVN in_IN Sec_NN ._SENT 
+IV_NP ._SENT 
+figure_NN <Section> IV_NP ._SENT 
+SIMULATION_NN STUDY_NN </Section> In_IN this_DT section_NN the_DT ability_NN of_IN the_DT proposed_VVN Bayesian_JJ method_NN to_TO give_VV reliable_JJ PPDs_NNS for_IN source_NN location_NN is_VBZ illustrated_VVN through_IN a_DT set_NN of_IN simulated_JJ examples_NNS ,_, and_CC the_DT robustness_NN of_IN the_DT method_NN to_TO environmental_JJ mismatch_NN is_VBZ assessed_VVN and_CC compared_VVN to_TO a_DT mode-based_JJ approach_NN through_IN Monte_NP Carlo_NP performance_NN analyses_NNS ._SENT 
+A._NP Scenarios_NNS The_DT localization_NN scenarios_NNS considered_VVD here_RB are_VBP illustrated_VVN in_IN Fig_NN ._SENT 
+3._CD Two_CD kinds_NNS of_IN true_JJ environment_NN are_VBP considered_VVN ,_, both_CC of_IN which_WDT have_VHP an_DT uncertain_JJ water_NN column_NN sound_JJ speed_NN profile_NN defined_VVN by_IN the_DT sound_JJ speeds_NNS c1_JJ (_( at_IN the_DT surface_NN )_) ,_, c2_NP (_( at_IN 10_CD m_NN depth_NN )_) ,_, c3_NP (_( at_IN 50_CD m_NN depth_NN )_) ,_, and_CC c4_JJ (_( at_IN the_DT seabed_NN ,_, depth_NN D_NP )_) ._SENT 
+The_DT seabed_NN for_IN the_DT first_JJ environment_NN consists_VVZ of_IN an_DT uncertain_JJ bottom_NN half-space_NN while_IN the_DT second_JJ environment_NN seabed_NN consists_VVZ of_IN an_DT uncertain_JJ sediment_NN layer_NN over_IN an_DT uncertain_JJ bottom_NN half-space_NN ._SENT 
+The_DT parameter_NN bounds_VVZ for_IN these_DT two_CD environments_NNS are_VBP given_VVN in_IN Table_NN I._NN In_IN all_DT cases_NNS the_DT assumed_VVN waveguide_NN environment_NN used_VVN to_TO compute_VV acoustic_JJ fields_NNS for_IN trial_NN source_NN locations_NNS in_IN the_DT inversion_NN is_VBZ the_DT first_JJ environment_NN with_IN all_PDT the_DT environmental_JJ parameters_NNS taken_VVN to_TO their_PP$ central_JJ values_NNS (_( see_VV Table_NN I_NN )_) ._SENT 
+figure_NN TABLE_NN I._NN The_DT MFP_JJ inverse_NN problem_NN involves_VVZ the_DT localization_NN of_IN an_DT acoustic_JJ source_NN in_IN range_NN and_CC depth_NN ._SENT 
+The_DT range_NN is_VBZ unknown_JJ with_IN a_DT uniform_JJ prior_JJ distribution_NN on_IN the_DT interval_NN [_SYM 500_CD ,_, 10_CD 000_CD ]_SYM m_NN and_CC the_DT depth_NN is_VBZ unknown_JJ with_IN a_DT uniform_JJ prior_JJ distribution_NN on_IN the_DT interval_NN [_SYM 2_CD ,_, 95_CD ]_SYM m_NN (_( the_DT depth_NN of_IN the_DT assumed_VVN environment_NN is_VBZ D_NP =_SYM 100_CD m_NN )_) ._SENT 
+Acoustic_JJ data_NNS are_VBP collected_VVN at_IN an_DT N_NP =_SYM 15_CD elements_NNS vertical_JJ line_NN array_NN sampling_VVG the_DT water_NN column_NN on_IN a_DT regular_JJ grid_NN between_RB z_SYM =_SYM 2_CD m_NN and_CC z_SYM =_SYM 86_CD m._NN The_DT computation_NN of_IN the_DT PPD_NN is_VBZ carried_VVN out_RP for_IN the_DT likelihood_NN with_IN unknown_JJ variance_NN in_IN Eq_NP ._SENT 
+(_( 8_CD )_) on_IN a_DT numerical_JJ grid_NN involving_VVG depth_NN and_CC range_NN increments_NNS of_IN 2_CD and_CC 50_CD m_NN ,_, respectively_RB ._SENT 
+The_DT number_NN of_IN snapshots_NNS considered_VVN is_VBZ L_NP =_SYM 10._CD The_DT SNR_NN is_VBZ the_DT same_JJ for_IN every_DT snapshot_NN and_CC defined_VVN in_IN decibels_NNS as_IN SNR=10_JJ log_NN (_( ||sl(fm)||2‖g(fm_NP ,_, θ0)‖2/Nσ2w(fm_NP )_) )_) ._SENT 
+Only_RB the_DT f_NN =_SYM 300_CD Hz_NP frequency_NN is_VBZ used_VVN to_TO carry_VV out_RP the_DT inversion_NN ._SENT 
+At_IN this_DT frequency_NN ,_, the_DT acoustic_JJ field_NN in_IN the_DT assumed_VVN waveguide_NN consists_VVZ of_IN 16_CD propagating_VVG modes_NNS ._SENT 
+Modal_JJ depth_NN functions_NNS of_IN the_DT assumed_VVN waveguide_NN are_VBP plotted_VVN in_IN Fig_NN ._SENT 
+4._CD figure_NN Groups_NNS of_IN modes_NNS are_VBP formed_VVN in_IN order_NN to_TO design_VV the_DT matrix_NN Cg_NN ._SENT 
+Considering_VVG that_IN the_DT groups_NNS of_IN modes_NNS must_MD be_VB affected_VVN by_IN different_JJ features_NNS of_IN the_DT waveguide_NN ,_, we_PP form_VVP six_CD groups_NNS of_IN modes_NNS ._SENT 
+Group_NN 1_CD consists_VVZ only_RB of_IN mode_NN m=1_NN ,_, group_NN 2_CD consists_VVZ only_RB of_IN mode_NN m=2_NN ,_, group_NN 3_CD consists_VVZ of_IN modes_NNS m={3…7_JJ }_) ,_, group_NN 4_CD consists_VVZ of_IN modes_NNS m={8…12_NN }_) ,_, group_NN 5_CD consists_VVZ of_IN modes_NNS m={13_JJ ,_, 14_CD }_) ,_, and_CC group_NN 6_CD consists_VVZ of_IN the_DT last_JJ modes_NNS m={15_NN ,_, M=16_NP }_) ._SENT 
+Modes_NNS m={1_JJ ,_, 2_CD }_) are_VBP both_DT trapped_VVN in_IN the_DT water_NN column_NN ,_, but_CC they_PP are_VBP considered_VVN as_IN uncorrelated_JJ because_IN mode_NN 2_CD is_VBZ refracted_VVN much_RB higher_JJR in_IN the_DT water_NN column_NN than_IN mode_NN 1_CD (_( see_VV Fig_NN ._SENT 
+4_LS )_) ._SENT 
+Modes_NNS m={13…M_NN }_) penetrate_VV significantly_RB in_IN the_DT bottom_NN ,_, but_CC higher-order_NN modes_NNS penetrate_VV much_RB more_RBR deeply_RB in_IN the_DT bottom_NN (_( see_VV Fig_NN ._SENT 
+4_LS )_) ._SENT 
+It_PP should_MD be_VB noted_VVN that_IN the_DT results_NNS are_VBP not_RB highly_RB sensitive_JJ to_TO small_JJ changes_NNS in_IN the_DT divisions_NNS of_IN the_DT mode_NN groups_NNS ,_, so_RB that_IN this_DT division_NN can_MD be_VB somewhat_RB arbitrary_JJ ._SENT 
+Only_RB the_DT separation_NN of_IN mode_NN m=1_NN and_CC mode_NN m=2_NN into_IN distinct_JJ groups_NNS was_VBD found_VVN to_TO be_VB important_JJ ._SENT 
+Neighborhood_NN frequencies_NNS in_IN the_DT range_NN ±5%×f_NN are_VBP considered_VVN for_IN the_DT construction_NN of_IN the_DT matrix_NN Cg_NN ._SENT 
+It_PP should_MD be_VB noted_VVN that_IN frequency_NN perturbation_NN ranges_NNS between_IN ±10%×f_NP and_CC ±1%×f_NP also_RB worked_VVD well_RB ._SENT 
+These_DT values_VVZ roughly_RB correspond_VV to_TO the_DT frequency_NN shifts_NNS predicted_VVD by_IN the_DT depth-frequency_NN waveguide_NN invariant_JJ theory_NN for_IN the_DT considered_VVN water_NN depth_NN uncertainty_NN (_( the_DT depth-frequency_NN waveguide_NN invariant_NN is_VBZ γ=−2_JJ ,_, hence_RB depth_NN variations_NNS of_IN ±2_JJ %_NN roughly_RB correspond_VV to_TO frequency_NN variations_NNS of_IN ±4%38_NN )_) ._SENT 
+The_DT variance_NN σ2ga_NN is_VBZ determined_VVN from_IN a_DT sensitivity_NN analysis_NN of_IN the_DT acoustic_JJ field_NN as_IN described_VVN in_IN Sec_NN ._SENT 
+III_NP C_NP with_IN 50_CD random_JJ realizations_NNS of_IN the_DT first_JJ environment_NN ._SENT 
+The_DT variance_NN σ2ga_NN is_VBZ set_VVN so_RB that_IN the_DT ratio_NN σ2ga/tr(Σg)=0.25_NN ,_, i._NP e._NP ,_, so_IN that_WDT 25_CD %_NN of_IN the_DT energy_NN of_IN the_DT matrix_NN Σg_NN is_VBZ in_IN the_DT direction_NN of_IN the_DT assumed_VVN Green_NP 's_POS function_NN ._SENT 
+This_DT value_NN approximately_RB characterizes_VVZ the_DT variability_NN of_IN the_DT Green_NP 's_POS function_NN when_WRB the_DT environment_NN varies_VVZ ,_, and_CC need_MD not_RB be_VB known_VVN precisely_RB ._SENT 
+Ratios_NNS between_IN 0.15_CD and_CC 0.75_CD were_VBD found_VVN to_TO give_VV close_JJ PPDs_NNS after_IN marginalization_NN most_JJS of_IN the_DT time_NN (_( same_JJ location_NN of_IN the_DT maxima_NN and_CC similar_JJ uncertainty_NN )_) ._SENT 
+B._NP Test_NP cases_VVZ The_DT ability_NN of_IN the_DT proposed_VVN method_NN to_TO give_VV reliable_JJ PPDs_NNS for_IN source_NN localization_NN is_VBZ illustrated_VVN through_IN three_CD selected_JJ test_NN cases_NNS which_WDT depict_VVP typical_JJ results_NNS of_IN the_DT localization_NN process_NN (_( we_PP have_VHP carried_VVN out_RP many_JJ more_JJR simulations_NNS )_) ._SENT 
+In_IN each_DT case_NN the_DT true_JJ environment_NN used_VVN to_TO generate_VV the_DT observed_JJ data_NN is_VBZ different_JJ from_IN the_DT assumed_JJ environment_NN used_VVN in_IN the_DT localization_NN ._SENT 
+The_DT true_JJ environmental_JJ parameters_NNS were_VBD chosen_VVN randomly_RB and_CC are_VBP given_VVN in_IN Table_NN I._NN The_DT SNR_NN is_VBZ 3_CD dB_NN ._SENT 
+The_DT marginal_JJ PPD_NN over_IN source_NN range_NN and_CC depth_NN ,_, integrated_VVN over_IN the_DT uncertain_JJ Green_NP 's_POS function_NN ,_, is_VBZ computed_VVN with_IN the_DT method_NN proposed_VVN in_IN this_DT paper_NN (_( mismatch_NN integration_NN )_) and_CC compared_VVN to_TO the_DT PPD_NN obtained_VVN with_IN Bayesian_JJ MFP_NN where_WRB the_DT mismatch_NN in_IN the_DT assumed_VVN environment_NN is_VBZ not_RB accounted_VVN for_IN (_( no_DT mismatch_NN integration_NN is_VBZ applied_VVN )_) ._SENT 
+The_DT results_NNS are_VBP given_VVN in_IN Fig_NN ._SENT 
+5._CD In_IN the_DT first_JJ test_NN case_NN both_CC methods_NNS find_VVP the_DT correct_JJ source_NN location_NN with_IN similar_JJ unimodal_JJ PPDs_NNS ._SENT 
+In_IN the_DT second_JJ test_NN case_NN only_RB the_DT mismatch_NN integration_NN finds_VVZ the_DT correct_JJ source_NN location_NN ._SENT 
+Conventional_JJ MFP_NN fails_VVZ because_IN of_IN environmental_JJ mismatch_NN whereas_IN the_DT proposed_VVN method_NN is_VBZ more_RBR robust_JJ ._SENT 
+In_IN the_DT third_JJ test_NN case_NN neither_CC method_NN is_VBZ able_JJ to_TO precisely_RB find_VV the_DT correct_JJ source_NN location_NN ,_, although_IN the_DT mismatch_NN integration_NN method_NN is_VBZ close_JJ in_IN both_DT range_NN and_CC depth_NN ._SENT 
+figure_NN Note_NN that_IN in_IN each_DT plot_NN the_DT gray_JJ scale_NN indicating_VVG probability_NN of_IN the_DT joint_JJ marginal_JJ distribution_NN is_VBZ scaled_VVN according_VVG to_TO the_DT maximum_JJ probability_NN ._SENT 
+Only_RB the_DT mismatch_NN integration_NN method_NN gives_VVZ a_DT reliable_JJ PPD_NN in_IN each_DT case_NN because_IN it_PP does_VVZ not_RB suggest_VV a_DT high_JJ certainty_NN (_( i._NP e._NP ,_, a_DT probability_NN close_NN to_TO one_CD )_) at_IN an_DT incorrect_JJ source_NN location_NN ,_, as_IN the_DT classical_JJ technique_NN does_VVZ in_IN test_NN cases_NNS 2_CD and_CC 3._CD Also_RB ,_, it_PP does_VVZ not_RB simply_RB give_VV uncertain_JJ PPDs_NNS ._SENT 
+In_IN the_DT first_JJ test_NN case_NN the_DT right_JJ position_NN is_VBZ suggested_VVN with_IN a_DT probability_NN of_IN 0.89_CD ._SENT 
+In_IN the_DT second_JJ test_NN case_NN the_DT correct_JJ position_NN is_VBZ also_RB identified_VVN with_IN a_DT good_JJ but_CC slightly_RB lower_JJR probability_NN (_( 0.48_CD )_) which_WDT is_VBZ not_RB surprising_JJ because_IN ,_, as_IN the_DT conventional_JJ method_NN does_VVZ not_RB work_VV ,_, the_DT localization_NN problem_NN appears_VVZ more_RBR challenging_JJ ._SENT 
+In_IN the_DT third_JJ test_NN case_NN a_DT wrong_JJ position_NN is_VBZ suggested_VVN but_CC with_IN a_DT very_RB low_JJ probability_NN (_( 0.039_CD )_) ,_, so_RB it_PP is_VBZ clear_JJ that_IN the_DT source_NN localization_NN result_NN is_VBZ highly_RB uncertain_JJ ._SENT 
+C._NP Monte-Carlo_NP performance_NN analyses_NNS In_IN this_DT section_NN ,_, Monte_NP Carlo_NP performance_NN analyses_NNS are_VBP performed_VVN to_TO assess_VV the_DT robustness_NN of_IN the_DT proposed_VVN method_NN ._SENT 
+The_DT performance_NN is_VBZ evaluated_VVN in_IN terms_NNS of_IN probability_NN of_IN correct_JJ localization_NN (_( PCL_NP )_) of_IN the_DT MAP_NN estimate_NN and_CC root_VV mean-squared_JJ error_NN (_( RMSE_NN )_) of_IN the_DT posterior_JJ mean_JJ estimate_NN ._SENT 
+The_DT PCL_NP is_VBZ defined_VVN as_IN the_DT probability_NN that_IN the_DT absolute_JJ source_NN localization_NN error_NN is_VBZ 500_CD m_NN or_CC less_JJR in_IN range_NN and_CC 5_CD m_NN or_CC less_JJR in_IN depth_NN ._SENT 
+For_IN each_DT SNR_NP ,_, Nmc=5000_JJ random_JJ realizations_NNS of_IN the_DT oceanic_JJ waveguide_NN ,_, of_IN source_NN position_NN ,_, and_CC of_IN noise_NN are_VBP generated_VVN ._SENT 
+The_DT PCL_NP is_VBZ a_DT binomial-distributed_JJ random_JJ variable_NN with_IN a_DT standard_JJ deviation_NN estimate_NN of14,24,34_NP @_SYM For_IN Nmc=5000_NN this_DT standard_JJ deviation_NN has_VHZ a_DT maximum_JJ value_NN of_IN 0.0071_CD at_IN PCL_NP =_SYM 0.5_CD which_WDT is_VBZ approximately_RB the_DT thickness_NN of_IN the_DT plotted_VVD lines_NNS in_IN Fig_NN ._SENT 
+6_CD ,_, which_WDT shows_VVZ the_DT results_NNS ._SENT 
+Two_CD cases_NNS are_VBP considered_VVN :_: in_IN the_DT first_JJ case_NN the_DT true_JJ oceanic_JJ waveguide_NN is_VBZ generated_VVN randomly_RB as_RB in_IN environment_NN 1_CD and_CC in_IN the_DT second_JJ case_NN the_DT true_JJ oceanic_JJ waveguide_NN is_VBZ generated_VVN randomly_RB as_RB in_IN environment_NN 2_CD (_( see_VV Fig_NN ._SENT 
+3_LS and_CC Table_NN I_NN )_) ._SENT 
+The_DT assumed_JJ waveguide_NN used_VVN for_IN the_DT inversion_NN is_VBZ always_RB environment_NN 1_CD with_IN all_PDT the_DT environmental_JJ parameters_NNS taken_VVN to_TO their_PP$ central_JJ values_NNS ;_: therefore_RB using_VVG environment_NN 2_CD to_TO generate_VV the_DT data_NN investigates_VVZ if_IN the_DT localization_NN process_NN is_VBZ robust_JJ to_TO an_DT error_NN in_IN the_DT structure_NN of_IN the_DT assumed_VVN waveguide_NN ._SENT 
+The_DT performance_NN of_IN the_DT uncertain_JJ Green_NP 's_POS function_NN approach_NN is_VBZ compared_VVN to_TO Bayesian_JJ MFP_NN where_WRB the_DT mismatch_NN in_IN the_DT assumed_VVN environment_NN is_VBZ not_RB accounted_VVN for_IN ,_, and_CC to_TO the_DT mode-based_JJ approach_NN of_IN Liu_NP et_NP al.15_NP where_WRB unpredictable_JJ modes_NNS are_VBP consigned_VVN as_IN noise_NN (_( predictable_JJ modes_NNS are_VBP taken_VVN to_TO be_VB modes_NNS m={3…12_NN }_) ,_, which_WDT gave_VVD the_DT best_JJS results_NNS amongst_IN all_DT possibilities_NNS )_) ._SENT 
+figure_NN Figure_NN 6_CD shows_VVZ that_IN the_DT mismatch_NN integration_NN outperforms_VVZ the_DT other_JJ methods_NNS and_CC provides_VVZ a_DT significant_JJ improvement_NN in_IN the_DT PCL_NP and_CC the_DT RMSE_NN ._SENT 
+It_PP should_MD be_VB noted_VVN that_IN the_DT mode-based_JJ approach15_NN provides_VVZ a_DT significant_JJ improvement_NN in_IN PCL_NP and_CC in_IN RMSE_NNS for_IN source_NN range_NN over_IN regular_JJ MFP_NN ,_, but_CC the_DT RMSE_NN for_IN source_NN depth_NN is_VBZ poorer_JJR for_IN the_DT mode-based_JJ approach_NN than_IN for_IN regular_JJ MFP_NN ._SENT 
+This_DT shows_VVZ that_IN this_DT method_NN may_MD be_VB less_RBR robust_JJ for_IN depth_NN discrimination_NN because_IN of_IN the_DT information_NN that_WDT is_VBZ lost_VVN by_IN rejecting_VVG some_DT lower_JJR order_NN modes_NNS ._SENT 
+Conversely_RB ,_, our_PP$ method_NN is_VBZ robust_JJ for_IN both_CC the_DT PCL_NP and_CC the_DT RMSE_NN ._SENT 
+<Section> V._CC CONCLUSION_NN </Section> In_IN this_DT paper_NN ,_, a_DT novel_JJ Bayesian_JJ approach_NN for_IN MFP_JJ source_NN localization_NN has_VHZ been_VBN proposed_VVN ._SENT 
+The_DT method_NN handles_VVZ uncertainty_NN about_IN the_DT oceanic_JJ environment_NN by_IN considering_VVG the_DT Green_NP 's_POS function_NN of_IN the_DT waveguide_NN as_IN an_DT uncertain_JJ random_JJ variable_NN whose_WP$ probability_NN density_NN accounts_NNS for_IN environmental_JJ uncertainty_NN ._SENT 
+The_DT integration_NN of_IN the_DT PPD_NN over_IN the_DT Green_NP 's_POS function_NN probability_NN density_NN gives_VVZ the_DT marginal_JJ PPD_NN over_IN the_DT localization_NN parameters_NNS ._SENT 
+Because_IN brute-force_NN integration_NN is_VBZ prohibitively_RB costly_JJ in_IN general_NN ,_, a_DT technique_NN has_VHZ been_VBN developed_VVN to_TO make_VV the_DT integration_NN highly_RB efficient_JJ ._SENT 
+Some_DT assumptions_NNS on_IN modal_JJ propagation_NN have_VHP been_VBN introduced_VVN to_TO build_VV a_DT Green_NP 's_POS function_NN probability_NN density_NN that_WDT considers_VVZ the_DT effect_NN of_IN environmental_JJ uncertainty_NN on_IN the_DT Green_NP 's_POS function_NN ._SENT 
+In_IN particular_JJ ,_, decorrelation_NN between_IN mismatch_NN for_IN different_JJ groups_NNS of_IN modes_NNS and_CC similarity_NN between_IN mismatch_NN and_CC frequency_NN shifts_NNS of_IN the_DT acoustic_JJ field_NN have_VHP been_VBN taken_VVN into_IN consideration_NN ._SENT 
+Monte_NP Carlo_NP simulation_NN results_NNS showed_VVD that_IN the_DT method_NN is_VBZ robust_JJ to_TO mismatch_NN in_IN the_DT environment_NN ._SENT 
+The_DT method_NN provided_VVD a_DT significant_JJ improvement_NN for_IN both_CC the_DT PCL_NP and_CC the_DT RMSE_NN compared_VVN to_TO conventional_JJ Bayesian_JJ MFP_NN (_( where_WRB the_DT mismatch_NN in_IN the_DT assumed_VVN environment_NN is_VBZ not_RB accounted_VVN for_IN )_) and_CC to_TO a_DT mode-based_JJ approach_NN to_TO the_DT mismatch_NN problem_NN ._SENT 
+Illustrations_NNS also_RB showed_VVD that_IN the_DT method_NN provides_VVZ reliable_JJ PPDs_NNS for_IN source_NN location_NN ._SENT 
+When_WRB the_DT method_NN fails_VVZ to_TO localize_VV the_DT source_NN it_PP generally_RB associates_VVZ a_DT low_JJ probability_NN to_TO the_DT proposed_VVN position_NN so_RB that_IN an_DT analysis_NN of_IN the_DT PPD_NN may_MD prevent_VV taking_VVG wrong_JJ decisions_NNS ._SENT 
+<Section> ACKNOWLEDGMENTS_NNS </Section> This_DT work_NN was_VBD funded_VVN by_IN the_DT French_JJ Government_NP Defense_NP procurement_NN agency_NN (_( Direction_NN Générale_NP de_NP l'Armement_NN )_) ._SENT 
+<Section> REFERENCES_NNS </Section> 1._CD H._NP P._NP Bucker_NP ,_, “_JJ Use_NN of_IN calculated_JJ sound_JJ fields_NNS and_CC matched-field_JJ detection_NN to_TO locate_VV sound_JJ sources_NNS in_IN shallow_JJ water_NN ,_, ”_NP J._NP Acoust_NP ._SENT 
+Soc_NP ._SENT 
+Am_NP ._SENT 
+59(2_NP )_) ,_, 368–373_NP (_( 1976_CD )_) ._SENT 
+https_NNS :_: //doi_NP ._SENT 
+org/10.1121/1.380872_NP ,_, Google_NP ScholarScitation_NP ,_, ISI_NP 2._CD A._NP B._NP Baggeroer_NP ,_, W._NP A._NP Kuperman_NP ,_, and_CC H._NP Schmidt_NP ,_, “_NP Matched_VVD field_NN processing_NN :_: Source_NN localization_NN in_IN correlated_VVN noise_NN as_IN an_DT optimum_JJ parameter_NN estimation_NN problem_NN ,_, ”_NP J._NP Acoust_NP ._SENT 
+Soc_NP ._SENT 
+Am_NP ._SENT 
+83(2_NP )_) ,_, 571–587_JJ (_( 1988_CD )_) ._SENT 
+https_NNS :_: //doi_NP ._SENT 
+org/10.1121/1.396151_JJ ,_, Google_NP ScholarScitation_NP ,_, ISI_NP 3._CD A._NP B._NP Baggeroer_NP ,_, W._NP A._NP Kuperman_NP ,_, and_CC P._NP N._NP Mikhalevsky_NP ,_, “_NP An_DT overview_NN of_IN matched_VVN field_NN methods_NNS in_IN ocean_NN acoustics_NNS ,_, ”_NP IEEE_NP J._NP Ocean_NP ._SENT 
+Eng_NP ._SENT 
+18(4_NP )_) ,_, 401–424_NP (_( 1993_CD )_) ._SENT 
+https_NNS :_: //doi_NP ._SENT 
+org/10.1109/48.262292_NP ,_, Google_NP ScholarCrossref_NP 4._CD D._NP R._NP Del_NP Balzo_NP ,_, C._NP Feuillade_NP ,_, and_CC M._NP M._NP Rowe_NP ,_, “_JJ Effects_NNS of_IN water-depth_JJ mismatch_NN on_IN matched-field_JJ localization_NN in_IN shallow_JJ water_NN ,_, ”_NP J._NP Acoust_NP ._SENT 
+Soc_NP ._SENT 
+Am_NP ._SENT 
+83(6_NP )_) ,_, 2180–2185_NP (_( 1988_CD )_) ._SENT 
+https_NNS :_: //doi_NP ._SENT 
+org/10.1121/1.396346_NP ,_, Google_NP ScholarScitation_NP ,_, ISI_NP 5._CD C._NP Feuillade_NP ,_, D._NP R._NP Del_NP Balzo_NP ,_, and_CC M._NP M._NP Rowe_NP ,_, “_NP Environmental_NP mismatch_NN in_IN shallow-water_NN matched-field_NN processing_NN :_: Geoacoustic_JJ parameter_NN variability_NN ,_, ”_NP J._NP Acoust_NP ._SENT 
+Soc_NP ._SENT 
+Am_NP ._SENT 
+85(6_NP )_) ,_, 2354–2364_NP (_( 1989_CD )_) ._SENT 
+https_NNS :_: //doi_NP ._SENT 
+org/10.1121/1.397781_JJ ,_, Google_NP ScholarScitation_NP ,_, ISI_NP 6._CD E._NP C._NP Shang_NP and_CC Y._NP Y._NP Wang_NP ,_, “_NP Environmental_NP mismatching_VVG effects_NNS on_IN source_NN localization_NN processing_NN in_IN mode_NN space_NN ,_, ”_NP J._NP Acoust_NP ._SENT 
+Soc_NP ._SENT 
+Am_NP ._SENT 
+89(5_NP )_) ,_, 2285–2290_NP (_( 1991_CD )_) ._SENT 
+https_NNS :_: //doi_NP ._SENT 
+org/10.1121/1.400919_NP ,_, Google_NP ScholarScitation_NP ,_, ISI_NP 7._CD W._NP Xu_NP ,_, A._NP B._NP Baggeroer_NP ,_, and_CC H._NP Schmidt_NP ,_, “_NP Performance_NP analysis_NN for_IN matched-field_NP source_NN localization_NN :_: Simulations_NNS and_CC experimental_JJ results_NNS ,_, ”_NP IEEE_NP J._NP Ocean_NP ._SENT 
+Eng_NP ._SENT 
+31(2_NP )_) ,_, 325–344_NP (_( 2006_CD )_) ._SENT 
+https_NNS :_: //doi_NP ._SENT 
+org/10.1109/JOE.2006.875106_NP ,_, Google_NP ScholarCrossref_NP 8._CD T._NP C._NP Yang_NP ,_, “_NP A_DT method_NN of_IN range_NN and_CC depth_NN estimation_NN by_IN modal_JJ decomposition_NN ,_, ”_NP J._NP Acoust_NP ._SENT 
+Soc_NP ._SENT 
+Am_NP ._SENT 
+82(5_NP )_) ,_, 1736–1745_NP (_( 1987_CD )_) ._SENT 
+https_NNS :_: //doi_NP ._SENT 
+org/10.1121/1.395825_NP ,_, Google_NP ScholarScitation_NP ,_, ISI_NP 9._CD G._NP R._NP Wilson_NP ,_, R._NP A._NP Koch_NP ,_, and_CC P._NP J._NP Vidmar_NP ,_, “_NP Matched_VVD mode_NN localization_NN ,_, ”_NP J._NP Acoust_NP ._SENT 
+Soc_NP ._SENT 
+Am_NP ._SENT 
+84(1_NN )_) ,_, 310–320_NP (_( 1988_CD )_) ._SENT 
+https_NNS :_: //doi_NP ._SENT 
+org/10.1121/1.396987_JJ ,_, Google_NP ScholarScitation_NP ,_, ISI_NP 10._CD T._NP C._NP Yang_NP ,_, “_JJ Effectiveness_NN of_IN mode_NN filtering_VVG :_: A_DT comparison_NN of_IN matched-field_NP and_CC matched-mode_NP processing_NN ,_, ”_NP J._NP Acoust_NP ._SENT 
+Soc_NP ._SENT 
+Am_NP ._SENT 
+87(5_NP )_) ,_, 2072–2084_NP (_( 1990_CD )_) ._SENT 
+https_NNS :_: //doi_NP ._SENT 
+org/10.1121/1.399334_NP ,_, Google_NP ScholarScitation_NP 11._CD N._NP E._NP Collison_NP and_CC S._NP E._NP Dosso_NP ,_, “_NP Regularized_VVD matched-mode_NN processing_NN for_IN source_NN localization_NN ,_, ”_NP J._NP Acoust_NP ._SENT 
+Soc_NP ._SENT 
+Am_NP ._SENT 
+107(6_NP )_) ,_, 3089–3100_NP (_( 2000_CD )_) ._SENT 
+https_NNS :_: //doi_NP ._SENT 
+org/10.1121/1.429338_NP ,_, Google_NP ScholarScitation_NP ,_, ISI_NP 12._CD K._NP Yoo_NP and_CC T._NP C._NP Yang_NP ,_, “_NP Broadband_NP source_NN localization_NN in_IN shallow_JJ water_NN in_IN the_DT presence_NN of_IN internal_JJ waves_NNS ,_, ”_NP J._NP Acoust_NP ._SENT 
+Soc_NP ._SENT 
+Am_NP ._SENT 
+106(6_NP )_) ,_, 3255–3269_NP (_( 1999_CD )_) ._SENT 
+https_NNS :_: //doi_NP ._SENT 
+org/10.1121/1.428179_NP ,_, Google_NP ScholarScitation_NP 13._CD F._NP Le_NP Courtois_NP and_CC J._NP Bonnel_NP ,_, “_JJ Autoregressive_JJ model_NN for_IN high-resolution_NN wavenumber_NN estimation_NN in_IN a_DT shallow_JJ water_NN environment_NN using_VVG a_DT broadband_NN source_NN ,_, ”_NP J._NP Acoust_NP ._SENT 
+Soc_NP ._SENT 
+Am_NP ._SENT 
+135(4_NP )_) ,_, EL199–EL205_NP (_( 2014_CD )_) ._SENT 
+https_NNS :_: //doi_NP ._SENT 
+org/10.1121/1.4869821_JJ ,_, Google_JJ ScholarScitation_NP 14._CD J._NP Tabrikian_NP ,_, J._NP L._NP Krolik_NP ,_, and_CC H._NP Messer_NP ,_, “_JJ Robust_JJ maximum-likelihood_NN source_NN localization_NN in_IN an_DT uncertain_JJ shallow-water_NN waveguide_NN ,_, ”_NP J._NP Acoust_NP ._SENT 
+Soc_NP ._SENT 
+Am_NP ._SENT 
+101(1_NN )_) ,_, 241–249_NP (_( 1997_CD )_) ._SENT 
+https_NNS :_: //doi_NP ._SENT 
+org/10.1121/1.417996_NP ,_, Google_NP ScholarScitation_NP 15._CD Z._NP Liu_NP ,_, C._NP Sun_NP ,_, Y._NP Yang_NP ,_, and_CC J._NP Du_NP ,_, “_JJ Robust_JJ source_NN localization_NN using_VVG predictable_JJ mode_NN subspace_NN in_IN uncertain_JJ shallow_JJ ocean_NN environment_NN ,_, ”_NN in_IN Oceans_NNS (_( IEEE_NP ,_, San_NP Diego_NP ,_, CA_MD ,_, 2013_CD )_) ,_, pp_NP ._SENT 
+1–5_NP ._SENT 
+Google_NP Scholar_NN 16._CD M._NP D._NP Collins_NP and_CC W._NP A._NP Kuperman_NP ,_, “_JJ Focalization_NN :_: Environmental_JJ focusing_VVG and_CC source_NN localization_NN ,_, ”_NP J._NP Acoust_NP ._SENT 
+Soc_NP ._SENT 
+Am_NP ._SENT 
+90(3_NP )_) ,_, 1410–1422_NP (_( 1991_CD )_) ._SENT 
+https_NNS :_: //doi_NP ._SENT 
+org/10.1121/1.401933_NP ,_, Google_NP ScholarScitation_NP ,_, ISI_NP 17._CD S._NP E._NP Dosso_NP ,_, “_NP Matched-field_NP inversion_NN for_IN source_NN localization_NN with_IN uncertain_JJ bathymetry_NN ,_, ”_NP J._NP Acoust_NP ._SENT 
+Soc_NP ._SENT 
+Am_NP ._SENT 
+94(2_NP )_) ,_, 1160–1163_NP (_( 1993_CD )_) ._SENT 
+https_NNS :_: //doi_NP ._SENT 
+org/10.1121/1.406966_NP ,_, Google_NP ScholarScitation_NP 18._CD R._NP N._NP Baer_NP and_CC M._NP D._NP Collins_NP ,_, “_JJ Source_NN localization_NN in_IN the_DT presence_NN of_IN gross_JJ sediment_NN uncertainties_NNS ,_, ”_NP J._NP Acoust_NP ._SENT 
+Soc_NP ._SENT 
+Am_NP ._SENT 
+120(2_NP )_) ,_, 870–874_NP (_( 2006_CD )_) ._SENT 
+https_NNS :_: //doi_NP ._SENT 
+org/10.1121/1.2213523_NP ,_, Google_NP ScholarScitation_NP 19._CD A._NP M._NP Richardson_NP and_CC L._NP W._NP Nolte_NP ,_, “_NP A_NP posteriori_NP probability_NN source_NN localization_NN in_IN an_DT uncertain_JJ sound_NN speed_NN ,_, deep_JJ ocean_NN environment_NN ,_, ”_NP J._NP Acoust_NP ._SENT 
+Soc_NP ._SENT 
+Am_NP ._SENT 
+89(5_NP )_) ,_, 2280–2284_NP (_( 1991_CD )_) ._SENT 
+https_NNS :_: //doi_NP ._SENT 
+org/10.1121/1.400918_NP ,_, Google_NP ScholarScitation_NP ,_, ISI_NP 20._CD J._NP A._NP Shorey_NP ,_, L._NP W._NP Nolte_NP ,_, and_CC J._NP L._NP Krolik_NP ,_, “_NP Computationally_RB efficient_JJ Monte_NP Carlo_NP estimation_NN algorithms_NNS for_IN matched_VVN field_NN processing_NN in_IN uncertain_JJ ocean_NN environments_NNS ,_, ”_NP J._NP Comput_NN ._SENT 
+Acoust_NP ._SENT 
+2(3_NP )_) ,_, 285–314_NP (_( 1994_CD )_) ._SENT 
+https_NNS :_: //doi_NP ._SENT 
+org/10.1142/S0218396X94000191_JJ ,_, Google_JJ ScholarCrossref_NP 21._CD J._NP A._NP Shorey_NP and_CC L._NP W._NP Nolte_NP ,_, “_JJ Wideband_NN optimal_JJ a_DT posteriori_NP probability_NN source_NN localization_NN in_IN an_DT uncertain_JJ shallow_JJ ocean_NN environment_NN ,_, ”_NP J._NP Acoust_NP ._SENT 
+Soc_NP ._SENT 
+Am_NP ._SENT 
+103(1_NN )_) ,_, 355–361_JJ (_( 1998_CD )_) ._SENT 
+https_NNS :_: //doi_NP ._SENT 
+org/10.1121/1.421117_JJ ,_, Google_NP ScholarScitation_NP ,_, ISI_NP 22._CD S._NP E._NP Dosso_NP ,_, “_NP Environmental_NP uncertainty_NN in_IN ocean_NN acoustic_JJ source_NN localization_NN ,_, ”_JJ Inverse_NN Problems_NP 19(2_NP )_) ,_, 419–431_JJ (_( 2003_CD )_) ._SENT 
+https_NNS :_: //doi_NP ._SENT 
+org/10.1088/0266-5611/19/2/311_JJ ,_, Google_JJ ScholarCrossref_NP 23._CD S._NP E._NP Dosso_NP and_CC M._NP J._NP Wilmut_NP ,_, “_JJ Bayesian_JJ focalization_NN :_: Quantifying_VVG source_NN localization_NN with_IN environmental_JJ uncertainty_NN ,_, ”_NP J._NP Acoust_NP ._SENT 
+Soc_NP ._SENT 
+Am_NP ._SENT 
+121(5_NP )_) ,_, 2567–2574_NP (_( 2007_CD )_) ._SENT 
+https_NNS :_: //doi_NP ._SENT 
+org/10.1121/1.2715451_JJ ,_, Google_NP ScholarScitation_NP ,_, ISI_NP 24._CD S._NP E._NP Dosso_NP and_CC M._NP J._NP Wilmut_NP ,_, “_JJ Bayesian_JJ multiple-source_NN localization_NN in_IN an_DT uncertain_JJ ocean_NN environment_NN ,_, ”_NP J._NP Acoust_NP ._SENT 
+Soc_NP ._SENT 
+Am_NP ._SENT 
+129(6_NP )_) ,_, 3577–3589_NP (_( 2011_CD )_) ._SENT 
+https_NNS :_: //doi_NP ._SENT 
+org/10.1121/1.3575594_NP ,_, Google_NP ScholarScitation_NP ,_, ISI_NP 25._CD C._NP Schlegel_NP and_CC A._NP Grant_NP ,_, Coordinated_VVN Multiuser_NP Communications_NPS ,_, Back_NP Matter_NP A_NP (_( Springer_NP Science_NP &_CC Business_NP Media_NP ,_, Dordrecht_NP ,_, Netherlands_NP ,_, 2006_CD )_) ,_, pp_NP ._SENT 
+237–270_NP ._SENT 
+Google_NP Scholar_NN 26._CD P._NP Gerstoft_NP and_CC C._NP F._NP Mecklenbrauker_NP ,_, “_NP Ocean_NP acoustic_JJ inversion_NN with_IN estimation_NN of_IN a_DT posteriori_NP probability_NN distributions_NNS ,_, ”_NP J._NP Acoust_NP ._SENT 
+Soc_NP ._SENT 
+Am_NP ._SENT 
+104(2_NP )_) ,_, 808–819_NP (_( 1998_CD )_) ._SENT 
+https_NNS :_: //doi_NP ._SENT 
+org/10.1121/1.423355_NP ,_, Google_NP ScholarScitation_NP ,_, ISI_NP 27._CD C._NP F._NP Huang_NP ,_, P._NP Gerstoft_NP ,_, and_CC W._NP S._NP Hodgkiss_NP ,_, “_JJ Uncertainty_NN analysis_NN in_IN matched-field_JJ geoacoustic_JJ inversions_NNS ,_, ”_NP J._NP Acoust_NP ._SENT 
+Soc_NP ._SENT 
+Am_NP ._SENT 
+119(1_NN )_) ,_, 197–207_JJ (_( 2006_CD )_) ._SENT 
+https_NNS :_: //doi_NP ._SENT 
+org/10.1121/1.2139075_NP ,_, Google_NP ScholarScitation_NP ,_, ISI_NP 28._CD K._NP M._NP Wong_NP ,_, J._NP P._NP Reilly_NP ,_, Q._NP Wu_NP ,_, and_CC S._NP Qiao_NP ,_, “_JJ Estimation_NN of_IN the_DT directions_NNS of_IN arrival_NN of_IN signals_NNS in_IN unknown_JJ correlated_VVN noise_NN ._SENT 
+I._NP The_DT MAP_NN approach_NN and_CC its_PP$ implementation_NN ,_, ”_NP IEEE_NP Trans_NP ._SENT 
+Signal_NN Process_NN ._SENT 
+40(8_NP )_) ,_, 2007–2017_JJ (_( 1992_CD )_) ._SENT 
+https_NNS :_: //doi_NP ._SENT 
+org/10.1109/78.150002_NP ,_, Google_NP ScholarCrossref_NP 29._CD M._NP Viberg_NP ,_, “_NP Analysis_NP of_IN the_DT combined_JJ effects_NNS of_IN finite_JJ samples_NNS and_CC model_NN errors_NNS on_IN array_NN processing_NN performance_NN ,_, ”_NP IEEE_NP Trans_NP ._SENT 
+Signal_NN Process_NN ._SENT 
+42(11_NN )_) ,_, 3073–3083_NP (_( 1994_CD )_) ._SENT 
+https_NNS :_: //doi_NP ._SENT 
+org/10.1109/78.330367_JJ ,_, Google_JJ ScholarCrossref_NP 30._CD V._NP Nagesha_NP and_CC S._NP Kay_NP ,_, “_JJ Maximum_JJ likelihood_NN estimation_NN for_IN array_NN processing_NN in_IN colored_VVN noise_NN ,_, ”_NP IEEE_NP Trans_NP ._SENT 
+Signal_NN Process_NN ._SENT 
+44(2_NP )_) ,_, 169–180_NP (_( 1996_CD )_) ._SENT 
+https_NNS :_: //doi_NP ._SENT 
+org/10.1109/78.485914_NP ,_, Google_NP ScholarCrossref_NP 31._CD S._NP E._NP Dosso_NP ,_, P._NP L._NP Nielsen_NP ,_, and_CC M._NP J._NP Wilmut_NP ,_, “_NP Data_NP error_NN covariance_NN in_IN matched-field_NP geoacoustic_JJ inversion_NN ,_, ”_NP J._NP Acoust_NP ._SENT 
+Soc_NP ._SENT 
+Am_NP ._SENT 
+119(1_NN )_) ,_, 208–219_NP (_( 2006_CD )_) ._SENT 
+https_NNS :_: //doi_NP ._SENT 
+org/10.1121/1.2139625_NP ,_, Google_NP ScholarScitation_NP ,_, ISI_NP 32._CD Y._NP Le_NP Gall_NP ,_, F._NP -X_NP ._SENT 
+Socheleau_NP ,_, and_CC J._NP Bonnel_NP ,_, “_NP Matched-field_NP processing_NN performance_NN under_IN the_DT stochastic_JJ and_CC deterministic_JJ signal_NN models_NNS ,_, ”_NP IEEE_NP Trans_NP ._SENT 
+Signal_NN Process_NN ._SENT 
+62(22_NP )_) ,_, 5825–5838_NP (_( 2014_CD )_) ._SENT 
+https_NNS :_: //doi_NP ._SENT 
+org/10.1109/TSP.2014.2360818_NP ,_, Google_NP ScholarCrossref_NP 33._CD C._NP F._NP Mecklenbräuker_NP and_CC P._NP Gerstoft_NP ,_, “_JJ Objective_JJ functions_NNS for_IN ocean_NN acoustic_JJ inversion_NN derived_VVN by_IN likelihood_NN methods_NNS ,_, ”_NP J._NP Comput_NN ._SENT 
+Acoust_NP ._SENT 
+8(2_NP )_) ,_, 259–270_NP (_( 2000_CD )_) ._SENT 
+https_NNS :_: //doi_NP ._SENT 
+org/10.1142/S0218396X00000236_NP ,_, Google_NP ScholarCrossref_NP 34._CD S._NP E._NP Dosso_NP and_CC M._NP J._NP Wilmut_NP ,_, “_JJ Maximum-likelihood_NN and_CC other_JJ processors_NNS for_IN incoherent_JJ and_CC coherent_JJ matched-field_JJ localization_NN ,_, ”_NP J._NP Acoust_NP ._SENT 
+Soc_NP ._SENT 
+Am_NP ._SENT 
+132(4_NP )_) ,_, 2273–2285_NP (_( 2012_CD )_) ._SENT 
+https_NNS :_: //doi_NP ._SENT 
+org/10.1121/1.4730978_NP ,_, Google_NP ScholarScitation_NP ,_, ISI_NP 35._CD T._NP Y._NP Al-Naffouri_NP and_CC B._NP Hassibi_NP ,_, “_NN On_IN the_DT distribution_NN of_IN indefinite_JJ quadratic_JJ forms_NNS in_IN Gaussian_JJ random_JJ variables_NNS ,_, ”_NN in_IN ISIT_NP (_( IEEE_NP ,_, Seoul_NP ,_, South_NP Korea_NP ,_, 2009_CD )_) ,_, pp_NP ._SENT 
+1744–1748_NP ._SENT 
+Google_NP ScholarCrossref_NP 36._CD J._NP L._NP Krolik_NP ,_, “_NP The_DT performance_NN of_IN matched-field_JJ beamformers_NNS with_IN Mediterranean_NP vertical_JJ array_NN data_NNS ,_, ”_NP IEEE_NP Trans_NP ._SENT 
+Signal_NN Process_NN ._SENT 
+44(10_NP )_) ,_, 2605–2611_JJ (_( 1996_CD )_) ._SENT 
+https_NNS :_: //doi_NP ._SENT 
+org/10.1109/78.539043_NP ,_, Google_NP ScholarCrossref_NP 37._CD F._NP B._NP Jensen_NP ,_, W._NP A._NP Kuperman_NP ,_, M._NP B._NP Porter_NP ,_, and_CC H._NP Schmidt_NP ,_, Computational_JJ Ocean_NP Acoustics_NNS ,_, 2nd_JJ ed_NNS ._SENT 
+(_( American_NP Institute_NP of_IN Physics_NN ,_, New_NP York_NP ,_, 2011_CD )_) ,_, Chap_NN ._SENT 
+5._CD Google_NN ScholarCrossref_NP 38._CD G._NP A._NP Grachev_NP and_CC J._NP S._NP Wood_NP ,_, “_JJ Theory_NN of_IN acoustic_JJ field_NN invariants_NNS in_IN layered_VVN waveguides_NNS ,_, ”_NP Acoust_NP ._SENT 
+Phys_NPS ._SENT 
+39(1_NN )_) ,_, 33–35_NP (_( 1993_CD )_) ._SENT 
+Google_NP Scholar_NN 39._CD A._NP Turgut_NP ,_, M._NP Orr_NP ,_, and_CC B._NP Pasewark_NP ,_, “_JJ Acoustic_JJ monitoring_NN of_IN the_DT tide_NN height_NN and_CC slope-water_NN intrusion_NN at_IN the_DT New_NP Jersey_NP Shelf_NN in_IN winter_NN conditions_NNS ,_, ”_NP J._NP Acoust_NP ._SENT 
+Soc_NP ._SENT 
+Am_NP ._SENT 
+121(5_NP )_) ,_, 2534–2541_JJ (_( 2007_CD )_) ._SENT 
+https_NNS :_: //doi_NP ._SENT 
+org/10.1121/1.2713705_NP ,_, Google_NP ScholarScitation_NP 40._CD V._NP G._NP Petnikov_NP and_CC V._NP M._NP Kuzkin_NP ,_, “_NP Shallow_NP water_NN variability_NN and_CC its_PP$ manifestation_NN in_IN the_DT interference_NN pattern_NN of_IN sound_JJ fields_NNS ,_, ”_NN in_IN Ocean_NP Acoustic_JJ Interference_NN Phenomena_NNS and_CC Signal_NP Processing_NP (_( AIP_NP Publishing_NP ,_, New_NP York_NP ,_, 2001_CD )_) ,_, pp_NP ._SENT 
+207–220_NP ._SENT 
+Google_NP Scholar_NN 41._CD V._NP M._NP Kuzkin_NP ,_, Y._NP -T_NP ._SENT 
+Lin_NP ,_, A._NP A._NP Lunkov_NP ,_, J._NP F._NP Lynch_NP ,_, and_CC V._NP G._NP Petnikov_NP ,_, “_JJ Frequency_NN shifts_NNS of_IN the_DT sound_JJ field_NN interference_NN pattern_NN on_IN oceanic_JJ shelf_NN in_IN summer_NN conditions_NNS ,_, ”_NP Acoust_NP ._SENT 
+Phys_NPS ._SENT 
+57(3_NP )_) ,_, 381–390_NP (_( 2011_CD )_) ._SENT 
+https_NNS :_: //doi_NP ._SENT 
+org/10.1134/S1063771011030092_NP ,_, Google_NP ScholarCrossref_NP 42._CD A._NP Turgut_NP ,_, P._NP C._NP Mignerey_NP ,_, D._NP J._NP Goldstein_NP ,_, and_CC J._NP A._NP Schindall_NP ,_, “_JJ Acoustic_JJ observations_NNS of_IN internal_JJ tides_NNS and_CC tidal_JJ currents_NNS in_IN shallow_JJ water_NN ,_, ”_NP J._NP Acoust_NP ._SENT 
+Soc_NP ._SENT 
+Am_NP ._SENT 
+133(4_NP )_) ,_, 1981–1986_NP (_( 2013_CD )_) ._SENT 
+https_NNS :_: //doi_NP ._SENT 
+org/10.1121/1.4792141_JJ ,_, Google_JJ ScholarScitation_NP 43._CD G._NP B._NP Kinda_RB and_CC J._NP Bonnel_NP ,_, “_NP Passive_NP acoustic_JJ monitoring_NN of_IN coastal_JJ dynamical_JJ oceanographic_JJ phenomena_NNS using_VVG single_JJ hydrophone_NN ,_, ”_NN in_IN SSCO_NP (_( IEEE_NP ,_, Brest_NP ,_, France_NP ,_, 2014_CD )_) ,_, pp_NP ._SENT 
+1–5_NP ._SENT 
+Google_NP ScholarCrossref_NP 44._CD S._NP E._NP Dosso_NP ,_, M._NP G._NP Morley_NP ,_, P._NP M._NP Giles_NP ,_, G._NP H._NP Brooke_NP ,_, D._NP F._NP McCammon_NP ,_, S._NP Pecknold_NP ,_, and_CC P._NP C._NP Hines_NP ,_, “_JJ Spatial_JJ field_NN shifts_NNS in_IN ocean_NN acoustic_JJ environmental_JJ sensitivity_NN analysis_NN ,_, ”_NP J._NP Acoust_NP ._SENT 
+Soc_NP ._SENT 
+Am_NP ._SENT 
+122(5_NP )_) ,_, 2560–2570_NP (_( 2007_CD )_) ._SENT 
+https_NNS :_: //doi_NP ._SENT 
+org/10.1121/1.2783123_NP ,_, Google_NP ScholarScitation_NP 

@@ -1,0 +1,604 @@
+<title> Numerical_JJ investigation_NN of_IN soot_NN formation_NN and_CC oxidation_NN processes_NNS under_IN large_JJ two-stroke_JJ marine_JJ diesel_JJ engine-like_JJ conditions_NNS using_VVG integrated_JJ CFD-chemical_JJ kinetics_NN </title> <author> Pang_NP ,_, Kar_NP Mun_NP ;_: Karvounis_NP ,_, Nikolas_NP ;_: Walther_NP ,_, Jens_NP Honore_NP ;_: Schramm_NP ,_, Jesper_NP </author> <Affiliation> 1_CD Section_NN of_IN Thermal_JJ Energy_NP ,_, Department_NP of_IN Mechanical_NP Engineering_NP ,_, Technical_NP University_NP of_IN Denmark_NP ,_, Nils_NP Koppels_NP Allé_NP ,_, Lyngby_NP ;_: 2800_CD Kgs_NNS ._SENT 
+,_, Denmark_NP 2_CD Section_NN of_IN Fluid_JJ Mechanics_NNS ,_, Coastal_NP and_CC Maritime_NP Engineering_NP ,_, Department_NP of_IN Mechanical_NP Engineering_NP ,_, Technical_NP University_NP of_IN Denmark_NP ,_, Nils_NP Koppels_NP Allé_NP ,_, Lyngby_NP ;_: 2800_CD Kgs_NNS ._SENT 
+,_, Denmark_NP 3_CD Chair_NN of_IN Computational_JJ Science_NP ,_, ETH_NN Zürich_NP ,_, Clausiusstrasse_NP 33_CD ETH-Zentrum_NN ,_, CLT_NP F_NP 11_CD ,_, Zürich_NP ;_: CH-8092_NP ,_, Switzerland_NP </Affiliation> <year> 2017_CD </year> <Jounral> Applied_NP Energy_NP ,_, </Journal> <Publishing_house> Elsevier_NP Ltd_NP </Publishing_house> <Text_Collector> Liu_NP Kai，HEU_NP </Text_Collector> <DOI> 10.1016/j_NP ._SENT 
+apenergy.2016.02.081_JJ </DOI> <URL> https_NNS :_: //www_NNS ._SENT 
+sciencedirect_NNS ._SENT 
+com/science/article/pii/S0306261916302215_NP ?_SENT 
+via%3Dihub_NP </URL> <Section> Highlights_VVZ </Section> •_JJ A_DT new_JJ skeletal_JJ diesel_NN surrogate_NN model_NN is_VBZ developed_VVN for_IN combustion_NN and_CC soot_NN modelling_VVG ._SENT 
+•_NN When_WRB liftoff_NN lengths_NNS drop_NN ,_, local_JJ equivalence_NN ratio_NN of_IN the_DT rich_JJ premixed_JJ core_NN rises_NNS ._SENT 
+•_JJ In-cylinder_NN phenomena_NNS in_IN a_DT two-stroke_JJ ,_, uniflow-scavenged_JJ marine_JJ engine_NN are_VBP studied_VVN ._SENT 
+•_NP The_NP averaged_VVD NO_DT concentration_NN is_VBZ 7.7_CD %_NN lower_JJR as_IN soot_NN radiation_NN is_VBZ considered_VVN ._SENT 
+•_JJ Total_JJ heat_NN transfer_NN to_TO walls_NNS is_VBZ 30_CD %_NN higher_JJR as_IN soot_NN radiative_JJ heat_NN loss_NN is_VBZ considered_VVN ._SENT 
+<Section> Abstract_JJ </Section> In_IN this_DT reported_VVN work_NN ,_, multi-dimensional_JJ computational_JJ fluid_JJ dynamics_NNS studies_NNS of_IN diesel_JJ combustion_NN and_CC soot_NN formation_NN processes_VVZ in_IN a_DT constant_JJ volume_NN combustion_NN chamber_NN and_CC a_DT marine_JJ diesel_NN engine_NN are_VBP carried_VVN out_RP ._SENT 
+The_DT key_JJ interest_NN here_RB is_VBZ firstly_RB to_TO validate_VV the_DT coupling_NN of_IN a_DT newly_RB developed_VVN skeletal_JJ n-heptane_NN mechanism_NN and_CC a_DT revised_VVN multi-step_NN soot_NN model_NN using_VVG laser_NN extinction_NN measurements_NNS of_IN diesel_JJ soot_NN obtained_VVN at_IN different_JJ ambient_JJ pressure_NN levels_NNS in_IN an_DT optical_JJ accessible_JJ ,_, constant_JJ volume_NN chamber_NN experiment_NN ._SENT 
+It_PP is_VBZ revealed_VVN that_IN ignition_NN delay_NN times_NNS and_CC liftoff_NN lengths_NNS generated_VVD using_VVG the_DT new_JJ skeletal_JJ model_NN are_VBP close_JJ to_TO those_DT produced_VVN by_IN the_DT larger_JJR and_CC more_JJR comprehensive_JJ chemical_NN mechanisms_NNS ,_, apart_RB from_IN those_DT at_IN the_DT low_JJ pressure_NN condition_NN ._SENT 
+The_DT current_JJ study_NN also_RB demonstrates_VVZ that_IN the_DT variation_NN of_IN averaged_VVN soot_NN volume_NN fraction_NN with_IN respect_NN to_TO the_DT change_NN of_IN combustion_NN chamber_NN pressure_NN captured_VVD using_VVG the_DT revised_VVN soot_NN model_NN agrees_VVZ reasonably_RB well_RB with_IN the_DT measurements_NNS in_IN terms_NNS of_IN peak_NN values_NNS ._SENT 
+The_DT numerical_JJ model_NN is_VBZ subsequently_RB applied_VVN to_TO investigate_VV the_DT flame_NN development_NN ,_, soot/nitrogen_NP monoxide_NN formation_NN and_CC heat_NN transfer_NN in_IN a_DT two-stroke_JJ ,_, low-speed_NN uniflow-scavenged_VVD marine_JJ diesel_JJ engine_NN operating_VVG at_IN full_JJ load_NN condition_NN ,_, where_WRB optical_JJ measurements_NNS are_VBP not_RB available_JJ ._SENT 
+Comparisons_NNS to_TO the_DT experimental_JJ data_NNS show_VVP that_IN the_DT simulated_JJ pressure_NN rise_NN starts_VVZ 1.0_RB crank_VV angle_NN degree_NN in_IN advance_NN and_CC the_DT calculated_JJ peak_NN pressure_NN is_VBZ 1.7_CD %_NN lower_JJR ._SENT 
+The_DT associated_VVN flame_NN liftoff_NN length_NN is_VBZ negligible_JJ ,_, yielding_VVG higher_JJR local_JJ equivalence_NN ratio_NN and_CC soot_NN volume_NN fraction_NN values_NNS as_RB compared_VVN to_TO those_DT under_IN similar_JJ test_NN condition_NN in_IN the_DT constant_JJ volume_NN chamber_NN ._SENT 
+With_IN the_DT use_NN of_IN the_DT revised_VVN model_NN ,_, the_DT total_JJ heat_NN transfer_NN to_TO the_DT walls_NNS calculated_VVN when_WRB soot_NN radiative_JJ heat_NN loss_NN is_VBZ taken_VVN into_IN account_NN is_VBZ approximately_RB 30_CD %_NN higher_JJR compared_VVN to_TO that_DT when_WRB only_RB convective_JJ heat_NN loss_NN is_VBZ considered_VVN ._SENT 
+The_DT averaged_VVN nitrogen_NN monoxide_NN concentration_NN is_VBZ 7.7_CD %_NN lower_JJR when_WRB both_DT convective_JJ and_CC soot_NN radiative_JJ heat_NN losses_NNS are_VBP accounted_VVN for_IN but_CC the_DT net_JJ soot_NN mass_NN production_NN is_VBZ less_RBR sensitive_JJ to_TO soot_NN radiation_NN ._SENT 
+A_DT sensitivity_NN study_NN reveals_VVZ that_IN neither_DT increasing_VVG nor_CC decreasing_VVG the_DT soot_NN absorption_NN coefficient_NN by_IN 30_CD %_NN from_IN the_DT baseline_NN setup_NN is_VBZ influential_JJ to_TO nitrogen_NN monoxide_NN formation_NN ,_, soot_NN mass_NN production_NN and_CC heat_NN transfer_NN ._SENT 
+The_DT findings_NNS here_RB aid_VV to_TO gain_VV insights_NNS and_CC provide_VV a_DT better_JJR understanding_NN of_IN the_DT combustion_NN and_CC soot_NN processes_NNS in_IN large_JJ ,_, uniflow-scavenged_JJ marine_JJ engines_NNS ._SENT 
+The_DT numerical_JJ model_NN developed_VVN in_IN this_DT work_NN can_MD also_RB be_VB applied_VVN to_TO explore_VV different_JJ phenomena_NNS in_IN this_DT combustion_NN system_NN ._SENT 
+Keywords：Combustion；Soot_NP formation；Diesel_NP spray；Two-stroke；Marine_NP engine_NN <Section> 1._CD Introduction_NN </Section> Large_JJ two-stroke_JJ marine_JJ diesel_NN engines_NNS dominate_VVP as_IN prime_JJ movers_NNS for_IN cargo_NN ships_NNS due_JJ to_TO their_PP$ high_JJ efficiency_NN and_CC reliability_NN ._SENT 
+In_IN 2016_CD ,_, the_DT International_NP Maritime_NP Organisation_NP has_VHZ enforced_VVN new_JJ regulations_NNS for_IN marine_JJ engines_NNS ,_, with_IN the_DT aim_NN to_TO reduce_VV emitted_VVN pollutants_NNS for_IN instance_NN ,_, to_TO reduce_VV the_DT nitric_JJ oxides_NNS (_( NOx_NP )_) by_IN 80_CD %_NN ._SENT 
+Various_JJ experimental_JJ and_CC numerical_JJ works_NNS have_VHP been_VBN carried_VVN out_RP to_TO aid_VV in_IN complying_VVG with_IN the_DT increasingly_RB stringent_JJ regulations_NNS [_SYM 1_CD ]_SYM ,_, [_SYM 2_CD ]_SYM ._SENT 
+Producing_VVG engines_NNS for_IN low_JJ emission_NN limits_NNS without_IN lowering_VVG the_DT fuel_NN efficiency_NN is_VBZ a_DT challenging_JJ task_NN ._SENT 
+Indeed_RB ,_, both_DT fuel_NN efficiency_NN and_CC formation_NN of_IN emissions_NNS are_VBP strongly_RB dependent_JJ on_IN the_DT combustion_NN characteristics_NNS ,_, which_WDT is_VBZ a_DT result_NN of_IN fuel_NN spray_NN development_NN such_JJ as_IN droplet_NN breakup_NN ,_, evaporation_NN and_CC mixing_VVG with_IN air_NN ._SENT 
+Meanwhile_RB ,_, the_DT in-cylinder_NP flow_NN plays_VVZ a_DT significant_JJ role_NN in_IN influencing_VVG the_DT aforementioned_JJ processes_NNS ._SENT 
+For_IN an_DT effective_JJ control_NN strategy_NN of_IN emissions_NNS formation_NN ,_, a_DT detailed_JJ understanding_NN of_IN these_DT processes_NNS is_VBZ particularly_RB important_JJ ._SENT 
+This_DT can_MD be_VB achieved_VVN through_IN the_DT measurements_NNS from_IN optical_JJ diagnostics_NNS such_JJ as_IN OH∗_JJ chemiluminescence_NN ,_, laser_NN induced_VVD incandescence_NN ,_, laser_NN extinction_NN and_CC two-colour_NN imaging_NN method_NN in_IN high-pressure_JJ combustion_NN environment_NN [_SYM 3_CD ]_SYM ,_, [_SYM 4_CD ]_SYM ,_, [_SYM 5_CD ]_SYM ,_, [_SYM 6_CD ]_SYM ,_, [_SYM 7_CD ]_SYM ,_, [_SYM 8_CD ]_SYM ,_, [_SYM 9_CD ]_SYM ._SENT 
+These_DT optical_JJ diagnostics_NNS experiments_NNS were_VBD initially_RB carried_VVN out_RP in_IN constant_JJ volume_NN combustion_NN chambers_NNS [_SYM 3_CD ]_SYM ,_, [_SYM 4_CD ]_SYM ,_, [_SYM 5_CD ]_SYM ,_, [_SYM 6_CD ]_SYM and_CC small_JJ bore_NN ,_, high-speed_JJ engines_NNS [_SYM 7_CD ]_SYM ,_, [_SYM 8_CD ]_SYM ,_, [_SYM 9_CD ]_SYM ._SENT 
+Over_IN the_DT last_JJ decade_NN ,_, optical_JJ diagnostics_NNS research_NN has_VHZ been_VBN extended_VVN to_TO medium-_NN and_CC low-speed_NN marine_NN engines_NNS as_RB well_RB as_IN constant_JJ volume_NN chambers_NNS under_IN conditions_NNS relevant_JJ for_IN marine_JJ engines_NNS ._SENT 
+These_DT experiments_NNS provide_VVP in-situ_NP information_NN regarding_VVG the_DT in-cylinder_JJ velocity_NN [_SYM 10_CD ]_SYM ,_, fuel_VV jet_NN development_NN [_SYM 11_CD ]_SYM ,_, [_SYM 12_CD ]_SYM and_CC flame_NN development_NN [_SYM 11_CD ]_SYM ._SENT 
+Nevertheless_RB ,_, comprehensive_JJ experimental_JJ investigations_NNS to_TO elucidate_VV the_DT in-cylinder_NN events_NNS are_VBP costly_JJ and_CC time_NN consuming_NN owing_VVG to_TO the_DT complex_JJ nature_NN of_IN the_DT combustion_NN and_CC emissions_NNS formation_NN processes_VVZ ._SENT 
+Implementation_NN of_IN optical_JJ diagnostics_NNS under_IN marine_JJ diesel_NN engine_NN relevant_JJ conditions_NNS is_VBZ even_RB more_RBR challenging_VVG due_JJ to_TO the_DT much_RB higher_JJR level_NN of_IN deposits_NNS from_IN combustion_NN and_CC lubrication_NN on_IN optical_JJ lenses_NNS ._SENT 
+Also_RB ,_, the_DT optical_JJ view_NN is_VBZ small_JJ relative_NN to_TO the_DT cylinder_NN size_NN of_IN large_JJ marine_JJ diesel_NN engines_NNS ,_, limiting_VVG a_DT complete_JJ monitoring_NN of_IN the_DT in-cylinder_NN events_NNS ._SENT 
+To_TO date_NN ,_, reliable_JJ quantitative_JJ measurements_NNS under_IN such_JJ conditions_NNS are_VBP limited_VVN ._SENT 
+As_IN an_DT alternative_NN ,_, numerical_JJ tools_NNS have_VHP been_VBN used_VVN to_TO offer_VV the_DT opportunity_NN to_TO expand_VV on_IN the_DT limited_JJ details_NNS of_IN experimental_JJ measurements_NNS through_IN a_DT more_RBR cost-effective_JJ manner_NN ._SENT 
+Zero-dimensional_JJ multi-zone_NN models_NNS are_VBP one_CD of_IN the_DT efficient_JJ tools_NNS to_TO achieve_VV this_DT purpose_NN [_SYM 13_CD ]_SYM ,_, [_SYM 14_CD ]_SYM ,_, [_SYM 15_CD ]_SYM ._SENT 
+Multi-zone_NN models_NNS apply_VVP the_DT simple_JJ quasi-dimensional_JJ concept_NN to_TO represent_VV the_DT actual_JJ geometry_NN of_IN three-dimensional_JJ (_( 3-D_NN )_) combustion_NN chambers_NNS ._SENT 
+The_DT computational_JJ domain_NN is_VBZ divided_VVN into_IN different_JJ zones_NNS based_VVN on_IN temperature_NN inhomogeneity_NN and_CC chemical_NN kinetics_NN is_VBZ then_RB integrated_VVN into_IN these_DT zones_NNS separately_RB ._SENT 
+Incorporation_NN of_IN comparatively_RB large_JJ chemical_NN mechanisms_NNS into_IN multi-zone_NN models_NNS is_VBZ still_RB practical_JJ in_IN terms_NNS of_IN computational_JJ runtime_NN [_SYM 13_CD ]_SYM ,_, [_SYM 14_CD ]_SYM ,_, [_SYM 15_CD ]_SYM ._SENT 
+These_DT models_NNS perform_VVP reasonably_RB well_RB in_IN predicting_VVG the_DT temporal_JJ pressure_NN and_CC heat_NN release_NN rate_NN (_( HRR_NP )_) profiles_NNS and_CC the_DT exhaust_NN NOx_NN and_CC sulphur_NN oxides_NNS (_( SOx_NNS )_) levels_NNS ._SENT 
+However_RB ,_, the_DT in-cylinder_NP flow_NN field_NN is_VBZ not_RB resolved_VVN ,_, prohibiting_VVG the_DT simulation_NN of_IN scavenging_VVG process_NN which_WDT plays_VVZ an_DT important_JJ role_NN to_TO determine_VV the_DT marine_JJ engine_NN performance_NN ._SENT 
+Due_JJ to_TO the_DT absence_NN of_IN the_DT flow_NN field_NN ,_, Cordtz_NP et_CC al_NP ._SENT 
+[_SYM 15_CD ]_SYM implemented_VVN a_DT mixing_VVG constant_JJ and_CC calibrated_VVN the_DT value_NN based_VVN on_IN exhaust_NN nitrogen_NN monoxide_NN (_( NO_UH )_) concentrations_NNS for_IN different_JJ engine_NN speeds_NNS to_TO account_VV for_IN the_DT effects_NNS due_JJ to_TO air-fuel_VV mixing_VVG ._SENT 
+Nevertheless_RB ,_, this_DT reduces_VVZ the_DT robustness_NN of_IN the_DT model_NN ._SENT 
+In_IN addition_NN to_TO this_DT ,_, multi-zone_NN models_NNS do_VVP not_RB provide_VV detailed_JJ information_NN regarding_VVG fuel_NN spray_NN development_NN as_RB well_RB as_IN spatial_JJ distribution_NN of_IN the_DT flame_NN and_CC emissions_NNS ._SENT 
+Although_IN implementation_NN of_IN multi-dimensional_JJ computational_JJ fluid_JJ dynamics_NNS (_( CFD_NN )_) models_NNS is_VBZ more_RBR computationally_RB expensive_JJ ,_, it_PP is_VBZ more_RBR robust_JJ and_CC useful_JJ in_IN providing_VVG details_NNS of_IN the_DT in-cylinder_JJ phenomena_NNS [_SYM 2_CD ]_SYM ,_, [_SYM 16_CD ]_SYM ,_, [_SYM 17_CD ]_SYM ,_, [_SYM 18_CD ]_SYM ,_, [_SYM 19_CD ]_SYM ._SENT 
+For_IN instance_NN ,_, Andersen_NP et_CC al_NP ._SENT 
+[_SYM 16_CD ]_SYM performed_VVN CFD_NN analyses_NNS of_IN the_DT scavenging_VVG process_NN in_IN the_DT 4T50ME-X_NP test_NN engine_NN at_IN MAN_NN Diesel_NP &_CC Turbo_NP ._SENT 
+Their_PP$ CFD_NN models_NNS considered_VVD the_DT full_JJ engine_NN geometry_NN including_VVG a_DT moving_VVG piston_NN and_CC valve_NN combined_VVN with_IN time_NN resolved_VVN measurements_NNS as_IN boundary_NN and_CC initial_JJ conditions_NNS ._SENT 
+The_DT ignition/combustion_NN process_NN was_VBD not_RB simulated_JJ and_CC a_DT transport_NN equation_NN for_IN a_DT passive_JJ scalar_NN was_VBD solved_VVN to_TO evaluate_VV the_DT mixing_VVG of_IN burned_VVN gases_NNS with_IN the_DT fresh_JJ air_NN ._SENT 
+Sigurdsson_NP et_NP al_NP ._SENT 
+[_SYM 17_CD ]_SYM also_RB performed_VVN CFD_NN analysis_NN of_IN the_DT scavenging_VVG and_CC heat_NN transfer_NN processes_VVZ for_IN the_DT same_JJ test_NN engine_NN ._SENT 
+In_IN order_NN to_TO reduce_VV computational_JJ expenses_NNS ,_, a_DT 12°_JJ sector_NN domain_NN was_VBD used_VVN ,_, considering_VVG one_CD of_IN the_DT thirty_CD scavenge_VVP ports_NNS ._SENT 
+Therein_RB ,_, the_DT main_JJ focus_NN was_VBD to_TO simulate_VV the_DT scavenged_VVN flow_NN and_CC heat_NN transfer_NN in_IN the_DT test_NN engine_NN but_CC not_RB the_DT pollutant_NN formation_NN ._SENT 
+Hence_RB ,_, the_DT combustion_NN process_NN was_VBD simulated_JJ by_IN implementing_VVG a_DT time_NN dependent_JJ heat_NN source_NN based_VVN on_IN the_DT experimentally_RB determined_VVN HRR_NP ._SENT 
+3-D_JJ CFD_NN investigation_NN of_IN ignition/combustion_NN and_CC pollutant_NN formation_NN events_NNS in_IN large_JJ ,_, low-speed_NN uniflow-scavenged_VVD marine_JJ engines_NNS remains_VVZ rare_JJ ._SENT 
+Numerical_JJ works_NNS which_WDT are_VBP closer_JJR to_TO such_JJ application_NN can_MD be_VB attributed_VVN to_TO combustion_NN modelling_VVG of_IN four-stroke_JJ ,_, medium-speed_JJ ,_, direct_JJ injection_NN marine_JJ diesel_NN engines_NNS presented_VVN by_IN Kilpinen_NP [_SYM 2_CD ]_SYM ,_, Kaario_NP et_CC al_NP ._SENT 
+[_SYM 18_CD ]_SYM and_CC Taskinen_NP [_SYM 19_CD ]_SYM ._SENT 
+Simple_JJ chemistry_NN was_VBD used_VVN to_TO simulate_VV the_DT fuel_NN oxidation_NN and_CC combustion_NN process_NN ._SENT 
+Chemical_NN equilibrium_NN or_CC partial_JJ equilibrium_NN assumptions_NNS were_VBD applied_VVN to_TO estimate_VV formation_NN of_IN hydroxyl_NN (_( OH_UH )_) ,_, hydrogen_NN atom_NN (_( H_NP )_) and_CC oxygen_NN atom_NN (_( O_NP )_) which_WDT are_VBP pertinent_JJ to_TO pollutants_NNS formation_NN e._NP g._NP the_DT NO_DT formation_NN [_SYM 2_CD ]_SYM ,_, [_SYM 18_CD ]_SYM ,_, [_SYM 19_CD ]_SYM ._SENT 
+However_RB ,_, in_IN the_DT flame_NN zone_NN ,_, O_NP and_CC OH_UH can_MD be_VB formed_VVN in_IN quantities_NNS well_RB over_IN equilibrium_NN ._SENT 
+NO_DT is_VBZ formed_VVN via_IN the_DT Zeldovich_NP reactions_NNS much_RB more_RBR rapidly_RB than_IN it_PP is_VBZ when_WRB O_NN atoms_NNS are_VBP in_IN equilibrium_NN ._SENT 
+Calculation_NN of_IN super-equilibrium_NN radical_JJ concentration_NN becomes_VVZ complex_JJ and_CC must_MD be_VB integrated_VVN with_IN the_DT fuel_NN oxidation_NN kinetics_NNS [_SYM 20_CD ]_SYM ._SENT 
+Furthermore_RB ,_, soot_NN precursor_NN chemistry_NN was_VBD not_RB considered_VVN ._SENT 
+Merely_RB simple_JJ one-_NN or_CC two-step_JJ soot_NN model_NN were_VBD applied_VVN ,_, based_VVN on_IN the_DT assumption_NN that_IN soot_NN formation_NN is_VBZ direct_JJ decomposition_NN from_IN fuel_NN species_NNS ._SENT 
+Although_IN this_DT approach_NN is_VBZ proven_VVN to_TO successfully_RB capture_VV the_DT exhaust_NN soot_NN quantity_NN ,_, such_JJ validation_NN does_VVZ not_RB guarantee_VV that_IN the_DT in-cylinder_NN soot_NN level_NN is_VBZ correctly_RB estimated_VVN ._SENT 
+Comparisons_NNS of_IN numerical_JJ results_NNS from_IN the_DT literature_NN also_RB show_VVP that_IN the_DT peak_NN to_TO exhaust_VV soot_NN levels_NNS vary_VVP significantly_RB ,_, depending_VVG on_IN the_DT soot_NN precursor_NN chemistry_NN and_CC soot_NN model_NN implemented_VVN [_SYM 21_CD ]_SYM ,_, [_SYM 22_CD ]_SYM ._SENT 
+Indeed_RB ,_, the_DT performance_NN of_IN simple_JJ soot_NN modelling_VVG approach_NN in_IN simulating_VVG the_DT local_JJ soot_NN volume_NN fraction_NN (_( SVF_NP )_) in_IN high-pressure_JJ environment_NN is_VBZ rarely_RB validated_VVN ._SENT 
+Such_JJ soot_NN history_NN is_VBZ however_RB ,_, an_DT important_JJ input_NN to_TO compute_VV the_DT soot_NN radiative_JJ heat_NN loss_NN and_CC soot_NN deposition_NN ._SENT 
+Coupling_NN of_IN chemical_JJ kinetic_JJ mechanism_NN and_CC a_DT revised_VVN phenomenological_JJ multi-step_NN model_NN can_MD be_VB promising_VVG for_IN the_DT prediction_NN of_IN SVF_NN at_IN high_JJ pressure_NN and_CC for_IN the_DT estimation_NN of_IN the_DT variation_NN of_IN SVF_NN with_IN respect_NN to_TO ambient_JJ pressure_NN levels_NNS ._SENT 
+The_DT model_NN validation_NN nonetheless_RB was_VBD based_VVN on_IN soot_NN measurements_NNS of_IN n-heptane_JJ spray_NN combustion_NN [_SYM 23_CD ]_SYM ._SENT 
+The_DT soot_NN model_NN parameters_NNS may_MD not_RB be_VB applicable_JJ to_TO predict_VV the_DT soot_NN quantity_NN in_IN diesel_JJ spray_NN flames_NNS ._SENT 
+Set_VVN against_IN this_DT background_NN ,_, the_DT novelty_NN of_IN the_DT present_JJ work_NN consists_VVZ of_IN developing_VVG a_DT skeletal_JJ chemical_NN kinetic_JJ mechanism_NN which_WDT is_VBZ computationally_RB efficient_JJ for_IN 3-D_JJ CFD_NN large_JJ bore_VVD marine_JJ engine_NN simulations_NNS yet_RB sufficiently_RB comprehensive_JJ to_TO include_VV species_NNS essential_JJ for_IN pollutant_NN formation_NN predictions_NNS ._SENT 
+In_IN addition_NN ,_, the_DT current_JJ work_NN further_RBR validates_VVZ and_CC optimises_VVZ the_DT revised_VVN phenomenological_JJ multi-step_JJ soot_NN model_NN proposed_VVN by_IN the_DT authors_NNS [_SYM 23_CD ]_SYM using_VVG laser_NN extinction_NN measurements_NNS of_IN diesel_JJ soot_NN at_IN various_JJ ambient_JJ pressure_NN levels_NNS [_SYM 3_CD ]_SYM ._SENT 
+By_IN incorporating_VVG the_DT in-house_JJ chemical_NN mechanism_NN ,_, optimised_VVD soot_NN model_NN parameter_NN as_RB well_RB as_IN turbulence/velocity_NN fields_NNS obtained_VVN from_IN previous_JJ scavenge_VVP flow_NN simulations_NNS [_SYM 17_CD ]_SYM ,_, the_DT present_JJ work_NN aims_VVZ to_TO numerically_RB investigate_VV in-cylinder_NN phenomena_NNS in_IN a_DT large_JJ ,_, low-speed_NN uniflow-scavenged_VVD marine_JJ diesel_JJ engine_NN ,_, operating_VVG at_IN full_JJ load_NN condition_NN where_WRB optical_JJ measurements_NNS are_VBP not_RB available_JJ ._SENT 
+The_DT flame_NN development_NN ,_, soot_NN formation/oxidation_NN processes_NNS and_CC the_DT associated_VVN soot_NN radiative_JJ heat_NN loss_NN are_VBP of_IN main_JJ interests_NNS here_RB ._SENT 
+The_DT remainder_NN of_IN the_DT paper_NN is_VBZ structured_VVN such_JJ that_IN the_DT diesel_JJ surrogate_JJ fuel_NN models_NNS used_VVN in_IN this_DT work_NN are_VBP first_RB described_VVN ,_, with_IN an_DT emphasis_NN on_IN the_DT development_NN and_CC validation_NN of_IN the_DT new_JJ skeletal_JJ n-heptane_NN model_NN ._SENT 
+The_DT subsequent_JJ section_NN of_IN the_DT paper_NN details_NNS the_DT CFD_NN formulation_NN and_CC setup_NN ._SENT 
+This_DT is_VBZ followed_VVN by_IN the_DT descriptions_NNS of_IN the_DT initial_JJ condition_NN and_CC mesh_NN configuration_NN for_IN both_DT constant_JJ volume_NN chamber_NN and_CC marine_JJ engine_NN ._SENT 
+Model_NN validation_NN based_VVN on_IN the_DT optical_JJ measurements_NNS is_VBZ performed_VVN next_JJ ._SENT 
+In_IN the_DT consequent_JJ section_NN ,_, numerical_JJ analysis_NN of_IN the_DT in-cylinder_NN events_NNS of_IN the_DT marine_JJ diesel_NN engine_NN is_VBZ presented_VVN ._SENT 
+Key_JJ conclusions_NNS from_IN the_DT work_NN are_VBP highlighted_VVN in_IN the_DT final_JJ section_NN of_IN the_DT paper_NN ._SENT 
+<Section> 2._CD Numerical_JJ formulation_NN and_CC setup_NN </Section> 2.1_CD ._SENT 
+Diesel_JJ surrogate_JJ fuel_NN models_NNS Recent_JJ experimental_JJ and_CC numerical_JJ studies_NNS have_VHP highlighted_VVN that_IN aromatic_JJ and/or_JJ cycloparaffin_NN chemistries_NNS have_VHP to_TO be_VB considered_VVN in_IN the_DT initial_JJ fuel_NN composition_NN in_IN order_NN to_TO simulate_VV the_DT soot_NN precursor_NN formation_NN [_SYM 24_CD ]_SYM ,_, [_SYM 25_CD ]_SYM ,_, [_SYM 26_CD ]_SYM ._SENT 
+It_PP has_VHZ been_VBN demonstrated_VVN in_IN the_DT simulations_NNS where_WRB the_DT flame_NN temperature_NN changes_NNS ,_, diesel_JJ fuel_NN surrogate_NN models_NNS which_WDT neglect_NN aromatic/cycloparaffin_NN chemistries_NNS in_IN the_DT initial_JJ fuel_NN composition_NN failed_VVD to_TO replicate_VV the_DT variation_NN of_IN SVF_NP [_SYM 25_CD ]_SYM ,_, [_SYM 26_CD ]_SYM ._SENT 
+This_DT is_VBZ attributed_VVN to_TO the_DT absence_NN of_IN soot_NN precursor_NN formation_NN pathways_NNS through_IN the_DT oxidation_NN of_IN aromatic/cycloparaffin_NN compounds_NNS and_CC these_DT reaction_NN rates_NNS are_VBP strongly_RB dependent_JJ on_IN the_DT flame_NN temperature_NN ._SENT 
+In_IN such_JJ cases_NNS ,_, implementation_NN of_IN multi-component_JJ chemical_NN mechanisms_NNS which_WDT consider_VVP aromatic/cycloparaffin_NN chemistries_NNS in_IN the_DT initial_JJ fuel_NN composition_NN is_VBZ essential_JJ [_SYM 25_CD ]_SYM ._SENT 
+Exclusion_NN of_IN these_DT chemistries_NNS from_IN the_DT initial_JJ fuel_NN composition_NN is_VBZ however_RB acceptable_JJ when_WRB the_DT flame_NN temperature_NN does_VVZ not_RB vary_VV significantly_RB among_IN the_DT cases_NNS ._SENT 
+With_IN the_DT use_NN of_IN a_DT single-component_JJ n-heptane_NN chemical_NN mechanism_NN ,_, Vishwanathan_NP and_CC Reitz_NP [_SYM 27_CD ]_SYM successfully_RB captured_VVN the_DT change_NN of_IN SVF_NN with_IN respect_NN to_TO the_DT variations_NNS of_IN injection_NN parameters_NNS such_JJ as_IN injection_NN pressure_NN ,_, nozzle_NN diameters_NNS and_CC fuel_NN mass_NN delivered_VVN ._SENT 
+Variations_NNS of_IN these_DT parameters_NNS do_VVP not_RB affect_VV the_DT thermochemical_JJ state_NN and_CC the_DT resulting_VVG flame_NN temperatures_NNS in_IN all_PDT their_PP$ test_NN cases_NNS are_VBP similar_JJ ._SENT 
+In_IN the_DT present_JJ work_NN ,_, the_DT ambient_JJ pressure_NN is_VBZ the_DT main_JJ varying_VVG parameter_NN and_CC such_JJ variation_NN is_VBZ not_RB expected_VVN to_TO influence_VV the_DT flame_NN temperature_NN significantly_RB ._SENT 
+As_IN such_JJ ,_, n-heptane_JJ chemical_NN mechanisms_NNS which_WDT generally_RB have_VHP relatively_RB small_JJ chemistry_NN size_NN are_VBP of_IN main_JJ interests_NNS here_RB in_IN order_NN to_TO minimise_VV the_DT computational_JJ cost_NN ,_, particularly_RB for_IN the_DT marine_JJ diesel_JJ engine_NN simulations_NNS ._SENT 
+Different_JJ skeletal_JJ n-heptane_NN mechanisms_NNS were_VBD developed_VVN in_IN the_DT past_JJ decades_NNS for_IN the_DT simulation_NN of_IN diesel_JJ engine_NN combustion_NN simulations_NNS ._SENT 
+To-date_RB ,_, one_CD of_IN the_DT most_RBS compact_JJ models_NNS was_VBD developed_VVN by_IN Patel_NP et_CC al_NP ._SENT 
+[_SYM 28_CD ]_SYM ._SENT 
+Their_PP$ mechanism_NN which_WDT consists_VVZ of_IN 52_CD reactions_NNS with_IN 29_CD species_NNS is_VBZ adopted_VVN here_RB ._SENT 
+The_DT current_JJ work_NN also_RB evaluates_VVZ the_DT performance_NN of_IN the_DT 44_CD species_NNS and_CC 68_CD species_NN mechanisms_NNS which_WDT were_VBD constructed_VVN by_IN Liu_NP et_CC al_NP ._SENT 
+[_SYM 29_CD ]_SYM and_CC Lu_NP and_CC Law_NP [_SYM 30_CD ]_SYM ,_, respectively_RB ._SENT 
+Apart_RB from_IN these_DT ,_, a_DT 30_CD species_NN mechanism_NN is_VBZ developed_VVN based_VVN on_IN a_DT further_JJR reduction_NN of_IN the_DT skeletal_JJ model_NN constructed_VVN by_IN Pang_NP et_CC al_NP ._SENT 
+[_SYM 31_CD ]_SYM ._SENT 
+The_DT first_JJ step_NN in_IN the_DT mechanism_NN reduction_NN is_VBZ removing_VVG species_NNS and_CC reactions_NNS involved_VVN in_IN the_DT formation_NN to_TO benzene_NN ring_NN ._SENT 
+Based_VVN on_IN the_DT previous_JJ sensitivity_NN study_NN ,_, spatial_JJ and_CC temporal_JJ evolution_NN of_IN Polycyclic_JJ Aromatic_JJ Hydrocarbon_NN (_( PAH_NP )_) formation_NN and_CC acetylene_NN (_( C2H2_JJ )_) are_VBP identical_JJ in_IN cases_NNS with_IN high_JJ flame_NN temperature_NN of_IN around_RB 2700_CD K_NP i._NP e._NP those_DT operating_VVG without_IN engine_NN gas_NN recirculation_NN (_( EGR_NP )_) [_SYM 23_CD ]_SYM ._SENT 
+As_IN such_JJ ,_, C2H2_JJ serves_VVZ as_IN a_DT good_JJ candidate_NN as_IN soot_NN precursor_NN ._SENT 
+Seven_CD species_NNS and_CC twenty-three_NN reactions_NNS involved_VVN in_IN benzene_NN ring_NN formation_NN are_VBP hence_RB removed_VVN ._SENT 
+The_DT second_JJ step_NN is_VBZ implementing_VVG the_DT directed_VVN relation_NN graph_NN method_NN with_IN error_NN propagation_NN method_NN to_TO identify_VV the_DT irrelevant_JJ species_NN [_SYM 32_CD ]_SYM ._SENT 
+The_DT targeted_JJ conditions_NNS include_VVP eight_CD initial_JJ temperatures_NNS (_( 650_CD K_NP ,_, 750_CD K_NP ,_, 850_CD K_NP ,_, 950_CD K_NP ,_, 1050_CD K_NP ,_, 1150_CD K_NP ,_, 1250_CD K_NP and_CC 1350_CD K_NN )_) and_CC three_CD equivalence_NN ratios_NNS (_( 0.5_CD ,_, 1.0_CD and_CC 2.0_CD )_) at_IN an_DT initial_JJ pressure_NN of_IN 41.0_CD bar_NN ._SENT 
+Unimportant_JJ species_NNS and_CC the_DT associated_VVN reactions_NNS are_VBP then_RB eliminated_VVN ._SENT 
+The_DT final_JJ mechanism_NN consists_VVZ of_IN 30_CD species_NNS and_CC 68_CD reactions_NNS ._SENT 
+Comparisons_NNS of_IN ignition_NN delay_NN timings_NNS (_( IDTs_NP )_) generated_VVD using_VVG the_DT 30_CD species_NN mechanism_NN and_CC its_PP$ base_NN counterpart_NN provided_VVN in_IN Fig_NN ._SENT 
+1_LS demonstrate_VVP that_IN the_DT performance_NN of_IN the_DT reduced_VVN model_NN retains_VVZ ,_, although_IN divergence_NN is_VBZ observed_VVN for_IN temperature_NN above_IN 1050_CD K_NN at_IN the_DT lean_JJ condition_NN ._SENT 
+The_DT maximum_JJ relative_JJ difference_NN remains_VVZ below_IN 11.0_CD %_NN for_IN initial_JJ temperatures_NNS of_IN 950_CD K_NN and_CC below_RB at_IN all_DT three_CD equivalence_NN ratios_NNS ._SENT 
+Performance_NN of_IN these_DT four_CD mechanisms_NNS in_IN predicting_VVG IDTs_NNS and_CC flame_NN liftoff_NN lengths_NNS is_VBZ discussed_VVN in_IN Section_NP 3.1.2_CD ,_, by_IN comparing_VVG the_DT associated_VVN simulation_NN results_NNS against_IN optical_JJ measurements_NNS presented_VVN by_IN Pickett_NP and_CC Siebers_NP [_SYM 3_CD ]_SYM ._SENT 
+Fig_NN ._SENT 
+1._CD Calculated_JJ ignition_NN delay_NN times_NNS using_VVG the_DT 30_CD species_NN mechanism_NN and_CC the_DT base_JJ counterpart_NN at_IN equivalence_NN ratios_NNS of_IN (_( a_DT )_) 0.5_NP ,_, (_( b_LS )_) 1.0_CD and_CC (_( c_LS )_) 2.0_CD ._SENT 
+2.2_CD ._SENT 
+CFD_NP submodels_NP Diesel_NP spray_NN combustion_NN simulation_NN in_IN this_DT work_NN is_VBZ performed_VVN using_VVG the_DT CFD_NN commercial_JJ code_NN ,_, STAR-CCM+_JJ version_NN 10_CD [_SYM 33_CD ]_SYM ._SENT 
+The_DT Eulerian–Lagrangian_JJ framework_NN is_VBZ utilised_VVN to_TO solve_VV the_DT two-phase_JJ flow_NN of_IN diesel_JJ spray_NN jet_NN ._SENT 
+Rosin–Rammler_NP is_VBZ applied_VVN to_TO model_VV the_DT fuel_NN droplet_NN size_NN distribution_NN while_IN the_DT Kelvin_NP Helmholtz–Rayleigh_NP Taylor_NP (_( KH–RT_NN )_) is_VBZ implemented_VVN to_TO simulate_VV the_DT secondary_JJ spray_NN breakup_NN ._SENT 
+The_DT KH–RT_JJ model_NN constant_JJ which_WDT governs_VVZ the_DT breakup_NN rate_NN ,_, B1_NN is_VBZ set_VVN to_TO 25._CD This_DT is_VBZ calibrated_VVN based_VVN on_IN the_DT liquid_JJ penetration_NN length_NN (_( LPL_NP )_) of_IN the_DT non-reacting_VVG spray_NN case_NN in_IN the_DT constant_JJ volume_NN chamber_NN ._SENT 
+As_IN such_JJ quantitative_JJ measurement_NN is_VBZ not_RB available_JJ for_IN the_DT marine_JJ test_NN engine_NN setup_NN ,_, the_DT same_JJ B1_JJ value_NN is_VBZ used_VVN in_IN the_DT baseline_JJ setup_NN for_IN the_DT marine_JJ engine_NN simulation_NN ._SENT 
+The_DT effect_NN of_IN this_DT parameter_NN on_IN overall_JJ spray_NN combustion_NN characteristics_NNS is_VBZ then_RB studied_VVN ._SENT 
+In_IN addition_NN ,_, the_DT Ranz–Marshall_NP correlation_NN is_VBZ implemented_VVN to_TO calculate_VV the_DT droplet_NN heat_NN transfer_NN with_IN the_DT surrounding_VVG gas_NN phase_NN ._SENT 
+The_DT diesel_JJ liquid_JJ properties_NNS are_VBP represented_VVN by_IN those_DT of_IN n-tetradecane_NP since_IN the_DT thermo-physical_JJ properties_NNS of_IN this_DT component_NN deviate_NN by_IN only_RB 8_CD %_NN when_WRB compared_VVN to_TO those_DT of_IN diesel_NN ,_, among_IN the_DT fuel_NN range_NN of_IN cyclohexane_NN (_( C6H12_NP )_) to_TO heneicosane_NP (_( C21H44_NP )_) examined_VVD by_IN Lin_NP and_CC Tavlarides_NNS [_SYM 34_CD ]_SYM ._SENT 
+The_DT fuel_NN droplet_NN temperature_NN used_VVN in_IN each_DT case_NN is_VBZ provided_VVN in_IN Table_NN 1._CD Table_NN 1._CD Operating_VVG conditions_NNS and_CC injection_NN profiles_NNS for_IN non-reacting_VVG and_CC reacting_VVG sprays_NNS ._SENT 
+The_DT turbulent_JJ flow_NN is_VBZ modelled_VVN using_VVG the_DT Unsteady_JJ Reynolds_NP Averaged_VVD Navier-Stokes_NNS (_( URANS_NP )_) method_NN in_IN both_DT constant_JJ volume_NN combustion_NN chamber_NN and_CC marine_JJ engine_NN simulations_NNS ._SENT 
+In_IN the_DT former_JJ ,_, the_DT standard_JJ k–ε_NN model_NN is_VBZ used_VVN and_CC the_DT value_NN of_IN C1_NN is_VBZ increased_VVN from_IN 1.44_CD to_TO 1.55_CD according_VVG to_TO its_PP$ approximation_NN for_IN round_JJ jets_NNS [_SYM 23_CD ]_SYM ._SENT 
+On_IN the_DT contrary_NN ,_, Sigurdsson_NP et_CC al_NP ._SENT 
+[_SYM 17_CD ]_SYM found_VVD that_IN standard_JJ k–ε_JJ model_NN is_VBZ not_RB appropriate_JJ to_TO simulate_VV the_DT tangential_JJ velocity_NN profiles_NNS of_IN the_DT uniflow_NN scavenging_VVG process_NN in_IN the_DT present_JJ marine_JJ test_NN engine_NN ._SENT 
+Instead_RB ,_, comparisons_NNS of_IN experimental_JJ and_CC numerical_JJ results_NNS showed_VVD that_IN both_CC the_DT Renormalisation_NP Group_NP (_( RNG_NP )_) k–ε_NP and_CC k–ω_NP Shear_NP Stress_NN Transport_NP (_( SST_NP )_) models_NNS reproduced_VVD the_DT tangential_JJ velocity_NN reasonably_RB well_RB ._SENT 
+As_IN the_DT RNG_NP k–ε_NN model_NN is_VBZ by_IN default_NN not_RB available_JJ in_IN the_DT code_NN ,_, the_DT k–ω_NP SST_NP model_NN is_VBZ applied_VVN in_IN the_DT marine_JJ engine_NN simulations_NNS ._SENT 
+The_DT well-stirred_JJ reactor_NN model_NN is_VBZ implemented_VVN ,_, by_IN which_WDT the_DT sub-grid_JJ turbulence-chemistry_NN interaction_NN effects_NNS are_VBP not_RB considered_VVN ._SENT 
+Chemical_NN mechanisms_NNS are_VBP incorporated_VVN into_IN the_DT CFD_NN code_NN through_IN the_DT implementation_NN of_IN DARS-CFD_NN toolkit_NN which_WDT manages_VVZ the_DT complex_JJ chemical_JJ reactions_NNS [_SYM 33_CD ]_SYM ._SENT 
+Soot_NN models_NNS which_WDT are_VBP more_RBR computationally_RB affordable_JJ and_CC broadly_RB applied_VVN in_IN CFD_NN simulations_NNS and_CC industrial-level_JJ design_NN of_IN diesel_JJ engines_NNS are_VBP of_IN main_JJ interests_NNS here_RB ._SENT 
+Two_CD transport_NN equations_NNS are_VBP solved_VVN for_IN soot_NN mass_NN fraction_NN and_CC soot_NN particle_NN number_NN density_NN in_IN the_DT model_NN [_SYM 35_CD ]_SYM ._SENT 
+Detailed_JJ descriptions_NNS of_IN the_DT model_NN can_MD be_VB found_VVN in_IN the_DT previous_JJ work_NN [_SYM 23_CD ]_SYM ,_, [_SYM 25_CD ]_SYM ._SENT 
+Here_RB ,_, only_RB the_DT expressions_NNS for_IN the_DT soot_NN surface_NN growth_NN rate_NN ,_, ωsg_NN (_( in_IN the_DT unit_NN of_IN kmol_NP m−3_NP s−1_NN )_) are_VBP provided_VVN ._SENT 
+@（1）_NP @（2）_NP Here_RB ,_, [_SYM C2H2_NP ]_SYM is_VBZ the_DT molar_JJ concentration_NN of_IN acetylene_NN ._SENT 
+T_NN and_CC P_NN denote_VVP the_DT local_JJ temperature_NN and_CC pressure_NN ,_, respectively_RB ._SENT 
+Ssoot_NN is_VBZ the_DT soot_NN specific_JJ surface_NN area_NN ._SENT 
+The_DT subscripts_NNS conv_NN and_CC rev_NN in_IN Eqs_NP ._SENT 
+(_( 1_CD )_) ,_, (_( 2_LS )_) represent_VV the_DT conventional_JJ and_CC revised_VVN surface_NN growth_NN submodels_NNS ,_, respectively_RB ._SENT 
+Lastly_RB ,_, Pref_NP is_VBZ the_DT reference_NN pressure_NN which_WDT is_VBZ set_VVN to_TO 1.0123_CD bar_NN ._SENT 
+Development_NN and_CC validation_NN of_IN the_DT revised_VVN model_NN was_VBD carried_VVN out_RP in_IN the_DT previous_JJ work_NN using_VVG an_DT open-source_NN CFD_NN code_NN [_SYM 23_CD ]_SYM ._SENT 
+In_IN the_DT present_JJ work_NN ,_, the_DT reaction_NN rates_NNS of_IN the_DT surface_NN growth_NN process_NN described_VVN by_IN Eqs_NP ._SENT 
+(_( 1_CD )_) ,_, (_( 2_LS )_) are_VBP implemented_VVN using_VVG user-defined_JJ field_NN functions_NNS ._SENT 
+Radiation_NN modelling_VVG is_VBZ neglected_VVN in_IN the_DT constant_JJ volume_NN chamber_NN simulation_NN as_IN experimental_JJ measurement_NN revealed_VVD that_IN the_DT radiative_JJ heat_NN loss_NN is_VBZ not_RB significant_JJ in_IN this_DT setup_NN [_SYM 36_CD ]_SYM ._SENT 
+In_IN the_DT marine_JJ diesel_NN engine_NN test_NN case_NN ,_, greater_JJR amount_NN of_IN fuel_NN is_VBZ delivered_VVN through_IN a_DT larger_JJR nozzle_NN diameter_NN at_IN lower_JJR injection_NN pressure_NN ._SENT 
+In_IN addition_NN ,_, the_DT flame_NN size_NN is_VBZ expected_VVN to_TO be_VB much_RB larger_JJR due_JJ to_TO the_DT larger_JJR nozzle_NN diameter_NN ._SENT 
+Furthermore_RB ,_, no_DT EGR_NN is_VBZ considered_VVN and_CC the_DT engine_NN operates_VVZ at_IN full_JJ load_NN condition_NN in_IN the_DT selected_JJ test_NN case_NN ._SENT 
+The_DT soot_NN formation_NN rate_NN is_VBZ expected_VVN to_TO be_VB higher_JJR and_CC may_MD lead_VV to_TO greater_JJR soot_NN radiative_JJ heat_NN loss_NN ._SENT 
+Soot_NN radiative_JJ heat_NN loss_NN calculation_NN is_VBZ hence_RB performed_VVN using_VVG the_DT discrete_JJ ordinates_NNS method_NN (_( DOM_NN )_) ._SENT 
+The_DT Planck_NP mean_JJ absorption_NN coefficient_NN ,_, κsoot_NN (_( in_IN the_DT unit_NN of_IN m−1_JJ )_) as_RB shown_VVN in_IN Eq_NP ._SENT 
+(_( 3_CD )_) is_VBZ used_VVN to_TO define_VV the_DT soot_NN absorption_NN coefficient_NN [_SYM 37_CD ]_SYM ,_, [_SYM 38_CD ]_SYM ,_, [_SYM 39_CD ]_SYM ._SENT 
+@（3）_JJ T_NN is_VBZ the_DT local_JJ temperature_NN and_CC C0_NN is_VBZ a_DT constant_JJ set_NN to_TO 1862_CD in_IN the_DT baseline_JJ setup_NN [_SYM 37_CD ]_SYM ._SENT 
+Soot_NN particles_NNS are_VBP generally_RB small_JJ and_CC the_DT scattering_NN process_NN is_VBZ negligible_JJ ._SENT 
+The_DT scattering_NN coefficient_NN is_VBZ hence_RB assumed_VVN equal_JJ to_TO 0._CD Gas_NN radiation_NN modelling_VVG is_VBZ deliberately_RB not_RB considered_VVN such_JJ that_IN the_DT effects_NNS from_IN soot_NN radiation_NN alone_RB can_MD be_VB identified_VVN ._SENT 
+Wall_NP temperatures_NNS of_IN cylinder_NN head_NN ,_, valve_NN and_CC piston_NN are_VBP fixed_VVN at_IN 523_CD K_NP ,_, 873_CD K_NP and_CC 673_CD K_NN ,_, respectively_RB [_SYM 17_CD ]_SYM ._SENT 
+The_DT liner_NN temperature_NN is_VBZ set_VVN to_TO 423_CD K_NN which_WDT is_VBZ an_DT averaged_VVN value_NN of_IN the_DT linear_JJ profile_NN measured_VVN experimentally_RB and_CC used_VVN by_IN Sigurdsson_NP et_CC al_NP ._SENT 
+[_SYM 17_CD ]_SYM ._SENT 
+All_PDT the_DT walls_NNS are_VBP assumed_VVN grey_NN with_IN emissivity_NN equal_JJ to_TO 0.8_CD ._SENT 
+The_DT order_NN of_IN the_DT DOM_NN approximation_NN is_VBZ listed_VVN as_IN an_DT Sn_NP approximation_NN ._SENT 
+The_DT number_NN of_IN rays_NNS is_VBZ set_VVN to_TO S4_JJ approximation_NN in_IN the_DT present_JJ work_NN ._SENT 
+Based_VVN on_IN a_DT sensitivity_NN study_NN ,_, this_DT configuration_NN produces_VVZ results_NNS which_WDT are_VBP sufficiently_RB close_JJ to_TO that_DT of_IN higher_JJR number_NN of_IN rays_NNS in_IN terms_NNS of_IN heat_NN transfer_NN as_RB well_RB as_IN formation_NN of_IN NO_DT and_CC soot_NN ._SENT 
+2.3_CD ._SENT 
+Initial_JJ condition_NN and_CC mesh_NN configuration_NN 2.3.1_CD ._SENT 
+Constant_JJ volume_NN chamber_NN Model_NP validation_NN in_IN this_DT work_NN uses_VVZ experimental_JJ measurements_NNS of_IN transient_JJ diesel_JJ sprays_NNS in_IN a_DT constant_JJ volume_NN chamber_NN ,_, where_WRB the_DT injector_NN is_VBZ mounted_VVN at_IN the_DT centre_NN of_IN the_DT chamber_NN [_SYM 3_CD ]_SYM ,_, [_SYM 4_CD ]_SYM ._SENT 
+Operating_VVG conditions_NNS and_CC the_DT corresponding_JJ injection_NN profiles_NNS of_IN the_DT test_NN cases_NNS are_VBP summarised_VVN in_IN Table_NN 1._CD In_IN the_DT non-reacting_VVG spray_NN test_NN case_NN ,_, O2_JJ mole_NN fraction_NN is_VBZ set_VVN to_TO zero_CD ._SENT 
+The_DT ambient_JJ temperature_NN and_CC density_NN in_IN the_DT non-reacting_VVG case_NN are_VBP fixed_VVN at_IN 900_CD K_NN and_CC 22.8_CD kg/m3_NN ,_, respectively_RB [_SYM 4_CD ]_SYM ._SENT 
+As_IN depicted_VVN in_IN Table_NN 1_CD ,_, the_DT ambient_JJ temperature_NN of_IN 900_CD K_NN is_VBZ close_JJ to_TO that_DT in_IN the_DT reacting_VVG cases_NNS while_IN the_DT ambient_JJ density_NN of_IN 22.8_CD kg/m3_NN in_IN this_DT test_NN case_NN is_VBZ an_DT intermediate_JJ value_NN among_IN those_DT in_IN reacting_VVG test_NN cases_NNS ._SENT 
+Likewise_RB the_DT initial_JJ conditions_NNS used_VVN in_IN the_DT experiment_NN [_SYM 3_CD ]_SYM ,_, the_DT ambient_JJ temperature_NN is_VBZ fixed_VVN at_IN 950_CD K_NN while_IN the_DT ambient_JJ densities_NNS are_VBP varied_VVN from_IN 7.3_CD ,_, 14.8_CD to_TO 30.0_CD kg/m3_NN ._SENT 
+This_DT corresponds_VVZ to_TO ambient_JJ pressure_NN of_IN 18.6_CD ,_, 38.6_CD and_CC 80.0_CD bar_NN ,_, respectively_RB ._SENT 
+A_DT numerical_JJ experiment_NN is_VBZ also_RB carried_VVN out_RP in_IN which_WDT the_DT initial_JJ pressure_NN is_VBZ further_RBR increased_VVN to_TO 150.0_CD bar_NN ,_, with_IN the_DT aim_NN to_TO imitate_VV the_DT pressure_NN level_NN in_IN the_DT marine_JJ diesel_NN engine_NN ._SENT 
+For_IN all_PDT the_DT reacting_VVG and_CC non-reacting_VVG cases_NNS ,_, the_DT initial_JJ velocity_NN is_VBZ set_VVN to_TO zero_CD ._SENT 
+The_DT initial_JJ turbulence_NN kinetic_JJ energy_NN is_VBZ set_VVN to_TO 0.735_CD m2/s2_NN ,_, which_WDT is_VBZ based_VVN on_IN an_DT estimation_NN of_IN the_DT experiment_NN ,_, while_IN the_DT initial_JJ turbulence_NN dissipation_NN rate_NN is_VBZ set_VVN to_TO 5.67_CD m2/s3_NN [_SYM 23_CD ]_SYM ._SENT 
+A_DT 2-D_JJ axisymmetric_JJ mesh_NN is_VBZ employed_VVN here_RB in_IN which_WDT the_DT axial_JJ length_NN is_VBZ adjusted_VVN to_TO reproduce_VV the_DT actual_JJ combustion_NN chamber_NN volume_NN which_WDT has_VHZ a_DT cubical_JJ shape_NN with_IN side_NN lengths_NNS of_IN 108_CD mm_NP ._SENT 
+A_DT coarser_JJR mesh_NN up_RP to_TO 4.0_CD mm_NP is_VBZ used_VVN outside_IN the_DT spray_NN combustion_NN region_NN in_IN order_NN to_TO reduce_VV the_DT computational_JJ cost_NN while_IN a_DT cell_NN size_NN of_IN 0.25_CD mm_NP is_VBZ used_VVN for_IN both_DT radial_JJ and_CC axial_JJ directions_NNS within_IN the_DT spray_NN combustion_NN region_NN ._SENT 
+Ignition_NN and_CC combustion_NN occur_VVP at_IN a_DT further_RBR upstream_JJ location_NN towards_IN the_DT injection_NN tip_NN in_IN test_NN cases_NNS at_IN ambient_JJ pressure_NN of_IN 38.6_CD bar_NN and_CC above_JJ ._SENT 
+For_IN these_DT cases_NNS ,_, the_DT 0.25_CD mm_NP ×_NP 0.25_CD mm_NP grid_NN is_VBZ constructed_VVN up_RP to_TO 70_CD mm_NP from_IN the_DT injection_NN tip_NN ._SENT 
+This_DT is_VBZ shown_VVN in_IN Fig_NN ._SENT 
+2(a_NP )_) ._SENT 
+The_DT resulting_VVG computational_JJ grid_NN has_VHZ 23,030_CD cells_NNS ._SENT 
+At_IN low_JJ ambient_JJ pressure_NN of_IN 18.6_CD bar_NN ,_, the_DT ignition_NN occurs_VVZ later_RBR and_CC at_IN a_DT further_RBR downstream_JJ location_NN ._SENT 
+The_DT 0.25_CD mm_NP ×_NP 0.25_CD mm_NP region_NN is_VBZ hence_RB extended_VVN along_IN the_DT spray_NN axis_NN to_TO ensure_VV the_DT cell_NN size_NN is_VBZ sufficiently_RB fine_JJ to_TO capture_VV the_DT combustion_NN and_CC flame_NN propagation_NN ._SENT 
+The_DT number_NN of_IN cells_NNS increases_NNS to_TO 38,640_CD ._SENT 
+The_DT time-step_JJ size_NN is_VBZ fixed_VVN at_IN 0.4_CD μs_NNS and_CC the_DT associated_JJ ,_, maximum_JJ local_JJ Courant_NP number_NN is_VBZ found_VVN to_TO be_VB lower_JJR than_IN 0.4_CD ._SENT 
+Fig_NN ._SENT 
+2._CD Cross_NP sections_NNS of_IN computational_JJ grids_NNS for_IN (_( a_DT )_) constant_JJ volume_NN chamber_NN and_CC (_( b_LS )_) marine_JJ diesel_NN engine_NN ._SENT 
+2.3.2_CD ._SENT 
+Marine_JJ diesel_JJ engine_NN The_DT simulated_JJ engine_NN is_VBZ the_DT MAN_NN Diesel_NP &_CC Turbo_NP 4T50ME-X_NP research_NN engine_NN ._SENT 
+Details_NNS of_IN the_DT engine_NN specification_NN were_VBD provided_VVN by_IN Sigurdsson_NP et_CC al_NP ._SENT 
+[_SYM 17_CD ]_SYM ._SENT 
+The_DT simulations_NNS performed_VVD here_RB consider_VV only_RB one_CD engine_NN cylinder_NN and_CC initiate_VV from_IN Top_JJ Dead_NP Centre_NP (_( TDC_NP )_) ._SENT 
+The_DT in-cylinder_NN temperature_NN and_CC pressure_NN at_IN TDC_NN in_IN the_DT current_JJ test_NN case_NN are_VBP set_VVN to_TO 924_CD K_NN and_CC 152.9_CD bar_NN ,_, respectively_RB ,_, similar_JJ to_TO those_DT estimated_VVN in_IN the_DT experiment_NN ._SENT 
+The_DT initial_JJ flow_NN field_NN and_CC turbulence_NN intensity_NN are_VBP mapped_VVN from_IN the_DT previous_JJ work_NN [_SYM 17_CD ]_SYM ._SENT 
+The_DT in-cylinder_NP swirl_NN motion_NN at_IN TDC_NP corresponds_VVZ approximately_RB to_TO a_DT solid_JJ body_NN rotation_NN with_IN 21_CD m/s_NNS near_IN the_DT wall_NN and_CC a_DT no-slip_NN condition_NN is_VBZ applied_VVN at_IN each_DT wall_NN boundary_NN ._SENT 
+The_DT turbulent_JJ kinetic_JJ energy_NN has_VHZ a_DT maximum_JJ value_NN of_IN 10_CD m2/s2_NN at_IN the_DT centre_NN of_IN the_DT cylinder_NN and_CC gradually_RB decreases_VVZ to_TO 2.35_CD m2/s2_NN for_IN cells_NNS adjacent_JJ to_TO the_DT walls_NNS ._SENT 
+On_IN the_DT other_JJ hand_NN ,_, the_DT specific_JJ dissipation_NN rate_NN has_VHZ a_DT rather_RB uniform_JJ value_NN of_IN 299_CD s−1_NN throughout_IN the_DT bulk_JJ gas_NN region_NN and_CC increases_VVZ exponentially_RB to_TO a_DT higher_JJR value_NN of_IN 69,095_CD s−1_NN near_IN the_DT walls_NNS ._SENT 
+The_DT engine_NN speed_NN in_IN this_DT case_NN is_VBZ 123_CD rev/min_NN and_CC a_DT sinusoidal_JJ function_NN is_VBZ used_VVN to_TO define_VV the_DT movement_NN of_IN the_DT piston_NN during_IN compression/expansion_NN ._SENT 
+Two_CD injectors_NNS are_VBP fitted_VVN at_IN each_DT side_NN in_IN the_DT cylinder_NN and_CC each_DT of_IN the_DT injector_NN consists_VVZ of_IN four_CD nozzle_NN holes_NNS with_IN diameter_NN of_IN 1.05_CD mm_NP ._SENT 
+The_DT symmetry_NN imposed_VVN by_IN the_DT two_CD identical_JJ injectors_NNS allows_VVZ a_DT 180°_JJ sector_NN mesh_NN to_TO be_VB used_VVN to_TO represent_VV half_NN of_IN the_DT combustion_NN chamber_NN ._SENT 
+The_DT 180°_JJ section_NN of_IN the_DT combustion_NN chamber_NN provides_VVZ sufficient_JJ domain_NN space_NN to_TO resolve_VV the_DT injection/combustion_NN process_NN while_IN retaining_VVG high_JJ level_NN of_IN computational_JJ efficiency_NN ._SENT 
+For_IN simplicity_NN ,_, the_DT piston_NN ,_, cylinder_NN head_NN and_CC exhaust_VV valve_NN geometries_NNS are_VBP modelled_VVN using_VVG plane_NN surfaces_VVZ with_IN sharp_JJ edges_NNS ._SENT 
+However_RB ,_, care_NN is_VBZ taken_VVN ,_, to_TO ensure_VV that_IN the_DT compression_NN volume_NN and_CC the_DT effective_JJ flow_NN areas_NNS in_IN the_DT model_NN are_VBP the_DT same_JJ as_RB in_IN the_DT physical_JJ engine_NN [_SYM 17_CD ]_SYM ._SENT 
+Similar_JJ to_TO the_DT mesh_NN configuration_NN used_VVN in_IN the_DT constant_JJ volume_NN chamber_NN ,_, the_DT cell_NN at_IN the_DT vicinity_NN of_IN spray_NN combustion_NN region_NN is_VBZ locally_RB refined_VVN ._SENT 
+For_IN the_DT mesh_NN at_IN TDC_NP ,_, the_DT minimum_JJ isotropic_JJ cell_NN size_NN is_VBZ 2.5_CD mm_NP at_IN the_DT vicinity_NN of_IN the_DT injection_NN tip_NN ._SENT 
+Otherwise_RB ,_, a_DT larger_JJR cell_NN size_NN of_IN 5_CD mm_NP is_VBZ used_VVN ._SENT 
+Towards_IN each_DT wall_NN boundary_NN ,_, the_DT mesh_NN resolution_NN is_VBZ designed_VVN to_TO be_VB finer_JJR in_IN an_DT exponential_JJ manner_NN in_IN order_NN to_TO comply_VV with_IN the_DT required_VVN y+_JJ values_NNS for_IN the_DT wall_NN treatment_NN of_IN turbulence_NN modelling_VVG [_SYM 17_CD ]_SYM ._SENT 
+Cells_NNS adjacent_JJ to_TO each_DT wall_NN have_VH a_DT thickness_NN of_IN approximately_RB 5.0_CD ×_NN 10−3_NP mm_NP ._SENT 
+The_DT final_JJ computational_JJ grid_NN consists_VVZ of_IN approximately_RB 290,000_CD cells_NNS ._SENT 
+Cross_NP sections_NNS of_IN the_DT grid_NN from_IN top_NN and_CC side_NN views_NNS can_MD be_VB found_VVN in_IN Fig_NN ._SENT 
+2(b_NP )_) ._SENT 
+The_DT time-step_JJ size_NN is_VBZ fixed_VVN at_IN 4.0_CD μs_NNS in_IN the_DT baseline_NN setup_NN ._SENT 
+In_IN general_NN ,_, the_DT maximum_JJ Courant_NP number_NN is_VBZ found_VVN to_TO retain_VV below_IN 0.4_CD ,_, although_IN there_EX are_VBP spikes_NNS which_WDT reach_VVP 0.65_CD ._SENT 
+A_DT sensitivity_NN study_NN is_VBZ performed_VVN in_IN Section_NP 4.1.1_CD to_TO evaluate_VV the_DT effects_NNS of_IN spatial_JJ and_CC temporal_JJ resolution_NN on_IN the_DT numerical_JJ results_NNS ._SENT 
+<Section> 3._CD Constant_NP volume_NN chamber_NN simulations_NNS </Section> The_DT first_JJ part_NN of_IN this_DT section_NN demonstrates_VVZ the_DT comparisons_NNS of_IN CFD_NN simulation_NN results_NNS against_IN experimental_JJ liquid_NN and_CC vapour_NN penetration_NN lengths_NNS ._SENT 
+It_PP is_VBZ followed_VVN by_IN the_DT validation_NN of_IN the_DT calculated_JJ IDTs_NNS ,_, liftoff_NN lengths_NNS and_CC averaged_VVD SVF_NN of_IN reacting_VVG sprays_NNS using_VVG measured_VVN data_NNS ._SENT 
+The_DT simulated_JJ fuel_NN penetration_NN length_NN ,_, IDT_NP and_CC liftoff_NN length_NN are_VBP defined_VVN by_IN the_DT same_JJ criteria_NNS used_VVN in_IN the_DT previous_JJ work_NN [_SYM 23_CD ]_SYM ._SENT 
+Effects_NNS of_IN ambient_JJ pressure_NN on_IN to_TO flame_NN structure_NN and_CC soot_NN characteristics_NNS are_VBP then_RB studied_VVN ._SENT 
+3.1_CD ._SENT 
+Numerical_JJ model_NN validation_NN 3.1.1_CD ._SENT 
+Liquid_NN and_CC vapour_NN penetration_NN lengths_NNS In_IN the_DT present_JJ study_NN ,_, it_PP is_VBZ noticed_VVN that_IN when_WRB a_DT coarser_JJR mesh_NN is_VBZ used_VVN ,_, the_DT C1_JJ value_NN of_IN the_DT standard_JJ k–ε_NN model_NN has_VHZ to_TO be_VB increased_VVN to_TO a_DT higher_JJR value_NN in_IN order_NN to_TO match_VV the_DT experimental_JJ vapour_NN penetration_NN length_NN ._SENT 
+In_IN contrast_NN ,_, when_WRB a_DT finer_JJR mesh_NN is_VBZ used_VVN ,_, the_DT value_NN which_WDT is_VBZ closer_JJR to_TO the_DT default_NN value_NN of_IN 1.44_CD can_MD be_VB implemented_VVN ._SENT 
+However_RB ,_, the_DT number_NN of_IN cells_NNS increases_NNS and_CC the_DT associated_VVN computational_JJ runtime_NN increases_NNS unnecessarily_RB ._SENT 
+The_DT cell_NN size_NN within_IN the_DT spray_NN combustion_NN region_NN is_VBZ thus_RB fixed_VVN at_IN 0.25_CD mm_NP for_IN both_DT radial_JJ and_CC axial_JJ direction_NN ._SENT 
+Implementation_NN of_IN this_DT spatial_JJ resolution_NN produces_VVZ results_NNS which_WDT are_VBP close_JJ to_TO those_DT calculated_VVN using_VVG a_DT cell_NN size_NN of_IN 0.125_CD mm_NP ._SENT 
+This_DT cell_NN size_NN also_RB corresponds_VVZ to_TO the_DT minimum_JJ cell_NN size_NN recommended_VVN by_IN the_DT Engine_NP Combustion_NP Network_NP [_SYM 40_CD ]_SYM ._SENT 
+Comparisons_NNS shown_VVN in_IN Fig_NN ._SENT 
+3(a_NP )_) reveal_VVP that_IN the_DT numerical_JJ model_NN reproduces_VVZ the_DT experimental_JJ liquid_NN and_CC vapour_NN penetration_NN lengths_NNS reasonably_RB well_RB ._SENT 
+Although_IN both_DT penetration_NN lengths_NNS show_VVP minor_JJ discrepancies_NNS in_IN the_DT first_JJ 0.5_CD ms_NNS ,_, the_DT simulated_JJ and_CC experimental_JJ results_NNS agree_VVP with_IN each_DT other_JJ at_IN quasi-steady_JJ state_NN ._SENT 
+Fig_NN ._SENT 
+3._CD Comparisons_NNS of_IN experimental_JJ measurement_NN and_CC simulated_JJ (_( a_DT )_) liquid_NN and_CC vapour_NN fuel_NN penetration_NN lengths_NNS as_RB well_RB as_IN (_( b_LS )_) ignition_NN delay_NN times_NNS and_CC (_( c_LS )_) liftoff_NN lengths_NNS using_VVG various_JJ n-heptane_NN mechanisms_NNS at_IN different_JJ ambient_JJ pressure_NN levels_NNS ._SENT 
+3.1.2_CD ._SENT 
+Ignition_NN delay_NN time_NN and_CC flame_NN liftoff_NN length_NN As_IN seen_VVN in_IN Fig_NN ._SENT 
+3(b_NP )_) ,_, the_DT IDTs_NNS are_VBP reasonably_RB well_RB predicted_VVN with_IN the_DT use_NN of_IN the_DT all_RB four_CD mechanisms_NNS ._SENT 
+The_DT maximum_JJ relative_JJ difference_NN remains_VVZ below_IN 33_CD %_NN as_IN compared_VVN to_TO the_DT experimental_JJ data_NNS ,_, apart_RB from_IN that_DT calculated_VVN using_VVG the_DT 29_CD species_NN mechanism_NN for_IN the_DT 18.6_CD bar_NN condition_NN ._SENT 
+IDT_NP in_IN the_DT 18.6_CD bar_NN case_NN calculated_VVD using_VVG the_DT 29_CD species_NN mechanism_NN is_VBZ more_JJR than_IN twofold_RB greater_JJR as_IN compared_VVN to_TO the_DT measurement_NN ._SENT 
+Due_JJ to_TO the_DT overestimated_VVN IDT_NP ,_, the_DT flame_NN stabilises_VVZ at_IN a_DT further_RBR downstream_JJ location_NN ,_, yielding_VVG a_DT relatively_RB long_JJ liftoff_NN length_NN ,_, as_RB illustrated_VVN in_IN Fig_NN ._SENT 
+3(c_NP )_) ._SENT 
+This_DT is_VBZ partially_RB attributed_VVN to_TO the_DT implementation_NN of_IN a_DT surrogate_JJ single_JJ step_NN reaction_NN R1_JJ to_TO represent_VV the_DT cool-flame_JJ reactions_NNS ._SENT 
+Cool-flame_JJ reactions_NNS are_VBP originally_RB described_VVN by_IN three_CD reaction_NN classes_NNS of_IN heptylperoxy_JJ radical_JJ isomerisation_NN (_( C7H15O2double_NP bondC7H14OOH_NP )_) ,_, addition_NN of_IN C7H14OOH_NN to_TO O2_NN and_CC isomerisation_NN of_IN O2C7H14OOH_NP ._SENT 
+Also_RB ,_, a_DT pressure_NN dependent_JJ reaction_NN as_IN expressed_VVN by_IN R2_NP was_VBD absent_JJ from_IN the_DT 29_CD species_NNS mechanism_NN [_SYM 41_CD ]_SYM ._SENT 
+@（R1）_NP @（R2）_NP At_IN 18.6_CD bar_NN ,_, liftoff_NN lengths_NNS predicted_VVD by_IN the_DT 30_CD and_CC 44_CD species_NN mechanisms_NNS are_VBP 21_CD and_CC 11_CD mm_NP ,_, respectively_RB shorter_JJR than_IN the_DT experimental_JJ value_NN ._SENT 
+Nonetheless_RB ,_, both_CC of_IN these_DT mechanisms_NNS calculate_VVP accurate_JJ liftoff_NN lengths_NNS at_IN higher_JJR ambient_JJ pressure_NN levels_NNS ._SENT 
+Liftoff_NN lengths_NNS calculated_VVN using_VVG the_DT 68_CD species_NN mechanism_NN show_VVP overall_RB the_DT best_JJS agreement_NN ,_, although_IN they_PP are_VBP consistently_RB overestimated_VVN ._SENT 
+Experimental_JJ IDT_NP and_CC liftoff_NN length_NN are_VBP not_RB available_JJ for_IN the_DT 150.0_CD bar_NN test_NN case_NN ._SENT 
+Comparisons_NNS among_IN the_DT numerical_JJ results_NNS show_VVP that_IN the_DT IDTs_NNS and_CC flame_NN liftoff_NN lengths_NNS do_VVP not_RB vary_VV significantly_RB from_IN one_CD another_DT at_IN such_JJ high_JJ pressure_NN ._SENT 
+While_IN the_DT 29_CD species_NN mechanism_NN has_VHZ the_DT smallest_JJS chemistry_NN size_NN ,_, this_DT mechanism_NN does_VVZ not_RB consist_VV of_IN C2H2_NN which_WDT is_VBZ essential_JJ for_IN soot_NN formation_NN modelling_VVG ._SENT 
+Implementation_NN of_IN the_DT larger_JJR two_CD mechanisms_NNS ,_, on_IN the_DT other_JJ hand_NN increases_VVZ the_DT computational_JJ cost_NN unnecessarily_RB ._SENT 
+For_IN example_NN ,_, computational_JJ runtime_NN required_VVN by_IN the_DT 44_CD and_CC 68_CD species_NN mechanisms_NNS are_VBP 1.5-_CD and_CC 2.2-fold_NN longer_JJR than_IN that_DT of_IN the_DT 30_CD species_NN mechanism_NN in_IN the_DT 84_CD bar_NN test_NN case_NN ._SENT 
+Moreover_RB ,_, runtime_RB required_VVN by_IN the_DT 29_CD and_CC 30_CD species_NN mechanisms_NNS has_VHZ a_DT difference_NN of_IN only_RB 10_CD %_NN ._SENT 
+This_DT shows_VVZ that_IN the_DT use_NN of_IN the_DT 30_CD species_NN mechanism_NN achieves_VVZ a_DT balance_NN between_IN computational_JJ efficiency_NN and_CC accuracy_NN ._SENT 
+This_DT mechanism_NN is_VBZ henceforth_RB selected_VVN for_IN the_DT subsequent_JJ soot_NN modelling_VVG and_CC marine_JJ engine_NN simulations_NNS ._SENT 
+3.1.3_CD ._SENT 
+Averaged_VVN soot_NN volume_NN fraction_NN Performance_NN of_IN both_DT conventional_JJ and_CC revised_VVN multi-step_JJ soot_NN models_NNS is_VBZ evaluated_VVN on_IN the_DT basis_NN of_IN averaged_VVN SVF_NN at_IN several_JJ axial_JJ locations_NNS along_IN the_DT spray_NN axis_NN ._SENT 
+The_DT experimental_JJ data_NN also_RB serves_VVZ as_IN a_DT reference_NN to_TO calibrate_VV the_DT soot_NN model_NN constant_JJ prior_RB to_TO simulating_VVG the_DT SVF_NN in_IN the_DT test_NN cases_NNS where_WRB the_DT in-situ_NP measurements_NNS are_VBP not_RB available_JJ ._SENT 
+The_DT averaged_VVN SVF_NN at_IN each_DT axial_JJ position_NN is_VBZ calculated_VVN using_VVG Eq_NP ._SENT 
+(_( 4_CD )_) ,_, @（4）_NN where_WRB rs_NN is_VBZ the_DT radius_NN of_IN the_DT soot_NN cloud_NN at_IN different_JJ axial_JJ locations_NNS ._SENT 
+This_DT corresponds_VVZ with_IN the_DT definition_NN for_IN the_DT experimental_JJ averaged_VVD SVF_NN [_SYM 3_CD ]_SYM ._SENT 
+As_IN shown_VVN in_IN Fig_NN ._SENT 
+4(a_NP )_) ,_, no_DT soot_NN formation_NN is_VBZ observed_VVN in_IN the_DT 18.6_CD bar_NN experimental_JJ case_NN ._SENT 
+However_RB ,_, the_DT conventional_JJ multi-step_NN soot_NN model_NN overestimates_VVZ the_DT soot_NN production_NN at_IN this_DT ambient_JJ pressure_NN ._SENT 
+It_PP is_VBZ noticeable_JJ that_IN ,_, the_DT overprediction_NN of_IN SVF_NP is_VBZ not_RB entirely_RB due_JJ to_TO the_DT underestimated_VVN liftoff_NN length_NN by_IN the_DT 30_CD species_NN mechanism_NN ._SENT 
+Fig_NN ._SENT 
+4(a_NP )_) also_RB includes_VVZ the_DT averaged_VVN SVF_NN calculated_VVD using_VVG the_DT combination_NN of_IN 68_CD species_NN mechanism_NN and_CC conventional_JJ multi-step_JJ soot_NN model_NN ._SENT 
+The_DT predicted_VVN soot_NN formation_NN remains_VVZ noticeable_JJ ._SENT 
+On_IN the_DT other_JJ hand_NN ,_, the_DT revised_VVN soot_NN multi-step_NN model_NN predicts_VVZ averaged_VVN SVF_NN values_NNS of_IN lower_JJR than_IN 1_CD ppm_NN ,_, regardless_RB the_DT use_NN of_IN the_DT 30_CD or_CC 68_CD species_NN mechanism_NN ._SENT 
+Fig_NN ._SENT 
+4._CD Comparisons_NNS of_IN experimental_JJ measurement_NN and_CC averaged_VVD soot_NN volume_NN fraction_NN using_VVG different_JJ numerical_JJ model_NN configurations_NNS at_IN ambient_JJ pressure_NN of_IN (_( a_DT )_) 18.6_NP ,_, (_( b_LS )_) 38.7_NP ,_, (_( c_LS )_) 80.0_CD and_CC (_( d_LS )_) 150.0_CD bar_NN ._SENT 
+Lines_NNS with_IN markers_NNS in_IN this_DT figure_NN (_( a_DT )_) are_VBP results_NNS calculated_VVN using_VVG the_DT 68_CD species_NN mechanism_NN ._SENT 
+As_IN illustrated_VVN by_IN Fig_NN ._SENT 
+4(b_NP )_) and_CC (_( c_LS )_) ,_, the_DT conventional_JJ multi-step_NN soot_NN model_NN predicts_VVZ averaged_VVN SVF_NN value_NN in_IN the_DT 38.6_CD bar_NN case_NN but_CC underestimates_VVZ that_IN in_IN the_DT 80.0_CD bar_NN case_NN ._SENT 
+As_IN a_DT result_NN ,_, the_DT associated_JJ peak_NN averaged_VVD SVF_NN merely_RB increases_VVZ by_IN a_DT factor_NN of_IN two_CD ._SENT 
+This_DT increment_NN is_VBZ much_RB lower_JJR than_IN that_DT recorded_VVN in_IN the_DT experiment_NN ,_, where_WRB the_DT peak_NN averaged_VVD SVF_NN in_IN the_DT 80.0_CD bar_NN case_NN is_VBZ approximately_RB sixfold_RB higher_JJR ._SENT 
+Rise_NN of_IN the_DT peak_NN averaged_VVD SVF_NN calculated_VVN by_IN the_DT revised_VVN soot_NN model_NN is_VBZ approximately_RB eightfold_JJ ,_, which_WDT is_VBZ closer_JJR to_TO the_DT experimental_JJ observation_NN ._SENT 
+The_DT overestimation_NN of_IN averaged_VVN SVF_NN is_VBZ attributed_VVN to_TO narrower_JJR soot_NN cloud_NN in_IN cases_NNS with_IN higher_JJR ambient_JJ pressure_NN [_SYM 23_CD ]_SYM ._SENT 
+As_IN such_JJ ,_, the_DT integrated_JJ soot_NN area_NN is_VBZ averaged_VVN by_IN a_DT shorter_JJR radius_NN ,_, yielding_VVG a_DT higher_JJR averaged_VVN SVF_NN ._SENT 
+It_PP is_VBZ also_RB noticed_VVN that_IN absolute_JJ SVF_NN values_NNS are_VBP not_RB accurately_RB predicted_VVD using_VVG the_DT default_NN model_NN constant_JJ values_NNS ._SENT 
+This_DT may_MD be_VB expected_VVN since_IN the_DT model_JJ constant_JJ values_NNS were_VBD calibrated_VVN to_TO simulate_VV SVF_NN in_IN n-heptane_JJ spray_NN combustion_NN ._SENT 
+Here_RB ,_, a_DT parametric_JJ study_NN is_VBZ carried_VVN out_RP for_IN the_DT surface_NN growth_NN submodel_NN constant_JJ ,_, Cg_NP ._SENT 
+The_DT parametric_JJ study_NN shows_VVZ that_IN increasing_VVG the_DT model_NN constant_JJ value_NN by_IN a_DT factor_NN of_IN two_CD produces_VVZ better_JJR agreement_NN with_IN the_DT experimental_JJ measurements_NNS in_IN terms_NNS of_IN peak_NN averaged_VVD SVF_NN ._SENT 
+Although_IN the_DT calculated_VVN and_CC measured_VVN peak_NN locations_NNS have_VHP a_DT consistent_JJ discrepancy_NN of_IN approximately_RB 30_CD mm_NP ,_, the_DT difference_NN of_IN peak_NN locations_NNS is_VBZ considered_VVN small_JJ relative_NN to_TO the_DT large_JJ marine_JJ engine_NN cylinder_NN which_WDT has_VHZ a_DT bore_NN diameter_NN of_IN 0.5_CD m_NN and_CC a_DT stroke_NN of_IN 2.2_CD m._NPS Using_VVG this_DT model_NN constant_JJ ,_, the_DT peak_NN averaged_VVD SVF_NP is_VBZ 300_CD ppm_NN at_IN the_DT 150_CD bar_NN case_NN ._SENT 
+This_DT is_VBZ approximately_RB fifteen-fold_NN higher_JJR than_IN that_WDT predicted_VVD using_VVG the_DT conventional_JJ model_NN ._SENT 
+Effects_NNS of_IN ambient_JJ pressure_NN on_IN flame_NN structure_NN and_CC soot_NN production_NN are_VBP detailed_JJ in_IN the_DT following_VVG subsection_NN ._SENT 
+3.2_CD ._SENT 
+Effects_NNS of_IN ambient_JJ pressure_NN on_IN flame_NN structure_NN and_CC soot_NN formation_NN 3.2.1_CD ._SENT 
+Local_JJ temperature_NN and_CC equivalence_NN ratio_NN Fig_NN ._SENT 
+5_CD depicts_VVZ the_DT scatter_NN plot_NN of_IN computational_JJ cells_NNS in_IN temperature-equivalence_NN space_NN for_IN four_CD cases_NNS with_IN different_JJ ambient_JJ pressure_NN levels_NNS ._SENT 
+Each_DT point_NN on_IN the_DT scatter_NN plot_NN corresponds_VVZ to_TO a_DT local_JJ property_NN ._SENT 
+The_DT local_JJ temperature_NN ,_, T_NN is_VBZ directly_RB extracted_VVN from_IN the_DT simulation_NN results_NNS while_IN the_DT equivalence_NN ratio_NN ,_, ϕ_JJ value_NN is_VBZ computed_VVN based_VVN on_IN the_DT molar_JJ concentration_NN of_IN species_NNS with_IN element_NN C_NP ,_, H_NP and_CC O_NP using_VVG the_DT Eq_NP ._SENT 
+(_( 5_CD )_) ,_, @（5）_NN where_WRB nCi_NP ,_, nHi_NP and_CC nOi_NP are_VBP the_DT numbers_NNS of_IN C_NP ,_, H_NP and_CC O_NP atoms_NNS ,_, respectively_RB ,_, of_IN the_DT ith_JJ species_NN ,_, while_NN [_SYM Ci_NP ]_SYM is_VBZ the_DT concentration_NN of_IN the_DT ith_JJ species_NN in_IN kmol/m3_NP [_SYM 42_CD ]_SYM ._SENT 
+In_IN Fig_NN ._SENT 
+5_LS ,_, the_DT ambient_JJ gas_NN regime_NN is_VBZ represented_VVN by_IN low_JJ T-low_JJ ϕ_JJ data_NNS points_NNS while_IN the_DT region_NN near_IN the_DT injector_NN is_VBZ characterised_VVN by_IN low_JJ T-high_JJ ϕ_NN points_NNS ._SENT 
+Points_NNS in_IN between_IN these_DT two_CD regions_NNS i._NP e._NP those_DT with_IN low_JJ T_NN and_CC variable_JJ ϕ_NN correspond_VV to_TO inert_JJ mixing_VVG between_IN fuel_NN and_CC ambient_JJ gas_NN ._SENT 
+Different_JJ locations_NNS in_IN the_DT quasi-stationary_JJ diesel_NN flame_NN structure_NN proposed_VVN by_IN Dec_NP [_SYM 43_CD ]_SYM ,_, including_VVG the_DT rich_JJ premixed_JJ core_NN and_CC the_DT outer_JJ diffusion_NN flame_NN which_WDT is_VBZ formed_VVN between_IN the_DT products_NNS of_IN rich_JJ premixed_JJ combustion_NN and_CC the_DT ambient_JJ gas_NN are_VBP also_RB indicated_VVN in_IN Fig_NN ._SENT 
+5._CD The_DT reaction_NN zone_NN structure_NN in_IN all_DT four_CD cases_NNS is_VBZ similar_JJ to_TO a_DT classical_JJ diffusion_NN flame_NN ._SENT 
+The_DT maximum_JJ temperature_NN occurs_VVZ at_IN ϕ_NN of_IN approximately_RB unity_NN in_IN the_DT diffusion_NN flame_NN ._SENT 
+It_PP is_VBZ noticeable_JJ that_IN the_DT maximum_JJ local_JJ temperature_NN has_VHZ a_DT minor_JJ difference_NN in_IN these_DT cases_NNS ._SENT 
+The_DT maximum_JJ local_JJ temperature_NN in_IN the_DT 150.0_CD bar_NN case_NN is_VBZ approximately_RB 50_CD K_NN higher_JJR than_IN that_DT in_IN the_DT 18.6_CD bar_NN case_NN ._SENT 
+On_IN the_DT contrary_NN to_TO this_DT ,_, the_DT ϕ_JJ values_NNS are_VBP found_VVN to_TO increase_VV with_IN the_DT rise_NN of_IN ambient_JJ pressure_NN in_IN the_DT temperature_NN range_NN of_IN 1000–2000_NP K_NP ,_, within_IN the_DT rich_JJ premixed_JJ core_NN region_NN ._SENT 
+The_DT difference_NN in_IN ϕ_NP reduces_VVZ within_IN the_DT diffusion_NN flame_NN where_WRB local_JJ temperatures_NNS are_VBP higher_JJR ._SENT 
+As_IN aforementioned_JJ ,_, the_DT flame_NN liftoff_NN length_NN reduces_VVZ when_WRB the_DT ambient_JJ pressure_NN increases_NNS ._SENT 
+This_DT reduces_VVZ the_DT total_JJ amount_NN of_IN air_NN entrained_VVN into_IN the_DT fuel_NN jet_NN ,_, yielding_VVG a_DT relatively_RB fuel-rich_JJ site_NN ._SENT 
+It_PP is_VBZ also_RB noted_VVN that_IN the_DT region_NN with_IN the_DT 10_JJ %_NN highest_JJS SVF_NN at_IN all_DT test_NN conditions_NNS consistently_RB falls_VVZ within_IN the_DT ϕ_JJ range_NN of_IN 1.6–2.0_NN and_CC temperature_NN range_NN of_IN 2200–2350_NP K._NP Fig_NN ._SENT 
+5._CD Comparisons_NNS of_IN flame_NN structure_NN of_IN diesel_JJ spray_NN jets_NNS at_IN varying_VVG ambient_JJ pressure_NN levels_NNS in_IN constant_JJ volume_NN chamber_NN cases_NNS ._SENT 
+3.2.2_CD ._SENT 
+Soot_NN inception_NN time_NN and_CC individual_JJ process_NN rates_NNS Investigation_NN of_IN the_DT effect_NN of_IN ambient_JJ pressure_NN on_IN soot_NN formation_NN focuses_VVZ on_IN the_DT 38.6_CD ,_, 80.0_CD and_CC 150.0_CD bar_NN test_NN cases_NNS where_WRB soot_NN formation_NN is_VBZ pronounced_VVN ._SENT 
+The_DT first_JJ parameter_NN to_TO be_VB studied_VVN is_VBZ the_DT soot_NN onset_NN ._SENT 
+Fig_NN ._SENT 
+6_CD depicts_VVZ that_IN the_DT soot_NN onsets_NNS occur_VVP at_IN the_DT peaks_NNS of_IN the_DT HRR_NP during_IN the_DT premixed_JJ combustion_NN (_( PMC_NP )_) phase_NN in_IN all_DT three_CD cases_NNS ._SENT 
+This_DT shows_VVZ good_JJ agreement_NN with_IN the_DT experimental_JJ results_NNS presented_VVN by_IN Singh_NP et_CC al_NP ._SENT 
+[_SYM 9_CD ]_SYM ,_, in_IN which_WDT revealed_VVD that_DT considerable_JJ amount_NN of_IN diesel_JJ soot_NN is_VBZ detected_VVN at_IN the_DT peak_NN of_IN HRR_NP during_IN the_DT PMC_NP phase_NN ._SENT 
+Rates_NNS of_IN formation_NN and_CC oxidation_NN of_IN the_DT quasi-steady_JJ diesel_NN flame_NN jet_NN at_IN these_DT three_CD ambient_JJ pressure_NN levels_NNS are_VBP plotted_VVN as_IN a_DT function_NN of_IN ϕ_NN in_IN Fig_NN ._SENT 
+7_CD [_SYM 22_CD ]_SYM ._SENT 
+As_IN demonstrated_VVN in_IN Fig_NN ._SENT 
+7(a_NP )_) and_CC (_( b_LS )_) ,_, both_CC the_DT nucleation_NN and_CC surface_NN growth_NN rates_NNS peak_NN at_IN ϕ_NN of_IN 1.5_CD ._SENT 
+The_DT former_JJ does_VVZ not_RB show_VV significant_JJ difference_NN in_IN terms_NNS of_IN peak_NN values_NNS while_IN the_DT latter_NN varies_VVZ significantly_RB with_IN the_DT ambient_JJ pressure_NN ._SENT 
+This_DT is_VBZ attributed_VVN to_TO the_DT empirical_JJ expression_NN as_IN shown_VVN by_IN Eqs_NP ._SENT 
+(_( 1_CD )_) ,_, (_( 2_LS )_) ._SENT 
+The_DT surface_NN growth_NN rate_NN is_VBZ a_DT function_NN of_IN square_JJ root_NN of_IN Ssoot_NN and_CC ambient_JJ pressure_NN dependence_NN is_VBZ taken_VVN into_IN account_NN while_IN the_DT nucleation_NN rate_NN expression_NN is_VBZ independent_JJ from_IN these_DT parameters_NNS ._SENT 
+These_DT collectively_RB give_VVP rise_NN to_TO the_DT surface_NN growth_NN rate_NN as_IN the_DT ambient_JJ pressure_NN increases_NNS ._SENT 
+In_IN addition_NN ,_, the_DT soot_NN oxidation_NN rates_NNS shown_VVN in_IN Fig_NN ._SENT 
+7(c_NP )_) peak_NN at_IN a_DT lower_JJR ϕ_NN close_NN to_TO 1.2_CD and_CC the_DT value_NN increases_NNS with_IN ambient_JJ pressure_NN ._SENT 
+The_DT oxidation_NN rate_NN is_VBZ a_DT linear_JJ function_NN of_IN Ssoot_NN ._SENT 
+This_DT in_IN turn_NN leads_VVZ to_TO a_DT larger_JJR variation_NN of_IN peak_NN soot_NN oxidation_NN rate_NN as_IN compared_VVN to_TO that_DT of_IN the_DT surface_NN growth_NN rate_NN ._SENT 
+In_IN these_DT quasi-steady_JJ diesel_NN flame_NN jet_NN cases_NNS ,_, the_DT peak_JJ oxidation_NN rates_NNS due_JJ to_TO OH_UH and_CC O2_NP are_VBP found_VVN to_TO be_VB comparable_JJ ._SENT 
+Fig_NN ._SENT 
+6._CD Heat_NP release_NN rate_NN and_CC maximum_JJ soot_NN volume_NN fraction_NN in_IN the_DT function_NN of_IN time_NN ._SENT 
+Fig_NN ._SENT 
+7._CD Comparisons_NNS of_IN (_( a_DT )_) nucleation_NN rate_NN ,_, (_( b_LS )_) surface_NN growth_NN rate_NN and_CC (_( c_LS )_) oxidation_NN rate_NN at_IN varying_VVG ambient_JJ pressure_NN levels_NNS in_IN constant_JJ volume_NN chamber_NN ._SENT 
+In_IN summary_NN ,_, this_DT section_NN shows_VVZ that_IN IDT_NP and_CC liftoff_NN length_NN at_IN varying_VVG ambient_JJ pressure_NN levels_NNS in_IN the_DT constant_JJ volume_NN chamber_NN are_VBP successfully_RB captured_VVN by_IN the_DT proposed_VVN models_NNS ._SENT 
+This_DT subsequently_RB leads_VVZ to_TO a_DT reasonably_RB accurate_JJ prediction_NN of_IN the_DT averaged_VVN SVF_NN ._SENT 
+The_DT onset_NN of_IN soot_NN corresponds_VVZ well_RB with_IN the_DT HRR_NP peak_NN of_IN the_DT premixed_JJ combustion_NN phase_NN ._SENT 
+This_DT is_VBZ consistent_JJ with_IN the_DT experimental_JJ results_NNS obtained_VVN by_IN Singh_NP et_CC al_NP ._SENT 
+[_SYM 8_CD ]_SYM ._SENT 
+Apart_RB from_IN these_DT ,_, the_DT simulated_JJ temperature_NN and_CC ϕ_NN agree_VVP well_RB with_IN experimental_JJ results_NNS from_IN the_DT literature_NN ._SENT 
+<Section> 4._CD Marine_NP diesel_JJ engine_NN simulations_NNS </Section> Upon_IN the_DT model_NN validation_NN in_IN Section_NP 3_CD ,_, the_DT numerical_JJ models_NNS are_VBP hereafter_RB applied_VVN to_TO investigate_VV the_DT in-cylinder_NN phenomena_NNS under_IN marine_JJ diesel_JJ engine-like_JJ conditions_NNS ._SENT 
+Effects_NNS of_IN temporal_JJ and_CC spatial_JJ resolutions_NNS as_RB well_RB as_IN different_JJ physical_JJ models_NNS are_VBP first_RB evaluated_VVN through_IN a_DT sensitivity_NN study_NN ._SENT 
+Section_NP 4.2_NP subsequently_RB emphasises_VVZ on_IN the_DT investigation_NN of_IN the_DT associated_VVN flame_NN development_NN ,_, emissions_NNS formation_NN and_CC heat_NN transfer_NN processes_NNS ._SENT 
+4.1_CD ._SENT 
+Sensitivity_NN studies_NNS 4.1.1_CD ._SENT 
+Computational_JJ cell_NN and_CC time-step_NN sizes_NNS Fig_VVP ._SENT 
+8(a_NP )_) depicts_VVZ comparisons_NNS of_IN pressure_NN and_CC HRR_NP curves_NNS generated_VVD using_VVG different_JJ computational_JJ cell_NN and_CC time-step_NN sizes_NNS ._SENT 
+As_RB can_MD be_VB seen_VVN ,_, although_IN the_DT overall_JJ pressure_NN and_CC HRR_NP curves_NNS are_VBP reasonably_RB estimated_VVN using_VVG a_DT larger_JJR time-step_NN size_NN of_IN 8.0_CD μs_NNS ,_, a_DT sharp_JJ spike_NN in_IN the_DT HRR_NP plot_NN is_VBZ observed_VVN ._SENT 
+This_DT is_VBZ due_JJ to_TO a_DT steep_JJ pressure_NN rise_NN near_IN ignition_NN ._SENT 
+On_IN the_DT other_JJ hand_NN ,_, results_NNS generated_VVD using_VVG 4.0_CD μs_NNS in_IN the_DT baseline_JJ setup_NN are_VBP sufficiently_RB close_JJ to_TO those_DT using_VVG 2.0_CD μs_NNS ._SENT 
+Results_NNS in_IN Fig_NN ._SENT 
+8(a_NP )_) also_RB show_VVP that_IN the_DT HRR_NP profile_NN generated_VVD using_VVG the_DT computational_JJ mesh_NN without_IN local_JJ refinement_NN diverges_VVZ from_IN experimental_JJ data_NNS ,_, showing_VVG a_DT second_JJ rise_NN at_IN approximately_RB 17.5_CD CAD_NN ATDC_NN ._SENT 
+This_DT is_VBZ attributed_VVN to_TO the_DT stretching_VVG of_IN cells_NNS in_IN the_DT axial_JJ direction_NN ._SENT 
+In_IN this_DT case_NN ,_, the_DT injection_NN period_NN falls_VVZ between_IN 1.2_CD and_CC 23_CD CAD_NN ATDC_NN ._SENT 
+When_WRB local_JJ refinement_NN is_VBZ not_RB applied_VVN ,_, the_DT cell_NN size_NN in_IN the_DT axial_JJ direction_NN is_VBZ elongated_VVN to_TO approximately_RB 8_CD mm_NP at_IN 17.5_CD CAD_NN ATDC_NN ._SENT 
+In_IN order_NN to_TO replicate_VV the_DT experimental_JJ HRR_NP curve_NN ,_, local_JJ refinement_NN is_VBZ applied_VVN such_JJ that_IN the_DT cell_NN size_NN within_IN the_DT fuel_NN spray_NN region_NN is_VBZ retained_VVN below_IN 5_CD mm_NP during_IN the_DT injection_NN period_NN ._SENT 
+Fig_NN ._SENT 
+8._CD Comparisons_NNS of_IN pressure_NN and_CC heat_NN release_NN rate_NN profiles_NNS using_VVG (_( a_DT )_) different_JJ spatial_JJ and_CC temporal_JJ resolutions_NNS and_CC (_( b_LS )_) different_JJ physical_JJ models_NNS ._SENT 
+4.1.2_CD ._SENT 
+Physical_JJ models_NNS Comparisons_NNS to_TO the_DT experimental_JJ data_NNS provided_VVN in_IN Fig_NN ._SENT 
+8(b_NP )_) show_VVP that_IN the_DT simulated_JJ pressure_NN rise_NN starts_VVZ 1.0_RB crank_VV angle_NN degree_NN (_( CAD_NN )_) in_IN advance_NN and_CC the_DT calculated_JJ peak_NN pressure_NN is_VBZ 1.7_CD %_NN lower_JJR ._SENT 
+A_DT sensitivity_NN study_NN is_VBZ carried_VVN on_IN the_DT B1_JJ value_NN of_IN the_DT KH–RT_JJ model_NN which_WDT normally_RB varies_VVZ from_IN 1.73_CD to_TO 60_CD ,_, depending_VVG on_IN the_DT injection_NN specifications_NNS ._SENT 
+Increasing_VVG this_DT value_NN leads_VVZ to_TO slower_JJR breakup_NN and_CC subsequently_RB the_DT ignition_NN delay_NN period_NN could_MD become_VV longer_RBR ._SENT 
+Nonetheless_RB ,_, as_IN the_DT B1_JJ value_NN is_VBZ increased_VVN by_IN a_DT factor_NN of_IN two_CD to_TO 50_CD ,_, prediction_NN of_IN IDT_NP is_VBZ not_RB improved_VVN but_CC a_DT second_JJ rise_NN in_IN the_DT HRR_NP curve_NN is_VBZ observed_VVN ._SENT 
+This_DT is_VBZ attributed_VVN to_TO the_DT slow_JJ breakup_NN ._SENT 
+Relative_JJ large_JJ amount_NN of_IN fuel_NN droplets_NNS exist_VVP and_CC start_VVP to_TO burn_VV only_RB at_IN a_DT later_JJR CAD_NN ._SENT 
+HRR_NP calculated_VVD using_VVG B1_JJ value_NN of_IN 25_CD in_IN the_DT baseline_NN setup_NN starts_VVZ to_TO form_VV a_DT ‘_JJ plateau_NN ’_NN which_WDT gives_VVZ a_DT similar_JJ shape_NN as_IN shown_VVN by_IN the_DT experimental_JJ data_NNS ._SENT 
+This_DT value_NN is_VBZ henceforth_RB fixed_VVN in_IN the_DT subsequent_JJ simulations_NNS ._SENT 
+4.2_CD ._SENT 
+In-cylinder_NP phenomena_NNS 4.2.1_CD ._SENT 
+Flame_NN structure_NN and_CC individual_JJ soot_NN process_NN rate_NN The_DT T–ϕ_JJ relation_NN at_IN different_JJ CADs_NNS is_VBZ illustrated_VVN in_IN the_DT scatter_NN plots_NNS in_IN Fig_NN ._SENT 
+9._CD Cell_NN having_VHG ϕ_JJ values_NNS ranging_VVG from_IN 1.5_CD to_TO 3.0_CD first_JJ reach_NN temperature_NN of_IN 1200_CD K_NN near_IN the_DT injector_NN at_IN 1.30_CD CAD_NN ATDC_NN ,_, approximately_RB 0.135_CD ms_NNS after_IN start_NN of_IN injection_NN (_( SOI_NP )_) ._SENT 
+At_IN 1.35_CD CAD_NN ATDC_NN ,_, the_DT local_JJ temperature_NN reaches_VVZ around_RB 1700_CD K_NN and_CC this_DT cell_NN has_VHZ a_DT high_JJ ϕ_JJ value_NN of_IN 4.0_CD ._SENT 
+This_DT high_JJ temperature_NN site_NN initially_RB appears_VVZ at_IN the_DT bottom_NN of_IN the_DT fuel_NN jet_NN but_CC soon_RB after_IN (_( approximately_RB 10_CD μs_NNS )_) ,_, high_JJ temperature_NN is_VBZ also_RB observed_VVN at_IN the_DT top_NN of_IN the_DT fuel_NN jet_NN ._SENT 
+This_DT observation_NN is_VBZ different_JJ from_IN the_DT optical_JJ measurement_NN performed_VVN by_IN Hult_NP et_CC al_NP ._SENT 
+[_SYM 11_CD ]_SYM ._SENT 
+This_DT can_MD be_VB due_JJ to_TO in-cylinder_VV charge_NN temperature_NN distribution_NN ._SENT 
+In_IN their_PP$ experiment_NN ,_, the_DT estimated_JJ charge_NN temperature_NN at_IN SOI_NP was_VBD lower_JJR than_IN the_DT exhaust_NN valve_NN temperature_NN ._SENT 
+The_DT charge_NN near_IN the_DT exhaust_NN valve_NN was_VBD gradually_RB heated_VVN up_RP and_CC had_VHD a_DT higher_JJR temperature_NN ._SENT 
+The_DT mixture_NN at_IN this_DT region_NN hence_RB started_VVD to_TO ignite_VV ._SENT 
+In_IN the_DT simulation_NN case_NN here_RB ,_, the_DT charge_NN temperature_NN at_IN SOI_NP is_VBZ higher_JJR than_IN the_DT exhaust_NN valve_NN temperature_NN and_CC the_DT aforementioned_JJ phenomenon_NN is_VBZ not_RB observed_VVN ._SENT 
+At_IN 1.50_CD CAD_NN ATDC_NN ,_, the_DT conventional_JJ T–ϕ_NN map_NN starts_VVZ to_TO form_VV and_CC the_DT highest_JJS temperature_NN cells_NNS are_VBP found_VVN near_IN ϕ_NN of_IN 1.0_CD ._SENT 
+This_DT indicates_VVZ that_IN ignition_NN occurs_VVZ first_JJ at_IN the_DT fuel-rich_JJ region_NN prior_RB to_TO establishing_VVG a_DT diffusion_NN flame_NN ._SENT 
+Fig_NN ._SENT 
+9._CD Simulated_JJ temperature-equivalence_NN maps_NNS as_IN functions_NNS of_IN time_NN through_IN auto-ignition_NN at_IN (_( a_DT )_) 1.30_NP ,_, (_( b_LS )_) 1.35_CD and_CC (_( c_LS )_) 1.50_CD crank_JJ angle_NN degree_NN after_IN top_JJ dead_JJ centre_NN ._SENT 
+Fig_NN ._SENT 
+10_CD depicts_VVZ the_DT T–ϕ_JJ map_NN for_IN the_DT diesel_JJ spray_NN flame_NN at_IN 3.0_CD CAD_NN ATDC_NN ._SENT 
+At_IN this_DT CAD_NN ,_, the_DT flame_NN has_VHZ fully_RB developed_VVN but_CC has_VHZ not_RB impinged_VVN on_IN the_DT piston_NN surface_NN ._SENT 
+The_DT overall_JJ T–ϕ_JJ scatter_NN plot_NN agrees_VVZ well_RB with_IN that_DT observed_VVN for_IN the_DT quasi-steady_JJ diesel_NN spray_NN flame_NN jet_NN in_IN the_DT constant_JJ volume_NN chamber_NN ._SENT 
+Akin_JJ to_TO the_DT quasi-stationary_JJ spray_NN jet_NN ,_, the_DT maximum_JJ temperature_NN is_VBZ around_RB 2850_CD K._NP However_RB ,_, there_EX exists_VVZ a_DT region_NN which_WDT is_VBZ richer_JJR ._SENT 
+The_DT total_JJ fuel_NN amount_NN delivered_VVN through_IN the_DT four_CD nozzles_NNS is_VBZ much_RB greater_JJR than_IN that_DT in_IN the_DT constant_JJ volume_NN chamber_NN case_NN ._SENT 
+In_IN addition_NN ,_, the_DT maximum_JJ injection_NN velocity_NN is_VBZ approximately_RB twofold_RB lower_JJR in_IN the_DT marine_JJ diesel_NN engine_NN case_NN ,_, yielding_VVG a_DT substantial_JJ decrease_NN in_IN liftoff_NN length_NN [_SYM 3_CD ]_SYM ._SENT 
+The_DT liftoff_NN length_NN in_IN the_DT marine_JJ diesel_NN engine_NN case_NN is_VBZ 1.3_CD mm_NP which_WDT is_VBZ negligible_JJ relative_NN to_TO the_DT flame_NN size_NN ,_, allowing_VVG only_RB a_DT small_JJ amount_NN of_IN air_NN to_TO entrain_VV into_IN the_DT upstream_JJ of_IN the_DT fuel_NN jet_NN ._SENT 
+Fig_NN ._SENT 
+10_CD also_RB highlights_VVZ that_IN soot_NN particles_NNS distribute_VVP across_IN a_DT wider_JJR range_NN of_IN ϕ_JJ values_NNS ._SENT 
+High_JJ soot_NN concentration_NN is_VBZ observed_VVN at_IN local_JJ temperature_NN of_IN 1300_CD K_NN and_CC ϕ_NN of_IN 1.5_CD to_TO approximately_RB 8._CD This_DT is_VBZ different_JJ from_IN that_WDT observed_VVD in_IN the_DT quasi-steady_JJ diesel_NN spray_NN jet_NN ._SENT 
+The_DT maximum_JJ SVF_NN here_RB is_VBZ found_VVN to_TO be_VB fourfold_RB higher_JJR than_IN that_DT in_IN the_DT quasi-steady_JJ diesel_NN jet_NN ._SENT 
+This_DT is_VBZ attributed_VVN to_TO the_DT greater_JJR fuel_NN amount_NN as_RB well_RB as_IN the_DT higher_JJR equivalence_NN ratio_NN due_JJ to_TO the_DT shorter_JJR liftoff_NN length_NN as_RB discussed_VVD earlier_RBR ._SENT 
+Fig_NN ._SENT 
+10._CD Comparison_NN of_IN flame_NN structure_NN of_IN diesel_JJ spray_NN jets_NNS in_IN the_DT marine_JJ diesel_NN engine_NN and_CC constant_JJ volume_NN chamber_NN cases_NNS ._SENT 
+Fig_NN ._SENT 
+11(a_NP )_) and_CC (_( b_LS )_) provides_VVZ the_DT scatter_NN plot_NN of_IN ϕ_NN against_IN nucleation_NN and_CC surface_NN growth_NN rates_NNS ,_, respectively_RB ._SENT 
+Both_DT peak_NN nucleation_NN and_CC surface_NN growth_NN rate_NN values_NNS in_IN the_DT two_CD test_NN conditions_NNS are_VBP in_IN the_DT same_JJ order_NN of_IN magnitude_NN ._SENT 
+It_PP is_VBZ noted_VVN that_IN the_DT nucleation_NN rates_NNS in_IN both_DT of_IN these_DT high_JJ swirling_JJ flow_NN engine_NN and_CC quasi-quiescent_JJ constant_JJ volume_NN chamber_NN cases_NNS are_VBP distributed_VVN within_IN the_DT identical_JJ region_NN ._SENT 
+This_DT process_NN happens_VVZ at_IN upstream_RB of_IN the_DT flame_NN and_CC is_VBZ less_RBR influenced_VVN by_IN flow_NN ._SENT 
+On_IN the_DT other_JJ hand_NN ,_, the_DT surface_NN growth_NN rate_NN is_VBZ more_RBR broadly_RB distributed_VVN since_IN this_DT process_NN occurs_VVZ at_IN a_DT further_RBR downstream_JJ location_NN and_CC is_VBZ affected_VVN by_IN the_DT swirling_JJ flow_NN ._SENT 
+In_IN parallel_NN with_IN the_DT formation_NN processes_VVZ ,_, soot_NN oxidation_NN occurs_VVZ ._SENT 
+Fig_NN ._SENT 
+11(c_NP )_) illustrates_VVZ the_DT oxidation_NN rates_NNS in_IN both_DT cases_NNS ._SENT 
+Here_RB ,_, the_DT peak_NN oxidation_NN rate_NN has_VHZ a_DT much_RB higher_JJR value_NN in_IN the_DT engine_NN case_NN and_CC the_DT oxidation_NN rate_NN is_VBZ mainly_RB dominated_VVN by_IN that_DT due_JJ to_TO O2_NN ._SENT 
+It_PP is_VBZ worth_JJ mentioning_VVG that_IN this_DT pattern_NN retains_VVZ until_IN approximately_RB 17.5_CD CAD_NN ATDC_NN ._SENT 
+In_IN between_IN 17.5_CD and_CC 22_CD CAD_NN ATDC_NN ,_, the_DT OH_UH and_CC O2_JJ oxidation_NN rates_NNS become_VVP comparable_JJ ._SENT 
+Thereafter_RB ,_, the_DT OH_UH oxidation_NN rate_NN dominates_VVZ ._SENT 
+This_DT can_MD be_VB attributed_VVN to_TO the_DT consumption_NN of_IN oxygen_NN at_IN the_DT vicinity_NN of_IN the_DT soot_NN cloud_NN ,_, while_IN the_DT production_NN of_IN OH_UH continues_VVZ until_IN the_DT combustion_NN ends_VVZ ._SENT 
+Fig_NN ._SENT 
+11._CD Comparisons_NNS of_IN (_( a_DT )_) nucleation_NN rate_NN ,_, (_( b_LS )_) surface_NN growth_NN rate_NN and_CC (_( c_LS )_) oxidation_NN rate_NN in_IN the_DT marine_JJ engine_NN and_CC constant_JJ volume_NN chamber_NN test_NN cases_NNS ._SENT 
+4.2.2_CD ._SENT 
+Spatial_JJ and_CC temporal_JJ evolution_NN of_IN combustion_NN products_NNS The_DT top_JJ view_NN of_IN resampled_JJ volume_NN of_IN CH2O_NP ,_, OH_UH ,_, C2H2_NP and_CC SVF_NP generated_VVD in_IN STAR-CCM_NN version_NN 10_CD is_VBZ illustrated_VVN in_IN Fig_NN ._SENT 
+12._CD All_NP the_DT layers_NNS are_VBP semi-transparent_JJ to_TO allow_VV inspection_NN of_IN the_DT changes_NNS of_IN concentration_NN as_IN they_PP develop_VVP during_IN the_DT injection_NN period_NN ._SENT 
+The_DT outline_NN represents_VVZ the_DT edge_NN of_IN the_DT cylinder_NN ,_, while_IN the_DT centreline_NN is_VBZ the_DT cyclic_JJ boundary_NN where_WRB the_DT 180°_JJ domain_NN is_VBZ revolved_VVN to_TO full_JJ cylinder_NN to_TO illustrate_VV the_DT in-cylinder_NN event_NN ._SENT 
+For_IN better_JJR visualisation_NN ,_, the_DT image_NN background_NN where_WRB no_DT combustion_NN products_NNS formed_VVN is_VBZ presented_VVN as_IN white_JJ ._SENT 
+CH2O_NP is_VBZ monitored_VVN in_IN Fig_NN ._SENT 
+12(a_NP )_) to_TO illustrate_VV the_DT low_JJ temperature_NN chemistry_NN reaction_NN zone_NN ._SENT 
+This_DT compound_NN is_VBZ formed_VVN at_IN the_DT upstream_JJ of_IN the_DT flame_NN near_IN the_DT injector_NN ._SENT 
+The_DT distribution_NN of_IN the_DT CH2O_NP slightly_RB extends_VVZ as_IN the_DT combustion_NN progresses_VVZ but_CC remains_VVZ at_IN the_DT same_JJ location_NN throughout_IN the_DT combustion_NN phase_NN ._SENT 
+This_DT highlights_VVZ that_IN the_DT low_JJ temperature_NN chemistry_NN zone_NN is_VBZ not_RB influenced_VVN by_IN the_DT flow_NN ._SENT 
+Fig_NN ._SENT 
+12(b_NP )_) provides_VVZ the_DT OH_UH distribution_NN to_TO indicate_VV high_JJ temperature_NN ,_, diffusion_NN flame_NN ._SENT 
+On_IN the_DT contrary_NN to_TO the_DT previous_JJ plot_NN ,_, the_DT OH_UH distribution_NN extends_VVZ gradually_RB along_IN the_DT spray_NN direction_NN ._SENT 
+At_IN approximately_RB 12_CD CAD_NN ATDC_NN ,_, it_PP is_VBZ apparent_JJ that_IN the_DT flame_NN is_VBZ transported_VVN by_IN the_DT strong_JJ swirling_JJ flow_NN ._SENT 
+Thereafter_RB ,_, the_DT flame_NN is_VBZ distributed_VVN within_IN the_DT entire_JJ chamber_NN ._SENT 
+Fig_NN ._SENT 
+12(c_NP )_) demonstrates_VVZ the_DT formation_NN of_IN soot_NN precursors_NNS and_CC surface_NN growth_NN species_NNS ,_, C2H2_NP ._SENT 
+This_DT can_MD also_RB be_VB used_VVN to_TO indicate_VV the_DT rich_JJ premixed_JJ core_NN ._SENT 
+As_IN shown_VVN ,_, it_PP is_VBZ located_VVN slightly_RB further_RBR downstream_JJ as_IN compared_VVN to_TO the_DT CH2O_NP distribution_NN ._SENT 
+The_DT volume_NN of_IN the_DT C2H2_JJ cloud_NN is_VBZ rather_RB consistent_JJ ._SENT 
+At_IN 20_CD CAD_NN ATDC_NN ,_, the_DT cloud_NN size_NN grows_VVZ due_JJ to_TO absence_NN of_IN O2_NN at_IN the_DT vicinity_NN of_IN the_DT fuel_NN rich_JJ region_NN ._SENT 
+This_DT can_MD better_RBR be_VB explained_VVN with_IN the_DT total_JJ rate_NN of_IN production_NN of_IN C2H2_NN provided_VVN in_IN Fig_NN ._SENT 
+13._CD Positive_JJ and_CC negative_JJ values_NNS indicate_VVP formation_NN and_CC oxidation_NN of_IN C2H2_NP ,_, respectively_RB ._SENT 
+As_IN shown_VVN ,_, the_DT rate_NN of_IN production_NN fluctuates_VVZ until_IN 13_CD CAD_NN ATDC_NN due_JJ to_TO a_DT competition_NN between_IN the_DT production_NN and_CC oxidation_NN processes_NNS ._SENT 
+Next_RB the_DT production_NN process_NN governs_VVZ for_IN the_DT subsequent_JJ 6_CD CADs_NNS while_IN oxidation_NN process_NN is_VBZ negligible_JJ due_RB to_TO the_DT absence_NN of_IN oxidiser_NN ._SENT 
+Corresponding_JJ to_TO this_DT ,_, the_DT C2H2_JJ concentration_NN increases_NNS ,_, peaks_NNS at_IN approximately_RB 21_CD CAD_NN ATDC_NN and_CC drops_VVZ due_JJ to_TO the_DT end_NN of_IN fuel_NN delivery_NN ._SENT 
+Lastly_RB ,_, the_DT evolution_NN of_IN soot_NN cloud_NN is_VBZ shown_VVN in_IN Fig_NN ._SENT 
+12(d_NN )_) ._SENT 
+Formation_NN of_IN the_DT soot_NN cloud_NN is_VBZ apparent_JJ at_IN 3_CD CAD_NN ATDC_NN ._SENT 
+Simulation_NN results_NNS indicate_VVP that_IN the_DT soot_NN cloud_NN size_NN in_IN general_NN is_VBZ smaller_JJR than_IN the_DT OH_UH cloud_NN size_NN and_CC the_DT soot_NN cloud_NN is_VBZ embedded_VVN by_IN the_DT diffusion_NN flame_NN ._SENT 
+At_IN approximately_RB 12_CD CAD_NN ATDC_NN ,_, the_DT associated_JJ development_NN is_VBZ influenced_VVN by_IN the_DT swirling_JJ flow_NN ._SENT 
+Thereafter_RB ,_, the_DT soot_NN cloud_NN is_VBZ broadly_RB distributed_VVN ._SENT 
+Fig_NN ._SENT 
+12._CD Spatial_JJ distributions_NNS of_IN (_( a_DT )_) CH2O_NP ,_, (_( b_LS )_) OH_UH ,_, (_( c_LS )_) C2H2_NN and_CC (_( d_LS )_) soot_NN particles_NNS ._SENT 
+The_DT red_JJ spots_NNS in_IN the_DT top-left_NN figure_NN indicate_VVP locations_NNS of_IN the_DT injector_NN tips_NNS while_IN the_DT centre_NN axis_NN is_VBZ the_DT cyclic_JJ boundary_NN ._SENT 
+Yellow_JJ ,_, green_JJ and_CC blue_JJ colours_NNS indicate_VVP high_JJ ,_, intermediate_JJ and_CC low_JJ species_NN concentrations_NNS ,_, respectively_RB ._SENT 
+Fig_NN ._SENT 
+13._CD In-cylinder_NN averaged_VVD C2H2_JJ concentration_NN and_CC rate_NN of_IN production_NN ._SENT 
+Fig_NN ._SENT 
+13._CD In-cylinder_NN averaged_VVD C2H2_JJ concentration_NN and_CC rate_NN of_IN production_NN ._SENT 
+Fig_NN ._SENT 
+14_CD demonstrates_VVZ the_DT temporal_JJ evolution_NN of_IN total_JJ soot_NN mass_NN and_CC averaged_VVD NO_DT concentration_NN calculated_VVN with_IN and_CC without_IN considering_VVG soot_NN radiation_NN ._SENT 
+For_IN the_DT NO_UH formation_NN modelling_VVG ,_, Zeldovich_NP reactions_NNS are_VBP added_VVN to_TO the_DT fuel_NN model_NN ._SENT 
+The_DT Arrhenius_NP parameters_NNS are_VBP originated_VVN from_IN GRI_NP Mech_NP 2.11_CD [_SYM 44_CD ]_SYM and_CC were_VBD used_VVN by_IN Easley_NP and_CC Mellor_NP [_SYM 45_CD ]_SYM in_IN their_PP$ engine_NN study_NN ._SENT 
+Results_NNS show_VVP that_IN the_DT net_JJ soot_NN mass_NN calculated_VVN with_IN soot_NN radiation_NN taken_VVN into_IN account_NN is_VBZ lower_JJR at_IN the_DT beginning_NN but_CC higher_JJR after_IN approximately_RB 27_CD CAD_NN ATDC_NN ._SENT 
+As_IN aforementioned_JJ ,_, the_DT soot_NN particles_NNS mainly_RB exist_VVP in_IN the_DT fuel-rich_JJ region_NN but_CC not_RB alongside_IN the_DT high_JJ temperature_NN ,_, diffusion_NN flame_NN in_IN the_DT beginning_NN of_IN the_DT combustion_NN phase_NN ._SENT 
+The_DT effect_NN of_IN soot_NN radiation_NN is_VBZ hence_RB insignificant_JJ on_IN maximum_JJ gas_NN temperature_NN ._SENT 
+This_DT implies_VVZ that_IN the_DT soot_NN oxidation_NN rate_NN does_VVZ not_RB change_VV since_IN the_DT oxidation_NN process_NN mainly_RB occurs_VVZ at_IN the_DT outer_JJ diffusion_NN flame_NN ._SENT 
+In_IN contrast_NN ,_, the_DT local_JJ temperature_NN within_IN the_DT rich_JJ premixed_JJ core_NN where_WRB soot_NN formation_NN is_VBZ dominant_JJ becomes_VVZ lower_JJR ,_, leading_VVG to_TO a_DT decrease_NN in_IN soot_NN formation_NN rate_NN ._SENT 
+As_IN a_DT result_NN ,_, a_DT minor_JJ drop_NN in_IN net_JJ soot_NN mass_NN is_VBZ observed_VVN for_IN the_DT beginning_NN of_IN the_DT production_NN stage_NN when_WRB soot_NN radiation_NN is_VBZ considered_VVN ._SENT 
+At_IN the_DT later_JJR stage_NN ,_, the_DT temperature_NN is_VBZ smoothened_VVN through_IN convection_NN induced_VVN by_IN the_DT strong_JJ swirling_JJ flow_NN ._SENT 
+The_DT temperature_NN and_CC the_DT oxidation_NN rate_NN of_IN some_DT regions_NNS become_VVP lower_JJR ,_, as_RB compared_VVN to_TO those_DT calculated_VVN without_IN considering_VVG soot_NN radiation_NN ._SENT 
+This_DT eventually_RB leads_VVZ to_TO a_DT higher_JJR net_JJ soot_NN mass_NN production_NN ._SENT 
+It_PP is_VBZ also_RB noticed_VVN that_IN the_DT soot_NN formation_NN in_IN the_DT current_JJ test_NN case_NN is_VBZ different_JJ from_IN those_DT in_IN other_JJ single_JJ main_JJ injection_NN test_NN cases_NNS which_WDT usually_RB show_VVP a_DT single_JJ peak_NN value_NN before_IN declining_VVG ._SENT 
+Here_RB ,_, soot_NN is_VBZ formed_VVN after_IN the_DT ignition_NN but_CC drops_VVZ at_IN approximately_RB 7_CD CAD_NN ATDC_NN ._SENT 
+The_DT in-cylinder_NP soot_NN mass_NN increases_VVZ again_RB at_IN 15_CD CAD_NN ATDC_NN ._SENT 
+This_DT corresponds_VVZ well_RB with_IN the_DT net_JJ production_NN of_IN C2H2_NP as_RB discussed_VVD earlier_RBR ._SENT 
+Since_IN the_DT soot_NN formation_NN rate_NN is_VBZ a_DT function_NN of_IN C2H2_JJ molar_JJ concentration_NN ,_, the_DT soot_NN production_NN profile_NN is_VBZ strongly_RB influenced_VVN by_IN the_DT C2H2_JJ formation_NN and_CC oxidation_NN ._SENT 
+Similar_JJ pattern_NN is_VBZ observed_VVN for_IN soot_NN mass_NN profile_NN calculated_VVD using_VVG the_DT conventional_JJ soot_NN model_NN but_CC the_DT peak_NN of_IN total_JJ soot_NN mass_NN formed_VVN is_VBZ approximately_RB sixteen-fold_NN lower_RBR ._SENT 
+Fig_NN ._SENT 
+14._CD Comparisons_NNS of_IN in-cylinder_NN soot_NN mass_NN and_CC averaged_VVD NO_DT concentration_NN generated_VVN with_IN different_JJ physical_JJ models_NNS ._SENT 
+Note_NN :_: Soot_NN mass_NN calculated_VVD using_VVG the_DT conventional_JJ soot_NN model_NN is_VBZ scaled_VVN up_RP by_IN a_DT factor_NN of_IN sixteen_CD ._SENT 
+The_DT NO_RB concentration_NN profile_NN is_VBZ identical_JJ to_TO those_DT from_IN the_DT literature_NN i._NP e._NP it_PP increases_VVZ and_CC becomes_VVZ stagnant_JJ ._SENT 
+When_WRB the_DT conventional_JJ soot_NN model_NN is_VBZ applied_VVN ,_, the_DT overall_JJ SVF_NN is_VBZ much_RB lower_JJR ,_, yielding_VVG a_DT decrease_NN in_IN the_DT maximum_JJ soot_NN absorption_NN coefficient_NN by_IN a_DT factor_NN of_IN approximately_RB fourteen_NN ._SENT 
+The_DT associated_VVN soot_NN radiation_NN hence_RB has_VHZ almost_RB no_DT impact_NN on_IN the_DT NO_UH concentration_NN prediction_NN ._SENT 
+As_RB can_MD be_VB seen_VVN ,_, the_DT NO_RB level_NN is_VBZ lower_RBR when_WRB the_DT soot_NN radiation_NN model_NN is_VBZ coupled_VVN with_IN the_DT revised_VVN soot_NN model_NN ._SENT 
+A_DT relative_JJ difference_NN of_IN approximately_RB 7.7_CD %_NN is_VBZ observed_VVN at_IN 40_CD CAD_NN ATDC_NN when_WRB the_DT NO_DT formation_NN is_VBZ saturated_VVN ._SENT 
+As_IN aforementioned_JJ ,_, soot_NN radiation_NN does_VVZ not_RB have_VH an_DT impact_NN on_IN the_DT diffusion_NN flame_NN temperature_NN where_WRB NO_RB is_VBZ formed_VVN in_IN the_DT early_JJ stage_NN ._SENT 
+Therefore_RB ,_, the_DT averaged_VVD NO_DT production_NN is_VBZ not_RB significantly_RB influenced_VVN ._SENT 
+A_DT decrease_NN in_IN the_DT overall_JJ temperature_NN at_IN the_DT later_JJR phase_NN of_IN combustion_NN leads_VVZ to_TO a_DT more_RBR noticeable_JJ drop_NN in_IN NO_DT levels_NNS ._SENT 
+At_IN 90_CD CAD_NN ATDC_NN ,_, the_DT averaged_VVD NO_DT concentration_NN estimated_VVD using_VVG the_DT baseline_NN setup_NN is_VBZ 1554_CD ppm_NN which_WDT is_VBZ approximately_RB 1.5-fold_NN greater_JJR than_IN the_DT measurement_NN ._SENT 
+It_PP is_VBZ noticed_VVN that_IN the_DT averaged_VVD NO_DT concentrations_NNS are_VBP consistently_RB overestimated_VVN when_WRB different_JJ sets_NNS of_IN Arrhenius_NP parameters_NNS are_VBP applied_VVN ._SENT 
+The_DT results_NNS generated_VVD using_VVG the_DT GRI_NP Mech_NP 3.0_CD [_SYM 44_CD ]_SYM is_VBZ slightly_RB lower_JJR at_IN 1510_CD ppm_NN while_IN that_DT calculated_VVN with_IN Arrhenius_NP parameters_NNS proposed_VVN by_IN Tao_NP [_SYM 46_CD ]_SYM is_VBZ 1.8-fold_NN greater_JJR than_IN the_DT experimental_JJ concentration_NN ._SENT 
+Overestimations_NNS of_IN the_DT NO_UH value_NN can_MD be_VB attributed_VVN to_TO two_CD reasons_NNS ._SENT 
+Firstly_RB ,_, in_IN this_DT two-stroke_JJ engine_NN ,_, a_DT part_NN of_IN the_DT supplied_VVN fresh_JJ air_NN bypasses_VVZ the_DT cylinder_NN during_IN the_DT scavenging_VVG process_NN and_CC dilutes_VVZ the_DT outgoing_JJ exhaust_NN gases_NNS ._SENT 
+As_RB compared_VVN to_TO the_DT averaged_VVD NO_DT concentration_NN recorded_VVN at_IN 90_CD CAD_NN ATDC_NN when_WRB the_DT exhaust_NN valve_NN is_VBZ still_RB closed_VVN ,_, the_DT measured_VVN exhaust_NN concentration_NN is_VBZ lower_RBR due_JJ the_DT dilution_NN effect_NN ._SENT 
+Besides_IN this_DT ,_, gas_NN radiation_NN is_VBZ not_RB taken_VVN into_IN account_NN in_IN the_DT current_JJ work_NN ._SENT 
+Important_JJ radiating_VVG gases_NNS ,_, carbon_NN dioxide_NN and_CC water_NN vapour_NN are_VBP formed_VVN closer_RBR to_TO the_DT formation_NN of_IN NO_UH ._SENT 
+The_DT associated_VVN radiation_NN effect_NN is_VBZ expected_VVN to_TO be_VB substantial_JJ on_IN the_DT peak_NN temperature_NN and_CC hence_RB the_DT overall_JJ NO_UH formation_NN ._SENT 
+4.2.3_CD ._SENT 
+Heat_NN transfer_VV The_DT total_JJ heat_NN transfer_NN is_VBZ shown_VVN in_IN Fig_NN ._SENT 
+15._CD Heat_NP transfer_NN calculated_VVN with_IN and_CC without_IN soot_NN radiative_JJ heat_NN loss_NN taken_VVN into_IN consideration_NN is_VBZ compared_VVN ._SENT 
+The_DT spikes_NNS in_IN the_DT beginning_NN of_IN the_DT simulation_NN shown_VVN in_IN Fig_NN ._SENT 
+15_CD are_VBP due_JJ to_TO the_DT steep_JJ temperature_NN gradients_NNS between_IN the_DT in-cylinder_NN charge_NN and_CC walls_NNS introduced_VVN by_IN the_DT initial_JJ conditions_NNS ._SENT 
+They_PP do_VVP not_RB carry_VV any_DT physical_JJ meaning_NN ._SENT 
+A_DT comparison_NN of_IN the_DT total_JJ heat_NN transfer_NN calculated_VVN when_WRB both_DT convective_JJ and_CC soot_NN radiative_JJ heat_NN losses_NNS are_VBP taken_VVN into_IN account_NN to_TO that_DT where_WRB only_RB convective_JJ is_VBZ considered_VVN suggests_VVZ that_IN the_DT former_JJ could_MD be_VB 30_CD %_NN higher_JJR ._SENT 
+Yet_RB ,_, the_DT heat_NN losses_NNS are_VBP relatively_RB low_JJ ,_, compared_VVN to_TO those_DT in_IN automotive_JJ engines_NNS ._SENT 
+This_DT is_VBZ consistent_JJ with_IN the_DT numerical_JJ results_NNS obtained_VVN by_IN Sigurdsson_NP et_CC al_NP ._SENT 
+[_SYM 17_CD ]_SYM ._SENT 
+It_PP is_VBZ also_RB noted_VVN that_IN the_DT difference_NN of_IN heat_NN transfer_NN is_VBZ dependent_JJ on_IN the_DT formation_NN period_NN of_IN the_DT in-cylinder_NN soot_NN ._SENT 
+All_PDT the_DT heat_NN transfer_NN profiles_NNS appear_VVP to_TO be_VB similar_JJ after_IN approximately_RB 35_CD CAD_NN ATDC_NN ,_, where_WRB the_DT soot_NN is_VBZ significantly_RB oxidised_VVN ._SENT 
+Fig_NN ._SENT 
+15_CD also_RB shows_VVZ the_DT effect_NN of_IN SVF_NN level_NN on_IN the_DT total_JJ heat_NN loss_NN ._SENT 
+When_WRB the_DT conventional_JJ soot_NN model_NN is_VBZ used_VVN ,_, the_DT associated_VVN maximum_JJ total_JJ heat_NN transfer_NN drops_VVZ to_TO 11_CD %_NN higher_JJR than_IN that_DT in_IN the_DT baseline_NN case_NN ._SENT 
+Fig_NN ._SENT 
+15._CD Comparisons_NNS of_IN total_JJ heat_NN transfer_NN when_WRB soot_NN radiation_NN is_VBZ omitted_VVN and_CC calculated_VVN using_VVG different_JJ soot_NN models_NNS ._SENT 
+Different_JJ values_NNS have_VHP been_VBN suggested_VVN in_IN the_DT literature_NN for_IN the_DT constant_JJ in_IN the_DT Planck_NP mean_JJ absorption_NN expression_NN ,_, C0_NP ._SENT 
+Here_RB ,_, the_DT sensitivity_NN of_IN the_DT absorption_NN coefficient_NN on_IN relevant_JJ processes_NNS is_VBZ assessed_VVN ,_, by_IN varying_VVG the_DT C0_JJ value_NN from_IN 1307_CD [_SYM 38_CD ]_SYM to_TO 2370_CD m−1K−1_NN [_SYM 39_CD ]_SYM ._SENT 
+These_DT two_CD values_NNS are_VBP approximately_RB 30_CD %_NN lower_JJR and_CC higher_JJR ,_, respectively_RB than_IN the_DT one_CD used_VVN in_IN the_DT baseline_NN setup_NN ._SENT 
+For_IN the_DT tested_VVN values_NNS ,_, no_DT significant_JJ difference_NN is_VBZ observed_VVN for_IN net_JJ soot_NN mass_NN ,_, averaged_VVD NO_DT concentration_NN and_CC total_JJ heat_NN transfer_NN (_( not_RB shown_VVN )_) ._SENT 
+Also_RB ,_, it_PP is_VBZ noteworthy_JJ that_IN a_DT function_NN of_IN scattering-to-absorption_NN ratio_NN and_CC soot_NN refractive_JJ index_NN is_VBZ used_VVN to_TO quantitatively_RB relate_VV the_DT optical_JJ thickness_NN to_TO SVF_NN [_SYM 3_CD ]_SYM ._SENT 
+The_DT quantitative_JJ relationship_NN can_MD hence_RB be_VB affected_VVN by_IN uncertainties_NNS in_IN the_DT soot_NN optical_JJ properties_NNS ._SENT 
+If_IN the_DT soot_NN refractive_JJ index_NN suggested_VVN by_IN Williams_NP et_CC al_NP ._SENT 
+[_SYM 47_CD ]_SYM is_VBZ used_VVN to_TO relate_VV the_DT optical_JJ thickness_NN to_TO SVF_NN ,_, all_PDT the_DT current_JJ SVF_NN will_MD have_VH to_TO be_VB multiplied_VVN by_IN a_DT factor_NN of_IN 0.56_CD [_SYM 40_CD ]_SYM ._SENT 
+However_RB ,_, the_DT sensitivity_NN study_NN of_IN the_DT Planck_NP mean_JJ absorption_NN coefficient_NN may_MD have_VH indicated_VVN that_IN a_DT decrease_NN of_IN within_IN the_DT same_JJ order_NN of_IN magnitude_NN in_IN SVF_NN values_NNS is_VBZ not_RB influential_JJ to_TO the_DT net_JJ soot_NN mass_NN ,_, averaged_VVD NO_DT concentration_NN and_CC total_JJ heat_NN transfer_NN process_NN for_IN this_DT combustion_NN system_NN ._SENT 
+Hence_RB ,_, the_DT multiplication_NN is_VBZ not_RB carried_VVN out_RP here_RB ._SENT 
+With_IN the_DT current_JJ SVF_NN values_NNS ,_, a_DT higher_JJR possible_JJ soot_NN radiative_JJ loss_NN is_VBZ estimated_VVN ._SENT 
+<Section> 5._CD Conclusions_NNS </Section> This_DT work_NN investigates_VVZ combustion_NN and_CC soot_NN formation_NN processes_VVZ in_IN a_DT constant_JJ volume_NN chamber_NN and_CC a_DT marine_JJ diesel_NN engine_NN ._SENT 
+A_DT skeletal_JJ n-heptane_NN mechanism_NN is_VBZ developed_VVN for_IN this_DT purpose_NN ._SENT 
+The_DT new_JJ skeletal_JJ mechanism_NN has_VHZ a_DT compact_JJ size_NN of_IN 30_CD species_NNS with_IN 68_CD reactions_NNS ,_, yet_CC it_PP performs_VVZ well_RB in_IN predicting_VVG the_DT IDT_NP and_CC liftoff_NN length_NN under_IN the_DT tested_VVN conditions_NNS ,_, apart_RB from_IN that_IN at_IN 18.6_CD bar_NN ._SENT 
+The_DT fuel_NN model_NN allows_VVZ direct_JJ coupling_NN with_IN a_DT SOx_NNS mechanism_NN [_SYM 15_CD ]_SYM and_CC a_DT more_JJR comprehensive_JJ NOx_JJ mechanism_NN since_IN the_DT fuel_NN model_NN includes_VVZ essential_JJ radicals_NNS such_JJ as_IN O_NP ,_, H_NP and_CC OH_UH for_IN their_PP$ reactions_NNS ._SENT 
+Reasonably_RB good_JJ agreement_NN has_VHZ also_RB been_VBN achieved_VVN between_IN the_DT simulated_JJ and_CC experimental_JJ peak_NN averaged_VVD SVF_NN at_IN varying_VVG ambient_JJ pressure_NN levels_NNS in_IN the_DT constant_JJ volume_NN chamber_NN ._SENT 
+This_DT also_RB indicates_VVZ that_IN the_DT assumptions_NNS to_TO exclude_VV the_DT PAH_NN in_IN the_DT initial_JJ fuel_NN composition_NN and_CC to_TO apply_VV single_JJ component_NN fuel_NN models_NNS are_VBP valid_JJ when_WRB the_DT flame_NN temperatures_NNS do_VVP not_RB vary_VV significantly_RB among_IN the_DT test_NN cases_NNS ._SENT 
+The_DT current_JJ results_NNS also_RB show_VVP that_IN equivalence_NN ratio_NN values_NNS within_IN the_DT rich_JJ premixed_JJ core_NN region_NN increases_NNS with_IN the_DT ambient_JJ pressure_NN due_JJ to_TO the_DT drops_NNS of_IN liftoff_NN lengths_NNS ._SENT 
+The_DT validated_VVN chemical_NN and_CC soot_NN models_NNS are_VBP subsequently_RB coupled_VVN with_IN the_DT turbulence_NN intensity_NN and_CC velocity_NN fields_NNS calculated_VVN from_IN previous_JJ work_NN [_SYM 17_CD ]_SYM in_IN order_NN to_TO simulate_VV in-cylinder_NN combustion_NN and_CC pollutant_NN formation_NN in_IN a_DT uniflow_NN scavenged_VVD ,_, large_JJ marine_JJ diesel_NN engine_NN ,_, operating_VVG at_IN a_DT heavily_RB sooting_VVG condition_NN where_WRB the_DT optical_JJ measurements_NNS are_VBP not_RB available_JJ ._SENT 
+Spatial_JJ distribution_NN of_IN OH_UH and_CC soot_NN particles_NNS are_VBP utilised_VVN to_TO explain_VV the_DT effects_NNS of_IN soot_NN radiation_NN ._SENT 
+This_DT provides_VVZ insights_NNS and_CC a_DT better_JJR understanding_NN on_IN the_DT aforementioned_JJ processes_NNS ._SENT 
+For_IN this_DT test_NN case_NN ,_, the_DT simulated_JJ pressure_NN and_CC HRR_NP results_NNS agree_VVP with_IN the_DT experimental_JJ data_NNS ,_, although_IN the_DT simulated_JJ pressure_NN rise_NN starts_VVZ 1.0_CD CAD_NN in_IN advance_NN and_CC the_DT calculated_JJ peak_NN pressure_NN is_VBZ 1.7_CD %_NN lower_JJR ._SENT 
+The_DT ignition_NN site_NN and_CC the_DT diesel_JJ flame_NN jet_NN are_VBP found_VVN forming_VVG close_RB to_TO the_DT injection_NN tips_NNS ._SENT 
+This_DT deteriorates_VVZ the_DT air_NN entrainment_NN to_TO the_DT fuel-rich_JJ region_NN ._SENT 
+As_IN a_DT result_NN ,_, the_DT associated_JJ local_JJ equivalence_NN ratio_NN and_CC SVF_NN values_NNS appear_VVP to_TO be_VB higher_JJR as_IN compared_VVN to_TO those_DT under_IN similar_JJ test_NN condition_NN in_IN the_DT constant_JJ volume_NN chamber_NN ._SENT 
+The_DT total_JJ heat_NN transfer_NN to_TO the_DT walls_NNS calculated_VVN when_WRB soot_NN radiative_JJ heat_NN loss_NN is_VBZ taken_VVN into_IN account_NN is_VBZ approximately_RB 30_CD %_NN higher_JJR than_IN that_IN where_WRB only_RB convective_JJ heat_NN loss_NN is_VBZ considered_VVN ._SENT 
+Yet_RB ,_, the_DT total_JJ heat_NN losses_NNS are_VBP relatively_RB low_JJ ,_, compared_VVN to_TO those_DT in_IN automotive_JJ diesel_JJ engines_NNS ._SENT 
+Besides_IN this_DT ,_, the_DT overall_JJ effect_NN on_IN the_DT net_JJ soot_NN mass_NN production_NN is_VBZ minor_JJ ._SENT 
+When_WRB the_DT NO_DT formation_NN is_VBZ saturated_VVN ,_, the_DT averaged_VVN concentration_NN is_VBZ approximately_RB 7.7_CD %_NN lower_JJR ._SENT 
+Concentrations_NNS computed_VVD using_VVG Arrhenius_NP parameters_NNS proposed_VVN in_IN the_DT GRI_NP Mech_NP mechanisms_NNS [_SYM 44_CD ]_SYM are_VBP found_VVN closer_RBR to_TO the_DT measurement_NN ,_, although_IN they_PP remain_VVP approximately_RB 500_CD ppm_NN higher_JJR ._SENT 
+The_DT overestimation_NN can_MD be_VB attributed_VVN to_TO effects_NNS of_IN fresh_JJ air_NN dilution_NN and_CC the_DT absence_NN of_IN gas_NN radiation_NN ._SENT 
+Current_JJ results_NNS also_RB show_VVP neither_DT increasing_VVG nor_CC decreasing_VVG the_DT soot_NN absorption_NN coefficient_NN by_IN 30_CD %_NN from_IN the_DT baseline_NN setup_NN is_VBZ found_VVN influential_JJ to_TO NO_RB ,_, soot_NN mass_NN and_CC heat_NN transfer_NN ._SENT 
+The_DT numerical_JJ model_NN developed_VVN in_IN this_DT work_NN is_VBZ expected_VVN to_TO serve_VV as_IN an_DT important_JJ prerequisite_NN to_TO study_VV different_JJ phenomena_NNS in_IN this_DT combustion_NN system_NN ._SENT 
+For_IN instance_NN ,_, by_IN integrating_VVG gas_NN radiation_NN model_NN on_IN top_NN of_IN the_DT current_JJ one_CD ,_, effects_NNS of_IN gas_NN radiation_NN on_IN heat_NN transfer_NN and_CC emissions_NNS formation_NN can_MD be_VB evaluated_VVN ._SENT 
+Besides_IN that_DT ,_, by_IN coupling_NN SOx_NNS mechanism_NN into_IN the_DT fuel_NN model_NN ,_, temporal_JJ and_CC spatial_JJ SOx_NNS and_CC sulphuric_JJ acid_JJ distribution_NN can_MD be_VB identified_VVN ._SENT 
+The_DT latter_NN is_VBZ particularly_RB significant_JJ for_IN studying_VVG the_DT acid_JJ condensation_NN and_CC corrosion_NN rates_NNS as_IN heavy_JJ fuel_NN oil_NN which_WDT is_VBZ commonly_RB used_VVN in_IN marine_JJ diesel_NN engines_NNS contains_VVZ certain_JJ amount_NN of_IN sulphur_NN [_SYM 15_CD ]_SYM ._SENT 
+<Section> Acknowledgements_NNS </Section> The_DT authors_NNS gratefully_RB acknowledge_VVP funding_NN from_IN the_DT Strategic_NP Research_NP Council_NP of_IN Denmark_NP and_CC MAN_NN Diesel_NP &_CC Turbo_NP A/S_NP through_IN the_DT RADIADE_JJ project_NN ._SENT 
+The_DT authors_NNS also_RB thank_VVP Eric_NP Baudoin_NP ,_, Stefan_NP Mayer_NP and_CC Simon_NP Matlok_NP (_( from_IN MAN_NN Diesel_NP &_CC Turbo_NP A/S_NPS )_) for_IN valuable_JJ discussions_NNS ._SENT 
+Technical_JJ assistance_NN provided_VVN by_IN Hiew_NP Mun_NP Poon_NP (_( from_IN The_DT University_NP of_IN Nottingham_NP Malaysia_NP Campus_NP )_) in_IN the_DT mechanism_NN reduction_NN is_VBZ also_RB much_RB appreciated_VVN ._SENT 
+<Section> References_NNS </Section> [_SYM 1_CD ]_SYM M._NP Imperato_NP ,_, O._NP Kaario_NP ,_, T._NP Sarjovaara_NP ,_, M._NP Larmi_NP Split_NP fuel_NN injection_NN and_CC Miller_NP cycle_NN in_IN a_DT large-bore_NP engine_NN Appl_NP Energy_NP ,_, 162_CD (_( 2016_CD )_) ,_, pp_NP ._SENT 
+289-297_CD ArticleDownload_NP PDFView_NP Record_NP in_IN ScopusGoogle_JJ Scholar_NN [_SYM 2_CD ]_SYM P._NP Kilpinen_NP Optimization_NP of_IN a_DT simplified_VVN sub-model_NN for_IN NO_DT emission_NN prediction_NN by_IN CFD_NN in_IN large_JJ 4-stroke_JJ marine_JJ diesel_NN engines_NNS Fuel_NN Process_NN Technol_NN ,_, 91_CD (_( 2010_CD )_) ,_, pp_NP ._SENT 
+218-228_CD ArticleDownload_NP PDFView_NP Record_NP in_IN ScopusGoogle_JJ Scholar_NN [_SYM 3_CD ]_SYM L._NP M._NP Pickett_NP ,_, D._NP L._NP Siebers_NP Soot_NN in_IN diesel_JJ fuel_NN jets_NNS :_: effects_NNS of_IN ambient_JJ temperature_NN ,_, ambient_JJ density_NN ,_, and_CC injection_NN pressure_NN Combust_JJ Flame_NN ,_, 138_CD (_( 2004_CD )_) ,_, pp_NP ._SENT 
+114-135_CD ArticleDownload_NP PDFView_NP Record_NP in_IN ScopusGoogle_JJ Scholar_NN [_SYM 4_CD ]_SYM J._NP -G_NP ._SENT 
+Nerva_NP ,_, C._NP L._NP Genzale_NP ,_, S._NP Kook_NP ,_, J._NP M._NP Garcia-Oliver_NP ,_, L._NP M._NP Pickett_NP Fundamental_JJ spray_NN and_CC combustion_NN measurements_NNS of_IN soy_NN methyl-ester_NP biodiesel_NP Int_NP J_NP Engine_NP Res_NN ,_, 14_CD (_( 2012_CD )_) ,_, pp_NP ._SENT 
+373-390_CD Google_JJ Scholar_NN [_SYM 5_CD ]_SYM J._NP Zhang_NP ,_, W._NP Jing_NP ,_, W._NP L._NP Roberts_NP ,_, T._NP Fang_NP Soot_NN temperature_NN and_CC KL_NN factor_NN for_IN biodiesel_NP and_CC diesel_JJ spray_NN combustion_NN in_IN a_DT constant_JJ volume_NN combustion_NN chamber_NN Appl_NP Energy_NP ,_, 107_CD (_( 2013_CD )_) ,_, pp_NP ._SENT 
+52-65_CD ArticleDownload_NP PDFView_NP Record_NP in_IN ScopusGoogle_JJ Scholar_NN [_SYM 6_CD ]_SYM R._NP Payri_NP ,_, F._NP J._NP Salvador_NP ,_, J._NP Manin_NP ,_, A._NP Viera_NP Diesel_NP ignition_NN delay_NN and_CC lift-off_NN length_NN through_IN different_JJ methodologies_NNS using_VVG a_DT multi-hole_NN injector_NN Appl_NP Energy_NP ,_, 162_CD (_( 2016_CD )_) ,_, pp_NP ._SENT 
+541-550_CD ArticleDownload_NP PDFView_NP Record_NP in_IN ScopusGoogle_JJ Scholar_NN [_SYM 7_CD ]_SYM J._NP Jeon_NP ,_, S._NP Park_NP Effects_NNS of_IN pilot_NN injection_NN strategies_NNS on_IN the_DT flame_NN temperature_NN and_CC soot_NN distributions_NNS in_IN an_DT optical_JJ CI_NP engine_NN fueled_VVN with_IN biodiesel_NP and_CC conventional_JJ diesel_NN Appl_NP Energy_NP ,_, 160_CD (_( 2015_CD )_) ,_, pp_NP ._SENT 
+581-591_CD ArticleDownload_NP PDFView_NP Record_NP in_IN ScopusGoogle_JJ Scholar_NN [_SYM 8_CD ]_SYM J._NP Jeon_NP ,_, S._NP I._NP Kwon_NP ,_, Y._NP H._NP Park_NP ,_, Y._JJ Oh_UH ,_, S._NP Park_NP Visualizations_NNS of_IN combustion_NN and_CC fuel/air_JJ mixture_NN formation_NN processes_VVZ in_IN a_DT single_JJ cylinder_NN engine_NN fueled_VVN with_IN DME_NP Appl_NP Energy_NP ,_, 113_CD (_( 2014_CD )_) ,_, pp_NP ._SENT 
+294-301_CD ArticleDownload_NP PDFView_NP Record_NP in_IN ScopusGoogle_JJ Scholar_NN [_SYM 9_CD ]_SYM Singh_NP S_NP ,_, Reitz_NP RD_NP ._SENT 
+Musculus_NP MPB_NP ,_, 2-color_JJ thermometry_NN experiments_NNS and_CC high-speed_JJ imaging_NN of_IN multi-mode_NN diesel_NN engine_NN combustion_NN ._SENT 
+SAE_NP paper_NN 2005-01-3842_CD ;_: 2015._CD Google_JJ Scholar_NN [_SYM 10_CD ]_SYM Hult_NP J_NP ,_, Matlok_NP S_NP ,_, Mayer_NP S._NP Particle_NN image_NN velocimetry_NN measurements_NNS of_IN swirl_NN and_CC scavenging_VVG in_IN a_DT large_JJ marine_JJ two-stroke_JJ diesel_NN engine_NN ._SENT 
+SAE_NP paper_NN 2014-01-1173_CD ;_: 2014._CD Google_JJ Scholar_NN [_SYM 11_CD ]_SYM J._NP Hult_NP ,_, S._NP Matlok_NP ,_, S._NP Mayer_NP Optical_NP diagnostics_NNS of_IN fuel_NN injection_NN and_CC ignition_NN in_IN a_DT marine_JJ two-stroke_JJ diesel_NN engine_NN SAE_NP Int_NP J_NP Engine_NP ,_, 7_CD (_( 2014_CD )_) ,_, Article_NP 2014-01-1448_CD Google_JJ Scholar_NN [_SYM 12_CD ]_SYM Herrmann_NP K_NP ,_, von_NP Rotz_NP B_NP ,_, Schulz_NP R_NP ,_, Weisser_NP G._NP A_DT “_JJ spray_NN combustion_NN chamber_NN ”_JJ facility_NN for_IN investigations_NNS in_IN relation_NN to_TO large_JJ 2-stroke_JJ marine_JJ diesel_NN engine_NN combustion_NN system_NN optimization_NN ._SENT 
+In_RB :_: Proc_NN int_NN symposium_NN on_IN marine_JJ engineering_NN (_( ISME_NP )_) ,_, Kobe_NP ,_, Japan_NP ;_: 2011._CD Google_JJ Scholar_NN [_SYM 13_CD ]_SYM S._NP I._NP Raptotasios_NP ,_, N._NP F._NP Sakellaridisa_NP ,_, R._NP G._NP Papagiannakis_NP ,_, D._NP T._NP Hountalas_NP Application_NN of_IN a_DT multi-zone_NP combustion_NN model_NN to_TO investigate_VV the_DT NOx_JJ reduction_NN potential_NN of_IN two-stroke_JJ marine_JJ diesel_NN engines_NNS using_VVG EGR_NP Appl_NP Energy_NP ,_, 157_CD (_( 2015_CD )_) ,_, pp_NP ._SENT 
+814-823_CD ArticleDownload_NP PDFView_NP Record_NP in_IN ScopusGoogle_JJ Scholar_NN [_SYM 14_CD ]_SYM Andreasen_NP A_NP ,_, Mayer_NP S._NP Modeling_NN of_IN the_DT oxidation_NN of_IN fuel_NN sulphur_NN in_IN low_JJ speed_NN two-stroke_JJ diesel_NN engines_NNS ._SENT 
+In_RB :_: CIMAC_JJ congress_NN paper_NN no_RB 39_CD ,_, Bergen_NP ,_, Norway_NP ;_: 2010._CD Google_JJ Scholar_NN [_SYM 15_CD ]_SYM R._NP Cordtz_NP ,_, J._NP Schramm_NP ,_, A._NP Andreasen_NP ,_, S._NP S._NP Eskildsen_NP ,_, S._NP Mayer_NP Modeling_VVG the_DT distribution_NN of_IN sulfur_NN compounds_NNS in_IN a_DT large_JJ two_CD stroke_NN diesel_JJ engine_NN Energy_NN Fuels_NNS ,_, 27_CD (_( 2013_CD )_) ,_, pp_NP ._SENT 
+1652-1660_CD CrossRefView_NP Record_NP in_IN ScopusGoogle_JJ Scholar_NN [_SYM 16_CD ]_SYM Andersen_NP FH_NP ,_, Hult_NP J_NP ,_, Nogenmyr_NP K-J_NP ,_, Mayer_NP S._NP Numerical_JJ investigation_NN of_IN the_DT scavenging_VVG process_NN in_IN marine_JJ two-stroke_JJ diesel_NN engines_NNS ._SENT 
+SAE_NP paper_NN 2013-01-2647_CD ;_: 2013._CD Google_JJ Scholar_NN [_SYM 17_CD ]_SYM E._NP Sigurdsson_NP ,_, K._NP M._NP Ingvorsen_NP ,_, M._NP V._NP Jensen_NP ,_, S._NP Mayer_NP ,_, S._NP Matlok_NP ,_, J._NP H._NP Walther_NP Numerical_JJ analysis_NN of_IN the_DT scavenge_VVP flow_NN and_CC convective_JJ heat_NN transfer_NN in_IN large_JJ two-stroke_JJ marine_JJ diesel_NN engines_NNS Appl_NP Energy_NP ,_, 123_CD (_( 2014_CD )_) ,_, pp_NP ._SENT 
+37-46_CD ArticleDownload_NP PDFView_NP Record_NP in_IN ScopusGoogle_JJ Scholar_NN [_SYM 18_CD ]_SYM Kaario_NP O_NP ,_, Larmi_NP M_NP ,_, Tanner_NP F._NP Comparing_VVG single-step_VV and_CC multi-step_VV chemistry_NN using_VVG the_DT laminar_JJ and_CC turbulent_JJ characteristic_JJ time_NN combustion_NN model_NN in_IN two_CD diesel_JJ engines_NNS ._SENT 
+SAE_NP paper_NN 2002-01-1749_CD ;_: 2012._CD Google_JJ Scholar_NN [_SYM 19_CD ]_SYM P._NP Taskinen_NP Modelling_VVG of_IN spray_NN combustion_NN ,_, emission_NN formation_NN and_CC heat_NN transfer_NN in_IN medium_JJ speed_NN diesel_NN engine_NN Tampere_NP University_NP of_IN Technology_NP (_( 2005_CD )_) Google_JJ Scholar_NN [_SYM 20_CD ]_SYM S._NP R._NP Turns_NP An_DT introduction_NN to_TO combustion_NN :_: concepts_NNS and_CC applications_NNS (_( 3rd_NN ed_NNS ._SENT 
+)_) ,_, McGraw-Hill_NP International_NP Edition_NN ,_, New_NP York_NP (_( 2012_CD )_) Google_JJ Scholar_NN [_SYM 21_CD ]_SYM F._NP Tao_NP ,_, R._NP D._NP Reitz_NP ,_, D._NP E._NP Foster_NP ,_, Y._NP Liu_NP Nine-step_VVZ phenomenological_JJ diesel_JJ soot_NN model_NN validated_VVN over_IN a_DT wide_JJ range_NN of_IN engine_NN conditions_NNS Int_NP J_NP Therm_NN Sci_NP ,_, 48_CD (_( 2007_CD )_) ,_, pp_NP ._SENT 
+1223-1234_CD Google_JJ Scholar_NN [_SYM 22_CD ]_SYM K._NP M._NP Pang_NP ,_, H._NP K._NP Ng_NP ,_, S._NP Gan_NP Investigation_NP of_IN fuel_NN injection_NN pattern_NN on_IN soot_NN formation_NN and_CC oxidation_NN processes_NNS in_IN a_DT light-duty_NN diesel_NN engine_NN using_VVG integrated_JJ CFD-reduced_JJ chemistry_NN Fuel_NN ,_, 96_CD (_( 2012_CD )_) ,_, pp_NP ._SENT 
+404-418_CD ArticleDownload_NP PDFView_NP Record_NP in_IN ScopusGoogle_JJ Scholar_NN [_SYM 23_CD ]_SYM K._NP M._NP Pang_NP ,_, M._NP Jangi_NP ,_, X._NP -S_NP ._SENT 
+Bai_NP ,_, J._NP Schramm_NP Evaluation_NN and_CC optimization_NN of_IN phenomenological_JJ multi-step_JJ soot_NN model_NN for_IN spray_NN combustion_NN under_IN diesel_JJ engine-like_JJ operating_VVG conditions_NNS Combust_VVP Theor_NP Model_NP ,_, 19_CD (_( 2015_CD )_) ,_, pp_NP ._SENT 
+279-308_CD CrossRefView_NP Record_NP in_IN ScopusGoogle_JJ Scholar_NN [_SYM 24_CD ]_SYM S._NP Kook_NP ,_, L._NP Pickett_NP Soot_NN volume_NN fraction_NN and_CC morphology_NN of_IN conventional_JJ ,_, Fischer-Tropsch_NP ,_, coal-derived_VVD ,_, and_CC surrogate_JJ fuel_NN at_IN diesel_JJ conditions_NNS SAE_NP Int_NP J_NP Fuels_NNS Lubr_NP ,_, 5_CD (_( 2012_CD )_) ,_, pp_NP ._SENT 
+647-664_CD CrossRefView_NP Record_NP in_IN ScopusGoogle_JJ Scholar_NN [_SYM 25_CD ]_SYM Pang_NP KM_NP ,_, Poon_NP HM_NP ,_, Ng_NP HK_NP ,_, Gan_NP S_NP ,_, Schramm_NP J._NP Soot_NN formation_NN modeling_NN of_IN n-dodecane_NN and_CC diesel_NN sprays_NNS under_IN engine-like_JJ conditions_NNS ._SENT 
+SAE_NP paper_NN 2015-24-2468_CD ;_: 2015._CD Google_JJ Scholar_NN [_SYM 26_CD ]_SYM M._NP Bolla_NP ,_, D._NP Farrace_NP ,_, Y._NP M._NP Wright_NP ,_, K._NP Boulouchos_NNS Modelling_VVG of_IN soot_NN formation_NN in_IN a_DT heavy-duty_JJ diesel_NN engine_NN with_IN conditional_JJ moment_NN closure_NN Fuel_NN ,_, 117_CD (_( 2013_CD )_) ,_, pp_NP ._SENT 
+309-325_CD Google_JJ Scholar_NN [_SYM 27_CD ]_SYM G._NP Vishwanathan_NP ,_, R._NP D._NP Reitz_NP Application_NN of_IN a_DT semi-detailed_JJ soot_NN modeling_VVG approach_NN for_IN conventional_JJ and_CC low_JJ temperature_NN diesel_NN combustion_NN –_JJ Part_NN I_PP :_: Model_NN performance_NN Fuel_NN (_( 2015_CD )_) ,_, pp_NP ._SENT 
+757-770_CD ArticleDownload_NP PDFView_NP Record_NP in_IN ScopusGoogle_JJ Scholar_NN [_SYM 28_CD ]_SYM Patel_NP A_NP ,_, Kong_NP SC_NP ,_, Reitz_NP RD_NP ._SENT 
+Development_NN and_CC validation_NN of_IN a_DT reduced_VVN reaction_NN mechanism_NN for_IN HCCI_NP engine_NN simulations_NNS ._SENT 
+SAE_NP paper_NN 2004-01-0558_CD ;_: 2004._CD Google_JJ Scholar_NN [_SYM 29_CD ]_SYM S._NP Liu_NP ,_, J._NP C._NP Hewson_NP ,_, J._NP H._NP Chen_NP ,_, H._NP Pitsch_NP Effects_NNS of_IN strain_NN rate_NN on_IN high-pressure_JJ nonpremixed_JJ n-heptane_NN autoignition_NN in_IN counterflow_JJ Combust_JJ Flame_NN ,_, 137_CD (_( 2004_CD )_) ,_, pp_NP ._SENT 
+320-339_CD ArticleDownload_NP PDFView_NP Record_NP in_IN ScopusGoogle_JJ Scholar_NN [_SYM 30_CD ]_SYM T._NP Lu_NP ,_, C._NP K._NP Law_NP Strategies_NP for_IN mechanism_NN reduction_NN for_IN large_JJ hydrocarbon_NN :_: n-heptane_JJ Combust_JJ Flame_NN ,_, 154_CD (_( 2008_CD )_) ,_, pp_NP ._SENT 
+153-163_CD ArticleDownload_NP PDFView_NP Record_NP in_IN ScopusGoogle_JJ Scholar_NN [_SYM 31_CD ]_SYM K._NP M._NP Pang_NP ,_, H._NP K._NP Ng_NP ,_, S._NP Gan_NP Development_NP of_IN an_DT integrated_JJ reduced_VVN fuel_NN oxidation_NN and_CC soot_NN precursor_NN formation_NN mechanism_NN for_IN CFD_NN simulations_NNS of_IN diesel_JJ combustion_NN Fuel_NN ,_, 90_CD (_( 2010_CD )_) ,_, pp_NP ._SENT 
+2902-2914_CD Google_JJ Scholar_NN [_SYM 32_CD ]_SYM H._NP M._NP Poon_NP ,_, H._NP K._NP Ng_NP ,_, S._NP Gan_NP ,_, K._NP M._NP Pang_NP ,_, J._NP Schramm_NP Evaluation_NN and_CC development_NN of_IN chemical_JJ kinetic_JJ mechanism_NN reduction_NN scheme_NN for_IN biodiesel_NN and_CC diesel_NN fuel_NN surrogates_VVZ SAE_NP Int_NP J_NP Fuels_NNS Lubr_NP ,_, 6_CD (_( 2013_CD )_) ,_, Article_NP 2013-01-2630_CD Google_JJ Scholar_NN [_SYM 33_CD ]_SYM CD-adapco_NP ._SENT 
+STAR-CCM+®_JJ documentation_NN ,_, version_NN 10.02_CD ._SENT 
+User_NN guide_NN ;_: 2015._CD Google_JJ Scholar_NN [_SYM 34_CD ]_SYM R._NP Lin_NP ,_, L._NP L._NP Tavlarides_VVZ Thermophysical_JJ properties_NNS needed_VVN for_IN the_DT development_NN of_IN the_DT supercritical_JJ diesel_NN combustion_NN technology_NN :_: evaluation_NN of_IN diesel_JJ fuel_NN surrogate_NN models_NNS J_NP Supercrit_NP Fluids_NNS ,_, 71_CD (_( 2012_CD )_) ,_, pp_NP ._SENT 
+136-146_CD ArticleDownload_NP PDFView_NP Record_NP in_IN ScopusGoogle_JJ Scholar_NN [_SYM 35_CD ]_SYM K._NP M._NP Leung_NP ,_, R._NP P._NP Lindstedt_NP ,_, W._NP P._NP Jones_NP A_DT simplified_VVN reaction_NN mechanism_NN for_IN soot_NN formation_NN in_IN nonpremixed_JJ flames_NNS Combust_VVP Flame_NN ,_, 87_CD (_( 1991_CD )_) ,_, pp_NP ._SENT 
+289-305_CD ArticleDownload_NP PDFView_NP Record_NP in_IN ScopusGoogle_JJ Scholar_NN [_SYM 36_CD ]_SYM Skeen_NP S_NP ,_, Manin_NP J_NP ,_, Pickett_NP L_NP ,_, Dalen_NP K_NP ,_, Ivarsson_NP A._NP Quantitative_JJ spatially_RB resolved_VVN measurements_NNS of_IN total_JJ radiation_NN in_IN high-pressure_JJ spray_NN flames_NNS ._SENT 
+SAE_NP paper_NN 2014-01-1252_CD ;_: 2014._CD Google_JJ Scholar_NN [_SYM 37_CD ]_SYM J._NP Abraham_NP ,_, V._NP Magi_NNS Application_NN of_IN the_DT discrete_JJ ordinates_NNS method_NN to_TO compute_VV radiant_JJ heat_NN loss_NN in_IN a_DT diesel_JJ engine_NN Numer_NP Heat_NP Tr_NP A-Appl_NP ,_, 31_CD (_( 1997_CD )_) ,_, pp_NP ._SENT 
+597-610_CD CrossRefView_NP Record_NP in_IN ScopusGoogle_JJ Scholar_NN [_SYM 38_CD ]_SYM S._NP J._NP Brookes_NP ,_, J._NP B._NP Moss_NP Predictions_NNS of_IN soot_NN and_CC thermal_JJ radiation_NN properties_NNS in_IN confined_VVN turbulent_JJ jet_NN diffusion_NN flames_NNS Combust_VVP Flame_NN ,_, 116_CD (_( 1999_CD )_) ,_, pp_NP ._SENT 
+486-503_CD ArticleDownload_NP PDFView_NP Record_NP in_IN ScopusGoogle_JJ Scholar_NN [_SYM 39_CD ]_SYM J._NP F._NP Widmann_NP Evaluation_NN of_IN the_DT planck_NP mean_JJ absorption_NN coefficients_NNS for_IN radiation_NN transport_NN through_IN smoke_NN Combust_JJ Sci_NP Technol_NN ,_, 175_CD (_( 2003_CD )_) ,_, pp_NP ._SENT 
+2299-2308_CD CrossRefView_NP Record_NP in_IN ScopusGoogle_JJ Scholar_NN [_SYM 40_CD ]_SYM Engine_NP Combustion_NP Network_NP ._SENT 
+Available_JJ at_IN <http://www.sandia.gov/ecn/> ._SENT 
+Google_JJ Scholar_NN [_SYM 41_CD ]_SYM Vishwanathan_NP G_NP ,_, Reitz_NP RD_NP ,_, Numerical_JJ predictions_NNS of_IN diesel_JJ flame_NN lift-off_NN length_NN and_CC soot_NN distributions_NNS under_IN low_JJ temperature_NN combustion_NN condition_NN ._SENT 
+SAE_NP paper_NN 2008-01-1331_CD ;_: 2008._CD Google_JJ Scholar_NN [_SYM 42_CD ]_SYM Bergman_NP M_NP ,_, Golovitchev_NP VI_NP ._SENT 
+Application_NN of_IN transient_JJ temperature_NN vs._CC equivalence_NN ratio_NN emission_NN maps_NNS to_TO engine_NN simulations_NNS ._SENT 
+SAE_NP paper_NN 2007-01-1086_CD ;_: 2007._CD Google_JJ Scholar_NN [_SYM 43_CD ]_SYM Dec_NP JE_NP ._SENT 
+A_DT conceptual_JJ model_NN of_IN DI_FW diesel_JJ combustion_NN based_VVN on_IN laser-sheet_NN imaging_NN ._SENT 
+SAE_NP paper_NN 970873_CD ;_: 1997._CD Google_JJ Scholar_NN [_SYM 44_CD ]_SYM Bowman_NP CT_NP ,_, Hanson_NP RK_NP ,_, Davidson_NP DF_NP ,_, Gardiner_NP Jr_NP WC_NN ,_, Lissianski_NP V_NN ,_, Smith_NP GP_NN ,_, et_NP al_NP ._SENT 
+Available_JJ at_IN <http://www.me.berkeley.edu/gri_mech/> ._SENT 
+Google_JJ Scholar_NN [_SYM 45_CD ]_SYM Easley_NP WL_NP ,_, Mellor_NP AM_NP ._SENT 
+NO_DT decomposition_NN in_IN diesel_JJ engines_NNS ._SENT 
+SAE_NP paper_NN 1999-01-3546_CD ;_: 1999._CD Google_JJ Scholar_NN [_SYM 46_CD ]_SYM F._NP Tao_NP Numerical_JJ modeling_NN of_IN soot_NN and_CC NOx_JJ formation_NN in_IN non-stationary_JJ diesel_JJ flames_NNS with_IN complex_JJ chemistry_NN PhD_NN Thesis_NN Chalmers_NP University_NP of_IN Technology_NP (_( 2003_CD )_) Google_JJ Scholar_NN [_SYM 47_CD ]_SYM T._NP C._NP Williams_NP ,_, C._NP R._NP Shaddix_NP ,_, K._NP A._NP Jensen_NP ,_, J._NP M._NP Suo-Anttila_NP Measurement_NN of_IN the_DT dimensionless_JJ extinction_NN coefficient_NN of_IN soot_NN within_IN laminar_JJ diffusion_NN flames_NNS Int_NP J_NP Heat_NP Mass_NP Transfer_NN ,_, 50_CD (_( 2007_CD )_) ,_, pp_NP ._SENT 
+1616-1630_CD 

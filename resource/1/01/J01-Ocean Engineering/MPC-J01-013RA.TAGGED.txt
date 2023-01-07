@@ -1,0 +1,361 @@
+﻿_NP <title> Investigation_NP of_IN free-field_NP underwater_JJ explosion_NN with_IN Eulerian_JJ finite_JJ element_NN method_NN </title> <author> Yunlong_NP Liu_NP ,_, A-Man_NP Zhang_NP ,_, Zhaoli_NP Tian_NP ,_, Shiping_VVG Wang_NP </author> <Affiliation> College_NP of_IN Shipbuilding_NP Engineering_NP ,_, Harbin_NP Engineering_NP University_NP ,_, Harbin_NP ,_, 150001_CD ,_, China_NP </Affiliation> <year> 2018_CD </year> <Jounral> Ocean_NP Engineering_NP </Journal> <Publishing_house> ELSEVIER_NP </Publishing_house> <Text_Collector> Zhang_NP San，HEU_NP </Text_Collector> <DOI> 10.1016/j.oceaneng.2018.08.001_JJ </DOI> <URL> https://www.sciencedirect.com/science/article/pii/S0029801818314628_NP </URL> Investigation_NP of_IN free-field_NP underwater_JJ explosion_NN with_IN Eulerian_JJ finite_JJ element_NN method_NN Yunlong_NP Liu_NP ,_, A-Man_NP Zhang_NP ,_, Zhaoli_NP Tian_NP ,_, Shiping_VVG Wang_NP College_NP of_IN Shipbuilding_NP Engineering_NP ,_, Harbin_NP Engineering_NP University_NP ,_, Harbin_NP ,_, 150001_CD ,_, China_NP <Section> Highlights_VVZ </Section> The_DT present_JJ numerical_JJ model_NN can_MD predict_VV both_CC the_DT shockwave_NN and_CC bubble_NN pulsation_NN load_NN with_IN good_JJ accuracy_NN ._SENT 
+The_DT non-reflecting_VVG boundary_NN condition_NN based_VVN on_IN ETA2_JJ works_NNS well_RB in_IN the_DT underwater_JJ explosion_NN simulation_NN ._SENT 
+The_DT MUSCL_NN algorithm_NN is_VBZ modified_VVN for_IN the_DT convection_NN in_IN the_DT axisymmetric_JJ model_NN ._SENT 
+The_DT asymmetry_NN of_IN the_DT pulsation_NN load_NN is_VBZ generated_VVN by_IN the_DT 2_CD high_JJ pressure_NN regions_NNS caused_VVN by_IN gravity_NN and_CC the_DT jet_NN impact_NN ._SENT 
+<Section> Abstract_JJ </Section> Underwater_JJ explosion_NN in_IN free_JJ field_NN is_VBZ investigated_VVN in_IN this_DT paper_NN numerically_RB ._SENT 
+With_IN the_DT multiphase_JJ interface_NN captured_VVN by_IN the_DT Volume_NN of_IN Fluid_JJ (_( VOF_JJ )_) method_NN ,_, the_DT Eulerian_JJ finite_JJ element_NN method_NN (_( EFEM_NP )_) for_IN underwater_JJ explosion_NN is_VBZ established_VVN ._SENT 
+The_DT MUSCL_NN algorithm_NN to_TO advect_VV the_DT element_NN centered_VVN variables_NNS is_VBZ modified_VVN to_TO maintain_VV its_PP$ conservativeness_NN in_IN the_DT axisymmetric_JJ model_NN ,_, and_CC the_DT second_JJ order_NN Early_NP Time_NP Approximation_NN (_( ETA2_NP )_) is_VBZ adopted_VVN to_TO deal_VV with_IN the_DT non-reflecting_VVG boundary_NN condition_NN of_IN the_DT computational_JJ domain_NN ._SENT 
+By_IN comparing_VVG with_IN the_DT experiment_NN results_NNS ,_, the_DT numerical_JJ model_NN is_VBZ proved_VVN in_IN both_DT shockwave_NN and_CC bubble_NN oscillation_NN simulation_NN ._SENT 
+With_IN the_DT numerical_JJ model_NN ,_, 2_CD underwater_JJ explosion_NN cases_NNS with_IN different_JJ initial_JJ depths_NNS are_VBP simulated_JJ and_CC the_DT near-field_NP pressure_NN characteristics_NNS are_VBP analyzed_VVN ._SENT 
+The_DT near-field_NP bubble_NN pulsation_NN load_NN exhibits_VVZ noteworthy_JJ asymmetry_NN around_IN the_DT bubble_NN ,_, which_WDT is_VBZ attributed_VVN to_TO the_DT 2_CD high_JJ pressure_NN regions_NNS above_IN and_CC beneath_IN the_DT bubble_NN ,_, respectively_RB ._SENT 
+By_IN comparing_VVG the_DT evolution_NN of_IN bubbles_NNS with_IN different_JJ buoyancy_NN parameters_NNS ,_, it_PP is_VBZ found_VVN that_IN the_DT increase_NN of_IN the_DT buoyancy_NN parameter_NN can_MD delay_VV the_DT penetration_NN and_CC extend_VV the_DT collapse_NN of_IN the_DT bubble_NN ._SENT 
+Keywords_NNS :_: Underwater_JJ explosion_NN ;_: Eulerian_JJ finite_JJ element_NN method_NN ;_: Shockwave_NN ;_: Bubble_NN pulsation_NN <Section> 1._CD Introduction_NN </Section> The_DT underwater_JJ explosion_NN is_VBZ an_DT important_JJ research_NN topic_NN in_IN both_DT military_JJ and_CC civilian_JJ fields_NNS ._SENT 
+The_DT pressure_NN load_NN caused_VVN by_IN the_DT underwater_JJ explosion_NN can_MD lead_VV to_TO much_RB more_JJR serious_JJ damage_NN on_IN a_DT nearby_JJ structure_NN than_IN the_DT same_JJ explosive_JJ detonated_VVN in_IN air_NN because_IN the_DT water_NN is_VBZ more_RBR capable_JJ in_IN transmitting_VVG the_DT shockwave_NN load_NN ._SENT 
+Furthermore_RB ,_, the_DT bubble_NN consisting_VVG of_IN the_DT gaseous_JJ productions_NNS will_MD move_VV violently_RB in_IN the_DT water_NN after_IN the_DT shockwave_NN radiation_NN ._SENT 
+If_IN the_DT explosive_JJ is_VBZ placed_VVN at_IN a_DT proper_JJ location_NN ,_, the_DT bubble_NN may_MD impact_VV the_DT nearby_JJ structure_NN with_IN its_PP$ high-speed_JJ liquid_JJ jet_NN and_CC the_DT secondary_JJ bubble_NN pulsation_NN load_NN ._SENT 
+In_IN the_DT past_JJ few_JJ decades_NNS ,_, many_JJ researches_NNS have_VHP devoted_VVN themselves_PP into_IN the_DT studies_NNS on_IN the_DT underwater_JJ explosion_NN ._SENT 
+Cole_NP (_( Cole_NP ,_, 1948_CD )_) summarized_VVD the_DT proceeding_NN works_VVZ on_IN the_DT underwater_JJ explosion_NN and_CC established_VVD the_DT main_JJ framework_NN of_IN this_DT subject_NN ,_, which_WDT had_VHD been_VBN a_DT significant_JJ guidance_NN to_TO the_DT following_VVG studies_NNS ._SENT 
+Because_IN of_IN the_DT large_JJ ratios_NNS in_IN both_DT time_NN and_CC space_NN between_IN the_DT shockwave_NN phase_NN and_CC the_DT bubble_NN motion_NN phase_NN ,_, there_EX 're_VBP great_JJ difficulties_NNS in_IN simulating_VVG the_DT whole_JJ process_NN of_IN the_DT underwater_JJ explosion_NN continuously_RB ,_, especially_RB in_IN times_NNS that_IN the_DT computational_JJ resources_NNS are_VBP extremely_RB limited_VVN ._SENT 
+The_DT shockwave_NN phase_NN of_IN the_DT underwater_JJ explosion_NN is_VBZ used_VVN to_TO being_VBG predicted_VVN by_IN the_DT empirical_JJ formulas_NNS fitted_VVN by_IN the_DT experiments_NNS data_NN (_( Cole_NP ,_, 1948_CD ,_, Geers_NP and_CC Hunter_NP ,_, 2002_CD ,_, Price_NP ,_, 1979_CD )_) ._SENT 
+For_IN the_DT far-field_NP pressure_NN profile_NN ,_, many_JJ formulas_NNS have_VHP enough_JJ accuracy_NN for_IN the_DT engineering_NN application_NN because_IN the_DT disturbance_NN of_IN the_DT fluid_NN is_VBZ so_RB small_JJ that_IN the_DT problem_NN can_MD be_VB easily_RB linearized_VVN ._SENT 
+However_RB ,_, when_WRB the_DT near-field_NP pressure_NN is_VBZ concerned_VVN ,_, most_JJS empirical_JJ formulas_NNS lose_VVP accuracy_NN because_IN the_DT nonlinearity_NN arises_VVZ (_( Jin_NP et_NP al_NP ._SENT 
+,_, 2017_CD ,_, Ming_NP et_CC al_NP ._SENT 
+,_, 2016_CD )_) ._SENT 
+Bubble_NN motion_NN is_VBZ one_CD of_IN the_DT most_RBS important_JJ aspects_NNS in_IN which_WDT the_DT underwater_JJ explosion_NN differs_VVZ from_IN the_DT air_NN blast_NN ._SENT 
+The_DT bubble_NN oscillates_VVZ in_IN the_DT water_NN and_CC radiates_VVZ bubble_NN pulsation_NN load_NN outward_RB every_DT time_NN it_PP reaches_VVZ its_PP$ minimum_JJ volume_NN ._SENT 
+Meanwhile_RB ,_, the_DT bubble_NN will_MD interact_VV with_IN the_DT nearby_JJ boundaries_NNS and_CC develop_VV high_JJ speed_NN jet_NN ._SENT 
+Extensive_JJ studies_NNS have_VHP been_VBN carried_VVN out_RP on_IN the_DT bubble_NN dynamics_NNS ._SENT 
+Geers_NP and_CC Hunter_NP established_VVD a_DT spherical_JJ bubble_NN pulsation_NN model_NN based_VVN on_IN the_DT Doubly_RB Asymptotic_JJ Approximation_NN method_NN considering_VVG the_DT linear_JJ wave_NN effects_NNS of_IN the_DT internal_JJ gas_NN and_CC the_DT outside_JJ water_NN (_( Geers_NP ,_, 1978_CD ,_, Geers_NP and_CC Park_NP ,_, 2005_CD )_) ._SENT 
+Their_PP$ works_NNS have_VHP been_VBN widely_RB used_VVN in_IN predicting_VVG the_DT far-field_JJ underwater_JJ explosion_NN load_NN including_VVG the_DT bubble_NN oscillation_NN phase_NN ._SENT 
+For_IN the_DT non-spherical_JJ bubble_NN dynamics_NNS ,_, boundary_NN element_NN method_NN has_VHZ been_VBN employed_VVN as_IN one_CD of_IN the_DT most_RBS popular_JJ methods_NNS (_( Blake_NP and_CC Gibson_NP ,_, 1987_CD ,_, Klaseboer_NP et_CC al_NP ._SENT 
+,_, 2005a_NP ,_, Liu_NP et_CC al_NP ._SENT 
+,_, 2016a_NP ,_, Pearson_NP et_CC al_NP ._SENT 
+,_, 2004_CD ,_, Wang_NP and_CC Khoo_NP ,_, 2004_CD ,_, Wang_NP et_CC al_NP ._SENT 
+,_, 2003_CD ,_, Wang_NP ,_, 2013_CD ,_, Zhang_NP and_CC Liu_NP ,_, 2015_CD )_) ._SENT 
+However_RB ,_, the_DT incompressible_JJ or_CC weak_JJ compressible_JJ assumption_NN of_IN the_DT fluid_NN limits_VVZ it_PP in_IN the_DT simulation_NN of_IN the_DT shockwave_NN phase_NN ,_, and_CC the_DT energy_NN lose_VV mechanism_NN of_IN the_DT bubble_NN oscillation_NN is_VBZ difficult_JJ to_TO simulate_VV accurately_RB ._SENT 
+Liu_NP et_NP al_NP ._SENT 
+adopted_VVN the_DT finite_JJ volume_NN method_NN with_IN the_DT interface_NN captured_VVN by_IN front_JJ tracking_VVG method_NN to_TO study_VV the_DT collapse_NN of_IN a_DT bubble_NN near_IN a_DT solid_JJ wall_NN (_( Liu_NP et_NP al_NP ._SENT 
+,_, 2017_CD )_) ._SENT 
+Wang_NP et_NP al_NP ._SENT 
+used_VVN the_DT Discontinuous_JJ Galerkin_NN Method_NN to_TO consider_VV the_DT compressibility_NN of_IN the_DT fluid_NN and_CC preserved_VVD the_DT sharp_JJ pressure_NN profile_NN generated_VVN by_IN the_DT jet_NN impact_NN (_( Long-kan_NP et_NP al_NP ._SENT 
+,_, 2016_CD )_) ._SENT 
+Liu_NP et_NP al_NP ._SENT 
+presented_VVN a_DT simplification_NN model_NN to_TO predict_VV the_DT far-field_NP bubble_NN oscillation_NN considering_VVG the_DT asymmetry_NN caused_VVN by_IN the_DT migration_NN and_CC the_DT jet_NN impact_NN of_IN the_DT bubble_NN (_( Liu_NP et_NP al_NP ._SENT 
+,_, 2014_CD )_) ._SENT 
+Numerical_JJ investigation_NN was_VBD carried_VVN out_RP by_IN Barras_NP et_CC al_NP ._SENT 
+with_IN the_DT ALE_NN method_NN on_IN the_DT pulsating_VVG bubble_NN phenomenon_NN of_IN the_DT underwater_JJ explosion_NN (_( Barras_NP et_NP al_NP ._SENT 
+,_, 2012_CD )_) ._SENT 
+Zhang_NP et_NP al_NP ._SENT 
+developed_VVN a_DT fully_RB coupled_VVN fluid-structure_NN interaction_NN numerical_JJ model_NN to_TO investigate_VV the_DT damage_NN of_IN an_DT underwater_JJ explosion_NN bubble_NN on_IN the_DT submerged_JJ structures_NNS (_( Zhang_NP et_NP al_NP ._SENT 
+,_, 2017_CD )_) ._SENT 
+However_RB ,_, these_DT works_VVZ seldom_RB simulated_JJ the_DT shockwave_NN and_CC the_DT bubble_NN oscillation_NN phase_NN continuously_RB ._SENT 
+The_DT Eulerian_JJ finite_JJ element_NN method_NN (_( EFEM_NP )_) is_VBZ an_DT effective_JJ approach_NN in_IN computational_JJ fluid_JJ dynamics_NNS which_WDT has_VHZ been_VBN widely_RB used_VVN in_IN the_DT hydrocodes_NP (_( Benson_NP ,_, 1992a_NP ,_, Benson_NP and_CC Okazawa_NP ,_, 2004_CD ,_, Tian_NP et_CC al_NP ._SENT 
+,_, 2018_CD )_) ._SENT 
+The_DT operator_NN split_NN technique_NN makes_VVZ it_PP flexible_JJ to_TO be_VB combined_VVN with_IN other_JJ numerical_JJ techniques_NNS ._SENT 
+In_IN this_DT paper_NN ,_, the_DT underwater_JJ explosion_NN in_IN the_DT free-field_NN is_VBZ simulated_JJ with_IN the_DT EFEM_NN ._SENT 
+The_DT paper_NN is_VBZ organized_VVN as_RB follows_VVZ ._SENT 
+Firstly_RB ,_, the_DT basic_JJ theoretical_JJ and_CC numerical_JJ models_NNS are_VBP presented_VVN ,_, and_CC the_DT special_JJ treatments_NNS of_IN the_DT model_NN is_VBZ elaborated_VVN in_IN details_NNS ._SENT 
+Then_RB 2_CD cases_NNS of_IN underwater_JJ explosion_NN are_VBP investigated_VVN with_IN the_DT numerical_JJ model_NN which_WDT is_VBZ validated_VVN by_IN the_DT experiment_NN ._SENT 
+Then_RB some_DT conclusions_NNS are_VBP drawn_VVN to_TO offer_VV reference_NN to_TO the_DT relevant_JJ studies_NNS ._SENT 
+<Section> 2._CD Theoretical_JJ and_CC numerical_JJ method_NN </Section> 2.1_CD ._SENT 
+Eulerian_JJ finite_JJ element_NN method_NN with_IN operator_NN split_NN In_IN this_DT paper_NN ,_, the_DT fluid_JJ field_NN of_IN underwater_JJ explosion_NN is_VBZ concerned_VVN ._SENT 
+If_IN the_DT explosive_JJ is_VBZ spherical_JJ and_CC other_JJ fluid_JJ boundaries_NNS are_VBP ignored_VVN ,_, the_DT fluid_JJ flow_NN motion_NN in_IN the_DT gravity_NN field_NN can_MD be_VB treated_VVN as_IN axisymmetric_JJ ._SENT 
+Therefore_RB ,_, a_DT cylindrical_JJ coordinate_VV system_NN is_VBZ established_VVN with_IN its_PP$ origin_NN locating_VVG at_IN the_DT center_NN of_IN the_DT explosive_JJ and_CC the_DT revolving_JJ axis_NN pointing_VVG to_TO the_DT opposite_JJ direction_NN of_IN the_DT gravity_NN ,_, as_RB shown_VVN in_IN Fig_NN ._SENT 
+1_CD r_SYM and_CC z_SYM denote_VV the_DT radial_NN and_CC the_DT axial_JJ coordinates_VVZ ,_, respectively_RB ._SENT 
+The_DT computational_JJ domain_NN is_VBZ taken_VVN as_IN a_DT rectangle_NN sized_VVD by_IN a × 2a_NP ._SENT 
+Fig_NN ._SENT 
+1._CD Configuration_NN of_IN the_DT underwater_JJ explosion_NN bubble_NN motion_NN in_IN free-field_NP ._SENT 
+The_DT EFEM_NN is_VBZ adopted_VVN in_IN this_DT paper_NN to_TO simulate_VV the_DT underwater_JJ explosion_NN with_IN proper_JJ efficiency_NN and_CC accuracy_NN ._SENT 
+The_DT detailed_JJ main_JJ framework_NN of_IN this_DT method_NN can_MD refer_VV to_TO the_DT published_VVN papers_NNS (_( Benson_NP ,_, 1992a_NP ,_, Benson_NP ,_, 1992b_NP ,_, Benson_NP ,_, 2008_CD ,_, Benson_NP and_CC Okazawa_NP ,_, 2004_CD )_) ._SENT 
+The_DT Reynolds_NP number_NN of_IN the_DT fluid_JJ field_NN around_IN the_DT underwater_JJ explosion_NN is_VBZ usually_RB high_JJ enough_RB to_TO ignore_VV the_DT viscosity_NN (_( Best_JJS ,_, 2002_CD ,_, Klaseboer_NP et_CC al_NP ._SENT 
+,_, 2005b_NP ,_, Liu_NP et_CC al_NP ._SENT 
+,_, 2016b_NP ,_, Wang_NP and_CC Khoo_NP ,_, 2004_CD ,_, Zhang_NP and_CC Liu_NP ,_, 2015_CD )_) ._SENT 
+Then_RB the_DT stress_NN tensor_NN can_MD be_VB simplified_VVN as_IN a_DT scalar_NN of_IN pressure_NN and_CC satisfies_VVZ the_DT momentum_NN conservation_NN equations_NNS ,_, @(1_JJ )_) where_WRB u˙_NP is_VBZ the_DT velocity_NN vector_NN and_CC U=ρu˙_NN is_VBZ the_DT momentum_NN ._SENT 
+ρ_NN and_CC p_NN are_VBP the_DT density_NN and_CC the_DT pressure_NN of_IN the_DT fluid_NN ._SENT 
+g_NN is_VBZ the_DT gravity_NN acceleration_NN ._SENT 
+The_DT third_JJ term_NN in_IN Eq_NP ._SENT 
+(_( 1_CD )_) is_VBZ the_DT convection_NN term_NN and_CC requires_VVZ upwind_JJ scheme_NN to_TO be_VB solved_VVN which_WDT is_VBZ hard_JJ to_TO implement_VV in_IN traditional_JJ FEM_NN ._SENT 
+Thus_RB ,_, with_IN the_DT operator_NN split_NN technique_NN ,_, Eq_NP ._SENT 
+(_( 1_CD )_) is_VBZ decomposed_VVN into_IN two_CD equations_NNS ,_, @(2_NP )_) @(3_NP )_) After_IN these_DT two_CD equations_NNS are_VBP solved_VVN ,_, the_DT increments_NNS of_IN U_NP are_VBP added_VVN together_RB to_TO update_VV the_DT real_JJ U._NN Because_IN of_IN the_DT absence_NN of_IN the_DT convection_NN term_NN in_IN Eq_NP ._SENT 
+(_( 2_CD )_) ,_, it_PP is_VBZ based_VVN on_IN the_DT perspective_NN of_IN Lagrange_NP and_CC easy_JJ to_TO be_VB solved_VVN with_IN traditional_JJ FEM_NN ._SENT 
+In_IN the_DT present_JJ cylindrical_JJ coordinate_NN system_NN ,_, it_PP can_MD be_VB written_VVN in_IN the_DT form_NN of_IN weighted_JJ residual_JJ method_NN with_IN v_NN denoting_VVG the_DT weight_NN function_NN @(4_NN )_) where_WRB the_DT integral_JJ by_IN parts_NNS and_CC the_DT Gauss-Green_JJ formula_NN are_VBP used_VVN to_TO eliminate_VV the_DT calculation_NN of_IN the_DT gradient_NN of_IN p_NN (_( Wu_NP and_CC Gu_NP ,_, 2012_CD )_) ._SENT 
+n�_NP �_NP is_VBZ the_DT unit_NN normal_JJ vector_NN at_IN the_DT boundary_NN �_NN �_NN of_IN the_DT integral_JJ domain_NN Ω_NN pointing_VVG outward_RB of_IN Ω_NP ._SENT 
+Taking_VVG Φ_NN as_IN the_DT shape_NN function_NN of_IN the_DT element_NN and_CC choose_VV it_PP as_IN the_DT weight_NN function_NN ,_, Eq_NP ._SENT 
+(_( 4_CD )_) can_MD be_VB rewritten_VVN in_IN the_DT semi-discretized_JJ form_NN ,_, @(5_NP )_) here_RB M_NP and_CC N_NP are_VBP the_DT nodal_JJ number_NN and_CC u¨N_NN is_VBZ the_DT unknown_JJ nodal_JJ acceleration_NN vector_NN calculated_VVN by_IN solving_VVG Eq_NP ._SENT 
+(_( 5_LS )_) efficiently_RB with_IN the_DT lumped_VVN mass_NN matrix_NN ._SENT 
+Then_RB the_DT nodal_JJ velocity_NN and_CC displacement_NN are_VBP advanced_VVN explicitly_RB with_IN the_DT second_JJ order_NN central_JJ difference_NN method_NN ,_, @(6_NP )_) @(7_JJ )_) where_WRB the_DT superscript_NN stands_VVZ for_IN the_DT number_NN of_IN the_DT increment_NN ,_, Δt_NP is_VBZ the_DT time_NN increment_NN which_WDT is_VBZ limited_VVN by_IN Δt<L/C0_NP ,_, L_NP is_VBZ the_DT smallest_JJS edge_NN length_NN of_IN the_DT elements_NNS ,_, and_CC C0_NP is_VBZ the_DT dilatational_JJ wave_NN speed_NN ._SENT 
+After_IN the_DT nodal_JJ position_NN is_VBZ calculated_VVN ,_, the_DT density_NN and_CC the_DT internal_JJ energy_NN of_IN each_DT element_NN can_MD be_VB updated_VVN as_RB follows_VVZ ,_, @(8_NP )_) @(9_NP )_) where_WRB Em_NP is_VBZ the_DT internal_JJ energy_NN per_IN unit_NN mass_NN and_CC the_DT fluid_NN is_VBZ assumed_VVN to_TO be_VB adiabat_NN because_IN the_DT time_NN period_NN of_IN the_DT underwater_JJ explosion_NN is_VBZ short_RB enough_JJ to_TO neglect_NN the_DT thermal_JJ conduction_NN ._SENT 
+The_DT equation_NN of_IN state_NN (_( EOS_NP )_) of_IN the_DT fluid_JJ outside_NN of_IN the_DT bubble_NN is_VBZ chosen_VVN as_IN the_DT Tait_NP equation_NN (_( Qiu_NP et_NP al_NP ._SENT 
+,_, 2008_CD )_) ,_, @(10_NP )_) where_WRB γ_NP is_VBZ the_DT ratio_NN of_IN specific_JJ heat_NN ,_, and_CC Pw_RB is_VBZ the_DT reference_NN pressure_NN ._SENT 
+Combining_VVG Eq_NP ._SENT 
+(_( 9_CD )_) with_IN Eq_NP ._SENT 
+(_( 10_CD )_) ,_, we_PP can_MD easily_RB obtain_VV the_DT dilatational_JJ wave_NN speed_NN C0_NN @(11_JJ )_) The_DT pressure_NN of_IN the_DT internal_JJ gaseous_JJ products_NNS of_IN the_DT explosive_JJ are_VBP modeled_VVN with_IN the_DT Jones-Wilkens-Lee_NP (_( JWL_NP )_) equation_NN (_( Lee_NP et_NP al_NP ._SENT 
+,_, 1968_CD )_) ,_, @(12_NP )_) where_WRB A_NP ,_, B_NP ,_, R1_JJ ,_, R2_JJ and_CC �_JJ �_NN are_VBP the_DT material_NN constants_NNS ;_: ρ0_NP and_CC ρ_NP are_VBP the_DT densities_NNS of_IN the_DT explosive_JJ and_CC the_DT gaseous_JJ products_NNS ._SENT 
+e1_JJ and_CC e2_JJ are_VBP defined_VVN as_IN @(13_NP )_) Similarly_RB ,_, the_DT dilatation_NN wave_NN speed_NN C_NP for_IN the_DT gaseous_JJ products_NNS can_MD be_VB written_VVN as_IN @(14_NN )_) The_DT material_NN constants_NNS used_VVN in_IN this_DT paper_NN are_VBP listed_VVN in_IN Table_NN 1._CD Table_NN 1._CD Material_NN constants_NNS for_IN Tait_NP equation_NN and_CC JWL_NN equation_NN (_( Dobratz_NP and_CC Crawford_NP ,_, 1981_CD ,_, Qiu_NP et_CC al_NP ._SENT 
+,_, 2008_CD )_) ._SENT 
+After_IN the_DT mesh_NN and_CC the_DT variables_NNS are_VBP advanced_VVN forward_RB in_IN a_DT time_NN increment_NN ,_, the_DT mesh_NN is_VBZ moved_VVN back_RB to_TO its_PP$ original_JJ position_NN to_TO eliminate_VV the_DT element_NN distortion_NN and_CC to_TO solve_VV Eq_NP ._SENT 
+(_( 3_CD )_) ._SENT 
+This_DT procedure_NN refers_VVZ to_TO the_DT Eulerian_JJ phase_NN which_WDT considers_VVZ the_DT advection_NN quantities_NNS between_IN adjacent_JJ elements_NNS during_IN the_DT moving_VVG back_NN of_IN the_DT mesh_NN ._SENT 
+The_DT convected_JJ volume_NN is_VBZ calculated_VVN with_IN the_DT Volume_NN of_IN Fluid_JJ (_( VOF_NP )_) (_( Benson_NP ,_, 1992a_NP ,_, Hirt_NP and_CC Nichols_NP ,_, 1981_CD )_) method_NN with_IN the_DT prescribed_JJ velocity_NN calculated_VVN in_IN the_DT Lagrangian_JJ phase_NN ._SENT 
+Then_RB the_DT element_NN centered_VVD variables_NNS ,_, such_JJ as_IN the_DT transported_VVN mass_NN and_CC internal_JJ energy_NN ,_, are_VBP updated_VVN subsequently_RB ._SENT 
+To_TO archive_VV a_DT second_JJ order_NN accuracy_NN ,_, the_DT MUSCL_NN algorithm_NN (_( Benson_NP ,_, 1992a_NP ,_, Van_NP Leer_NP ,_, 1977_CD )_) is_VBZ adopted_VVN to_TO transport_VV the_DT element_NN centered_VVD variables_NNS ._SENT 
+Conventionally_RB ,_, the_DT MUSCL_NN algorithm_NN takes_VVZ the_DT element_NN centered_VVD variable_JJ as_IN the_DT average_JJ value_NN of_IN the_DT element_NN ._SENT 
+Then_RB ,_, by_IN introducing_VVG a_DT second_JJ order_NN distribution_NN among_IN the_DT adjacent_JJ elements_NNS in_IN each_DT direction_NN ,_, the_DT gradient_NN of_IN the_DT variable_NN is_VBZ calculated_VVN as_IN the_DT slope_NN at_IN the_DT element_NN center_NN with_IN specific_JJ slope_NN limiters_NNS ._SENT 
+Theoretically_RB ,_, the_DT conservativeness_NN requires_VVZ that_IN the_DT integration_NN over_IN each_DT element_NN with_IN the_DT linear_JJ distribution_NN defined_VVN by_IN the_DT slopes_NNS equals_VVZ to_TO the_DT integration_NN with_IN the_DT constant_JJ distribution_NN ._SENT 
+However_RB ,_, the_DT MUSCL_NN algorithm_NN must_MD be_VB modified_VVN to_TO maintain_VV conservativeness_NN in_IN the_DT axisymmetric_JJ model_NN because_IN of_IN the_DT coefficient_NN r_NN in_IN the_DT volumetric_JJ integration_NN in_IN the_DT cylindrical_JJ coordinate_VV system_NN ._SENT 
+Thus_RB ,_, for_IN an_DT element_NN centered_VVD variable_JJ �_JJ �_NN ,_, a_DT correction_NN ϕc_NN must_MD be_VB considered_VVN to_TO preserve_VV the_DT conservativeness_NN @(15_NN )_) where_WRB the_DT subscript_JJ ϕe_NN is_VBZ the_DT value_NN at_IN the_DT element_NN center_NN of_IN element_NN Se_NP ,_, ∇�_NP �_NP is_VBZ the_DT gradient_NN of_IN �_JJ �_NN at_IN the_DT element_NN center_NN determined_VVN by_IN the_DT calculated_JJ slopes_NNS ,_, p_NN is_VBZ the_DT coordinate_JJ vector_NN of_IN the_DT integration_NN point_NN and_CC pe_NN is_VBZ the_DT coordinate_VV of_IN the_DT element_NN center_NN ._SENT 
+Then_RB ϕc_NP can_MD be_VB expressed_VVN as_IN @(16_NN )_) For_IN the_DT structured_JJ mesh_NN with_IN the_DT element_NN edges_NNS parallel_JJ to_TO the_DT axis_NN and_CC bounded_VVN by_IN r = [r1_JJ ,_, r2_NN ]_SYM and_CC z = [z1_JJ ,_, z2_NN ]_SYM ,_, ϕc_NP can_MD be_VB simply_RB calculated_VVN with_IN @(17_JJ )_) In_IN the_DT present_JJ model_NN ,_, the_DT momentum_NN is_VBZ stored_VVN at_IN the_DT nodes_NNS ._SENT 
+Thus_RB ,_, it_PP cannot_MD be_VB transported_VVN with_IN the_DT MUSCL_NN algorithm_NN ._SENT 
+The_DT half_JJ index_NN shift_NN algorithm_NN (_( Benson_NP ,_, 1992b_NP ,_, Benson_NP ,_, 2008_CD )_) is_VBZ adopted_VVN in_IN this_DT paper_NN to_TO transport_VV the_DT momentum_NN ._SENT 
+2.2_CD ._SENT 
+Non-reflecting_VVG boundary_NN condition_NN For_IN the_DT underwater_JJ explosion_NN simulation_NN ,_, the_DT non-reflecting_VVG boundary_NN condition_NN is_VBZ essential_JJ for_IN the_DT accuracy_NN ._SENT 
+The_DT non-reflecting_VVG boundary_NN condition_NN should_MD absorb_VV the_DT outward_RB pressure_NN wave_NN effectively_RB to_TO avoid_VV the_DT spurious_JJ reflection_NN ._SENT 
+At_IN the_DT same_JJ time_NN ,_, the_DT long-term_JJ effect_NN on_IN the_DT computational_JJ domain_NN must_MD be_VB minimized_VVN to_TO preserve_VV the_DT accurate_JJ oscillation_NN of_IN the_DT bubble_NN ._SENT 
+To_TO archive_VV the_DT non-reflecting_VVG effect_NN ,_, a_DT proper_JJ surface_NN pressure_NN must_MD be_VB applied_VVN to_TO the_DT boundary_NN of_IN the_DT computational_JJ domain_NN and_CC taken_VVN into_IN account_NN in_IN the_DT second_JJ integration_NN at_IN the_DT right_JJ side_NN of_IN Eq_NP ._SENT 
+(_( 5_CD )_) ._SENT 
+According_VVG to_TO the_DT Bernoulli_NP equation_NN for_IN irrotational_JJ flow_NN ,_, we_PP can_MD decompose_VV the_DT total_JJ pressure_NN into_IN three_CD parts_NNS :_: @(18_NP )_) where_WRB the_DT first_JJ term_NN p∞ = patm_NN +_SYM ρgh_NP is_VBZ the_DT undisturbed_JJ pressure_NN at_IN the_DT same_JJ depth_NN ._SENT 
+The_DT second_JJ term_NN is_VBZ nonlinear_JJ and_CC decreases_VVZ along_RP with_IN R−2and_NP R_NP is_VBZ the_DT distance_NN to_TO the_DT center_NN of_IN the_DT bubble_NN ._SENT 
+If_IN the_DT computational_JJ domain_NN is_VBZ taken_VVN large_JJ enough_NN ,_, this_DT term_NN is_VBZ negligible_JJ for_IN the_DT outer_JJ boundary_NN ._SENT 
+The_DT third_JJ term_NN pd_NNS in_IN Eq_NP ._SENT 
+(_( 18_CD )_) is_VBZ the_DT transient_JJ term_NN ._SENT 
+Based_VVN on_IN the_DT linearized_JJ acoustic_JJ assumption_NN which_WDT is_VBZ reasonable_JJ when_WRB the_DT computational_JJ domain_NN is_VBZ sufficient_JJ large_JJ ,_, the_DT dynamic_JJ pressure_NN pd_NNS and_CC the_DT material_NN velocity_NN u˙_NN satisfy_VV the_DT second_JJ order_NN Early-Time_JJ Approximation_NN (_( ETA2_NP )_) equation_NN (_( Felippa_NP ,_, 1980_CD )_) @(19_NP )_) where_WRB e_NN is_VBZ the_DT unit_NN vector_NN pointing_VVG to_TO the_DT direction_NN that_IN the_DT acoustic_JJ wave_NN propagating_VVG ,_, and_CC κp_NP is_VBZ the_DT local_JJ mean_JJ curvature_NN of_IN the_DT surface_NN S_NP which_WDT is_VBZ taken_VVN as_IN the_DT wave_NN front_NN in_IN this_DT paper_NN ._SENT 
+As_IN we_PP can_MD see_VV that_IN ,_, the_DT second_JJ term_NN at_IN the_DT left_VVN side_NN of_IN eq_NP ._SENT 
+(_( 19_CD )_) is_VBZ the_DT effect_NN of_IN the_DT curvature_NN ._SENT 
+Because_IN the_DT boundary_NN of_IN the_DT computational_JJ domain_NN is_VBZ not_RB always_RB coinciding_VVG with_IN the_DT wave_NN front_NN surface_NN ,_, the_DT calculation_NN of_IN the_DT curvature_NN κp_NN is_VBZ important_JJ to_TO the_DT accuracy_NN ._SENT 
+If_IN the_DT bubble_NN moves_VVZ in_IN an_DT infinite_JJ field_NN ,_, no_DT physical_JJ reflection_NN wave_NN should_MD be_VB observed_VVN at_IN the_DT non-reflecting_VVG boundary_NN ._SENT 
+Thus_RB ,_, all_PDT the_DT incident_NN waves_NNS come_VVP directly_RB from_IN the_DT bubble_NN and_CC κp_NN can_MD be_VB taken_VVN as_IN 1/R_NN for_IN simplicity_NN ,_, where_WRB R_NP is_VBZ the_DT distance_NN to_TO the_DT bubble_NN center_NN ._SENT 
+Considering_VVG the_DT size_NN of_IN the_DT computational_JJ domain_NN should_MD be_VB much_RB larger_JJR than_IN the_DT size_NN of_IN the_DT bubble_NN ,_, this_DT simplification_NN has_VHZ a_DT second_JJ order_NN accuracy_NN ._SENT 
+<Section> 3._CD Results_NNS and_CC discussion_NN </Section> In_IN free_JJ field_NN ,_, the_DT jet_NN evolution_NN due_JJ to_TO the_DT buoyancy_NN is_VBZ an_DT important_JJ feature_NN except_IN for_IN the_DT pulsation_NN ._SENT 
+This_DT feature_NN can_MD be_VB represented_VVN by_IN the_DT non-dimensional_JJ buoyancy_NN parameter_NN (_( Klaseboer_NP et_NP al_NP ._SENT 
+,_, 2005a_NP )_) @(20_NP )_) When_WRB δ_NP is_VBZ 0_CD ,_, there_EX is_VBZ no_DT buoyancy_NN effect_NN and_CC the_DT bubble_NN tends_VVZ to_TO pulsate_VV spherically_RB ._SENT 
+With_IN δ_NN increasing_VVG ,_, an_DT upward_JJ jet_NN would_MD develop_VV during_IN the_DT collapsing_VVG phase_NN of_IN a_DT bubble_NN with_IN a_DT great_JJ δ_NN ._SENT 
+In_IN this_DT paper_NN ,_, 2_CD groups_NNS of_IN cases_NNS are_VBP investigated_VVN with_IN different_JJ buoyancy_NN parameters_NNS ._SENT 
+3.1_CD ._SENT 
+Model_NN validation_NN and_CC asymmetry_NN of_IN bubble_NN pulsation_NN load_NN Firstly_RB ,_, cases_NNS with_IN small_JJ buoyancy_NN parameters_NNS are_VBP considered_VVN ._SENT 
+In_IN this_DT case_NN ,_, a_DT TNT_NP explosive_JJ weighted_JJ 0.5 Kg_NN is_VBZ detonated_VVN at_IN the_DT depth_NN of_IN 10 m_NP ._SENT 
+An_DT experiment_NN is_VBZ carried_VVN out_RP in_IN a_DT cylindrical_JJ water_NN tank_NN with_IN a_DT radius_NN of_IN 24 m_NP and_CC a_DT depth_NN of_IN 20 m_NN for_IN comparison_NN ._SENT 
+The_DT maximum_JJ radius_NN of_IN the_DT bubble_NN can_MD be_VB calculated_VVN with_IN the_DT empirical_JJ formula_NN (_( Klaseboer_NP et_NP al_NP ._SENT 
+,_, 2005a_NP )_) @(21_JJ )_) where_WRB W_NP is_VBZ the_DT explosive_JJ weight_NN with_IN the_DT unit_NN of_IN kilogram_NN ._SENT 
+Specifically_RB ,_, Rm = 0.988 m_NN for_IN this_DT case_NN ._SENT 
+Thus_RB ,_, the_DT buoyancy_NN parameter_NN δ_NN is_VBZ small_JJ and_CC equals_VVZ 0.22_CD ._SENT 
+Because_IN Rm_NP is_VBZ much_RB smaller_JJR than_IN the_DT tank_NN size_NN and_CC the_DT initial_JJ depth_NN ,_, effects_NNS of_IN the_DT free_JJ surface_NN and_CC the_DT tank_NN wall_NN are_VBP ignored_VVN in_IN the_DT simulation_NN ._SENT 
+The_DT computational_JJ domain_NN is_VBZ taken_VVN as_IN a_DT rectangle_NN with_IN a = 5_NP Rm_NP as_RB shown_VVN in_IN Fig_NN ._SENT 
+1_CD ,_, and_CC is_VBZ discretized_VVN into_IN square_JJ elements_NNS with_IN the_DT length_NN Le = 0.01_JJ Rm_NP ._SENT 
+The_DT simulation_NN is_VBZ performed_VVN on_IN a_DT PC_NN with_IN Core_NP i7-4790_NP (_( 3.6 GHz_NP )_) and_CC 16 GB_NP memery_NP ._SENT 
+OpenMP_NP is_VBZ used_VVN in_IN the_DT code_NN to_TO accelerate_VV the_DT simulation_NN ._SENT 
+The_DT simulation_NN takes_VVZ about_IN 5 h_NP ._SENT 
+The_DT pressure_NN contour_NN of_IN the_DT numerical_JJ results_NNS during_IN the_DT shockwave_NN phase_NN is_VBZ shown_VVN in_IN Fig_NN ._SENT 
+2._CD Fig_NN ._SENT 
+2._CD Pressure_NN contour_NN of_IN the_DT numerical_JJ results_NNS for_IN the_DT shockwave_NN propagation_NN with_IN a_DT TNT_NP explosive_JJ weighted_JJ 0.5 Kg_NN detonated_VVN at_IN the_DT depth_NN of_IN 10 m_NP ._SENT 
+The_DT units_NNS of_IN length_NN and_CC pressure_NN are_VBP m_NN and_CC Pa_NP ,_, respectively_RB ._SENT 
+The_DT blue_JJ line_NN represents_VVZ the_DT bubble_NN wall_NN ._SENT 
+The_DT results_NNS show_VVP that_IN the_DT shockwave_NN radiated_VVN from_IN the_DT detonated_VVN explosive_JJ propagates_VVZ outward_RB spherically_RB ._SENT 
+A_DT sharp_JJ front_NN of_IN the_DT shockwave_NN is_VBZ preserved_VVN in_IN the_DT simulation_NN ._SENT 
+The_DT shockwave_NN reaches_VVZ the_DT boundary_NN of_IN the_DT computational_JJ domain_NN at_IN t = 3.04 ms_NNS ._SENT 
+Little_JJ spurious_JJ reflection_NN wave_NN emerges_VVZ ,_, which_WDT is_VBZ attributed_VVN to_TO the_DT non-reflecting_VVG boundary_NN condition_NN based_VVN on_IN ETA2_NN as_IN shown_VVN in_IN Fig_NN ._SENT 
+2(e_NN )_) ._SENT 
+2_CD pressure_NN sensors_NNS are_VBP placed_VVN 3 m_NN away_RB from_IN the_DT explosive_JJ at_IN the_DT same_JJ depth_NN in_IN the_DT simulation_NN and_CC the_DT experiment_NN ,_, respectively_RB ._SENT 
+To_TO demonstrate_VV the_DT convergence_NN of_IN the_DT numerical_JJ model_NN with_IN respect_NN to_TO the_DT domain_NN size_NN a_DT ,_, 7_CD simulation_NN results_NNS are_VBP compared_VVN together_RB in_IN which_WDT a_DT is_VBZ taken_VVN from_IN 2Rm_NN to_TO 5Rm_NN ._SENT 
+Here_RB ,_, we_PP define_VV a_DT non-dimensional_JJ parameter_NN θ_NN to_TO represent_VV the_DT reflection_NN of_IN the_DT present_JJ non-reflecting_VVG boundary_NN :_: @(22_NP )_) where_WRB pi_NN and_CC pr_NN are_VBP the_DT amplitudes_NNS of_IN the_DT incident_NN pressure_NN and_CC the_DT reflected_VVN pressure_NN at_IN the_DT boundary_NN ._SENT 
+Fig_NN ._SENT 
+3_CD shows_NNS the_DT change_NN of_IN θ_NP with_IN Rm/a_NP ._SENT 
+We_PP can_MD see_VV that_IN the_DT reflection_NN parameter_NN θ_NN is_VBZ linearly_RB related_VVN to_TO Rm/a_NP ._SENT 
+Considering_VVG the_DT incident_NN wave_NN pi_NN is_VBZ nearly_RB proportional_JJ to_TO 1/a_NP ,_, the_DT computational_JJ results_NNS of_IN the_DT reflected_VVN wave_NN converge_VV to_TO θ_NN with_IN the_DT same_JJ rate_NN as_IN 1/a2_NP ._SENT 
+Fig_NN ._SENT 
+3._CD Change_NP of_IN the_DT reflection_NN parameter_NN θ_NN with_IN Rm/a_NP ._SENT 
+The_DT pressure_NN profiles_NNS along_IN time_NN are_VBP compared_VVN in_IN Fig_NN ._SENT 
+4_CD for_IN shockwave_NN which_WDT are_VBP from_IN the_DT present_JJ model_NN with_IN different_JJ element_NN size_NN Le_NP ,_, the_DT Geers-Hunter_NN model_NN (_( Geers_NP and_CC Hunter_NP ,_, 2002_CD ,_, Geers_NP and_CC Park_NP ,_, 2005_CD )_) and_CC the_DT experiment_NN ._SENT 
+We_PP can_MD see_VV that_IN with_IN the_DT decrease_NN of_IN Le_NP ,_, the_DT shock_NN wave_NN profile_NN from_IN the_DT present_JJ model_NN gets_VVZ more_RBR sharp_JJ and_CC converges_VVZ to_TO the_DT experimental_JJ one_CD ._SENT 
+In_IN spite_NN of_IN that_WDT the_DT numerical_JJ model_NN smears_VVZ the_DT shockwave_NN a_DT little_JJ ,_, the_DT profile_NN of_IN the_DT shockwave_NN pressure_NN calculated_VVN by_IN the_DT numerical_JJ model_NN with_IN Le = 0.01Rm_NN agrees_VVZ with_IN the_DT experimental_JJ results_NNS well_RB as_RB shown_VVN in_IN Fig_NN ._SENT 
+4._CD Obviously_RB ,_, the_DT Geers-Hunter_NN model_NN based_VVN on_IN the_DT linear_JJ assumption_NN fails_VVZ in_IN predicting_VVG the_DT arrival_NN time_NN of_IN shockwave_NN because_IN the_DT wave_NN speed_NN is_VBZ assumed_VVN constant_JJ and_CC equals_VVZ to_TO the_DT sound_JJ speed_NN ._SENT 
+Actually_RB ,_, the_DT shockwave_NN speed_NN is_VBZ faster_RBR than_IN the_DT sound_JJ speed_NN in_IN the_DT near_JJ field_NN of_IN underwater_JJ explosion_NN ._SENT 
+At_IN t = 2.05 ms_NP ,_, a_DT small_JJ fluctuation_NN is_VBZ observed_VVN only_RB in_IN the_DT experiment_NN results_NNS ._SENT 
+This_DT is_VBZ very_RB likely_RB caused_VVN by_IN the_DT wave_NN structure_NN of_IN the_DT internal_JJ gas_NN ._SENT 
+After_IN the_DT explosive_JJ is_VBZ detonated_VVN at_IN the_DT center_NN ,_, a_DT detonation_NN wave_NN propagates_VVZ outward_RB ._SENT 
+When_WRB the_DT detonation_NN is_VBZ completed_VVN and_CC the_DT detonation_NN wave_NN reaches_VVZ the_DT explosive-water_NN interface_NN ,_, a_DT rarefaction_NN wave_NN and_CC a_DT shock_NN wave_NN travel_NN inward_RB and_CC outward_RB from_IN the_DT interface_NN ._SENT 
+The_DT outward_RB wave_NN makes_VVZ up_RP the_DT main_JJ part_NN of_IN the_DT shock_NN wave_NN ._SENT 
+The_DT inward_RB rarefaction_NN wave_NN will_MD reflect_VV at_IN the_DT bubble_NN center_NN and_CC radiate_VV a_DT pressure_NN disturbance_NN into_IN the_DT surrounding_VVG flow_NN field_NN which_WDT refers_VVZ to_TO the_DT pressure_NN fluctuation_NN after_IN the_DT initial_JJ shockwave_NN ._SENT 
+By_IN contrast_NN ,_, the_DT detonation_NN process_NN is_VBZ not_RB included_VVN in_IN the_DT numerical_JJ model_NN so_RB that_IN the_DT pressure_NN profile_NN is_VBZ decreasing_VVG smoothly_RB without_IN the_DT fluctuation_NN ._SENT 
+Fig_NN ._SENT 
+4._CD Comparison_NN of_IN the_DT shock_NN wave_NN profiles_NNS of_IN the_DT case_NN of_IN Fig_NN ._SENT 
+2_CD from_IN experiment_NN ,_, the_DT present_JJ model_NN with_IN different_JJ Le_NP and_CC the_DT Geers-Hunter_NN model_NN ._SENT 
+The_DT bubble_NN evolution_NN and_CC the_DT surrounding_VVG pressure_NN field_NN are_VBP shown_VVN in_IN Fig_NN ._SENT 
+5._CD The_DT explosive_JJ is_VBZ detonated_VVN and_CC the_DT gas_NN bubble_NN starts_VVZ expanding_VVG at_IN t = 0 ms_NNS ._SENT 
+High_JJ pressure_NN shockwave_NN and_CC bubble_NN load_NN radiate_VVP from_IN the_DT gas_NN bubble_NN outward_RB ._SENT 
+The_DT bubble_NN keeps_VVZ expanding_VVG and_CC reaches_VVZ its_PP$ maximum_JJ volume_NN at_IN t = 66.7 ms_NNS and_CC starts_NNS collapsing_VVG due_JJ to_TO the_DT pressure_NN difference_NN between_IN the_DT internal_JJ gas_NN and_CC the_DT ambient_JJ fluid_NN ._SENT 
+Attributing_VVG to_TO the_DT gradient_NN of_IN the_DT ambient_JJ pressure_NN caused_VVN by_IN the_DT gravity_NN ,_, the_DT lower_JJR side_NN of_IN the_DT bubble_NN subjects_VVZ to_TO greater_JJR ambient_JJ pressure_NN than_IN the_DT upper_JJ side_NN of_IN the_DT bubble_NN ._SENT 
+Thus_RB ,_, the_DT lower_JJR side_NN of_IN the_DT bubble_NN collapses_VVZ faster_RBR ._SENT 
+Consequently_RB ,_, the_DT water_NN converges_VVZ together_RB beneath_IN the_DT bubble_NN and_CC produces_VVZ a_DT high-pressure_JJ region_NN ,_, which_WDT accelerates_VVZ the_DT collapse_NN of_IN the_DT bottom_NN of_IN the_DT bubble_NN further_RBR ._SENT 
+Therefore_RB ,_, a_DT high_JJ speed_NN upward_JJ jet_NN emerges_VVZ during_IN the_DT collapsing_VVG phase_NN and_CC penetrates_VVZ the_DT bubble_NN into_IN toroidal_JJ at_IN t = 134.8 ms_NNS ._SENT 
+At_IN the_DT same_JJ time_NN ,_, a_DT high-pressure_JJ region_NN emerges_VVZ at_IN the_DT toroidal_JJ eye_NN due_JJ to_TO the_DT jet_NN impact_NN ,_, which_WDT exists_VVZ during_IN the_DT whole_JJ rebound_NN phase_NN of_IN the_DT bubble_NN ._SENT 
+The_DT bubble_NN reaches_VVZ its_PP$ minimum_JJ volume_NN during_IN the_DT collapsing_VVG phase_NN at_IN t = 135.0 ms_NNS ,_, and_CC the_DT internal_JJ gas_NN pressure_NN reaches_VVZ its_PP$ peak_NN meanwhile_RB ._SENT 
+A_DT bubble_NN pulsation_NN pressure_NN wave_NN radiates_VVZ away_RB from_IN the_DT pressed_VVN bubble_NN ._SENT 
+Then_RB the_DT bubble_NN starts_VVZ rebounding_VVG ,_, and_CC the_DT second_JJ pulsation_NN period_NN begins_VVZ ._SENT 
+Fig_NN ._SENT 
+5._CD Bubble_NN evolution_NN of_IN the_DT explosive_JJ weighted_JJ 0.5 kg_NN detonated_VVN at_IN the_DT depth_NN of_IN 10 m_NP ._SENT 
+The_DT contour_NN color_NN represents_VVZ the_DT pressure_NN with_IN the_DT unit_NN of_IN Pa_NP ,_, and_CC the_DT array_NN of_IN arrows_NNS represents_VVZ the_DT fluid_JJ velocity_NN ._SENT 
+The_DT bubble_NN pulsation_NN loads_NNS of_IN the_DT numerical_JJ and_CC experimental_JJ results_NNS are_VBP compared_VVN in_IN Fig_NN ._SENT 
+6._CD The_NP results_NNS show_VVP good_JJ agreement_NN in_IN general_NN except_IN that_WDT the_DT pressure_NN peak_NN is_VBZ a_DT little_RB wider_JJR in_IN the_DT simulation_NN ._SENT 
+The_DT arrival_NN time_NN of_IN the_DT pulsation_NN load_NN is_VBZ determined_VVN by_IN both_CC the_DT wave_NN speed_NN and_CC the_DT bubble_NN period_NN ._SENT 
+As_IN the_DT distance_NN of_IN the_DT pressure_NN sensor_NN from_IN the_DT bubble_NN is_VBZ relatively_RB near_JJ ,_, the_DT error_NN of_IN the_DT bubble_NN period_NN would_MD overide_VV that_IN of_IN the_DT wave_NN speed_NN ,_, and_CC the_DT effect_NN of_IN the_DT wave_NN speed_NN can_MD be_VB neglected_VVN ._SENT 
+The_DT arrival_NN time_NN of_IN the_DT bubble_NN pulsation_NN load_NN is_VBZ 136.7 ms_NNS in_IN the_DT numerical_JJ results_NNS with_IN an_DT error_NN of_IN 0.2_CD %_NN compared_VVN with_IN the_DT 137.0 ms_NNS in_IN the_DT experiment_NN ._SENT 
+Compared_VVN with_IN the_DT Geers-Hunter_NN model_NN ,_, the_DT present_JJ model_NN preserves_VVZ more_JJR accuracy_NN in_IN predicting_VVG the_DT bubble_NN period_NN ._SENT 
+Furthermore_RB ,_, the_DT bubble_NN pulsation_NN load_NN is_VBZ treated_VVN as_IN spherical_JJ symmetric_JJ in_IN the_DT Geers-Hunter_NN model_NN ,_, while_IN it_PP 's_VBZ not_RB true_JJ for_IN the_DT near-field_NN ._SENT 
+It_PP 's_VBZ easy_JJ to_TO find_VV the_DT center_NN of_IN the_DT bubble_NN pulsation_NN pressure_NN wave_NN is_VBZ at_IN about_RB [_SYM 0_CD ,_, 0.5_CD ]_SYM because_IN the_DT upward_JJ migration_NN of_IN the_DT bubble_NN due_JJ to_TO the_DT buoyancy_NN ._SENT 
+The_DT pressure_NN profiles_NNS in_IN the_DT 3_CD directions_NNS ,_, which_WDT are_VBP upward_JJ ,_, downward_RB ,_, and_CC horizontal_JJ directions_NNS ,_, at_IN t = 136 ms_NNS and_CC 137 ms_NNS are_VBP drawn_VVN in_IN Fig_NN ._SENT 
+7_CD to_TO investigate_VV the_DT distribution_NN of_IN the_DT bubble_NN pulsation_NN load_NN in_IN different_JJ directions_NNS ._SENT 
+Fig_NN ._SENT 
+6._CD Comparison_NN of_IN the_DT bubble_NN pulsation_NN pressure_NN profiles_NNS of_IN the_DT case_NN of_IN Fig_NN ._SENT 
+2_CD from_IN experiment_NN ,_, the_DT present_JJ model_NN and_CC the_DT Geers-Hunter_NN model_NN ._SENT 
+Fig_NN ._SENT 
+7._CD Pressure_NN profiles_NNS along_IN the_DT distance_NN from_IN the_DT bubble_NN center_NN in_IN different_JJ directions_NNS at_IN t = 136 ms_NNS and_CC 137 ms_NNS ,_, respectively_RB ._SENT 
+Apparently_RB ,_, the_DT bubble_NN pulsation_NN load_NN at_IN the_DT downward_JJ direction_NN is_VBZ greater_JJR than_IN the_DT others_NNS ,_, which_WDT can_MD be_VB attributed_VVN to_TO the_DT high-pressure_JJ region_NN beneath_IN the_DT bubble_NN before_IN the_DT penetration_NN which_WDT breaks_VVZ the_DT symmetry_NN of_IN the_DT pressure_NN field_NN around_IN the_DT bubble_NN ._SENT 
+Furthermore_RB ,_, the_DT bubble_NN plays_VVZ a_DT role_NN in_IN obstructing_VVG the_DT pressure_NN wave_NN propagating_VVG upward_RB ._SENT 
+Previous_JJ study_NN (_( Liu_NP et_NP al_NP ._SENT 
+,_, 2014)has_NNS pointed_VVD that_IN the_DT asymmetric_JJ difference_NN between_IN the_DT pressure_NN peaks_NNS in_IN different_JJ directions_NNS is_VBZ a_DT second_JJ order_NN infinitesimal_NN with_IN respect_NN to_TO R−1_JJ and_CC decays_NNS with_IN propagation_NN time_NN or_CC distance_NN rapidly_RB ._SENT 
+Thus_RB ,_, in_IN the_DT far-field_NP problems_NNS ,_, the_DT difference_NN can_MD be_VB ignored_VVN and_CC the_DT Geers-Hunter_NN model_NN can_MD predict_VV accurately_RB ._SENT 
+We_PP also_RB should_MD notice_VV that_IN there_EX is_VBZ a_DT smaller_JJR pressure_NN peak_NN at_IN the_DT left_VVN side_NN of_IN the_DT bubble_NN pulsation_NN pressure_NN peak_NN ,_, which_WDT is_VBZ only_RB found_VVN in_IN pressure_NN profiles_NNS in_IN the_DT upward_JJ direction_NN ._SENT 
+This_DT pressure_NN peak_NN is_VBZ caused_VVN by_IN the_DT high-pressure_JJ region_NN above_IN the_DT bubble_NN after_IN the_DT penetration_NN ._SENT 
+Because_IN the_DT bubble_NN obstructs_VVZ the_DT propagation_NN downward_RB of_IN this_DT pressure_NN wave_NN ,_, the_DT pressure_NN profile_NN in_IN this_DT direction_NN drops_VVZ fastest_JJS after_IN bubble_NN pulsation_NN load_NN passed_VVD ._SENT 
+As_IN the_DT initial_JJ depth_NN of_IN the_DT explosive_JJ is_VBZ increased_VVN to_TO 15 m_NP ,_, the_DT simulation_NN results_NNS are_VBP shown_VVN in_IN Fig_NN ._SENT 
+8._CD Because_IN the_DT explosive_JJ depth_NN has_VHZ little_JJ influence_NN on_IN the_DT shockwave_NN phase_NN and_CC the_DT bubble_NN expanding_VVG phase_NN except_IN the_DT bubble_NN pulsation_NN period_NN ,_, Fig_NN ._SENT 
+8_CD only_RB presents_VVZ the_DT bubble_NN collapsing_VVG from_IN its_PP$ maximum_JJ volume_NN at_IN t = 55.3 ms_NNS which_WDT is_VBZ 11.4 ms_RB earlier_RBR than_IN the_DT previous_JJ case_NN ._SENT 
+Similar_JJ bubble_NN dynamics_NNS is_VBZ shown_VVN despite_IN the_DT preceding_VVG in_IN time_NN ._SENT 
+The_DT jet_NN penetrates_VVZ the_DT bubble_NN at_IN t = 112.1 ms_NNS which_WDT is_VBZ 22.6 ms_RB earlier_RBR than_IN the_DT first_JJ case_NN ._SENT 
+As_IN shown_VVN in_IN Eq_NP ._SENT 
+(_( 21_CD )_) ,_, the_DT maximum_JJ radius_NN of_IN the_DT bubble_NN decreases_VVZ with_IN the_DT increasing_VVG of_IN the_DT depth_NN ._SENT 
+Due_JJ to_TO the_DT bigger_JJR ambient_JJ pressure_NN in_IN the_DT deeper_JJR water_NN ,_, the_DT maximum_JJ radius_NN of_IN the_DT bubble_NN is_VBZ smaller_JJR ,_, too_RB ._SENT 
+The_DT changes_NNS of_IN the_DT equivalent_JJ radius_NN of_IN the_DT bubble_NN and_CC the_DT pressure_NN 3 m_NN away_RB from_IN the_DT explosive_JJ are_VBP drawn_VVN in_IN Fig_NN ._SENT 
+9_CD for_IN the_DT comparison_NN of_IN these_DT two_CD cases_NNS ._SENT 
+Fig_NN ._SENT 
+8._CD Bubble_NN evolution_NN of_IN the_DT explosive_JJ weighted_JJ 0.5 kg_NN detonated_VVN at_IN the_DT depth_NN of_IN 15 m_NP ._SENT 
+The_DT contour_NN color_NN represents_VVZ the_DT pressure_NN with_IN the_DT unit_NN of_IN Pa_NP ,_, and_CC the_DT array_NN of_IN arrows_NNS represents_VVZ the_DT fluid_JJ velocity_NN ._SENT 
+Fig_NN ._SENT 
+9._CD Changes_NP of_IN bubble_NN radius_NN and_CC pressure_NN 3 m_NN away_RB from_IN the_DT explosive_JJ weighted_JJ 0.5 kg_NN detonated_VVN at_IN the_DT depth_NN of_IN 10 m_NP and_CC 15 m_NP ,_, respectively_RB ._SENT 
+It_PP 's_VBZ easy_JJ to_TO find_VV that_IN the_DT bubble_NN radiates_VVZ a_DT pressure_NN peak_NN each_DT time_NN it_PP reaches_VVZ its_PP$ minimum_JJ volume_NN ._SENT 
+The_DT first_JJ one_CD is_VBZ the_DT shockwave_NN generated_VVD right_RB after_IN the_DT detonation_NN ._SENT 
+The_DT second_JJ one_CD is_VBZ the_DT bubble_NN pulsation_NN load_NN generated_VVD when_WRB the_DT bubble_NN collapses_VVZ to_TO its_PP$ minimum_JJ volume_NN ._SENT 
+Each_DT pressure_NN peak_NN delays_VVZ a_DT little_RB compared_VVN to_TO the_DT change_NN of_IN the_DT radius_NN due_JJ to_TO the_DT propagation_NN from_IN the_DT bubble_NN to_TO the_DT sensor_NN ._SENT 
+In_IN this_DT section_NN ,_, the_DT buoyancy_NN parameters_NNS of_IN the_DT 2_CD cases_NNS are_VBP 0.220_CD and_CC 0.189_CD ,_, respectively_RB ._SENT 
+With_IN these_DT small_JJ buoyancy_NN parameters_NNS ,_, we_PP can_MD see_VV that_IN the_DT jet_NN develops_VVZ in_IN the_DT final_JJ stage_NN of_IN the_DT collapsing_VVG phase_NN and_CC the_DT penetration_NN occurs_VVZ near_IN the_DT moment_NN when_WRB the_DT bubble_NN reaches_VVZ its_PP$ minimum_JJ volume_NN ._SENT 
+Next_RB ,_, we_PP will_MD increase_VV the_DT weight_NN of_IN the_DT explosive_JJ to_TO investigate_VV the_DT bubble_NN dynamics_NNS with_IN large_JJ buoyancy_NN parameter_NN ._SENT 
+3.2_CD ._SENT 
+Influence_NN of_IN buoyancy_NN parameter_NN on_IN bubble_NN dynamics_NNS Because_IN gravity_NN is_VBZ negligable_JJ in_IN the_DT detonation_NN and_CC the_DT propagation_NN of_IN the_DT shockwave_NN ,_, the_DT buoyancy_NN parameter_NN has_VHZ little_JJ effect_NN on_IN the_DT shockwave_NN phase_NN ._SENT 
+Thus_RB ,_, only_RB the_DT bubble_NN evolution_NN is_VBZ considered_VVN in_IN this_DT section_NN ._SENT 
+The_DT weight_NN of_IN the_DT explosive_JJ increases_NNS from_IN 0.5 kg_NN to_TO 5 kg_VV and_CC 50  kg at_VV the_DT depth_NN of_IN 15 m_NN to_TO be_VB simulated_JJ with_IN different_JJ buoyancy_NN parameters_NNS ._SENT 
+The_DT other_JJ quantities_NNS also_RB need_VVP to_TO be_VB non-dimensionalized_VVN to_TO be_VB compared_VVN together_RB with_IN different_JJ buoyancy_NN parameters_NNS ._SENT 
+According_VVG to_TO the_DT published_VVN papers_NNS on_IN bubble_NN dynamics_NNS (_( Klaseboer_NP et_NP al_NP ._SENT 
+,_, 2005a_NP ,_, Zhang_NP and_CC Liu_NP ,_, 2015_CD )_) ,_, the_DT length_NN scale_NN ,_, density_NN scale_NN and_CC pressure_NN scale_NN are_VBP taken_VVN as_IN Rm_NP ,_, ρ_NP and_CC p∞_NP ,_, respectively_RB ._SENT 
+Thus_RB ,_, the_DT time_NN scale_NN can_MD be_VB calculated_VVN with_IN And_CC the_DT corresponding_JJ maximum_NN radius_NN Rm_NP ,_, the_DT buoyancy_NN parameter_NN δ_NN and_CC the_DT time_NN scale_NN for_IN non-dimensionalization_NN of_IN these_DT 3_CD cases_NNS are_VBP listed_VVN in_IN Table_NN 2._CD Table_NN 2._CD Parameters_NNS of_IN cases_NNS with_IN different_JJ buoyancy_NN parameters_NNS ._SENT 
+For_IN each_DT case_NN ,_, the_DT bubble_NN evolution_NN of_IN 4_CD moments_NNS at_IN the_DT same_JJ non-dimensional_JJ time_NN are_VBP compared_VVN together_RB in_IN Fig_NN ._SENT 
+10_CD ,_, and_CC the_DT changes_NNS of_IN the_DT equavalent_JJ radii_NNS of_IN the_DT bubbles_NNS with_IN non-dimensional_JJ time_NN are_VBP drawn_VVN in_IN Fig_NN ._SENT 
+11_CD in_IN which_WDT the_DT solid_JJ triangles_NNS denote_VVP the_DT moments_NNS of_IN the_DT penetration_NN and_CC the_DT vertical_JJ lines_NNS indicate_VVP the_DT moment_NN imaged_VVN in_IN Fig_NN ._SENT 
+10._CD We_PP can_MD see_VV that_IN the_DT upward_JJ jet_NN develops_VVZ earlier_RBR in_IN the_DT case_NN with_IN a_DT greater_JJR buoyancy_NN parameter_NN from_IN the_DT first_JJ column_NN of_IN Fig_NN ._SENT 
+10._CD Because_IN the_DT asymmetric_JJ velocity_NN component_NN caused_VVN by_IN the_DT jet_NN development_NN occupys_VVZ part_NN of_IN the_DT kinetic_JJ energy_NN ,_, the_DT pulsation_NN process_NN is_VBZ slowed_VVN down_RB compared_VVN with_IN the_DT case_NN with_IN lower_JJR buoyancy_NN parameter_NN ._SENT 
+Thus_RB ,_, the_DT moment_NN when_WRB the_DT bubble_NN reaches_VVZ its_PP$ minimum_JJ radius_NN delays_NNS along_IN with_IN the_DT increase_NN of_IN the_DT buoyancy_NN parameter_NN as_IN shown_VVN in_IN both_DT Figs_NNS ._SENT 
+10_CD and_CC 11._CD Meanwhile_RB ,_, the_DT minimum_JJ radius_NN of_IN the_DT bubble_NN also_RB increases_VVZ with_IN the_DT buoyancy_NN parameter_NN ,_, which_WDT indicates_VVZ that_IN the_DT bubble_NN pulsation_NN load_NN would_MD be_VB smaller_JJR in_IN a_DT case_NN with_IN a_DT greater_JJR buoyancy_NN parameter_NN ._SENT 
+Fig_NN ._SENT 
+10._CD Evolution_NN of_IN bubbles_NNS generated_VVN by_IN (_( a_DT )_) 0.5 kg_NN ,_, (_( b_LS )_) 5 kg_NN and_CC (_( c_LS )_) 50 kg_NP TNT_NP explosives_NNS detonated_VVD at_IN a_DT depth_NN of_IN 15 m at_NP t/ts = 1.840_NP ,_, 1.938_CD ,_, 1.973_CD and_CC 2.088_CD ,_, respectively_RB ._SENT 
+Fig_NN ._SENT 
+11._CD Changes_NP of_IN bubble_NN radii_NNS with_IN time_NN generated_VVN by_IN 0.5 kg_NP ,_, 5 kg_NP and_CC 50 kg_NP TNT_NP explosives_NNS detonated_VVD at_IN a_DT depth_NN of_IN 15 m_NP ._SENT 
+<Section> 4._CD Conclusions_NNS </Section> In_IN this_DT paper_NN ,_, the_DT EFEM_NN is_VBZ employed_VVN to_TO investigate_VV the_DT underwater_JJ explosion_NN in_IN the_DT cylindrical_JJ coordinate_VV system_NN ._SENT 
+The_DT MUSCL_NN algorithm_NN is_VBZ modified_VVN to_TO maintain_VV the_DT conservativeness_NN in_IN the_DT axisymmetric_JJ model_NN ,_, and_CC the_DT ETA2_NN is_VBZ adopted_VVN to_TO approach_VV the_DT second_JJ order_NN non-reflecting_VVG boundary_NN condition_NN ._SENT 
+With_IN the_DT presented_VVN numerical_JJ model_NN ,_, 2_CD underwater_JJ explosion_NN cases_NNS with_IN different_JJ initial_JJ depths_NNS are_VBP firstly_RB simulated_JJ for_IN both_DT of_IN the_DT shockwave_NN phase_NN and_CC the_DT bubble_NN oscillation_NN phase_NN continuously_RB ._SENT 
+Compared_VVN with_IN the_DT experimental_JJ results_NNS ,_, the_DT numerical_JJ model_NN predicts_VVZ the_DT underwater_JJ explosion_NN load_NN with_IN a_DT good_JJ accuracy_NN in_IN both_DT amplitude_NN and_CC time_NN and_CC exhibits_VVZ the_DT capability_NN to_TO consider_VV the_DT nonlinearity_NN in_IN the_DT near-field_NN for_IN the_DT shockwave_NN propagation_NN ._SENT 
+Under_IN the_DT gravity_NN effect_NN ,_, the_DT bubble_NN collapses_VVZ non-spherically_RB and_CC developes_VVZ an_DT upward_JJ jet_NN ._SENT 
+The_DT bubble_NN pulsation_NN load_NN has_VHZ different_JJ characteristics_NNS in_IN different_JJ directions_NNS ,_, especially_RB in_IN the_DT near-field_NN ._SENT 
+The_DT 2_CD high_JJ pressure_NN regions_NNS caused_VVN by_IN the_DT gradient_NN of_IN the_DT ambient_JJ pressure_NN and_CC the_DT jet_NN impact_NN are_VBP the_DT main_JJ reasons_NNS that_IN the_DT bubble_NN pulsation_NN load_NN loses_VVZ its_PP$ symmetry_NN ._SENT 
+Because_IN the_DT asymmetry_NN decays_VVZ with_IN the_DT distance_NN rapidly_RB ,_, the_DT spherical_JJ bubble_NN pulsation_NN load_NN model_NN can_MD predict_VV the_DT pressure_NN profile_NN accurately_RB in_IN far-field_NP ._SENT 
+By_IN contrast_NN ,_, the_DT asymmetry_NN must_MD be_VB considered_VVN in_IN the_DT near-field_NP bubble_NN pulsation_NN load_NN simulation_NN ._SENT 
+Then_RB ,_, the_DT effects_NNS of_IN the_DT buoyancy_NN parameter_NN on_IN the_DT bubble_NN evolution_NN are_VBP investigated_VVN by_IN simulating_VVG 2_CD more_JJR cases_NNS with_IN different_JJ explosive_JJ weights_NNS ._SENT 
+The_DT results_NNS show_VVP that_IN the_DT increase_NN of_IN the_DT buoyancy_NN parameter_NN could_MD delay_VV the_DT penetration_NN and_CC extend_VV the_DT collapse_NN of_IN the_DT bubble_NN ._SENT 
+Because_IN the_DT energy_NN is_VBZ occupied_VVN by_IN the_DT motion_NN of_IN the_DT surrounding_VVG flow_NN when_WRB the_DT bubble_NN reaches_VVZ its_PP$ minimum_JJ radius_NN ,_, the_DT jet_NN development_NN would_MD weaken_VV the_DT pulsation_NN load_NN for_IN a_DT larger_JJR minimum_NN radius_NN ._SENT 
+<Section> Acknowledgement_NN </Section> The_DT authors_NNS would_MD like_VV to_TO acknowledge_VV the_DT support_NN of_IN the_DT National_NP Natural_NP Science_NP Foundation_NP of_IN China_NP (_( Grant_NP No.51609044_NP ,_, 11672082_CD )_) ,_, the_DT China_NP Postdoctoral_JJ Science_NP Foundation_NP (_( Grant_NP No._NN 2016M600244_NN )_) and_CC the_DT Heilongjiang_NP Postdoctoral_JJ Fund_NP (_( Grant_NP No._NN LBH-Z16043_NN )_) ._SENT 
+<Section> References_NNS </Section> G._NP Barras_NP ,_, M._NP Souli_NP ,_, N._NP Aquelet_NP ,_, N._NP Couty_NP Numerical_JJ simulation_NN of_IN underwater_JJ explosions_NNS using_VVG an_DT ALE_NN method_NN ._SENT 
+The_DT pulsating_VVG bubble_NN phenomena_NNS Ocean_NP Eng_NP ._SENT 
+,_, 41_CD (_( 2012_CD )_) ,_, pp_NP ._SENT 
+53-66_CD D.J._NP Benson_NP Computational_JJ methods_NNS in_IN Lagrangian_JJ and_CC Eulerian_JJ hydrocodes_NNS Comput_NN ._SENT 
+Meth_NP ._SENT 
+Appl_NP ._SENT 
+Mech_NP ._SENT 
+Eng_NN ._SENT 
+,_, 99_CD (_( 1992_CD )_) ,_, pp_NP ._SENT 
+235-394_CD D.J._NP Benson_NP Momentum_NN advection_NN on_IN a_DT staggered_JJ mesh_NN J._NP Comput_NN ._SENT 
+Phys_NPS ._SENT 
+,_, 100_CD (_( 1_LS )_) (_( 1992_CD )_) ,_, pp_NP ._SENT 
+143-162_CD D.J._NP Benson_NP Momentum_NN advection_NN on_IN unstructured_JJ staggered_JJ quadrilateral_NN meshes_NNS Int_NP ._SENT 
+J._NP Numer_NP ._SENT 
+Meth_NP ._SENT 
+Eng_NN ._SENT 
+,_, 75_CD (_( 2008_CD )_) ,_, pp_NP ._SENT 
+1549-1580_CD D.J._NP Benson_NP ,_, S._NP Okazawa_NP Contact_NP in_IN a_DT multi-material_JJ Eulerian_JJ finite_JJ element_NN formulation_NN Comput_NN ._SENT 
+Meth_NP ._SENT 
+Appl_NP ._SENT 
+Mech_NP ._SENT 
+Eng_NN ._SENT 
+,_, 193_CD (_( 2004_CD )_) ,_, pp_NP ._SENT 
+4277-4298_NP J.P._NP Best_RBS The_DT Effect_NN of_IN Non-spherical_JJ Collapse_NN on_IN Determination_NN of_IN Explosion_NN Bubble_NN Parameters_NNS DSTO_NP Systems_NP Sciences_NPS Laboratory_NP ,_, Edinburgh_NP ,_, Australia_NP (_( 2002_CD )_) ,_, pp_NP ._SENT 
+1-25_CD J.R._NP Blake_NP ,_, D.C._NP Gibson_NP Cavitation_NN bubbles_NNS near_IN boundaries_NNS Annu_NP ._SENT 
+Rev._NP Fluid_JJ Mech_NP ._SENT 
+,_, 19_CD (_( 1987_CD )_) ,_, pp_NP ._SENT 
+99-123_CD R.H._NP Cole_NP Underwater_JJ Explosion_NN Princeton_NP University_NP Press_NP ,_, Princeton_NP USA_NP (_( 1948_CD )_) B.M._NP Dobratz_NP ,_, P.C._NP Crawford_NP LLNL_NP explosives_NNS Handbook_NN :_: Properties_NNS of_IN Chemical_NP Explosives_NNS and_CC Explosives_NNS Simulants_NNS ._SENT 
+Lawrence_NP Livermore_NP National_NP Lab_NP ._SENT 
+,_, CA_MD ,_, USA_NP (_( 1981_CD )_) C.A._NP Felippa_NP A_DT family_NN of_IN early_JJ time_NN approximations_NNS for_IN fluid_JJ structure_NN interaction_NN J._NP Appl_NP ._SENT 
+Mech_NN ._SENT 
+,_, 47_CD (_( 1980_CD )_) ,_, pp_NP ._SENT 
+703-708_CD T.L._NP Geers_NP Doubly_RB asympotic_JJ approximation_NN for_IN transient_JJ motions_NNS of_IN submerged_JJ structures_NNS J._NP Acoust_NP ._SENT 
+Soc_NP ._SENT 
+Am_RB ._SENT 
+,_, 64_CD (_( 1978_CD )_) ,_, pp_NP ._SENT 
+1500-1508_CD T.L._NP Geers_NP ,_, K.S._NP Hunter_NP An_DT integrated_JJ wave-effects_JJ model_NN for_IN an_DT underwater_JJ explosion_NN bubble_NN J._NP Acoust_NP ._SENT 
+Soc_NP ._SENT 
+Am_RB ._SENT 
+,_, 111_CD (_( 4_LS )_) (_( 2002_CD )_) ,_, pp_NP ._SENT 
+1584-1601_CD T.L._NP Geers_NP ,_, C.K._NP Park_NP Optimization_NP of_IN the_DT G&H_NP bubble_NN model_NN Shock_NP Vib_NN ._SENT 
+,_, 12_CD (_( 1_LS )_) (_( 2005_CD )_) ,_, pp_NP ._SENT 
+3-8_CD C.W._NP Hirt_NP ,_, B.D._NP Nichols_NP Volume_NN of_IN Fluid_JJ method_NN for_IN the_DT dynamics_NNS of_IN free_JJ boundaries_NNS J._NP Comput_NN ._SENT 
+Phys_NPS ._SENT 
+,_, 39_CD (_( 1981_CD )_) ,_, pp_NP ._SENT 
+201-225_CD Z._NP Jin_NP ,_, C._NP Yin_NP ,_, Y._NP Chen_NP ,_, H._NP Hua_NP Coupling_NN Runge-Kutta_NP discontinuous_JJ Galerkin_NN method_NN to_TO finite_JJ element_NN method_NN for_IN compressible_JJ multi-phase_NN flow_NN interacting_VVG with_IN a_DT deformable_JJ sandwich_NN structure_NN Ocean_NP Eng_NP ._SENT 
+,_, 130_CD (_( 2017_CD )_) ,_, pp_NP ._SENT 
+597-610_CD E._NP Klaseboer_NP ,_, K.C._NP Hung_NP ,_, C.W._NP Wang_NP ,_, B.C._NP Khoo_NP Experimental_JJ and_CC numerical_JJ investigation_NN of_IN the_DT dynamics_NNS of_IN an_DT underwater_JJ explosion_NN bubble_NN near_IN a_DT resilient/rigid_JJ structure_NN J._NP Fluid_JJ Mech_NP ._SENT 
+,_, 53_CD (_( 7_CD )_) (_( 2005_CD )_) ,_, pp_NP ._SENT 
+387-413_CD E._NP Klaseboer_NP ,_, B.C._NP Khoo_NP ,_, K.C._NP Hung_NP Dynamics_NPS of_IN an_DT oscillating_VVG bubble_NN near_IN a_DT floating_JJ structure_NN J._NP Fluid_JJ Struct_NN ._SENT 
+,_, 21_CD (_( 4_LS )_) (_( 2005_CD )_) ,_, pp_NP ._SENT 
+395-412_CD E.L._NP Lee_NP ,_, H.C._NP Hornig_NP ,_, J.W._NP Kury_NP Adiabatic_JJ Expansion_NN of_IN High_NP Explosive_JJ Detonation_NN Products_NP University_NP of_IN California_NP ,_, Livermore_NP (_( 1968_CD )_) L.T._NP Liu_NP ,_, X.L._NP Yao_NP ,_, A.M._RB Zhang_NP ,_, Y.Y._NP Chen_NP Numerical_JJ analysis_NN of_IN the_DT jet_NN stage_NN of_IN bubble_NN near_IN a_DT solid_JJ wall_NN using_VVG a_DT front_NN tracking_VVG method_NN Phys_NNS ._SENT 
+Fluids_NNS ,_, 29_CD (_( 2017_CD )_) ,_, p._NP 012105_CD Y.L._NP Liu_NP ,_, Q.X._NP Wang_NP ,_, S.P._NP Wang_NP ,_, A.M._NN Zhang_NP The_DT motion_NN of_IN a_DT 3D_JJ toroidal_JJ bubble_NN and_CC its_PP$ interaction_NN with_IN a_DT free_JJ surface_NN near_IN an_DT inclined_JJ boundary_NN Phys_NNS ._SENT 
+Fluids_NNS ,_, 28_CD (_( 12_CD )_) (_( 2016_CD )_) ,_, p._NP 122101_CD Y.L._NP Liu_NP ,_, S.P._NP Wang_NP ,_, A.M._NN Zhang_NP Interaction_NP between_IN bubble_NN and_CC air-backed_JJ plate_NN with_IN circular_JJ hole_NN Phys_NNS ._SENT 
+Fluids_NNS ,_, 28_CD (_( 6_CD )_) (_( 2016_CD )_) ,_, pp_NP ._SENT 
+1195-1212_CD Y.L._NP Liu_NP ,_, A.M._RB Zhang_NP ,_, Z.L._NP Tian_NP Approximation_NN of_IN underwater_JJ explosion_NN bubble_NN by_IN singularities_NNS based_VVN on_IN BEM_NP Ocean_NP Eng_NP ._SENT 
+,_, 75_CD (_( 2014_CD )_) ,_, pp_NP ._SENT 
+46-52_CD W._NP Long-kan_NP ,_, Z._NP Zhi-fan_NP ,_, W._NP Shi-ping_NP Pressure_NN characteristics_NNS of_IN bubble_NN collapse_NN near_IN a_DT rigid_JJ wall_NN in_IN compressible_JJ fluid_JJ Appl_NN ._SENT 
+Ocean_NN Res_NNS ._SENT 
+,_, 59_CD (_( 2016_CD )_) ,_, pp_NP ._SENT 
+183-192_CD F.R._NP Ming_NP ,_, A.M._RB Zhang_NP ,_, Y.Z._NP Xue_NP ,_, S.P._NP Wang_NP Damage_NN characteristics_NNS of_IN ship_NN structures_NNS subjected_VVN to_TO shockwaves_NNS of_IN underwater_JJ contact_NN explosions_NNS Ocean_NP Eng_NP ._SENT 
+,_, 117_CD (_( 2016_CD )_) ,_, pp_NP ._SENT 
+359-382_CD A._NP Pearson_NP ,_, E._NP Cox_NP ,_, J.R._NP Blake_NP ,_, S.R._NP Otto_NP Bubble_NN interactions_NNS near_IN a_DT free_JJ surface_NN Eng_NP ._SENT 
+Anal_JJ ._SENT 
+Bound_VVN ._SENT 
+Elem_NN ._SENT 
+,_, 28_CD (_( 2004_CD )_) ,_, pp_NP ._SENT 
+295-313_CD R.S._NP Price_NP Similitude_NN Equations_NNS for_IN Explosives_NNS Fired_VVD Underwater_JJ NSWC_NN (_( 1979_CD )_) J.X._NP Qiu_NP ,_, T.G._NP Liu_NP ,_, B.C._NP Khoo_NP Simulation_NP of_IN compressible_JJ two-medium_NN flow_NN by_IN Runge-Kutta_NP discontinuous_JJ galerkin_NN methods_NNS with_IN teh_NP ghost_NN fluid_NN method_NN Commun_NN ._SENT 
+Comput_NN ._SENT 
+Phys_NPS ._SENT 
+,_, 3_CD (_( 2008_CD )_) ,_, pp_NP ._SENT 
+479-504_CD Z.L._NP Tian_NP ,_, Y.L._NP Liu_NP ,_, A.M._RB Zhang_NP ,_, S.P._NP Wang_NP Analysis_NP of_IN breaking_VVG and_CC re-closure_NN of_IN a_DT bubble_NN near_IN a_DT free_JJ surface_NN based_VVN on_IN the_DT Eulerian_JJ finite_JJ element_NN method_NN Comput_NN ._SENT 
+Fluids_NNS ,_, 170_CD (_( 2018_CD )_) ,_, pp_NP ._SENT 
+41-52_CD B._NP Van_NP Leer_NP Towards_IN the_DT ultimate_JJ conservative_JJ difference_NN scheme_NN IV_NP :_: a_DT new_JJ approach_NN to_TO numerical_JJ convection_NN J._NP Comput_NN ._SENT 
+Phys_NPS ._SENT 
+,_, 23_CD (_( 1977_CD )_) ,_, pp_NP ._SENT 
+276-299_CD C._NP Wang_NP ,_, B.C._NP Khoo_NP An_DT indirect_JJ boundary_NN element_NN method_NN for_IN three-dimensional_JJ explosion_NN bubbles_NNS J._NP Comput_NN ._SENT 
+Phys_NPS ._SENT 
+,_, 194_CD (_( 2004_CD )_) ,_, pp_NP ._SENT 
+451-480_CD C._NP Wang_NP ,_, B.C._NP Khoo_NP ,_, K.S._NP Yeo_NP Elastic_JJ mesh_NN technique_NN for_IN 3D_JJ BIM_NN simulation_NN with_IN an_DT application_NN to_TO underwater_JJ explosion_NN bubbles_NNS Comput_NN ._SENT 
+Fluids_NNS ,_, 32_CD (_( 9_CD )_) (_( 2003_CD )_) ,_, pp_NP ._SENT 
+1195-1212_CD Q.X._NP Wang_NP Non-spherical_JJ bubble_NN dynamics_NNS of_IN underwater_JJ explosions_NNS in_IN a_DT compressible_JJ fluid_JJ Phys_NNS ._SENT 
+Fluids_NNS ,_, 25_CD (_( 7_CD )_) (_( 2013_CD )_) ,_, pp_NP ._SENT 
+131-144_CD S.R._NP Wu_NP ,_, L._NP Gu_NP Introduction_NN to_TO the_DT Explicit_JJ Finite_JJ Element_NN Method_NN for_IN Nonlinear_JJ Transient_JJ Dynamics_NP John_NP Wiley_NP &_CC Sons_NP ,_, Hoboken_NP ,_, New_NP Jersey_NP (_( 2012_CD )_) A.M._RB Zhang_NP ,_, Y.L._NP Liu_NP Improved_VVD three-dimensional_JJ bubble_NN dynamics_NNS model_NN based_VVN on_IN boundary_NN element_NN method_NN J._NP Comput_NN ._SENT 
+Phys_NPS ._SENT 
+,_, 294_CD (_( 2015_CD )_) ,_, pp_NP ._SENT 
+208-223_CD A.M._RB Zhang_NP ,_, W.B._NP Wu_NP ,_, Y.L._NP Liu_NP ,_, Q.X._NP Wang_NP Nonlinear_JJ interaction_NN between_IN underwater_JJ explosion_NN bubble_NN and_CC structure_NN based_VVN on_IN fully_RB coupled_VVN model_NN Phys_NNS ._SENT 
+Fluids_NNS ,_, 29_CD (_( 8_CD )_) (_( 2017_CD )_) ,_, p._NP 082111_CD 

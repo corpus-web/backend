@@ -1,0 +1,143 @@
+<title>Application of the Monte Carlo method to estimate doses due to neutron	 activation of diﬀerent materials in a nuclear reactor</title>
+<Affiliation>Departamento de Ingeniería Química y Nuclear, Universitat Politècnica de València, Valencia, Spain</Affiliation>
+<author>José Ródenas</author>
+<year>2017</year>
+<Jounral>Radiation Physics and Chemistry</Journal>
+<Publishing_house> Elsevier Ltd</Publishing_house>
+<Text_Collector>田苗，BFSU</Text_Collector>
+<DOI>10.1016/j.radphyschem.2017.02.015</DOI>
+<URL>http://dx.doi.org/10.1016/j.radphyschem.2017.02.015 </URL>
+ABSTRACT
+All materials exposed to some neutron ﬂux can be activated independently of the kind of the neutron source. In this study, a nuclear reactor has been considered as neutron source. In particular, the activation of control rods in a BWR is studied to obtain the doses produced around the storage pool for irradiated fuel of the plant when control rods are withdrawn from the reactor and installed into this pool. It is very important to calculate these doses because they can aﬀect to plant workers in the area. The MCNP code based on the Monte Carlo method has been applied to simulate activation reactions produced in the control rods inserted into the reactor. Obtained activities are introduced as input into another MC model to estimate doses produced by them. The comparison of simulation results with experimental measurements allows the validation of developed models. The developed MC models have been also applied to simulate the activation of other materials, such as components of a stainless steel sample introduced into a training reactors. These models, once validated, can be applied to other situations and materials where a neutron ﬂux can be found, not only nuclear reactors. For instance, activation analysis with an Am-Be source, neutrography techniques in both medical applications and non-destructive analysis of materials, civil engineering applications using a Troxler, analysis of materials in decommissioning of nuclear power plants, etc.
+Keywords:
+Monte Carlo method Dose estimation Neutron activation
+1.Introduction
+All materials exposed to some neutron ﬂux can be activated independently of the kind of the neutron source. There are four types of neutron sources: nuclear reactions with particles that usually are (α, n); nuclear reactions with high energy photons, (γ, n); ﬁssion reactions in nuclear reactors; and accelerators. In this study, a nuclear reactor has been considered as neutron source.
+Activation reactions can be simulated with the MC method (e. g. MCNP5) and the number of reactions calculated converted into activity. Activated materials can produce a dose around them. This dose is a potential risk for people staying in the surrounding area. Therefore, it is necessary to assess the activity generated and the dose produced.
+In particular, materials present in the core of a nuclear reactor become activated by neutron irradiation. When activated materials are withdrawn from the reactor, a dose is produced around them. It is, of course, a risk for workers that should be estimated.
+The origin of this study was the analysis of the activation of control rods in a BWR to obtain the doses produced around the storage pool for irradiated fuel of the plant when control rods are withdrawn from the reactor and installed into this pool. It is very important to calculate
+these doses because they can aﬀect to plant workers in the area.
+The MCNP5 code (X-5 Monte Carlo Team, 2005) based on the Monte Carlo (MC) method has been applied to simulate activation reactions produced in the control rods inserted into the reactor. The activation is mainly produced in the components of stainless steel tubes containing the absorber. The simulation of the reactions permits to obtain a list of the radionuclides generated and its activity (Ródenas et al., 2010d). Obtained activities are introduced as input into another MC model to estimate doses produced by them (Ródenas et al., 2010d, 2010e). The comparison of simulation results with experimental measurements allows the validation of developed models.
+The analysis of obtained results showed that the rod handle is the most irradiated part of the control rod. Therefore, the dose out of the pool can be highly reduced inverting the position of the rod into the storage pool placing the handle at a deeper position under water (Ródenas et al., 2010c).
+The developed MC models have been also applied to simulate the activation of other materials, such as manganese oxide or components of a stainless steel sample introduced into training or experimental reactors.
+These models, once validated, can be applied to other situations and materials where a neutron ﬂux can be found, not only nuclear reactors.For instance, activation analysis with an Am-Be source, neutrography techniques in both medical applications and non-destructive analysis of materials, civil engineering applications using a Troxler, analysis of materials in decommissioning of nuclear power plants, etc.
+2.Methodology
+2.1.Neutron activation
+The activity Aj generated in neutron reactions depends on reaction cross sections σ(E), neutron spectrum χ(E), neutron ﬂux distribution Φ(E), concentration of precursors of each radionuclide Xn, irradiation time ti and a normalization factor C depending on the target concen- tration. After irradiation, activities decrease with cooling time tc and disintegration constants, λj.
+The interaction rate Qj (reactions/cm3 s) is given by Eq. (1):
+@1
+where
+C is a normalization factor for the atom density (atoms/barn-cm) depending on the target concentration;
+Φ(E) is the neutron ﬂux (n/cm2 s); and
+particle. Therefore, activity is calculated per emitted neutron and per second, and it should be multiplied by the instantaneous neutron population that can be calculated as:
+σ(E) is the microscopic cross section of the reaction (barn).
+For the isotope j of an element n contained in a target sample, the normalization factor C can be determined from density, composition and isotopic abundances:
+@2
+being
+ρ density of the sample (g/cm3).
+M atomic or molecular weight (g/mol). Xn percentage of element n in the sample. Xj percentage of isotope j in element n.
+10–24 equivalence for cross section units (cm2/barn). NA Avogadro number (atoms/mol).
+Therefore, C is obtained in (atoms/barn-cm).
+A matter balance can be done for each j-isotope generated:
+@3
+and integrating, the concentration Nj (nuclei/cm3) of the j-isotope is obtained, being ti the irradiation time:
+@4
+For a cooling time tc, this concentration Nj becomes:
+@5
+and the activity can be obtained multiplying by λj:
+@6
+Aj(t) is a volumetric activity (Bq/cm3). To obtain the total activity it is necessary to multiply by the cell volume. The maximum activity will be the asymptotic value, that is, the saturation activity, Qj, considering an irradiation time very long (~∞) and neglecting the cooling time.
+2.2.Monte Carlo models
+A Monte Carlo model has been developed using MCNP5 to simulate the activation process (Ródenas et al., 2010b, 2010d). The interaction rate Qj (Eq. (1)) is calculated using a ﬂuency tally (F4) and an FM4 (tally multiplier card), which provides data for the reactions produced that will be included in the calculation.
+The energy spectrum of ﬁssion neutrons (Lamarsh and Baratta, 2001) used for the simulation is the Watt distribution described by Eq. (7).
+@7
+The Watt ﬁssion spectrum can be considered as a Maxwellian spectrum from a moving reference system (Froehner and Spencer, 1980). The Maxwell ﬁssion spectrum alone describes the energy distribution of neutrons emitted by the ﬁssion fragments. This does however not include the kinetic energy of the ﬁssion ion fragments themselves. As both ﬁssion fragments are positively charged, they repel each other due to Coulomb force. This results in kinetic energy of the ﬁssion fragments. The Watt spectrum considers the Maxwellian distribution plus the fact that neutrons are emitted from moving fragments. Thus, it is more accurate than the Maxwellian spectrum alone. It is a continuous spectrum with an average energy of 1.98 MeV. All tallies obtained with MCNP are normalized to be per starting particle. Therefore, activity is calculated per emitted neutron and per second, and it should be multiplied by the instantaneous neutron population that can be calculated as:
+@8
+where
+Ṅ is the instantaneous neutron population (n/s);
+P is the mean power (W);
+C is equal to 3.12*1010 ﬁssions/W-s; and
+ν is the mean number of neutrons emitted per ﬁssion, 2.47 for U- 235.
+Results for each radionuclide j generated by the neutron activation are the following:
+•the interaction rate Qj (reactions/cm3-s), Eq. (1), that is, the F4 tally obtained with MCNP5.
+•the volumetric activity, Aj (Bq/cm3).
+•activity (per neutron/s emitted at the source) equal to the volumetric
+activity times the volume of the sample, (Bq).
+•total activity (Bq) considering instantaneous neutron population during the irradiation.
+All of them can be managed with an Excel sheet.
+To estimate the dose rate around irradiated material, another MCNP5 model was developed (Ródenas et al., 2010a, 2010e). Source data for the new input are obtained from the irradiation output,choosing gamma emitters among generated nuclides Ni, with energy Eij, and intensity βij (branching ratio) of each photopeak j.
+Again, the F4 tally was used, now with the FMESH card that allows the user to deﬁne a mesh tally superimposed over the problem geometry. Hence, with F4MESH, ﬂuence (cm−2) in nodes of a mesh is obtained. If the source is expressed in photons/s, that is, the activity Ai (dps) times the branching ratio βij (ph/d), the tally will be obtained in particle ﬂux (cm−2 s−1).Using the DF4 card with appropriate conversion factors, air energy- mass absorption coeﬃcients μen/ρ extracted from National Institute of Standards and Technology (NIST) for each photon energy of interest and multiplying by this energy, dose rate in MeV/g-s can be obtained (Seltzer, 1993). By means of an appropriated constant for conversion of units, dose rate can be expressed in μSv/h per emitted photon, taking into account that for photons 1 Sv=1 Gy.
+3.Applications
+3.1.BWR control rods
+Neutron activation of control rods in a BWR and doses around the
+Table 1
+Reactions produced in the control rod.
+storage pool for irradiated fuel of the plant where the control rods are placed after withdrawn from the reactor were calculated using the MCNP5 code. Calculations were performed following the guidelines exposed in the previous point (Ródenas et al., 2010b, 2010d).
+The activation is produced mainly in impurities contained in stainless steel as well as in the elements composing the steel alloy.
+The activity so generated will produce a dose around the rod, not important while it is inside the reactor, but it has to be taken into account when the rod is withdrawn from the reactor. It is a potential risk for workers operating in the surroundings of the storage pool.
+Data for the reactions produced in the control rod during its irradiation are listed in Table 1. These reactions will be included in the calculation through the tally multiplier card (FM4), which incor- porates cross sections for these reactions.
+When only the thermal neutron ﬂux is considered for calculations, the most important reaction is (n, γ) and the greatest activities correspond to the following radionuclides: Ni-59, Ni-63, Fe-55 and Co-60.
+If the complete spectrum of neutron ﬂux is considered for calcula- tions, nearly all reactions are produced and the radioisotopes produced are the following: C-14, Al-28, Cl-36, Mn-54, Sc-46, Fe-55, Co-60, Ni- 59, Ni-63, Zn-65, Nb-94, Mo-93, Ag-108m, Ag-110m, Eu-152, Eu-154,
+and Hf-178. Nevertheless, only those isotopes emitting gamma rays have interest from the point of view of the dose calculation. Consulting disintegration schemes at the JANIS database (Janis, 2005), they remain the following: Al-28, Mn-54, Sc-46, Co-60, Zn-65, Nb-94, Ag- 108m, Ag-110m, Eu-152, Eu-154, and Hf-178. From this list Al-28 can be eliminated a cause of its low half-life (2.24 m).
+In summary, the activity generated by neutron irradiation of control rods in a BWR is important for some components of stainless steel, in particular those producing Co-60 and Mn-54.
+Some points should be stressed from this analysis. It is very important to know neutron ﬂux distribution in both energy and space. The history of each control rod is important to assess the exact activation, as it permits to know the irradiation time.
+On the other hand, the importance of times (irradiation and cooling) depends on the half life. Radionuclides with a short half life arrive quickly to asymptotic equilibrium, but its activity decreases also quickly with the cooling time. It is the opposite for radionuclides with higher values of half life.
+If the control rod is divided into four parts: handle, tubes, central core and gain, it can be observed that the activation is not the same in all of these parts. A scheme of the control rod with this division can be seen in Fig. 1.
+Activation is lower for central core and tubes where neutrons are strongly absorbed in boron before reaching these parts. Instead, it is higher for gains that are more exposed to neutron ﬂux than internal parts. The highest activation is produced in the handle. Control rods in a BWR are inserted from the bottom of the core. Therefore, the handle is always inside the core and hence exposed to the neutron ﬂux, while the rest of the rod can be partially introduced into the core. This is an important point that addressed the following analysis.
+Fig. 1. Model of control rod.
+Inverting the position of the rod into the storage pool with the handle at a deeper position under water should be a suitable method to reduce the dose out of the pool. Results of simulation showed an important reduction of dose rates, by a factor of more than 2000, in the zones where operators are usually working. Therefore, it is very advisable to introduce the appropriate changes in the hanger devices in order to achieve this important dose reduction (Ródenas et al., 2010c).
+3.2.Stainless steel sample in a training (zero power) reactor
+Validation of the neutron activation model for control rods in a BWR has many diﬃculties because of the high values of the generated activity, not easy to measure. Then, an indirect validation of the model was attempted comparing dose rates simulated with measurements. However, dose rates produced by the generated activities in control rods are also high and diﬃcult to measure. It should be done under 4– 8 m water, in the storage pool. Furthermore, high uncertainties are associated with these measurements. Fortunately, the uncertainty was lower for the highest dose and activity, found in the handle (Ródenas et al., 2010b).
+On the other hand, the simulation of doses around the pool presents also higher uncertainties due to the large thickness of water (about 6 m) covering the control rods (Ródenas et al., 2010d). Although diﬀerent variance reduction techniques were applied to improve results of the simulation, other calculations were undertaken to validate the developed MC models.
+Most of the neutron activation of control rods in a BWR is produced in stainless steel components of the rod. Indeed, many components in the nuclear reactor core are made of stainless steel. Therefore, the Monte Carlo model developed can be applied to the activation produced in a piece of stainless steel exposed to some neutron ﬂux in a reactor.
+It could be an easier way to validate the model, because activities generated can be lower, provided neutron ﬂux is not very high and irradiation time is short. Dose rates around the activated piece should be also measured for validation of the second model.
+A zero power reactor was chosen. Then, a stainless steel sample was irradiated in the training reactor AKR-2 of TU Dresden (Hansen and
+Table 2
+Composition of X8CrNiTi18.10.
+Table 3
+Reactions produced in the sample.
+Wolf, 2009). This reactor has a cylindrical core with 25 cm diameter and 27.5 cm height. The measured power of the reactor was 0.59 W and the maximum thermal neutron ﬂux 2.5 E+07 n/cm2 s.
+The stainless steel sample (X8CrNiTi18.10) (Thyssen Krupp Materials International, 2007) whose composition is listed in Table 2 is cylindrical with 20 mm diameter and 70 mm height. It was irradiated during 10 h into the central horizontal irradiation channel of the AKR reactor. The reactions produced in the sample are listed in Table 3.
+Activities obtained with the simulation by MCNP5 are listed in Tables 4 and 5, respectively for cooling times of 10 and 30 min. For each of the 12 nuclides generated, it is listed the tally, the volumetric activity, the activity per neutron and the total activity (Bq).
+From the observation of Tables 4 and 5 it is deduced that the most important activity is obtained for Mn56 due to the high cross section for the reaction (n, γ) in manganese and to the short half-life of Mn56 (2.582 h) that permits this radionuclide to reach equilibrium during an irradiation time of 10 h.
+Longer half-lives of some radionuclides causes that a low activity is generated because equilibrium is far to be reached.
+Again, the activity was not measured. It was about 300 μCi. Instead an indirect validation was tried as it was measured the gamma dose rate in air 10 and 30 min after irradiation for several distances to the stainless steel sample.
+Dose rates were calculated using activities obtained with the ﬁrst
+Table 4
+Activities after a cooling time of 10 min.
+Table 5
+Activities after a cooling time of 30 min.
+model as input data for the second simulation. From the nuclides generated (see Table 3), P32, Ni59, Ni63 and Mo93 were excluded because they are not gamma emitters. Co60, Mn54 and Fe59 have very low activity, while Cr55 and Fe55 have very low intensity. Therefore, all of them are excluded from the dose calculation, remaining only three radionuclides: Cr51, Ni65 and Mn56.
+Practically 100% of the total number of photons/s emitted by the
+radionuclides generated are due to these three radionuclides: Cr51, Ni65 and Mn56. Even more, the three main lines of Mn56 are 98.20% of the total of photons emitted. Therefore, only Mn56 and only these three lines were considered for dose assessment. Energy and intensities of those lines are listed in Table 6.
+Using these values, dose rates are calculated and results are shown in Tables 7 and 8 respectively for cooling times of 10 and 30 min.
+The maximum discrepancies between doses calculated and mea- sured for distances up to 1 m from the sample are of 8% for a cooling time of 10 min and 12% when the cooling time is 30 min. These results permitted to conﬁrm the validation of MC models developed (Ródenas et al., 2014).
+Comparing both applications exposed, one can say that irradiation of reactor components in power reactors is very long (15 years in average) compared to the time of irradiation (10 h) of the sample in AKR2. Thus, also radionuclides with high half life build up during the irradiation in power reactors, but they hardly appears in the short-time experiment. However, this is not downgrading the model. As it works for short lived nuclides, it will also be applicable for long lived nuclides.
+3.3.Other developments
+As Mn55 (n, γ) Mn56 is the main reaction produced for a short irradiation time, a sample of MnO2 was irradiated in an irradiator with some Am-Be sources (1 and 10 Ci)10 to verify previous results. Obtained results were similar to those in Dresden reactor.
+An attempt to irradiate another samples (In and Mn) with a Cf-252 source failed because of the low activity of the source available.
+4. Further developments
+Other developments are foreseen for the next future in order to
+perform measurements in other experimental or training reactors and
+Table 6
+6.84E+02	Values for the three main lines of Mn56.
+Table 7
+Dose rates at different distances of the sample for a cooling time of 10 min
+Table 8
+Dose rates at different distances of the sample for a cooling time of 30 min.
+compare activity measurements with MC simulation results.
+It would be also interesting the application of developed MC models to neutron activation of materials in diﬀerent situations:
+•Accelerators.
+•Neutrography techniques in both medical applications and non-
+destructive analysis of materials.
+•Civil engineering applications using a Troxler.
+•Analysis of materials in decommissioning of nuclear power plants.
+5. Conclusions
+It is important to know the activity generated by neutron irradiation of materials in a nuclear reactor because when irradiated pieces are withdrawn from the reactor, they can produce a dose in the surround- ings that can aﬀect to plant workers.
+In particular, it is very important for control rods in a BWR that after a long time permanence in the reactor are stored into the pool for irradiated fuel of the plant producing a dose around the pool.
+The simulation with Monte Carlo is a realistic method to calculate dose rates at diﬀerent points on the pool water surface and surround- ings.
+The handle of the control rod is the piece more activated because it is exposed to neutron ﬂux most of the time while the rest of the rod can be partially introduced into the core. Inverting the position of the rod into the storage pool placing the handle at a deeper position under more than 2000, in the zones where operators are usually working.
+The history of each control rod is important to assess the exact activation, as it permits to know the irradiation time. It is important to know neutron ﬂux distribution in energy and in space.
+The importance of irradiation and cooling times depends on the half life of the nuclides produced. Radionuclides with short half life arrive quickly to asymptotic equilibrium, but its activity decreases also quickly with the cooling time. It is the opposite for radionuclides with higher values of half life.
+Most of the neutron activation of control rods in a BWR is produced in stainless steel components of the rod. By this reason the Monte Carlo models developed have been applied to simulate the neutron activation of a stainless steel sample irradiated in a training reactor to assess dose rates at diﬀerent distances from the irradiated sample, and diﬀerent times after irradiation. Results of the simulation have been compared with experimental measurements to validate MC models.
+Further developments are foreseen for the next future in order to perform measurements in other experimental or training reactors and compare measurements with Monte Carlo simulation results. Validation of models will permit its application to other devices such as accelerators, neutrography techniques, civil engineering applications using a Troxler, or analysis of materials in decommissioning of nuclear power plants.

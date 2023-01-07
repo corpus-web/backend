@@ -1,0 +1,428 @@
+﻿_NP <title> Ocean_NP Surface_NP Current_JJ Measurement_NN Using_VVG Shipborne_NP HF_NP Radar_NP :_: Model_NP and_CC Analysis_NP </title> <author> 1_CD ,_, Guanghong_NP Chang_NP ,_, 2_CD ,_, Ming_NP Li_NP ,_, 1_CD ,_, Junhao_NP Xie_NP ,_, 2_CD ,_, Ling_NP Zhang_NP ,_, 1_CD ,_, Changjun_NP Yu_NP ,_, 3_CD ,_, Yonggang_NP Ji_NP </author> <Affiliation> 1_CD ,_, School_NP of_IN Electronics_NP and_CC Information_NP Engineering_NP ,_, Harbin_NP Institute_NP of_IN Technology_NP ,_, Harbin_NP ,_, Heilongjiang_NP ,_, China_NP ,_, 2_CD ,_, College_NP of_IN Engineering_NP ,_, Ocean_NP University_NP of_IN China_NP ,_, Shandong_NP ,_, China_NP ,_, 3_CD ,_, First_NP Institute_NP of_IN Oceanography_NN ,_, State_NP Oceanic_JJ Administration_NP ,_, Shandong_NP ,_, China_NP </Affiliation> <year> 2016_CD </year> <Jounral> IEEE_NN journal_NN of_IN oceanic_JJ engineering_NN </Journal> <Publishing_house> Institute_NP of_IN Electrical_NP and_CC Electronics_NP Engineers_NPS </Publishing_house> <Text_Collector> Zhang_NP San，HEU_NP </Text_Collector> <DOI> 10.1109/JOE.2016.2527938_NP </DOI> <URL> https://ieeexplore.ieee.org/document/7457601_JJ </URL> Ocean_NP Surface_NP Current_JJ Measurement_NN Using_VVG Shipborne_NP HF_NP Radar_NP :_: Model_NP and_CC Analysis_NP Guanghong_NP Chang_NP ,_, Ming_NP Li_NP ,_, Junhao_NP Xie_NP ,_, Ling_NP Zhang_NP ,_, Changjun_NP Yu_NP ,_, Yonggang_NP Ji_NP School_NP of_IN Electronics_NP and_CC Information_NP Engineering_NP ,_, Harbin_NP Institute_NP of_IN Technology_NP ,_, Harbin_NP ,_, Heilongjiang_NP ,_, China_NP College_NP of_IN Engineering_NP ,_, Ocean_NP University_NP of_IN China_NP ,_, Shandong_NP ,_, China_NP First_NP Institute_NP of_IN Oceanography_NN ,_, State_NP Oceanic_JJ Administration_NP ,_, Shandong_NP ,_, China_NP <Section> Abstract_JJ </Section> The_DT extension_NN of_IN onshore_JJ high-frequency_NN surface_NN wave_NN radar_NN (_( HFSWR_NP )_) to_TO shipborne_NP HFSWR_NP has_VHZ the_DT advantage_NN of_IN extended_JJ monitoring_NN area_NN and_CC high_JJ application_NN flexibility_NN ._SENT 
+However_RB ,_, additional_JJ modulation_NN on_IN the_DT echo_NN signal_NN introduced_VVN by_IN the_DT forward_JJ movement_NN and_CC six-degree-of-freedom_NP (_( 6-DOF_NP )_) ship_NN motion_NN may_MD increase_VV the_DT surface_NN current_JJ measurement_NN error_NN ._SENT 
+Considering_VVG the_DT radar_NN array_NN position_NN on_IN the_DT ship_NN ,_, six-DOF_JJ ship_NN motion_NN ,_, forward_RB movement_NN velocity_NN ,_, first-order_NN Bragg_NP scatter_NN ,_, and_CC background_NN noise_NN ,_, this_DT paper_NN models_NNS the_DT backscattered_JJ Doppler_NP spectrum_NN of_IN shipborne_NP HFSWR_NP ._SENT 
+Based_VVN on_IN this_DT model_NN ,_, the_DT performance_NN of_IN surface_NN radial_JJ current_JJ measurement_NN is_VBZ analyzed_VVN ,_, with_IN the_DT adoption_NN of_IN the_DT MUltiple_JJ SIgnal_NN Classification_NN (_( MUSIC_NN )_) to_TO estimate_VV the_DT azimuth_NN of_IN the_DT sea_NN patches_VVZ ._SENT 
+Simulation_NN results_NNS show_VVP that_IN ,_, rotation_NN ,_, sway_NN and_CC forward_JJ movement_NN of_IN the_DT ship_NN all_RB have_VHP significant_JJ impacts_NNS on_IN the_DT surface_NN radial_NN current_JJ measure_NN error_NN ._SENT 
+Nevertheless_RB ,_, if_IN the_DT ship_NN sails_NNS at_IN relative_JJ low_JJ speed_NN and_CC keeps_VVZ its_PP$ sailing_NN direction_NN (_( with_IN small_JJ yaw_VVP amplitude_NN )_) ,_, shipborne_NP HFSWR_NP may_MD provide_VV a_DT better_JJR result_NN than_IN onshore_JJ HFSWR_NN ._SENT 
+<Section> 1._CD Introduction_NN </Section> High-Frequency_NN surface_NN wave_NN radar_NN (_( HFSWR_NP )_) system_NN has_VHZ been_VBN successfully_RB employed_VVN for_IN more_JJR than_IN four_CD decades_NNS for_IN monitoring_VVG the_DT economic_JJ exclusive_JJ zone_NN and_CC for_IN civil_JJ and_CC military_JJ purposes_NNS [_SYM 1][2]–[3_NP ]_SYM ._SENT 
+It_PP remotely_RB measures_VVZ ocean_NN surface_NN current_JJ by_IN exploiting_VVG a_DT Bragg_NP resonant_JJ backscatter_NN phenomenon_NN with_IN necessary_JJ spatial_JJ and_CC temporal_JJ resolution_NN ._SENT 
+The_DT measured_VVN data_NNS turn_VVP out_RP to_TO be_VB efficient_JJ for_IN examining_VVG tidal_JJ processes_NNS ,_, monitoring_VVG oil_NN spill_NN ,_, and_CC ensuring_VVG safe_JJ navigation_NN ._SENT 
+However_RB ,_, the_DT application_NN of_IN these_DT systems_NNS has_VHZ been_VBN limited_VVN to_TO coastal_JJ areas_NNS ,_, since_IN the_DT radar_NN sites_NNS must_MD be_VB positioned_VVN onshore_RB ._SENT 
+Explorations_NNS developed_VVN in_IN the_DT open_JJ sea_NN mostly_RB rely_VVP on_IN measurement_NN devices_NNS in_IN the_DT water_NN ,_, which_WDT are_VBP costly_JJ to_TO deploy_VV and_CC maintain_VV ,_, thereby_RB emphasizing_VVG the_DT desirability_NN of_IN platform-mounted_JJ remote-sensing_VVG systems_NNS ._SENT 
+Shipborne_NP HFSWR_NP ,_, which_WDT may_MD move_VV to_TO areas_NNS far_RB away_RB from_IN the_DT shore_NN ,_, can_MD provide_VV agility_NN and_CC maneuverability_NN to_TO extend_VV the_DT radar_NN detection_NN area_NN ._SENT 
+Thus_RB ,_, it_PP can_MD be_VB deployed_VVN to_TO monitor_VV the_DT oceanographic_JJ phenomena_NNS in_IN the_DT open_JJ sea_NN areas_NNS ,_, e.g._FW ,_, mesoscale_JJ eddy_NN and_CC surface_NN circulation_NN ._SENT 
+However_RB ,_, an_DT inevitable_JJ issue_NN is_VBZ that_IN the_DT six-degree-of-freedom_NP (_( 6-DOF_NP )_) motion_NN of_IN the_DT platform_NN ,_, which_WDT is_VBZ caused_VVN by_IN the_DT interaction_NN between_IN the_DT moving_VVG platform_NN and_CC the_DT ocean_NN waves_NNS ,_, modulates_VVZ the_DT received_VVN signal_NN of_IN the_DT radar_NN system_NN ._SENT 
+In_IN addition_NN ,_, the_DT first-order_NN Bragg_NP peaks_NNS on_IN the_DT echo_NN Doppler_NP spectra_NN are_VBP broadened_VVN due_RB to_TO the_DT forward_JJ movement_NN of_IN the_DT platform_NN ,_, which_WDT may_MD also_RB influence_VV its_PP$ application_NN in_IN ocean_NN surface_NN current_JJ measurement_NN and_CC target_NN monitoring_NN [_SYM 4_CD ]_SYM ._SENT 
+For_IN those_DT reasons_NNS ,_, when_WRB a_DT shipborne_JJ HFSWR_NN system_NN is_VBZ employed_VVN to_TO measure_VV the_DT surface_NN current_JJ ,_, it_PP is_VBZ necessary_JJ to_TO analyze_VV the_DT motions’_NN influences_VVZ on_IN the_DT system_NN performance_NN ._SENT 
+Similar_JJ to_TO the_DT research_NN on_IN onshore_JJ HFSWR_NN ,_, experiments_NNS have_VHP been_VBN conducted_VVN to_TO explore_VV the_DT feasibility_NN of_IN shipborne_NP HFSWR_NP ,_, followed_VVN by_IN data_NN processing_NN and_CC theory_NN analysis_NN ._SENT 
+In_IN 1986_CD ,_, Teague_NP [_SYM 5_CD ]_SYM developed_VVN techniques_NNS using_VVG onshore_JJ and_CC shipborne_JJ HFSWR_NN to_TO measure_VV surface_NN current_JJ and_CC vertical_JJ current_JJ shears_NNS in_IN the_DT upper_JJ 1_CD or_CC 2_CD m_NN of_IN the_DT ocean_NN surface_NN ._SENT 
+CODAR_NP was_VBD operated_VVN aboard_IN the_DT semisubmersible_JJ oil_NN platform_NN to_TO measure_VV the_DT wave_NN height_NN directional_JJ spectrum_NN [_SYM 6_CD ]_SYM ._SENT 
+A_DT moving_VVG ship_NN experiment_NN to_TO measure_VV surface_NN current_JJ field_NN was_VBD conducted_VVN by_IN Gurgel_NP using_VVG CODAR_NP [_SYM 7_CD ]_SYM with_IN the_DT speed_NN of_IN the_DT ship_NN being_VBG 1–2_JJ kn_NNS ,_, i.e._FW ,_, about_IN 0.5–1_JJ m/s_NNS ._SENT 
+Peters_NP and_CC Richard_NP deployed_VVD one_CD onshore_JJ site_NN and_CC one_CD shipborne_JJ system_NN to_TO cover_VV more_JJR coastal_JJ areas_NNS ._SENT 
+To_TO avoid_VV the_DT first-order_NN peaks_NNS from_IN broadening_VVG too_RB much_RB ,_, the_DT ship_NN speed_NN was_VBD about_RB 1_CD m/s_NNS [_SYM 8_CD ]_SYM ._SENT 
+Gorbatskiy_NP and_CC Andreev_NP [_SYM 9_CD ]_SYM employed_VVN SeaSonde_NP Doppler_NP radar_NN from_IN an_DT anchored_VVN vessel_NN to_TO measure_VV surface_NN current_JJ ._SENT 
+In_IN the_DT above_JJ works_NNS [_SYM 5][6][7][8]–[9_NP ]_SYM ,_, the_DT platform_NN itself_PP is_VBZ either_RB stationary_JJ or_CC travels_VVZ at_IN a_DT speed_NN (_( less_JJR than_IN 1_CD m/s_NNS )_) much_RB slower_JJR than_IN normal_JJ cruising_VVG speed_NN ._SENT 
+In_IN those_DT cases_NNS ,_, the_DT broadening_VVG of_IN the_DT first-order_NN Bragg_NP peaks_NNS received_VVD by_IN the_DT antennas_NNS is_VBZ slight_JJ ,_, hence_RB the_DT peak_NN detecting_VVG error_NN from_IN direction-finding_NN algorithms_NNS such_JJ as_IN beamforming_NP (_( BF_NP )_) or_CC minimum_JJ variance_NN (_( MV_NP )_) may_MD not_RB dramatically_RB increase_VV the_DT radial_JJ current_JJ measurement_NN errors_NNS ._SENT 
+When_WRB the_DT platform_NN moves_VVZ faster_RBR and_CC the_DT array_NN aperture_NN is_VBZ short_JJ ,_, however_RB ,_, this_DT radial_JJ current_JJ measurement_NN method_NN may_MD have_VH drawbacks_NNS due_JJ to_TO the_DT limited_JJ azimuth_NN resolution_NN of_IN those_DT direction-finding_NN algorithms_NNS ._SENT 
+MUltiple_JJ SIgnal_NN Classification_NN (_( MUSIC_NN )_) has_VHZ been_VBN widely_RB used_VVN to_TO detect_VV target_NN or_CC measure_NN ocean_NN surface_NN current_JJ in_IN many_JJ onshore_JJ HFSWRs_NNS [_SYM 10_CD ]_SYM ,_, [_SYM 11_CD ]_SYM ._SENT 
+In_IN our_PP$ previous_JJ works_NNS [_SYM 12_CD ]_SYM ,_, [_SYM 13_CD ]_SYM ,_, MUSIC_NN has_VHZ also_RB been_VBN tentatively_RB applied_VVN in_IN shipborne_NP HFSWR_NP ,_, however_RB ,_, the_DT six-DOF_JJ motion_NN of_IN the_DT platform_NN is_VBZ not_RB considered_VVN ._SENT 
+Simulation_NN results_NNS presented_VVN by_IN Wang_NP et_CC al_NP ._SENT 
+[_SYM 14_CD ]_SYM showed_VVD that_IN in_IN moderate_JJ sea_NN states_NNS the_DT platform_NN motion_NN has_VHZ no_DT significant_JJ effects_NNS on_IN the_DT power_NN spectrum_NN ,_, however_RB ,_, the_DT assumption_NN that_IN the_DT receiving_VVG antenna_NN array_NN was_VBD positioned_VVN at_IN the_DT gravity_NN center_NN of_IN the_DT platform_NN would_MD be_VB unrealistic_JJ ._SENT 
+Walsh_NP et_NP al_NP ._SENT 
+[_SYM 15_CD ]_SYM ,_, [_SYM 16_CD ]_SYM employed_VVN a_DT dedicated_JJ full_JJ analytical_JJ approach_NN ,_, which_WDT was_VBD based_VVN on_IN the_DT electric_JJ field_NN theory_NN ,_, and_CC showed_VVD that_IN the_DT sway_NN motion_NN of_IN the_DT platform_NN was_VBD responsible_JJ for_IN the_DT additional_JJ peaks_NNS on_IN the_DT Doppler_NP spectrum_NN ._SENT 
+Khoury_NP et_NP al_NP ._SENT 
+[_SYM 17_CD ]_SYM modeled_VVD the_DT received_VVN signal_NN of_IN the_DT moving_VVG antenna_NN system_NN and_CC analyzed_VVD the_DT influence_NN of_IN forward_JJ movement_NN and_CC sway_NN motion_NN on_IN the_DT Doppler_NP spectrum_NN ._SENT 
+Xie_NP et_NP al_NP ._SENT 
+[_SYM 18_CD ]_SYM ,_, [_SYM 19_CD ]_SYM theoretically_RB analyzed_VVN the_DT influence_NN of_IN platform’s_NP forward_JJ movement_NN on_IN the_DT first-order_NN Bragg_NP peaks_NNS in_IN the_DT Doppler_NP spectrum_NN ._SENT 
+In_IN the_DT works_NNS mentioned_VVN above_IN ,_, only_RB some_DT aspects_NNS of_IN the_DT motions_NNS have_VHP been_VBN modeled_VVN or_CC derived_VVN to_TO investigate_VV their_PP$ influences_NNS on_IN the_DT first-order_NN Bragg_NP peaks_NNS ._SENT 
+Exploratory_JJ experiments_NNS and_CC theoretical_JJ simulations_NNS have_VHP been_VBN conducted_VVN to_TO explore_VV whether_IN shipborne_NP HFSWR_NP can_MD measure_VV surface_NN current_JJ ._SENT 
+However_RB ,_, previous_JJ researches_VVZ paid_VVN little_JJ attention_NN on_IN how_WRB the_DT forward_JJ movement_NN and_CC whole_JJ six-DOF_JJ motion_NN affect_VV the_DT received_VVN signal_NN and_CC further_RBR decrease_VV the_DT accuracy_NN of_IN the_DT measurement_NN ,_, especially_RB when_WRB the_DT platform_NN cruises_VVZ at_IN a_DT normal_JJ speed_NN ._SENT 
+The_DT main_JJ goal_NN of_IN this_DT paper_NN is_VBZ to_TO assess_VV the_DT performance_NN of_IN shipborne_NP HFSWR_NP on_IN the_DT measurement_NN of_IN surface_NN current_NN ,_, when_WRB the_DT platform_NN possesses_VVZ different_JJ sailing_NN velocities_NNS in_IN different_JJ motion_NN states_NNS ._SENT 
+The_DT paper_NN is_VBZ organized_VVN as_RB follows_VVZ ._SENT 
+In_IN Section_NP II_NP ,_, a_DT time-domain_NP signal_NN model_NN is_VBZ proposed_VVN ,_, which_WDT considers_VVZ the_DT modulation_NN of_IN the_DT echo_NN signal_NN caused_VVN by_IN forward_JJ movement_NN and_CC six-DOF_JJ motion_NN of_IN the_DT platform_NN on_IN which_WDT radar_NN is_VBZ mounted_VVN ._SENT 
+The_DT general_JJ principle_NN of_IN MUSIC_NN algorithm_NN with_IN preprocesses_NNS and_CC its_PP$ application_NN in_IN shipborne_NP HFSWR_NP are_VBP introduced_VVN in_IN Section_NP III_NP ._SENT 
+In_IN Section_NP IV_NP ,_, based_VVN on_IN the_DT model_NN introduced_VVN in_IN Section_NP II_NP ,_, simulations_NNS are_VBP performed_VVN at_IN different_JJ platform_NN moving_VVG conditions_NNS to_TO analyze_VV the_DT root_NN mean_VV square_JJ (_( RMS_NP )_) error_NN of_IN the_DT measured_VVN radial_JJ current_JJ and_CC to_TO assess_VV the_DT availability_NN of_IN data_NNS measured_VVN by_IN shipborne_JJ HFSWR_NN under_IN different_JJ motion_NN states_NNS ._SENT 
+In_IN the_DT final_JJ section_NN ,_, a_DT brief_JJ conclusion_NN is_VBZ given_VVN ._SENT 
+<Section> 2._CD Echo_NP Signal_NP Modeling_VVG and_CC Validating_VVG </Section> This_DT section_NN is_VBZ divided_VVN into_IN three_CD subsections_NNS to_TO model_VV and_CC validate_VV the_DT received_VVN signal_NN ._SENT 
+Section_NP II-A_NP is_VBZ devoted_VVN to_TO introducing_VVG the_DT parameters_NNS of_IN the_DT radar_NN system_NN and_CC ocean_NN surface_NN ._SENT 
+In_IN Section_NN II-B_NN ,_, the_DT time_NN domain_NN model_NN of_IN the_DT received_VVN echo_NN signal_NN of_IN the_DT sea_NN surface_NN is_VBZ developed_VVN ._SENT 
+The_DT comparisons_NNS of_IN this_DT model_NN with_IN the_DT theoretical_JJ one_CD and_CC experimental_JJ results_NNS are_VBP conducted_VVN in_IN Section_NP II-C_NP ._SENT 
+A._NP Radar_NP System_NP and_CC Sea_NP State_NP Parameters_NNS An_DT HFSWR_NN system_NN transmitting_VVG linear-frequency-modulated_JJ interrupted_JJ continuous_JJ wave_NN (_( FMICW_NN )_) with_IN vertical_JJ polarization_NN is_VBZ considered_VVN ._SENT 
+Both_CC transmitting_VVG and_CC receiving_VVG antennas_NNS are_VBP mounted_VVN on_IN the_DT same_JJ platform_NN ._SENT 
+A_DT log-periodic_JJ antenna_NN is_VBZ deployed_VVN as_IN the_DT transmitting_VVG antenna_NN ,_, which_WDT points_VVZ to_TO the_DT port_JJ side_NN of_IN the_DT platform_NN ._SENT 
+The_DT receiving_VVG antennas_NNS (_( vertical_JJ monopoles_NNS )_) form_VVP a_DT uniform_JJ linear_JJ array_NN ,_, which_WDT are_VBP installed_VVN in_IN the_DT port_JJ side_NN of_IN the_DT platform_NN with_IN no_DT relative_JJ movement_NN between_IN each_DT other_JJ ._SENT 
+The_DT first_JJ receiving_VVG antenna_NN is_VBZ installed_VVN in_IN the_DT stern_JJ of_IN the_DT platform_NN ._SENT 
+For_IN simplicity_NN ,_, the_DT number_NN of_IN the_DT receiving_VVG antennas_NNS is_VBZ assumed_VVN to_TO be_VB an_DT even_JJ number_NN and_CC the_DT electromagnetic_JJ effect_NN of_IN the_DT superstructures_NNS on_IN the_DT platform_NN is_VBZ neglected_VVN ._SENT 
+Here_RB ,_, the_DT platform’s_NP motion_NN is_VBZ referred_VVN to_TO as_IN a_DT barge_NN motion_NN [_SYM 16_CD ]_SYM ._SENT 
+When_WRB sailing_NN on_IN the_DT sea_NN ,_, the_DT platform_NN is_VBZ subjected_VVN to_TO six-DOF_JJ motion_NN resulting_VVG from_IN the_DT interaction_NN with_IN ocean_NN waves_NNS ._SENT 
+The_DT motion_NN contains_VVZ translation_NN (_( surge_NN ,_, sway_NN ,_, and_CC heave_NN )_) and_CC rotation_NN (_( roll_NN ,_, pitch_NN ,_, and_CC yaw_VV )_) ._SENT 
+To_TO facilitate_VV the_DT study_NN of_IN the_DT motion_NN ,_, a_DT fixed_VVN right-handed_JJ Cartesian_JJ coordinated_VVN system_NN is_VBZ established_VVN ,_, as_RB shown_VVN in_IN Fig_NN ._SENT 
+1._CD Fig_NN ._SENT 
+1.Six-DOF_JJ motion_NN of_IN the_DT platform_NN can_MD be_VB described_VVN as_RB :_: moving_VVG forward_RB and_CC backward_RB (_( surge_NN )_) ,_, moving_VVG left_JJ and_CC right_JJ (_( sway_NN )_) ,_, moving_VVG up_RB and_CC down_RB (_( heave_NN )_) ;_: tilting_VVG side_NN to_TO side_VV (_( roll_NN )_) ,_, tilting_VVG forward_RB and_CC backward_RB (_( pitch_NN )_) ,_, and_CC turning_VVG left_JJ and_CC right_JJ (_( yaw_VV )_) ._SENT 
+Their_PP$ positive_JJ directions_NNS are_VBP indicated_VVN by_IN arrows_NNS (_( following_VVG right-hand_JJ screw_NN rules_NNS )_) and_CC symbols_NNS are_VBP listed_VVN in_IN the_DT bottom_NN of_IN the_DT figure_NN ._SENT 
+The_DT sea_NN echo_NN is_VBZ modeled_VVN mathematically_RB for_IN a_DT given_VVN set_NN of_IN parameters_NNS describing_VVG the_DT sea_NN surface_NN state_NN ,_, and_CC the_DT signals_NNS from_IN the_DT radar_NN receiving_VVG antennas_NNS are_VBP simulated_JJ ._SENT 
+Above_IN all_DT ,_, for_IN computation_NN purposes_NNS ,_, the_DT ocean_NN surface_NN is_VBZ divided_VVN into_IN small_JJ patches_NNS supposed_VVN to_TO be_VB ideal_JJ point_NN target_NN ,_, as_RB shown_VVN in_IN Fig_NN ._SENT 
+2._CD The_DT dimension_NN of_IN the_DT sea_NN patch_NN is_VBZ 0.5°_JJ by_IN 500_CD m_NN [_SYM 11_CD ]_SYM ,_, which_WDT can_MD be_VB considered_VVN small_JJ in_IN comparison_NN with_IN the_DT 180°_NN by_IN 5_CD km_NN section_NN of_IN ocean_NN surface_NN being_VBG processed_VVN for_IN a_DT given_VVN range_NN bin_NN in_IN real_JJ radar_NN system_NN ._SENT 
+Reflections_NNS from_IN patches_NNS in_IN the_DT same_JJ range_NN bin_NN are_VBP summed_VVN to_TO find_VV the_DT total_JJ sea_NN echo_NN signal_NN ._SENT 
+Fig_NN ._SENT 
+2.Position_NN of_IN the_DT sea_NN patch_NN is_VBZ characterized_VVN by_IN parameters_NNS Rr_NP and_CC θs_NP ,_, which_WDT define_VV the_DT range_NN and_CC azimuth_NN ,_, respectively_RB ;_: r_SYM and_CC s_NNS are_VBP both_DT positive_JJ indices_NN ._SENT 
+θs_NP is_VBZ referenced_VVN perpendicular_JJ to_TO the_DT x-axis_NN ,_, positive_JJ clockwise_RB ._SENT 
+Δθ_NP and_CC ΔR_NP describe_VVP the_DT dimension_NN of_IN the_DT sea_NN patch_NN ,_, which_WDT has_VHZ linear_JJ size_NN ΔR_NN and_CC RrΔθ_NN ,_, and_CC will_MD be_VB used_VVN later_RBR in_IN the_DT definition_NN of_IN the_DT radar_NN cross_NN section_NN (_( RCS_NP )_) ._SENT 
+B._NP Received_VVD Signal_NP Model_NP The_DT sea_NN state_NN condition_NN ,_, array_NN pattern_NN ,_, forward_RB movement_NN ,_, six-DOF_JJ motion_NN of_IN the_DT platform_NN ,_, and_CC background_NN noise_NN are_VBP all_RB considered_VVN in_IN the_DT model_NN ._SENT 
+The_DT model_NN generates_VVZ the_DT expected_VVN voltage_NN time_NN series_NN by_IN calculating_VVG the_DT sum_NN @(1_NN )_) Here_RB ,_, the_DT double_JJ summation_NN of_IN index_NN r_NN and_CC s_NN extends_VVZ from_IN ⌊R/ΔR−c/(4BtΔR)�_JJ �_NN to_TO ⌊R/ΔR+c/(4BtΔR)�_NP �_NP and_CC from_IN 1_CD to_TO ⌊2π/Δθ�_NP �_NP ,_, respectively_RB ,_, with_IN c_SYM the_DT speed_NN of_IN light_NN ,_, Bt_NN the_DT bandwidth_NN of_IN transmit_VV radio_NN ,_, and_CC ⌊⋅�_NP �_NP the_DT round_NN down_RB ._SENT 
+x(R,t)∈CM×1_JJ is_VBZ the_DT received_VVN signal_NN data_NNS vector_NN ,_, with_IN M_NP the_DT number_NN of_IN the_DT receiving_VVG antennas_NNS ._SENT 
+σ(Rr,θs,t_NP )_) is_VBZ the_DT first-order_NN RCS_NNS of_IN the_DT sea_NN surface_NN ,_, g(θs,t)=gx(θs,t)gy(θs,t_NP )_) is_VBZ the_DT receiving_VVG antenna_NN pattern_NN ,_, a(t_NP )_) and_CC p(θs,t)∈CM×1_JJ are_VBP the_DT amplitude_NN and_CC phase_NN of_IN the_DT array_NN steering_NN vector_NN ,_, and_CC e(t)∈CM×1_JJ is_VBZ the_DT background_NN noise_NN ._SENT 
+These_DT variables_NNS are_VBP described_VVN in_IN detail_NN below_RB ._SENT 
+1_LS )_) Phase_NN and_CC Amplitude_NN In_IN this_DT part_NN ,_, based_VVN on_IN the_DT dynamic_JJ characters_NNS of_IN the_DT platform_NN ,_, the_DT phase_NN and_CC amplitude_NN of_IN the_DT steering_NN vector_NN are_VBP analyzed_VVN ._SENT 
+First_RB ,_, the_DT influence_NN of_IN pitch_NN motion_NN is_VBZ considered_VVN as_IN an_DT example_NN to_TO analyze_VV the_DT phase_NN and_CC amplitude_NN variation_NN of_IN each_DT antenna_NN ._SENT 
+After_IN that_DT ,_, the_DT time-varying_VVG phase–amplitude_NN steering_NN vector_NN caused_VVN by_IN the_DT six-DOF_JJ motion_NN of_IN the_DT platform_NN is_VBZ given_VVN ._SENT 
+In_IN Fig_NN ._SENT 
+3_LS ,_, the_DT displacement_NN Δx_NN is_VBZ related_VVN to_TO �_NP �_NP ,_, h_NN ,_, and_CC the_DT antenna_NN position_NN ._SENT 
+The_DT larger_JJR Δx_NN means_VVZ that_IN the_DT antenna_NN is_VBZ more_RBR sensitive_JJ to_TO the_DT pitch_NN motion_NN ._SENT 
+Furthermore_RB ,_, since_IN the_DT aperture_NN of_IN the_DT receiving_VVG array_NN becomes_VVZ smaller_JJR ,_, the_DT broadened_VVN main_JJ lobe_NN of_IN the_DT array_NN pattern_NN may_MD decrease_VV the_DT azimuth_NN resolution_NN ._SENT 
+Fig_NN ._SENT 
+3.Kinematics_NNS of_IN the_DT pitch_NN motion_NN ._SENT 
+(_( a_DT )_) Front_NP view_NN of_IN the_DT platform_NN ._SENT 
+(_( b_LS )_) Top_JJ view_NN of_IN the_DT platform_NN ._SENT 
+The_DT center_NN of_IN gravity_NN of_IN the_DT platform_NN is_VBZ assumed_VVN to_TO be_VB at_IN the_DT origin_NN of_IN the_DT coordinate_VV system_NN ._SENT 
+d_SYM is_VBZ the_DT distance_NN between_IN each_DT receiving_VVG antenna_NN ,_, h_NN is_VBZ the_DT distance_NN from_IN center_NN of_IN gravity_NN of_IN the_DT platform_NN to_TO the_DT deck_NN ,_, and_CC a_DT is_VBZ the_DT distance_NN between_IN array_NN and_CC deck_NN centerline_NN ._SENT 
+�_NP �_NP is_VBZ the_DT amplitude_NN of_IN pitch_NN motion_NN ._SENT 
+The_DT displacement_NN Δx_NN of_IN the_DT Mth_JJ antenna_NN is_VBZ obtained_VVN according_VVG to_TO the_DT geometry_NN relation_NN of_IN the_DT antenna_NN before_IN pitch_NN motion_NN (_( black_JJ circle_NN )_) and_CC that_IN after_IN pitch_NN motion_NN (_( blue_JJ circle_NN )_) ._SENT 
+Unlike_IN the_DT case_NN of_IN phase_NN modulation_NN ,_, the_DT amplitude_NN variation_NN of_IN the_DT received_VVN signal_NN caused_VVN by_IN antenna_NN pattern_NN distortion_NN and_CC polarization_NN mismatches_NNS is_VBZ identical_JJ for_IN each_DT receiving_VVG antenna_NN ._SENT 
+The_DT antenna_NN pattern_NN ga_NN of_IN each_DT receiving_VVG element_NN can_MD be_VB described_VVN as_IN @(2_NN )_) where_WRB kc_NP is_VBZ the_DT wave_NN number_NN of_IN the_DT radio_NN ,_, la_FW is_VBZ the_DT length_NN of_IN the_DT antenna_NN ,_, and_CC ϑ∈[−π/2,−π/2_NN ]_SYM is_VBZ the_DT elevate_VVP angle_NN ._SENT 
+The_DT receiving_VVG tangent_JJ plane_NN in_IN Cartesian_JJ coordinate_VV is_VBZ z=tan(Δϕ)y_JJ and_CC can_MD be_VB transformed_VVN to_TO spherical_JJ coordinate_VV as_RB @(3_JJ )_) where_WRB Δ�_NP �_NP is_VBZ the_DT pitch_NN amplitude_NN variation_NN of_IN the_DT sample_NN interval_NN ._SENT 
+Constituting_VVG simultaneous_JJ equations_NNS by_IN (_( 2_LS )_) and_CC (_( 3_LS )_) ,_, the_DT pattern_NN in_IN the_DT condition_NN of_IN pitch_NN motion_NN can_MD be_VB derived_VVN @(4_JJ )_) For_IN an_DT omnidirectional_JJ monopole_NN antenna_NN ,_, the_DT mismatch_NN between_IN the_DT vertical_JJ polarized_VVN electromagnetic_JJ wave_NN and_CC the_DT tilted_JJ receiving_VVG antenna_NN can_MD be_VB described_VVN by_IN factor_NN cos(Δϕ)[20_NN ]_SYM ._SENT 
+The_DT steering_NN vector_NN of_IN pitch_NN motion_NN can_MD be_VB represented_VVN as_IN @(5_NN )_) where_WRB ay=cos(Δ�_JJ �_NN )_) is_VBZ the_DT amplitude_NN variation_NN caused_VVN by_IN pitch_NN motion_NN ,_, py_NN is_VBZ the_DT phase_NN variance_NN vector_NN around_IN y-axis_NN ,_, and_CC �_JJ �_( is_VBZ the_DT wave_NN length_NN of_IN the_DT radio_NN ._SENT 
+Though_RB ,_, from_IN equation_NN (_( 5_CD )_) ,_, it_PP is_VBZ obvious_JJ that_IN pitch_NN motion_NN does_VVZ cause_VV a_DT displacement_NN of_IN the_DT receiving_VVG antennas_NNS ,_, the_DT steering_NN error_NN introduced_VVN by_IN the_DT displacement_NN is_VBZ unavailable_JJ ._SENT 
+To_TO quantitatively_RB analyze_VV this_DT error_NN ,_, an_DT instance_NN is_VBZ depicted_VVN in_IN Fig_NN ._SENT 
+4_CD ,_, where_WRB the_DT steering_NN error_NN reaches_VVZ 1°_JJ when_WRB the_DT pitch_NN amplitude_NN �_NP �_NP is_VBZ 10°_JJ ._SENT 
+In_IN addition_NN ,_, the_DT direction_NN of_IN the_DT steering_NN bias_NN has_VHZ the_DT trend_NN of_IN moving_VVG to_TO 0°_NP ._SENT 
+Fig_NN ._SENT 
+4.Impacts_NNS of_IN pitch_NN motion_NN on_IN the_DT pattern_NN of_IN receiving_VVG array_NN ._SENT 
+The_DT black_JJ and_CC red_JJ solid_JJ curves_NNS indicate_VVP the_DT pattern_NN with_IN direction_NN θs_NNS equal_JJ to_TO 45°_NP and_CC −45°_NP ._SENT 
+The_DT black_JJ and_CC red_JJ dash_NN curves_NNS indicate_VVP the_DT pattern_NN when_WRB the_DT platform_NN has_VHZ the_DT pitch_NN amplitude_NN �_NP �_NP of_IN 10°_NP ._SENT 
+The_DT other_JJ individual_JJ motion_NN effects_NNS on_IN the_DT receiving_VVG array_NN are_VBP analyzed_VVN in_IN the_DT Appendix_NN ._SENT 
+Composing_VVG with_IN all_PDT the_DT six-DOF_JJ motion_NN effects_NNS ,_, a(t_NP )_) can_MD be_VB written_VVN as_IN @(6_NP )_) Here_RB ,_, since_IN the_DT six-DOF_JJ motion_NN has_VHZ the_DT same_JJ phase_NN and_CC amplitude_NN effects_NNS on_IN the_DT signal_NN from_IN different_JJ ranges_NNS ,_, propagation_NN attenuation_NN and_CC the_DT gain_NN of_IN the_DT receiving_VVG antenna_NN can_MD be_VB neglected_VVN ,_, i.e._FW ,_, a0(t_NP )_) is_VBZ equal_JJ to_TO 1._CD The_DT phase_NN part_NN of_IN the_DT steering_NN vector_NN is_VBZ presented_VVN by_IN @(7_JJ )_) 2_CD )_) RCS_NNS of_IN the_DT Sea_NP Surface_NP The_DT interaction_NN of_IN HF_NP radio_NN wave_NN and_CC the_DT ocean_NN surface_NN follows_VVZ the_DT Bragg_NP scattering_NN mechanism_NN [_SYM 21_CD ]_SYM ._SENT 
+The_DT resonant_JJ reflection_NN is_VBZ from_IN the_DT ocean_NN waves_NNS that_WDT have_VHP the_DT wavelength_NN half_NN of_IN the_DT radio_NN and_CC propagate_VV toward_IN or_CC away_RB from_IN the_DT radar_NN ._SENT 
+Since_IN the_DT velocity_NN of_IN these_DT ocean_NN waves_NNS is_VBZ a_DT constant_JJ for_IN a_DT given_VVN radio_NN wave_NN length_NN ,_, the_DT first-order_NN Braggs_NP in_IN monostatic_JJ onshore_JJ HFSWR_NP Doppler_NP spectra_NN are_VBP two_CD peaks_NNS ,_, whose_WP$ Doppler_NP frequencies_NNS can_MD be_VB expressed_VVN as_IN @(8_NN )_) where_WRB g_NN is_VBZ the_DT gravitational_JJ acceleration_NN ._SENT 
+When_WRB the_DT radar_NN system_NN is_VBZ installed_VVN on_IN a_DT platform_NN ,_, its_PP$ motion_NN may_MD lead_VV to_TO additional_JJ Doppler_NP frequency_NN shift_NN of_IN the_DT Bragg_NP peaks_NNS ,_, and_CC the_DT amplitude_NN of_IN the_DT shift_NN is_VBZ related_VVN to_TO the_DT azimuth_NN of_IN the_DT sea_NN patch_NN ._SENT 
+Thus_RB the_DT echo_NN signal_NN from_IN a_DT given_VVN sea_NN patch_NN can_MD be_VB expressed_VVN as_IN the_DT sum_NN of_IN two_CD exponentials_NNS @(9_NN )_) where_WRB A±_NP denotes_VVZ the_DT amplitude_NN of_IN the_DT sea_NN echo_VVP due_JJ to_TO Bragg_NP scatter_NN ,_, which_WDT can_MD be_VB expressed_VVN as_IN Gaussian_JJ random_JJ variables_NNS with_IN variance_NN proportional_JJ to_TO the_DT ocean_NN wave_NN spectral_JJ energy_NN at_IN the_DT Bragg_NP frequency_NN [_SYM 11_CD ]_SYM ._SENT 
+fB_NP is_VBZ the_DT Bragg_NP frequency_NN and_CC fc(θs_NNS )_) is_VBZ the_DT radial_JJ component_NN of_IN Doppler_NP frequency_NN shift_NN caused_VVN by_IN ocean_NN currents_NNS at_IN the_DT direction_NN θs_NNS ._SENT 
+fv(θs_NP )_) is_VBZ the_DT radial_JJ component_NN of_IN Doppler_NP frequency_NN shift_NN caused_VVN by_IN platform_NN motion_NN ,_, which_WDT is_VBZ defined_VVN as_IN @(10_NN )_) with_IN vvp_NN the_DT instantaneous_JJ velocity_NN of_IN the_DT platform_NN calculated_VVN from_IN the_DT six-DOF_JJ motion_NN and_CC forward_JJ movement_NN ,_, and_CC uu(θs_NNS )_) the_DT unit_NN vector_NN at_IN the_DT direction_NN of_IN θs_NP ._SENT 
+The_DT ocean_NN wave_NN spectrum_NN is_VBZ calculated_VVN using_VVG a_DT Pierson–Moskowitz_NP model_NN with_IN a_DT cardioid_NN directional_JJ distribution_NN of_IN a_DT wind-driven_JJ sea_NN [_SYM 22_CD ]_SYM ,_, [_SYM 23_CD ]_SYM @(11_JJ )_) Here_RB ,_, kw=4π/�_JJ �_( is_VBZ the_DT wave_NN number_NN of_IN ocean_NN wave_NN ._SENT 
+U10_NP is_VBZ the_DT wind_NN speed_NN 10_CD m_NN above_IN the_DT sea_NN surface_NN and_CC θw_NN is_VBZ the_DT forward_JJ propagation_NN of_IN the_DT dominant_JJ wave_NN ._SENT 
+3_LS )_) Background_NN Noise_NN A_DT number_NN of_IN noise_NN sources_NNS are_VBP contaminating_VVG the_DT HF_NP band_NN ,_, such_JJ as_IN natural_JJ galactic_NN and_CC atmospheric_JJ radiations_NNS ,_, man-made_JJ emissions_NNS ,_, etc._FW The_DT background_NN noise_NN is_VBZ constructed_VVN by_IN following_VVG the_DT theory_NN proposed_VVN by_IN Gill_NP and_CC Walsh_NP [_SYM 24_CD ]_SYM and_CC employed_VVN by_IN Grosdidier_NP et_CC al_NP ._SENT 
+[_SYM 25_CD ]_SYM in_IN the_DT application_NN of_IN onshore_JJ HF_NP radar_NN system_NN model_NN ._SENT 
+The_DT temporal_JJ background_NN noise_NN signal_NN can_MD be_VB defined_VVN using_VVG the_DT power_NN spectral_JJ density_NN EN(f_NN )_) as_RB [_SYM 24_CD ]_SYM @(12_JJ )_) where_WRB Br_NP is_VBZ the_DT noise_NN power_NN bandwidth_NN of_IN the_DT receiving_VVG system_NN ,_, f0_JJ stands_NNS for_IN the_DT radio_NN frequency_NN ,_, and_CC ε(f0_NN )_) is_VBZ a_DT random_JJ phase_NN uniformly_RB distributed_VVN in_RB [_SYM 0,2π_NP ]_SYM ._SENT 
+The_DT power_NN spectral_JJ density_NN of_IN the_DT noise_NN can_MD be_VB defined_VVN as_IN @(13_NN )_) where_WRB KB=1.38×10−23_JJ J/K_NN is_VBZ Boltzmann’s_NN constant_JJ ,_, and_CC T0_NP is_VBZ the_DT reference_NN temperature_NN ,_, which_WDT is_VBZ set_VVN to_TO 290_CD K._NP Fa_NN is_VBZ the_DT external_JJ noise_NN factor_NN ,_, which_WDT is_VBZ influenced_VVN by_IN radar_NN frequency_NN ,_, environment_NN ,_, latitude_NN ,_, etc._FW Here_RB ,_, Fa=50_NP dB_NP is_VBZ chosen_VVN for_IN radar_NN frequency_NN f0=_JJ 5–6_JJ MHz_NN [_SYM 26_CD ]_SYM ._SENT 
+C._NP Analysis_NP and_CC Validation_NN of_IN the_DT Model_NP Simulations_NNS of_IN the_DT received_VVN echo_NN signal_NN model_NN are_VBP conducted_VVN to_TO investigate_VV the_DT effects_NNS of_IN the_DT platform_NN motion_NN on_IN the_DT first-order_NN Bragg_NP peaks_NNS on_IN the_DT Doppler_NP spectrum_NN ._SENT 
+In_IN this_DT section_NN ,_, the_DT first_JJ simulation_NN is_VBZ to_TO compare_VV the_DT proposed_VVN model_NN with_IN a_DT theoretical_JJ one_CD under_IN the_DT same_JJ sway_NN condition_NN ;_: and_CC the_DT second_NN is_VBZ to_TO compare_VV the_DT broadening_VVG width_NN of_IN the_DT first-order_NN Bragg_NP peak_NN depicted_VVN by_IN the_DT proposed_VVN model_NN and_CC those_DT obtained_VVN from_IN experiments_NNS ._SENT 
+1_LS )_) Comparison_NN With_IN Theoretical_JJ Formula_NN For_IN the_DT purpose_NN of_IN comparison_NN with_IN Walsh’s_NP formula_NN ,_, where_WRB the_DT effect_NN of_IN sway_NN motion_NN on_IN the_DT Doppler_NP spectrum_NN is_VBZ considered_VVN ,_, the_DT same_JJ ship_NN dynamic_JJ model_NN is_VBZ adopted_VVN [_SYM 16_CD ]_SYM (_( sway_NN parameters_NNS appeared_VVD in_IN Table_NN I_NN )_) ._SENT 
+To_TO assure_VV the_DT uniformity_NN with_IN the_DT theoretical_JJ equations_NNS ,_, the_DT influence_NN of_IN noise_NN in_IN the_DT model_NN is_VBZ neglected_VVN ._SENT 
+On_IN the_DT Doppler_NP spectra_NN of_IN a_DT stationary_JJ HFSWR_NN system_NN ,_, there_EX are_VBP two_CD Bragg_NP peaks_NNS [_SYM 27_CD ]_SYM and_CC their_PP$ Doppler_NP frequencies_NNS are_VBP only_RB related_VVN to_TO radar_NN operating_VVG frequency_NN ,_, thus_RB in_IN this_DT case_NN the_DT Bragg_NP frequency_NN fB=±0.395_NP Hz_NP ._SENT 
+As_IN shown_VVN in_IN Fig_NN ._SENT 
+5_CD ,_, however_RB ,_, both_CC of_IN the_DT two_CD models_NNS indicate_VVP that_IN the_DT sway_NN motion_NN introduces_VVZ several_JJ peaks_NNS around_IN the_DT central_JJ first-order_NN Bragg_NP peaks_NNS ._SENT 
+In_IN principle_NN ,_, those_DT two_CD models_NNS all_RB consider_VVP the_DT direct_JJ effects_NNS of_IN sway_NN motion_NN in_IN time_NN domain_NN ._SENT 
+Walsh_NP theoretically_RB derived_VVD the_DT transformation_NN from_IN time_NN domain_NN to_TO frequency_NN domain_NN ,_, using_VVG a_DT Bessel_NP function_NN to_TO describe_VV the_DT amplitude_NN and_CC frequency_NN of_IN the_DT surrounding_VVG peaks_NNS introduced_VVN by_IN sway_NN motion_NN ._SENT 
+However_RB ,_, different_JJ from_IN the_DT theoretical_JJ formulation_NN ,_, a_DT fast_JJ Fourier_NN transform_VV (_( FFT_NN )_) is_VBZ adopted_VVN to_TO obtain_VV the_DT Doppler_NP spectrum_NN from_IN our_PP$ time_NN domain_NN model_NN ._SENT 
+The_DT Walsh_NP model_NN is_VBZ superior_JJ to_TO our_PP$ model_NN in_IN the_DT aspect_NN of_IN describing_VVG the_DT oscillating_VVG feature_NN using_VVG a_DT sinc_NN function_NN introduced_VVN by_IN the_DT pulse_NN transmitting_VVG waveform_NN ._SENT 
+However_RB ,_, this_DT feature_NN has_VHZ been_VBN smoothed_VVN by_IN a_DT Hamming_NP window_NN during_IN the_DT simulation_NN [_SYM 16_CD ]_SYM ,_, thus_RB the_DT differences_NNS between_IN those_DT two_CD models_NNS are_VBP really_RB small_JJ ._SENT 
+The_DT most_RBS obvious_JJ but_CC not_RB significant_JJ difference_NN is_VBZ the_DT areas_NNS between_IN peaks_NNS ._SENT 
+However_RB ,_, those_DT energies_NNS are_VBP not_RB important_JJ for_IN surface_NN current_JJ measurement_NN ,_, because_IN only_RB the_DT energies_NNS within_IN the_DT Bragg_NP peaks_NNS are_VBP considered_VVN ._SENT 
+The_DT amplitude_NN of_IN those_DT surrounding_VVG peaks_NNS ,_, whose_WP$ frequency_NN shift_NN associates_NNS with_IN the_DT sway_NN frequency_NN of_IN the_DT platform_NN ,_, is_VBZ lower_JJR than_IN the_DT central_JJ Bragg_NP peaks_NNS ,_, although_IN those_DT two_CD models_NNS analyze_VVP the_DT echo_NN signal_NN character_NN in_IN frequency_NN domain_NN and_CC time_NN domain_NN ,_, respectively_RB ._SENT 
+On_IN the_DT spectrum_NN ,_, the_DT amplitude_NN and_CC Doppler_NP frequency_NN of_IN those_DT surrounding_VVG peaks_NNS obtained_VVN by_IN our_PP$ model_NN almost_RB complies_VVZ with_IN Walsh’s_JJ model_NN ._SENT 
+Fig_NN ._SENT 
+5.Comparison_NP with_IN Walsh’s_NP formula_NN ._SENT 
+The_DT blue_JJ curve_NN is_VBZ obtained_VVN using_VVG the_DT model_NN proposed_VVN in_IN Section_NN II-B_NN ._SENT 
+Walsh’s_NNS normalized_VVD crossed_VVN section_NN formula_NN is_VBZ also_RB simulated_JJ indicated_VVN by_IN dashed_VVN red_JJ curve_NN ._SENT 
+Both_DT spectra_NN have_VHP been_VBN normalized_VVN using_VVG the_DT main_JJ first-order_NN amplitude_NN ,_, for_IN the_DT convenience_NN of_IN comparison_NN ._SENT 
+2_LS )_) Comparison_NN With_IN Experiment_NN Results_NNS A_DT shipborne_JJ HFSWR_NN experiment_NN has_VHZ been_VBN carried_VVN out_RP in_IN the_DT Yellow_NP Sea_NP of_IN China_NP ._SENT 
+The_DT radar_NN system_NN ,_, which_WDT mounted_VVD on_IN a_DT large_JJ barge_NN ,_, was_VBD working_VVG with_IN linear_JJ FMICW_JJ configuration_NN ._SENT 
+The_DT receiving_VVG array_NN containing_VVG seven_CD antennas_NNS was_VBD a_DT uniform_JJ linear_JJ array_NN ,_, and_CC the_DT distance_NN between_IN each_DT antenna_NN was_VBD 14_CD m._NPS The_DT radar_NN operating_VVG frequency_NN was_VBD f0=5.283_JJ MHz_NN ,_, and_CC the_DT frequency_NN modulation_NN period_NN was_VBD Tm=0.262_NP s._NP The_DT frequency_NN modulation_NN bandwidth_NN was_VBD Bt=30_NP kHz_NP ,_, i.e._FW ,_, the_DT range_NN resolution_NN was_VBD ΔR=5_JJ km_NN ._SENT 
+Coherent_JJ integral_JJ time_NN (_( CIT_NP )_) of_IN the_DT radar_NN signal_NN was_VBD approximate_JJ 9_CD min_NN ,_, which_WDT provided_VVD a_DT frequency_NN resolution_NN of_IN 1.86_CD MHz_NN ._SENT 
+The_DT parameters_NNS of_IN the_DT simulation_NN are_VBP the_DT same_JJ as_IN those_DT of_IN the_DT experiments_NNS ._SENT 
+The_DT forward_JJ movement_NN velocity_NN of_IN the_DT platform_NN is_VBZ vp=5_NP m/s_NP and_CC the_DT SNR_NP =50_NP dB_NP ._SENT 
+A_DT Hamming_NP window_NN is_VBZ used_VVN to_TO decrease_VV the_DT leakage_NN ._SENT 
+The_DT simulated_JJ Doppler_NP spectrum_NN of_IN the_DT signal_NN received_VVN by_IN each_DT antenna_NN ,_, as_RB shown_VVN in_IN Fig_NN ._SENT 
+6_CD ,_, demonstrates_VVZ that_IN the_DT forward_JJ movement_NN of_IN the_DT platform_NN creates_VVZ the_DT broadening_VVG Bragg_NP spectrum_NN whose_WP$ theoretical_JJ width_NN is_VBZ indicated_VVN by_IN the_DT dotted_JJ lines_NNS ._SENT 
+The_DT simulated_JJ broadening_VVG spectrum_NN is_VBZ confirmed_VVN by_IN the_DT experimental_JJ result_NN with_IN the_DT similar_JJ overall_JJ shape_NN of_IN the_DT broadening_VVG Bragg_NP peaks_NNS ._SENT 
+These_DT two_CD comparisons_NNS show_VVP that_IN the_DT Doppler_NP frequencies_NNS of_IN the_DT simulated_JJ Bragg_NP peaks_NNS are_VBP consistent_JJ with_IN the_DT theoretical_JJ formula_NN and_CC the_DT experimental_JJ result_NN ._SENT 
+Fig_NN ._SENT 
+6.Comparison_NP of_IN the_DT simulated_JJ Doppler_NP spectrum_NN with_IN the_DT experimental_JJ result_NN ._SENT 
+The_DT top_JJ figure_NN describes_VVZ the_DT first-order_NN radar_NN cross_NN section_NN obtained_VVN by_IN experimental_JJ data_NNS ;_: the_DT bottom_JJ figure_NN is_VBZ obtained_VVN using_VVG the_DT model_NN proposed_VVN in_IN Section_NN II-B_NN ._SENT 
+The_DT theoretical_JJ width_NN of_IN the_DT broadened_VVN first-order_NN peaks_NNS is_VBZ indicated_VVN by_IN the_DT dashed_VVN lines_NNS ._SENT 
+<Section> 3._CD Direction_NN Finding_VVG Algorithm_NN </Section> The_DT following_VVG information_NN is_VBZ required_VVN for_IN the_DT surface_NN current_JJ measurement_NN of_IN a_DT given_VVN sea_NN patch_NN :_: the_DT range_NN of_IN the_DT patch_NN to_TO the_DT receiving_VVG array_NN ,_, the_DT Doppler_NP frequency_NN of_IN the_DT first-order_NN Bragg_NP peak_NN ,_, and_CC the_DT patch_NN azimuth_NN [_SYM 28_CD ]_SYM ,_, [_SYM 29_CD ]_SYM ._SENT 
+There_EX are_VBP two_CD common_JJ approaches_NNS for_IN estimating_VVG the_DT patch_NN azimuth_NN [_SYM directions_NNS of_IN arrivals_NNS (_( DOAs_NP )_) ]_SYM from_IN the_DT echo_NN signal_NN ._SENT 
+In_IN the_DT first_JJ approach_NN ,_, the_DT array_NN is_VBZ used_VVN to_TO steer_VV a_DT beam_NN toward_IN a_DT certain_JJ azimuth_NN and_CC search_NN for_IN the_DT reflected_VVN energy_NN from_IN the_DT target_NN ;_: the_DT process_NN is_VBZ well_RB known_VVN as_IN BF_NP ._SENT 
+In_IN the_DT second_JJ approach_NN ,_, high-resolution_NN techniques_NNS ,_, e.g._FW ,_, MUSIC_NN or_CC maximum-likelihood_NN estimation_NN (_( MLE_NP )_) ,_, are_VBP used_VVN to_TO estimate_VV the_DT DOAs_NNS of_IN the_DT target_NN detected_VVN in_IN the_DT echo_NN signal_NN ._SENT 
+For_IN the_DT BF_NP method_NN ,_, the_DT azimuth_NN resolution_NN of_IN a_DT phased_VVN antenna_NN array_NN is_VBZ limited_VVN by_IN the_DT Rayleigh_NP criterion_NN ._SENT 
+Therefore_RB ,_, to_TO obtain_VV a_DT relative_JJ high_JJ azimuth_NN resolution_NN ,_, an_DT array_NN with_IN large_JJ aperture_NN is_VBZ required_VVN ._SENT 
+Simulation_NP studies_NNS [_SYM 11_CD ]_SYM and_CC field_NN experiments_NNS [_SYM 28_CD ]_SYM have_VHP proved_VVN that_DT MUSIC_NN provided_VVD good_JJ azimuth_NN resolution_NN in_IN radial_JJ current_JJ extraction_NN for_IN short_JJ aperture_NN arrays_NNS ._SENT 
+A._NP MUSIC_NN Application_NN Though_IN the_DT MUSIC_NN algorithm_NN employed_VVN in_IN shipborne_NP HF_NP radar_NN currents_NNS extraction_NN is_VBZ classical_JJ ,_, four_CD preprocessing_NN steps_NNS are_VBP needed_VVN ._SENT 
+The_DT procedure_NN is_VBZ listed_VVN as_RB follows_VVZ ,_, according_VVG to_TO the_DT characteristics_NNS of_IN the_DT shipborne_JJ HFSWR_NN system_NN ._SENT 
+According_VVG to_TO the_DT velocity_NN of_IN the_DT platform_NN ,_, the_DT Doppler_NP frequency_NN shift_NN fp_NN of_IN the_DT first-order_NN Bragg_NP peak_NN on_IN the_DT echo_NN spectrum_NN caused_VVN by_IN platform_NN movement_NN can_MD be_VB calculated_VVN ,_, then_RB the_DT intervals_NNS of_IN Doppler_NP frequency_NN shift_NN [_SYM −fB−fp,−fB+fp_NP ]_SYM and_CC [_SYM fB−fp,fB+fp_NN ]_SYM can_MD be_VB obtained_VVN ._SENT 
+The_DT complex_JJ time_NN series_NN of_IN the_DT echo_NN signal_NN is_VBZ separated_VVN into_IN several_JJ segments_NNS ,_, e.g._FW ,_, the_DT coherent_JJ integrate_VV series_NN contains_VVZ 2048_CD samples_NNS and_CC each_DT segment_NN has_VHZ 1024_CD samples_NNS ._SENT 
+The_DT overlapping_JJ rate_NN of_IN the_DT segments_NNS may_MD vary_VV from_IN zero_CD to_TO nearly_RB 100_CD %_NN between_IN each_DT segment_NN ._SENT 
+A_DT discrete_JJ Fourier_NN transform_VV (_( DFT_NP )_) process_NN is_VBZ adopted_VVN to_TO spectrally_RB analyze_VV each_DT segment_NN ._SENT 
+According_VVG to_TO the_DT Doppler_NP intervals_NNS obtained_VVN in_IN Step_NN 1_CD )_) ,_, the_DT spectral_JJ points_NNS that_WDT are_VBP used_VVN in_IN a_DT subsequent_JJ parameter_NN estimate_NN are_VBP selected_VVN ._SENT 
+The_DT points_NNS that_WDT have_VHP the_DT same_JJ frequency_NN from_IN each_DT segment_NN are_VBP arranged_VVN to_TO a_DT new_JJ “frequency_NN series,”_NN to_TO which_WDT the_DT MUSIC_NN algorithm_NN is_VBZ applied_VVN ._SENT 
+Note_NN that_IN the_DT term_NN “snapshot”_NN commonly_RB mentioned_VVN in_IN MUSIC_NN here_RB changes_VVZ to_TO “segment,”_NN and_CC the_DT classical_JJ “time_NN series”_NN here_RB is_VBZ called_VVN the_DT “frequency_NN series.”_NN Generally_RB ,_, estimating_VVG the_DT source_NN number_NN in_IN the_DT series_NN is_VBZ a_DT quite_RB complex_JJ but_CC inevitable_JJ step_NN during_IN the_DT application_NN of_IN the_DT MUSIC_NN algorithm_NN [_SYM 11_CD ]_SYM ,_, [_SYM 29_CD ]_SYM ._SENT 
+However_RB ,_, in_IN shipborne_NP HFSWR_NP ,_, first_RB ,_, the_DT signal_NN velocity_NN (_( determined_VVN by_IN the_DT selected_JJ Doppler_NP frequency_NN point_NN )_) is_VBZ the_DT resultant_JJ velocity_NN of_IN the_DT current_JJ velocity_NN and_CC the_DT platform_NN component_NN velocity_NN at_IN the_DT azimuth_NN of_IN the_DT sea_NN patch_NN ._SENT 
+Hence_RB ,_, the_DT possibility_NN of_IN a_DT given_VVN signal_NN velocity_NN including_VVG more_JJR than_IN one_CD signal_NN arriving_VVG from_IN different_JJ azimuths_NNS is_VBZ significantly_RB decreased_VVN ._SENT 
+Second_RB ,_, since_IN a_DT large_JJ number_NN of_IN samples_NNS in_IN the_DT Doppler_NP frequency_NN interval_NN of_IN the_DT first-order_NN Bragg_NP peaks_NNS are_VBP available_JJ ,_, the_DT direction_NN distribution_NN is_VBZ adequate_JJ to_TO cover_VV the_DT observed_JJ area_NN ._SENT 
+Therefore_RB ,_, the_DT step_NN of_IN the_DT signal_NN number_NN estimation_NN can_MD be_VB omitted_VVN ._SENT 
+For_IN instance_NN ,_, when_WRB the_DT coherent_JJ integration_NN number_NN is_VBZ N=2048_JJ (_( CIT_NP is_VBZ 536.9_CD s_NNS )_) ,_, about_RB 200_CD Doppler_NP points_NNS (_( much_RB more_JJR than_IN in_IN the_DT onshore_JJ radar_NN system_NN )_) are_VBP available_JJ to_TO estimate_VV the_DT DOAs_NNS ,_, which_WDT may_MD significantly_RB improve_VV the_DT detecting_VVG performance_NN of_IN the_DT shipborne_NP HFSWR_NP ._SENT 
+Simulation_NP is_VBZ carried_VVN out_RP to_TO investigate_VV the_DT effects_NNS of_IN platform_NN forward_JJ movement_NN on_IN the_DT performance_NN of_IN the_DT MUSIC_NN algorithm_NN ._SENT 
+The_DT simulation_NN parameters_NNS are_VBP as_RB follows_VVZ :_: radar_NN operating_VVG frequency_NN f0=5.283_NN MHz_NN ,_, platform_NN velocity_NN vp=5_NP m/s_NP ,_, the_DT number_NN of_IN receiving_VVG antennas_NNS M=8_JJ ,_, and_CC the_DT distance_NN between_IN each_DT receiving_VVG antenna_NN d=14_NP m._NP The_DT current_JJ flows_NNS parallel_JJ to_TO the_DT antenna_NN array_NN with_IN velocity_NN vc=0.5_NN m/s_NNS ._SENT 
+In_IN the_DT echo_NN spectrum_NN ,_, the_DT relation_NN between_IN the_DT velocity_NN of_IN the_DT signal_NN and_CC its_PP$ Doppler_NP frequency_NN is_VBZ @(14_JJ )_) The_DT component_NN velocity_NN of_IN the_DT signal_NN varies_VVZ with_IN the_DT direction_NN as_IN shown_VVN in_IN Fig_NN ._SENT 
+7._CD When_WRB there_EX is_VBZ no_DT surface_NN current_JJ ,_, the_DT relation_NN of_IN the_DT velocity_NN and_CC direction_NN of_IN the_DT signal_NN is_VBZ indicated_VVN by_IN the_DT black_JJ solid_JJ curve_NN ,_, which_WDT describes_VVZ the_DT component_NN velocity_NN of_IN the_DT platform_NN at_IN different_JJ directions_NNS ._SENT 
+The_DT existence_NN of_IN the_DT surface_NN current_JJ changes_NNS the_DT velocity–direction_NN curve_NN into_IN the_DT dashed_VVN blue_JJ one_CD ,_, where_WRB the_DT signal_NN velocity_NN is_VBZ the_DT resultant_JJ velocity_NN of_IN the_DT platform_NN and_CC the_DT surface_NN current_JJ ._SENT 
+The_DT bias_NN ,_, for_IN a_DT given_VVN direction_NN ,_, between_IN those_DT two_CD curves_NNS is_VBZ the_DT radial_JJ current_JJ velocity_NN at_IN this_DT direction_NN ._SENT 
+However_RB ,_, in_IN practice_NN ,_, since_IN the_DT current_JJ velocity_NN is_VBZ unknown_JJ ,_, the_DT velocity–direction_NN curve_NN of_IN the_DT signal_NN is_VBZ obtained_VVN by_IN employing_VVG the_DT MUSIC_NN algorithm_NN described_VVN by_IN “+,”_NN which_WDT is_VBZ an_DT estimated_JJ curve_NN of_IN the_DT blue_NN dashed_VVD one_CD in_IN the_DT figure_NN ._SENT 
+One_PP can_MD note_VV that_IN the_DT measurement_NN error_NN of_IN the_DT radial_JJ current_JJ velocity_NN is_VBZ highly_RB dependent_JJ on_IN the_DT direction_NN estimate_NN accuracy_NN of_IN the_DT MUSIC_NN algorithm_NN ._SENT 
+Thus_RB ,_, the_DT estimate_NN error_NN of_IN MUSIC_NN should_MD be_VB analyzed_VVN in_IN detail_NN ._SENT 
+Fig_NN ._SENT 
+7.Radial_JJ current_NN measured_VVN under_IN the_DT condition_NN of_IN the_DT constant_JJ platform_NN velocity_NN vp_NN ._SENT 
+A_DT uniform_JJ current_JJ field_NN whose_WP$ direction_NN is_VBZ parallel_JJ with_IN the_DT ship_NN sailing_NN direction_NN is_VBZ assumed_VVN ._SENT 
+The_DT platform_NN component_NN velocity_NN in_IN different_JJ direction_NN satisfies_VVZ the_DT relation_NN presented_VVN by_IN the_DT black_JJ curve_NN ._SENT 
+The_DT signal_NN velocity_NN indicated_VVN by_IN a_DT dashed_VVN blue_JJ curve_NN is_VBZ the_DT resultant_JJ velocity_NN of_IN vp_NN and_CC current_JJ velocity_NN vc_NN ._SENT 
+MUSIC_NN estimates_VVZ the_DT direction_NN of_IN the_DT signal_NN sources_NNS with_IN velocity_NN vm_NN indicated_VVN by_IN “+.”_NP B._NP MUSIC_NN Estimation_NN Error_NN Analysis_NN The_DT performance_NN of_IN the_DT classical_JJ MUSIC_NN algorithm_NN has_VHZ been_VBN investigated_VVN in_IN detail_NN [_SYM 30_CD ]_SYM ,_, [_SYM 31_CD ]_SYM ._SENT 
+However_RB ,_, as_IN mentioned_VVN in_IN Section_NP III-A_NP ,_, some_DT preprocessing_VVG steps_NNS have_VHP been_VBN introduced_VVN before_IN the_DT application_NN of_IN MUSIC_NN ._SENT 
+In_IN this_DT section_NN ,_, the_DT mean_JJ square_JJ error_NN (_( MSE_NN )_) of_IN MUSIC_NN with_IN preprocessing_NN will_MD be_VB analyzed_VVN ._SENT 
+Based_VVN on_IN the_DT model_NN described_VVN in_IN (_( 1_LS )_) ,_, the_DT received_VVN signal_NN of_IN the_DT shipborne_JJ HFSWR_NN for_IN a_DT given_VVN range_NN cell_NN can_MD be_VB described_VVN as_IN the_DT following_VVG simplified_VVN model_NN :_: @(15_NP )_) where_WRB x(t)∈CM×1_NN is_VBZ the_DT noisy_JJ received_VVN data_NNS vector_NN for_IN a_DT given_VVN range_NN ,_, s(t)∈CD×1_NN is_VBZ the_DT vector_NN of_IN signal_NN amplitudes_NNS ,_, D_NP is_VBZ the_DT number_NN of_IN signal_NN sources_NNS ,_, and_CC e(t)∈CM×1_JJ is_VBZ the_DT noise_NN vector_NN ._SENT 
+Matrix_NN A(θ)∈CM×D_NN has_VHZ the_DT following_VVG structure_NN :_: @(16_NP )_) where_WRB {_( θi_NP }_) are_VBP real_JJ parameters_NNS ,_, a(θi)∈CM×1_NN is_VBZ the_DT steering_NN vector_NN ,_, and_CC θ=[θ1θ2⋅⋅⋅θD]H_NP ._SENT 
+As_IN described_VVN in_IN the_DT preprocessing_VVG steps_NNS ,_, x(t_NP )_) (_( with_IN T_NN samples_NNS )_) should_MD be_VB separated_VVN first_RB into_IN N_NP segments_NNS ,_, each_DT containing_VVG L_NP samples_NNS ._SENT 
+The_DT DFT_NP of_IN the_DT mth_NN receiving_VVG element_NN data_NNS series_NN of_IN the_DT nth_JJ segment_NN xm,n(t_NN )_) is_VBZ @(17_JJ )_) In_IN the_DT HF_NP radar_NN system_NN ,_, s(t_NP )_) is_VBZ the_DT temporal_JJ echo_NN of_IN the_DT sea_NN patch_NN with_IN pulse_NN compression_NN processing_NN ._SENT 
+Since_IN s(t_NP )_) is_VBZ the_DT complex_JJ sinusoidal_JJ signal_NN combining_VVG echoes_NNS with_IN different_JJ Doppler_NP frequencies_NNS ,_, the_DT DFT_NP process_NN may_MD not_RB change_VV its_PP$ energy_NN ._SENT 
+However_RB ,_, the_DT expectation_NN and_CC variance_NN of_IN the_DT noise_NN series_NN after_IN the_DT DFT_NP process_NN are_VBP @(18_JJ )_) where_WRB em,n(t_NP )_) is_VBZ the_DT noise_NN of_IN the_DT mth_NN receiving_VVG element_NN and_CC the_DT nth_JJ segment_NN and_CC zm,n(k_NN )_) is_VBZ its_PP$ DFT_NP result_NN ._SENT 
+Equation_NN (_( 18_CD )_) implies_VVZ that_IN ,_, after_IN the_DT DFT_NP process_NN ,_, “noise_NP energy”_NP has_VHZ decreased_VVN L_NP times_NNS ,_, i.e._FW ,_, the_DT preprocessing_NN increases_VVZ the_DT SNR_NP L_NP times_NNS ,_, which_WDT is_VBZ caused_VVN by_IN the_DT uncorrelated_JJ characteristic_NN of_IN noise_NN ._SENT 
+The_DT estimation_NN MSE_NN of_IN ωi_NP using_VVG the_DT classical_JJ MUSIC_NN algorithm_NN is_VBZ derived_VVN in_RB [_SYM 30_CD ]_SYM @(19_JJ )_) where_WRB λk_NP is_VBZ the_DT kth_JJ signal_NN eigenvalue_NN of_IN the_DT correlation_NN matrix_NN constructed_VVN by_IN the_DT noisy_JJ data_NN vector_NN ym,n(l_NN )_) ,_, gk_NP (_( when_WRB k≤D_NNS )_) is_VBZ the_DT unit-norm_NN eigenvector_NN associated_VVN with_IN λk_NN ,_, and_CC gk_NP (_( when_WRB k>D_NNS )_) is_VBZ the_DT eigenvector_NN associated_VVN with_IN noise_NN eigenvalue_NN ._SENT 
+d(ωi)=dp(ωi)/dωi_NP is_VBZ the_DT derivative_NN of_IN a_DT steering_VVG vector_NN a(ωi_NNS )_) ._SENT 
+Here_RB ωi=2πdsin(θi)/�_JJ �_( ,_, since_IN a_DT uniform_JJ linear_JJ receiving_VVG array_NN is_VBZ adopted_VVN ;_: note_VVP that_DT �_JJ �_( here_RB is_VBZ the_DT length_NN of_IN the_DT radio_NN wave_NN ._SENT 
+Furthermore_RB ,_, for_IN each_DT frequency_NN series_NN ,_, the_DT signal_NN source_NN number_NN D=1_NN ._SENT 
+Thus_RB ,_, the_DT MSE_NN of_IN θ_NN is_VBZ given_VVN by_IN @(20_NN )_) It_PP is_VBZ interesting_JJ to_TO note_VV that_IN the_DT MSE_NN of_IN θ_JJ decreases_NNS when_WRB a_DT large_JJ SNR_NN ,_, the_DT segment_NN number_NN N_NP ,_, and_CC the_DT segment_NN length_NN L_NP are_VBP obtained_VVN ._SENT 
+However_RB ,_, since_IN the_DT total_JJ length_NN of_IN the_DT time_NN series_NN is_VBZ T_NN ,_, and_CC the_DT Doppler_NP frequency_NN resolution_NN of_IN each_DT segment_NN should_MD also_RB be_VB considered_VVN (_( L_NP should_MD not_RB be_VB too_RB small_JJ )_) ,_, choosing_VVG the_DT optimum_JJ value_NN of_IN N_NP and_CC L_NP can_MD be_VB a_DT complex_JJ issue_NN ._SENT 
+Furthermore_RB ,_, the_DT width_NN of_IN the_DT first-order_NN Bragg_NP peak_NN is_VBZ related_VVN to_TO the_DT velocity_NN of_IN the_DT platform_NN ,_, which_WDT introduces_VVZ additional_JJ difficulties_NNS in_IN the_DT parameter_NN selection_NN when_WRB the_DT platform_NN moves_VVZ at_IN a_DT different_JJ velocity_NN ._SENT 
+The_DT cosine_NN of_IN θ_NN in_IN the_DT denominator_NN indicates_VVZ that_IN the_DT MSE_NN varies_VVZ with_IN the_DT direction_NN of_IN the_DT signal_NN ._SENT 
+Let_VV us_PP investigate_VV two_CD special_JJ cases_NNS ._SENT 
+θ→0_NN :_: This_DT is_VBZ the_DT best_JJS case_NN for_IN estimating_VVG the_DT direction_NN of_IN the_DT signal_NN ._SENT 
+Indeed_RB ,_, at_IN broadside_NN the_DT receiving_VVG array_NN has_VHZ the_DT longest_JJS effective_JJ aperture_NN (_( best_JJS azimuth_NN resolution_NN )_) ._SENT 
+θ→π/2_NN :_: Here_RB ,_, (_( 20)→∞_NP confirms_VVZ that_IN the_DT direction_NN of_IN the_DT signal_NN cannot_MD be_VB estimated_VVN at_IN endfire_NN ,_, since_IN the_DT receiving_VVG array_NN has_VHZ a_DT zero_CD effective_JJ aperture_NN (_( zero_CD resolution_NN )_) ._SENT 
+In_IN practice_NN ,_, when_WRB θ_NN is_VBZ greater_JJR than_IN π/3_NP ,_, the_DT estimate_NN result_NN is_VBZ neglected_VVN because_IN of_IN its_PP$ relative_JJ high_JJ estimate_NN error_NN ._SENT 
+The_DT application_NN performance_NN of_IN the_DT MUSIC_NN algorithm_NN with_IN preprocesses_NNS will_MD be_VB discussed_VVN in_IN Section_NP IV_NP in_IN detail_NN ._SENT 
+<Section> 4._CD Performance_NP Analysis_NP of_IN MUSIC_NN Application_NN </Section> Several_JJ simulations_NNS are_VBP carried_VVN out_RP for_IN two_CD purposes_NNS :_: first_RB ,_, to_TO analyze_VV the_DT performance_NN of_IN the_DT MUSIC_NN algorithm_NN employed_VVN in_IN the_DT ocean_NN surface_NN current_JJ measurement_NN under_IN different_JJ platform_NN velocities_NNS ,_, motion_NN conditions_NNS ,_, and_CC sea_NN states_NNS ;_: and_CC second_JJ ,_, to_TO provide_VV the_DT selection_NN gist_NN for_IN the_DT platform_NN velocity_NN and_CC the_DT sea_NN state_NN in_IN the_DT experiment_NN ._SENT 
+A._NP Forward_NP Movement_NN of_IN Platform_NN The_DT parameters_NNS of_IN the_DT radar_NN system_NN used_VVN in_IN the_DT following_VVG simulations_NNS are_VBP as_RB follows_VVZ :_: the_DT operating_VVG frequency_NN is_VBZ f0=5.283_JJ MHz_NN ;_: the_DT velocity_NN of_IN the_DT uniform_JJ surface_NN current_JJ field_NN is_VBZ vc=0.4_JJ m/s_NNS with_IN its_PP$ direction_NN parallel_NN with_IN the_DT receiving_VVG array_NN ;_: the_DT CIT_NP is_VBZ 536.9_CD s_NNS ,_, and_CC SNR_NP =20_NP dB_NP ._SENT 
+In_IN this_DT case_NN ,_, the_DT effect_NN of_IN the_DT platform_NN moving_VVG along_IN x-axis_NN with_IN distinct_JJ velocities_NNS is_VBZ studied_VVN ._SENT 
+In_IN Fig_NN ._SENT 
+8_CD ,_, as_IN the_DT velocity_NN increases_NNS ,_, the_DT broadening_VVG increases_NNS and_CC the_DT Bragg_NP energy_NN distributes_VVZ into_IN more_JJR Doppler_NP points_NNS ,_, i.e._FW ,_, the_DT SNR_NN of_IN each_DT Doppler_NP point_NN decreases_NNS ._SENT 
+However_RB ,_, the_DT broader_JJR peaks_NNS contain_VVP many_DT more_JJR Doppler_NP sampling_NN points_NNS ,_, which_WDT can_MD be_VB used_VVN to_TO estimate_VV the_DT signal_NN direction_NN ,_, than_IN the_DT comparatively_RB narrower_JJR peaks_NNS ._SENT 
+Fig_NN ._SENT 
+8.First-order_NP Bragg_NP peaks_NNS of_IN distinct_JJ platform_NN velocities_NNS ._SENT 
+From_IN the_DT top_NN to_TO the_DT bottom_NN ,_, the_DT platform_NN velocities_NNS are_VBP :_: 0_CD ,_, 2_CD ,_, 4_CD ,_, and_CC 6_CD m/s_NNS ,_, respectively_RB ._SENT 
+Fig_NN ._SENT 
+9_CD illustrates_VVZ how_WRB the_DT forward_JJ movement_NN influences_VVZ the_DT available_JJ data_NN number_NN and_CC the_DT corresponding_JJ measurement_NN error_NN of_IN the_DT radial_JJ current_NN ._SENT 
+The_DT number_NN of_IN Doppler_NP frequency_NN points_NNS in_IN the_DT first-order_NN Bragg_NP peaks_NNS is_VBZ proportional_JJ to_TO the_DT platform_NN velocity_NN ._SENT 
+As_IN the_DT platform_NN moves_VVZ faster_RBR ,_, the_DT number_NN of_IN available_JJ Doppler_NP points_NNS increases_NNS ,_, which_WDT may_MD be_VB a_DT benefit_NN to_TO improve_VV the_DT performance_NN of_IN the_DT MUSIC_NN algorithm_NN ._SENT 
+However_RB ,_, the_DT black_JJ curve_NN infers_VVZ that_IN as_IN the_DT number_NN of_IN sampling_VVG points_NNS increases_NNS ,_, the_DT RMS_NP error_NN of_IN radial_JJ current_JJ velocity_NN also_RB increases_VVZ ._SENT 
+In_IN particular_JJ ,_, a_DT slightly_RB higher_JJR RMS_NP error_NN appears_VVZ at_IN platform_NN velocity_NN vp=0_NP m/s_NP ,_, which_WDT may_MD be_VB caused_VVN by_IN the_DT shortage_NN of_IN sampling_VVG points_NNS ._SENT 
+The_DT increasing_VVG of_IN the_DT RMS_NP error_NN is_VBZ caused_VVN by_IN the_DT measurement_NN accuracy_NN of_IN the_DT sea_NN patch_NN azimuth_NN ._SENT 
+When_WRB the_DT platform_NN moves_VVZ at_IN a_DT relatively_RB high_JJ speed_NN ,_, the_DT corresponding_JJ velocity_NN error_NN at_IN a_DT given_VVN azimuth_NN caused_VVN by_IN an_DT estimate_NN error_NN of_IN the_DT azimuth_NN becomes_VVZ really_RB high_JJ ,_, compared_VVN with_IN the_DT radial_JJ current_JJ velocity_NN ._SENT 
+The_DT relation_NN between_IN the_DT platform_NN velocity_NN and_CC the_DT RMS_NP error_NN of_IN the_DT radial_JJ current_NN may_MD be_VB an_DT important_JJ reference_NN for_IN the_DT sailing_NN velocity_NN of_IN the_DT platform_NN ._SENT 
+Fig_NN ._SENT 
+9.Measurement_NN error_NN of_IN different_JJ platform_NN velocities_NNS ._SENT 
+The_DT black_JJ curve_NN indicates_VVZ the_DT RMS_NP error_NN of_IN radial_JJ current_JJ (_( with_IN a_DT velocity_NN of_IN 0.4_CD m/s_NNS and_CC paralleling_VVG with_IN the_DT receiving_VVG array_NN )_) ,_, which_WDT varies_VVZ from_IN less_JJR than_IN 1_CD cm/s_NNS to_TO nearly_RB 3_CD cm/s_NNS with_IN the_DT increase_NN of_IN the_DT platform_NN velocity_NN ._SENT 
+The_DT red_JJ dashed_VVN curve_NN describes_VVZ the_DT data_NN points_NNS available_JJ in_IN the_DT first-order_NN Bragg_NP peaks_NNS area_NN ,_, which_WDT increases_VVZ to_TO more_JJR than_IN 100_CD when_WRB the_DT platform_NN moves_NNS at_IN high_JJ velocity_NN ._SENT 
+B._NP Six-DOF_NP Motion_NP of_IN the_DT Platform_NN Simulations_NNS are_VBP organized_VVN to_TO illustrate_VV how_WRB the_DT six-DOF_JJ motion_NN affects_VVZ the_DT surface_NN current_JJ measurement_NN ._SENT 
+The_DT translation_NN and_CC rotation_NN effects_NNS of_IN the_DT platform_NN sailing_NN at_IN the_DT speed_NN of_IN 5_CD m/s_NNS are_VBP considered_VVN ._SENT 
+Other_JJ parameters_NNS are_VBP the_DT same_JJ as_IN those_DT in_IN Fig_NN ._SENT 
+9._CD Fig_NN ._SENT 
+10_CD shows_NNS that_WDT ,_, when_WRB the_DT six-DOF_JJ motion_NN is_VBZ neglected_VVN ,_, the_DT radial_JJ current_JJ RMS_NP error_NN is_VBZ about_RB 3_CD cm/s_NNS ,_, due_JJ to_TO the_DT estimation_NN error_NN of_IN the_DT MUSIC_NN algorithm_NN and_CC the_DT limited_JJ Doppler_NP frequency_NN resolution_NN of_IN the_DT radar_NN system_NN ._SENT 
+The_DT RMS_NP error_NN increases_NNS due_JJ to_TO the_DT amplitude_NN increase_NN of_IN rotation_NN (_( pitch_NN ,_, roll_NN ,_, and_CC yaw_VV )_) and_CC sway_NN ._SENT 
+However_RB ,_, the_DT surge_NN has_VHZ no_DT obvious_JJ influence_NN on_IN the_DT measurement_NN accuracy_NN ,_, which_WDT means_VVZ that_IN even_RB if_IN the_DT platform_NN is_VBZ not_RB moving_VVG at_IN a_DT constant_JJ velocity_NN ,_, the_DT influence_NN introduced_VVN by_IN the_DT variation_NN of_IN the_DT platform_NN velocity_NN may_MD be_VB negligible_JJ ._SENT 
+This_DT may_MD benefit_VV from_IN the_DT fact_NN that_IN the_DT surge_NN velocity_NN is_VBZ always_RB in_IN the_DT direction_NN of_IN the_DT ship_NN velocity_NN ,_, which_WDT is_VBZ insensitive_JJ to_TO the_DT MUSIC_NN analysis_NN ._SENT 
+Yaw_NP has_VHZ the_DT most_RBS significant_JJ influence_NN on_IN the_DT accuracy_NN of_IN measured_JJ currents_NNS ,_, since_IN it_PP enlarges_VVZ the_DT azimuth_NN estimate_NN error_NN directly_RB ._SENT 
+Actually_RB ,_, yaw_VVP amplitude_NN may_MD not_RB be_VB greater_JJR than_IN several_JJ degrees_NNS ,_, unless_IN the_DT platform_NN is_VBZ making_VVG a_DT turn_NN ._SENT 
+Fig_NN ._SENT 
+10.Effects_NNS of_IN six-DOF_JJ motion_NN amplitude_NN on_IN the_DT measure_NN results_NNS ._SENT 
+The_DT black_JJ lateral_JJ axis_NN indicates_VVZ the_DT amplitude_NN of_IN rotation_NN (_( include_VV pitch_NN ,_, roll_NN and_CC yaw_VV )_) and_CC the_DT bottom_JJ red_JJ axis_NN indicates_VVZ the_DT amplitude_NN of_IN translation_NN (_( surge_VV and_CC sway_VV )_) ._SENT 
+The_DT rotation_NN amplitude_NN varies_VVZ from_IN 0°_NN to_TO 20°_NN and_CC the_DT translation_NN amplitude_NN varies_VVZ from_IN 0_CD to_TO 1_CD m._NP C._NP Influence_NN of_IN Different_NP Sea_NP State_NP The_DT radial_JJ current_JJ RMS_NP errors_NNS associated_VVN with_IN different_JJ sea_NN state_NN are_VBP also_RB investigated_VVN ._SENT 
+Here_RB ,_, a_DT Pierson–Moskowitz_NP ocean_NN wave_NN model_NN ,_, which_WDT presents_VVZ the_DT sea_NN state_NN by_IN the_DT parameters_NNS of_IN wind_NN speed_NN and_CC direction_NN ,_, is_VBZ employed_VVN ._SENT 
+For_IN clarity_NN ,_, in_IN this_DT simulation_NN ,_, the_DT influence_NN of_IN wind_NN speed_NN is_VBZ converted_VVN to_TO SNR_NP of_IN the_DT echo_NN signal_NN ._SENT 
+The_DT variation_NN of_IN the_DT RMS_NP errors_NNS with_IN sea_NN state_NN is_VBZ shown_VVN in_IN Fig_NN ._SENT 
+11._CD The_DT decrease_NN of_IN the_DT errors_NNS with_IN SNR_NP may_MD be_VB predictable_JJ from_IN (_( 20_CD )_) ,_, which_WDT presents_VVZ the_DT relation_NN of_IN direction_NN estimating_VVG the_DT error_NN and_CC the_DT noise_NN power_NN ._SENT 
+To_TO explain_VV the_DT variation_NN curve_NN of_IN different_JJ wind_NN directions_NNS ,_, two_CD notes_NNS are_VBP needed_VVN :_: first_RB ,_, the_DT RMS_NP here_RB is_VBZ the_DT summation_NN of_IN the_DT radial_JJ current_JJ error_NN of_IN all_PDT the_DT directions_NNS ;_: and_CC second_JJ ,_, the_DT direction_NN estimating_VVG the_DT error_NN increased_VVN with_IN direction_NN and_CC decreased_VVD with_IN SNR_NP ._SENT 
+Thus_RB ,_, the_DT trend_NN of_IN the_DT curve_NN can_MD be_VB analyzed_VVN as_RB that_IN ,_, if_IN the_DT wind_NN blows_NNS parallel_JJ with_IN the_DT array_NN ,_, the_DT SNR_NN of_IN the_DT echo_NN signal_NN in_IN the_DT large_JJ azimuth_NN is_VBZ relatively_RB low_JJ ,_, which_WDT enlarges_VVZ the_DT RMS_NP error_NN at_IN those_DT directions_NNS ._SENT 
+However_RB ,_, when_WRB the_DT SNR_NN is_VBZ high_JJ ,_, the_DT estimate_NN results_NNS for_IN different_JJ wind_NN conditions_NNS achieve_VVP the_DT same_JJ RMS_NP error_NN ._SENT 
+Fig_NN ._SENT 
+11.Different_JJ wind_NN conditions’_NN effect_NN on_IN the_DT measurement_NN results_NNS ._SENT 
+The_DT SNR_NN of_IN the_DT echo_NN signal_NN varies_VVZ from_IN 10_CD to_TO 45_CD dB_NN ,_, and_CC the_DT wind_NN direction_NN varies_VVZ from_IN 0°_NN to_TO 90°_NN ._SENT 
+As_IN the_DT SNR_NP increased_VVD ,_, the_DT RMS_NP errors_NNS of_IN the_DT radial_JJ current_NN decreased_VVD ._SENT 
+For_IN the_DT case_NN of_IN wind_NN blowing_VVG toward_IN or_CC backward_RB the_DT receiving_VVG array_NN ,_, the_DT system_NN can_MD achieve_VV the_DT best_JJS measurement_NN results_NNS ._SENT 
+The_DT RMS_NP errors_NNS increase_NN with_IN the_DT wind_NN direction_NN ._SENT 
+D._NP Forward_NP Movement_NN Combined_VVN with_IN Yaw_NP Motion_NP of_IN the_DT Platform_NN We_PP express_VVP the_DT RMS_NP error_NN for_IN a_DT shipborne_JJ HFSWR_NN in_IN the_DT scenario_NN of_IN a_DT real_JJ ship_NN sailing_NN ._SENT 
+The_DT velocity_NN and_CC direction_NN data_NNS of_IN the_DT platform_NN used_VVN in_IN the_DT model_NN is_VBZ received_VVN by_IN a_DT global_JJ position_NN system_NN (_( GPS_NP )_) receiver_NN ._SENT 
+The_DT sailing_NN velocity_NN and_CC direction_NN of_IN the_DT platform_NN are_VBP roughly_RB stable_JJ ,_, as_RB shown_VVN in_IN Fig_NN ._SENT 
+12_CD (_( the_DT top_JJ and_CC middle_JJ figures_NNS )_) ._SENT 
+In_IN the_DT bottom_JJ figure_NN ,_, most_RBS often_RB ,_, the_DT RMS_NP error_NN is_VBZ less_JJR than_IN 10_CD cm/s_NNS ._SENT 
+When_WRB the_DT sailing_NN direction_NN of_IN the_DT platform_NN changes_NNS at_IN an_DT obvious_JJ amplitude_NN ,_, the_DT RMS_NP error_NN increases_NNS dramatically_RB ,_, as_IN indicated_VVN by_IN the_DT left_VVN red_JJ dashed_VVN box_NN ._SENT 
+However_RB ,_, the_DT curves_NNS in_IN the_DT right_JJ blue_JJ box_NN illustrate_VVP that_IN ,_, the_DT variance_NN of_IN platform_NN velocity_NN has_VHZ no_DT significant_JJ effect_NN on_IN the_DT RMS_NP error_NN ,_, which_WDT means_VVZ that_IN the_DT yaw_VVP motion_NN amplitude_NN of_IN the_DT platform_NN may_MD be_VB a_DT key_JJ factor_NN in_IN the_DT application_NN of_IN shipborne_NP HFSWR_NP ._SENT 
+Fig_NN ._SENT 
+12.Analysis_NN of_IN the_DT RMS_NP error_NN of_IN in_IN situ_NP data_NNS ._SENT 
+The_DT top_JJ figure_NN is_VBZ the_DT velocity_NN curve_NN of_IN the_DT platform_NN and_CC the_DT middle_JJ figure_NN is_VBZ the_DT direction_NN curve_NN ._SENT 
+The_DT bottom_JJ figure_NN is_VBZ the_DT RMS_NP error_NN of_IN the_DT radial_JJ current_NN ._SENT 
+<Section> 5.Conclusion_NN </Section> In_IN this_DT paper_NN ,_, a_DT shipborne_NP HFSWR_NP echo_VVP temporal_JJ signal_NN is_VBZ modeled_VVN considering_VVG the_DT forward_JJ movement_NN and_CC the_DT six-DOF_JJ motion_NN of_IN the_DT platform_NN ,_, and_CC the_DT phase-amplitude_NN influence_NN of_IN those_DT motions_NNS on_IN the_DT received_VVN signal_NN is_VBZ analyzed_VVN ._SENT 
+Several_JJ comparisons_NNS were_VBD investigated_VVN ,_, both_CC with_IN the_DT analytical_JJ model_NN and_CC experimental_JJ results_NNS ,_, to_TO verify_VV the_DT proposed_VVN model_NN ._SENT 
+The_DT MUSIC_NN algorithm_NN with_IN preprocesses_NNS ,_, which_WDT is_VBZ adopted_VVN to_TO estimate_VV the_DT DOAs_NNS in_IN the_DT shipborne_JJ HFSWR_NN system_NN ,_, was_VBD introduced_VVN ._SENT 
+Theoretical_JJ analysis_NN of_IN the_DT estimation_NN error_NN of_IN the_DT algorithm_NN was_VBD also_RB given_VVN ._SENT 
+Simulation_NP results_NNS showed_VVD that_IN the_DT effect_NN of_IN the_DT forward_JJ movement_NN ,_, rotation_NN ,_, and_CC sway_NN motions_NNS is_VBZ significant_JJ for_IN the_DT RMS_NP error_NN of_IN the_DT radial_JJ current_NN measured_VVN by_IN the_DT shipborne_JJ HFSWR_NN ._SENT 
+For_IN the_DT case_NN of_IN platform_NN velocity_NN less_JJR than_IN 1_CD m/s_NNS ,_, the_DT RMS_NP error_NN is_VBZ lower_JJR than_IN the_DT onshore_JJ one_CD ,_, which_WDT benefits_VVZ from_IN the_DT increased_VVN amounts_NNS of_IN information_NN in_IN the_DT broadened_VVN first-order_NN Bragg_NP peaks_NNS ._SENT 
+The_DT error_NN is_VBZ always_RB less_JJR than_IN 4_CD cm/s_NNS ,_, when_WRB platform_NN moves_NNS at_IN the_DT speed_NN of_IN less_JJR than_IN 5_CD m/s_NNS and_CC the_DT SNR_NN of_IN the_DT Bragg_NP peak_NN higher_JJR than_IN 30_CD dB_NN ._SENT 
+For_IN the_DT out-field_NP experiments_NNS of_IN the_DT shipborne_NP HFSWR_NP ,_, the_DT six-DOF_JJ motion_NN and_CC the_DT velocity_NN oscillation_NN of_IN the_DT platform_NN are_VBP inevitable_JJ ._SENT 
+According_VVG to_TO the_DT simulation_NN results_NNS ,_, the_DT RMS_NP error_NN of_IN the_DT ocean_NN surface_NN radial_NN current_JJ is_VBZ more_RBR sensitive_JJ to_TO the_DT yaw_VVP motion_NN of_IN the_DT platform_NN ,_, rather_RB than_IN the_DT variation_NN of_IN the_DT platform_NN velocity_NN ,_, which_WDT means_VVZ that_IN the_DT measurement_NN results_NNS may_MD be_VB acceptable_JJ when_WRB the_DT platform_NN keeps_VVZ its_PP$ sailing_NN direction_NN ._SENT 
+Finally_RB ,_, the_DT current_JJ measurement_NN results_NNS can_MD be_VB improved_VVN if_IN greater_JJR accuracy_NN in_IN azimuth_NN is_VBZ obtained_VVN ._SENT 
+The_DT estimation_NN error_NN of_IN the_DT MUSIC_NN algorithm_NN depends_VVZ on_IN actual_JJ experimental_JJ conditions_NNS ,_, including_VVG SNR_NP ,_, segment_NN length_NN ,_, overlapping_VVG rate_NN ,_, etc._FW Thus_RB ,_, selecting_VVG optimal_JJ parameters_NNS is_VBZ beneficial_JJ for_IN improvements_NNS of_IN azimuth_NN measuring_VVG accuracy_NN ._SENT 
+Furthermore_RB ,_, a_DT direction-finding_NN algorithm_NN providing_VVG lower_JJR estimation_NN error_NN may_MD significantly_RB promote_VV the_DT performance_NN of_IN the_DT shipborne_JJ HFSWR_NN engaged_VVN in_IN ocean_NN surface_NN current_JJ measurement_NN ._SENT 
+<Section> ACKNOWLEDGEMENT_NN </Section> The_DT authors_NNS would_MD like_VV to_TO thank_VV P._NP Ren_NP ,_, K._NP Wang_NP ,_, and_CC Y._NP Wang_NP for_IN modifying_VVG this_DT paper_NN ,_, and_CC the_DT anonymous_JJ reviewers_NNS for_IN their_PP$ competent_JJ suggestions_NNS and_CC great_JJ help_NN in_IN improving_VVG this_DT manuscript_NN ._SENT 
+<Section> References_NNS </Section> 1._CD B._NP J._NP Lipa_NP ,_, J._NP Isaacson_NP ,_, B._NP Nyden_NP and_CC D._NP E._NP Barrick_NP ,_, "_`` Tsunami_NN arrival_NN detection_NN with_IN high_JJ frequency_NN (_( HF_NP )_) radar_NN "_'' ,_, Remote_JJ Sens._NP ,_, vol_NP ._SENT 
+4_LS ,_, no_UH ._SENT 
+12_CD ,_, pp_NP ._SENT 
+1448-1461_CD ,_, May_NP 2012._CD 2._CD L._NP Rubio_NP et_CC al_NP ._SENT 
+,_, "_'' Surface_NP circulation_NN and_CC Lagrangian_JJ transport_NN in_IN the_DT SE_FW Bay_NP of_IN Biscay_NP from_IN HF_NP radar_NN data_NNS "_'' ,_, Proc_NP ._SENT 
+MTS/IEEE_NP OCEANS_NNS Conf_NN ._SENT 
+,_, 2013._CD 3._CD A._NP L._NP Dzvonkovskaya_NP ,_, K.-W_NN ._SENT 
+Gurgel_NP ,_, H._NP Rohling_NP and_CC T._NP Schlick_NP ,_, "_'' HF_NP radar_NN WERA_NN application_NN for_IN ship_NN detection_NN and_CC tracking_NN "_'' ,_, Eur_NP ._SENT 
+J._NP Navig_NP ._SENT 
+,_, vol_NP ._SENT 
+8_CD ,_, no_RB ._SENT 
+3_LS ,_, pp_NP ._SENT 
+18-25_CD ,_, Oct._NP 2009._CD 4._CD J._NP Xie_NP ,_, Y._NP Yuan_NP and_CC Y._NP Liu_NP ,_, "_`` Experimental_JJ analysis_NN of_IN sea_NN clutter_NN in_IN shipborne_NP HFSWR_NP "_'' ,_, Inst_NP ._SENT 
+Electr_NP ._SENT 
+Eng_NP ._SENT 
+Proc.—Radar_NP Sonar_NN Navig_NN ._SENT 
+,_, vol_NP ._SENT 
+148_CD ,_, no_RB ._SENT 
+2_LS ,_, pp_NP ._SENT 
+67-71_CD ,_, Apr_NP ._SENT 
+2001._CD 5._CD C._NP C._NP Teague_NP ,_, "_'' Multifrequency_NP HF_NP radar_NN observations_NNS of_IN currents_NNS and_CC current_JJ shears_NNS "_'' ,_, IEEE_NP J._NP Ocean_NP ._SENT 
+Eng_NN ._SENT 
+,_, vol_NP ._SENT 
+OE-11_JJ ,_, no_RB ._SENT 
+2_LS ,_, pp_NP ._SENT 
+258-269_CD ,_, Apr_NP ._SENT 
+1986._CD 6._CD B._NP J._NP Lipa_NP ,_, D._NP E._NP Barrick_NP ,_, J._NP Isaacson_NP and_CC P._NP M._NP Lilleboe_NP ,_, "_'' CODAR_NP wave_NN measurements_NNS from_IN a_DT north_JJ sea_NN semisubmersible_NN "_'' ,_, IEEE_NP J._NP Ocean_NP ._SENT 
+Eng_NN ._SENT 
+,_, vol_NP ._SENT 
+15_CD ,_, no_RB ._SENT 
+2_LS ,_, pp_NP ._SENT 
+119-125_CD ,_, Apr_NP ._SENT 
+1990._CD 7._CD K.-W_NNS ._SENT 
+Gurgel_NP ,_, "_`` Shipborne_JJ measurement_NN of_IN surface_NN current_JJ fields_NNS by_IN HF_NP radar_NN "_'' ,_, Proc_NP ._SENT 
+OCEANS_NNS Conf_NN ._SENT 
+Oceans_NNS Engineering_NP for_IN Today’s_NP Technology_NP and_CC Tomorrow’s_NP Preservation_NN ,_, vol_NP ._SENT 
+3_LS ,_, pp_NP ._SENT 
+23-27_CD ,_, 1994._CD 8._CD N._NP J._NP Peters_NP and_CC A._NP S._NP Richard_NP ,_, "_`` Measurements_NNS of_IN ocean_NN surface_NN currents_NNS from_IN a_DT moving_VVG ship_NN using_VVG VHF_NN radar_NN "_'' ,_, J._NP Atmosph_NP ._SENT 
+Ocean_NP ._SENT 
+Technol_NN ._SENT 
+,_, vol_NP ._SENT 
+14_CD ,_, no_RB ._SENT 
+3_LS ,_, pp_NP ._SENT 
+676-694_CD ,_, Jun_NP ._SENT 
+1997._CD 9._CD Gorbatskiy_NP and_CC A._NP Yu_NP ._SENT 
+Andreev_NP ,_, "_'' Surface_NP current_JJ measurements_NNS with_IN ship-borne_NP Doppler_NP HF_NP radar_NN "_'' ,_, Proc_NP ._SENT 
+14th_JJ Int_NP ._SENT 
+Radar_NN Symp_NN ._SENT 
+,_, vol_NP ._SENT 
+1_LS ,_, pp_NP ._SENT 
+423-428_CD ,_, 2013._CD 10._CD J._NP D._NP Paduan_NP and_CC L._NP Washburn_NP ,_, "_`` High-frequency_NN radar_NN observations_NNS of_IN ocean_NN surface_NN currents_NNS "_'' ,_, Annu_NP ._SENT 
+Rev._NP Mar_NP ._SENT 
+Sci_NNS ._SENT 
+,_, vol_NP ._SENT 
+5_LS ,_, no_UH ._SENT 
+1_LS ,_, pp_NP ._SENT 
+115-136_CD ,_, Jan._NP 2013._CD 11._CD K._NP E._NP Laws_NP ,_, D._NP M._NP Fernandez_NP and_CC J._NP D._NP Paduan_NP ,_, "_`` Simulation-based_JJ evaluations_NNS of_IN HF_NP radar_NN ocean_NN current_JJ algorithms_NNS "_'' ,_, IEEE_NP J._NP Ocean_NP ._SENT 
+Eng_NN ._SENT 
+,_, vol_NP ._SENT 
+25_CD ,_, no_RB ._SENT 
+4_LS ,_, pp_NP ._SENT 
+481-491_CD ,_, Oct._NP 2000._CD 12._CD Z._NP Wang_NP ,_, J._NP Xie_NP ,_, Z._NP Ji_NP ,_, T._NP Quan_NP and_CC X._NP Liu_NP ,_, "_`` Measurement_NN of_IN surface_NN currents_NNS from_IN a_DT shipborne_NP HFSWR_NP "_'' ,_, Proc_NP ._SENT 
+IEEE_NP Radar_NP Conf_NN ._SENT 
+,_, pp_NP ._SENT 
+0479-0483_CD ,_, May_NP 2014._CD 13._CD G._NP Chang_NP ,_, M._NP Li_NP ,_, L._NP Zhang_NP ,_, Y._NP Ji_NP and_CC J._NP Xie_NP ,_, "_`` Measurements_NNS of_IN ocean_NN surface_NN currents_NNS using_VVG shipborne_JJ high-frequency_NN radar_NN "_'' ,_, Proc_NP ._SENT 
+IEEE_NP Radar_NP Conf_NN ._SENT 
+,_, pp_NP ._SENT 
+1067-1070_CD ,_, 2014._CD 14._CD J._NP Wang_NP ,_, R._NP Dizaji_NP and_CC A._NP M._NP Ponsford_NP ,_, "_'' An_DT analysis_NN of_IN phase_NN array_NN radar_NN system_NN on_IN a_DT moving_VVG platform_NN "_'' ,_, Proc_NP ._SENT 
+IEEE_NP Int_NP ._SENT 
+Radar_NN Conf_NN ._SENT 
+,_, pp_NP ._SENT 
+316-320_CD ,_, May_NP 2005._CD 15._CD J._NP Walsh_NP ,_, "_'' The_DT effect_NN of_IN barge_NN motion_NN on_IN HFSWR_NP ocean_NN clutter_NN "_'' ,_, 2004._CD 16._CD J._NP Walsh_NP ,_, W._NP Huang_NP and_CC E._NP Gill_NP ,_, "_'' The_DT first-order_NN high_JJ frequency_NN radar_NN ocean_NN surface_NN cross_NN section_NN for_IN an_DT antenna_NN on_IN a_DT floating_JJ platform_NN "_'' ,_, IEEE_NP Trans_NP ._SENT 
+Antennas_NNS Propag_VVP ._SENT 
+,_, vol_NP ._SENT 
+58_CD ,_, no_RB ._SENT 
+9_CD ,_, pp_NP ._SENT 
+2994-3003_CD ,_, Sep_NP ._SENT 
+2010._CD 17._CD E._NP Khoury_NP ,_, R._NP Guinvarh_NP ,_, R._NP Gillard_NP and_CC B._NP Uguen_NP ,_, "_'' Sea-echo_NP Doppler_NP spectrum_NN perturbation_NN of_IN the_DT received_VVN signals_NNS from_IN a_DT floating_JJ high-frequency_NN surface_NN wave_NN radar_NN "_'' ,_, IET_NP Radar_NP Sonar_NN Navig_NN ._SENT 
+,_, vol_NP ._SENT 
+6_CD ,_, no_RB ._SENT 
+3_LS ,_, pp_NP ._SENT 
+165-171_CD ,_, Mar_NP ._SENT 
+2012._CD 18._CD J._NP Xie_NP ,_, M._NP Sun_NP and_CC Z._NP Ji_NP ,_, "_`` First-order_NN ocean_NN surface_NN cross-section_NN for_IN shipborne_NP HFSWR_NP "_'' ,_, Electron_NP ._SENT 
+Lett_NP ._SENT 
+,_, vol_NP ._SENT 
+49_CD ,_, no_RB ._SENT 
+16_CD ,_, pp_NP ._SENT 
+1025-1026_CD ,_, Aug._NP 2013._CD 19._CD J._NP Xie_NP ,_, "_`` Study_NN of_IN target_NN detection_NN and_CC estimation_NN for_IN shipborne_JJ high_JJ frequency_NN surface_NN wave_NN radar_NN "_'' ,_, 2001._CD 20._CD C._NP A._NP Balanis_NP ,_, Antenna_NN Theory_NN :_: Analysis_NP and_CC Design_NP ,_, New_NP York_NP ,_, NY_NP ,_, USA:Wiley_NP ,_, pp_NP ._SENT 
+170-184_CD ,_, 2005._CD 21._CD D._NP D._NP Crombie_NP ,_, "_'' Doppler_NP spectrum_NN of_IN sea_NN echo_NN at_IN 13.56_CD Mc/s_NNS "_'' ,_, Nature_NP ,_, vol_NP ._SENT 
+175_CD ,_, no_RB ._SENT 
+4459_CD ,_, pp_NP ._SENT 
+681-682_CD ,_, Apr_NP ._SENT 
+1955._CD 22._CD W._NP Pierson_NP and_CC L._NP Moskowiz_NP ,_, "_'' A_DT proposed_VVN spectral_JJ form_NN for_IN fully_RB developed_VVN wind_NN seas_NNS based_VVN on_IN a_DT similarity_NN method_NN of_IN S._NP A._NP Kitaigordskii_NP "_'' ,_, J._NP Geophys_NPS ._SENT 
+Res_NNS ._SENT 
+,_, vol_NP ._SENT 
+69_CD ,_, pp_NP ._SENT 
+5181-5190_CD ,_, 1964._CD 23._CD G._NP L._NP Tyler_NP et_CC al_NP ._SENT 
+,_, "_'' Wave_NP directional_JJ spectra_NN from_IN synthetic_JJ aperture_NN observations_NNS of_IN radio_NN scatter_NN "_'' ,_, Deep-Sea_NN Res_NNS ._SENT 
+,_, vol_NP ._SENT 
+21_CD ,_, pp_NP ._SENT 
+989-1016_CD ,_, Dec._NP 1974._CD 24._CD E._NP W._NP Gill_NP and_CC J._NP Walsh_NP ,_, "_'' A_DT combined_JJ sea_NN clutter_NN and_CC noise_NN model_NN appropriate_JJ to_TO the_DT operation_NN of_IN high-frequency_NN pulsed_VVN Doppler_NP radar_NN in_IN regions_NNS constrained_VVN by_IN external_JJ noise_NN "_'' ,_, Radio_NP Sci_NP ._SENT 
+,_, vol_NP ._SENT 
+43_CD ,_, no_RB ._SENT 
+4_LS ,_, pp_NP ._SENT 
+289-297_CD ,_, Aug._NP 2008._CD 25._CD S._NP Grosdidier_NP ,_, A._NP Baussard_NP and_CC A._NP Khenchaf_NP ,_, "_'' HFSW_VVZ radar_NN model_NN :_: Simulation_NN and_CC measurement_NN "_'' ,_, IEEE_NP Trans_NP ._SENT 
+Geosci_NP ._SENT 
+Remote_JJ Sens._NP ,_, vol_NP ._SENT 
+48_CD ,_, no_RB ._SENT 
+9_CD ,_, pp_NP ._SENT 
+3539-3549_CD ,_, Sep_NP ._SENT 
+2010._CD 26._CD Y._NP Dong_NP ,_, N._NP Zhang_NP and_CC R._NP Xu_NP ,_, "_'' Analysis_NP of_IN environmental_JJ effect_NN on_IN HF_NP surface_NN wave_NN radar_NN performance_NN "_'' ,_, Chinese_NP Chin_NP ._SENT 
+J._NP Radio_NP Sci_NP ._SENT 
+,_, vol_NP ._SENT 
+22_CD ,_, no_RB ._SENT 
+2_LS ,_, pp_NP ._SENT 
+325-330_CD ,_, Apr_NP ._SENT 
+2007._CD 27._CD D._NP E._NP Barrick_NP ,_, "_`` First-order_NN theory_NN and_CC analysis_NN of_IN MF/HF/VHF_NN scatter_NN from_IN the_DT sea_NN "_'' ,_, IEEE_NP Trans_NP ._SENT 
+Antennas_NNS Propag_VVP ._SENT 
+,_, vol_NP ._SENT 
+AP-20_NP ,_, no_RB ._SENT 
+1_LS ,_, pp_NP ._SENT 
+2-10_CD ,_, Jan._NP 1972._CD 28._CD S._NP Yang_NP ,_, H._NP Ke_NP ,_, X._NP Wu_NP ,_, J._NP Tian_NP and_CC J._NP Hou_NP ,_, "_'' HF_NP radar_NN ocean_NN current_JJ algorithm_NN based_VVN on_IN MUSIC_NN and_CC the_DT validation_NN experiments_NNS "_'' ,_, IEEE_NP J._NP Ocean_NP ._SENT 
+Eng_NN ._SENT 
+,_, vol_NP ._SENT 
+30_CD ,_, no_RB ._SENT 
+3_LS ,_, pp_NP ._SENT 
+601-618_CD ,_, Jul_NP ._SENT 
+2005._CD 29._CD D._NP E._NP Barrick_NP and_CC B._NP J._NP Lipa_NP ,_, "_`` Evolution_NN of_IN bearing_VVG determination_NN in_IN HF_NP current_JJ mapping_NN radars_NNS "_'' ,_, Oceanography_NN ,_, vol_NP ._SENT 
+10_CD ,_, no_RB ._SENT 
+2_LS ,_, pp_NP ._SENT 
+72-75_CD ,_, 1997._CD 30._CD P._NP Stoica_NP and_CC A._NP Nehorai_NP ,_, "_`` MUSIC_NN maximum_NN likelihood_NN and_CC Cramer-Rao_NN bound_VVN "_'' ,_, IEEE_NP Trans_NP ._SENT 
+Acoust_NP ._SENT 
+Speech_NN Signal_NP Process_NN ._SENT 
+,_, vol_NP ._SENT 
+37_CD ,_, no_RB ._SENT 
+5_CD ,_, pp_NP ._SENT 
+720-741_CD ,_, May_NP 1989._CD 31._CD P._NP Stoica_NP and_CC A._NP Nehorai_NP ,_, "_`` MUSIC_NN maximum_NN likelihood_NN and_CC Cramer-Rao_NN bound_VVN :_: Further_JJR results_NNS and_CC comparisons_NNS "_'' ,_, IEEE_NP Trans_NP ._SENT 
+Acoust_NP ._SENT 
+Speech_NN Signal_NP Process_NN ._SENT 
+,_, vol_NP ._SENT 
+38_CD ,_, no_RB ._SENT 
+12_CD ,_, pp_NP ._SENT 
+2140-2150_CD ,_, Dec._NP 1990._CD 

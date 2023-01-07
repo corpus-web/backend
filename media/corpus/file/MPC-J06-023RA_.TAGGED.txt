@@ -1,0 +1,503 @@
+<title> Design_NN optimization_NN of_IN honeycomb_NN core_NN sandwich_NN panels_NNS for_IN maximum_JJ sound_JJ transmission_NN loss_NN </title> <author> Galgalikar_NP ,_, Rohan_NP ;_: Thompson_NP ,_, Lonny_NP L._NP </author> <Affiliation> 1_CD Department_NP of_IN Mechanical_NP Engineering_NP ,_, Clemson_NP University_NP ,_, Clemson_NP ;_: SC_NP ;_: 29634-0921_CD ,_, United_NP States_NPS </Affiliation> <year> 2016_CD </year> <Jounral> Journal_NN of_IN Vibration_NN and_CC Acoustics_NNS ,_, Transactions_NNS of_IN the_DT ASME_NN </Journal> <Publishing_house> American_NP Society_NP of_IN Mechanical_NP Engineers_NPS (_( ASME_NN )_) </Publishing_house> <Text_Collector> Liu_NP Kai，HEU_NP </Text_Collector> <DOI> 10.1115/1.4033459_CD </DOI> <URL> https_NNS :_: //asmedigitalcollection-asme-org-443_NN ._SENT 
+wvpn_NP ._SENT 
+hrbeu_NP ._SENT 
+edu_NP ._SENT 
+cn/vibrationacoustics/article/138/5/051005/377843/Design-Optimization-of-Honeycomb-Core-Sandwich_NP </URL> <Section> Abstract_JJ </Section> This_DT study_NN focuses_VVZ on_IN sound_JJ transmission_NN frequency_NN response_NN through_IN honeycomb_NN core_NN sandwich_NN panels_NNS with_IN in-plane_NN orientation_NN ._SENT 
+Specifically_RB ,_, an_DT optimization_NN technique_NN has_VHZ been_VBN presented_VVN to_TO determine_VV the_DT honeycomb_NN unit_NN cell_NN geometric_JJ parameters_NNS that_WDT maximize_VV the_DT sound_JJ transmission_NN loss_NN (_( STL_NN )_) through_IN a_DT sandwich_NN panel_NN ,_, while_IN maintaining_VVG constraints_NNS of_IN constant_JJ mass_NN and_CC overall_JJ dimensions_NNS of_IN panel_NN length_NN and_CC height_NN ._SENT 
+The_DT vibration_NN characteristics_NNS and_CC STL_NN response_NN of_IN a_DT sandwich_NN panel_NN are_VBP parameterized_VVN in_IN terms_NNS of_IN four_CD honeycomb_NN unit_NN cell_NN independent_JJ geometric_JJ parameters_NNS ;_: two_CD side_NN lengths_NNS ,_, cell_NN wall_NN thickness_NN ,_, and_CC interior_JJ cell_NN wall_NN angle_NN ._SENT 
+With_IN constraints_NNS of_IN constant_JJ mass_NN and_CC overall_JJ dimensions_NNS ,_, relationships_NNS are_VBP determined_VVN such_JJ that_IN the_DT number_NN of_IN independent_JJ variables_NNS needed_VVN to_TO define_VV the_DT honeycomb_NN cell_NN and_CC panel_NN geometry_NN is_VBZ reduced_VVN to_TO three_CD ;_: the_DT integer_NN number_NN of_IN unit_NN cells_NNS in_IN the_DT longitudinal_JJ direction_NN of_IN the_DT core_NN ,_, number_NN of_IN unit_NN cells_NNS in_IN the_DT height_NN direction_NN ,_, and_CC interior_JJ cell_NN wall_NN angle_NN ._SENT 
+The_DT optimization_NN procedure_NN is_VBZ implemented_VVN by_IN linking_VVG a_DT structural_JJ acoustic_JJ finite-element_NN (_( FE_NP )_) model_NN of_IN the_DT panel_NN ,_, with_IN modefrontier_NP ,_, a_DT general_JJ purpose_NN optimization_NN software_NN ._SENT 
+Optimum_JJ designs_NNS are_VBP obtained_VVN in_IN representative_JJ frequency_NN ranges_NNS within_IN the_DT resonance_NN region_NN of_IN the_DT STL_NN response_NN ._SENT 
+Optimized_VVN honeycomb_NN geometric_JJ solutions_NNS show_VVP at_IN least_JJS 20_CD %_NN increase_NN in_IN STL_NN response_NN compared_VVN to_TO standard_JJ hexagonal_JJ honeycomb_NN core_NN panels_NNS ._SENT 
+It_PP is_VBZ found_VVN that_IN the_DT STL_NN response_NN is_VBZ not_RB only_RB affected_VVN by_IN the_DT cell_NN wall_NN angle_NN ,_, but_CC strongly_RB depends_VVZ also_RB on_IN the_DT number_NN of_IN unit_NN cells_NNS in_IN the_DT horizontal_JJ and_CC vertical_JJ direction_NN ._SENT 
+Keywords_NNS :_: Acoustic_JJ emission_NN ,_, Smart_NP materials_NNS ,_, Structural_JJ acoustics_NNS ,_, Structures_NNS <Section> 1._CD Introduction_NN </Section> Sandwich_NP structures_NNS are_VBP used_VVN in_IN many_JJ applications_NNS requiring_VVG high_JJ stiffness_NN to_TO weight_NN ratio_NN ,_, high_JJ strength_NN ,_, and_CC high_JJ sound_JJ reduction_NN properties_NNS ._SENT 
+A_DT typical_JJ sandwich_NN panel_NN consists_VVZ of_IN a_DT complaint_NN core_NN sandwiched_VVN between_IN two_CD face_NN sheets_NNS resulting_VVG in_IN high_JJ effective_JJ bending_VVG stiffness_NN for_IN the_DT panel_NN ._SENT 
+The_DT core_NN can_MD be_VB made_VVN up_RP of_IN different_JJ materials_NNS and_CC geometries_NNS ,_, including_VVG cellular_JJ structures_NNS with_IN periodic_JJ unit_NN cells_NNS such_JJ as_IN honeycomb_NN ._SENT 
+Honeycomb_NN structures_NNS can_MD be_VB defined_VVN as_IN tessellation_NN of_IN hexagonal_JJ unit_NN cells_NNS ._SENT 
+The_DT primary_JJ advantage_NN ,_, offered_VVN by_IN the_DT use_NN of_IN honeycomb_NN structures_NNS for_IN the_DT core_NN of_IN the_DT sandwich_NN panel_NN ,_, is_VBZ that_IN the_DT effective_JJ structural_JJ properties_NNS (_( e._NP g._NP ,_, stiffness_NN and_CC vibration_NN characteristics_NNS )_) can_MD be_VB modified_VVN by_IN changing_VVG the_DT geometry_NN of_IN the_DT honeycomb_NN unit_NN cells_NNS without_IN changing_VVG the_DT base_NN material_NN or_CC overall_JJ panel_NN dimensions_NNS ._SENT 
+One_CD of_IN the_DT unique_JJ features_NNS of_IN honeycomb_NN structures_NNS is_VBZ that_IN when_WRB unit_NN geometry_NN is_VBZ designed_VVN with_IN re-entrant_JJ sides_NNS ,_, they_PP can_MD exhibit_VV an_DT effective_JJ negative_JJ Poisson_NP 's_POS ratio_NN ,_, a_DT property_NN that_WDT is_VBZ being_VBG used_VVN to_TO advantage_NN in_IN applications_NNS such_JJ as_IN shock_NN absorption_NN and_CC sound_JJ insulation_NN ._SENT 
+Honeycomb_NN structures_NNS with_IN negative_JJ Poisson_NP 's_POS ratio_NN are_VBP called_VVN “_JJ auxetic_JJ ”_NN honeycombs_NNS ._SENT 
+The_DT utility_NN of_IN sandwich_NN type_NN construction_NN ,_, as_RB opposed_VVN to_TO single_JJ wall_NN construction_NN ,_, for_IN sound_JJ reduction_NN application_NN was_VBD first_RB demonstrated_VVN by_IN Watters_NP and_CC Kurtze_NP ._SENT 
+Their_PP$ work_NN involved_VVN analytical_JJ and_CC experimental_JJ study_NN of_IN finite_JJ panels_NNS ,_, consisting_VVG of_IN alternating_VVG solid_JJ with_IN double_JJ walled_JJ cores_NNS ,_, and_CC I-section_NN core_NN ,_, over_IN the_DT frequency_NN range_NN of_IN 10–10,000_NP Hz_NP ._SENT 
+As_IN an_DT extension_NN of_IN this_DT work_NN ,_, Ford_NP et_CC al_NP ._SENT 
+and_CC Krokosky_NP and_CC Smolenski_NP presented_VVD analytical_JJ models_NNS for_IN determination_NN of_IN vibration_NN characteristics_NNS of_IN a_DT sandwich_NN panel_NN ._SENT 
+The_DT study_NN of_IN Ford_NP et_CC al_NP ._SENT 
+considered_VVN sandwich_NN panels_NNS with_IN polyurethane_NN foam_NN core_NN ,_, while_IN that_IN of_IN Krokosky_NP and_CC Smolenski_NP focused_VVD on_IN light_JJ weighted_JJ foam_NN core_NN sandwich_NN panels_NNS over_IN the_DT frequency_NN range_NN of_IN 1–6000_NP Hz_NP ._SENT 
+Dym_NP and_CC Lang_NP presented_VVD an_DT analytical_JJ model_NN to_TO calculate_VV STL_NN of_IN sandwich_NN panels_NNS constructed_VVN with_IN face_NN sheets_NNS with_IN open_JJ core_NN and_CC periodic_JJ stiffeners_NNS ._SENT 
+Shanbag_NP et_NP al_NP ._SENT 
+modeled_VVN the_DT sound_JJ transmission_NN characteristics_NNS of_IN sandwich_NN panels_NNS made_VVD up_RP of_IN viscoelastic_JJ cores_NNS The_DT reduction_NN of_IN sound_JJ passing_NN through_IN a_DT panel_NN is_VBZ by_IN convention_NN measured_VVN by_IN STL_NN ,_, STL=20_NP log10(1/τ)⁠_NP ,_, which_WDT is_VBZ related_VVN to_TO the_DT inverse_NN of_IN the_DT sound_JJ transmission_NN coefficient_NN τ_NN ,_, defined_VVN as_IN the_DT ratio_NN of_IN the_DT transmitted_VVN to_TO incident_NN sound_NN pressure_NN ._SENT 
+The_DT unit_NN for_IN measurement_NN of_IN STL_NN is_VBZ decibel_NN (_( dB_NP )_) ._SENT 
+Moore_NP et_NP al_NP ._SENT 
+studied_VVN sound_JJ transmission_NN characteristics_NNS of_IN sandwich_NN panels_NNS consisting_VVG of_IN homogeneous_JJ isotropic_JJ cores_NNS as_RB well_RB as_IN orthotropic_JJ cores_NNS (_( honeycomb_NN structures_NNS )_) ,_, analytically_RB and_CC experimentally_RB ,_, over_IN a_DT frequency_NN range_NN of_IN 1–10,000_NP Hz_NP [_SYM 21_CD ]_SYM ._SENT 
+The_DT authors_NNS suggested_VVD the_DT use_NN of_IN flexible_JJ in-plane_NNS honeycomb_VVP core_JJ sandwich_NN panels_NNS over_IN the_DT stiffer_JJR out-of-plane_NN structures_NNS for_IN higher_JJR STL_NN response_NN ._SENT 
+Typical_JJ honeycomb_NN core_NN sandwich_NN panels_NNS ,_, illustrating_VVG the_DT in-plane_NN and_CC out-of-plane_NN configurations_NNS ,_, are_VBP shown_VVN in_IN Fig_NN ._SENT 
+1._CD These_DT configurations_NNS are_VBP defined_VVN with_IN respect_NN to_TO the_DT load_NN orientation_NN ._SENT 
+For_IN the_DT in-plane_NN configuration_NN ,_, the_DT load_NN is_VBZ oriented_VVN in_IN the_DT plane_NN of_IN the_DT honeycomb_NN (_( see_VV Fig_NN ._SENT 
+1(a_NP )_) )_) ,_, whereas_IN for_IN the_DT out-of-plane_NN configuration_NN ,_, the_DT load_NN is_VBZ oriented_VVN perpendicular_JJ to_TO the_DT plane_NN of_IN the_DT honeycomb_NN (_( see_VV Fig_NN ._SENT 
+1(b_NP )_) )_) ._SENT 
+Due_JJ to_TO their_PP$ high_JJ compliance_NN ,_, the_DT in-plane_NN honeycomb_NN structures_NNS are_VBP used_VVN in_IN variety_NN of_IN applications_NNS such_JJ as_IN nonpneumatic_JJ tires_NNS ,_, morphing_VVG wings_NNS in_IN aircrafts_NNS ,_, and_CC energy_NN absorption/impact_NN applications_NNS ._SENT 
+In_IN recent_JJ years_NNS ,_, optimization_NN studies_NNS have_VHP been_VBN conducted_VVN to_TO obtain_VV higher_JJR STL_NN response_NN using_VVG different_JJ configurations_NNS of_IN sandwich_NN panel_NN cores_NNS ._SENT 
+Thamburaj_NP et_NP al_NP ._SENT 
+,_, through_IN their_PP$ optimization_NN study_NN ,_, concluded_VVD that_IN the_DT sandwich_NN panels_NNS with_IN homogenous_JJ anisotropic_JJ cores_NNS have_VHP higher_JJR STL_NN response_NN compared_VVN to_TO isotropic_JJ cores_NNS ._SENT 
+In_IN this_DT study_NN ,_, a_DT different_JJ optimum_JJ design_NN was_VBD obtained_VVN at_IN each_DT discrete_JJ frequency_NN considered_VVN ._SENT 
+In_IN practice_NN ,_, for_IN a_DT panel_NN excited_VVN by_IN a_DT wide_JJ range_NN of_IN incident_NN sound_NN frequencies_NNS ,_, it_PP would_MD desirable_JJ to_TO obtain_VV an_DT optimal_JJ design_NN solution_NN ,_, which_WDT exhibits_VVZ relatively_RB high_JJ STL_NN response_NN over_IN a_DT wide_JJ band_NN of_IN frequencies_NNS ._SENT 
+Fig_NN ._SENT 
+1_CD Honeycomb_NN core_NN sandwich_NN panels_NNS illustrating_VVG (_( a_DT )_) In-plane_NN configuration_NN where_WRB the_DT load_NN is_VBZ parallel_JJ to_TO the_DT plane_NN of_IN the_DT honeycomb_NN unit_NN cell_NN and_CC (_( b_LS )_) out-of-plane_NN configuration_NN where_WRB the_DT load_NN is_VBZ perpendicular_JJ to_TO the_DT plane_NN of_IN the_DT honeycomb_NN unit_NN cell_NN ._SENT 
+Denli_NP et_NP al_NP ._SENT 
+also_RB conducted_VVN optimization_NN of_IN sandwich_NN panels_NNS with_IN the_DT in-plane_NN honeycomb_NN cores_NNS for_IN high_JJ STL_NN response_NN ._SENT 
+Nodal_JJ displacements_NNS of_IN the_DT beam_NN FEs_NNS ,_, used_VVN to_TO model_VV the_DT honeycomb_NN cell_NN walls_NNS ,_, were_VBD considered_VVN as_IN design_NN variables_NNS ,_, resulting_VVG in_IN a_DT high_JJ number_NN of_IN design_NN variables_NNS (_( more_JJR than_IN 100_CD )_) ._SENT 
+The_DT optimum_JJ design_NN produced_VVD honeycombs_NNS with_IN irregular_JJ and_CC nonperiodic_JJ geometry_NN and_CC varying_VVG wall_NN thickness_NN ,_, which_WDT would_MD be_VB difficult_JJ to_TO manufacture_VV economically_RB ._SENT 
+Franco_NP et_NP al_NP ._SENT 
+numerically_RB studied_VVN the_DT structural_JJ acoustic_JJ response_NN of_IN sandwich_NN panels_NNS with_IN composite_JJ laminated_VVN facesheets_NNS and_CC various_JJ core_NN geometries_NNS ._SENT 
+They_PP conducted_VVD optimization_NN to_TO minimize_VV the_DT sound_JJ transmission_NN characteristics_NNS of_IN sandwich_NN panel_NN with_IN trusslike_JJ core_NN subjected_VVN to_TO uniform_JJ and_CC nonuniform_JJ pressure_NN load_NN in_IN the_DT 1800–2500_JJ Hz_NP frequency_NN range_NN ._SENT 
+The_DT design_NN variables_NNS were_VBD truss_NN cross_NN section_NN diameter_NN in_IN two_CD in-plane_NN directions_NNS and_CC fiber_NN orientations_NNS in_IN the_DT three_CD layers_NNS of_IN the_DT facesheets_NNS ._SENT 
+However_RB ,_, this_DT study_NN did_VVD not_RB consider_VV optimization_NN of_IN honeycomb_NN core_NN sandwich_NN panels_NNS ._SENT 
+Denli_NP and_CC Sun_NP conducted_VVD optimization_NN study_NN of_IN cylindrical_JJ sandwich_NN panels_NNS ,_, resembling_VVG aircraft_NN fuselage_NN ,_, to_TO reduce_VV the_DT sound_JJ transmission_NN to_TO the_DT interior_NN of_IN the_DT cylinder_NN from_IN exterior_JJ sources_NNS ._SENT 
+They_PP used_VVD combination_NN of_IN boundary_NN element_NN and_CC FE_NP method_NN to_TO study_VV the_DT structural-acoustic_JJ response_NN of_IN the_DT sandwich_NN panel_NN along_IN with_IN exterior_JJ and_CC interior_JJ (_( with_IN respect_NN to_TO the_DT cylindrical_JJ shell_NN )_) acoustic_JJ regions_NNS in_IN the_DT 1–250_JJ Hz_NP frequency_NN range_NN ._SENT 
+The_DT cylindrical_JJ shell_NN consisted_VVN of_IN facesheets_NNS and_CC core_NN made_VVN up_RP of_IN anisotropic_JJ composite_JJ material_NN ,_, with_IN the_DT fiber_NN orientations_NNS as_IN the_DT design_NN variables_NNS ._SENT 
+They_PP determined_VVD the_DT optimal_JJ composite_JJ layout_NN for_IN reducing_VVG sound_JJ transmission_NN to_TO the_DT shell_NN interior_NN ._SENT 
+Ruzzene_NP studied_VVD the_DT structural-acoustic_JJ response_NN of_IN in-plane_NN honeycomb_NN sandwich_NN structures_NNS ._SENT 
+By_IN comparing_VVG four_CD different_JJ configurations_NNS ,_, two_CD of_IN these_DT were_VBD auxetic_JJ ,_, it_PP was_VBD observed_VVN that_IN the_DT re-entrant_JJ or_CC auxetic_JJ honeycombs_NNS have_VHP better_JJR STL_NN response_NN in_IN comparison_NN to_TO regular_JJ honeycomb_NN structures_NNS which_WDT exhibit_VV positive_JJ Poisson_NP 's_POS ratio_NN ._SENT 
+Griese_NP et_NP al_NP ._SENT 
+conducted_VVN a_DT systematic_JJ parametric_JJ study_NN on_IN in-plane_NN honeycomb_NN sandwich_NN structures_NNS to_TO study_VV their_PP$ STL_NN response_NN ._SENT 
+The_DT cell_NN wall_NN angle_NN θ_NN was_VBD considered_VVN as_IN a_DT design_NN variable_NN ,_, varying_VVG its_PP$ value_NN from_IN −45_JJ deg_NN to_TO 45_CD deg_NN ,_, in_IN increments_NNS of_IN 5_CD deg_NN ,_, to_TO demonstrate_VV that_IN ,_, for_IN a_DT constant_JJ mass_NN while_IN keeping_VVG the_DT same_JJ size_NN and_CC number_NN of_IN honeycomb_NN unit_NN cells_NNS in_IN the_DT core_NN of_IN a_DT sandwich_NN panel_NN ,_, the_DT auxetic_JJ honeycomb_NN structures_NNS have_VHP a_DT higher_JJR STL_NN response_NN compared_VVN to_TO that_DT of_IN the_DT regular_JJ honeycombs_NNS ._SENT 
+A_DT honeycomb_NN unit_NN cell_NN can_MD be_VB defined_VVN by_IN specifying_VVG four_CD independent_JJ geometric_JJ parameters_NNS :_: cell_NN wall_NN angle_NN θ⁠_NN ,_, cell_NN height_NN h_NN ,_, cell_NN slant_NN length_NN l_NN ,_, and_CC cell_NN wall_NN thickness_NN t_NN ,_, as_RB shown_VVN in_IN Fig_NN ._SENT 
+2._CD The_DT effective_JJ mechanical_JJ properties_NNS of_IN the_DT honeycomb_NN core_NN ,_, including_VVG mass_NN ,_, and_CC the_DT vibration_NN characteristics_NNS of_IN the_DT sandwich_NN panel_NN ,_, are_VBP dependent_JJ on_IN these_DT unit_NN cell_NN geometric_JJ parameters_NNS ._SENT 
+In_IN the_DT previous_JJ studies_NNS ,_, the_DT effect_NN of_IN only_RB a_DT single_JJ parameter_NN (_( cell_NN wall_NN angle_NN θ_NN )_) was_VBD considered_VVN on_IN the_DT STL_NN response_NN of_IN the_DT honeycomb_NN core_NN sandwich_NN panel_NN ._SENT 
+The_DT objective_NN of_IN the_DT current_JJ study_NN is_VBZ to_TO present_VV an_DT optimization_NN technique_NN ,_, to_TO determine_VV optimum_JJ geometry_NN of_IN a_DT honeycomb_NN unit_NN cell_NN while_IN maintaining_VVG the_DT periodicity_NN ,_, that_WDT will_MD maximize_VV STL_NN response_NN of_IN an_DT in-plane_NN honeycomb_NN core_NN sandwich_NN panel_NN for_IN a_DT given_VVN frequency_NN range_NN ._SENT 
+The_DT design_NN variables_NNS are_VBP defined_VVN such_JJ that_IN the_DT effect_NN of_IN all_PDT the_DT four_CD unit_NN cell_NN parameters_NNS (_( on_IN the_DT STL_NN performance_NN of_IN the_DT honeycomb_NN core_NN sandwich_NN panel_NN )_) is_VBZ incorporated_VVN ._SENT 
+The_DT STL_NN response_NN of_IN a_DT sandwich_NN panel_NN is_VBZ affected_VVN by_IN its_PP$ :_: (_( a_DT )_) total_JJ dimensions_NNS (_( height_NN ,_, width_NN ,_, and_CC depth_NN )_) ;_: (_( b_LS )_) mass_NN ;_: (_( c_LS )_) properties_NNS of_IN the_DT base_NN material_NN used_VVN to_TO construct_VV the_DT core_NN and_CC face-sheets_NNS ;_: and_CC (_( d_LS )_) the_DT stiffness/mechanical_JJ properties_NNS of_IN the_DT face-sheets_NNS and_CC core_NN ._SENT 
+The_DT current_JJ study_NN focuses_VVZ specifically_RB on_IN the_DT effect_NN of_IN change_NN in_IN core_JJ geometry_NN on_IN the_DT STL_NN response_NN of_IN the_DT sandwich_NN panel_NN ;_: hence_RB ,_, the_DT total_JJ dimensions_NNS ,_, mass_NN ,_, and_CC material_NN properties_NNS of_IN the_DT face-sheets_NNS will_MD be_VB maintained_VVN constant_JJ throughout_IN the_DT study_NN ._SENT 
+Furthermore_RB ,_, in_IN order_NN to_TO attribute_VV the_DT changes_NNS in_IN the_DT STL_NN response_NN of_IN the_DT sandwich_NN panel_NN purely_RB to_TO the_DT changes_NNS in_IN honeycomb_NN unit_NN cell_NN geometry_NN ,_, the_DT total_JJ dimensions_NNS and_CC mass_NN of_IN the_DT core_NN will_MD also_RB be_VB maintained_VVN constant_JJ throughout_IN the_DT study_NN ._SENT 
+As_IN the_DT STL_NN is_VBZ a_DT frequency_NN dependent_JJ phenomenon_NN ,_, the_DT results_NNS of_IN the_DT optimization_NN procedure_NN will_MD be_VB presented_VVN for_IN two_CD representative_NN frequency_NN ranges_NNS :_: 200–400_NP Hz_NP and_CC 600–800_NP Hz_NP ,_, within_IN the_DT resonant_JJ frequency_NN region_NN of_IN the_DT structural-acoustic_JJ response_NN ._SENT 
+Fig_NN ._SENT 
+2_CD Honeycomb_NN unit_NN cell_NN configuration_NN (_( a_DT )_) regular_JJ and_CC (_( b_LS )_) auxetic_JJ ._SENT 
+An_DT outline_NN of_IN the_DT paper_NN is_VBZ as_RB follows_VVZ :_: In_IN Sec_NN ._SENT 
+2_LS ,_, the_DT design_NN optimization_NN problem_NN ,_, stating_VVG the_DT design_NN variables_NNS ,_, constraints_NNS and_CC objective_NN is_VBZ discussed_VVN ._SENT 
+The_DT structural-acoustic_JJ FE_NP model_NN of_IN the_DT honeycomb_NN core_NN sandwich_NN panel_NN ,_, including_VVG the_DT boundary_NN conditions_NNS and_CC applied_VVN loads_NNS ,_, used_VVN in_IN the_DT optimization_NN procedure_NN is_VBZ also_RB described_VVN ._SENT 
+The_DT last_JJ part_NN of_IN this_DT section_NN focuses_VVZ on_IN the_DT details_NNS of_IN implementing_VVG the_DT optimization_NN procedure_NN in_IN a_DT commercial_JJ optimization_NN package_NN modefrontier_NN by_IN linking_VVG it_PP with_IN abaqus_NP ,_, a_DT general_JJ purpose_NN commercial_JJ FE_NP software_NN package_NN ._SENT 
+Section_NN 3_CD describes_VVZ the_DT STL_NN results_NNS obtained_VVN from_IN a_DT design_NN of_IN experiments_NNS (_( DOEs_VVZ )_) conducted_VVN using_VVG the_DT FE-based_JJ structural-acoustic_JJ model_NN of_IN the_DT honeycomb_NN core_NN sandwich_NN panel_NN ._SENT 
+The_DT results_NNS of_IN DOE_NNS are_VBP used_VVN to_TO fit_VV a_DT response_NN surface_NN ,_, which_WDT is_VBZ further_RBR used_VVN to_TO perform_VV the_DT global_JJ and_CC local_JJ optimization_NN studies_NNS for_IN the_DT determination_NN of_IN honeycomb_NN core_NN geometries_NNS for_IN maximum_JJ STL_NN response_NN of_IN the_DT sandwich_NN panel_NN in_IN the_DT considered_VVN frequency_NN ranges_NNS ._SENT 
+The_DT trends_NNS observed_VVD in_IN the_DT STL_NN versus_CC frequency_NN curves_NNS of_IN the_DT optimum_JJ designs_NNS are_VBP discussed_VVN in_IN detail_NN in_IN the_DT last_JJ part_NN of_IN this_DT section_NN ._SENT 
+In_IN Sec_NN ._SENT 
+4_LS ,_, sensitivity_NN of_IN the_DT STL_NN response_NN of_IN the_DT sandwich_NN panel_NN to_TO the_DT design_NN variables_NNS is_VBZ discussed_VVN ._SENT 
+Furthermore_RB ,_, the_DT correlation_NN observed_VVD between_IN the_DT low_JJ in-plane_NN stiffness_NN of_IN the_DT honeycomb_NN core_NN and_CC high_JJ STL_NN response_NN of_IN the_DT sandwich_NN panel_NN is_VBZ illustrated_VVN ._SENT 
+Lastly_RB ,_, Sec_NN ._SENT 
+5_CD summarizes_VVZ the_DT main_JJ findings_NNS and_CC outcomes_NNS of_IN this_DT study_NN ._SENT 
+<Section> 2._CD Design_NP Optimization_NP Problem_NN </Section> 2.1_CD Design_NP Constants_NNS ._SENT 
+The_DT overall_JJ dimensions_NNS of_IN the_DT sandwich_NN panel_NN are_VBP maintained_VVN constant_JJ as_IN length_NN L_NP =_SYM 2_CD m_NN and_CC height_NN H_NP =_SYM 8.66_CD cm_NN ,_, which_WDT gives_VVZ a_DT length_NN to_TO height_NN ratio_NN of_IN L/H_NP =_SYM 22_CD ,_, consistent_JJ with_IN the_DT studies_NNS in_IN Refs_NNS ._SENT 
+[_SYM 30_CD ]_SYM and_CC [_SYM 31_CD ]_SYM ;_: see_VV Fig_NN ._SENT 
+3._CD The_DT base_NN material_NN for_IN the_DT face-sheets_NNS and_CC the_DT honeycomb_NN core_NN is_VBZ aluminum_NN with_IN Young_NP 's_POS modulus_NN E_NN =_SYM 71.9_CD GPa_NP ,_, Poisson_NP 's_POS ratio_NN υ_NN =_SYM 0.33_CD ,_, and_CC mass_NN density_NN ρ_NP =_SYM 2700_CD kg/m3_NN ._SENT 
+The_DT STL_NN response_NN of_IN sandwich_NN panel_NN increases_NNS with_IN an_DT increase_NN in_IN its_PP$ mass_NN ._SENT 
+In_IN order_NN to_TO design_VV the_DT honeycomb_NN sandwich_NN panel_NN for_IN high_JJ STL_NN on_IN the_DT basis_NN of_IN geometric_JJ modifications_NNS to_TO the_DT honeycomb_NN unit_NN cell_NN intended_VVN to_TO change_VV only_RB the_DT stiffness_NN properties_NNS ,_, mass_NN of_IN the_DT sandwich_NN panel_NN is_VBZ kept_VVN constant_JJ ._SENT 
+The_DT total_JJ mass_NN of_IN the_DT sandwich_NN panel_NN consists_VVZ of_IN mass_NN of_IN the_DT core_NN and_CC its_PP$ two_CD face_NN sheets_NNS ,_, given_VVN by_IN @（1）_JJ Fig_NN ._SENT 
+3_CD Examples_NNS of_IN sandwich_NN panels_NNS with_IN same_JJ global_JJ dimensions_NNS but_CC different_JJ core_NN geometries_NNS ._SENT 
+Table_NN 1_CD Upper_NP and_CC lower_JJR limits_NNS on_IN the_DT design_NN variables_NNS where_WRB ρ*_NN is_VBZ the_DT effective_JJ density_NN of_IN the_DT honeycomb_NN core_NN @（2）_NN In_IN the_DT above_JJ t_NN ,_, l_NN ,_, h_NN ,_, and_CC θ_NP ,_, are_VBP unit_NN cell_NN geometric_JJ parameters_NNS ,_, see_VV Fig_NN ._SENT 
+2._CD In_IN this_DT study_NN ,_, the_DT out-of-plane_NN thickness_NN D_NP is_VBZ set_VVN to_TO unity_NN for_IN the_DT two-dimensional_JJ (_( 2D_NN )_) in-plane_NN model_NN ._SENT 
+Constant_JJ mass_NN of_IN the_DT two_CD face_NN sheets_NNS is_VBZ maintained_VVN with_IN constant_JJ thickness_NN ,_, tf_NP =_SYM 2.5_CD mm_NP throughout_IN the_DT study_NN ._SENT 
+Additionally_RB ,_, constant_JJ mass_NN of_IN the_DT honeycomb_NN core_NN is_VBZ maintained_VVN by_IN keeping_VVG its_PP$ effective_JJ density_NN ,_, ρ∗⁠_NP ,_, at_IN 270_CD kg/m3_NN ,_, resulting_VVG in_IN a_DT core_NN mass_NN 17_CD times_NNS the_DT mass_NN of_IN the_DT face_NN sheets_NNS ._SENT 
+These_DT values_NNS are_VBP consistent_JJ with_IN the_DT values_NNS used_VVN in_IN Refs_NNS ._SENT 
+[_SYM 30_CD ]_SYM and_CC [_SYM 31_CD ]_SYM ._SENT 
+Details_NNS of_IN the_DT procedure_NN for_IN maintaining_VVG constant_JJ effective_JJ core_NN density_NN for_IN different_JJ honeycomb_NN unit_NN cell_NN geometries_NNS are_VBP explained_VVN in_IN Sec_NN ._SENT 
+2.3_CD ._SENT 
+2.2_CD Independent_JJ Design_NN Variables_NNS As_IN discussed_VVN in_IN the_DT introduction_NN ,_, to_TO incorporate_VV the_DT effect_NN of_IN the_DT four_CD honeycomb_NN unit_NN cell_NN parameters_NNS t_NN ,_, h_NN ,_, l_NN ,_, and_CC θ⁠_NP ,_, on_IN the_DT STL_NN response_NN of_IN the_DT sandwich_NN panel_NN ,_, while_IN maintaining_VVG mass_NN and_CC total_JJ dimensions_NNS constant_JJ ,_, the_DT following_VVG three_CD independent_JJ design_NN variables_NNS are_VBP defined_VVN :_: angle_NN between_IN the_DT cell_NN walls_NNS θ⁠_JJ ,_, number_NN of_IN unit_NN cells_NNS in_IN the_DT longitudinal_JJ or_CC horizontal_JJ direction_NN of_IN the_DT core_JJ Nh_NP ,_, and_CC the_DT number_NN of_IN unit_NN cells_NNS in_IN the_DT vertical_JJ direction_NN Nv_NP ._SENT 
+The_DT upper_JJ and_CC lower_JJR limits_NNS on_IN the_DT three_CD design_NN variables_NNS are_VBP as_RB shown_VVN in_IN Table_NN 1._CD The_DT number_NN of_IN unit_NN cells_NNS in_IN the_DT horizontal_JJ and_CC vertical_JJ directions_NNS Nh_NP and_CC Nv_NP ,_, respectively_RB ,_, are_VBP constrained_VVN to_TO have_VH integer_NN values_NNS in_IN order_NN to_TO completely_RB fill_VV the_DT core_NN dimensions_NNS such_PDT that_DT Lx_NP and_CC Ly_NP (_( honeycomb_NN unit_NN cell_NN dimensions_NNS )_) are_VBP multiples_NNS of_IN L_NP and_CC H_NP (_( sandwich_NN panel_NN global_JJ dimensions_NNS )_) ,_, respectively_RB ,_, see_VV Figs_NNS ._SENT 
+2_CD and_CC 3._CD The_DT cell_NN wall_NN angle_NN θ_NN is_VBZ also_RB constrained_VVN to_TO be_VB an_DT integer_NN in_IN order_NN to_TO reduce_VV the_DT number_NN of_IN possible_JJ designs_NNS ._SENT 
+Examples_NNS of_IN sandwich_NN panels_NNS obtained_VVN with_IN different_JJ combinations_NNS of_IN the_DT independent_JJ design_NN variables_NNS are_VBP shown_VVN in_IN Fig_NN ._SENT 
+3._CD 2.3_CD Derived_VVN Variables_NNS ._SENT 
+The_DT honeycomb_NN core_NN is_VBZ a_DT tessellation_NN of_IN its_PP$ unit_NN cell_NN ._SENT 
+In_IN order_NN to_TO construct_VV a_DT unit_NN cell_NN ,_, as_IN shown_VVN earlier_RBR in_IN Fig_NN ._SENT 
+2_CD ,_, four_CD geometric_JJ parameters_NNS must_MD be_VB specified_VVN :_: cell_NN height_NN h_NN ,_, slant_NN length_NN l_NN ,_, cell_NN wall_NN angle_NN θ⁠_NN ,_, and_CC cell_NN wall_NN thickness_NN t._NP The_DT cell_NN wall_NN angle_NN θ_NN is_VBZ an_DT independent_JJ design_NN variable_NN ;_: hence_RB ,_, the_DT three_CD remaining_VVG parameters_NNS have_VHP to_TO be_VB calculated_VVN for_IN the_DT complete_JJ definition_NN of_IN the_DT honeycomb_NN unit_NN cell_NN ._SENT 
+Fig_NN ._SENT 
+4_CD Auxetic_JJ honeycomb_NN unit_NN cell_NN configurations_NNS with_IN (_( a_DT )_) constraint_NN satisfied_JJ h_NN >_SYM |2_JJ l_NN sin_NN θ|_NN and_CC (_( b_LS )_) constraint_NN not_RB satisfied_JJ h_NN >_SYM |2_JJ l_NN sin_NN θ|_NN ._SENT 
+Given_VVN L_NP ,_, H_NP ,_, Nh_NP ,_, and_CC Nv_NP ,_, the_DT unit_NN cell_NN height_NN Lx_NN and_CC width_NN Ly_NP are_VBP calculated_VVN from_IN @（3）_JJ @（4）_NN Referring_VVG to_TO the_DT geometry_NN of_IN a_DT unit_NN cell_NN in_IN Fig_NN ._SENT 
+2_LS ,_, the_DT cell_NN wall_NN height_NN h_NN and_CC slant_NN length_NN l_NN are_VBP then_RB calculated_VVN from_IN @（5）_JJ @（6）_NN With_IN a_DT constant_JJ effective_JJ density_NN of_IN the_DT honeycomb_NN core_NN ρ∗⁠_NN ,_, the_DT cell_NN wall_NN thickness_NN t_NN can_MD be_VB calculated_VVN from_IN Eq_NP ._SENT 
+(_( 2_CD )_) as_IN @（7）_NN Thus_RB ,_, even_RB though_IN cell_NN height_NN h_NN ,_, slant_NN height_NN l_NN ,_, and_CC cell_NN wall_NN angle_NN θ_NN are_VBP varied_VVN for_IN different_JJ designs_NNS ,_, by_IN changing_VVG the_DT thickness_NN of_IN the_DT cell_NN walls_NNS ,_, the_DT mass_NN of_IN the_DT honeycomb_NN core_NN is_VBZ maintained_VVN constant_JJ ._SENT 
+2.4_CD Geometric_JJ Design_NN Constraints_NNS ._SENT 
+For_IN regular_JJ honeycomb_NN with_IN (_( θ≥0deg)⁠_NP ,_, certain_JJ combinations_NNS of_IN the_DT independent_JJ design_NN variables_NNS within_IN the_DT given_VVN limits_NNS result_NN in_IN infeasible_JJ designs_NNS with_IN h_NN <_SYM 0._CD To_TO eliminate_VV this_DT possibility_NN ,_, the_DT cell_NN wall_NN height_NN h_NN is_VBZ constrained_VVN to_TO be_VB greater_JJR than_IN 2_CD mm_NP (_( h≥2_NP mm)⁠_NP ._SENT 
+Restricting_VVG the_DT minimum_JJ value_NN to_TO 2_CD mm_NP provides_VVZ a_DT constraint_NN for_IN ease_NN of_IN manufacturing_NN ._SENT 
+For_IN auxetic_JJ honeycombs_NNS ,_, (_( θ_NP <0deg) the constraint, (h> |2_NP l_NN sin_NN θ|)⁠_NN ,_, has_VHZ been_VBN imposed_VVN to_TO prevent_VV overlap_VV of_IN the_DT geometry_NN as_IN demonstrated_VVN in_IN Fig_NN ._SENT 
+4._CD As_RB seen_VVN in_IN the_DT figure_NN ,_, violation_NN of_IN the_DT constraint_NN leads_VVZ to_TO an_DT infeasible_JJ geometry_NN of_IN the_DT honeycomb_NN unit_NN cell_NN ._SENT 
+2.5_CD Structural-Acoustic_JJ FE_NP Model_NP ._SENT 
+The_DT structural-acoustic_JJ FE_NP model_NN consists_VVZ of_IN an_DT in-plane_NN honeycomb_NN core_NN sandwich_NN panel_NN ,_, with_IN an_DT air_NN domain_NN ,_, as_RB shown_VVN in_IN Fig_NN ._SENT 
+5._CD The_DT sandwich_NN panel_NN divides_VVZ the_DT model_NN domain/space_NN into_IN two_CD regions_NNS :_: incident_NN side_NN below_IN the_DT sandwich_NN panel_NN and_CC the_DT transmitted_JJ side_NN that_WDT is_VBZ above_IN it_PP ._SENT 
+Air_NN domain_NN is_VBZ modeled_VVN on_IN the_DT transmitted_JJ side_NN of_IN sandwich_NN panel_NN ._SENT 
+Fig_NN ._SENT 
+5_CD Schematic_NN of_IN the_DT structural-acoustic_JJ FE_NP model_NN ._SENT 
+Fig_NN ._SENT 
+6_CD Mesh_NN model_NN of_IN the_DT structural-acoustic_JJ domain_NN ._SENT 
+The_DT in-plane_NN configuration_NN of_IN the_DT sandwich_NN panel_NN is_VBZ modeled_VVN ,_, since_IN it_PP has_VHZ higher_JJR STL_NN response_NN due_JJ to_TO its_PP$ low_JJ in-plane_NN stiffness_NN compared_VVN with_IN the_DT out-of_JJ plane_NN configuration_NN ,_, as_RB discussed_VVN in_IN Ref_NN ._SENT 
+[_SYM 21_CD ]_SYM ._SENT 
+A_DT uniform_JJ harmonic_JJ pressure_NN with_IN unit_NN amplitude_NN has_VHZ been_VBN applied_VVN perpendicular_JJ to_TO the_DT lower_JJR face_NN sheet_NN of_IN the_DT sandwich_NN panel_NN on_IN its_PP$ incident_NN side_NN ._SENT 
+This_DT implies_VVZ the_DT presence_NN of_IN a_DT plane_NN incident_NN wave_NN ._SENT 
+As_IN a_DT consequence_NN of_IN the_DT applied_VVN pressure_NN ,_, the_DT plate_NN vibrates_VVZ and_CC radiates_VVZ sound_NN on_IN the_DT transmitted_JJ side_NN ._SENT 
+“_JJ Pinned_VVN ”_JJ type_NN boundary_NN conditions_NNS are_VBP applied_VVN to_TO the_DT ends_NNS of_IN the_DT sandwich_NN panel_NN ,_, restricting_VVG translation_NN in_IN the_DT X_NP and_CC Y_NP directions_NNS while_IN allowing_VVG free_JJ rotation_NN as_IN shown_VVN in_IN Fig_NN ._SENT 
+5._CD The_DT STL_NN response_NN of_IN a_DT structure_NN is_VBZ affected_VVN by_IN the_DT angle_NN of_IN incident_NN pressure_NN wave_NN ._SENT 
+The_DT STL_NN response_NN is_VBZ maximum_JJ at_IN 0_CD deg_NN normal_JJ incidence_NN ,_, e._NP g._NP ,_, Ref_NN ._SENT 
+[_SYM 33_CD ]_SYM ._SENT 
+Therefore_RB ,_, in_IN the_DT present_JJ work_NN ,_, the_DT zero_CD degree_NN incident_NN angle_NN plane_NN wave_NN is_VBZ used_VVN ._SENT 
+The_DT air_NN domain_NN has_VHZ a_DT semicircular_JJ geometry_NN with_IN its_PP$ radius_NN equal_JJ to_TO the_DT length_NN of_IN the_DT sandwich_NN plate_NN L._NP Although_IN the_DT air_NN domain_NN has_VHZ a_DT finite_JJ size_NN ,_, the_DT effect_NN of_IN presence_NN of_IN an_DT infinitely_RB large_JJ air_NN domain_NN has_VHZ been_VBN modeled_VVN by_IN applying_VVG a_DT nonreflecting_VVG boundary_NN condition_NN on_IN its_PP$ semicircular_JJ edge_NN ._SENT 
+This_DT boundary_NN condition_NN ensures_VVZ that_IN the_DT transmitted_JJ sound_NN waves_NNS travel_VVP in_IN the_DT air_NN domain_NN to_TO infinity_NN without_IN reflecting_VVG back_RB from_IN the_DT semicircular_JJ edge_NN ._SENT 
+The_DT nonreflecting_VVG boundary_NN condition_NN is_VBZ typically_RB effective_JJ when_WRB it_PP is_VBZ applied_VVN at_IN a_DT sufficiently_RB large_JJ distance_NN from_IN the_DT source_NN of_IN vibration_NN ._SENT 
+In_IN this_DT case_NN ,_, the_DT distance_NN L_NP was_VBD found_VVN to_TO be_VB sufficient_JJ and_CC produced_VVN correct_JJ results_NNS ._SENT 
+A_DT previous_JJ study_NN has_VHZ shown_VVN that_IN modeling_VVG the_DT open_JJ cavities_NNS in_IN the_DT honeycomb_NN unit_NN cells_NNS to_TO be_VB filled_VVN with_IN air_NN ,_, instead_RB of_IN vacuum_NN ,_, does_VVZ not_RB affect_VV the_DT accuracy_NN of_IN the_DT STL_NN response_NN significantly_RB ._SENT 
+Hence_RB to_TO maintain_VV computational_JJ efficiency_NN ,_, the_DT open_JJ cavities_NNS in_IN the_DT core_NN of_IN the_DT sandwich_NN panel_NN have_VHP been_VBN considered_VVN to_TO be_VB filled_VVN with_IN vacuum_NN ._SENT 
+The_DT FE_NP modeling_NN in_IN the_DT current_JJ study_NN is_VBZ done_VVN using_VVG the_DT general_JJ purpose_NN commercial_JJ FE_NP software_NN ,_, abaqus_NP 6.9.1_CD [_SYM 35_CD ]_SYM ._SENT 
+The_DT honeycomb_NN core_NN and_CC the_DT face_NN sheets_NNS have_VHP been_VBN discretized_VVN using_VVG three-noded_JJ quadratic_JJ Timoshenko_NP beam_NN elements_NNS (_( B22_NN in_IN abaqus_NN )_) ._SENT 
+Air_NP domain_NN has_VHZ been_VBN discretized_VVN with_IN three-noded_JJ linear_JJ 2D_JJ acoustic_JJ triangular_JJ elements_NNS (_( AC2D3_NN in_IN abaqus_NN )_) ._SENT 
+As_IN it_PP is_VBZ shown_VVN in_IN Fig_NN ._SENT 
+6_CD ,_, the_DT mesh_NN for_IN the_DT air_NN domain_NN is_VBZ nonuniform_JJ ._SENT 
+The_DT mesh_NN size_NN is_VBZ finer_JJR near_IN the_DT sandwich_NN panel_NN ,_, compared_VVN to_TO semicircular_JJ geometry_NN ,_, to_TO accurately_RB capture_VV the_DT pressure_NN changes_NNS due_JJ to_TO vibrating_VVG panel_NN ._SENT 
+The_DT connectivity_NN between_IN air_NN and_CC sandwich_NN panel_NN is_VBZ established_VVN by_IN the_DT use_NN of_IN “_JJ tie_NN constraints_NNS ”_JJ in_IN abaqus_NP ._SENT 
+To_TO obtain_VV an_DT indication_NN of_IN the_DT mesh_NN size_NN relative_JJ to_TO the_DT minimum_JJ wavelength_NN at_IN maximum_JJ frequency_NN ,_, the_DT wavelength_NN is_VBZ estimated_VVN from_IN λ=c/f⁠_NP ,_, where_WRB c_SYM is_VBZ the_DT wave_NN speed_NN and_CC f_NN is_VBZ the_DT frequency_NN in_IN Hz_NP ._SENT 
+In_IN the_DT present_JJ study_NN ,_, the_DT highest_JJS frequency_NN of_IN interest_NN is_VBZ fmax=800_JJ Hz⁠_NN ._SENT 
+For_IN bending_VVG waves_NNS ,_, the_DT wave_NN speed_NN depends_VVZ on_IN frequency_NN and_CC is_VBZ approximated_VVN by_IN c=(Et2(2πf)2/12ρ)14_NP ._SENT 
+For_IN the_DT properties_NNS of_IN the_DT reference_NN design_NN at_IN fmax=800_NP Hz_NP ,_, the_DT wave_NN speed_NN is_VBZ 137_CD m/s_NNS corresponding_JJ to_TO a_DT minimum_JJ wavelength_NN of_IN 0.17_CD m._NN The_DT largest_JJS beam_NN element_NN length_NN in_IN the_DT model_NN is_VBZ 0.005_CD m_NN ,_, corresponding_JJ to_TO 34_CD elements_NNS per_IN wavelength_NN ,_, indicating_VVG a_DT highly_RB refined_VVN mesh_NN resolution_NN ._SENT 
+To_TO confirm_VV the_DT accuracy_NN of_IN the_DT results_NNS ,_, a_DT mesh_NN convergence_NN study_NN was_VBD conducted_VVN for_IN the_DT STL_NN response_NN ._SENT 
+The_DT calculation_NN of_IN STL_NN is_VBZ explained_VVN in_IN Sec_NN ._SENT 
+2.6_CD ._SENT 
+Figure_NN 7_CD shows_NNS the_DT mesh_NN convergence_NN results_NNS for_IN the_DT reference_NN design_NN in_IN the_DT 200–400_NP Hz_NP and_CC 600–800_NP Hz_NP frequency_NN range_NN of_IN interest_NN (_( explained_VVN in_IN detail_NN in_IN Sec_NN ._SENT 
+2.7_CD )_) ._SENT 
+Starting_VVG with_IN approximately_RB 1500_CD elements_NNS for_IN the_DT core_NN ,_, 100_CD elements_NNS for_IN the_DT face_NN sheets_NNS and_CC 2400_CD elements_NNS for_IN the_DT air_NN domain_NN (_( mesh_VV 1_CD in_IN Fig_NN ._SENT 
+7_CD )_) ,_, the_DT number_NN of_IN elements_NNS was_VBD doubled_VVN in_IN each_DT case_NN ._SENT 
+The_DT percentage_NN difference_NN in_IN the_DT root-mean-square_NP (_( RMS_NP )_) value_NN of_IN STL_NN between_IN the_DT meshes_NNS 3_CD and_CC 4_CD was_VBD less_JJR than_IN one_CD percent_NN ._SENT 
+Thus_RB ,_, the_DT mesh_NN convergence_NN was_VBD successful_JJ and_CC the_DT mesh-3_NN ,_, with_IN approximately_RB 6000_CD elements_NNS for_IN the_DT core_NN ,_, 400_CD elements_NNS for_IN the_DT face_NN sheets_NNS and_CC 9500_CD elements_NNS for_IN the_DT air_NN domain_NN ,_, was_VBD selected_VVN for_IN rest_NN of_IN the_DT calculations_NNS in_IN this_DT study_NN ._SENT 
+The_DT selected_JJ mesh_NN for_IN the_DT structural-acoustic_JJ FE_NP model_NN is_VBZ shown_VVN in_IN Fig_NN ._SENT 
+6._CD The_DT structural-acoustic_JJ FE_NP model_NN has_VHZ been_VBN solved_VVN with_IN the_DT steady_JJ state_NN dynamics_NNS (_( direct_JJ )_) procedure_NN in_IN abaqus_NP ._SENT 
+In_IN this_DT method_NN ,_, the_DT solution_NN variables_NNS are_VBP the_DT physical_JJ degrees-of-freedom_NN (_( nodal_JJ displacements_NNS and_CC acoustic_JJ pressure_NN )_) of_IN the_DT model_NN ._SENT 
+Thus_RB ,_, the_DT response_NN of_IN the_DT structural-acoustic_JJ model_NN to_TO the_DT harmonic_JJ pressure_NN loading_NN is_VBZ obtained_VVN ._SENT 
+The_DT radiated_VVN sound_NN of_IN the_DT sandwich_NN panel_NN is_VBZ modeled_VVN in_IN the_DT present_JJ work_NN with_IN a_DT FE_NP discretization_NN of_IN the_DT air_NN domain_NN on_IN the_DT transmitted_JJ side_NN and_CC applying_VVG a_DT nonreflecting_VVG boundary_NN condition_NN ._SENT 
+An_DT alternative_JJ approach_NN would_MD be_VB to_TO model_VV the_DT acoustic_JJ region_NN on_IN the_DT transmitted_JJ side_NN by_IN a_DT Rayleigh_RB integral_JJ on_IN the_DT surface_NN of_IN the_DT sandwich_NN panel_NN ._SENT 
+Acoustic_JJ FEs_NNS with_IN nonreflecting_VVG boundary_NN conditions_NNS were_VBD modeled_VVN since_IN modefrontier_NP optimization_NN software_NN provides_VVZ convenient_JJ integration_NN with_IN commercial_JJ FE_NP codes_NNS such_JJ as_IN abaqus_NP ._SENT 
+2.6_CD Design_NN Objective_NN :_: Maximization_NN of_IN STL_NN ._SENT 
+The_DT STL_NN for_IN the_DT sandwich_NN panel_NN ,_, at_IN a_DT given_VVN frequency_NN ,_, is_VBZ calculated_VVN from_IN the_DT ratio_NN of_IN incident_NN to_TO transmitted_JJ sound_JJ pressure_NN @（8）_NN Fig_NN ._SENT 
+7_CD STL_NN versus_CC Frequency_NN plots_NNS for_IN mesh_NN convergence_NN study_NN of_IN the_DT reference_NN honeycomb_NN case_NN in_IN the_DT (_( a_DT )_) 200–400_NP Hz_NP and(b_NP )_) 600–800_NP Hz_NP frequency_NN range_NN ._SENT 
+where_WRB pi_NN is_VBZ the_DT RMS_NP value_NN of_IN pressure_NN on_IN the_DT incident_NN side_NN (_( N/m2_NP )_) ,_, pt_NN is_VBZ the_DT RMS_NP value_NN of_IN pressure_NN on_IN the_DT transmitted_JJ side_NN (_( N/m2_NP )_) ,_, and_CC STL_NN is_VBZ the_DT sound_JJ transmission_NN loss_NN (_( dB_NP )_) Equation_NN (_( 8_CD )_) represents_VVZ the_DT ratio_NN of_IN acoustic_JJ intensity_NN on_IN the_DT incident_NN and_CC transmitted_JJ sides_NNS of_IN the_DT sandwich_NN panel_NN ._SENT 
+The_DT intensity_NN is_VBZ proportional_JJ to_TO the_DT integral_JJ of_IN the_DT spatial_JJ variation_NN of_IN pressure_NN squared_VVN over_IN the_DT surface_NN ._SENT 
+The_DT integral_JJ of_IN the_DT pressure_NN squared_VVN is_VBZ approximated_VVN numerically_RB by_IN a_DT RMS_NP of_IN nodal_JJ pressure_NN values_NNS on_IN the_DT surface_NN ._SENT 
+The_DT spatial_JJ variation_NN of_IN acoustic_JJ intensity_NN on_IN the_DT transmitted_JJ side_NN is_VBZ inversely_RB proportional_JJ to_TO the_DT square_NN of_IN the_DT distance_NN from_IN the_DT source_NN ,_, and_CC thus_RB ,_, at_IN any_DT given_VVN frequency_NN ,_, the_DT maximum_JJ acoustic_JJ intensity_NN occurs_VVZ on_IN the_DT surface_NN of_IN the_DT vibrating_VVG sandwich_NN panel_NN ._SENT 
+In_IN the_DT present_JJ work_NN ,_, the_DT value_NN of_IN pt_NN ,_, is_VBZ obtained_VVN from_IN abaqus_NN for_IN the_DT nodes_NNS of_IN air_NN domain_NN that_WDT are_VBP adjacent_JJ to_TO the_DT face_NN sheet_NN on_IN the_DT transmitted_JJ side_NN of_IN the_DT sandwich_NN panel_NN ._SENT 
+Area_NN under_IN the_DT STL_NN versus_CC Frequency_NN curve_NN ASTL_NN is_VBZ used_VVN as_IN a_DT scalar_JJ measure_NN of_IN cumulative_JJ STL_NN response_NN of_IN the_DT sandwich_NN panel_NN for_IN a_DT given_VVN frequency_NN range_NN in_IN the_DT current_JJ study_NN ._SENT 
+It_PP is_VBZ calculated_VVN as_IN @（9）_NN This_DT quantity_NN has_VHZ the_DT units_NNS of_IN dB_NP Hz_NP ._SENT 
+The_DT design_NN objective_NN is_VBZ maximization_NN of_IN ASTL_NP for_IN the_DT honeycomb_NN core_NN sandwich_NN panel_NN ._SENT 
+2.7_CD Reference_NN Design_NN STL_NN Characteristics_NNS ._SENT 
+Honeycomb_NN structures_NNS with_IN 30_CD deg_NN cell_NN wall_NN angle_NN ,_, discussed_VVN widely_RB in_IN open_JJ literature_NN ,_, have_VHP been_VBN used_VVN in_IN the_DT reference_NN design_NN case_NN for_IN the_DT current_JJ study_NN ._SENT 
+Geometrical_JJ parameters_NNS of_IN the_DT honeycomb_NN unit_NN cell_NN used_VVN to_TO construct_VV the_DT core_NN of_IN the_DT reference_NN sandwich_NN panel_NN are_VBP :_: θ=30deg⁠_NP ,_, Nh_NP =_SYM 40_CD ,_, Nv_NP =_SYM 1_CD ,_, h_NN =_SYM 28.87_CD mm_NP ,_, l_NN =_SYM 28.87_CD mm_NP ,_, and_CC t_NN =_SYM 2.5_CD mm_NP ._SENT 
+The_DT STL_NN characteristics_NNS ,_, as_RB shown_VVN in_IN Fig_NN ._SENT 
+8_CD ,_, show_VVP sudden_JJ drops_NNS at_IN the_DT odd_JJ numbered_VVN natural_JJ frequencies_NNS of_IN this_DT sandwich_NN panel_NN as_IN expected_VVN for_IN a_DT zero_CD degree_NN incident_NN pressure_NN angle_NN ._SENT 
+The_DT STL_NN response_NN closely_RB matches_VVZ with_IN the_DT numerical_JJ results_NNS for_IN a_DT similar_JJ FE_NP model_NN reported_VVD in_IN Ref_NN ._SENT 
+[_SYM 31_CD ]_SYM ._SENT 
+To_TO the_DT authors_NNS '_POS knowledge_NN ,_, experimental_JJ measured_JJ data_NNS for_IN a_DT similar_JJ honeycomb_NN core_NN sandwich_NN panel_NN have_VHP not_RB been_VBN reported_VVN in_IN the_DT open_JJ literature_NN ._SENT 
+The_DT STL_NN response_NN is_VBZ dependent_JJ on_IN the_DT incident_NN frequency_NN ._SENT 
+Typically_RB the_DT STL_NN response_NN consists_VVZ of_IN stiffness_NN controlled_VVN ,_, resonance_NN controlled_VVD ,_, and_CC mass_RB controlled_VVN regions_NNS with_IN increasing_VVG frequency_NN ._SENT 
+In_IN the_DT current_JJ study_NN ,_, the_DT STL_NN characteristics_NNS are_VBP studied_VVN in_IN the_DT resonance_NN controlled_VVD frequency_NN region_NN of_IN typical_JJ vibrating_VVG structures_NNS ._SENT 
+Two_CD representative_JJ frequency_NN bands_NNS ,_, 200–400_NP Hz_NP and_CC 600–800_NP Hz_NP in_IN the_DT low_JJ and_CC high_JJ range_NN of_IN the_DT resonant_JJ frequency_NN zone_NN ,_, respectively_RB ,_, are_VBP selected_VVN in_IN the_DT current_JJ study_NN to_TO demonstrate_VV ability_NN of_IN the_DT optimization_NN technique_NN to_TO maximize_VV STL_NN response_NN ._SENT 
+In_IN each_DT case_NN ,_, the_DT low_JJ and_CC high_JJ frequency_NN ranges_NNS are_VBP divided_VVN into_IN 100_CD linearly_RB spaced_VVN frequency_NN increments_NNS to_TO accurately_RB resolve_VV the_DT response_NN curves_VVZ ._SENT 
+Fig_NN ._SENT 
+8_CD STL_NN characteristics_NNS for_IN the_DT reference_NN design_NN case_NN with_IN 30_CD deg_NN cell_NN wall_NN angle_NN ._SENT 
+2.8_CD Optimization_NP Procedure_NN ._SENT 
+The_DT optimization_NN procedure_NN ,_, to_TO obtain_VV the_DT honeycomb_NN unit_NN cell_NN geometric_JJ parameters_NNS for_IN maximizing_VVG the_DT STL_NN response_NN of_IN the_DT sandwich_NN panel_NN ,_, requires_VVZ the_DT following_VVG basic_JJ steps_NNS :_: (_( a_DT )_) select_VV the_DT values_NNS of_IN independent_JJ design_NN variables_NNS (_( Nh_NP ,_, Nv_NP ,_, and_CC θ_JJ )_) as_RB described_VVN in_IN Sec_NN ._SENT 
+2.1_CD ;_: (_( b_LS )_) calculate_VV the_DT values_NNS of_IN derived_VVN design_NN variables_NNS (_( h_NN ,_, l_NN ,_, and_CC t_NN )_) for_IN the_DT periodic_JJ unit_NN cells_NNS as_RB described_VVD in_IN Sec_NN ._SENT 
+2.2_CD ;_: (_( c_LS )_) construct_VV the_DT structural-acoustic_JJ FE_NP model_NN with_IN a_DT parameterized_JJ Python®_JJ script_NN ,_, which_WDT uses_VVZ both_CC the_DT independent_JJ and_CC derived_VVN variables_NNS as_IN input_NN ;_: (_( d_LS )_) solve_VV the_DT FE_NP model_NN in_IN abaqus_NP to_TO generate_VV the_DT STL_NN versus_CC frequency_NN plot_NN for_IN the_DT sandwich_NN panel_NN ;_: and_CC (_( e_NN )_) calculate_VVP area_NN under_IN the_DT curve_NN ASTL_NN ._SENT 
+The_DT area_NN under_IN the_DT STL_NN curve_NN is_VBZ computed_VVN using_VVG numerical_JJ integration_NN in_IN MATLAB®_NP ._SENT 
+The_DT parameterized_JJ Python_NN script_NN allows_VVZ for_IN automated_JJ model_NN construction_NN and_CC solution_NN for_IN multiple_JJ iterations_NNS ._SENT 
+These_DT steps_NNS ,_, using_VVG the_DT structural_JJ acoustic_JJ finite_JJ model_NN ,_, are_VBP used_VVN to_TO perform_VV a_DT DOEs_VVZ in_IN order_NN to_TO efficiently_RB sample_NN the_DT design_NN space_NN defined_VVN by_IN the_DT full_JJ range_NN of_IN the_DT independent_JJ variables_NNS ._SENT 
+The_DT results_NNS from_IN the_DT (_( DOE_NN )_) are_VBP then_RB used_VVN to_TO generate_VV a_DT response_NN surface_NN as_IN a_DT function_NN of_IN the_DT independent_JJ design_NN variables_NNS ._SENT 
+The_DT response_NN surface_NN allows_VVZ the_DT algorithm_NN to_TO search_VV for_IN an_DT optimal_JJ solution_NN without_IN having_VHG to_TO resolve_VV the_DT FE_NP model_NN at_IN each_DT iteration_NN ._SENT 
+This_DT procedure_NN has_VHZ been_VBN implemented_VVN using_VVG a_DT commercial_JJ optimization_NN software_NN modeFRONTIER®_NN ._SENT 
+In_IN the_DT implementation_NN of_IN this_DT algorithm_NN ,_, the_DT capability_NN of_IN modeFRONTIER®_NP to_TO integrate_VV with_IN abaqus_NP and_CC MATLAB®_NP proved_VVD very_RB useful_JJ ._SENT 
+Using_VVG this_DT algorithm_NN ,_, the_DT optimization_NN problem_NN is_VBZ solved_VVN in_IN various_JJ stages_NNS ,_, which_WDT are_VBP summarized_VVN in_IN Fig_NN ._SENT 
+9._CD As_RB discussed_VVN above_IN ,_, in_IN the_DT first_JJ stage_NN ,_, a_DT DOE_NN is_VBZ conducted_VVN using_VVG the_DT structural_JJ acoustic_JJ FE_NP model_NN to_TO obtain_VV a_DT fully_RB distributed_VVN design_NN space_NN solution_NN ,_, where_WRB the_DT ASTL_NN is_VBZ available_JJ as_IN a_DT function_NN of_IN input_NN design_NN variables_NNS h_NN ,_, l_NN ,_, and_CC t_NN ,_, which_WDT are_VBP derived_VVN from_IN the_DT (_( independent_JJ variables_NNS Nh_NP ,_, Nv_NP ,_, and_CC θ_NP ._SENT 
+In_IN addition_NN ,_, the_DT cell_NN wall_NN angle_NN ,_, θ⁠_NP ,_, is_VBZ required_VVN as_IN an_DT input_NN variable_NN ._SENT 
+Using_VVG this_DT solution_NN ,_, a_DT response_NN surface_NN is_VBZ fit_VVN to_TO the_DT results_NNS of_IN the_DT DOE_NN ,_, which_WDT directly_RB predicts_VVZ the_DT output_NN ASTL_NN ._SENT 
+The_DT optimization_NN is_VBZ then_RB carried_VVN out_IN using_VVG the_DT response_NN surface_NN in_IN two_CD stages_NNS ._SENT 
+First_RB a_DT global_JJ optimization_NN is_VBZ conducted_VVN using_VVG the_DT constraints_NNS defined_VVN in_IN Secs_NNS ._SENT 
+2.2_CD and_CC 2.4_CD ._SENT 
+This_DT results_NNS in_IN a_DT narrowed_VVN region_NN of_IN the_DT design_NN space_NN ,_, where_WRB the_DT optimal_JJ solution_NN is_VBZ expected_VVN ._SENT 
+Then_RB ,_, in_IN the_DT narrowed_VVN region_NN of_IN the_DT design_NN space_NN ,_, another_DT local_JJ optimization_NN study_NN is_VBZ conducted_VVN using_VVG the_DT response_NN surface_NN to_TO efficiently_RB find_VV the_DT global_JJ optimal_JJ design_NN solution_NN ._SENT 
+These_DT steps_NNS are_VBP described_VVN in_IN detail_NN in_IN Sec_NN ._SENT 
+3._CD Fig_NN ._SENT 
+9_CD Work_NN flow_NN describing_VVG the_DT different_JJ stages_NNS of_IN optimization_NN in_IN the_DT current_JJ study_NN ._SENT 
+Fig_NN ._SENT 
+10_CD Four-dimensional_JJ bubble_NN chart_NN showing_VVG variation_NN in_IN STL_NN response_NN of_IN the_DT sandwich_NN panels_NNS as_IN a_DT function_NN of_IN the_DT three_CD independent_JJ input_NN variables_NNS obtained_VVN for_IN DOEs_VVZ in_IN (_( a_DT )_) frequency_NN range_NN 200–400_NP Hz_NP ;_: and_CC (_( b_LS )_) frequency_NN range_NN 600–800_NP Hz_NP ._SENT 
+<Section> 3._CD Results_NNS </Section> 3.1_CD Results_NNS From_IN DOEs_VVZ ._SENT 
+Initially_RB ,_, a_DT DOEs_VVZ is_VBZ conducted_VVN for_IN two_CD representative_NN frequency_NN ranges_NNS of_IN 200–400_NP Hz_NP and_CC 600–800_NP Hz_NP ._SENT 
+The_DT outcome_NN of_IN DOE_NNS is_VBZ a_DT well-scattered_JJ sample_NN of_IN designs_NNS in_IN the_DT entire_JJ design_NN space_NN ._SENT 
+This_DT provides_VVZ an_DT initial_JJ estimate_NN of_IN the_DT optimum_JJ design_NN as_RB well_RB as_IN a_DT truncated_JJ region_NN of_IN the_DT design_NN space_NN where_WRB it_PP is_VBZ expected_VVN to_TO occur_VV ._SENT 
+In_IN the_DT current_JJ study_NN ,_, uniform_JJ latin_NN hypercube_NN (_( ULH_NP )_) algorithm_NN has_VHZ been_VBN employed_VVN for_IN the_DT DOE_NN ._SENT 
+A_DT total_NN of_IN 500_CD designs_NNS have_VHP been_VBN generated_VVN based_VVN on_IN the_DT ULH_NP algorithm_NN for_IN each_DT frequency_NN range_NN ,_, resulting_VVG in_IN 271_CD and_CC 274_CD feasible_JJ designs_NNS (_( designs_NNS that_WDT satisfy_VV the_DT constraints_NNS )_) ._SENT 
+The_DT design_NN data_NNS for_IN the_DT feasible_JJ designs_NNS is_VBZ analyzed_VVN using_VVG a_DT four-dimensional_JJ Bubble_NN chart_NN shown_VVN in_IN Fig_NN ._SENT 
+10._CD The_DT input_NN variables_NNS θ_NN (_( angle_NN )_) and_CC Nh_NP (_( noh_NP )_) are_VBP represented_VVN along_IN the_DT X_NP and_CC Y_NP axes_NNS ,_, respectively_RB ,_, whereas_IN the_DT third_JJ input_NN variable_NN Nv_NP (_( nov_NP )_) ,_, is_VBZ represented_VVN by_IN the_DT varying_VVG diameter_NN of_IN the_DT bubbles_NNS ._SENT 
+Changes_NNS in_IN the_DT value_NN of_IN the_DT output_NN variable_NN ,_, ASTL_NP (_( denoted_VVN by_IN STL_NN in_IN the_DT plot_NN )_) have_VHP been_VBN shown_VVN by_IN varying_VVG contour_NN levels_NNS ._SENT 
+Analysis_NN of_IN plots_NNS shows_VVZ that_IN the_DT region_NN of_IN the_DT design_NN space_NN with_IN the_DT following_VVG combination_NN of_IN independent_JJ design_NN variables_NNS :_: negative_JJ cell_NN wall_NN angle_NN θ_NN ,_, high_JJ value_NN of_IN Nh_NP ,_, and_CC low_JJ value_NN of_IN Nv_NP ,_, is_VBZ associated_VVN with_IN a_DT high_JJ ASTL⁠_NN ._SENT 
+Another_DT important_JJ observation_NN from_IN the_DT plot_NN is_VBZ that_IN the_DT designs_NNS with_IN combination_NN of_IN θ_JJ close_NN to_TO 0_CD deg_NN (_( both_CC negative_JJ and_CC positive_JJ values_NNS )_) and_CC value_NN of_IN Nv_NN greater_JJR than_IN eight_CD have_VHP lowest_JJS values_NNS of_IN ASTL_NP ._SENT 
+These_DT observations_NNS suggest_VVP that_IN the_DT independent_JJ variables_NNS should_MD not_RB be_VB associated_VVN ,_, in_IN isolation_NN ,_, with_IN high/low_JJ STL_NN response_NN of_IN the_DT sandwich_NN panel_NN ._SENT 
+Table_NN 2_CD Honeycomb_NN unit_NN cell_NN geometrical_JJ parameters_NNS for_IN the_DT designs_NNS with_IN highest_JJS STL_NN obtained_VVN for_IN the_DT two_CD frequency_NN ranges_NNS in_IN the_DT DOE_NN ._SENT 
+In_IN the_DT plots_NNS ,_, designs_VVZ with_IN highest_JJS ASTL_NP have_VHP been_VBN encircled_VVN ._SENT 
+The_DT value_NN of_IN highest_JJS ASTL_NN for_IN frequency_NN range_NN 200–400_NP Hz_NP is_VBZ 8700_CD dB_NP Hz_NP ,_, whereas_IN for_IN the_DT 600–800_NP Hz_NP range_VVP it_PP is_VBZ around_RB 10,120_CD dB_NP Hz_NP ._SENT 
+Honeycomb_NN unit_NN cell_NN geometrical_JJ parameter_NN values_NNS for_IN these_DT designs_NNS are_VBP reported_VVN in_IN Table_NN 2_CD and_CC Fig_NN ._SENT 
+11_CD shows_NNS the_DT corresponding_JJ core_NN geometries_NNS ._SENT 
+Both_CC the_DT designs_NNS have_VHP highly_RB negative_JJ cell_NN wall_NN angle_NN θ_NP (_( −39_NP deg_NP and_CC −42_NP deg_NP )_) with_IN low_JJ Nv_NP (_( 3_CD and_CC 2_CD )_) ._SENT 
+The_DT Nh_NP is_VBZ high_JJ for_IN both_CC the_DT designs_NNS ._SENT 
+In_IN the_DT frequency_NN range_NN 600–800_NP Hz_NP ,_, the_DT highest_JJS ASTL_NN obtained_VVD has_VHZ a_DT higher_JJR value_NN compared_VVN to_TO that_DT of_IN 200–400_NP Hz_NP range_NN ._SENT 
+This_DT trend_NN is_VBZ attributed_VVN to_TO the_DT increasing_VVG value_NN of_IN STL_NN with_IN increasing_VVG frequency_NN (_( Fig_NN ._SENT 
+8_CD )_) ._SENT 
+3.2_CD Response_NP Surface_NP Methodology_NN ._SENT 
+Optimization_NN studies_NNS typically_RB require_VVP large_JJ number_NN of_IN iterations_NNS ._SENT 
+Thus_RB ,_, optimization_NN of_IN the_DT sandwich_NN panel_NN would_MD be_VB a_DT very_JJ time_NN consuming_NN process_NN if_IN the_DT structural-acoustic_JJ model_NN were_VBD constructed_VVN and_CC solved_VVN in_IN every_DT optimization_NN iteration_NN ._SENT 
+Instead_RB mathematical_JJ interpolation/approximation_NN functions_NNS are_VBP generated_VVN using_VVG the_DT response_NN surface_NN methodology_NN ,_, which_WDT predict_VVP the_DT ASTL_NP (_( STL_NN response_NN )_) of_IN the_DT sandwich_NN panel_NN based_VVN on_IN the_DT values_NNS of_IN input_NN variables_NNS ,_, to_TO significantly_RB reduce_VV the_DT computation_NN time_NN ._SENT 
+For_IN the_DT current_JJ multivariate_NN problem_NN ,_, statistical_JJ and_CC network_NN based_VVN algorithms_NNS :_: Anisotropic_JJ Kriging_NN ,_, Shepherd_NP K-Nearest_NP ,_, Kriging_VVG Radial_JJ Basis_NN Function_NN ,_, and_CC Neural_JJ Networks_NNS were_VBD used_VVN to_TO generate_VV response_NN surface_NN methodology_NN (_( RSM_NN )_) functions_NNS [_SYM 43_CD ]_SYM ._SENT 
+A_DT comparison_NN of_IN these_DT functions_NNS using_VVG various_JJ measures_NNS of_IN error_NN (_( e._NP g._NP ,_, max_NP absolute_JJ error_NN ,_, mean_VVP relative_JJ error_NN ,_, regression_NN ,_, etc._FW )_) indicated_VVD that_IN the_DT Shepherd_NP K-nearest_NP algorithm_NN had_VHD highest_JJS accuracy_NN (_( more_JJR than_IN 20_CD %_NN higher_JJR than_IN the_DT rest_NN )_) in_IN predicting_VVG the_DT ASTL⁠_NN ._SENT 
+Therefore_RB ,_, all_PDT the_DT optimization_NN studies_NNS reported_VVD hereafter_RB have_VH been_VBN conducted_VVN using_VVG Shepherd_NP K-nearest_NP RSM_NN algorithm_NN ._SENT 
+Computation_NN time_NN of_IN design_NN optimization_NN is_VBZ reduced_VVN to_TO less_JJR than_IN 1_CD %_NN of_IN the_DT time_NN required_VVN to_TO run_VV the_DT DOE_NN ,_, by_IN using_VVG the_DT RSM_NN functions_NNS ._SENT 
+Fig_NN ._SENT 
+11_CD Sandwich_NP panel_NN configurations_NNS for_IN the_DT designs_NNS with_IN highest_JJS STL_NN response_NN (_( see_VV Table_NN 2_LS )_) obtained_VVN in_IN the_DT DOE_NN for_IN (_( a)200–400_NP Hz_NP ;_: and_CC (_( b_LS )_) 600–800_NP Hz_NP frequency_NN range_NN ._SENT 
+Fig_NN ._SENT 
+12_CD Four-dimensional_JJ Bubble_NN chart_NN showing_VVG the_DT results_NNS of_IN global_JJ optimization_NN study_NN (_( predicted_VVN ASTL_NN )_) conducted_VVN with_IN the_DT Shepherd_NP K-Nearest_NP RSM_NN function_NN for_IN (_( a_DT )_) 200–400_NP Hz_NP frequency_NN range_NN and_CC (_( b_LS )_) 600–800_NP Hz_NP frequency_NN range_NN ._SENT 
+Table_NN 3_CD Honeycomb_NN unit_NN cell_NN geometrical_JJ parameters_NNS and_CC STL_NN of_IN the_DT optimum_JJ design_NN in_IN the_DT 200–400_JJ Hz_NP frequency_NN range_NN Table_NN 4_CD Honeycomb_NN unit_NN cell_NN geometrical_JJ parameters_NNS and_CC STL_NN for_IN the_DT optimum_JJ design_NN in_IN the_DT 600–800_JJ Hz_NP frequency_NN range_NN 3.3_CD Global_NP Optimization_NP ._SENT 
+The_DT optimization_NN was_VBD conducted_VVN with_IN using_VVG the_DT Nondominated_JJ sorting_VVG genetic_JJ algorithm-II_NNS ,_, which_WDT is_VBZ known_VVN to_TO handle_VV multivariate_JJ constrained_VVN optimization_NN problems_NNS with_IN discrete_JJ values_NNS well_RB ._SENT 
+Results_NNS of_IN optimization_NN ,_, for_IN both_CC the_DT frequency_NN ranges_NNS have_VHP been_VBN presented_VVN in_IN Fig_NN ._SENT 
+12._CD The_DT design_NN space_NN associated_VVN with_IN high_JJ ASTL_NP values_NNS (_( predicted_VVN )_) shows_VVZ a_DT high_JJ clustering_VVG of_IN design_NN evaluations_NNS ._SENT 
+The_DT values_NNS of_IN honeycomb_NN unit_NN cell_NN geometrical_JJ parameters_NNS for_IN the_DT predicted_VVN optimum_JJ designs_NNS have_VHP been_VBN reported_VVN in_IN Tables_NP 3_CD and_CC 4_CD for_IN frequency_NN ranges_VVZ 200–400_NP Hz_NP and_CC 600–800_NP Hz_NP ,_, respectively_RB ._SENT 
+Both_CC the_DT designs_NNS have_VHP a_DT highly_RB negative_JJ cell_NN wall_NN angle_NN θ_NN and_CC high_JJ Nh_NP (_( 94_CD and_CC 83_CD )_) ._SENT 
+However_RB ,_, these_DT Nh_NP values_NNS are_VBP significantly_RB higher_JJR (_( more_JJR than_IN 20_CD )_) in_IN comparison_NN to_TO the_DT corresponding_JJ results_NNS from_IN DOE_NNS ._SENT 
+For_IN the_DT 600–800_JJ Hz_NP frequency_NN range_NN ,_, the_DT optimum_JJ design_NN has_VHZ low_JJ value_NN for_IN Nv_NP ,_, however_RB ,_, for_IN the_DT 200–400_JJ Hz_NP frequency_NN range_NN ,_, it_PP is_VBZ high_JJ and_CC significantly_RB different_JJ than_IN the_DT corresponding_JJ value_NN from_IN DOE_NNS ._SENT 
+The_DT size_NN of_IN bubbles_NNS (_( indicating_VVG the_DT values_NNS of_IN Nv_NP )_) in_IN the_DT clustered_VVN region_NN of_IN the_DT design_NN space_NN is_VBZ different_JJ in_IN both_CC the_DT frequency_NN ranges_NNS ._SENT 
+The_DT 200–400_NP Hz_NP frequency_NN range_NN has_VHZ higher_JJR bubble_NN diameters_NNS than_IN that_DT of_IN the_DT 600–800_JJ Hz_NP range_NN ._SENT 
+In_IN spite_NN of_IN these_DT differences_NNS ,_, the_DT ASTL_NP values_NNS of_IN the_DT local_JJ optimum_JJ designs_NNS are_VBP very_RB close_JJ ,_, but_CC lower_JJR than_IN results_NNS from_IN the_DT DOE_NN ._SENT 
+Hence_RB ,_, the_DT global_JJ optimum_JJ design_NN has_VHZ not_RB been_VBN obtained_VVN in_IN either_CC of_IN the_DT frequency_NN ranges_NNS ._SENT 
+This_DT finding_NN motivated_VVN another_DT optimization_NN study_NN in_IN a_DT truncated_JJ design_NN space_NN to_TO obtain_VV the_DT global_JJ optimum_JJ design_NN ;_: details_NNS of_IN which_WDT have_VHP been_VBN discussed_VVN in_IN Sec_NN ._SENT 
+3.4_CD ._SENT 
+The_DT optimum_JJ ASTL_NN predicted_VVD by_IN the_DT RSM_NN function_NN were_VBD verified_VVN against_IN the_DT results_NNS obtained_VVN from_IN the_DT structural-acoustic_JJ FE_NP model_NN of_IN the_DT same_JJ sandwich_NN panel_NN ,_, confirming_VVG their_PP$ accuracy_NN with_IN less_JJR than_IN 0.2_CD %_NN error_NN ._SENT 
+3.4_CD Local_NP Optimization_NP ._SENT 
+Based_VVN on_IN the_DT design_NN trends_NNS observed_VVD in_IN DOE_NNS and_CC the_DT optimization_NN study_NN ,_, the_DT design_NN space_NN is_VBZ truncated_VVN to_TO have_VH the_DT θ_NN limited_VVN to_TO less_JJR than_IN −25_NP deg_NP ,_, Nh≥50⁠_NP ,_, and_CC Nv≤5_NP ._SENT 
+These_DT limits_NNS on_IN values_NNS of_IN independent_JJ design_NN variables_NNS are_VBP reported_VVN in_IN Table_NN 5._CD Results_NNS of_IN the_DT local_JJ optimization_NN ,_, for_IN both_CC the_DT frequency_NN ranges_NNS have_VHP been_VBN presented_VVN in_IN Fig_NN ._SENT 
+13._CD A_DT high_JJ concentration_NN of_IN designs_NNS near_IN the_DT optimal_JJ designs_NNS is_VBZ noteworthy_JJ ._SENT 
+The_DT optimal_JJ designs_NNS have_VHP been_VBN encircled_VVN in_IN the_DT design_NN space_NN and_CC their_PP$ geometrical_JJ parameters_NNS are_VBP identical_JJ to_TO parameters_NNS of_IN the_DT designs_NNS with_IN the_DT highest_JJS STL_NN ,_, obtained_VVN in_IN the_DT DOE_NN reported_VVD in_IN Table_NN 2._CD Since_IN the_DT DOE_NN was_VBD conducted_VVN with_IN abaqus_NN based_VVN structural-acoustic_JJ FE_NP model_NN ,_, it_PP is_VBZ confirmed_VVN that_IN these_DT designs_NNS are_VBP indeed_RB the_DT global_JJ optimum_JJ designs_NNS ._SENT 
+A_DT comparison_NN of_IN the_DT two_CD optimum_JJ designs_NNS (_( obtained_VVN for_IN each_DT frequency_NN range_NN )_) shows_VVZ that_IN their_PP$ geometrical_JJ parameters_NNS are_VBP not_RB very_RB different_JJ from_IN each_DT other_JJ and_CC they_PP would_MD occur_VV close_VV to_TO each_DT other_JJ in_IN the_DT design_NN space_NN ._SENT 
+Thus_RB ,_, it_PP is_VBZ expected_VVN that_IN these_DT optimum_JJ designs_NNS would_MD exhibit_VV a_DT high_JJ STL_NN response_NN in_IN either_DT of_IN the_DT frequency_NN ranges_NNS ._SENT 
+Table_NN 5_CD Truncated_JJ design_NN space_NN for_IN the_DT local_JJ optimization_NN study_NN ._SENT 
+Fig_NN ._SENT 
+13_CD Four-dimensional_JJ Bubble_NN chart_NN showing_VVG the_DT results_NNS of_IN the_DT local_JJ optimization_NN study_NN (_( predicted_VVN ASTL_NN )_) conducted_VVN with_IN the_DT Shepherd_NP K-Nearest_NP RSM_NN function_NN for_IN (_( a_DT )_) 200–400_JJ Hzfrequency_NN range_NN and_CC (_( b_LS )_) 600–800_NP Hz_NP frequency_NN range_NN ._SENT 
+Fig_NN ._SENT 
+14_CD Comparison_NN of_IN STL_NN response_NN of_IN the_DT Optimum_JJ design_NN and_CC reference_NN design(h_NP =_SYM 30_CD deg_NN )_) for_IN (_( a_DT )_) 200–400_NP Hz_NP and_CC (_( b_LS )_) 600–800_NP Hz_NP frequency_NN range_NN ._SENT 
+Table_NN 6_CD Comparison_NN of_IN the_DT STL_NN response_NN of_IN the_DT optimum_JJ design_NN with_IN that_DT of_IN the_DT reference_NN design_NN for_IN the_DT two_CD frequency_NN ranges_NNS ._SENT 
+Table_NN 7_CD Natural_NP Frequencies_NNS of_IN the_DT sandwich_NN panels_NNS (_( that_WDT correspond_VV to_TO optimum_JJ designs_NNS for_IN each_DT frequency_NN range_NN )_) associated_VVN with_IN sharp_JJ drop_NN in_IN STL_NN ._SENT 
+The_DT designs_NNS close_VV to_TO the_DT optimal_JJ design_NN ,_, in_IN each_DT frequency_NN range_NN ,_, have_VHP very_RB high_JJ values_NNS of_IN ASTL_NP ._SENT 
+Thus_RB ,_, it_PP is_VBZ observed_JJ that_IN ,_, even_RB though_IN a_DT global_JJ optimal_JJ design_NN is_VBZ obtained_VVN ,_, a_DT region_NN of_IN the_DT design_NN space_NN (_( 50≤Nh≤100_NP ,_, Nv≤5_NP ,_, −45≤θ≤−25_NP )_) will_MD contain_VV honeycomb_VV core_JJ sandwich_NN panels_NNS with_IN high_JJ STL_NN performance_NN ._SENT 
+3.5_CD Comparison_NN of_IN STL_NN Response_NP of_IN Optimum_JJ Design_NN With_IN That_DT of_IN Reference_NN Design_NN ._SENT 
+A_DT comparison_NN of_IN STL_NN responses_NNS of_IN optimum_JJ design_NN with_IN the_DT reference_NN design_NN for_IN each_DT frequency_NN range_NN has_VHZ been_VBN shown_VVN in_IN Fig_NN ._SENT 
+14._CD Examination_NN of_IN these_DT results_NNS shows_VVZ that_IN the_DT ASTL_NN for_IN the_DT optimum_JJ designs_NNS is_VBZ clearly_RB higher_JJR than_IN that_DT of_IN the_DT reference_NN design_NN ._SENT 
+A_DT detailed_JJ comparison_NN of_IN the_DT ASTL_NP values_NNS has_VHZ been_VBN presented_VVN in_IN Table_NN 6._CD The_DT optimum_JJ designs_NNS show_VVP an_DT improvement_NN of_IN more_JJR than_IN 20_CD %_NN compared_VVN to_TO the_DT reference_NN design_NN ._SENT 
+A_DT similar_JJ trend_NN is_VBZ observed_VVN by_IN comparing_VVG the_DT RMS_NP values_NNS of_IN the_DT STL_NN ._SENT 
+Fig_NN ._SENT 
+15_CD Mode_NP shapes_NNS of_IN sandwich_NN panel_NN (_( a_DT )_) Flexural_JJ mode_NN in_IN which_WDT the_DT top_JJ and_CC bottom_JJ face-sheets_NNS vibrate_VVP in_IN the_DT same_JJ direction_NN and_CC (_( b_LS )_) Dilatational_JJ mode_NN of_IN vibration_NN in_IN which_WDT the_DT face_NN sheets_NNS vibrate_VVP in_IN the_DT opposite_JJ direction_NN ._SENT 
+The_DT STL_NN versus_CC Frequency_NN plots_NNS shown_VVN in_IN Fig_NN ._SENT 
+14._CD show_NN a_DT sharp_JJ drop_NN in_IN STL_NN of_IN the_DT sandwich_NN panel_NN at_IN certain_JJ frequencies_NNS ._SENT 
+These_DT are_VBP the_DT odd_JJ numbered_VVN natural_JJ frequencies_NNS of_IN the_DT sandwich_NN panels_NNS ;_: e._NP g._NP ,_, for_IN the_DT reference_NN design_NN ,_, these_DT natural_JJ frequencies_NNS are_VBP :_: 208.22_NP Hz_NP (_( third_JJ mode_NN )_) ,_, 365.18_NP Hz_NP (_( fifth_JJ mode_NN )_) ,_, and_CC 686.37_CD Hz_NP (_( ninth_JJ mode_NN )_) ._SENT 
+These_DT natural_JJ frequencies_NNS were_VBD determined_VVN using_VVG the_DT commercial_JJ FE_NP program_NN abaqus_NN ._SENT 
+Natural_JJ frequencies_NNS ,_, associated_VVN with_IN sharp_JJ STL_NN drop_NN ,_, for_IN the_DT optimum_JJ designs_NNS have_VHP been_VBN reported_VVN in_IN Table_NN 7._CD Modes_NNS of_IN vibration_NN of_IN a_DT typical_JJ sandwich_NN panel_NN can_MD be_VB categorized_VVN as_IN flexural_JJ and_CC dilatational_JJ ._SENT 
+An_DT illustration_NN of_IN both_CC the_DT type_NN of_IN mode_NN shapes_NNS for_IN an_DT auxetic_JJ honeycomb_NN core_NN sandwich_NN panel_NN has_VHZ been_VBN shown_VVN in_IN Fig_NN ._SENT 
+15._CD The_DT significance_NN of_IN these_DT modes_NNS is_VBZ that_IN the_DT odd_JJ numbered_VVN flexural_JJ modes_NNS of_IN a_DT sandwich_NN panel_NN are_VBP associated_VVN with_IN a_DT sharp_JJ drop_NN in_IN its_PP$ STL_NN ._SENT 
+At_IN lower_JJR frequencies_NNS ,_, the_DT dilatational_JJ modes_NNS do_VVP not_RB affect_VV the_DT STL_NN response_NN of_IN the_DT sandwich_NN panel_NN ,_, as_RB demonstrated_VVN by_IN the_DT STL_NN results_NNS in_IN the_DT 200–400_JJ Hz_NP frequency_NN range_NN ._SENT 
+However_RB ,_, at_IN higher_JJR frequencies_NNS the_DT dilatational_JJ modes_NNS ,_, in_IN addition_NN to_TO the_DT flexural_JJ modes_NNS ,_, cause_VV a_DT drop_NN in_IN the_DT STL_NN ,_, which_WDT is_VBZ demonstrated_VVN by_IN the_DT STL_NN results_NNS in_IN the_DT 600–800_JJ Hz_NP frequency_NN range_NN ._SENT 
+It_PP is_VBZ interesting_JJ to_TO note_VV that_IN sandwich_NN panels_NNS having_VHG less_JJR number_NN of_IN modes_NNS in_IN the_DT selected_JJ frequency_NN range_NN may_MD not_RB be_VB necessarily_RB associated_VVN with_IN a_DT high_JJ STL_NN response_NN ._SENT 
+3.6_CD Comparison_NN of_IN the_DT STL_NN Characteristics_NNS of_IN the_DT Designs_NNS With_IN Highest_JJS and_CC Lowest_JJS ASTL_NN Values_NNS ._SENT 
+Discussion_NN in_IN Sec_NN ._SENT 
+3.5_CD revealed_VVD that_IN the_DT optimum_JJ designs_NNS show_VVP more_JJR than_IN 20_CD %_NN improvement_NN in_IN their_PP$ STL_NN performance_NN compared_VVN to_TO the_DT reference_NN design_NN case_NN of_IN sandwich_NN panel_NN with_IN core_NN made_VVN up_RP of_IN θ_NP =_SYM 30_CD deg_NN honeycomb_NN unit_NN cells_NNS ._SENT 
+To_TO further_RBR demonstrate_VV the_DT significance_NN of_IN the_DT optimization_NN procedure_NN ,_, the_DT STL_NN characteristics_NNS of_IN the_DT designs_NNS with_IN the_DT highest_JJS and_CC lowest_JJS (_( three_CD each_DT )_) ASTL_NP have_VHP been_VBN compared_VVN ,_, as_RB shown_VVN in_IN Fig_NN ._SENT 
+16._CD Fig_NN ._SENT 
+16_CD Comparison_NN of_IN STL_NN characteristics_NNS of_IN designs_NNS with_IN highest_JJS and_CC lowest_JJS (_( three_CD each_DT )_) values_NNS of_IN ASTL_NP for_IN 200–400_NP Hz_NP frequency_NN range_NN ._SENT 
+Table_NN 8_CD Comparison_NN of_IN characteristics_NNS of_IN designs_NNS with_IN the_DT highest_JJS and_CC lowest_JJS (_( 3_LS each_DT )_) STL_NN performance_NN in_IN each_DT frequency_NN range_NN ._SENT 
+Designs_NNS 1–3_JJ are_VBP the_DT ones_NNS with_IN the_DT highest_JJS ASTL_NN (_( with_IN design_NN 1_CD being_VBG the_DT one_CD with_IN highest_JJS )_) ,_, whereas_IN designs_NNS 4–6_JJ are_VBP the_DT ones_NNS with_IN the_DT lowest_JJS ASTL_NN (_( with_IN design_NN 6_CD being_VBG the_DT one_CD with_IN lowest_JJS )_) ._SENT 
+It_PP can_MD be_VB noted_VVN that_IN designs_NNS with_IN high_JJ ASTL_NP have_VHP lower_JJR number_NN of_IN sharp_JJ drops_NNS (_( occurring_VVG due_JJ to_TO resonant_JJ modes_NNS )_) as_RB compared_VVN to_TO the_DT ones_NNS with_IN the_DT low_JJ ASTL⁠_NN ._SENT 
+Similar_JJ results_NNS were_VBD observed_VVN for_IN the_DT 600–800_JJ frequency_NN range_NN ._SENT 
+The_DT values_NNS of_IN the_DT STL_NN measured_VVN in_IN terms_NNS of_IN both_DT area_NN under_IN the_DT curve_NN and_CC RMS_NP for_IN these_DT six_CD designs_NNS have_VHP been_VBN reported_VVN in_IN Table_NN 8._CD The_DT RMS_NP values_NNS are_VBP calculated_VVN since_IN it_PP is_VBZ difficult_JJ to_TO associate_NN a_DT physical_JJ meaning_NN to_TO the_DT area_NN under_IN the_DT curve_NN quantity_NN ._SENT 
+It_PP can_MD be_VB observed_VVN from_IN the_DT results_NNS shown_VVN in_IN that_DT ,_, the_DT designs_NNS with_IN the_DT highest_JJS value_NN of_IN ASTL_NP show_VVP a_DT significant_JJ improvement_NN of_IN 72_CD %_NN and_CC 109_CD %_NN over_IN the_DT designs_NNS with_IN lowest_JJS ASTL_NN in_IN the_DT 200–400_NP Hz_NP and_CC 600–800_NP Hz_NP frequency_NN ranges_NNS ,_, respectively_RB ._SENT 
+Geometrical_JJ parameters_NNS of_IN the_DT honeycomb_NN unit_NN cells_NNS that_WDT correspond_VV to_TO the_DT highest_JJS and_CC the_DT lowest_JJS ASTL_NN in_IN 200–400_NP Hz_NP frequency_NN range_NN have_VHP been_VBN reported_VVN in_IN Table_NN 9._CD As_IN discussed_VVN before_IN ,_, it_PP can_MD be_VB noticed_VVN that_IN designs_NNS with_IN high_JJ ASTL_NP have_VHP highly_RB negative_JJ value_NN of_IN cell_NN wall_NN angle_NN θ⁠_NN ,_, whereas_IN for_IN designs_NNS with_IN low_JJ ASTL⁠_NN ,_, it_PP is_VBZ close_JJ to_TO 0_CD deg_NN ._SENT 
+Also_RB ,_, Nv_NP values_NNS of_IN designs_NNS with_IN high_JJ ASTL_NN are_VBP lower_JJR than_IN that_IN of_IN designs_NNS with_IN low_JJ ASTL⁠_NN ._SENT 
+Another_DT important_JJ observation_NN to_TO be_VB made_VVN from_IN Fig_NN ._SENT 
+16_CD is_VBZ that_IN at_IN any_DT given_VVN frequency_NN ,_, except_IN the_DT resonant_JJ frequencies_NNS ,_, the_DT STL_NN difference_NN between_IN designs_NNS 1–3_NN and_CC 4–6_NN is_VBZ more_JJR than_IN 10_CD dB_NN ._SENT 
+A_DT difference_NN of_IN 6_CD dB_NN corresponds_VVZ to_TO doubling_VVG of_IN the_DT transmitted_VVN to_TO incident_NN pressure_NN ratio_NN from_IN τ0_NN to_TO 2τ0_NP ,_, which_WDT is_VBZ demonstrated_VVN as_IN @（10）_NN Thus_RB ,_, the_DT transmitted_JJ pressure_NN in_IN the_DT designs_NNS with_IN lowest_JJS STL_NN is_VBZ more_RBR than_IN double_VV that_IN of_IN the_DT designs_NNS with_IN highest_JJS STL_NN ._SENT 
+<Section> 4._CD Design_NN Sensitivity_NN and_CC Correlation_NN Study_NN </Section> 4.1_CD Sensitivity_NN Analysis_NN ._SENT 
+ASTL_NP (_( area_NN under_IN the_DT STL_NN versus_CC frequency_NN curve_NN )_) is_VBZ a_DT function_NN of_IN three_CD independent_JJ design_NN variables_NNS :_: cell_NN wall_NN angle_NN θ_NN ,_, Nh_NP ,_, and_CC Nv_NP ._SENT 
+To_TO test_VV the_DT significance_NN of_IN the_DT effect_NN of_IN design_NN variables_NNS on_IN the_DT ASTL_NP ,_, a_DT sensitivity_NN analysis_NN has_VHZ been_VBN conducted_VVN on_IN the_DT results_NNS of_IN the_DT DOE_NN ,_, using_VVG the_DT Pareto_NP chart_NN of_IN standardized_JJ effects_NNS generated_VVN with_IN Minitab®_NP ._SENT 
+Table_NN 9_CD Honeycomb_NN unit_NN cell_NN geometrical_JJ parameters_NNS corresponding_JJ to_TO the_DT designs_NNS with_IN the_DT highest_JJS and_CC lowest_JJS values_NNS of_IN STL_NN measure_NN (_( 200–400_NP Hz_NP )_) ._SENT 
+Fig_NN ._SENT 
+17_CD Pareto_NN Chart_NN of_IN Standardized_JJ Effects_NNS showing_VVG the_DT results_NNS of_IN sensitivity_NN analysis_NN conducted_VVN on_IN the_DT design_NN data_NNS of_IN DOE_NNS for_IN the_DT 200–400_JJ Hz_NP frequency_NN range_NN ._SENT 
+Figure_NN 17_CD shows_NNS the_DT results_NNS of_IN the_DT sensitivity_NN analysis_NN conducted_VVN on_IN the_DT design_NN data_NNS of_IN the_DT DOE_NN for_IN the_DT 200–400_JJ Hz_NP frequency_NN range_NN ._SENT 
+It_PP can_MD be_VB inferred_VVN from_IN the_DT chart_NN that_IN all_PDT the_DT three_CD independent_JJ design_NN variables_NNS have_VHP a_DT significant_JJ effect_NN on_IN the_DT output_NN ASTL⁠_NN ._SENT 
+The_DT Nv_NP has_VHZ the_DT highest_JJS effect_NN on_IN the_DT STL_NN performance_NN of_IN the_DT sandwich_NN plate_NN ,_, which_WDT is_VBZ followed_VVN by_IN Nh_NP and_CC θ_NP ._SENT 
+This_DT finding_NN ,_, that_IN the_DT cell_NN wall_NN angle_NN θ_NN has_VHZ the_DT lowest_JJS significance_NN out_IN of_IN the_DT three_CD considered_VVN independent_JJ design_NN variables_NNS ,_, is_VBZ particularly_RB noteworthy_JJ given_VVN that_IN it_PP was_VBD the_DT only_JJ design_NN variable_NN considered_VVN in_IN two_CD of_IN the_DT previous_JJ studies_NNS ._SENT 
+The_DT combinations_NNS of_IN Nv–Nh_NP and_CC θ_NP –_NP Nv_NP are_VBP also_RB found_VVN to_TO have_VH a_DT significant_JJ effect_NN ._SENT 
+Although_IN the_DT significance_NN of_IN the_DT three_CD independent_JJ design_NN variables_NNS on_IN the_DT ASTL_NN of_IN sandwich_NN panel_NN has_VHZ been_VBN established_VVN ,_, it_PP is_VBZ difficult_JJ to_TO relate_VV the_DT honeycomb_NN unit_NN cell_NN geometrical_JJ parameters_NNS :_: h_NN ,_, l_NN ,_, and_CC t_NN ,_, directly_RB to_TO its_PP$ ASTL_NN ,_, due_JJ to_TO the_DT fact_NN that_IN Nh_NP and_CC Nv_NP are_VBP functions_NNS of_IN multiple_JJ unit_NN cell_NN parameters_NNS ._SENT 
+Similar_JJ ,_, results_NNS were_VBD obtained_VVN for_IN the_DT 600–800_JJ Hz_NP frequency_NN range_NN ;_: however_RB ,_, those_DT are_VBP not_RB presented_VVN here_RB for_IN brevity_NN ._SENT 
+4.2Correlation_NP Study_NP ._SENT 
+Correlation_NN coefficients_NNS have_VHP been_VBN determined_VVN to_TO access_VV the_DT proportionality_NN (_( direct/inverse_NN )_) between_IN the_DT output_NN and_CC the_DT design_NN variables_NNS ._SENT 
+Values_NNS of_IN the_DT Pearson_NP correlation_NN coefficients_NNS obtained_VVN for_IN each_DT pair_NN of_IN the_DT design_NN variables_NNS and_CC the_DT output_NN are_VBP :_: ASTL_NP –_NP θ_NP :_: −0.447_JJ ,_, ASTL–Nv_NP :_: −0.391_JJ ,_, and_CC ASTL–Nh_NP :_: 0.289_CD ._SENT 
+A_DT positive_JJ sign_NN indicates_VVZ direct_JJ proportionality_NN (_( increasing_VVG ASTL_NN with_IN increasing_VVG value_NN of_IN the_DT design_NN variable_NN )_) and_CC a_DT negative_JJ sign_NN implies_VVZ inverse_JJ proportionality_NN (_( decreasing_VVG ASTL_NN with_IN increasing_VVG value_NN of_IN the_DT design_NN variable_NN )_) ._SENT 
+Correlation_NN results_NNS show_VVP an_DT inverse_JJ proportionality_NN between_IN ASTL_NP and_CC θ_JJ pair_NN and_CC between_IN ASTL_NP and_CC Nv_NP pair_NN ,_, whereas_IN a_DT direct_JJ proportionality_NN is_VBZ observed_VVN between_IN ASTL_NP and_CC Nh_NP ._SENT 
+This_DT outcome_NN is_VBZ consistent_JJ with_IN the_DT design_NN trends_NNS observed_VVD for_IN the_DT results_NNS of_IN DOE_NNS and_CC optimization_NN ,_, where_WRB a_DT high_JJ STL_NN performance_NN of_IN the_DT sandwich_NN panel_NN was_VBD associated_VVN with_IN low_JJ values_NNS of_IN cell_NN wall_NN angle_NN θ_NP and_CC Nv_NP and_CC high_JJ values_NNS of_IN Nh_NP ._SENT 
+Correlation_NN Between_IN Low_NP In-Plane_NP Core_NP Stiffness_NN and_CC High_JJ STL_NN Response_NP of_IN the_DT Sandwich_NP Panels_NNS ._SENT 
+The_DT basis_NN for_IN choosing_VVG the_DT in-plane_NN honeycomb_NN core_NN sandwich_NN panel_NN instead_RB of_IN the_DT out-of-plane_NN sandwich_NN panel_NN in_IN the_DT current_JJ study_NN was_VBD that_IN ,_, due_JJ to_TO their_PP$ lower_JJR in-plane_NN core_NN stiffness_NN compared_VVN to_TO the_DT out-of-plane_NN structures_NNS they_PP have_VHP higher_JJR STL_NN performance_NN ._SENT 
+The_DT in-plane_NN stiffness_NN of_IN the_DT core_NN is_VBZ given_VVN as_IN @（11）_JJ Fig_NN ._SENT 
+18_CD Correlation_NN between_IN high_JJ STL_NN and_CC low_JJ in-plane_NN stiffness_NN (_( E11_JJ )_) for_IN the_DT honeycomb_NN core_NN sandwich_NN panels_NNS for_IN (_( a_DT )_) 200–400_NP Hz_NP and_CC (_( b_LS )_) 600–800_NP Hz_NP frequency_NN range_NN ._SENT 
+where_WRB E_NP is_VBZ the_DT Young_NP 's_POS modulus_NN of_IN the_DT base_NN material_NN (_( aluminum_NN )_) ._SENT 
+Furthermore_RB ,_, as_RB per_IN the_DT results_NNS in_IN Fig_NN ._SENT 
+18_CD ,_, it_PP can_MD also_RB been_VBN observed_VVN that_IN within_IN the_DT in-plane_NN structures_NNS ,_, the_DT sandwich_NN panels_NNS with_IN lower_JJR in-plane_NN stiffness_NN have_VHP a_DT higher_JJR STL_NN response_NN than_IN those_DT with_IN higher_JJR stiffness_NN ._SENT 
+The_DT figure_NN is_VBZ a_DT semilog_NN plot_NN with_IN a_DT logarithmic_JJ scale_NN along_IN the_DT x-axis_NN ._SENT 
+Core_JJ stiffness_NN (_( E11_JJ )_) of_IN the_DT designs_NNS with_IN highest_JJS ASTL_NP are_VBP about_RB three_CD orders_NNS of_IN magnitude_NN lower_JJR than_IN that_DT of_IN the_DT designs_NNS with_IN lowest_JJS ASTL⁠_NN ._SENT 
+In_IN the_DT midstiffness_NN (_( around_IN 109_CD )_) region_NN of_IN the_DT plots_NNS ,_, there_EX are_VBP designs_NNS with_IN lower_JJR ASTL_NN values_NNS ;_: however_RB around_IN stiffness_NN values_NNS of_IN 107_CD the_DT ASTL_NN values_VVZ of_IN the_DT designs_NNS are_VBP consistently_RB high_JJ in_IN both_CC the_DT frequency_NN ranges_NNS ._SENT 
+It_PP should_MD be_VB noted_VVN that_IN the_DT stiffness_NN of_IN the_DT entire_JJ sandwich_NN panel_NN is_VBZ higher_JJR than_IN the_DT core_JJ stiffness_NN ._SENT 
+Detailed_JJ expressions_NNS for_IN the_DT honeycomb_NN core_NN sandwich_NN panel_NN stiffness_NN can_MD be_VB found_VVN in_IN Ref_NN ._SENT 
+[_SYM 45_CD ]_SYM ._SENT 
+Sandwich_NN panels_NNS used_VVN for_IN sound_JJ attenuation_NN purpose_NN typically_RB also_RB have_VH some_DT minimum_JJ stiffness_NN requirements_NNS associated_VVN with_IN them_PP ,_, however_RB ,_, these_DT were_VBD not_RB considered_VVN in_IN the_DT current_JJ study_NN ._SENT 
+The_DT results_NNS discussed_VVN in_IN this_DT section_NN clearly_RB demonstrate_VV that_DT consideration_NN of_IN stiffness_NN (_( specifically_RB in-plane_JJ stiffness_NN )_) constraints/requirements_NNS will_MD limit/affect_VV the_DT STL_NN performance_NN of_IN sandwich_NN panels_NNS ._SENT 
+<Section> 4._CD Conclusions_NNS and_CC Summary_NN </Section> An_DT optimization_NN technique_NN has_VHZ been_VBN presented_VVN to_TO obtain_VV the_DT honeycomb_NN unit_NN cell_NN geometric_JJ parameters_NNS for_IN maximizing_VVG the_DT STL_NN response_NN of_IN the_DT sandwich_NN panel_NN ,_, while_IN maintaining_VVG the_DT mass_NN and_CC total_JJ dimensions_NNS of_IN sandwich_NN panel_NN constant_JJ ._SENT 
+Honeycomb_NN unit_NN cell_NN geometric_JJ parameters_NNS for_IN maximum_JJ ASTL_NP response_NN of_IN the_DT sandwich_NN panel_NN are_VBP :_: (_( a_DT )_) θ_NP =_SYM −39_NP deg_NP ,_, Nh_NP =_SYM 68_CD ,_, Nv_NP =_SYM 3_CD for_IN 200–400_JJ Hz_NP frequency_NN range_NN ;_: and_CC (_( b_LS )_) θ_NP =_SYM −42_NP deg_NP ,_, Nh_NP =_SYM 61_CD ,_, Nv_NP =_SYM 2_CD for_IN 600–800_JJ Hz_NP frequency_NN range_NN ._SENT 
+The_DT ASTL_NN of_IN these_DT optimum_JJ designs_NNS is_VBZ more_JJR than_IN 20_CD %_NN higher_JJR than_IN that_DT of_IN the_DT reference_NN design_NN using_VVG regular_JJ honeycomb_NN structures_NNS (_( θ=30_NP deg)⁠_NP ._SENT 
+Although_IN the_DT global_JJ optimum_JJ designs_NNS were_VBD obtained_VVN for_IN each_DT frequency_NN range_NN ,_, in_IN general_NN the_DT design_NN space_NN with_IN the_DT following_VVG combination_NN of_IN independent_JJ design_NN variables_NNS :_: negative_JJ cell_NN wall_NN angle_NN θ_NN ,_, high_JJ value_NN of_IN Nh_NP ,_, and_CC low_JJ value_NN of_IN Nv_NP ,_, is_VBZ associated_VVN with_IN a_DT high_JJ STL_NN response_NN ._SENT 
+On_IN the_DT contrary_NN ,_, sandwich_NN panels_NNS with_IN a_DT combination_NN of_IN cell_NN wall_NN angle_NN θ_JJ close_NN to_TO 0_CD deg_NN and_CC Nv_NN greater_JJR than_IN 8_CD exhibit_NN a_DT very_RB low_JJ ASTL_NP response_NN ._SENT 
+Furthermore_RB ,_, in_IN spite_NN of_IN the_DT optimum_JJ designs_NNS obtained_VVN in_IN each_DT frequency_NN range_NN being_VBG different_JJ ,_, it_PP is_VBZ expected_VVN that_IN their_PP$ ASTL_NN in_IN either_DT of_IN the_DT frequency_NN ranges_NNS would_MD be_VB high_JJ ,_, since_IN both_DT designs_NNS occur_VVP in_IN the_DT region_NN of_IN design_NN space_NN that_WDT is_VBZ associated_VVN with_IN high_JJ STL_NN performance_NN ._SENT 
+The_DT STL_NN response_NN of_IN the_DT sandwich_NN panels_NNS was_VBD found_VVN to_TO be_VB sensitive_JJ to_TO all_PDT the_DT independent_JJ design_NN variables_NNS Nv_NP ,_, Nh_NP ,_, and_CC θ⁠_NP ,_, in_IN descending_VVG order_NN ._SENT 
+This_DT finding_NN is_VBZ noteworthy_JJ given_VVN that_IN the_DT cell_NN wall_NN angle_NN θ_NN has_VHZ been_VBN the_DT only_JJ design_NN variable_NN considered_VVN in_IN some_DT of_IN previous_JJ studies_NNS focusing_VVG on_IN STL_NN response_NN of_IN honeycomb_NN core_NN sandwich_NN panels_NNS ._SENT 
+The_DT sharp_JJ drops_NNS in_IN amplitude_NN of_IN the_DT STL_NN response_NN have_VHP been_VBN observed_VVN at_IN the_DT odd_JJ numbered_VVN flexural_JJ modes_NNS of_IN vibration_NN of_IN the_DT sandwich_NN panel_NN ._SENT 
+In_IN addition_NN ,_, at_IN higher_JJR frequencies_NNS ,_, dilatational_JJ modes_NNS of_IN vibration_NN also_RB affect_VV the_DT STL_NN response_NN ._SENT 
+A_DT correlation_NN has_VHZ been_VBN observed_VVN between_IN the_DT low_JJ in-plane_NN stiffness_NN E11_JJ of_IN honeycomb_NN cores_NNS and_CC their_PP$ high_JJ ASTL_NN ._SENT 
+The_DT E11_NN of_IN honeycomb_NN cores_NNS with_IN high_JJ ASTL_NN was_VBD observed_VVN to_TO be_VB around_RB three_CD orders_NNS of_IN magnitude_NN lower_JJR than_IN those_DT with_IN a_DT low_JJ ASTL_NN ._SENT 
+<Section> Nomenclature_NN </Section> ASTL_NN =area_NN under_IN the_DT STL_NN versus_CC frequency_NN curve_NN c_SYM =wave_NN speed_NN D_NP =out_NP of_IN place_NN thickness_NN of_IN the_DT sandwich_NN plate_NN E_NP =Young_NP 's_POS modulus_NN of_IN aluminum_NN f_SYM =frequency_NP fmax_NP =maximum_NP incident_NN frequency_NN h_NN =vertical_JJ cell_NN wall_NN height_NN of_IN honeycomb_NN unit_NN cell_NN H_NN =thickness_NN of_IN the_DT sandwich_NN plate_NN l_NN =slant_JJ cell_NN wall_NN height_NN of_IN honeycomb_NN unit_NN cell_NN L_NP =length_NP of_IN the_DT sandwich_NN plate_NN Lx_NP =honeycomb_NP unit_NN cell_NN horizontal_NN length_NN Ly_NP =honeycomb_NP unit_NN cell_NN vertical_JJ length_NN MT_NN =total_JJ mass_NN of_IN sandwich_NN panel_NN Nh_NP =number_NP of_IN honeycomb_NN unit_NN cells_NNS in_IN the_DT horizontal_JJ direction_NN of_IN the_DT sandwich_NN panel_NN Nv_NP =number_NP of_IN honeycomb_NN unit_NN cells_NNS in_IN the_DT vertical_JJ direction_NN of_IN the_DT sandwich_NN panel_NN pi_NN =RMS_VVZ incident_NN pressure_NN pt_NN =RMS_VVZ transmitted_JJ pressure_NN t_NN =cell_NP wall_NN thickness_NN of_IN honeycomb_NN unit_NN cell_NN tf_NP =facesheet_NP thickness_NN of_IN sandwich_NN panel_NN θ_NP =cell_NP wall_NN angle_NN of_IN honeycomb_NN unit_NN cell_NN λ_NP =wavelength_NP ρ_NP =mass_NP density_NN of_IN aluminum_JJ ρ∗_JJ =effective_JJ mass_NN density_NN of_IN the_DT sandwich_NN panel_NN τ_JJ =sound_NN transmission_NN coefficient_NN υ_NP =Poisson_NP 's_POS ratio_NN of_IN aluminum_NN <Section> References_NNS </Section> Evans_NP ,_, M._NP J._NP ,_, Faulkner_NP ,_, S._NP L._NP ,_, Fisher_NP ,_, R._NP ,_, Wells_NP ,_, T._NP C._NP ,_, and_CC Hadlum_NP ,_, P._NP ,_, 1996_CD ,_, “_NP Light-Weight_NP ,_, High-Strength_NP ,_, Stiff_NP Panels_NNS ,_, ”_NP U._NP S._NP Patent_NP No._NN 5,445,861_CD ._SENT 
+Gu_NP ,_, S._NP ,_, Lu_NP ,_, T._NP J._NP ,_, and_CC Evans_NP ,_, A._NP G._NP ,_, 2001_CD ,_, “_JJ On_IN the_DT Design_NN of_IN Two-Dimensional_JJ Cellular_NP Metals_NP for_IN Combined_NP Heat_NP Dissipation_NN and_CC Structural_JJ Load_NN Capacity_NN ,_, ”_NP Int_NP ._SENT 
+J._NP Heat_NP Mass_NP Transfer_NN ,_, 44(11_JJ )_) ,_, pp_NP ._SENT 
+2163–2175_NP ._SENT 
+Carbery_NP ,_, D._NP J._NP ,_, Ikegami_NP ,_, R._NP ,_, Martin_NP ,_, T._NP D._NP ,_, Newton_NP ,_, J._NP F._NP ,_, and_CC Westre_NP ,_, W._NP N._NP ,_, 1995_CD ,_, “_JJ Lightweight_JJ Honeycomb_NN Panel_NN Structure_NN ,_, ”_NP U._NP S._NP Patent_NP No._NN 5,445,861_CD ._SENT 
+Paik_NP ,_, J._NP K._NP ,_, Thayamballi_NP ,_, A._NP K._NP ,_, and_CC Kim_NP ,_, G._NP S._NP ,_, 1999_CD ,_, “_NP The_NP Strength_NP Characteristics_NNS of_IN Aluminum_NP Honeycomb_VVP Sandwich_NP Panels_NNS ,_, ”_JJ Thin-Walled_JJ Struct_NN ._SENT 
+,_, 35(3_NP )_) ,_, pp_NP ._SENT 
+205–231_JJ ._SENT 
+Evans_NP ,_, A._NP G._NP ,_, Hutchinson_NP ,_, J._NP W._NP ,_, Fleck_NP ,_, N._NP A._NP ,_, Ashby_NP ,_, M._NP F._NP ,_, and_CC Wadley_NP ,_, H._NP N._NP G._NP ,_, 2001_CD ,_, “_NP The_DT Topological_JJ Design_NN of_IN Multifunctional_JJ Cellular_NP Metals_NP ,_, ”_NP Prog_NP ._SENT 
+Mater_NN ._SENT 
+Sci_NNS ._SENT 
+,_, 46(3–4_NP )_) ,_, pp_NP ._SENT 
+309–327_JJ ._SENT 
+Vinson_NP ,_, J._NP R._NP ,_, 2001_CD ,_, “_NP Sandwich_NP Structures_NNS ,_, ”_JJ ASME_NN Appl_NN ._SENT 
+Mech_NP ._SENT 
+Rev._NP ,_, 54(3_NP )_) ,_, pp_NP ._SENT 
+201–214_NP ._SENT 
+Nilsson_NP ,_, A._NP C._NP ,_, 1990_CD ,_, “_NP Wave_NP Propagation_NN in_IN and_CC Sound_NP Transmission_NP Through_IN Sandwich_NP Plates_NNS ,_, ”_NP J._NP Sound_NP Vib_NN ._SENT 
+,_, 138(1_JJ )_) ,_, pp_NP ._SENT 
+73–94_NP ._SENT 
+El-Raheb_NP ,_, M._NP ,_, and_CC Wagner_NP ,_, P._NP ,_, 1997_CD ,_, “_NP Transmission_NP of_IN Sound_NP Across_IN a_DT Trusslike_JJ Periodic_JJ Panel_NN ;_: 2-D_NP Analysis_NP ,_, ”_NP J._NP Acoust_NP ._SENT 
+Soc_NP ._SENT 
+Am_RB ._SENT 
+,_, 102(4_NP )_) ,_, pp_NP ._SENT 
+2176–2183_NP ._SENT 
+Kim_NP ,_, Y._NP -J_NP ._SENT 
+,_, and_CC Han_NP ,_, J._NP -H_NP ._SENT 
+,_, 2013_CD ,_, “_JJ Identification_NN of_IN Acoustic_JJ Characteristics_NNS of_IN Honeycomb_NN Sandwich_NP Composite_NP Panels_NNS Using_VVG Hybrid_JJ Analytical/Finite_NN Element_NN Method_NN ,_, ”_JJ ASME_NN J._NP Vib_NP ._SENT 
+Acoust_NN ._SENT 
+,_, 135(1_JJ )_) ,_, p._NP 11006._CD Qian_NP ,_, Z._NP ,_, Chang_NP ,_, D._NP ,_, Liu_NP ,_, B._NP ,_, and_CC Liu_NP ,_, K._NP ,_, 2013_CD ,_, “_JJ Prediction_NN of_IN Sound_NP Transmission_NP Loss_NN for_IN Finite_JJ Sandwich_NP Panels_NNS Based_VVN on_IN a_DT Test_NN Procedure_NN on_IN Beam_NP Elements_NNS ,_, ”_JJ ASME_NN J._NP Vib_NP ._SENT 
+Acoust_NN ._SENT 
+,_, 135(6_NP )_) ,_, p._NP 61005._CD Ng_NP ,_, C._NP F._NP ,_, and_CC Hui_NP ,_, C._NP K._NP ,_, 2008_CD ,_, “_NP Low_NP Frequency_NN Sound_NN Insulation_NN Using_VVG Stiffness_NN Control_NN With_IN Honeycomb_NN Panels_NNS ,_, ”_JJ Appl_NN ._SENT 
+Acoust_NN ._SENT 
+,_, 69(4_NP )_) ,_, pp_NP ._SENT 
+293–301_JJ ._SENT 
+Ruzzene_NP ,_, M._NP ,_, Mazzarella_NP ,_, L._NP ,_, Tsopelas_NP ,_, P._NP ,_, and_CC Scarpa_NP ,_, F._NP ,_, 2002_CD ,_, “_NP Wave_NP Propagation_NN in_IN Sandwich_NP Plates_NNS With_IN Periodic_JJ Auxetic_NP Core_NP ,_, ”_NP J._NP Intell_NP ._SENT 
+Mater_NN ._SENT 
+Syst_NN ._SENT 
+Struct_VV ._SENT 
+,_, 13(9_NP )_) ,_, pp_NP ._SENT 
+587–597_JJ ._SENT 
+Ruzzene_NP ,_, M._NP ,_, and_CC Scarpa_NP ,_, F._NP ,_, 2003_CD ,_, “_NP Control_NP of_IN Wave_NP Propagation_NN in_IN Sandwich_NP Beams_NP With_IN Auxetic_NP Core_NP ,_, ”_NP J._NP Intell_NP ._SENT 
+Mater_NN ._SENT 
+Syst_NN ._SENT 
+Struct_VV ._SENT 
+,_, 14(7_JJ )_) ,_, pp_NP ._SENT 
+443–453_NP ._SENT 
+Scarpa_NP ,_, F._NP ,_, and_CC Tomlinson_NP ,_, G._NP ,_, 2000_CD ,_, “_JJ Theoretical_JJ Characteristics_NNS of_IN the_DT Vibration_NN of_IN Sandwich_NP Plates_NNS With_IN In-Plane_NN Negative_JJ Poisson_NP 's_POS Ratio_NN Values_NNS ,_, ”_NP J._NP Sound_NP Vib_NN ._SENT 
+,_, 230(1_JJ )_) ,_, pp_NP ._SENT 
+45–67_JJ ._SENT 
+Watters_NP ,_, B._NP G._NP ,_, and_CC Kurtze_NP ,_, G._NP ,_, 1959_CD ,_, “_NP New_NP Wall_NP Design_NP for_IN High_NP Transmission_NP Loss_NN or_CC High_JJ Damping_VVG ,_, ”_NP J._NP Acoust_NP ._SENT 
+Soc_NP ._SENT 
+Am_RB ._SENT 
+,_, 31(6_NP )_) ,_, pp_NP ._SENT 
+739–748_NP ._SENT 
+Ford_NP ,_, R._NP D._NP ,_, Lord_NP ,_, P._NP ,_, and_CC Walker_NP ,_, A._NP W._NP ,_, 1967_CD ,_, “_NP Sound_NP Transmission_NP Through_IN Sandwich_NP Constructions_NNS ,_, ”_NP J._NP Sound_NP Vib_NN ._SENT 
+,_, 5(1_JJ )_) ,_, pp_NP ._SENT 
+9–21_JJ ._SENT 
+Krokosky_NP ,_, E._NP M._NP ,_, and_CC Smolenski_NP ,_, C._NP P._NP ,_, 1973_CD ,_, “_NP Dilational-Mode_NP Sound_NP Transmission_NP in_IN Sandwich_NP Panels_NNS ,_, ”_NP J._NP Acoust_NP ._SENT 
+Soc_NP ._SENT 
+Am_RB ._SENT 
+,_, 54(6_NP )_) ,_, pp_NP ._SENT 
+1449–1457_JJ ._SENT 
+Dym_NP ,_, C._NP L._NP ,_, and_CC Lang_NP ,_, M._NP A._NP ,_, 1974_CD ,_, “_NP Transmission_NP of_IN Sound_NP Through_IN Sandwich_NP Panels_NNS ,_, ”_NP J._NP Acoust_NP ._SENT 
+Soc_NP ._SENT 
+Am_RB ._SENT 
+,_, 56(5_NP )_) ,_, pp_NP ._SENT 
+1523–1532_NP ._SENT 
+Narayanan_NP ,_, S._NP ,_, and_CC Shanbag_NN ,_, R._NP L._NP ,_, 1982_CD ,_, “_NP Sound_NP Transmission_NP Through_IN Damped_VVN Sandwich_NP Panel_NN ,_, ”_NP J._NP Sound_NP Vib_NN ._SENT 
+,_, 80(3_NP )_) ,_, pp_NP ._SENT 
+315–327_JJ ._SENT 
+Rossing_NP ,_, T._NP D._NP ,_, 2007_CD ,_, Handbook_NN of_IN Acoustics_NN ,_, Springer_NP ,_, New_NP York_NP ._SENT 
+Moore_NP ,_, J._NP A._NP ,_, and_CC Lyon_NP ,_, R._NP H._NP ,_, 1991_CD ,_, “_NP Sound_NP Transmission_NP Loss_NN Characteristics_NNS of_IN Sandwich_NP Panel_NN Constructions_NNS ,_, ”_NP J._NP Acoust_NP ._SENT 
+Soc_NP ._SENT 
+Am_RB ._SENT 
+,_, 89(2_NP )_) ,_, pp_NP ._SENT 
+777–791_JJ ._SENT 
+Vos_NP ,_, R._NP ,_, and_CC Barrett_NP ,_, R._NP ,_, 2011_CD ,_, “_JJ Mechanics_NNS of_IN Pressure-Adaptive_JJ Honeycomb_NN and_CC Its_PP$ Application_NN to_TO Wing_NP Morphing_VVG ,_, ”_NP Smart_NP Mater_NP ._SENT 
+Struct_VV ._SENT 
+,_, 20(9_NP )_) ,_, p._NP 094010._CD Ruan_NP ,_, D._NP ,_, Lu_NP ,_, G._NP ,_, Wang_NP ,_, B._NP ,_, and_CC Yu_NP ,_, T._NP X._NP ,_, 2003_CD ,_, “_JJ In-Plane_NN Dynamic_NN Crushing_VVG of_IN Honeycombs—A_NP Finite_JJ Element_NN Study_NN ,_, ”_NP Int_NP ._SENT 
+J._NP Impact_NP Eng_NP ._SENT 
+,_, 28(2_NP )_) ,_, pp_NP ._SENT 
+161–182_NP ._SENT 
+Papka_NP ,_, S._NP D._NP ,_, and_CC Kyriakides_NP ,_, S._NP ,_, 1994_CD ,_, “_NP In-Plane_NP Compressive_JJ Response_NP and_CC Crushing_VVG of_IN Honeycomb_NN ,_, ”_NP J._NP Mech_NP ._SENT 
+Phys_NPS ._SENT 
+Solids_NNS ,_, 42(10_NP )_) ,_, pp_NP ._SENT 
+1499–1532_NP ._SENT 
+Ju_NP ,_, J._NP ,_, Ananthasayanam_NP ,_, B._NP ,_, Summers_NP ,_, J._NP D._NP ,_, and_CC Joseph_NP ,_, P._NP ,_, 2010_CD ,_, “_NP Design_NP of_IN Cellular_NP Shear_NP Bands_NNS of_IN a_DT Non-Pneumatic_JJ Tire-Investigation_NN of_IN Contact_NN Pressure_NN ,_, ”_NP SAE_NP Paper_NP No._NN 2010-01-0768_CD ._SENT 
+Thamburaj_NP ,_, P._NP ,_, and_CC Sun_NP ,_, J._NP Q._NP ,_, 2002_CD ,_, “_NP Optimization_NP of_IN Anisotropic_JJ Sandwich_NP Beams_NP for_IN Higher_JJR Sound_JJ Transmission_NP Loss_NN ,_, ”_NP J._NP Sound_NP Vib_NN ._SENT 
+,_, 254(1_JJ )_) ,_, pp_NP ._SENT 
+23–36_NP ._SENT 
+Denli_NP ,_, H._NP ,_, and_CC Sun_NP ,_, J._NP Q._NP ,_, 2007_CD ,_, “_NP Structural-Acoustic_NP Optimization_NP of_IN Sandwich_NP Structures_NNS With_IN Cellular_NP Cores_NNS for_IN Minimum_NP Sound_NP Radiation_NN ,_, ”_NP J._NP Sound_NP Vib_NN ._SENT 
+,_, 301(1–2_NP )_) ,_, pp_NP ._SENT 
+93–105_NP ._SENT 
+Franco_NP ,_, F._NP ,_, Cunefare_NP ,_, K._NP A._NP ,_, and_CC Ruzzene_NP ,_, M._NP ,_, 2007_CD ,_, “_NP Structural-Acoustic_NP Optimization_NP of_IN Sandwich_NP Panels_NNS ,_, ”_JJ ASME_NN J._NP Vib_NP ._SENT 
+Acoust_NN ._SENT 
+,_, 129(3_NP )_) ,_, p._NP 330._CD Denli_NP ,_, H._NP ,_, and_CC Sun_NP ,_, J._NP Q._NP ,_, 2008_CD ,_, “_NP Structural-Acoustic_NP Optimization_NP of_IN Sandwich_NP Cylindrical_JJ Shells_NP for_IN Minimum_NP Interior_NP Sound_NP Transmission_NP ,_, ”_NP J._NP Sound_NP Vib_NN ._SENT 
+,_, 316(1–5_NP )_) ,_, pp_NP ._SENT 
+32–49_NP ._SENT 
+Ruzzene_NP ,_, M._NP ,_, 2004_CD ,_, “_JJ Vibration_NN and_CC Sound_JJ Radiation_NN of_IN Sandwich_NP Beams_NP With_IN Honeycomb_NN Truss_NP Core_NP ,_, ”_NP J._NP Sound_NP Vib_NN ._SENT 
+,_, 277(4–5_NP )_) ,_, pp_NP ._SENT 
+741–763_NP ._SENT 
+Griese_NP ,_, D._NP ,_, Summers_NP ,_, J._NP D._NP ,_, and_CC Thompson_NP ,_, L._NP ,_, 2014_CD ,_, “_NP The_DT Effect_NN of_IN Honeycomb_NN Core_NP Geometry_NN on_IN the_DT Sound_NP Transmission_NP Performance_NP of_IN Sandwich_NP Panels_NNS ,_, ”_JJ ASME_NN J._NP Vib_NP ._SENT 
+Acoust_NN ._SENT 
+,_, 137(2_NP )_) ,_, p._NP 021011._CD Gibson_NP ,_, L._NP J._NP ,_, and_CC Ashby_NP ,_, M._NP F._NP ,_, 1999_CD ,_, Cellular_NP Solids_NNS :_: Structure_NN and_CC Properties_NP ,_, Cambridge_NP University_NP Press_NP ,_, Cambridge_NP ,_, UK_NP ._SENT 
+Ingard_NP ,_, U._NP ,_, 2010_CD ,_, Notes_NNS on_IN Acoustics_NN ,_, Laxmi_NP Publications_NPS ,_, Ltd._NP ,_, Hingham_NP ,_, MA_NN ._SENT 
+Lin_NP ,_, G._NP ,_, and_CC Garrelick_NP ,_, J._NP M._NP ,_, 1977_CD ,_, “_NP Sound_NP Transmission_NP Through_IN Periodically_RB Framed_VVN Parallel_JJ Plates_NNS ,_, ”_NP J._NP Acoust_NP ._SENT 
+Soc_NP ._SENT 
+Am_RB ._SENT 
+,_, 61(4_NP )_) ,_, pp_NP ._SENT 
+1014–1018_NP ._SENT 
+2009_CD ,_, “_NP Dassault_NP Systems_NP ,_, ABAQUS_NP 6.9_CD ,_, Help_NN Manual_NP ,_, ”_NP Dassault_NP Systems_NPS ._SENT 
+Graff_NP ,_, K._NP F._NP ,_, 1975_CD ,_, Wave_NP Motion_NP in_IN Elastic_JJ Solids_NNS ,_, Courier_NP Corp._NP Doyle_NP ,_, J._NP F._NP ,_, 1997_CD ,_, “_NP Wave_NP Propagation_NN in_IN Structures_NNS ,_, ”_JJ Spectral_JJ Analysis_NN Using_VVG Fast_JJ Discrete_JJ Fourier_NN Transforms_VVZ (_( Mechanical_NP Engineering_NP Series_NP )_) ,_, Springer_NP ,_, New_NP York_NP ._SENT 
+Williams_NP ,_, E._NP G._NP ,_, 1982_CD ,_, “_JJ Numerical_JJ Evaluation_NN of_IN the_DT Rayleigh_NP Integral_NP for_IN Planar_NP Radiators_NNS Using_VVG the_DT FFT_NN ,_, ”_NP J._NP Acoust_NP ._SENT 
+Soc_NP ._SENT 
+Am_RB ._SENT 
+,_, 72(6_NP )_) ,_, p._NP 2020._CD Kirkup_NN ,_, S._NP M._NP ,_, 1994_CD ,_, “_JJ Computational_JJ Solution_NN of_IN the_DT Acoustic_JJ Field_NN Surrounding_VVG a_DT Baffled_VVN Panel_NN by_IN the_DT Rayleigh_NP Integral_NP Method_NN ,_, ”_NP Appl_NP ._SENT 
+Math_NN ._SENT 
+Modell_NP ._SENT 
+,_, 18(7_JJ )_) ,_, pp_NP ._SENT 
+403–407_JJ ._SENT 
+Zhu_NP ,_, H._NP X._NP ,_, Hobdell_NP ,_, J._NP R._NP ,_, and_CC Windle_NP ,_, A._NP H._NP ,_, 2001_CD ,_, “_JJ Effects_NNS of_IN Cell_NN Irregularity_NN on_IN the_DT Elastic_JJ Properties_NPS of_IN 2D_NP Voronoi_NP Honeycombs_VVZ ,_, ”_NP J._NP Mech_NP ._SENT 
+Phys_NPS ._SENT 
+Solids_NNS ,_, 49(4_NP )_) ,_, pp_NP ._SENT 
+857–870_NP ._SENT 
+Becker_NP ,_, W._NP ,_, 1998_CD ,_, “_NP The_DT In-Plane_NN Stiffnesses_NNS of_IN a_DT Honeycomb_NN Core_NP Including_VVG the_DT Thickness_NN Effect_NN ,_, ”_NP Arch_NP ._SENT 
+Appl_NP ._SENT 
+Mech_NN ._SENT 
+,_, 68(5_NP )_) ,_, pp_NP ._SENT 
+334–341_JJ ._SENT 
+Grediac_NP ,_, M._NP ,_, 1993_CD ,_, “_NP A_DT Finite_JJ Element_NN Study_NN of_IN the_DT Transverse_JJ Shear_NP in_IN Honeycomb_NN Cores_NNS ,_, ”_NP Int_NP ._SENT 
+J._NP Solids_NNS Struct_VVP ._SENT 
+,_, 30(13_NP )_) ,_, pp_NP ._SENT 
+1777–1788_NP ._SENT 
+2010_CD ,_, “_NP Esteco_NP ,_, modeFRONTIER_NP 4.3.0_CD ,_, Help_NN Manual_NP ,_, ”_NP Esteco_NP SpA_NN ._SENT 
+2010_CD ,_, “_JJ Minitab_NP 16_CD ,_, Help_NN Manual_NP ,_, ”_NP Minitab_NP ,_, Inc._NP Shan_NP ,_, N._NP ,_, 2011_CD ,_, “_NP Analytical_NP Solutions_NNS Using_VVG High_NP Order_NP Composite_NP Laminate_JJ Theory_NN for_IN Honeycomb_NN Sandwich_NP Plates_NNS With_IN Viscoelastic_JJ Frequency_NN Dependent_JJ Damping_VVG ,_, ”_NP M._NP S._NP thesis_NN ,_, Clemson_NP University_NP ,_, Clemson_NP ,_, SC_NP ._SENT 

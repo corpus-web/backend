@@ -1,0 +1,224 @@
+<title>Back propagation (BP) neural network prediction and chaotic characteristics analysis of free falling liquid film fluctuation on corrugated plate wall</title>
+<author>1,BoWang, 2,BowenChen，3，GongqingWang，4，RuLi，5，JimingWen,6,ChuanLu，7，RuifengTian，8，JianDeng</author>
+<Affiliation>1，Fundamental Science on Nuclear Safety and Simulation Technology Laboratory, Harbin Engineering University, Harbin 150001, China;2,Science and Technology on Reactor System Design Technology Laboratory, Nuclear Power Institute of China, Chengdu 601213, China</Affiliation>
+<year>2020</year>
+<Jounral>Annals of Nuclear Energy</Journal>
+<Publishing_house>ELSEVIER</Publishing_house>
+<Text_Collector>XiaFan，HEU</Text_Collector>
+<DOI>10.1016/j.anucene.2020.107711</DOI>
+<URL>https://www.sciencedirect.com/science/article/pii/S0306454920304096</URL>
+Back propagation (BP) neural network prediction and chaotic characteristics analysis of free falling liquid film fluctuation on corrugated plate wall
+BoWang, BowenChen，GongqingWang，RuLi，JimingWen,ChuanLu，RuifengTian，JianDeng
+Fundamental Science on Nuclear Safety and Simulation Technology Laboratory, Harbin Engineering University, Harbin 150001, China
+Science and Technology on Reactor System Design Technology Laboratory, Nuclear Power Institute of China, Chengdu 601213, China
+<Section>Highlights</Section>
+Water film thickness is measured based on the PLIF technology.
+A single hidden layer BP neural network prediction model is established.
+Free falling film thickness is consistent with chaotic characteristics.
+Maximum Lyapunov exponent is obtained by small data amount method.
+BP neural network well fit and predict nonlinear water film thickness time series.
+<Section>Abstract</Section>
+The thicknesses of liquid films on corrugated plate walls at different Reynolds numbers are measured based on the plane laser induced fluorescence method. Using the small data amount method, the maximum Lyapunov exponent of a liquid film thickness time series under different working conditions is calculated, and the chaotic characteristics of the liquid film are analyzed. And a back propagation neural network prediction model is established. The results reveal that the free-falling film thickness under different Reynolds numbers is consistent with the chaotic characteristics and that the maximum Lyapunov exponent of the liquid film thickness time series obtained by the small data amount method is positively correlated with the Reynolds number. To clearly indicate the chaotic characteristics of the liquid film, isolated peaks generated in regions with large Reynolds numbers are coupled with the gravity of the liquid film and the superposition effect between different liquid films.
+<Section>1. Introduction</Section>
+The corrugated plate dryer plays an important role in drying steam; before the steam is transferred into a steam turbine, it is dried by the dryer under high temperature and high pressure conditions. Research on the steam-liquid separation mechanism plays a decisive role in improvements of thermal efficiency and economic indicators of nuclear power plants (Wang et al., 2019). The flow characteristics of a liquid film on the wall surface of a corrugated plate, especially the nonlinear characteristics of the liquid film, have an important influence on liquid film rupture and the carry-over phenomenon inside a dryer. In 1995, Jiang et al. carried out an experimental study on the rupture characteristics of a free-falling film flowing outside the surface of the vertical heating tube wall (Jiang et al., 1995). In this experiment, the inlet temperature and liquid film Reynolds number were set to a wider range, which confirmed that the hot capillary force and liquid film nonlinear fluctuations under heating conditions are the crucial factors resulting in liquid film rupture. Based on the principle of thermophysical similarity, the experimental results were analyzed, and a criterion for liquid film rupture was established. In 2006, Chen et al. carried out a cold test experiment on a double-hook corrugated plate dryer in a pressurized liquid reactor (Chen et al., 2006a, Chen et al., 2006b). A corrugated plate dryer, which is considered to produce the best separation effect, is characterized by a gradually decreasing gap of the hydrophobic hook along the flow direction of the main stream. In 2011, Alamu et al. conducted an experimental study on streamlined corrugated plates and broken-line corrugated plates. The vortices at the corners of streamlined corrugated plates could be controlled more easily and the occurrence of secondary carryover was reduced. This increased the critical inlet velocity and the separation efficiency of the dryer, proving that greater control could be achieved on streamlined corrugated plates than broken-line ones (Alamu and Azzopardi, 2011). In 2015, Liu and Zhao, 2015 used the SST k turbulence model to study the performance of a corrugated plate dryer without considering the secondary carryover problem, simulating the separation efficiency and pressure loss of 27 different retaining hook structures. It is considered that the separation performance of the corrugated plate is highest when the first and third stage liquid stop hooks are 8.5 mm and the second stage is 6.2 mm.
+Wang and Tian studied the fluctuations of a liquid film on the wall surface of a corrugated plate (Wang and Tian, 2019a, Wang and Tian, 2019b). In addition, the theoretical relationship between the thickness of a liquid film and the critical airflow velocity of a corrugated plate has been described in Reference [3] (as shown in Eq. (1)).
+@(1)
+@ are the linear distance between two plate walls, the inflection angle of the corrugated plate corner, surface tension, liquid phase dynamic viscosity, liquid density, air density, dynamic viscosity of air, and liquid film thickness, respectively.
+The greater the critical airflow velocity of the corrugated plate, the more difficult it is for the liquid film to break. Therefore, the greater the critical airflow velocity, the higher the steam-water separation efficiency of the corrugated plate. According to Eq. (1), the liquid film thickness affects the steam-water separation efficiency. There are currently no accurate methods to measure the thickness of a liquid film on the wall surface of a corrugated plate under high temperature and high pressure conditions in nuclear power plants. Therefore, it is feasible and meaningful to predict the liquid film thickness under high temperatures and pressures based on experimental results under normal temperatures and pressures (20 °C, standard atmospheric pressure).
+As a common method to deal with nonlinear problems, BP neural networks can be used to solve research problems involving chaos and volatility. The use of BP neural networks and chaotic characteristics analysis methods for reactor thermal hydraulics is helpful for data analysis and data characteristics determination. Some researchers have used neural networks or chaotic analysis methods to conduct research on thermal hydraulic phenomena. Chen researched the flow instability of natural circulation systems under rolling motions with BP neural network methods. The largest Lyapunov exponent of the flow rate time series for acquiring the maximum prediction time was calculated by the small data method (Chen et al., 2015a, Chen et al., 2015b). Tan studied non-linear time series analysis of irregular complex flow oscillations of natural circulation systems under rolling motions. The correlation dimension and the maximal Lyapunov exponent were calculated based on phase space reconstruction theory. The chaotic features of irregular complex flow oscillations were analyzed as well. The results reveal that irregular complex flow oscillations are typical chaotic oscillations, and that the interactions and feedback of thermal driving forces, flow resistance and additional forces caused by rolling motions lead to the emergency of chaos (Zhang et al., 2012). Nevertheless, a free-falling film on the wall of a corrugated plate is stable at low Reynolds numbers, however, with an increase in Reynolds number, the variations of liquid film thickness with time and the volatility of the liquid film become more complicated and characteristic chaos and nonlinear features become more obvious. Therefore, it is important to analyze the chaotic characteristics of a free liquid film thickness time series on a corrugated plate wall surface. In this paper, flow and chaos characteristics of a free-falling liquid film on a vertical corrugated plate wall are studied experimentally. The liquid film thickness is measured using planar laser induced fluorescence (PLIF) and image processing technology. Experimental measurements of the liquid film thickness at different Reynolds numbers are carried out by considering a distance of 15 cm from the starting point of the generated liquid film as the measurement position. Based on the BP neural network method, the time series of the free liquid film thickness in a sampling time of 1 s and an interval of 0.002 s is fitted and predicted, respectively. Additionally, a single hidden layer BP neural network prediction model is established using phase space reconstruction, and the maximum Lyapunov exponent of the measured free liquid film thickness time series is calculated by applying a program algorithm. Finally, the nonlinear and chaotic characteristics of the liquid film time series are analyzed.
+<Section>2. Experimental research</Section>
+2.1. Experimental system
+The specific components of the experimental system are shown in Fig. 1. The specific work and operation flow are as follows. A liquid containing Rhodamine B fluorescent with a maximum absorption wavelength of 555 nm flows from the high-position tank to a lower tank with a fixed liquid level, so that the pressure of the liquid flowing into the liquid film generator remains unchanged, thereby ensuring the formation of a stable liquid flow onto the corrugated plate wall with a roughness of 0.025 mm. Narrow slit method is used to create a wall liquid film with a narrow slit length of 50 mm and a width of 6 mm. The excess liquid on the other side of the tank with the fixed liquid level flows directly into the circulating liquid tank to continue circulation, and is returned to the high-position tank by the actions of a liquid pump, thereby forming a stable self-circulation system. Fluorescent particles contained in the liquid film on the wall surface of the corrugated plate transition from the ground state to the excited state under vertical irradiation with a laser beam of wavelength of 532 nm and are relocated due to instability and emit visible light, which results in a significant difference in color between the corrugated plate wall, which is made of a plexiglass material and the liquid film, so that a liquid film image can be clearly captured by a high-speed camera with a resolution of 1024 × 1024. In the experiment, the flow rate is changed by a shut-off valve controlled by a potentiometer and a motor, thus realizing a change in the Reynolds number of the liquid film. The calculation method of the Reynolds number of the liquid film on the wall surface is as follows, in Eq. (2).
+@(2)
+Fig. 1. Schematic diagram of the experimental system.
+where @ and C are the hydrodynamic viscosity and the liquid film wetted perimeter, respectively. M is the liquid film mass flow rate, which can be measured by a mass flow meter.
+2.2. PLIF technology for measuring film thickness
+Compared with traditional capacitance film thickness measurement methods, the PLIF method shown in Fig. 2 has the advantages of no contact interference and high sensitivity (Gonda et al., 2014, Murgatroyd, 1965, Liu et al., 2020). The liquid film image captured by the high-speed camera can be automatically recognized based on the boundary differentiation principle by identifying positions of a color and brightness differing greatly to each small neighborhood in an image, thereby obtaining the liquid film boundary contour, as shown in Fig. 2. The two parallel sides in Fig. 2 represent the liquid–solid and gas–liquid boundaries, respectively, that is, the distance between them is the true value of the liquid film thickness (Chen et al., 2015a, Chen et al., 2015b). The calibration of each specific method must be carried out before taking measurements; this involves capturing the image of the corrugated plate edge initially when the liquid film flows in the vertical direction and obtaining the number of pixels of the image of the corrugated plate of the liquid film thickness afterward. The actual scale can be obtained by applying a scale to determine the actual thickness of the liquid film.
+Fig. 2. Images of corrugated plate structure and liquid film thickness measurement based on the PLIF method.
+<Section>3. Results and discussion</Section>
+The thickness of the liquid films with Reynolds numbers of 1995, 2092, 2645, 2792, 3011 and 3328 are measured using the PLIF method at a vertical height of 15 cm from the starting point of liquid film formation (results are shown in Fig. 4). The sampling time and interval are 1 s and 0.002 s, respectively. As the liquid film flow state conforms to nonlinear characteristics, the free liquid film thickness satisfies the upper bound and the lower bound of the global bounded existence during the entire adoption time. It does not converge or diverge and has no periodicity, which is consistent with chaotic features and characteristics (Tan et al., 2009, Bang et al., 2018, Chung et al., 2014). Therefore, the chaotic characteristics of the liquid film thickness time series are analyzed as follows.
+3.1. Phase space reconstruction
+Through phase space reconstruction, the nonlinear chaotic sequences can be embedded into a high-dimensional phase space to realize predictions (Azzopardi and Sanaullah, 2002). The time series  of liquid film thickness is embedded in an m-dimensional phase space with a time delay of  (k is a constant andis the time interval) for an equivalent topological reconstruction to restore the characteristics of the free-falling film thickness. Therefore, the liquid film time sequence of number i in the phase space is as shown in Eq. (3).
+@(3)
+3.2. The maximum Lyapunov exponent
+As a parameter for identifying chaotic features, the Lyapunov characteristic exponent represents the numerical characteristic of the average exponential divergence rate of adjacent trajectories in the phase space. It has to be noted that a dynamical system is considered to have reached a chaos state if the value of the maximum Lyapunov exponent is greater than 0 (Wang et al., 2019). In this study, the small data volume method is applied to calculate the maximum Lyapunov exponent of the liquid film thickness time series during the sampling time. Its specific process is as follows. The appropriate embedding dimensionand delay timeare selected for phase space reconstruction through trial calculations;  and  are chosen to be 12 s and 10 s in this study, respectively (Bashter et al., 1996, Hajizadeh et al., 2017).  and  are taken as the initial time and the maximum Lyapunov exponent, respectively. Thus, the distance between two adjacent points on different trajectories at time t can be given by Eq. (4).
+@(4)
+The distance between a particle of number j and its adjacent particle with number , where  is infinitesimal at the time of number i time step in the phase space, is shown in Eq. (5).
+@(5)
+Therefore, the value of the maximum Lyapunov exponent is equal to the slope value of the curve with time interval  as abscissa and  as ordinate. The maximum Lyapunov exponent is calculated based on the program for the wall film thickness time series with a vertical height of 15 cm from the starting point of the liquid film and Reynolds numbers of 1995, 2092, 2645, 2792, 3011 and 3328. The results are 0.1536, 0.1588, 0.1593, 0.1572, 0.1626, and 0.1643, respectively. Results reveal that the maximum Lyapunov exponent increases with increasing Reynolds number, which indicates that the flow transitions from laminar to turbulent and the volatility of the free liquid film is obviously enhanced as the Reynolds number increases. The generation of isolated peaks results in a more irregular movement of the liquid film on the wall, resulting in the divergence rate between adjacent liquid film trajectories in the phase space significantly increasing, thus, the chaotic characteristics of the liquid film thickness sequence become more significant.
+3.3. The single hidden layer BP neural network prediction model
+Nusselt proposed that the following theoretical relationship, shown in Eq. (6), must be satisfied between a free-falling film thickness on the wall and the Reynolds number of the liquid film under laminar flow conditions (Kim et al., 2018, Hashimoto et al., 1996, Xiao and Travis, 2017).
+@(6)
+where @  is the liquid film kinematic viscosity and g is the gravitational acceleration. Based on Eq. (5), Karapantsios corrected the formula according to experimental results, and the semi-empirical correlation presented in Eq. (7) was obtained (Choi and Sang, 1996).
+@(7)
+Nevertheless, the thickness of the liquid film is primarily affected by the physical properties of the liquid, the Reynolds number, and the measured height, thus Eq. (7) merely reflects the free-falling film thickness for a certain Reynolds number. This means that the model is not accurate and that its ability to predict the instantaneous thickness of a liquid film may be ignored entirely. Therefore, a single hidden layer BP neural network prediction model to calculate the free-falling film thickness is established. Mainly composed of input signals, output signals and hidden nodes, the BP neural network is trained using the input signal and the output signal to realize the analysis of a nonlinear mapping relationship by transmission of forward signals and reverse errors (Guo et al., 2010, Li and Anglart, 2015, Ding et al., 2018). The BP neural network topology of a chaotic liquid film time series  is shown in Fig. 3.
+Fig. 3. BP neural network topology of chaotic liquid film time series.
+The output model of the implicit node of number j is as follows.
+@(8)
+The output model of the output signal node of number g is as follows.
+@(9)
+where @ is the transmission weight value between different layers and F is the node threshold value. The Sigmoid, Tansig, and Logsig functions are chosen as the hidden layer transfer, output transfer, and training functions, respectively. Based on the BP neural network, the time series of liquid film thickness on the wall surfaces of corrugated plates at different Reynolds numbers with a sampling time of 1 s is fitted. The fitting results and error distribution are shown in Figs. 4 and 5, respectively.
+Fig. 4. Comparison of results of liquid film time series and BP neural network.
+Fig. 5. Mean square error of thickness fitted by the BP neural network under different Reynolds numbers.
+The BP neural network fits the film thickness time series with chaos characteristics accurately, as shown in Fig. 4 and the average accuracy is much higher than of the Karapantsios calculation model, in which the liquid film thickness does not change with measured height. BP neural network fits better for small Reynolds numbers, because with increasing Reynolds number, chaotic attractors of the liquid film time series gradually form (Zhang et al., 2015, Zhang et al., 2016, Fang et al., 2019). At Reynolds numbers close to 3011, isolated peaks begin to occur, which causes the liquid film flow instability to be further enhanced. Liquid film gravity, isolated peak and superposition effects of the liquid film are coupled, thus, their interactions and feedback can result in increasing irregular movement patterns and volatility of the liquid film. This leads to a long and thin trajectory flow, resulting in a divergence rate between adjacent tracks in phase space and an increase in chaotic characteristics.
+The mean square error value of the optimized learning process, which includes the training and testing process of the free-falling liquid film time series, is as shown in Fig. 5. When a complete liquid film data set has passed through the BP neural network one time, the entire process of feedback completion and returning is defined as one neural network iterative process. The horizontal axis of the curve represents the number of iterations of the BP neural network, which is called an epoch. It is not sufficient for a complete data set to be transmitted through the BP neural network only once, because the liquid film data set needs to be transmitted multiple times through the same neural network, so that weights can be updated to reduce the gradient for the next iterative process, thus, adjusting and optimizing the learning and training process for the liquid film thickness time series. The minimum gradient value for the liquid film data is obtained through transmission and feedback based on the BP neural network, the fitting results of which are sufficiently accurate.
+The curve representing the error distribution prediction of the liquid film thickness results fitted by the BP neural network is shown in Fig. 6. It reveals that results fitted according to the BP neural network are accurate enough in the thin film region and that the error is generally positively correlated with the Reynolds number of the liquid film, although the error increases for a few locations in the thick film region. The reason for this is that liquid film volatility is relatively small for a small Reynolds number, which leads to the results of neural network training based on the training data set and fitting results of the testing process being comparatively accurate. Nevertheless, as the Reynolds number approaches 3000, owing to the occurrence of hump-shaped isolated peaks, the divergence degree between adjacent trajectories in the phase space increases. Thus, the number of training loops of the BP neural network must be significantly increased to reduce the gradient in the iterative process. With a further increase in the liquid film Reynolds number, the height of the isolated peaks increases as well and the height is much higher than the fluctuation amplitude of other capillary waves, so that the superposition effect between different liquid films exhibits a degrading interference on the training process of the BP neural network, leading to a reduction in prediction error.
+Fig. 6. Comparison of experimental results and fitting results.
+<Section>4. Conclusions and prospects</Section>
+The nonlinear time series of the thickness of a free-falling liquid film on a corrugated plate wall is measured by the plane laser induced fluorescence technique. The chaotic characteristics of the liquid film are thus analyzed. The maximum Lyapunov exponents of the liquid film thickness time series under different working conditions are calculated based on the small data volume method. The liquid film thickness is fitted by applying a single hidden layer BP neural network. The specific conclusions are as follows. The maximum Lyapunov exponents show an increasing trend with increasing Reynolds number of the liquid film. The BP neural network fits the time series of the thickness of the liquid film on the corrugated plate wall well. For increasing Reynolds numbers, the generation of isolated peaks results in the flow trajectory of the liquid film on the wall becoming irregular. Solitary waves, gravity of liquid films, and the superposition effect between different liquid films are coupled with each other, thereby increasing the divergence between adjacent liquid film thickness orbits in the phase space. This can help clearly indicate the chaotic characteristics of the liquid film. The BP neural network can fit well and predict the nonlinear liquid film thickness, providing use of an accurate measuring technology and a good reference for real-time prediction of free-falling film thickness.
+Nevertheless, our experiments were conducted at 20 °C and standard atmospheric pressure. Therefore, the experimental conditions do not reflect real conditions. The thickness of a liquid film will inevitably affect the steam-water separation efficiency of a corrugated plate. Therefore, we measured the thickness of a wall liquid film using the PLIF method. In our atmospheric pressure experiment, plexiglass was used as the material for the corrugated plate. This is because plexiglass is light-transmissive, which enables visualization studies of liquid films. In this way, an image of the liquid film can be captured. However, a corrugated plate inside a nuclear power plant is under high temperature and high pressure conditions. Plexiglass begins to melt around 104 °C. Therefore, only stainless steel can be used as the material for corrugated plates. Therefore, only an experiment conducted under actual high temperature and pressure conditions can accurately determine the separation efficiency of the corrugated plate. It is impossible to measure and visualize the thickness of a liquid film on the wall surface of a corrugated plate under high temperature and high pressure conditions using existing technology. The prediction model for the thickness of a liquid film based on the BP neural network can predict the thickness of a liquid film well for normal temperature and pressure conditions. The factors influencing thermal states will be analyzed in future research. Therefore, these influencing factors can be included in the BP neural network model to increase its accuracy.
+<Section>Declaration of Competing Interest</Section>
+The authors declare that they have no known competing financial interests or personal relationships that could have appeared to influence the work reported in this paper.
+<Section>Acknowledgements</Section>
+Authors would like to acknowledge financial support provided by the Ph.D. Student Research and Innovation Fund of the Fundamental Research Funds for Central Universities (3072020GIP1518), the Fundamental Research Funds for Central Universities, China Scholarship Council, Chinese Universities Scientific Fund, and the National Natural Science Foundation of China (No. 51676052).
+<Section>Appendix A. Supplementary data</Section>
+The following are the Supplementary data to this article
+<Section>References</Section>
+Alamu and Azzopardi, 2011
+M.B. Alamu, B.J. Azzopardi
+Wave and drop periodicity in transient annular flow
+Nucl. Eng. Des., 241 (2011), pp. 579-592
+Google Scholar
+Azzopardi and Sanaullah, 2002
+B.J. Azzopardi, K.S. Sanaullah
+Re-entrainment in Wave-plate Mist Eliminators
+Chem. Eng. Sci., 57 (17) (2002), pp. 3557-3563
+Google Scholar
+Bang et al., 2018
+K.H. Bang, H.T. Kim, V.D. Tan
+Experiment and modeling of jet breakup in fuel coolant interactions
+Ann. Nucl. Energy, 118 (2018), pp. 336-344
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+Bashter et al., 1996
+I.I. Bashter, E.S. Abdo, A.S. Makarious
+A comparative study of the attenuation of reactor thermal neutrons in different types of concrete
+Ann. Nucl. Energy, 23 (17) (1996), pp. 1189-1195
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+Chen et al., 2006a
+J.-L. Chen, H.-P. Cheng, Y.-K. Xue, et al.
+Test and study of cold condition for dryer in steam generator for 1000 MW PWR Nuclear Power Plant
+Nucl. Power Eng., 27 (2) (2006), pp. 72-77
+View Record in ScopusGoogle Scholar
+Chen et al., 2015a
+H.-Y. Chen, P.-Z. Gao, S.-C. Tan
+Prediction of flow instability under rolling motion based on neural network optimized by algorithm
+Atom. Energy Sci. Technol., 49 (02) (2015), pp. 273-278
+View Record in ScopusGoogle Scholar
+Chen et al., 2015b
+X. Chen, S.-Q. Shen, Y.-X. Wang, J.-X. Chen, J.-S. Zhang
+Measurement on falling film thickness distribution around horizontal tube with laser-induced fluorescence technology
+Int. J. Heat Mass Transfer, 89 (2015), pp. 707-713
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+Chen et al., 2006b
+J.-L. Chen, Y.-K. Xue, X.-Y. Wang, et al.
+Proof test in hot condition on steam separation device in steam generator for 1000 MW PWR nuclear power plant
+Nucl. Power Eng., 27 (03) (2006), pp. 61-66
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+Choi and Sang, 1996
+C.J. Choi, Y.L. Sang
+Transient analysis of a condensation experiment in the noncondensable gas-filled closed loop using an inverted U-tube
+Ann. Nucl. Energy, 23 (14) (1996), pp. 1179-1188
+View Record in ScopusGoogle Scholar
+Chung et al., 2014
+Y.J. Chung, K.H. Bae, K.K. Kim, W.J. Lee, W.J. Lee
+Boiling heat transfer and dry-out in helically coiled tubes under different pressure conditions
+Ann. Nucl. Energy, 71 (2014), pp. 298-303
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+Ding et al., 2018
+H.-B. Ding, P. Xie, D. Ingham, L. Ma, M. Pourkashanian
+Flow behavior of drop and jet modes of a laminar falling film on horizontal tubes
+Int. J. Heat Mass Transfer, 124 (2018), pp. 929-942
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+Fang et al., 2019
+D. Fang, M.-J. Wang, Y.-G. Duan, et al.
+Full-scale numerical study on the flow characteristics and mal-distribution phenomenon in SG steam-water separation system of an advanced PWR
+Prog. Nucl. Energy, 118 (2019), Article 103075
+Google Scholar
+Gonda et al., 2014
+A. Gonda, P. Lancereau, P. Bandelier, L.G. Luo, Y.L. Fan, S. Benezech
+liquid falling film evaporation on a corrugated plate
+Int. J. Heat Therm. Sci., 81 (2014), pp. 29-37
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+Guo et al., 2010
+Y. Guo, Y. Ishiwatari, S. Ikejiri, Y. Oka
+Numerical analysis of the onset of droplet entrainment in annular two-phase flow by hybrid method
+Ann. Nucl. Energy, 37 (2) (2010), pp. 230-240
+View Record in ScopusGoogle Scholar
+Hajizadeh et al., 2017
+A. Hajizadeh, H. Kazeminejad, S. Talebi
+An advanced new fully implicit numerical method for two-phase flow subchannel analysis based on the Drift Flux Model
+Ann. Nucl. Energy, 108 (2017), pp. 351-365
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+Hashimoto et al., 1996
+K. Hashimoto, K. Ohya, Y. Yamane
+Experimental investigations of dead-time effect on Feynman-α method
+Ann. Nucl. Energy, 23 (14) (1996), pp. 1099-1104
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+Jiang et al., 1995
+Z.-Y. Jiang, J.-T. Song, X.-J. Kong, et al.
+Breakdown characteristics of freely-falling liquid films along the outside surface of a heated vertical tube
+J. Eng. Thermophys., 16 (02) (1995), pp. 199-203
+View Record in ScopusGoogle Scholar
+Kim et al., 2018
+Kim, T.H., Chalgeri, V.S., Yoon, Yun, B.J., Ji, H.J., 2018. Visual observations of flow patterns in downward air-liquid two-phase flows in a vertical narrow rectangular channel. Ann. Nucl. Energy 114. 384-394.
+Google Scholar
+Li and Anglart, 2015
+H.-P. Li, H. Anglart
+CFD model of diabatic annular two-phase flow using the Eulerian-Lagrangian approach
+Ann. Nucl. Energy, 77 (2015), pp. 415-424
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+Liu et al., 2020
+L. Liu, K. Wang, B.F. Bai
+Experimental study on flow patterns and transition criteria for vertical swirling gas-liquid flow
+Int. J. Multiphase Flow, 122 (2020), Article 103113
+ArticleDownload PDFGoogle Scholar
+Liu and Zhao, 2015
+L.-Y. Liu, C.-G. Zhao
+Separation performance of wave-plate mist eliminator with auxiliary capture
+Modern Chem. Indust., 35 (5) (2015), pp. 159-162
+View Record in ScopusGoogle Scholar
+Murgatroyd, 1965
+W. Murgatroyd
+The role of shear and form forces in the stability of a dry patch in two-phase film flow
+Int. J. Heat Mass Transfer, 8 (2) (1965), pp. 297-301
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+Tan et al., 2009
+S.C. Tan, G.H. Su, P.Z. Gao
+Heat transfer model of single-phase natural circulation flow under a rolling motion condition
+Nucl. Eng. Des., 239 (10) (2009), pp. 2212-2216
+Google Scholar
+Wang and Tian, 2019a
+B. Wang, R.-F. Tian
+Study on characteristics of water film breakdown on the corrugated plate wall under the horizontal shear of airflow
+Nucl. Eng. Design, 343 (2019), pp. 76-84
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+Wang and Tian, 2019b
+B. Wang, R.-F. Tian
+Investigation on flow and breakdown characteristics of water film on vertical corrugated plate wall
+Ann. Nucl. Energy, 127 (2019), pp. 120-129
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+Wang et al., 2019
+B. Wang, B.-W. Chen, R.-F. Tian
+Review of research progress on flow and rupture characteristics of liquid film on corrugated plate wall
+Ann. Nucl. Energy, 132 (2019), pp. 741-751
+ArticleDownload PDFCrossRefView Record in ScopusGoogle Scholar
+Xiao and Travis, 2017
+J. Xiao, J. Travis
+Status of dynamic liquid film model development in 3-D CFD code GASFLOW-MPI for analysis of passive containment cooling system
+Ann. Nucl. Energy, 108 (2017)
+Google Scholar
+Zhang et al., 2015
+H. Zhang, Q. Liu, B. Qin, et al.
+Modeling droplet-laden flows in moisture separators using kd trees
+Ann. Nucl. Energy, 75 (2015), pp. 452-461
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+Zhang et al., 2016
+H. Zhang, Q. Liu, B. Qin, et al.
+Study on working mechanism of AP1000 moisture separator by numerical modeling
+Ann. Nucl. Energy, 92 (2016), pp. 345-354
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+Zhang et al., 2012
+W.-C. Zhang, S.-C. Tan, P.-Z. Gao
+Prediction of flow instability under rolling motion based on neural network optimized by algorithm
+Atom. Energy Sci. Technol., 46 (06) (2012), pp. 705-709
+View Record in ScopusGoogle Scholar

@@ -1,0 +1,361 @@
+<title> Multichannel_NP feedforward_NP active_JJ noise_NN control_NN system_NN combined_VVN with_IN noise_NN source_NN separation_NN by_IN microphone_NN arrays_NNS </title> <author> Iwai_NP ,_, Kenta_NP ;_: Kinoshita_NP ,_, Satoshi_NP ;_: Kajikawa_NP ,_, Yoshinobu_NP </author> <Affiliation> 1_CD College_NP of_IN Information_NP Science_NP and_CC Engineering_NP ,_, Ritsumeikan_NP University_NP ,_, 1-1-1_CD ,_, Noji-higashi_NP ,_, Kusatsu_NP ;_: Shiga_NP ,_, Japan_NP 2_CD Faculty_NN of_IN Engineering_NP Science_NP ,_, Kansai_NP University_NP ,_, 3-3-35_CD ,_, Yamate-cho_NP ,_, Suita_NP ;_: Osaka_NP ,_, Japan_NP </Affiliation> <year> 2019_CD </year> <Jounral> Journal_NP of_IN Sound_NP and_CC Vibration_NN </Journal> <Publishing_house> Academic_NP Press_NP </Publishing_house> <Text_Collector> Liu_NP Kai，HEU_NP </Text_Collector> <DOI> 10.1016/j_NP ._SENT 
+jsv.2019.04.016_JJ </DOI> <URL> https_NNS :_: //www-sciencedirect-com-443_NN ._SENT 
+wvpn_NP ._SENT 
+hrbeu_NP ._SENT 
+edu_NP ._SENT 
+cn/science/article/pii/S0022460X19302275_NP ?_SENT 
+via%3Dihub_NP </URL> <Section> Abstract_JJ </Section> In_IN this_DT paper_NN ,_, we_PP propose_VVP a_DT multichannel_NP active_JJ noise_NN control_NN (_( ANC_NP )_) system_NN combined_VVN with_IN noise_NN source_NN separation_NN by_IN microphone_NN arrays_NNS ._SENT 
+A_DT multichannel_NP feedforward_NP ANC_NP system_NN uses_VVZ multiple_JJ reference_NN microphones_NNS located_VVN close_RB to_TO noise_NN sources_NNS and_CC can_MD reduce_VV various_JJ acoustic_JJ noises_NNS such_JJ as_IN broadband_NN noise_NN ._SENT 
+In_IN general_JJ ,_, it_PP is_VBZ difficult_JJ to_TO place_VV the_DT reference_NN microphones_NNS close_JJ to_TO the_DT noise_NN sources_NNS owing_VVG to_TO physical_JJ constraints_NNS ._SENT 
+In_IN this_DT case_NN ,_, the_DT reference_NN signals_NNS ,_, which_WDT are_VBP the_DT outputs_NNS of_IN reference_NN microphones_NNS ,_, are_VBP highly_RB correlated_VVN with_IN each_DT other_JJ ,_, the_DT noise_NN reduction_NN performance_NN of_IN the_DT multichannel_NP ANC_NP system_NN is_VBZ degraded_VVN ._SENT 
+In_IN other_JJ words_NNS ,_, the_DT reference_NN microphones_NNS detect_VVP the_DT highly_RB correlated_VVN noises_NNS ,_, reducing_VVG the_DT noise_NN reduction_NN ability_NN of_IN the_DT ANC_NP system_NN ._SENT 
+To_TO solve_VV this_DT problem_NN ,_, a_DT multichannel_NP feedforward_NP ANC_NP system_NN with_IN a_DT noise_NN source_NN separation_NN technique_NN is_VBZ proposed_VVN ._SENT 
+This_DT system_NN uses_VVZ microphone_NN arrays_NNS located_VVN at_IN the_DT reference_NN microphone_NN positions_NNS ._SENT 
+The_DT mixed_JJ signal_NN is_VBZ separated_VVN from_IN the_DT target_NN noise_NN and_CC other_JJ components_NNS by_IN noise_NN source_NN separation_NN and_CC the_DT separated_JJ signals_NNS are_VBP used_VVN to_TO update_VV the_DT noise_NN control_NN filters_NNS ._SENT 
+Simulation_NN results_NNS demonstrate_VVP that_IN the_DT proposed_VVN ANC_NP system_NN can_MD separate_VV the_DT target_NN noise_NN and_CC the_DT disturbance_NN noise_NN and_CC effectively_RB reduce_VV the_DT target_NN noise_NN ._SENT 
+Keywords：Multichannel_NP ANC_NP system；Feedforward_NP control；Microphone_NP array；Delay-and-sum_NP beamformer；Generalized_VVD sidelobe_NN canceller_NN <Section> 1._CD Introduction_NN </Section> Acoustic_JJ noise_NN has_VHZ become_VVN a_DT serious_JJ problem_NN owing_VVG to_TO the_DT increased_VVN use_NN of_IN industrial_JJ equipment_NN ,_, such_JJ as_IN engines_NNS ,_, manufacturing_NN plants_NNS ,_, air_NN conditioners_NNS ,_, and_CC so_RB forth_RB ._SENT 
+One_CD of_IN the_DT methods_NNS of_IN reducing_VVG unwanted_JJ acoustic_JJ noise_NN is_VBZ passive_JJ noise_NN control_NN ,_, for_IN example_NN ,_, using_VVG earplugs_NNS ,_, which_WDT cannot_MD reduce_VV noises_NNS at_IN low_JJ frequencies_NNS ._SENT 
+On_IN the_DT other_JJ hand_NN ,_, active_JJ noise_NN control_NN (_( ANC_NP )_) systems_NNS are_VBP effective_JJ approaches_NNS to_TO reducing_VVG unwanted_JJ acoustic_JJ noise_NN ._SENT 
+ANC_NP systems_NNS utilize_VV an_DT adaptive_JJ digital_JJ filter_NN to_TO track_VV the_DT time-varying_VVG characteristics_NNS of_IN the_DT noise_NN source_NN ,_, acoustic_JJ environment_NN ,_, and_CC unknown_JJ plants_NNS ._SENT 
+An_DT ANC_NP system_NN is_VBZ constructed_VVN using_VVG a_DT feedforward_JJ control_NN system_NN or_CC feedback_NN control_NN system_NN ._SENT 
+A_DT single-channel_NP feedforward_NP ANC_NP system_NN consists_VVZ of_IN a_DT reference_NN microphone_NN ,_, an_DT error_NN microphone_NN ,_, and_CC a_DT loudspeaker_NN called_VVD a_DT secondary_JJ source_NN ._SENT 
+The_DT reference_NN microphone_NN and_CC error_NN microphone_NN are_VBP used_VVN to_TO pick_VV up_RP unwanted_JJ noise_NN and_CC residual_JJ noise_NN ,_, respectively_RB ._SENT 
+Then_RB ,_, anti-noise_NP ,_, which_WDT has_VHZ the_DT same_JJ amplitude_NN and_CC the_DT opposite_JJ phase_NN to_TO the_DT unwanted_JJ noise_NN ,_, is_VBZ generated_VVN by_IN the_DT noise_NN control_NN filter_NN and_CC radiated_VVN from_IN the_DT secondary_JJ source_NN ._SENT 
+A_DT feedforward_NP ANC_NP system_NN can_MD reduce_VV unwanted_JJ acoustic_JJ noise_NN such_JJ as_IN broadband_NN noise_NN by_IN placing_VVG the_DT reference_NN microphone_NN close_NN to_TO the_DT noise_NN source_NN ._SENT 
+In_IN general_NN ,_, the_DT filtered-X_NP algorithm_NN is_VBZ used_VVN to_TO update_VV the_DT noise_NN control_NN filter_NN of_IN an_DT ANC_NP system_NN ._SENT 
+This_DT algorithm_NN requires_VVZ a_DT secondary_JJ path_NN model_NN ,_, which_WDT is_VBZ an_DT identified_VVN secondary_JJ path_NN between_IN the_DT secondary_JJ source_NN and_CC the_DT error_NN microphone_NN ._SENT 
+If_IN the_DT secondary_JJ path_NN changes_NNS ,_, then_RB the_DT performance_NN of_IN the_DT ANC_NP system_NN deteriorates_VVZ ._SENT 
+To_TO solve_VV this_DT problem_NN ,_, head-mounted_VVD ANC_NP systems_NNS have_VHP been_VBN proposed_VVN ,_, in_IN which_WDT the_DT compact_JJ loudspeaker_NN used_VVN as_IN the_DT secondary_JJ source_NN ,_, such_JJ as_IN a_DT headphone_NN ,_, and_CC the_DT error_NN microphone_NN are_VBP located_VVN near_IN the_DT user_NN 's_POS ears_NNS ._SENT 
+If_IN multiple_JJ noise_NN sources_NNS are_VBP distributed_VVN in_IN a_DT wide_JJ area_NN ,_, the_DT noise_NN reduction_NN performance_NN of_IN a_DT single-channel_NP feedforward_NP ANC_NP system_NN deteriorates_VVZ ._SENT 
+This_DT is_VBZ because_IN each_DT noise_NN passes_VVZ through_IN different_JJ reference_NN paths_NNS ,_, meaning_VVG that_IN noise_NN control_NN is_VBZ required_VVN to_TO satisfy_VV multiple_JJ different_JJ solutions_NNS simultaneously_RB ._SENT 
+In_IN general_JJ ,_, it_PP is_VBZ impossible_JJ to_TO simultaneously_RB satisfy_VV the_DT different_JJ optimal_JJ solutions_NNS using_VVG a_DT single_JJ noise_NN control_NN filter_NN ,_, except_IN when_WRB the_DT noise_NN sources_NNS are_VBP placed_VVN symmetrically_RB ._SENT 
+To_TO solve_VV this_DT problem_NN ,_, multichannel_NP feedforward_NP ANC_NP systems_NNS have_VHP been_VBN proposed_VVN to_TO reduce_VV multiple_JJ unwanted_JJ noises_NNS ._SENT 
+These_DT systems_NNS use_VVP multiple_JJ reference_NN microphones_NNS ,_, loudspeakers_NNS as_IN the_DT secondary_JJ sources_NNS ,_, and_CC error_NN microphones_NNS ._SENT 
+The_DT locations_NNS of_IN the_DT reference_NN microphones_NNS determine_VVP the_DT noise_NN reduction_NN ability_NN of_IN multichannel_NP ANC_NP systems_NNS ,_, similarly_RB to_TO in_IN single-channel_NP ANC_NP systems_NNS ._SENT 
+However_RB ,_, the_DT noise_NN reduction_NN performance_NN of_IN multichannel_NP ANC_NP systems_NNS deteriorates_VVZ when_WRB the_DT reference_NN microphones_NNS are_VBP located_VVN far_RB from_IN the_DT noise_NN sources_NNS ._SENT 
+In_IN this_DT condition_NN ,_, the_DT reference_NN microphones_NNS pick_VV up_RP the_DT noise_NN signals_VVZ from_IN not_RB only_RB nearest_JJS noise_NN source_NN but_CC also_RB others_NNS ._SENT 
+In_IN some_DT cases_NNS ,_, the_DT reference_NN signals_NNS ,_, which_WDT are_VBP the_DT outputs_NNS of_IN the_DT reference_NN microphones_NNS ,_, may_MD be_VB highly_RB correlated_VVN each_DT other_JJ ,_, and_CC the_DT noise_NN reduction_NN performance_NN of_IN the_DT multichannel_NP ANC_NP degrades_VVZ because_IN the_DT convergence_NN speed_NN of_IN noise_NN control_NN filter_NN (_( adaptive_JJ filter_NN )_) becomes_VVZ slow_JJ ._SENT 
+To_TO solve_VV this_DT problem_NN ,_, a_DT multichannel_NP feedforward_NP ANC_NP system_NN with_IN noise_NN source_NN separation_NN by_IN microphone_NN arrays_NNS has_VHZ been_VBN proposed_VVN ._SENT 
+The_DT proposed_VVN multichannel_NP ANC_NP system_NN uses_VVZ microphone_NN arrays_NNS as_IN reference_NN microphones_NNS and_CC can_MD separate_VV the_DT target_NN noise_NN and_CC other_JJ disturbance_NN noises_NNS ._SENT 
+Then_RB ,_, the_DT separated_JJ signals_NNS are_VBP used_VVN to_TO update_VV the_DT coefficients_NNS of_IN the_DT noise_NN control_NN filters_NNS ._SENT 
+Hence_RB ,_, the_DT proposed_VVN multichannel_NP ANC_NP system_NN can_MD improve_VV the_DT noise_NN reduction_NN performance_NN ._SENT 
+In_IN this_DT paper_NN ,_, a_DT delay-and-sum_NP (_( DS_NP )_) beamformer_NP and_CC a_DT generalized_VVN sidelobe_NN canceller_NN (_( GSC_NN )_) are_VBP used_VVN in_IN the_DT sound_JJ source_NN separation_NN technique_NN ._SENT 
+This_DT paper_NN is_VBZ organized_VVN as_RB follows_VVZ ._SENT 
+In_IN Sect_NN ._SENT 
+2_LS ,_, the_DT multichannel_NP feedforward_NP ANC_NP system_NN and_CC its_PP$ problem_NN are_VBP explained_VVN ._SENT 
+Then_RB ,_, the_DT proposed_VVN multichannel_NP ANC_NP system_NN and_CC beamforming_JJ algorithms_NNS are_VBP explained_VVN in_IN Sect_NN ._SENT 
+3._CD Simulation_NP results_NNS are_VBP given_VVN in_IN Sect_NN ._SENT 
+4._CD Finally_RB ,_, a_DT conclusion_NN is_VBZ given_VVN in_IN Sect_NN ._SENT 
+5._CD <Section> 2._CD Conventional_JJ multichannel_NP feedforward_NP ANC_NP system_NN </Section> The_DT principle_NN of_IN the_DT ANC_NP system_NN is_VBZ based_VVN on_IN the_DT superposition_NN of_IN the_DT unwanted_JJ noise_NN and_CC its_PP$ anti-noise_NN ,_, which_WDT is_VBZ generated_VVN by_IN a_DT noise_NN control_NN filter_NN in_IN the_DT ANC_NP system_NN ._SENT 
+To_TO reduce_VV the_DT broadband_NN noise_NN ,_, a_DT feedforward_NP ANC_NP system_NN is_VBZ utilized_VVN ,_, which_WDT consists_VVZ of_IN two_CD microphones_NNS ,_, one_CD loudspeaker_NN ,_, and_CC one_CD noise_NN controller_NN ._SENT 
+A_DT microphone_NN near_IN a_DT noise_NN source_NN is_VBZ called_VVN a_DT reference_NN microphone_NN and_CC is_VBZ used_VVN to_TO detecting_VVG the_DT unwanted_JJ noise_NN ._SENT 
+If_IN multiple_JJ noise_NN sources_NNS are_VBP distributed_VVN in_IN a_DT wide_JJ area_NN ,_, it_PP is_VBZ difficult_JJ to_TO reduce_VV the_DT target_NN noises_VVZ using_VVG a_DT single-channel_NP feedforward_NP ANC_NP system_NN ._SENT 
+This_DT is_VBZ because_IN each_DT noise_NN passes_VVZ through_IN different_JJ reference_NN paths_NNS ,_, meaning_VVG that_IN the_DT noise_NN control_NN is_VBZ required_VVN to_TO satisfy_VV multiple_JJ different_JJ solutions_NNS simultaneously_RB ._SENT 
+In_IN general_JJ ,_, it_PP is_VBZ impossible_JJ to_TO simultaneously_RB satisfy_VV the_DT different_JJ optimal_JJ solutions_NNS using_VVG a_DT single_JJ noise_NN control_NN filter_NN ,_, except_IN when_WRB the_DT noise_NN sources_NNS are_VBP placed_VVN symmetrically_RB ._SENT 
+A_DT multichannel_NP feedforward_NP ANC_NP system_NN is_VBZ used_VVN to_TO reduce_VV the_DT target_NN noises_VVZ in_IN this_DT situation_NN ._SENT 
+In_IN general_NN ,_, a_DT multichannel_NP feedforward_NP ANC_NP system_NN has_VHZ multiple_JJ reference_NN microphones_NNS ,_, secondary_JJ sources_NNS ,_, and_CC error_NN microphones_NNS ._SENT 
+Fig_NN ._SENT 
+1_LS ,_, Fig_VV ._SENT 
+2_CD respectively_RB show_VVP the_DT structure_NN and_CC a_DT block_NN diagram_NN of_IN a_DT multichannel_NP feedforward_NP ANC_NP system_NN ._SENT 
+In_IN Fig_NN ._SENT 
+1_LS ,_, Fig_VV ._SENT 
+2_LS ,_, J_NP ,_, K_NP ,_, and_CC M_NP represent_VVP the_DT numbers_NNS of_IN reference_NN microphones_NNS ,_, secondary_JJ sources_NNS ,_, and_CC error_NN microphones_NNS ,_, respectively_RB ._SENT 
+This_DT multichannel_NP ANC_NP system_NN with_IN J_NP reference_NN microphones_NNS ,_, K_NP secondary_JJ sources_NNS ,_, and_CC M_NP error_NN microphones_NNS is_VBZ called_VVN a_DT Case_NP (_( J_NP ,_, K_NP ,_, M_NP )_) ANC_NP system_NN ._SENT 
+Fig_NN ._SENT 
+1._CD Structure_NN of_IN multichannel_NP feedforward_NP ANC_NP system_NN with_IN J_NP reference_NN microphones_NNS ,_, K_NP secondary_JJ sources_NNS ,_, and_CC M_NP error_NN microphones_NNS ._SENT 
+Fig_NN ._SENT 
+2._CD Block_NP diagram_NN of_IN multichannel_NP ANC_NP system_NN with_IN J_NP reference_NN microphones_NNS ,_, K_NP secondary_JJ sources_NNS ,_, and_CC M_NP error_NN microphones_NNS ._SENT 
+In_IN general_JJ ,_, different_JJ propagation_NN paths_NNS should_MD be_VB considered_VVN when_WRB the_DT ANC_NP system_NN is_VBZ used_VVN ._SENT 
+In_IN the_DT case_NN of_IN using_VVG a_DT multichannel_NP feedforward_NP ANC_NP system_NN ,_, reference_NN paths_NNS ,_, primary_JJ paths_NNS ,_, and_CC secondary_JJ paths_NNS should_MD be_VB considered_VVN ._SENT 
+Here_RB ,_, a_DT reference_NN path_NN ,_, primary_JJ path_NN ,_, and_CC secondary_JJ path_NN represent_VVP the_DT paths_NNS between_IN the_DT noise_NN source_NN and_CC the_DT reference_NN microphone_NN ,_, the_DT noise_NN source_NN and_CC the_DT error_NN microphone_NN ,_, and_CC the_DT secondary_JJ source_NN and_CC the_DT error_NN microphone_NN ,_, respectively_RB ._SENT 
+A_DT secondary_JJ path_NN includes_VVZ the_DT characteristics_NNS of_IN the_DT digital-to-analogue_JJ converter_NN ,_, amplifier_NN ,_, secondary_JJ loudspeaker_NN ,_, error_NN microphone_NN ,_, and_CC analogue-to-digital_JJ converter_NN ._SENT 
+Although_IN there_EX are_VBP feedback_NN paths_NNS from_IN the_DT secondary_JJ sources_NNS to_TO the_DT reference_NN microphones_NNS in_IN a_DT real_JJ situation_NN ,_, they_PP are_VBP neglected_VVN here_RB to_TO simplify_VV the_DT discussion_NN ._SENT 
+In_IN Fig_NN ._SENT 
+2_LS ,_, P_NN ,_, R_NP ,_, W_NP ,_, S_NP ,_, and_CC represent_VV the_DT multiple_JJ primary_JJ paths_NNS ,_, reference_NN paths_NNS ,_, noise_NN control_NN filters_NNS ,_, secondary_JJ paths_NNS ,_, and_CC secondary_JJ path_NN models_NNS ,_, respectively_RB ._SENT 
+The_DT filter_NN coefficient_NN vector_NN of_IN the_DT multichannel_NP feedforward_NP ANC_NP system_NN wk_NN ,_, j(n_NP )_) is_VBZ updated_VVN by_IN the_DT multiple-reference_NP filtered-X_NP normalized_VVD least-mean-square_JJ algorithm_NN (_( MRFXNLMS_NP )_) ._SENT 
+The_DT update_NN is_VBZ given_VVN by_IN @（1）_NP where_WRB @（2）_NP @（3）_NP @（4）_NP @（5）_NP @（6）_NP @（7）_NP @（8）_NP @（9）_NP @（10）_NP @（11）_NP ∥⋅∥_NP denotes_VVZ the_DT norm_NN ,_, α_NP (_( 0_CD <_SYM α_NP <_SYM 2_CD )_) is_VBZ the_DT step-size_JJ parameter_NN ,_, and_CC β_NP is_VBZ the_DT regularization_NN parameter_NN ._SENT 
+Hereafter_RB ,_, we_PP consider_VVP the_DT Case_NN (_( 2_CD ,_, 1_CD ,_, 1_CD )_) system_NN with_IN two_CD noise_NN controllers_NNS ,_, whose_WP$ block_NN diagram_NN is_VBZ shown_VVN in_IN Fig_NN ._SENT 
+3._CD The_DT Case_NN (_( 2_CD ,_, 1_CD ,_, 1_CD )_) ANC_NP system_NN picks_VVZ up_RP multiple_JJ target_NN noises_NNS using_VVG two_CD reference_NN microphones_NNS ._SENT 
+Then_RB ,_, the_DT anti-noise_NN is_VBZ generated_VVN from_IN a_DT secondary_JJ loudspeaker_NN ._SENT 
+The_DT error_NN signal_NN is_VBZ observed_VVN using_VVG an_DT error_NN microphone_NN ._SENT 
+The_DT filter_NN coefficients_NNS of_IN the_DT noise_NN control_NN filters_NNS in_IN the_DT Case_NN (_( 2_CD ,_, 1_CD ,_, 1_CD )_) ANC_NP system_NN are_VBP updated_VVN as_RB follows_VVZ :_: @（12）_JJ Fig_NN ._SENT 
+3._CD Block_NP diagram_NN of_IN conventional_JJ Case_NN (_( 2_CD ,_, 1_CD ,_, 1_CD )_) ANC_NP system_NN ._SENT 
+However_RB ,_, a_DT multichannel_NP ANC_NP system_NN may_MD not_RB reduce_VV the_DT target_NN noise_NN when_WRB the_DT reference_NN microphones_NNS cannot_MD be_VB located_VVN near_IN the_DT noise_NN sources_NNS ,_, which_WDT are_VBP highly_RB correlated_VVN with_IN each_DT other_JJ ._SENT 
+This_DT situation_NN is_VBZ shown_VVN in_IN Fig_NN ._SENT 
+4._CD In_IN this_DT situation_NN ,_, the_DT unwanted_JJ noises_NNS observed_VVD at_IN the_DT reference_NN microphones_NNS should_MD be_VB separated_VVN to_TO improve_VV the_DT noise_NN reduction_NN performance_NN of_IN the_DT ANC_NP system_NN ._SENT 
+Fig_NN ._SENT 
+4._CD Problem_NN of_IN multichannel_NP feedforward_NP ANC_NP system_NN when_WRB reference_NN microphones_NNS are_VBP located_VVN away_RB from_IN the_DT noise_NN sources_NNS ._SENT 
+<Section> 3._CD Proposed_VVN multichannel_NP feedforward_NP ANC_NP system_NN with_IN noise_NN source_NN separation_NN by_IN microphone_NN arrays_VVZ </Section> 3.1_CD ._SENT 
+Proposed_VVN multichannel_NP feedforward_NP ANC_NP system_NN To_TO improve_VV the_DT ability_NN to_TO reduce_VV the_DT target_NN noise_NN ,_, the_DT proposed_VVN multichannel_NP feedforward_NP ANC_NP system_NN utilizes_VVZ a_DT noise_NN source_NN separation_NN technique_NN using_VVG microphone_NN arrays_NNS ._SENT 
+In_IN this_DT paper_NN ,_, the_DT proposed_VVN Case_NN (_( 2_CD ,_, 1_CD ,_, 1_CD )_) ANC_NP system_NN is_VBZ discussed_VVN ;_: however_RB ,_, the_DT proposed_VVN ANC_NP system_NN can_MD be_VB extended_VVN to_TO the_DT Case_NP (_( J_NP ,_, K_NP ,_, M_NP )_) ANC_NP system_NN by_IN replacing_VVG the_DT reference_NN microphones_NNS into_IN the_DT microphone_NN arrays_VVZ ._SENT 
+Hence_RB ,_, the_DT proposed_VVN Case_NP (_( J_NP ,_, K_NP ,_, M_NP )_) ANC_NP system_NN only_RB requires_VVZ adding_VVG the_DT calculation_NN of_IN the_DT output_NN of_IN the_DT microphone_NN arrays_VVZ ._SENT 
+A_DT block_NN diagram_NN of_IN the_DT proposed_VVN Case_NN (_( 2_CD ,_, 1_CD ,_, 1_CD )_) ANC_NP system_NN is_VBZ shown_VVN in_IN Fig_NN ._SENT 
+5._CD In_IN Fig_NN ._SENT 
+5_LS ,_, P1_JJ and_CC P2_JJ are_VBP primary_JJ paths_NNS ,_, S_NP is_VBZ a_DT secondary_JJ path_NN ,_, Ŝ_NP is_VBZ a_DT secondary_JJ path_NN model_NN ,_, and_CC Rij_NP is_VBZ a_DT reference_NN path_NN between_IN noise_NN source_NN i_NP and_CC reference_NN microphone_NN j._NP In_IN the_DT proposed_VVN system_NN ,_, two_CD microphone_NN arrays_VVZ simultaneously_RB detect_VV the_DT desired_VVN and_CC undesired_JJ noises_NNS ,_, and_CC the_DT beamformers_NNS with_IN the_DT microphone_NN arrays_VVZ separate_VV these_DT noises_NNS ._SENT 
+Then_RB ,_, the_DT separated_JJ noises_NNS x1(n_NN )_) and_CC x2(n_NNS )_) are_VBP used_VVN to_TO update_VV the_DT noise_NN control_NN filters_NNS W1_JJ and_CC W2_JJ by_IN (_( 12_CD )_) ,_, respectively_RB ,_, and_CC generate_VV the_DT anti-noise_NN ._SENT 
+Fig_NN ._SENT 
+5._CD Block_NP diagram_NN of_IN the_DT proposed_VVN Case_NN (_( 2,1,1_CD )_) ANC_NP system_NN combined_VVN with_IN noise_NN source_NN separation_NN by_IN microphone_NN arrays_NNS ._SENT 
+There_EX are_VBP many_JJ algorithms_NNS that_WDT can_MD be_VB used_VVN with_IN beamformers_NNS ,_, for_IN example_NN ,_, a_DT DS_NP beamformer_NP ,_, a_DT GSC_NN ,_, and_CC a_DT minimum_JJ variance_NN distortionless_JJ response_NN (_( MVDR_NP )_) beamformer_NP ._SENT 
+In_IN this_DT paper_NN ,_, a_DT DS_NP beamformer_NP and_CC a_DT GSC_NN are_VBP adopted_VVN in_IN the_DT proposed_VVN ANC_NP system_NN as_IN the_DT basic_JJ beamforming_JJ algorithms_NNS ._SENT 
+3.2_CD ._SENT 
+Delay-and-sum_NP beamformer_NP A_NP DS_NP beamformer_NP is_VBZ a_DT fixed_VVN beamformer_NN composed_VVN of_IN multichannel_NP fixed_VVN filters_NNS ._SENT 
+A_DT block_NN diagram_NN of_IN the_DT DS_NP beamformer_NP is_VBZ shown_VVN in_IN Fig_NN ._SENT 
+6._CD Here_RB ,_, it_PP is_VBZ assumed_VVN that_IN the_DT desired_VVN signal_NN is_VBZ treated_VVN as_IN a_DT single_JJ plane_NN wave_NN arriving_VVG from_IN direction_NN θ(−π∕2_NP ≤_NP θ_NP ≤_NP π∕2_NP )_) ._SENT 
+In_IN this_DT case_NN ,_, the_DT desired_VVN signal_NN s(n_NN )_) is_VBZ picked_VVN up_RP by_IN the_DT mth_JJ microphone_NN with_IN propagation_NN delay_NN τm_NN ,_, @（13）_JJ @（14）_NN where_WRB m_NN (_( =1_JJ ,_, 2_CD ,_, …_NP ,_, MA_NN )_) is_VBZ the_DT index_NN of_IN the_DT microphone_NN in_IN the_DT microphone_NN array_NN ,_, MA_NN is_VBZ the_DT number_NN of_IN microphones_NNS in_IN the_DT microphone_NN array_NN ,_, zm(n_NP )_) is_VBZ the_DT observed_JJ signal_NN of_IN the_DT mth_JJ microphone_NN ,_, c_LS is_VBZ the_DT sound_JJ speed_NN in_IN air_NN ,_, and_CC dx_NP is_VBZ the_DT distance_NN between_IN neighboring_JJ microphones_NNS ._SENT 
+The_DT DS_NP beamformer_NP delays_VVZ each_DT observed_JJ signal_NN ,_, with_IN the_DT fixed_VVN filters_NNS used_VVN to_TO compensate_VV for_IN the_DT propagation_NN delay_NN ._SENT 
+After_IN compensation_NN for_IN the_DT propagation_NN delay_NN ,_, the_DT compensated_VVN signals_NNS are_VBP added_VVN together_RB ._SENT 
+Consequently_RB ,_, the_DT desired_VVN signal_NN arriving_VVG from_IN direction_NN θ_NN is_VBZ emphasized_VVN because_IN the_DT phases_NNS of_IN the_DT desired_VVN signals_NNS at_IN all_DT microphones_NNS are_VBP matched_VVN ._SENT 
+On_IN the_DT other_JJ hand_NN ,_, undesired_JJ signals_NNS arriving_VVG from_IN other_JJ directions_NNS are_VBP not_RB emphasized_VVN because_IN the_DT phases_NNS of_IN the_DT undesired_JJ signals_NNS do_VVP not_RB match_VV with_IN each_DT other_JJ ._SENT 
+The_DT mth_JJ compensation_NN filter_NN hm(n_NN )_) is_VBZ expressed_VVN by_IN @（15）_NP where_WRB δ(⋅_NP )_) is_VBZ the_DT Dirac_NP delta_NN function_NN and_CC τc_NP (_( >τm_NP )_) is_VBZ the_DT delay_NN ._SENT 
+Here_RB ,_, τc_NP is_VBZ included_VVN in_IN (_( 15_CD )_) to_TO satisfy_VV causality_NN ._SENT 
+Fig_NN ._SENT 
+6._CD Block_NP diagram_NN of_IN DS_NP beamformer_NP ._SENT 
+3.3_CD ._SENT 
+Generalized_VVN sidelobe_NN canceller_NN A_DT GSC_NN is_VBZ an_DT adaptive_JJ beamformer_NN composed_VVN of_IN multichannel_NP fixed_VVN filters_NNS and_CC adaptive_JJ digital_JJ filters_NNS (_( ADFs_NNS )_) ._SENT 
+A_DT block_NN diagram_NN of_IN the_DT GSC_NN is_VBZ shown_VVN in_IN Fig_NN ._SENT 
+7._CD In_IN the_DT GSC_NN ,_, the_DT signals_NNS observed_VVD by_IN each_DT microphone_NN zm′(n_NN )_) are_VBP first_RB compensated_VVN for_IN the_DT propagation_NN delay_NN by_IN the_DT fixed_VVN filters_NNS hc(n_NN )_) ._SENT 
+Then_RB ,_, the_DT compensated_VVN signals_NNS are_VBP branched_VVN to_TO the_DT upper_JJ and_CC lower_JJR sections_NNS ._SENT 
+In_IN the_DT upper_JJ section_NN ,_, the_DT output_NN signals_VVZ of_IN the_DT fixed_VVN filters_NNS are_VBP added_VVN together_RB to_TO emphasize_VV the_DT desired_VVN signal_NN ._SENT 
+On_IN the_DT other_JJ hand_NN ,_, the_DT difference_NN between_IN the_DT output_NN signals_VVZ of_IN the_DT neighboring_JJ fixed_VVN filters_NNS is_VBZ calculated_VVN in_IN the_DT lower_JJR section_NN ._SENT 
+Consequently_RB ,_, the_DT input_NN signals_VVZ of_IN the_DT ADFs_NP zb_NP ,_, m′(n_NP )_) contain_VVP only_JJ disturbance_NN signals_NNS picked_VVD up_RP by_IN each_DT microphone_NN ._SENT 
+After_IN filtering_VVG zb_NP ,_, m′(n_NP )_) by_IN the_DT ADFs_NNS ,_, the_DT combined_JJ signal_NN ya(n_NN )_) is_VBZ obtained_VVN by_IN adding_VVG each_DT output_NN signal_NN of_IN the_DT ADFs_NNS ._SENT 
+Finally_RB ,_, the_DT output_NN signal_NN of_IN the_DT GSC_NP x(n)(=yc(n_NP )_) −_NP ya(n_NP )_) )_) is_VBZ obtained_VVN ._SENT 
+Here_RB ,_, the_DT ADFs_NNS are_VBP updated_VVN so_RB that_IN the_DT residual_JJ components_NNS of_IN the_DT disturbance_NN signals_VVZ in_IN yc(n_NN )_) are_VBP suppressed_VVN ._SENT 
+Hence_RB ,_, the_DT GSC_NN has_VHZ higher_JJR noise_NN reduction_NN performance_NN than_IN a_DT fixed_VVN beamformer_NN ._SENT 
+Fig_NN ._SENT 
+7._CD Block_NP diagram_NN of_IN GSC_NN with_IN three_CD microphones_NNS ._SENT 
+In_IN this_DT paper_NN ,_, the_DT NLMS_NP algorithm_NN is_VBZ used_VVN to_TO update_VV the_DT ADFs_NNS ,_, where_WRB the_DT updating_VVG equation_NN of_IN the_DT ADFs_NNS is_VBZ given_VVN by_IN @（16）_NP where_WRB @_SYM is_VBZ the_DT filter_NN coefficient_NN vector_NN of_IN the_DT m′th_NP ADF_NP ,_, @_SYM is_VBZ the_DT input_NN signal_NN vector_NN of_IN the_DT m′th_NP ADF_NP ,_, α′_NP is_VBZ the_DT step-size_JJ parameter_NN ,_, and_CC β′_NP is_VBZ the_DT regularization_NN parameter_NN ._SENT 
+3.4_CD ._SENT 
+Spatial_JJ aliasing_VVG The_DT directivity_NN of_IN the_DT sound_JJ separation_NN by_IN a_DT microphone_NN array_NN depends_VVZ on_IN the_DT distance_NN between_IN adjacent_JJ microphones_NNS and_CC becomes_VVZ broader_JJR with_IN increasing_VVG distance_NN between_IN adjacent_JJ microphones_NNS ._SENT 
+However_RB ,_, spatial_JJ aliasing_NN components_NNS exist_VVP when_WRB the_DT distance_NN is_VBZ shorter_JJR than_IN half_NN of_IN the_DT wavelength_NN ,_, that_WDT is_VBZ ,_, @（17）_JJ where_WRB λ_NP is_VBZ the_DT wavelength_NN ._SENT 
+This_DT inequality_NN is_VBZ rewritten_VVN as_IN @（18）_NP where_WRB fmax_NP is_VBZ the_DT highest_JJS frequency_NN of_IN the_DT target_NN signal_NN ._SENT 
+3.5_CD ._SENT 
+Computational_JJ complexity_NN Here_RB ,_, the_DT numbers_NNS of_IN multiplications_NNS of_IN the_DT conventional_JJ multichannel_NP ANC_NP system_NN and_CC the_DT proposed_VVN ANC_NP system_NN are_VBP compared_VVN ._SENT 
+In_IN this_DT discussion_NN ,_, the_DT Case_NP (_( J_NP ,_, 1_CD ,_, 1_CD )_) ANC_NP system_NN is_VBZ considered_VVN for_IN generality_NN ._SENT 
+First_RB ,_, the_DT conventional_JJ Case_NN (_( J_NP ,_, 1_CD ,_, 1_CD )_) ANC_NP system_NN requires_VVZ 1_CD +_SYM J_NP ×_NP (_( 2N_NP +_SYM L_NP +_SYM 3_LS )_) multiplications_NNS to_TO update_VV the_DT noise_NN control_NN filters_NNS and_CC convolve_VV the_DT filters_NNS and_CC filtered_VVN reference_NN signals_NNS ._SENT 
+Here_RB ,_, the_DT number_NN of_IN multiplications_NNS does_VVZ not_RB include_VV the_DT redundant_JJ calculations_NNS ._SENT 
+The_DT DS_NP beamformer_NP used_VVD in_IN the_DT proposed_VVN ANC_NP system_NN requires_VVZ J_NP ×_NP (_( MANDS_NPS +_SYM 1_LS )_) multiplications_NNS ,_, where_WRB NDS_NN is_VBZ the_DT filter_NN length_NN of_IN the_DT DS_NP beamformer_NP ._SENT 
+The_DT GSC_NN used_VVN in_IN the_DT proposed_VVN ANC_NP system_NN requires_VVZ multiplications_NNS for_IN the_DT fixed_VVN filters_NNS and_CC adaptive_JJ filters_NNS ._SENT 
+J_NP ×_NP (_( MANDS_NPS +_SYM 1_LS )_) multiplications_NNS and_CC @_SYM multiplications_NNS are_VBP required_VVN for_IN the_DT fixed_VVN filters_NNS and_CC the_DT ADFs_NNS (_( including_VVG the_DT filter_NN update_NN and_CC convolution_NN )_) ,_, respectively_RB ._SENT 
+Hence_RB ,_, the_DT proposed_VVN ANC_NP system_NN has_VHZ higher_JJR computational_JJ complexity_NN than_IN the_DT conventional_JJ ANC_NP system_NN ._SENT 
+In_IN the_DT case_NN of_IN J_NP =_SYM 2_CD ,_, MA_NN =_SYM 6_CD ,_, N_NP =_SYM 1500_CD ,_, L_NP =_SYM 200_CD ,_, NDS_NNS =_SYM 120_CD ,_, and_CC NGSC_NP =_SYM 500_CD ,_, the_DT numbers_NNS of_IN multiplications_NNS of_IN the_DT conventional_JJ Case_NN (_( 2,1,1_CD )_) ANC_NP system_NN ,_, the_DT proposed_VVN Case_NN (_( 2,1,1_CD )_) ANC_NP system_NN with_IN the_DT DS_NP beamformer_NP ,_, and_CC with_IN the_DT GSC_NP are_VBP 6407_CD ,_, 7849_CD ,_, and_CC 17881_CD ,_, respectively_RB ._SENT 
+<Section> 4._CD Simulation_NP results_NNS </Section> We_PP conducted_VVD some_DT simulations_NNS to_TO evaluate_VV the_DT effectiveness_NN of_IN the_DT proposed_VVN Case_NN (_( 2_CD ,_, 1_CD ,_, 1_CD )_) ANC_NP system_NN with_IN noise_NN separation_NN ._SENT 
+In_IN the_DT simulations_NNS ,_, we_PP compare_VVP the_DT noise_NN reduction_NN performance_NN of_IN the_DT proposed_VVN Case_NN (_( 2_CD ,_, 1_CD ,_, 1_CD )_) ANC_NP system_NN with_IN that_DT of_IN the_DT conventional_JJ Case_NN (_( 2_CD ,_, 1_CD ,_, 1_CD )_) ANC_NP system_NN (_( without_IN noise_NN separation_NN )_) ._SENT 
+Moreover_RB ,_, we_PP compare_VVP the_DT noise_NN reduction_NN performances_NNS of_IN the_DT Case_NN (_( 2_CD ,_, 1_CD ,_, 1_CD )_) ANC_NP system_NN for_IN different_JJ numbers_NNS of_IN microphones_NNS in_IN the_DT microphone_NN array_NN and_CC different_JJ distances_NNS between_IN adjacent_JJ microphones_NNS in_IN the_DT microphone_NN array_NN ._SENT 
+First_RB ,_, we_PP measured_VVD the_DT impulse_NN response_NN of_IN each_DT path_NN in_IN the_DT experimental_JJ arrangement_NN shown_VVN in_IN Fig_NN ._SENT 
+8._CD In_IN the_DT simulation_NN ,_, we_PP examined_VVD the_DT noise_NN reduction_NN performance_NN of_IN the_DT proposed_VVN ANC_NP system_NN in_IN two_CD cases_NNS ._SENT 
+The_DT first_JJ case_NN involved_VVD two_CD noise_NN sources_NNS (_( noise_NN sources_NNS 1_CD and_CC 2_CD )_) and_CC the_DT second_JJ case_NN involved_VVD three_CD noise_NN sources_NNS (_( noise_NN sources_NNS 1_CD ,_, 2_CD ,_, and_CC 3_LS )_) ._SENT 
+In_IN this_DT arrangement_NN ,_, the_DT composition_NN of_IN the_DT secondary_JJ source_NN and_CC error_NN microphone_NN is_VBZ the_DT same_JJ as_RB that_IN in_IN a_DT head-mounted_JJ ANC_NP system_NN ._SENT 
+Microphone_NN array_NN 1_CD suppresses_VVZ the_DT noise_NN signal_NN from_IN noise_NN source_NN 2_CD ,_, and_CC microphone_NN array_NN 2_CD suppresses_VVZ the_DT noise_NN signal_NN from_IN noise_NN source_NN 1._CD In_IN this_DT arrangement_NN ,_, the_DT distance_NN between_IN adjacent_JJ microphones_NNS in_IN each_DT microphone_NN array_NN is_VBZ set_VVN to_TO 6.5_CD cm_NN to_TO avoid_VV spatial_JJ aliasing_NN because_IN the_DT cutoff_NN frequency_NN is_VBZ set_VVN to_TO 2500_CD Hz_NP ._SENT 
+For_IN the_DT conventional_JJ Case_NN (_( 2_CD ,_, 1_CD ,_, 1_CD )_) ANC_NP system_NN ,_, microphone_NN 1_CD in_IN microphone_NN array_NN 1_CD and_CC microphone_NN 12_CD in_IN microphone_NN array_NN 2_CD were_VBD used_VVN as_IN reference_NN microphones_NNS ._SENT 
+Fig_NN ._SENT 
+8._CD Experimental_JJ arrangement_NN for_IN the_DT measurement_NN of_IN each_DT path_NN ._SENT 
+Each_DT path_NN was_VBD identified_VVN in_IN a_DT soundproof_JJ room_NN (_( width_NN ,_, 3.1_CD m_NN ;_: depth_NN ,_, 2.9_CD m_NN ;_: height_NN ,_, 2.1_CD m_NN )_) using_VVG an_DT ADF_NN with_IN the_DT NLMS_NP algorithm_NN ,_, and_CC an_DT identification_NN system_NN was_VBD implemented_VVN as_IN shown_VVN in_IN Fig_NN ._SENT 
+9._CD The_DT identification_NN conditions_NNS of_IN each_DT path_NN are_VBP shown_VVN in_IN Table_NN 1._CD The_DT impulse_NN responses_NNS and_CC frequency_NN characteristics_NNS of_IN the_DT identified_VVN paths_NNS are_VBP shown_VVN in_IN Appendix_NN A._NP In_IN this_DT situation_NN ,_, there_EX are_VBP 24_CD reference_NN paths_NNS and_CC it_PP is_VBZ difficult_JJ to_TO show_VV all_PDT their_PP$ characteristics_NNS owing_VVG to_TO the_DT limited_JJ space_NN ._SENT 
+Hence_RB ,_, four_CD reference_NN paths_NNS are_VBP shown_VVN in_IN this_DT paper_NN because_IN they_PP are_VBP related_VVN to_TO the_DT conventional_JJ Case_NN (_( 2_CD ,_, 1_CD ,_, 1_CD )_) ANC_NP system_NN ._SENT 
+The_DT fixed_VVN filters_NNS for_IN the_DT DS_NP beamformer_NP and_CC the_DT GSC_NN were_VBD designed_VVN by_IN using_VVG the_DT identified_VVN acoustic_JJ path_NN models_NNS from_IN each_DT noise_NN source_NN to_TO each_DT microphone_NN in_IN advance_NN ._SENT 
+Fig_NN ._SENT 
+9._CD Implementation_NN of_IN the_DT system_NN ._SENT 
+Table_NN 1._CD Identification_NN conditions_NNS of_IN the_DT primary_JJ ,_, reference_NN ,_, and_CC secondary_JJ paths_NNS ._SENT 
+The_DT noise_NN reduction_NN performance_NN was_VBD evaluated_VVN by_IN the_DT “_JJ reduction_NN ,_, ”_NP defined_VVD as_IN @（19）_NP where_WRB d1(n_NP )_) and_CC d2(n_NNS )_) are_VBP the_DT noise_NN signals_VVZ at_IN the_DT error_NN microphone_NN and_CC e(n_NN )_) is_VBZ the_DT error_NN signal_NN ._SENT 
+In_IN this_DT simulation_NN ,_, the_DT reduction_NN (_( 19_CD )_) per_IN 50000_CD samples_NNS was_VBD calculated_VVN ._SENT 
+The_DT noise_NN separation_NN performance_NN was_VBD evaluated_VVN by_IN the_DT “_JJ magnitude-squared_JJ coherence_NN (_( MSC_NP )_) ,_, ”_NP defined_VVD by_IN @（20）_NP where_WRB Pxy(f_NP )_) is_VBZ the_DT cross_NN power_NN spectral_JJ density_NN between_IN two_CD signals_NNS and_CC Pxx(f_NN )_) and_CC Pyy(f_NN )_) are_VBP the_DT power_NN spectral_NN densities_NNS of_IN each_DT signal_NN ._SENT 
+MSC_NP indicates_VVZ the_DT degree_NN of_IN coincidence_NN of_IN the_DT two_CD signals_NNS at_IN each_DT frequency_NN ._SENT 
+Therefore_RB ,_, it_PP is_VBZ possible_JJ to_TO confirm_VV the_DT separation_NN performance_NN at_IN each_DT frequency_NN by_IN comparing_VVG the_DT noise_NN source_NN and_CC the_DT separated_JJ signal_NN using_VVG MSC_NN ._SENT 
+4.1_CD ._SENT 
+Comparison_NN with_IN conventional_JJ case_NN (_( 2_CD ,_, 1_CD ,_, 1_CD )_) feedforward_NP ANC_NP system_NN in_IN the_DT case_NN of_IN two_CD noises_NNS In_IN this_DT simulation_NN ,_, the_DT noise_NN reduction_NN performances_NNS of_IN the_DT proposed_VVN and_CC conventional_JJ Case_NN (_( 2_CD ,_, 1_CD ,_, 1_CD )_) ANC_NP systems_NNS are_VBP compared_VVN ._SENT 
+The_DT unwanted_JJ noises_NNS were_VBD generated_VVN by_IN noise_NN sources_NNS 1_CD and_CC 2._CD The_DT simulation_NN conditions_NNS are_VBP shown_VVN in_IN Table_NN 2._CD In_IN this_DT simulation_NN ,_, the_DT DS_NP beamformer_NP was_VBD designed_VVN using_VVG the_DT impulse_NN responses_NNS of_IN the_DT reference_NN paths_NNS to_TO satisfy_VV the_DT causality_NN constraint_NN of_IN the_DT proposed_VVN ANC_NP system_NN ._SENT 
+In_IN this_DT simulation_NN ,_, the_DT propagation_NN delay_NN from_IN the_DT microphone_NN array_NN to_TO the_DT error_NN microphone_NN was_VBD about_RB 28_CD samples_NNS (_( about_RB 2.3_CD ms_NNS )_) and_CC τc_NP was_VBD adjusted_VVN to_TO τc_NP −_NP τm_NP ≤_NP 28._CD The_DT simulation_NN results_NNS are_VBP shown_VVN in_IN Fig_NN ._SENT 
+10._CD It_PP can_MD be_VB seen_VVN from_IN Fig_NN ._SENT 
+10_CD that_IN the_DT proposed_VVN ANC_NP systems_NNS can_MD reduce_VV the_DT unwanted_JJ noises_NNS more_RBR effectively_RB than_IN the_DT conventional_JJ ANC_NP system_NN ._SENT 
+Comparing_VVG the_DT proposed_VVN ANC_NP systems_NNS ,_, the_DT proposed_VVN system_NN with_IN the_DT GSC_NN shows_VVZ the_DT best_JJS performance_NN among_IN the_DT three_CD ANC_NP systems_NNS ._SENT 
+Table_NN 2._CD Simulation_NP conditions_NNS ._SENT 
+Fig_NN ._SENT 
+10._CD Comparison_NN of_IN the_DT noise_NN reduction_NN performance_NN in_IN each_DT ANC_NP system_NN ._SENT 
+Next_RB ,_, the_DT ability_NN of_IN sound_JJ source_NN separation_NN is_VBZ evaluated_VVN by_IN MSC_NP (_( 21_CD )_) ._SENT 
+MSCs_NNS were_VBD calculated_VVN from_IN 350_CD to_TO 360_CD s_NNS because_IN the_DT ANC_NP system_NN is_VBZ in_IN the_DT steady_JJ state_NN in_IN the_DT time_NN interval_NN ._SENT 
+Fig_NN ._SENT 
+11_CD shows_NNS the_DT MSCs_NNS between_IN the_DT noise_NN signal_NN from_IN noise_NN source_NN 1_CD and_CC (_( a_DT )_) the_DT observed_JJ signal_NN at_IN microphone_NN 1_CD ,_, (_( b_LS )_) the_DT output_NN of_IN microphone_NN array_NN 1_CD using_VVG the_DT DS_NP beamformer_NP ,_, and_CC (_( c_LS )_) the_DT output_NN of_IN microphone_NN array_NN 1_CD using_VVG the_DT GSC_NN ._SENT 
+From_IN Fig_NN ._SENT 
+11_CD ,_, MSC_NP becomes_VVZ large_JJ when_WRB the_DT sound_JJ source_NN separation_NN techniques_NNS are_VBP utilized_VVN ._SENT 
+Furthermore_RB ,_, the_DT average_JJ MSC_NN for_IN the_DT GSC_NN is_VBZ larger_JJR than_IN that_DT for_IN the_DT DS_NP beamformer_NP ._SENT 
+Fig_NN ._SENT 
+12_CD shows_NNS the_DT MSC_NN between_IN the_DT observed_JJ signal_NN at_IN microphone_NN 1_CD and_CC (_( a_DT )_) the_DT output_NN of_IN microphone_NN array_NN 1_CD using_VVG the_DT DS_NP beamformer_NP and_CC (_( b_LS )_) the_DT output_NN of_IN microphone_NN array_NN 1_CD using_VVG the_DT GSC_NN ._SENT 
+From_IN Fig_NN ._SENT 
+12_CD ,_, the_DT MSC_NN has_VHZ low_JJ values_NNS ,_, particularly_RB above_IN 1000_CD Hz_NP ._SENT 
+In_IN other_JJ words_NNS ,_, each_DT microphone_NN array_NN can_MD separate_VV the_DT target_NN noise_NN and_CC other_JJ noise_NN ._SENT 
+Therefore_RB ,_, the_DT proposed_VVN ANC_NP system_NN with_IN the_DT GSC_NN shows_VVZ the_DT best_JJS performance_NN among_IN the_DT three_CD systems_NNS ._SENT 
+Fig_NN ._SENT 
+11._CD Comparison_NN of_IN the_DT noise_NN separation_NN performance_NN between_IN the_DT noise_NN signal_NN of_IN noise_NN source_NN 1_CD and_CC (_( a_DT )_) observed_VVN signal_NN at_IN mic_JJ ._SENT 
+1_LS ,_, (_( b_LS )_) output_NN signal_NN of_IN mic_NP ._SENT 
+array_NN 1_CD using_VVG the_DT DS_NP beamformer_NP ,_, and_CC (_( c_LS )_) output_NN signal_NN of_IN mic_NP ._SENT 
+array_NN 1_CD using_VVG the_DT GSC_NN ._SENT 
+Fig_NN ._SENT 
+12._CD Comparison_NN of_IN the_DT noise_NN separation_NN performance_NN between_IN the_DT observed_JJ signal_NN at_IN reference_NN microphone_NN 1_CD and_CC each_DT signal_NN observed_VVN at_IN (_( a_DT )_) DS_NP beamformer_NP and_CC (_( b_LS )_) GSC_NN ._SENT 
+4.2_CD ._SENT 
+Evaluation_NN of_IN noise_NN reduction_NN performance_NN of_IN proposed_VVN ANC_NP systems_NNS for_IN different_JJ numbers_NNS of_IN microphones_NNS in_IN each_DT microphone_NN array_NN In_IN this_DT simulation_NN ,_, the_DT noise_NN reduction_NN performances_NNS of_IN the_DT proposed_VVN ANC_NP systems_NNS are_VBP evaluated_VVN for_IN different_JJ numbers_NNS of_IN microphones_NNS in_IN each_DT microphone_NN array_NN ._SENT 
+The_DT number_NN of_IN microphones_NNS is_VBZ varied_VVN from_IN 2_CD to_TO 6_CD and_CC the_DT distance_NN between_IN adjacent_JJ microphones_NNS is_VBZ 6.5_CD cm_NN ._SENT 
+The_DT simulation_NN conditions_NNS are_VBP the_DT same_JJ as_IN those_DT in_IN Table_NN 2._CD The_DT simulation_NN results_NNS are_VBP shown_VVN in_IN Fig_NN ._SENT 
+13._CD From_IN Fig_NN ._SENT 
+13_CD ,_, the_DT amount_NN of_IN noise_NN reduction_NN increases_NNS as_IN the_DT number_NN of_IN microphones_NNS increases_NNS ._SENT 
+This_DT is_VBZ because_IN the_DT spatial_JJ resolution_NN increases_NNS with_IN the_DT number_NN of_IN microphones_NNS ._SENT 
+Furthermore_RB ,_, the_DT proposed_VVN system_NN with_IN the_DT GSC_NN can_MD achieve_VV better_JJR noise_NN reduction_NN performance_NN with_IN fewer_JJR microphones_NNS than_IN the_DT proposed_VVN system_NN with_IN the_DT DS_NP beamformer_NP ._SENT 
+This_DT is_VBZ because_IN the_DT sound_JJ separation_NN ability_NN of_IN the_DT GSC_NN is_VBZ higher_JJR than_IN that_DT of_IN the_DT DS_NP beamformer_NP ._SENT 
+Fig_NN ._SENT 
+13._CD Comparison_NN of_IN the_DT noise_NN reduction_NN performance_NN of_IN the_DT proposed_VVN Case_NN (_( 2_CD ,_, 1_CD ,_, 1_CD )_) ANC_NP system_NN for_IN different_JJ numbers_NNS of_IN microphones_NNS in_IN the_DT microphone_NN array_NN with_IN (_( a_DT )_) DS_NP beamformer_NP and_CC (_( b_LS )_) GSC_NN ._SENT 
+4.3_CD ._SENT 
+Evaluation_NN of_IN noise_NN reduction_NN performance_NN of_IN proposed_VVN ANC_NP system_NN for_IN different_JJ distances_NNS between_IN adjacent_JJ microphones_NNS in_IN the_DT microphone_NN arrays_VVZ In_IN this_DT simulation_NN ,_, the_DT noise_NN reduction_NN performances_NNS of_IN the_DT proposed_VVN ANC_NP systems_NNS are_VBP evaluated_VVN for_IN different_JJ distances_NNS between_IN adjacent_JJ microphones_NNS in_IN the_DT microphone_NN arrays_VVZ ._SENT 
+Two_CD microphones_NNS are_VBP used_VVN for_IN each_DT microphone_NN array_NN and_CC the_DT distance_NN is_VBZ increased_VVN from_IN 6.5_CD to_TO 32.5_CD cm_NN at_IN intervals_NNS of_IN 6.5_CD cm_NN ._SENT 
+Here_RB ,_, only_RB the_DT distance_NN of_IN 6.5_CD cm_NN satisfies_NNS (_( 19_CD )_) and_CC spatial_JJ aliasing_NN does_VVZ not_RB arise_VV ._SENT 
+The_DT simulation_NN conditions_NNS are_VBP the_DT same_JJ as_IN those_DT in_IN Table_NN 2._CD The_DT simulation_NN results_NNS are_VBP shown_VVN in_IN Fig_NN ._SENT 
+14._CD It_PP can_MD be_VB seen_VVN from_IN Fig_NN ._SENT 
+14_CD that_IN the_DT noise_NN reduction_NN performance_NN is_VBZ changed_VVN by_IN increasing_VVG the_DT distance_NN between_IN the_DT microphones_NNS even_RB though_RB (_( 19_CD )_) is_VBZ not_RB satisfied_VVN for_IN distances_NNS of_IN 13.0_CD cm_NN and_CC above_IN between_IN the_DT microphones_NNS ._SENT 
+Fig_NN ._SENT 
+14._CD Comparison_NN of_IN the_DT noise_NN reduction_NN performance_NN of_IN the_DT proposed_VVN Case_NN (_( 2_CD ,_, 1_CD ,_, 1_CD )_) ANC_NP system_NN using_VVG a_DT GSC_NN for_IN different_JJ distances_NNS between_IN adjacent_JJ microphones_NNS in_IN the_DT microphone_NN array_NN ._SENT 
+Next_RB ,_, the_DT ability_NN of_IN sound_JJ source_NN separation_NN is_VBZ evaluated_VVN by_IN MSC_NP (_( 21_CD )_) ._SENT 
+Here_RB ,_, the_DT MCSs_NP for_IN the_DT best_JJS and_CC worst_JJS noise_NN reduction_NN performances_NNS are_VBP compared_VVN ._SENT 
+The_DT MSCs_NNS for_IN the_DT distances_NNS of_IN 32.5_CD cm_NN and_CC 19.5_CD cm_NN between_IN adjacent_JJ microphones_NNS are_VBP shown_VVN in_IN Fig_NN ._SENT 
+15._CD From_IN Fig_NN ._SENT 
+15_CD ,_, MSC_NN for_IN 32.5_CD cm_NN is_VBZ larger_JJR than_IN that_IN for_IN 19.5_CD cm_NN at_IN high_JJ frequencies_NNS ._SENT 
+On_IN the_DT other_JJ hand_NN ,_, MSC_NN for_IN 19.5_CD cm_NN is_VBZ larger_JJR than_IN that_IN for_IN 32.5_CD cm_NN at_IN low_JJ frequencies_NNS ._SENT 
+Thus_RB ,_, the_DT beam_NN of_IN the_DT microphone_NN array_NN becomes_VVZ sharp_JJ at_IN low_JJ frequencies_NNS and_CC the_DT noise_NN reduction_NN performance_NN at_IN low_JJ frequencies_NNS is_VBZ improved_VVN by_IN the_DT microphone_NN arrays_VVZ in_IN which_WDT the_DT distance_NN between_IN adjacent_JJ microphones_NNS is_VBZ set_VVN to_TO 19.5_CD cm_NN ._SENT 
+However_RB ,_, there_EX is_VBZ a_DT possibility_NN that_IN the_DT beam_NN of_IN the_DT microphone_NN array_NN will_MD be_VB generated_VVN from_IN other_JJ directions_NNS and_CC it_PP might_MD be_VB better_JJR to_TO set_VV the_DT distance_NN between_IN adjacent_JJ microphones_NNS so_IN that_DT spatial_JJ aliasing_NN is_VBZ avoided_VVN ._SENT 
+Fig_NN ._SENT 
+15._CD Comparison_NN of_IN the_DT noise_NN separation_NN performance_NN between_IN the_DT noise_NN signal_NN of_IN noise_NN source_NN 1_CD and_CC the_DT output_NN signal_NN of_IN the_DT GSC_NN in_IN mic_NP ._SENT 
+array_NN 1_CD for_IN different_JJ distances_NNS (_( a_DT )_) 32.5_CD cm_NN and_CC (_( b_LS )_) 19.5_CD cm_NN between_IN adjacent_JJ microphones_NNS ._SENT 
+4.4_CD ._SENT 
+Comparison_NN with_IN conventional_JJ case_NN (_( 2_CD ,_, 1_CD ,_, 1_CD )_) feedforward_NP ANC_NP system_NN in_IN the_DT case_NN of_IN three_CD noises_NNS Finally_RB ,_, the_DT noise_NN reduction_NN performances_NNS of_IN the_DT proposed_VVN and_CC conventional_JJ Case_NN (_( 2_CD ,_, 1_CD ,_, 1_CD )_) ANC_NP systems_NNS are_VBP compared_VVN in_IN the_DT case_NN of_IN three_CD unwanted_JJ noises_NNS ._SENT 
+The_DT simulation_NN conditions_NNS are_VBP shown_VVN in_IN Table_NN 2_CD and_CC noise_NN source_NN 3_CD propagates_VVZ white_JJ noise_NN ._SENT 
+The_DT simulation_NN results_NNS are_VBP shown_VVN in_IN Fig_NN ._SENT 
+16._CD From_IN Fig_NN ._SENT 
+16_CD ,_, the_DT noise_NN reduction_NN performances_NNS of_IN the_DT three_CD ANC_NP systems_NNS are_VBP degraded_VVN compared_VVN with_IN that_DT in_IN the_DT case_NN of_IN two_CD unwanted_JJ noises_NNS ._SENT 
+However_RB ,_, the_DT proposed_VVN ANC_NP system_NN with_IN the_DT GSC_NN reduces_VVZ the_DT unwanted_JJ noise_NN better_RBR than_IN the_DT other_JJ two_CD ANC_NP systems_NNS ._SENT 
+According_VVG to_TO these_DT results_NNS ,_, if_IN the_DT beamformer_NN is_VBZ designed_VVN more_RBR accurately_RB ,_, the_DT proposed_VVN ANC_NP system_NN can_MD reduce_VV the_DT unwanted_JJ noises_NNS more_RBR effectively_RB ._SENT 
+Fig_NN ._SENT 
+16._CD Comparison_NN of_IN the_DT noise_NN reduction_NN performance_NN in_IN each_DT ANC_NP system_NN in_IN the_DT case_NN of_IN three_CD noises_NNS ._SENT 
+<Section> 5._CD Conclusion_NN </Section> In_IN this_DT paper_NN ,_, we_PP have_VHP proposed_VVN a_DT Case_NN (_( 2_CD ,_, 1_CD ,_, 1_CD )_) ANC_NP system_NN combined_VVN with_IN noise_NN source_NN separation_NN and_CC evaluated_VVD the_DT effectiveness_NN of_IN the_DT proposed_VVN system_NN by_IN simulation_NN ._SENT 
+The_DT conventional_JJ Case_NN (_( 2_CD ,_, 1_CD ,_, 1_CD )_) ANC_NP system_NN has_VHZ a_DT problem_NN that_IN its_PP$ noise_NN reduction_NN performance_NN deteriorates_VVZ when_WRB multiple_JJ noises_NNS are_VBP detected_VVN by_IN the_DT reference_NN microphones_NNS ._SENT 
+To_TO solve_VV this_DT problem_NN ,_, the_DT proposed_VVN Case_NN (_( 2_CD ,_, 1_CD ,_, 1_CD )_) ANC_NP system_NN utilizes_VVZ microphone_NN arrays_NNS as_IN reference_NN microphones_NNS to_TO separate_VV the_DT noise_NN signals_NNS ._SENT 
+The_DT proposed_VVN multichannel_NP ANC_NP system_NN employs_VVZ microphone_NN arrays_NNS as_IN reference_NN microphones_NNS to_TO separate_VV the_DT target_NN noise_NN and_CC other_JJ disturbances_NNS ._SENT 
+Hence_RB ,_, the_DT proposed_VVN ANC_NP system_NN can_MD effectively_RB reduce_VV multiple_JJ target_NN noises_NNS ._SENT 
+Our_PP$ simulation_NN results_NNS show_VVP that_IN the_DT proposed_VVN ANC_NP system_NN can_MD improve_VV the_DT noise_NN reduction_NN performance_NN when_WRB it_PP uses_VVZ two_CD reference_NN microphones_NNS provided_VVD the_DT reference_NN microphones_NNS are_VBP not_RB arranged_VVN close_NN to_TO the_DT noise_NN sources_NNS ._SENT 
+In_IN the_DT future_NN ,_, we_PP will_MD examine_VV the_DT noise_NN reduction_NN performance_NN of_IN the_DT ANC_NP system_NN combined_VVN with_IN noise_NN source_NN separation_NN based_VVN on_IN noise_NN source_NN localization_NN ._SENT 
+Moreover_RB ,_, the_DT proposed_VVN ANC_NP system_NN can_MD reduce_VV the_DT feedback_NN effect_NN from_IN the_DT secondary_JJ source_NN to_TO the_DT reference_NN microphones_NNS because_IN it_PP utilizes_VVZ the_DT beamforming_JJ technique_NN ._SENT 
+Hence_RB ,_, we_PP will_MD examine_VV the_DT noise_NN reduction_NN performance_NN of_IN the_DT proposed_VVN ANC_NP system_NN in_IN the_DT case_NN that_IN the_DT feedback_NN effect_NN cannot_MD be_VB ignored_VVN ,_, for_IN example_NN ,_, when_WRB the_DT reference_NN microphones_NNS are_VBP located_VVN close_RB to_TO the_DT secondary_JJ sources_NNS ._SENT 
+In_IN this_DT paper_NN ,_, we_PP proposed_VVD a_DT multichannel_NP ANC_NP system_NN employing_VVG sound_JJ source_NN separation_NN and_CC confirmed_VVD its_PP$ noise_NN reduction_NN performance_NN by_IN using_VVG the_DT proposed_VVN Case_NN (_( 2,1,1_CD )_) ANC_NP system_NN ._SENT 
+Therefore_RB ,_, in_IN the_DT future_NN ,_, we_PP will_MD examine_VV the_DT noise_NN reduction_NN performance_NN in_IN the_DT case_NN of_IN multiple_JJ secondary_JJ sources_NNS and_CC error_NN microphones_NNS ,_, that_WDT is_VBZ ,_, the_DT Case_NP (_( J_NP ,_, K_NP ,_, M_NP )_) ANC_NP system_NN ._SENT 
+<Section> Acknowledgments_NNS </Section> This_DT work_NN was_VBD supported_VVN by_IN the_DT MEXT-Supported_JJ Program_NN for_IN the_DT Strategic_NP Research_NP Foundation_NP at_IN Private_JJ Universities_NNS ,_, 2013–2017_JJ and_CC JSPS_NP KAKENHI_NP (_( 15K00256_NP and_CC 17K06449_NP )_) ._SENT 
+<Section> Appendix_NN A._NP Identified_VVD paths_NNS </Section> Figs_NNS ._SENT 
+A.17–A.24_JJ show_VVP the_DT impulse_NN response_NN and_CC frequency_NN characteristics_NNS of_IN the_DT identified_VVN paths_NNS ._SENT 
+Fig_NN ._SENT 
+A.17_JJ ._SENT 
+Impulse_NN response_NN and_CC frequency_NN response_NN of_IN the_DT primary_JJ path_NN from_IN noise_NN source_NN 1_CD to_TO the_DT error_NN microphone_NN ._SENT 
+(_( a_DT )_) Impulse_NN response_NN ,_, (_( b_LS )_) Amplitude_NN characteristic_NN ,_, and_CC (_( c_LS )_) Phase_NN characteristic_NN ._SENT 
+Fig_NN ._SENT 
+A.18_NP ._SENT 
+Impulse_NN response_NN and_CC frequency_NN response_NN of_IN the_DT primary_JJ path_NN from_IN noise_NN source_NN 2_CD to_TO the_DT error_NN microphone_NN ._SENT 
+(_( a_DT )_) Impulse_NN response_NN ,_, (_( b_LS )_) Amplitude_NN characteristic_NN ,_, and_CC (_( c_LS )_) Phase_NN characteristic_NN ._SENT 
+Fig_NN ._SENT 
+A.19_NP ._SENT 
+Impulse_NN response_NN and_CC frequency_NN response_NN of_IN the_DT primary_JJ path_NN from_IN noise_NN source_NN 3_CD to_TO the_DT error_NN microphone_NN ._SENT 
+(_( a_DT )_) Impulse_NN response_NN ,_, (_( b_LS )_) Amplitude_NN characteristic_NN ,_, and_CC (_( c_LS )_) Phase_NN characteristic_NN ._SENT 
+Fig_NN ._SENT 
+A.20_NP ._SENT 
+Impulse_NN response_NN and_CC frequency_NN response_NN of_IN the_DT secondary_JJ path_NN ._SENT 
+(_( a_DT )_) Impulse_NN response_NN ,_, (_( b_LS )_) Amplitude_NN characteristic_NN ,_, and_CC (_( c_LS )_) Phase_NN characteristic_NN ._SENT 
+Fig_NN ._SENT 
+A.21_JJ ._SENT 
+Impulse_NN response_NN and_CC frequency_NN response_NN of_IN the_DT reference_NN path_NN from_IN noise_NN source_NN 1_CD to_TO microphone_NN 1_CD in_IN microphone_NN array_NN 1._CD (_( a_DT )_) Impulse_NN response_NN ,_, (_( b_LS )_) Amplitude_NN characteristic_NN ,_, and_CC (_( c_LS )_) Phase_NN characteristic_NN ._SENT 
+Fig_NN ._SENT 
+A.22_NP ._SENT 
+Impulse_NN response_NN and_CC frequency_NN response_NN of_IN the_DT reference_NN path_NN from_IN noise_NN source_NN 1_CD to_TO microphone_NN 12_CD in_IN microphone_NN array_NN 2._CD (_( a_DT )_) Impulse_NN response_NN ,_, (_( b_LS )_) Amplitude_NN characteristic_NN ,_, and_CC (_( c_LS )_) Phase_NN characteristic_NN ._SENT 
+Fig_NN ._SENT 
+A.23_NP ._SENT 
+Impulse_NN response_NN and_CC frequency_NN response_NN of_IN the_DT reference_NN path_NN from_IN noise_NN source_NN 2_CD to_TO microphone_NN 1_CD in_IN microphone_NN array_NN 1._CD (_( a_DT )_) Impulse_NN response_NN ,_, (_( b_LS )_) Amplitude_NN characteristic_NN ,_, and_CC (_( c_LS )_) Phase_NN characteristic_NN ._SENT 
+Fig_NN ._SENT 
+A.24_NP ._SENT 
+Impulse_NN response_NN and_CC frequency_NN response_NN of_IN the_DT reference_NN path_NN from_IN noise_NN source_NN 2_CD to_TO microphone_NN 12_CD in_IN microphone_NN array_NN 2._CD (_( a_DT )_) Impulse_NN response_NN ,_, (_( b_LS )_) Amplitude_NN characteristic_NN ,_, and_CC (_( c_LS )_) Phase_NN characteristic_NN ._SENT 
+<Section> Appendix_NN A._NP Identified_VVD paths_NNS </Section> [_SYM 1_CD ]_SYM P._NP Nelson_NP ,_, S._NP Elliott_NP ,_, Active_JJ Control_NP of_IN Sound_NP ,_, Academic_NP Press_NP ,_, San_NP Diego_NP ,_, CA_MD ,_, 1992._CD [_SYM 2_CD ]_SYM S._NP M._NP Kuo_NP ,_, D._NP R._NP Morgan_NP ,_, Active_JJ Noise_NN Control_NP Systems_NPS :_: Algorithms_NNS and_CC DSP_NP Implementation_NN ,_, John_NP Wiley_NP &_CC Sons_NP ,_, New_NP York_NP ,_, 1996._CD [_SYM 3_CD ]_SYM S._NP Elliott_NP ,_, P._NP Nelson_NP ,_, Active_JJ noise_NN control_NN ,_, IEEE_NP Signal_NP Process_NN ._SENT 
+Mag_NP ._SENT 
+10_CD (_( 4_LS )_) (_( 1993_CD )_) 12–35_NP ._SENT 
+[_SYM 4_CD ]_SYM S._NP M._NP Kuo_NP ,_, D._NP R._NP Morgan_NP ,_, Active_JJ noise_NN control_NN :_: a_DT tutorial_JJ review_NN ,_, Proc_NP ._SENT 
+IEEE_NP 87_CD (_( 6_CD )_) (_( 1999_CD )_) 943–973_NP ._SENT 
+[_SYM 5_CD ]_SYM B._NP Widrow_NP ,_, S._NP Stearns_NP ,_, Adaptive_JJ Signal_NP Processing_NP ,_, Prentice_NP Hall_NP ,_, Englewood_NP Cliffs_NPS ,_, NJ_NP ,_, 1985._CD [_SYM 6_CD ]_SYM S._NP Haykin_NP ,_, Adaptive_JJ Filter_NP Theory_NN ,_, fourth_JJ ed_NNS ._SENT 
+,_, Prentice_NP Hall_NP ,_, Upper_NP Saddle_NN River_NP ,_, NJ_NP ,_, 2002._CD [_SYM 7_CD ]_SYM K._NP Lee_NP ,_, W._NP Gan_NP ,_, S._NP Kuo_NP ,_, Subband_NP Adaptive_JJ Filtering_VVG :_: Theory_NN and_CC Implementation_NN ,_, Wiley_NP ,_, West_NP Sussex_NP ,_, 2009._CD [_SYM 8_CD ]_SYM S._NP Elliott_NP ,_, Signal_NP Processing_NP for_IN Active_JJ Control_NP ,_, Academic_NP Press_NP ,_, San_NP Diego_NP ,_, CA_MD ,_, 2001._CD [_SYM 9_CD ]_SYM Y._NP Kajikawa_NP ,_, W._NP Gan_NP ,_, S._NP Kuo_NP ,_, Recent_JJ advances_NNS on_IN active_JJ noise_NN control_NN :_: open_JJ issues_NNS and_CC innovative_JJ applications_NNS ,_, APSIPA_NP Trans_NP ._SENT 
+Signal_NP Inf_NP ._SENT 
+Process_NN 1_CD (_( 2012_CD )_) 1–21_JJ ._SENT 
+[_SYM 10_CD ]_SYM S._NP Kuo_NP ,_, X._NP Kong_NP ,_, W._NP Gan_NP ,_, Applications_NP of_IN adaptive_JJ feedback_NN active_JJ noise_NN control_NN system_NN ,_, IEEE_NP Trans_NP ._SENT 
+Control_NN Syst_NN ._SENT 
+Technol_NN ._SENT 
+11_CD (_( 2_LS )_) (_( 2003_CD )_) 216–220_NP ._SENT 
+[_SYM 11_CD ]_SYM T._NP Meurers_NNS ,_, S._NP Veres_NP ,_, S._NP Elliott_NP ,_, Frequency_NN selective_JJ feedback_NN for_IN active_JJ noise_NN control_NN ,_, IEEE_NP Control_NP Syst_NN ._SENT 
+22_CD (_( 4_LS )_) (_( 2002_CD )_) 32–41_JJ ._SENT 
+[_SYM 12_CD ]_SYM H._NP Sakai_NP ,_, S._NP Miyagi_NP ,_, Analysis_NN of_IN the_DT adaptive_JJ filter_NN algorithm_NN for_IN feedback-type_NP active_JJ noise_NN control_NN ,_, Signal_NP Process_NN ._SENT 
+83_CD (_( 6_CD )_) (_( 2003_CD )_) 1291–1298_NP ._SENT 
+[_SYM 13_CD ]_SYM D._NP Morgan_NP ,_, An_DT analysis_NN of_IN multiple_JJ correlation_NN cancellation_NN loops_NNS with_IN a_DT filter_NN in_IN the_DT auxiliary_JJ path_NN ,_, IEEE_NP Trans_NP ._SENT 
+Acoust_NP ._SENT 
+Speech_NN Signal_NP Process_NN ._SENT 
+28_CD (_( 4_LS )_) (_( 1980_CD )_) 454–467_JJ ._SENT 
+[_SYM 14_CD ]_SYM E._NP Bjarnason_NP ,_, Analysis_NN of_IN the_DT filtered-X_NP LMS_NP algorithm_NN ,_, IEEE_NP Trans_NP ._SENT 
+Speech_NN Audio_NN Process_NN ._SENT 
+3_LS (_( 6_CD )_) (_( 1995_CD )_) 504–514_NP ._SENT 
+[_SYM 15_CD ]_SYM T._NP Usagawa_NP ,_, Y._NP Shimada_NP ,_, Y._NP Nishimura_NP ,_, M._NP Ebata_NP ,_, An_DT active_JJ noise_NN control_NN headset_NN for_IN crew_NN members_NNS of_IN ambulance_NN ,_, IEICE_NP Trans_NP ._SENT 
+Fundam_NP ._SENT 
+E84-A_NP (_( 2_LS )_) (_( 2001_CD )_) 475–478_NP ._SENT 
+[_SYM 16_CD ]_SYM W._NP Gan_NP ,_, S._NP Mitra_NP ,_, S._NP Kuo_NP ,_, Adaptive_JJ feedback_NN active_JJ noise_NN control_NN headset_NN :_: implementation_NN ,_, evaluation_NN and_CC its_PP$ extensions_NNS ,_, IEEE_NP Trans_NP ._SENT 
+Consum_NP ._SENT 
+Electron_NP ._SENT 
+51_CD (_( 3_LS )_) (_( 2005_CD )_) 975–982_NP ._SENT 
+[_SYM 17_CD ]_SYM S._NP Kuo_NP ,_, S._NP Mitra_NP ,_, W._NP Gan_NP ,_, Active_JJ noise_NN control_NN system_NN for_IN headphone_NN applications_NNS ,_, IEEE_NP Trans_NP ._SENT 
+Control_NN Syst_NN ._SENT 
+Technol_NN ._SENT 
+14_CD (_( 2_LS )_) (_( 2006_CD )_) 331–335_NP ._SENT 
+[_SYM 18_CD ]_SYM C._NP Chang_NP ,_, S._NP Li_NP ,_, Active_JJ noise_NN control_NN in_IN headsets_NNS by_IN using_VVG a_DT low-cost_JJ microcontroller_NN ,_, IEEE_NP Trans_NP ._SENT 
+Ind._NP Electron_NP ._SENT 
+58_CD (_( 5_LS )_) (_( 2011_CD )_) 1936–1942_NP ._SENT 
+[_SYM 19_CD ]_SYM M._NP Kumamoto_NP ,_, M._NP Kida_NP ,_, R._NP Hirayama_NP ,_, Y._NP Kajikawa_NP ,_, T._NP Tani_NP ,_, Y._NP Kurumi_NP ,_, Active_JJ noise_NN control_NN system_NN for_IN reducing_VVG MR_NP noise_NN ,_, IEICE_NP Trans_NP ._SENT 
+Fundam_NP ._SENT 
+E94-A_NP (_( 7_CD )_) (_( 2011_CD )_) 1479–1486_NP ._SENT 
+[_SYM 20_CD ]_SYM N._NP Miyazaki_NP ,_, Y._NP Kajikawa_NP ,_, Head-mounted_JJ active_JJ noise_NN control_NN system_NN with_IN virtual_JJ sensing_VVG technique_NN ,_, J._NP Sound_NP Vib_NP ._SENT 
+339_CD (_( 17_CD )_) (_( 2015_CD )_) 65–83_NP ._SENT 
+[_SYM 21_CD ]_SYM S._NP Elliott_NP ,_, I._NP Stothers_NP ,_, P._NP Nelson_NP ,_, A_DT multiple_JJ error_NN LMS_NNS algorithm_NN and_CC its_PP$ application_NN to_TO the_DT active_JJ control_NN of_IN sound_NN and_CC vibration_NN ,_, IEEE_NP Trans_NP ._SENT 
+Acoust_NP ._SENT 
+Speech_NN Signal_NP Process_NN ._SENT 
+35_CD (_( 10_CD )_) (_( 1987_CD )_) 1423–1434_NP ._SENT 
+[_SYM 22_CD ]_SYM S._NP Elliott_NP ,_, C._NP Boucher_NP ,_, P._NP Nelson_NP ,_, The_DT behavior_NN of_IN a_DT multiple_JJ channel_NN active_JJ control_NN system_NN ,_, IEEE_NP Trans_NP ._SENT 
+Signal_NN Process_NN ._SENT 
+40_CD (_( 5_LS )_) (_( 1992_CD )_) 1041–1052_NP ._SENT 
+[_SYM 23_CD ]_SYM S._NP Douglas_NP ,_, Fast_JJ implementations_NNS of_IN the_DT filtered-X_NP LMS_NP and_CC LMS_NP algorithms_NNS for_IN multichannel_NP active_JJ noise_NN control_NN ,_, IEEE_NP Trans_NP ._SENT 
+Speech_NN Audio_NN Process_NN ._SENT 
+7_CD (_( 7_CD )_) (_( 1999_CD )_) 454–465_NP ._SENT 
+[_SYM 24_CD ]_SYM S._NP Elliott_NP ,_, Optimal_JJ controllers_NNS and_CC adaptive_JJ controllers_NNS for_IN multichannel_NP feedforward_NP control_NN of_IN stochastic_JJ disturbances_NNS ,_, IEEE_NP Trans_NP ._SENT 
+Signal_NN Process_NN ._SENT 
+48_CD (_( 4_LS )_) (_( 2000_CD )_) 1053–1060_NP ._SENT 
+[_SYM 25_CD ]_SYM M._NP Bouchard_NP ,_, S._NP Norcross_NP ,_, Computational_JJ load_NN reduction_NN of_IN fast_JJ convergence_NN algorithms_NNS for_IN multichannel_NP active_JJ noise_NN control_NN ,_, Signal_NP Process_NN ._SENT 
+83_CD (_( 1_LS )_) (_( 2003_CD )_) 121–134_NP ._SENT 
+[_SYM 26_CD ]_SYM G._NP Chen_NP ,_, H._NP Wan_NP ,_, K._NP Chen_NP ,_, K._NP Muto_NP ,_, A_DT preprocessing_VVG method_NN for_IN multichannel_NP feedforward_NP active_JJ noise_NN control_NN ,_, Acoust_NP Sci_NP ._SENT 
+Technol_NN ._SENT 
+26_CD (_( 3_LS )_) (_( 2005_CD )_) 292–295_NP ._SENT 
+[_SYM 27_CD ]_SYM U._NP Yuan_NP ,_, Orthogonal_JJ adaptation_NN for_IN multichannel_NP feedforward_NP control_NN ,_, J._NP Acoust_NP ._SENT 
+Soc_NP ._SENT 
+Am_NP ._SENT 
+120_CD (_( 6_CD )_) (_( 2006_CD )_) 3723–3729_NP ._SENT 
+[_SYM 28_CD ]_SYM J._NP K._NP Thomas_NP ,_, S._NP Lovstedt_NP ,_, J._NP Blotter_NP ,_, S._NP Sommerfeldt_NP ,_, Eigenvalue_NN equalization_NN filtered-x_NN algorithm_NN for_IN the_DT multichannel_NP active_JJ noise_NN control_NN of_IN stationary_JJ and_CC nonstationary_JJ signals_NNS ,_, J._NP Acoust_NP ._SENT 
+Soc_NP ._SENT 
+Am_NP ._SENT 
+123_CD (_( 6_CD )_) (_( 2008_CD )_) 4238–4249_NP ._SENT 
+[_SYM 29_CD ]_SYM S._NP Makino_NP ,_, Stereophonic_JJ acoustic_JJ echo_NN cancellation_NN :_: an_DT overview_NN and_CC recent_JJ solutions_NNS ,_, Acoust_NP Sci_NP ._SENT 
+Technol_NN ._SENT 
+22_CD (_( 5_LS )_) (_( 2001_CD )_) 325–333_NP ._SENT 
+[_SYM 30_CD ]_SYM D._NP Maeda_NP ,_, K._NP Fujii_NP ,_, M._NP Muneyasu_NP ,_, A_DT proposal_NN of_IN multichannel_NP adaptive_JJ algorithm_NN and_CC its_PP$ analysis_NN ,_, Electron_NP ._SENT 
+Commun_NP ._SENT 
+Jpn_NP ._SENT 
+88_CD (_( 3_LS )_) (_( 2005_CD )_) 32–41_JJ ._SENT 
+[_SYM 31_CD ]_SYM S._NP Kinoshita_NP ,_, Y._NP Kajikawa_NP ,_, Multi-channel_NP feedforward_NP ANC_NP system_NN combined_VVN with_IN noise_NN source_NN separation_NN ,_, in_RB :_: 2015_CD APSIPA_NP Ann_NP ._SENT 
+Summit_NN Conf_NN ._SENT 
+,_, Hong_NP Kong_NP ,_, China_NP ,_, 2015_CD ,_, pp_NP ._SENT 
+379–383_NP ._SENT 
+[_SYM 32_CD ]_SYM D._NP Johnson_NP ,_, D._NP Dudgeon_NP ,_, Array_NN Signal_NP Processing_NP :_: Concepts_NNS and_CC Techniques_NNS ,_, Prentice_NP Hall_NP ,_, Upper_NP Saddle_NN River_NP ,_, NJ_NP ,_, 1985._CD [_SYM 33_CD ]_SYM L._NP Griffiths_NP ,_, C._NP Jim_NP ,_, An_DT alternative_JJ approach_NN to_TO linearly_RB constrained_VVN adaptive_JJ beamforming_NN ,_, IEEE_NP Trans_NP ._SENT 
+Antennas_NNS Propag_VVP ._SENT 
+AP-30_NP (_( 1982_CD )_) 27–34_NP ._SENT 
+[_SYM 34_CD ]_SYM M._NP Brandstein_NP ,_, D._NP Ward_NP ,_, Microphone_NN Arrays_NNS :_: Signal_NP Processing_NP Techniques_NNS and_CC Applications_NP ,_, Springer-Berlag_NP ,_, 2001._CD 

@@ -1,0 +1,402 @@
+<title> Optimal_JJ transition_NN control_NN between_IN combustion_NN modes_NNS in_IN a_DT Diesel-ignited_JJ gas_NN engine_NN </title> <author> Hutter_NP ,_, Richard_NP ;_: Hänggi_NP ,_, Severin_NP ;_: Albin_NP ,_, Thivaharan_NP ;_: Onder_NP ,_, Christopher_NP H._NP </author> <Affiliation> 1_CD Institute_NP for_IN Dynamic_JJ Systems_NPS and_CC Control_NP ,_, ETH_NN Zurich_NP ,_, Zurich_NP ;_: 8092_CD ,_, Switzerland_NP </Affiliation> <year> 2020_CD </year> <Jounral> Control_NP Engineering_NP Practice_NN </Journal> <Publishing_house> Elsevier_NP Ltd_NP </Publishing_house> <Text_Collector> Liu_NP Kai，HEU_NP </Text_Collector> <DOI> 10.1016/j_NP ._SENT 
+conengprac.2020.104327_JJ </DOI> <URL> https_NNS :_: //www_NNS ._SENT 
+sciencedirect_NNS ._SENT 
+com/science/article/pii/S0967066120300162_NP ?_SENT 
+via%3Dihub_NP </URL> <Section> Abstract_JJ </Section> Diesel-ignited_JJ gas_NN engines_NNS show_VVP high_JJ emission_NN of_IN hydrocarbons_NNS at_IN low_JJ load_NN and_CC thus_RB have_VH to_TO be_VB operated_VVN there_RB in_IN Diesel-only_JJ mode_NN ._SENT 
+The_DT transition_NN between_IN the_DT combustion_NN modes_NNS typically_RB results_VVZ in_IN a_DT significant_JJ torque_NN deviation_NN as_IN well_RB as_RB in_IN additional_JJ tailpipe_NN emissions_NNS of_IN pollutants_NNS ._SENT 
+This_DT paper_NN presents_VVZ a_DT study_NN on_IN the_DT transition_NN between_IN the_DT two_CD combustion_NN modes_NNS ,_, namely_RB Diesel-only_RB mode_NN and_CC dual-fuel_NN mode_NN ._SENT 
+Optimal_JJ actuator_NN trajectories_NNS are_VBP derived_VVN by_IN solving_VVG a_DT nonlinear_JJ optimal_JJ control_NN problem_NN ._SENT 
+With_IN the_DT optimized_VVN trajectories_NNS implemented_VVN in_IN a_DT feedforward_JJ controller_NN ,_, the_DT transition_NN is_VBZ significantly_RB improved_VVN in_IN terms_NNS of_IN torque_NN deviation_NN ,_, cumulative_JJ nitrogen_NN oxide_NN emissions_NNS ,_, as_RB well_RB as_IN cumulative_JJ hydrocarbon_NN emissions_NNS ._SENT 
+Keywords：Dual-fuel_NN engine；Transition_NN control；Nonlinear_JJ optimization；Trajectory_JJ optimization；Emission_NN abatement_NN <Section> 1._CD Introduction_NN </Section> 1.1_CD ._SENT 
+Motivation_NN The_DT demand_NN for_IN further_JJR reductions_NNS in_IN the_DT CO2_JJ emissions_NNS of_IN modern_JJ internal_JJ combustion_NN engines_NNS is_VBZ one_CD of_IN the_DT main_JJ drivers_NNS of_IN today’s_NP engine_NN research_NN ._SENT 
+The_DT approaches_NNS used_VVN to_TO pursue_VV this_DT goal_NN are_VBP manifold_JJ :_: electric-hybridization_NN ,_, down-sizing_NN ,_, change_NN of_IN fuels_NNS ._SENT 
+In_IN addition_NN ,_, there_EX is_VBZ an_DT intensified_JJ effort_NN to_TO explore_VV more_RBR complex_JJ combustion_NN modes_NNS such_JJ as_IN the_DT homogeneous_JJ charge_NN compression_NN ignition_NN (_( HCCI_NP )_) in_IN order_NN to_TO reduce_VV fuel_NN consumption_NN and_CC improve_VV pollutant_NN emissions_NNS ,_, particularly_RB under_IN part-load_NN conditions_NNS (_( Chen_NP et_NP al_NP ._SENT 
+,_, 2015_CD ,_, Christensen_NP et_CC al_NP ._SENT 
+,_, 1997_CD ,_, Hellström_NP et_CC al_NP ._SENT 
+,_, 2012_CD ,_, Ritter_NP et_CC al_NP ._SENT 
+,_, 2018_CD )_) ._SENT 
+The_DT HCCI_NP combustion_NN relies_VVZ on_IN the_DT autoignition_NN of_IN a_DT fuel_NN that_WDT traditionally_RB requires_VVZ an_DT external_JJ ignition_NN source_NN such_JJ as_IN gasoline_NN ._SENT 
+A_DT related_JJ concept_NN is_VBZ the_DT reactivity-controlled_JJ compression_NN ignition_NN (_( RCCI_NP )_) that_WDT is_VBZ characterized_VVN by_IN the_DT use_NN of_IN two_CD fuels_NNS with_IN different_JJ reactivity_NN levels_NNS ._SENT 
+In_IN contrast_NN to_TO the_DT HCCI_NP concept_NN ,_, the_DT RCCI_NP combustion_NN features_VVZ a_DT good_JJ control_NN authority_NN (_( Johansson_NP ,_, 2016_CD ,_, Kassa_NP and_CC Hall_NP ,_, 2018_CD ,_, Nieman_NP et_CC al_NP ._SENT 
+,_, 2012_CD ,_, Reitz_NP and_CC Duraisamy_NP ,_, 2015_CD ,_, Roberts_NP et_CC al_NP ._SENT 
+,_, 2017_CD ,_, Splitter_NN et_CC al_NP ._SENT 
+,_, 2013_CD )_) ._SENT 
+An_DT engine_NN type_NN that_WDT is_VBZ capable_JJ of_IN running_VVG in_IN RCCI_NP mode_NN is_VBZ the_DT Diesel-ignited_JJ gas_NN engine_NN ._SENT 
+This_DT dual-fuel_NN engine_NN uses_VVZ a_DT pilot_JJ Diesel_NP injection_NN to_TO ignite_VV the_DT air/natural_JJ gas_NN mixture_NN ._SENT 
+However_RB ,_, under_IN certain_JJ low-load_NN conditions_NNS the_DT dual-fuel_NN mode_NN is_VBZ not_RB feasible_JJ ,_, such_JJ that_IN the_DT engine_NN inherently_RB requires_VVZ two_CD combustion_NN modes_NNS :_: At_IN low_JJ loads_NNS ,_, the_DT engine_NN is_VBZ operated_VVN with_IN Diesel_NP fuel_NN only_RB (_( Diesel-only_JJ mode_NN )_) ,_, while_IN at_IN medium_NN and_CC high_JJ loads_NNS both_CC fuels_NNS are_VBP injected_VVN (_( dual-fuel_NN mode_NN )_) (_( Garcia_NP and_CC Tunestal_NP ,_, 2015_CD ,_, Hutter_NP et_CC al_NP ._SENT 
+,_, 2017_CD )_) ._SENT 
+The_DT capability_NN to_TO perform_VV the_DT transition_NN between_IN these_DT combustion_NN modes_NNS in_IN a_DT smooth_JJ manner_NN is_VBZ crucial_JJ in_IN terms_NNS of_IN the_DT practicability_NN of_IN this_DT engine_NN type_NN ._SENT 
+The_DT transition_NN should_MD not_RB lead_VV to_TO any_DT noticeable_JJ deviation_NN from_IN the_DT nominal_JJ torque_NN level_NN ,_, neither_CC should_MD the_DT transition_NN lead_NN to_TO a_DT penalty_NN in_IN tailpipe_NN pollutant_NN emissions_NNS like_IN NOx_NP or_CC CH4_NP ._SENT 
+These_DT requirements_NNS cause_VVP the_DT transition_NN to_TO be_VB a_DT challenging_JJ task_NN as_IN various_JJ actuator_NN settings_NNS ,_, from_IN both_CC the_DT fuel_NN and_CC the_DT air_NN paths_NNS ,_, change_VV significantly_RB during_IN the_DT transition_NN ._SENT 
+1.2_CD ._SENT 
+Related_JJ work_NN Combustion_NP mode_NN transitions_NNS become_VVN to_TO a_DT challenging_JJ task_NN as_RB soon_RB as_IN there_EX are_VBP different_JJ combustion_NN modes_NNS which_WDT require_VVP significantly_RB different_JJ charge_NN air_NN conditions_NNS ._SENT 
+There_EX is_VBZ an_DT active_JJ research_NN community_NN focusing_VVG on_IN the_DT combustion_NN mode_NN switching_VVG in_IN spark-ignited_JJ (_( SI_NP )_) gasoline_NN HCCI_NN engines_NNS ._SENT 
+The_DT challenges_NNS that_WDT arise_VVP for_IN the_DT air-path_NP control_NN system_NN are_VBP comparable_JJ to_TO those_DT in_IN the_DT Diesel-ignited_JJ gas_NN engines_NNS :_: For_IN the_DT transition_NN from_IN SI_NP to_TO HCCI_NP mode_NN the_DT engine_NN conditions_NNS are_VBP shifted_VVN from_IN a_DT stoichiometric_JJ air/fuel_NN ratio_NN with_IN low_JJ EGR_NP dilution_NN to_TO lean_VV ratios_NNS with_IN high_JJ dilution_NN (_( Gorzelic_NP ,_, Stefanopoulou_NP ,_, &_CC Sterniak_NP ,_, 2017_CD )_) ._SENT 
+A_DT crucial_JJ requirement_NN is_VBZ reportedly_RB the_DT avoidance_NN of_IN unstable_JJ combustion_NN areas_NNS ._SENT 
+In_IN order_NN to_TO prevent_VV the_DT cylinder_NN charge_NN of_IN becoming_VVG too_RB lean_JJ during_IN the_DT transition_NN and_CC causing_VVG misfires_VVZ ,_, it_PP has_VHZ been_VBN proposed_VVN to_TO ramp_VV up_RP the_DT EGR_NP quantity_NN prior_RB to_TO the_DT switch_NN (_( Kakuya_NP et_NP al_NP ._SENT 
+,_, 2008_CD ,_, Yang_NP and_CC Zhu_NP ,_, 2013_CD )_) ._SENT 
+While_IN some_DT studies_NNS focus_VVP on_IN open-loop_NN scheduling_NN ,_, there_EX are_VBP studies_NNS that_WDT propose_VVP the_DT use_NN of_IN more_JJR advanced_JJ model-based_JJ feedback_NN control_NN concepts_NNS offering_VVG savings_NNS in_IN calibration_NN efforts_NNS (_( Chauvin_NP et_NP al_NP ._SENT 
+,_, 2008_CD ,_, Fang_NP et_CC al_NP ._SENT 
+,_, 2013_CD ,_, Gorzelic_NP et_CC al_NP ._SENT 
+,_, 2017_CD ,_, Ravi_NP et_CC al_NP ._SENT 
+,_, 2013_CD ,_, Zhang_NP et_CC al_NP ._SENT 
+,_, 2017_CD )_) ._SENT 
+The_DT reference_NN trajectories_NNS of_IN the_DT fuel-_NN and_CC air-path_VVP thereby_RB rely_VV on_IN logical_JJ expressions_NNS or_CC scheduled_VVN sequences_NNS ._SENT 
+In_IN addition_NN ,_, some_DT researchers_NNS are_VBP working_VVG on_IN closed-loop_NN control_NN schemes_NNS for_IN combustion_NN mode_NN transitions_NNS in_IN RCCI_NP engines_NNS using_VVG other_JJ combinations_NNS of_IN fuels_NNS such_JJ as_IN ethanol/Diesel_NP (_( Divekar_NP et_NP al_NP ._SENT 
+,_, 2017_CD )_) and_CC gasoline/Diesel_NP (_( Hanson_NP and_CC Reitz_NP ,_, 2014_CD ,_, Hanson_NP and_CC Reitz_NP ,_, 2016_CD )_) ._SENT 
+During_IN such_JJ transitions_NNS ,_, the_DT changes_NNS of_IN the_DT air/fuel_NN ratio_NN are_VBP smaller_JJR than_IN those_DT observed_VVN in_IN natural_JJ gas/Diesel_NP dual-fuel_NN engines_NNS ,_, where_WRB ,_, due_JJ to_TO shortcomings_NNS of_IN today’s_NP CNG_NP catalysts_NNS ,_, the_DT only_JJ feasible_JJ dual-fuel_NN operation_NN is_VBZ with_IN stoichiometric_JJ exhaust_NN gas_NN conditions_NNS ._SENT 
+Hence_RB ,_, the_DT research_NN focused_VVN on_IN the_DT actuation_NN of_IN the_DT fuel_NN injection_NN ,_, while_IN the_DT positions_NNS of_IN the_DT air_NN path_NN actuators_NNS are_VBP held_VVN constant_JJ or_CC are_VBP chosen_VVN based_VVN on_IN a_DT steady-state_NN lookup_NN table_NN ._SENT 
+For_IN conventional_JJ Diesel_NP and_CC gasoline_NN engines_NNS advanced_VVD numerical_JJ optimization_NN methods_NNS are_VBP reportedly_RB used_VVN in_IN order_NN to_TO obtain_VV the_DT optimal_JJ actuation_NN for_IN transient_JJ engine_NN processes_NNS ._SENT 
+Various_JJ types_NNS of_IN direct_JJ numerical_JJ methods_NNS such_JJ as_IN single_JJ shooting_NN (_( Benz_NP ,_, Hehn_NP ,_, Onder_NP ,_, &_CC Guzzella_NP ,_, 2010_CD )_) ,_, multiple_JJ shooting_NN (_( Albin_NP et_NP al_NP ._SENT 
+,_, 2018_CD ,_, Keller_NP et_CC al_NP ._SENT 
+,_, 2018_CD )_) and_CC transcription_NN (_( Asprion_NP et_NP al_NP ._SENT 
+,_, 2014a_NP ,_, Asprion_NP et_CC al_NP ._SENT 
+,_, 2014b_NP )_) are_VBP presented_VVN in_IN this_DT context_NN ._SENT 
+These_DT approaches_NNS allow_VVP a_DT single_JJ optimization_NN to_TO be_VB run_VVN that_WDT comprises_VVZ the_DT air-_NN ,_, fuel-_NN and_CC emissions-paths_NNS ._SENT 
+Any_DT constraints_NNS on_IN inputs_NNS or_CC state_NN variables_NNS thus_RB are_VBP inherently_RB included_VVN ._SENT 
+For_IN Diesel-ignited_JJ natural_JJ gas_NN engine_NN concepts_NNS ,_, reported_VVD studies_NNS about_IN combustion_NN mode_NN switching_NN are_VBP limited_VVN ._SENT 
+In_IN Indrajuana_NP ,_, Bekdemir_NP ,_, Feru_NP ,_, and_CC Willems_NP (_( 2018_CD )_) a_DT coordinated_VVN air-fuel_NN path_NN controller_NN is_VBZ presented_VVN for_IN switching_VVG between_IN RCCI_NP and_CC conventional_JJ dual-fuel_NN combustion_NN ._SENT 
+1.3_CD ._SENT 
+Objectives_NNS The_DT objective_NN of_IN this_DT study_NN is_VBZ the_DT synthesis_NN of_IN the_DT optimal_JJ actuator_NN commands_NNS for_IN the_DT smooth_JJ transition_NN between_IN the_DT combustion_NN modes_NNS “_JJ Diesel-only_RB ”_JJ and_CC “_JJ dual-fuel_NN ”_NN in_IN a_DT Diesel-ignited_JJ gas_NN engine_NN using_VVG a_DT nonlinear_JJ integrated_JJ model_NN of_IN the_DT engine_NN and_CC of_IN the_DT aftertreatment_NN system_NN ._SENT 
+In_IN this_DT context_NN ,_, optimality_NN is_VBZ defined_VVN in_IN terms_NNS of_IN torque_NN deviation_NN as_RB well_RB as_IN NOx_NP and_CC HC_NP tailpipe_NN emissions_NNS ._SENT 
+The_DT setup_NN includes_VVZ four_CD control_NN inputs_NNS ,_, namely_RB the_DT Diesel_NP and_CC the_DT gas_NN fuel_NN massflows_NNS ,_, the_DT position_NN of_IN the_DT air_NN throttle_NN ,_, and_CC the_DT position_NN of_IN the_DT EGR_NP valve_NN ._SENT 
+One_CD objective_NN is_VBZ a_DT low_JJ order_NN engine_NN model_NN which_WDT is_VBZ suitable_JJ for_IN the_DT use_NN in_IN a_DT nonlinear_JJ numerical_JJ optimization_NN ._SENT 
+The_DT optimal_JJ actuator_NN commands_NNS obtained_VVN in_IN such_PDT an_DT optimization_NN are_VBP then_RB implemented_VVN in_IN a_DT feedforward_JJ controller_NN and_CC tested_VVN on_IN the_DT engine_NN testbench_NN ._SENT 
+1.4_CD ._SENT 
+Limitations_NNS of_IN this_DT study_NN This_DT study_NN presents_VVZ an_DT optimization-based_JJ feedforward_JJ control_NN scheme_NN ._SENT 
+Given_VVN the_DT computational_JJ resources_NNS ,_, the_DT approach_NN presented_VVN can_MD be_VB further_RBR developed_VVN to_TO become_VV a_DT model_NN predictive_JJ feedback_NN controller_NN ._SENT 
+However_RB ,_, an_DT MPC_NN implementation_NN is_VBZ not_RB part_NN of_IN this_DT study_NN ._SENT 
+In_IN addition_NN ,_, the_DT catalyst_NN is_VBZ assumed_VVN to_TO be_VB at_IN operating_VVG temperature_NN ._SENT 
+The_DT combustion_NN mode_NN transition_NN under_IN cold-start_NN conditions_NNS is_VBZ beyond_IN the_DT scope_NN of_IN this_DT study_NN ._SENT 
+1.5_CD ._SENT 
+Structure_NN This_DT paper_NN is_VBZ organized_VVN as_RB follows_VVZ :_: First_NP ,_, the_DT experimental_JJ setup_NN for_IN this_DT study_NN is_VBZ presented_VVN in_IN Section_NP 2._CD A_DT detailed_JJ description_NN of_IN the_DT problem_NN follows_VVZ in_IN Section_NP 3_CD and_CC the_DT engine_NN model_NN in_IN Section_NP 4._CD Section_NN 5_CD introduces_VVZ the_DT optimal_JJ control_NN problem_NN ._SENT 
+Finally_RB ,_, the_DT results_NNS and_CC a_DT discussion_NN are_VBP contained_VVN in_IN Sections_NNS 6_CD Results_NNS ,_, 7_CD Discussion_NN ,_, while_IN the_DT principal_JJ conclusions_NNS are_VBP drawn_VVN in_IN Section_NP 8._CD <Section> 2._CD Experimental_JJ setup_NN </Section> The_DT dual-fuel_NN engine_NN of_IN this_DT study_NN is_VBZ based_VVN on_IN a_DT production-type_NP 2-liter_NP Diesel_NP engine_NN with_IN four_CD cylinders_NNS and_CC a_DT production-type_NN natural_JJ gas_NN three-way_JJ catalyst_NN (_( TWC_NP )_) from_IN an_DT engine_NN with_IN comparable_JJ displacement_NN volume_NN ._SENT 
+Due_JJ to_TO the_DT stability_NN of_IN the_DT methane_NN molecule_NN ,_, the_DT typical_JJ precious_JJ metal_NN loading_NN (_( PML_NN )_) of_IN CNG_NN catalysts_NNS is_VBZ high_JJ ._SENT 
+The_DT catalyst_NN in_IN this_DT study_NN consists_VVZ of_IN Palladium_NN (_( Pd_NN )_) and_CC Rhodium_NN (_( Rd_NN )_) ._SENT 
+Some_DT characteristic_JJ values_NNS are_VBP listed_VVN in_IN Table_NN 1._CD The_DT natural_JJ gas_NN (_( massflow_NP ṁ_NP g_NN )_) is_VBZ injected_VVN into_IN the_DT intake_NN ports_NNS ,_, while_IN the_DT Diesel_NP (_( massflow_NP ṁ_NP d_SYM )_) is_VBZ injected_VVN directly_RB into_IN the_DT cylinders_NNS by_IN a_DT common-rail_NN injection_NN system_NN ._SENT 
+Fig_NN ._SENT 
+1_CD shows_NNS an_DT overview_NN of_IN the_DT hardware_NN setup_NN ._SENT 
+The_DT relevant_JJ input_NN variables_NNS are_VBP indicated_VVN in_IN green_JJ ,_, while_IN some_DT pressure_NN signals_VVZ (_( p_NN )_) ,_, massflows_NP (_( ṁ_NP )_) ,_, and_CC oxygen_NN mass_NN fraction_NN signals_VVZ (_( F_NN )_) are_VBP introduced_VVN as_IN well_RB ._SENT 
+The_DT latter_JJ variable_NN is_VBZ defined_VVN as_IN (_( 1)Fy=[O2]yMO2My_NP ,_, with_IN the_DT oxygen_NN concentration_NN [_SYM O2]y_NN and_CC the_DT molar_JJ weights_NNS of_IN oxygen_NN MO2_NN and_CC of_IN the_DT gas_NN My_NP at_IN location_NN y._NP The_DT location_NN subscripts_NNS presented_VVN in_IN Table_NN 2_CD are_VBP used_VVN throughout_IN this_DT study_NN ._SENT 
+Table_NN 1._CD Specifications_NNS of_IN the_DT engine_NN and_CC catalyst_NN ._SENT 
+In_IN addition_NN the_DT burnt-gas_NN ratio_NN xbg_NN is_VBZ often_RB used_VVN as_IN a_DT measure_NN for_IN EGR_NP ._SENT 
+In_IN this_DT study_NN xbg_NN is_VBZ related_VVN to_TO the_DT intake_NN oxygen_NN fraction_NN Fim_NNS and_CC the_DT oxygen_NN fraction_NN of_IN ambient_JJ air_NN Fair_NN as_RB follows_VVZ :_: (_( 2)xbg(t)=1−Fim(t)Fair_VV The_DT four_CD input_NN variables_NNS to_TO the_DT system_NN are_VBP the_DT throttle_NN position_NN uth_NNS ,_, the_DT EGR_NP valve_NN position_NN uegr_NP ,_, the_DT gas_NN mass_NN flow_NN ṁ_JJ g_NN ,_, and_CC the_DT Diesel_NP massflow_NP ṁ_NP d._NP Table_NN 2._CD Location_NP subscripts_NNS ._SENT 
+Fig_NN ._SENT 
+1._CD Schematic_JJ diagram_NN of_IN the_DT hardware_NN used_VVN in_IN this_DT study_NN ._SENT 
+2.1_CD ._SENT 
+Measurement_NN condition_NN Since_IN mode_NN transitions_NNS typically_RB are_VBP performed_VVN at_IN low_JJ loads_NNS (_( Hutter_NP et_NP al_NP ._SENT 
+,_, 2017_CD )_) ,_, in_IN this_DT study_NN all_DT transitions_NNS are_VBP performed_VVN at_IN brake_NN mean_VVP effective_JJ pressure_NN pme=3.5bar_NN ._SENT 
+Table_NN 3_CD lists_NNS further_JJR information_NN on_IN the_DT operating_VVG conditions_NNS ._SENT 
+The_DT pressure_NN values_VVZ in_IN the_DT fuel_NN rails_NNS are_VBP adapted_VVN by_IN feedback_NN controllers_NNS ._SENT 
+Table_NN 3._CD Operation_NN set_NN point_NN ._SENT 
+2.2_CD ._SENT 
+Low-level_JJ control_NN The_DT translation_NN of_IN the_DT two_CD fuel_NN massflows_NP ṁ_NP d_SYM and_CC ṁ_JJ g_NN into_IN the_DT low-level_JJ fuel_NN commands_NNS start_VVP of_IN Diesel_NP injection_NN (_( φsoi_NNS ,_, d_LS )_) ,_, duration_NN of_IN Diesel_NP injection_NN (_( τdoi_NNS ,_, d_LS )_) ,_, and_CC duration_NN of_IN gas_NN injection_NN (_( τdoi_NP ,_, g_NN )_) is_VBZ based_VVN on_IN empirically_RB determined_VVN relations_NNS ._SENT 
+2.2.1_CD ._SENT 
+Start_NN of_IN injection_NN The_DT goal_NN is_VBZ to_TO keep_VV the_DT combustion_NN phasing_VVG constant_JJ ,_, i._NP e._NP to_TO compensate_VV for_IN any_DT changes_NNS in_IN the_DT ignition_NN delay_NN due_JJ to_TO variations_NNS in_IN charge_NN mixture_NN or_CC charge_NN pressure_NN ._SENT 
+Since_IN methane_NN gas_NN significantly_RB prolongs_VVZ the_DT ignition_NN delay_NN of_IN the_DT Diesel_NP fuel_NN ,_, two_CD different_JJ relations_NNS ΦI(_NN )_) and_CC ΦII(_JJ )_) determine_VV the_DT start_NN of_IN the_DT Diesel_NP injection_NN φsoi_NNS ,_, d_LS ,_, depending_VVG on_IN the_DT combustion_NN mode_NN ._SENT 
+(_( 3)φsoi_NP ,_, d={ΦI(pim_NP ,_, Fim)ΦII(pim_NP ,_, Fim)Diesel-onlydual-fuel_VVP The_DT start_NN of_IN gas_NN injection_NN φsoi_NP ,_, g_NN is_VBZ fixed_VVN at_IN 360°_NP crank_VV angle_NN before_IN firing_VVG top_JJ dead_JJ center_NN and_CC therefore_RB corresponds_VVZ to_TO the_DT start_NN of_IN induction_NN ._SENT 
+2.2.2_CD ._SENT 
+Duration_NN of_IN injection_NN The_DT two_CD functions_NNS Ψd(_NN )_) and_CC Ψg(_NP )_) describe_VVP the_DT characteristics_NNS of_IN the_DT Diesel_NP and_CC gas_NN injectors_NNS ._SENT 
+(_( 4)τdoi_NP ,_, d=Ψd(ṁ_NN d_SYM ,_, pd_RB ,_, rail_NN )_) (_( 5)τdoi_NP ,_, g=Ψg(ṁ_JJ g_NN ,_, pg_NP ,_, rail_NN )_) Fig_NN ._SENT 
+2_CD presents_NNS the_DT evaluation_NN of_IN the_DT polynomial_JJ functions_NNS for_IN all_DT relevant_JJ operating_VVG points_NNS ._SENT 
+Appendix_NN A.1_NN contains_VVZ the_DT equations_NNS of_IN these_DT functions_NNS ._SENT 
+Precise_JJ adjustments_NNS of_IN the_DT combustion_NN phasing_VVG and_CC of_IN fuel_NN massflows_NNS to_TO compensate_VV for_IN any_DT steady-state_NN errors_NNS that_WDT may_MD arise_VV from_IN not-modeled_JJ effects_NNS or_CC deviations_NNS during_IN transients_NNS can_MD be_VB realized_VVN using_VVG feedback_NN control_NN ._SENT 
+While_IN these_DT feedback_NN control_NN loops_NNS are_VBP beyond_IN the_DT focus_NN of_IN this_DT study_NN ,_, an_DT approach_NN for_IN the_DT combustion_NN control_NN of_IN a_DT dual-fuel_NN engine_NN was_VBD presented_VVN in_IN Zurbriggen_NP ,_, Hutter_NP ,_, and_CC Onder_NP (_( 2016_CD )_) ._SENT 
+Fig_NN ._SENT 
+2._CD Static_JJ functions_NNS for_IN the_DT translation_NN of_IN low-level_JJ commands_NNS for_IN the_DT Diesel_NP and_CC natural_JJ gas_NN injections_NNS ._SENT 
+<Section> 3._CD Problem_NN description_NN </Section> This_DT section_NN describes_VVZ the_DT problems_NNS that_WDT arise_VVP with_IN the_DT transition_NN between_IN the_DT combustion_NN modes_NNS in_IN more_JJR detail_NN ._SENT 
+First_RB ,_, the_DT steady-state_NN conditions_NNS of_IN the_DT two_CD combustion_NN modes_NNS are_VBP examined_VVN ,_, which_WDT represent_VVP the_DT starting_VVG and_CC the_DT end_NN points_NNS of_IN the_DT transition_NN ._SENT 
+Subsequently_RB ,_, the_DT static_JJ transition_NN without_IN any_DT optimized_VVN trajectories_NNS is_VBZ described_VVN ._SENT 
+3.1_CD ._SENT 
+The_DT combustion_NN modes_NNS The_DT two_CD combustion_NN modes_NNS considered_VVN in_IN this_DT study_NN are_VBP the_DT Diesel-only_JJ mode_NN and_CC the_DT dual-fuel_NN mode_NN ._SENT 
+The_DT two_CD modes_NNS impose_VV significantly_RB different_JJ requirements_NNS on_IN the_DT air_NN path_NN conditions_NNS ._SENT 
+Due_JJ to_TO the_DT excessive_JJ soot_NN formation_NN with_IN air/fuel_NN ratios_NNS close_JJ to_TO stoichiometric_JJ conditions_NNS ,_, the_DT Diesel-only_JJ mode_NN requires_VVZ lean_JJ exhaust_NN conditions_NNS (_( Fem>0_JJ %_NN )_) ._SENT 
+The_DT system_NN considered_VVN here_RB has_VHZ no_DT lean_JJ NOx_NN exhaust_NN aftertreatment_NN system_NN ._SENT 
+Therefore_RB ,_, the_DT NOx_NP abatement_NN has_VHZ to_TO take_VV place_NN in-cylinder_NN using_VVG EGR_NP ,_, i._NP e._NP by_IN reducing_VVG the_DT oxygen_NN content_NN inside_IN the_DT intake_NN manifold_NN (_( Fim<Fair_NP )_) ._SENT 
+Nevertheless_RB ,_, this_DT study_NN also_RB considers_VVZ the_DT case_NN without_IN EGR_NP (_( Fim=Fair_NP )_) ,_, which_WDT is_VBZ relevant_JJ for_IN engines_NNS that_WDT have_VHP a_DT lean_JJ NOx_NN abatement_NN system_NN (_( SCR_NP ,_, LNT_NP )_) ._SENT 
+In_IN contrast_NN ,_, the_DT dual-fuel_NN operation_NN is_VBZ only_RB feasible_JJ with_IN stoichiometric_JJ conditions_NNS (_( Fem=0_JJ %_NN )_) ._SENT 
+This_DT is_VBZ due_JJ to_TO the_DT limitations_NNS of_IN today’s_JJ three-way_JJ catalysts_NNS ._SENT 
+At_IN low_JJ load_NN ,_, they_PP offer_VVP an_DT effective_JJ methane_NN oxidation_NN only_RB in_IN stoichiometric_JJ conditions_NNS (_( Ferri_NP et_NP al_NP ._SENT 
+,_, 2018_CD ,_, Gelin_NP et_CC al_NP ._SENT 
+,_, 2003_CD ,_, Hutter_NP et_CC al_NP ._SENT 
+,_, 2018_CD )_) ._SENT 
+Since_IN the_DT three-way_JJ catalyst_NN takes_VVZ care_NN of_IN the_DT NOx_JJ reduction_NN ,_, the_DT engine-out_JJ emissions_NNS can_MD contain_VV more_JJR NOx_NN in_IN dual-fuel_NN combustion_NN ,_, and_CC EGR_NP is_VBZ not_RB required_VVN for_IN complying_VVG with_IN legal_JJ NOx_JJ emission_NN levels_NNS ._SENT 
+Fig_NN ._SENT 
+3_LS visualizes_VVZ the_DT requirements_NNS mentioned_VVN on_IN the_DT airpath_NP conditions_NNS Fim_NP and_CC Fem_NP in_IN a_DT diagram_NN that_WDT is_VBZ called_VVN “_JJ oxygen_NN diagram_NN ”_NN in_IN the_DT following_NN ._SENT 
+The_DT diagram_NN highlights_VVZ problematic_JJ areas_NNS where_WRB high_JJ pollutant_NN emissions_NNS of_IN NOx_NP ,_, Soot_NN ,_, or_CC CH4_NP must_MD be_VB expected_VVN ._SENT 
+Fig_NN ._SENT 
+3._CD Schematic_JJ overview_NN of_IN the_DT mode-dependent_JJ conditions_NNS imposed_VVN on_IN the_DT oxygen_NN mass_NN fractions_NNS in_IN the_DT intake_NN and_CC exhaust_NN manifold_NN ._SENT 
+The_DT various_JJ gray_JJ areas_NNS denote_VVP problematic_JJ zones_NNS with_IN high_JJ pollutant_NN emissions_NNS ._SENT 
+3.2_CD ._SENT 
+Static_JJ mode_NN transition_NN Fig_NN ._SENT 
+4_CD shows_NNS the_DT measurement_NN data_NNS of_IN two_CD combustion_NN mode_NN transitions_NNS :_: from_IN dual-fuel_NN to_TO Diesel-only_JJ mode_NN at_IN t=t1_JJ ,_, then_RB back_RB to_TO dual-fuel_VV mode_NN at_IN t=t2_NP ._SENT 
+At_IN the_DT time_NN instances_NNS t1_JJ and_CC t2_JJ ,_, respectively_RB ,_, all_DT input_NN signals_VVZ change_NN to_TO the_DT steady-state_NN values_VVZ of_IN the_DT new_JJ combustion_NN mode_NN according_VVG to_TO Table_NN 4._CD The_DT steady-state_NN input_NN values_NNS are_VBP chosen_VVN such_PDT that_DT •_NN the_DT same_JJ torque_NN results_NNS with_IN both_DT combustion_NN modes_NNS ._SENT 
+•_NP no_DT exhaust_NN is_VBZ recirculated_JJ in_IN dual-fuel_NN mode_NN while_IN the_DT maximum_JJ possible_JJ amount_NN is_VBZ recirculated_JJ in_IN Diesel-only_JJ mode_NN ._SENT 
+•_NP the_DT air/fuel_NN ratio_NN in_IN dual-fuel_NN mode_NN is_VBZ stoichiometric_JJ ._SENT 
+•_NP the_DT Diesel_NP injection_NN in_IN dual-fuel_NN mode_NN is_VBZ set_VVN according_VVG to_TO the_DT minimum-Diesel_NN approach_NN in_IN Zurbriggen_NP et_CC al_NP ._SENT 
+(_( 2016_CD )_) ._SENT 
+The_DT information_NN on_IN the_DT operating_VVG point_NN is_VBZ listed_VVN in_IN Table_NN 3._CD In_IN both_DT cases_NNS the_DT transition_NN leads_VVZ to_TO a_DT deviation_NN from_IN the_DT nominal_JJ torque_NN as_IN well_RB as_RB to_TO additional_JJ pollutant_NN emissions_NNS ._SENT 
+The_DT same_JJ measurement_NN was_VBD conducted_VVN 15_CD times_NNS ._SENT 
+The_DT evaluation_NN results_NNS are_VBP listed_VVN in_IN Table_NN 5._CD It_PP shows_VVZ the_DT maximum_JJ deviation_NN in_IN torque_NN (_( ΔT_NP )_) ,_, the_DT additional_JJ mass_NN of_IN NOx_NP (_( Δṁ_NP NOx_NP )_) and_CC the_DT additional_JJ mass_NN of_IN total_JJ hydrocarbons_NNS (_( Δṁ_NP THC_NP )_) that_WDT arise_VVP due_JJ to_TO the_DT transition_NN ._SENT 
+The_DT Table_NN 5_CD shows_NNS the_DT mean_VVP values_NNS and_CC the_DT standard_JJ deviation_NN (_( in_IN parentheses_NNS )_) with_IN regard_NN to_TO a_DT fictional_JJ switch_NN where_WRB the_DT steady-state_NN conditions_NNS are_VBP reached_VVN immediately_RB ._SENT 
+Table_NN 4._CD Steady-state_NN input_NN values_NNS ._SENT 
+Fig_NN ._SENT 
+4._CD Measurement_NN results_NNS of_IN the_DT static_JJ transition_NN between_IN the_DT combustion_NN modes_NNS ._SENT 
+The_DT data_NNS in_IN Table_NN 5_CD show_VVP that_IN the_DT transition_NN from_IN Diesel-only_RB to_TO dual-fuel_NN is_VBZ the_DT transition_NN with_IN the_DT larger_JJR deviations_NNS ._SENT 
+In_IN comparison_NN to_TO the_DT transition_NN in_IN the_DT reverse_JJ direction_NN ,_, the_DT torque_NN deviation_NN is_VBZ higher_JJR by_IN a_DT factor_NN of_IN 3_CD and_CC the_DT additional_JJ emissions_NNS are_VBP higher_JJR by_IN a_DT factor_NN of_IN 13_CD and_CC 90_CD ,_, respectively_RB ._SENT 
+Consequently_RB ,_, the_DT focus_NN of_IN this_DT study_NN lies_VVZ on_IN the_DT transition_NN from_IN Diesel-only_RB to_TO dual-fuel_VV mode_NN exclusively_RB as_IN it_PP appears_VVZ to_TO be_VB the_DT critical_JJ case_NN ._SENT 
+Table_NN 5._CD Evaluation_NN results_NNS of_IN 15_CD transition_NN measurements_NNS ._SENT 
+<Section> 4._CD Engine_NN model_NN </Section> This_DT section_NN outlines_VVZ the_DT control-oriented_JJ mean-value_NN model_NN that_WDT is_VBZ used_VVN in_IN the_DT subsequent_JJ integrated_JJ control_NN approach_NN ._SENT 
+ẋ_NP (_( t)=f(u(t_NP )_) ,_, x(t_NP )_) )_) (_( 6)y(t)=g(u(t_NP )_) ,_, x(t_NP )_) )_) The_DT engine_NN model_NN is_VBZ identified_VVN for_IN the_DT steady-state_NN operating_VVG point_NN described_VVN in_IN Table_NN 3._CD First_NP the_DT definitions_NNS of_IN the_DT input_NN u(t_NN )_) ,_, the_DT output_NN y(t_NN )_) ,_, and_CC the_DT state_NN vector_NN x(t_NN )_) are_VBP presented_VVN ._SENT 
+4.1_CD ._SENT 
+Model_NN input_NN The_DT input_NN vector_NN u(t_NN )_) contains_VVZ the_DT following_VVG signals_NNS :_: u(t)=⎡⎣⎢⎢⎢⎢ṁ_NN d_SYM ,_, T(t)ṁ_NP g(t)uth(t)uegr(t)⎤⎦⎥⎥⎥⎥massflow_NP Diesel_NP torquemassflow_NP natural_JJ gas_NN position_NN air_NN throttleposition_NN EGR_NN valve_NN The_DT total_JJ Diesel_NP massflow_NP injected_VVD ṁ_NP d(t_NP )_) is_VBZ not_RB directly_RB an_DT input_NN variable_NN to_TO the_DT model_NN ._SENT 
+It_PP is_VBZ composed_VVN of_IN the_DT free_JJ input_NN ṁ_NN d_SYM ,_, T(t_NP )_) representing_VVG the_DT Diesel_NP injected_VVD for_IN the_DT purpose_NN of_IN torque_NN production_NN and_CC the_DT dependent_JJ variable_JJ ṁ_NN d_SYM ,_, ig(u(t_NP )_) ,_, x(t_NP )_) )_) that_WDT represents_VVZ the_DT Diesel_NP massflow_NN required_VVN for_IN the_DT ignition_NN of_IN the_DT air/gas_NP mixture_NN in_IN dual-fuel_NN mode_NN ._SENT 
+This_DT formulation_NN simplifies_VVZ the_DT definition_NN of_IN the_DT lower_JJR bound_VVN for_IN the_DT input_NN variable_NN ,_, as_IN the_DT lower_JJR bound_VVN for_IN ṁ_NP d_SYM ,_, T(t_NP )_) is_VBZ 0._CD (_( 7)ṁ_NP d(t)=ṁ_NP d_SYM ,_, T(t)+ṁ_NN d_SYM ,_, ig(u(t_NP )_) ,_, x(t_NP )_) )_) 4.2_CD ._SENT 
+Model_NN outputs_NNS The_DT output_NN y(t_NN )_) contains_VVZ signals_NNS that_WDT are_VBP part_NN of_IN the_DT cost_NN function_NN of_IN the_DT optimization_NN problem_NN introduced_VVN further_RBR below_RB ._SENT 
+y(t)=⎡⎣⎢⎢⎢⎢⎢⎢⎢T(t)ṁ_NP CO2(t)ṁ_NP NOx_NP ,_, tail(t)Fim(t)Fem(t)⎤⎦⎥⎥⎥⎥⎥⎥⎥engine_NP torqueCO2_NP massflow_NP NOx_NP massflow_NP tailpipeoxygen_NP fraction_NN intake_NN manifoldoxygen_NN fraction_NN exhaust_VVP manifold_JJ 4.3_CD ._SENT 
+State_NN variables_NNS The_DT dynamic_JJ model_NN is_VBZ based_VVN on_IN the_DT following_VVG seven_CD state_NN variables_NNS :_: x(t)=⎡⎣⎢⎢⎢⎢⎢⎢⎢⎢⎢⎢⎢⎢ωtc(t)pim(t)pac(t)pem(t)Fim(t)Fem(t)Fcat(t)⎤⎦⎥⎥⎥⎥⎥⎥⎥⎥⎥⎥⎥⎥speed_NN of_IN turbochargerpressure_NN at_IN intake_NN manifoldpressure_NN after_IN compressorpressure_NN at_IN exhaust_NN manifoldoxygen_NN fraction_NN in_IN intake_NN manifoldoxygen_NN fraction_NN in_IN exhaust_NN manifoldoxygen_NN fraction_NN in_IN catalyst_NN Eqs_NNS ._SENT 
+(_( 8)–(14_NP )_) describe_VVP the_DT dynamics_NNS of_IN the_DT system_NN in_IN continuous_JJ time_NN ._SENT 
+(_( 8)ω̇_NP tc(t)=1ωtc(t)Jtc(Pt(t)−Pc(t)−Pf(t_NP )_) )_) (_( 9)ṗ_NP im(t)=κairRairVim(ṁ_NP th(t)ϑic+ṁ_NP egr(t)ϑegr−ṁ_NP β(t)ϑim(t_NP )_) )_) (_( 10)ṗ_NP ac(t)=RairϑacVac(ṁ_NP c(t)−ṁ_NP th(t_NP )_) )_) (_( 11)ṗ_NP em(t)=RegϑemVem(ṁ_NP eo(t)−ṁ_NP egr(t)−ṁ_NP t(t_NP )_) )_) (_( 12)Ḟ_NP im(t)=RairϑimVimpim(ṁ_NP th(t)(Fair−Fim(t))+ṁ_NP egr(t)(Fem(t)−Fim(t_NP )_) )_) )_) (_( 13)Ḟ_NP em(t)=RegϑemVempem(t)(ṁ_NP eo(t)(Feo(t)−Fem(t_NP )_) )_) )_) (_( 14)Ḟ_NP cat(t)=−1τcat(Fcat(t)+Fem(t_NP )_) )_) 4.4_CD ._SENT 
+Algebraic_JJ relations_NNS The_DT algebraic_JJ relations_NNS of_IN various_JJ auxiliary_JJ variables_NNS are_VBP outlined_VVN in_IN the_DT following_NN ._SENT 
+Appendix_NN A.1_NN contains_VVZ the_DT detailed_JJ definitions_NNS of_IN the_DT empirical_JJ functions_NNS Ath(_NN )_) ,_, Ψflow(_NP )_) ,_, F1(_NP )_) ,_, F2(_NP )_) ,_, …_NP ,_, F9(_NP )_) ._SENT 
+4.5_CD ._SENT 
+Model_NN parameters_NNS Table_NN 6_CD lists_NNS the_DT physical_JJ model_NN parameters_NNS ._SENT 
+Table_NN 6._CD Physical_JJ model_NN parameters_NNS ._SENT 
+4.5.1_CD ._SENT 
+Massflows_VVZ The_DT relevant_JJ massflows_NNS of_IN the_DT engine_NN model_NN are_VBP the_DT throttle_NN massflow_NP ṁ_NP th(t_NP )_) ,_, the_DT EGR_NP massflow_NP ṁ_NP egr(t_NP )_) ,_, the_DT engine-out_JJ massflow_NP ṁ_NP eo(t_NP )_) ,_, and_CC the_DT inducted_VVN gas_NN massflow_NP ṁ_NP β(t_NP )_) ._SENT 
+The_DT inducted_VVN gas_NN massflow_NN describes_VVZ the_DT massflow_NN from_IN the_DT intake_NN manifold_NN volume_NN to_TO the_DT cylinders_NNS and_CC therefore_RB consists_VVZ of_IN air_NN ,_, recirculated_JJ exhaust_NN gas_NN and_CC port_NN injected_VVD methane_NN gas_NN ._SENT 
+(_( 15)ṁ_NP th(t)=Ath(uth(t))Ψflow(pim(t_NP )_) ,_, pac(t))Rairϑic√_NP (_( 16)ṁ_NP egr(t)=F1(uegr(t_NP )_) ,_, pim(t_NP )_) ,_, pem(t_NP )_) )_) (_( 17)ṁ_NP eo(t)=ṁ_NP β(t)+ṁ_NP d(t)+ṁ_NP g(t_NP )_) (_( 18)ṁ_NP β(t)=F2(pim(t_NP )_) ,_, pem(t_NP )_) )_) 4.5.2_CD ._SENT 
+Oxygen_NN mass_NN fractions_NNS (_( 19)Feo(t)=1ṁ_NP eo(t)(ṁ_NP β(t)Fim(t)−σdṁ_NP d(t)−σgṁ_NP g(t_NP )_) )_) 4.5.3_CD ._SENT 
+Temperatures_NNS The_DT dynamics_NNS of_IN the_DT temperature_NN in_IN the_DT intake_NN manifold_NN ϑim(t_NN )_) is_VBZ approximated_VVN with_IN an_DT algebraic_JJ relation_NN ._SENT 
+(_( 20)ϑim(t)=1ṁ_NP th(t)+ṁ_NP egr(t)(ϑegrṁ_NP egr(t)+ϑicṁ_NP th(t_NP )_) )_) 4.5.4_CD ._SENT 
+Turbocharger_NN The_DT state_NN variable_JJ ωtc_NN in_IN Eq_NP ._SENT 
+(_( 8_CD )_) is_VBZ based_VVN on_IN a_DT power_NN balance_NN of_IN the_DT turbine_NN power_NN Pt(t_NP )_) ,_, the_DT compressor_NN power_NN Pc(t_NP )_) ,_, and_CC a_DT friction_NN power_NN Pf(t_NN )_) ._SENT 
+(_( 21)Pt(t)=cp_NP ,_, egϑemṁ_NP t(t)(1−Πt(t)1−κegκeg_NP )_) ;_: (_( 22)Pc(t)=cp_NP ,_, airϑambṁ_JJ c(t)ηc(t)(Πc(t)κair−1κair−1_NN )_) (_( 23)Pf(t)=F6(ωtc(t_NP )_) )_) The_DT pressure_NN rise_NN over_IN the_DT compressor_NN Πc(t_NN )_) and_CC the_DT pressure_NN drop_NN over_IN the_DT turbine_NN Πt(t_NN )_) are_VBP defined_VVN in_IN relation_NN to_TO ambient_JJ pressure_NN pamb_NN and_CC the_DT pressure_NN after_IN turbine_NN pat_NN as_RB follows_VVZ ._SENT 
+(_( 24)Πc(t)=pacpambΠt(t)=pempat_VV The_DT compressor_NN efficiency_NN ηc(t_NP )_) ,_, the_DT compressor_NN massflow_NP ṁ_NP c(t_NP )_) ,_, and_CC the_DT turbine_NN massflow_NP ṁ_NP t(t_NP )_) are_VBP defined_VVN as_RB follows_VVZ :_: (_( 25)ηc(t)=F3(ωtc(t_NP )_) ,_, pac(t_NP )_) )_) (_( 26)ṁ_NP c(t)=F4(ωtc(t_NP )_) ,_, pac(t_NP )_) )_) (_( 27)ṁ_NP t(t)=F5(pem(t_NP )_) )_) 4.5.5_CD ._SENT 
+Torque_NN production_NN (_( 28)ηeng(t)=F7(pim(t_NP )_) ,_, pem(t_NP )_) ,_, Fem(t_NP )_) )_) (_( 29)T(t)=ηeng(t)ωe(Hl_NP ,_, dṁ_NP d(t)+Hl_NP ,_, gṁ_NP g(t_NP )_) )_) (_( 30)ṁ_NP CO2(t)=kdṁ_NP d(t)+kgṁ_NP g(t_NP )_) 4.5.6_CD ._SENT 
+NOx_NP emissions_NNS (_( 31)[NOx]raw(t)=F8(Fim(t_NP )_) ,_, Fem(t_NP )_) )_) (_( 32)ṁ_NP NOx_NP ,_, raw(t)=MNOMegṁ_NP eo(t)[NOx]tail(t_NP )_) (_( 33)ηcat(t)=F9(Fcat(t_NP )_) )_) (_( 34)ṁ_NP NOx_NP ,_, tail(t)=ṁ_NP NOx_NP ,_, raw(t)(1−ηcat(t_NP )_) )_) <Section> 5._CD Optimal_JJ control_NN problem_NN </Section> The_DT task_NN is_VBZ interpreted_VVN as_IN an_DT optimal_JJ control_NN problem_NN ._SENT 
+The_DT goal_NN is_VBZ to_TO find_VV the_DT optimal_JJ actuator_NN signals_NNS for_IN switching_VVG from_IN Diesel-only_RB to_TO dual-fuel_VV mode_NN at_IN time_NN t=Tswitch_NN ._SENT 
+This_DT section_NN first_RB introduces_VVZ the_DT optimal_JJ control_NN problem_NN in_IN a_DT generic_JJ form_NN and_CC describes_VVZ the_DT solving_VVG method_NN ._SENT 
+Subsequently_RB ,_, the_DT specific_JJ constraints_NNS and_CC weighting_NN factors_NNS are_VBP introduced_VVN ._SENT 
+5.1_CD ._SENT 
+The_DT transitions_NNS This_DT work_NN deals_NNS with_IN the_DT optimization_NN of_IN two_CD particular_JJ transitions_NNS ._SENT 
+The_DT first_JJ transition_NN ,_, denoted_VVD here_RB as_IN transition_NN A_NP ,_, is_VBZ the_DT transition_NN from_IN Diesel-only_RB to_TO dual-fuel_VV combustion_NN mode_NN with_IN the_DT EGR_NP valve_NN closed_VVD (_( uegr=0_JJ %_NN )_) ._SENT 
+Here_RB ,_, the_DT control_NN input_NN has_VHZ a_DT reduced_VVN dimension_NN ,_, as_IN only_RB the_DT three_CD control_NN signals_VVZ ṁ_NN d_SYM ,_, ṁ_JJ g_NN and_CC uth_NNS are_VBP considered_VVN ._SENT 
+The_DT transition_NN A_DT is_VBZ a_DT simplification_NN of_IN the_DT general_JJ case_NN ,_, which_WDT is_VBZ treated_VVN with_IN the_DT second_JJ transition_NN ._SENT 
+Transition_NN B_NN covers_VVZ the_DT case_NN where_WRB all_DT four_CD control_NN inputs_NNS are_VBP subjects_NNS of_IN the_DT optimization_NN ._SENT 
+This_DT transition_NN is_VBZ the_DT relevant_JJ case_NN for_IN the_DT given_VVN hardware_NN ,_, with_IN a_DT TWC_NN being_VBG the_DT only_JJ possibility_NN to_TO reduce_VV any_DT NOx_NN contained_VVN in_IN the_DT raw_JJ emission_NN of_IN the_DT engine_NN ._SENT 
+Fig_NN ._SENT 
+5_CD indicates_VVZ the_DT two_CD transitions_NNS in_IN the_DT diagram_NN known_VVN from_IN the_DT discussion_NN above_RB ._SENT 
+Fig_NN ._SENT 
+5._CD Schematic_JJ overview_NN of_IN the_DT two_CD transitions_NNS A_NP and_CC B._NP 5.2_CD ._SENT 
+The_DT optimal_JJ control_NN problem_NN Based_VVN on_IN the_DT mathematical_JJ model_NN ẋ_NP (_( t)=f(u(t_NP )_) ,_, x(t_NP )_) )_) introduced_VVN in_IN the_DT sections_NNS above_RB ,_, the_DT continuous_JJ time_NN formulation_NN of_IN the_DT optimal_JJ control_NN problem_NN with_IN the_DT finite_JJ horizon_NN TH_NN is_VBZ set_VVN up_RP ._SENT 
+The_DT cost_NN function_NN is_VBZ composed_VVN of_IN two_CD terms_NNS ._SENT 
+The_DT first_JJ term_NN relates_VVZ to_TO the_DT time_NN period_NN T0→Tswitch_NN in_IN Diesel-only_JJ mode_NN ,_, while_IN the_DT second_JJ term_NN relates_VVZ to_TO the_DT time_NN period_NN Tswitch→TH_NN in_IN dual-fuel_NN mode_NN ._SENT 
+Thus_RB ,_, the_DT gas_NN injection_NN is_VBZ enabled_VVN at_IN t=Tswitch_NP ._SENT 
+(_( 35a)minx(⋅_NP )_) ,_, u(⋅)∫TswitchT0∥yr(t)−y(t)∥2RI+∥u̇_NP (_( t)∥2QIdt+∫THTswitch∥yr(t)−y(t)∥2RII+∥u̇_NP (_( t)∥2QIIdt+∥yr(TH)−yk(TH)∥2RN_NP (_( 35d)s_NP ._SENT 
+t._NP ẋ_NP (_( t)=f(x(t_NP )_) ,_, u(t_NP )_) )_) ,_, t∈[0_NP ,_, TH]x(T0)=X0gi(x(t_NP )_) ,_, u(t))≤0_NP ,_, i=1_NN ,_, …_NP ,_, q_NN The_DT cost_NN function_NN penalizes_VVZ the_DT deviation_NN of_IN the_DT output_NN variables_NNS y(t_NN )_) from_IN the_DT reference_NN vector_NN yr(t_NN )_) as_RB well_RB as_IN the_DT time_NN derivative_JJ of_IN the_DT input_NN variables_NNS u̇_NN (_( t_NN )_) ._SENT 
+5.3_CD ._SENT 
+The_DT nonlinear_JJ program_NN One_CD way_NN to_TO solve_VV the_DT problem_NN is_VBZ to_TO use_VV the_DT direct_JJ multiple_JJ shooting_NN method_NN presented_VVN in_IN Bock_NP and_CC Plitt_NP (_( 1984_CD )_) ._SENT 
+The_DT basic_JJ steps_NNS of_IN this_DT method_NN are_VBP outlined_VVN briefly_RB in_IN the_DT following_NN ._SENT 
+First_RB ,_, the_DT control_NN signals_VVZ u(t_JJ )_) are_VBP discretized_VVN on_IN a_DT fixed_VVN grid_NN T0<T1<⋯<TH_NN ,_, with_IN sampling_VVG time_NN Ts_NNS ,_, resulting_VVG in_IN the_DT piecewise_JJ constant_JJ control_NN input_NN u(τ)=uk_NP for_IN τ∈[Tk_NP ,_, Tk+1_NN ]_SYM ._SENT 
+In_IN addition_NN ,_, the_DT system_NN ODE_NN is_VBZ discretized_VVN using_VVG the_DT 4th_JJ order_NN Runge–Kutta_NP explicit_JJ integration_NN scheme_NN ,_, with_IN nRK4_JJ intermediate_JJ integration_NN steps_NNS ._SENT 
+The_DT variables_NNS sk_NNS are_VBP introduced_VVN to_TO realize_VV multiple_JJ shooting_NN (_( Albin_NP et_NP al_NP ._SENT 
+,_, 2018_CD ,_, Diehl_NP et_CC al_NP ._SENT 
+,_, 2005_CD )_) ._SENT 
+The_DT function_NN fd(sk_NN ,_, uk_NP )_) yields_VVZ the_DT integration_NN result_NN xk+1_JJ of_IN the_DT system_NN dynamics_NNS over_IN a_DT single_JJ interval_NN [_SYM Tk_NP ,_, Tk+1_NN ]_SYM starting_VVG with_IN an_DT artificial_JJ initial_JJ value_NN sk_NNS and_CC the_DT control_NN input_NN uk_NN ._SENT 
+Finally_RB ,_, the_DT nonlinear_JJ program_NN (_( NLP_NN )_) is_VBZ derived_VVN as_RB follows_VVZ ._SENT 
+(_( 36a)minx(⋅_NP )_) ,_, u(⋅_NP )_) ,_, s(⋅)∑Nswitchk=0∥∥yr_NP ,_, k−yk∥∥2RITs+∥Δu∥2QITs+∑NHk=Nswitch+1∥∥yr_NP ,_, k−yk∥∥2RIITs+∥Δu∥2QIITs+∥∥yr_NP ,_, k−yk∥∥2RNTs_NP (_( 36e)s_NP ._SENT 
+t._NP xk+1=fd(sk_NP ,_, uk_NP )_) ,_, k=1_NN ,_, …_NP ,_, NHx0=X0gi(xk_NP ,_, uk)≤0_NP ,_, i=1_JJ ,_, …_JJ ,_, qsk+1=xk+1_JJ In_IN order_NN to_TO close_VV the_DT gaps_NNS between_IN the_DT artificial_JJ values_NNS sk_NN and_CC the_DT state_NN variables_NNS of_IN the_DT dynamic_JJ system_NN xk_NN the_DT continuity_NN condition_NN (_( Eq_NP ._SENT 
+(_( 36e_JJ )_) )_) is_VBZ introduced_VVN in_IN the_DT NLP_NN ._SENT 
+5.4_CD ._SENT 
+Solving_VVG the_DT NLP_NN In_IN order_NN to_TO find_VV a_DT solution_NN the_DT sensitivities_NNS of_IN the_DT original_JJ problem_NN have_VHP to_TO be_VB calculated_VVN multiple_JJ times_NNS ._SENT 
+This_DT study_NN relies_VVZ on_IN the_DT algorithmic_JJ differentiation_NN capabilities_NNS of_IN the_DT CasADi_NP framework_NN (_( Andersson_NP ,_, Gillis_NP ,_, Horn_NP ,_, Rawlings_NP ,_, &_CC Diehl_NP ,_, 2019_CD )_) ._SENT 
+The_DT NLP_NN is_VBZ solved_VVN using_VVG the_DT nonlinear_JJ interior_JJ point_NN solver_NN IPOPT_NNS (_( Wächter_NP &_CC Biegler_NP ,_, 2006_CD )_) ._SENT 
+5.5_CD ._SENT 
+Constraints_NNS The_DT term_NN gi(xk_NN ,_, uk_NP )_) condenses_VVZ the_DT constraints_NNS of_IN the_DT NLP_NN ._SENT 
+In_IN this_DT subsection_NN the_DT term_NN gi(xk_NN ,_, uk_NP )_) is_VBZ broken_VVN down_RP into_IN the_DT specific_JJ input_NN and_CC state_NN constraints_NNS ._SENT 
+•_JJ Prevent_VVP the_DT excessive_JJ formulation_NN of_IN soot_NN by_IN restricting_VVG the_DT in-cylinder_NN oxygen_NN mass_NN fraction_NN in_IN Diesel-only_JJ mode_NN to_TO stay_VV lean_JJ (_( Fim≥4_JJ %_NN ,_, approximately_RB λ≥1.3_JJ )_) ._SENT 
+In_IN dual-fuel_NN mode_NN this_DT lower_JJR bound_JJ shifts_NNS to_TO stoichiometric_JJ conditions_NNS ,_, i._NP e._NP 0_CD %_NN ._SENT 
+(_( 37)Diesel-only4%dual-fuel0%}≤Feo(t_NP )_) •_NP Account_NP for_IN injector_NN characteristics_NNS at_IN short_JJ opening_NN durations_NNS ._SENT 
+Given_VVN a_DT certain_JJ rail_NN pressure_NN ,_, not_RB an_DT arbitrarily_RB small_JJ gas_NN mass_NN can_MD be_VB injected_VVN ._SENT 
+(_( 38)0mg∕s4mg∕s}≤ṁ_JJ g(t)≤{0mg∕s∞Diesel-onlydual-fuel_NN •_JJ Limit_NN actuators_NNS such_JJ as_IN throttles_NNS and_CC valves_NNS by_IN fully-open_NNS and_CC fully-closed_JJ position_NN ._SENT 
+(_( 39)0%≤uth(t)≤100_JJ %_NN (_( 40)0%≤uegr(t)≤100_JJ %_NN •_NN Limit_NN the_DT rate_NN at_IN which_WDT throttles_NNS and_CC valves_NNS can_MD move_VV ._SENT 
+(_( 41)−1000%∕s≤u̇_NP th(t)≤1000%∕s_NP (_( 42)−700%∕s≤u̇_NP egr(t)≤700%∕s_NP •_NP Introduce_VV a_DT lower_JJR bound_VVN on_IN the_DT oxygen_NN mass_NN fraction_NN in_IN the_DT intake_NN manifold_NN as_IN too_RB high_JJ burnt_JJ gas_NN concentrations_NNS increase_VVP combustion_NN variations_NNS and_CC eventually_RB lead_VVP to_TO misfires_VVZ ._SENT 
+The_DT lower_JJR bound_VVN of_IN Fim(t)=17_JJ %_NN corresponds_VVZ to_TO a_DT burnt_JJ gas_NN ratio_NN of_IN approximately_RB xbg=26_JJ %_NN ._SENT 
+(_( 43)17%≤Fim(t_NP )_) 5.6_CD ._SENT 
+Optimization_NN parameters_NNS The_DT optimization_NN parameters_NNS in_IN Table_NN 7_CD differ_VVP for_IN the_DT two_CD transitions_NNS A_NP and_CC B_NP as_IN the_DT optimization_NN horizon_NN for_IN transition_NN B_NN is_VBZ longer_RBR ._SENT 
+The_DT initial_JJ state_NN conditions_NNS X0_NN listed_VVN in_IN Table_NN 8_CD are_VBP determined_VVN by_IN the_DT steady-state_NN values_VVZ for_IN the_DT Diesel-only_JJ combustion_NN mode_NN with_IN (_( transition_NN B_NN )_) and_CC without_IN EGR_NP (_( transition_NN A_DT )_) ._SENT 
+Table_NN 7._CD Optimization_NP parameters_NNS for_IN transitions_NNS A_NP and_CC B._NP The_DT reference_NN vector_NN yr(t_NN )_) does_VVZ not_RB change_VV over_IN the_DT horizon_NN ._SENT 
+(_( 44)yr(t)=[55Nm,0kg∕s,0kg∕s,23.1%,0%]t∈[0_NP ,_, TH_NN ]_SYM Deviations_NNS from_IN certain_JJ values_NNS in_IN the_DT reference_NN vector_NN might_MD not_RB be_VB noticeable_JJ in_IN the_DT cost_NN function_NN as_IN the_DT corresponding_JJ entry_NN in_IN the_DT weighting_NN matrix_NN is_VBZ zero_CD ._SENT 
+The_DT weighting_NN matrices_NNS of_IN the_DT NLP_NN are_VBP chosen_VVN manually_RB such_JJ that_IN in_IN simulation_NN the_DT torque_NN deviates_VVZ by_IN less_JJR than_IN 1Nm_NN over_IN the_DT transition_NN while_IN the_DT tailpipe_NN emissions_NNS of_IN NOx_NP and_CC total_JJ hydrocarbons_NNS (_( THC_NP )_) are_VBP minimized_VVN ._SENT 
+In_IN addition_NN ,_, the_DT resulting_VVG actuator_NN trajectories_NNS should_MD be_VB as_RB smooth_JJ as_IN possible_JJ ._SENT 
+Appendix_NN A.2_NN describes_VVZ the_DT detailed_JJ weighting_NN matrices_NNS ._SENT 
+Table_NN 8._CD Initial_JJ conditions_NNS for_IN transitions_NNS A_NP and_CC B._NP <Section> 6._CD Results_NNS </Section> This_DT section_NN presents_VVZ the_DT experimental_JJ results_NNS of_IN the_DT optimization_NN that_WDT was_VBD introduced_VVN above_IN ._SENT 
+For_IN this_DT purpose_NN ,_, the_DT optimized_VVN trajectories_NNS for_IN the_DT transitions_NNS A_NP and_CC B_NP are_VBP applied_VVN in_IN a_DT feedforward_JJ controller_NN on_IN the_DT testbench_NN and_CC compared_VVN to_TO the_DT simulation_NN ._SENT 
+In_IN the_DT following_VVG subsections_NNS ,_, the_DT measured_VVN amounts_NNS of_IN torque_NN and_CC pollutant_NN emissions_NNS that_WDT result_VVP with_IN the_DT optimized_VVN actuation_NN are_VBP then_RB compared_VVN to_TO the_DT results_NNS achieved_VVN with_IN the_DT static_JJ transitions_NNS ,_, i._NP e._NP with_IN the_DT direct_JJ switching_NN from_IN the_DT Diesel-only_JJ steady-state_NN values_NNS to_TO those_DT of_IN the_DT dual-fuel_NN mode_NN ._SENT 
+6.1_CD ._SENT 
+Transition_NN A_DT For_IN transition_NN A_DT the_DT EGR_NP valve_NN is_VBZ kept_VVN closed_VVD ._SENT 
+Fig_NN ._SENT 
+6_CD shows_VVZ two_CD measured_JJ versions_NNS of_IN transition_NN A_NP ,_, namely_RB with_IN the_DT optimized_VVN actuation_NN as_IN well_RB as_RB with_IN the_DT baseline_NN actuation_NN ._SENT 
+In_IN addition_NN ,_, it_PP presents_VVZ the_DT simulation_NN results_NNS obtained_VVN with_IN the_DT optimized_VVN trajectory_NN for_IN the_DT available_JJ variables_NNS ._SENT 
+The_DT striking_JJ characteristic_NN of_IN the_DT optimal_JJ trajectory_NN is_VBZ the_DT closing_NN of_IN the_DT air_NN throttle_NN in_IN Diesel-only_JJ mode_NN prior_RB to_TO the_DT activation_NN of_IN the_DT gas_NN injection_NN at_IN t=Tswitch_NP ._SENT 
+The_DT drop_NN in_IN the_DT intake_NN manifold_NN pressure_NN leads_VVZ to_TO a_DT reduced_VVN oxygen_NN concentration_NN in_IN the_DT exhaust_NN ,_, which_WDT is_VBZ still_RB high_JJ enough_RB to_TO prevent_VV any_DT excessive_JJ soot_NN formation_NN ,_, but_CC at_IN the_DT same_JJ time_NN improves_VVZ the_DT in-cylinder_NN conversion_NN of_IN the_DT natural_JJ gas_NN that_WDT is_VBZ injected_VVN after_IN Tswitch_NP ._SENT 
+Accordingly_RB ,_, the_DT THC_NP raw_JJ emissions_NNS ṁ_JJ THC_NP ,_, raw_JJ do_VVP not_RB show_VV the_DT peak_NN of_IN the_DT baseline_JJ measurement_NN as_IN a_DT result_NN from_IN the_DT very_RB lean_JJ methane-air_JJ mixture_NN in_IN the_DT cylinders_NNS ._SENT 
+The_DT throttling_VVG in_IN Diesel-only_JJ mode_NN leads_VVZ to_TO a_DT deterioration_NN of_IN the_DT engine_NN efficiency_NN ,_, as_IN the_DT pumping_VVG loss_NN rises_NNS ._SENT 
+In_IN the_DT optimized_VVN case_NN ,_, the_DT amount_NN of_IN Diesel_NP injected_VVD thus_RB is_VBZ increased_VVN just_RB before_IN the_DT switch_NN ._SENT 
+Fig_NN ._SENT 
+6._CD Measurement_NN of_IN transition_NN A_DT with_IN activation_NN of_IN gas_NN injection_NN at_IN Tswitch_NP ._SENT 
+The_DT quantitative_JJ results_NNS are_VBP listed_VVN in_IN Table_NN 9._CD It_PP shows_VVZ the_DT mean_JJ value_NN and_CC standard_JJ deviation_NN (_( in_IN parentheses_NNS )_) for_IN the_DT maximum_JJ torque_NN deviation_NN Tmax_NN and_CC the_DT cumulative_JJ THC_NN emissions_NNS mTHC_NN determined_VVN by_IN 10_CD measurements_NNS ._SENT 
+In_IN summary_NN ,_, the_DT optimized_VVN trajectory_NN for_IN transition_NN A_DT shows_VVZ the_DT following_VVG effects_NNS :_: Table_NN 9._CD Evaluation_NN of_IN 10_CD measurements_NNS of_IN transition_NN A._NP •_NP A_DT lower_JJR maximum_NN torque_NN deviation_NN ,_, even_RB though_IN the_DT deviation_NN in_IN the_DT baseline_NN case_NN is_VBZ already_RB small_JJ ._SENT 
+•_JJ Lower_JJR THC_NN emissions_NNS as_IN the_DT THC_NP peak_NN Tswitch_NN is_VBZ prevented_VVN ._SENT 
+•_NP No_DT improvement_NN in_IN the_DT NOx_JJ emissions_NNS (_( not_RB shown_VVN in_IN Fig_NN ._SENT 
+6_CD )_) ,_, as_IN expected_VVN ,_, since_IN in_IN transition_NN A_DT the_DT EGR_NP path_NN is_VBZ deactivated_VVN ._SENT 
+The_DT measured_VVN value_NN of_IN Fem_NP differs_VVZ from_IN the_DT value_NN predicted_VVD based_VVN on_IN simulations_NNS by_IN a_DT shift_NN in_IN time_NN of_IN approximately_RB 100ms_NNS ._SENT 
+This_DT effect_NN is_VBZ due_JJ to_TO the_DT induction-to-exhaust_JJ delay_NN (_( one_CD engine_NN rotation_NN lasts_VVZ 30ms_NNS )_) and_CC the_DT time_NN constant_JJ of_IN the_DT oxygen_NN sensor_NN (_( ∼50ms_NP )_) ._SENT 
+Both_DT effects_NNS are_VBP not_RB considered_VVN in_IN the_DT engine_NN model_NN ._SENT 
+6.2_CD ._SENT 
+Transition_NN B_NN In_IN transition_NN B_NN all_DT four_CD actuator_NN levels_NNS change_VVP significantly_RB in_IN the_DT course_NN of_IN the_DT transition_NN ._SENT 
+In_IN addition_NN to_TO the_DT signals_NNS known_VVN from_IN transition_NN A_NP ,_, Fig_NN ._SENT 
+7_CD shows_NNS the_DT EGR_NN valve_NN position_NN uegr_NP ,_, the_DT intake_NN oxygen_NN mass_NN fraction_NN Fim_NNS and_CC the_DT NOx_JJ massflow_NN before_IN and_CC after_IN the_DT three-way_JJ catalyst_NN ._SENT 
+Similarly_RB to_TO transition_NN A_NP ,_, the_DT oxygen_NN concentration_NN in_IN the_DT exhaust_NN is_VBZ lowered_VVN by_IN the_DT air_NN throttle_NN already_RB before_IN the_DT dual-fuel_NN mode_NN is_VBZ enabled_VVN ._SENT 
+In_IN addition_NN ,_, the_DT EGR_NP valve_NN is_VBZ kept_VVN open_RP after_IN the_DT activation_NN of_IN the_DT dual-fuel_NN mode_NN for_IN approximately_RB 2.5s_JJ ._SENT 
+This_DT dilution_NN leads_VVZ to_TO low_JJ NOx_JJ raw_JJ emission_NN during_IN the_DT period_NN of_IN time_NN in_IN which_WDT the_DT catalyst’s_NP reduction_NN capability_NN is_VBZ impaired_VVN due_RB to_TO the_DT full_JJ catalyst_NN oxygen_NN storage_NN ._SENT 
+The_DT reduction_NN of_IN NOx_NP does_VVZ not_RB take_VV place_NN until_IN the_DT storage_NN is_VBZ partially_RB depleted_VVN ._SENT 
+Fig_NN ._SENT 
+8_CD shows_NNS the_DT mean_JJ cumulative_JJ tailpipe_NN emissions_NNS determined_VVN by_IN 15_CD measurements_NNS ._SENT 
+Fig_NN ._SENT 
+7._CD Measurement_NN of_IN transition_NN B_NN with_IN activation_NN of_IN gas_NN injection_NN at_IN Tswitch_NP ._SENT 
+The_DT quantitative_JJ results_NNS are_VBP listed_VVN in_IN Table_NN 10._CD It_PP shows_VVZ the_DT mean_JJ value_NN and_CC standard_JJ deviation_NN (_( in_IN parentheses_NNS )_) for_IN the_DT maximum_JJ torque_NN deviation_NN Tmax_NN ,_, the_DT cumulative_JJ NOx_JJ tailpipe_NN emissions_NNS mNOx_VVP ,_, and_CC the_DT cumulative_JJ THC_NN emissions_NNS mTHC_NN determined_VVN by_IN 15_CD measurements_NNS ._SENT 
+Fig_NN ._SENT 
+8._CD Measured_JJ cumulative_JJ THC_NN and_CC NOx_JJ tailpipe_NN emissions_NNS for_IN transition_NN B._NP The_DT solid_JJ lines_NNS indicate_VVP the_DT mean_JJ value_NN from_IN 15_CD measurements_NNS and_CC the_DT area_NN between_IN the_DT dotted_JJ lines_NNS represents_VVZ the_DT standard_JJ deviations_NNS ._SENT 
+In_IN summary_NN ,_, the_DT optimized_VVN trajectory_NN for_IN transition_NN B_NP leads_VVZ to_TO Table_NN 10._CD Evaluation_NN of_IN 15_CD measurements_NNS of_IN transition_NN B._NP •_NP A_DT lower_JJR torque_NN deviation_NN ._SENT 
+•_NP Significantly_RB improved_VVD cumulative_JJ NOx_JJ tailpipe_NN emissions_NNS ._SENT 
+•_NP Significantly_RB improved_VVD cumulative_JJ THCx_NP tailpipe_NN emissions_NNS ._SENT 
+In_IN contrast_NN to_TO transition_NN A_NP ,_, the_DT transient_JJ NOx_NN emissions_NNS are_VBP also_RB reduced_VVN by_IN using_VVG EGR_NN ._SENT 
+<Section> 7._CD Discussion_NN </Section> The_DT experimental_JJ results_NNS described_VVD above_RB prove_VV that_IN the_DT optimized_VVN trajectories_NNS indeed_RB improve_VV the_DT transition_NN between_IN combustion_NN modes_NNS ._SENT 
+The_DT following_VVG discussion_NN is_VBZ to_TO deal_VV with_IN the_DT following_VVG four_CD topics_NNS :_: •_JJ Interpretation_NN of_IN the_DT optimal_JJ trajectories_NNS :_: What_WP is_VBZ the_DT basic_JJ idea_NN in_IN terms_NNS of_IN the_DT oxygen_NN fractions_NNS ?_SENT 
+•_JJ Discussion_NN of_IN the_DT dependency_NN of_IN catalyst_NN conversion_NN efficiency_NN on_IN the_DT oxygen_NN mass_NN fraction_NN in_IN the_DT exhaust_NN gas_NN ._SENT 
+•_JJ Find_VVP a_DT physical_JJ explanation_NN for_IN the_DT torque_NN deviation_NN observed_VVD in_IN the_DT baseline_NN transition_NN ._SENT 
+•_NP Analysis_NP of_IN the_DT measured_VVN combustion_NN phasing_VVG ._SENT 
+7.1_CD ._SENT 
+Optimal_JJ oxygen_NN strategy_NN The_DT oxygen_NN diagram_NN shown_VVN in_IN Fig_NN ._SENT 
+9_CD outlines_VVZ the_DT simulation_NN results_NNS of_IN both_DT transitions_NNS ._SENT 
+The_DT intake_NN oxygen_NN level_NN of_IN transition_NN A_DT stays_NNS at_IN ambient_JJ condition_NN (_( Fim=Fair=23.1_JJ %_NN )_) as_IN the_DT EGR_NP valve_NN is_VBZ kept_VVN closed_VVN and_CC therefore_RB no_DT exhaust_NN gas_NN is_VBZ recirculated_JJ ._SENT 
+The_DT main_JJ difference_NN between_IN the_DT baseline_NN and_CC the_DT optimized_VVN trajectory_NN lies_VVZ in_IN the_DT different_JJ values_NNS of_IN the_DT exhaust_NN oxygen_NN mass_NN fraction_NN at_IN the_DT moment_NN of_IN switching_NN ,_, i._NP e._NP Fem(Tswitch_NP )_) ._SENT 
+The_DT switching_VVG time_NN denotes_VVZ the_DT moment_NN where_WRB the_DT injection_NN of_IN natural_JJ gas_NN is_VBZ activated_VVN ._SENT 
+While_IN in_IN the_DT baseline_JJ case_NN the_DT exhaust_NN oxygen_NN level_NN at_IN this_DT moment_NN still_RB is_VBZ at_IN the_DT level_NN of_IN the_DT Diesel-only_JJ mode_NN steady-state_NN operation_NN (_( Fem(Tswitch)=Fem(T0_JJ )_) )_) ,_, in_IN the_DT optimized_VVN case_NN the_DT fraction_NN is_VBZ reduced_VVN beforehand_RB to_TO 5.5_CD %_NN ._SENT 
+This_DT reduction_NN prevents_VVZ the_DT excessive_JJ HC_NN emission_NN that_WDT occurs_VVZ with_IN the_DT very_RB lean_JJ CNG-air_NN mixtures_NNS that_WDT is_VBZ evident_JJ in_IN the_DT baseline_NN trajectory_NN ._SENT 
+To_TO what_WP extent_NN the_DT exhaust_NN oxygen_NN level_NN can_MD be_VB decreased_VVN in_IN the_DT Diesel-only_JJ mode_NN is_VBZ imposed_VVN by_IN the_DT constraint_NN on_IN Feo_NP (_( see_VV Eq_NP ._SENT 
+(_( 37_CD )_) )_) ._SENT 
+At_IN Tswitch_NN the_DT oxygen_NN mass_NN fraction_NN at_IN engine-out_JJ Feo_NP hits_VVZ the_DT constraint_NN of_IN 4_CD %_NN ._SENT 
+At_IN the_DT same_JJ moment_NN the_DT oxygen_NN mass_NN fraction_NN in_IN the_DT exhaust_NN manifold_NN Fem_NN that_WDT is_VBZ shown_VVN in_IN Fig_NN ._SENT 
+9_CD ,_, is_VBZ still_RB at_IN a_DT higher_JJR value_NN ._SENT 
+The_DT optimal_JJ solution_NN of_IN transition_NN B_NN shows_VVZ a_DT similar_JJ reduction_NN in_IN Fem_NP ._SENT 
+Again_RB ,_, before_IN enabling_VVG the_DT natural_JJ gas_NN injection_NN ,_, the_DT exhaust_NN oxygen_NN fraction_NN is_VBZ reduced_VVN to_TO a_DT level_NN where_WRB the_DT in-cylinder_NN oxygen_NN fraction_NN Feo_NP hits_VVZ its_PP$ constraint_NN ._SENT 
+In_IN addition_NN ,_, also_RB the_DT intake_NN oxygen_NN fraction_NN changes_NNS in_IN transition_NN B._NP While_IN in_IN the_DT baseline_JJ trajectory_NN both_CC fractions_NNS change_VVP at_IN the_DT same_JJ time_NN (_( reduction_NN of_IN Fem_NN and_CC raise_VV of_IN Fim_NP )_) ,_, the_DT optimized_VVN solution_NN shows_VVZ a_DT sequential_JJ strategy_NN —_NN reduce_VV Fem_RB first_JJ ,_, then_RB increase_NN Fim_NNS ._SENT 
+Fig_NN ._SENT 
+9._CD The_DT oxygen_NN diagram_NN shows_VVZ the_DT simulation_NN with_IN the_DT baseline_NN trajectory_NN (_( base_NN )_) and_CC the_DT optimized_VVN trajectory_NN (_( opt_VV )_) for_IN both_DT transitions_NNS A_NP and_CC B._NP 7.2_CD ._SENT 
+Catalytic_JJ conversion_NN of_IN NO_DT and_CC THC_NN In_IN transition_NN B_NN the_DT location_NN of_IN the_DT NOx_JJ abatement_NN shifts_NNS from_IN in-cylinder_NN to_TO the_DT aftertreatment_NN system_NN ._SENT 
+While_IN in_IN the_DT Diesel-only_JJ combustion_NN mode_NN EGR_NN is_VBZ used_VVN to_TO keep_VV the_DT NOx_JJ emissions_NNS low_JJ ,_, in_IN the_DT dual-fuel_NN mode_NN the_DT three-way_JJ catalyst_NN is_VBZ used_VVN for_IN the_DT NOx_JJ reduction_NN ._SENT 
+Fig_NN ._SENT 
+10_CD shows_NNS the_DT catalyst_NN conversion_NN efficiency_NN for_IN NOx_NP and_CC THC_NP for_IN the_DT measurement_NN already_RB shown_VVN in_IN Fig_NN ._SENT 
+7._CD The_DT efficiency_NN of_IN the_DT catalytic_JJ NOx_NN reduction_NN is_VBZ denoted_VVN by_IN ηNOx_NP while_IN ηTHC_NP describes_VVZ the_DT THC_NP oxidation_NN efficiency_NN ._SENT 
+The_DT two_CD efficiencies_NNS are_VBP defined_VVN according_VVG to_TO :_: (_( 45)ηX=[X]raw−[X]tail[X]rawwithX∈{NOx_NP ,_, THC_NP }_) ._SENT 
+In_IN Diesel-only_JJ mode_NN ,_, i._NP e._NP for_IN t<Tswitch_NP ,_, the_DT measured_VVN NOx_NN conversion_NN efficiency_NN ηNOx_NN is_VBZ close_JJ to_TO 0_CD %_NN as_IN the_DT capability_NN of_IN the_DT catalyst_NN to_TO reduce_VV NOx_NP is_VBZ heavily_RB impaired_VVN ._SENT 
+The_DT catalytic_JJ NOx_NN reduction_NN reaches_VVZ 100_CD %_NN only_RB after_IN 1.3_CD s_NNS (_( optimized_VVN )_) and_CC after_IN 3.8_CD s_NNS (_( baseline_NN )_) after_IN the_DT switch_NN ._SENT 
+In_IN contrast_NN ,_, the_DT conversion_NN of_IN the_DT THC_NN emissions_NNS in_IN the_DT Diesel-only_JJ mode_NN is_VBZ perfect_JJ ._SENT 
+Presumably_RB the_DT THC_NN consists_VVZ mainly_RB of_IN longer-chained_JJ hydrocarbons_NNS ._SENT 
+The_DT injection_NN of_IN methane_NN is_VBZ followed_VVN by_IN a_DT period_NN of_IN reduced_VVN oxidation_NN efficiency_NN ._SENT 
+For_IN both_DT pollutant_NN species_NN ,_, NOx_NP and_CC THC_NP ,_, the_DT catalytic_JJ conversion_NN is_VBZ established_VVN first_RB with_IN the_DT optimized_VVN actuation_NN after_IN the_DT switch_NN ._SENT 
+The_DT explanation_NN is_VBZ found_VVN in_IN the_DT measured_VVN oxygen_NN fractions_NNS upstream_JJ and_CC downstream_JJ of_IN the_DT catalyst_NN ,_, as_RB shown_VVN in_IN Fig_NN ._SENT 
+10._CD With_IN the_DT optimized_VVN actuator_NN trajectories_NNS ,_, the_DT oxygen_NN content_NN in_IN the_DT exhaust_NN gas_NN manifold_NN Fem_NN drops_VVZ faster_RBR to_TO 0_CD %_NN ._SENT 
+This_DT circumstance_NN in_IN turn_NN leads_VVZ to_TO a_DT faster_JJR depletion_NN of_IN the_DT oxygen_NN storage_NN within_IN the_DT catalyst_NN ._SENT 
+The_DT level_NN to_TO which_WDT this_DT oxygen_NN storage_NN is_VBZ filled_VVN significantly_RB influences_VVZ the_DT NOx_JJ reduction_NN efficiency_NN over_IN the_DT catalyst_NN (_( Kiwitz_NP ,_, Onder_NP ,_, &_CC Guzzella_NP ,_, 2012_CD )_) ._SENT 
+The_DT measured_VVN oxygen_NN concentration_NN downstream_JJ of_IN the_DT catalyst_NN Ftail_NN ,_, never_RB reaches_VVZ 0_CD %_NN ,_, but_CC stays_VVZ at_IN a_DT slightly_RB positive_JJ value_NN ._SENT 
+The_DT authors_NNS conclude_VVP that_IN oxygen_NN is_VBZ given_VVN off_RP by_IN the_DT catalyst_NN and_CC the_DT storage_NN is_VBZ not_RB depleted_VVN completely_RB until_IN the_DT end_NN of_IN the_DT measurement_NN ._SENT 
+In_IN the_DT integrated_JJ control_NN approach_NN the_DT catalyst_NN model_NN is_VBZ integrated_VVN in_IN the_DT mathematical_JJ model_NN such_JJ that_IN the_DT optimized_VVN trajectories_NNS take_VVP into_IN account_NN the_DT requirements_NNS of_IN the_DT aftertreatment_NN system_NN ._SENT 
+Fig_NN ._SENT 
+10._CD Measured_JJ conversion_NN efficiency_NN and_CC catalyst_NN oxygen_NN mass_NN fraction_NN for_IN transition_NN B._NP The_DT conversion_NN efficiency_NN is_VBZ filtered_VVN with_IN non-causal_JJ moving_VVG average_NN using_VVG a_DT window_NN of_IN 100ms_NNS ._SENT 
+7.3_CD ._SENT 
+Actuator_NN rate_NN limitation_NN The_DT observed_JJ torque_NN deviation_NN in_IN transition_NN B_NN using_VVG the_DT static_JJ transition_NN approach_NN can_MD be_VB led_VVN back_RB to_TO the_DT fact_NN that_IN the_DT velocity_NN with_IN which_WDT the_DT actuators_NNS can_MD change_VV their_PP$ position_NN is_VBZ limited_VVN ._SENT 
+Fig_NN ._SENT 
+11_CD depicts_VVZ the_DT simulation_NN of_IN transition_NN B_NN for_IN different_JJ levels_NNS of_IN rate_NN limitations_NNS regr_NN for_IN the_DT EGR_NP valve_NN ._SENT 
+The_DT intake_NN oxygen_NN mass_NN fraction_NN Fim_NN shows_VVZ a_DT non-minimum-phase_JJ behavior_NN when_WRB a_DT rate_NN limitation_NN is_VBZ in_IN place_NN ._SENT 
+The_DT deviation_NN of_IN Fim_NNS towards_IN smaller_JJR values_NNS is_VBZ the_DT more_RBR pronounced_JJ the_DT slower_JJR the_DT EGR_NP valve_NN closes_VVZ ._SENT 
+In_IN general_JJ ,_, such_JJ non-minimum-phase_NN behavior_NN imposes_VVZ bandwith_JJ limitations_NNS for_IN the_DT feedback_NN controllers_NNS ._SENT 
+The_DT excursion_NN to_TO lower_JJR values_NNS of_IN Fim_NP impairs_VVZ the_DT combustion_NN (_( retarded_JJ ,_, slower_JJR )_) and_CC hence_RB leads_VVZ to_TO a_DT deviation_NN in_IN the_DT engine_NN torque_NN ._SENT 
+Fig_NN ._SENT 
+11._CD Simulation_NP of_IN baseline_NN trajectory_NN on_IN transition_NN B_NN with_IN different_JJ levels_NNS of_IN rate_NN limitations_NNS for_IN the_DT EGR_NP valve_NN ._SENT 
+7.4_CD ._SENT 
+Combustion_NN phasing_VVG In_IN simulation_NN the_DT torque_NN deviation_NN is_VBZ below_RB 1_CD Nm_NN ,_, however_RB due_JJ to_TO model_VV mismatch_NN a_DT distinct_JJ torque_NN drop_NN can_MD still_RB be_VB observed_VVN in_IN the_DT measurements_NNS of_IN the_DT optimized_VVN transition_NN B_NN in_IN Fig_NN ._SENT 
+7._CD The_DT remaining_VVG torque_NN deviation_NN is_VBZ presumably_RB caused_VVN by_IN the_DT deviation_NN in_IN combustion_NN phasing_VVG shown_VVN in_IN Fig_NN ._SENT 
+12._CD Feedback_NN control_NN of_IN combustion_NN phasing_VVG as_IN it_PP has_VHZ already_RB been_VBN shown_VVN previously_RB in_IN literature_NN could_MD help_VV to_TO mitigate_VV this_DT remaining_VVG undesired_JJ torque_NN ripple_NN ._SENT 
+Fig_NN ._SENT 
+12._CD Measured_JJ center_NN of_IN combustion_NN φCOC_NN during_IN transition_NN B_NN in_IN all_DT four_CD cylinders_NNS ._SENT 
+<Section> 8._CD Conclusion_NN </Section> •_NN In_IN a_DT Diesel-ignited_JJ gas_NN engine_NN the_DT switching_NN between_IN combustion_NN modes_NNS is_VBZ inherently_RB required_VVN ._SENT 
+The_DT transitions_NNS from_IN Diesel-only_RB to_TO Dual-fuel_NN mode_NN are_VBP the_DT critical_JJ transitions_NNS as_IN they_PP lead_VVP to_TO substantial_JJ torque_NN deviations_NNS as_RB well_RB as_IN additional_JJ emissions_NNS of_IN pollutants_NNS NOx_NP and_CC CH4_NP ._SENT 
+The_DT deviations_NNS are_VBP due_JJ to_TO undesired_JJ levels_NNS in_IN the_DT intake_NN manifold_NN dynamics_NNS in_IN terms_NNS of_IN pressure_NN and_CC oxygen_NN concentration_NN ._SENT 
+•_NP The_DT trajectory_NN optimization_NN based_VVN on_IN a_DT nonlinear_JJ engine_NN model_NN offers_VVZ substantial_JJ improvements_NNS in_IN the_DT maximum_JJ torque_NN deviation_NN (_( −46_JJ %_NN )_) ,_, the_DT cumulative_JJ NOx_JJ tailpipe_NN emissions_NNS (_( −89_JJ %_NN )_) ,_, as_RB well_RB as_IN the_DT cumulative_JJ THC_NN tailpipe_NN emissions_NNS (_( −45_JJ %_NN )_) ._SENT 
+•_NP The_DT optimal_JJ strategy_NN is_VBZ to_TO change_VV the_DT exhaust_NN and_CC intake_NN oxygen_NN concentrations_NNS sequentially_RB :_: First_RB reduce_VV the_DT oxygen_NN fraction_NN in_IN the_DT exhaust_NN and_CC then_RB increase_VV the_DT one_CD in_IN the_DT intake_NN ._SENT 
+•_NP The_DT reduction_NN in_IN the_DT tailpipe_NN emission_NN of_IN NOx_NP is_VBZ mainly_RB a_DT result_NN of_IN applying_VVG EGR_NN for_IN approximately_RB 3_CD s_NNS after_IN the_DT activation_NN of_IN the_DT natural_JJ gas_NN injection_NN ._SENT 
+This_DT lowers_VVZ the_DT raw_JJ NOx_NN emission_NN during_IN the_DT time_NN duration_NN in_IN which_WDT the_DT catalyst_NN is_VBZ unable_JJ to_TO reduce_VV any_DT raw_JJ NOx_NN emissions_NNS ._SENT 
+•_NP The_DT optimized_VVN trajectory_NN prevents_VVZ a_DT large_JJ peak_NN of_IN THC_NN emissions_NNS immediately_RB after_IN the_DT activation_NN of_IN the_DT gas_NN injection_NN by_IN throttling_VVG the_DT air_NN massflow_NN into_IN the_DT intake_NN manifold_NN prior_RB to_TO the_DT activation_NN ._SENT 
+<Section> Declaration_NN of_IN Competing_VVG Interest_NN </Section> None_NN declared_VVD ._SENT 
+<Section> Acknowledgments_NNS </Section> The_DT project_NN has_VHZ been_VBN funded_VVN by_IN the_DT Swiss_NP Federal_NP Office_NP of_IN Energy_NP (_( BFE_NP )_) and_CC the_DT Swiss_JJ Competence_NN Center_NP for_IN Energy_NP Research_NP —_NP Efficient_JJ Technologies_NPS and_CC Systems_NPS for_IN Mobility_NN (_( SCCER_NN Mobility_NN )_) ._SENT 
+The_DT financial_JJ support_NN from_IN German_JJ Research_NP Association_NP (_( Deutsche_NP Forschungsgemeinschaft_NP ,_, DFG_NP )_) within_IN the_DT Research_NP Unit_NP (_( Forschergruppe_NP )_) FOR2401_JJ “_NP Optimization_NP based_VVD Multiscale_NP Control_NP for_IN Low_NP Temperature_NN Combustion_NP Engines_NNS ”_NN is_VBZ gratefully_RB acknowledged_VVN ._SENT 
+<Section> Appendix_NN ._SENT 
+</Section> A.1_JJ ._SENT 
+Empirical_JJ functions_NNS (_( 46)ΦI(pim(t_NP )_) ,_, Fim(t))=∑3i=0∑1j=0aijpim(t)iFim(t)j_NP (_( 47)ΦII(pim(t_NP )_) ,_, Fim(t))=∑1i=0∑1j=0bijpim(t)iFim(t)j_NP (_( 48)a=c2pd_NP ,_, rail(t)+c3_NP (_( 49)b=c4pd_NP ,_, rail(t)+c5_NP (_( 50)Ψd(ṁ_NP d(t_NP )_) ,_, pd_RB ,_, rail(t))=−12c1(b−−4c1√(a−ṁ_NP d(t))+b2_NP )_) (_( 51)Ψg(ṁ_NP g(t_NP )_) ,_, pg_NP ,_, rail(t))=(−c2+ṁ_NP g(t)−c1pg_NP ,_, rail(t))c3pg_NP ,_, rail(t_NP )_) (_( 52)ṁ_NN d_SYM ,_, ig(u(t_NP )_) ,_, x(t))=ϕgas(t)∑3i=0∑3j=0eijpim(t)iFim(t)j_NP (_( 53)ϕgas(t)=4.3σ0_NP ,_, gMO2XO2Mairṁ_NP g(t)Fim(t)ṁ_NP β(t_NP )_) (_( 54)Ath(uth(t))=f3(1−exp(−(uth(t)+f1f2)f4_JJ )_) )_) (_( 55)Ψflow(pim(t_NP )_) ,_, pac(t))=g1exp(g2pim(t)pac(t))+g3exp(g4pim(t)pac(t_NP )_) )_) (_( 56)Flim(x)=1/2√x2+ε−+12x_NP (_( 57)F1(uegr(t_NP )_) ,_, pim(t_NP )_) ,_, pem(t))=h01−exp(uegr(t)−h2h3)h4h5exp(−h6pem(t)pim(t))+h7+Flim(h8+h9uegr(t_NP )_) )_) (_( 58)F2(pim(t_NP )_) ,_, pem(t))=i0+i1pem+i2pimpem_NP (_( 59)F3(ωtc(t_NP )_) ,_, pac(t))=∑3i=0∑4j=0kij(pac(t)pamb)iωtc(t)j_NP (_( 60)F4(ωtc(t_NP )_) ,_, pac(t))=∑1i=0∑2j=0lij(pac(t)pamb)iωtc(t)j_NP (_( 61)F5(pem(t))=pem(t)ϑem√(m0(pem(t)pamb)m1+m2_NP )_) (_( 62)F6(ωtc(t))=r1ωtc(t)3+r2_NP (_( 63)F7(pim(t_NP )_) ,_, pem(t_NP )_) ,_, Fem(t))=n0+n1(pem(t)−pim(t))+n2Fem(t_NP )_) (_( 64)F8(Fim(t_NP )_) ,_, Fem(t))=∑3i=0∑2j=0pijFim(t)iTem(t)j_NP (_( 65)F9(Fcat(t))=Flim(q0+q1Fcat(t))−Flim(q0+q1Fcat(t)−1_JJ )_) A.2_NN ._SENT 
+Weighting_NN factors_NNS The_DT weighting_NN matrices_NNS for_IN transition_NN A_DT are_VBP chosen_VVN as_RB follows_VVZ :_: RI=diag(1,50,0,0,0_NP )_) RII=diag(1,50,0,0,0.1_NN )_) RN=diag(0,0,0,0,100_NP )_) QI=diag(10−8,10−8,10−5,0_NP )_) QII=diag(10−8,10−8,10−5,0_NP )_) ,_, whereas_IN the_DT corresponding_JJ matrices_NNS for_IN transition_NN B_NN are_VBP :_: RI=diag(1,10,1010,0,0_NP )_) RII=diag(1,10,107,0,1_NN )_) RN=diag(0,0,0,100,100_NP )_) QI=diag(10−8,10−8,10−5,10−2_NP )_) QII=diag(10−8,10−8,10−5,10−2_NP )_) ._SENT 
+<Section> References_NNS </Section> Albin_NP et_CC al_NP ._SENT 
+,_, 2018_CD Albin_NP T._NP ,_, Ritter_NP D._NP ,_, Liberda_NP N._NP ,_, Quirynen_NP R._NP ,_, Diehl_NP M._NP In-vehicle_NN realization_NN of_IN nonlinear_JJ MPC_NN for_IN gasoline_NN two-stage_NN turbocharging_VVG airpath_NP control_NN IEEE_NN Transactions_NNS on_IN Control_NP Systems_NPS Technology_NP ,_, 26_CD (_( 5_LS )_) (_( 2018_CD )_) ,_, pp_NP ._SENT 
+1606-1618_CD CrossRefView_NP Record_NP in_IN ScopusGoogle_NP Scholar_NN Andersson_NP et_NP al_NP ._SENT 
+,_, 2019_CD Andersson_NP J._NP A._NP ,_, Gillis_NP J._NP ,_, Horn_NP G._NP ,_, Rawlings_NP J._NP B._NP ,_, Diehl_NP M._NP CasADi_NP –_NP A_DT software_NN framework_NN for_IN nonlinear_JJ optimization_NN and_CC optimal_JJ control_NN Mathematical_JJ Programming_NN Computation_NN ,_, 11_CD (_( 1_LS )_) (_( 2019_CD )_) ,_, pp_NP ._SENT 
+1-36_CD CrossRefView_NP Record_NP in_IN ScopusGoogle_NP Scholar_NN Asprion_NN et_NP al_NP ._SENT 
+,_, 2014a_NP Asprion_NP J._NP ,_, Chinellato_NP O._NP ,_, Guzzella_NP L._NP Efficient_JJ solution_NN of_IN the_DT diesel-engine_NN optimal_JJ control_NN problem_NN by_IN time-domain_NP decomposition_NN Control_NP Engineering_NP Practice_NN ,_, 30_CD (_( 2014_CD )_) ,_, pp_NP ._SENT 
+34-44_CD ArticleDownload_NP PDFView_NP Record_NP in_IN ScopusGoogle_NP Scholar_NN Asprion_NN et_NP al_NP ._SENT 
+,_, 2014b_NP Asprion_NP J._NP ,_, Chinellato_NP O._NP ,_, Guzzella_NP L._NP Optimal_JJ control_NN of_IN diesel_JJ engines_NNS :_: Numerical_JJ methods_NNS ,_, applications_NNS ,_, and_CC experimental_JJ validation_NN Mathematical_JJ Problems_NP in_IN Engineering_NP (_( 2014_CD )_) Google_NP Scholar_NN Benz_NP et_NP al_NP ._SENT 
+,_, 2010_CD Benz_NP M._NP ,_, Hehn_NP M._NP ,_, Onder_NP C._NP H._NP ,_, Guzzella_NP L._NP Model-based_JJ actuator_NN trajectories_NNS optimization_NN for_IN a_DT diesel_JJ engine_NN using_VVG a_DT direct_JJ method_NN Journal_NP of_IN Engineering_NP for_IN Gas_NP Turbines_NNS and_CC Power_NP ,_, 0742-4795_CD ,_, 133_CD (_( 3_LS )_) (_( 2010_CD )_) ,_, p._NP 032806_CD Google_NN Scholar_NN Bock_NP and_CC Plitt_NP ,_, 1984_CD Bock_NP H._NP G._NP ,_, Plitt_NP K._NP -J_NP ._SENT 
+A_DT multiple_JJ shooting_NN algorithm_NN for_IN direct_JJ solution_NN of_IN optimal_JJ control_NN problems_NNS IFAC_JJ Proceedings_NNS Volumes_NNS ,_, 17_CD (_( 2_LS )_) (_( 1984_CD )_) ,_, pp_NP ._SENT 
+1603-1608_CD ArticleDownload_NP PDFView_NP Record_NP in_IN ScopusGoogle_NP Scholar_NN Chauvin_NP et_NP al_NP ._SENT 
+,_, 2008_CD Chauvin_NP J._NP ,_, Corde_NP G._NP ,_, Petit_NP N._NP ,_, Rouchon_NP P._NP Motion_NP planning_NN for_IN experimental_JJ airpath_NN control_NN of_IN a_DT diesel_JJ homogeneous_JJ charge-compression_NN ignition_NN engine_NN Control_NP Engineering_NP Practice_NN ,_, 16_CD (_( 9_CD )_) (_( 2008_CD )_) ,_, pp_NP ._SENT 
+1081-1091_CD ArticleDownload_NP PDFView_NP Record_NP in_IN ScopusGoogle_NP Scholar_NN Chen_NP et_NP al_NP ._SENT 
+,_, 2015_CD Chen_NP Y._NP ,_, Šíma_NP V._NP ,_, Lin_NP W._NP ,_, Sterniak_NP J._NP ,_, Bohac_NP S._NP V._NP Lean_NP HCCI/rich_NP SACI_NP gasoline_NN combustion_NN cycling_NN and_CC three-way_JJ catalyst_NN for_IN fuel_NN efficiency_NN and_CC NOx_NN reduction_NN Journal_NP of_IN Engineering_NP for_IN Gas_NP Turbines_NNS and_CC Power_NP ,_, 137_CD (_( 12_CD )_) (_( 2015_CD )_) ,_, p._NP 121508_CD Google_NN Scholar_NN Christensen_NP et_NP al_NP ._SENT 
+,_, 1997_CD Christensen_NP M._NP ,_, Johansson_NP B._NP ,_, Einewall_NP P._NP Homogeneous_JJ charge_NN compression_NN ignition_NN (_( HCCI_NP )_) using_VVG isooctane_NN ,_, ethanol_NN and_CC natural_JJ gas_NN –_NN a_DT comparison_NN with_IN spark_NN ignition_NN operation_NN SAE_NP Technical_NP Paper_NP 972874_CD (_( 1997_CD )_) Google_NP Scholar_NN Diehl_NP et_NP al_NP ._SENT 
+,_, 2005_CD Diehl_NP M._NP ,_, Bock_NP H._NP G._NP ,_, Schloder_NP J._NP Real-time_JJ iterations_NNS for_IN nonlinear_JJ optimal_JJ feedback_NN control_NN Proceedings_NNS of_IN the_DT 44th_JJ IEEE_NN conference_NN on_IN decision_NN and_CC control_NN ,_, IEEE_NP (_( 2005_CD )_) ,_, pp_NP ._SENT 
+5871-5876_CD CrossRefView_NP Record_NP in_IN ScopusGoogle_NP Scholar_NN Divekar_NP et_NP al_NP ._SENT 
+,_, 2017_CD Divekar_NP P._NP ,_, Han_NP X._NP ,_, Tan_NP Q._NP ,_, Asad_NP U._NP ,_, Yanai_NP T._NP ,_, Chen_NP X._NP ,_, Tjong_NP J._NP ,_, Zheng_NP M._NP Mode_NP switching_VVG to_TO improve_VV low_JJ load_NN efficiency_NN of_IN an_DT ethanol-diesel_NP dual-fuel_NN engine_NN SAE_NP Technical_NP Paper_NP 2017-01-0771_CD (_( 2017_CD )_) Google_NP Scholar_NN Fang_NP et_NP al_NP ._SENT 
+,_, 2013_CD Fang_NP C._NP ,_, Yang_NP F._NP ,_, Ouyang_NP M._NP ,_, Gao_NP G._NP ,_, Chen_NP L._NP Combustion_NP mode_NN switching_VVG control_NN in_IN a_DT HCCI_NP diesel_NN engine_NN Applied_NP Energy_NP ,_, 110_CD (_( 2013_CD )_) ,_, pp_NP ._SENT 
+190-200_CD ArticleDownload_NP PDFView_NP Record_NP in_IN ScopusGoogle_NP Scholar_NN Ferri_NP et_NP al_NP ._SENT 
+,_, 2018_CD Ferri_NP D._NP ,_, Elsener_NP M._NP ,_, Kröcher_NP O._NP Methane_NN oxidation_NN over_IN a_DT honeycomb_NN Pd-only_RB three-way_JJ catalyst_NN under_IN static_JJ and_CC periodic_JJ operation_NN Applied_NP Catalysis_NN B_NP :_: Environmental_NP ,_, 220_CD (_( 2018_CD )_) ,_, pp_NP ._SENT 
+67-77_CD ArticleDownload_NP PDFView_NP Record_NP in_IN ScopusGoogle_NP Scholar_NN Garcia_NP and_CC Tunestal_NP ,_, 2015_CD Garcia_NP P._NP ,_, Tunestal_NP P._NP Experimental_JJ investigation_NN on_IN CNG-diesel_NP combustion_NN modes_NNS under_IN highly_RB diluted_VVN conditions_NNS on_IN a_DT light_JJ duty_NN diesel_NN engine_NN with_IN focus_NN on_IN injection_NN strategy_NN SAE_NP International_NP Journal_NP of_IN Engines_NNS ,_, 8_CD (_( 2015_CD )_) ,_, pp_NP ._SENT 
+2177-2187_CD CrossRefGoogle_NN Scholar_NN Gelin_NP et_NP al_NP ._SENT 
+,_, 2003_CD Gelin_NP P._NP ,_, Urfels_NP L._NP ,_, Primet_NP M._NP ,_, Tena_NP E._NP Complete_JJ oxidation_NN of_IN methane_NN at_IN low_JJ temperature_NN over_IN Pt_NP and_CC Pd_JJ catalysts_NNS for_IN the_DT abatement_NN of_IN lean-burn_NP natural_JJ gas_NN fuelled_VVD vehicles_NNS emissions_NNS :_: influence_NN of_IN water_NN and_CC sulphur_NN containing_VVG compounds_NNS Catalysis_NN Today_NN ,_, 83_CD (_( 1_LS )_) (_( 2003_CD )_) ,_, pp_NP ._SENT 
+45-57_CD ArticleDownload_NP PDFView_NP Record_NP in_IN ScopusGoogle_NP Scholar_NN Gorzelic_NP et_NP al_NP ._SENT 
+,_, 2017_CD Gorzelic_NP P._NP ,_, Stefanopoulou_NP A._NP ,_, Sterniak_NP J._NP SI-HCCI_NP mode_NN transitions_NNS without_IN open-loop_NN sequence_NN scheduling_NN :_: control_NN architecture_NN and_CC experimental_JJ validation_NN Journal_NP of_IN Dynamic_JJ Systems_NP ,_, Measurement_NN ,_, and_CC Control_NP ,_, 139_CD (_( 8_CD )_) (_( 2017_CD )_) ,_, p._NP 081014_CD Google_NN Scholar_NN Hanson_NP and_CC Reitz_NP ,_, 2014_CD Hanson_NP R._NP ,_, Reitz_NP R._NP Experimental_JJ investigation_NN of_IN engine_NN speed_NN transient_JJ operation_NN in_IN a_DT light_JJ duty_NN RCCI_NP engine_NN SAE_NP International_NP Journal_NP of_IN Engines_NNS ,_, 7_CD (_( 2_LS )_) (_( 2014_CD )_) ,_, pp_NP ._SENT 
+888-901_CD CrossRefView_NP Record_NP in_IN ScopusGoogle_NP Scholar_NN Hanson_NP and_CC Reitz_NP ,_, 2016_CD Hanson_NP R._NP ,_, Reitz_NP R._NP Investigation_NP of_IN cold_JJ starting_NN and_CC combustion_NN mode_NN switching_VVG as_IN methods_NNS to_TO improve_VV low_JJ load_NN RCCI_NP operation_NN Journal_NP of_IN Engineering_NP for_IN Gas_NP Turbines_NNS and_CC Power_NP ,_, 138_CD (_( 9_CD )_) (_( 2016_CD )_) ,_, p._NP 092802_CD Google_NN Scholar_NN Hellström_NP et_NP al_NP ._SENT 
+,_, 2012_CD Hellström_NP E._NP ,_, Stefanopoulou_NP A._NP ,_, Vavra_NP J._NP ,_, Babajimopoulos_NP A._NP ,_, Assanis_NP D._NP N._NP ,_, Jiang_NP L._NP ,_, Yilmaz_NP H._NP Understanding_VVG the_DT dynamic_JJ evolution_NN of_IN cyclic_JJ variability_NN at_IN the_DT operating_VVG limits_NNS of_IN HCCI_NP engines_NNS with_IN negative_JJ valve_NN overlap_VVP SAE_NP International_NP Journal_NP of_IN Engines_NNS ,_, 5_CD (_( 2012_CD )_) ,_, pp_NP ._SENT 
+995-1008_CD CrossRefView_NP Record_NP in_IN ScopusGoogle_NP Scholar_NN Hutter_NP et_NP al_NP ._SENT 
+,_, 2018_CD Hutter_NP R._NP ,_, De_NP Libero_NP L._NP ,_, Elbert_NP P._NP ,_, Onder_NP C._NP H._NP Catalytic_JJ methane_NN oxidation_NN in_IN the_DT exhaust_NN gas_NN aftertreatment_NN of_IN a_DT lean-burn_NP natural_JJ gas_NN engine_NN Chemical_NP Engineering_NP Journal_NP ,_, 349_CD (_( 2018_CD )_) ,_, pp_NP ._SENT 
+156-167_CD ArticleDownload_NP PDFView_NP Record_NP in_IN ScopusGoogle_NP Scholar_NN Hutter_NP et_NP al_NP ._SENT 
+,_, 2017_CD Hutter_NP R._NP ,_, Ritzmann_NP J._NP ,_, Elbert_NP P._NP ,_, Onder_NP C._NP Low-load_NN limit_NN in_IN a_DT diesel-ignited_JJ gas_NN engine_NN Energies_NNS ,_, 10_CD (_( 10_CD )_) (_( 2017_CD )_) ,_, p._NP 1450_CD CrossRefGoogle_NN Scholar_NN Indrajuana_NP et_NP al_NP ._SENT 
+,_, 2018_CD Indrajuana_NP A._NP ,_, Bekdemir_NP C._NP ,_, Feru_NP E._NP ,_, Willems_NP F._NP Towards_IN model-based_JJ control_NN of_IN RCCI-CDF_NN mode-switching_VVG in_IN dual_JJ fuel_NN engines_NNS SAE_NP Technical_NP Paper_NP 2018-01-0263_CD (_( 2018_CD )_) Google_NP Scholar_NN Johansson_NP ,_, 2016_CD Johansson_NP B._NP Fuels_NNS and_CC combustion_NN Biofuels_NNS from_IN Lignocellulosic_JJ Biomass_NN :_: Innovations_NNS Beyond_IN Bioethanol_NN (_( 2016_CD )_) ,_, pp_NP ._SENT 
+1-27_CD CrossRefGoogle_NN Scholar_NN Kakuya_NP et_NP al_NP ._SENT 
+,_, 2008_CD Kakuya_NP H._NP ,_, Yamaoka_NP S._NP ,_, Kumano_NP K._NP ,_, Sato_NP S._NP Investigation_NP of_IN a_DT SI-HCCI_NP combustion_NN switching_VVG control_NN method_NN in_IN a_DT multi-cylinder_NP gasoline_NN engine_NN SAE_NP Technical_NP Paper_NP 2008-01-0792_CD (_( 2008_CD )_) Google_NP Scholar_NN Kassa_NP and_CC Hall_NP ,_, 2018_CD Kassa_NP M._NP ,_, Hall_NP C._NP Dual-fuel_NN combustion_NN Internal_NP Combustion_NP Engines_NNS ,_, IntechOpen_NNS (_( 2018_CD )_) Google_NP Scholar_NN Keller_NP et_NP al_NP ._SENT 
+,_, 2018_CD Keller_NP M._NP ,_, Jochim_NP B._NP ,_, Abel_NP D._NP ,_, Beeckmann_NP J._NP ,_, Pitsch_NP H._NP ,_, Albin_NP T._NP Nonlinear_JJ model_NN predictive_JJ control_NN for_IN the_DT starting_VVG process_NN of_IN a_DT free-piston_NP linear_JJ generator_NN IFAC-PapersOnLine_NN ,_, 51_CD (_( 31_CD )_) (_( 2018_CD )_) ,_, pp_NP ._SENT 
+632-639_CD ArticleDownload_NP PDFView_NP Record_NP in_IN ScopusGoogle_NP Scholar_NN Kiwitz_NP et_NP al_NP ._SENT 
+,_, 2012_CD Kiwitz_NP P._NP ,_, Onder_NP C._NP ,_, Guzzella_NP L._NP Control-oriented_VVD modeling_VVG of_IN a_DT three-way_JJ catalytic_JJ converter_NN with_IN observation_NN of_IN the_DT relative_JJ oxygen_NN level_NN profile_NN Journal_NP of_IN Process_NN Control_NP ,_, 22_CD (_( 6_CD )_) (_( 2012_CD )_) ,_, pp_NP ._SENT 
+984-994_CD ArticleDownload_NP PDFView_NP Record_NP in_IN ScopusGoogle_NP Scholar_NN Nieman_NP et_NP al_NP ._SENT 
+,_, 2012_CD Nieman_NP D._NP E._NP ,_, Dempsey_NP A._NP B._NP ,_, Reitz_NP R._NP D._NP Heavy-duty_JJ RCCI_NP operation_NN using_VVG natural_JJ gas_NN and_CC diesel_JJ SAE_NP International_NP Journal_NP of_IN Engines_NNS ,_, 5_CD (_( 2012_CD )_) ,_, pp_NP ._SENT 
+270-285_CD CrossRefView_NP Record_NP in_IN ScopusGoogle_NP Scholar_NN Ravi_NP et_NP al_NP ._SENT 
+,_, 2013_CD Ravi_NP N._NP ,_, Jagsch_NP M._NP ,_, Oudart_NP J._NP ,_, Chaturvedi_NP N._NP ,_, Cook_NP D._NP ,_, Kojic_NP A._NP Closed-loop_NP control_NN of_IN SI-HCCI_NP mode_NN switch_NN using_VVG fuel_NN injection_NN timing_NN ASME_NN 2013_CD dynamic_JJ systems_NNS and_CC control_NN conference_NN ,_, American_NP Society_NP of_IN Mechanical_NP Engineers_NPS (_( 2013_CD )_) Google_NP Scholar_NN Reitz_NP and_CC Duraisamy_NP ,_, 2015_CD Reitz_NP R._NP D._NP ,_, Duraisamy_NP G._NP Review_NP of_IN high_JJ efficiency_NN and_CC clean_JJ reactivity_NN controlled_VVN compression_NN ignition_NN (_( RCCI_NP )_) combustion_NN in_IN internal_JJ combustion_NN engines_NNS Progress_NN in_IN Energy_NP and_CC Combustion_NP Science_NP ,_, 46_CD (_( 2015_CD )_) ,_, pp_NP ._SENT 
+12-71_CD ArticleDownload_NP PDFView_NP Record_NP in_IN ScopusGoogle_NP Scholar_NN Ritter_NP et_NP al_NP ._SENT 
+,_, 2018_CD Ritter_NP D._NP ,_, Andert_NP J._NP ,_, Abel_NP D._NP ,_, Albin_NP T._NP Model-based_JJ control_NN of_IN gasoline-controlled_JJ auto-ignition_NN International_NP Journal_NP of_IN Engine_NP Research_NP ,_, 19_CD (_( 2_LS )_) (_( 2018_CD )_) ,_, pp_NP ._SENT 
+189-201_CD CrossRefView_NP Record_NP in_IN ScopusGoogle_NP Scholar_NN Roberts_NP et_NP al_NP ._SENT 
+,_, 2017_CD Roberts_NP G._NP ,_, Rousselle_NP C._NP M._NP ,_, Musculus_NP M._NP ,_, Wissink_NP M._NP ,_, Curran_NP S._NP ,_, Eagle_NP E._NP RCCI_NP combustion_NN regime_NN transitions_NNS in_IN a_DT single-cylinder_NN optical_JJ engine_NN and_CC a_DT multi-cylinder_NP metal_NN engine_NN SAE_NP International_NP Journal_NP of_IN Engines_NNS ,_, 10_CD (_( 2017_CD )_) ,_, pp_NP ._SENT 
+2392-2413_CD CrossRefGoogle_NN Scholar_NN Splitter_NN et_NP al_NP ._SENT 
+,_, 2013_CD Splitter_NN D._NP ,_, Wissink_NP M._NP ,_, DelVescovo_NP D._NP ,_, Reitz_NP R._NP D._NP RCCI_NP engine_NN operation_NN towards_IN 60_CD %_NN thermal_JJ efficiency_NN SAE_NP Technical_NP Paper_NP 2013-01-0279_CD (_( 2013_CD )_) Google_NP Scholar_NN Wächter_NP and_CC Biegler_NP ,_, 2006_CD Wächter_NP A._NP ,_, Biegler_NP L._NP T._NP On_IN the_DT implementation_NN of_IN an_DT interior-point_JJ filter_NN line-search_NN algorithm_NN for_IN large-scale_JJ nonlinear_JJ programming_NN Mathematical_JJ Programming_NN ,_, 106_CD (_( 1_LS )_) (_( 2006_CD )_) ,_, pp_NP ._SENT 
+25-57_CD CrossRefView_NP Record_NP in_IN ScopusGoogle_NP Scholar_NN Yang_NP and_CC Zhu_NP ,_, 2013_CD Yang_NP X._NP ,_, Zhu_NP G._NP SI_NP and_CC HCCI_NP combustion_NN mode_NN transition_NN control_NN of_IN an_DT HCCI_NP capable_JJ SI_NP engine_NN IEEE_NN Transactions_NNS on_IN Control_NP Systems_NPS Technology_NP ,_, 21_CD (_( 5_LS )_) (_( 2013_CD )_) ,_, pp_NP ._SENT 
+1558-1569_CD View_NP Record_NP in_IN ScopusGoogle_NP Scholar_NN Zhang_NP et_NP al_NP ._SENT 
+,_, 2017_CD Zhang_NP S._NP ,_, Song_NP R._NP ,_, Zhu_NP G._NP G._NP ,_, Schock_NP H._NP Model-based_JJ control_NN for_IN mode_NN transition_NN between_IN spark_NN ignition_NN and_CC HCCI_NN combustion_NN Journal_NP of_IN Dynamic_JJ Systems_NP ,_, Measurement_NN ,_, and_CC Control_NP ,_, 139_CD (_( 4_LS )_) (_( 2017_CD )_) ,_, p._NP 041004_CD Google_NN Scholar_NN Zurbriggen_NP et_NP al_NP ._SENT 
+,_, 2016_CD Zurbriggen_NP F._NP ,_, Hutter_NP R._NP ,_, Onder_NP C._NP Diesel-minimal_JJ combustion_NN control_NN of_IN a_DT natural_JJ gas-diesel_NN engine_NN Energies_NNS ,_, 9_CD (_( 1_LS )_) (_( 2016_CD )_) ,_, p._NP 58_CD 

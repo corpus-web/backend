@@ -1,0 +1,969 @@
+<title>A review on numerical modelling of flashing flow with application to nuclear safety analysis</title>
+<author>1,YixiangLiao,2,DirkLucas</author>
+<Affiliation>1,Helmholtz-Zentrum Dresden - Rossendorf, Institute of Fluid Dynamics, Dresden, Germany</Affiliation>
+<year>2021</year>
+<Jounral>Applied Thermal Engineering</Journal>
+<Publishing_house>Elsevier Ltd.</Publishing_house>
+<Text_Collector>XiaFan，HEU</Text_Collector>
+<DOI>10.1016/j.applthermaleng.2020.116002</DOI>
+<URL>https://www.sciencedirect.com/science/article/pii/S1359431120334839</URL>
+A review on numerical modelling of flashing flow with application to nuclear safety analysis
+YixiangLiao,DirkLucas
+Helmholtz-Zentrum Dresden - Rossendorf, Institute of Fluid Dynamics, Dresden, Germany
+<Section>Highlights</Section>
+A review on numerical modelling of nuclear flashing flows is provided.
+Consideration of interphase slip with a two-fluid model is often necessary.
+Thermal, velocity and pressure effects all affect the vaporization rate.
+Poly-disperse models considering different interfacial topologies are promising.
+<Section>Abstract</Section>
+The flashing flow is a relevant multiphase phenomenon in many technical applications including nuclear safety analysis, which has been the subject of intense research for several decades. Numerical studies have evolved from one-dimensional to multi-dimensional. A variety of methods has been proposed, while a broad consensus does not exist yet. The present work aims to present an overview of available models and assess their limitations and perspectives by conducting an extensive literature survey. The final focus was put on recent progresses of computational fluid dynamics simulations. Some consensus on modelling interfacial slip, phase change mechanism and bubble size is identified. Since flashing scenarios often accompanying with high void fraction and broad bubble size range, a poly-disperse two-fluid model is recommended. Thermal phase change model is superior to pressure phase change, relaxation and equilibrium models for practical flashing problems, however incorporation of pressure effects is desirable. Major challenges comprise improving closure models for interphase transfer, bubble dynamics processes, interfacial area as well two-phase turbulence. For this purpose, high-resolution high quality experimental data are important, which are lacking in many cases. Considering that heterogeneous gas structures often exist in flashing flows, multi-field approaches able to handle different shapes of gas-liquid interface and including the shape effect in closure models are recommended for further study.
+Keywords:Computational fluid dynamics;Flashing flow;Nuclear safety analysis;Numerical modelling;Literature review
+<Section>1. Introduction</Section>
+Phase change from liquid to vapor can be triggered by depressurization in addition to heat infusion. Pressure drop occurs in pipelines with varying cross section and enhanced elevation, in relief valves, breaks or other types of mechanical failures [1]. The pressure-driven phase change can be considered as a spectrum of phase change phenomena with cavitation at the cold end and flashing at the hot end [2], [3]. In the case of hot liquids, which is the subject of this work, the temperature of liquid remains almost constant till phase change starts, but the saturation temperature drops with the pressure. As the pressure of the liquid reaches the saturation pressure corresponding to its temperature, boiling i.e. formation of vapour bubbles takes place as a result of interfacial heat transfer, but mostly the pressure has to drop below the saturation point [2], i.e. entering the metastable state, which is called nucleation delay. In this case, the bubble growth and vapor generation is predominantly controlled by the heat transfer rate at the liquid-vapor interface. The thermally-controlled vaporization process under depressurization is commonly referred to as flashing in the community of nuclear engineering, but more often as flash evaporation in the field of desalination [4], [5], [6], [7] or spray cooling [8], [9], [10] and flash boiling in spray atomization [11], [12], [13], [14], [15], [16]. Numerical modelling of the flashing phenomenon has received great interest from various branches, and some reviews have been published. A review on modelling of flashing two-phase flow was given by Pinhasi et al. [17]. They focused on the mechanisms and models of bubble formation and growth as well as their incorporation into two-phase flow transport models. Liao and Lucas [2] presented a review on recent progresses in computational fluid dynamics modelling of flashing flows, similarly with an emphasis of the underlying physics and models. To the authors’ knowledge reviews on related scenarios and numerical progresses in specific branches are missing. Such reviews are of critical importance not only for one community but also for interdisciplinary communication. The current work aims to provide a comprehensive review on the flashing scenarios and existing numerical works in nuclear applications, yet general conclusions are applicable to other applications. On this background the working fluid is mostly restricted to water/steam.
+<Section>2. The relevance of flashing phenomenon to nuclear safety</Section>
+Although many industrial processes benefit from the flashing phenomenon,for example, steam and spray generation [18], [19], absorption and oxidation [20], [21] as well as desalination for gaining drinking water [22], [23], [24], the fast phase change process may have a significant impact on the safety and performance of technical devices and systems [25]. Concerning nuclear safety analysis, flashing behavior is of key importance in terms of determining the reduction rate of reactor coolant inventory and affecting core thermal-hydraulics during the loss of coolant accident (LOCA), as well as inducing flow instabilities in passive safety systems driven by natural circulation.
+2.1. Flashing-related topics under LOCA conditions
+•
+Critical flow problem: In the frame of nuclear safety analyses numerous researchers have investigated steady-state flashing flows through pipes, nozzles, orifices and other restrictions [17], [26]. In such flows vaporization develops under a constant pressure difference between the inlet and exit of the pipe. As the exit pressure drops below a critical value, the flow rate doesn’t increase anymore, which is referred to as critical (or chocked) flow. A large body of literature on both experimental and numerical studies arose in the period from late 1960s to early 2000s, e.g. [27], [28], [29], [30], [31], [32] among many others. Most of these efforts were driven by the need of predicting maximal flow rates under critical conditions, since it determines the rate at which coolant inventory leaves the reactor cooling system in LOCAs. In general, the maximum velocity corresponds to the speed of sound, which is, however, difficult to be determined in two-phase systems, since two speeds of sound exist. As a result, models for calculating two-phase critical flow rates by hand are limited, and numerical methods are often necessary. Among others the BNL (Brookhaven National Laboratory) experiments on flashing flow in a converging-diverging circular nozzle [28] have been analyzed in many numerical works, e.g. [33], [34], [35], [36], [37], [38], [39], [40], [41], [42], [43]. Models used in particular studies will be discussed in detail in preceding sections. Although great progress has been made in the past several decades, elaborate models including analysis of non-equilibrium phenomena still rely heavily on empirical or semi-empirical correlation of phase interactions or untested assumptions [26].
+•
+Pipe blowdown transient: There have also been many experimental and theoretical works on transient two-phase flashing flows under pipe blowdown conditions [44], [48], [49], [50], [51], [52]. The major concern here is the early-stage response of initially subcooled but hot liquid in a pipe or vessel during sudden depressurization, including the change of fluid temperature and pressure as well as the inception of flashing and void development. The information is of importance for analyzing the system behaviour and checking over the action of safety and protection systems during the accident. Edwards and O’brien [44] performed transient blowdown experimented and filled the horizontal pipe with pressurized heated water. A glass disk at one end was ruptured to initiate the blowdown. The experiments were also called Standard Problem Number One (STP 1) in nuclear safety analysis. The measurements of pressure at several positions as well as void fraction have been used for model validation in a number of numerical works such as [45], [46], [47]. Takeda and Toda [48] investigated the pressure behavior in a vertical pipe ruptured at the top end with an initial temperature gradient increasing from bottom to top. The case was analyzed by Lafferty et al. [49] and Costa et al. [50] with the RELAP5 and WAHA code, respectively. Both system codes showed difficulty in reproducing the experimental data perfectly, e.g., over-prediction of pressure amplitudes. Adjustment of model constants, break size or boundary conditions is necessary. Similar blowdown experiments were conducted by Lienhard et al. [51], Bartak [52] and others. Instead of analyzing the transient pressure behavior in the tube, the focus of these studies was the nucleation delay phenomenon. As mentioned in the introduction, during a depressurization process bubble nucleation is usually not initiated as soon as the saturation pressure is obtained. In contrast, the liquid may enter a certain metastability state, and flashing inception is observed at a lower pressure. The difference between flashing inception and the saturation pressure is referred to as pressure undershoot. Its value depends on initial temperature, depressurization rate, liquid and vapour properties as well as nucleation sites available in the system. Several semi-empirical correlations based on the classical nucleation theory and experimental data of rapid depressurization were derived for determining the pressure undershoot. In general, both experimental and numerical study of blowdown or rapid depressurization phenomena are preliminary. Detailed measurements such as interfacial area density, individual phase temperature, local phase velocities, void fraction or other parameters are often difficult. This sort of information is, however, important for theory and model development. Related numerical works as well as the application of pressure undershoot correlations will be discussed later.
+•
+Lower plenum flashing: Although the study of pipe critical flow and blowdown phenomena is a contributing part of LOCA analyses, the fluid behavior and vapor generation in the pressure vessel is of great interest as well. It affects directly the core cooling and occurrence of core meltdown. As the downcomer level falls, the initially subcooled water in lower plenum becomes metastable and flashes into steam, resulting in a surge of two-phase flow upwards through the core. This may reduce the liquid inventory in the lower plenum and downcomer because of vaporization and entrainment, and may also reduce the reflood driving head and prevent the injected cooling water from entering the downcomer. Nevertheless, the liquid entrained in the steam flowing toward the upper part of the vessel may often give a significant contribution to the cooling of uncovered fuel rods, both in PWR and BWR systems [53], [54]. Phenomenologically, the flashing effects observed in the lower plenum can also be encountered in control rod guide tubes, but with a much lower intensity. Nonetheless, it may affect the core thermal-hydraulic behaviour in a later stage of LOCA transients [53]. In comparison to pipe critical or blowdown flows mentioned above, investigation on the flashing process occurring inside the vessel is challenging due to large geometry size and complex internals. A limited number of studies have been performed in this area, and a few large-scale experiments on blowdown effects in the pressure vessels are available, e.g. [55], [56], [57]. Ylönen [58] reviewed the existing experiments on large-break LOCA, and concluded that for the purpose of CFD code validation, suitable data such as pressure and void fraction at both axial and radial positions are needed. The statement is applicable to other flashing scenarios as well.
+•
+SG tube rupture flashing: In a PWR steam generator (SG) tubes constitute a large fraction of the pressure boundary, and play an important safety role. Any leakage resulting from SG tube rupture (SGTR) will allow radiation to escape into the non-radioactive side of the plant and likely to environment, the barrier function of containment vessel being bypassed [59]. Although the core melt frequency resulting from SGTR is low relative to other severe accidents, it is a major accident in the field of nuclear safety considering its direct impact on the environment. Coolant flow rate through the break is a key in the analysis of SGTR. Due to high pressure drop through the break, the coolant flashes rapidly and the flow becomes chocked or critical. As introduced above the critical flow problem has been a subject of intense study both experimentally and theoretically. However, the research in the past mostly focused on blowdown from vessels, large pipes or short nozzles, while SGTR presents a particular class of small-break LOCAs. The width of crack is in the micrometer range and the length of flow path approximates the thickness of SG tube walls @ [60]. Assessment and extension of existing numerical models on leakage and critical flow rates for SGTR are necessary. The overall system performance of a light water PWR during SGTR events with different number of ruptured tubes and with/without ECCS (Emergency Core Cooling System) was tested in many institutions [61], [62], [63], [64]. However, numerical works on these experiments are not available in open literature. A comprehensive measurement of leakage rate from micro-crack in SG tubes was carried out by Zhang et al. [60]. The crack has an opening displacement between @  and 200 , depth around 2 mm, length of @ mm, and the test pressure covers the range of @ kPa. Also here CFD-grade data are desired.
+2.2. Flashing-induced instability (FII)
+Passive systems utilizing natural circulation have advantages over active ones, and are frequently adopted in new generation reactors [65]. The passive containment cooling system (PCCS) has been developed as an advanced safety feature, for example, in AP1000 [66], ESBWR[67], iPOWER [68], VVER-1200 [69], KERENA™ [70], and the Hualong pressurized reactor 1000 (HPR1000) [71]. A major disadvantage of the passive systems is low driving force, which can lead to instability and safety problems. Due to hydrostatic pressure drop in the riser of natural circulation loop, steam generation by flashing can take place. As the steam bubbles condense in cold parts of the loop, oscillation of flow rate, temperature and pressure can be observed, which is referred to as Flashing-Induced Instability (FII). The FII phenomenon was first observed by Wissler et al. [72] as they conducted experiments on an open natural circulation test loop. Since then, many researchers performed experimental studies on the phenomenon, and a majority part focused on the instability problem in BWR during start-up, e.g. [73], [74], [75], [76]. At the start-up condition, the coolant may not reach saturation temperature in the core, where it is heated up, and remain single-phase due to low power. However, because of considerable decrease in coolant saturation temperature along the flow path, flashing can occur in the adiabatic section above the core, and lead to self-sustained flow oscillation in the loop. A flashing-driven passive moderator cooling system was developed at AECL for CANDU reactors. It was shown that the concept was feasible at normal operating power, but caused flow instabilities at low power [77], [78]. Similar phenomena were observed in the PCCS systems mentioned above [79]. Since the late 1980s, many researchers have analyzed the FII using numerical methods, and various analysis codes were adopted such as TRACG [80], FLOCAL [81], RELAP5 [82], [83] and MARS [65], [84]. Lim et al. [65] attempted to develop stability maps for FII using the MARS code. The two-phase models implemented in these system codes range from mixture (FLOCAL) to two-fluid (TRACG, RELAP5 and MARS) with different levels of complexity. Progress has also been made in multi-dimensional CFD simulations [85]. However, due to high-frequency transients and complex two-phase processes, high-fidelity modelling of FII still represents a great challenge. A review on existing numerical models and prespectives for imporvement is helpful, which is provided in the following sections.
+<Section>3. Widely-used numerical models for flashing flows</Section>
+A large body of literature exists on the numerical study of various flashing scenarios conducted with application to nuclear safety analysis. The simulations progress from one-dimensional to three-dimensional, and the applied models range from simple empirical to mechanistic ones. Concerning whether non-homogeneous and non-equilibrium effects are considered, they fall into four main categories (a) homogeneous equilibrium model (HEM), (b) non-homogeneous equilibrium model (NHEM), (c) homogeneous non-equilibrium model (HNEM) and (d) non-homogeneous non-equilibrium model (NHNEM). The term “homogeneous” represents equal velocities while “equilibrium” denotes equal temperatures of the two phases. Note that pressure discontinuity at the gas-liquid interface may play also a role in particular near the inception, but in the majority of studies a pressure equilirium was assumed. The models in each category differ further in their treatment of the mechanical and thermal non-equilibrium and the applied constitutive models, see Table 1. A brief introduction of these models, and a review on representative one-dimensional numerical works are provided in this section, while multi-dimensional simulations are discussed separately.
+3.1. HEM
+As the name suggests, the HEM simplifies the two-phase flow to a pseudo or an equivalent single-phase one. It flows with an average velocity and possesses mean thermodynamic properties, which are obtained by interpolating between the saturated liquid and vapour ones using the equilibrium quality. In order to use well-established single-phase theories, the HEM was very often used for LOCA analysis around 1950s, for example, available in early versions of the system code RELAP. Among others Leung [118] presented a critical flow model on the basis of HEM assumptions. It works well for long pipes, where the time is sufficient for equilibration between the phases. Many works [86], [87], [88], [89] discuss the difference between measured and predicted critical flow rates for short pipes, in which there is insufficient time for the two-phase mixture to proceed to equilibrium. The flow rates predicted by the HEM are considerably less than those obtained experimentally. Ardron and Furness [119] showed that this theory provided a lower bound to all collected data, although confident agreement was obtained for saturated water critical flow rates in long tubes (L/D = 40). According to Deligiannis and Cleaver [114] the HEM is incapable of predicting the early stages of rapid depressurization, where the effect of nucleation and thermal non-equilibrium is of prime importance. Concerning the flow instability Hu et al. [120] and Podowski [121] reported that the HEM predictions are conservative in comparison with a slip or two-fluid model, because the HEM void fraction is higher. According to [31] in the initial stage of steady-state flashing, when bubbles are small and finely dispersed in the liquid, an assumption of hydrodynamic momentum equilibrium is applicable, however, thermal non-equilibrium has to be considered since the interfacial area available for heat transfer is very limited. As the bubbles grow and void fraction exceeds a value of 0.3, thermal equilibrium may be assumed but slip between the phases becomes important and ignoring it will cause inaccuracies. Based on these analyses, the reliability of HEM prediction for long pipes is not always justified.
+3.2. NHEMs
+Attou et al. [95] studied the effect of interfacial slip on bubbly flow through a sudden enlargement by analyzing two extreme conditions with maximum or negligible momentum transfer between the two phases, respectively. The former assumption is equivalent to HEM, while the latter was referred to as a momentum frozen model (MFM). It was found that in HEM, due to complete momentum transfer between the phases, the lower inertia of the gas causes the liquid to decelerate faster than in reality, leading to a higher pressure recovery than predicted in experiments. Consequently, the MFM causes the liquid to decelerate slower and hence the pressure recovery predicted is lower than in experiments. Addressing the finite rate of interphase transfers is of importance in analyzing flashing flows especially at the later stage [31]. Most earlier efforts have been devoted to developing empirical or theoretical correlations for the velocity (or slip) ratio. For example, theoretical models for critical flow through long tubes presented in [29], [30], [86], [92] are based on the thermodynamic equilibrium assumption but relax the requirement of equal phase velocities by introducing a slip ratio. The next level of complexity is to use drift-flux model to characterize the effect of relative motion between phases, and evaluate the void distribution parameter and vapor drift velocity purely empirically. For example, Hu et al. [93] investigated the FII during a BWR reactor start-up using one such model. The vapor generation rate was derived from the mixture energy conservation equation, while the nonhomogeneous velocities of the liquid and vapor was considered using the drift-flux approach. The steady-state prediction of natural circulation flow rates are found to be larger than those of a two-fluid model at both low and high pressure (see Fig. 6 and Table VII in the reference). A similar equilibrium approach was used in [94] for the linear stability analysis of a boiling natural circulation loop. Over-prediction of velocity and flow rates were also observed for low heater powers. Wallis [26] and Bouré [96] disadvised in general the use of drif-flux models. They warned that the relative motion in a rapidly accelerating/decelerating flow with changing void fraction as well as flow pattern is determined by a quite different set of terms from which the derivation of drift-flux correlations is based on. It is important to take into account the mechanical interaction between the phases using a separated flow model or two-fluid model when the flashing flow has to be modelled [95]. However, reliable models are needed for the description of interphase transfer, which will be discussed in more detail below.
+3.3. HNEMs
+Similar to homogeneity of phase velocities, the validity of assumption about thermal equilibrium is limited. According to Donwar-Zapolski et al. [122], the most important feature of flashing flows is thermal non-equilibrium caused by nucleation delay and limited rate of vapor generation. These effects greatly influences the development of local void fraction, pressure and phase velocities in the flow. Kato et al. [123] included thermal effects in cavitation bubble growth calculations for hot water, liquid hydrogen and nitrogen by numerically solving the energy equation together with the Rayleigh’s equation. It was shown that the model has to capture the non-equilibrium nature of the flow in order to deliver accurate results [124]. The methods describing thermal non-equilibrium fall in four categories:
+•
+Empirical models: Henry and his co-workers [30] intended to consider the non-equilibrium effect by introducing a correction factor, which allows only a fraction of the equilibrium vapor generation to occur. The empirical factor was derived based on the deviation between the measured flow rate and the HEM prediction, and its expression largely depends on the pipe length to diameter ratio. For a slip ratio value of unity the authors presented a simple correlation being a function of equilibrium quality only. It assumes that if the quality exceeds 0.05 thermal equilibrium is achieved. For low qualities the non-equilibrium factor was set to 20 times the equilibrium quality, i.e. . The actual flow rate was estimated as , where @ is the flow rate obtained from the HEM. In their homogeneous model assuming equal phase velocities, Simpson and Silver [97] and Edwards [44] introduced two empirical coefficients to account for the non-equilibrium nucleation process. One is the time-delay for bubble nucleation, and the other is the number concentration of bubble nuclei. The methods of empirical coefficients were rarely used in the numerical simulations of others, since they are not advantageous when a choking criterion as function of local conditions is desired.Empiricism is also contained in pressure undershoot models. For the sake of simplicity Lackmé [98] assumed that evaporation should start if the pressure falls about @ below the saturation pressure corresponding to the initial temperature. To determine the pressure-undershoot more reliably, many semi-empirical works have been carried out, e.g. [52], [99], [100], [125] among others. Based on the classical homogeneous nucleation theory and experimental data, correlations for the heterogeneity factor and pressure undershoot were derived in these studies. They have been frequently used in one-dimensional flashing simulations. More details are available in the next section.
+•
+Relaxation models: The basic idea of the relaxation model is that the actual quality x is lower than but approaches the equilibrium one @ gradually. Bilicki and Kestin [105] proposed the homogeneous relaxation model (HRM) by adding a rate equation to the HEM equations. It describes the rate of the actual quality x approaching its local equilibrium value. The necessary coefficient is the relaxation time, which is a function of system pressure, mixture enthalpy, actual quality and so on. Downar-Zapolski et al. [122] derived a correlation for the relaxation time basing on the “Super Moby Dick” experiments on critical flow rates [126]. It is a monotonically decreasing function of void fraction and the non-dimensional pressure difference . Similar relaxation times may be derived for other thermodynamic parameters, and they may differ. For example, Bilicki et al. [127] presented a method for the evaluation of the relaxation time of interphase heat exchange. Mohammadein [128] derived a formula for the thermal relaxation time by solving energy and relaxation equations analytically, in terms of two-phase mixture between two finite temperatures boundaries. Above HRM model has been adopted in many recent numerical studies of flash-boiling atomization, while rare in the nuclear safety analysis. The empirical coefficients in the relaxation time correlations are found to be dominant factors affecting the simulation results such as vapor production and distribution greatly. In addition, the model tends to predict non-physically large relaxation time scales in some occasions for example at low temperature [108].
+•
+Delayed Equilibrium Model (DEM): In comparison to others, the delayed equilirium model (DEM) is not yet widespread. For the sake of completeness, it is introduced briefly here. The basic idea of the DEM for describing the flashing flow is that the mixture is composed of three phases, i.e. saturated liquid, saturated vapor and metastable liquid [110]. The third phase is in thermal non-equilibrium with the saturated ones, and the whole mixture is at pressure and mechanical equilibrium. The expansion of the metastable liquid is assumed to be an isentropic process. In addition to the mixture system of equations, an extra mass balance equation for the metastable liquid phase is solved. De Lorenzo et al. [111] benchmarked the DEM and other three well-known two-phase critical flow models, namely, the HEM, the Moody NHEM [29] and the Henry-Fauske HNEM [30], against more than 450 experimental data. The results showed that none of the classical models can be considered as a general method for the evaluation of the two-phase critical flow. Although positive results in evaluating the critical mass flow rate of long tubes, HEM fails in predicting the critical pressure or pressure undershoot. Moody’s model is unsuitable under two-phase stagnation conditions. The Henry-Fauske model provides rather good results for discharge of saturated vapor or two-phase mixtures from nozzles and orifices, but overestimates the critical mass flow in long tubes. In contrast, up to @ under-prediction was observed in the case of subcooled or saturatted water through a short pipe and nozzle @ [119].On the other hand, DEM exhibits reliable results for the configurations ranging from long and short tubes to narrow slits in terms of both critical pressure and critical mass flux. However, in the author’s point of view, further validation is required to judge the reliability of DEM with regard to the untested underlying assumptions, i.e.isentropic expansion and mechanical equilibrium.
+•
+Physically-based models: As aforementioned, thermal non-equilibrium processes in a flashing flow concern majorly the nucleation and interphase heat transfer. Some works consider both of them, while others only the latter by prescribing a constant bubble number density. Despite numerous attempts have been made, limited understanding of the physical phenomena prevent from defining the non-equilibrium effects precisely. So, it can happen that the results obtained from a sophisticated model are worse than those from a simpler one [26], [129]. The non-equilibrium models can be incorporated with homogeneous, drift-flux or two-fluid models in one or more spatial dimensions. The non-homogeneous models, i.e. drift-flux and two-fluid models, will be discussed in the coming subsection. Within the context of a one-dimensional homogeneous model, Wolfert et al. [45] simulated three blowndown experiments by focusing on the interphase heat transfer, which determines the vapor generation rate. The overall transfer coefficient was calculated by combining the heat diffusion model of Plesset and Zwick [130] and the convection model of Ruckenstein [131] cumulatively. Furthermore, they took into account the turbulence enhancement by introducing an eddy conductivity. The bubble number density was treated as a constant. With fixed values of the interfacial mass transfer controlling parameters, i.e. bubble number density, eddy conductivity coefficient, relative velocity and minimum void fraction, good results were achieved in simulating various experiments. The general applicability of the model indicates the correctness of combining different heat transfer mechanisms. For the modelling of flashing flow in a converging-diverging nozzle, Wu et al. [33] attempted to find out the flashing inception location by applying pressure undershoot models. Downstream from the onset location, a constant number of bubbles was assumed, and the bubbles initially have the critical size corresponding to the onset pressure. The extension of pressure undershoot correlations for static depressurization to flowing systems is inspiring. It was found that the turbulence effects on local pressure have to be considered in pipe flows, while in nozzle flows the flashing inception was observed to occur at the throat, and the pressure undershoot can be estimated with the static inception criteria of Alamgir and Lienhard [125]. The vapor generation rate was assumed to be only limited by heat conduction.
+The lack of knowledge on nucleation as well size and density of nuclei remains one difficulty in the modelling of flashing flows. Rohatgi and Reshotko [112] simulated flashing liquid nitrogen flow in a venturi using a one-dimensional HNEM. They accounted for heterogeneous nucleation by making analogy to the classical homogeneous nucleation theory with the assumption that nucleation in the bulk is dominant. Two adjustable parameters are contained in their model, one being the value of activated nucleation site density @ and the other being the heterogeneity factor . For the investigated cases, @ and @ provide an overall good agreement with experimental data. In addition, the authors confirmed the need of including bubble coalescence in further study. Blinkov and his co-workers developed a quasi-one-dimensional HNEM to calculate the behavior of nucleation and flashing in nozzles [113]. Besides the mixture conservation equations, one continuity equation for the vapor phase and one transport equation for the bubble number density were solved. Both bulk and wall nucleation phenomena were considered. Heterogeneous nucleation in the bulk was modelled by assuming a size distribution of pre-existing nucleation sites, and the activated nucleation site density is correlated with the Gibbs number. A cavity model was proposed for determining the nucleation site density, bubble departure diameter and frequency at walls. A major finding was that bulk nucleation is important for large geometries while negligible for small ones. Deligiannis and Cleaver[114] studied the effect of heterogeneous nucleation for the initial phases of a rapid depressurization with a two-fluid model assuming zero slip between the phases. They deemed that the contribution of homogeneous nucleation and bubble coalescence is negligibly small. The rate of heterogeneous nucleation was computed with the Blander and Katz [132] correlation. The authors pointed out that it is difficult to specify the model parameter, i.e. heterogeneity factor, a priori, and its value affects the simulation results greatly. An overview of the nucleation and pressure undershoot models is given in Table 2. For more details about their underlying assumptions and derivation the reader are referred to the previous work [2] as well as related references.
+Table 2. Overview of pressure undershoot and nucleation models.
+3.4. NHNEMs
+Besides above homogeneous models, the non-equilibrium effects regarding nucleation and interphase heat transfer are mostly considered in the context of non-homogeneous models, where the velocity difference between the gas and liquid phases is taken into account by using the drift-flux or two-fluid model.
+•
+Drift-flux model: Kroeger [104] applied a non-equilibrium drift flux model to the blowdown experiments of Edwards and Q’Brien [44]. The vapor generation rate was calculated from a relaxation type model, and the vapor drift was considered by the correlations proposed by Zuber and Findlay [136]. According to the authors, non-equilibrium effects in these experiments were not clear, and good agreement could be obtained with either a homogeneous or relaxation model. Another non-equilibrium drift flux model was presented in Elias and Chambé [115]. They assumed that the evaporation rate is governed by interphase heat transfer. The evaporation rate is determined by a conduction bubble growth model[137]. The simulation results showed that the neglect of nucleation delay caused a systematic under-prediction of critical flow rate of initially subcooled or saturated liquid, while in two-phase entry conditions the effect was not pronouced. In addition, the authors admitted the inherent limitations of the drift-flux model for non-equilibrium flow situations and the one-dimensional model for describing the physical pehnomena in sharp edged entrance geometries. A similar non-equilibrium model was developed by Saha and his co-workers [32], and the major difference lies in modelling of interphase heat transfer. Saha et al. [32] stated that the Plesset-Zwick or Forster-Zuber type of heat transfer coefficient may be applicable for short time after nucleation. As the bubbles “age”, convection starts to dominate the heat transfer because of the relative velocity between the bubbles and liquid. They used a simple expression which provides the root mean square of the conduction and convection heat transfer coefficients [138]. The interfacial area density was estimated separately for bubbly and bubble-slug flow regimes. The bubble number density was optimised to fit the void fraction data in a vertical converging-divering nozzle. The best-fit value was found increasing with the liquid suerheat at the inception until three degrees was reached and after that decreasing. A reasonable agreement was obtained in the bubbly flow regime. However, clear deviation was observed for bubbly-slug flows. Riznic et al. [34] improved the drift-flux model by considering bubble generation and transportation instead of assuming a constant bubble number density. The bubble number transport equation was solved with a distributed source from wall nucleation. In addition, they took into account the variable pressure effects in their conduction bubble growth model according to the results of Jones and Zuber[134]. They found that in a variable pressure field, which cause the saturation temperature to vary as @ (t being time), the bubble radius will grow as . It is significantly faster than @ usually expected for the initial superheat.
+•
+Two-fluid model: Although the drift-flux model is useful in many engineering applications, it is known to be inappropriate for problems of acoustic wave propagations, choking phenomena and high frequency instabilities [26], [96]. Saha et al. [32] recognized that a two-fluid model is superior to the drift-flux model in calculating the relative velocity. However, the advantages of a two-fluid model over a drift-flux model disappears if the interphase momentum interactions are not accurately modelled. One-dimensional two-fluid equations were used by Ardron [133] to calculate the critical flow of initially saturated or subcooled water discharging from a pipe. The nucleation and diffusion-limited growth of vapor bubbles in superheated liquid were considered in the determination of vapor generation rate. Like in [112] the nucleation rate was computed based on the classical nucleation theory by introducing a heterogeneity factor, see Table 2. Due to lack of information, the density of nucleation sites in the liquid and the liquid superheat required to initiate nucleation were treated as adjustable parameters. By neglecting the sphericity of bubbles and assuming linear time variation of the liquid superheating degree, the diffusive heat flux from the thermal boundary to the bubble wall was approximated as
+@(1)
+where @ is the time point at which the bubble is created, @ abd @ are liquid thermal conductivity and diffusivity. Calculations suggested that the critical flow rate in pipes up to ten diameters in length could be significantly under-predicted by HEM. Furthermore, because of the competing effects of thermal non-equilibrium and wall friction there is a maximum critical mass flux for a particular pipe length to diameter ratio. In the critical flow of steam-water mixture at high pressures the average velocity of the surrounding liquid may exceed that of the bubbles by twenty-five percent.
+Rivard and Travis [139] described the vapor production and bubble growth by the well-known heat diffusion controlled rate presented in [130], but considered the enhancement in thermal diffusivity due to the effect of relative motion and liquid turbulence, i.e. , where @ is effective diffusivity, molecular diffusivity, bubble radius and relative velocity, respectively, and C is an empirical constant. In addition, an initial bubble size and number density was specified. As the bubbles grow to a critical size, determined by a Weber number criterion, they took the critical size. Good agreement concerning flow rate and pressure was showed for blowdown experiments with various nozzle geometries. Richter[31] applied the two-fluid model to calculation of critical flow rates for steam-water mixtures from nozzles. He postulated that convection is the dominant mode of interphase heat transfer during flashing, and adopted the empirical correlation proposed by Ranz and Marshall [140] for estimation of heat transfer coefficient in the bubbly flow regime. Different flow regimes were considered in the model, like bubbly, churn-turbulent and annular. The transition from one regime to another was assumed to occur at certain void fractions. Further empiricisms were needed to specify the initial bubble diameter and number density. The study suggested that thermal non-equilibrium was important in the bubbly flow regime while in the churn-turbulent flow regime hydrodynamic non-homogeneity plays an important role. A similar two-fluid model has been presented in [129], while different correlations were used for the constitutive equations, i.e. drag coefficient and heat transfer coefficient. Schwellnus [141] included a seventh equation for bubble diameter up to the point from bubbly to churn-turbulent flow. The bubble number density was updated basing on the bubble diameter and void fraction. The model predicted well the critical flow rate and pressure distribution along the tube. The author emphasized the importance of including both mechanical and thermal non-equilibrium in calculation of subcooled and saturated water discharge, in particular for high subcooling and short pipe lengths. For the purpose of analyzing critical flows in pipes with non-diverging cross-sectional area, Dagan et al. [142] derived an empirical correlation for the number density of bubbles as a function of pipe’s length to diameter ratio. Furthermore, they extended the conduction bubble growth model proposed by Olek et al. [143] to include convection. The results suggested that proper modelling of the interphase heat transfer and the bubble number density affects greatly the calculation results. It was concluded that the mode of thermally-controlled bubble growth might not be valid near the choking plane where bubble inertia may be important. In addition, the assumption of saturated vapor may not be realistic at high void fractions. Tiselj and Petelin [35] simulated the critical flashing flow in a converging-diverging nozzle with the two-fluid model in RELAP5. The simulation results were compared with the experiments performed in the BNL laboratory [28]. They stated that the major source of discrepancies was the neglect of the flashing delay. In addition, the effect of the virtual mass term could be important for cases with two-phase flow entrance. Recently, Kozmenkov et al. [82] and Atajafari et al. [116] applied the same model for FII observed at the CIRCUS [73] and SIRIUS-N [74] test facilities, respectively. According to the latter, the model in RELAP5/MOD3.2 tends to under-predict the instability. For cases characterized with regular oscillations, the numerical results remain relatively stable. The numerical and experimental prediction of the stability boundary is also not similar. Wein [117] developed a two-fluid model for flashing flows of initially subcooled and saturated fluids through pipes and nozzles. It consists of six conservation equations of mass and momentum, liquid thermal energy and bubble number transport. Constitutive equations describing interphase mass, momentum and heat transfer account for different flow regimes. Nucleation on the wall and in the bulk flow was considered. The results proved that the importance of fluid hydrodynamic non-equilibrium increases with vapor volume fraction, which is in line with others [31], [141].
+Similar as for nucleation models, a broad consensus on choosing interphase heat transfer models does not exist. As discussed above in some works conduction was assumed to be a predominant heat transfer mechanism, while in others convection. A few researcher considered the combined effect by simple means such as cumulation. A comprehensive evaluation of the heat transfer coefficient models for flashing flows was conducted by the same authors in previous work [138]. They attempted to generalize the model by taking into account convection and turbulence effects along with the conduction, and validated it for condensing and evaporating flows [138], [144]. Some typical correlations of heat transfer coefficient are summarized in Table 3.
+Table 3. Correlations for interphase heat transfer coefficient.
+<Section>4. Computational fluid dynamics modelling</Section>
+CFD-based simulations are becoming a useful tool for studying transients, instabilities and phase transitions in two-phase flow systems [121]. Since the beginning of the 2000s there arise a number of CFD works on flashing flow related to the nuclear reactor safety problems. Insights to smaller scale flow processes and multi-dimensional phenomena which were not seen by system codes may be acquired by using the CFD tool. It brings a better understanding of local physical phenomena, more confidence in the results and then better definition of safety margins. However, the same problem as in one-dimensional codes encountered here is that, constitutive models are not as mature as in single phase cases, and a general consensus regarding model selection is not available. A lot of work has still to be done on the physical modelling and numerical algorithm as well as acquisition of CFD-grade experimental data [146]. The possibility and limitation of CFD simulation for flashing flow scenarios in nuclear applications was discussed firstly in [1].
+4.1. Flashing nozzle flow
+CFD simulation of flashing flows in nuclear applications are mostly concentrated on the steady-state nozzle flow. Considering that the BNL experiments [28] have been frequently simulated, geometrical details about the nozzle and some test runs are presented in Fig. 1 and Table 4, respectively. According to the information in the literature (Table 3.2 in [28]), the accuracy of flow rate measurement is . In most cases the mass flow rates obtained using different models conform well with the data, although adjustment of some parameters such as accommodation coefficient [43] and bubble number density [42] was often necessary. Details about the numerical methods and models adopted in each work are discussed below.
+Fig. 1. Vertical circular convergent-divergent nozzle in BNL experiments [28].
+Table 4. Operational conditions and test runs in BNL experiments [28].
+According to phase-change models, the CFD works on flashing nozzle flow are classified into two categories, i.e. thermal phase-change model (TPCM) and pressure phase-change model (PPCM). In TPCM the driving force for phase change is the temperature difference across the vapor-liquid interface, while in PPCM is the pressure difference.
+4.1.1. Thermal phase-change model (TPCM)
+•
+HNEM: Maksic and Mewes [37] examined the flashing flow in the BNL nozzle [28] by performing simulations with the commercial CFD-code ANSYS CFX version 4.2. The simplified two-phase model consists of continuity and momentum equations for the mixture of liquid and vapor, a separate continuity equation for the vapor and an energy equation for the liquid. The vapor phase was assumed to be saturated with temperature corresponding to local pressure. The four-equation HNEM was supplemented with a transport equation for the bubble number density. The generation of bubbles from wall nucleation was considered, and the rate was calculated according to the Jones model [113], [134] (see Table 2). The surface source was transformed to a volumetric source by multiplying it with the ratio of the pipe perimeter to the cross-sectional area of the pipe , i.e.
+@(2)
+The transformation may lead to inconsistency, since @ has a value of zero everywhere except in the cells adjacent to the wall. For the calculation of interfacial area density, bubbly regime () and slug regime () were considered. In the slug regime, the interfacial area density was assumed to be the sum of that of spherical bubbles and cylindrical slugs, but how to determine the volume fraction of each type of the bubbles is not clear. The interfacial heat transfer was assumed to be dominated by heat conduction. The empirical correlation presented by Labuntzov [145] (see Table 3) was adopted. As one can see from Table 4, the model predicted a good agreement on mass flow rate for the test run 273 with inlet pressure of 573.5 kPa, temperature of 421.85 K. However, a fluctuating pressure profile and under-prediction of void fraction in the diverging part of the nozzle was shown.
+•
+NHNEM: Marsh and O’Mahony [39] simulated the same nozzle flow using a full two-fluid model in the commercial CFD code ANSYS FLUENT, with separate mass, momentum and enthalpy balance equations for liquid and vapour. Inter-phase mass and momentum as well as energy transfer resulting from both nucleation and phase change were taken into account. However, the effect of non-drag forces on the momentum exchange and heat transfer between the vapor and vapor-liquid interfaces were neglected. Like in the previous work vapor generation is determined from interphase heat transfer. The generation of bubbles from nucleation was taken into account by solving a bubble transport equation. The nucleation rate was computed by a modified version of the Blander and Katz model [132] (see Table 2). The calculated and measured mass flow rate was compared for six BNL runs carried out by Abuaf et al. [28], see Table 4. Good agreement was achieved for all cases except Run 309, which has a high inlet pressure and a relatively low outlet pressure, in other words high vaporization rate. Furthermore, in contrast to that a bubble layer in the vicinity of the wall as reported in [37], the distribution of vapor in the diverging part of the nozzle is almost uniform. The difference mainly results from the nucleation models that are applied. The model of Blander and Katz [132] was derived from the classical nucleation theory for bulk nucleation and activated not only on the walls but all over the domain depending on local liquid superheat. It differs in nature from the Jones wall cavity model [113] used in the previous work.
+The disagreement on nucleation modelling motivated Janet et al. [41] to evaluate the existing models. They analyzed the heterogeneous nucleation effects in the BNL nozzle using the two-fluid model in ANSYS CFX 15.0. As in the work of Maksic and Mewes [37], the vapor-liquid interface were assumed to have saturation conditions and the vapor remain saturated by applying the zero resistance model, but separate velocity fields were solved for the liquid and vapor phases. To estimate the heat transfer between the superheated liquid and the interface, the heuristic correlation of Saha [32] was used. Like in [37], [39] a transport equation was solved additionally for the bubble number density. The nucleation source was implemented as a boundary flux entering the near-wall mesh cells. Three wall nucleation models, the Jones model [113], [134], Riznic model [34] and the RPI model [148], were investigated. The first two models were developed for flashing conditions while the last one for sub-cooled wall boiling. However, they have a similar form, i.e. the nucleation rate equal to the product of active nucleation sites at the wall and bubble depature frequency, see Table 2. Their performance was found to differ qualitatively and quantitatively in predicting of the bubble departure frequency and diameter along the nozzle. The Jones model predicted the best agreement on the mass flow rate. Considering only wall nucleation leads to the same profile as observed in [37], i.e. a bubble layer appearing in the vicinity of the wall, whose thickness increases along the nozzle axis, while the void fraction in the central part of the nozzle is nearly zero. On the other hand, the measured profiles show non-zero values in the central region along with high peaks near the wall. Based on this observation, Janet et al. [41] suggested that both wall and bulk nucleation play a role in flashing nozzle flows although wall nucleation is dominant in most cases. The effect of bulk nucleation was considered by using the model proposed by Rohatgi and Reshotko [112], see Table 2. Considering both wall and bulk nucleation improves the agreement between the measured and simulated radial profiles considerably.
+The nucleation region in above BNL nozzle test runs has been shown sufficiently narrow (a few centimeters) both experimentally [33] and numerically [41]. The bubble number density is nearly constant after the nucleation region. Based on these observations Liao and Lucas [42] revisited these cases with prescription of the bubble number density. The initial tiny bubbles can be deemed as pre-existing nuclei, which start to grow once the surrounding liquid becomes saturated. This is a major difference from the numerical model applied in the previous work of [41], where the nucleation delay was considered. Fourteen cases with different inlet/outlet pressures and temperatures were benchmarked. The error between predicted mass flow rates and experimental data for all cases was below , see Table 4. At the same time, satisfying agreement regarding axial profiles of void fraction and pressure was observed, which are greatly improved in comparison with the one-dimensional results published in [33]. However, the lateral distribution of bubbles reveals large discrepancy, although non-drag forces including lift, added mass, turbulence dispersion and wall lubrication are considered [149]. Both simulation and experiment gives a wall-peak profile, but the predicted void fraction in the central region is much too high. It proved that dynamic processes such as bubble nucleation, growth, coalescence and breakup were not reproduced by the numerical model appropriately, apart from the uncertainties in the force models. To capture the lateral bubble migration, a poly-disperse approach tracing the local bubble size change is necessary.
+Mimouni et al. [135] simulated one critical flow case of the Super Moby Dick experiment [150] with the NEPTUNE_CFD solver. It has the boundary conditions of 3996 kPa at the inlet and @ kPa at the outlet, and the initial water subcooling is of about . Mass, momentum and energy balance equations are solved for both liquid and vapor. The interfacial transfer of momentum consisted of three forces, i.e. drag, virtual mass and the secondary momentum source associated with the interfacial mass transfer. Nucleation occurring at the wall and pre-existing nuclei are considered. The former is modelled by using the Jones nucleation model [113], while the latter by presuming an initial void fraction. In addition, the original correlation for active nucleation site density was modified for the sake of generality. The change of bubble size and number density was not solved, and instead, a constant value was prescribed for the bubble size. The heat transfer coefficient on the vapor side was set to a large value to ensure the vapor temperature remaining very close to the saturation temperature, and on the liquid side was calculated using the Ranz-Marshall correlation [140]. While the majority of investigations indicated that wall nucleation is predominant in the flashing nozzle flow, Mimouni et al. [135] found the vapor generation at the wall negligible in comparison to that from pre-existing nuclei. The inconsistency is likely caused by the fact that the pre-existing nuclei are activated earlier (at saturation conditions) and suppress the activation of nuclei on walls. It can be expected that the void fraction in the central region would be over-predicted as shown in [42]. The effect of initial void fraction as well bubble size was discussed. Taking into account the poly-dispersity was identified as one important issue requiring further efforts.
+4.1.2. Pressure phase-change model (PPCM)
+In all above investigations phase change was deemed driven by thermal difference, and the bubble growth and vapor generation rate was determined by the interfacial heat transfer process. On the other hand, a few CFD works on the flashing flow assumed that phase change is controlled by pressure difference, and applied a cavitation model derived from the R-P (Rayleigh-Plesset) equation or the H-K (Hertz-Knudsen) equation. The major difference between the two types of PPCMs is that according to the R-P equation the bubble growth/shrinkage rate is controlled by , while the H-K equation leads to a dependence of .
+Palau-Salvador et al. [38] simulated the BNL nozzle flow [28] using the cavitation model of Singhal et al. [151] available in the CFD code ANSYS FLUENT 6.1. The model assumes that the flow is isothermal. Pre-existing nuclei start to grow as local pressure drops below the saturation pressure, and collapse in the reverse case. Mass and momentum balance equations are solved for the mixture of liquid and vapor. Like in [37], a transport equation was solved for the vapor fraction besides the mixture conservation equation, and the source terms representing bubble growth and collapse are described by the R-P equation. The local turbulence effect on the saturation pressure was considered by adding a turbulent fluctuation. Five BNL test runs from [28] were validated, see Table 4. Good agreement between the measured and calculated mass flow rates was achieved with a difference less than , but a systematic under-prediction is present. Satisfying prediction of axial pressure and vapor fraction was shown for one case, where the thermal non-equilibrium effect at the onset of flashing is not that significant. As expected from the homogeneous mixture model, the contour plot of void fraction exhibits a uniform distribution of vapor in the lateral direction of the nozzle, which is inconsistent with the experimental observation as discussed above.
+Another cavitation model in the ANSYS FLUENT code, i.e. the Schnerr and Sauer model [152], was utilized by Ishigaki et al. [153] for analyzing the two-phase critical flow in nozzles and breaks. The Super Moby Dick experiment [150] and the SGTR experiment at Large Scale Test Facility (LSTF) of Japan Atomic Energy Agency [154] were simulated. The authors concluded that the CFD code ANSYS FLUENT has the possibility for simulation of two-phase critical flows related nuclear safety analysis. The physical properties were shown to have a significant influence on the flow rate predictions, and an more accurate estimation is necessary. The authors treated the vapor as an ideal gas, and calculated the density of liquid according to the Tait equation of state. In contrast, the simulations performed in ANSYS CFX mostly use the IAPWS-IF97 formulation of the thermodynamic properties of water and steam.
+On the other hand, Liu et al. [40] pointed out that above isothermal cavitation models cannot be used for flashing flows directly, because the dependency of vapor generation rate on temperature variations is usually non-negligible under the high temperature and pressure conditions. They constructed a so-called thermodynamic cavitation model based on the homogeneous multiphase model with common flow fields shared by all fluids including temperature and turbulence. In order to take into account the thermal effects in flashing, the dependency of fluid physical properties on the temperature was introduced, e.g. the saturation vapor pressure, surface tension as well liquid and vapor densities, using empirical formulas. The mass transfer source terms related to bubble growth and collapse were derived based on the H-K (Hertz-Knudsen) formula, which gives the evaporation-condensation flux based on the kinetic theory on a flat interface. The contribution of turbulent fluctuation to the pressure variation was considered. The authors simulated one BNL nozzle test run with the modified cavitation model, and compared the simulation results with those presented in [38]. A minimal improvement of the axial void fraction profile was indicated. Furthermore, it showed surprisingly that the vapor volume fraction at the temperature of @ is higher than . It implies that the way how the thermal effect was considered is questionable.
+Le et al. [43] investigated the BNL nozzle flow experiments by implementing a similar model as [40] in the commercial code ANSYS FLUENT 16.2. The source term for the mass flux at the interface was derived according to the H-K formula. A so-called “accommodation” coefficient was introduced to account for thermal non-equilibrium effects. The coefficient as well pressure difference was treated as adjustable constants in the simulation. The interfacial area density @ is modelled by assuming a constant bubble number density as in [42]. The model was validated against experimental data [28] and numerical results of previous work [41], [42]. The discrepancies between the measured and simulated radial vapor profiles were attributed to the two-phase mixture approach and the slip model, which makes use of an algebraic slip relation for the relative velocity. A two-fluid model along with complete modelling of thermal effects was recommended.
+4.1.3. TPCM + PPCM
+In the frame of a homogeneous mixture model Jin et al. [147] included source and sink terms of interfacial mass transfer induced by both pressure and thermal difference. The PPCM has a similar form as that in the previous two works, derived on the basis of the H-K formula, while the thermal mass transfer rate was calculated according to the model presented by Lee [155]. The model was implemented in a in-house CFD code, whose capability of simulating flashing flows was assessed by studying the BNL nozzle flows. Two test runs (309 and 268) were simulated, and good agreement in terms of axial profiles of pressure and void fraction was achieved. Five empirical coefficients are included in the phase change model, but its performance was shown to be almost independent of these coefficients.
+4.1.4. HRM
+Schmidt et al. [3] extended the classical one-dimensional closures for the HRM proposed by Downar-Zapolski et al. [122], to multiple dimensions, and implemented them in the open source CFD code OpenFOAM. The solver was firstly validated for a case taken from Tikhonenko et al. [156], who explored flashing critical flow in various pipes with a sharp inlet. These experiments include pressure measurements along the length of the pipe. High-pressure and low-pressure correlations for the relaxation time were tested. Both correlations were found to under-predict the flashing rate, and the low-pressure correlation was especially far off. The second test case was taken from the experiments conducted by Fauske [157], in a relatively short and small tube. In this case, surprising good agreement on the mass flow rate was achieved by the low-pressure correlation, while the high-pressure correlation under-predicted by a factor of two. The authors suggested that future development should focus on developing a general correlation for the relaxation time, and considering non-homogeneous, turbulence and nucleation effects.
+4.1.5. DEM
+Similar attempts extending a one-dimensional model to multi-dimensions were made by Duponcheel et al. [158]. They implemented and the DEM in the NEPTUNE_CFD multi-field solver, and tested it for flashing chocked flows. The validation cases were taken from the Super Moby Dick experiments [150]. Two inlet conditions were simulated: @ and . The homogeneous condition, i.e. identical velocities for all the phases, is obtained by adding very large drag forces. The saturated liquid and vapor were constrained to remain saturated by adding strong interfacial heat transfer terms. The metastable liquid phase was considered “frozen”, and no interfacial heat transfer with the saturated phases. The mass transfer from the metastable liquid to the saturated liquid was determined by using an empirical correlation. The implemented model was able to give good agreement for the case closer to saturation, but under-predicted the mass flow rate by @ in case of larger inlet subcooling. Yet, in both cases the multi-dimensional results are worser than the one-dimensional ones using the original DEM.
+A comparative evaluation of the phase models was performed by Karathanassis et al. [159] together with the two-phase mixture model in ANSYS FLUENT 14.5. The results showed that the phase-change model based on the kinetic theory of gases (H-K equation) produced accurate predictions for all the cases investigated (“Super Moby Dick” nozzle [126], “Reitz” nozzle [160], “Edwards” pipe blowdown [44]), while the validity of HRM and models based on the R-P equation was found situational. Similar results were presented in [161], which showed that the PPCM based on the R-P equation failed in reproducing the pressure undershoot phenomenon and simulating the thermal-controlled phase change. For the BNL test case run 309 as an example, Fig. 2 compares the prediction of axial void fraction and pressure profile using different models with the experimental data. The void fraction provided by Le et al. [43] conforms well with the measurement, while the pressure profile of Liao and Lucas [42] gives the best agreement. In comparison to axial profiles, prediction of the lateral distribution of void fraction is even more challenging.
+Fig. 2. Comparison between simulation results from literature for BNL test case 309 [125]. (a) Axial void fraction profile (b) Axial pressure profile.
+4.2. Pipe blowdown
+Jo et al. [162], [163] investigated water flashing flow from a PWR steam generator (SG) by a feed water line break (FWLB) accident using the commercial CFD code ANSYS CFX. The simplified SG model and broken position is sketched in Fig. 3(a). The space occupied by the tube bundle in the SG secondary side was simulated with the porous medium model. The discharge flow accompanying with thermal phase change was calculated by employing the NHNEM two-fluid model, governing equations were solved for the liquid and vapor phases separately. The gas phase consisted of discrete spherical bubbles with a uniform size. The @ SST model was used to estimate the turbulent viscosity. The phase change was driven by temperature difference and interphase heat transfer. Transient pressure, velocity, void fraction response of the SG secondary side and the broken pipe side was analyzed. Vapor was built firstly at the exit of the broken pipe, and developed along the pipe wall with a liquid core towards SG. The FWLB accident resulted in steep escalation of the SG secondary flow velocities, especially near the broken pipe. Fig. 3(b) plots the mixture velocity responses at four monitoring points for the first 0.3 s, where the distance to the broken position decreases from point 1 to point 4. At the exit of the broken nozzle (point 4), the velocity is over 100 m/s, which may cause mechanical damage on some tubes. The authors investigated the effect of initial state of the fluid upstream the broken pipe end, i.e. subcooled water, saturated steam or saturated water-steam mixture. It was found that the subcooled water non-flashing flow model gives the maximum discharge flow rate, the saturated water flashing flow model the minimum, while the subcooled water flashing flow model ranges between. In addition, the simulation results were shown to have a sensitive dependence on the initial interfacial area density related to the choice of gas volume fraction and bubble mean diameter.
+Fig. 3. CFD simulation of FWLB induced discharge flow from SG [163]. (a) Simplified SG model (b) Transient velocity response at different monitoring points: Point 1 (SG center at the broken pipe level), Point 2 (first upstream point of the broken pipe in SG), Point 3 (second upstream point of the broken pipe in SG), Point 4 (center of the cross-section at the mid point of the broken pipe).
+Karathanassis et al. [159] presented CFD simulations of flashing flow in the Edwards pipe blowdown experiments [44] in addition to two discharge nozzles. A sketch of the pipe as well as the measurement points (P1 @ P7) is depicted in Fig. 4. As aforementioned their numerical studies were based on the two-phase mixture model assuming zero slip velocity. They evaluated the capability of various phase change or mass-transfer rate models, i.e. TPCM and PPCM. The interfacial area density @ was obtained by prescribing a nucleation site density of @ and a bubble radius of . In other words, @ remains constant during the phase change process, which deviates obviously from the physical picture. For the blowdown case, three formulations of PPCM based on the H-K equation, i.e. HK1, HK2, HK3, were compared with the HRM. Figs. 5 (a) and (b) display the comparison of the numerical predictions of transient pressure and void fraction to experimental data. One can see that all the models have difficulty in capturing the flashing-inception, but the PPCM based on the H-K equation gives overall better results compared to the HRM.
+Fig. 4. Sketch of the Edwards blowdown experiments [44].
+Fig. 5. Edwards pipe simulation results from [159]: (a) pressure at P7 (b) void fraction at P4.
+Liao and Lucas [1] investigated the same case with the TPCM in ANSYS CFX, and the Ranz-Marshall correlation [140] was used for the calculation of heat transfer coefficient. Apart from the different phase change model, they accounted for the interphase slip velocity using the two-fluid model. A constant value of 1.0 mm was assumed for the bubble diameter, but the interfacial area density was allowed to increase with the bubble number density as a result of phase change. The comparison of the simulation results with those from [159] and experimental data is shown in Fig. 6. As expected, a better agreement was achieved by using TPCM at the early stage of blowdown. The pressure undershoot at the very beginning was captured well, which evidences the importance of thermal non-equilibrium at this stage. However, the rate of evaporation and pressure recovery directly after the flashing inception was under-predicted. It indicates that the contribution of pressure difference across the bubble surface is considerable, which was not considered in the simulation. A combination of the TPCM and PPCM as suggested by Jin et al. [147] may be able to improve the results.
+Fig. 6. Edwards pipe simulation results from [1]: (a) pressure at P7 (b) void. fraction at P4.
+4.3. Flashing-induced instability (FII)
+As discussed in the previous section, the FII problem concerning nuclear safety analysis has been investigated intensively with experiments and system codes, whereas CFD simulations are scarce. The challenges comprise high-amplitude high-frequency waves, large geometry sizes and lack of CFD-grade experimental data. Liao et al. [1], [85], [164] presented CFD studies on the flashing and FII phenomenon observed at two test facilities, i.e. the AREVA INKA test facility [70] and the TUD GENEVA facility [79]. Both of them are downscale models of the containment cooling condenser (CCC) of the KERENA™ reactor, whose function and principle is sketched in Fig. 7 (a). In case of containment overpressure, steam condensed on the surface of the CCC tubes and the heat is transported by the cooling water inside the tubes via the riser to SSPV. In the INKA test facility, two sets of CCC were constructed and the riser connecting CCC1 and CCC2 with SSPV comprises of vertical and sloped pipes, see Fig. 7 (b), while the GENEVA riser is a single straight pipe, which is much longer as shown in Fig. 7 (c).
+Fig. 7. (a) KERENA™ CCC system, (b) INKA riser [70], [164], (c) GENEVA riser [79], [85].
+Both simulations [1], [85] were performed with the two-fluid model in ANSYS CFX. The computational domain was restricted to the riser for high efficiency. The liquid and vapor phases were assumed in pressure equilibrium, and the TPCM was activated for describing interphase mass transfer. For the sake of robustness the number density was prescribed as a constant value (). Single-phase inlet was assumed, and the boundary conditions such as inlet mass flow rate, liquid temperature and outlet pressure were defined according to the measurements. Fig. 8 presents cross-section averaged pressure and temperature transients inside the INKA riser, which conform well to the experimental results. The simulation showed that the onset of flashing occurs at the highest point of the domain due to low hydrostatic pressure, i.e. the top wall at the outlet, and then propagated downward to the inlets. Separated and dispersed flow was developed in the sloped and vertical pipe, respectively, and instability waves were observed at the interface, see Fig. 9. As the pressure recovered the steam disappeared from bottom to top of the domain.
+Fig. 8. Comparison between simulation and measurement of pressure and temperature fluctuation in the INKA riser [1] (a) Pressure at CCC1, (b) Temperature at outlet.
+Fig. 9. Steam distribution in the INKA riser [164].
+In order to reflect the non-uniform distribution of vapor bubbles at the cross section of the pipe, needle-shaped conductivity probes were installed in the central and the peripheral region (about 2/3 of the inner diameter) at the GENEVA test facility. Liao et al. [85] compared the local void fraction obtained numerically and experimentally, which discovered substantial difference. As shown in Fig. 10 the onset of flashing was delayed in the simulation. For example, according to the experiment at z = 3.99 m bubbles appear at the pipe center before t = 20 s. On the other hand, the simulation gives non-zero void fraction after t = 50 s. Furthermore, the void fraction in the near-wall region is under-predicted, see Fig. 10 (b) and 10 (d). This discrepancy is partly caused by the inaccurate prediction of bubble size, since non-drag forces representing the lateral movement of bubbles depend on it directly. The assumption of a constant bubble number density deviates from the reality, leading to a uniform local bubble size, which is either smaller or larger than the real mean value. In this case, it might be over-predicted, since the bubbles are accumulated in the pipe center due to the effect of lift force. Furthermore, the neglect of nucleation, which takes place mostly at the walls, may have an effect on the results. Nevertheless, both simulation and experiment proved that the flashing was initiated earlier at the pipe center than the periphery. Good agreement on the central void fraction was achieved at z = 4.99 m (see Fig. 10 (c)).
+Fig. 10. Comparison between simulation and measurement of local vapor void fraction inside the riser [85] (a) pipe center, z = 3.99 m (b) 2/3 of the inner diameter, z = 3.99 m (c) pipe center, z = 4.99 m (d) 2/3 of the inner diameter, z = 4.99 m.
+4.4. Pressure relief transient
+As shown in previous examples, flashing flows represent heterogeneous mixture of liquid and gas with void fraction ranging from zero to one, and often characterized with large spatial gradients. Reliable prediction of local phase distribution with the CFD tool is still challenging in comparison to cross-section averaged parameters such as pressure and temperature. To improve the simulation results, it is of prime importance to reproduce the bubble size change appropriately with the model, although equivalent efforts are needed in modelling of bubble forces, interphase heat transfer as well as two-phase turbulence. For the purpose of model development, high-resolution high-quality experimental data are valuable. Lucas et al. [165] presented experiments on flash evaporation in an 8 m long vertical pipe with an inner diameter of 195.3 mm, carried out at the TOPFLOW facility. The phase change was induced by depressurizing the pipe from 10, 20, 40 and 65 bar through a blow-off valve. The pressure relief transient and evaporation process was investigated for circulating and stagnant water, respectively, each with a different valve opening/closing procedure, see Fig. 11. Detailed information on the structure of gas-liquid interfaces including spatial and temporal void fraction, bubble size distribution as well as gas velocities was obtained by using a pair of wire-mesh sensors. Measurements are available for different combinations of opening/closing speed and maximum opening degrees of the valve. The database is suitable for the development and validation of CFD models. Liao et al. [144], [166] presented detailed CFD studies on the TOPFLOW pressure relief test cases based on the two-fluid model with TPCM. The main focus was put on evaluating methods for estimation of bubble diameter and interfacial area density, which vary from assuming a constant bubble diameter or number density to using a poly-dispersed approach. The main findings are summarized as follows:
+•
+Mono-disperse approaches fail in predicting the bubble size change and thus the lateral movement of bubbles.
+•
+The prescribed value for bubble diameter or number density affects the onset of flashing as well the evaporation rate in the simulation. A too large bubble diameter fails to trigger the phase change, while a too small one initiates it too early.
+•
+The contribution of wall and bulk nucleation decreases and increases respectively with the pressure level.
+•
+The poly-disperse approach with appropriate closures for bubble nucleation, coalescence and breakup improves the simulation results considerably.
+Fig. 11. Pressure relief experiments at the TOPFLOW facility (left: procedure 1, right: procedure 2) [165].
+Radial void fraction and bubble size distribution obtained using a population balance model (PBM) [144] are shown in Fig. 12, Fig. 13. The bubble size distribution (BSD) is defined as the void fraction in each bubble size class divided by its width. The trends and distributions are well captured by the model. Discrepancies in the radial void fraction profile are majorly attributed to non-drag forces modelling such as turbulence dispersion, which depends further on the accuracy of turbulence models. On the other hand, the prediction of bubble size distribution is affected by mass transfer, coalescence and breakup models as well the PBM. Despite progresses further efforts are needed in developing numerical approaches for practical two-phase phenomena.
+Fig. 12. Comparison between simulated and measured radial void fraction profile at (a) t = 37 s, (b) t = 49 s, (c) t = 55 s, (d) t = 67 s.
+Fig. 13. Comparison between simulated and measured bubble size distribution at (a) t = 37 s, (b) t = 49 s, (c) t = 55 s, (d) t = 67 s, .
+Above CFD simulations of flashing flows are summarized in Table 5. They mainly differ in whether the velocity difference between phases is considered or not (mixture or two-fluid model), what kind of phase change models (TPCM, PPCM, HRM or HEM) are adopted, and how to determine the interfacial area density (constant , variable @ or poly-dispersity). As discussed in previous work [138], [144], turbulence is expected to have an effect on interphase heat transfer and vaporization rates. In all the works a two-equation model, @ SST or @
+was adopted. Le et al. [43] conducted a comparative study of six turbulence models (standard @, realizable @, RNG @, standard @ SST) for the BNL nozzle flow. The results showed that the standard @ over-predicted the central void fraction in the diverging part of the nozzle. The @ SST provided the best agreement with experimental data concerning mass flow rate and axial vapor profile.
+Table 5. Summary of CFD studies on flashing flows.
+<Section>5. Conclusion</Section>
+Although the numerical methods and models that have been used for analysis of flashing phenomena differ largely, there is some consensus concerning following points:
+•
+In most cases having high void fraction, it is necessary to account for interfacial slip appropriately by using the two-fluid model instead of drift-flux model.
+•
+Non-equilibrium phase change model is more general than the relaxation and equilibrium model. Thermal phase change model is superior to pressure phase change model in capturing flashing inception, when thermal non-equilibrium effects are significant. However, in these cases pressure difference plays an important role as well. A model accounting for the two mechanisms is recommended.
+•
+Convection has a considerable contribution to the interfacial heat transfer in flashing flow, while conduction is dominant only in a short time after nucleation. A model considering both of them and turbulence effects as well is deemed more general.
+•
+Appropriate modelling of bubble size and interfacial area density is crucial in modelling the interphase transfer. Taking into account the poly-dispersity is recommended by several researchers [135], [144].
+•
+It is difficult to reproduce the lateral motion of bubbles, where non-drag forces play an important role in the interphase momentum transfer.
+The prime challenges in CFD simulation of flashing flows arise from choosing appropriate closure models for interphase transfer, bubble dynamics (nucleation, coalescence and breakup) as well two-phase turbulence. Further efforts regarding model improvement and data acquisition are required. Although temperature difference is deemed to be the predominant driving force for phase change in flashing situations, the effect of pressure difference might be substantial at the inception, in particular at a large pressure undershoot. In most of the simulations, either pressure difference or temperature difference was neglected. There is insufficient discussion on how to combine the two driving forces for flashing phase change properly. At high void fractions, the flow regime deviates widely from bubbly flow, whereas the assumption of spherical bubbles were made in the majority of works. Extending a multi-scale multi-field approach, for example the GENTOP model proposed by Hänsch et al. [167], to handle different bubble shapes is of interest in the future. Höhne et al. [168] and Höhne and Lucas [169] have demonstrated the application of this model for various boiling cases. How to consider the shape effects in closure models remains a topic for future researchs. In addition, numerical modelling of flashing flow using interface-tracking methods like VOF [170], [171] and DNS [172], [173], or some new simulation methods, such as Lattice Boltzmann Method [174] and Smoothed Particle Hydrodynamics [175], [176], is interesting. Finally, the emphasis of this study is given on the cooling systems of nuclear reactors, yet general conclusions applicable to other application such as nternal combustion engines and rockets can be drawn.
+<Section>Declaration of Competing Interest</Section>
+The authors declare that they have no known competing financial interests or personal relationships that could have appeared to influence the work reported in this paper.
+<Section>References</Section>
+[1]
+Y. Liao, D. Lucas
+Possibilities and limitations of CFD simulation for flashing flow scenarios in nuclear applications
+Energies, 10 (1) (2017), pp. 139:1-139:22
+Google Scholar
+[2]
+Y. Liao, D. Lucas
+Computational modelling of flash boiling flows: A literature survey
+Int. J. Heat Mass Transf., 111 (2017), pp. 246-265
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+[3]
+D.P. Schmidt, S. Gopalakrishnan, H. Jasak
+Multi-dimensional simulation of thermal non-equilibrium channel flow
+Int. J. Multiph. Flow, 36 (4) (2010), pp. 284-292
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+[4]
+M. Maria Antony Raj, K. Kalidasa Murugavel, T. Rajaseenivasan, K. Srithar
+A review on flash evaporation desalination
+Desalin. Water Treat., 57 (29) (2016), pp. 13462-13471
+CrossRefView Record in ScopusGoogle Scholar
+[5]
+Q. Yang, B. Zhao, D. Zhang, Y. Wang, J. Yan
+Experimental study on heat transfer characteristics in static flash evaporation of aqueous nacl solution
+Int. J. Heat Mass Transf., 102 (2016), pp. 1093-1099
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+[6]
+J. Stengler, K. Schaber, S. Mall-Gleissle
+Experimental study on low temperature desalination by flash evaporation in a novel compact chamber design
+Desalination, 448 (2018), pp. 103-112
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+[7]
+Q. Chen, Y. Li, K. Chua, et al.
+Experimental and mathematical study of the spray flash evaporation phenomena
+Appl. Therm. Eng., 130 (2018), pp. 598-610
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+[8]
+H. Shin, Y. Lee, J. Jurng
+Spherical-shaped ice particle production by spraying water in a vacuum chamber
+Appl. Therm. Eng., 20 (5) (2000), pp. 439-454
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+[9]
+J.-X. Wang, Y.-Z. Li, H.-S. Zhang, S.-N. Wang, Y.-F. Mao, Y.-N. Zhang, Y.-H. Liang
+Investigation of a spray cooling system with two nozzles for space application
+Appl. Therm. Eng., 89 (2015), pp. 115-124
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+[10]
+W.-L. Cheng, W.-W. Zhang, S.-D. Shao, L.-J. Jiang, D.-L. Hong
+Effects of inclination angle on plug-chip spray cooling in integrated enclosure
+Appl. Therm. Eng., 91 (2015), pp. 202-209
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+[11]
+E. Sher, T. Bar-Kohany, A. Rashkovan
+Flash-boiling atomization
+Prog. Energy Combust. Sci., 34 (4) (2008), pp. 417-439
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+[12]
+M. Levy, E. Sher
+Transition from heterogeneous to homogeneous nucleation in a simple structure flash-boiling atomizer
+Atomiz. Sprays, 20 (10) (2010), pp. 905-907
+View Record in ScopusGoogle Scholar
+[13]
+D. Ju, C. Wang, X. Qiao, J. Xiao, Z. Huang
+Internal flow pattern and macroscopic characteristics of a flash-boiling spray actuated through a twin-orifice atomizer with low injection pressure
+Atomiz. Sprays, 26 (4) (2016), pp. 377-410
+View Record in ScopusGoogle Scholar
+[14]
+T. Alghamdi, S.T. Thoroddsen, J. Hernández-Sánchez
+Ultra-high speed visualization of a flash-boiling jet in a low-pressure environment
+Int. J. Multiph. Flow, 110 (2019), pp. 238-255
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+[15]
+Y. Gao, S. Wu, X. Dong, X. Li, M. Xu
+Evaporation and atomization characteristics of dual-fuel system under flash boiling conditions
+Appl. Therm. Eng., 161 (2019), p. 114161
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+[16]
+H. Guo, Y. Li, X. Lu, Z. Zhou, H. Xu, Z. Wang
+Radial expansion of flash boiling jet and its relationship with spray collapse in gasoline direct injection engine
+Appl. Therm. Eng., 146 (2019), pp. 515-525
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+[17]
+G.A. Pinhasi, A. Ullmann, A. Dayan
+Modeling of flashing two-phase flow
+Rev. Chem. Eng., 21 (3–4) (2005), pp. 133-264
+View Record in ScopusGoogle Scholar
+[18]
+G. Lamanna, H. Kamoun, B. Weigand, J. Steelant
+Towards a unified treatment of fully flashing sprays
+Int. J. Multiph. Flow, 58 (2014), pp. 168-184
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+[19]
+M. El Haj Assad, E. Bani-Hani, M. Khalil
+Performance of geothermal power plants (single, dual, and binary) to compensate for LHC-CERN power consumption: comparative study
+Geotherm. Energy, 5 (1) (2017), pp. 17:1-16
+Google Scholar
+[20]
+S. Zheng, X. Xie, Y. Jiang
+Experimental study on the flash evaporation process of LiBr H2O solution in an absorption heat pump
+Int. J. Refrig., 61 (2016), pp. 117-126
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+[21]
+C. Danţuş, G. Rusu, M. Dobromir, M. Rusu
+Preparation and characterization of CdO thin films obtained by thermal oxidation of evaporated Cd thin films
+Appl. Surf. Sci., 255 (5) (2008), pp. 2665-2670
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+[22]
+S. Mutair, Y. Ikegami
+Study and enhancement of flash evaporation desalination utilizing the ocean thermo cline and discharged heat
+Int. J. Electr. Comput. Eng., 2 (7) (2008), pp. 1385-1392
+View Record in ScopusGoogle Scholar
+[23]
+A. Muthunayagam, K. Ramamurthi, J. Paden
+Low temperature flash vaporization for desalination
+Desalination, 180 (1–3) (2005), pp. 25-32
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+[24]
+Y. Zhang, J. Wang, J. Yan, D. Chong, J. Liu
+Experimental study on energy transformation and separation characteristic of circulatory flash evaporation
+Int. J. Heat Mass Transf., 99 (2016), pp. 862-871
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+[25]
+A. Mansour, N. Müller
+A review of flash evaporation phenomena and resulting shock waves
+Exp. Thermal Fluid Sci., 107 (2019), pp. 146-168
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+[26]
+G. Wallis
+Critical two-phase flow
+Int. J. Multiph. Flow, 6 (1–2) (1980), pp. 97-112
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+[27]
+V. Schrock, E. Starkman, R. Brown
+Flashing flow of initially subcooled water in convergent–divergent nozzles
+J. Heat Transf., 99 (2) (1977), pp. 263-268
+CrossRefGoogle Scholar
+[28]
+N. Abuaf, B. Wu, G. Zimmer, P. Saha, Study of nonequilibrium flashing of water in a converging-diverging nozzle, volume 1: experimental, Tech. rep., Brookhaven National Lab., Upton, NY (USA), 1981.
+Google Scholar
+[29]
+F. Moody
+Maximum flow rate of a single component, two-phase mixture
+J. Heat Transf., 87 (1) (1965), pp. 134-141
+CrossRefView Record in ScopusGoogle Scholar
+[30]
+R. Henry, H. Fauske
+The two-phase critical flow of one-component mixtures in nozzles, orifices, and short tubes
+J. Heat Transf., 93 (2) (1971), pp. 179-187
+CrossRefView Record in ScopusGoogle Scholar
+[31]
+H. Richter
+Separated two-phase flow model: Application to critical two-phase flow
+Int. J. Multiph. Flow, 9 (5) (1983), pp. 511-530
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+[32]
+P. Saha, N. Abuaf, B. Wu
+A nonequilibrium vapor generation model for flashing flows
+J. Heat Transf., 106 (1984), pp. 198-203
+CrossRefView Record in ScopusGoogle Scholar
+[33]
+B. Wu, N. Abuaf, P. Saha, Study of nonequilibrium flashing of water in a converging-diverging nozzle. volume 2. modeling, Tech. rep., Brookhaven National Lab., Upton, NY (USA), 1981.
+Google Scholar
+[34]
+J. Riznic, M. Ishii, N. Afgan, Mechanistic model for void distribution in flashing flow, Tech. Rep. No. CONF-8705224-1, Institute of Nuclear Sciences, 1987.
+Google Scholar
+[35]
+I. Tiselj, S. Petelin, Modelling of the critical flashing flow in the nozzle with RELAP5 equations, in: Annual Meeting of the Nuclear Society of Slovenia, 1994.
+Google Scholar
+[36]
+J. Muňoz-Cobo, E. Cerezo, S. Chiva
+Two phase flow modelling of flashing critical and non critical flows in converging-diverging nozzles, in
+The 4th International Conference on Multiphase Flow, ICMF-4 (2001)
+Google Scholar
+[37]
+S. Maksic, D. Mewes
+CFD-calculation of the flashing flow in pipes and nozzles
+ASME 2002 Joint US-European Fluids Engineering Division Conference (2002)
+Google Scholar
+[38]
+G. Palau-Salvador, P. González-Altozano, J. Arviza-Valverde
+Numerical modeling of cavitating flows for simple geometries using fluent V6. 1
+Spanish J. Agric. Res., 5 (4) (2007), pp. 460-469
+CrossRefView Record in ScopusGoogle Scholar
+[39]
+C. Marsh, A. O’Mahony
+Three-dimensional modelling of industrial flashing flows
+Prog. Comput. Fluid Dyn. Int. J., 9 (6–7) (2009), pp. 393-398
+CrossRefView Record in ScopusGoogle Scholar
+[40]
+D.-M. Liu, S.-H. Liu, Y.-L. Wu, H.-Y. Xu
+A thermodynamic cavitation model applicable to high temperature flow
+Therm. Sci., 15 (suppl. 1) (2011), pp. 95-101
+CrossRefGoogle Scholar
+[41]
+J.P. Janet, Y. Liao, D. Lucas
+Heterogeneous nucleation in CFD simulation of flashing flows in converging–diverging nozzles
+Int. J. Multiph. Flow, 74 (2015), pp. 106-117
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+[42]
+Y. Liao, D. Lucas
+3D CFD simulation of flashing flows in a converging-diverging nozzle
+Nucl. Eng. Des., 292 (2015), pp. 149-163
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+[43]
+D.Q. Le, R. Mereu, G. Besagni, V. Dossena, F. Inzoli
+Computational fluid dynamics modeling of flashing flow in convergent-divergent nozzle
+J. Fluids Eng., 140 (10) (2018), pp. 101102:1-101102:22
+Google Scholar
+[44]
+A. Edwards, T. O’brien
+Studies of phenomena connected with the depressurization of water reactors
+J. Brit. Nucl. Energy Soc, 9 (2) (1970), pp. 125-135
+View Record in ScopusGoogle Scholar
+[45]
+K. Wolfert, M. Burwell, D. Enix
+Non-equilibrium mass transfer between liquid and vapour phases during depressurization processes, in: Transient two-phase flow
+Transient Two-phase Flow. Proceedings of the Second CSNI Specialists Meeting, Paris, 12–14 June 1978 (1981)
+Google Scholar
+[46]
+K. Carlson, V. Ransom, R. Wagner, Application of RELAP5 to a pipe blowdown experiment, Tech. rep., Idaho National Engineering Lab., 1980.
+Google Scholar
+[47]
+G. Pinhasi
+Source Term Modeling of Gas and Liquid Releases from a Breached Pressure Vessel
+(Ph.D. thesis)
+Tel-Aviv University (2001)
+Google Scholar
+[48]
+Y. Takeda, S. Toda
+Pressure oscillation in subcooled decompression under temperature gradient
+J. Nucl. Sci. Technol., 16 (7) (1979), pp. 484-495
+CrossRefView Record in ScopusGoogle Scholar
+[49]
+N. Lafferty, V. Ransom, M. Lopez-de Bertodano
+Relap5 analysis of two-phase decompression and rarefaction wave propagation under a temperature gradient
+Nucl. Technol., 169 (1) (2010), pp. 34-49
+CrossRefView Record in ScopusGoogle Scholar
+[50]
+O. Costa, I. Tiselj, L. Cizelj
+Depressurization of vertical pipe with temperature gradient modeled with Waha code
+Sci. Technol. Nucl. Install., 2012 (951923) (2012), pp. 1-9
+CrossRefGoogle Scholar
+[51]
+J. Lienhard, M. Alamgir, M. Trela
+Early response of hot water to sudden release from high pressure
+J. Heat Transf., 100 (1978), pp. 473-479
+CrossRefView Record in ScopusGoogle Scholar
+[52]
+J. Bartak
+A study of the rapid depressurization of hot water and the dynamics of vapour bubble generation in superheated water
+Int. J. Multiph. Flow, 16 (5) (1990), pp. 789-798
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+[53]
+F. D’Auria
+Thermal-Hydraulics of Water Cooled Nuclear Reactors
+Woodhead Publishing (2017)
+Google Scholar
+[54]
+H. Fenech
+Heat Transfer and Fluid Flow in Nuclear Systems
+Elsevier (2013)
+Google Scholar
+[55]
+G. Brockett, H. Curet, H.W. Heiselmann, Experimental investigations of reactor system blowdown., Tech. rep., Idaho Nuclear Corp., Idaho Falls, 1970.
+Google Scholar
+[56]
+B. Slifer, A. Rogers, Loss-of-coolant accident and emergency core cooling models for general electric boiling water reactors., Tech. rep., General Electric Co., San Jose, Calif. Atomic Power Equipment Dept., 1971.
+Google Scholar
+[57]
+G. Wang, Y. Yan, S. Shi, Z. Dang, X. Yang, M. Ishii
+Experimental study of blowdown event in a pwr-type small modular reactor
+Nucl. Technol., 205 (1–2) (2019), pp. 297-306
+CrossRefView Record in ScopusGoogle Scholar
+[58]
+A. Ylönen
+Large Break Blowdown Test Facility Study
+(Master’s thesis)
+Lappeenranta University of Technology (2008)
+Google Scholar
+[59]
+S. Revankar, B. Wolf, A. Vadlamani, Assessment of leak rates through steam generator tubes, Tech. rep., Purdue University, West Lafayette, IN, Final Report to Canadian Nuclear Safety Commission, PU/NE-13-11, 2013.
+Google Scholar
+[60]
+J. Zhang, H. Yu, M. Wang, Y. Wu, W. Tian, S. Qiu, G. Su
+Experimental study on the flow and thermal characteristics of two-phase leakage through micro crack
+Appl. Therm. Eng., 156 (2019), pp. 145-155
+ArticleDownload PDFCrossRefView Record in ScopusGoogle Scholar
+[61]
+K. Tasaka et al., ROSA-IV large scale test facility (LSTF) system description for second simulated fuel assembly, Tech. rep., Japan Atomic Energy Research Institute, 1990.
+Google Scholar
+[62]
+R. Dimenna, Semiscale steam-generator tube-rupture test results, Tech. rep., EG and G Idaho, 1983.
+Google Scholar
+[63]
+G. Loomis, Results of the semiscale Mod-2B steam generator tube rupture test series, Tech. rep., EG and G Idaho, 1985.
+Google Scholar
+[64]
+G. De Santi
+Analysis of steam generator u-tube rupture and intentional depressurization in lobi-mod2 facility
+Nucl. Eng. Des., 126 (1) (1991), pp. 113-125
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+[65]
+S.G. Lim, H.C. No, S.W. Lee, H.G. Kim, J. Cheon, J.M. Lee, S.M. Ohk
+Development of stability maps for flashing-induced instability in a passive containment cooling system for ipower
+Nucl. Eng. Technol., 52 (1) (2020), pp. 37-50
+ArticleDownload PDFCrossRefView Record in ScopusGoogle Scholar
+[66]
+T. Schulz
+Westinghouse ap1000 advanced passive plant
+Nucl. Eng. Des., 236 (14–16) (2006), pp. 1547-1557
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+[67]
+W. Zhou, B. Wolf, S. Revankar
+Assessment of relap5/mod3. 3 condensation models for the tube bundle condensation in the pccs of esbwr
+Nucl. Eng. Des., 264 (2013), pp. 111-118
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+[68]
+S.W. Lee, S. Heo, H.U. Ha, H.G. Kim
+The concept of the innovative power reactor
+Nucl. Eng. Technol., 49 (7) (2017), pp. 1431-1441
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+[69]
+A. Bakhmet’Ev, M. Bol’Shukhin, V. Vakhrushev, A. Khizbullin, O. Makarov, V. Bezlepkin, S. Semashko, I. Ivkov
+Experimental validation of the cooling loop for a passive system for removing heat from the AES-2006 protective envelope design for the Leningradskaya nuclear power plant site
+At. Energ., 106 (3) (2009), pp. 185-190
+CrossRefView Record in ScopusGoogle Scholar
+[70]
+S. Leyer, M. Wich
+The integral test facility Karlstein
+Sci. Technol. Nucl. Install. (2012)
+Google Scholar
+[71]
+J. Xing, D. Song, Y. Wu
+HPR1000: Advanced pressurized water reactor with active and passive safety
+Engineering, 2 (1) (2016), pp. 79-87
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+[72]
+E. Wissler, H. Isbin, N. Amundson
+Oscillatory behavior of a two-phase natural-circulation loop
+AIChE J., 2 (2) (1956), pp. 157-162
+View Record in ScopusGoogle Scholar
+[73]
+A. Manera, T. van der Hagen
+Stability of natural-circulation-cooled boiling water reactors during startup: experimental results
+Nucl. Technol., 143 (1) (2003), pp. 77-88
+View Record in ScopusGoogle Scholar
+[74]
+M. Furuya, F. Inada, T. van der Hagen
+Flashing-induced density wave oscillations in a natural circulation bwr—mechanism of instability and stability map
+Nucl. Eng. Des., 235 (15) (2005), pp. 1557-1569
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+[75]
+C. Marcel, M. Rohde, T. van der Hagen
+Experimental and numerical investigations on flashing-induced instabilities in a single channel
+Exp. Thermal Fluid Sci., 33 (8) (2009), pp. 1197-1208
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+[76]
+C. Marcel, M. Rohde, T. van der Hagen
+Experimental investigations on flashing-induced instabilities in one and two-parallel channels: A comparative study
+Exp. Thermal Fluid Sci., 34 (7) (2010), pp. 879-892
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+[77]
+H. Khartabil, A flashing driven moderator cooling system for candu reactors: Experimental and computational results, Tech. rep., 2000.
+Google Scholar
+[78]
+S.-K. Yang
+Stability of flashing-driven natural circulation in a passive moderator cooling system for Canadian SCWR
+Nucl. Eng. Des., 276 (2014), pp. 259-276
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+[79]
+T. Cloppenborg, C. Schuster, A. Hurtado
+Two-phase flow phenomena along an adiabatic riser–an experimental study at the test-facility geneva
+Int. J. Multiph. Flow, 72 (2015), pp. 112-132
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+[80]
+J. Andersen, F. Inada, L. Klebanov
+TRACG analyses of flashing instability during start-up
+The 21st International Conference on Nuclear Engineering, ICONE-3 (1995)
+Google Scholar
+[81]
+A. Manera, U. Rohde, H.-M. Prasser, T. van der Hagen
+Modeling of flashing-induced instabilities in the start-up phase of natural-circulation bwrs using the two-phase flow code flocal
+Nucl. Eng. Des., 235 (14) (2005), pp. 1517-1535
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+[82]
+Y. Kozmenkov, U. Rohde, A. Manera
+Validation of the relap5 code for the modeling of flashing-induced instabilities under natural-circulation conditions using experimental data from the circus test facility
+Nucl. Eng. Des., 243 (2012), pp. 168-175
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+[83]
+Q. Wang, P. Gao, X. Chen, Z. Wang, Y. Huang
+An investigation on flashing-induced natural circulation instabilities based on relap5 code
+Ann. Nucl. Energy, 121 (2018), pp. 210-222
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+[84]
+J. Jeong, K. Ha, B. Chung, W. Lee
+Development of a multi-dimensional thermal-hydraulic system code, mars 1.3. 1
+Ann. Nucl. Energy, 26 (18) (1999), pp. 1611-1642
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+[85]
+Y. Liao, C. Schuster, S. Hu, D. Lucas, CFD modelling of flashing instability in natural circulation cooling systems, in: The 21st International Conference on Nuclear Engineering, ICONE-26, American Society of Mechanical Engineers Digital Collection, 2018.
+Google Scholar
+[86]
+H.K. Fauske, Contribution to the theory of two-phase, one-component critical flow, Tech. rep., Argonne National Lab., Ill., 1962.
+Google Scholar
+[87]
+H. Isbin, J. Moy, A. Da Cruz
+Two-phase, steam-water critical flow
+AIChE J., 3 (3) (1957), pp. 361-365
+View Record in ScopusGoogle Scholar
+[88]
+F. Zaloudek, The low pressure critical discharge of steam-water mixtures from pipes, Tech. rep., General Electric Co. Hanford Atomic Products Operation, Richland, Wash., 1961.
+Google Scholar
+[89]
+D.W. Faletti, R. Moulton
+Two-phase critical flow of steam-water mixtures
+AIChE J., 9 (2) (1963), pp. 247-253
+View Record in ScopusGoogle Scholar
+[90]
+F. Inada, O.T., Thermo-hydraulic instability of natural circulation BWRs (explanation on instability mechanisms at start-up by homogeneous and thermo-dynamic equilibrium model considering flashing effect), in: International Conference on New Trends in Nuclear System Thermohydraulics, 1994.
+Google Scholar
+[91]
+D. Van Bragt, W. De Kruijf, A. Manera, T. van der Hagen, H. van Dam
+Analytical modeling of flashing-induced instabilities in a natural circulation cooled boiling water reactor
+Nucl. Eng. Des., 215 (1–2) (2002), pp. 87-98
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+[92]
+S. Levy
+Prediction of two-phase critical flow rate
+J. Heat Transf., 87 (1) (1965), pp. 53-57
+CrossRefView Record in ScopusGoogle Scholar
+[93]
+R. Hu, M. Kazimi
+Flashing-induced instability analysis and the start-up of natural circulation boiling water reactors
+Nucl. Technol., 176 (1) (2011), pp. 57-71
+View Record in ScopusGoogle Scholar
+[94]
+F. Inada, M. Furuya, A. Yasuo
+Thermo-hydraulic instability of boiling natural circulation loop induced by flashing (analytical consideration)
+Nucl. Eng. Des., 200 (1–2) (2000), pp. 187-199
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+[95]
+A. Attou, M. Giot, J.-M. Seynhaeve
+Modelling of steady-state two-phase bubbly flow through a sudden enlargement
+Int. J. Heat Mass Transf., 40 (14) (1997), pp. 3375-3385
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+[96]
+J. Bouré, Critical flow phenomenon with reference to two-phase flow and nuclear reactor systems, in: Thermal and hydraulic aspects of nuclear reactor safety, vol. I, 1977.
+Google Scholar
+[97]
+H.C. Simpson, R. Silver, Theory of one-dimensional, two-phase homogeneous non-equilibrium flow, in: Institute of Mechanical Engineers Symposium on Two-phase Fluid Flow, 1962.
+Google Scholar
+[98]
+C. Lackme, Thermodynamics of critical two-phase discharge from long pipes of initially subcooled water, in: ICHMT Digital Library Online, Begel House Inc., 1982.
+Google Scholar
+[99]
+S. Lee, V. Schrock
+Critical two-phase flow in pipes for subcooled stagnation states with a cavity flooding incipient flashing model
+J. Heat Transf., 112 (4) (1990), pp. 1032-1040
+CrossRefView Record in ScopusGoogle Scholar
+[100]
+E. Elias, P. Chambre
+Flashing inception in water during rapid decompression
+J. Heat Transf., 115 (1) (1993), pp. 231-238
+CrossRefView Record in ScopusGoogle Scholar
+[101]
+S. Levy, D. Abdollahian
+Homogeneous non-equilibrium critical flow model
+Int. J. Heat Mass Transf., 25 (6) (1982), pp. 759-770
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+[102]
+J.J. Schröder, N. Vuxuan
+Homogeneous non-equilibrium two-phase critical flow model
+Chem. Eng. Technol., 10 (1) (1987), pp. 420-426
+CrossRefView Record in ScopusGoogle Scholar
+[103]
+E. Bauer, G. Houdayer, H. Sureau, A non-equilibrium axial flow model in application to loss-of-accident analysis. the cystere system code, in: OECD/NEA Specialists Meeting on Transient Two-phase flow, Atomic Energy of Canada, 1976.
+Google Scholar
+[104]
+P. Kroeger, Application of a non-equilibrium drift flux model to two-phase blowdown experiments, Tech. rep., Brookhaven National Lab., Upton, NY (USA), 1976.
+Google Scholar
+[105]
+Z. Bilicki, J. Kestin
+Physical aspects of the relaxation model in two-phase flow
+Proc. R. Soc. Lond. A. Math. Phys. Sci., 428 (1875) (1990), pp. 379-397
+View Record in ScopusGoogle Scholar
+[106]
+K. Neroorkar, S. Gopalakrishnan, R. Grover Jr, D. Schmidt
+Simulation of flash boiling in pressure swirl injectors
+Atomiz. Sprays, 21 (2) (2011), pp. 179-188
+View Record in ScopusGoogle Scholar
+[107]
+E.T. Baldwin, R.O. Grover Jr, S.E. Parrish, D.J. Duke, K.E. Matusik, C.F. Powell, A.L. Kastengren, D.P. Schmidt
+String flash-boiling in gasoline direct injection simulations with transient needle motion
+Int. J. Multiph. Flow, 87 (2016), pp. 90-101
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+[108]
+K. Saha, S. Som, M. Battistoni
+Investigation of homogeneous relaxation model parameters and their implications for gasoline injectors
+Atomiz. Sprays, 27 (4) (2017), pp. 345-365
+View Record in ScopusGoogle Scholar
+[109]
+H. Guo, Y. Li, B. Wang, H. Zhang, H. Xu
+Numerical investigation on flashing jet behaviors of single-hole gdi injector
+Int. J. Heat Mass Transf., 130 (2019), pp. 50-59
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+[110]
+C. Lackme
+Incompleteness of the flashing of a supersaturated liquid and sonic ejection of the produced phases
+Int. J. Multiph. Flow, 5 (2) (1979), pp. 131-141
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+[111]
+M. De Lorenzo, P. Lafon, J.-M. Seynhaeve, Y. Bartosiewicz
+Benchmark of delayed equilibrium model (dem) and classic two-phase critical flow models against experimental data
+Int. J. Multiph. Flow, 92 (2017), pp. 112-130
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+[112]
+U. Rohatgi, E. Reshotko, Non-equilibrium one-dimensional two-phase flow in variable area channels, in: Non-equilibrium Two-phase Flows; Proceedings of the Winter Annual Meeting, 1975.
+Google Scholar
+[113]
+V. Blinkov, O. Jones, B. Nigmatulin
+Nucleation and flashing in nozzles—2. Comparison with experiments using a five-equation model for vapor void development
+Int. J. Multiph. Flow, 19 (6) (1993), pp. 965-986
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+[114]
+P. Deligiannis, J. Cleaver
+The role of nucleation in the initial phases of a rapid depressurization of a subcooled liquid
+Int. J. Multiph. Flow, 16 (6) (1990), pp. 975-984
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+[115]
+E. Elias, S. Levy, P. Chambré
+A mechanistic non-equilibrium model for two-phase critical flow
+Int. J. Multiph. Flow, 10 (1) (1984), pp. 21-40
+Google Scholar
+[116]
+H. Atajafari, M. Nematollahi, M. Hashemi-Tilehnoee, N. Rafiee, et al.
+Validation of RELAP5/MOD3. 2 code for flashing-induced instabilities in a single channel
+World J. Nucl. Sci. Technol., 5 (1) (2015), pp. 6-17
+CrossRefGoogle Scholar
+[117]
+M. Wein
+Numerische simulation von kritischen und nahkritischen zweiphasenströmungen mit thermischen und fluiddynamischen nichtgleichgewichtseffekten
+(Ph.D. thesis)
+Technical University of Dresden (2002)
+Google Scholar
+[118]
+J. Leung
+A generalized correlation for one-component homogeneous equilibrium flashing choked flow
+AIChE J., 32 (10) (1986), pp. 1743-1746
+View Record in ScopusGoogle Scholar
+[119]
+K. Ardron, R. Furness
+A study of the critical flow models used in reactor blowdown analysis
+Nucl. Eng. Des., 39 (2–3) (1976), pp. 257-266
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+[120]
+R. Hu, J. Zhao, S.-P. Kao, M. Kazimi, Thermal-hydraulic stability analysis of natural circulation bwrs, in: International Congress on Advances in Nuclear Power Plants (ICAPP 2007), 2007.
+Google Scholar
+[121]
+M. Podowski
+Modeling and analysis of two-phase flow instabilities
+The 14th International Topical Meeting on Nuclear Reactor Thermalhydraulics, NURETH-10 (2003)
+Google Scholar
+[122]
+P. Downar-Zapolski, Z. Bilicki, L. Bolle, J. Franco
+The non-equilibrium relaxation model for one-dimensional flashing liquid flow
+Int. J. Multiph. Flow, 22 (3) (1996), pp. 473-483
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+[123]
+H. Kato, H. Kayano, Y. Kageyama, A consideration of thermal effect on cavitation bubble growth, Tech. rep., American Society of Mechanical Engineers, New York, NY (United States), 1994.
+Google Scholar
+[124]
+D.P. Schmidt
+Cavitation in diesel fuel injector nozzles
+(Ph.D. thesis)
+University of Wisconsin-Madison (1997)
+Google Scholar
+[125]
+M. Alamgir, J. Lienhard
+Correlation of pressure undershoot during hot-water depressurization
+J. Heat Transf., 103 (1981), pp. 52-55
+CrossRefView Record in ScopusGoogle Scholar
+[126]
+M. Reocreux, Contribution to the study of critical flow rates in two-phase water vapor flow, vol. 3, US Nuclear Regulatory Commission, 1977.
+Google Scholar
+[127]
+Z. Bilicki, R. Kwidziński, S.A. Mohammadein
+Evaluation of the relaxation time of heat and mass exchange in the liquid-vapour bubble flow
+Int. J. Heat Mass Transf., 39 (4) (1996), pp. 753-759
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+[128]
+S. Mohammadein
+The derivation of thermal relaxation time between two-phase bubbly flow
+Heat Mass Transf., 42 (5) (2006), pp. 364-369
+CrossRefView Record in ScopusGoogle Scholar
+[129]
+F. Dobran
+Nonequilibrium modeling of two-phase critical flows in tubes
+J. Heat Transf., 109 (1987), pp. 731-738
+CrossRefView Record in ScopusGoogle Scholar
+[130]
+M.S. Plesset, S.A. Zwick
+The growth of vapor bubbles in superheated liquids
+J. Appl. Phys., 25 (4) (1954), pp. 493-500
+CrossRefView Record in ScopusGoogle Scholar
+[131]
+E. Ruckenstein
+On heat transfer between vapour bubbles in motion and the boiling liquid from which they are generated
+Chem. Eng. Sci., 10 (1–2) (1959), pp. 22-30
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+[132]
+M. Blander, J.L. Katz
+Bubble nucleation in liquids
+AIChE J., 21 (5) (1975), pp. 833-848
+View Record in ScopusGoogle Scholar
+[133]
+K. Ardron
+A two-fluid model for critical vapour-liquid flow
+Int. J. Multiph. Flow, 4 (3) (1978), pp. 323-337
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+[134]
+O. Jones Jr, N. Zuber
+Bubble growth in variable pressure fields
+J. Heat Transf., 100 (1978), pp. 453-459
+CrossRefView Record in ScopusGoogle Scholar
+[135]
+S. Mimouni, M. Boucker, J. Laviéville, A. Guelfi, D. Bestion
+Modelling and computation of cavitation and boiling bubbly flows with the NEPTUNE_CFD code
+Nucl. Eng. Des., 238 (3) (2008), pp. 680-692
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+[136]
+N. Zuber, J. Findlay
+Average volumetric concentration in two-phase flow systems
+J. Heat Transf., 87 (4) (1965), pp. 453-468
+CrossRefView Record in ScopusGoogle Scholar
+[137]
+H. Forster, N. Zuber
+Growth of a vapor bubble in a superheated liquid
+J. Appl. Phys., 25 (4) (1954), pp. 474-478
+CrossRefView Record in ScopusGoogle Scholar
+[138]
+Y. Liao, D. Lucas
+Evaluation of interfacial heat transfer models for flashing flow with two-fluid cfd
+Fluids, 3 (2) (2018), p. 38
+View Record in ScopusGoogle Scholar
+[139]
+W. Rivard, J. Travis
+A nonequilibrium vapor production model for critical flow
+Nucl. Sci. Eng., 74 (1) (1980), pp. 40-48
+CrossRefView Record in ScopusGoogle Scholar
+[140]
+W. Ranz, W. Marshall
+Evaporation from drops: Ii. Chem
+Chem. Eng. Prog., 48 (4) (1952), pp. 173-180
+View Record in ScopusGoogle Scholar
+[141]
+C. Schwellnus
+A study of a general one-dimensional two-fluid critical flow model
+(Master’s thesis)
+McMaster University (November 1988)
+Google Scholar
+[142]
+R. Dagan, E. Elias, E. Wacholder, S. Olek
+A two-fluid model for critical flashing flows in pipes
+Int. J. Multiphase Flow, 19 (1) (1993), pp. 15-25
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+[143]
+S. Olek, Y. Zvirin, E. Elias
+Bubble growth predictions by the hyperbolic and parabolic heat conduction equations
+Wärme-und Stoffübertragung, 25 (1) (1990), pp. 17-26
+View Record in ScopusGoogle Scholar
+[144]
+Y. Liao, D. Lucas
+Numerical analysis of flashing pipe flow using a population balance approach
+Int. J. Heat Fluid Flow, 77 (2019), pp. 299-313
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+[145]
+D. Labuntzov, B. Lolchugin, V. Golovin, E. Zakharova, L. Vladimirova
+High speed camera investigation of bubble growth for saturated water boiling in a wide range of pressure variations
+Thermophys. High Temp., 2 (1964), pp. 446-453
+Google Scholar
+[146]
+D. Bestion
+Extension of CFD codes application to two-phase flow safety problems
+Nucl. Eng. Technol., 42 (4) (2010), pp. 365-376
+CrossRefView Record in ScopusGoogle Scholar
+[147]
+M.-S. Jin, C.-T. Ha, W.-G. Park
+Numerical study on heat transfer effects of cavitating and flashing flows based on homogeneous mixture model
+Int. J. Heat Mass Transf., 109 (2017), pp. 1068-1083
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+[148]
+I. Ansys, ANSYS CFX-solver theory guide, 2012.
+Google Scholar
+[149]
+Y. Liao, T. Ma, L. Liu, T. Ziegenhein, E. Krepper, D. Lucas
+Eulerian modelling of turbulent bubbly flow based on a baseline closure concept
+Nucl. Eng. Des., 337 (2018), pp. 450-459
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+[150]
+M. Robert, M. Farvacque, M. Parent, B. Faydide
+CATHARE 2 V2.5: A fully validated CATHARE version for various applications, in
+The 14th International Topical Meeting on Nuclear Reactor Thermalhydraulics, NURETH-10 (2003)
+Google Scholar
+[151]
+A.K. Singhal, M.M. Athavale, H. Li, Y. Jiang
+Mathematical basis and validation of the full cavitation model
+J. Fluids Eng., 124 (3) (2002), pp. 617-624
+View Record in ScopusGoogle Scholar
+[152]
+G.H. Schnerr, J. Sauer
+Physical and numerical modeling of unsteady cavitation dynamics, in
+The 4th International Conference on Multiphase Flow, ICMF-4 (2001)
+Google Scholar
+[153]
+M. Ishigaki, T. Watanabe, H. Nakamura
+Numerical simulation of two-phase critical flow with the phase change in the nozzle tube
+J. Power Energy Syst., 6 (2) (2012), pp. 264-274
+CrossRefView Record in ScopusGoogle Scholar
+[154]
+T. Kuroda, T. Watanabe, Y. Kukita, Break flow modeling for a steam generator tube rupture (SGTR) incident in a pressurized water reactor (PWR), Tech. rep., Japan Atomic Energy Research institute, 1993.
+Google Scholar
+[155]
+W.H. Lee, A pressure iteration scheme for two-phase flow modeling, in: Multiphase Transport: Fundamentals, Reactor safety, Applications, 1980.
+Google Scholar
+[156]
+L. Tikhonenko, L. Kevorkov, S. Lutovinov
+Investigation of local parameters of critical flow of hot water in straight pipes with a sharp inlet edge
+Therm. Eng., 25 (2) (1978), pp. 40-43
+View Record in ScopusGoogle Scholar
+[157]
+H. Fauske, The discharge of saturated water through tubes, in: Chemical Engineering Progress Symposium Series, 1965.
+Google Scholar
+[158]
+M. Duponcheel, J.-M. Seynhaeve, Y. Bartosiewicz
+Implementation and assessment of the delayed equilibrium model for computing flashing choked flows in a multi-field cfd code
+The 14th International Topical Meeting on Nuclear Reactor Thermalhydraulics, NURETH-16 (2015)
+Google Scholar
+[159]
+I. Karathanassis, P. Koukouvinis, M. Gavaises
+Comparative evaluation of phase-change mechanisms for the prediction of flashing flows
+Int. J. Multiph. Flow, 95 (2017), pp. 257-270
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+[160]
+R.D. Reitz
+A photographic study of flash-boiling atomization
+Aerosol Sci. Technol., 12 (3) (1990), pp. 561-569
+CrossRefView Record in ScopusGoogle Scholar
+[161]
+Y. Liao, D. Lucas
+On numerical simulation of flashing flows, in
+The 14th International Topical Meeting on Nuclear Reactor Thermalhydraulics, NURETH-18 (2019)
+Google Scholar
+[162]
+J.C. Jo, J.J. Jeong, B.J. Yun, F. Moody
+Numerical prediction of a flashing flow of saturated water at high pressure
+Nucl. Eng. Technol., 50 (7) (2018), pp. 1173-1183
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+[163]
+J.C. Jo, J.J. Jeong, B.J. Yun, J. Kim
+Numerical analysis of subcooled water flashing flow from a pressurized water reactor steam generator through an abruptly broken main feed water pipe
+J. Pressure Vessel Technol., 141 (4) (2019), pp. 044501:1-044501:10
+Google Scholar
+[164]
+Y. Liao, D. Lucas, E. Krepper, R. Rzehak, CFD simulation of flashing boiling flow in the containment cooling condensers (CCC) system of KERENA reactor, in: 21st International Conference on Nuclear Engineering, ICONE-21, American Society of Mechanical Engineers Digital Collection, 2013.
+Google Scholar
+[165]
+D. Lucas, M. Beyer, L. Szalinski
+Experiments on evaporating pipe flow, in
+The 14th International Topical Meeting on Nuclear Reactor Thermalhydraulics, NURETH-14 (2011)
+Google Scholar
+[166]
+Y. Liao, D. Lucas, E. Krepper, R. Rzehak
+Flashing evaporation under different pressure levels
+Nucl. Eng. Des., 265 (2013), pp. 801-813
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+[167]
+S. Hänsch, D. Lucas, E. Krepper, T. Höhne
+A multi-field two-fluid concept for transitions between different scales of interfacial structures
+Int. J. Multiph. Flow, 47 (2012), pp. 171-182
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+[168]
+T. Höhne, E. Krepper, D. Lucas, G. Montoya
+A multiscale approach simulating boiling in a heated pipe including flow pattern transition
+Nucl. Technol., 205 (1–2) (2019), pp. 48-56
+CrossRefView Record in ScopusGoogle Scholar
+[169]
+T. Höhne, D. Lucas
+A multiscale approach simulating generic pool boiling
+Nucl. Sci. Eng. (2020), pp. 1-14
+CrossRefGoogle Scholar
+[170]
+T. Nigim, J. Eaton
+CFD prediction of the flashing processes in a msf desalination chamber
+Desalination, 420 (2017), pp. 258-272
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+[171]
+J.W. Gärtner, A. Rees, A. Kronenburg, J. Sender, M. Oschwald, D. Loureiro
+Large eddy simulation of flashing cryogenic liquid with a compressible volume of fluid solver
+29th European Conference Liquid Atomization and Spray Systems ILASS-Europe 2019 (2019)
+Google Scholar
+[172]
+J. Shinjo
+Recent advances in computational modeling of primary atomization of liquid fuel sprays
+Energies, 11 (11) (2018), p. 2971
+CrossRefGoogle Scholar
+[173]
+S.R. Prakash, S.S. Jain, J.A. Lovett, B. Raghunandan, R. Ravikrishna, G. Tomar
+Detailed numerical simulations of atomization of a liquid jet in a swirling gas crossflow
+Atomiz. Sprays, 29 (7) (2019), pp. 577-603
+CrossRefView Record in ScopusGoogle Scholar
+[174]
+X. Lu, L. Li, K. Luo, X. Ren, Y. Liu, X. Yan
+Investigation on the dispersal characteristics of liquid breakup in vacuum
+J. Thermophys. Heat Transf., 30 (2) (2016), pp. 410-417
+View Record in ScopusGoogle Scholar
+[175]
+H. Hochstetter, A. Kolb
+Evaporation and condensation of sph-based fluids, in
+Proceedings of the ACM SIGGRAPH/Eurographics Symposium on Computer Animation (2017), pp. 1-9
+CrossRefGoogle Scholar
+[176]
+X. Yang, S.-C. Kong
+Smoothed particle hydrodynamics method for evaporating multiphase flows
+Phys. Rev. E, 96 (3) (2017), p. 033309
+CrossRefView Record in ScopusGoogle Scholar

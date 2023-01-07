@@ -1,0 +1,357 @@
+Ôªø_NP <title> Machine_NP Learning_NP Methodology_NN for_IN Management_NP of_IN Shipbuilding_NP Master_NP Data_NP </title> <author> 1_CD ,_, Ju_NP Hyeon_NP Jeong_NP ,_, 2_CD ,_, Jong_NP Hun_NP Woo_NP ,_, 3_CD ,_, JungGoo_NP Park_NP </author> <Affiliation> 1_CD ,_, Korea_NP Maritime_NP and_CC Ocean_NP University_NP ,_, South_NP Korea_NP ,_, 2_CD ,_, Seoul_NP National_NP University_NP ,_, South_NP Korea_NP ,_, 3_CD ,_, Ship_NP &_CC Offshore_NP Research_NP Institute_NP ,_, Samsung_NP Heavy_NP Industries_NPS ,_, South_NP Korea_NP </Affiliation> <year> 2020_CD </year> <Jounral> International_NP Journal_NP of_IN Naval_NP Architecture_NP and_CC Ocean_NP Engineering_NP </Journal> <Publishing_house> Peer_NP review_NN under_IN responsibility_NN of_IN Society_NP of_IN Naval_NP Architects_NPS of_IN Korea_NP </Publishing_house> <Text_Collector> Zhang_NP SanÔºåHEU_NP </Text_Collector> <DOI> 10.1016/j.ijnaoe.2020.03.005_NP </DOI> <URL> https://www.sciencedirect.com/science/article/pii/S2092678220300078_NP </URL> Machine_NP Learning_NP Methodology_NN for_IN Management_NP of_IN Shipbuilding_NP Master_NP Data_NP Ju_NP Hyeon_NP Jeong_NP ,_, Jong_NP Hun_NP Woo_NP ,_, JungGoo_NP Park_NP Korea_NP Maritime_NP and_CC Ocean_NP University_NP ,_, South_NP Korea_NP Seoul_NP National_NP University_NP ,_, South_NP Korea_NP Ship_NP &_CC Offshore_NP Research_NP Institute_NP ,_, Samsung_NP Heavy_NP Industries_NPS ,_, South_NP Korea_NP <Section> Abstract_JJ </Section> The_DT continuous_JJ development_NN of_IN information_NN and_CC communication_NN technologies_NNS has_VHZ resulted_VVN in_IN an_DT exponential_JJ increase_NN in_IN data_NNS ._SENT 
+Consequently_RB ,_, technologies_NNS related_VVN to_TO data_NNS analysis_NN are_VBP growing_VVG in_IN importance_NN ._SENT 
+The_DT shipbuilding_NN industry_NN has_VHZ high_JJ production_NN uncertainty_NN and_CC variability_NN ,_, which_WDT has_VHZ created_VVN an_DT urgent_JJ need_NN for_IN data_NN analysis_NN techniques_NNS ,_, such_JJ as_IN machine_NN learning_NN ._SENT 
+In_IN particular_JJ ,_, the_DT industry_NN cannot_MD effectively_RB respond_VV to_TO changes_NNS in_IN the_DT production-related_JJ standard_JJ time_NN information_NN systems_NNS ,_, such_JJ as_IN the_DT basic_JJ cycle_NN time_NN and_CC lead_NN time_NN ._SENT 
+Improvement_NN measures_NNS are_VBP necessary_JJ to_TO enable_VV the_DT industry_NN to_TO respond_VV swiftly_RB to_TO changes_NNS in_IN the_DT production_NN environment_NN ._SENT 
+In_IN this_DT study_NN ,_, the_DT lead_JJ times_NNS for_IN fabrication_NN ,_, assembly_NN of_IN ship_NN block_NN ,_, spool_NN fabrication_NN and_CC painting_NN were_VBD predicted_VVN using_VVG machine_NN learning_VVG technology_NN to_TO propose_VV a_DT new_JJ management_NN method_NN for_IN the_DT process_NN lead_NN time_NN using_VVG a_DT master_NN data_NN system_NN for_IN the_DT time_NN element_NN in_IN the_DT production_NN data_NNS ._SENT 
+Data_NP preprocessing_NP was_VBD performed_VVN in_IN various_JJ ways_NNS using_VVG R_NN and_CC Python_NN ,_, which_WDT are_VBP open_JJ source_NN programming_NN languages_NNS ,_, and_CC process_NN variables_NNS were_VBD selected_VVN considering_VVG their_PP$ relationships_NNS with_IN the_DT lead_JJ time_NN through_IN correlation_NN analysis_NN and_CC analysis_NN of_IN variables_NNS ._SENT 
+Various_JJ machine_NN learning_NN ,_, deep_JJ learning_NN ,_, and_CC ensemble_NN learning_NN algorithms_NNS were_VBD applied_VVN to_TO create_VV the_DT lead_JJ time_NN prediction_NN models_NNS ._SENT 
+In_IN addition_NN ,_, the_DT applicability_NN of_IN the_DT proposed_VVN machine_NN learning_VVG methodology_NN to_TO standard_JJ work_NN hour_NN prediction_NN was_VBD verified_VVN by_IN evaluating_VVG the_DT prediction_NN models_NNS using_VVG the_DT evaluation_NN criteria_NNS ,_, such_JJ as_IN the_DT Mean_NP Absolute_JJ Percentage_NN Error_NN (_( MAPE_NN )_) and_CC Root_NP Mean_NP Squared_VVD Logarithmic_JJ Error_NN (_( RMSLE_NP )_) ._SENT 
+Keywords_NNS :_: Big_JJ data_NNS ;_: Statistical_NP analysis_NN ;_: Machine_NN learning_NN ;_: Shipbuilding_NP ;_: Production_NN management_NN ;_: Master_NP data_NNS <Section> 1._CD Introduction_NN </Section> 1.1_CD ._SENT 
+Background_NN The_DT widespread_JJ growth_NN of_IN the_DT information_NN society_NN has_VHZ resulted_VVN in_IN an_DT exponential_JJ increase_NN in_IN data_NNS ,_, which_WDT has_VHZ led_VVN to_TO the_DT rapid_JJ development_NN of_IN big_JJ data_NNS technology_NN for_IN systematic_JJ collection_NN ,_, storage_NN ,_, and_CC analysis_NN of_IN large_JJ volumes_NNS of_IN data_NNS that_WDT are_VBP difficult_JJ to_TO collect_VV ,_, store_VV ,_, and_CC analyze_VV using_VVG the_DT existing_JJ methods_NNS or_CC tools_NNS ._SENT 
+In_IN the_DT era_NN of_IN the_DT fourth_JJ industrial_JJ revolution_NN ,_, there_EX have_VHP been_VBN increasing_VVG attempts_NNS to_TO create_VV new_JJ added_JJ values_NNS through_IN big_JJ data_NNS technology_NN ,_, mainly_RB in_IN industries_NNS ._SENT 
+Big_JJ data_NNS has_VHZ been_VBN applied_VVN to_TO the_DT shipbuilding_NN industry_NN in_IN various_JJ ways_NNS ._SENT 
+Studies_NNS on_IN predicting_VVG the_DT types_NNS of_IN ships_NNS through_IN the_DT analysis_NN of_IN sales_NNS data_NNS from_IN the_DT international_JJ market_NN (_( Lee_NP ,_, 2017_CD )_) and_CC studies_NNS on_IN predicting_VVG quantity_NN through_IN the_DT analysis_NN of_IN BOM_NP and_CC design_NN information_NN can_MD be_VB referred_VVN to_TO as_IN representative_JJ studies_NNS (_( Oh_UH et_NP al_NP ._SENT 
+,_, 2018_CD )_) ._SENT 
+In_IN the_DT production_NN management_NN area_NN ,_, studies_NNS on_IN standard_JJ work_NN hours_NNS and_CC standard_JJ lead_JJ time_NN ,_, which_WDT are_VBP the_DT concepts_NNS addressed_VVN in_IN this_DT study_NN ,_, have_VHP been_VBN conducted_VVN (_( Ham_NP ,_, 2016_CD )_) ._SENT 
+In_IN the_DT existing_JJ method_NN for_IN standard_JJ work_NN hour_NN management_NN ,_, the_DT quantity_NN is_VBZ calculated_VVN from_IN the_DT product_NN information_NN and_CC the_DT work_NN hours_NNS and_CC lead_JJ time_NN are_VBP analyzed_VVN by_IN adding_VVG the_DT existing_JJ standard_JJ unit_NN work_NN hours_NNS to_TO the_DT calculated_JJ quantity_NN ._SENT 
+It_PP can_MD be_VB said_VVN that_IN the_DT method_NN is_VBZ based_VVN on_IN causal_JJ relation_NN ._SENT 
+This_DT method_NN ,_, however_RB ,_, requires_VVZ further_JJR research_NN on_IN quantity_NN calculation_NN or_CC standard_JJ unit_NN work_NN hours_NNS owing_VVG to_TO the_DT complexity_NN of_IN products_NNS and_CC the_DT existence_NN of_IN various_JJ variables_NNS in_IN the_DT field_NN work_NN despite_IN the_DT research_NN being_VBG conducted_VVN over_IN an_DT extended_JJ period_NN ._SENT 
+The_DT big_JJ data_NN analysis_NN methodology_NN ,_, on_IN the_DT other_JJ hand_NN ,_, is_VBZ an_DT analysis_NN technique_NN based_VVN on_IN statistics_NNS ,_, which_WDT analyzes_VVZ only_RB the_DT correlations_NNS between_IN the_DT data_NNS expressed_VVN in_IN numbers_NNS or_CC letters_NNS regardless_RB of_IN the_DT products_NNS or_CC process_NN technologies_NNS (_( Lee_NP et_NP al_NP ._SENT 
+,_, 2014a,b_NP )_) ._SENT 
+Therefore_RB ,_, it_PP is_VBZ expected_VVN that_IN a_DT standard_JJ work_NN hour_NN prediction_NN model_NN for_IN the_DT target_NN work_NN can_MD be_VB derived_VVN through_IN machine_NN learning_VVG of_IN the_DT relations_NNS between_IN relevant_JJ variables_NNS and_CC actual_JJ (_( or_CC planned_JJ )_) data_NNS if_IN the_DT big_JJ data_NN analysis_NN methodology_NN is_VBZ applied_VVN to_TO the_DT standard_JJ work_NN hours_NNS ._SENT 
+1.2_CD ._SENT 
+Current_JJ problems_NNS The_DT production_NN time_NN of_IN most_JJS general_JJ manufacturing_NN industries_NNS (_( mechanical_JJ ,_, aviation_NN ,_, electronics_NNS ,_, etc._FW )_) ,_, which_WDT are_VBP mainly_RB operated_VVN by_IN mass_JJ production_NN systems_NNS ,_, has_VHZ a_DT high_JJ standardization_NN rate_NN ._SENT 
+In_IN the_DT case_NN of_IN workers_NNS ,_, standardized_JJ motion_NN analysis_NN methods_NNS such_JJ as_IN MTM_NP (_( Methods-Time_JJ Measurement_NN )_) and_CC MODAPTS_NP (_( MODular_JJ Arrangement_NN of_IN Predetermined_VVN Time_NP Standards_NPS )_) are_VBP used_VVN ._SENT 
+In_IN the_DT case_NN of_IN facilities_NNS ,_, standard_JJ operation_NN sheet_NN analysis_NN is_VBZ used_VVN to_TO standardize_VV the_DT working_VVG time_NN and_CC reflect_VV them_PP in_IN the_DT process_NN design_NN ._SENT 
+In_IN the_DT general_JJ manufacturing_NN industry_NN ,_, the_DT standardization_NN of_IN such_JJ working_VVG time_NN is_VBZ possible_JJ because_IN the_DT same_JJ (_( or_CC similar_JJ )_) product_NN is_VBZ produced_VVN repeatedly_RB ._SENT 
+Except_IN ,_, the_DT same_JJ applies_VVZ ._SENT 
+However_RB ,_, the_DT shipbuilding_NN is_VBZ very_RB difficult_JJ to_TO standardize_VV the_DT working_VVG time_NN because_IN the_DT specifications_NNS of_IN the_DT intermediate_JJ product_NN (_( hull_NN block_NN ,_, design_NN ,_, member_NN ,_, etc._FW )_) constituting_VVG the_DT final_JJ product_NN as_RB well_RB as_IN the_DT final_JJ product_NN (_( ship_NN )_) are_VBP all_RB different_JJ ._SENT 
+Once_RB the_DT ship_NN type_NN is_VBZ determined_VVN to_TO be_VB built_VVN at_IN the_DT shipyard_NN ,_, the_DT production_NN plan_NN is_VBZ usually_RB based_VVN on_IN the_DT previous_JJ vessel_NN 's_POS plan_NN data_NNS rather_RB than_IN the_DT standard_NN of_IN estimate_NN information_NN on_IN production_NN time_NN ._SENT 
+In_IN principle_NN ,_, the_DT amount_NN of_IN work_NN should_MD be_VB calculated_VVN from_IN the_DT product_NN information_NN of_IN the_DT ordered_VVN vessel_NN and_CC the_DT working_VVG time_NN should_MD be_VB calculated_VVN in_IN consideration_NN of_IN the_DT standard_NN of_IN estimate_NN ._SENT 
+However_RB ,_, due_JJ to_TO the_DT wide_JJ variety_NN and_CC quantity_NN of_IN vessels_NNS ,_, this_DT principle_NN is_VBZ not_RB well_RB followed_VVN ,_, so_RB the_DT accuracy_NN rate_NN of_IN the_DT production_NN plan_NN is_VBZ low_RB compared_VVN to_TO the_DT other_JJ manufacturing_NN sectors_NNS ._SENT 
+In_IN this_DT study_NN ,_, we_PP propose_VVP a_DT model_NN that_WDT can_MD predict_VV more_RBR accurate_JJ working_VVG time_NN through_IN supervised_JJ learning_NN on_IN past_JJ production_NN record_NN as_IN a_DT solution_NN for_IN the_DT problem_NN of_IN production_NN planning_NN ._SENT 
+<Section> 2._CD Objectives_NNS </Section> In_IN this_DT study_NN ,_, a_DT model_NN for_IN predicting_VVG the_DT standard_JJ time_NN data_NNS of_IN a_DT shipyard_NN was_VBD created_VVN using_VVG the_DT big_JJ data_NN analysis_NN methodology_NN ._SENT 
+The_DT scenarios_NNS related_VVN to_TO shipbuilding_NN production_NN were_VBD defined_VVN by_IN collecting_VVG the_DT performance_NN data_NNS of_IN shipyards_NNS on_IN fabrication_NN ,_, assembly_NN ,_, and_CC procurement_NN ,_, and_CC were_VBD analyzed_VVN using_VVG the_DT learning_VVG algorithms_NNS in_IN R_NN and_CC Python_NN ._SENT 
+Machine_NN learning_NN ,_, deep_JJ learning_NN ,_, and_CC ensemble_NN learning_NN algorithms_NNS were_VBD applied_VVN to_TO the_DT fabrication_NN ,_, assembly_NN ,_, and_CC procurement_NN data_NNS related_VVN to_TO shipbuilding_NN in_IN this_DT study_NN ._SENT 
+Lead_JJ time_NN prediction_NN models_NNS were_VBD created_VVN based_VVN on_IN analytical_JJ cases_NNS by_IN applying_VVG various_JJ learning_VVG algorithms_NNS ._SENT 
+The_DT reason_NN for_IN applying_VVG various_JJ learning_VVG algorithms_NNS is_VBZ to_TO investigate_VV whether_IN a_DT specific_JJ algorithm_NN is_VBZ good_JJ for_IN all_DT process_NN data_NNS or_CC specific_JJ algorithms_NNS guarantee_VVP high_JJ prediction_NN accuracy_NN for_IN a_DT certain_JJ process_NN type_NN ,_, because_IN the_DT prediction_NN accuracy_NN of_IN the_DT learning_VVG model_NN can_MD vary_VV depending_VVG on_IN the_DT characteristics_NNS of_IN the_DT production_NN data_NNS ._SENT 
+._SENT 
+The_DT prediction_NN models_NNS were_VBD evaluated_VVN by_IN comparing_VVG the_DT lead_JJ times_NNS obtained_VVN from_IN the_DT models_NNS with_IN the_DT actual_JJ lead_NN time_NN ._SENT 
+<Section> 3._CD Related_JJ studies_NNS </Section> Jo_NP and_CC Kang_NP (_( 2016_CD )_) classified_VVD the_DT big_JJ data_NNS applicable_JJ to_TO the_DT manufacturing_NN industry_NN under_IN product_NN development_NN ,_, manufacturing_NN process_NN ,_, sales_NNS and_CC marketing_NN ,_, and_CC warranty_NN service_NN ,_, and_CC then_RB presented_VVN application_NN examples_NNS for_IN each_DT field_NN ._SENT 
+In_IN the_DT text_NN mining_NN case_NN for_IN improving_VVG the_DT efficiency_NN of_IN the_DT automotive_JJ parts_NNS design_NN process_NN in_IN the_DT product_NN development_NN area_NN ,_, they_PP showed_VVD that_IN the_DT time_NN and_CC effort_NN required_VVN to_TO identify_VV major_JJ problems_NNS could_MD be_VB reduced_VVN by_IN analyzing_VVG the_DT information_NN included_VVD in_IN the_DT design_NN verification_NN test_NN ._SENT 
+Jung_NP and_CC Sim_NP (_( 2014_CD )_) attempted_VVD to_TO reduce_VV the_DT welding_VVG cost_NN by_IN analyzing_VVG the_DT work_NN patterns_NNS of_IN welders_NNS based_VVN on_IN the_DT welding_VVG data_NNS ._SENT 
+To_TO this_DT end_NN ,_, they_PP examined_VVD the_DT patterns_NNS of_IN power_NN consumption_NN and_CC the_DT wire_NN length_NN consumed_VVN by_IN applying_VVG the_DT algorithm_NN in_IN R_NN and_CC regression_NN analysis_NN to_TO a_DT large_JJ number_NN of_IN welding_VVG work_NN pattern_NN variables_NNS ._SENT 
+Ham_NP (_( 2016_CD )_) and_CC Ham_NP et_NP al_NP ._SENT 
+(_( 2016_CD )_) conducted_VVD a_DT research_NN on_IN improving_VVG the_DT level_NN of_IN procurement_JJ management_NN by_IN predicting_VVG the_DT lead_JJ time_NN for_IN spools_NNS ,_, which_WDT are_VBP outfittings_NNS that_WDT cause_VVP significant_JJ delays_NNS in_IN post_NN tasks_NNS ,_, from_IN the_DT manufacturing_NN process_NN to_TO the_DT installation_NN process_NN ._SENT 
+In_IN the_DT study_NN ,_, the_DT lead_JJ time_NN was_VBD defined_VVN by_IN dividing_VVG the_DT supply_NN chain_NN of_IN the_DT piping_JJ process_NN into_IN six_CD processes_NNS ,_, and_CC multiple_JJ linear_JJ regression_NN analysis_NN and_CC partial_JJ least_JJS squares_NNS regression_NN analysis_NN were_VBD conducted_VVN ._SENT 
+However_RB ,_, the_DT error_NN rate_NN of_IN the_DT lead_JJ time_NN for_IN each_DT process_NN was_VBD found_VVN to_TO be_VB large_JJ because_IN of_IN insufficient_JJ data_NNS preprocessing_VVG ._SENT 
+Hur_NP et_NP al_NP ._SENT 
+(_( 2015_CD )_) analyzed_VVD the_DT effort_NN data_NNS of_IN the_DT ship_NN design_NN and_CC production_NN processes_NNS to_TO predict_VV the_DT effort_NN in_IN shipyards_NNS ._SENT 
+Prediction_NN models_NNS were_VBD created_VVN by_IN defining_VVG variables_NNS related_VVN to_TO effort_NN and_CC using_VVG multiple_JJ linear_JJ regression_NN analysis_NN as_RB well_RB as_IN decision_NN tree_NN ._SENT 
+However_RB ,_, the_DT method_NN suffered_VVN from_IN limitations_NNS related_VVN to_TO the_DT collection_NN of_IN long-term_JJ data_NNS considering_VVG that_DT shipbuilding_NN in_IN shipyards_NNS takes_VVZ one_CD to_TO two_CD years_NNS on_IN average_NN ,_, and_CC the_DT consideration_NN of_IN external_JJ factors_NNS other_JJ than_IN the_DT workspace_NN was_VBD inadequate_JJ ._SENT 
+Lee_NP et_NP al_NP ._SENT 
+(_( 2014a,b_NP )_) applied_VVD the_DT text_NN mining_NN method_NN to_TO predict_VV various_JJ kinds_NNS of_IN defects_NNS that_WDT could_MD occur_VV during_IN the_DT construction_NN of_IN marine_JJ structures_NNS ._SENT 
+They_PP extracted_VVD significant_JJ knowledge_NN helpful_JJ for_IN the_DT manufacturing_NN process_NN by_IN conducting_VVG defect_NN trend_NN analysis_NN and_CC related_JJ defect_NN analysis_NN through_IN the_DT analysis_NN of_IN text_NN log_NN data_NNS and_CC visualization_NN of_IN results_NNS ._SENT 
+National_NP Information_NP Society_NP Agency_NP (_( NIA_JJ )_) (_( 2016_CD )_) pushed_VVD forward_RB a_DT project_NN for_IN developing_VVG a_DT big_JJ data_NNS cloud_VVP service_NN for_IN analyzing_VVG the_DT shipyard_NN manufacturing_NN process_NN as_IN part_NN of_IN the_DT big_JJ data_NN pilot_NN project_NN ._SENT 
+The_DT project_NN attempted_VVD to_TO improve_VV the_DT work_NN efficiency_NN by_IN analyzing_VVG process_NN delays_NNS and_CC loads_NNS ._SENT 
+The_DT process_NN status_NN and_CC delay_NN factors_NNS were_VBD identified_VVN by_IN examining_VVG the_DT manufacturing_NN process_NN big_JJ data_NNS based_VVN on_IN process_NN mining_NN ._SENT 
+Kim_NP et_NP al_NP ._SENT 
+(_( 2016_CD )_) proposed_VVD a_DT big_JJ data_NN platform_NN based_VVN on_IN Hadoop_NP ,_, a_DT big_JJ data_NNS distributed_VVN processing_NN technology_NN ._SENT 
+They_PP studied_VVD the_DT applicability_NN of_IN big_JJ data_NNS to_TO marine_JJ structure_NN development_NN by_IN applying_VVG the_DT proposed_VVN platform_NN to_TO the_DT estimation_NN of_IN the_DT weight_NN of_IN the_DT offshore_JJ plant_NN superstructure_NN ._SENT 
+However_RB ,_, the_DT data_NNS for_IN analysis_NN were_VBD not_RB sufficient_JJ owing_VVG to_TO security_NN concerns_NNS of_IN shipyards_NNS ,_, and_CC the_DT testing_NN of_IN various_JJ analysis_NN algorithms_NNS was_VBD inadequate_JJ because_IN only_RB simple_JJ linear_JJ regression_NN analysis_NN was_VBD applied_VVN ._SENT 
+Currently_RB ,_, big_JJ data_NNS analysis_NN research_NN continues_VVZ to_TO increase_VV in_IN the_DT shipbuilding_NN and_CC marine_JJ industries_NNS ,_, but_CC no_DT research_NN case_NN has_VHZ been_VBN found_VVN in_IN the_DT field_NN of_IN lead_JJ time_NN related_VVN to_TO shipyard_NN production_NN ._SENT 
+There_EX are_VBP also_RB cases_NNS where_WRB technologies_NNS related_VVN to_TO big_JJ data_NNS have_VHP been_VBN acquired_VVN through_IN various_JJ studies_NNS ,_, but_CC there_EX are_VBP no_DT applicable_JJ objects_NNS (_( actual_JJ shipyard_NN data_NNS )_) ._SENT 
+Therefore_RB ,_, in_IN this_DT study_NN ,_, we_PP intend_VVP to_TO predict_VV the_DT lead_JJ time_NN of_IN production_NN by_IN applying_VVG machine_NN learning_VVG methodology_NN to_TO actual_JJ shipyard_NN data_NNS ._SENT 
+<Section> 4._CD Algorithms_NNS used_VVN for_IN analysis_NN </Section> In_IN this_DT study_NN ,_, machine_NN learning_NN ,_, deep_JJ learning_NN ,_, and_CC ensemble_NN learning_NN were_VBD used_VVN as_IN analytic_JJ algorithms_NNS ._SENT 
+Deep_JJ learning_NN and_CC ensemble_NN learning_NN are_VBP included_VVN in_IN one_CD of_IN the_DT machine_NN learning_VVG methodologies_NNS ,_, but_CC we_PP will_MD use_VV them_PP separately_RB for_IN convenience_NN to_TO show_VV the_DT process_NN of_IN expanding_VVG the_DT analytic_JJ algorithm_NN ._SENT 
+4.1_CD ._SENT 
+Machine_NN learning_VVG algorithm_NN Machine_NN learning_NN ,_, an_DT application_NN of_IN artificial_JJ intelligence_NN ,_, can_MD be_VB referred_VVN to_TO as_IN a_DT technology_NN for_IN constructing_VVG ideal_JJ learning_VVG models_NNS using_VVG various_JJ probabilities_NNS ,_, combinatorics_NNS ,_, mathematical_JJ optimization_NN techniques_NNS ,_, statistics_NNS ,_, and_CC algorithms_NNS (_( Lee_NP et_NP al_NP ._SENT 
+,_, 2014a,b_NP )_) ._SENT 
+As_IN the_DT purpose_NN of_IN machine_NN learning_NN is_VBZ to_TO create_VV models_NNS using_VVG data_NNS ,_, selecting_VVG appropriate_JJ input_NN data_NNS as_RB well_RB as_IN selecting_VVG an_DT algorithm_NN suitable_JJ for_IN a_DT problem_NN is_VBZ important_JJ ._SENT 
+Machine_NN learning_NN algorithms_NNS are_VBP selected_VVN based_VVN on_IN training_NN data_NNS and_CC divided_VVN into_IN supervised_JJ learning_NN ,_, for_IN which_WDT labels_NNS are_VBP included_VVN in_IN the_DT training_NN data_NNS ,_, and_CC unsupervised_JJ learning_VVG ,_, for_IN which_WDT no_DT label_NN is_VBZ included_VVN in_IN the_DT training_NN data_NNS (_( Fig_NN ._SENT 
+1_LS )_) ._SENT 
+Fig_NN ._SENT 
+1._CD Algorithm_NN classification_NN of_IN machine_NN learning_NN ._SENT 
+The_DT purpose_NN of_IN this_DT study_NN is_VBZ to_TO develop_VV the_DT prediction_NN models_NNS for_IN improving_VVG the_DT lead_JJ times_NNS ,_, which_WDT are_VBP the_DT master_NN data_NNS ._SENT 
+Therefore_RB ,_, the_DT process_NN data_NNS of_IN shipyards_NNS were_VBD defined_VVN as_IN input_NN values_NNS and_CC the_DT lead_JJ times_NNS to_TO be_VB predicted_VVN were_VBD defined_VVN as_IN output_NN values_NNS ._SENT 
+Thus_RB ,_, the_DT machine_NN learning_VVG algorithms_NNS of_IN this_DT study_NN were_VBD limited_VVN to_TO supervised_JJ learning_VVG algorithms_NNS ._SENT 
+Among_IN such_JJ supervised_JJ learning_NN algorithms_NNS ,_, multiple_JJ regression_NN analysis_NN ,_, single_JJ layer_NN perceptron_NN ,_, and_CC decision_NN tree_NN ,_, which_WDT are_VBP known_VVN to_TO be_VB suitable_JJ for_IN numerical_JJ prediction_NN ,_, were_VBD used_VVN ._SENT 
+4.1.1_CD ._SENT 
+Multiple_JJ regression_NN analysis_NN The_DT most_RBS basic_JJ algorithm_NN among_IN the_DT numerical_JJ prediction_NN algorithms_NNS is_VBZ regression_NN analysis_NN ._SENT 
+Regression_NN analysis_NN ,_, which_WDT is_VBZ a_DT statistical_JJ analysis_NN method_NN to_TO identify_VV the_DT relationships_NNS between_IN variables_NNS ,_, is_VBZ used_VVN to_TO predict_VV the_DT values_NNS of_IN dependent_JJ variables_NNS according_VVG to_TO the_DT values_NNS of_IN independent_JJ variables_NNS ._SENT 
+In_IN this_DT study_NN ,_, multiple_JJ regression_NN analysis_NN is_VBZ used_VVN to_TO identify_VV the_DT relationship_NN between_IN one_CD dependent_JJ variable_NN and_CC several_JJ independent_JJ variables_NNS ._SENT 
+4.1.2_CD ._SENT 
+Single_JJ layer_NN perceptron_NP Single_NP layer_NN perceptron_NN is_VBZ and_CC early_JJ artificial_JJ neural_JJ network_NN ,_, which_WDT consists_VVZ of_IN sending_VVG values_NNS and_CC outputting_VVG values_NNS ._SENT 
+It_PP receives_VVZ multiple_JJ signals_NNS and_CC outputs_NNS one_PP signals_VVZ ,_, which_WDT seems_VVZ similar_JJ to_TO the_DT neuron_NN sending_VVG out_RP an_DT electrical_JJ signal_NN to_TO transmit_VV information_NN ._SENT 
+The_DT single_JJ layer_NN perceptron_NN receives_VVZ the_DT signal_NN as_IN an_DT input_NN and_CC forwards_RB the_DT information_NN of_IN 1_CD or_CC 0_CD and_CC gives_VVZ unique_JJ weight_NN to_TO each_DT of_IN the_DT multiple_JJ input_NN signals_NNS ._SENT 
+4.1.3_CD ._SENT 
+Decision_NN tree_NN Decision_NN tree_NN ,_, an_DT algorithm_NN based_VVN on_IN inductive_JJ inference_NN ,_, is_VBZ one_CD of_IN the_DT most_RBS commonly_RB used_VVN supervised_JJ learning_VVG models_NNS in_IN the_DT field_NN ._SENT 
+Because_IN the_DT analytical_JJ process_NN is_VBZ expressed_VVN using_VVG a_DT tree_NN structure_NN ,_, researchers_NNS can_MD easily_RB understand_VV and_CC explain_VV the_DT analysis_NN process_NN ._SENT 
+Although_IN the_DT decision_NN tree_NN is_VBZ a_DT typical_JJ classification_NN model_NN ,_, it_PP is_VBZ classified_VVN as_IN a_DT classification_NN tree_NN if_IN the_DT target_NN variable_NN is_VBZ categorical_JJ and_CC a_DT regression_NN tree_NN if_IN the_DT target_NN variable_NN is_VBZ continuous_JJ ._SENT 
+In_IN this_DT study_NN ,_, the_DT analysis_NN is_VBZ performed_VVN as_IN a_DT regression_NN tree_NN because_IN the_DT target_NN variable_NN is_VBZ lead_JJ time_NN which_WDT is_VBZ a_DT continuous_JJ variable_NN ._SENT 
+4.2_CD ._SENT 
+Deep_JJ learning_VVG algorithm_NN In_IN the_DT existing_JJ machine_NN learning_VVG process_NN ,_, people_NNS frequently_RB designate_VV definitions_NNS in_IN advance_NN or_CC human_JJ interaction_NN is_VBZ involved_VVN when_WRB the_DT computer_NN extracts_VVZ features_NNS from_IN the_DT training_NN data_NNS ,_, which_WDT results_VVZ in_IN many_JJ errors_NNS ._SENT 
+Moreover_RB ,_, the_DT approach_NN of_IN using_VVG multiple_JJ neural_JJ layers_NNS has_VHZ not_RB been_VBN utilized_VVN owing_VVG to_TO problems_NNS ,_, such_JJ as_IN nonlinearity_NN ,_, limitations_NNS on_IN the_DT number_NN of_IN weights_NNS due_JJ to_TO the_DT number_NN of_IN layers_NNS ,_, and_CC overfitting_VVG ._SENT 
+Despite_IN such_JJ problems_NNS ,_, deep_RB learning_VVG technology_NN is_VBZ being_VBG widely_RB used_VVN in_IN artificial_JJ intelligence_NN because_IN improved_VVN computational_JJ performance_NN of_IN computers_NNS and_CC the_DT development_NN of_IN algorithms_NNS have_VHP demonstrated_VVN the_DT usefulness_NN of_IN multi-layered_JJ neural_JJ networks_NNS (_( Kim_NP et_NP al_NP ._SENT 
+,_, 2016_CD )_) ._SENT 
+4.2.1_CD ._SENT 
+Multi-layer_NP perceptron_NP Multi-layer_NP perceptron_NP was_VBD proposed_VVN as_IN a_DT way_NN to_TO overcome_VV the_DT limitations_NNS of_IN the_DT single_JJ layer_NN perceptron_NN that_IN non-linearly_JJ separated_JJ data_NNS were_VBD not_RB available_JJ for_IN learning_VVG ._SENT 
+It_PP is_VBZ possible_JJ to_TO learn_VV about_IN data_NNS that_WDT is_VBZ non-linearly_RB separated_VVN by_IN having_VHG one_CD or_CC more_JJR hidden_JJ layers_NNS between_IN the_DT input_NN and_CC output_NN layers_NNS ._SENT 
+The_DT input_NN layer_NN plays_VVZ the_DT role_NN of_IN inputting_VVG the_DT prediction_NN variables_NNS ._SENT 
+The_DT hidden_JJ layer_NN receives_VVZ the_DT input_NN values_VVZ from_IN input_NN nodes_NNS ,_, calculates_VVZ the_DT weights_NNS ,_, applies_VVZ the_DT values_NNS to_TO the_DT activation_NN function_NN ,_, and_CC delivers_VVZ the_DT results_NNS to_TO the_DT output_NN layer_NN ._SENT 
+In_IN this_DT study_NN ,_, multi-layer_NP perceptron_NP was_VBD used_VVN for_IN analysis_NN to_TO ensure_VV better_JJR performance_NN than_IN single_JJ layer_NN perceptron_NN (_( Fig_NN ._SENT 
+2_LS )_) ._SENT 
+Fig_NN ._SENT 
+2._CD Concept_NN of_IN multi-layer_NP perceptron_NP ._SENT 
+4.3_CD ._SENT 
+Ensemble_NN learning_VVG algorithm_NN Ensemble_NN learning_NN is_VBZ a_DT method_NN of_IN learning_VVG a_DT new_JJ hypothesis_NN by_IN learning_VVG several_JJ single_JJ classifiers_NNS and_CC combining_VVG their_PP$ predictions_NNS ._SENT 
+The_DT purpose_NN of_IN ensemble_NN learning_NN is_VBZ to_TO obtain_VV a_DT predicted_VVN value_NN with_IN higher_JJR reliability_NN than_IN that_WDT obtained_VVD with_IN a_DT single_JJ classifier_NN by_IN combining_VVG the_DT results_NNS of_IN various_JJ classifiers_NNS (_( Lee_NP and_CC Yang_NP ,_, 2008_CD )_) ._SENT 
+To_TO obtain_VV excellent_JJ results_NNS from_IN ensemble_NN learning_NN ,_, it_PP is_VBZ necessary_JJ to_TO represent_VV the_DT classifiers_NNS using_VVG various_JJ algorithms_NNS or_CC to_TO randomly_RB divide_VV the_DT training_NN dataset_NN and_CC train_VV each_DT classifier_NN differently_RB even_RB though_IN the_DT same_JJ algorithm_NN is_VBZ used_VVN ._SENT 
+Ensemble_NN learning_NN is_VBZ a_DT classified_JJ as_IN bagging_NN ,_, boosting_VVG and_CC stacking_VVG ._SENT 
+Bagging_NN uses_VVZ one_CD learning_NN algorithm_NN ._SENT 
+And_CC this_DT is_VBZ a_DT method_NN of_IN allowing_VVG duplication_NN in_IN training_NN data_NNS sets_VVZ to_TO learn_VV different_JJ learning_VVG models_NNS and_CC make_VV decisions_NNS by_IN aggregating_VVG each_DT learning_VVG result_NN ._SENT 
+Boosting_VVG is_VBZ the_DT same_JJ as_IN bagging_NN ,_, but_CC it_PP is_VBZ characterized_VVN by_IN a_DT higher_JJR weight_NN on_IN the_DT wrong_JJ answer_NN and_CC a_DT lower_JJR weight_NN on_IN the_DT correct_JJ answer_NN ,_, thereby_RB focusing_VVG more_JJR on_IN the_DT wrong_JJ answer_NN ._SENT 
+Stacking_VVG is_VBZ an_DT algorithm_NN that_WDT combines_VVZ different_JJ learning_VVG models_NNS ._SENT 
+As_IN a_DT result_NN ,_, the_DT advantages_NNS of_IN each_DT algorithm_NN are_VBP taken_VVN and_CC the_DT weaknesses_NNS of_IN each_DT algorithm_NN are_VBP compensated_VVN ._SENT 
+In_IN this_DT study_NN ,_, random_JJ forest_NN corresponding_JJ to_TO bagging_NN is_VBZ used_VVN for_IN analysis_NN ._SENT 
+4.3.1_CD ._SENT 
+Random_JJ forest_NN algorithm_NN In_IN this_DT study_NN ,_, the_DT random_JJ forest_NN algorithm_NN was_VBD used_VVN for_IN ensemble_NN learning_NN ._SENT 
+Random_JJ forest_NN is_VBZ an_DT algorithm_NN obtained_VVN by_IN improving_VVG the_DT decision_NN trees_NNS of_IN machine_NN learning_NN ._SENT 
+It_PP creates_VVZ a_DT model_NN by_IN combining_VVG multiple_JJ decision_NN trees_NNS ._SENT 
+The_DT concept_NN of_IN the_DT Random_NP forest_NN algorithm_NN is_VBZ illustrated_VVN in_IN Fig_NN ._SENT 
+3._CD Random_NP forest_NN selects_VVZ variables_NNS by_IN using_VVG the_DT bagging_NN method_NN ,_, in_IN which_WDT sampling_NN is_VBZ performed_VVN by_IN allowing_VVG duplication_NN of_IN the_DT training_NN dataset_NN ,_, for_IN the_DT construction_NN of_IN each_DT decision_NN tree_NN ._SENT 
+Each_DT unit_NN model_NN is_VBZ significantly_RB different_JJ because_IN they_PP have_VHP different_JJ independent_JJ variables_NNS ,_, and_CC it_PP is_VBZ possible_JJ to_TO obtain_VV a_DT predicted_VVN value_NN with_IN higher_JJR reliability_NN than_IN that_DT possible_JJ with_IN a_DT single_JJ model_NN by_IN combining_VVG the_DT prediction_NN results_NNS of_IN each_DT model_NN ._SENT 
+Unlike_IN the_DT existing_JJ ensemble_NN model_NN ,_, random_JJ forest_NN is_VBZ stable_JJ because_IN it_PP maximizes_VVZ the_DT benefits_NNS of_IN ensemble_NN learning_NN and_CC improves_VVZ the_DT prediction_NN and_CC classification_NN accuracy_NN by_IN applying_VVG randomness_NN to_TO variables_NNS as_RB well_RB as_IN the_DT observed_JJ values_NNS ._SENT 
+Random_JJ forest_NN constructs_VVZ the_DT final_JJ ensemble_NN learning_VVG model_NN ,_, C‚àó(x_NP )_) ,_, by_IN combining_VVG B_NP decision_NN tree_NN models_NNS ._SENT 
+The_DT method_NN of_IN constructing_VVG the_DT final_JJ learning_NN model_NN is_VBZ different_JJ depending_VVG on_IN the_DT analysis_NN target_NN ._SENT 
+Fig_NN ._SENT 
+3._CD Concept_NN of_IN random_JJ forest_NN algorithm_NN ._SENT 
+In_IN the_DT regression_NN model_NN ,_, the_DT method_NN for_IN constructing_VVG the_DT final_JJ learning_NN model_NN involves_VVZ the_DT calculation_NN of_IN the_DT average_NN of_IN the_DT values_NNS predicted_VVD by_IN each_DT decision_NN tree_NN ,_, as_RB follows_VVZ ._SENT 
+In_IN the_DT classification_NN model_NN ,_, the_DT method_NN for_IN constructing_VVG the_DT final_JJ learning_NN model_NN involves_VVZ identifying_VVG the_DT most_RBS selected_JJ class_NN by_IN voting_NN ._SENT 
+@_SYM <Section> 5._CD Data_NP analysis_NN process_NN </Section> The_DT data_NNS analysis_NN process_NN comprises_VVZ four_CD steps_NNS :_: data_NNS collection_NN ,_, data_NNS processing_NN ,_, model_NN construction_NN ,_, and_CC model_NN performance_NN validation_NN (_( Fig_NN ._SENT 
+4_LS )_) ._SENT 
+In_IN the_DT data_NNS collection_NN step_NN ,_, the_DT data_NNS pertaining_VVG to_TO a_DT shipyard_NN for_IN which_WDT the_DT production_NN lead_NN time_NN is_VBZ to_TO be_VB predicted_VVN are_VBP collected_VVN for_IN each_DT process_NN and_CC various_JJ data_NNS processing_VVG techniques_NNS for_IN constructing_VVG a_DT model_NN are_VBP applied_VVN ._SENT 
+In_IN the_DT next_JJ step_NN ,_, prediction_NN models_NNS are_VBP created_VVN by_IN classifying_VVG the_DT data_NNS required_VVN for_IN creating_VVG the_DT prediction_NN models_NNS and_CC by_IN applying_VVG learning_VVG algorithms_NNS ._SENT 
+Finally_RB ,_, the_DT performance_NN of_IN each_DT prediction_NN model_NN is_VBZ validated_VVN using_VVG the_DT criteria_NNS for_IN evaluation_NN of_IN the_DT result_NN data_NNS ._SENT 
+Fig_NN ._SENT 
+4._CD Process_NN of_IN data_NN analysis_NN ._SENT 
+5.1_CD ._SENT 
+Data_NP collection_NN In_IN the_DT data_NNS collection_NN step_NN ,_, data_NNS are_VBP collected_VVN according_VVG to_TO the_DT analysis_NN purpose_NN ._SENT 
+The_DT collected_VVN shipyard_NN data_NNS are_VBP classified_VVN based_VVN on_IN three_CD process_NN types_NNS ,_, namely_RB ,_, cutting_VVG process_NN ,_, erection_NN process_NN ,_, and_CC spool_NN procurement_NN process_NN ,_, as_RB shown_VVN in_IN Table_NN 1._CD In_IN the_DT case_NN of_IN the_DT spool_NN procurement_NN process_NN ,_, the_DT lead_JJ times_NNS for_IN spool_NN fabrication_NN and_CC painting_NN ,_, in_IN which_WDT the_DT spool_NN process_NN variables_NNS have_VHP significance_NN ,_, were_VBD targeted_VVN in_IN this_DT study_NN even_RB though_IN there_EX were_VBD various_JJ processes_NNS between_IN spool_NN fabrication_NN and_CC installation_NN ._SENT 
+Table_NN 1._CD Data_NP collection_NN ._SENT 
+Cutting_VVG process_NN performance_NN data_NNS have_VHP been_VBN stored_VVN for_IN about_RB six_CD years_NNS ._SENT 
+This_DT data_NN has_VHZ relatively_RB fewer_JJR variables_NNS managed_VVN together_RB ._SENT 
+The_DT collected_VVN data_NNS is_VBZ 63,989rows_NNS and_CC consists_VVZ of_IN 7_CD independent_JJ variables_NNS (_( 3_CD continuous_JJ variables_NNS and_CC 4_CD categorical_JJ variables_NNS )_) and_CC a_DT dependent_JJ variable_NN corresponding_JJ to_TO lead_VV time_NN ._SENT 
+Erection_NN process_NN performance_NN data_NNS have_VHP been_VBN stored_VVN for_IN about_RB three_CD years_NNS ._SENT 
+Continuous_JJ variables_NNS in_IN the_DT block_NN were_VBD extracted_VVN by_IN mapping_VVG work_NN target_NN and_CC block_NN information_NN ._SENT 
+The_DT collected_VVN data_NNS is_VBZ 22,758rows_NNS and_CC consists_VVZ of_IN 15_CD independent_JJ variables_NNS (_( 8_CD continuous_JJ variables_NNS and_CC 7_CD categorical_JJ variables_NNS )_) and_CC a_DT dependent_JJ variable_NN corresponding_JJ to_TO lead_VV time_NN ._SENT 
+Finally_RB ,_, spool_VVP procurement_JJ performance_NN data_NNS are_VBP about_RB spools_NNS installed_VVN in_IN one_CD vessel_NN ._SENT 
+The_DT supply_NN chain_NN of_IN the_DT spools_NNS is_VBZ constructed_VVN through_IN the_DT process_NN from_IN making_VVG to_TO installation_NN ._SENT 
+And_CC lead_JJ time_NN is_VBZ controlled_VVN for_IN each_DT process_NN ,_, but_CC in_IN this_DT study_NN ,_, the_DT lead_JJ time_NN of_IN the_DT making_NN and_CC painting_NN process_NN is_VBZ predicted_VVN ._SENT 
+The_DT collected_VVN data_NNS is_VBZ 32,039rows_NNS and_CC consists_VVZ of_IN 19_CD independent_JJ variables_NNS (_( 6_CD continuous_JJ variables_NNS and_CC 13_CD categorical_JJ variables_NNS )_) and_CC a_DT dependent_JJ variable_NN corresponding_JJ to_TO lead_VV time_NN ._SENT 
+5.2_CD ._SENT 
+Data_NNS processing_VVG In_IN the_DT data_NNS processing_NN step_NN ,_, the_DT collected_VVN data_NNS are_VBP defined_VVN ,_, searched_VVD ,_, modified_VVN ,_, and_CC preprocessed_VVD ._SENT 
+Data_NP analysis_NN involves_VVZ the_DT tasks_NNS of_IN selecting_VVG variables_NNS to_TO be_VB applied_VVN to_TO the_DT algorithms_NNS and_CC processing_VVG erroneous_JJ data_NNS ._SENT 
+First_RB ,_, independent_JJ and_CC dependent_JJ variables_NNS are_VBP defined_VVN for_IN the_DT algorithm_NN ._SENT 
+As_IN different_JJ analysis_NN techniques_NNS can_MD be_VB applied_VVN depending_VVG on_IN the_DT type_NN and_CC number_NN of_IN variables_NNS ,_, independent_JJ variables_NNS having_VHG a_DT significant_JJ relationship_NN with_IN the_DT lead_JJ time_NN ,_, which_WDT is_VBZ a_DT dependent_JJ variable_NN ,_, are_VBP selected_VVN from_IN among_IN the_DT defined_VVN process_NN variables_NNS by_IN conducting_VVG correlation_NN analysis_NN between_IN continuous_JJ variables_NNS and_CC the_DT analysis_NN of_IN variables_NNS between_IN categorical_JJ variables_NNS ._SENT 
+Next_RB ,_, errors_NNS in_IN the_DT analysis_NN results_NNS must_MD be_VB prevented_VVN in_IN advance_NN by_IN examining_VVG each_DT variable_NN and_CC removing_VVG outliers_NNS or_CC missing_VVG values_NNS ._SENT 
+Missing_VVG values_NNS in_IN the_DT data_NNS corresponding_JJ to_TO the_DT selected_JJ variables_NNS are_VBP removed_VVN whereas_IN the_DT interquartile_JJ range_NN (_( IQR_NP )_) rule_NN and_CC Cook_NP 's_POS distance_NN are_VBP used_VVN to_TO remove_VV the_DT outliers_NNS ._SENT 
+5.2.1_CD ._SENT 
+IQR_NP rule_NN The_DT IQR_NP rule_NN can_MD be_VB explained_VVN by_IN visualizing_VVG the_DT distribution_NN of_IN data_NNS using_VVG a_DT box_NN plot_NN ,_, as_RB shown_VVN in_IN Fig_NN ._SENT 
+5._CD The_DT box_NN plot_NN summarizes_VVZ the_DT degree_NN of_IN variation_NN of_IN data_NNS using_VVG the_DT maximum_JJ value_NN ,_, upper_JJ quartile_NN ,_, median_JJ value_NN ,_, lower_JJR quartile_NN ,_, and_CC minimum_JJ value_NN ._SENT 
+IQR_NP is_VBZ the_DT value_NN obtained_VVN by_IN subtracting_VVG the_DT lower_JJR quartile_NN from_IN the_DT upper_JJ quartile_NN ._SENT 
+The_DT IQR_NP rule_NN determines_VVZ the_DT values_NNS that_WDT exceed_VVP the_DT range_NN between_IN the_DT lower_JJR quartile_NN ‚Ä_NN ì_NP IQR_NP √_NP ó_NP 1.5_CD and_CC the_DT upper_JJ quartile_NN +_SYM IQR_NP √_NP ó_NP 1.5_CD as_IN outliers_NNS ._SENT 
+In_IN this_DT study_NN ,_, outliers_NNS were_VBD removed_VVN by_IN applying_VVG the_DT IQR_NP rule_NN to_TO the_DT independent_JJ and_CC dependent_JJ variables_NNS ,_, which_WDT were_VBD continuous_JJ variables_NNS ._SENT 
+Fig_NN ._SENT 
+5._CD Visualized_VVN IQR_NN rule_NN ._SENT 
+5.2.2_CD ._SENT 
+Cook_NP 's_POS distance_NN In_IN regression_NN analysis_NN ,_, values_NNS with_IN large_JJ leverages_NNS and_CC residuals_NNS are_VBP referred_VVN to_TO as_IN outliers_NNS ._SENT 
+Cook_NP 's_POS distance_NN is_VBZ a_DT criterion_NN for_IN viewing_VVG the_DT leverage_NN and_CC residual_JJ at_IN the_DT same_JJ time_NN ._SENT 
+The_DT leverage_NN is_VBZ a_DT value_NN that_WDT represents_VVZ the_DT influence_NN of_IN the_DT actual_JJ result_NN value_NN y_NN on_IN the_DT predicted_VVN value_NN yÀ_NN Ü_NN ._SENT 
+For_IN the_DT influence_NN matrix_NN H_NP ,_, yÀÜ=Hy_NP holds_VVZ and_CC the_DT leverage_NN is_VBZ mathematically_RB defined_VVN as_IN the_DT diagonal_JJ component_NN hii_NNS of_IN the_DT influence_NN matrix_NN H._NP The_DT residual_JJ represents_VVZ the_DT difference_NN between_IN the_DT value_NN estimated_VVN from_IN the_DT regression_NN equation_NN of_IN the_DT sample_NN and_CC the_DT actual_JJ value_NN ._SENT 
+Scaled_VVN standardized_JJ residuals_NNS rimust_NN be_VB used_VVN to_TO have_VH the_DT same_JJ standard_JJ deviation_NN ._SENT 
+Cook_NP 's_POS distance_NN is_VBZ expressed_VVN as_RB follows_VVZ ._SENT 
+Below_RB is_VBZ the_DT criterion_NN for_IN determining_VVG Cook_NP 's_POS distance_NN as_IN an_DT outlier_NN ._SENT 
+N_NP is_VBZ the_DT number_NN of_IN data_NNS and_CC K_NP is_VBZ the_DT sum_NN of_IN leverages_NNS ._SENT 
+@_SYM In_IN this_DT study_NN ,_, outliers_NNS were_VBD removed_VVN by_IN applying_VVG Cook_NP 's_POS distance_NN to_TO the_DT lead_JJ time_NN ,_, which_WDT is_VBZ a_DT dependent_JJ variable_NN ._SENT 
+5.3_CD ._SENT 
+Model_NN construction_NN In_IN this_DT step_NN ,_, the_DT training_NN data_NNS for_IN constructing_VVG the_DT prediction_NN models_NNS and_CC the_DT evaluation_NN data_NNS for_IN evaluating_VVG the_DT prediction_NN models_NNS are_VBP classified_VVN and_CC the_DT learning_VVG algorithms_NNS are_VBP applied_VVN ._SENT 
+In_IN general_NN ,_, the_DT learning_NN and_CC evaluation_NN data_NNS are_VBP classified_VVN at_IN a_DT ratio_NN of_IN approximately_RB 7:3_CD ._SENT 
+The_DT process_NN data_NNS that_WDT underwent_VVD the_DT data_NNS processing_NN step_NN are_VBP classified_VVN and_CC a_DT learning_VVG algorithm_NN is_VBZ applied_VVN to_TO the_DT training_NN data_NNS ._SENT 
+In_IN addition_NN ,_, the_DT prediction_NN results_NNS of_IN the_DT finally_RB created_VVN learning_VVG model_NN are_VBP compared_VVN with_IN the_DT evaluation_NN data_NNS ._SENT 
+5.4_CD ._SENT 
+Model_NN performance_NN validation_NN In_IN the_DT model_NN performance_NN validation_NN step_NN ,_, the_DT performance_NN of_IN each_DT prediction_NN model_NN is_VBZ validated_VVN using_VVG the_DT evaluation_NN criteria_NNS ._SENT 
+The_DT following_VVG evaluation_NN criteria_NNS were_VBD used_VVN to_TO calculate_VV the_DT error_NN between_IN the_DT predicted_VVN value_NN and_CC the_DT performance_NN value_NN of_IN the_DT actual_JJ data_NNS as_IN well_RB as_RB determine_VV the_DT accuracy_NN of_IN the_DT predicted_VVN value_NN quantitatively_RB (_( Table_NN 2._CD Table_NN 2._CD Evaluation_NN criteria_NNS ._SENT 
+The_DT mean_JJ absolute_JJ error_NN (_( MAE_NP )_) represents_VVZ the_DT average_NN of_IN the_DT absolute_JJ errors_NNS between_IN the_DT predicted_VVN values_NNS and_CC the_DT actual_JJ values_NNS ._SENT 
+The_DT mean_JJ absolute_JJ percentage_NN error_NN (_( MAPE_NN )_) converts_VVZ the_DT difference_NN between_IN the_DT predicted_VVN value_NN and_CC the_DT actual_JJ value_NN into_IN a_DT percentage_NN ._SENT 
+The_DT root_NN mean_VV square_JJ error_NN (_( RMSE_NN )_) is_VBZ the_DT square_JJ root_NN of_IN the_DT average_NN of_IN the_DT squared_VVN residuals_NNS ,_, and_CC it_PP is_VBZ usually_RB expressed_VVN as_IN precision_NN ._SENT 
+Finally_RB ,_, the_DT root_NN mean_NN squared_VVD logarithmic_JJ error_NN (_( RMSLE_NP )_) is_VBZ the_DT log_NN value_NN of_IN the_DT average_NN of_IN the_DT residuals_NNS ._SENT 
+Prediction_NN errors_NNS may_MD occur_VV in_IN areas_NNS with_IN large_JJ outliers_NNS as_IN well_RB as_RB in_IN areas_NNS with_IN small_JJ outliers_NNS ._SENT 
+RMSLE_NP calculates_VVZ an_DT error_NN by_IN assigning_VVG penalties_NNS to_TO items_NNS with_IN underestimated_VVN outliers_NNS rather_RB than_IN to_TO items_NNS with_IN overestimated_VVN outliers_NNS ._SENT 
+Since_IN the_DT four_CD criteria_NNS used_VVN in_IN this_DT study_NN are_VBP relative_JJ evaluation_NN criteria_NNS for_IN comparing_VVG one_CD value_NN with_IN predicted_VVN values_NNS by_IN various_JJ algorithms_NNS ,_, it_PP is_VBZ difficult_JJ to_TO present_VV specific_JJ criteria_NNS that_WDT are_VBP commonly_RB applied_VVN to_TO all_DT data_NNS ._SENT 
+Therefore_RB ,_, the_DT learning_VVG model_NN with_IN the_DT smallest_JJS difference_NN between_IN actual_JJ lead_JJ time_NN and_CC predicted_VVD lead_JJ time_NN was_VBD considered_VVN to_TO have_VH relatively_RB good_JJ predictive_JJ performance_NN ._SENT 
+In_IN this_DT study_NN ,_, it_PP was_VBD determined_VVN that_IN MAPE_NP was_VBD the_DT most_RBS intuitive_JJ way_NN to_TO identify_VV the_DT effect_NN of_IN error_NN on_IN the_DT data_NNS ._SENT 
+Therefore_RB ,_, MAPE_NN was_VBD considered_VVN first_RB in_IN the_DT model_NN performance_NN validation_NN step_NN ._SENT 
+<Section> 6._CD Data_NP analysis_NN for_IN predicting_VVG the_DT shipbuilding_NN production_NN lead_NN time_NN </Section> In_IN this_DT study_NN ,_, production_NN process_NN data_NNS were_VBD collected_VVN from_IN shipyards_NNS to_TO apply_VV to_TO various_JJ learning_VVG algorithms_NNS ,_, and_CC the_DT data_NNS were_VBD analyzed_VVN according_VVG to_TO the_DT requirements_NNS of_IN shipbuilding_NN production_NN management_NN to_TO define_VV various_JJ scenarios_NNS ._SENT 
+Three_CD cases_NNS are_VBP presented_VVN in_IN this_DT study_NN :_: the_DT lead_JJ time_NN for_IN cutting_VVG ,_, the_DT lead_JJ time_NN for_IN block_NN erection_NN ,_, and_CC the_DT lead_JJ time_NN for_IN spool_NN procurement_NN in_IN shipyards_NNS ._SENT 
+6.1_CD ._SENT 
+Prediction_NN of_IN the_DT lead_JJ time_NN for_IN cutting_VVG The_DT first_JJ case_NN analyzed_VVD in_IN this_DT study_NN is_VBZ the_DT prediction_NN of_IN the_DT lead_JJ time_NN for_IN the_DT cutting_NN of_IN steel_NN using_VVG the_DT performance_NN of_IN the_DT cutting_VVG process_NN as_IN the_DT training_NN data_NNS ._SENT 
+Various_JJ elements_NNS are_VBP considered_VVN in_IN the_DT planning_VVG stage_NN of_IN the_DT cutting_VVG process_NN in_IN shipyards_NNS ._SENT 
+Specifically_RB ,_, seven_CD independent_JJ variables_NNS were_VBD identified_VVN and_CC the_DT lead_JJ time_NN was_VBD defined_VVN as_IN a_DT dependent_JJ variable_NN by_IN additionally_RB considering_VVG the_DT external_JJ factors_NNS of_IN the_DT process_NN during_IN the_DT analysis_NN of_IN the_DT performance_NN data_NNS ._SENT 
+Correlation_NN analysis_NN and_CC the_DT analysis_NN of_IN variables_NNS were_VBD conducted_VVN to_TO analyze_VV the_DT correlations_NNS between_IN the_DT defined_VVN independent_JJ variables_NNS and_CC the_DT lead_JJ time_NN ._SENT 
+Among_IN the_DT first_JJ selected_JJ variables_NNS though_IN interviews_NNS with_IN field_NN workers_NNS ,_, precipitation_NN was_VBD excluded_VVN from_IN the_DT independent_JJ variables_NNS because_IN the_DT correlation_NN coefficient_NN was_VBD greater_JJR than_IN the_DT reference_NN value_NN of_IN 0.65_CD as_IN a_DT result_NN of_IN the_DT correlation_NN analysis_NN ._SENT 
+Thus_RB ,_, the_DT analysis_NN was_VBD conducted_VVN using_VVG the_DT six_CD independent_JJ variables_NNS shown_VVN in_IN Fig_NN ._SENT 
+6._CD Moreover_RB ,_, missing_VVG values_NNS were_VBD simply_RB removed_VVN ,_, and_CC outliers_NNS were_VBD checked_VVN and_CC removed_VVN by_IN applying_VVG the_DT IQR_NP rule_NN and_CC Cook_NP 's_POS distance_NN ._SENT 
+Fig_NN ._SENT 
+6._CD Independent_JJ variables_NNS (_( 1_CD )_) ._SENT 
+6.2_CD ._SENT 
+Prediction_NN of_IN the_DT lead_JJ time_NN for_IN block_NN erection_NN The_DT second_JJ case_NN is_VBZ the_DT prediction_NN of_IN the_DT lead_JJ time_NN for_IN the_DT erection_NN process_NN of_IN the_DT ship_NN block_NN ._SENT 
+The_DT ship_NN block_NN has_VHZ various_JJ data_NNS ,_, such_JJ as_IN the_DT block_NN code_NN ,_, type_NN ,_, size_NN ,_, and_CC weight_NN ._SENT 
+Therefore_RB ,_, it_PP was_VBD used_VVN as_IN the_DT input_NN data_NNS to_TO define_VV 15_CD independent_JJ variables_NNS ,_, and_CC the_DT lead_JJ time_NN was_VBD defined_VVN as_IN a_DT dependent_JJ variable_NN ._SENT 
+As_IN most_JJS of_IN the_DT correlations_NNS between_IN the_DT continuous_JJ variables_NNS were_VBD high_JJ in_IN the_DT correlation_NN analysis_NN ,_, the_DT independent_JJ variables_NNS were_VBD reduced_VVN to_TO decrease_VV the_DT influence_NN of_IN multi-collinearity_NN ._SENT 
+In_IN the_DT analysis_NN of_IN variables_NNS ,_, it_PP was_VBD found_VVN that_IN all_DT categorical_JJ variables_NNS affected_VVD the_DT lead_JJ time_NN ._SENT 
+Thus_RB ,_, the_DT analysis_NN was_VBD conducted_VVN using_VVG the_DT 12_CD independent_JJ variables_NNS shown_VVN in_IN Fig_NN ._SENT 
+7._CD Missing_JJ values_NNS were_VBD simply_RB removed_VVN and_CC outliers_NNS were_VBD checked_VVN and_CC removed_VVN by_IN applying_VVG the_DT IQR_NP rule_NN and_CC Cook_NP 's_POS distance_NN ._SENT 
+Fig_NN ._SENT 
+7._CD Independent_JJ variables_NNS (_( 2_CD )_) ._SENT 
+6.3_CD ._SENT 
+Prediction_NN of_IN the_DT lead_JJ time_NN for_IN the_DT spool_NN procurement_NN process_NN The_DT third_JJ case_NN is_VBZ the_DT prediction_NN of_IN the_DT lead_JJ time_NN for_IN the_DT spool_NN procurement_NN process_NN ._SENT 
+In_IN shipyards_NNS ,_, the_DT constructions_NNS of_IN ships_NNS and_CC offshore_JJ platforms_NNS involve_VVP complicated_JJ processes_NNS from_IN design_NN to_TO production_NN ._SENT 
+In_IN the_DT case_NN of_IN offshore_JJ platforms_NNS ,_, in_IN particular_NN ,_, most_JJS of_IN the_DT outfitting_VVG processes_NNS relate_VVP to_TO spools_NNS ,_, but_CC problems_NNS occur_VVP due_JJ to_TO delivery_NN delays_NNS because_IN proper_JJ procurement_NN management_NN for_IN spools_NNS is_VBZ difficult_JJ ._SENT 
+The_DT supply_NN chain_NN data_NNS of_IN shipyards_NNS consist_VVP of_IN the_DT time_NN series_NN data_NNS of_IN spools_NNS by_IN process_NN as_RB well_RB as_IN various_JJ data_NNS related_VVN to_TO spool_VV fabrication_NN and_CC installation_NN ._SENT 
+Among_IN them_PP ,_, the_DT lead_JJ times_NNS of_IN the_DT fabrication_NN and_CC painting_NN processes_NNS were_VBD targeted_VVN in_IN this_DT study_NN ._SENT 
+Nineteen_CD independent_JJ variables_NNS were_VBD defined_VVN based_VVN on_IN the_DT properties_NNS of_IN the_DT spools_NNS ,_, and_CC the_DT lead_JJ times_NNS of_IN the_DT fabrication_NN and_CC painting_NN processes_NNS were_VBD defined_VVN as_IN dependent_JJ variables_NNS ._SENT 
+Correlation_NN analysis_NN and_CC the_DT analysis_NN of_IN variables_NNS were_VBD conducted_VVN to_TO analyze_VV the_DT correlations_NNS between_IN the_DT variables_NNS ._SENT 
+Finally_RB ,_, the_DT analysis_NN was_VBD conducted_VVN using_VVG 14_CD independent_JJ variables_NNS ,_, as_RB shown_VVN in_IN Fig_NN ._SENT 
+8._CD Missing_JJ values_NNS were_VBD simply_RB removed_VVN and_CC outliers_NNS were_VBD checked_VVN and_CC removed_VVN by_IN applying_VVG the_DT IQR_NP rule_NN and_CC Cook_NP 's_POS distance_NN ._SENT 
+Fig_NN ._SENT 
+8._CD Independent_JJ variables_NNS (_( 3_CD )_) ._SENT 
+<Section> 7._CD Analysis_NN of_IN results_NNS of_IN the_DT prediction_NN models_NNS </Section> 7.1_CD ._SENT 
+Machine_NN learning_VVG prediction_NN models_NNS Regression_NN analysis_NN ,_, artificial_JJ neural_JJ network_NN ,_, and_CC decision_NN tree_NN were_VBD used_VVN as_IN machine_NN learning_VVG algorithms_NNS ,_, and_CC prediction_NN models_NNS were_VBD created_VVN according_VVG to_TO the_DT process_NN data_NNS ._SENT 
+In_IN this_DT study_NN ,_, prediction_NN was_VBD performed_VVN by_IN classifying_VVG the_DT results_NNS of_IN analyzing_VVG the_DT raw_JJ data_NNS into_IN Case_NP 1_CD and_CC the_DT results_NNS of_IN analyzing_VVG the_DT preprocessed_JJ data_NNS into_IN Case_NP 2_CD to_TO analyze_VV the_DT influence_NN of_IN data_NNS preprocessing_VVG ._SENT 
+Therefore_RB ,_, 24_CD models_NNS were_VBD finally_RB created_VVN by_IN classifying_VVG the_DT data_NNS of_IN the_DT four_CD processes_NNS ,_, namely_RB ,_, (_( 1_LS )_) cutting_VVG process_NN ,_, (_( 2_LS )_) erection_NN process_NN ,_, (_( 3_LS )_) spool_NN fabrication_NN process_NN ,_, and_CC (_( 4_LS )_) spool_NN painting_NN process_NN ,_, according_VVG to_TO the_DT analysis_NN cases_NNS ._SENT 
+The_DT results_NNS of_IN the_DT performance_NN evaluation_NN of_IN the_DT final_JJ prediction_NN models_NNS are_VBP as_RB follows_VVZ (_( Table_NN 3_CD ,_, Table_NN 4_CD ,_, Table_NN 5_CD ,_, Table_NN 6_CD )_) )_) ._SENT 
+Table_NN 3._CD Results_NNS of_IN machine_NN learning_VVG (_( 1_LS )_) ._SENT 
+Table_NN 4._CD Results_NNS of_IN machine_NN learning_VVG (_( 2_LS )_) ._SENT 
+Table_NN 5._CD Results_NNS of_IN machine_NN learning_VVG (_( 3_LS )_) ._SENT 
+Table_NN 6._CD Results_NNS of_IN machine_NN learning_VVG (_( 4_LS )_) ._SENT 
+The_DT analysis_NN using_VVG the_DT evaluation_NN criteria_NNS confirmed_VVD that_IN Case_NP 2_CD with_IN data_NNS preprocessing_VVG exhibited_VVN higher_JJR prediction_NN accuracy_NN for_IN all_DT process_NN data_NNS ._SENT 
+Among_IN the_DT algorithms_NNS ,_, the_DT decision_NN tree_NN model_NN exhibited_VVN excellent_JJ prediction_NN accuracy_NN ._SENT 
+Moreover_RB ,_, the_DT prediction_NN accuracy_NN of_IN the_DT lead_JJ time_NN for_IN spool_NN procurement_NN was_VBD highest_RBS compared_VVN to_TO those_DT of_IN the_DT cutting_NN and_CC erection_NN processes_NNS ,_, indicating_VVG that_IN process_NN variables_NNS significantly_RB affected_VVD the_DT lead_JJ times_NNS ._SENT 
+7.2_CD ._SENT 
+Deep_JJ learning_VVG prediction_NN models_NNS The_DT MLP_NP model_NN ,_, which_WDT uses_VVZ the_DT ‚ÄúKeras‚Äù_JJ library_NN ,_, was_VBD applied_VVN as_IN the_DT deep_JJ learning_NN algorithm_NN ._SENT 
+‚ÄòKeras‚Äô_NP provides_VVZ intuitive_JJ APIs_NNS for_IN deep_JJ learning_VVG models_NNS ,_, and_CC engines_NNS dedicated_VVN to_TO deep_JJ learning_NN ,_, such_JJ as_IN Tensorflow_NP ,_, Theano_NP ,_, and_CC CNTK_NP ,_, are_VBP operated_VVN internally_RB ._SENT 
+The_DT structure_NN of_IN the_DT MLP_NP model_NN can_MD be_VB defined_VVN by_IN setting_VVG parameters_NNS ,_, such_JJ as_IN Epoch_NN (_( number_NN of_IN learning_VVG iterations_NNS )_) ,_, Activation_NN (_( activation_NN function_NN )_) ,_, Batch_NP Size_NN ,_, and_CC Hidden_NP Layer_NP ._SENT 
+Model_NN learning_NN ,_, which_WDT minimizes_VVZ the_DT loss_NN function_NN of_IN the_DT deep_JJ learning_NN model_NN ,_, can_MD be_VB performed_VVN while_IN the_DT weight_NN is_VBZ updated_VVN according_VVG to_TO the_DT Epoch_NN and_CC Batch_NP Size_NN ._SENT 
+In_IN this_DT study_NN ,_, Epoch_NN was_VBD fixed_VVN at_IN 200_CD times_NNS ,_, and_CC the_DT analysis_NN cases_NNS were_VBD classified_VVN according_VVG to_TO the_DT number_NN of_IN Hidden_NP Layers_NNS and_CC the_DT Batch_NP Size_NN ,_, which_WDT is_VBZ the_DT number_NN of_IN samples_NNS used_VVN for_IN updating_VVG the_DT weight_NN ._SENT 
+In_IN addition_NN ,_, the_DT input_NN data_NNS were_VBD standardized_JJ ,_, and_CC the_DT subsequent_JJ results_NNS of_IN the_DT prediction_NN models_NNS were_VBD analyzed_VVN to_TO examine_VV the_DT influence_NN of_IN the_DT data_NNS distribution_NN ._SENT 
+Based_VVN on_IN the_DT model_NN setting_VVG of_IN Case_NP 1_CD ,_, Cases_NNS 2_CD and_CC 3_CD were_VBD defined_VVN according_VVG to_TO the_DT Batch_NP Size_NN and_CC Cases_VVZ 4_CD and_CC 5_CD were_VBD defined_VVN according_VVG to_TO the_DT number_NN of_IN Hidden_NP Layers_NNS ._SENT 
+Moreover_RB ,_, Case_NP 6_CD was_VBD defined_VVN to_TO examine_VV the_DT influence_NN of_IN the_DT standardization_NN of_IN the_DT input_NN data_NNS (_( Table_NN 7_CD )_) ._SENT 
+Table_NN 7._CD Model_NP cases_NNS of_IN MLP_NP ._SENT 
+The_DT results_NNS of_IN the_DT performance_NN evaluation_NN of_IN the_DT final_JJ prediction_NN models_NNS for_IN the_DT (_( 1_LS )_) cutting_VVG process_NN ,_, (_( 2_LS )_) erection_NN process_NN ,_, (_( 3_LS )_) spool_NN fabrication_NN process_NN ,_, and_CC (_( 4_LS )_) spool_NN painting_NN process_NN are_VBP presented_VVN in_IN Table_NN 8_CD ,_, Table_NN 9_CD ,_, Table_NN 10_CD ,_, Table_NN 11._CD Table_NN 8._CD Results_NNS of_IN deep_RB learning_VVG (_( 1_LS )_) ._SENT 
+Table_NN 9._CD Results_NNS of_IN deep_RB learning_VVG (_( 2_LS )_) ._SENT 
+Table_NN 10._CD Results_NNS of_IN deep_RB learning_VVG (_( 3_LS )_) ._SENT 
+Table_NN 11._CD Results_NNS of_IN deep_RB learning_VVG (_( 4_LS )_) ._SENT 
+Case_NN 1_CD with_IN a_DT large_JJ Batch_NP Size_NN exhibited_VVN a_DT low_JJ error_NN rate_NN for_IN the_DT cutting_VVG process_NN ,_, and_CC Case_NP 3_CD with_IN a_DT small_JJ Batch_NP Size_NN showed_VVD a_DT low_JJ error_NN rate_NN for_IN the_DT erection_NN process_NN ._SENT 
+In_IN the_DT spool_NN procurement_NN process_NN ,_, Case_NP 6_CD ,_, wherein_RB the_DT input_NN data_NNS were_VBD standardized_JJ ,_, showed_VVD the_DT lowest_JJS error_NN rate_NN ._SENT 
+Because_IN the_DT distribution_NN of_IN the_DT spool_NN fabrication_NN and_CC painting_NN process_NN data_NNS exhibited_VVN severe_JJ skewness_NN ,_, the_DT influence_NN of_IN standardization_NN was_VBD considered_VVN relatively_RB high_JJ ._SENT 
+In_IN the_DT above_JJ analysis_NN of_IN the_DT cutting_NN and_CC erection_NN processes_NNS ,_, the_DT influence_NN of_IN data_NNS standardization_NN was_VBD considered_VVN not_RB significant_JJ because_IN relatively_RB even_JJ data_NNS distribution_NN was_VBD observed_VVN ._SENT 
+Moreover_RB ,_, as_IN the_DT appropriate_JJ number_NN of_IN weight_NN updates_NNS was_VBD different_JJ for_IN each_DT data_NNS ,_, the_DT Batch_NP Size_NN that_WDT ensured_VVD a_DT low_JJ error_NN rate_NN was_VBD different_JJ for_IN each_DT data_NNS ._SENT 
+7.3_CD ._SENT 
+Ensemble_NN learning_VVG prediction_NN models_NNS In_IN this_DT study_NN ,_, a_DT learning_VVG model_NN was_VBD created_VVN using_VVG random_JJ forest_NN as_IN an_DT ensemble_NN learning_VVG algorithm_NN ._SENT 
+The_DT structure_NN of_IN the_DT random_JJ forest_NN model_NN can_MD be_VB defined_VVN by_IN setting_VVG parameters_NNS such_JJ as_IN ntree_NP ,_, which_WDT represents_VVZ the_DT number_NN of_IN decision_NN trees_NNS ,_, and_CC mtry_NP ,_, which_WDT represents_VVZ the_DT number_NN of_IN variables_NNS to_TO be_VB considered_VVN while_IN determining_VVG the_DT criterion_NN for_IN dividing_VVG the_DT nodes_NNS ._SENT 
+The_DT default_NN values_VVZ for_IN ntree_NN and_CC mtry_NN are_VBP automatically_RB provided_VVN ._SENT 
+However_RB ,_, in_IN this_DT study_NN ,_, the_DT values_NNS of_IN ntree_NN and_CC mtry_NN were_VBD adjusted_VVN to_TO further_RBR improve_VV the_DT performance_NN of_IN the_DT model_NN ,_, and_CC the_DT analysis_NN cases_NNS were_VBD classified_VVN accordingly_RB ._SENT 
+Based_VVN on_IN Case_NP 1_CD ,_, Cases_NNS 2_CD and_CC 3_CD were_VBD defined_VVN according_VVG to_TO the_DT value_NN of_IN ntree_NN and_CC Cases_VVZ 4_CD and_CC 5_CD were_VBD defined_VVN according_VVG to_TO the_DT value_NN of_IN mtry_NP ._SENT 
+(_( see_VV Table_NN 12_CD )_) ._SENT 
+The_DT results_NNS of_IN the_DT performance_NN evaluation_NN of_IN the_DT final_JJ prediction_NN models_NNS for_IN the_DT (_( 1_LS )_) cutting_VVG process_NN ,_, (_( 2_LS )_) erection_NN process_NN ,_, (_( 3_LS )_) spool_NN fabrication_NN process_NN ,_, and_CC (_( 4_LS )_) spool_NN painting_NN process_NN are_VBP presented_VVN in_IN Table_NN 13_CD ,_, Table_NN 14_CD ,_, Table_NN 15_CD ,_, Table_NN 16._CD Table_NN 12._CD Model_NP cases_NNS of_IN random_JJ forest_NN ._SENT 
+Table_NN 13._CD Results_NNS of_IN random_JJ forest_NN (_( 1_CD )_) ._SENT 
+Table_NN 14._CD Results_NNS of_IN random_JJ forest_NN (_( 2_CD )_) ._SENT 
+Table_NN 15._CD Results_NNS of_IN random_JJ forest_NN (_( 3_CD )_) ._SENT 
+Table_NN 16._CD Results_NNS of_IN random_JJ forest_NN (_( 4_CD )_) ._SENT 
+In_IN all_PDT the_DT processes_NNS ,_, the_DT error_NN rate_NN was_VBD low_JJ when_WRB the_DT value_NN of_IN ntree_NP was_VBD 500._CD This_DT appears_VVZ to_TO be_VB because_IN as_IN the_DT value_NN of_IN ntree_NP increased_VVD ,_, the_DT generalization_NN error_NN converged_VVD to_TO a_DT certain_JJ value_NN ,_, which_WDT prevented_VVD overfitting_VVG even_RB though_IN it_PP took_VVD longer_RBR to_TO construct_VV the_DT model_NN ._SENT 
+Moreover_RB ,_, the_DT error_NN rate_NN was_VBD low_JJ when_WRB the_DT value_NN of_IN mtry_NN was_VBD 5_CD in_IN the_DT cutting_NN and_CC spool_NN procurement_NN processes_NNS ._SENT 
+However_RB ,_, in_IN the_DT case_NN of_IN the_DT erection_NN process_NN ,_, the_DT error_NN rate_NN was_VBD low_JJ when_WRB the_DT value_NN of_IN mtry_NN was_VBD 10._CD Thus_RB ,_, it_PP was_VBD confirmed_VVN that_IN the_DT appropriate_JJ value_NN of_IN mtry_NN was_VBD different_JJ depending_VVG on_IN the_DT data_NNS type_NN ._SENT 
+When_WRB the_DT value_NN of_IN mtry_NN is_VBZ too_RB small_JJ ,_, explanatory_JJ variables_NNS of_IN small_JJ weights_NNS are_VBP placed_VVN in_IN the_DT upper_JJ nodes_NNS ,_, thereby_RB forming_VVG complex_JJ trees_NNS with_IN increased_VVN degree_NN of_IN impurity_NN ._SENT 
+When_WRB the_DT value_NN of_IN mtry_NN is_VBZ too_RB large_JJ ,_, each_DT tree_NN becomes_VVZ similar_JJ ,_, thereby_RB decreasing_VVG the_DT predictive_JJ power_NN ._SENT 
+Therefore_RB ,_, appropriate_JJ tuning_VVG is_VBZ required_VVN depending_VVG on_IN the_DT data_NNS ._SENT 
+7.4_CD ._SENT 
+Final_JJ analysis_NN results_NNS Various_JJ learning_NN algorithms_NNS were_VBD applied_VVN to_TO construct_VV the_DT lead_JJ time_NN prediction_NN models_NNS for_IN shipbuilding_NN ,_, and_CC the_DT performance_NN of_IN each_DT prediction_NN model_NN was_VBD compared_VVN ._SENT 
+Regression_NN analysis_NN ,_, artificial_JJ neural_JJ network_NN ,_, and_CC decision_NN tree_NN were_VBD used_VVN as_IN the_DT machine_NN learning_VVG algorithms_NNS and_CC MLP_NP was_VBD used_VVN as_IN the_DT deep_JJ learning_NN algorithm_NN ._SENT 
+Random_JJ forest_NN was_VBD used_VVN as_IN an_DT ensemble_NN learning_VVG algorithm_NN ._SENT 
+The_DT results_NNS of_IN the_DT performance_NN evaluations_NNS of_IN the_DT final_JJ prediction_NN models_NNS for_IN the_DT cutting_VVG process_NN ,_, erection_NN process_NN ,_, spool_NN fabrication_NN process_NN ,_, and_CC spool_NN painting_NN process_NN are_VBP given_VVN below_IN (_( Fig_NN ._SENT 
+9_CD )_) ._SENT 
+Fig_NN ._SENT 
+9._CD Results_NNS of_IN learning_VVG algorithm_NN ._SENT 
+The_DT analysis_NN of_IN the_DT results_NNS according_VVG to_TO the_DT process_NN data_NNS revealed_VVD that_IN the_DT spool_NN fabrication_NN and_CC painting_NN processes_NNS showed_VVD slightly_RB lower_JJR error_NN rates_NNS whereas_IN the_DT block_NN erection_NN process_NN exhibited_VVN the_DT highest_JJS error_NN rate_NN ._SENT 
+Among_IN the_DT machine_NN learning_VVG algorithms_NNS ,_, the_DT decision_NN tree_NN model_NN exhibited_VVN better_JJR results_NNS than_IN the_DT existing_JJ regression_NN analysis_NN and_CC artificial_JJ neural_JJ network_NN ._SENT 
+Moreover_RB ,_, it_PP was_VBD confirmed_VVN that_IN the_DT models_NNS with_IN the_DT deep_JJ learning_NN algorithm_NN showed_VVD better_JJR performance_NN than_IN those_DT with_IN the_DT machine_NN learning_VVG algorithms_NNS and_CC the_DT models_NNS with_IN the_DT ensemble_NN learning_VVG algorithm_NN exhibited_VVN better_JJR performance_NN than_IN those_DT with_IN the_DT deep_JJ learning_NN algorithm_NN ._SENT 
+<Section> 8._CD Conclusion_NN and_CC future_JJ research_NN plan_NN </Section> In_IN this_DT study_NN ,_, the_DT machine_NN learning_VVG methodology_NN was_VBD applied_VVN to_TO systematically_RB establish_VV the_DT master_NN data_NNS for_IN production_NN lead_NN times_NNS maintained_VVN in_IN shipyards_NNS ._SENT 
+As_IN the_DT lead_JJ time_NN master_NN data_NNS have_VHP high_JJ variability_NN in_IN shipbuilding_NN production_NN ,_, the_DT existing_JJ engineering_NN methodology_NN has_VHZ limitations_NNS in_IN calculating_VVG quantity_NN or_CC time_NN ._SENT 
+Therefore_RB ,_, this_DT study_NN attempted_VVD to_TO improve_VV the_DT master_NN data_NNS ,_, which_WDT significantly_RB vary_VVP depending_VVG on_IN the_DT production_NN environment_NN ,_, by_IN creating_VVG production_NN lead_NN time_NN prediction_NN models_NNS that_WDT consider_VVP various_JJ product_NN attributes_NNS and_CC resources_NNS in_IN shipyards_NNS ._SENT 
+Open_JJ source_NN programming_NN languages_NNS ,_, such_JJ as_IN R_NN and_CC Python_NN ,_, were_VBD used_VVN for_IN the_DT data_NNS analysis_NN and_CC creation_NN of_IN the_DT prediction_NN models_NNS ._SENT 
+The_DT prediction_NN models_NNS were_VBD constructed_VVN by_IN applying_VVG various_JJ learning_VVG algorithms_NNS available_JJ in_IN the_DT development_NN environment_NN ._SENT 
+Three_CD types_NNS of_IN data_NNS were_VBD collected_VVN from_IN shipyards_NNS in_IN this_DT study_NN ._SENT 
+The_DT analysis_NN results_NNS are_VBP as_RB follows_VVZ ._SENT 
+The_DT first_JJ analysis_NN case_NN was_VBD the_DT prediction_NN of_IN the_DT lead_JJ time_NN for_IN cutting_VVG ._SENT 
+Performance_NN data_NNS for_IN the_DT mid-term_NN schedule_NN of_IN the_DT cutting_VVG process_NN were_VBD collected_VVN and_CC lead_JJ time_NN prediction_NN models_NNS were_VBD created_VVN using_VVG the_DT algorithms_NNS ._SENT 
+The_DT average_NN of_IN the_DT Mean_NP Absolute_JJ Percentage_NN Error_NN (_( MAPE_NN )_) values_NNS was_VBD 91.1_CD %_NN and_CC that_IN of_IN the_DT Root_NP Mean_NP Squared_VVD Logarithmic_JJ Error_NN (_( RMSLE_NP )_) values_NNS was_VBD 61.1_CD %_NN ._SENT 
+The_DT ensemble_NN learning_VVG algorithm_NN exhibited_VVN the_DT highest_JJS prediction_NN accuracy_NN ._SENT 
+The_DT second_JJ analysis_NN case_NN was_VBD the_DT prediction_NN of_IN the_DT lead_JJ time_NN for_IN block_NN erection_NN ._SENT 
+Prediction_NN models_NNS were_VBD created_VVN by_IN identifying_VVG the_DT various_JJ process_NN variables_NNS of_IN the_DT block_NN and_CC using_VVG them_PP as_IN independent_JJ variables_NNS ._SENT 
+As_IN a_DT result_NN ,_, the_DT average_NN of_IN the_DT MAPE_NN values_NNS was_VBD 251.5_CD %_NN and_CC that_IN of_IN the_DT RMSLE_JJ values_NNS was_VBD 96.4_CD %_NN ,_, which_WDT were_VBD the_DT highest_JJS among_IN all_PDT the_DT analysis_NN cases_NNS ._SENT 
+The_DT ensemble_NN learning_VVG algorithm_NN exhibited_VVN the_DT highest_JJS prediction_NN accuracy_NN ._SENT 
+In_IN the_DT case_NN of_IN the_DT erection_NN process_NN ,_, it_PP appears_VVZ that_IN there_EX are_VBP limitations_NNS to_TO predicting_VVG the_DT lead_JJ time_NN using_VVG the_DT machine_NN learning_VVG methodology_NN because_IN the_DT raw_JJ data_NNS were_VBD extremely_RB irregular_JJ ._SENT 
+The_DT third_JJ analysis_NN case_NN was_VBD the_DT prediction_NN of_IN the_DT lead_JJ time_NN for_IN spool_NN supply_NN chain_NN ._SENT 
+Prediction_NN models_NNS were_VBD created_VVN using_VVG analysis_NN algorithms_NNS in_IN the_DT same_JJ manner_NN as_IN in_IN the_DT above_JJ cases_NNS ._SENT 
+As_IN a_DT result_NN ,_, the_DT lead_JJ time_NN for_IN the_DT spool_NN fabrication_NN process_NN had_VHD an_DT average_JJ MAPE_NN value_NN of_IN 27.2_CD %_NN and_CC the_DT average_JJ RMSLE_NN value_NN was_VBD 30.3_CD %_NN ._SENT 
+For_IN the_DT painting_NN lead_NN time_NN ,_, the_DT average_NN of_IN the_DT MAPE_NN values_NNS was_VBD 13.8_CD %_NN and_CC that_IN of_IN the_DT RMSLE_JJ values_NNS was_VBD 16.4_CD %_NN ._SENT 
+The_DT ensemble_NN learning_VVG algorithm_NN exhibited_VVN the_DT highest_JJS prediction_NN accuracy_NN ._SENT 
+When_WRB data_NN preprocessing_NN was_VBD intensively_RB performed_VVN in_IN the_DT analysis_NN process_NN ,_, the_DT error_NN rates_NNS of_IN the_DT prediction_NN models_NNS decreased_VVD when_WRB compared_VVN with_IN previous_JJ studies_NNS ._SENT 
+Moreover_RB ,_, it_PP was_VBD confirmed_VVN that_IN among_IN all_DT lead_JJ time_NN prediction_NN models_NNS ,_, the_DT prediction_NN models_NNS with_IN the_DT ensemble_NN learning_VVG algorithm_NN exhibited_VVN better_JJR performance_NN even_RB though_IN the_DT performance_NN varied_VVD depending_VVG on_IN the_DT process_NN data_NNS ._SENT 
+While_IN machine_NN learning_NN and_CC deep_JJ learning_VVG algorithms_NNS exhibit_VV remarkable_JJ prediction_NN performance_NN as_IN they_PP are_VBP normalized_VVN and_CC have_VH large_JJ scales_NNS ,_, the_DT use_NN of_IN excessively_RB complex_JJ models_NNS may_MD cause_VV an_DT increase_NN in_IN the_DT generalization_NN error_NN due_JJ to_TO overfitting_VVG to_TO an_DT insufficient_JJ number_NN of_IN training_NN data_NNS ._SENT 
+Overfitting_NP means_VVZ that_IN a_DT learning_VVG model_NN excessively_RB learns_VVZ training_NN data_NNS ._SENT 
+In_IN this_DT case_NN ,_, prediction_NN accuracy_NN above_IN a_DT certain_JJ level_NN was_VBD observed_VVN for_IN the_DT training_NN data_NNS ,_, but_CC the_DT model_NN is_VBZ not_RB accurate_JJ for_IN new_JJ data_NNS ._SENT 
+However_RB ,_, in_IN the_DT case_NN of_IN ensemble_NN learning_NN ,_, it_PP appears_VVZ that_IN better_JJR performance_NN was_VBD observed_VVN because_IN the_DT overfitting_VVG problem_NN could_MD be_VB addressed_VVN by_IN combining_VVG multiple_JJ learning_VVG results_NNS even_RB though_IN learning_VVG was_VBD performed_VVN using_VVG a_DT simple_JJ algorithm_NN ._SENT 
+These_DT results_NNS indicate_VVP that_IN the_DT master_NN data_NNS can_MD be_VB managed_VVN more_RBR systematically_RB through_IN the_DT predicted_VVN lead_NN times_NNS than_IN through_IN the_DT existing_JJ standard_JJ lead_NN time_NN ._SENT 
+Moreover_RB ,_, the_DT predicted_VVN lead_NN times_NNS can_MD support_VV fast_JJ decision-making_NN during_IN work_NN planning_NN and_CC make_VV it_PP possible_JJ to_TO gain_VV insight_NN into_IN the_DT analysis_NN technique_NN and_CC variable_JJ setting_NN according_VVG to_TO the_DT process_NN data_NNS ._SENT 
+While_IN machine_NN learning_VVG algorithms_NNS are_VBP commonly_RB used_VVN for_IN prediction_NN of_IN values_NNS ,_, deep_RB learning_VVG algorithms_NNS not_RB only_RB predict_VV simple_JJ values_NNS but_CC also_RB present_JJ various_JJ methodologies_NNS to_TO analyze_VV time_NN series_NN data_NNS ._SENT 
+Therefore_RB ,_, better_JJR decision-making_NN can_MD be_VB achieved_VVN during_IN work_NN planning_VVG if_IN it_PP is_VBZ possible_JJ to_TO predict_VV the_DT time_NN series_NN for_IN various_JJ processes_NNS in_IN shipbuilding_NN production_NN in_IN the_DT future_NN ._SENT 
+<Section> Acknowledgement_NN </Section> This_DT work_NN was_VBD partly_RB supported_VVN by_IN National_NP IT_PP Industry_NP Promotion_NP Agency_NP grant_NN funded_VVN by_IN Ministry_NP of_IN Science_NP and_CC ICT_NP of_IN Korea_NP (_( S0604-17-1001_JJ ,_, Prediction_NN based_VVN smart_JJ SCM_NP framework_NN for_IN offshore_JJ industry_NN and_CC S1106-16-1020_NN ,_, Production_NN strategy_NN and_CC execution_NN simulation_NN technology_NN development_NN for_IN the_DT optimization_NN of_IN offshore_JJ plant_NN production_NN cost_NN )_) ._SENT 
+Also_RB ,_, this_DT work_NN was_VBD partly_RB supported_VVN by_IN Korea_NP Evaluation_NN Institute_NP of_IN Industrial_NP Technology_NP grant_NN funded_VVN by_IN the_DT Ministry_NP Of_IN Trade_NP ,_, Industry_NP and_CC Energy_NP of_IN Korea_NP (_( 10050495_CD ,_, Development_NP of_IN the_DT simulation_NN based_VVN production_NN management_NN system_NN for_IN the_DT middle-sized_JJ shipbuilding_NN companies_NNS )_) ._SENT 
+<Section> References_NNS </Section> D.K._NPS Ham_NP A_DT Study_NN of_IN Data-Mining_VVG Methodology_NN in_IN Offshore_NP Plant_NP 's_POS Outfittings_NNS Procurement_JJ Management_NP Dissertation_NN ,_, Korea_NP Maritime_NP &_CC Ocean_NP University_NP (_( 2016_CD )_) D.K._NP Ham_NP ,_, M.G._NP Back_NP ,_, J.G._NP Park_NP ,_, J.H._NP Woo_NP A_DT study_NN of_IN piping_VVG leadtime_JJ forecast_NN in_IN offshore_JJ plant_NN 's_POS outfittings_NNS procurement_NN management_NN J._NP Soc_NP ._SENT 
+Nav_NP ._SENT 
+Archit_NP ._SENT 
+Korea_NP ,_, 53_CD (_( 1_LS )_) (_( 2016_CD )_) ,_, pp_NP ._SENT 
+29-36_CD M.H._NP Hur_NP ,_, S.K._NP Lee_NP ,_, B.S._NP Kim_NP ,_, S.Z._NP Cho_NP ,_, D.H._NP Lee_NP ,_, D.H._NP Lee_NP A_DT study_NN on_IN the_DT man-hour_NN prediction_NN system_NN for_IN shipbuilding_NN J._NP Intell_NP ._SENT 
+Manuf_NN ._SENT 
+,_, 26_CD (_( 6_CD )_) (_( 2015_CD )_) ,_, pp_NP ._SENT 
+1267-1279_CD S.J._NP Jo_NP ,_, S.H._NP Kang_NP Industrial_NP applications_NNS of_IN machine_NN learning_VVG (_( artificial_JJ intelligence_NN )_) Ind._NP Eng_NP ._SENT 
+Mag_NN ._SENT 
+,_, 23_CD (_( 2_LS )_) (_( 2016_CD )_) ,_, pp_NP ._SENT 
+34-38_CD S.H._NP Jung_NP ,_, C.B._NP Sim_NP A_DT study_NN on_IN a_DT working_VVG pattern_NN analysis_NN prototype_NN using_VVG correlation_NN analysis_NN and_CC linear_JJ regression_NN analysis_NN in_IN welding_VVG BigData_NP environment_NN J._NP Korea_NP Inst_NP ._SENT 
+Electronic_JJ Commun_NN ._SENT 
+Sci_NNS ._SENT 
+,_, 9_CD (_( 10_CD )_) (_( 2014_CD )_) ,_, pp_NP ._SENT 
+1071-1078_CD S.H._NP Kim_NP ,_, M.I._NP Roh_NP ,_, K.S._NP Kim_NP A_DT study_NN on_IN big_JJ data_NNS platform_NN based_VVN on_IN Hadoop_NN for_IN the_DT applications_NNS in_IN ship_NN and_CC offshore_JJ industry_NN Korean_JJ J._NP Comput_NN ._SENT 
+Des_FW ._SENT 
+Eng_NN ._SENT 
+,_, 21_CD (_( 3_LS )_) (_( 2016_CD )_) ,_, pp_NP ._SENT 
+334-340Lee_NP ,_, 2017_CD Y.H._NP Lee_NP A_NP Reference_NN Model_NP for_IN Big_NP Data_NP Analysis_NP in_IN Shipbuilding_NP Industry_NP ._SENT 
+Dissertation_NN Ulsan_NP National_NP Institute_NP of_IN Science_NP and_CC Technology_NP (_( 2017_CD )_) B.W._NP Lee_NP ,_, J.H._NP Yang_NP Ensemble_NN learning_VVG of_IN region_NN experts_NNS J._NP Korea_NP Inf_NP ._SENT 
+Sci_NP ._SENT 
+Soc_NN ._SENT 
+,_, 35_CD (_( 1A_NP )_) (_( 2008_CD )_) ,_, pp_NP ._SENT 
+120-121_CD J.G._NP Lee_NP ,_, T.H._NP Lee_NP ,_, S.R._NP Yun_NP Machine_NN learning_VVG for_IN big_JJ data_NNS analysis_NN J._NP Korean_NP Inst_NP ._SENT 
+Commun_NP ._SENT 
+Sci_NNS ._SENT 
+,_, 31_CD (_( 11_CD )_) (_( 2014_CD )_) ,_, pp_NP ._SENT 
+14-26_CD S.K._NP Lee_NP ,_, B.S._NP Kim_NP ,_, M.H._NP Huh_NP ,_, J.S._NP Part_NP ,_, S.K._NP Kang_NP ,_, S.Z._NP Cho_NP ,_, D.G._NP Lee_NP ,_, D.H._NP Lee_NP Knowledge_NN discovery_NN in_IN inspection_NN reports_NNS of_IN marine_JJ structures_NNS Expert_NN Syst_NN ._SENT 
+Appl_NN ._SENT 
+,_, 41_CD (_( 4_LS )_) (_( 2014_CD )_) ,_, pp_NP ._SENT 
+1153-1167_CD M.J._JJ Oh_UH ,_, M.I._NP Roh_NP ,_, S.W._NP Park_NP ,_, S.H._NP Kim_NP Estimation_NN of_IN material_NN requirement_NN of_IN piping_VVG materials_NNS in_IN an_DT offshore_JJ structure_NN using_VVG big_JJ data_NNS analysis_NN J._NP Soc_NP ._SENT 
+Nav_NP ._SENT 
+Archit_NP ._SENT 
+Korea_NP ,_, 55_CD (_( 3_LS )_) (_( 2018_CD )_) ,_, pp_NP ._SENT 
+243-251_CD 

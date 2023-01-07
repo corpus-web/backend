@@ -1,0 +1,364 @@
+<title>Quadratic axial expansion function with sub-plane acceleration scheme for the high-fidelity transport code PROTEUS-MOC</title>
+<author>1,GuangchunZhang, 2, Won SikYang</author>
+<Affiliation>1,University of Michigan, Department of Nuclear Engineering and Radiological Science, Ann Arbor, MI 48105, USA</Affiliation>
+<year>2020</year>
+<Jounral>Annals of Nuclear Energy</Journal>
+<Publishing_house>ELSEVIER</Publishing_house>
+<Text_Collector>XiaFan,HEU</Text_Collector>
+<DOI>10.1016/j.anucene.2020.107713</DOI>
+<URL>https://www.sciencedirect.com/science/article/pii/S0306454920304114</URL>
+Quadratic axial expansion function with sub-plane acceleration scheme for the high-fidelity transport code PROTEUS-MOC
+GuangchunZhang,  Won SikYang
+University of Michigan, Department of Nuclear Engineering and Radiological Science, Ann Arbor, MI 48105, USA
+<Section>Highlights</Section>
+Quadratic axial expansion functions implemented in the PROTEUS-MOC transport code.
+Sub-plane acceleration scheme for quadratic axial expansion functions of PROTEUS-MOC.
+Higher order axial expansion functions reduce the memory requirement.
+Solution convergence behavior of PROTEUS-MOC with axial mesh refinement.
+<Section>Abstract</Section>
+PROTEUS-MOC is a pin-resolved high-fidelity transport code that employs the method of characteristics to discretize the radial variables and the discontinuous finite element method to discretize the axial variable. In this study, we extended the hybrid transport solution method to axial quadratic trial functions from the current linear functions. Compared with the linear approximation, the quadratic approximation reduces the memory requirement by 50% by allowing coarser axial meshes, but the coarser axial meshes deteriorate the performance of the CMFD and pCMFD acceleration schemes. To remedy the deteriorated performance of the acceleration schemes, a sub-plane acceleration method was implemented. The sub-plane acceleration scheme can improve the computational performance of the quadratic approximation in conjunction with the GMRES method. It was also observed that for a fixed radial mesh configuration, the flat leakage source approximation error increases with axial mesh refinement while the truncation error of the finite functional expansion decreases.
+Keywords：Method of characteristics；Finite element method；Sub-plane acceleration methodNonlinear diffusion acceleration method
+<Section>1. Introduction</Section>
+PROTEUS-MOC (Marin-Lafleche et al., 2013, Jung et al., 2018) is a pin-resolved, high-fidelity transport code being developed at Argonne National Laboratory (ANL) under the Nuclear Energy Advanced Modeling and Simulation (NEAMS) program (NEAMS, 2020). It solves the first-order Boltzmann transport equation for axially extruded geometry problems of two-dimensional (2D) unstructured meshes by combining the 2D method of characteristics (MOC) for the radial direction and the discontinuous Galerkin finite element method (DFEM) in the axial direction. PROTEUS-MOC was developed as an alternative to the DeCART code (Joo et al., 2004), which had been developed based on the 2D/1D method at Korea Atomic Energy Research Institute (KAERI) as part of the Numerical Nuclear Reactor (Weber et al., 2007) developed by ANL and KAERI under sponsorship of the International Nuclear Energy Research Initiative (I-NERI).
+The 2D/1D method was initially developed in Korea in the early 2000s (Cho, 2002, Cho et al., 2002), and in the next 15 years, several variations were developed and implemented into computer codes (Joo et al., 2004, Kosaka and Takeda, 2003, Jung et al., 2013, Collins et al., 2016). In these methods, the 3D problem domain is axially divided into multiple planes (or slices) and the 3D transport equation is converted into a system of 2D transport equations coupled through the axial transverse leakages at the bottom and top surfaces of each plane. The 2D transport equation for each plane is solved using the 2D MOC, and the axial 1D transport equation for each pin cell is typically solved with a lower fidelity method such as the diffusion or simplified P3 (SP3) approximation. The 2D/1D method has been successfully applied to pressurized water reactor (PWR) problems (Cho, 2002, Cho et al., 2002, Kosaka and Takeda, 2003, Jung et al., 2013, Collins et al., 2016), but it showed numerical instabilities when applied to problems with small axial meshes, strong axial heterogeneities, or very low-density regions (Hursin, 2010, Kelly and Larsen, 2013). It is noted that to overcome the observed problems of the 2D/1D method, similar axial polynomial expansion methods were developed later and implemented in the STREAM (Zheng et al., 2017) and GENESIS (Yamamoto et al., 2017) codes.
+In the hybrid method of PROTEUS-MOC, the 3D problem domain is axially discretized into a stack of planes and the axial variation of the angular flux in each plane is represented by a low order polynomial using a set of orthogonal basis functions. Then, by applying the discontinuous Galerkin weighted residual technique, a system of partial differential equations (PDEs) for the expansion coefficients is obtained in a similar form to the 2D transport equation. This system of PDEs can be solved with 2D MOC and matrix exponentiation. The equations for two neighboring planes are explicitly coupled through the outgoing angular flux at the interface, whereas those of the 2D/1D method are independent from each other. As a result, the coupled 2D equations are solved successively from the bottom to the top of the problem domain for a positive polar angle and from the top to the bottom of the problem domain for a negative polar angle. Two nonlinear diffusion acceleration (NDA) schemes (Smith, 1983, Cornejo and Anistratov, 2016) have been implemented in PROTEUS-MOC: a consistent coarse mesh finite difference (CMFD) acceleration scheme (Jung and Yang, 2017) and a consistent partial current–based coarse-mesh finite difference (pCMFD) acceleration scheme (Zhang et al., 2019).
+Currently, the axial expansion of angular flux of PROTEUS-MOC is limited to the linear approximation, which requires relatively fine axial meshes to achieve high accuracy. A large number of axial planes resulting from fine meshes requires a large number of 2D transport calculations and subsequently large memory and computational time. Aiming to reduce the memory requirement and potentially the computational time by allowing larger axial meshes, we extended the transport solution method of PROTEUS-MOC to quadratic trial functions (Zhang and Yang, 2020). Preliminary test results with the 3D C5G7 benchmark problem (Smith et al., 2005) showed that compared to the linear approximation, the quadratic approximation can reduce the memory requirement by a factor of two by allowing coarser axial meshes while maintaining the same accuracy. However, the quadratic approximation with coarser axial meshes did not reduce the computational time as expected. This was due to the deteriorated performance of the CMFD and pCMFD acceleration methods for large axial meshes. This performance deterioration of CMFD and pCMFD accelerations is consistent with the previous observations that as the coarse mesh size increases, the performance of NDA methods deteriorates due to increased spectral radius (Cho and Park, 2003, Lee et al., 2004, Jarrett et al., 2016). It is also noted that the higher order expansion in the axial direction has been used in the MPACT code (Stimpson et al., 2017, Hursin et al., 2014).
+In order to mitigate the deteriorated performance of the CMFD and pCMFD acceleration scheme for thick axial planes, a sub-plane acceleration scheme was developed for the quadratic axial expansion functions. This sub-plane scheme of PROTEUS-MOC is different from those recently implemented in the 2D/1D codes DeCART (Cho et al., 2007) and MPACT (Graham et al., 2018) in the methods to compute the interface currents and the homogenized group constants in sub-planes. Moreover, the role of sub-planes is somewhat different. In the 2D/1D methods, as the axial mesh size increases, the 2D/1D iteration scheme becomes more stable but the solution accuracy is deteriorated. Therefore, sub-planes are used for the CMFD or SP3 calculations to enhance the solution accuracy without affecting the stability obtained with thick MOC planes for radial MOC calculations. On the other hand, in the hybrid method of PROTEUS-MOC, the sub-plane NDA scheme is employed to reduce the number of outer iterations. For a given mesh size, the solution accuracy is determined by the expansion order.
+The performance of the quadratic axial expansion function and the sub-plane acceleration scheme was investigated for different axial mesh sizes using the C5G7 benchmark problem. In addition, the solution convergence of the hybrid method of PROTEUS-MOC with axial mesh refinement was investigated using the Takeda-1 benchmark (Takeda and Ikeda, 1991) and the 2D and 3D C5G7 benchmark problems (Smith et al., 2005).
+The rest of this paper is organized as follows. In Section 2, the methodologies of the PROTEUS-MOC will be discussed, including the analytic formulas for the exponential functions of coefficient matrices for linear and quadratic approximations and the sub-plane NDA method. Section 3 presents the numerical test results for the performance of quadratic approximation and sub-plane NDA method. The numerical study results for the solution convergence with axial mesh refinement are also presented for the linear and quadratic approximations. Conclusions are given in Section 4.
+<Section>2. Methodologies</Section>
+The discretization and solution methodologies of the 3D transport solver of PROTEUS-MOC are presented in this section, including the radial and axial discretization methods, the analytic formulas for the exponential functions of coefficient matrices, the consistent CMFD and pCMFD methods, and the sub-plane NDA method.
+We start with the multigroup (MG) formulation of the steady state Boltzmann transport equation
+(1)@
+where Ω→ is the direction vector, r⇀ is the position vector, g is the group index, G is the number of energy groups, ψg is the angular flux, Σtg is the total cross section, and λ is the eigenvalue. The scattering and fission sources Qsg and Qfg of group g can be written as
+(2)@
+(3)@
+where Ylm is the spherical harmonics, Y¯lm is the complex conjugate of Ylm,Σsl,g'→g is the l-th Legendre moment of the scattering cross section from group g’ to group g, νgΣfg is the fission production cross section, and χg(r⇀) is the fission spectrum. Applying the discrete ordinate discretization of angle to Eq. (1) gives
+(4)@
+where ψgm,Qsgm, and Qfgm are the angular flux, scattering source, and fission source, respectively, in a direction Ωm=μm,ηm,ξm, and M is the number of discretized angles.
+PROTEUS-MOC solves Eq. (4) for axially extruded geometries by slicing the 3D problem in to a stack of planes as shown in Fig. 1 and by applying the discontinuous Galerkin method in the axial direction and the 2D MOC method in the radial direction. The radial geometry is represented by unstructured finite elements (FEs). The flat source approximation is employed for the 2D MOC discretization. In other words, the source terms Qsgm and Qfgm are assumed to be radially flat within any given element, while they are allowed to have axial variations.
+Fig. 1. Axial discretization of PROTEUS-MOC for a sample 3D problem obtained by axially extruding a 2D geometry defined with unstructured FE meshes.
+2.1. Axial discretization with discontinuous Galerkin method
+In the 3D transport solver of PROTEUS-MOC, the axial variations of the angular flux and source are expanded in terms of orthogonal polynomials. Omitting the group index for simplicity, the angular flux and source in an axial plane k along an m-th direction can be expressed as
+(5)ψkmx,y,z≈∑j=1Jψ~kmjx,yujz,
+(6)Qkmx,y,z≈∑j=1JQ~kmjx,yujz,
+where J is the expansion order, ujz is the j-th basis function, Qkm(x,y,z) is the total group source that is the sum of scattering and fissions sources, and ψ~kmj(x,y) and Q~kmj(x,y) are the expansion coefficients of the angular flux and source, respectively. Inserting Eq. (5) and Eq. (6) into Eq. (4) gives
+(7)∑j=1Jμm∂ψ~kmjx,y∂x+ηm∂ψ~kmjx,y∂yujz+∑j=1Jξmψ~kmjx,y∂ujz∂z+∑j=1JΣtkx,yψ~kmjx,yuj(z)=∑j=1JQ~kmjx,yujz.
+Applying the discontinuous Galerkin weighted residual technique to Eq. (7) for ξm>0 leads to the following J equations for the expansion coefficients
+(8)μm∂ψ~kmj∂x+ηm∂ψ~kmj∂y∫zk-zk+dzujz2+ξmujzk+∑j'=1Jψ~kmj'x,yuj'zk+-ξm∑j'=1Jψ~kmj'x,y∫zk-zk+dzuj'z∂uj∂z+Σtkψ~kmjx,y∫zk-zk+dzujz2=Q~kmjx,y∫zk-zk+dzujz2+ξmψkmx,y,zk-ujzk-,j=1,2,…,J,
+where zk- and zk+ are the lower and upper bounds of plane k, respectively, and ψkmx,y,zk- is the incoming flux at the bottom of plane k. The linear system of equations for ξm<0 can be derived in a similar way. The system of equations in Eq. (8) can be written in a matrix form as
+(9)Ω·∇ψkmx,y+Σkmx,yψkmx,y=Skm,
+where ψkmx,y is the vector of the J angular flux expansion coefficients in the angular direction m in an axial plane k,Σkm is a J×J matrix depending on Σtgk,ξm, and Δzk, and Skm is the source vector. The explict expressions of Σkm and Sk,m for different trial functions are given in Section 2.3.
+2.2. Radial discretization with 2D MOC
+Equation (9) has the same form to the one-group 2D transport equation, and hence it can be solved using 2D MOC. In the 2D MOC approach, the transport equation for a characteristics line is converted to an ordinary differential equation (ODE) and the resulting ODE is solved analytically. On a characteristic line crossing a finite element e shown in Fig. 2, the position vector r⇀ can be written as
+(10)r⇀=r⇀0+sΩm=x0+sΩmx,y0+sΩmy,
+where Ωmx and Ωmy are projections of Ωm onto the x and y axes, respectively, and s is the trajectory length.
+Fig. 2. A characteristic line crossing a finite element e along a direction Ωm.ψin=ψ~1in,⋯,ψ~JinT denotes the incoming flux vector composed of J expansion coefficients, where J is the expansion order. ψout=ψ~1out,⋯,ψ~JoutT is the outgoing flux vector.
+Noting that dx/ds=Ωmx and dy/ds=Ωmy, it can be shown that Ωm·∇ is equal to the directional derivative along the trajectory as
+(11)dds=dxds∂∂x+dyds∂∂y=Ωmx∂∂x+Ωmy∂∂y=Ωm·∇.
+Hence, Eq. (9) can be converted into an ODE as
+(12)ddsψkmr⇀0+sΩm,Ωm+Σkmr⇀0+sΩmψkmr⇀0+sΩm,Ωm=Skmr⇀0+sΩm,Ωm.
+For constant cross sections and flat source distribution in each finite element e, Eq. (12) can be solved as
+(13)ψkm(s)=exp-Σkems/sinθmψkmin+Σkem-1I-exp(-Σkems/sinθm)Skem,
+where θm is the polar angle of the m-th direction. The segment-averaged angular flux over a trajectory segment l can then be obtained as
+(14)ψ¯kml=Σkem-1(ψkmlin-ψkmlout)sinθmsl+Σkem-1Skem,
+where sl is the length of trajectory segment l.
+As shown in Eq. (8), the solution of Eq. (9) depends on the incoming flux at the bottom surface for ξm>0 or at the top surface for ξm<0. As a results, the 2D transport equations for individual axial planes are coupled together through the angular fluxes at the interfaces. The set of 2D equations can be solved sequentially from the bottom to the top of the problem domain for ξm>0 and from the top to the bottom of the problem domain for ξm<0, whereas in the 2D/1D methods, the 2D planar equations are solved independently.
+2.3. Analytic evaluation of matrix functions
+The solution of the coupled 2D transport equations for the expansion coefficients along a characteristic line in Eq. (13) and Eq. (14) involve the calculation of the inverse and exponential functions of the coefficient matrix Σkem. For linear and quadratic approximations, it is possible to calculate Σkem-1 and exp-Σkems/sinθm analytically. The resulting formulas are presented in this section with the linear and quadratic basis functions. The detailed procedure to derive the analytic formula of exp(-Σkems/sinθm) for the quadratic approximation is discussed in the Appendix A.
+2.3.1. Linear approximation
+The linear basis functions {ukj(z),j=1,2} and trial functions {vkj(z),j=1,2} are defined over each axial interval [zk-,zk+] as
+(15)uk1(z)=vk1(z)=1,z∈[zk-,zk+]0,otherwise,
+(16)uk2(z)=vk2(z)=2Zkz-zk-+zk+2,z∈[zk-,zk+]0,otherwise,
+where Zk=zk+-zk-. The explicit expression for the coefficient matrix Σkem for a ray in direction m crossing a radial element e in an axial node k is given by
+(17)Σkem=Σtke±ξm/Zkξm/Zk-3ξm/ZkΣtke±3ξm/Zk,
+where ξm=cosθm,Σtke is the macroscopic total cross section of a finite element e in an axial node k, and the upper and lower signs of ± are for ξm>0 and ξm<0, respectively. The source vector Skem is given by
+(18)Skem=Q~kem,1+ξmψkem(zk-)/ZkQ~kem,2-3ξmψkem(zk-)/Zk,ξm>0Q~kem,1-ξmψkem(zk+)/ZkQ~kem,2-3ξmψkem(zk+)/Zk,ξm<0.
+The inverse of the 2 × 2 coefficient matrix Σk,e,m can be obtained as
+(19)Σkem-1=1Σtke2±4Σtkeωkm+6ωkm2Σtke±3ωkm-ωkm3ωkmΣtke±ωkm,
+where ωkm=ξm/Zk, and the upper and lower signs of ± are for ξm>0 and ξm<0, respectively. The matrix exponential α=exp-Σk,e,ms/sinθm can be obtained as
+(20)α=exp-s1-ξm2Σtke±2ωkmα11α12α21α22,
+(21.a)α11=coss1-ξm22ωkm±12sins1-ξm22ωkm,
+(21.b)α12=-12sins1-ξm22ωkm,
+(21.c)α21=32sins1-ξm22ωkm,
+(21.d)α22=coss1-ξm22ωkm∓12sins1-ξm22ωkm.
+In Eq. (20) and Eq. (21), the upper and lower signs of ± and ∓ are for ξm>0 and ξm<0, respectively.
+2.3.2. Quadratic approximation
+The quadratic basis functions {ukj(z),j=1,2,3} and trial functions {vkj(z),j=1,2,3} for each axial interval [zk-,zk+] are composed of the constant and linear functions in Eq. (15) and Eq. (16) and the following quadratic function:
+(22)uk3z=vk3z=6Zk2z-zk-+zk+22-12,z∈[zk-,zk+]0,otherwise.
+The explicit expression of the coefficient matrix Σkem for a ray in direction m crossing a radial element e in an axial node k is given by
+(23)Σkem=Σtke±ωkmωkm±ωkm-3ωkmΣtke±3ωkm3ωkm±5ωkm-5ωkmΣtke±5ωkm,
+where the upper and lower signs of ± are for ξm>0 and ξm<0, respectively. The source vector Skem is given by
+(24)Skem=Q~kem,1+ξmψkem(zk-)/ZkQ~kem,2-3ξmψkem(zk-)/ZkQ~kem,3+5ξmψkem(zk-)/Zk,ξm>0Q~kem,1-ξmψkem(zk+)/ZkQ~kem,2-3ξmψkem(zk+)/ZkQ~kem,3-5ξmψkem(zk+)/Zk,ξm<0.
+The inverse of the 3 × 3 coefficient matrix Σk,e,m can be obtained as
+(25)Σkem-1=1det(Σkem)×30ωkm2±8ωkmΣtke+Σtke2∓ωkm(10ωkm±Σtke)∓ωk,mΣtke3ωkm(±10ωkm+Σtke)Σtke(±6ωkm+Σtke)∓3ωkm(2ωkm±Σtke)∓5ωkmΣtke5ωkm(±2ωkm+Σtke)6ωkm2±4ωkm+Σtke2,
+where det(Σk,e,m) is the determinant of the coefficient matrix and the upper and lower signs of ± are for ξm>0 and ξm<0, respectively. Using the procedure given in Appendix A, the matrix exponential α=exp-Σk,e,ms/sinθm can be determined as
+(26)α=expa~τA+expb~τcosc~τB+sinc~τC,
+where
+(27)τ=-s1-ξm2,
+(28)a~=Σtke±ωkm3-31/3+32/3,b~=±32ωkm31/3-32/3,c~=32ωkm3-1/6+31/6,
+(29)A=13(3+31/3-32/3)×5-31/3+35/3∓(1+7·3-1/3-31/3)-1+31/3+32/3±(3+7·32/3-34/3)3+31/3-5·32/3∓(3-32/3-34/3)5(-1+31/3+32/3)±5(1-3-1/3-31/3)1-32/3+34/3,
+(30)B=13(3+31/3-32/3)×2(2+2·31/3-35/3)±(1+7·3-1/3-31/3)1-31/3-32/3∓(3+7·32/3-34/3)2(3+31/3+32/3)±(3-32/3-34/3)5(1-32/3-31/3)∓5(1-3-1/3-31/3)2(4-32/3),
+(31)C=∓(7·3-5/6-3-1/6)/2-3-7/6+2·3-5/6∓(3-5/6-3-1/6)/23-1/6-2·31/6∓(3-1/6-31/6)3-1/6∓5(3-5/6-3-1/6)/2-5·3-7/6±(3-5/6+3-1/6)/2.
+In Eq. (28) through Eq. (31), the upper and lower signs of ± and ∓ are for ξm>0 and ξm<0, respectively.
+2.4. Acceleration method
+PROTEUS-MOC solves the eigenvalue problem in Eq. (4), composed of G group equations, using the power iteration method. In each outer iteration, the one-group transport equation in Eq. (9) can be solved with a GMRES solver (Saad and Schutlz, 1986) or a fixed-point iteration solver (Zhang et al., 2019). In order to accelerate the convergence of the power iteration, two NDA acceleration methods were implemented: consistent CMFD (Jung and Yang, 2017) and pCMFD (Zhang et al., 2019) acceleration schemes. While the performance of the CMFD scheme is sensitive to the convergence of inner iteration, the pCMFD scheme is not and thus it can be used in combination with the fixed-point iteration solver only with one or two transport sweeps.
+As mentioned in the introduction, the performance of the consistent CMFD and pCMFD schemes deteriorates with increasing coarse mesh size due to increased spectral radius. In order to accelerate the iterative solution for the quadratic expansion that allows relatively large axial meshes, a sub-plane acceleration scheme was developed in conjunction with the consistent CMFD and pCMFD acceleration schemes. To facilitate the discussion of the new sub-plane scheme, the consistent CMFD and pCMFD acceleration methods are briefly described first. Fig. 3 illustrates the CMFD sub-planes introduced in a thicker MOC plane in PROTEUS-MOC. The linear system of the sub-plane NDA scheme is established axially with the sub-planes and radially with the coarse meshes, whereas in the conventional NDA scheme, the same axial plane configuration is shared between the lower-order diffusion calculation and the MOC calculation.
+Download : Download high-res image (142KB)Download : Download full-size image
+Fig. 3. Illustration of CMFD sub-planes introduced in an MOC plane. The k-th MOC plane is subdivided into 3 sub-planes where the lower-order diffusion equations are established. The thin black lines denote the finite element boundaries, while the thick red lines represent the boundaries of quarter pin coarse meshes. (For interpretation of the references to colour in this figure legend, the reader is referred to the web version of this article.)
+2.4.1. Consistent CMFD and pCMFD methods
+To accelerate the convergence of the iterative solution, PROTEUS-MOC employs the CMFD (Jung and Yang, 2017) and pCMFD (Zhang et al., 2019) methods that are consistent with the non-conservative FE discretization. In order to enforce the neutron balance in each coarse mesh and the consistency of the CMFD equation with the FE-based transport equation, a pseudo absorption cross section is introduced in the CMFD equation (Jung and Yang, 2017). After each higher-order transport sweep, the homogenized cross sections, volume-averaged flux, and surface-averaged partial currents are calculated for each coarse mesh using the transport solution. It is noted that only radial homogenization is performed since the original consistent CMFD and pCMFD acceleration schemes use the same axial mesh configuration with the MOC calculation and thus require no axial homogenization.
+The group constants in the lower-order diffusion equation are obtained by the flux-volume weighting as
+(33)Σ¯xc=∑e∈EcΣxeϕeVeΦ¯c,
+(34)Φ¯c=∑e∈EcϕeVe∑e∈EcVe,
+where Σ¯xc and Φ¯c are the homogenized group constant of reaction type x (i.e., total, scattering, and fission production) and the scalar flux in a coarse mesh c, respectively, and Σxe,ϕe, and Ve are the macroscopic cross section of reaction type x, the scalar flux, and the volume of a finite element e, respectively. The set Ec is the set of finite elements that makes up the coarse mesh c.
+The lower-order acceleration equation is derived from the neutron balance in each coarse mesh. However, the weighted residual technique described in Section 2.1 leads to the non-conservative FE discretization, and thus the conventional CMFD equation does not satisfy the neutron balance in each coarse mesh. Therefore, a pseudo absorption cross section (PAXS) is introduced into each CMFD equation to enforce the neutron balance (Jung and Yang, 2017). The CMFD equation with PAXS is written as
+(35)Ji±1/2Δsi±1/2+Jj±1/2Δsj±1/2+Jk±1/2Δsk±1/2+Σ¯ac+Σ¯pcΦ¯cV¯c=q¯cV¯c,
+where i, j, and k are the mesh indices of a coarse mesh c in the x, y, and z directions, respectively. The net currents on the two coarse mesh interfaces in the x, y, and z directions are denoted by Ji±1/2,Jj±1/2, and Jk±1/2, respectively, with the corresponding surface are as Δsi±1/2,Δsj±1/2 and Δsk±1/2.Σac and Σpc are the absorption and pseudo absorption cross sections, respectively, q¯c is the source term, and V¯c is the volume of a coarse mesh c.
+The NDA methods utilize the finite difference approximation of the Fick’s law to relate the currents and the fluxes and employ a correction factor D̂ to maintain the consistency between the transport and diffusion currents. In the CMFD scheme, the net currents at the interfaces c±1/2 between the coarse mesh c and the neighboring coarse mesh c±1 are to be preserved and they are evaluated with the following formula:
+(36)Jc±1/2=D~c±1/2(Φ¯c-Φ¯c±1)-D̂c±1/2(Φ¯c+Φ¯c±1),
+where D~c±1/2 are the coupling coefficients between the net currents on the interfaces and the cell-averaged flux differences across the interfaces, which are obtained from the finite difference approximation of the diffusion equation. The correction factors D̂c±1/2 are determined by requiring the net currents in Eq. (36) to be equal to those obtained from the transport calculation as
+(37)D̂c±1/2=D~c±1/2(Φ¯c-Φ¯c±1)-(Jc±1/2out,HO-Jc±1/2in,HO)Φ¯c+Φ¯c±1,
+where Jc±1/2out,HO and Jc±1/2in,HO are the outgoing and incoming partial currents at the interfaces between c and c±1 resulting from the higher-order transport calculation.
+In the pCMFD acceleration scheme, the partial currents are to be preserved and they are evaluated as
+(38)Jc±1/2out=12D~c±1/2(Φ¯c-Φ¯c±1)-D̂c±1/2outΦc,
+(39)Jc±1/2in=12D~c±1/2(Φ¯c±1-Φ¯c)-D̂c±1/2inΦc±1,
+where Jc±1/2out and Jc±1/2in are the outgoing and incoming partial currents at the interfaces between c and c±1, and they satisfy the following equation
+(40)Jc±1/2=Jc±1/2out-Jc±1/2in.
+The partial current correction factors D̂c±1/2out and D̂c±1/2in are determined by requiring the partial currents in Eq. (38) and Eq. (39) to be equal to those obtained from the transport calculation as
+(41)D̂c±1/2out=D~c±1/2(Φ¯c-Φ¯c±1)/2-Jc±1/2out,HOΦc,
+(42)D^c±1/2in=D~c±1/2(Φ¯c±1-Φ¯c)/2-Jc±1/2in,HOΦc±1.
+In PROTEUS-MOC, the radial transport currents can easily be tallied during the ray tracing procedure while the axial transport currents Jk±1/2out,HO and Jk±1/2in,HO are calculated by integrating the averaged angular fluxes ψkem(zk+1/2)=ψkem(zk+) and ψkem(zk-1/2)=ψkem(zk-) at the upper and lower boundaries of each finite element e as
+(43)Jk±1/2out,HO=1Δsc∑e∈Ec∑m∈Ocosθmψkem(zk±1/2)Δse,
+(44)Jk±1/2in,HO=1Δsc∑e∈Ec∑m∈Icosθmψkem(zk±1/2)Δse,
+where O and I are the sets of outgoing and incoming angles, respectively, Δse is the surface area of a finite element e, and Δscis the surface area of the coarse mesh c. The angular fluxes at the upper and lower boundaries of each finite element are determined using the functional expansion in Eq. (5). For the linear approximation, they are determined as
+(45)ψkem(zk±1/2)=ψ~kem,1±ψ~kem,2.
+For the quadratic approximations, they are given by
+(46)ψkem(zk±1/2)=ψ~kem,1±ψ~kem,2+ψ~kem,3.
+Once the correction factors are determined, the system of lower-order CMFD equations are assembled. By solving the system of lower-order CMFD equations, an updated scalar flux for the coarse mesh grid are obtained. Subsequently, an accelerated transport solution for the finite element grid is obtained by scaling the transport solution with the updated scalar flux solution of the lower-order equation.
+2.4.2. Sub-plane scheme
+In the sub-plane acceleration scheme, a thick MOC plane is divided into multiple sub-planes. The lower-order diffusion equation is assembled and solved for the sub-plane meshes. For this, the averaged flux and group constants of each sub-plane are required. Since the axial flux profile is known from the polynomial expansion (with an approximate iterative solution for the expansion coefficients), the average scalar flux over the n-th sub-plane of the MOC axial plane k in a finite element e can be easily obtained as
+(47)ϕ¯ke,n=1hn∫zn1zn2ϕke(z)=1hn∑j=1J∫zn1zn2ϕ~kejuj(z),
+where ϕke is the scalar flux in the MOC plane k of the finite element e, and zn1,zn2 and hn are the lower boundary, upper boundary, and height of the n-th sub-plane, respectively. uj and ϕ~kej are the j-th basis function and the associate coefficient, respectively. Subsequently the average scalar flux Φ¯ck,n and group constants Σ¯xck,n in the n-th sub-plane of a MOC axial plane k of a coarse mesh c can be evaluated as
+(48)Φ¯ck,n=∑e∈Ecϕ¯ke,nVe,n∑e∈EcVe,n,
+(49)Σ¯xck,n=∑e∈EcΣxke,nϕ¯ke,nVe,nΦ¯ck,n,
+where Ve,n is the volume of the corresponding axial segment of finite element e to the n-th sub-plane.
+The radial sub-plane currents J¯k±1/2,n can be calculated in a similar way as
+(50)J¯k±1/2,n=1hn∫zn1zn2Jk±1/2z=1hn∑j=1J∫zn1zn2J~jujz,
+where J~j is the current expansion coefficient of the j-th basis function uj, which is tallied in the ray tracing procedure. The axial currents at the lower and upper boundaries of the n-th sub-plane are obtained as
+(51)Jk±1/2,nout,HO=1Δsc∑e∈Ec∑m∈Ocosθmψkem(zk±1/2,n)Δse,
+(52)Jk±1/2,nin,HO=1Δsc∑e∈Ec∑m∈Icosθmψkem(zk±1/2,n)Δse,
+where ψkem(zk±1/2,n) is the angular flux on the top and bottom boundaries of the n-th sub-plane, which can be determined from the functional expansion in Eq. (5) as
+(53)ψkem(zn,k±1/2)≈∑j=1Jψ~kem,juj(zk±1/2,n).
+Using the group constants and leakage correction factors determined with Eq. (48) through Eq. (52), the system of the lower-order acceleration equations for sub-planes can be established. By solving the sub-plane linear system of equations for the sub-plane coarse mesh fluxes, the average coarse mesh scalar fluxes in each MOC plane k are determined as
+(54)ϕ¯kc=∑nΦ¯ck,nhnHk,
+where Φ¯kc,n is the scalar flux of a coarse mesh c in the n-th sub-plane of a MOC plane k, and Hk is the height of the MOC plane k. Then, the transport solution is updated in the prolongation process of the consistent CMFD or pCMFD acceleration schemes by applying the scaling factor determined by the ratio of the coarse mesh scalar flux in Eq. (54) to the coarse mesh scalar flux in Eq. (34). The same scaling factor is applied to the higher order expansion coefficients as well.
+It is noteworthy that this sub-plane scheme is different from those used in the 2D/1D methods. In PROTEUS-MOC, all the homogenized sub-plane quantities, including the sub-plane fluxes, the radial partial currents and correction factors, and the axial partial currents and correction factors, can be determined using the intra-plane flux shapes of the higher-order MOC calculation. On the contrary, in the 2D/1D method, the axial flux profiles inside a MOC plane cannot be obtained from a higher-order MOC calculation. As a result, they are estimated from the sub-plane CMFD flux of the previous outer iteration and the same radial currents and correction factors are assigned to all the sub-planes in a MOC plane, whereas the axial currents on sub-plane boundaries can be determined from the 1D SP3 solution (Graham et al., 2018).
+In addition, it should be noted that the local information obtained from the polynomial expansion might not be sufficiently accurate. The weighted residual technique used in deriving the equations for expansion coefficients only ensures that the residual vanishes in an average sense over an axial domain [zk-,zk+]. As a result, the homogenized group constants could have non-negligible errors for very thin sub-planes, and thus the number of sub-planes per MOC plane needs to be limited. Moreover, the angular fluxes at the sub-plane boundaries used for calculating the axial currents and correction factors are estimated from the polynomial expansion using an approximate iterative solution for the expansion coefficients. This indicates that the sub-plane NDA scheme would not be able to produce sufficiently accurate axial flux profiles when it is used in conjunction with the fixed-point iteration solver that performs only one or two transport sweeps.
+It was also observed that the sub-plane homogenization process could yield non-physical quantities (e.g., negative sub-plane fluxes) if excessively thin sub-planes are used in a problem with strong heterogeneities, especially in an axial segment where the neutron flux experiences rapid changes. The non-physical quantities cause a severe instability of the sub-plane NDA scheme. Therefore, an internal check algorithm for negative flux was introduced in the sub-plane acceleration solvers of PROTEUS-MOC. Before the sub-plane homogenization process, the coarse mesh flux of each sub-plane is calculated and checked. If any negative flux is found, then the sub-plane fluxes of that MOC plane is not used, and the averaged flux and current for the entire MOC plane are assigned to all the sub-planes in that MOC plane.
+<Section>3. Numerical test results</Section>
+The quadratic basis and trial functions were implemented into PROTEUS-MOC. The CMFD and pCMFD solvers of PROTEUS-MOC were also extended to handle sub-planes structures. The performance and effectiveness of the quadratic approximation and the sub-plane NDA methods were tested using the 3D C5G7 problem. In addition, the solution convergence of the hybrid method of PROTEUS-MOC with axial mesh refinement was investigated using the Takeda-1 benchmark and the 2D and 3D C5G7 benchmark problems.
+3.1. Performance of quadratic axial expansion function
+As shown in Fig. 4, the 3D C5G7 benchmark problem consists of two MOX and two UO2 assemblies surrounded by water reflector. Each fuel assembly consists of 263 fuel pins, 24 guide tubes, and 1 fission chamber, as illustrated in Fig. 5. The active core is 42.84 cm high, and an additional 21.42 cm reflector is added on the top. Reflective and vacuum boundary conditions are imposed on the bottom and top faces, respectively. The 3D C5G7 problem comprises 3 configurations, namely the unrodded, rodded A, and rodded B cases. In the unrodded case, all the control rod clusters are parked in the upper axial water reflectors. Among the two rodded configurations, the rodded B configuration has more control rods and is more challenging. In this work, the unrodded and rodded B cases were calculated to examine the performance of the quadratic approximation. Detailed descriptions about the 3D C5G7 benchmark problem can be found in the report (Smith et al., 2005).
+Fig. 4. Radial (left) and axial (right) configurations of 3D C5G7 benchmark problem.
+Fig. 5. Pin arrangements in four assemblies of C5G7 benchmark.
+Using the PROTEUS-MOC code, the unrodded case of the C5G7 problem was first calculated with the linear and quadratic approximations. As depicted in Fig. 6, each fuel pin cell was discretized into 160 elements by dividing the fuel and moderator zones into 3 and 2 annular rings, respectively. Each guide tube was divided into 5 annular rings to capture the strong flux gradient in control rod. The angular domain was discretized using 8 polar angles for π and 48 azimuthal angles for 2π. A convergence criterion of 1.0 × 10−5 was used for eigenvalue and fission source, and 1.0 × 10−4 was used for angular flux. The fixed-point iteration scheme with two transport sweeps was used in conjunction with the pCMFD acceleration. A total number of 480 processors were used. In order to compare the performance of the quadratic approximation relative to the linear approximation, two different axial mesh configurations were prepared. In the first one, the core and reflector regions were divided into 18 and 12 meshes, respectively, so that the linear approximation yields a maximum pin power error less than 2%. The second one was prepared by coarsening the meshes by a factor of three so that the quadratic approximation would yield a similar accuracy to the linear approximation solution with the first axial mesh set.
+Fig. 6. Radial discretization of fuel pin (left) and guide tube (right).
+The calculation results were compared with the reference MCNP solution (Smith et al., 2005). Pin powers were calculated in each of three axial segments shown in Fig. 4 as in the reference solution. The solution accuracy was measured by the following four distinct errors: the maximum error (MAX), the average error (AVG), the root mean square (RMS) error, and the mean relative error (MRE), which are defined by
+(55)MAX=maxn|en|,AVG=1N∑n=1Nen,RMS=1N∑n=1Nen2,MRE=1N·Pavg∑n=1NenPn,
+where N is the number of fuel pins, Pn is the n-th fuel pin power, en is the % error of the n-th fuel pin, and Pavg is the average pin power.
+Table 1 presents the eigenvalue and pin power results of PROTEUS-MOC for the unrodded core configuration. It compares the eigenvalues and pin segment powers obtained with the linear and quadratic approximations with the MCNP reference solution. The reference MCNP eigenvalue was 1.14308 with one standard deviation of 3 pcm (Smith et al., 2005). The linear approximation solution with 30 axial meshes yields an eigenvalue error of −4 pcm and a maximum pin segment power error of 1.7%, which occurs in the segment 3 next to the reflector. The reduction of the number of axial meshes from 30 to 10 increases the eigenvalue error of the linear approximation solution from −4 pcm to 41 pcm and the maximum pin segment power error from 1.7% to 4.0%. It can be seen that the accuracy of the quadratic approximation solution with 10 axial meshes is comparable to that of the linear approximation solution with 30 axial meshes. The eigenvalue error of the quadratic approximation solution is only about 2 pcm compared to the reference result. The maximum pin segment power error is around 1% in the axial segments 1 and 2. The axial segment 3 next to the reflector shows a slightly higher pin segment power errors, yielding a maximum pin segment power error of 1.7%. The AVG and RMS errors are much smaller than the MAX error, indicating that only a few pin power segment errors are larger than 1% and the other pin segment power errors are significantly smaller than 1%. The MRE error of segment 3 is 0.08% and comparable to that of segment 1 or 2, suggesting that all the relatively large pin segment power errors in segment 3 occurred in the fuel pins of relatively small powers. These results indicate that the quadratic approximation allows to use about 3 times coarser axial meshes than the linear approximation for comparable pin segment power accuracy. With the about 3 times coarser axial meshes, the quadratic approximation reduces the memory requirement by about 2 times.
+Table 1. Eigenvalue and pin segment power errors of PROTEUS-MOC solutions obtained with linear and quadratic approximations for the unrodded 3D C5G7 problem.
+By comparing the linear and quadratic approximation solutions for 10 axial meshes, it can be seen that relative to the linear approximation, the quadratic approximation reduces the eigenvalue error from −41 pcm to 2 pcm and the maximum pin segment power error from 4.0% to 1.7%. In the segment 1 and 2, where the neutron flux exhibits relatively smooth variations, the quadratic approximation yielded about 2–3 times more accurate results in terms of the AVG, RMS and MRE errors. In the segment 3 where the neutron flux shows steeper axial variations, the quadratic approximation improved the pin power accuracies by about 5 times compared to the linear approximation.
+Table 2 compares the computational performance of the linear approximation with 30 axial meshes and the quadratic approximation with 10 axial meshes. The same number of processors were used for both cases, but with different domain decomposition configurations because of the different axial mesh numbers. The quadratic approximation reduced the computational time for a single transport sweep operation by 51.3% because of the reduced number of axial meshes, but the time reduction was smaller than the reduction in the number of axial meshes (66%) due to the additional overhead of the floating-point operations in matrix inversion and exponential calculations. On the other hand, compared to the linear approximation, the quadratic approximation increased the number of outer iterations by 2.1 times because of the degraded performance of the pCMFD acceleration scheme due to the optically thicker cell size. As a result, the total number of transport sweeps was increased by a factor of 2.1. Fig. 7 compares the convergence behaviors of fission source and angular flux for the linear and quadratic approximations. Consequently, the quadratic axial expansion method did not reduce the overall computational time as expected. The increased number of outer iterations of the quadratic approximation suggests that the larger axial meshes in the quadratic approximation deteriorate the performance of the pCMFD acceleration. This performance degradation problem can be remedied using the sub-plane acceleration scheme.
+Table 2. Comparison of computational performance of linear and quadratic approximations for comparable accuracy for the unrodded 3D C5G7 problem.
+Fig. 7. Comparison of (a) fission source and (b) angular flux iteration histories of linear and quadratic approximations.
+Table 3 presents the eigenvalue and pin segment power results for the rodded B case. As in the unrodded case, both the linear approximation with 30 axial planes and the quadratic approximation with 10 axial meshes produce accurate eigenvalue and pin segment powers. The eigenvalue error is about 20 pcm and the maximum pin segment power error is less than 1.8%. It can be seen that for a comparable solution accuracy, the quadratic approximation can use three times coarser axial meshes than the linear approximation and thus it can reduce the memory requirement by about 2 times.
+Table 3. Performance comparison of linear and quadratic approximations for the rodded B case of 3D C5G7 problem.
+3.2. Performance of the sub-plane NDA scheme
+The performance of the sub-plane acceleration scheme was investigated for both the linear and quadratic approximations using the unrodded configuration of the 3D C5G7 benchmark problem. This investigation was performed with both the fixed-point iteration scheme and the GMRES subspace iteration method for the within-group transport calculations. The number of sub-planes per MOC plane was varied using the same radial and angular discretization, domain decomposition, and convergence criteria in Section 3.1.
+A first set of tests was performed with the fixed-point iteration scheme for the within-group transport calculations with two transport sweeps. Two different axial mesh grids for sub-plane pCMFD calculations were prepared by sub-dividing each MOC plane into 2 and 3 sub-planes. Table 4, Table 5 present the computational performance and pin segment power results for the linear and quadratic approximations, respectively. Compared to the results in Table 1 obtained without sub-plane acceleration scheme, the fixed-point iteration with sub-plane acceleration scheme yields the identical eigenvalue and practically the same pin segment power errors. The eigenvalue and pin power results suggest that the sub-plane acceleration scheme is correctly implemented. However, the sub-plane acceleration scheme did not bring any additional improvement in computational time to the pCMFD acceleration. The number of outer iterations was reduced by 1 and 3 for the linear and quadratic approximations, respectively, but the overall computational time was increased due to the additional overhead for processing sub-plane data and solving the sub-plane diffusion equation.
+Table 4. Performance of sub-plane acceleration in conjunction with the fixed-point iteration scheme for the linear approximation with 30 MOC planes for the unrodded 3D C5G7 problem.
+Table 5. Performance of sub-plane acceleration in conjunction with the fixed-point iteration scheme for the quadratic approximation with 10 MOC planes for the unrodded 3D C5G7 problem.
+The poor performance of the sub-plane acceleration in conjunction with the fixed-point iteration scheme might be caused by the inaccurate sub-plane fluxes and currents evaluated from the not fully converged axial distribution of the angular flux due to the two transport sweeps per outer iteration used in this study. In order to investigate the effects of the convergence of within-group transport calculations, another set of tests was performed for the quadratic approximation using the GMRES subspace iteration method, which requires the within-group transport solutions to converge within a specified convergence criterion. A residual error criterion of 0.1 was used for GMRES calculations, and a convergence criterion of 1.0 × 10−5 was used for eigenvalue and fission source.
+Table 6 summarizes the computational performance and pin segment power results. It can be seen that with the increased number of inner iterations to satisfy the GMRES convergence criterion, the sub-plane acceleration scheme improves the computational efficiency. It is also noted that the sub-plane CMFD calculation improves the solution accuracy slightly. Compared to the case of no sub-plane, the sub-plane acceleration scheme with 2 sub-planes per MOC plane reduces the outer iterations from 11 to 8 and the total number of transport sweeps from 596 to 443. The use of 4 sub-planes per MOC plane further reduces the number of outer iterations to 6 and the number of transport sweeps to 341. As a result, the total computational time is reduced by a factor of 1.53 (from 810 s to 527.5 s). By comparing Table 2, Table 6, it can be seen that the quadratic approximation with the GMRES method performs better than the linear approximation of similar accuracy, which was achieved with 30 MOC planes with the fixed-point iteration method, but the gain is marginal. The computational time is reduced by only 7% (from 566.1 s to 527.5 s).
+Table 6. Performance of sub-plane acceleration in conjunction with the GMRES iteration method for the quadratic approximation with 10 MOC planes for the unrodded 3D C5G7 problem.
+For comparison, the sub-plane acceleration was also tested for the linear approximation with 30 MOC planes in conjunction with the GMRES iteration method. Compared to the fixed-point iteration scheme, the GMRES method reduced the number of outer iterations from 14 to 6 for the case of no sub-plane, but the use of sub-plane acceleration did not reduce the number of outer iterations further. Moreover, the overall computational time was increased for the case of no sub-plane from 566.1 s to 868.7 s because of the increased number of transport sweeps as discussed in Ref. (Zhang et al., 2019). The inferior performance of the GMRES method can also be observed by comparing Table 2, Table 6. The GMRES method reduces the number of outer iterations from 29 to 11 for the quadratic approximation, but increases the total number of transport sweeps from 406 to 596 and the overall computational time from 627.2 s to 810 s.
+3.3. Investigation of solution convergence
+The solution convergence behavior of the hybrid method of PROTEUS-MOC with axial mesh refinement was investigated using the Takeda-1 and C5G7 benchmark problems. For a fixed finite element grid in the radial direction, the axial mesh size was decreased by increasing the number of MOC planes.
+3.3.1. Takeda-1 benchmark problem
+The Takeda-1 benchmark problem is a simplified model of the Kyoto University Critical Assembly (KUCA). This benchmark models 1/8 of a thermal core and two-group cross section data are provided. It features strong flux gradients both in the radial and axial directions, and hence it is suited for studying the mesh convergence of 3D transport codes. As shown in Fig. 8, the Takeda-1 benchmark comprises of three different material zones: the core, reflector, and control rod. Among the two control rod configurations, the control rod inserted case was analyzed in this study.
+Fig. 8. Radial (left) and axial (right) configurations of the Takeda-1 benchmark problem.
+The Takeda-1 benchmark problem was simulated using PROTEUS-MOC with the linear and quadratic approximations. To capture the steep flux variations in the vicinity of the interfaces between the core and the reflector or between the core and the control rod, a fine mesh grid of 160 meshes was used in X and Y directions, yielding a total number of 25,600 flat source regions in the radial direction. The angular domain was discretized using 6 polar angles for π and 12 azimuthal angles for 2π. The axial mesh grid was prepared by continuously decreasing the mesh size from 5 cm to 0.078125 cm by increasing the number of axial meshes from 5 to 320. Fig. 9 shows the eigenvalues for the linear and quadratic approximations as a function of the number of axial meshes. The reference eigenvalue was obtained with a Monte Carlo code and was given as 0.96240 with one standard deviation of 60 pcm. The 99.7% (3σ) confidence interval is shown in Fig. 9 by green dashed lines. As can be seen, the quadratic approximation exhibits practically the same convergence behavior as the linear approximation. The calculated eigenvalues gradually converge to the reference solution with decreasing axial mesh size until the axial mesh size becomes about 6 times larger than the radial mesh size for the linear approximation and about 16 times for the quadratic approximation. The quadratic approximation with 5 axial meshes yields a comparable eigenvalue (0.9628) to that (0.9625) of the linear approximation with 20 axial meshes. However, when the axial mesh size is further reduced, the calculated eigenvalues move away from the reference solution and the eigenvalue errors gradually increase with decreasing mesh size although they are still within the 99.7% confidence interval of the reference Monte Carlo solution. This trend appears to be due to the fixed size of radial finite element for flat source approximation.
+Fig. 9. Eigenvalue results obtained with linear and quadratic approximations for the Takeda-1 benchmark problem.
+As shown in Eq. (18) and Eq. (24), the source vector Skem contains the plane-averaged leakage source from the adjacent plane, ψkem(zk-)/Zkor ψkem(zk+)/Zk depending on the neutron direction. The leakage source ψkem(zk±) is smeared over a finite element e (i.e., a flat source region), and thus includes some approximation error. For thin planes relative to the element size, this error is amplified by the plane height Zk in the plane-averaged source. This plane-averaged source error is subsequently propagated to the solution vector of expansion coefficients. Therefore, the final accuracy of the 3D transport solver of PROTEUS-MOC is determined by the discretization errors from two distinct sources: the truncation error from the finite functional expansion for the axial variation of the angular flux and the error imbedded in the flat leakage source approximation. Thin axial meshes are required to minimize the axial truncation error, while thick axial meshes relative to the radial finite elements are preferred to reduce the leakage source error. An optimal axial mesh grid exists for each of the linear and quadratic approximations. For this homogeneous problem, it is 6 times larger than the radial mesh size for the linear approximation and 16 times for the quadratic approximation.
+3.3.2. 3D C5G7 benchmark problem
+The solution convergence property was further investigated using the unrodded configuration of the 3D C5G7 benchmark problem. The radial mesh grid and angular domain discretization presented in Section 3.1 were used. Seven axial mesh configurations were prepared by continuously decreasing the mesh size from about 10 cm to about 0.4 cm, as listed in Table 7. For each of these seven axial mesh configurations, the unrodded 3D C5G7 problem was solved with the linear and quadratic approximations. Fig. 10 shows the eigenvalues for the linear and quadratic approximations as a function of the number of axial meshes. The 99.7% (3σ) confidence interval is shown in Fig. 10 by green dashed lines.
+Table 7. Axial mesh configurations for the 3D C5G7 benchmark problem.
+Fig. 10. Eigenvalue results obtained with linear and quadratic approximations for the 3D C5G7 benchmark problem.
+Essentially the same solution convergence behavior to the Takeda-1 problem is observed. As the axial mesh size is refined for a fixed radial mesh configuration, the calculated eigenvalue first converged to and then moved away from the reference solution. For this heterogeneous problem, the optimal axial mesh size is about 12 times larger than the largest radial mesh size for the linear approximation and about 27 times for the quadratic approximation. For the case of 5 axial MOC planes, the linear approximation yields a better eigenvalue than the quadratic approximation but it is due to the error cancellation. The average pin segment power errors of the linear expansion method (1.146%, 1.309%, and 5.473% for the axial segments 1, 2, and 3 in Fig. 4, respectively) are significantly larger than those of the quadratic expansion method (0.528%, 0.232%, and 1.611%, respectively). These results indicate that for the same axial mesh size, the quadratic approximation is more accurate than the liner approximation.
+3.3.3. 2D C5G7 benchmark problem
+Elimination of the truncation errors of the finite functional expansion would allow us to concentrate on the solution convergence behavior with respect to the errors due to the flat leakage source approximation. For this purpose, we analyzed the 2D C5G7 benchmark problem, which has the same core layout and assembly arrangement as its 3D companion. The same radial mesh configuration, angular quadrature set, and convergence criteria used in the 3D C5G7 problem were used. A 3D model with reflective boundary conditions at the top and bottom surfaces was constructed with one axial plane to simulate the 2D problem. In order to examine the influence of the flat leakage source approximation, the problem height was varied from 0.1 cm to 1000 cm. Since there are no adjacent axial planes in this model, the neutrons reflecting back at the top and bottom boundaries play a role of leakage source. This reflective source is also averaged over a finite element as for the leakage source at the plane boundaries.
+Table 8 summaries the errors in the eigenvalues obtained with the linear and quadratic approximations relative to the MCNP reference solution. The reference MCNP eigenvalue was 1.18655 with one standard deviation of 3 (Smith et al., 2005). As can be seen, the eigenvalue error monotonically decreases as the plane height increases due to the reduced error in the reflective source. Since the axial flux profile is flat in this 2D problem, the quadratic approximation produces the identical eigenvalue as the linear approximation except for a very thin (0.1 cm) case which is smaller than the radial mesh size and thus the leakage source error is not negligible.
+Table 8. Eigenvalue results for the 2D C5G7 problem obtained with linear and quadratic approximations.
+<Section>4. Conclusions</Section>
+The potential benefits of higher order axial trial functions in the discontinuous Galerkin finite element method of PROTEUS-MOC due to increased mesh size has been investigated. The trial function space of PROTEUS-MOC was extended from the current linear polynomial to the quadratic polynomial. Using the Cayley-Hamilton theorem, analytic formulas were derived for the inverse and exponential of the coefficient matrix of the quadratic approximation. The performance and effectiveness of the quadratic approximation were tested using the 3D C5G7 benchmark problem. The solution accuracy was examined by comparing the calculated eigenvalue and pin powers in three axial segments with the reference Monte Carlo solutions. Numerical results showed that compared to the linear approximation, the quadratic approximation can reduce the memory requirement by a factor of two by allowing coarser axial meshes while maintaining the same accuracy. However, the thick axial meshes deteriorated the performance of the CMFD and pCMFD acceleration schemes, and hence increased the number of outer iterations. The increased outer iterations offset the reduced time for each transport calculation due to the reduced number of axial meshes.
+In order to remedy the deteriorated performance of the CMFD and pCMFD acceleration schemes, a sub-plane acceleration method was developed by dividing each MOC plane into several sub-planes and by evaluating the coarse mesh cross sections and current correction factors in each sub-plane using the axial distributions of angular flux within each MOC plane determined from MOC calculations. The developed sub-plane method was incorporated into the CMFD and pCMFD acceleration schemes. The performance of the sub-plane acceleration scheme was investigated using the unrodded 3D C5G7 benchmark problem with different sub-plane configurations. Numerical results showed that the sub-plane acceleration scheme is not compatible with the fixed-point iteration with one or two transport sweeps for the within-group transport calculations. The sub-plane acceleration becomes effective for the quadratic approximation with the GMRES iteration scheme, but the gain relative to the linear approximation with the fixed-point iteration is marginal because of the inferior performance of the GMERES method to the fixed-point iteration scheme. Other acceleration methods that are compatible with the fixed-point iteration solver will be studied in the future.
+The solution convergence behavior of the hybrid method of PROTEUS-MOC with axial mesh refinement was also investigated using the Takeda-1 and C5G7 benchmark problems. Numerical test results demonstrated that there exist two distinct sources of axial discretization errors. One is the truncation error of the finite functional expansion for the axial variation of the angular flux, and the other is the error associated with the flat leakage source approximation in each radial element at the interfaces of MOC planes. As the axial mesh size decreases, the truncation error decreases but the flat leakage approximation error increases. As a result, for a given finite element grid in the radial direction, there exists an optimal axial mesh grid.
+<Section>CRediT authorship contribution statement</Section>
+Guangchun Zhang: Methodology, Software, Investigation, Writing - original draft, Visualization. Won Sik Yang: Methodology, Supervision, Writing - review & editing.
+<Section>Declaration of Competing Interest</Section>
+The authors declare that they have no known competing financial interests or personal relationships that could have appeared to influence the work reported in this paper.
+<Section>Acknowledgement</Section>
+This research was performed with funding received from the DOE Office of Nuclear Energy’s Nuclear Energy University Program.
+<Section>Appendix A.</Section>
+The analytic formula for the matrix exponential α shown in Section 2.3.2 is derived in detail for ξm>0. The same derivation process can also be applied to the case of ξm<0. The derivation starts with splitting the 3×3 coefficient matrix Σ as
+(A.1)Σkem=a~I+ωkmM,
+where
+(A.2)a~=Σtke+ωkm(3-31/2+32/3),
+(A.3)M=-2+31/3-32/311-331/3-32/335-52+31/3-32/3,
+and I is the 3×3 identity matrix. Using the split in Eq. (A.1), the matrix exponential α can be expressed as
+(A.4)α=exp-τΣkem=exp-τa~exp-τωkmM,
+where τ=s/sinθm.
+The eigenvalues of the matrix M can be easily obtained as
+(A.5)λ1=0,
+(A.6)λ2=32(31/3-32/3)+32(31/6+3-1/6)i,
+(A.7)λ3=32(31/3-32/3)-32(31/6+3-1/6)i.
+Using the Cayley-Hamilton theorem, the matrix exponential exp(τωkmM) can be expressed as a second order polynomial of M as
+(A.8)expτωkmM=a0I+a1M+a2M2.
+A linear system of equations for the coefficients ao,a1 and a2 can be obtained by replacing the matrix M with the three eigenvalues as
+(A.9)a0=1,
+(A.10)a0+a1λ2+a2λ22=exp(-τωkmλ2),
+(A.11)a0+a1λ3+a2λ32=exp(-τωkmλ3).
+The expression for ao, a1 and a2 can be obtained by solving the system of linear equation given in Eq. (A.9) to Eq. (A.11). The analytic formulation of α can then be evaluated by substituting Eq. (A.8) back into Eq. (A.4).
+<Section>Appendix B. Supplementary data</Section>
+The following are the Supplementary data to this article:
+Supplementary data 1.
+<Section>References</Section>
+Cho, 2002
+N.Z. Cho
+Fusion of method of characteristics and nodal method for 3-D whole-core transport calculation
+Trans. Am. Nucl. Soc., 86 (2002), p. 322
+View Record in ScopusGoogle Scholar
+Cho and Park, 2003
+Cho, N.Z., Park, C.J., 2003. A comparison of coarse mesh rebalance and coarse mesh finite difference accelerations for the neutron transport calculations, Proc. M&C 2003, Gatlinburg, Tennessee, USA, April 6–11.
+Google Scholar
+Cho et al., 2002
+J.Y. Cho, H.G. Joo, K.S. Kim, S.Q. Zee
+Three-dimensional heterogeneous whole core transport calculation employing planar MOC solutions
+Trans. Am. Nucl. Soc., 87 (2002), pp. 234-236
+CrossRefGoogle Scholar
+Cho et al., 2007
+J.Y. Cho, K.S. Kim, C.C. Lee, S.Q. Zee, H.G. Joo
+Axial SPN and radial MOC coupled whole core transport calculation
+J. Nucl. Sci. Technol., 44 (2007), pp. 1156-1171
+View Record in ScopusGoogle Scholar
+Collins et al., 2016
+B. Collins, S. Stimpson, B.W. Kelley, M.T.H. Young, B. Kochunas, E.W. Aaron Graham, T. Larsen, A.G. Downar
+Stability and accuracy of 3D neutron transport simulations using the 2D/1D method in MPACT
+J. Comp. Phy., 326 (2016), pp. 612-628
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+Cornejo and Anistratov, 2016
+L.R. Cornejo, D.Y. Anistratov
+Nonlinear diffusion acceleration method with multigrid in energy for k-eigenvalue neutron transport problems
+Nucl. Sci. Eng., 184 (2016), pp. 514-526
+CrossRefView Record in ScopusGoogle Scholar
+Graham et al., 2018
+A. Graham, B. Collins, S. Stimpson, T. Downar
+Subplane collision probabilities method applied to control rod cusping in 2D/1D
+Ann. Nucl. Energy, 118 (2018), pp. 1-14
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+Hursin et al., 2014
+M. Hursin, B. Collins, Y. Xu, T. Downar
+The development and implementation of a one-dimensional Sn method in the 2D–1D integral transport solution
+Nucl. Sci. Eng., 176 (2014), pp. 186-200
+CrossRefView Record in ScopusGoogle Scholar
+Hursin, 2010
+Hursin, M., Full Core, Heterogeneous, Time Dependent Neutron Transport Calculations with the 3D Code DeCART, Dissertation, UC Berkeley, 2010.
+Google Scholar
+Jarrett et al., 2016
+M. Jarrett, B. Kochunas, A. Zhu, T. Downar
+Analysis of stabilization techniques for CMFD acceleration ofneutron transport problems
+Nucl. Sci. Eng., 184 (2016), pp. 208-227
+CrossRefView Record in ScopusGoogle Scholar
+Joo et al., 2004
+H.G. Joo, J.Y. Cho, K.S. Kim, C.C. Lee, S.Q. Zee, Methods and performance of a three-dimensional whole-core transport code DeCART, Proc. PHYSOR 2004, Chicago, USA, April 25–29, 2004.
+Google Scholar
+Jung et al., 2018
+Jung, Y.S., Lee, C., Smith, M.A., 2018. PROTEUS-MOC user manual, ANL/NSE-18/10, Argonne National Laboratory, September 30.
+Google Scholar
+Jung et al., 2013
+Y.S. Jung, C.B. Shim, C.H. Lim, H.G. Joo
+Practical numerical reactor employing direct whole core neutron transport and subchannel thermal/hydraulic solvers
+Ann. Nucl. Energy, 62 (2013), pp. 357-374
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+Jung and Yang, 2017
+Y.S. Jung, W.S. Yang
+A consistent CMFD formulation for acceleration of neutron transport calculations based on finite element method
+Nucl. Sci. Eng., 185 (2017), pp. 307-324
+CrossRefView Record in ScopusGoogle Scholar
+Kelly and Larsen, 2013
+Kelly, B.W., Larsen, E.W., 2013 2D/1D approximations to the 3D neutron transport equation. I: theory, Proc. M&C 2013, Sun Valley, Idaho, USA, May 5-9.
+Google Scholar
+Kosaka and Takeda, 2003
+Kosaka, T. Takeda, Diffusion-like 3-D heterogeneous core calculation with 2-D characteristics transport correction by nonlinear iteration technique, Proc. Int. Conf. Nucl. Math. and Comp. Sci., Gatlinburg, USA, Apr. 6–11, 2003.
+Google Scholar
+Lee et al., 2004
+D. Lee, T. Downar, Y. Kim
+Convergence analysis of the nonlinear coarse-mesh finite difference method for one-dimensional fixed-source neutron diffusion problem
+Nucl. Sci. Eng., 147 (2004), pp. 127-147
+View Record in ScopusGoogle Scholar
+Marin-Lafleche et al., 2013
+Marin-Lafleche, A., Smith, M.A., Lee, C., 2013. PROTEUS-MOC: a 3D deterministic solver incorporating 2D method of characteristics, in: Proc. M&C 2013, Sun Valley, USA, May 5–9.
+Google Scholar
+NEAMS, 2020
+“NEAMS: Nuclear Energy Advanced Modeling & Simulation Program,” Idaho National Laboratory, https://neams.inl.gov/SitePages/Home.aspx, 2020 (accessed 2 February 2020).
+Google Scholar
+Saad and Schutlz, 1986
+Y. Saad, M.H. Schutlz
+GMRES: a generalized minimal residual algorithm for solving non-symmetric linear systems
+SIAM J. Sci. Stat. Comput., 7 (1986), pp. 856-869
+CrossRefView Record in ScopusGoogle Scholar
+Smith, 1983
+K. Smith
+Nodal method storage reduction by nonlinear iteration
+Trans. Am. Nucl. Soc., 44 (1983), p. 265
+CrossRefView Record in ScopusGoogle Scholar
+Smith et al., 2005
+M.A. Smith, E.E. Lewis, B.C. Na
+Benchmark on Deterministic Transport Calculations Without Spatial Homogenization (MOX Fuel ASSEMBLY 3-D Extension Case), NEA/NSC/DOC(2005) 16
+Organization for Economic Co-operation and Development/Nuclear Energy Agency (2005)
+Google Scholar
+Stimpson et al., 2017
+S. Stimpson, B. Collins, T. Downar
+A 2-D/1D transverse leakage approximation based on azimuthal, Fourier moments
+Nucl. Sci. Eng., 185 (2017), pp. 243-262
+CrossRefView Record in ScopusGoogle Scholar
+Takeda and Ikeda, 1991
+T. Takeda, H. Ikeda
+3-D neutron transport benchmarks
+J. Nucl. Sci. Technol., 28 (7) (1991), pp. 656-669, 10.1080/18811248.1991.9731408
+CrossRefView Record in ScopusGoogle Scholar
+Weber et al., 2007
+D.P. Weber, T. Sofu, W.S. Yang, T.J. Downar, J.W. Thomas, Z. Zhong, J.Y. Cho, K.S. Kim, T.H. Chun, H.G. Joo, C.H. Kim
+High-fidelity light water reactor analysis with the numerical nuclear reactor
+Nucl. Sci. Eng., 155 (2007), pp. 395-408
+CrossRefView Record in ScopusGoogle Scholar
+Yamamoto et al., 2017
+A. Yamamoto, A. Giho, Y. Kato, T. Endo
+GENESIS: A three-dimensional heterogeneous transport solver based on the Legendre polynomial expansion of angular flux method
+Nucl. Sci. Eng., 186 (2017), pp. 1-22
+CrossRefView Record in ScopusGoogle Scholar
+Zhang and Yang, 2020
+Zhang, G., Yang, W.S., 2020. Implementation of quadratic axial trial functions in the high-fidelity transport code PROTEUS-MOC, Proc. PHYSOR2020, Cambridge, United Kingdom, March 29–April 19.
+Google Scholar
+Zhang et al., 2019
+G. Zhang, A. Hsieh, W.S. Yang, Y.S. Jung
+Consistent pCMFD acceleration schemes of three-dimensional transport code PROTEUS-MOC
+Nucl. Sci. Eng., 193 (2019), pp. 828-853
+CrossRefView Record in ScopusGoogle Scholar
+Zheng et al., 2017
+Y. Zheng, S. Choi, D. Lee
+A new approach to three-dimensional neutron transport solution based on the method of characteristics and linear axial approximation
+J. Comp. Phy., 350 (2017), pp. 25-44
+ArticleDownload PDFView Record in ScopusGoogle Scholar

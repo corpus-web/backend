@@ -1,0 +1,367 @@
+<title> A_DT Comparison_NN of_IN Equivalent_JJ Source_NN Method_NN and_CC Monopole_NN Time_NN Reversal_NN Method_NN for_IN Noise_NN Source_NN Localization_NN </title> <author> Bi_NP ,_, Chuan-Xing_NP ;_: Li_NP ,_, Yong-Chang_NP ;_: Zhou_NP ,_, Rong_NP ;_: Zhang_NP ,_, Yong-Bin_NP </author> <Affiliation> 1_CD Institute_NP of_IN Sound_NP and_CC Vibration_NN Research_NP ,_, Hefei_NP University_NP of_IN Technology_NP ,_, 193_CD Tunxi_NP Road_NP ,_, Hefei_NP ;_: 230009_CD ,_, China_NP </Affiliation> <year> 2018_CD </year> <Jounral> Journal_NP of_IN Vibration_NN and_CC Acoustics_NNS ,_, Transactions_NNS of_IN the_DT ASME_NN </Journal> <Publishing_house> American_NP Society_NP of_IN Mechanical_NP Engineers_NPS (_( ASME_NN )_) </Publishing_house> <Text_Collector> Liu_NP Kai，HEU_NP </Text_Collector> <DOI> 10.1115/1.4040047_CD </DOI> <URL> https_NNS :_: //asmedigitalcollection-asme-org-443_NN ._SENT 
+wvpn_NP ._SENT 
+hrbeu_NP ._SENT 
+edu_NP ._SENT 
+cn/vibrationacoustics/article/140/6/061011/449646/A-Comparison-of-Equivalent-Source-Method-and_NN </URL> <Section> Abstract_JJ </Section> The_DT equivalent_JJ source_NN method_NN (_( ESM_NP )_) and_CC monopole_NN time_NN reversal_NN method_NN (_( MTRM_NN )_) are_VBP two_CD popular_JJ techniques_NNS for_IN noise_NN source_NN localization_NN ._SENT 
+These_DT two_CD methods_NNS have_VHP some_DT similar_JJ characteristics_NNS ,_, such_JJ as_IN using_VVG the_DT pressure_NN field_NN measured_VVN by_IN a_DT microphone_NN array_NN as_IN the_DT input_NN and_CC using_VVG similar_JJ propagation_NN matrices_NNS obtained_VVN from_IN the_DT Green_NP 's_POS function_NN ._SENT 
+However_RB ,_, the_DT spatial_JJ resolutions_NNS of_IN results_NNS obtained_VVN by_IN these_DT two_CD methods_NNS are_VBP different_JJ ._SENT 
+The_DT aim_NN of_IN this_DT paper_NN is_VBZ to_TO reveal_VV the_DT reason_NN resulting_VVG in_IN this_DT difference_NN from_IN a_DT theoretical_JJ analysis_NN and_CC compare_VV the_DT performance_NN of_IN these_DT two_CD methods_NNS using_VVG results_NNS from_IN numerical_JJ simulations_NNS and_CC experiments_NNS ._SENT 
+Using_VVG the_DT singular_JJ value_NN decomposition_NN (_( SVD_NN )_) technique_NN ,_, the_DT difference_NN between_IN the_DT two_CD methods_NNS is_VBZ found_VVN to_TO be_VB only_RB the_DT diagonal_JJ matrices_NNS of_IN singular_JJ values_NNS ,_, and_CC the_DT two_CD methods_NNS are_VBP equivalent_JJ after_IN simply_RB replacing_VVG the_DT diagonal_JJ matrix_NN in_IN the_DT MTRM_NN with_IN its_PP$ inverse_NN ._SENT 
+Comparison_NN of_IN the_DT results_NNS demonstrates_VVZ that_IN the_DT ESM_NP can_MD calculate_VV the_DT real_JJ source_NN strength_NN and_CC obtain_VV a_DT high_JJ spatial_JJ resolution_NN due_JJ to_TO the_DT significant_JJ amplification_NN of_IN evanescent_JJ waves_NNS in_IN the_DT inverse_JJ process_NN ._SENT 
+However_RB ,_, it_PP does_VVZ not_RB work_VV when_WRB the_DT signal-to-noise_NN ratio_NN (_( SNR_NP )_) is_VBZ low_JJ or_CC the_DT measurement_NN distance_NN is_VBZ large_JJ ._SENT 
+The_DT performance_NN of_IN ESM_NP under_IN these_DT situations_NNS can_MD be_VB significantly_RB improved_VVN by_IN introducing_VVG a_DT regularization_NN procedure_NN ._SENT 
+While_IN the_DT MTRM_NN fails_VVZ to_TO calculate_VV the_DT real_JJ source_NN strength_NN and_CC locate_VV the_DT source_NN at_IN low_JJ frequencies_NNS due_JJ to_TO the_DT loss_NN of_IN information_NN of_IN evanescent_JJ waves_NNS ,_, it_PP works_VVZ well_RB at_IN high_JJ frequencies_NNS even_RB with_IN a_DT low_JJ SNR_NN and_CC a_DT large_JJ measurement_NN distance_NN ._SENT 
+Keywords_NNS :_: Noise_NN control_NN ,_, Structural_NP acoustics_NNS <Section> 1._CD Introduction_NN </Section> Localization_NN of_IN noise_NN sources_NNS is_VBZ of_IN great_JJ importance_NN to_TO understand_VV noise_NN generation_NN mechanisms_NNS and_CC realize_VV noise_NN control_NN ._SENT 
+In_IN recent_JJ years_NNS ,_, a_DT number_NN of_IN techniques_NNS based_VVN on_IN microphone_NN array_NN measurements_NNS ,_, such_JJ as_IN near-field_NP acoustic_JJ holography_NN (_( NAH_NP )_) ,_, monopole_NN time_NN reversal_NN method_NN (_( MTRM_NN )_) ,_, and_CC delay-and-sum_NP (_( DAS_NP )_) beamforming_NP have_VHP been_VBN developed_VVN to_TO realize_VV this_DT localization_NN ._SENT 
+Among_IN them_PP ,_, the_DT NAH_NP is_VBZ an_DT inverse_JJ method_NN that_WDT allows_VVZ a_DT high-resolution_NN reconstruction_NN of_IN the_DT acoustic_JJ field_NN on_IN the_DT surface_NN of_IN a_DT vibrating_VVG structure_NN from_IN measurements_NNS made_VVN in_IN the_DT near_JJ field_NN ._SENT 
+Several_JJ NAH_NP methods_NNS ,_, such_JJ as_IN the_DT spatial_JJ Fourier_NN transform_VV ,_, the_DT boundary_NN element_NN method_NN ,_, the_DT Helmholtz_NP equation-least_NN method_NN ,_, and_CC the_DT equivalent_JJ source_NN method_NN (_( ESM_NP )_) have_VHP been_VBN developed_VVN in_IN the_DT last_JJ few_JJ decades_NNS ._SENT 
+The_DT MTRM_NN is_VBZ completely_RB equivalent_JJ to_TO the_DT classical_JJ DAS_NP beamforming_NP commonly_RB used_VVD in_IN the_DT context_NN of_IN monopole_NN sources_NNS in_IN near_JJ free-field_NN ._SENT 
+As_IN such_JJ ,_, the_DT MTRM_NN is_VBZ a_DT direct_JJ method_NN that_WDT provides_VVZ high-resolution_NN results_NNS at_IN high_JJ frequencies_NNS ,_, but_CC it_PP generally_RB fails_VVZ to_TO locate_VV the_DT sources_NNS at_IN low_JJ frequencies_NNS ._SENT 
+Although_IN NAH_NP and_CC MTRM_NP both_CC use_VV the_DT pressure_NN field_NN measured_VVN by_IN a_DT microphone_NN array_NN as_IN the_DT input_NN ,_, they_PP generate_VVP different_JJ performance_NN ._SENT 
+Tanter_NP et_NP al_NP ._SENT 
+and_CC Higley_NP et_NP al_NP ._SENT 
+have_VHP demonstrated_VVN the_DT relationship_NN between_IN the_DT time_NN reversal_NN method_NN (_( TRM_NN )_) and_CC the_DT inverse_JJ method_NN ._SENT 
+Several_JJ approaches_NNS which_WDT are_VBP closely_RB related_VVN to_TO the_DT inverse_JJ method_NN have_VHP been_VBN proposed_VVN to_TO improve_VV the_DT performance_NN of_IN time_NN reversal_NN processing_NN in_IN locating_VVG a_DT scatterer_NN or_CC physically_RB focusing_VVG at_IN a_DT given_VVN position_NN ._SENT 
+In_IN this_DT study_NN ,_, one_CD NAH_NP method_NN corresponding_JJ to_TO the_DT ESM_NP is_VBZ compared_VVN with_IN the_DT MTRM_NN to_TO reveal_VV the_DT reason_NN resulting_VVG in_IN the_DT difference_NN between_IN these_DT two_CD methods_NNS for_IN noise_NN source_NN localization_NN ._SENT 
+The_DT ESM_NP ,_, which_WDT was_VBD first_RB proposed_VVN by_IN Koopmann_NP et_NP al_NP ,_, is_VBZ based_VVN on_IN the_DT idea_NN that_IN the_DT acoustic_JJ field_NN of_IN a_DT complex_JJ radiator_NN can_MD be_VB constructed_VVN as_IN a_DT superposition_NN of_IN fields_NNS generated_VVN by_IN an_DT array_NN of_IN simple_JJ sources_NNS (_( equivalent_JJ sources_NNS )_) enclosed_VVN within_IN the_DT radiator_NN ._SENT 
+The_DT strengths_NNS of_IN the_DT equivalent_JJ sources_NNS are_VBP determined_VVN by_IN matching_VVG the_DT boundary_NN conditions_NNS on_IN the_DT surface_NN of_IN the_DT source_NN or_CC in_IN the_DT field_NN ._SENT 
+This_DT method_NN has_VHZ been_VBN successfully_RB used_VVN to_TO realize_VV the_DT NAH_NP ,_, in_IN which_WDT the_DT pressure_NN measured_VVN by_IN a_DT microphone_NN array_NN is_VBZ related_VVN to_TO a_DT series_NN of_IN equivalent_JJ sources_NNS with_IN a_DT propagation_NN matrix_NN obtained_VVN from_IN the_DT Green_NP 's_POS function_NN ,_, and_CC the_DT strengths_NNS of_IN the_DT equivalent_JJ sources_NNS are_VBP determined_VVN by_IN matching_VVG the_DT measured_VVN pressure_NN ._SENT 
+With_IN the_DT solved_VVN strengths_NNS of_IN the_DT equivalent_JJ sources_NNS ,_, the_DT acoustic_JJ field_NN can_MD be_VB reconstructed_VVN with_IN a_DT high_JJ resolution_NN ,_, and_CC the_DT sources_NNS can_MD be_VB located_VVN effectively_RB ._SENT 
+The_DT TRM_NN was_VBD first_RB introduced_VVN by_IN Fink_NP et_CC al_NP ._SENT 
+and_CC has_VHZ also_RB been_VBN used_VVN for_IN noise_NN source_NN localization_NN ._SENT 
+In_IN this_DT technique_NN ,_, the_DT acoustic_JJ signal_NN in_IN the_DT field_NN is_VBZ first_RB recorded_VVN with_IN a_DT microphone_NN array_NN ._SENT 
+The_DT received_VVN signal_NN is_VBZ then_RB time-reversed_VVN ,_, retransmitted_VVD into_IN the_DT medium_NN ,_, and_CC refocused_VVN on_IN the_DT source_NN ._SENT 
+The_DT classical_JJ TRM_NN needs_VVZ to_TO measure_VV both_CC the_DT pressure_NN and_CC the_DT pressure_NN gradient_NN ,_, which_WDT increases_VVZ the_DT workload_NN of_IN measurement_NN and_CC the_DT hardware_NN cost_NN ._SENT 
+Alternatively_RB ,_, the_DT TRM_NN can_MD be_VB realized_VVN in_IN an_DT approximate_JJ way_NN ,_, which_WDT is_VBZ called_VVN the_DT MTRM_NN ._SENT 
+Similar_JJ to_TO the_DT ESM_NP ,_, the_DT MTRM_NN also_RB uses_VVZ the_DT measured_VVN pressure_NN as_IN the_DT input_NN to_TO calculate_VV the_DT time-reversed_JJ field_NN ,_, and_CC the_DT propagation_NN matrix_NN is_VBZ also_RB obtained_VVN from_IN the_DT Green_NP 's_POS function_NN ._SENT 
+However_RB ,_, the_DT focal_JJ spot_NN size_NN of_IN the_DT MTRM_NN is_VBZ limited_VVN to_TO half_PDT a_DT wavelength_NN even_RB if_IN the_DT initial_JJ source_NN is_VBZ point-like_JJ ,_, which_WDT makes_VVZ this_DT method_NN less_RBR effective_JJ in_IN locating_VVG the_DT source_NN at_IN low_JJ frequencies_NNS ._SENT 
+The_DT origin_NN of_IN this_DT problem_NN is_VBZ that_IN the_DT evanescent_JJ waves_NNS of_IN the_DT time-reversed_JJ field_NN are_VBP insufficient_JJ even_RB if_IN the_DT array_NN is_VBZ located_VVN in_IN the_DT near_JJ field_NN of_IN the_DT source_NN ._SENT 
+Thus_RB ,_, some_DT methods_NNS have_VHP been_VBN proposed_VVN to_TO improve_VV the_DT spatial_JJ resolution_NN at_IN low_JJ frequencies_NNS by_IN introducing_VVG or_CC amplifying_VVG the_DT evanescent_JJ waves_NNS with_IN a_DT random_JJ distribution_NN of_IN subwavelength_JJ scatterers_NNS ,_, an_DT acoustic_JJ sink_NN ,_, and_CC numerical_JJ filters_NNS in_IN the_DT wavenumber_NN domain_NN ._SENT 
+In_IN addition_NN to_TO using_VVG the_DT same_JJ input_NN ,_, the_DT ESM_NP and_CC MTRM_NP have_VHP another_DT similar_JJ characteristic_NN ,_, whereby_WRB they_PP both_CC use_VV similar_JJ propagation_NN matrices_NNS obtained_VVN from_IN the_DT Green_NP 's_POS function_NN ._SENT 
+However_RB ,_, the_DT spatial_JJ resolutions_NNS of_IN the_DT results_NNS obtained_VVN by_IN these_DT two_CD methods_NNS are_VBP still_RB different_JJ ._SENT 
+This_DT difference_NN may_MD be_VB explained_VVN physically_RB according_VVG to_TO the_DT works_NNS of_IN de_NP Rosny_NP and_CC Fink_NP and_CC Bavu_NP et_NP al_NP ._SENT 
+They_PP have_VHP demonstrated_VVN that_IN the_DT limitation_NN of_IN focal_JJ resolution_NN of_IN MTRM_NN is_VBZ due_JJ to_TO the_DT superposition_NN of_IN the_DT converging_VVG wave_NN and_CC diverging_VVG wave_NN ._SENT 
+The_DT use_NN of_IN an_DT acoustic_JJ sink_NN that_WDT absorbs_VVZ the_DT converging_VVG wave_NN at_IN the_DT focus_NN can_MD avoid_VV the_DT diverging_VVG part_NN and_CC thus_RB overcome_VV the_DT diffraction_NN limit_NN ._SENT 
+In_IN the_DT ESM_NP ,_, the_DT equivalent_JJ sources_NNS just_RB act_VVP as_IN the_DT acoustic_JJ sink_NN ,_, and_CC therefore_RB ,_, high_JJ spatial_JJ resolution_NN can_MD be_VB achieved_VVN ._SENT 
+The_DT aim_NN of_IN this_DT study_NN is_VBZ to_TO reveal_VV the_DT reason_NN resulting_VVG in_IN this_DT difference_NN from_IN a_DT theoretical_JJ analysis_NN ._SENT 
+The_DT performance_NN of_IN the_DT two_CD methods_NNS for_IN noise_NN source_NN localization_NN is_VBZ compared_VVN using_VVG the_DT results_NNS from_IN numerical_JJ simulations_NNS and_CC experiments_NNS ._SENT 
+The_DT remainder_NN of_IN this_DT study_NN is_VBZ organized_VVN as_RB follows_VVZ :_: The_DT theoretical_JJ background_NN is_VBZ described_VVN in_IN Sec_NN ._SENT 
+2._CD The_DT numerical_JJ simulation_NN and_CC experimental_JJ results_NNS are_VBP presented_VVN in_IN Secs_NNS ._SENT 
+3_CD and_CC 4_CD ,_, respectively_RB ._SENT 
+Finally_RB ,_, conclusions_NNS are_VBP drawn_VVN in_IN Sec_NN ._SENT 
+5._CD <Section> 2._CD Theoretical_JJ Background_NN </Section> Consider_VV a_DT source_NN surface_NN consisting_VVG of_IN L_NP sound_JJ sources_NNS and_CC a_DT measurement_NN surface_NN consisting_VVG of_IN M_NP microphones_NNS ,_, as_RB depicted_VVN in_IN Fig_NN ._SENT 
+1._CD The_DT pressure_NN measured_VVN by_IN the_DT M_NP microphones_NNS ,_, Ph⁠_NP ,_, can_MD be_VB used_VVN as_IN the_DT input_NN of_IN ESM_NP or_CC MTRM_NP to_TO obtain_VV the_DT source_NN strengths_NNS ,_, which_WDT can_MD be_VB used_VVN for_IN locating_VVG the_DT sources_NNS ._SENT 
+In_IN what_WP follows_VVZ ,_, the_DT ESM_NP and_CC MTRM_NP are_VBP first_RB described_VVN briefly_RB and_CC then_RB compared_VVN theoretically_RB ._SENT 
+Fig_NN ._SENT 
+1_LS The_DT configuration_NN of_IN the_DT measurement_NN system_NN ._SENT 
+2.1_CD Equivalent_JJ Source_NN Method_NN ._SENT 
+The_DT ESM_NP is_VBZ based_VVN on_IN the_DT idea_NN of_IN modeling_VVG an_DT acoustic_JJ field_NN by_IN the_DT superposition_NN of_IN waves_NNS generated_VVN by_IN a_DT set_NN of_IN simple_JJ sources_NNS ._SENT 
+Considering_VVG a_DT set_NN of_IN N_NP point_NN sources_NNS which_WDT are_VBP distributed_VVN on_IN the_DT source_NN surface_NN as_IN depicted_VVN in_IN Fig_NN ._SENT 
+2_LS ,_, the_DT measured_VVN pressure_NN Ph_NN can_MD be_VB expressed_VVN as_IN @（1）_JJ Fig_NN ._SENT 
+2_LS The_DT diagram_NN of_IN ESM_NP ._SENT 
+where_WRB qe_NN is_VBZ the_DT column_NN vector_NN with_IN the_DT strengths_NNS of_IN equivalent_JJ sources_NNS ,_, and_CC Ge_NP is_VBZ the_DT transfer_NN matrix_NN relating_VVG the_DT measured_VVN pressure_NN to_TO the_DT strengths_NNS of_IN equivalent_JJ sources_NNS ,_, which_WDT can_MD be_VB written_VVN as_IN @（2）_NN in_IN which_WDT Rm_NP (_( m=1_JJ ,_, 2_CD ,_, ⋯_NP ,_, M_NP )_) denotes_VVZ the_DT positions_NNS of_IN measurement_NN points_NNS ,_, rn_NNS (_( n=1_JJ ,_, 2_CD ,_, ⋯_NP ,_, N_NP )_) denotes_VVZ the_DT positions_NNS of_IN equivalent_JJ sources_NNS ,_, and_CC Ge(Rm_NN ,_, rn_RB ,_, ω_NP )_) is_VBZ obtained_VVN from_IN the_DT free-space_NP Green_NP 's_POS function_NN ._SENT 
+In_IN Eq_NP ._SENT 
+(_( 1_CD )_) ,_, the_DT measured_VVN pressure_NN Ph_NN and_CC the_DT transfer_NN matrix_NN Ge_NP are_VBP already_RB known_VVN ._SENT 
+Thus_RB ,_, the_DT strengths_NNS of_IN equivalent_JJ sources_NNS ,_, qe_NNS ,_, can_MD be_VB solved_VVN by_IN @（3）_NP where_WRB (_( )+_NP denotes_VVZ the_DT Moore–Penrose_JJ pseudo-inverse_NN ._SENT 
+Once_RB the_DT strengths_NNS of_IN equivalent_JJ sources_NNS are_VBP obtained_VVN ,_, the_DT source_NN location_NN can_MD be_VB determined_VVN by_IN mapping_VVG the_DT strengths_NNS of_IN equivalent_JJ sources_NNS ._SENT 
+2.2Monopole_NP Time_NP Reversal_NN Method_NN ._SENT 
+The_DT MTRM_NN generally_RB consists_VVZ of_IN two_CD steps_NNS ._SENT 
+The_DT first_JJ step_NN is_VBZ to_TO obtain_VV the_DT measured_VVN pressure_NN Ph⁠_NN ,_, which_WDT is_VBZ the_DT same_JJ as_IN the_DT measured_VVN pressure_NN in_IN the_DT ESM_NP ._SENT 
+In_IN the_DT second_JJ step_NN ,_, the_DT measured_VVN pressure_NN is_VBZ time-reversed_VVN and_CC retransmitted_VVD to_TO a_DT focusing_VVG surface_NN ,_, as_RB depicted_VVN in_IN Fig_NN ._SENT 
+3._CD When_WRB the_DT measured_VVN pressure_NN Ph_NN is_VBZ obtained_VVN ,_, the_DT time-reversed_JJ pressure_NN on_IN the_DT focusing_VVG plane_NN is_VBZ @（4）_JJ Fig_NN ._SENT 
+3_LS The_DT diagram_NN of_IN MTRM_NN ._SENT 
+where_WRB Gt_NP is_VBZ the_DT transfer_NN matrix_NN of_IN MTRM_NN ,_, and_CC (_( )*_NP denotes_VVZ the_DT complex_JJ conjugate_JJ ._SENT 
+If_IN there_EX are_VBP N_NP points_NNS on_IN the_DT focusing_VVG plane_NN ,_, the_DT transfer_NN matrix_NN Gt_NN can_MD be_VB written_VVN as_IN @（5）_NN in_IN which_WDT rfn_NP (_( n=1_JJ ,_, 2_CD ,_, ⋯_NP ,_, N_NP )_) denotes_VVZ the_DT positions_NNS of_IN focusing_VVG points_NNS ,_, and_CC Gt(rfn_NP ,_, Rm_NP ,_, ω_NP )_) is_VBZ obtained_VVN from_IN the_DT free-space_NP Green_NP 's_POS function_NN ._SENT 
+If_IN the_DT focusing_VVG point_NN coincides_VVZ with_IN the_DT source_NN position_NN ,_, the_DT time-reversed_JJ pressure_NN will_MD achieve_VV a_DT peak_NN due_JJ to_TO in-phase_VV stacking_VVG of_IN signals_NNS ,_, which_WDT provides_VVZ the_DT ability_NN to_TO locate_VV the_DT source_NN ._SENT 
+2.3_CD Theoretical_JJ Comparison_NN Between_IN the_DT Equivalent_JJ Source_NN Method_NN and_CC the_DT Monopole_NN Time_NN Reversal_NN Method_NN ._SENT 
+Comparing_VVG Eqs_NNS ._SENT 
+(_( 2_CD )_) and_CC (_( 5_LS )_) ,_, it_PP can_MD be_VB found_VVN that_IN if_IN the_DT focusing_VVG points_NNS coincide_VV with_IN the_DT positions_NNS of_IN equivalent_JJ sources_NNS and_CC the_DT medium_NN is_VBZ reciprocal_JJ ,_, it_PP is_VBZ easily_RB obtained_VVN that_IN Gt=GTe⁠_NP ,_, where_WRB (_( )T_NP denotes_VVZ the_DT matrix_NN transpose_NN ._SENT 
+The_DT relation_NN between_IN the_DT two_CD transfer_NN matrices_NNS implies_VVZ that_IN there_EX may_MD exist_VV some_DT relationship_NN between_IN the_DT two_CD methods_NNS ._SENT 
+In_IN what_WP follows_VVZ ,_, this_DT relationship_NN is_VBZ analyzed_VVN theoretically_RB ._SENT 
+Taking_VVG the_DT singular_JJ value_NN decomposition_NN (_( SVD_NN )_) of_IN Ge_NP yields_NNS @（6）_JJ where_WRB U_NP and_CC V_NN are_VBP the_DT left_JJ and_CC right_RB unitary_JJ (_( orthonormal_JJ )_) matrices_NNS ,_, respectively_RB ,_, (_( )H_NP is_VBZ the_DT conjugate_JJ transpose_NN ,_, and_CC S_NP is_VBZ the_DT diagonal_JJ matrix_NN of_IN singular_JJ values_NNS ._SENT 
+The_DT inverse_NN of_IN Ge_NP is_VBZ directly_RB related_VVN to_TO the_DT inverse_NN of_IN S_NP with_IN @（7）_NP where_WRB S−1_NN is_VBZ a_DT diagonal_JJ matrix_NN whose_WP$ diagonal_JJ elements_NNS are_VBP the_DT inverse_NN of_IN the_DT diagonal_JJ elements_NNS of_IN S⁠_NP ._SENT 
+Substituting_VVG Eq_NP ._SENT 
+(_( 7_CD )_) into_IN Eq_NP ._SENT 
+(_( 3_CD )_) ,_, the_DT strengths_NNS of_IN the_DT equivalent_JJ sources_NNS can_MD be_VB written_VVN as_IN @（8）_NP According_VVG to_TO Eq_NP ._SENT 
+(_( 6_CD )_) and_CC the_DT relationship_NN between_IN Gt_NP and_CC Ge_NP yields_NNS @（9）_JJ As_IN S_NP is_VBZ a_DT diagonal_JJ matrix_NN and_CC the_DT singular_JJ values_NNS are_VBP real_JJ quantities_NNS ,_, it_PP can_MD be_VB obtained_VVN that_DT S=ST=S∗⁠_NN ._SENT 
+Then_RB ,_, Eq_NP ._SENT 
+(_( 9_CD )_) becomes_VVZ @（10）_JJ Substituting_VVG Eq_NP ._SENT 
+(_( 10_CD )_) into_IN Eq_NP ._SENT 
+(_( 4_CD )_) ,_, the_DT time-reversed_JJ pressure_NN Pf_NP can_MD be_VB written_VVN as_IN @（11）_NN The_DT complex_NN conjugate_JJ of_IN Eq_NP ._SENT 
+(_( 11_CD )_) is_VBZ @（12）_JJ The_DT comparison_NN between_IN the_DT two_CD methods_NNS can_MD be_VB drawn_VVN from_IN the_DT observation_NN of_IN Eqs_NP ._SENT 
+(_( 8_CD )_) and_CC (_( 12_CD )_) ._SENT 
+It_PP can_MD be_VB seen_VVN that_IN the_DT difference_NN between_IN the_DT two_CD methods_NNS is_VBZ only_RB the_DT diagonal_JJ matrices_NNS of_IN singular_JJ values_NNS ,_, S−1_JJ and_CC S⁠_JJ ._SENT 
+As_IN described_VVN in_IN Refs_NNS ._SENT 
+[_SYM 33–35_NP ]_SYM ,_, the_DT SVD_NN provides_VVZ an_DT acoustic_JJ modal_JJ expansion_NN for_IN the_DT radiated_VVN field_NN ,_, and_CC the_DT singular_JJ values_NNS are_VBP identified_VVN with_IN the_DT square_JJ root_NN of_IN the_DT modal_JJ power_NN radiation_NN efficiencies_NNS ._SENT 
+The_DT large_JJ singular_NN values_NNS correspond_VV approximately_RB to_TO low_JJ wavenumber_NN components_NNS ,_, and_CC the_DT small_JJ singular_NN values_NNS correspond_VV to_TO high_JJ wavenumber_NN components_NNS ._SENT 
+In_IN other_JJ words_NNS ,_, the_DT evanescent_JJ waves_NNS in_IN the_DT ESM_NP correspond_VV to_TO the_DT small_JJ singular_NN values_NNS and_CC will_MD be_VB amplified_VVN by_IN the_DT inverse_NN of_IN S⁠_NP ._SENT 
+This_DT is_VBZ the_DT reason_NN why_WRB the_DT ESM_NP can_MD obtain_VV subwavelength_NN focusing_VVG at_IN low_JJ frequencies_NNS ._SENT 
+In_IN contrast_NN ,_, the_DT MTRM_JJ deals_NNS with_IN the_DT direct_JJ problem_NN ,_, and_CC the_DT evanescent_JJ waves_NNS are_VBP not_RB amplified_VVN ._SENT 
+As_IN such_JJ ,_, the_DT MTRM_NN cannot_MD achieve_VV a_DT high_JJ spatial_JJ resolution_NN at_IN low_JJ frequencies_NNS ._SENT 
+Figure_NN 4_CD gives_VVZ a_DT diagram_NN to_TO illustrate_VV the_DT comparison_NN between_IN the_DT ESM_NP and_CC the_DT MTRM_NN ._SENT 
+It_PP shows_VVZ that_IN if_IN the_DT diagonal_JJ matrix_NN of_IN singular_JJ values_NNS ,_, S_NP ,_, in_IN the_DT MTRM_NN is_VBZ replaced_VVN by_IN S−1_JJ ,_, the_DT result_NN of_IN this_DT modified_JJ MTRM_NN is_VBZ equivalent_JJ to_TO that_DT of_IN ESM_NP ,_, and_CC then_RB ,_, it_PP can_MD also_RB obtain_VV a_DT high_JJ spatial_JJ resolution_NN at_IN low_JJ frequencies_NNS ._SENT 
+However_RB ,_, it_PP is_VBZ worth_JJ noting_VVG that_IN the_DT noise_NN in_IN the_DT high_JJ wavenumber_NN region_NN is_VBZ also_RB amplified_VVN in_IN the_DT ESM_NP ,_, which_WDT would_MD lead_VV to_TO a_DT significant_JJ side_NN lobe_NN ._SENT 
+Therefore_RB ,_, the_DT ESM_NP would_MD be_VB more_RBR sensitive_JJ to_TO noise_NN than_IN the_DT MTRM_NN ._SENT 
+In_IN order_NN to_TO mitigate_VV the_DT influence_NN of_IN noise_NN ,_, a_DT regularization_NN procedure_NN should_MD be_VB used_VVN [_SYM 36_CD ]_SYM ._SENT 
+In_IN the_DT following_NN ,_, the_DT results_NNS of_IN ESM_NP with_IN the_DT use_NN of_IN truncated_JJ SVD_NNS (_( TSVD_NN )_) are_VBP also_RB provided_VVN for_IN comparison_NN ,_, where_WRB the_DT cutoff_NN singular_NN value_NN is_VBZ determined_VVN by_IN the_DT generalized_VVN cross-validation_NN method_NN ._SENT 
+Fig_NN ._SENT 
+4_CD Comparison_NN between_IN the_DT ESM_NP and_CC the_DT MTRM_NN ._SENT 
+<Section> 3._CD Numerical_JJ Simulations_NNS </Section> In_IN order_NN to_TO validate_VV the_DT theoretical_JJ comparison_NN described_VVN in_IN Sec_NN ._SENT 
+2.3_CD and_CC further_JJR compare_VVP the_DT performance_NN of_IN the_DT ESM_NP and_CC MTRM_NP ,_, numerical_JJ simulations_NNS with_IN two_CD monopole_NN sources_NNS are_VBP conducted_VVN ._SENT 
+The_DT configuration_NN of_IN the_DT numerical_JJ simulations_NNS is_VBZ shown_VVN in_IN Fig_NN ._SENT 
+5._CD The_DT two_CD sources_NNS are_VBP located_VVN at_IN (_( −0.1_JJ m_NN ,_, 0_CD m_NN ,_, 0_CD m_NN )_) and_CC (_( 0.1_CD m_NN ,_, 0_CD m_NN ,_, 0_CD m_NN )_) ,_, respectively_RB ,_, and_CC the_DT source_NN strengths_NNS are_VBP both_DT unity_NN ._SENT 
+The_DT measurement_NN plane_NN provides_VVZ 11_CD ×_NN 11_CD measurement_NN points_NNS ,_, and_CC the_DT spacing_NN between_IN adjacent_JJ measurement_NN points_NNS in_IN both_DT x-_NN and_CC y-directions_NNS is_VBZ set_VVN to_TO 0.05_CD m._NN The_DT distance_NN between_IN the_DT source_NN plane_NN and_CC the_DT measurement_NN plane_NN is_VBZ Δz⁠_JJ ._SENT 
+Fig_NN ._SENT 
+5_LS The_DT configuration_NN of_IN the_DT simulation_NN system_NN ._SENT 
+To_TO explicitly_RB quantify_VV the_DT quality_NN of_IN localization_NN ,_, a_DT metric_JJ suggested_VVN by_IN Harker_NP and_CC Anderson_NP is_VBZ used_VVN ,_, namely_RB the_DT source-to-field_NP ratio_NN (_( SFR_NP )_) ,_, which_WDT is_VBZ defined_VVN as_IN @（13）_NP where_WRB pm_NN denotes_VVZ strengths_NNS of_IN equivalent_JJ sources_NNS or_CC time-reversed_JJ pressures_NNS at_IN the_DT source_NN positions_NNS ,_, pl_NP denotes_VVZ those_DT at_IN other_JJ points_NNS ,_, M_NP is_VBZ the_DT number_NN of_IN sources_NNS ,_, and_CC L_NP is_VBZ the_DT number_NN of_IN other_JJ field_NN points_NNS ._SENT 
+A_DT high_JJ SFR_NN suggests_VVZ a_DT strong_JJ focusing_VVG of_IN energy_NN ,_, thus_RB allowing_VVG a_DT better_JJR localization_NN ._SENT 
+When_WRB SFR_NP =_SYM 1_CD ,_, the_DT implication_NN is_VBZ that_IN the_DT magnitude_NN of_IN the_DT focus_NN equals_VVZ the_DT average_JJ magnitude_NN of_IN the_DT nearby_JJ field_NN ,_, and_CC the_DT focus_NN is_VBZ ,_, therefore_RB ,_, not_RB distinguishable_JJ from_IN the_DT nearby_JJ field_NN ._SENT 
+At_IN first_JJ ,_, the_DT distance_NN Δz_NN is_VBZ set_VVN to_TO be_VB 0.05_CD m_NN ,_, and_CC Gaussian_JJ white_JJ noise_NN with_IN a_DT signal-to-noise_NN ratio_NN (_( SNR_NP )_) of_IN 40_CD dB_NN is_VBZ added_VVN to_TO the_DT measured_VVN pressure_NN to_TO simulate_VV the_DT actual_JJ measurement_NN ._SENT 
+The_DT localization_NN results_NNS of_IN ESM_NP and_CC MTRM_NN at_IN frequencies_NNS of_IN 100_CD and_CC 2000_CD Hz_NP are_VBP shown_VVN in_IN Fig_NN ._SENT 
+6._CD It_PP can_MD be_VB seen_VVN that_IN the_DT ESM_NP with_IN and_CC without_IN the_DT use_NN of_IN TSVD_NNS both_CC obtain_VV a_DT high_JJ spatial_JJ resolution_NN at_IN both_DT frequencies_NNS ,_, and_CC the_DT strengths_NNS of_IN the_DT two_CD sources_NNS are_VBP well_RB reconstructed_VVN ._SENT 
+This_DT is_VBZ because_IN in_IN this_DT case_NN the_DT SNR_NN is_VBZ high_JJ and_CC the_DT influence_NN of_IN noise_NN is_VBZ weak_JJ ._SENT 
+However_RB ,_, the_DT MTRM_NN cannot_MD distinguish_VV the_DT two_CD sources_NNS at_IN 100_CD Hz_NP ._SENT 
+This_DT is_VBZ because_IN the_DT evanescent_JJ waves_NNS of_IN the_DT time-reversed_JJ field_NN of_IN MTRM_NN are_VBP not_RB amplified_VVN ,_, and_CC the_DT focal_JJ spot_NN size_NN is_VBZ limited_VVN to_TO half_PDT a_DT wavelength_NN ._SENT 
+When_WRB the_DT frequency_NN reaches_VVZ 2000_CD Hz_NP ,_, all_PDT the_DT methods_NNS can_MD distinguish_VV the_DT sources_NNS well_RB because_IN the_DT theoretical_JJ half_NN wavelength_NN diffraction_NN limit_NN ,_, which_WDT is_VBZ about_RB 0.09_CD m_NN ,_, is_VBZ small_JJ enough_RB compared_VVN to_TO the_DT distance_NN between_IN the_DT two_CD sources_NNS ._SENT 
+In_IN addition_NN ,_, it_PP can_MD be_VB found_VVN that_IN the_DT MTRM_NN cannot_MD obtain_VV the_DT real_JJ source_NN strengths_NNS ._SENT 
+Figure_NN 7_CD shows_NNS the_DT curves_NNS of_IN SFR_NP of_IN ESM_NP and_CC MTRM_NP in_IN the_DT frequency_NN range_NN from_IN 100_CD to_TO 2000_CD Hz_NP ._SENT 
+It_PP can_MD be_VB seen_VVN that_IN the_DT SFR_NN of_IN MTRM_NN improves_VVZ with_IN the_DT increase_NN of_IN frequency_NN and_CC both_DT the_DT ESM_NP with_IN and_CC without_IN the_DT use_NN of_IN TSVD_NNS obtain_VVP better_JJR SFR_NN results_NNS than_IN the_DT MTRM_NN ._SENT 
+In_IN addition_NN ,_, it_PP is_VBZ worth_JJ noting_VVG that_IN the_DT SFR_NN of_IN ESM_NP without_IN the_DT use_NN of_IN TSVD_NN is_VBZ larger_JJR than_IN that_IN of_IN MTRM_NN at_IN 2000_CD Hz_NP even_RB though_IN the_DT focal_JJ spots_NNS of_IN the_DT two_CD methods_NNS are_VBP similar_JJ ._SENT 
+This_DT is_VBZ because_IN the_DT MTRM_NN gets_VVZ a_DT higher_JJR side-lobe_NN level_NN ,_, which_WDT is_VBZ consistent_JJ with_IN the_DT conclusion_NN in_IN Refs_NNS ._SENT 
+[_SYM 19_CD ]_SYM and_CC [_SYM 20_CD ]_SYM ._SENT 
+Fig_NN ._SENT 
+6_CD Localization_NN results_NNS at_IN 100_CD and_CC 2000_CD Hz_NP when_WRB Δz_NP =_SYM 0.05_CD m_NN and_CC SNR_NN =_SYM 40_CD dB_NN ._SENT 
+The_DT two_CD “_NN +_SYM ”_NP give_VV the_DT locations_NNS of_IN the_DT two_CD sources_NNS ._SENT 
+Fig_NN ._SENT 
+7_CD The_NP curves_NNS of_IN SFR_NP of_IN MTRM_NP (_( line_NN with_IN ◻_JJ marks_NNS )_) and_CC ESM_NP with_IN (_( line_NN with_IN ○_JJ marks_NNS )_) and_CC without_IN (_( line_NN with_IN *_SYM marks_VVZ )_) the_DT use_NN of_IN TSVD_NNS in_IN the_DT frequency_NN range_NN from_IN 100_CD to_TO 2000_CD Hz_NP when_WRB Δz_NP =_SYM 0.05_CD m_NN and_CC SNR_NN =_SYM 40_CD dB_NN ._SENT 
+As_IN described_VVN in_IN Sec_NN ._SENT 
+2.3_CD ,_, the_DT noise_NN in_IN the_DT high_JJ wavenumber_NN region_NN is_VBZ also_RB amplified_VVN in_IN the_DT ESM_NP ,_, which_WDT would_MD lead_VV to_TO a_DT significant_JJ side_NN lobe_NN ._SENT 
+Therefore_RB ,_, it_PP is_VBZ meaningful_JJ to_TO investigate_VV the_DT effect_NN of_IN noise_NN on_IN the_DT ESM_NP and_CC MTRM_NP ._SENT 
+Here_RB ,_, the_DT distance_NN Δz_NN is_VBZ still_RB set_VVN to_TO be_VB 0.05_CD m_NN ,_, but_CC the_DT SNR_NN is_VBZ changed_VVN to_TO show_VV the_DT influence_NN of_IN noise_NN ._SENT 
+Figure_NN 8_CD shows_NNS the_DT localization_NN results_NNS of_IN ESM_NP and_CC MTRM_NP at_IN 100_CD and_CC 2000_CD Hz_NP when_WRB the_DT SNR_NN is_VBZ 10_CD dB_NN ._SENT 
+Under_IN this_DT situation_NN ,_, the_DT ESM_NP without_IN the_DT use_NN of_IN TSVD_NNS can_MD no_RB longer_RBR locate_VV the_DT two_CD sources_NNS due_JJ to_TO the_DT significant_JJ side_NN lobe_NN ._SENT 
+In_IN contrast_NN ,_, the_DT MTRM_NN is_VBZ less_RBR affected_VVN by_IN noise_NN ,_, and_CC the_DT sources_NNS are_VBP well_RB located_VVN at_IN 2000_CD Hz_NP ._SENT 
+This_DT is_VBZ because_IN the_DT MTRM_JJ deals_NNS with_IN the_DT direct_JJ problem_NN and_CC the_DT evanescent_JJ waves_NNS are_VBP not_RB amplified_VVN ._SENT 
+It_PP indicates_VVZ that_IN the_DT MTRM_NN has_VHZ a_DT good_JJ advantage_NN in_IN locating_VVG high-frequency_NN sources_NNS even_RB at_IN low_JJ SNRs_NNS ._SENT 
+However_RB ,_, it_PP also_RB can_MD be_VB seen_VVN that_IN when_WRB using_VVG the_DT TSVD_NN ,_, the_DT ESM_NP can_MD separate_VV the_DT two_CD sources_NNS well_RB ._SENT 
+Figure_NN 9_CD shows_NNS the_DT curves_NNS of_IN SFR_NP of_IN ESM_NP and_CC MTRM_NP in_IN the_DT SNR_NP range_NN from_IN 10_CD to_TO 40_CD dB_NN at_IN 2000_CD Hz_NP ._SENT 
+It_PP can_MD be_VB seen_VVN that_IN the_DT MTRM_NN always_RB obtains_VVZ the_DT SFRs_NNS above_IN 5_CD even_RB though_IN the_DT SNR_NN is_VBZ low_JJ ._SENT 
+The_DT SFR_NN of_IN ESM_NP without_IN the_DT use_NN of_IN TSVD_NN is_VBZ smaller_JJR than_IN that_IN of_IN MTRM_NN when_WRB the_DT SNR_NN is_VBZ lower_JJR than_IN 15_CD dB_NN ,_, because_IN the_DT noise_NN in_IN the_DT high-wavenumber_NN region_NN is_VBZ amplified_VVN too_RB much_RB in_IN this_DT case_NN and_CC the_DT side-lobe_NP level_NN becomes_VVZ very_RB high_JJ ._SENT 
+However_RB ,_, when_WRB the_DT SNR_NN is_VBZ larger_JJR than_IN 20_CD dB_NN ,_, the_DT ESM_NP obtains_VVZ a_DT higher_JJR SFR_NN than_IN that_IN of_IN MTRM_NN whether_IN the_DT TSVD_NN is_VBZ used_VVN or_CC not_RB ._SENT 
+In_IN addition_NN ,_, it_PP can_MD be_VB seen_VVN that_IN when_WRB using_VVG the_DT TSVD_NN ,_, the_DT ESM_NP can_MD also_RB obtain_VV high_JJ SFRs_NNS at_IN low_JJ SNRs_NNS ._SENT 
+Fig_NN ._SENT 
+8_CD Localization_NN results_NNS at_IN 100_CD and_CC 2000_CD Hz_NP when_WRB Δz_NP =_SYM 0.05_CD m_NN and_CC SNR_NN =_SYM 10_CD dB_NN ._SENT 
+The_DT two_CD “_NN +_SYM ”_NP give_VV the_DT locations_NNS of_IN the_DT two_CD sources_NNS ._SENT 
+Fig_NN ._SENT 
+9_CD The_NP curves_NNS of_IN SFR_NP of_IN MTRM_NP (_( line_NN with_IN □_JJ marks_NNS )_) and_CC ESM_NP with_IN (_( line_NN with_IN ○_JJ marks_NNS )_) and_CC without_IN (_( line_NN with_IN *_SYM marks_VVZ )_) the_DT use_NN of_IN TSVD_NNS at_IN 2000_CD Hz_NP in_IN the_DT SNR_NP range_NN from_IN 10_CD to_TO 40_CD dB_NN when_WRB Δz_NP =_SYM 0.05_CD m._JJ Fig_NN ._SENT 
+10_CD Localization_NN results_NNS at_IN 100_CD and_CC 2000_CD Hz_NP when_WRB Δz_NP =_SYM 0.2_CD m_NN and_CC SNR_NN =_SYM 40_CD dB_NN ._SENT 
+The_DT two_CD “_NN +_SYM ”_NP give_VV the_DT locations_NNS of_IN the_DT two_CD sources_NNS ._SENT 
+Fig_NN ._SENT 
+11_CD The_NP curves_NNS of_IN SFR_NP of_IN MTRM_NP (_( line_NN with_IN ◻_JJ marks_NNS )_) and_CC ESM_NP with_IN (_( line_NN with_IN ○_JJ marks_NNS )_) and_CC without_IN (_( line_NN with_IN *_SYM marks_VVZ )_) the_DT use_NN of_IN TSVD_NNS at_IN 2000_CD Hz_NP in_IN the_DT measurement_NN distance_NN range_NN from_IN 0.05_CD to_TO 0.5_CD m_NN when_WRB SNR_NP =_SYM 40_CD dB_NN ._SENT 
+Except_IN for_IN the_DT noise_NN ,_, the_DT distance_NN between_IN the_DT source_NN and_CC the_DT measurement_NN surfaces_VVZ is_VBZ also_RB an_DT important_JJ factor_NN which_WDT may_MD affect_VV the_DT performance_NN of_IN the_DT ESM_NP and_CC MTRM_NP ._SENT 
+As_IN the_DT evanescent_JJ waves_NNS decrease_VVP exponentially_RB with_IN propagation_NN distance_NN ,_, the_DT amplification_NN of_IN evanescent_JJ waves_NNS in_IN the_DT ESM_NP increases_NNS with_IN the_DT measurement_NN distance_NN ,_, which_WDT leads_VVZ to_TO the_DT increase_NN in_IN the_DT amplification_NN of_IN noise_NN also_RB ._SENT 
+Thus_RB ,_, when_WRB the_DT measurement_NN distance_NN is_VBZ large_JJ ,_, the_DT influence_NN of_IN noise_NN may_MD be_VB significant_JJ in_IN the_DT ESM_NP even_RB if_IN the_DT SNR_NN is_VBZ high_JJ ._SENT 
+In_IN contrast_NN ,_, the_DT MTRM_NN is_VBZ less_RBR sensitive_JJ to_TO noise_NN ,_, because_IN the_DT evanescent_JJ waves_NNS in_IN the_DT time-reversed_JJ pressure_NN field_NN are_VBP not_RB amplified_VVN ._SENT 
+Here_RB ,_, the_DT SNR_NN is_VBZ set_VVN to_TO be_VB 40_CD dB_NN but_CC the_DT distance_NN Δz_NN is_VBZ changed_VVN to_TO show_VV its_PP$ influence_NN ._SENT 
+Figure_NN 10_CD gives_VVZ the_DT localization_NN results_NNS of_IN ESM_NP and_CC MTRM_NP at_IN 100_CD and_CC 2000_CD Hz_NP when_WRB Δz=0.2_NP m⁠_NP ._SENT 
+It_PP can_MD be_VB seen_VVN that_IN the_DT ESM_NP without_IN the_DT use_NN of_IN TSVD_NNS has_VHZ been_VBN ineffective_JJ in_IN locating_VVG the_DT sources_NNS at_IN both_DT frequencies_NNS ,_, while_IN the_DT MTRM_NN distinguish_VV the_DT two_CD sources_NNS well_RB at_IN 2000_CD Hz_NP ._SENT 
+This_DT indicates_VVZ that_IN the_DT MTRM_NN also_RB has_VHZ a_DT good_JJ advantage_NN in_IN locating_VVG high-frequency_NN sources_NNS even_RB when_WRB the_DT measurement_NN distance_NN is_VBZ large_JJ ._SENT 
+However_RB ,_, when_WRB using_VVG the_DT TSVD_NN ,_, the_DT results_NNS of_IN ESM_NP can_MD be_VB improved_VVN and_CC the_DT two_CD sources_NNS can_MD be_VB distinguished_VVN at_IN both_DT frequencies_NNS ._SENT 
+The_DT SFRs_NNS of_IN ESM_NP and_CC MTRM_NP at_IN 2000_CD Hz_NP in_IN the_DT measurement_NN distance_NN range_NN from_IN 0.05_CD to_TO 0.5_CD m_NN are_VBP shown_VVN in_IN Fig_NN ._SENT 
+11._CD It_PP can_MD be_VB found_VVN that_IN when_WRB the_DT distance_NN is_VBZ larger_JJR than_IN 0.1_CD m_NN ,_, the_DT SFR_NP of_IN ESM_NP without_IN the_DT use_NN of_IN TSVD_NN is_VBZ smaller_JJR than_IN that_IN of_IN MTRM_NN but_CC it_PP can_MD be_VB significantly_RB improved_VVN when_WRB using_VVG the_DT TSVD_NN ._SENT 
+<Section> 4._CD Experiments_NNS </Section> To_TO further_RBR examine_VV the_DT observations_NNS from_IN the_DT simulations_NNS ,_, experiments_NNS with_IN two_CD loudspeakers_NNS were_VBD carried_VVN out_RP in_IN a_DT semi-anechoic_JJ chamber_NN ._SENT 
+Following_VVG the_DT coordinate_VV system_NN in_IN Fig_NN ._SENT 
+5_LS ,_, the_DT distance_NN between_IN the_DT source_NN plane_NN and_CC the_DT measurement_NN plane_NN was_VBD Δz⁠_JJ ._SENT 
+Two_CD loudspeakers_NNS placed_VVN at_IN (_( −0.1_JJ m_NN ,_, 0_CD m_NN ,_, 0_CD m_NN )_) and_CC (_( 0.1_CD m_NN ,_, 0_CD m_NN ,_, 0_CD m_NN )_) were_VBD used_VVN to_TO generate_VV the_DT pressure_NN fields_NNS at_IN the_DT measurement_NN points_NNS ._SENT 
+The_DT two_CD loudspeakers_NNS were_VBD driven_VVN by_IN a_DT signal_NN synthesized_VVN by_IN a_DT series_NN of_IN sinusoidal_JJ signals_NNS with_IN frequencies_NNS from_IN 100_CD to_TO 2000_CD Hz_NP and_CC a_DT frequency_NN interval_NN of_IN 100_CD Hz_NP ._SENT 
+A_DT linear_JJ array_NN composed_VVN of_IN 11_CD microphones_NNS with_IN a_DT spacing_NN of_IN 0.05_CD m_NN was_VBD used_VVN to_TO measure_VV the_DT pressure_NN fields_NNS radiated_VVN by_IN the_DT two_CD loudspeakers_NNS ._SENT 
+The_DT array_NN was_VBD moved_VVN in_IN the_DT horizontal_JJ direction_NN with_IN a_DT spacing_NN of_IN 0.05_CD m._NN Both_CC sources_NNS were_VBD synchronized_VVN and_CC generated_VVN exactly_RB the_DT same_JJ signals_NNS to_TO simulate_VV the_DT simultaneous_JJ sound_JJ field_NN acquisition_NN on_IN a_DT large_JJ area_NN composed_VVN of_IN 11_CD ×_NN 11_CD measurement_NN points_NNS ._SENT 
+The_DT experimental_JJ setup_NN is_VBZ shown_VVN in_IN Fig_NN ._SENT 
+12._CD Fig_NN ._SENT 
+12_CD (_( a_DT )_) The_DT experimental_JJ setup_NN and_CC (_( b_LS )_) the_DT relative_JJ position_NN of_IN the_DT two_CD loudspeakers_NNS ._SENT 
+Fig_NN ._SENT 
+13_CD Experimental_JJ localization_NN results_NNS at_IN 100_CD and_CC 2000_CD Hz_NP when_WRB Δz_NP =_SYM 0.05_CD m._NN The_DT two_CD “_NN +_SYM ”_NP give_VV the_DT locations_NNS of_IN the_DT two_CD sources_NNS ._SENT 
+Fig_NN ._SENT 
+14_CD Experimental_JJ curves_NNS of_IN SFR_NP of_IN MTRM_NP (_( line_NN with_IN ◻_JJ marks_NNS )_) and_CC ESM_NP with_IN (_( line_NN with_IN ○_JJ marks_NNS )_) and_CC without_IN (_( line_NN with_IN *_SYM marks_VVZ )_) the_DT use_NN of_IN TSVD_NNS in_IN the_DT frequency_NN range_NN from_IN 100_CD to_TO 2000_CD Hz_NP when_WRB Δz_NP =_SYM 0.05_CD m._NN The_DT localization_NN results_NNS of_IN ESM_NP and_CC MTRM_NN at_IN frequencies_NNS of_IN 100_CD and_CC 2000_CD Hz_NP when_WRB Δz_NP =_SYM 0.05_CD m_NN are_VBP shown_VVN in_IN Fig_NN ._SENT 
+13._CD It_PP can_MD be_VB seen_VVN that_IN the_DT ESM_NP with_IN and_CC without_IN the_DT use_NN of_IN TSVD_NN locates_VVZ the_DT two_CD sources_NNS well_RB at_IN both_DT frequencies_NNS due_JJ to_TO the_DT amplification_NN of_IN evanescent_JJ waves_NNS ,_, while_IN the_DT MTRM_NN cannot_MD distinguish_VV the_DT two_CD sources_NNS at_IN 100_CD Hz_NP ._SENT 
+When_WRB the_DT frequency_NN reaches_VVZ 2000_CD Hz_NP ,_, all_PDT the_DT methods_NNS can_MD locate_VV the_DT sources_NNS well_RB because_IN the_DT theoretical_JJ half_NN wavelength_NN diffraction_NN limit_NN ,_, which_WDT is_VBZ about_RB 0.09_CD m_NN ,_, is_VBZ small_JJ enough_RB compared_VVN to_TO the_DT distance_NN between_IN the_DT two_CD sources_NNS ._SENT 
+Figure_NN 14_CD shows_NNS the_DT curves_NNS of_IN SFR_NP of_IN ESM_NP and_CC MTRM_NP in_IN the_DT frequency_NN range_NN from_IN 100_CD to_TO 2000_CD Hz_NP when_WRB Δz_NP =_SYM 0.05_CD m._NN The_DT SFRs_NNS of_IN ESM_NP with_IN and_CC without_IN the_DT use_NN of_IN TSVD_NNS are_VBP close_JJ to_TO each_DT other_JJ and_CC both_DT are_VBP better_JJR than_IN that_IN of_IN MTRM_NN ._SENT 
+This_DT conclusion_NN is_VBZ consistent_JJ with_IN that_DT in_IN the_DT numerical_JJ simulation_NN ._SENT 
+Fig_NN ._SENT 
+15_CD Experimental_JJ localization_NN results_NNS at_IN 100_CD and_CC 2000_CD Hz_NP when_WRB Δz_NP =_SYM 0.2_CD m._NN The_DT two_CD “_NN +_SYM ”_NP give_VV the_DT locations_NNS of_IN the_DT two_CD sources_NNS ._SENT 
+Fig_NN ._SENT 
+16_CD Experimental_JJ curves_NNS of_IN SFR_NP of_IN MTRM_NP (_( line_NN with_IN ◻_JJ marks_NNS )_) and_CC ESM_NP with_IN (_( line_NN with_IN ○_JJ marks_NNS )_) and_CC without_IN (_( line_NN with_IN *_SYM marks_VVZ )_) the_DT use_NN of_IN TSVD_NNS at_IN 2000_CD Hz_NP in_IN the_DT measurement_NN distance_NN range_NN from_IN 0.05_CD to_TO 0.5_CD m._NN In_IN addition_NN ,_, the_DT localization_NN results_NNS of_IN ESM_NP and_CC MTRM_NP at_IN 100_CD and_CC 2000_CD Hz_NP when_WRB Δz=0.2_JJ m_NN are_VBP shown_VVN in_IN Fig_NN ._SENT 
+15._CD On_IN this_DT map_NN ,_, it_PP can_MD be_VB seen_VVN that_IN the_DT ESM_NP without_IN the_DT use_NN of_IN TSVD_NNS has_VHZ been_VBN ineffective_JJ in_IN locating_VVG the_DT sources_NNS ._SENT 
+This_DT is_VBZ because_IN the_DT influence_NN of_IN noise_NN is_VBZ significant_JJ under_IN this_DT situation_NN ,_, which_WDT leads_VVZ to_TO a_DT large_JJ side_NN lobe_NN and_CC the_DT real_JJ positions_NNS of_IN sources_NNS are_VBP concealed_VVN ._SENT 
+However_RB ,_, the_DT results_NNS of_IN ESM_NP can_MD be_VB improved_VVN when_WRB using_VVG the_DT TSVD_NN ._SENT 
+The_DT MTRM_NN still_RB cannot_MD distinguish_VV the_DT two_CD sources_NNS at_IN 100_CD Hz_NP due_JJ to_TO the_DT diffraction_NN limit_NN ,_, but_CC the_DT sources_NNS can_MD be_VB located_VVN at_IN 2000_CD Hz_NP ._SENT 
+It_PP indicates_VVZ that_IN the_DT MTRM_NN is_VBZ more_RBR suitable_JJ for_IN locating_VVG high-frequency_NN sources_NNS when_WRB the_DT measurement_NN distance_NN is_VBZ large_JJ ._SENT 
+The_DT SFRs_NNS of_IN ESM_NP and_CC MTRM_NP at_IN 2000_CD Hz_NP in_IN the_DT measurement_NN distance_NN range_NN from_IN 0.05_CD to_TO 0.5_CD m_NN are_VBP shown_VVN in_IN Fig_NN ._SENT 
+16._CD It_PP can_MD be_VB seen_VVN that_IN when_WRB the_DT distance_NN is_VBZ larger_JJR than_IN 0.1_CD m_NN ,_, the_DT MTRM_NN outperforms_VVZ the_DT ESM_NP unless_IN the_DT TSVD_NN is_VBZ used_VVN in_IN the_DT ESM_NP ._SENT 
+This_DT conclusion_NN is_VBZ also_RB consistent_JJ with_IN that_DT in_IN the_DT numerical_JJ simulation_NN ._SENT 
+<Section> 5._CD Conclusions_NNS </Section> In_IN this_DT paper_NN ,_, the_DT underlying_VVG relationship_NN between_IN the_DT ESM_NP and_CC the_DT MTRM_NN is_VBZ analyzed_VVN theoretically_RB and_CC a_DT comparison_NN between_IN these_DT two_CD methods_NNS for_IN noise_NN source_NN localization_NN is_VBZ conducted_VVN through_IN numerical_JJ simulations_NNS and_CC experiments_NNS ._SENT 
+From_IN the_DT theoretical_JJ analysis_NN ,_, the_DT reason_NN why_WRB the_DT ESM_NP can_MD obtain_VV a_DT high_JJ spatial_JJ resolution_NN at_IN low_JJ frequencies_NNS is_VBZ found_VVN to_TO be_VB that_IN the_DT evanescent_JJ waves_NNS are_VBP amplified_VVN by_IN the_DT inverse_NN of_IN the_DT transfer_NN matrix_NN ._SENT 
+In_IN contrast_NN ,_, the_DT MTRM_JJ deals_NNS with_IN the_DT direct_JJ problem_NN ,_, and_CC the_DT evanescent_JJ waves_NNS are_VBP not_RB amplified_VVN ._SENT 
+Hence_RB ,_, the_DT evanescent_JJ waves_NNS of_IN the_DT time-reversed_JJ field_NN are_VBP too_RB low_JJ to_TO get_VV subwavelength_NN focusing_VVG ._SENT 
+But_CC when_WRB the_DT diagonal_JJ matrix_NN of_IN singular_JJ values_NNS ,_, S⁠_NP ,_, in_IN the_DT MTRM_NN is_VBZ replaced_VVN by_IN S−1⁠_NP ,_, the_DT modified_JJ MTRM_NN can_MD also_RB obtain_VV a_DT high_JJ spatial_JJ resolution_NN at_IN low_JJ frequencies_NNS ,_, and_CC the_DT result_NN is_VBZ equivalent_JJ to_TO that_DT of_IN ESM_NP ._SENT 
+The_DT numerical_JJ simulations_NNS involving_VVG two_CD monopole_NN sources_NNS indicate_VVP that_IN the_DT ESM_NP can_MD calculate_VV the_DT real_JJ source_NN strength_NN and_CC obtain_VV a_DT high_JJ spatial_JJ resolution_NN due_JJ to_TO the_DT significant_JJ amplification_NN of_IN evanescent_JJ waves_NNS in_IN the_DT inverse_JJ process_NN ,_, but_CC it_PP is_VBZ ineffective_JJ in_IN locating_VVG the_DT sources_NNS when_WRB the_DT SNR_NN is_VBZ low_JJ or_CC the_DT measurement_NN distance_NN is_VBZ large_JJ ._SENT 
+However_RB ,_, the_DT performance_NN of_IN ESM_NP under_IN these_DT situations_NNS can_MD be_VB improved_VVN by_IN introducing_VVG a_DT regularization_NN procedure_NN ._SENT 
+The_DT MTRM_NN fails_VVZ to_TO calculate_VV the_DT real_JJ source_NN strength_NN and_CC locate_VV the_DT sources_NNS at_IN low_JJ frequencies_NNS due_JJ to_TO the_DT loss_NN of_IN information_NN of_IN evanescent_JJ waves_NNS ._SENT 
+However_RB ,_, it_PP works_VVZ well_RB at_IN high_JJ frequencies_NNS even_RB with_IN a_DT low_JJ SNR_NN and_CC a_DT large_JJ measurement_NN distance_NN ._SENT 
+The_DT correctness_NN of_IN the_DT comparisons_NNS is_VBZ also_RB investigated_VVN by_IN conducting_VVG experiments_NNS with_IN two_CD loudspeakers_NNS ,_, and_CC the_DT results_NNS are_VBP in_IN good_JJ agreement_NN with_IN those_DT from_IN the_DT numerical_JJ simulations_NNS ._SENT 
+The_DT conclusions_NNS here_RB provide_VVP an_DT important_JJ guideline_NN for_IN applying_VVG these_DT two_CD methods_NNS for_IN noise_NN source_NN localization_NN ._SENT 
+<Section> Funding_NP Data_NP </Section> The_DT National_NP Natural_NP Science_NP Foundation_NP of_IN China_NP (_( Grant_NP Nos._NP 11674082_CD and_CC 51675149_CD )_) ._SENT 
+The_DT Fundamental_NP Research_NP Funds_NPS for_IN the_DT Central_JJ Universities_NNS (_( Grant_NP No._NN PA2017GDQT0020_NN )_) ._SENT 
+<Section> References_NNS </Section> Maynard_NP ,_, J._NP D._NP ,_, Williams_NP ,_, E._NP G._NP ,_, and_CC Lee_NP ,_, Y._NP ,_, 1985_CD ,_, “_NP Nearfield_NP Acoustic_JJ Holography—Part_NN I_PP :_: Theory_NN of_IN Generalized_VVN Holography_NN and_CC the_DT Development_NP of_IN NAH_NP ,_, ”_NP J._NP Acoust_NP ._SENT 
+Soc_NP ._SENT 
+Am_RB ._SENT 
+,_, 78(4_NP )_) ,_, pp_NP ._SENT 
+1395–1413_NP ._SENT 
+Cassereau_NP ,_, D._NP ,_, and_CC Fink_NP ,_, M._NP ,_, 1993_CD ,_, “_JJ Focusing_VVG With_IN Plane_NP Time-Reversal_NP Mirrors_VVZ :_: An_DT Efficient_JJ Alternative_NP to_TO Closed_JJ Cavities_NNS ,_, ”_NP J._NP Acoust_NP ._SENT 
+Soc_NP ._SENT 
+Am_RB ._SENT 
+,_, 94(4_NP )_) ,_, pp_NP ._SENT 
+2373–2386_NP ._SENT 
+de_NP Rosny_NP ,_, J._NP ,_, and_CC Fink_NP ,_, M._NP ,_, 2007_CD ,_, “_JJ Focusing_VVG Properties_NPS of_IN Near-Field_NP Time_NP Reversal_NN ,_, ”_NP Phys_NPS ._SENT 
+Rev._NP A_NP ,_, 76(6_NP )_) ,_, p._NP 065801._CD Fannjiang_NP ,_, A._NP C._NP ,_, 2009_CD ,_, “_NN On_IN Time_NP Reversal_NN Mirrors_VVZ ,_, ”_JJ Inverse_JJ Probl_NN ._SENT 
+,_, 25(9_NP )_) ,_, p._NP 095010._CD Klemm_NP ,_, M._NP ,_, Craddock_NP ,_, I._NP J._NP ,_, Leendertz_NP ,_, J._NP A._NP ,_, Preece_NP ,_, A._NP ,_, and_CC Benjamin_NP ,_, R._NP ,_, 2008_CD ,_, “_NP Improved_VVD Delay-and-Sum_NN Beamforming_VVG Algorithm_NN for_IN Breast_NN Cancer_NP Detection_NN ,_, ”_NP Int_NP ._SENT 
+J._NP Antennas_NNS Propag_VVP ._SENT 
+,_, 4_CD ,_, pp_NP ._SENT 
+264–276_NP ._SENT 
+Rakotoarisoa_NP ,_, I._NP ,_, Fischer_NP ,_, J._NP ,_, Valeau_NP ,_, V._NP ,_, Marx_NP ,_, D._NP ,_, and_CC Prax_NP ,_, C._NP ,_, 2014_CD ,_, “_NP Time-Domain_NP Delay-and-Sum_NP Beamforming_VVG for_IN Time-Reversal_JJ Detection_NN of_IN Intermittent_JJ Acoustic_JJ Sources_NNS in_IN Flows_NNS ,_, ”_NP J._NP Acoust_NP ._SENT 
+Soc_NP ._SENT 
+Am_RB ._SENT 
+,_, 136(5_NP )_) ,_, pp_NP ._SENT 
+2675–2686_NP ._SENT 
+Besson_NP ,_, A._NP ,_, Carrillo_NP ,_, R._NP E._NP ,_, Bernard_NP ,_, O._NP ,_, Wiaux_NP ,_, Y._NP ,_, and_CC Thiran_NP ,_, J._NP P._NP ,_, 2016_CD ,_, “_JJ Compressed_VVN Delay-and-Sum_NN Beamforming_VVG for_IN Ultrafast_NN Ultrasound_NN Imaging_NP ,_, ”_NP IEEE_NP International_NP Conference_NP on_IN Image_NN Processing_NP (_( ICIP_NP )_) ,_, Phoenix_NP ,_, AZ_NP ,_, Sep_NP ._SENT 
+25–28_NP ,_, pp_NP ._SENT 
+2509–2513_NP ._SENT 
+Williams_NP ,_, E._NP G._NP ,_, and_CC Maynard_NP ,_, J._NP D._NP ,_, 1980_CD ,_, “_JJ Holographic_JJ Imaging_NP Without_IN the_DT Wavelength_NN Resolution_NP Limit_NP ,_, ”_NP Phys_NPS ._SENT 
+Rev._NP Lett_NP ._SENT 
+,_, 45(7_JJ )_) ,_, pp_NP ._SENT 
+554–557_JJ ._SENT 
+Loyau_NP ,_, T._NP ,_, Pascal_NP ,_, J._NP C._NP ,_, and_CC Gaillard_NP ,_, P._NP ,_, 1988_CD ,_, “_NP Broadband_NP Acoustic_JJ Holography_NN Reconstruction_NN From_IN Acoustic_JJ Intensity_NN Measurement—I_NNS :_: Principle_NN of_IN the_DT Method_NN ,_, ”_NP J._NP Acoust_NP ._SENT 
+Soc_NP ._SENT 
+Am_RB ._SENT 
+,_, 84(5_NP )_) ,_, pp_NP ._SENT 
+1744–1750_NP ._SENT 
+Veronesi_NP ,_, W._NP A._NP ,_, and_CC Maynard_NP ,_, J._NP D._NP ,_, 1989_CD ,_, “_NP Digital_NP Holography_NN Reconstruction_NN of_IN Sources_NNS With_IN Arbitrarily_RB Shaped_JJ Surfaces_VVZ ,_, ”_NP J._NP Acoust_NP ._SENT 
+Soc_NP ._SENT 
+Am_RB ._SENT 
+,_, 85(2_NP )_) ,_, pp_NP ._SENT 
+588–598_NP ._SENT 
+Zhang_NP ,_, Y._NP ,_, Zhang_NP ,_, X._NP Z._NP ,_, Bi_NP ,_, C._NP X._NP ,_, and_CC Zhang_NP ,_, Y._NP B._NP ,_, 2017_CD ,_, “_NP An_DT Inverse_JJ Direct_NP Time_NP Domain_NN Boundary_NP Element_NN Method_NN for_IN the_DT Reconstruction_NN of_IN Transient_JJ Acoustic_JJ Field_NN ,_, ”_JJ ASME_NN J._NP Vib_NP ._SENT 
+Acoust_NN ._SENT 
+,_, 139(2_NP )_) ,_, p._NP 021013._CD Wang_NP ,_, Z._NP ,_, and_CC Wu_NP ,_, S._NP F._NP ,_, 1997_CD ,_, “_NP Helmholtz_NP Equation-Least_JJ Method_NN for_IN Reconstructing_VVG the_DT Acoustic_JJ Pressure_NN Field_NP ,_, ”_NP J._NP Acoust_NP ._SENT 
+Soc_NP ._SENT 
+Am_RB ._SENT 
+,_, 102(4_NP )_) ,_, pp_NP ._SENT 
+2020–2032_NP ._SENT 
+Wu_NP ,_, S._NP F._NP ,_, and_CC Zhao_NP ,_, X._NP ,_, 2002_CD ,_, “_NP Combined_NP Helmholtz_NP Equation-Least_NN Squares_NNS Method_NN for_IN Reconstructing_VVG the_DT Acoustic_JJ Radiation_NN From_IN Arbitrarily_RB Shaped_VVN Objects_NNS ,_, ”_NP J._NP Acoust_NP ._SENT 
+Soc_NP ._SENT 
+Am_RB ._SENT 
+,_, 112(1_JJ )_) ,_, pp_NP ._SENT 
+179–188_NP ._SENT 
+Sarkissian_NP ,_, A._NP ,_, 2005_CD ,_, “_JJ Method_NN of_IN Superposition_NN Applied_VVN to_TO Patch_NP Near-Field_NP Acoustic_JJ Holography_NN ,_, ”_NP J._NP Acoust_NP ._SENT 
+Soc_NP ._SENT 
+Am_RB ._SENT 
+,_, 118(2_NP )_) ,_, pp_NP ._SENT 
+671–678_NP ._SENT 
+Bi_NP ,_, C._NP X._NP ,_, Chen_NP ,_, X._NP Z._NP ,_, Chen_NP ,_, J._NP ,_, and_CC Zhou_NP ,_, R._NP ,_, 2005_CD ,_, “_NP Nearfield_NP Acoustic_JJ Holography_NN Based_VVN on_IN the_DT Equivalent_JJ Source_NN Method_NN ,_, ”_NP Sci_NP ._SENT 
+China_NP Ser_NP ._SENT 
+E_NP ,_, 48(3_NP )_) ,_, pp_NP ._SENT 
+338–353_NP ._SENT 
+Valdivia_NP ,_, N._NP P._NP ,_, and_CC Williams_NP ,_, E._NP G._NP ,_, 2006_CD ,_, “_JJ Study_NN of_IN the_DT Comparison_NN of_IN the_DT Methods_NNS of_IN Equivalent_JJ Sources_NNS and_CC Boundary_NP Element_NN Methods_NNS for_IN Near-Field_NP Acoustic_JJ Holography_NN ,_, ”_NP J._NP Acoust_NP ._SENT 
+Soc_NP ._SENT 
+Am_RB ._SENT 
+,_, 120(6_NP )_) ,_, pp_NP ._SENT 
+3694–3705_NP ._SENT 
+Bi_NP ,_, C._NP X._NP ,_, Dong_NP ,_, B._NP C._NP ,_, Zhang_NP ,_, X._NP Z._NP ,_, and_CC Zhang_NP ,_, Y._NP B._NP ,_, 2017_CD ,_, “_JJ Equivalent_JJ Source_NN Method-Based_JJ Nearfield_NP Acoustic_JJ Holography_NN in_IN a_DT Moving_VVG Medium_NN ,_, ”_JJ ASME_NN J._NP Vib_NP ._SENT 
+Acoust_NN ._SENT 
+,_, 139(5_NP )_) ,_, p._NP 051017._CD Zhang_NP ,_, X._NP Z._NP ,_, Bi_NP ,_, C._NP X._NP ,_, Zhang_NP ,_, Y._NP B._NP ,_, and_CC Xu_NP ,_, L._NP ,_, 2017_CD ,_, “_NP A_NP Time-Domain_NP Inverse_JJ Technique_NN for_IN the_DT Localization_NN and_CC Quantification_NN of_IN Rotating_VVG Sound_JJ Sources_NNS ,_, ”_NP Mech_NP ._SENT 
+Syst_NN ._SENT 
+Signal_NN Process_NN ._SENT 
+,_, 90_CD ,_, pp_NP ._SENT 
+15–29_NP ._SENT 
+Tanter_NP ,_, M._NP ,_, Thomas_NP ,_, J._NP L._NP ,_, and_CC Fink_NP ,_, M._NP ,_, 2000_CD ,_, “_NP Time_NP Reversal_NN and_CC the_DT Inverse_JJ Filter_NP ,_, ”_NP J._NP Acoust_NP ._SENT 
+Soc_NP ._SENT 
+Am_RB ._SENT 
+,_, 108(1_JJ )_) ,_, pp_NP ._SENT 
+223–234_NP ._SENT 
+Higley_NP ,_, W._NP J._NP ,_, Roux_NP ,_, P._NP ,_, and_CC Kuperman_NP ,_, W._NP A._NP ,_, 2006_CD ,_, “_JJ Relationship_NN Between_IN Time_NP Reversal_NN and_CC Linear_NP Equalization_NN in_IN Digital_NP Communications_NPS ,_, ”_NP J._NP Acoust_NP ._SENT 
+Soc_NP ._SENT 
+Am_RB ._SENT 
+,_, 120(1_JJ )_) ,_, pp_NP ._SENT 
+35–37_JJ ._SENT 
+Prada_NP ,_, C._NP ,_, and_CC Thomas_NP ,_, J._NP L._NP ,_, 2003_CD ,_, “_JJ Experimental_JJ Subwavelength_NN Localization_NN of_IN Scatterers_NNS by_IN Decomposition_NN of_IN the_DT Time_NP Reversal_NN Operator_NP Interpreted_VVD as_IN a_DT Covariance_NN Matrix_NN ,_, ”_NP J._NP Acoust_NP ._SENT 
+Soc_NP ._SENT 
+Am_RB ._SENT 
+,_, 114(1_JJ )_) ,_, pp_NP ._SENT 
+235–243_NP ._SENT 
+Davy_NP ,_, M._NP ,_, Minonzio_NP ,_, J._NP G._NP ,_, de_NP Rosny_NP ,_, J._NP ,_, Prada_NP ,_, C._NP ,_, and_CC Fink_NP ,_, M._NP ,_, 2009_CD ,_, “_JJ Influence_NN of_IN Noise_NN on_IN Subwavelength_NP Imaging_NP of_IN Two_CD Close_JJ Scatterers_NNS Using_VVG Time_NP Reversal_NN Method_NN :_: Theory_NN and_CC Experiments_NNS ,_, ”_NP Prog_NP ._SENT 
+Electromagn_NNS ._SENT 
+Res_NNS ._SENT 
+,_, 98_CD ,_, pp_NP ._SENT 
+333–358_NP ._SENT 
+Koopmann_NP ,_, G._NP H._NP ,_, Song_NP ,_, L._NP ,_, and_CC Fahnline_NP ,_, J._NP B._NP ,_, 1989_CD ,_, “_NP A_DT Method_NN for_IN Computing_NP Acoustic_JJ Fields_NPS Based_VVN on_IN the_DT Principle_NN of_IN Wave_NP Superposition_NN ,_, ”_NP J._NP Acoust_NP ._SENT 
+Soc_NP ._SENT 
+Am_RB ._SENT 
+,_, 86(6_NP )_) ,_, pp_NP ._SENT 
+2433–2438_NP ._SENT 
+Fink_NP ,_, M._NP ,_, Prada_NP ,_, C._NP ,_, Wu_NP ,_, F._NP ,_, and_CC Cassereau_NP ,_, D._NP ,_, 1989_CD ,_, “_NP Self_NP Focusing_VVG in_IN Inhomogeneous_JJ Media_NP With_IN Time_NP Reversal_NN Acoustic_JJ Mirrors_VVZ ,_, ”_NP IEEE_NP Ultrasonics_NP Symposium_NN ,_, Montreal_NP ,_, QC_NP ,_, Canada_NP ,_, Oct._NP 3–6_NP ,_, pp_NP ._SENT 
+681–686_NP ._SENT 
+Hillion_NP ,_, P._NP ,_, 2006_CD ,_, “_JJ Acoustic_JJ Pulse_NP Reflection_NN at_IN a_DT Time-Reversal_NP Mirror_NP ,_, ”_NP J._NP Sound_NP Vib_NN ._SENT 
+,_, 292(3–5_NP )_) ,_, pp_NP ._SENT 
+488–503_NP ._SENT 
+Cassereau_NP ,_, D._NP ,_, Wu_NP ,_, F._NP ,_, and_CC Fink_NP ,_, M._NP ,_, 1990_CD ,_, “_JJ Limits_NNS of_IN Self-Focusing_VVG Using_VVG Closed_JJ Time-Reversal_JJ Cavities_NNS and_CC Mirrors—Theory_NN and_CC Experiment_NN ,_, ”_NP IEEE_NP Ultrasonics_NP Symposium_NN ,_, Honolulu_NP ,_, HI_NP ,_, Dec._NP 4–7_JJ ,_, pp_NP ._SENT 
+1613–1618_NP ._SENT 
+Lerosey_NP ,_, G._NP ,_, de_NP Rosny_NP ,_, J._NP ,_, Tourin_NP ,_, A._NP ,_, and_CC Fink_NP ,_, M._NP ,_, 2007_CD ,_, “_JJ Focusing_VVG Beyond_IN the_DT Diffraction_NN Limit_NN With_IN Far-Field_NP Time_NP Reversal_NN ,_, ”_NP Science_NP ,_, 315(5815_NP )_) ,_, pp_NP ._SENT 
+1120–1122_NP ._SENT 
+de_NP Rosny_NP ,_, J._NP ,_, and_CC Fink_NP ,_, M._NP ,_, 2002_CD ,_, “_JJ Overcoming_VVG the_DT Diffraction_NN Limit_NN in_IN Wave_NP Physics_NNS Using_VVG a_DT Time-Reversal_NP Mirror_NP and_CC a_DT Novel_NP Acoustic_JJ Sink_NP ,_, ”_NP Phys_NPS ._SENT 
+Rev._NP Lett_NP ._SENT 
+,_, 89(12_NP )_) ,_, p._NP 124301._CD Bavu_NP ,_, É_NN ._SENT 
+,_, Besnainou_NP ,_, C._NP ,_, Gibiat_NP ,_, V._NP ,_, de_NP Rosny_NP ,_, J._NP ,_, and_CC Fink_NP ,_, M._NP ,_, 2007_CD ,_, “_NP Subwavelength_NP Sound_NP Focusing_VVG Using_VVG a_DT Time-Reversal_JJ Acoustic_JJ Sink_NP ,_, ”_NP Acta_NP Acust_NP ._SENT 
+Acust_NN ._SENT 
+,_, 93(5_NP )_) ,_, pp_NP ._SENT 
+706–715_NP ._SENT 
+https_NNS :_: //www_NNS ._SENT 
+researchgate_NNS ._SENT 
+net/publication/225102488_Subwavelength_sound_focusing_using_a_time-reversal_acoustic_sink_NP Bavu_NP ,_, É_NN ._SENT 
+,_, and_CC Berry_NP ,_, A._NP ,_, 2009_CD ,_, “_JJ High-Resolution_NN Imaging_NP of_IN Sound_JJ Sources_NNS in_IN Free_NP Field_NP Using_VVG a_DT Numerical_JJ Time-Reversal_NP Sink_NP ,_, ”_NP Acta_NP Acust_NP ._SENT 
+Acust_NN ._SENT 
+,_, 95(4_NP )_) ,_, pp_NP ._SENT 
+595–606_NP ._SENT 
+Conti_NP ,_, S._NP G._NP ,_, Roux_NP ,_, P._NP ,_, and_CC Kuperman_NP ,_, W._NP A._NP ,_, 2007_CD ,_, “_NP Near-Field_NP Time-Reversal_JJ Amplification_NN ,_, ”_NP J._NP Acoust_NP ._SENT 
+Soc_NP ._SENT 
+Am_RB ._SENT 
+,_, 121(6_NP )_) ,_, pp_NP ._SENT 
+3602–3606_NP ._SENT 
+Bi_NP ,_, C._NP X._NP ,_, Li_NP ,_, Y._NP C._NP ,_, Zhang_NP ,_, Y._NP B._NP ,_, and_CC Xu_NP ,_, L._NP ,_, 2017_CD ,_, “_NP Super-Resolution_NP Imaging_NP of_IN Low-Frequency_NN Sound_NN Sources_NNS Using_VVG a_DT Corrected_VVN Monopole_NN Time_NN Reversal_NN Method_NN ,_, ”_NP J._NP Sound_NP Vib_NN ._SENT 
+,_, 410_CD ,_, pp_NP ._SENT 
+303–317_JJ ._SENT 
+Kim_NP ,_, G._NP T._NP ,_, and_CC Lee_NP ,_, B._NP H._NP ,_, 1990_CD ,_, “_JJ 3-D_JJ Sound_JJ Source_NN Reconstruction_NN and_CC Field_NN Reprediction_NN Using_VVG the_DT Helmholtz_NP Integral_NP Equation_NN ,_, ”_NP J._NP Sound_NP Vib_NN ._SENT 
+,_, 136(2_NP )_) ,_, pp_NP ._SENT 
+245–261_JJ ._SENT 
+Borgiotti_NP ,_, G._NP V._NP ,_, 1990_CD ,_, “_NP The_NP Power_NP Radiated_VVD by_IN a_DT Vibrating_VVG Body_NN in_IN an_DT Acoustic_JJ Fluid_NN and_CC Its_PP$ Determination_NN From_IN Boundary_NP Measurements_NNS ,_, ”_NP J._NP Acoust_NP ._SENT 
+Soc_NP ._SENT 
+Am_RB ._SENT 
+,_, 88(4_NP )_) ,_, pp_NP ._SENT 
+1884–1893_NP ._SENT 
+Photiadis_NP ,_, D._NP M._NP ,_, 1990_CD ,_, “_NP The_DT Relationship_NN of_IN Singular_JJ Value_NP Decomposition_NN to_TO Wave-Vector_NN Filtering_VVG in_IN Sound_JJ Radiation_NN Problems_NP ,_, ”_NP J._NP Acoust_NP ._SENT 
+Soc_NP ._SENT 
+Am_RB ._SENT 
+,_, 88(2_NP )_) ,_, pp_NP ._SENT 
+1152–1159_NP ._SENT 
+Williams_NP ,_, E._NP G._NP ,_, 2001_CD ,_, “_JJ Regularization_NN Methods_NNS for_IN Near-Field_NP Acoustical_JJ Holography_NN ,_, ”_NP J._NP Acoust_NP ._SENT 
+Soc_NP ._SENT 
+Am_RB ._SENT 
+,_, 110(4_NP )_) ,_, pp_NP ._SENT 
+1976–1988_NP ._SENT 
+Yoon_NP ,_, S._NP H._NP ,_, and_CC Nelson_NP ,_, P._NP A._NP ,_, 2000_CD ,_, “_JJ Estimation_NN of_IN Acoustic_JJ Source_NN Strength_NP by_IN Inverse_JJ Methods—Part_NN II_NP :_: Experimental_JJ Investigation_NN of_IN Methods_NNS for_IN Choosing_VVG Regularization_NN Parameters_NNS ,_, ”_NP J._NP Sound_NP Vib_NN ._SENT 
+,_, 233(4_NP )_) ,_, pp_NP ._SENT 
+665–701_JJ ._SENT 
+Harker_NP ,_, B._NP M._NP ,_, and_CC Anderson_NP ,_, B._NP E._NP ,_, 2013_CD ,_, “_NP Optimization_NP of_IN the_DT Array_NN Mirror_NP for_IN Time_NP Reversal_NN Techniques_NNS Used_VVN in_IN a_DT Half-Space_NP Environment_NP ,_, ”_NP J._NP Acoust_NP ._SENT 
+Soc_NP ._SENT 
+Am_RB ._SENT 
+,_, 133(5_NP )_) ,_, pp_NP ._SENT 
+EL351–EL357_JJ ._SENT 

@@ -1,0 +1,512 @@
+﻿_JJ <title> Numerical_JJ simulation_NN on_IN the_DT ice-induced_JJ fatigue_NN damage_NN of_IN ship_NN structural_JJ members_NNS in_IN broken_VVN ice_NN fields_NNS </title> <author> Jeong-Hwan_NP Kim_NP ,_, Yooil_NP Kim_NP </author> <Affiliation> Department_NP of_IN Naval_NP Architecture_NP and_CC Ocean_NP Engineering_NP ,_, INHA_NP University_NP ,_, 100_CD ,_, Inha-Ro_NP ,_, Nam-Gu_NP ,_, Incheon_NP ,_, South_NP Korea_NP </Affiliation> <year> 2019_CD </year> <Jounral> Marine_NP Structure_NN </Journal> <Publishing_house> ELSEVIER_NP </Publishing_house> <Text_Collector> Zhang_NP San，HEU_NP </Text_Collector> <DOI> 10.1016/j.marstruc.2019.03.002_NP </DOI> <URL> https://www.sciencedirect.com/science/article/pii/S0951833918303721_JJ </URL> Numerical_JJ simulation_NN on_IN the_DT ice-induced_JJ fatigue_NN damage_NN of_IN ship_NN structural_JJ members_NNS in_IN broken_VVN ice_NN fields_NNS Jeong-Hwan_NP Kim_NP ,_, Yooil_NP Kim_NP Department_NP of_IN Naval_NP Architecture_NP and_CC Ocean_NP Engineering_NP ,_, INHA_NP University_NP ,_, 100_CD ,_, Inha-Ro_NP ,_, Nam-Gu_NP ,_, Incheon_NP ,_, South_NP Korea_NP <Section> Highlights_VVZ </Section> Fatigue_NN strength_NN assessment_NN procedure_NN was_VBD proposed_VVN for_IN ship_NN hull_NN under_IN unbreakable_JJ ice_NN floe_NN field_NN ._SENT 
+Efficient_JJ numerical_JJ methodology_NN was_VBD proposed_VVN targeting_VVG local_JJ ice_NN load_NN calculation_NN ._SENT 
+Fatigue_NN damage_NN result_NN was_VBD compared_VVN with_IN classification_NN society_NN 's_POS method_NN under_IN Baltic_JJ sea_NN ice_NN condition_NN ._SENT 
+<Section> Abstract_JJ </Section> A_NP fatigue_NN damage_NN assessment_NN for_IN an_DT ice-going_JJ ship_NN navigating_VVG through_IN broken_VVN ice_NN fields_NNS was_VBD carried_VVN out_IN using_VVG a_DT numerical_JJ model_NN to_TO simulate_VV the_DT interactions_NNS between_IN ice_NN floes_NNS and_CC structure_NN ._SENT 
+The_DT stress_NN history_NN was_VBD obtained_VVN by_IN a_DT numerical_JJ model_NN and_CC the_DT corresponding_JJ fatigue_NN analysis_NN results_NNS are_VBP presented_VVN ._SENT 
+The_DT stress_NN time_NN series_NN required_VVN for_IN fatigue_NN analysis_NN could_MD be_VB extracted_VVN directly_RB using_VVG an_DT efficient_JJ interaction_NN model_NN ,_, the_DT application_NN of_IN a_DT periodic_JJ media_NN analysis_NN method_NN ,_, and_CC the_DT convolution_NN integral_JJ ._SENT 
+A_DT 2-parameter_NN Weibull_NN model_NN was_VBD applied_VVN to_TO describe_VV the_DT probability_NN distribution_NN of_IN the_DT stress_NN amplitude_NN ,_, and_CC the_DT fatigue_NN damage_NN was_VBD obtained_VVN using_VVG the_DT Palmgren-Miner_NN rule_NN ._SENT 
+Finally_RB ,_, the_DT fatigue_NN damage_NN considering_VVG the_DT actual_JJ ice_NN conditions_NNS of_IN the_DT Baltic_NP Sea_NP was_VBD calculated_VVN using_VVG the_DT proposed_VVN method_NN and_CC LR_NN method_NN ,_, and_CC each_DT result_NN was_VBD compared_VVN ._SENT 
+Keywords_NNS :_: Fatigue_NN damage_NN assessment_NN ;_: Ice_NP going_VVG ship_NN ;_: Broken_NP ice_NN field_NN ;_: Ice-structure_NN interaction_NN ;_: Periodic_JJ media_NNS analysis_NN ;_: Convolution_NN integral_JJ ;_: 2-Parameter_NN weibull_NN model_NN <Section> 1._CD Introduction_NN </Section> Arctic_NP sea_NN ice_NN is_VBZ melting_VVG rapidly_RB due_JJ to_TO global_JJ warming_NN ,_, resulting_VVG in_IN the_DT potential_JJ opening_NN of_IN the_DT Arctic_NP route_NN ._SENT 
+If_IN the_DT current_JJ warming_NN trend_NN continues_VVZ ,_, a_DT new_JJ transport_NN route_NN will_MD open_VV with_IN an_DT increase_NN in_IN the_DT number_NN of_IN days_NNS where_WRB the_DT Arctic_NP Ocean_NP will_MD be_VB navigable_JJ ,_, shortening_VVG the_DT distance_NN between_IN Europe_NP and_CC Asia_NP by_IN a_DT third_NN [_SYM 1_CD ]_SYM ._SENT 
+One_CD of_IN the_DT areas_NNS of_IN major_JJ interest_NN to_TO ship-owners_NNS who_WP are_VBP preparing_VVG for_IN opening_VVG Arctic_NP Ocean_NP voyages_VVZ is_VBZ the_DT fatigue_NN problem_NN of_IN ice-going_JJ vessels_NNS ._SENT 
+This_DT is_VBZ because_IN fatigue_NN cracks_NNS caused_VVN by_IN ice_NN are_VBP reported_VVN as_RB often_RB as_IN those_DT due_JJ to_TO waves_NNS [_SYM 2_CD ]_SYM ._SENT 
+Moreover_RB ,_, the_DT Arctic_NP region_NN is_VBZ sensitive_JJ to_TO pollution_NN ,_, so_RB no_DT oil_NN spill_NN is_VBZ allowed_VVN ._SENT 
+The_DT pollution_NN in_IN the_DT Arctic_NP would_MD be_VB more_RBR difficult_JJ to_TO eliminate_VV due_JJ to_TO the_DT lack_NN of_IN light_NN ,_, very_RB low_JJ temperatures_NNS ,_, drifting_VVG ice_NN ,_, high_JJ winds_NNS ,_, and_CC a_DT variety_NN of_IN other_JJ factors_NNS [_SYM 3_CD ]_SYM ._SENT 
+Therefore_RB ,_, an_DT assessment_NN of_IN ice-induced_JJ fatigue_NN of_IN ship_NN hulls_NNS is_VBZ required_VVN in_IN the_DT design_NN stage_NN of_IN an_DT ice-going_JJ ship_NN ._SENT 
+In_IN particular_JJ ,_, it_PP is_VBZ important_JJ to_TO estimate_VV the_DT fatigue_NN strength_NN in_IN broken_VVN ice_NN fields_NNS because_IN a_DT ship_NN normally_RB follows_VVZ a_DT sea_NN path_NN covered_VVN with_IN ice_NN broken_VVN by_IN an_DT icebreaker_NN [_SYM 4_CD ]_SYM ._SENT 
+Nevertheless_RB ,_, the_DT number_NN of_IN related_JJ studies_NNS is_VBZ very_RB small_JJ ._SENT 
+There_EX is_VBZ no_DT guidance_NN that_IN designers_NNS can_MD simply_RB refer_VV to_TO ,_, except_IN for_IN the_DT Lloyd_NP 's_POS Register_NP 's_POS guidance_NN ._SENT 
+Lloyd_NP 's_POS Resister_NN [_SYM 5_CD ]_SYM announced_VVD the_DT ShipRight_NP FDA_NP ICE_NN ,_, a_DT fatigue_NN design_NN evaluation_NN procedure_NN to_TO evaluate_VV fatigue_NN damage_NN in_IN hull_NN structures_NNS under_IN ice_NN loads_NNS ._SENT 
+A_DT deterministic_JJ ice-induced_JJ fatigue_NN analysis_NN procedure_NN was_VBD developed_VVN based_VVN on_IN empirical_JJ knowledge_NN and_CC in-situ_NN measurement_NN results_NNS ._SENT 
+The_DT target_NN of_IN the_DT procedure_NN is_VBZ an_DT ice-strengthened_JJ vessel_NN navigating_VVG in_IN first-year_JJ ice_NN conditions_NNS with_IN icebreaker_NN assistance_NN and_CC the_DT ice_NN channel_NN formation_NN [_SYM 5_CD ]_SYM ._SENT 
+Strength_NN of_IN LR_NP method_NN is_VBZ its_PP$ versatility_NN so_IN that_DT fatigue_NN damage_NN can_MD be_VB calculated_VVN even_RB though_IN the_DT required_VVN analysis_NN data_NNS are_VBP not_RB fully_RB available_JJ [_SYM 6_CD ]_SYM ._SENT 
+On_IN the_DT other_JJ hand_NN ,_, this_DT method_NN is_VBZ designed_VVN to_TO be_VB simple_JJ for_IN the_DT designer_NN to_TO follow_VV the_DT procedure_NN ;_: hence_RB ,_, it_PP contains_VVZ many_JJ assumptions_NNS ,_, and_CC it_PP is_VBZ difficult_JJ to_TO predict_VV the_DT reasonable_JJ fatigue_NN life_NN ._SENT 
+Suyuthi_NP et_NP al_NP ._SENT 
+[_SYM 6_CD ]_SYM proposed_VVN a_DT systematic_JJ procedure_NN for_IN a_DT fatigue_NN damage_NN assessment_NN of_IN ships_NNS navigating_VVG in_IN ice-covered_JJ waters_NNS ._SENT 
+Closed_JJ form_NN expressions_NNS for_IN fatigue_NN damage_NN based_VVN on_IN the_DT Palmgren-Miner_NN rule_NN ,_, which_WDT reflects_VVZ the_DT variation_NN under_IN ice_NN conditions_NNS ,_, vessel_NN 's_POS speed_NN ,_, and_CC operational_JJ modes_NNS ,_, were_VBD derived_VVN for_IN several_JJ different_JJ statistical_JJ models_NNS of_IN the_DT stress_NN amplitude_NN ,_, i.e._FW exponential_NN ,_, Weibull_NP 's_POS ,_, and_CC three-parameter_NN exponential_NN distributions_NNS ._SENT 
+As_IN a_DT result_NN of_IN examining_VVG the_DT applicability_NN of_IN each_DT probability_NN model_NN using_VVG the_DT KV_NP Svalvard_NP full_JJ scale_NN measurement_NN results_NNS ,_, it_PP was_VBD concluded_VVN that_IN the_DT best_JJS fit_NN probability_NN model_NN is_VBZ a_DT three-parameter_NN exponential_NN model_NN ._SENT 
+However_RB ,_, since_IN the_DT main_JJ parameters_NNS for_IN fatigue_NN analysis_NN are_VBP obtained_VVN from_IN the_DT field_NN measurement_NN data_NNS ,_, it_PP is_VBZ difficult_JJ to_TO apply_VV to_TO different_JJ conditions_NNS ._SENT 
+Chai_NP et_NP al_NP ._SENT 
+[_SYM 7_CD ]_SYM examined_VVD the_DT short-term_JJ extreme_JJ value_NN statistics_NNS of_IN ice_NN loads_NNS acting_VVG on_IN a_DT ship_NN hull_NN and_CC the_DT fatigue_NN damage_NN due_JJ to_TO ice_NN loads_NNS ._SENT 
+They_PP found_VVD correlations_NNS between_IN the_DT ice-induced_JJ load_NN statistics_NNS and_CC prevailing_VVG ice_NN conditions_NNS using_VVG probabilistic_JJ methods_NNS ._SENT 
+For_IN the_DT extreme_JJ value_NN prediction_NN ,_, a_DT novel_NN method_NN ,_, namely_RB the_DT average_JJ conditional_JJ exceedance_NN rate_NN (_( ACER_NP )_) method_NN ,_, was_VBD applied_VVN ,_, and_CC the_DT short-term_JJ fatigue_NN damage_NN was_VBD estimated_VVN based_VVN on_IN the_DT S-N_NP curve_NN approach_NN ._SENT 
+Han_NP and_CC Sawamura_NP [_SYM 8_CD ]_SYM calculated_VVN the_DT fatigue_NN damage_NN of_IN a_DT ship_NN passing_VVG through_IN broken_VVN ice_NN fields_NNS ._SENT 
+They_PP applied_VVD the_DT discrete_JJ element_NN method_NN and_CC described_VVD the_DT ice_NN load_NN peaks_NNS using_VVG the_DT Weibull_JJ model_NN ._SENT 
+Finally_RB ,_, the_DT fatigue_NN damage_NN was_VBD determined_VVN based_VVN on_IN the_DT stress_NN amplitude_NN derived_VVN from_IN structural_JJ beam_NN theory_NN ._SENT 
+However_RB ,_, this_DT method_NN has_VHZ a_DT disadvantage_NN that_IN each_DT ice_NN floe_NN is_VBZ represented_VVN by_IN a_DT two_CD -_: dimensional_JJ circle_NN ._SENT 
+Three_CD main_JJ methods_NNS can_MD be_VB used_VVN to_TO obtain_VV data_NNS ,_, such_JJ as_IN the_DT stress_NN amplitude_NN and_CC number_NN of_IN cycles_NNS required_VVN for_IN the_DT ice-induced_JJ fatigue_NN analysis_NN :_: field_NN measurement_NN ,_, model_NN test_NN ,_, and_CC numerical_JJ analysis_NN ._SENT 
+Thus_RB far_RB ,_, most_JJS studies_NNS have_VHP been_VBN based_VVN on_IN field_NN measurement_NN data_NNS [_SYM 6,7,34_CD ]_SYM ._SENT 
+Among_IN these_DT methods_NNS ,_, the_DT numerical_JJ analysis_NN can_MD be_VB a_DT good_JJ candidate_NN to_TO get_VV the_DT required_VVN data_NNS ._SENT 
+Numerous_JJ simulations_NNS are_VBP possible_JJ with_IN limited_JJ computation_NN efforts_NNS ,_, and_CC various_JJ ice_NN conditions_NNS can_MD be_VB easily_RB implemented_VVN [_SYM 6_CD ]_SYM ._SENT 
+Nevertheless_RB ,_, attempts_VVZ to_TO calculate_VV the_DT ice-induced_JJ fatigue_NN damage_NN using_VVG numerical_JJ analysis_NN are_VBP still_RB lacking_VVG ._SENT 
+The_DT reasons_NNS why_WRB the_DT attempt_NN is_VBZ difficult_JJ can_MD be_VB summarized_VVN in_IN two_CD major_JJ ways_NNS :_: 1._CD Analyses_NNS over_IN a_DT long_JJ period_NN of_IN time_NN are_VBP required_VVN to_TO obtain_VV probabilistic_JJ characteristics_NNS of_IN calculated_JJ data_NNS ._SENT 
+This_DT depends_VVZ on_IN the_DT speed_NN of_IN the_DT ship_NN ,_, but_CC considering_VVG the_DT impact_NN frequency_NN ,_, it_PP is_VBZ considered_VVN that_IN at_IN least_JJS a_DT few_JJ 10 min_NN should_MD be_VB simulated_JJ to_TO acquire_VV sufficient_JJ data_NNS [_SYM 6_CD ]_SYM ._SENT 
+To_TO do_VV this_DT ,_, there_EX must_MD be_VB a_DT fast_JJ and_CC accurate_JJ simulation_NN method_NN ._SENT 
+2._CD It_PP is_VBZ difficult_JJ to_TO derive_VV stress_NN time_NN series_NN for_IN ice-induced_JJ fatigue_NN analysis_NN ,_, due_JJ to_TO the_DT computational_JJ burdens_NNS that_IN existing_VVG numerical_JJ scheme_NN inherently_RB holds_VVZ ._SENT 
+Some_DT simulation_NN tools_NNS are_VBP available_JJ for_IN long_JJ term_NN analysis_NN ,_, such_JJ as_IN GEM_NN [_SYM 9_CD ]_SYM ,_, but_CC most_JJS of_IN these_DT tools_NNS are_VBP specialized_VVN in_IN calculating_VVG the_DT ice_NN load_NN so_IN it_PP is_VBZ difficult_JJ to_TO calculate_VV the_DT stress_NN of_IN the_DT target_NN structural_JJ element_NN ._SENT 
+Hence_RB ,_, additional_JJ ways_NNS are_VBP needed_VVN to_TO convert_VV the_DT ice_NN load_NN to_TO stress_VV if_IN someone_NN wants_VVZ to_TO use_VV these_DT methods_NNS to_TO calculate_VV the_DT stress_NN of_IN the_DT target_NN point_NN ._SENT 
+Many_JJ studies_NNS have_VHP applied_VVN the_DT simplified_VVN method_NN using_VVG beam_NN theory_NN in_IN this_DT case_NN ,_, and_CC many_JJ assumptions_NNS are_VBP included_VVN in_IN the_DT process_NN ._SENT 
+Several_JJ numerical_JJ models_NNS have_VHP been_VBN developed_VVN to_TO implement_VV the_DT interaction_NN between_IN broken_VVN ice_NN floes_NNS and_CC structures_NNS ._SENT 
+Millan_NP and_CC Wang_NP [_SYM 10_CD ]_SYM ;_: Wang_NP and_CC Derradji-Aouat_NP [_SYM 11_CD ]_SYM and_CC Kim_NP et_NP al_NP ._SENT 
+[_SYM 4_CD ]_SYM applied_VVD the_DT finite_JJ element_NN method_NN to_TO calculate_VV the_DT global_JJ ice_NN load_NN acting_VVG on_IN structures_NNS by_IN broken_VVN ice_NN floes_NNS ._SENT 
+They_PP employed_VVN the_DT arbitrary_JJ Lagrangian-Eulerian_JJ method_NN to_TO implement_VV the_DT ice-water-structure_NN interaction_NN problem_NN ._SENT 
+Since_IN the_DT discrete_JJ element_NN method_NN (_( DEM_NP )_) was_VBD developed_VVN by_IN Cundall_NP and_CC Strack_NP [_SYM 12_CD ]_SYM ;_: many_JJ studies_NNS using_VVG DEM_NP have_VHP been_VBN introduced_VVN to_TO the_DT simulation_NN of_IN broken_VVN ice_NN ._SENT 
+Hansen_NP and_CC Løset_NP [_SYM 13_CD ]_SYM developed_VVD a_DT DEM_NP model_NN to_TO investigate_VV the_DT behavior_NN of_IN the_DT turret_NN moored_VVD FPSO_NN in_IN broken_VVN ice_NN fields_NNS ._SENT 
+Sun_NP and_CC Shen_NP [_SYM 14_CD ]_SYM applied_VVN DEM_NP to_TO implement_VV pancake_NN ice_NN floes_NNS ,_, which_WDT were_VBD modeled_VVN as_IN 3-D_VVG dilated_VVN particles_NNS ._SENT 
+In_IN addition_NN ,_, Alawneh_NP [_SYM 9_CD ]_SYM developed_VVN GPU-based_JJ event_NN mechanics_NNS ,_, which_WDT enables_VVZ hyper-real-time_JJ simulations_NNS of_IN ice-structure_NN interactions_NNS using_VVG the_DT graphics_NNS processing_NN unit_NN (_( GPU_NP )_) ,_, for_IN the_DT simulation_NN of_IN pack_NN ice_NN condition_NN ._SENT 
+In_IN this_DT study_NN ,_, a_DT fatigue_NN damage_NN assessment_NN for_IN an_DT ice-going_JJ ship_NN navigating_VVG through_IN broken_VVN ice_NN fields_NNS was_VBD carried_VVN out_RP ._SENT 
+A_DT numerical_JJ model_NN to_TO simulate_VV the_DT interaction_NN between_IN ice_NN floes_NNS and_CC structure_NN developed_VVD using_VVG the_DT finite_JJ element_NN method_NN was_VBD introduced_VVN ,_, and_CC time_NN series_NN of_IN stresses_NNS calculated_VVN by_IN the_DT model_NN and_CC the_DT corresponding_JJ fatigue_NN analysis_NN results_NNS are_VBP presented_VVN ._SENT 
+This_DT model_NN enables_VVZ long_JJ term_NN analysis_NN through_IN an_DT efficient_JJ interaction_NN model_NN ,_, the_DT application_NN of_IN periodic_JJ media_NNS analysis_NN method_NN and_CC the_DT convolution_NN integral_JJ ,_, and_CC it_PP allows_VVZ the_DT stress_NN to_TO be_VB extracted_VVN directly_RB using_VVG the_DT finite_JJ element_NN method_NN ._SENT 
+A_DT 2-parameter_NN Weibull_NN model_NN was_VBD applied_VVN to_TO the_DT calculated_JJ stress_NN history_NN to_TO describe_VV the_DT probability_NN distribution_NN of_IN stress_NN amplitudes_NNS ,_, and_CC the_DT fatigue_NN damage_NN was_VBD obtained_VVN using_VVG the_DT Palmgren-Miner_NN rule_NN ._SENT 
+Finally_RB ,_, the_DT fatigue_NN damage_NN considering_VVG the_DT actual_JJ ice_NN conditions_NNS of_IN the_DT Baltic_NP Sea_NP was_VBD calculated_VVN using_VVG the_DT proposed_VVN method_NN and_CC LR_NN method_NN ,_, and_CC each_DT result_NN was_VBD compared_VVN ._SENT 
+The_DT comparison_NN with_IN LR_NP method_NN needs_VVZ to_TO be_VB understood_VVN as_IN the_DT validation_NN of_IN the_DT appropriateness_NN of_IN the_DT proposed_VVN method_NN ,_, rather_RB than_IN accuracy_NN check_NN ._SENT 
+<Section> 2._CD Analysis_NP methodology_NN </Section> Fig_NN ._SENT 
+1_CD presents_NNS the_DT calculation_NN procedure_NN for_IN the_DT ice-induced_JJ fatigue_NN analysis_NN introduced_VVN in_IN this_DT study_NN ._SENT 
+The_DT entire_JJ analysis_NN methodology_NN can_MD be_VB divided_VVN into_IN four_CD stages_NNS ._SENT 
+First_RB ,_, the_DT contact_NN pressure_NN time_NN series_NN on_IN the_DT outer-shell_NN of_IN a_DT ship_NN under_IN broken_VVN ice_NN field_NN conditions_NNS was_VBD calculated_VVN ._SENT 
+The_DT next_JJ step_NN was_VBD to_TO convert_VV the_DT contact_NN pressures_NNS into_IN stresses_NNS using_VVG the_DT convolution_NN integral_JJ ._SENT 
+Here_RB ,_, it_PP is_VBZ important_JJ to_TO calculate_VV the_DT impulse_NN response_NN function_NN (_( IRF_NP )_) of_IN the_DT target_NN position_NN with_IN respect_NN to_TO the_DT pressures_NNS for_IN each_DT element_NN of_IN the_DT outer-shell_NN ._SENT 
+To_TO calculate_VV the_DT contact_NN pressure_NN and_CC IRF_NP ,_, a_DT numerical_JJ model_NN was_VBD developed_VVN to_TO simulate_VV the_DT interaction_NN between_IN ice_NN floes_NNS and_CC structure_NN based_VVN on_IN the_DT finite_JJ element_NN method_NN using_VVG ABAQUS/Explicit_JJ software_NN ._SENT 
+With_IN the_DT aid_NN of_IN this_DT mature_JJ and_CC proven_JJ commercial_JJ software_NN ,_, it_PP is_VBZ easy_JJ to_TO generate_VV user-defined_JJ external_JJ loads_NNS ,_, and_CC also_RB a_DT robust_JJ contact_NN algorithm_NN for_IN multi-body_NN interactions_NNS can_MD be_VB employed_VVN usefully_RB ._SENT 
+In_IN addition_NN ,_, it_PP has_VHZ flexible_JJ contact_NN interaction_NN models_NNS ,_, and_CC multi-bodies_NNS can_MD be_VB modeled_VVN easily_RB via_IN script_NN language_NN ._SENT 
+Once_RB the_DT stress_NN time_NN series_NN are_VBP calculated_VVN ,_, the_DT short-term_JJ distribution_NN of_IN the_DT stress_NN amplitude_NN can_MD be_VB derived_VVN by_IN applying_VVG peak_NN analysis_NN and_CC an_DT appropriate_JJ probability_NN model_NN ,_, and_CC the_DT corresponding_JJ short-term_JJ fatigue_NN damage_NN can_MD be_VB calculated_VVN using_VVG the_DT proper_JJ S-N_NN curve_NN ._SENT 
+Finally_RB ,_, the_DT total_JJ fatigue_NN damage_NN can_MD be_VB calculated_VVN using_VVG the_DT Palmgren-Miner_NN rule_NN ._SENT 
+Fig_NN ._SENT 
+1._CD Calculation_NN procedure_NN for_IN ice-induced_JJ fatigue_NN analysis_NN ._SENT 
+2.1_CD ._SENT 
+Calculation_NN of_IN the_DT contact_NN pressure_NN time_NN series_NN The_DT finite_JJ element_NN models_NNS required_VVN at_IN this_DT stage_NN are_VBP an_DT outer-shell_JJ model_NN for_IN calculating_VVG the_DT contact_NN pressure_NN and_CC ice_NN floe_NN models_NNS for_IN broken_VVN ice_NN fields_NNS ._SENT 
+The_DT outer-shell_NN model_NN of_IN the_DT ship_NN is_VBZ implemented_VVN as_IN rigid_JJ elements_NNS ._SENT 
+Ice_NN floes_NNS of_IN a_DT random_JJ size_NN ,_, thickness_NN ,_, shape_NN ,_, and_CC distribution_NN were_VBD generated_VVN using_VVG an_DT automatic_JJ modeling_NN scheme_NN ._SENT 
+For_IN rapid_JJ calculations_NNS ,_, ice-fluid_NN and_CC ice-structure_NN interactions_NNS were_VBD implemented_VVN in_IN simplified_VVN manners_NNS ._SENT 
+Important_JJ parameters_NNS required_VVN for_IN the_DT simplified_VVN equations_NNS ,_, such_JJ as_IN the_DT drag_NN force_NN coefficient_NN or_CC contact_NN interaction_NN parameter_NN ,_, were_VBD determined_VVN through_IN detailed_JJ analyses_NNS ._SENT 
+2.1.1_CD ._SENT 
+Modeling_VVG of_IN ice_NN floes_NNS Each_DT floe_NN is_VBZ made_VVN by_IN rigid_JJ solid_JJ elements_NNS ,_, and_CC the_DT process_NN of_IN generating_VVG ice_NN elements_NNS can_MD be_VB explained_VVN simply_RB as_RB follows_VVZ :_: First_NP ,_, the_DT thickness_NN distribution_NN of_IN the_DT ice_NN floes_NNS in_IN the_DT target_NN field_NN is_VBZ determined_VVN ._SENT 
+The_DT thickness_NN of_IN broken_VVN ice_NN is_VBZ dependent_JJ on_IN the_DT thickness_NN of_IN the_DT original_JJ ice_NN sheet_NN [_SYM 15_CD ]_SYM ._SENT 
+Collection_NN of_IN ice_NN charts_NNS can_MD be_VB used_VVN as_IN the_DT data_NNS to_TO determine_VV the_DT ice_NN thickness_NN distribution_NN of_IN the_DT field_NN [_SYM 6_CD ]_SYM ._SENT 
+Then_RB circles_NNS as_IN the_DT basis_NN of_IN ice_NN element_NN generation_NN are_VBP generated_VVN for_IN each_DT thickness_NN ._SENT 
+The_DT diameters_NNS of_IN the_DT circles_NNS are_VBP set_VVN randomly_RB according_VVG to_TO criterion_NN for_IN determining_VVG an_DT unbreakable_JJ ice_NN floe_NN developed_VVN by_IN Lindseth_NP [_SYM 16_CD ]_SYM ._SENT 
+The_DT target_NN ice_NN was_VBD managed_VVN broken_VVN ice_NN ,_, so_RB it_PP was_VBD assumed_VVN not_RB to_TO be_VB broken_VVN ._SENT 
+2D_JJ circles_NNS were_VBD then_RB generated_VVN and_CC placed_VVN one_CD after_IN another_DT on_IN a_DT space_NN under_IN the_DT predefined_JJ concentration_NN ._SENT 
+The_DT placement_NN continued_VVD until_IN the_DT concentration_NN reached_VVD the_DT specified_JJ level_NN within_IN the_DT area_NN ._SENT 
+Later_RBR ,_, points_NNS were_VBD generated_VVN randomly_RB along_IN the_DT perimeter_NN of_IN the_DT generated_VVN circles_NNS to_TO make_VV polygon-shaped_JJ ice_NN ._SENT 
+For_IN example_NN ,_, assuming_VVG that_IN a_DT pentagonal_JJ ice_NN floe_NN is_VBZ produced_VVN ,_, five_CD points_NNS are_VBP created_VVN at_IN random_JJ intervals_NNS on_IN the_DT circle_NN 's_POS perimeter_NN ,_, and_CC the_DT points_NNS are_VBP connected_VVN to_TO produce_VV a_DT polygon_NN ._SENT 
+The_DT shape_NN of_IN broken_VVN ice_NN fragments_NNS is_VBZ normally_RB perceived_VVN to_TO be_VB random_JJ (_( Aboulazm_NP ,_, (_( 1989_CD )_) ._SENT 
+However_RB ,_, according_VVG to_TO Aboulazm_NP [_SYM 15_CD ]_SYM ;_: the_DT shape_NN is_VBZ mainly_RB triangular_JJ or_CC rectangular_JJ based_VVN on_IN aerial_JJ photographs_NNS of_IN Arctic_NP areas_NNS ,_, and_CC broken_VVN ice_NN generated_VVN by_IN icebreakers_NNS is_VBZ usually_RB crescent_JJ shaped_JJ close_NN to_TO the_DT triangular_JJ shape_NN ._SENT 
+A_DT 3D_NN solid_RB was_VBD then_RB generated_VVN by_IN extruding_VVG the_DT polygon_NN with_IN a_DT depth_NN corresponding_JJ to_TO the_DT ice_NN thickness_NN ,_, and_CC the_DT finite_JJ element_NN mesh_NN was_VBD finally_RB generated_VVN on_IN the_DT solid_JJ ._SENT 
+The_DT finite_JJ element_NN models_NNS for_IN ice_NN floes_NNS are_VBP shown_VVN in_IN Fig_NN ._SENT 
+2._CD Fig_NN ._SENT 
+2._CD Finite_JJ element_NN models_NNS for_IN ice_NN floes_NNS ._SENT 
+2.1.2_CD ._SENT 
+Modeling_VVG of_IN the_DT ice-sea_NP water_NN interaction_NN To_TO simulate_VV the_DT motion_NN of_IN floating_VVG ice_NN floes_NNS ,_, which_WDT are_VBP subject_JJ to_TO several_JJ hydrodynamic_JJ loads_NNS ,_, such_JJ as_IN drag_NN ,_, inertia_NN ,_, and_CC buoyancy_NN forces_NNS in_IN seawater_NN ,_, six_CD degrees_NNS of_IN freedom_NN motions_NNS were_VBD taken_VVN into_IN account_NN ._SENT 
+As_IN expressed_VVN in_IN Eqns_NNS ._SENT 
+(_( 1_CD )_) ,_, (_( 2_LS )_) ,_, the_DT drag_NN force_NN (_( Fd�_NP �_NP �_NP )_) and_CC drag_NN moment_NN (_( Md�_NP �_NP �_NP )_) on_IN an_DT ice_NN floe_NN were_VBD applied_VVN for_IN the_DT planar_JJ motions_NNS ,_, such_JJ as_IN surge_NN ,_, sway_NN ,_, and_CC yaw_VVP [_SYM 17_CD ]_SYM ._SENT 
+@(1_JJ )_) @(2_NN )_) where_WRB CdF_NP is_VBZ the_DT drag_NN force_NN coefficient_NN ._SENT 
+ρw_NN is_VBZ the_DT water_NN density_NN and_CC Asub_NN is_VBZ submerged_JJ area_NN ._SENT 
+V→is_NP the_DT velocity_NN of_IN the_DT ice_NN floe_NN and_CC Vw→is_NNS the_DT water_NN velocity_NN ._SENT 
+r_SYM is_VBZ the_DT mean_JJ distance_NN between_IN the_DT centroid_NN and_CC each_DT vertex_NN of_IN floe_NN ,_, and_CC ω�_NP �_NP �_NP is_VBZ the_DT angular_JJ velocity_NN of_IN the_DT floe_NN ._SENT 
+The_DT drag_NN force_NN coefficient_NN CdF_NN was_VBD obtained_VVN by_IN detailed_JJ fluid-structure_NN interaction_NN analysis_NN using_VVG the_DT Coupled_VVN Eulerian-Lagrangian_JJ method_NN ._SENT 
+Fig_NN ._SENT 
+3_LS presents_VVZ the_DT detailed_JJ analysis_NN model_NN for_IN obtaining_VVG the_DT drag_NN force_NN coefficient_NN ,_, and_CC the_DT proposed_VVN model_NN ._SENT 
+Ice_NN was_VBD modeled_VVN in_IN the_DT Lagrangian_JJ domain_NN ,_, and_CC sea_NN water_NN was_VBD implemented_VVN in_IN the_DT Eulerian_JJ domain_NN ._SENT 
+With_IN the_DT ice_NN floes_NNS floating_VVG in_IN the_DT sea_NN ,_, the_DT ship_NN model_NN ,_, which_WDT was_VBD modeled_VVN as_IN a_DT rigid_JJ body_NN ,_, was_VBD advanced_VVN to_TO collide_VV with_IN the_DT ice_NN floes_NNS ._SENT 
+The_DT analysis_NN using_VVG the_DT proposed_VVN method_NN was_VBD performed_VVN under_IN the_DT same_JJ conditions_NNS and_CC the_DT results_NNS were_VBD compared_VVN to_TO derive_VV the_DT proper_JJ drag_NN force_NN coefficient_NN ._SENT 
+Four_CD ice_NN floes_NNS near_IN the_DT ship_NN were_VBD selected_VVN for_IN the_DT comparison_NN ,_, as_RB shown_VVN in_IN Fig_NN ._SENT 
+3._CD A_DT single_JJ representative_NN value_NN that_WDT can_MD cover_VV all_DT situations_NNS is_VBZ required_VVN because_IN the_DT shape_NN of_IN the_DT projected_JJ frontal_JJ area_NN of_IN each_DT ice_NN floe_NN is_VBZ different_JJ and_CC it_PP changes_VVZ continuously_RB as_IN the_DT floes_NNS collide_VVP with_IN each_DT other_JJ ._SENT 
+Therefore_RB ,_, the_DT drag_NN force_NN coefficient_NN showing_VVG results_NNS closest_JJS to_TO the_DT detailed_JJ analysis_NN was_VBD selected_VVN through_IN trial_NN and_CC error_NN [_SYM 18_CD ]_SYM ._SENT 
+The_DT determined_VVN drag_NN force_NN coefficient_NN was_VBD 5.25_CD ._SENT 
+Fig_NN ._SENT 
+4_CD shows_NNS the_DT change_NN in_IN the_DT position_NN of_IN the_DT ice_NN floes_NNS in_IN 2D_JJ space_NN during_IN the_DT simulation_NN ._SENT 
+It_PP was_VBD found_VVN that_IN the_DT positions_NNS of_IN ‘2’_NP and_CC ‘4’_NP relatively_RB match_VV each_DT other_JJ well_NN ,_, whereas_IN in_IN cases_NNS ‘1’_JJ and_CC ‘3’_JJ some_DT deviations_NNS are_VBP observed_VVN ,_, especially_RB when_WRB time_NN passes_VVZ ._SENT 
+Deviations_NNS at_IN later_JJR stages_NNS are_VBP what_WP have_VHP been_VBN observed_VVN when_WRB the_DT load_NN transmission_NN from_IN ice_NN to_TO structure_NN is_VBZ over_RP ._SENT 
+Fatigue_NN damage_NN is_VBZ more_RBR relevant_JJ to_TO this_DT load_NN transmission_NN stage_NN ,_, rather_RB that_IN the_DT later_JJR stage_NN when_WRB there_EX is_VBZ no_DT contact_NN between_IN ice_NN and_CC structure_NN ._SENT 
+Fig_NN ._SENT 
+3._CD Ice_NP floes_NNS used_VVN for_IN the_DT ice_NN movement_NN comparison_NN ._SENT 
+Fig_NN ._SENT 
+4._CD Comparison_NN of_IN the_DT positions_NNS between_IN the_DT detailed_JJ analysis_NN model_NN and_CC proposed_VVN model_NN in_IN 2D_JJ space_NN ._SENT 
+The_DT buoyancy_NN pressure_NN ,_, shown_VVN in_IN Eqn_NP ._SENT 
+(_( 3_CD )_) ,_, acts_VVZ on_IN the_DT floe_NN surface_NN so_RB that_IN the_DT heave_NN ,_, roll_NN ,_, and_CC pitch_NN have_VHP hydrodynamic_JJ restoring_VVG forces_NNS and_CC moments_NNS ._SENT 
+For_IN the_DT application_NN of_IN buoyancy_NN in_IN a_DT heeled_JJ situation_NN due_JJ to_TO roll_VV or_CC pitch_NN ,_, pressure_NN is_VBZ applied_VVN against_IN the_DT local_JJ x-y_NN coordinate_VV system_NN of_IN the_DT corresponding_JJ surface_NN of_IN the_DT floe_NN ._SENT 
+Pressure_NN is_VBZ also_RB applied_VVN to_TO the_DT sides_NNS of_IN the_DT floe_NN to_TO consider_VV the_DT large_JJ angular_JJ movement_NN ,_, as_RB shown_VVN in_IN Fig_NN ._SENT 
+5._CD @(3_NN )_) where_WRB x_SYM '_'' and_CC y_NP '_POS are_VBP the_DT local_JJ coordinates_VVZ for_IN the_DT surface_NN ._SENT 
+g_NN is_VBZ the_DT gravitational_JJ acceleration_NN ,_, and_CC h_NN is_VBZ the_DT vertical_JJ displacement_NN of_IN a_DT given_VVN position_NN with_IN respect_NN to_TO its_PP$ initial_JJ position_NN ._SENT 
+The_DT added_JJ mass_NN was_VBD included_VVN in_IN the_DT form_NN of_IN a_DT constant_JJ value_NN and_CC considered_VVN by_IN multiplying_VVG the_DT mass_NN by_IN 1+Cm_NN in_IN the_DT motion_NN equations_NNS ._SENT 
+The_DT added_JJ mass_NN coefficient_NN used_VVN in_IN the_DT simulation_NN was_VBD 0.41_CD with_IN reference_NN to_TO Newman_NP [_SYM 19_CD ]_SYM ._SENT 
+Fig_NN ._SENT 
+5._CD Pressure_NN profiles_NNS acting_VVG on_IN the_DT floe_NN surface_NN ._SENT 
+2.1.3_CD ._SENT 
+Modeling_VVG of_IN the_DT ice-structure_NN interaction_NN In_IN this_DT study_NN ,_, instead_RB of_IN realizing_VVG the_DT local_JJ failure_NN occurring_VVG during_IN the_DT collision_NN of_IN ice_NN with_IN detailed_JJ analysis_NN considering_VVG the_DT elasto-plastic_JJ material_NN properties_NNS ,_, a_DT global_JJ approach_NN was_VBD taken_VVN ,_, which_WDT allows_VVZ the_DT penetration_NN of_IN colliding_VVG objects_NNS caused_VVN by_IN the_DT local_JJ failure_NN of_IN ice_NN near_IN the_DT contacting_VVG area_NN ._SENT 
+The_DT penetration_NN can_MD be_VB determined_VVN using_VVG a_DT predetermined_VVN pressure-penetration_NN relation_NN ,_, as_RB illustrated_VVN in_IN Fig_NN ._SENT 
+6_CD ,_, which_WDT was_VBD obtained_VVN by_IN separate_JJ detailed_JJ numerical_JJ analyses_NNS ._SENT 
+According_VVG to_TO Kärnä_NP ,_, [_SYM 20_CD ]_SYM ;_: when_WRB ice_NN and_CC a_DT structure_NN are_VBP in_IN contact_NN ,_, penetration_NN occurs_VVZ according_VVG to_TO the_DT contact_NN pressure_NN ._SENT 
+This_DT pressure-penetration_NN relation_NN approach_NN is_VBZ based_VVN on_IN the_DT hypothesis_NN that_IN the_DT local_JJ failure_NN of_IN ice_NN during_IN a_DT collision_NN can_MD be_VB expressed_VVN by_IN a_DT single_JJ pressure-penetration_NN relationship_NN ._SENT 
+The_DT reason_NN why_WRB a_DT pressure-penetration_NN relation_NN is_VBZ applied_VVN instead_RB of_IN a_DT force-penetration_NN relation_NN is_VBZ that_IN it_PP is_VBZ possible_JJ to_TO consider_VV the_DT shape_NN of_IN the_DT contact_NN surface_NN in_IN the_DT event_NN of_IN a_DT collision_NN so_IN the_DT contact_NN phenomenon_NN between_IN objects_NNS with_IN various_JJ shapes_NNS can_MD be_VB implemented_VVN realistically_RB ._SENT 
+Fig_NN ._SENT 
+6._CD Contact_NN pressure-penetration_NN relation_NN ._SENT 
+A_DT series_NN of_IN detailed_JJ ice-structure_NN collision_NN analyses_NNS were_VBD performed_VVN using_VVG a_DT Coupled_VVN Eulerian-Lagrangian_JJ (_( CEL_NP )_) method_NN to_TO derive_VV the_DT pressure-penetration_NN curve_NN ._SENT 
+Kim_NP and_CC Kim_NP [_SYM 18_CD ]_SYM presented_VVD a_DT detailed_JJ description_NN of_IN the_DT analysis_NN ._SENT 
+The_DT failure_NN of_IN ice_NN was_VBD realized_VVN using_VVG a_DT crushable_JJ foam_NN material_NN model_NN ,_, whose_WP$ detailed_JJ parameters_NNS were_VBD tuned_VVN using_VVG the_DT experimental_JJ results_NNS reported_VVN by_IN Kim_NP et_CC al_NP ._SENT 
+[_SYM 21_CD ]_SYM ._SENT 
+The_DT pressure-penetration_NN relation_NN can_MD also_RB be_VB affected_VVN by_IN a_DT range_NN of_IN parameters_NNS ,_, such_JJ as_IN thickness_NN ,_, size_NN ,_, and_CC collision_NN angle_NN ._SENT 
+Therefore_RB ,_, in_IN this_DT study_NN ,_, a_DT pressure-penetration_NN curve_NN was_VBD derived_VVN under_IN different_JJ combinations_NNS of_IN parameters_NNS ,_, as_RB summarized_VVD in_IN Table_NN 1._CD The_DT target_NN ice_NN of_IN this_DT study_NN was_VBD first-year_JJ ice_NN ._SENT 
+Because_IN the_DT majority_NN of_IN the_DT ice_NN thickness_NN is_VBZ less_JJR than_IN or_CC around_IN 1 m_NP ,_, the_DT thicknesses_NNS used_VVN in_IN the_DT case_NN study_NN were_VBD set_VVN to_TO be_VB 0.3_CD ,_, 0.6_CD ,_, and_CC 0.9 m_NP [_SYM 22_CD ]_SYM ;_: [_SYM 5,23,24_CD ]_SYM ._SENT 
+Ice_NN was_VBD modeled_VVN as_IN a_DT square_NN ._SENT 
+The_DT sizes_NNS of_IN the_DT ice_NN floes_NNS were_VBD determined_VVN according_VVG to_TO Lindseth_NP 's_POS standard_NN [_SYM 16_CD ]_SYM ,_, which_WDT indicates_VVZ the_DT maximum_JJ size_NN of_IN the_DT unbreakable_JJ ice_NN floe_NN based_VVN on_IN its_PP$ thickness_NN ._SENT 
+Two_CD different_JJ collision_NN directions_NNS were_VBD also_RB considered_VVN :_: one_CD in_IN the_DT direction_NN of_IN the_DT parallel_JJ side_NN and_CC the_DT other_JJ one_CD in_IN the_DT direction_NN of_IN the_DT corner_NN side_NN with_IN a_DT 45°_JJ angle_NN deviation_NN ._SENT 
+Fig_NN ._SENT 
+7_CD shows_NNS the_DT examples_NNS of_IN the_DT detailed_JJ analysis_NN ._SENT 
+Under_IN the_DT assumption_NN that_IN there_EX is_VBZ a_DT single_JJ pressure-penetration_NN curve_NN ,_, linear_JJ regression_NN analysis_NN was_VBD performed_VVN for_IN the_DT data_NNS derived_VVN from_IN detailed_JJ numerical_JJ analyses_NNS ._SENT 
+As_IN shown_VVN in_IN Fig_NN ._SENT 
+8_CD ,_, the_DT derived_VVN slope_NN of_IN the_DT pressure-penetration_NN curve_NN that_WDT passes_VVZ through_IN the_DT origin_NN is_VBZ 35,367 Pa/m_NN ._SENT 
+Table_NN 1._CD Analysis_NN conditions_NNS for_IN the_DT pressure-penetration_NN curve_NN ._SENT 
+Fig_NN ._SENT 
+7._CD Example_NN of_IN detailed_JJ analysis_NN ._SENT 
+Fig_NN ._SENT 
+8._CD Derived_VVN pressure-penetration_NN curve_NN ._SENT 
+2.1.4_CD ._SENT 
+Periodic_JJ media_NNS analysis_NN Statistically_RB converged_VVD ice_NN load_NN histories_NNS are_VBP essential_JJ for_IN a_DT fatigue_NN life_NN calculation_NN ,_, so_RB that_IN a_DT long_JJ duration_NN simulation_NN in_IN the_DT time_NN domain_NN is_VBZ inevitable_JJ ,_, which_WDT is_VBZ time_NN consuming_NN ._SENT 
+Considering_VVG the_DT high_JJ frequency_NN of_IN the_DT impact_NN load_NN ,_, a_DT short-term_JJ distribution_NN can_MD be_VB obtained_VVN by_IN performing_VVG analysis_NN for_IN at_IN least_JJS 5–10 min_NN ._SENT 
+For_IN the_DT time_NN domain_NN ice-structure_NN interaction_NN analysis_NN during_IN that_DT period_NN of_IN time_NN ,_, a_DT sufficient_JJ number_NN of_IN ice_NN elements_NNS are_VBP required_VVN considering_VVG the_DT analysis_NN time_NN and_CC speed_NN ._SENT 
+For_IN example_NN ,_, to_TO analyze_VV for_IN 10 min_NN with_IN a_DT ship_NN speed_NN of_IN 4_CD knots_NNS ,_, at_IN least_JJS 1200 m_NN of_IN ice-covered_JJ water_NN needs_VVZ to_TO be_VB prepared_VVN ._SENT 
+In_IN this_DT case_NN ,_, modeling_NN ,_, calculating_VVG ,_, and_CC post-processing_NP are_VBP almost_RB impossible_JJ because_IN it_PP takes_VVZ considerable_JJ time_NN ._SENT 
+In_IN this_DT study_NN ,_, the_DT periodic_JJ media_NN analysis_NN method_NN was_VBD applied_VVN to_TO solve_VV this_DT problem_NN ._SENT 
+This_DT technique_NN is_VBZ a_DT functionality_NN of_IN ABAQUS/EXPLICIT_JJ ,_, which_WDT is_VBZ a_DT technique_NN designed_VVN to_TO simulate_VV a_DT system_NN that_WDT is_VBZ geometrically_RB repetitive_JJ in_IN nature_NN ,_, such_JJ as_IN a_DT manufacturing_NN process_NN involving_VVG conveyor_NN belts_NNS ._SENT 
+Fig_NN ._SENT 
+9_CD gives_VVZ an_DT example_NN of_IN moving_VVG boxes_NNS on_IN conveyor_NN belts_NNS to_TO illustrate_VV the_DT schematic_JJ representation_NN of_IN the_DT periodic_JJ media_NN analysis_NN method_NN ._SENT 
+The_DT overall_JJ model_NN was_VBD decomposed_VVN into_IN several_JJ blocks_NNS that_WDT are_VBP topologically_RB identical_JJ ,_, and_CC their_PP$ edges_NNS were_VBD connected_VVN ._SENT 
+A_DT block_NN consisted_VVD of_IN a_DT box_NN and_CC a_DT belt_NN of_IN unit_NN length_NN ,_, i.e._FW ,_, the_DT distance_NN between_IN I_PP and_CC A_NP ,_, and_CC it_PP was_VBD repeated_VVN to_TO model_VV the_DT entire_JJ periodic_JJ media_NNS ._SENT 
+The_DT connection_NN points_NNS of_IN each_DT block_NN are_VBP marked_VVN as_IN I_PP ,_, A_NP ,_, B_NP ,_, C_NP ,_, D_NP ,_, and_CC O._NP Here_RB ,_, I_PP and_CC O_NP denote_VVP the_DT inlet_NN and_CC outlet_NN ,_, respectively_RB ._SENT 
+When_WRB the_DT entire_JJ model_NN moves_NNS in_IN the_DT moving_VVG belt_NN direction_NN and_CC meets_VVZ the_DT trigger_NN plane_NN ,_, the_DT outlet_NN block_NN is_VBZ shuffled_VVD back_RB to_TO the_DT inlet_NN ._SENT 
+The_DT trigger_NN plane_NN controls_VVZ the_DT timing_NN that_IN the_DT shuffling_NN process_NN occurs_VVZ ._SENT 
+As_IN a_DT result_NN ,_, infinite_JJ repetition_NN is_VBZ possible_JJ with_IN a_DT limited_JJ number_NN of_IN elements_NNS ._SENT 
+Fig_NN ._SENT 
+9._CD Schematic_JJ representation_NN of_IN the_DT periodic_JJ media_NN analysis_NN method_NN [_SYM 25_CD ]_SYM ._SENT 
+When_WRB this_DT method_NN is_VBZ applied_VVN to_TO a_DT simulation_NN of_IN ice-structure_NN interaction_NN analysis_NN ,_, each_DT box_NN will_MD be_VB replaced_VVN with_IN a_DT group_NN of_IN ice_NN floes_NNS ._SENT 
+Virtual_JJ belt_NN ,_, connected_VVN to_TO the_DT ice_NN floes_NNS ,_, will_MD be_VB modeled_VVN to_TO drive_VV the_DT modeled_VVN ice_NN floes_NNS ,_, but_CC it_PP has_VHZ no_DT influence_NN on_IN the_DT physics_NN taking_VVG place_NN during_IN ice_NN collisions_NNS to_TO a_DT structure_NN ._SENT 
+The_DT potential_JJ repetition_NN of_IN an_DT ice_NN load_NN due_JJ to_TO repetition_NN of_IN the_DT ice_NN geometry_NN was_VBD checked_VVN and_CC it_PP was_VBD confirmed_VVN that_IN the_DT ice_NN load_NN history_NN does_VVZ not_RB repeat_VV because_IN of_IN the_DT distraction_NN of_IN ice_NN floes_NNS before_IN a_DT collision_NN with_IN a_DT structure_NN ._SENT 
+Further_JJR details_NNS are_VBP given_VVN in_IN Chapter_NP 3.2.2_CD ._SENT 
+2.1.5_CD ._SENT 
+Verification_NN of_IN the_DT numerical_JJ model_NN Verification_NP of_IN the_DT numerical_JJ model_NN has_VHZ been_VBN carried_VVN out_RP based_VVN on_IN the_DT model_NN tests_NNS conducted_VVN in_IN an_DT ice_NN tank_NN at_IN the_DT Korea_NP Research_NP Institute_NP of_IN Ships_NNS and_CC Ocean_NP engineering_NN (_( KRISO_NP )_) using_VVG a_DT 1:18.667_CD scale_NN mode_NN ship_NN of_IN the_DT Korean_JJ icebreaking_JJ research_NN vessel_NN (_( IBRV_NP )_) (_( Jeong_NP et_NP al_NP ._SENT 
+,_, 2017_CD )_) ._SENT 
+Three_CD different_JJ constant_JJ speeds_NNS (_( 0.119_CD ,_, 0.357_CD and_CC 0.595 m/s_NNS in_IN model_NN scale_NN )_) and_CC two_CD different_JJ ice_NN concentrations_NNS (_( 60_CD %_NN and_CC 80_CD %_NN )_) were_VBD considered_VVN in_IN the_DT pack_NN ice_NN channels_NNS ._SENT 
+Detailed_JJ of_IN the_DT model_NN test_NN can_MD be_VB found_VVN in_IN Kim_NP et_CC al_NP ._SENT 
+(_( 2017_CD )_) ._SENT 
+Numerical_JJ simulations_NNS using_VVG the_DT proposed_VVN method_NN were_VBD performed_VVN for_IN the_DT same_JJ conditions_NNS as_IN the_DT model_NN test_NN ._SENT 
+As_IN shown_VVN in_IN Fig_NN ._SENT 
+10_CD ,_, the_DT numerical_JJ model_NN is_VBZ composed_VVN of_IN the_DT target_NN ship_NN ,_, channel_NN wall_NN ,_, and_CC broken_VVN ice_NN floes_NNS ._SENT 
+Fig_NN ._SENT 
+10._CD Simulation_NP model_NN for_IN the_DT verification_NN test_NN ._SENT 
+The_DT results_NNS of_IN the_DT model_NN test_NN and_CC the_DT simulation_NN were_VBD compared_VVN in_IN terms_NNS of_IN ice_NN resistance_NN ._SENT 
+It_PP would_MD be_VB ideal_JJ to_TO directly_RB compare_VV the_DT amplitudes_NNS of_IN the_DT stresses_NNS required_VVN in_IN the_DT fatigue_NN calculations_NNS ,_, but_CC since_IN the_DT data_NN available_JJ is_VBZ limited_VVN ,_, the_DT numerical_JJ model_NN was_VBD verified_VVN using_VVG the_DT data_NNS derived_VVN from_IN the_DT ice_NN resistance_NN test_NN ._SENT 
+Fig_NN ._SENT 
+11_CD compares_VVZ the_DT results_NNS of_IN the_DT simulations_NNS with_IN the_DT model_NN tests_NNS in_IN terms_NNS of_IN the_DT ice_NN resistance_NN ._SENT 
+The_DT results_NNS show_VVP that_IN resistances_NNS increase_VV with_IN increasing_VVG ship_NN speed_NN and_CC ice_NN concentration_NN ,_, as_RB expected_VVN ._SENT 
+Despite_IN the_DT simplicity_NN of_IN the_DT simulation_NN ,_, a_DT good_JJ agreement_NN was_VBD found_VVN between_IN the_DT computed_VVN resistance_NN and_CC the_DT experimental_JJ measurements_NNS at_IN the_DT 60_CD %_NN ice_NN concentration_NN ._SENT 
+However_RB ,_, in_IN case_NN of_IN the_DT 80_CD %_NN concentration_NN ,_, some_DT deviations_NNS were_VBD found_VVN for_IN 0.119 m/sec_NP and_CC 0.595 m/sec_NP cases_NNS ._SENT 
+The_DT differences_NNS are_VBP believed_VVN to_TO be_VB due_JJ to_TO the_DT simplified_VVN interaction_NN modeling_NN ._SENT 
+Further_JJR research_NN is_VBZ needed_VVN to_TO derive_VV more_JJR realistic_JJ results_NNS ._SENT 
+In_IN addition_NN ,_, a_DT comparative_JJ study_NN is_VBZ recommended_VVN in_IN terms_NNS of_IN the_DT stress_NN amplitude_NN for_IN the_DT local_JJ structure_NN ._SENT 
+Fig_NN ._SENT 
+11._CD Result_NN of_IN the_DT verification_NN test_NN ._SENT 
+2.2_CD ._SENT 
+Calculation_NN of_IN stress_NN time_NN series_NN By_IN applying_VVG the_DT method_NN described_VVN in_IN Chapter_NP 2.1_CD ,_, a_DT time_NN series_NN of_IN contact_NN pressure_NN was_VBD calculated_VVN for_IN each_DT element_NN of_IN a_DT rigid_JJ body_NN ship_NN model_NN ._SENT 
+In_IN addition_NN ,_, to_TO determine_VV the_DT influence_NN of_IN the_DT contact_NN pressures_NNS on_IN the_DT target_NN fatigue_NN point_NN ,_, the_DT impulse_NN response_NN function_NN (_( IRF_NP )_) on_IN the_DT target_NN point_NN was_VBD applied_VVN ._SENT 
+A_DT time_NN series_NN of_IN stress_NN can_MD be_VB obtained_VVN by_IN applying_VVG the_DT convolution_NN integral_JJ to_TO the_DT calculated_JJ contact_NN pressure_NN and_CC the_DT IRF_NP ._SENT 
+When_WRB a_DT system_NN is_VBZ linear_JJ and_CC time_NN invariant_NN ,_, the_DT response_NN of_IN the_DT system_NN can_MD be_VB expressed_VVN in_IN terms_NNS of_IN an_DT IRF_NP through_IN a_DT convolution_NN equation_NN ._SENT 
+The_DT IRF_NP represents_VVZ the_DT response_NN of_IN the_DT system_NN to_TO an_DT instantaneous_JJ unit_NN impulse_NN applied_VVN at_IN the_DT origin_NN in_IN time_NN ._SENT 
+The_DT response_NN of_IN continuous_JJ linear_JJ systems_NNS can_MD be_VB expressed_VVN in_IN the_DT time_NN domain_NN using_VVG the_DT convolution_NN integral_JJ as_RB follows_VVZ :_: @(4_NP )_) where_WRB Δσij(t_NP )_) is_VBZ the_DT stress_NN of_IN target_NN point_NN i_NP by_IN the_DT contact_NN pressure_NN of_IN element_NN j_NN at_IN time_NN t._NP Fj(�_NP �_NP )_) is_VBZ the_DT contact_NN pressure_NN measured_VVN at_IN element_NN j._NP hij(t_NP )_) is_VBZ the_DT stress_NN of_IN target_NN point_NN i_NP that_WDT occurs_VVZ when_WRB a_DT unit_NN impulse_NN is_VBZ applied_VVN to_TO element_NN j._NN Because_IN the_DT stress_NN calculated_VVN by_IN Eqn_NP ._SENT 
+(_( 4_CD )_) is_VBZ a_DT value_NN for_IN one_CD element_NN of_IN the_DT outer-shell_NN ,_, the_DT stress_NN time_NN series_NN σi(t_NN )_) at_IN the_DT target_NN position_NN i_NP can_MD be_VB calculated_VVN using_VVG Eqn_NP ._SENT 
+(_( 5_CD )_) ._SENT 
+@(5_NP )_) where_WRB n_NN is_VBZ the_DT number_NN of_IN the_DT contacted_VVN elements_NNS on_IN the_DT outer-shell_NN at_IN time_NN t._NP A_NP verification_NN test_NN for_IN the_DT calculation_NN methodology_NN using_VVG a_DT simple_JJ model_NN was_VBD carried_VVN out_RP ._SENT 
+A_DT simplified_VVN ship_NN model_NN was_VBD made_VVN and_CC collided_VVN with_IN eight_CD rectangular_JJ ice_NN models_NNS ._SENT 
+In_IN one_CD case_NN ,_, the_DT stress_NN time_NN series_NN was_VBD extracted_VVN by_IN colliding_VVG ice_NN with_IN the_DT entire_JJ ship_NN structural_JJ model_NN composed_VVN of_IN deformable_JJ elements_NNS ._SENT 
+In_IN the_DT other_JJ case_NN ,_, the_DT calculation_NN was_VBD performed_VVN using_VVG the_DT convolution_NN integral_JJ used_VVN in_IN this_DT study_NN ,_, where_WRB the_DT calculation_NN processes_VVZ for_IN the_DT contact_NN pressure_NN and_CC the_DT IRF_NP were_VBD separated_VVN ._SENT 
+In_IN Fig_NN ._SENT 
+12_CD ,_, the_DT method_NN using_VVG the_DT convolution_NN integral_JJ was_VBD divided_VVN into_IN step_NN (_( a_DT )_) to_TO calculate_VV the_DT contact_NN pressure_NN and_CC step_VV (_( b_LS )_) to_TO calculate_VV the_DT IRF_NP ._SENT 
+In_IN Fig_NN ._SENT 
+12_CD (_( a_DT )_) ,_, the_DT time_NN series_NN of_IN the_DT contact_NN pressure_NN generated_VVN by_IN the_DT collision_NN between_IN the_DT ship_NN and_CC ice_NN floes_NNS is_VBZ shown_VVN by_IN each_DT element_NN of_IN the_DT outer-shell_NN ._SENT 
+Fig_NN ._SENT 
+12_CD (_( b_LS )_) presents_VVZ the_DT response_NN of_IN a_DT unit_NN impulse_NN applied_VVN to_TO the_DT outer-shell_NN in_IN the_DT form_NN of_IN pressure_NN ._SENT 
+Here_RB ,_, the_DT structure_NN model_NN was_VBD modeled_VVN as_IN a_DT deformable_JJ body_NN ,_, and_CC the_DT IRF_NP was_VBD obtained_VVN through_IN the_DT transient_JJ dynamic_JJ FE_NP analysis_NN ._SENT 
+The_DT applied_VVN critical_JJ damping_VVG ratio_NN was_VBD 0.5_CD %_NN ._SENT 
+Fig_NN ._SENT 
+13_CD presents_VVZ the_DT results_NNS of_IN the_DT verification_NN test_NN ._SENT 
+The_DT results_NNS of_IN the_DT analysis_NN using_VVG the_DT entire_JJ ship_NN structure_NN model_NN (_( 'Simulation_NN '_'' in_IN Fig_NN ._SENT 
+13_CD )_) and_CC the_DT results_NNS applying_VVG the_DT convolution_NN integral_JJ (_( ‘Convolution_NN '_'' in_IN Fig_NN ._SENT 
+13_CD )_) were_VBD almost_RB identical_JJ ._SENT 
+Fig_NN ._SENT 
+12._CD Verification_NP of_IN the_DT calculation_NN methodology_NN using_VVG the_DT convolution_NN integral_JJ ._SENT 
+Fig_NN ._SENT 
+13._CD Results_NNS of_IN the_DT verification_NN test_NN for_IN the_DT calculation_NN methodology_NN of_IN the_DT stress_NN history_NN ._SENT 
+2.3_CD ._SENT 
+Short-term_JJ distribution_NN of_IN the_DT stress_NN amplitude_NN Unlike_IN the_DT wave_NN induced_VVD fatigue_NN analysis_NN using_VVG the_DT stress_NN range_NN ,_, ice_NN induced_VVD fatigue_NN analysis_NN usually_RB employs_VVZ the_DT stress_NN amplitude_NN due_JJ to_TO the_DT characteristics_NNS of_IN the_DT ice_NN load_NN ,_, which_WDT tends_VVZ to_TO resemble_VV an_DT impulse_NN ._SENT 
+Therefore_RB ,_, the_DT stress_NN due_JJ to_TO the_DT ice_NN load_NN starts_VVZ from_IN zero_CD and_CC increases_VVZ until_IN it_PP reaches_VVZ the_DT peak_NN ,_, and_CC then_RB decreases_VVZ to_TO zero_VV again_RB in_IN a_DT triangular_JJ pattern_NN [_SYM 6,26_CD ]_SYM ._SENT 
+If_IN only_RB one_CD ice_NN floe_NN at_IN a_DT time_NN influences_VVZ the_DT target_NN position_NN ,_, the_DT stress_NN time_NN series_NN will_MD form_VV a_DT triangle_NN with_IN one_CD peak_NN ,_, however_RB ,_, in_IN practice_NN several_JJ ice_NN floes_NNS can_MD affect_VV the_DT target_NN position_NN simultaneously_RB ,_, so_RB it_PP can_MD show_VV a_DT time-series_NNS pattern_NN with_IN several_JJ peaks_NNS at_IN one_CD time_NN [_SYM 27_CD ]_SYM ._SENT 
+Therefore_RB ,_, in_IN this_DT study_NN ,_, only_RB the_DT largest_JJS peak_NN on_IN one_CD triangle_NN pattern_NN was_VBD extracted_VVN and_CC used_VVN in_IN probabilistic_JJ analysis_NN ._SENT 
+Fig_NN ._SENT 
+14_CD shows_NNS the_DT peak_NN separation_NN to_TO distinguish_VV ice_NN loads_NNS ._SENT 
+The_DT peaks_NNS were_VBD identified_VVN within_IN the_DT predefined_JJ minimum_JJ peak_NN distance_NN ,_, which_WDT was_VBD estimated_VVN from_IN the_DT calculated_JJ data_NNS ._SENT 
+Fig_NN ._SENT 
+14._CD Peak_NP separation_NN to_TO distinguish_VV the_DT ice_NN loads_NNS ._SENT 
+Generally_RB ,_, a_DT fatigue_NN damage_NN evaluation_NN is_VBZ based_VVN on_IN the_DT S-N_NP data_NNS in_IN association_NN with_IN the_DT Palmgren-Miner_NN rule_NN ._SENT 
+When_WRB the_DT time_NN series_NN of_IN ice-induced_JJ stress_NN amplitudes_NNS are_VBP available_JJ ,_, the_DT total_JJ fatigue_NN damage_NN can_MD be_VB calculated_VVN directly_RB by_IN summing_VVG the_DT fatigue_NN damage_NN of_IN all_DT stress_NN cycles_NNS according_VVG to_TO the_DT linear_JJ Palmgren-Miner_NN cumulative_JJ rule_NN ._SENT 
+On_IN the_DT other_JJ hand_NN ,_, fatigue_NN damage_NN can_MD also_RB be_VB calculated_VVN in_IN probabilistic_JJ ways_NNS when_WRB the_DT distributions_NNS of_IN the_DT stress_NN amplitudes_NNS are_VBP known_VVN ._SENT 
+This_DT method_NN is_VBZ used_VVN widely_RB to_TO predict_VV the_DT fatigue_NN life_NN of_IN ships_NNS and_CC offshore_JJ structures_NNS at_IN the_DT design_NN stage_NN [_SYM 2,28_CD ]_SYM ._SENT 
+The_DT probabilistic_JJ models_NNS used_VVN to_TO predict_VV the_DT probability_NN distribution_NN of_IN peaks_NNS in_IN ice_NN loads_NNS are_VBP the_DT Weibull_JJ distribution_NN [_SYM 6,29_CD ]_SYM ,_, exponential_JJ distribution_NN ,_, and_CC lognormal_JJ distribution_NN [_SYM 30_CD ]_SYM ._SENT 
+In_IN Kujala_NP et_CC al_NP ._SENT 
+[_SYM 31_CD ]_SYM ;_: the_DT exponential_NN ,_, gamma_NN ,_, and_CC Weibull_JJ distributions_NNS were_VBD applied_VVN to_TO the_DT field_NN measurement_NN data_NNS ,_, and_CC the_DT Weibull_JJ distribution_NN with_IN a_DT shape_NN parameter_NN of_IN 0.75_CD was_VBD found_VVN to_TO fit_VV best_JJS with_IN the_DT measurements_NNS ._SENT 
+Su_NP et_NP al_NP ._SENT 
+[_SYM 32_CD ]_SYM reported_VVD that_IN the_DT ice_NN loads_NNS derived_VVN from_IN numerical_JJ analysis_NN agree_VVP well_RB with_IN the_DT Weibull_JJ distribution_NN with_IN the_DT shape_NN parameter_NN of_IN 0.75_CD ._SENT 
+The_DT Weibull_JJ model_NN can_MD be_VB divided_VVN into_IN a_DT 2-parameter_NN Weibull_NN model_NN and_CC 3-parameter_NN Weibull_NN model_NN depending_VVG on_IN the_DT presence_NN of_IN the_DT location_NN parameter_NN ._SENT 
+The_DT probability_NN density_NN functions_NNS of_IN each_DT model_NN are_VBP given_VVN by_IN Eqns_NNS ._SENT 
+(_( 6_CD )_) ,_, (_( 7_CD )_) ._SENT 
+@(6_NP )_) @(7_JJ )_) where_WRB fs(S_NPS )_) is_VBZ the_DT probability_NN density_NN function_NN of_IN the_DT stress_NN amplitude_NN S._NP h_NN is_VBZ the_DT Weibull_JJ shape_NN parameter_NN ,_, and_CC q_NN and_CC γ_NN are_VBP the_DT Weibull_JJ scale_NN parameter_NN and_CC Weibull_JJ location_NN parameter_NN ,_, respectively_RB ._SENT 
+The_DT location_NN parameter_NN is_VBZ also_RB referred_VVN to_TO as_IN the_DT threshold_NN parameter_NN because_IN no_DT failure_NN occurs_VVZ before_IN the_DT variable_JJ S_NP exceeds_VVZ the_DT location_NN parameter_NN γ_NP [_SYM 33_CD ]_SYM ._SENT 
+The_DT parameters_NNS of_IN the_DT models_NNS were_VBD estimated_VVN by_IN the_DT maximum_JJ likelihood_NN estimators_NNS (_( MLE_NP )_) ._SENT 
+2.4_CD ._SENT 
+Calculation_NN of_IN fatigue_NN damage_NN Fatigue_NN is_VBZ a_DT cumulative_JJ damage_NN process_NN due_JJ to_TO cyclic_JJ loading_NN ._SENT 
+Operating_VVG in_IN ice-covered_JJ waters_NNS creates_VVZ loadings_NNS which_WDT are_VBP cyclic_JJ nature_NN on_IN ship_NN hulls_NNS ._SENT 
+When_WRB navigating_VVG independently_RB in_IN level_NN ice_NN ,_, the_DT ship_NN is_VBZ in_IN contact_NN with_IN ice_NN and_CC breaks_VVZ it_PP into_IN small_JJ pieces_NNS ._SENT 
+Then_RB the_DT ship_NN comes_VVZ into_IN contact_NN with_IN more_JJR solid_JJ ice_NN during_IN the_DT process_NN and_CC breaks_VVZ that_IN into_IN small_JJ pieces_NNS ._SENT 
+When_WRB a_DT ship_NN is_VBZ navigating_VVG in_IN a_DT channel_NN made_VVN by_IN an_DT icebreaker_NN or_CC behind_IN an_DT icebreaker_NN ,_, the_DT broken_VVN ice_NN pieces_NNS repeatedly_RB impact_VV the_DT ship_NN hull_NN ._SENT 
+Consequently_RB ,_, the_DT ice_NN load_NN causes_VVZ stress_NN cycles_NNS that_WDT can_MD give_VV rise_VV to_TO fatigue_VV damage_NN of_IN ship_NN structural_JJ members_NNS [_SYM 34_CD ]_SYM ._SENT 
+As_IN a_DT ship_NN may_MD encounter_VV a_DT variety_NN of_IN stationary_JJ conditions_NNS ,_, the_DT total_JJ fatigue_NN damage_NN (_( D_NP )_) can_MD be_VB estimated_VVN by_IN accumulating_VVG a_DT number_NN of_IN fatigue_NN damage_NN contributions_NNS (_( Dj_NP )_) ._SENT 
+@(8_NP )_) where_WRB t_NN is_VBZ the_DT number_NN of_IN stationary_JJ conditions_NNS ._SENT 
+According_VVG to_TO the_DT Palmgen-Miner_NN rule_NN ,_, the_DT fatigue_NN damage_NN during_IN a_DT particular_JJ stationary_JJ condition_NN (_( Dj_NP )_) can_MD be_VB estimated_VVN as_IN Eq_NP ._SENT 
+(_( 9_CD )_) ._SENT 
+@(9_NP )_) where_WRB w_NN is_VBZ the_DT number_NN of_IN stress_NN blocks_NNS ._SENT 
+ni_NP is_VBZ the_DT number_NN of_IN stress_NN cycles_NNS in_IN stress_NN block_NN i._NP Ni_NP is_VBZ the_DT number_NN of_IN cycles_NNS to_TO failure_NN at_IN a_DT constant_JJ stress_NN range_NN Si_NP ,_, which_WDT is_VBZ given_VVN by_IN the_DT S-N_NP curve_NN as_IN Eqn_NP ._SENT 
+(_( 10_CD )_) ._SENT 
+@(10_NP )_) where_WRB K_NP and_CC m_NN are_VBP parameters_NNS defining_VVG the_DT S-N_NP curve_NN ._SENT 
+Fatigue_NN damage_NN for_IN each_DT condition_NN can_MD be_VB obtained_VVN by_IN inserting_VVG Eqn_NP ._SENT 
+(_( 10_CD )_) ,_, (_( 9_CD )_) ,_, and_CC expressed_VVD in_IN a_DT probabilistic_JJ manner_NN as_IN Eqns_NNS ._SENT 
+(_( 11_CD )_) ,_, (_( 12_CD )_) ._SENT 
+The_DT mean_JJ stress_NN effect_NN was_VBD not_RB considered_VVN ._SENT 
+@(11_JJ )_) @(12_NN )_) where_WRB NT_NP is_VBZ the_DT total_JJ number_NN of_IN stress_NN cycles_NNS and_CC can_MD be_VB expressed_VVN as_IN the_DT total_JJ number_NN of_IN ice_NN impacts_NNS ._SENT 
+Therefore_RB ,_, it_PP can_MD be_VB expressed_VVN as_IN Eqn_NP ._SENT 
+(_( 13_CD )_) as_IN the_DT product_NN of_IN the_DT impact_NN frequency_NN vd_NNS and_CC the_DT travel_NN distance_NN (_( d_LS )_) ._SENT 
+@(13_NP )_) A_DT particular_JJ stationary_JJ condition_NN refers_VVZ to_TO constant_JJ ship_NN speed_NN and_CC also_RB constant_JJ ice_NN condition_NN ._SENT 
+The_DT ice_NN conditions_NNS can_MD be_VB expressed_VVN by_IN several_JJ factors_NNS such_JJ as_IN ice_NN thickness_NN ,_, concentration_NN ,_, ridge_NN thickness_NN and_CC ridge_NN occurrence_NN rate_NN [_SYM 6_CD ]_SYM ._SENT 
+In_IN this_DT study_NN ,_, the_DT ice_NN condition_NN was_VBD described_VVN by_IN the_DT equivalent_JJ ice_NN thickness_NN which_WDT considers_VVZ all_DT of_IN these_DT factors_NNS for_IN simplicity_NN ._SENT 
+According_VVG to_TO Zhang_NP et_CC al_NP ._SENT 
+[_SYM 2_CD ]_SYM ;_: the_DT impact_NN frequency_NN can_MD be_VB expressed_VVN as_IN a_DT function_NN of_IN the_DT ice_NN thickness_NN as_IN Eqn_NP ._SENT 
+(_( 14_CD )_) ._SENT 
+@(14_NP )_) where_WRB heq_NP is_VBZ the_DT equivalent_JJ ice_NN thickness_NN [_SYM 35_CD ]_SYM ,_, and_CC Cregion_NN is_VBZ a_DT hull_NN region_NN factor_NN as_IN defined_VVN in_IN Lloyd_NP 's_POS Resister_NN [_SYM 5_CD ]_SYM ._SENT 
+Eqn_NP ._SENT 
+(_( 12_CD )_) can_MD be_VB expressed_VVN using_VVG 2-parameter_NN and_CC 3-parameter_NN Weibull_NN models_NNS as_IN Eqns_NNS ._SENT 
+(_( 15_CD )_) ,_, (_( 16_CD )_) ,_, respectively_RB ._SENT 
+@(15_NP )_) @(16_NN )_) Assuming_VVG m_NN is_VBZ an_DT integer_NN ,_, the_DT Binomial_JJ theorem_NN and_CC gamma_NN function_NN can_MD then_RB be_VB applied_VVN to_TO the_DT given_VVN analytical_JJ values_NNS of_IN Eqns_NNS ._SENT 
+(_( 15_CD )_) ,_, (_( 16_CD )_) ._SENT 
+Finally_RB ,_, the_DT equations_NNS for_IN fatigue_NN damage_NN can_MD be_VB derived_VVN based_VVN on_IN the_DT two-parameter_NN and_CC three-parameter_NN Weibull_NN models_NNS as_IN Eqns_NNS ._SENT 
+(_( 17_CD )_) ,_, (_( 18_CD )_) ._SENT 
+@(17_JJ )_) @(18_NN )_) where_WRB Γ(_NP )_) is_VBZ the_DT gamma_NN function_NN ._SENT 
+<Section> 3._CD Short-term_JJ distribution_NN of_IN stress_NN due_JJ to_TO ice_NN loads_NNS </Section> The_DT short-term_JJ distribution_NN of_IN stress_NN developed_VVN by_IN an_DT ice_NN collision_NN was_VBD calculated_VVN using_VVG the_DT proposed_VVN numerical_JJ method_NN ._SENT 
+As_IN a_DT starting_VVG step_NN for_IN calculating_VVG the_DT fatigue_NN life_NN of_IN a_DT ship_NN navigating_VVG the_DT Baltic_NP Sea_NP ,_, which_WDT is_VBZ the_DT target_NN of_IN this_DT study_NN ,_, a_DT series_NN of_IN calculations_NNS were_VBD performed_VVN under_IN several_JJ conditions_NNS that_IN the_DT target_NN ship_NN can_MD experience_VV during_IN navigation_NN through_IN the_DT Baltic_NP Sea_NP ._SENT 
+The_DT probability_NN distribution_NN of_IN the_DT stress_NN amplitude_NN was_VBD derived_VVN under_IN different_JJ conditions_NNS and_CC the_DT tendency_NN of_IN the_DT derived_VVN Weibull_NN parameters_NNS was_VBD examined_VVN ._SENT 
+The_DT Weibull_NP parameters_NNS derived_VVD here_RB were_VBD applied_VVN to_TO the_DT fatigue_NN calculations_NNS considering_VVG the_DT actual_JJ environmental_JJ conditions_NNS in_IN Chapter_NP 4._CD 3.1_CD ._SENT 
+Analysis_NN condition_NN In_IN this_DT study_NN ,_, the_DT ice_NN thickness_NN ,_, ship_NN velocity_NN ,_, and_CC ice_NN concentration_NN were_VBD considered_VVN as_IN variables_NNS because_IN the_DT target_NN ice_NN condition_NN is_VBZ the_DT managed_JJ broken_VVN ice_NN ._SENT 
+Because_IN the_DT ice_NN used_VVN in_IN this_DT study_NN is_VBZ assumed_VVN to_TO be_VB first-year_JJ ice_NN ,_, the_DT thicknesses_NNS used_VVN for_IN the_DT fatigue_NN analysis_NN were_VBD set_VVN to_TO 0.3_CD ,_, 0.6_CD and_CC 0.9 m_NP ._SENT 
+In_IN case_NN of_IN the_DT ice_NN concentration_NN ,_, the_DT case_NN studies_NNS for_IN a_DT 40_CD %_NN ,_, 60_CD %_NN and_CC 80_CD %_NN ice_NN concentration_NN were_VBD added_VVN because_IN it_PP can_MD be_VB an_DT important_JJ variable_NN due_JJ to_TO the_DT characteristics_NNS of_IN managed_JJ broken_VVN ice_NN ._SENT 
+In_IN the_DT case_NN of_IN the_DT ship_NN speed_NN ,_, 4_CD knots_NNS ,_, 6_CD knots_NNS and_CC 8_CD knots_NNS were_VBD applied_VVN for_IN the_DT case_NN study_NN ._SENT 
+Table_NN 2_CD lists_NNS the_DT analysis_NN cases_NNS for_IN fatigue_NN analysis_NN ._SENT 
+Table_NN 2._CD Analysis_NN conditions_NNS for_IN fatigue_NN analysis_NN ._SENT 
+3.2_CD ._SENT 
+Finite_JJ element_NN modeling_VVG 3.2.1_CD ._SENT 
+Target_NN vessel_NN The_DT target_NN vessel_NN used_VVN in_IN this_DT study_NN is_VBZ the_DT Korean_JJ icebreaking_JJ research_NN vessel_NN (_( IBRV_NP )_) ,_, Araon_NP ._SENT 
+For_IN comparison_NN with_IN the_DT LR_NP method_NN ,_, an_DT ice-strengthened_JJ ship_NN should_MD be_VB applied_VVN ._SENT 
+However_RB ,_, icebreaker_NN model_NN was_VBD applied_VVN in_IN this_DT study_NN due_JJ to_TO the_DT limitation_NN on_IN the_DT available_JJ data_NNS and_CC model_NN ._SENT 
+In_IN this_DT sense_NN ,_, the_DT comparison_NN with_IN LR_NP method_NN needs_VVZ to_TO be_VB understood_VVN as_IN the_DT validation_NN of_IN the_DT appropriateness_NN of_IN the_DT proposed_VVN method_NN ,_, rather_RB than_IN accuracy_NN check_NN ._SENT 
+Fig_NN ._SENT 
+15_CD presents_VVZ the_DT finite_JJ element_NN model_NN of_IN Araon_NP ._SENT 
+Assuming_VVG most_JJS ice_NN loads_NNS affect_VVP the_DT bow_NN region_NN of_IN the_DT ship_NN ,_, only_RB the_DT fore_NN model_NN was_VBD used_VVN ._SENT 
+The_DT model_NN range_NN was_VBD set_VVN to_TO be_VB large_JJ enough_RB to_TO minimize_VV the_DT boundary_NN effects_NNS on_IN the_DT results_NNS and_CC the_DT fully_RB fixed_VVN boundary_NN condition_NN was_VBD applied_VVN to_TO the_DT plane_NN of_IN the_DT cut_NN ._SENT 
+Table_NN 3_CD lists_NNS the_DT main_JJ particulars_NNS of_IN the_DT ship_NN ._SENT 
+Fig_NN ._SENT 
+15._CD Finite_JJ element_NN model_NN for_IN the_DT fore_NN part_NN of_IN Araon_NP ._SENT 
+Table_NN 3._CD Main_JJ particulars_NNS of_IN Araon_NP ._SENT 
+3.2.2_CD ._SENT 
+Periodic_JJ media_NNS analysis_NN model_NN The_DT periodic_JJ media_NN analysis_NN method_NN was_VBD applied_VVN to_TO the_DT finite_JJ element_NN model_NN to_TO reduce_VV the_DT analysis_NN time_NN ._SENT 
+To_TO apply_VV this_DT technique_NN to_TO a_DT broken_VVN ice_NN field_NN ,_, it_PP is_VBZ necessary_JJ to_TO make_VV appropriate_JJ modifications_NNS to_TO the_DT method_NN ._SENT 
+First_RB ,_, all_DT blocks_NNS in_IN this_DT technology_NN must_MD be_VB connected_VVN ,_, but_CC the_DT broken_VVN ice_NN field_NN in_IN this_DT study_NN is_VBZ comprised_VVN of_IN a_DT number_NN of_IN discrete_JJ elements_NNS ._SENT 
+To_TO solve_VV this_DT problem_NN ,_, a_DT virtual_JJ belt_NN to_TO connect_VV all_PDT the_DT blocks_NNS together_RB was_VBD made_VVN ,_, as_RB shown_VVN in_IN Fig_NN ._SENT 
+16._CD The_DT virtual_JJ belt_NN and_CC ice_NN floes_NNS were_VBD included_VVN as_IN a_DT single_JJ block_NN ._SENT 
+Therefore_RB ,_, the_DT virtual_JJ belt_NN continues_VVZ to_TO move_VV like_IN a_DT conveyor_NN belt_NN ,_, and_CC the_DT ice_NN floes_NNS virtually_RB linked_VVN to_TO the_DT belt_NN repeat_VV the_DT shuffling_VVG process_NN according_VVG to_TO the_DT movement_NN of_IN the_DT belt_NN ._SENT 
+Fig_NN ._SENT 
+16._CD Block_NN for_IN the_DT periodic_JJ media_NN analysis_NN of_IN broken_VVN ice_NN fields_NNS (_( 80_CD %_NN ice_NN concentration_NN )_) ._SENT 
+Fig_NN ._SENT 
+17_CD shows_NNS the_DT whole_JJ finite_JJ element_NN analysis_NN model_NN using_VVG the_DT periodic_JJ media_NN analysis_NN method_NN ._SENT 
+The_DT width_NN and_CC length_NN of_IN the_DT channel_NN applied_VVN in_IN this_DT study_NN was_VBD 80 m_NP and_CC 600 m_NP ,_, respectively_RB ,_, and_CC the_DT boundary_NN was_VBD not_RB considered_VVN on_IN both_DT sides_NNS of_IN the_DT channel_NN ._SENT 
+The_DT entire_JJ model_NN consisted_VVN of_IN three_CD blocks_NNS ._SENT 
+Because_IN each_DT block_NN repeatedly_RB disappears_VVZ and_CC reappears_VVZ ,_, the_DT length_NN of_IN each_DT block_NN was_VBD set_VVN to_TO be_VB long_RB enough_JJ for_IN the_DT continuity_NN of_IN analysis_NN ._SENT 
+In_IN addition_NN ,_, instead_RB of_IN moving_VVG the_DT ship_NN ,_, the_DT ice_NN floes_NNS were_VBD moved_VVN at_IN the_DT speed_NN of_IN the_DT ship_NN ,_, which_WDT was_VBD realized_VVN by_IN the_DT downstream_JJ current_NN of_IN the_DT same_JJ speed_NN ._SENT 
+Fig_NN ._SENT 
+18_CD presents_NNS a_DT snap-shot_NN of_IN the_DT shuffling_NN moment_NN ._SENT 
+After_IN shuffling_NN ,_, the_DT ice_NN floes_NNS that_WDT have_VHP already_RB passed_VVN the_DT ship_NN after_IN colliding_VVG ,_, disappear_VV and_CC are_VBP arranged_VVN and_CC attached_VVN to_TO the_DT end_NN of_IN the_DT last_JJ block_NN for_IN the_DT next_JJ turn_NN ._SENT 
+Fig_NN ._SENT 
+17._CD Entire_JJ finite_JJ element_NN model_NN considering_VVG the_DT periodic_JJ media_NN analysis_NN ._SENT 
+Fig_NN ._SENT 
+18._CD Snap-shots_NNS of_IN the_DT shuffling_NN moments_NNS (_( before_IN &_CC after_IN shuffling_NN )_) ._SENT 
+A_DT question_NN may_MD be_VB asked_VVN as_IN to_TO whether_IN the_DT response_NN is_VBZ also_RB repeated_VVN at_IN a_DT constant_JJ cycle_NN because_IN the_DT same_JJ blocks_NNS continue_VVP to_TO repeat_VV ._SENT 
+On_IN the_DT other_JJ hand_NN ,_, because_IN the_DT ice_NN floes_NNS in_IN front_NN of_IN the_DT ship_NN are_VBP disturbed_VVN by_IN the_DT ship_NN and_CC other_JJ ice_NN floes_NNS ,_, the_DT load_NN that_IN the_DT ship_NN experiences_NNS is_VBZ not_RB expected_VVN to_TO repeat_VV ,_, as_IN shown_VVN in_IN Fig_NN ._SENT 
+18._CD To_TO confirm_VV this_DT numerically_RB ,_, an_DT autocorrelation_NN of_IN the_DT reaction_NN forces_NNS measured_VVN in_IN the_DT time_NN domain_NN was_VBD analyzed_VVN while_IN shuffling_NN was_VBD repeated_VVN using_VVG the_DT periodic_JJ media_NN analysis_NN technique_NN ,_, as_RB shown_VVN in_IN Fig_NN ._SENT 
+19._CD As_IN a_DT result_NN ,_, no_DT periodicity_NN was_VBD observed_VVN in_IN the_DT autocorrelation_NN results_NNS ,_, confirming_VVG the_DT randomness_NN of_IN the_DT ice_NN loads_NNS during_IN the_DT analysis_NN time_NN ._SENT 
+Fig_NN ._SENT 
+19._CD Reaction_NN forces_NNS measured_VVN at_IN the_DT ship_NN and_CC autocorrelation_NN results_NNS ._SENT 
+3.2.3_CD ._SENT 
+Screening_NN analysis_NN and_CC fine_JJ mesh_NN model_NN To_TO select_VV the_DT target_NN position_NN to_TO calculate_VV the_DT fatigue_NN damage_NN ,_, the_DT distribution_NN of_IN the_DT contact_NN pressures_NNS according_VVG to_TO the_DT position_NN on_IN the_DT outer-shell_NN of_IN the_DT ship_NN model_NN was_VBD checked_VVN ._SENT 
+Generally_RB ,_, several_JJ fatigue_NN points_NNS are_VBP selected_VVN based_VVN on_IN various_JJ conditions_NNS ,_, and_CC also_RB the_DT number_NN of_IN cycles_NNS and_CC the_DT stress_NN of_IN the_DT target_NN position_NN should_MD be_VB considered_VVN together_RB in_IN the_DT screening_NN process_NN ._SENT 
+However_RB ,_, the_DT purpose_NN of_IN this_DT study_NN is_VBZ to_TO introduce_VV the_DT developed_VVN methodology_NN ,_, so_RB only_RB one_CD point_NN was_VBD selected_VVN where_WRB the_DT greatest_JJS contact_NN pressure_NN is_VBZ derived_VVN for_IN one_CD arbitrarily_RB selected_VVN condition_NN for_IN simplicity_NN ._SENT 
+Also_RB ,_, the_DT number_NN of_IN cycles_NNS were_VBD not_RB considered_VVN in_IN this_DT screening_NN analysis_NN ._SENT 
+The_DT checked_VVN condition_NN was_VBD 0.9 m_NN in_IN thickness_NN ,_, 60_CD %_NN concentration_NN and_CC a_DT 4_CD knots_NNS speed_NN ,_, and_CC the_DT analysis_NN lasted_VVD for_IN 300 s_NP ._SENT 
+Fig_NN ._SENT 
+20_CD shows_NNS the_DT set_NN of_IN locations_NNS of_IN the_DT impacts_NNS in_IN plan_NN view_NN ._SENT 
+The_DT small_JJ dots_NNS are_VBP the_DT nodal_JJ points_NNS of_IN the_DT ship_NN elements_NNS ,_, and_CC the_DT red_JJ circles_NNS are_VBP the_DT points_NNS that_WDT experienced_VVD the_DT upper_JJ 1_CD %_NN contact_NN pressure_NN ._SENT 
+The_DT maximum_JJ values_NNS acting_VVG on_IN each_DT node_NN during_IN the_DT analysis_NN time_NN were_VBD sorted_VVN ,_, and_CC only_RB the_DT top_JJ 1_CD %_NN are_VBP represented_VVN by_IN circles_NNS ._SENT 
+It_PP was_VBD observed_VVN that_DT majority_NN of_IN red_JJ circles_NNS are_VBP located_VVN in_IN the_DT vicinity_NN of_IN the_DT forebody_NN centerline_NN ._SENT 
+However_RB ,_, these_DT points_NNS were_VBD simply_RB excluded_VVN from_IN the_DT fatigue_NN analysis_NN candidates_NNS because_IN it_PP is_VBZ thought_VVN that_IN this_DT area_NN is_VBZ structurally_RB strong_JJ ,_, and_CC the_DT risk_NN of_IN fatigue_NN damage_NN is_VBZ very_RB small_JJ ._SENT 
+Finally_RB ,_, the_DT point_NN indicated_VVD by_IN the_DT arrow_NN was_VBD selected_VVN as_IN the_DT target_NN position_NN ._SENT 
+Fig_NN ._SENT 
+20._CD Screening_NN analysis_NN for_IN the_DT fatigue_NN analysis_NN ._SENT 
+Fig_NN ._SENT 
+21_CD shows_NNS a_DT drawing_NN of_IN the_DT frame_NN selected_VVN by_IN the_DT screening_NN analysis_NN ,_, and_CC the_DT selected_JJ welded_VVN point_VVP closest_JJS to_TO the_DT draft_NN is_VBZ presented_VVN ._SENT 
+Fig_NN ._SENT 
+22_CD presents_VVZ the_DT fine_JJ mesh_NN of_IN the_DT fatigue_NN point_NN ._SENT 
+To_TO derive_VV the_DT hot_JJ spot_NN stress_NN ,_, a_DT mesh_NN density_NN in_IN the_DT order_NN of_IN t × t_NP ,_, where_WRB t_NN is_VBZ the_DT plate_NN thickness_NN ,_, was_VBD applied_VVN [_SYM 36_CD ]_SYM ._SENT 
+Fig_NN ._SENT 
+21._CD Fatigue_NN point_NN selected_VVN by_IN screening_NN analysis_NN ._SENT 
+Fig_NN ._SENT 
+22._CD Finite_JJ element_NN model_NN for_IN the_DT fatigue_NN point_NN modeled_VVN by_IN fine_JJ meshes_NNS ._SENT 
+3.3_CD ._SENT 
+Short-term_JJ distribution_NN of_IN the_DT hot_JJ spot_NN stress_NN amplitude_NN A_DT series_NN of_IN numerical_JJ analyses_NNS were_VBD performed_VVN using_VVG the_DT method_NN proposed_VVN in_IN this_DT study_NN ,_, and_CC time_NN series_NN of_IN the_DT stress_NN amplitudes_NNS at_IN the_DT target_NN position_NN were_VBD calculated_VVN ._SENT 
+Considering_VVG the_DT different_JJ thicknesses_NNS ,_, concentration_NN ,_, and_CC speed_NN summarized_VVD in_IN Table_NN 2_CD ,_, all_DT cases_NNS were_VBD combined_VVN ,_, and_CC a_DT total_NN of_IN 27_CD cases_NNS were_VBD analyzed_VVN ._SENT 
+To_TO find_VV the_DT time_NN required_VVN for_IN appropriate_JJ analysis_NN to_TO obtain_VV the_DT stochastic_JJ characteristics_NNS ,_, as_RB shown_VVN in_IN Fig_NN ._SENT 
+23_CD ,_, the_DT convergence_NN of_IN the_DT Weibull_JJ fitting_NN was_VBD examined_VVN by_IN varying_VVG the_DT analysis_NN time_NN ._SENT 
+The_DT 2-parameter_NN Weibull_NN model_NN was_VBD applied_VVN based_VVN on_IN the_DT following_VVG conditions_NNS :_: 0.9 m_NN thickness_NN ,_, 40_CD %_NN concentration_NN ,_, and_CC 4_CD knots_NNS ship_NN speed_NN ,_, where_WRB the_DT number_NN of_IN impacts_NNS is_VBZ the_DT smallest_JJS ._SENT 
+As_IN a_DT result_NN ,_, the_DT Weibull_NP curve_NN converged_VVD almost_RB immediately_RB after_IN 15 min_NN so_IN the_DT analysis_NN time_NN was_VBD determined_VVN to_TO be_VB 20 min_JJ ._SENT 
+In_IN addition_NN ,_, the_DT results_NNS were_VBD fitted_VVN using_VVG the_DT 2-parameter_NN and_CC 3-parameter_NN Weibull_NN model_NN based_VVN on_IN a_DT 0.9 m_NN thickness_NN ,_, 80_CD %_NN concentration_NN ,_, and_CC 4_CD knots_NNS ship_NN speed_NN ,_, as_RB shown_VVN in_IN Fig_NN ._SENT 
+24._CD As_IN a_DT result_NN ,_, the_DT 3-parameter_NN model_NN approximated_VVD the_DT tail_NN part_NN better_JJR than_IN the_DT 2-parameter_NN model_NN ._SENT 
+On_IN the_DT other_JJ hand_NN ,_, the_DT denser_JJR part_NN of_IN the_DT data_NNS fitted_VVD the_DT 2-parameter_NN model_NN better_RBR ._SENT 
+This_DT trend_NN makes_VVZ the_DT 2-parameter_NN Weibull_NN model_NN underestimate_VVP the_DT extreme_JJ values_NNS ._SENT 
+On_IN the_DT other_JJ hand_NN ,_, the_DT 2-parameter_NN model_NN is_VBZ better_RBR suited_VVN for_IN the_DT fatigue_NN problem_NN because_IN the_DT stresses_NNS at_IN the_DT intermediate_JJ level_NN with_IN a_DT large_JJ number_NN of_IN cycles_NNS are_VBP more_RBR important_JJ ._SENT 
+Fig_NN ._SENT 
+23._CD Weibull_JJ plots_NNS according_VVG to_TO various_JJ analysis_NN time_NN ._SENT 
+Fig_NN ._SENT 
+24._CD Weibull_JJ plots_NNS according_VVG to_TO the_DT number_NN of_IN parameters_NNS ._SENT 
+Fig_NN ._SENT 
+25_CD presents_VVZ example_NN plots_NNS of_IN the_DT stress_NN histories_NNS obtained_VVD using_VVG the_DT proposed_VVN numerical_JJ method_NN ._SENT 
+The_DT figure_NN shows_VVZ considerable_JJ spikiness_NN ,_, which_WDT is_VBZ caused_VVN by_IN the_DT collisions_NNS of_IN ice_NN floes_NNS near_IN the_DT area_NN of_IN investigation_NN ._SENT 
+Fig_NN ._SENT 
+26_CD gives_VVZ some_DT examples_NNS of_IN 2-parameter_NN Weibull_NN plots_NNS ._SENT 
+The_DT fits_NNS are_VBP sometimes_RB poor_JJ ,_, especially_RB for_IN the_DT tail_JJ part_NN ,_, but_CC their_PP$ influence_NN is_VBZ expected_VVN to_TO be_VB quite_RB limited_VVN because_IN of_IN the_DT few_JJ cycles_NNS of_IN those_DT large_JJ stress_NN amplitudes_NNS ._SENT 
+Fig_NN ._SENT 
+27_CD summarizes_VVZ the_DT Weibull_JJ scale_NN parameters_NNS derived_VVN for_IN all_DT cases_NNS considered_VVN in_IN this_DT study_NN ._SENT 
+The_DT x-axis_NN is_VBZ fixed_VVN to_TO the_DT ice_NN thickness_NN ,_, which_WDT is_VBZ considered_VVN to_TO be_VB the_DT most_RBS important_JJ variable_NN in_IN ice-induced_JJ fatigue_NN ._SENT 
+As_IN a_DT result_NN ,_, the_DT Weibull_JJ scale_NN parameter_NN increased_VVN with_IN increasing_VVG ice_NN thickness_NN in_IN all_DT cases_NNS ._SENT 
+Fig_NN ._SENT 
+27_CD (_( a_DT )_) ,_, (_( c_LS )_) ,_, and_CC (_( e_NN )_) show_VVP that_IN the_DT Weibull_JJ scale_NN parameter_NN also_RB increases_VVZ with_IN increasing_VVG ship_NN speed_NN ._SENT 
+On_IN the_DT other_JJ hand_NN ,_, Fig_NN ._SENT 
+27_CD (_( b_LS )_) ,_, (_( d_LS )_) ,_, and_CC (_( f_LS )_) shows_VVZ that_IN the_DT relationship_NN between_IN ice_NN concentration_NN and_CC the_DT Weibull_JJ scale_NN parameter_NN is_VBZ not_RB linear_JJ in_IN some_DT cases_NNS ,_, particularly_RB in_IN small_JJ thickness_NN cases_NNS ._SENT 
+In_IN Fig_NN ._SENT 
+28_CD ,_, the_DT tendency_NN of_IN the_DT Weibull_JJ scale_NN parameters_NNS according_VVG to_TO the_DT various_JJ conditions_NNS was_VBD examined_VVN using_VVG the_DT mean_JJ and_CC standard_JJ deviation_NN under_IN each_DT condition_NN ._SENT 
+Here_RB ,_, circles_NNS and_CC bars_NNS represent_VVP mean_JJ and_CC standard_JJ deviation_NN ,_, respectively_RB ._SENT 
+As_IN a_DT result_NN ,_, the_DT Weibull_JJ scale_NN parameter_NN increased_VVN with_IN increasing_VVG ice_NN thickness_NN ,_, concentration_NN ,_, and_CC ship_NN speed_NN ._SENT 
+In_IN addition_NN ,_, the_DT standard_JJ deviation_NN also_RB increases_VVZ with_IN increasing_VVG condition_NN ._SENT 
+Fig_NN ._SENT 
+25._CD Stress_NN histories_NNS under_IN different_JJ ice_NN conditions_NNS ._SENT 
+Fig_NN ._SENT 
+26._CD Weibull_JJ plots_NNS of_IN the_DT calculated_VVN data_NNS under_IN different_JJ ice_NN conditions_NNS ._SENT 
+Fig_NN ._SENT 
+26._CD Weibull_JJ plots_NNS of_IN the_DT calculated_VVN data_NNS under_IN different_JJ ice_NN conditions_NNS ._SENT 
+Fig_NN ._SENT 
+28._CD Tendency_NN of_IN the_DT Weibull_JJ scale_NN parameters_NNS simulated_JJ under_IN different_JJ ice_NN conditions_NNS ._SENT 
+Fig_NN ._SENT 
+29_CD presents_VVZ the_DT results_NNS of_IN the_DT Weibull_JJ shape_NN parameters_NNS ;_: it_PP was_VBD difficult_JJ to_TO find_VV any_DT trend_NN for_IN the_DT Weibull_JJ shape_NN parameters_NNS under_IN the_DT given_VVN conditions_NNS except_IN for_IN the_DT ice_NN thickness_NN ._SENT 
+Instead_RB ,_, the_DT Weibull_JJ shape_NN parameters_NNS tended_VVD to_TO decrease_VV with_IN increasing_VVG ice_NN thickness_NN ._SENT 
+The_DT values_NNS of_IN the_DT Weibull_JJ shape_NN parameter_NN were_VBD distributed_VVN between_IN 0.71_CD and_CC 0.90_CD and_CC the_DT average_NN was_VBD 0.80_CD ._SENT 
+For_IN reference_NN ,_, the_DT shape_NN parameters_NNS on_IN the_DT same_JJ ice_NN thickness_NN conditions_NNS derived_VVN from_IN the_DT measurement_NN by_IN Suyuthi_NP et_CC al_NP ._SENT 
+[_SYM 6_CD ]_SYM were_VBD 0.85–0.97_JJ ._SENT 
+Similarly_RB ,_, the_DT parameter_NN and_CC ice_NN thickness_NN tended_VVD to_TO be_VB inversely_RB proportional_JJ ._SENT 
+Fig_NN ._SENT 
+29._CD Weibull_JJ shape_NN parameters_NNS simulated_JJ under_IN different_JJ ice_NN conditions_NNS ._SENT 
+<Section> 4._CD Fatigue_NN damage_NN assessment_NN under_IN actual_JJ environmental_JJ conditions_NNS </Section> 4.1_CD ._SENT 
+Analysis_NN condition_NN Fatigue_NN analysis_NN of_IN a_DT ship_NN has_VHZ been_VBN carried_VVN out_RP based_VVN on_IN the_DT actual_JJ environmental_JJ conditions_NNS using_VVG the_DT calculated_JJ short-term_JJ distributions_NNS ._SENT 
+Table_NN 4_CD lists_NNS the_DT environmental_JJ conditions_NNS used_VVN in_IN the_DT analysis_NN ._SENT 
+The_DT trading_NN route_NN was_VBD assumed_VVN to_TO be_VB the_DT Kemi_NP route_NN of_IN the_DT Baltic_NP Sea_NP ,_, and_CC the_DT ship_NN visits_VVZ the_DT port_NN an_DT average_NN of_IN 3.5_CD times_NNS during_IN each_DT winter_NN month_NN in_IN its_PP$ 25-year_JJ service_NN life_NN according_VVG to_TO the_DT LR_NP FDA-ICE_NN ._SENT 
+The_DT ice_NN concentration_NN was_VBD assumed_VVN to_TO be_VB 100_CD %_NN because_IN the_DT route_NN is_VBZ mostly_RB frozen_VVN during_IN winter_NN ._SENT 
+The_DT ship_NN speed_NN was_VBD assumed_VVN to_TO be_VB 8_CD knots_NNS ,_, which_WDT is_VBZ the_DT median_NN of_IN the_DT ship_NN speeds_NNS operating_VVG at_IN an_DT ice_NN concentration_NN of_IN more_JJR than_IN 85_CD %_NN in_IN the_DT Baltic_NP Sea_NP [_SYM 37_CD ]_SYM ._SENT 
+Table_NN 5_CD lists_NNS the_DT monthly_NN sailed_VVD distance_NN [_SYM 5_CD ]_SYM ._SENT 
+The_DT acceptance_NN criteria_NNS for_IN the_DT final_JJ fatigue_NN damage_NN ratio_NN was_VBD set_VVN to_TO 0.5_CD ,_, taking_VVG the_DT fatigue_NN damage_NN due_JJ to_TO wave_NN loads_NNS into_IN account_NN according_VVG to_TO the_DT LR_NP FDA-ICE_NN ._SENT 
+Table_NN 4._CD Environmental_JJ conditions_NNS for_IN fatigue_NN analysis_NN ._SENT 
+Table_NN 5._CD Ice_NP conditions_NNS in_IN the_DT Kemi_NP route_NN ._SENT 
+4.2_CD ._SENT 
+Comparison_NN of_IN the_DT fatigue_NN damage_NN ratios_NNS using_VVG the_DT proposed_VVN method_NN and_CC the_DT LR_NP method_NN The_DT fatigue_NN damage_NN ratios_NNS for_IN the_DT Kemi_NP route_NN using_VVG the_DT proposed_VVN method_NN and_CC LR_NN method_NN were_VBD compared_VVN ._SENT 
+First_RB ,_, when_WRB using_VVG the_DT proposed_VVN method_NN ,_, the_DT Weibull_JJ scale_NN parameters_NNS and_CC Weibull_JJ shape_NN parameters_NNS ,_, which_WDT are_VBP summarized_VVN in_IN Figs_NNS ._SENT 
+26_CD and_CC 28_CD ,_, can_MD be_VB applied_VVN ._SENT 
+The_DT Weibull_JJ parameters_NNS for_IN specific_JJ ice_NN thicknesses_NNS can_MD be_VB obtained_VVN using_VVG the_DT linear_JJ regression_NN equation_NN derived_VVN for_IN each_DT ice_NN thickness_NN ._SENT 
+Extrapolated_VVN value_NN was_VBD obtained_VVN by_IN extending_VVG the_DT dot_VVP line_NN in_IN Fig.28(b_NN )_) to_TO 100_CD %_NN ._SENT 
+For_IN the_DT ice_NN impact_NN frequency_NN ,_, Eqn_NP ._SENT 
+(_( 14_CD )_) developed_VVN by_IN Zhang_NP et_CC al_NP ._SENT 
+[_SYM 2_CD ]_SYM was_VBD applied_VVN ._SENT 
+Finally_RB ,_, the_DT fatigue_NN damage_NN under_IN each_DT condition_NN can_MD be_VB calculated_VVN using_VVG Eqn_NP ._SENT 
+(_( 17_CD )_) ._SENT 
+Next_RB ,_, fatigue_VVP analysis_NN using_VVG the_DT LR_NP method_NN was_VBD performed_VVN ._SENT 
+Table_NN 6_CD lists_NNS geometric_JJ information_NN of_IN the_DT vessels_NNS required_VVN for_IN the_DT calculation_NN ._SENT 
+In_IN the_DT LR_NP method_NN ,_, the_DT fatigue_NN stress_NN at_IN a_DT critical_JJ location_NN due_JJ to_TO the_DT ice_NN load_NN is_VBZ determined_VVN using_VVG structural_JJ beam_NN theory_NN [_SYM 5_CD ]_SYM ._SENT 
+Table_NN 6._CD Hull_NP form_NN angles_NNS and_CC geometrical_JJ parameters_NNS ._SENT 
+For_IN the_DT S-N_NP curve_NN ,_, the_DT proposed_VVN method_NN used_VVD the_DT D-curve_NN ,_, which_WDT is_VBZ recommended_VVN one_CD for_IN hot_JJ spot_NN stress_NN according_VVG to_TO Det_NP Norske_NP Veritas_NPS [_SYM 36_CD ]_SYM ._SENT 
+On_IN the_DT contrary_NN ,_, F2-curve_NN was_VBD used_VVN for_IN LR_NP method_NN because_IN the_DT LR_NP method_NN employs_VVZ the_DT nominal_JJ stress_NN concept_NN ._SENT 
+Table_NN 7_CD lists_NNS the_DT Weibull_NN parameters_NNS and_CC fatigue_VV damage_NN ratios_NNS calculated_VVN under_IN each_DT condition_NN ,_, and_CC Table_NN 8_CD compares_VVZ the_DT final_JJ fatigue_NN damage_NN calculated_VVD using_VVG each_DT method_NN ._SENT 
+Here_RB ,_, DPR_NP and_CC DLR_NP mean_VVP the_DT damage_NN ratios_NNS by_IN the_DT proposed_VVN method_NN and_CC LR_NN method_NN ,_, respectively_RB ._SENT 
+As_IN a_DT result_NN ,_, the_DT fatigue_NN damage_NN calculated_VVN by_IN the_DT LR_NP method_NN is_VBZ more_JJR than_IN twice_RB that_IN of_IN the_DT proposed_VVN method_NN ._SENT 
+This_DT is_VBZ because_IN the_DT LR_NP method_NN is_VBZ simplified_VVN one_CD ,_, hence_RB the_DT results_NNS are_VBP considered_VVN to_TO be_VB more_RBR inclined_VVN to_TO be_VB on_IN safe_JJ side_NN with_IN some_DT safety_NN margin_NN ._SENT 
+Table_NN 7._CD Calculation_NN of_IN the_DT fatigue_NN damage_NN in_IN the_DT Kemi_NP route_NN ._SENT 
+Table_NN 8._CD Comparison_NN of_IN the_DT total_JJ fatigue_NN damage_NN ratios_NNS ._SENT 
+<Section> 5._CD Conclusions_NNS </Section> This_DT paper_NN proposed_VVD a_DT novel_JJ fatigue_NN assessment_NN method_NN using_VVG numerical_JJ analysis_NN for_IN ice_NN impacts_NNS on_IN a_DT ship_NN hull_NN in_IN broken_VVN ice_NN fields_NNS ._SENT 
+A_DT numerical_JJ model_NN to_TO simulate_VV the_DT interactions_NNS between_IN ice_NN floes_NNS and_CC structure_NN was_VBD developed_VVN ._SENT 
+For_IN calculation_NN efficiency_NN ,_, ice-fluid_NN and_CC ice-structure_NN interactions_NNS were_VBD implemented_VVN in_IN simplified_VVN manners_NNS ,_, and_CC the_DT important_JJ parameters_NNS ,_, such_JJ as_IN the_DT drag_NN force_NN coefficient_NN or_CC contact_NN interaction_NN parameter_NN ,_, were_VBD determined_VVN through_IN detailed_JJ analyses_NNS ._SENT 
+For_IN efficient_JJ long-term_JJ time_NN domain_NN analysis_NN ,_, the_DT periodic_JJ median_JJ analysis_NN method_NN ,_, which_WDT is_VBZ a_DT function_NN of_IN ABAQUS/EXPLICIT_JJ ,_, was_VBD applied_VVN with_IN appropriate_JJ modifications_NNS to_TO be_VB used_VVN in_IN a_DT broken_VVN ice_NN field_NN ._SENT 
+As_IN a_DT result_NN ,_, it_PP enabled_VVD time_NN domain_NN analysis_NN for_IN 20 min_NN with_IN a_DT limited_JJ number_NN of_IN elements_NNS ;_: it_PP was_VBD confirmed_VVN that_IN the_DT ship_NN continues_VVZ to_TO receive_VV new_JJ ice_NN loads_NNS over_IN the_DT entire_JJ analysis_NN time_NN ._SENT 
+Contact_NN pressure_NN time_NN series_NN on_IN the_DT outer-shell_NN of_IN the_DT ship_NN was_VBD converted_VVN to_TO a_DT hot_JJ spot_NN stress_NN time_NN series_NN by_IN the_DT convolution_NN integral_JJ using_VVG the_DT IRF_NP on_IN the_DT target_NN fatigue_NN point_NN ._SENT 
+The_DT applicability_NN of_IN this_DT technique_NN was_VBD verified_VVN using_VVG a_DT simple_JJ test_NN ,_, and_CC it_PP is_VBZ possible_JJ to_TO estimate_VV accurate_JJ hot_JJ spot_NN stress_NN ._SENT 
+A_DT series_NN of_IN numerical_JJ simulations_NNS were_VBD carried_VVN out_RP for_IN the_DT various_JJ analysis_NN cases_NNS considering_VVG the_DT ice_NN thickness_NN ,_, concentration_NN and_CC ship_NN speed_NN ,_, and_CC the_DT Weibull_JJ parameters_NNS were_VBD derived_VVN for_IN each_DT condition_NN ._SENT 
+For_IN efficiency_NN ,_, the_DT 2-parameter_NN Weibull_NN model_NN was_VBD applied_VVN so_IN the_DT scale_NN parameters_NNS and_CC shape_NN parameters_NNS could_MD be_VB calculated_VVN ,_, and_CC the_DT relationships_NNS between_IN the_DT parameters_NNS and_CC each_DT condition_NN were_VBD derived_VVN ._SENT 
+As_IN a_DT result_NN ,_, the_DT Weibull_JJ scale_NN parameter_NN is_VBZ linear_JJ to_TO the_DT ice_NN thickness_NN and_CC ship_NN speed_NN in_IN all_DT cases_NNS ._SENT 
+In_IN some_DT cases_NNS ,_, however_RB ,_, the_DT scale_NN parameter_NN is_VBZ not_RB linear_JJ with_IN ice_NN concentration_NN ._SENT 
+For_IN the_DT Weibull_JJ shape_NN parameters_NNS ,_, it_PP was_VBD difficult_JJ to_TO find_VV any_DT tendency_NN under_IN the_DT given_VVN conditions_NNS except_IN for_IN the_DT ice_NN thickness_NN ._SENT 
+Instead_RB ,_, the_DT shape_NN parameters_NNS tended_VVD to_TO decrease_VV with_IN increasing_VVG ice_NN thickness_NN ._SENT 
+A_DT fatigue_NN damage_NN assessment_NN of_IN the_DT ship_NN for_IN the_DT Kemi_NP route_NN in_IN the_DT Baltic_NP was_VBD carried_VVN out_IN using_VVG the_DT calculated_JJ short-term_JJ distributions_NNS ,_, and_CC the_DT results_NNS were_VBD compared_VVN with_IN those_DT obtained_VVN using_VVG the_DT LR_NP method_NN ._SENT 
+The_DT fatigue_NN damage_NN calculated_VVN by_IN the_DT LR_NP method_NN was_VBD more_JJR than_IN twice_RB that_IN of_IN the_DT proposed_VVN method_NN ._SENT 
+This_DT is_VBZ because_IN the_DT LR_NP method_NN leads_VVZ to_TO more_RBR conservative_JJ results_NNS for_IN safety_NN reasons_NNS ._SENT 
+The_DT advantage_NN of_IN the_DT proposed_VVN methodology_NN is_VBZ that_IN it_PP can_MD evaluate_VV the_DT fatigue_NN damage_NN of_IN an_DT ice-strengthened_JJ ship_NN for_IN various_JJ conditions_NNS with_IN reduced_VVN time_NN and_CC low_JJ cost_NN ._SENT 
+However_RB ,_, the_DT accuracy_NN of_IN the_DT method_NN can_MD be_VB restricted_VVN by_IN the_DT simplifications_NNS and_CC assumptions_NNS ._SENT 
+For_IN more_JJR realistic_JJ results_NNS ,_, further_JJR studies_NNS about_IN the_DT parameters_NNS used_VVN in_IN the_DT simplification_NN process_NN are_VBP required_VVN ,_, and_CC a_DT comparative_JJ study_NN with_IN full_JJ scale_NN data_NNS is_VBZ recommend_VV ._SENT 
+<Section> Acknowledgements_NNS </Section> This_DT study_NN was_VBD supported_VVN by_IN the_DT Industrial_NP Convergence_NN Strategic_NP technology_NN development_NN program_NN (_( 10063417_CD ,_, Development_NP of_IN basic_JJ design_NN technology_NN for_IN ARC7_JJ class_NN Arctic_NP offshore_JJ structures_NNS )_) funded_VVN by_IN the_DT Ministry_NP of_IN Trade_NP ,_, Industry_NP and_CC Energy_NP (_( MI_NN ,_, Korea_NP )_) ._SENT 
+<Section> References_NNS </Section> [_SYM 1_CD ]_SYM N._NP Melia_NP ,_, K._NP Haines_NP ,_, E._NP Hawkins_NP Future_NP of_IN the_DT sea_NN :_: implications_NNS from_IN opening_VVG arctic_JJ sea_NN routes_NNS Foresight_NN ,_, Government_NP Office_NP for_IN Science_NP (_( 2017_CD )_) [_SYM 2_CD ]_SYM S._NP Zhang_NP ,_, R._NP Bridges_NP ,_, J._NP Tong_NP Fatigue_NN design_NN assessment_NN of_IN ship_NN structures_NNS induced_VVN by_IN ice_NN loading_VVG �_JJ �_NN an_DT introduction_NN to_TO the_DT ShipRight_NP FDA_NP ICE_NN procedure_NN Proceeding_NN of_IN the_DT twenty-first_JJ international_JJ offshore_JJ and_CC polar_JJ engineering_NN conference_NN ,_, Maui_NP ,_, Hawaii_NP (_( 2011_CD )_) [_SYM 3_CD ]_SYM A._NP Muizis_NP Evaluation_NN of_IN the_DT methods_NNS for_IN the_DT oil_NN spill_NN response_NN in_IN the_DT offshore_JJ Arctic_NP region_NN Helsinki_NP Metropolia_NP University_NP of_IN Applied_NP Sciences_NPS (_( 2013_CD )_) Bachelor’s_JJ Thesis_NN [_SYM 4_CD ]_SYM M._NP Kim_NP ,_, S._NP Lee_NP ,_, W._NP Lee_NP ,_, J._NP Wang_NP Numerical_JJ and_CC experimental_JJ investigation_NN of_IN the_DT resistance_NN performance_NN of_IN an_DT icebreaking_JJ cargo_NN vessel_NN in_IN pack_NN ice_NN conditions_NNS Int_NP ._SENT 
+J._NP Naval_NP Archit_NP ._SENT 
+Ocean_NP Eng_NP ._SENT 
+,_, 5_CD (_( 2013_CD )_) ,_, p._JJ 116∼131_NN [_SYM 5_CD ]_SYM Lloyld’s_NP Register_NP Group_NP Limited_NP ShipRight_NP design_NN and_CC construction_NN ,_, fatigue_NN design_NN assessment_NN �_JJ �_JJ application_NN and_CC notations_NNS (_( 2014_CD )_) [_SYM 6_CD ]_SYM A._NP Suyuthi_NP ,_, B.J._NP Leira_NP ,_, K._NP Riska_NP Fatigue_NN damage_NN of_IN ship_NN hulls_NNS due_JJ to_TO local_JJ ice-induced_NN stresses_VVZ Appl_NP Ocean_NP Res_NN ,_, 42_CD (_( 2013_CD )_) ,_, pp_NP ._SENT 
+87-104_CD [_SYM 7_CD ]_SYM W._NP Chai_NP ,_, B._NP Leira_NP ,_, A._NP Naess_NP Short-term_JJ extreme_JJ ice_NN loads_NNS prediction_NN and_CC fatigue_NN damage_NN evaluation_NN for_IN an_DT icebreaker_NN Ships_NNS Offshore_NP Struct_NN ,_, 13_CD (_( 2018_CD )_) [_SYM 8_CD ]_SYM Y._NP Han_NP ,_, J._NP Sawamura_NP Fatigue_NN damage_NN calculation_NN for_IN ship_NN hulls_NNS operating_VVG in_IN pack_NN ice_NN Proceeding_NN of_IN the_DT 24st_NP international_JJ conference_NN on_IN port_NN and_CC Ocean_NP engineering_NN under_IN arctic_JJ conditions_NNS (_( 2017_CD )_) [_SYM 9_CD ]_SYM S._NP Alawneh_NP Hyper-real-time_JJ ice_NN simulation_NN and_CC modeling_NN using_VVG GPGPU_NP PhD_NN thesis_NN Memorial_NP University_NP of_IN Newfoundland_NP (_( 2014_CD )_) [_SYM 10_CD ]_SYM J._NP Millan_NP ,_, J._NP Wang_NP Ice_NP force_NN modeling_NN for_IN DP_JJ control_NN systems_NNS Dynamic_JJ positioning_NN conference_NN 2011._CD Houston_NP ,_, Texas_NP ,_, USA_NP (_( 2011_CD )_) [_SYM 11_CD ]_SYM J._NP Wang_NP ,_, A._NP Derradji-Aouat_NP Numerical_JJ assessment_NN for_IN stationary_JJ structure_NN (_( Kulluk_NP )_) in_IN moving_VVG broken_VVN ice_NN 21st_JJ international_JJ conference_NN on_IN port_NN and_CC Ocean_NP engineering_NN under_IN arctic_JJ conditions_NNS (_( POAC'11_JJ )_) (_( 2011_CD )_) [_SYM 12_CD ]_SYM P._NP Cundall_NP ,_, O._NP Strack_NP The_DT distinct_JJ element_NN methods_NNS as_IN a_DT tool_NN for_IN research_NN in_IN granular_JJ media_NNS ,_, Part_NP I_NP ,_, Report_NP to_TO NSF_NP (_( 1978_CD )_) [_SYM 13_CD ]_SYM E._NP Hansen_NP ,_, S._NP Løset_NP Modelling_VVG floating_JJ offshore_JJ units_NNS moored_VVN in_IN broken_VVN ice_NN :_: model_NN description_NN Cold_NP Reg_NP Sci_NP Technol_NN ,_, 29_CD (_( 2_LS )_) (_( 1999_CD )_) ,_, pp_NP ._SENT 
+97-106_CD [_SYM 14_CD ]_SYM S._NP Sun_NP ,_, H._NP Shen_NP Simulation_NP of_IN pancake_NN ice_NN load_NN in_IN a_DT circular_JJ cylinder_NN in_IN a_DT wave_NN and_CC current_JJ field_NN Cold_NP Reg_NP Sci_NP Technol_NN ,_, 78_CD (_( 2012_CD )_) ,_, pp_NP ._SENT 
+31-39_CD [_SYM 15_CD ]_SYM A._NP Aboulazm_NP Ship_NP resistance_NN in_IN ice_NN floe_NN covered_JJ waters_NNS [_SYM Doctoral_JJ thesis_NN ]_SYM Memorial_NP University_NP of_IN Newfoundland_NP (_( 1989_CD )_) [_SYM 16_CD ]_SYM S._NP Lindseth_NP Splitting_NN as_IN a_DT load_NN releasing_VVG mechanism_NN for_IN a_DT floater_NN in_IN ice_NN [_SYM Master_NP thesis_NN ]_SYM Norwegian_NP University_NP of_IN Science_NP and_CC Technology_NP (_( 2013_CD )_) [_SYM 17_CD ]_SYM M._NP Hopkins_NP ,_, H._NP Shen_NP Simulation_NP of_IN pancake-ice_JJ dynamics_NNS in_IN a_DT wave_NN field_NN Ann_NP Glaciol_NP ,_, 33_CD (_( 2001_CD )_) ,_, pp_NP ._SENT 
+355-360_CD [_SYM 18_CD ]_SYM J._NP Kim_NP ,_, Y._NP Kim_NP Numerical_JJ simulation_NN of_IN concrete_JJ abrasion_NN induced_VVN by_IN unbreakable_JJ ice_NN floes_NNS Int_NP ._SENT 
+J._NP Nav_NP ._SENT 
+Archit_NP ._SENT 
+Ocean_NP Eng_NP ._SENT 
+(_( 2018_CD )_) ,_, pp_NP ._SENT 
+1-11_CD 2018_CD [_SYM 19_CD ]_SYM J._NP Newman_NP Marine_NP hydrodynamics_NN MIT_NP Press_NP (_( 1977_CD )_) [_SYM 20_CD ]_SYM T._NP Kärnä_NP Finite_JJ ice_NN failure_NN depth_NN in_IN penetration_NN of_IN a_DT vertical_JJ indentor_NN into_IN an_DT ice_NN edge_NN Anal_JJ ._SENT 
+Glaciol_NN ._SENT 
+,_, 19_CD (_( 1993_CD )_) ,_, pp_NP ._SENT 
+114-120_CD [_SYM 21_CD ]_SYM H._NP Kim_NP ,_, C._NP Daley_NP ,_, B._NP Colbourne_NP A_DT numerical_JJ model_NN for_IN ice_NN crushing_VVG on_IN concave_JJ surfaces_VVZ Ocean_NP Eng_NP ,_, 106_CD (_( 2015_CD )_) ,_, pp_NP ._SENT 
+289-297_CD [_SYM 22_CD ]_SYM K._NP Riska_NP Ship–ice_JJ interaction_NN in_IN ship_NN design_NN :_: theory_NN and_CC practice_NN ,_, encyclopedia_NN of_IN life_NN support_NN systems_NNS (_( EOLSS_NP )_) ,_, developed_VVN under_IN the_DT auspices_NNS of_IN the_DT UNESCO_NP Eolss_NP Publishers_NPS ,_, Oxford_NP ,_, UK_NP (_( 2010_CD )_) [_SYM 23_CD ]_SYM A._NP Bekker_NP ,_, O._NP Komarova_NP ,_, T._NP Uvarova_NP ,_, A._NP Chetyrbotsky_NP The_DT analysis_NN of_IN ice_NN loads_NNS on_IN “Molikpaq”_NN for_IN sakhalin_NP offshore_JJ conditions_NNS International_JJ offshore_JJ and_CC polar_JJ engineering_NN conference_NN (_( ISOPE1999_NP )_) (_( 1999_CD )_) ,_, pp_NP ._SENT 
+559-565_CD [_SYM 24_CD ]_SYM H._NP Xie_NP ,_, S._NP Ackely_NP ,_, D._NP Yi_NP ,_, H._NP Zwally_NP ,_, P._NP Wagner_NP ,_, B._NP Weissling_NP ,_, M._NP Lewis_NP ,_, K._NP Ye_NP Sea‐ice_JJ thickness_NN distribution_NN of_IN the_DT Bellingshausen_NP Sea_NP from_IN surface_NN measurements_NNS and_CC ICESat_NN altimetry_NN Deep_NP Sea_NP Res_NN ,_, Part_NP II_NP ,_, 58_CD (_( 2011_CD )_) ,_, pp_NP ._SENT 
+1039-1051_CD [_SYM 25_CD ]_SYM Dassault_NP Systèmes_NP Simulia_NP Corp_NP Abaqus_NP 6.14_CD theory_NN manual_JJ (_( 2014_CD )_) [_SYM 26_CD ]_SYM T._NP Lee_NP ,_, J._NP Lee_NP ,_, H._NP Kim_NP ,_, W._NP Rim_NP Field_NP measurement_NN of_IN local_JJ ice_NN pressures_NNS on_IN the_DT ARAON_NN in_IN the_DT Beaufort_NP Sea_NP Int_NP ._SENT 
+J._NP Nav_NP ._SENT 
+Archit_NP ._SENT 
+Ocean_NP Eng_NP ._SENT 
+(_( 2014_CD )_) ,_, pp_NP ._SENT 
+788-799_CD 2014_CD [_SYM 27_CD ]_SYM M._NP Kotilainen_NP ,_, J._NP Vanhatalo_NP ,_, M._NP Suominen_NP ,_, P._NP Kujala_NP Predicting_VVG ice-induced_JJ load_NN amplitudes_NNS on_IN ship_NN bow_VVP conditional_JJ on_IN ice_NN thickness_NN and_CC ship_NN speed_NN in_IN the_DT Baltic_NP Sea_NP Cold_NP Reg_NP Sci_NP Technol_NN ,_, 135_CD (_( 2017_CD )_) ,_, pp_NP ._SENT 
+116-126_CD [_SYM 28_CD ]_SYM A._NP Nejad_NP ,_, Z._NP Gao_NP ,_, T._NP Moan_NP On_IN long-term_JJ fatigue_NN damage_NN and_CC reliability_NN analysis_NN of_IN gears_VVZ under_IN wind_NN loads_NNS in_IN offshore_JJ wind_NN turbine_NN drivetrains_NP Int_NP J_NP Fatigue_NN ,_, 61_CD (_( 2014_CD )_) ,_, pp_NP ._SENT 
+116-128_CD [_SYM 29_CD ]_SYM M._NP Suominen_NP ,_, P._NP Kujala_NP Analysis_NP of_IN short-term_JJ ice_NN load_NN measurements_NNS on_IN board_NN MS_NN Kemira_NP during_IN the_DT winters_NNS 1987_CD and_CC 1988_CD Aalto_NP University_NP ,_, School_NP of_IN Science_NP and_CC Technology_NP ,_, Espoo_NP (_( 2010_CD )_) [_SYM 30_CD ]_SYM P._NP Kujala_NP ,_, J._NP Vuorio_NP Results_NNS and_CC statistical_JJ analysis_NN of_IN ice_NN load_NN measurements_NNS on_IN board_NN icebreaker_NN Sisu_NN in_IN winters_NNS 1979–1985_JJ Winter_NP Navigation_NP Research_NP Board_NP ,_, Helsinki_NP (_( 1986_CD )_) [_SYM 31_CD ]_SYM P._NP Kujala_NP ,_, M._NP Suominen_NP ,_, K._NP Riska_NP Statistics_NPS of_IN ice_NN loads_NNS measured_VVN on_IN MT_NP Uikku_NP in_IN the_DT Baltic_JJ Proceedings_NNS of_IN POAC_NP 2009_CD (_( 2009_CD )_) [_SYM 32_CD ]_SYM B._NP Su_NP ,_, K._NP Riska_NP ,_, T._NP Moan_NP Numerical_JJ simulation_NN of_IN local_JJ ice_NN loads_NNS in_IN uniform_NN and_CC randomly_RB varying_VVG ice_NN conditions_NNS Cold_NP Reg_NP Sci_NP Technol_NN ,_, 65_CD (_( 2011_CD )_) ,_, pp_NP ._SENT 
+145-159_CD [_SYM 33_CD ]_SYM J._NP McCool_NP Using_VVG the_DT Weibull_JJ distribution_NN :_: reliability_NN ,_, modeling_NN ,_, and_CC inference_NN Wiley_NP Series_NP In_IN Probability_NN And_CC Statistics_NP (_( 2012_CD )_) [_SYM 34_CD ]_SYM R._NP Bridges_NP ,_, K._NP Riska_NP ,_, S._NP Zhang_NP Fatigue_NN assessment_NN for_IN ship_NN hull_NN structures_NNS navigating_VVG in_IN ice_NN regions_NNS Proceedings_NNS of_IN the_DT icetech_NP 2006._CD Banff_NP ._SENT 
+Canada_NP (_( 2006_CD )_) [_SYM 35_CD ]_SYM P._NP Kujala_NP On_IN the_DT statistics_NNS of_IN ice_NN loads_NNS on_IN ship_NN hull_NN in_IN the_DT Baltic_JJ (_( PhD_JJ thesis_NN )_) Acta_NP Polytechina_NP Scandinavica_NP ,_, Helsinki_NP ,_, Finland_NP (_( 1994_CD )_) Mechanical_NP Engineering_NP Series_NP No._NN 116_CD [_SYM 36_CD ]_SYM Det_NP Norske_NP Veritas_NP DNV_NP recommended_VVD practice_NN ,_, fatigue_NN design_NN of_IN offshore_JJ steel_NN structures_NNS ._SENT 
+DNV-RP-C203_NP (_( 2012_CD )_) [_SYM 37_CD ]_SYM U._NP Löptien_NP ,_, L._NP Axell_NP Ice_NP and_CC AIS_NNS :_: ship_VV speed_NN data_NNS and_CC sea_NN ice_NN forecasts_NNS in_IN the_DT Baltic_NP Sea_NP Cryosphere_NP ,_, 8_CD (_( 2014_CD )_) ,_, pp_NP ._SENT 
+2409-2418_CD 

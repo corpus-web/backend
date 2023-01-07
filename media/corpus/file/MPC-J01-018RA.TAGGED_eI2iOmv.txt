@@ -1,0 +1,528 @@
+<title> Bi-objective_JJ optimal_JJ design_NN of_IN plug-in_NP hybrid_JJ electric_JJ propulsion_NN system_NN for_IN ships_NNS </title> <author> Zhu_NP ,_, JY_NP (_( Zhu_NP Jianyun)[_NP 1_CD ]_SYM ;_: Chen_NP ,_, L_NP (_( Chen_NP Li)[_NP 1_CD ]_SYM ;_: Xia_NP ,_, LJ_NP (_( Xia_NP Lijuan)[_NP 1_CD ]_SYM ;_: Wang_NP ,_, B_NP (_( Wang_NP Bin)[_NP 1_CD ]_SYM </author> <Affiliation> [_SYM 1_CD ]‎_NP Shanghai_NP Jiao_NP Tong_NP Univ_NP ,_, State_NP Key_NP Lab_NP Ocean_NP Engn_NN ,_, Key_NP Lab_NP Marine_NP Intelligent_JJ Equipment_NP &_CC Syst_NP ,_, Minist_NP Educ_NP ,_, Shanghai_NP ,_, Peoples_NP R_NP China_NP </Affiliation> <year> 2019_CD </year> <Jounral> Energy_NP </Journal> <Publishing_house> PERGAMON-ELSEVIER_NP SCIENCE_NN LTD_NP ,_, THE_DT BOULEVARD_NN ,_, LANGFORD_NP LANE_NN ,_, KIDLINGTON_NP ,_, OXFORD_NP OX5_NP 1GB_NP ,_, ENGLAND_NP </Publishing_house> <Text_Collector> Wang_NP Shuaiyin，HEU_NP </Text_Collector> <DOI> 10.1016/j_NP ._SENT 
+energy.2019.04.079_JJ </DOI> <URL> https_NNS :_: //www_NNS ._SENT 
+sciencedirect_NNS ._SENT 
+com/science/article/pii/S0360544219307121_JJ ?_SENT 
+via%3Dihub_NP </URL> <Section> Abstract_JJ </Section> Growing_VVG concerns_NNS about_IN reducing_VVG fuel_NN consumption_NN and_CC global_JJ greenhouse_NN gas_NN (_( GHG_NN )_) emissions_NNS have_VHP forced_VVN the_DT shipping_VVG industry_NN to_TO accelerate_VV the_DT development_NN of_IN plug-in_NP hybrid_JJ electric_JJ propulsion_NN systems_NNS (_( HEPSs_NP )_) ._SENT 
+However_RB ,_, the_DT design_NN optimization_NN of_IN plug-in_NP HEPSs_NP with_IN the_DT single_JJ objective_NN of_IN saving_VVG fuel_NN may_MD result_VV in_IN increased_VVN GHG_NN emissions_NNS ._SENT 
+This_DT study_NN proposes_VVZ a_DT bi-objective_JJ optimization_NN by_IN considering_VVG not_RB only_RB fuel_VV consumption_NN but_CC also_RB GHG_NN emissions_NNS ._SENT 
+The_DT NSGA-II_NP method_NN is_VBZ developed_VVN to_TO explore_VV the_DT Pareto_NP optimal_JJ solution_NN set_NN ._SENT 
+A_DT real-time_JJ hardware-in-the-loop_NN experimental_JJ platform_NN is_VBZ built_VVN to_TO validate_VV the_DT effectiveness_NN of_IN the_DT optimization_NN ._SENT 
+The_DT experimental_JJ results_NNS show_VVP that_IN the_DT optimal_JJ design_NN selected_VVN from_IN the_DT Pareto_NP solution_NN set_VVN of_IN the_DT bi-objective_JJ optimization_NN is_VBZ closer_JJR to_TO the_DT ideal_JJ point_NN than_IN the_DT optimal_JJ designs_NNS via_IN the_DT single-objective_JJ optimization_NN pursuing_VVG either_DT minimum_JJ fuel_NN consumption_NN or_CC minimum_JJ GHG_NN emissions_NNS ._SENT 
+Further_RBR ,_, sensitivity_NN analysis_NN is_VBZ conducted_VVN ._SENT 
+It_PP is_VBZ found_VVN that_IN three_CD variables_NNS (_( motor_NN rotor_NN diameter_NN ,_, motor_NN rotor_NN length_NN ,_, and_CC gear_NN ratio_NN )_) are_VBP of_IN local_JJ optimum_JJ at_IN the_DT Pareto_NP front_NN ;_: and_CC two_CD (_( number_NN of_IN battery_NN modules_NNS and_CC lower_JJR bound_JJ of_IN the_DT battery_NN state_NN of_IN charge_NN )_) are_VBP of_IN strong_JJ sensitivity_NN regarding_VVG the_DT contradiction_NN between_IN fuel_NN consumption_NN and_CC GHG_NN emissions_NNS ._SENT 
+Keywords_NNS :_: Hybrid_JJ electric_JJ propulsion_NN system_NN ;_: Bi-objective_JJ optimization_NN ;_: Fuel_NN consumption_NN ;_: GHG_NN emissions_NNS ;_: NSGA-II_NP ;_: Sensitivity_NN analysis_NN <Section> 1._CD Introduction_NN </Section> Regarding_VVG environmental_JJ protection_NN ,_, an_DT increasing_VVG number_NN of_IN stringent_JJ regulations_NNS on_IN fuel_NN consumption_NN and_CC emissions_NNS are_VBP being_VBG enacted_VVN in_IN the_DT shipping_NN industry_NN ,_, such_JJ as_IN the_DT energy_NN efficiency_NN design_NN index_NN (_( EEDI_NP )_) [_SYM 1_CD ]_SYM and_CC International_NP Convention_NP for_IN the_DT Prevention_NN of_IN Pollution_NN from_IN Ships_NNS (_( MARPOL_NP convention_NN )_) [_SYM 2_CD ]_SYM ._SENT 
+Hybrid_JJ electric_JJ propulsion_NN systems_NNS (_( HEPSs_NP )_) are_VBP considered_VVN as_IN one_CD potential_JJ solution_NN because_IN diesel_JJ engines_NNS can_MD work_VV within_IN the_DT high_JJ efficiency_NN region_NN under_IN various_JJ working_VVG conditions_NNS with_IN the_DT aid_NN of_IN electric_JJ machines_NNS [_SYM [_SYM 3_CD ]_SYM ,_, [_SYM 4_CD ]_SYM ,_, [_SYM 5_CD ]_SYM ]_SYM ._SENT 
+Moreover_RB ,_, through_IN the_DT use_NN of_IN shore_NN power_NN that_WDT is_VBZ charged_VVN into_IN large_JJ capacity_NN batteries_NNS ,_, plug-in_NP HEPSs_NP can_MD reduce_VV further_JJR fuel_NN consumption_NN and_CC extend_VV the_DT zero-emission_NN range_NN when_WRB operated_VVN in_IN pure_JJ electric_JJ mode_NN ._SENT 
+Recently_RB ,_, the_DT design_NN of_IN plug-in_NP HEPSs_NP has_VHZ attracted_VVN increasing_VVG interest_NN from_IN both_DT industry_NN and_CC academia_NN [_SYM 6,7_CD ]_SYM ._SENT 
+In_IN general_JJ ,_, larger_JJR battery_NN capacity_NN allows_VVZ more_JJR electricity_NN from_IN the_DT shore_NN power_NN plant_NN to_TO be_VB used_VVN ,_, which_WDT means_VVZ less_JJR fuel_NN consumption_NN and_CC less_JJR emission_NN on_IN the_DT voyage_NN of_IN plug-in_NP HEPSs_NP ._SENT 
+However_RB ,_, the_DT lifecycle_NN greenhouse_NN gas_NN (_( GHG_NN )_) emissions_NNS from_IN the_DT electricity_NN production_NN by_IN coal_NN is_VBZ higher_JJR than_IN that_IN by_IN fossil_JJ fuels_NNS and_CC other_JJ renewable_JJ sources_NNS because_IN coal_NN is_VBZ more_JJR carbon-intensive_NN [_SYM 8_CD ]_SYM ._SENT 
+In_IN countries_NNS rich_JJ in_IN coal_NN ,_, such_JJ as_IN China_NP and_CC India_NP ,_, electricity_NN is_VBZ mainly_RB produced_VVN by_IN coal_NN [_SYM 9_CD ]_SYM ._SENT 
+Thus_RB ,_, the_DT overall_JJ GHG_NN emissions_NNS of_IN the_DT plug-in_NP HEPS_NNS might_MD increase_VV due_JJ to_TO the_DT over_IN usage_NN of_IN the_DT shore_NN power_NN ._SENT 
+Therefore_RB ,_, it_PP is_VBZ necessary_JJ to_TO optimize_VV the_DT design_NN of_IN the_DT plug-in_NN HEPS_VVZ considering_VVG not_RB only_RB fuel_VV consumption_NN but_CC also_RB GHG_NN emissions_NNS ._SENT 
+In_IN most_RBS previous_JJ studies_NNS ,_, design_NN optimization_NN was_VBD performed_VVN only_RB with_IN the_DT goal_NN of_IN fuel_NN saving_NN while_IN GHG_NN emissions_NNS were_VBD not_RB considered_VVN in_IN the_DT objective_JJ function_NN ._SENT 
+The_DT design_NN of_IN a_DT serial_JJ HEPS_NNS was_VBD optimized_VVN for_IN a_DT medium-size_JJ (_( 14_CD m_NN )_) boat_NN [_SYM 10_CD ]_SYM ._SENT 
+The_DT fuel_NN consumption_NN of_IN the_DT optimal_JJ design_NN is_VBZ 61.8_CD L/100_NN km_NN ,_, compared_VVN to_TO 92.6_CD L/100_NN km_NN of_IN the_DT conventional_JJ design_NN ._SENT 
+Two_CD optimal_JJ designs_NNS ,_, that_WDT can_MD reduce_VV energy_NN consumption_NN by_IN 8_CD %_NN ,_, on_IN average_NN ,_, across_IN four_CD typical_JJ scenarios_NNS ,_, were_VBD examined_VVN for_IN a_DT hybrid_JJ steam_NN turbine/electric_JJ motor_NN propulsion_NN system_NN [_SYM 11_CD ]_SYM ._SENT 
+With_IN the_DT aim_NN to_TO be_VB fuel-saving_JJ and_CC weight-saving_JJ ,_, the_DT HEPS_NP size_NN was_VBD optimized_VVN for_IN a_DT motoryacht_NN [_SYM 12_CD ]_SYM ._SENT 
+However_RB ,_, fuel_NN saving_NN does_VVZ not_RB necessarily_RB mean_VV low_JJ GHG_NN emissions_NNS ._SENT 
+Specifically_RB ,_, GHG_NN emission_NN reduction_NN ,_, even_RB zero_CD emission_NN ,_, is_VBZ a_DT major_JJ requirement_NN for_IN the_DT usage_NN of_IN HEPSs_NP in_IN some_DT key_NN environmentally_RB protected_VVN areas_NNS ._SENT 
+Thereafter_RB ,_, it_PP is_VBZ important_JJ to_TO examine_VV a_DT bi-objective_JJ optimization_NN design_NN to_TO achieve_VV a_DT compromise_NN regarding_VVG fuel_NN consumption_NN and_CC GHG_NN emissions_NNS ._SENT 
+Bi-objective_JJ optimization_NN can_MD obtain_VV better_JJR designs_NNS in_IN terms_NNS of_IN comprehensive_JJ performance_NN when_WRB compared_VVN with_IN single-objective_JJ optimization_NN ._SENT 
+For_IN example_NN ,_, a_DT plug-in_NP fuel_NN cell_NN hybrid_JJ bus_NN reduces_VVZ fuel_NN consumption_NN by_IN 12.86_CD %_NN while_IN lowering_VVG GHG_NN emissions_NNS by_IN 9.36_CD %_NN [_SYM 13_CD ]_SYM ._SENT 
+An_DT optimization_NN considering_VVG HC/CO/NOx_JJ emissions_NNS and_CC fuel_NN consumption_NN was_VBD applied_VVN to_TO a_DT hybrid_JJ electric_JJ vehicle_NN [_SYM 14_CD ]_SYM ._SENT 
+However_RB ,_, bi-objective_JJ optimization_NN considering_VVG fuel_NN consumption_NN and_CC GHG_NN emissions_NNS simultaneously_RB has_VHZ not_RB been_VBN explored_VVN for_IN diesel-electric_JJ hybrid_JJ vehicles_NNS and_CC HEPS_NNS ships_NNS ._SENT 
+In_IN addition_NN ,_, there_EX are_VBP significant_JJ differences_NNS between_IN the_DT hybrid_JJ vehicles_NNS and_CC HEPS_NNS ships_NNS ._SENT 
+First_RB ,_, long_JJ range_NN and_CC durable_JJ endurance_NN is_VBZ essential_JJ for_IN HEPS_NNS ships_NNS ,_, whereas_IN hybrid_JJ vehicles_NNS can_MD be_VB refilled_VVN ,_, recharged_VVN ,_, or_CC repaired_VVD conveniently_RB ._SENT 
+Second_RB ,_, a_DT much_RB larger_JJR amount_NN of_IN non-propulsive_JJ power_NN is_VBZ generally_RB required_VVN by_IN HEPS_NNS ships_NNS to_TO drive_VV working_VVG devices_NNS ,_, such_JJ as_IN crane_NN and_CC water_NN treatment_NN ,_, while_IN the_DT auxiliary_JJ power_NN requirement_NN of_IN hybrid_JJ vehicles_NNS is_VBZ relatively_RB low_JJ ._SENT 
+Third_JJ ,_, HEPS_VVZ ships_NNS typically_RB use_VVP multiple_JJ generator_NN sets_NNS or_CC even_RB multiple_JJ types_NNS of_IN prime_JJ movers_NNS that_WDT are_VBP connected_VVN to_TO a_DT common_JJ power_NN bus_NN and_CC are_VBP independently_RB controlled_VVN ._SENT 
+In_IN contrast_NN ,_, hybrid_JJ vehicles_NNS typically_RB use_VVP a_DT set_NN of_IN power_NN devices_NNS ._SENT 
+Fourth_JJ ,_, unlike_IN hybrid_JJ vehicles_NNS that_WDT are_VBP likely_JJ to_TO stop-and-go_NN frequently_RB ,_, HEPS_VVZ ships_NNS typically_RB keeps_VVZ sailing_NN in_IN one_CD mode_NN for_IN a_DT long_JJ time_NN with_IN a_DT stable_JJ power_NN requirement_NN ._SENT 
+Finally_RB ,_, it_PP is_VBZ inefficient_JJ to_TO apply_VV regenerative_JJ braking_VVG technology_NN due_JJ to_TO the_DT lack_NN of_IN direct_JJ adhesion_NN between_IN the_DT propeller_NN and_CC water_NN [_SYM 15_CD ]_SYM ._SENT 
+Several_JJ optimization_NN algorithms_NNS have_VHP been_VBN recently_RB developed_VVN for_IN bi-objective_JJ and_CC multi-objective_JJ problems_NNS in_IN various_JJ applications_NNS ._SENT 
+The_DT weighting_NN factor_NN method_NN was_VBD examined_VVN to_TO solve_VV an_DT active_JJ distribution_NN networks_NNS planning_VVG problem_NN in_IN order_NN to_TO minimize_VV the_DT total_JJ operational_JJ cost_NN and_CC total_JJ energy_NN loss_NN [_SYM 16_CD ]_SYM ._SENT 
+The_DT selection_NN of_IN weighting_NN factors_NNS is_VBZ challenging_VVG because_IN different_JJ combinations_NNS of_IN weighting_NN factors_NNS results_NNS in_IN optimal_JJ designs_NNS which_WDT achieve_VVP different_JJ performance_NN ._SENT 
+Instead_RB of_IN using_VVG weighting_NN factors_NNS ,_, the_DT Pareto_NP optimal_JJ solution_NN set_NN provides_VVZ an_DT effective_JJ method_NN to_TO deal_VV with_IN multi-objective_JJ optimization_NN problems_NNS ._SENT 
+For_IN example_NN ,_, a_DT multi-objective_JJ ant_NN colony_NN optimization_NN (_( MOACO_NP )_) algorithm_NN was_VBD designed_VVN to_TO solve_VV a_DT path-finding_JJ problem_NN for_IN a_DT military_JJ unit_NN aiming_VVG to_TO pursuing_VVG maximum_JJ speed_NN and_CC safety_NN [_SYM 17_CD ]_SYM ._SENT 
+However_RB ,_, the_DT MOACO_NP always_RB involves_VVZ a_DT long_JJ period_NN to_TO reach_VV convergence_NN and_CC tends_VVZ to_TO be_VB confined_VVN to_TO a_DT local_JJ optimum_JJ solution_NN ._SENT 
+A_DT non-dominated_JJ sorting_VVG genetic_JJ algorithm_NN II_NP (_( NSGA-II_NP )_) ,_, which_WDT is_VBZ an_DT evolutionary-based_JJ global_JJ optimization_NN ,_, has_VHZ been_VBN applied_VVN to_TO the_DT absorption_NN heat_NN pump_NN [_SYM 18_CD ]_SYM ,_, Stirling_NP heat_NN pump_NN [_SYM 19_CD ]_SYM ,_, refrigerator_NN [_SYM 20_CD ]_SYM ,_, irreversible_JJ regenerative_JJ closed_JJ Brayton_NP cycle_NN [_SYM 21_CD ]_SYM ,_, multi-step_VVZ solar-driven_NP Brayton_NP plant_NN [_SYM 22_CD ]_SYM ,_, etc._FW The_DT NSGA-II_NP was_VBD compared_VVN with_IN another_DT multi-objective_JJ particle_NN swarm_NN optimization_NN algorithm_NN (_( MOPSO_NP )_) to_TO solve_VV a_DT multi-objective_JJ multi-route_JJ flexible_JJ flow_NN line_NN problem_NN [_SYM 23_CD ]_SYM ._SENT 
+The_DT results_NNS indicated_VVD that_IN the_DT NSGA-II_NP performs_VVZ better_RBR than_IN MOPSO_NP in_IN terms_NNS of_IN space_NN and_CC quality_NN criteria_NNS ,_, though_IN the_DT NSGA-II_NP provides_VVZ fewer_JJR Pareto_NN solutions_NNS ._SENT 
+In_IN addition_NN ,_, the_DT NSGA-II_NP was_VBD compared_VVN with_IN a_DT dominance_NN based_VVN multi-objective_JJ simulated_JJ annealing_VVG algorithm_NN (_( DBMOSA_NP )_) in_IN the_DT optimization_NN of_IN network_NN design_NN ._SENT 
+The_DT results_NNS showed_VVD that_IN the_DT NSGA-II_NP outperforms_VVZ the_DT DBMOSA_NN in_IN global_JJ searching_VVG ability_NN [_SYM 24_CD ]_SYM ._SENT 
+Therefore_RB ,_, in_IN the_DT present_JJ study_NN ,_, the_DT NSGA-II_NP is_VBZ chosen_VVN to_TO explore_VV the_DT design_NN space_NN ._SENT 
+Considering_VVG fuel_NN consumption_NN and_CC GHG_NN emissions_NNS ,_, the_DT present_JJ study_NN proposes_VVZ a_DT bi-objective_JJ optimization_NN methodology_NN to_TO determine_VV the_DT size_NN of_IN the_DT major_JJ components_NNS of_IN plug-in_NP HEPSs_NP ,_, including_VVG the_DT diesel_JJ engines_NNS ,_, motors_NNS ,_, battery_NN modules_NNS ,_, and_CC gearboxes_NNS ._SENT 
+The_DT proposed_VVN methodology_NN is_VBZ applied_VVN to_TO a_DT 120-ton_NP tug_NN ship_NN equipped_VVN with_IN a_DT set_NN of_IN plug-in_NN HEPS_NNS ._SENT 
+The_DT Pareto_NP solution_NN sets_NNS calculated_VVN from_IN the_DT NSGA-II_NNS are_VBP compared_VVN with_IN the_DT optimal_JJ solution_NN from_IN a_DT single_JJ objective_NN algorithm_NN considering_VVG fuel_NN consumption_NN and_CC GHG_NN emissions_NNS ._SENT 
+The_DT performance_NN tests_NNS are_VBP performed_VVN on_IN a_DT hardware-in-the-loop_NP (_( HIL_NP )_) platform_NN ._SENT 
+Furthermore_RB ,_, sensitivity_NN analysis_NN is_VBZ performed_VVN in_IN order_NN to_TO understand_VV and_CC provide_VV insight_NN into_IN the_DT results_NNS from_IN optimization_NN ._SENT 
+The_DT present_JJ study_NN is_VBZ organized_VVN as_RB follows_VVZ ._SENT 
+Section_NN 2_CD builds_VVZ the_DT mathematical_JJ models_NNS of_IN the_DT plug-in_NP HEPS_NNS ._SENT 
+Section_NN 3_CD describes_VVZ the_DT energy_NN management_NN strategy_NN ._SENT 
+Section_NN 4_CD presents_NNS the_DT optimization_NN algorithm_NN ._SENT 
+Section_NN 5_CD provides_VVZ the_DT results_NNS and_CC discussion_NN ,_, and_CC section_NN 6_CD draws_VVZ conclusions_NNS ._SENT 
+<Section> 2._CD Mathematical_JJ modeling_NN </Section> The_DT configuration_NN of_IN a_DT plug-in_NP HEPS_NP is_VBZ compared_VVN with_IN that_DT of_IN a_DT conventional_JJ propulsion_NN system_NN ,_, as_RB shown_VVN in_IN Fig_NN ._SENT 
+1._CD In_IN the_DT conventional_JJ propulsion_NN system_NN ,_, four_CD diesel_JJ engines_NNS are_VBP used_VVN ,_, two_CD drive_NN two_CD propellers_NNS ,_, and_CC two_CD drive_NN two_CD generators_NNS ._SENT 
+The_DT two_CD propellers_NNS are_VBP identical_JJ and_CC symmetrically_RB arranged_VVN along_IN the_DT longitudinal_JJ axis_NN of_IN the_DT ship_NN ._SENT 
+The_DT two_CD generators_NNS are_VBP identical_JJ ._SENT 
+Fig_NN ._SENT 
+1_CD Download_NN :_: Download_NP high-res_NP image_NN (_( 242KB)Download_NP :_: Download_NP full-size_JJ image_NN Fig_NN ._SENT 
+1._CD Diagram_NN of_IN propulsion_NN systems_NNS ._SENT 
+However_RB ,_, in_IN the_DT plug-in_NP HEPS_NP ,_, only_RB two_CD diesel_NN engines_NNS are_VBP used_VVN ._SENT 
+They_PP drive_VVP two_CD identical_JJ generators_NNS and_CC produce_VV electricity_NN distributed_VVN by_IN the_DT power_NN bus_NN ._SENT 
+Other_JJ than_IN the_DT two_CD generators_NNS ,_, the_DT power_NN bus_NN distributes_VVZ the_DT electricity_NN from_IN two_CD additional_JJ sources_NNS ,_, i._NP e._NP ,_, the_DT battery_NN and_CC the_DT shore_NN power_NN station_NN ._SENT 
+Two_CD motors_NNS use_VVP the_DT electricity_NN and_CC each_DT drive_NN one_CD of_IN the_DT two_CD propellers_NNS ._SENT 
+The_DT battery_NN can_MD store_VV the_DT electricity_NN from_IN the_DT shore_NN power_NN and_CC generators_NNS ,_, and_CC help_VV supply_VV the_DT power_NN required_VVN by_IN the_DT propellers_NNS ,_, hotel_NN load_NN ,_, and_CC service_NN load_NN ._SENT 
+Thus_RB ,_, the_DT diesel_JJ engines_NNS are_VBP not_RB directly_RB connected_VVN to_TO the_DT propellers_NNS ,_, so_RB they_PP can_MD work_VV within_IN high_JJ efficiency_NN range_NN in_IN terms_NNS of_IN rotary_JJ velocity_NN and_CC output_NN torque_NN regardless_RB of_IN changes_NNS in_IN power_NN demand_NN ._SENT 
+Additionally_RB ,_, more_JJR electricity_NN from_IN the_DT shore_NN power_NN station_NN allows_VVZ longer_JJR range_NN of_IN zero-emission_NN during_IN the_DT voyage_NN ._SENT 
+To_TO facilitate_VV the_DT optimization_NN algorithm_NN ,_, the_DT plug-in_NP HEPS_NP is_VBZ modeled_VVN using_VVG the_DT inverse_JJ simulation_NN method_NN [_SYM 25_CD ]_SYM ._SENT 
+For_IN a_DT predefined_JJ velocity_NN profile_NN ,_, the_DT thrust_NN T_NN of_IN the_DT propeller_NN can_MD be_VB calculated_VVN from_IN the_DT models_NNS of_IN ship_NN dynamics_NNS and_CC hydrodynamics_NNS as_RB shown_VVN in_IN Fig_NN ._SENT 
+2._CD Following_VVG that_IN ,_, the_DT physical_JJ quantities_NNS (_( rotary_JJ velocity_NN ,_, torque_NN ,_, power_NN ,_, etc._FW )_) of_IN the_DT propellers_NNS ,_, motors_NNS ,_, generators_NNS ,_, and_CC diesel_JJ engines_NNS can_MD be_VB calculated_VVN by_IN using_VVG the_DT mathematical_JJ models_NNS ._SENT 
+The_DT models_NNS illustrated_VVN in_IN Fig_NN ._SENT 
+2_LS are_VBP detailed_JJ in_IN the_DT following_VVG paragraphs_NNS ._SENT 
+Fig_NN ._SENT 
+2_CD Download_NN :_: Download_NP high-res_NP image_NN (_( 135KB)Download_NP :_: Download_NP full-size_JJ image_NN Fig_NN ._SENT 
+2._CD Information_NN flow_NN of_IN the_DT mathematical_JJ models_NNS ._SENT 
+2.1_CD ._SENT 
+Ship_NN dynamics_NNS The_DT longitudinal_JJ dynamics_NNS of_IN the_DT ship_NN is_VBZ given_VVN by_IN Refs_NNS ._SENT 
+[_SYM 26,27_CD ]_SYM :_: (_( 1)mdvdt=npT(1−t1)−Rtotal_JJ ._SENT 
+where_WRB m_NN is_VBZ the_DT mass_NN of_IN the_DT ship_NN ,_, v_NN is_VBZ the_DT velocity_NN of_IN the_DT ship_NN ,_, np_NP is_VBZ the_DT number_NN of_IN the_DT propellers_NNS ,_, T_NN is_VBZ the_DT effective_JJ thrust_NN of_IN one_CD propeller_NN ,_, t1_NN is_VBZ the_DT thrust_NN deduction_NN coefficient_NN ,_, and_CC Rtotal_NP is_VBZ the_DT total_JJ resistance_NN calculated_VVN from_IN hydrodynamics_NNS including_VVG frictional_JJ resistance_NN RF_NP ,_, wave-making_NN resistanceRw_NNS ,_, air_NN resistance_NN RAir_NP [_SYM 27,28_CD ]_SYM as_RB below_RB ._SENT 
+(_( 2)Rtotal=RF+RW+RAir_NP ._SENT 
+(_( 3)RF=12CFρv2S_NP ._SENT 
+(_( 4)RW=12CWρv2S_NP ._SENT 
+(_( 5)RAir=12CAirρv2AT_NP ._SENT 
+where_WRB ,_, ρ_NP is_VBZ the_DT sea-water_NN density_NN ,_, S_NP is_VBZ the_DT wet-surface_JJ area_NN of_IN hull_NN ,_, CF_NP is_VBZ the_DT frictional_JJ resistance_NN coefficient_NN ,_, CW_NP is_VBZ the_DT wave-making_NN resistance_NN coefficient_NN ,_, Cair_NP is_VBZ the_DT air_NN resistance_NN coefficient_NN ,_, AT_IN is_VBZ the_DT advance_NN facing_VVG area_NN in_IN the_DT air_NN ._SENT 
+2.2_CD ._SENT 
+Propellers_NNS The_DT two_CD propellers_NNS are_VBP identical_JJ ._SENT 
+For_IN each_DT propeller_NN ,_, the_DT effective_JJ thrust_NN T_NN and_CC the_DT effective_JJ torque_NN Q_NP are_VBP given_VVN by_IN Refs_NNS ._SENT 
+[_SYM 27,28_CD ]_SYM :_: (_( 6)T=KTn2D4ρ_NP ._SENT 
+7)Q=n2D5ρKQ_NP ._SENT 
+(_( 8)KT=fT(JA_NP ,_, pitch/D_NN ,_, Ae/Ao_NP ,_, Z_NP ,_, Rn_NP )_) ._SENT 
+(_( 9)KQ=fQ(JA_NP ,_, pitch/D_NN ,_, Ae/Ao_NP ,_, Z_NP ,_, Rn_NP )_) ._SENT 
+where_WRB KT_NP is_VBZ the_DT thrust_NN coefficient_NN ,_, KQ_NP is_VBZ the_DT torque_NN coefficients_NNS ,_, n_NN is_VBZ the_DT angular_JJ speed_NN whose_WP$ units_NNS is_VBZ rpm_NN (_( revolution_NN per_IN minute_NN )_) ,_, D_NP is_VBZ the_DT diameter_NN ,_, Ae_NP and_CC A0_NP are_VBP the_DT expanded_JJ blade_NN area_NN and_CC swept_VVD area_NN of_IN the_DT propellers_NNS ,_, respectively_RB ._SENT 
+The_DT coefficients_NNS KT_NP and_CC KQ_NP are_VBP the_DT functions_NNS of_IN the_DT advance_NN coefficient_NN JA_NP ,_, pitch_NN ratiopitch/D_NNS ,_, expanded_JJ blade–area_NN ratio_NN Ae/A0_NN ,_, number_NN of_IN propeller_NN blades_NNS Z_NN ,_, and_CC Reynolds_NP number_NN Rn_NNS [_SYM 29_CD ]_SYM ._SENT 
+The_DT definitions_NNS of_IN JA_NP and_CC Rn_NNS are_VBP given_VVN as_IN below_RB ._SENT 
+(_( 10)JA=vnD_NP ._SENT 
+(_( 11)Rn=1υvD_NNS ._SENT 
+where_WRB υ_NP is_VBZ the_DT kinematic_JJ viscosity_NN ._SENT 
+2.3_CD ._SENT 
+Gearboxes_NNS Each_DT propeller_NN requires_VVZ a_DT gearbox_NN to_TO connect_VV the_DT driving_VVG motor_NN ._SENT 
+Therefore_RB ,_, there_EX are_VBP two_CD identical_JJ gearboxes_NNS ._SENT 
+Each_DT gearbox_NN is_VBZ modeled_VVN as_IN below_RB ._SENT 
+(_( 12)ωM=2πi60n_NP ._SENT 
+(_( 13)TM_e=1iηgearQ_NP ._SENT 
+where_WRB ωM_NP is_VBZ the_DT angular_JJ velocity_NN of_IN the_DT motor_NN ,_, TM_e_NN is_VBZ the_DT output_NN torque_NN of_IN the_DT motor_NN ,_, i_NP is_VBZ the_DT gear_NN ratio_NN ,_, and_CC ηgear_NN is_VBZ the_DT efficiency_NN coefficient_NN ._SENT 
+2.4_CD ._SENT 
+Motors_NP The_DT two_CD driving_NN motors_NNS are_VBP identical_JJ ._SENT 
+Each_DT motor_NN is_VBZ described_VVN by_IN a_DT scalable_JJ model_NN based_VVN on_IN the_DT Willans_NP line_NN method_NN [_SYM 30_CD ]_SYM ._SENT 
+The_DT Willans_NP line_NN method_NN represents_VVZ the_DT relationship_NN between_IN the_DT theoretically_RB available_JJ energy_NN and_CC the_DT output_NN energy_NN from_IN energy_NN converters_NNS ._SENT 
+It_PP is_VBZ widely_RB used_VVN to_TO build_VV scalable_JJ models_NNS for_IN motors_NNS ,_, gasoline_NN engines_NNS ,_, and_CC diesel_JJ engines_NNS [_SYM 31_CD ]_SYM ._SENT 
+To_TO establish_VV the_DT motor_NN model_NN ,_, the_DT available_JJ mean_JJ effective_JJ pressure_NN pM_me_NN is_VBZ defined_VVN as_IN the_DT mean_JJ force_NN acting_VVG on_IN the_DT unit_NN area_NN of_IN the_DT rotor_NN surface_NN ,_, and_CC the_DT break_NN mean_VV effective_JJ pressure_NN pM_ma_NN expresses_VVZ the_DT maximum_JJ value_NN of_IN pM_me_NN if_IN the_DT efficiency_NN of_IN the_DT motor_NN is_VBZ 100_CD %_NN ._SENT 
+(_( 14)pM_me=TM_e2Vrotor_NP ._SENT 
+(_( 15)pM_ma=PM_in2VrotorωM_NP ._SENT 
+(_( 16)Vrotor=14dM2lM_NP ._SENT 
+where_WRB TM_e_NN and_CC ωM_NN are_VBP the_DT output_NN torque_NN and_CC angular_JJ velocity_NN of_IN the_DT motor_NN ,_, respectively_RB ._SENT 
+The_DT volume_NN of_IN motor_NN rotor_NN Vrotor_NN is_VBZ calculated_VVN from_IN the_DT diameter_NN dM_NN and_CC length_NN lM_NNS of_IN the_DT motor_NN rotor_NN ._SENT 
+The_DT relationship_NN between_IN the_DT available_JJ mean_JJ effective_JJ pressure_NN pM_me_NN and_CC the_DT break_NN mean_VV effective_JJ pressure_NN pM_ma_NN can_MD be_VB expressed_VVN as_RB [_SYM 30_CD ]_SYM :_: (_( 17)pM_me=-e⋅M_2pM_ma2+eM_1pM_ma-pM_loss_NP ._SENT 
+(_( 18)pM_loss=eM_l2⋅vr2+eM_l0eM_2=eM_21vr+eM_20eM_1=eM_12vr2+eM_11vr+eM_10vr=12dMωD_NNS ._SENT 
+where_WRB ,_, vr_NP is_VBZ the_DT average_JJ line_NN speed_NN of_IN the_DT motor_NN rotor_NN ._SENT 
+The_DT Willans_NP line_NN coefficients_NNS (_( eM_10_NP ,_, eM_11_NN ,_, eM_12_NP ,_, eM_20_NP ,_, eM_21_NN ,_, eM_l0and_NP eM_l2_NP )_) are_VBP inherited_VVN by_IN the_DT new_JJ designed_VVN motor_NN that_WDT belongs_VVZ to_TO the_DT same_JJ class_NN as_IN the_DT baseline_NN motor_NN ._SENT 
+Based_VVN on_IN the_DT efficiency_NN map_NN of_IN a_DT baseline_NN motor_NN ,_, the_DT Willans_NP line_NN coefficients_NNS for_IN motor_NN can_MD be_VB calculated_VVN by_IN parameter_NN identification_NN from_IN equation_NN (_( 17_CD )_) ._SENT 
+Changing_VVG the_DT diameter_NN dM_NN and_CC length_NN lM_NNS of_IN the_DT motor_NN rotor_NN ,_, equation_NN (_( 17_CD )_) can_MD be_VB used_VVN to_TO represent_VV the_DT relationship_NN between_IN the_DT available_JJ mean_JJ effective_JJ pressure_NN pM_me_NN and_CC the_DT break_NN mean_VV effective_JJ pressure_NN pM_ma_NN of_IN a_DT scaled_VVN motor_NN ,_, as_RB well_RB as_IN the_DT relationship_NN between_IN the_DT input_NN power_NN PM_in_NN and_CC operational_JJ conditions_NNS (_( TM_e_NN and_CC ωM_NN )_) ._SENT 
+2.5_CD ._SENT 
+Generators_NNS The_DT two_CD generators_NNS are_VBP identical_JJ ._SENT 
+The_DT output_NN power_NN of_IN each_DT generator_NN is_VBZ denoted_VVN by_IN PG_NP which_WDT is_VBZ calculated_VVN by_IN :_: (_( 19)PG=ηgenPD_NNS ._SENT 
+(_( 20)PG_rate=ηgenPD_rate_NNS ._SENT 
+(_( 21)PD=TD_e⋅ωD_NNS ._SENT 
+where_WRB PD_NP is_VBZ the_DT output_NN power_NN of_IN the_DT diesel_JJ engine_NN ,_, ηgen_NP is_VBZ the_DT efficiency_NN of_IN the_DT generator_NN ,_, TD_e_NN is_VBZ effective_JJ torque_NN of_IN the_DT diesel_JJ engine_NN ,_, and_CC ωD_RB is_VBZ the_DT angular_JJ velocity_NN of_IN the_DT diesel_JJ engine_NN ._SENT 
+In_IN general_NN ,_, the_DT rated_VVN power_NN PG_rate_NNS of_IN the_DT generator_NN is_VBZ chosen_VVN to_TO match_VV the_DT rated_VVN power_NN PD_rate_NNS of_IN the_DT corresponding_JJ diesel_NN engine_NN ._SENT 
+Given_VVN that_IN the_DT size_NN of_IN the_DT diesel_JJ engine_NN is_VBZ discussed_VVN in_IN detail_NN in_IN the_DT following_VVG paragraphs_NNS ,_, it_PP is_VBZ unnecessary_JJ to_TO model_NN and_CC further_RBR investigate_VV the_DT size_NN of_IN the_DT generator_NN ._SENT 
+2.6_CD ._SENT 
+Diesel_JJ engines_NNS A_DT scalable_JJ model_NN is_VBZ established_VVN based_VVN on_IN the_DT Willans_NP line_NN method_NN [_SYM [_SYM 30_CD ]_SYM ,_, [_SYM 31_CD ]_SYM ,_, [_SYM 32_CD ]_SYM ,_, [_SYM 33_CD ]_SYM ]_SYM ._SENT 
+Firstly_RB ,_, the_DT available_JJ mean_JJ effective_JJ pressure_NN pD_ma_NN and_CC break_VV mean_VV effective_JJ pressure_NN pD_me_NNS are_VBP defined_VVN as_IN below_RB ._SENT 
+(_( 22)pD_me=4π⋅TD_eVD_NNS ._SENT 
+(_( 23)pD_ma=LCV⋅4πVDm˙fωD_NNS ._SENT 
+in_IN which_WDT ,_, VD_NN is_VBZ the_DT diesel_JJ engine_NN displacement_NN ,_, LCV_NP is_VBZ the_DT lower_JJR calorific_JJ value_NN of_IN the_DT diesel_JJ fuel_NN ,_, andm˙f_NP is_VBZ the_DT mass_JJ flow_NN of_IN the_DT diesel_JJ fuel_NN ._SENT 
+According_VVG to_TO the_DT Willans_NP line_NN method_NN ,_, the_DT two_CD pressures_NNS can_MD be_VB fitted_VVN by_IN a_DT polynomial_NN as_IN below_RB [_SYM 33_CD ]_SYM ._SENT 
+(_( 24)pD_me=-e⋅D_2pD_ma2+eD_1pD_ma-pD_loss_NP ._SENT 
+(_( 25)pD_loss=eD_l2⋅vp2+eD_l0eD_2=eD_21vp+eD_20eD_1=eD_12vp2+eD_11vp+eD_10vp=SDπωD_NNS ._SENT 
+(_( 26)VD=14SDBD2_NP ._SENT 
+where_WRB vp_NP is_VBZ the_DT average_JJ piston_NN speed_NN ,_, SD_NNS and_CC BD_NNS are_VBP the_DT stroke_NN and_CC bore_VVD of_IN the_DT cylinder_NN ,_, respectivelyeD_10_NP ,_, eD_11_NN ,_, eD_12_NP ,_, eD_20_NP ,_, eD_21_JJ ,_, eD_l0_JJ ,_, and_CC eD_l2_NP are_VBP Willans_NNS line_NN factors_NNS for_IN diesel_JJ engine_NN which_WDT are_VBP the_DT same_JJ for_IN a_DT class_NN of_IN engine_NN designs_NNS with_IN different_JJ displacement_NN VD_NN and_CC stroke_NN SD_NNS ._SENT 
+Therefore_RB ,_, given_VVN the_DT data_NNS of_IN the_DT available_JJ mean_JJ effective_JJ pressure_NN pD_ma_NN and_CC break_VV mean_VV effective_JJ pressure_NN pD_me_NN of_IN a_DT baseline_JJ diesel_NN engine_NN ,_, the_DT Willans_NP line_NN factors_NNS can_MD be_VB obtained_VVN by_IN parameter_NN identification_NN from_IN (_( 25_CD )_) ._SENT 
+Thereafter_RB ,_, given_VVN the_DT effective_JJ torque_NN TD_e_NNS ,_, the_DT displacement_NN VD_NN and_CC stroke_NN SD_NNS of_IN a_DT new_JJ diesel_NN engine_NN ,_, the_DT break_NN mean_VV effective_JJ pressure_NN pD_me_NN can_MD be_VB calculated_VVN from_IN (_( 22_CD )_) ._SENT 
+Following_VVG that_IN ,_, the_DT available_JJ mean_JJ effective_JJ pressure_NN pD_ma_NN can_MD be_VB calculated_VVN from_IN (_( 24_CD )_) ._SENT 
+Finally_RB ,_, the_DT mass_JJ flow_NN m˙f_NN can_MD be_VB calculated_VVN from_IN (_( 23_CD )_) ._SENT 
+eD_10_NP ,_, eD_11_NN ,_, eD_12_NP ,_, eD_20_NP ,_, eD_21_JJ ,_, eD_l0_JJ ased_NNS on_IN these_DT calculations_NNS ,_, the_DT mass_JJ flow_NN of_IN a_DT class_NN of_IN diesel_JJ engine_NN designs_NNS can_MD be_VB obtained_VVN ._SENT 
+2.7_CD ._SENT 
+Battery_NN In_IN this_DT study_NN ,_, lithium-ion_NN batteries_NNS are_VBP used_VVN due_RB to_TO their_PP$ high_JJ energy_NN density_NN ,_, prominent_JJ storage_NN efficiency_NN ,_, and_CC flat_JJ characteristic_JJ curve_NN of_IN voltage_NN drop_NN without_IN memory_NN effects_NNS [_SYM 34_CD ]_SYM ._SENT 
+In_IN the_DT battery_NN system_NN ,_, several_JJ battery_NN modules_NNS are_VBP connected_VVN in_IN series_NN ._SENT 
+Each_DT battery_NN module_NN consists_VVZ of_IN 40_CD identical_JJ battery_NN cells_NNS which_WDT are_VBP parallelly_RB connected_VVN ._SENT 
+The_DT number_NN of_IN battery_NN modules_NNS ,_, nser_NP ,_, should_MD be_VB designed_VVN ._SENT 
+As_RB applied_VVN to_TO the_DT analysis_NN of_IN other_JJ hybrid_JJ powertrains_NNS ,_, the_DT Rint_NN model_NN is_VBZ used_VVN to_TO describe_VV the_DT current_JJ I_NN of_IN the_DT battery_NN cell_NN as_IN below_RB [_SYM [_SYM 35_CD ]_SYM ,_, [_SYM 36_CD ]_SYM ,_, [_SYM 37_CD ]_SYM ,_, [_SYM 38_CD ]_SYM ]_SYM ._SENT 
+(_( 27)Pbat=PBnser_NP ._SENT 
+(_( 28)I=Voc2Rbat−(Voc2Rbat)2−PbatRbat_NP ._SENT 
+where_WRB PB_NP is_VBZ the_DT power_NN of_IN the_DT battery_NN system_NN ,_, Voc_NP ,_, Rbat_NP ,_, and_CC Pbat_NP are_VBP open-circuit_NN voltage_NN ,_, internal_JJ resistance_NN ,_, and_CC terminal_NN power_NN of_IN the_DT battery_NN cell_NN ,_, respectively_RB ._SENT 
+Disregarding_VVG the_DT imbalance_NN of_IN the_DT battery_NN cells_NNS ,_, the_DT stage_NN of_IN charge_NN of_IN the_DT battery_NN module_NN is_VBZ the_DT same_JJ as_RB that_IN of_IN the_DT battery_NN cell_NN ._SENT 
+The_DT battery_NN state_NN of_IN charge_NN (_( SOC_NP )_) is_VBZ determined_VVN from_IN Ref_NN ._SENT 
+[_SYM 35_CD ]_SYM :_: (_( 29)SO˙C=−IηcolmQbat_NP ._SENT 
+where_WRB ηcolm_NP is_VBZ Coulombic_JJ efficiency_NN ,_, and_CC Qbat_NP is_VBZ the_DT battery_NN capacity_NN ._SENT 
+<Section> 3._CD Energy_NP management_NN strategy_NN </Section> The_DT energy_NN management_NN strategy_NN is_VBZ used_VVN to_TO coordinate_VV the_DT operation_NN of_IN the_DT diesel_JJ engine_NN ,_, motor_NN ,_, and_CC generator_NN ,_, also_RB to_TO coordinate_VV the_DT usage_NN of_IN electricity_NN from_IN the_DT battery_NN and_CC the_DT shore_NN power_NN plant_NN ,_, aiming_VVG to_TO fulfill_VV the_DT power_NN required_VVN by_IN the_DT propellers_NNS ,_, hotel_NN load_NN ,_, and_CC service_NN load_NN of_IN the_DT plug-in_NP HEPS_NP ._SENT 
+Considering_VVG low_JJ computational_JJ load_NN and_CC implementation_NN convenience_NN ,_, a_DT rule-based_JJ strategy_NN is_VBZ developed_VVN for_IN the_DT energy_NN management_NN of_IN this_DT study_NN ._SENT 
+First_JJ of_IN all_DT ,_, the_DT battery_NN should_MD be_VB charged_VVN to_TO SOC0=90_JJ %_NN by_IN the_DT shore_NN power_NN plant_NN before_IN the_DT ship_NN starts_VVZ the_DT voyage_NN ._SENT 
+The_DT energy_NN management_NN strategy_NN prioritizes_VVZ electricity_NN from_IN the_DT shore_NN because_IN it_PP generally_RB reduces_VVZ fuel_NN consumption_NN and_CC is_VBZ cleaner_JJR to_TO local_JJ waters_NNS in_IN comparison_NN with_IN energy_NN from_IN the_DT generators_NNS produced_VVN by_IN onboard_JJ diesel_JJ engines_NNS ._SENT 
+The_DT output_NN power_NN of_IN the_DT battery_NN ,_, denoted_VVN by_IN PB_NP ,_, is_VBZ determined_VVN by_IN the_DT status_NN of_IN the_DT battery_NN and_CC total_JJ load_NN power_NN Preq_NP ._SENT 
+Following_VVG that_IN ,_, the_DT number_NN of_IN running_VVG generators_NNS ,_, nG_NNS (_( 0_CD ,_, 1_CD or_CC 2_CD )_) ,_, can_MD be_VB selected_VVN ._SENT 
+The_DT constraints_NNS of_IN the_DT battery_NN are_VBP represented_VVN by_IN three_CD parameters_NNS ,_, i._NP e._NP ,_, blower_NN ,_, bupper_NP and_CC PB_max_NP ,_, which_WDT are_VBP the_DT lower_JJR bound_VVN of_IN SOC_NP ,_, upper_JJ bound_VVN of_IN SOC_NP ,_, and_CC maximum_JJ output_NN power_NN of_IN the_DT battery_NN ,_, respectively_RB ._SENT 
+In_IN this_DT study_NN ,_, the_DT SOC_NN bounds_NNS ,_, blower_NN and_CC bupper_NN ,_, are_VBP not_RB set_VVN to_TO be_VB constant_JJ like_IN those_DT in_IN literature_NN [_SYM 39,40_CD ]_SYM ._SENT 
+Instead_RB ,_, they_PP are_VBP tuned_VVN by_IN the_DT optimal_JJ design_NN discussed_VVN in_IN next_JJ section_NN ._SENT 
+In_IN terms_NNS of_IN the_DT direction_NN of_IN the_DT electric_JJ energy_NN flow_NN ,_, the_DT operation_NN of_IN the_DT plug-in_NP HEPS_NNS can_MD be_VB classified_VVN into_IN two_CD modes_NNS ,_, battery_NN charging_VVG mode_NN and_CC battery_NN discharging_VVG mode_NN ._SENT 
+The_DT schematic_JJ diagram_NN of_IN the_DT energy_NN management_NN strategy_NN is_VBZ given_VVN in_IN Fig_NN ._SENT 
+3_LS ,_, where_WRB PG_rate_NN denotes_VVZ the_DT rated_VVN power_NN of_IN the_DT generator_NN ._SENT 
+In_IN the_DT battery_NN charging_VVG mode_NN ,_, the_DT generators_NNS supply_NN all_PDT the_DT load_NN power_NN and_CC charge_VV the_DT battery_NN at_IN the_DT same_JJ time_NN ,_, until_IN the_DT battery_NN SOC_NN is_VBZ within_IN an_DT appropriate_JJ range_NN ._SENT 
+In_IN battery_NN discharging_VVG mode_NN ,_, the_DT generators_NNS and_CC battery_NN supply_NN the_DT load_NN power_NN together_RB ._SENT 
+Fig_NN ._SENT 
+3_CD Download_NN :_: Download_NP high-res_NP image_NN (_( 403KB)Download_NP :_: Download_NP full-size_JJ image_NN Fig_NN ._SENT 
+3._CD Rule-based_JJ energy_NN management_NN strategy_NN ._SENT 
+The_DT rules_NNS of_IN the_DT energy_NN management_NN strategy_NN are_VBP described_VVN in_IN the_DT following_VVG paragraphs_NNS ._SENT 
+(_( 1_CD )_) The_DT plug-in_NP HEPS_NP operates_VVZ in_IN battery_NN charging_VVG mode_NN in_IN three_CD cases_NNS :_: (_( a_DT )_) the_DT battery_NN SOC_NN is_VBZ below_IN blower_NN ;_: (_( b_LS )_) the_DT battery_NN SOC_NN is_VBZ between_IN blower_NN and_CC bupper_NN ,_, and_CC the_DT output_NN power_NN of_IN the_DT generators_NNS is_VBZ greater_JJR than_IN the_DT load_NN power_NN ;_: and_CC (_( c_LS )_) the_DT battery_NN SOC_NN reaches_VVZ bupper_NN ,_, and_CC the_DT output_NN power_NN of_IN the_DT generators_NNS is_VBZ approximately_RB equal_JJ to_TO the_DT load_NN power_NN (_( this_DT is_VBZ an_DT extreme_JJ case_NN that_IN the_DT generators_NNS work_NN but_CC the_DT battery_NN charge_NN actually_RB stops_VVZ )_) ._SENT 
+In_IN this_DT mode_NN ,_, each_DT generator_NN operates_VVZ in_IN the_DT high_JJ efficiency_NN region_NN ._SENT 
+The_DT number_NN of_IN running_VVG generators_NNS ,_, nG_NNS ,_, is_VBZ selected_VVN for_IN a_DT generator_NN output_NN power_NN greater_JJR than_IN the_DT total_JJ load_NN power_NN ,_, so_RB the_DT extra_JJ power_NN can_MD be_VB used_VVN to_TO charge_VV the_DT battery_NN ._SENT 
+(_( 2_LS )_) The_DT plug-in_NP HEPS_NP operates_VVZ in_IN battery_NN discharging_VVG mode_NN in_IN two_CD cases_NNS :_: (_( a_DT )_) the_DT battery_NN SOC_NN is_VBZ higher_JJR than_IN bupper_NN ,_, with_IN maximum_JJ battery_NN output_NN power_NN greater_JJR than_IN the_DT load_NN power_NN ,_, so_RB the_DT generators_NNS stop_VVP ;_: and_CC (_( b_LS )_) the_DT battery_NN SOC_NN is_VBZ between_IN blower_NN and_CC bupper_NN ,_, the_DT total_JJ load_NN power_NN is_VBZ greater_JJR than_IN the_DT output_NN power_NN of_IN generators_NNS ,_, but_CC it_PP is_VBZ less_JJR than_IN the_DT sum_NN of_IN maximum_JJ battery_NN power_NN and_CC output_NN power_NN of_IN generators_NNS ._SENT 
+Thus_RB ,_, each_DT generator_NN can_MD either_RB work_VV in_IN the_DT high_JJ efficiency_NN region_NN or_CC stop_NN ,_, which_WDT is_VBZ beneficial_JJ for_IN fuel_NN saving_NN ._SENT 
+The_DT number_NN of_IN the_DT running_VVG generators_NNS nG_NN is_VBZ selected_VVN so_RB that_IN the_DT total_JJ output_NN power_NN of_IN the_DT generators_NNS and_CC the_DT battery_NN can_MD meet_VV the_DT requirement_NN of_IN the_DT total_JJ load_NN power_NN ._SENT 
+(_( 3_CD )_) After_IN every_DT voyage_NN ,_, the_DT battery_NN is_VBZ charged_VVN to_TO an_DT initial_JJ amount_NN (_( SOC0_NP )_) via_IN the_DT shore_NN power_NN plant_NN ._SENT 
+<Section> 4._CD Multi-objective_JJ optimization_NN </Section> 4.1_CD ._SENT 
+Optimization_NN variables_NNS Considering_VVG how_WRB the_DT design_NN of_IN the_DT diesel_JJ engine_NN ,_, motor_NN ,_, gearbox_NN ,_, and_CC battery_NN affects_VVZ the_DT performance_NN of_IN plug-in_NP HEPSs_NP ,_, seven_CD design_NN variables_NNS are_VBP introduced_VVN ._SENT 
+Among_IN them_PP ,_, five_CD are_VBP of_IN component_NN geometry_NN ,_, i._NP e._NP ,_, the_DT diesel_JJ engine_NN displacement_NN VD_NN ,_, motor_NN rotor_NN diameter_NN dM_NN ,_, motor_NN rotor_NN length_NN lM_NNS ,_, gear_NN ratio_NN i_NP ,_, and_CC number_NN of_IN the_DT battery_NN modules_NNS nser_NN ._SENT 
+Two_CD are_VBP constraints_NNS related_VVN to_TO the_DT energy_NN management_NN strategy_NN ,_, i._NP e._NP ,_, the_DT SOC_NN lower_RBR bound_JJ blower_NN and_CC upper_JJ bound_JJ bupper_NN ._SENT 
+The_DT vector_NN of_IN design_NN variables_NNS is_VBZ expressed_VVN as_RB follows_VVZ ._SENT 
+(_( 30)x=(VD_NP ,_, DM_NP ,_, lM_NN ,_, i_NP ,_, nser_NP ,_, blower_NN ,_, bupper)T_NP ._SENT 
+4.2_CD ._SENT 
+Objective_JJ function_NN In_IN this_DT study_NN ,_, two_CD indexes_NNS are_VBP used_VVN to_TO assess_VV the_DT performance_NN of_IN plug-in_NP HEPSs_NP ,_, namely_RB ,_, the_DT fuel_NN consumption_NN and_CC GHG_NN emissions_NNS ._SENT 
+They_PP are_VBP represented_VVN by_IN f1(x_NP )_) and_CC f2(x_NP )_) ,_, respectively_RB ._SENT 
+Since_IN it_PP is_VBZ required_VVN to_TO minimize_VV the_DT two_CD indexes_NNS simultaneously_RB ,_, the_DT mathematical_JJ expression_NN of_IN the_DT objective_NN can_MD be_VB described_VVN as_RB below_RB ._SENT 
+(_( 31)min{f1(x_NP )_) ,_, f2(x_NP )_) }_) ._SENT 
+4.2.1_CD ._SENT 
+Fuel_NN consumption_NN f1(x_NN )_) The_DT annual_JJ fuel_NN consumption_NN mf_year_NN of_IN the_DT plug-in_NP HEPS_NP is_VBZ expressed_VVN as_RB :_: (_( 32)f1(x)=mf_year=∫m˙fdt_NP ._SENT 
+4.2.2_CD ._SENT 
+GHG_NN emissions_NNS f2(x_NN )_) The_DT GHG_NN emissions_NNS account_VVP for_IN the_DT emissions_NNS from_IN consumed_VVN diesel_JJ fuel_NN and_CC electricity_NN from_IN the_DT shore_NN power_NN supplier_NN ._SENT 
+The_DT total_JJ annual_JJ GHG_NN emissions_NNS ,_, denoted_VVN by_IN GHGyear_NN ,_, is_VBZ calculated_VVN as_IN below_RB ._SENT 
+(_( 33)f2(x)=GHGyear=Ef_yearGfuel+Ee_yearGele_NP ._SENT 
+(_( 34)Ef_year=mf_yearLCVFkWh_J_NP ._SENT 
+where_WRB Ef_year_NN and_CC Ee_year_NN denote_VVP the_DT annually_RB consumed_VVN energy_NN from_IN diesel_JJ fuel_NN and_CC from_IN the_DT shore_NN power_NN supplier_NN (_( unit_NN :_: kWh_NP )_) ,_, respectively_RB ;_: Gfuel_NN and_CC Gele_NN are_VBP the_DT lifecycle_NN GHG_NN emission_NN coefficients_NNS of_IN diesel_JJ fuel_NN and_CC shore_VV supplied_VVN electricity_NN (_( unit_NN :_: kg/kWh_NP )_) ,_, respectively_RB ;_: LCV_NP is_VBZ the_DT lower_JJR calorific_JJ value_NN of_IN diesel_JJ fuel_NN (_( unit_NN :_: J/kg_NP )_) ;_: and_CC FkWh_J_NP is_VBZ the_DT conversion_NN factor_NN from_IN kWh_NP to_TO J._NP In_IN China_NP ,_, 75_CD %_NN of_IN the_DT electricity_NN is_VBZ produced_VVN by_IN thermal_JJ power_NN plants_NNS ,_, which_WDT have_VHP an_DT average_JJ coal_NN consumption_NN of_IN 0.33kg/kWh[41_NN ]_SYM ._SENT 
+Therefore_RB ,_, the_DT value_NN of_IN Gele_NP can_MD reach_VV 0.86kg/kWh[42_NN ]_SYM ._SENT 
+The_DT GHG_NN emissions_NNS of_IN the_DT diesel_JJ fuel_NN account_NN for_IN two_CD processes_NNS ,_, i._NP e._NP ,_, the_DT Well-to-Tank_NN (_( WTT_NP )_) process_NN and_CC the_DT Tank-to-Propeller_NP (_( TTP_NP )_) process_NN ._SENT 
+During_IN the_DT WTT_NP process_NN ,_, the_DT GHG_NN emissions_NNS originate_VV from_IN crude_JJ extraction_NN ,_, crude_JJ transport_NN ,_, fuel_NN refining_NN ,_, fuel_NN distribution_NN ,_, fuel_VV dispensing_VVG ,_, etc._FW During_IN the_DT TTP_NN process_NN ,_, the_DT GHG_NN derive_VV from_IN the_DT engine_NN combustion_NN ._SENT 
+Therefore_RB ,_, the_DT lifecycle_NN GHG_NN emission_NN coefficient_NN Gfuel_NN can_MD be_VB calculated_VVN by_IN Ref_NN ._SENT 
+[_SYM 13_CD ]_SYM ._SENT 
+(_( 35)Gfuel=Gfuel−WTTFkWh_J+Gfuel_TTPFkWh_JLCV_NP ._SENT 
+where_WRB Gfuel_WTT_NP is_VBZ the_DT GHG_NN emission_NN coefficient_NN during_IN the_DT WTT_NP process_NN (_( unit_NN :_: kg/J_NP )_) ,_, Gfuel_TTP_NP is_VBZ the_DT GHG_NN emission_NN coefficient_NN during_IN the_DT TTP_NN process_NN (_( dimensionless_JJ quantity_NN )_) ._SENT 
+By_IN given_VVN Gfuel_WTT_NP =_SYM 1.42_CD ×_NP 10−8_NP kg/J_NP ,_, Gfuel_TTP_NN =_SYM 3.17_CD ,_, LCV_NP =_SYM 4.27_CD ×_NN 107_CD J/kg_NN ,_, and_CC FkWh_J_NP =_SYM 3.60_CD ×_NN 106_CD ,_, the_DT lifecycle_NN GHG_NN emission_NN coefficient_NN of_IN diesel_JJ fuel_NN Gfuel_NN can_MD be_VB calculated_VVN as_IN 0.32kg/kWh[43_NP ]_SYM ._SENT 
+4.3_CD ._SENT 
+Constraints_NNS The_DT objective_NN functions_NNS ,_, defined_VVN in_IN the_DT previous_JJ section_NN and_CC which_WDT should_MD be_VB minimized_VVN ,_, are_VBP subject_JJ to_TO several_JJ technical_JJ constraints_NNS ._SENT 
+In_IN the_DT following_NN ,_, the_DT constraints_NNS of_IN the_DT surveyed_VVN problems_NNS are_VBP expressed_VVN ._SENT 
+4.3.1_CD ._SENT 
+Power_NN balance_NN constraint_NN The_DT power_NN generation_NN and_CC battery_NN dispatch_NN should_MD meet_VV the_DT power_NN demand_NN including_VVG propulsive_JJ load_NN ,_, hotel_NN load_NN ,_, and_CC service_NN load_NN ._SENT 
+(_( 36)nGPG+PB=Preq_NP ._SENT 
+(_( 37)Preq=PM_in+Phot+Pser_NP ._SENT 
+where_WRB Phot_NN and_CC Pser_NN denote_VVP hotel_NN load_NN and_CC service_NN load_NN ,_, respectively_RB ._SENT 
+4.3.2_CD ._SENT 
+Generator_NN set_VVD constraint_NN The_DT rated_VVN power_NN of_IN the_DT two_CD generator_NN sets_NNS should_MD be_VB greater_JJR than_IN the_DT maximum_JJ required_JJ power_NN ._SENT 
+(_( 38)2PG_rate>suptPreq_NP ._SENT 
+In_IN addition_NN ,_, the_DT time_NN interval_NN of_IN adjacent_JJ start/stop_NN operations_NNS of_IN each_DT generator_NN set_NN should_MD be_VB greater_JJR than_IN a_DT minimum_JJ time_NN limitation_NN tmin_NN ._SENT 
+(_( 39)tk+1_JJ ,_, i−tk_NP ,_, i≥tmin_NP ;_: ∀i=1,2_NN ._SENT 
+where_WRB tk_NP ,_, i_NP is_VBZ the_DT time_NN of_IN the_DT ith_JJ start/stop_NN operation_NN of_IN the_DT generator_NN set_VVD ._SENT 
+4.3.3_CD ._SENT 
+Battery_NN constraint_NN The_DT number_NN of_IN battery_NN modules_NNS must_MD be_VB lower_JJR than_IN the_DT maximum_JJ limit_NN (_( nser_max_NP )_) to_TO make_VV sure_RB the_DT battery_NN can_MD be_VB arranged_VVN in_IN a_DT small_JJ cabin_NN ._SENT 
+(_( 40)nser≤nsermax_NP ._SENT 
+The_DT allowed_VVN range_NN of_IN SOC_NP is_VBZ determined_VVN by_IN considering_VVG the_DT stable_JJ open-circuit_NN voltage_NN and_CC safety_NN of_IN the_DT batteries_NNS [_SYM 5_CD ]_SYM ._SENT 
+(_( 41)10%≤SOC≤95_JJ %_NN ._SENT 
+4.3.4_CD ._SENT 
+Ship_NN speed_NN constraint_NN The_DT required_JJ sailing_NN speed_NN vreq_NP should_MD be_VB lower_JJR than_IN the_DT maximum_JJ speed_NN limitation_NN vmax_NN ._SENT 
+(_( 42)vreq≤vmax_NP ._SENT 
+4.4_CD ._SENT 
+Optimization_NP algorithm_NN NSGA-II_NP ,_, a_DT kind_NN of_IN fast_JJ and_CC elitist_NN algorithm_NN evolved_VVN from_IN traditional_JJ genetic_JJ algorithm_NN (_( GA_NP )_) ,_, is_VBZ one_CD of_IN the_DT most_RBS efficient_JJ and_CC widely_RB used_VVN multi-objective_JJ evolutionary_JJ algorithms_NNS ._SENT 
+This_DT algorithm_NN employs_VVZ two_CD procedures_NNS named_VVN fast_RB non-dominated_VVD sorting_VVG and_CC density_NN estimation_NN to_TO comprehensively_RB evaluate_VV solutions_NNS on_IN multiple_JJ objectives_NNS [_SYM 44_CD ]_SYM ._SENT 
+The_DT fast_JJ ,_, non-dominated_JJ sorting_VVG procedure_NN is_VBZ responsible_JJ to_TO sort_VV individuals_NNS based_VVN on_IN the_DT domination_NN count_NN ._SENT 
+The_DT density_NN estimation_NN procedure_NN calculates_VVZ the_DT average_JJ distance_NN between_IN one_CD solution_NN and_CC its_PP$ nearest_JJS neighbor_NN on_IN either_DT side_NN of_IN this_DT point_NN along_IN each_DT objectives_NNS [_SYM 44_CD ]_SYM ._SENT 
+If_IN two_CD individuals_NNS have_VHP the_DT same_JJ domination_NN count_NN ,_, the_DT algorithm_NN prefers_VVZ the_DT one_CD with_IN lesser_JJR crowding_VVG distance_NN ._SENT 
+As_IN described_VVN in_IN Fig_NN ._SENT 
+4_LS ,_, the_DT algorithm_NN starts_VVZ with_IN the_DT random_JJ generation_NN of_IN initial_JJ parent_NN population_NN P0_NN of_IN size_NN N_NP ,_, which_WDT is_VBZ used_VVN to_TO create_VV initial_JJ offspring_NN population_NN Q0_NN of_IN size_NN N_NP by_IN the_DT genetic_JJ operator_NN of_IN crossover_NN and_CC mutation_NN [_SYM 45_CD ]_SYM ._SENT 
+Next_RB ,_, P0_NP and_CC Q0_NP are_VBP united_VVN as_IN one_CD combined_JJ population_NN R0=P0∪Q0_NN ._SENT 
+Then_RB the_DT algorithm_NN applies_VVZ fast_RB non-dominated_VVN sorting_VVG and_CC density_NN estimation_NN to_TO evaluate_VV the_DT multi-objective_JJ fitness_NN of_IN every_DT individual_NN in_IN R0_NP ._SENT 
+After_IN that_DT ,_, members_NNS of_IN the_DT first_JJ several_JJ domination_NN count_NN sets_NNS are_VBP chosen_VVN for_IN the_DT new_JJ population_NN P1_NN successively_RB ,_, until_IN no_DT more_JJR sets_NNS can_MD be_VB accommodated_VVN [_SYM 44_CD ]_SYM ._SENT 
+The_DT redundant_JJ individuals_NNS in_IN the_DT last_JJ non-dominated_JJ set_NN are_VBP eliminated_VVN through_IN comparison_NN of_IN crowding_VVG distance_NN ._SENT 
+The_DT new_JJ population_NN P1_NN is_VBZ subsequently_RB used_VVN to_TO create_VV a_DT new_JJ offspring_NN population_NN Q1_NN ,_, as_IN done_VVN earlier_RBR ._SENT 
+The_DT process_NN is_VBZ repeatedly_RB performed_VVN until_IN the_DT number_NN n_NN of_IN iterations_NNS reach_VVP the_DT maximum_JJ limit_NN nend_NN ._SENT 
+Fig_NN ._SENT 
+4_CD Download_NN :_: Download_NP high-res_NP image_NN (_( 298KB)Download_NP :_: Download_NP full-size_JJ image_NN Fig_NN ._SENT 
+4._CD Flow_NP chart_NN of_IN the_DT optimal_JJ process_NN based_VVN on_IN NSGA-II_NP ._SENT 
+<Section> 5._CD Results_NNS and_CC discussion_NN </Section> In_IN this_DT section_NN ,_, the_DT operating_VVG cycle_NN of_IN a_DT tug_NN ship_NN is_VBZ defined_VVN considering_VVG both_DT propulsive_JJ load_NN and_CC non-propulsive_JJ load_NN ._SENT 
+Following_VVG that_IN ,_, the_DT Pareto_NP solution_NN set_NN calculated_VVN for_IN the_DT bi-objective_JJ optimization_NN is_VBZ illustrated_VVN ._SENT 
+Optimal_JJ designs_NNS can_MD be_VB selected_VVN from_IN the_DT solution_NN set_VVD ._SENT 
+In_IN addition_NN ,_, the_DT results_NNS from_IN single-objective_JJ optimizations_NNS ,_, for_IN minimum_JJ fuel_NN consumption_NN and_CC minimum_JJ GHG_NN emissions_NNS ,_, are_VBP provided_VVN for_IN comparison_NN ._SENT 
+In_IN order_NN to_TO evaluate_VV the_DT performance_NN of_IN the_DT optimal_JJ designs_NNS ,_, a_DT real-time_JJ hardware-in-the-loop_NN experimental_JJ platform_NN was_VBD established_VVN ._SENT 
+Then_RB ,_, performance_NN tests_NNS were_VBD carried_VVN out_RP on_IN the_DT platform_NN ._SENT 
+The_DT results_NNS from_IN the_DT bi-objective_JJ optimization_NN are_VBP compared_VVN with_IN those_DT from_IN the_DT two_CD single-objective_JJ optimizations_NNS ,_, and_CC with_IN those_DT from_IN the_DT conventional_JJ benchmark_NN vessel_NN ._SENT 
+Furthermore_RB ,_, a_DT sensitivity_NN analysis_NN was_VBD conducted_VVN to_TO explore_VV the_DT scattered_JJ distribution_NN of_IN the_DT design_NN variables_NNS and_CC the_DT effects_NNS of_IN variations_NNS on_IN the_DT solutions_NNS of_IN the_DT Pareto_NP front_NN ._SENT 
+5.1_CD ._SENT 
+Operating_VVG cycle_NN Due_JJ to_TO the_DT absence_NN of_IN a_DT standardized_JJ driving_NN cycle_NN ,_, a_DT speed_NN profile_NN of_IN a_DT tug_NN ship_NN based_VVN on_IN actual_JJ operational_JJ data_NNS is_VBZ used_VVN in_IN this_DT study_NN [_SYM 46_CD ]_SYM ._SENT 
+As_IN shown_VVN in_IN Fig_NN ._SENT 
+5_LS ,_, the_DT ship_NN sails_NNS in_IN two_CD operation_NN modes_NNS ,_, namely_RB the_DT transit_NN mode_NN and_CC loading_NN mode_NN ._SENT 
+In_IN the_DT transit_NN mode_NN ,_, the_DT AHT_JJ sails_NNS at_IN a_DT speed_NN above_IN 5.14_CD m/s_NNS (_( 10_CD kn_NNS )_) to_TO arrive_VV at_IN work_NN sites_NNS ,_, and_CC the_DT auxiliary_JJ load_NN only_RB contains_VVZ the_DT hotel_NN load_NN which_WDT is_VBZ about_RB 60_CD kW_NNS as_RB shown_VVN in_IN the_DT dark_JJ green_JJ area_NN in_IN Fig_NN ._SENT 
+5(b_NP )_) ._SENT 
+In_IN the_DT loading_NN mode_NN ,_, the_DT AHT_NN is_VBZ operated_VVN at_IN low_JJ speed_NN so_RB as_RB to_TO execute_VV lifting_VVG or_CC pulling_VVG ._SENT 
+Therefore_RB ,_, the_DT service_NN load_NN includes_VVZ the_DT power_NN required_VVN by_IN working_VVG devices_NNS such_JJ as_IN a_DT crane_NN ,_, capstan_NN ,_, and_CC bow_NN thrusters_NNS ._SENT 
+In_IN this_DT study_NN ,_, the_DT operating_VVG cycle_NN is_VBZ run_VVN by_IN the_DT proposed_VVN AHT_NN 6_CD times_NNS a_DT day_NN and_CC 250_CD days_NNS per_IN year_NN ._SENT 
+The_DT battery_NN of_IN plug-in_NP HEPS_NP is_VBZ recharged_VVN from_IN shore_NN power_NN through_IN a_DT ship/shore_JJ connecting_VVG cable_NN after_IN each_DT operating_VVG cycle_NN ._SENT 
+Fig_NN ._SENT 
+5_CD Download_NN :_: Download_NP high-res_NP image_NN (_( 202KB)Download_NP :_: Download_NP full-size_JJ image_NN Fig_NN ._SENT 
+5._CD Speed_NN and_CC auxiliary_JJ load_NN profile_NN of_IN the_DT AHT_NN [_SYM 46_CD ]_SYM ._SENT 
+5.2_CD ._SENT 
+Optimization_NP results_VVZ The_DT parameters_NNS used_VVN in_IN the_DT optimization_NN are_VBP given_VVN in_IN Table_NN A._NP 1._CD The_DT ranges_NNS of_IN the_DT optimization_NN variables_NNS are_VBP given_VVN in_IN Table_NN A._NP 2._CD The_DT Pareto_NN solution_NN set_VVN of_IN the_DT proposed_VVN bi-objective_JJ optimization_NN is_VBZ illustrated_VVN in_IN Fig_NN ._SENT 
+6._CD Design_NP X_NP and_CC Y_NP are_VBP extreme_JJ solutions_NNS ._SENT 
+They_PP gain_VVP the_DT minimum_JJ fuel_NN consumption_NN and_CC minimum_JJ GHG_NN emissions_NNS ,_, respectively_RB ._SENT 
+The_DT ideal_JJ point_NN ,_, located_VVN at_IN the_DT intersection_NN point_NN of_IN the_DT minimum_JJ fuel_NN consumption_NN and_CC minimum_JJ GHG_NN emissions_NNS ,_, is_VBZ impossible_JJ to_TO achieve_VV ._SENT 
+Therefore_RB ,_, Design_NP M_NP is_VBZ selected_VVN as_IN the_DT optimal_JJ design_NN of_IN the_DT present_JJ study_NN because_IN it_PP is_VBZ relative_JJ closer_RBR to_TO the_DT ideal_JJ point_NN ._SENT 
+As_IN seen_VVN from_IN the_DT fitting_JJ curve_NN of_IN the_DT Pareto_NP solutions_NNS ,_, the_DT GHG_NN emissions_NNS decrease_VVP as_IN the_DT fuel_NN consumption_NN increases_NNS ._SENT 
+In_IN other_JJ words_NNS ,_, the_DT two_CD performance_NN indices_NN contradict_VV each_DT other_JJ ._SENT 
+More_JJR usage_NN of_IN diesel_JJ fuel_NN means_VVZ less_JJR usage_NN of_IN electricity_NN ._SENT 
+As_IN mentioned_VVN in_IN the_DT subsection_NN on_IN GHG_NN emission_NN modeling_NN ,_, the_DT lifecycle_NN GHG_NN emission_NN coefficient_NN of_IN electricity_NN is_VBZ two_CD times_NNS more_JJR than_IN that_IN of_IN diesel_JJ fuel_NN ._SENT 
+Thus_RB ,_, the_DT reduction_NN of_IN electricity_NN usage_NN can_MD reduce_VV the_DT total_JJ GHG_NN emissions_NNS considering_VVG both_CC the_DT diesel_JJ fuel_NN and_CC electricity_NN ._SENT 
+Fig_NN ._SENT 
+6_CD Download_NN :_: Download_NP high-res_NP image_NN (_( 183KB)Download_NP :_: Download_NP full-size_JJ image_NN Fig_NN ._SENT 
+6._CD Comparison_NN of_IN optimization_NN results_NNS ._SENT 
+In_IN Fig_NN ._SENT 
+6_CD ,_, Design_NP F_NP is_VBZ the_DT solution_NN of_IN the_DT single-objective_JJ optimization_NN via_IN the_DT classical_JJ genetic_JJ algorithm_NN aiming_VVG to_TO achieve_VV the_DT minimum_JJ fuel_NN consumption_NN ._SENT 
+It_PP can_MD be_VB observed_VVN that_IN the_DT location_NN of_IN Design_NP F_NP almost_RB coincides_VVZ with_IN that_DT of_IN Design_NP X._NP Similarly_RB ,_, the_DT location_NN of_IN Design_NP G_NP ,_, which_WDT the_DT solution_NN of_IN the_DT single-objective_JJ optimization_NN aiming_VVG to_TO achieve_VV the_DT minimum_JJ GHG_NN emissions_NNS ,_, almost_RB coincides_VVZ with_IN that_DT of_IN Design_NP Y._NP Other_NP than_IN the_DT optimal_JJ designs_NNS calculated_VVN from_IN the_DT single-objective_JJ optimization_NN ,_, the_DT Pareto_NP solution_NN set_NN contains_VVZ many_JJ comprehensive_JJ optimal_JJ designs_NNS regarding_VVG both_CC the_DT fuel_NN consumption_NN and_CC GHG_NN emissions_NNS ._SENT 
+The_DT optimization_NN variables_NNS of_IN Design_NP M_NP ,_, F_NP ,_, and_CC G_NP are_VBP compared_VVN in_IN Table_NN A._NP 3._CD The_DT major_JJ difference_NN among_IN the_DT three_CD optimal_JJ designs_NNS is_VBZ the_DT number_NN of_IN the_DT battery_NN modules_NNS nser_NN ._SENT 
+Design_NP F_NP uses_VVZ the_DT maximum_JJ battery_NN modules_NNS (_( 244_CD )_) ,_, which_WDT means_VVZ that_IN the_DT most_JJS electricity_NN and_CC the_DT least_JJS diesel_NN fuel_NN are_VBP consumed_VVN ._SENT 
+Because_IN the_DT lifecycle_NN GHG_NN emission_NN coefficient_NN of_IN electricity_NN is_VBZ much_RB higher_JJR than_IN that_IN of_IN diesel_JJ fuel_NN ,_, the_DT most_JJS electricity_NN also_RB means_VVZ the_DT most_JJS GHG_NN emissions_NNS ._SENT 
+Therefore_RB ,_, Design_NP F_NP gains_VVZ the_DT minimum_JJ fuel_NN consumption_NN ,_, but_CC produces_VVZ the_DT maximum_JJ GHG_NN emissions_NNS as_RB shown_VVN in_IN Fig_NN ._SENT 
+6._CD By_IN contrast_NN ,_, Design_NP G_NP uses_VVZ the_DT minimum_JJ battery_NN modules_NNS (_( nser=103_NP )_) ,_, with_IN minimum_JJ GHG_NN emissions_NNS ,_, but_CC has_VHZ the_DT maximum_JJ fuel_NN consumption_NN ._SENT 
+The_DT number_NN of_IN battery_NN modules_NNS of_IN Design_NP M_NP is_VBZ between_IN that_DT of_IN Design_NP F_NP and_CC G._NP Thereafter_RB ,_, Design_NP M_NP achieves_VVZ the_DT comprehensive_JJ optimal_JJ performance_NN because_IN its_PP$ fuel_NN consumption_NN is_VBZ less_JJR than_IN Design_NP G_NP and_CC GHG_NP emissions_NNS are_VBP less_JJR than_IN Design_NP F._NP 5.3_CD ._SENT 
+Discussion_NN The_DT GHG_NN emissions_NNS are_VBP dependent_JJ on_IN the_DT lifecycle_NN GHG_NN emission_NN coefficient_NN (_( Gele_NP )_) of_IN shore_NN supplied_VVN electricity_NN ._SENT 
+Different_JJ generation_NN methods_NNS of_IN shore_NN power_NN have_VHP different_JJ Gele_NN ._SENT 
+If_IN the_DT source_NN of_IN the_DT shore_NN power_NN is_VBZ clean_JJ enough_RB ,_, i._NP e._NP ,_, Gele_NP is_VBZ small_JJ enough_RB ,_, then_RB less_JJR fuel_NN consumption_NN of_IN the_DT plug-in_NP HEPS_NNS can_MD produce_VV less_JJR GHG_NN emissions_NNS ._SENT 
+In_IN other_JJ word_NN ,_, the_DT contradiction_NN between_IN fuel_NN consumption_NN and_CC GHG_NN emissions_NNS can_MD be_VB resolved_VVN ._SENT 
+In_IN this_DT regard_NN ,_, there_EX exists_VVZ an_DT optimal_JJ solution_NN which_WDT can_MD reach_VV minimum_JJ fuel_NN consumption_NN and_CC minimum_JJ GHG_NN emissions_NNS simultaneously_RB ._SENT 
+In_IN order_NN to_TO verify_VV the_DT dependence_NN of_IN the_DT optimization_NN objectives_NNS on_IN Gele_NP ,_, the_DT optimization_NN results_NNS from_IN Gele=0.86kg/kWh_NP ,_, considering_VVG the_DT shore_NN power_NN comes_VVZ from_IN coal_NN ,_, are_VBP compared_VVN with_IN the_DT results_NNS from_IN other_JJ two_CD smaller_JJR values_NNS of_IN Gele_NP ._SENT 
+As_IN shown_VVN in_IN Fig_NN ._SENT 
+7_CD ,_, the_DT Pareto_NP solutions_NNS for_IN Gele=0.69kg/kWh_NP evidently_RB lead_VVP to_TO lower_VV GHG_NN emissions_NNS compared_VVN with_IN those_DT for_IN Gele=0.86kg/kWh_NP ._SENT 
+The_DT slopes_NNS of_IN the_DT fitting_JJ curves_NNS of_IN the_DT two_CD Pareto_NN solution_NN sets_NNS are_VBP both_DT negative_NN ,_, which_WDT indicates_VVZ the_DT contradiction_NN between_IN fuel_NN consumption_NN and_CC GHG_NN emissions_NNS ._SENT 
+However_RB ,_, the_DT slope_NN of_IN the_DT fitting_JJ curve_NN of_IN Gele=0.69kg/kWh_NP is_VBZ much_RB flatter_JJR than_IN that_DT of_IN Gele=0.86kg/kWh_NP ._SENT 
+Therefore_RB ,_, less_JJR GHG_NN emissions_NNS are_VBP produced_VVN for_IN Gele=0.69kg/kWhwhen_NN less_CC fuel_NN is_VBZ consumed_VVN ._SENT 
+Fig_NN ._SENT 
+7_CD Download_NN :_: Download_NP high-res_NP image_NN (_( 223KB)Download_NP :_: Download_NP full-size_JJ image_NN Fig_NN ._SENT 
+7._CD Optimization_NP results_NNS from_IN different_JJ GHG_NN emission_NN coefficients_NNS ._SENT 
+When_WRB Gele=0.52kg/kWh_NP ,_, the_DT optimal_JJ solutions_NNS converge_VVP to_TO Design_NP D._NP That_DT is_VBZ to_TO say_VV ,_, no_DT other_JJ solution_NN can_MD be_VB superior_JJ to_TO Design_NP D_NP in_IN either_DT fuel_NN consumption_NN or_CC GHG_NN emissions_NNS ._SENT 
+The_DT optimization_NN variables_NNS of_IN Design_NP D_NP are_VBP given_VVN in_IN Table_NN A._NP 3._CD Compared_VVN with_IN Design_NP M_NP ,_, Design_NP D_NP has_VHZ smaller_JJR engine_NN and_CC wider_JJR range_NN of_IN SOC_NP ._SENT 
+Therefore_RB ,_, Design_NP D_NP is_VBZ allowed_VVN to_TO use_VV more_JJR electricity_NN from_IN the_DT shore_NN power_NN and_CC consume_VVP less_RBR fossil_JJ fuel_NN ._SENT 
+The_DT GHG_NN emissions_NNS from_IN the_DT increased_VVN electricity_NN are_VBP low_JJ because_IN of_IN the_DT small_JJ Gele_NN ._SENT 
+Consequently_RB ,_, Design_NP D_NP can_MD provide_VV the_DT minimum_JJ fuel_NN consumption_NN and_CC minimum_JJ GHG_NN emissions_NNS ._SENT 
+These_DT results_NNS are_VBP in_IN accordance_NN with_IN the_DT aforementioned_JJ hypothesis_NN ,_, which_WDT verifies_VVZ the_DT accuracy_NN of_IN the_DT models_NNS and_CC algorithm_NN in_IN this_DT study_NN ._SENT 
+5.4_CD ._SENT 
+Hardware-in-the-loop_NP experiment_NN A_NP hardware-in-the-loop_NP (_( HIL_NP )_) experiment_NN is_VBZ performed_VVN to_TO verify_VV the_DT results_NNS of_IN the_DT optimization_NN ._SENT 
+The_DT HIL_NP experimental_JJ platform_NN ,_, as_RB shown_VVN in_IN Fig_NN ._SENT 
+8_CD ,_, is_VBZ established_VVN including_VVG a_DT real-time_JJ plug-in_NN HEPS_VVZ model_NN platform_NN and_CC a_DT real-time_JJ energy_NN management_NN platform_NN ._SENT 
+The_DT software_NN and_CC hardware_NN of_IN the_DT HIL_NP platform_NN can_MD be_VB developed_VVN via_IN MATLAB_NN toolboxes_NNS for_IN online_JJ calibration_NN and_CC C_NP language_NN rapid_JJ generation_NN ._SENT 
+Fig_NN ._SENT 
+8_CD Download_NN :_: Download_NP high-res_NP image_NN (_( 563KB)Download_NP :_: Download_NP full-size_JJ image_NN Fig_NN ._SENT 
+8._CD Schematic_JJ diagram_NN of_IN the_DT HIL_NP experimental_JJ platform_NN ._SENT 
+The_DT development_NN process_NN of_IN the_DT HIL_NP experiment_NN platform_NN consists_VVZ of_IN three_CD steps_NNS ._SENT 
+Firstly_RB ,_, the_DT driveline_NN models_NNS and_CC energy_NN management_NN strategy_NN are_VBP built_VVN in_IN the_DT MATLAB_NN environment_NN ._SENT 
+Secondly_RB ,_, the_DT real-time_JJ kernel_NN of_IN the_DT driveline_NN models_NNS is_VBZ generated_VVN by_IN MATLAB/Simulink_NP automatic_JJ code_NN generation_NN technology_NN ,_, as_RB well_RB as_IN the_DT real-time_JJ kernel_NN of_IN the_DT energy_NN management_NN strategy_NN ._SENT 
+Thirdly_RB ,_, the_DT dSPACE_NP software_NN tool_NN ,_, named_VVN ControlDesk_NN ,_, downloads_VVZ the_DT real-time_JJ kernel_NN of_IN the_DT driveline_JJ models_NNS into_IN the_DT dSPACE_NP hardware_NN PX10_NN which_WDT has_VHZ strong_JJ real-time_JJ computing_NN capacity_NN ._SENT 
+In_IN addition_NN ,_, the_DT kernel_NN of_IN the_DT energy_NN management_NN strategy_NN is_VBZ downloaded_VVN into_IN the_DT MicroAutobox_NN which_WDT is_VBZ an_DT electronic_JJ control_NN hardware_NN ._SENT 
+The_DT variables_NNS in_IN the_DT PX10_NN and_CC the_DT MicroAutobox_NN can_MD be_VB monitored_VVN and_CC calibrated_VVN through_IN ControlDesk_NN running_VVG on_IN a_DT desktop_NN ._SENT 
+The_DT CAN_MD and_CC I/O_NP interfaces_NNS are_VBP used_VVN for_IN the_DT communication_NN between_IN the_DT PX10_NN and_CC the_DT MicroAutobox_NN ._SENT 
+The_DT communication_NN with_IN the_DT ControlDesk_NN is_VBZ through_IN a_DT ethernet_NN interface_NN ._SENT 
+The_DT driveline_NN of_IN a_DT conventional_JJ tug_NN ship_NN is_VBZ taken_VVN as_IN the_DT benchmark_NN for_IN the_DT studied_VVN plug-in_NN HEPS_NNS ._SENT 
+The_DT parameters_NNS of_IN the_DT tug_NN ship_NN are_VBP listed_VVN in_IN Table_NN A._NP 4._CD The_DT output_NN power_NN of_IN the_DT generator_NN sets_NNS is_VBZ controlled_VVN by_IN a_DT proportional-integral-derivative_JJ (_( PID_NP )_) controller_NN that_WDT tracks_VVZ the_DT power_NN command_NN [_SYM 5_CD ]_SYM ._SENT 
+In_IN order_NN to_TO reduce_VV fuel_NN consumption_NN ,_, the_DT second_JJ generator_NN set_NN does_VVZ not_RB work_VV until_IN the_DT previous_JJ generator_NN set_NN cannot_MD provide_VV sufficient_JJ load_NN power_NN ._SENT 
+The_DT results_NNS from_IN the_DT conventional_JJ propulsive_JJ system_NN are_VBP represented_VVN by_IN “_NP Conv_NP ._SENT 
+”_NN in_IN Fig_NN ._SENT 
+9_CD ,_, Fig_NN ._SENT 
+10._CD Regarding_VVG the_DT optimal_JJ design_NN of_IN the_DT plug-in_NP HEPS_NP ,_, in_IN addition_NN to_TO the_DT Design_NP M_NP selected_VVD from_IN the_DT Pareto_NP solution_NN set_VVN of_IN the_DT proposed_VVN bi-objective_JJ optimization_NN ,_, Design_NP F_NP and_CC G_NP ,_, which_WDT respectively_RB pursue_VV fuel_NN consumption_NN and_CC GHG_NN emissions_NNS by_IN the_DT single-objective_JJ optimization_NN ,_, were_VBD also_RB implemented_VVN for_IN comparison_NN ._SENT 
+The_DT performance_NN of_IN Design_NP M_NP ,_, F_NP ,_, G_NP ,_, and_CC the_DT conventional_JJ propulsive_JJ system_NN are_VBP compared_VVN in_IN terms_NNS of_IN fuel_NN consumption_NN and_CC GHG_NN emissions_NNS ._SENT 
+Fig_NN ._SENT 
+9_CD Download_NN :_: Download_NP high-res_NP image_NN (_( 152KB)Download_NP :_: Download_NP full-size_JJ image_NN Fig_NN ._SENT 
+9._CD Annual_JJ fuel_NN consumption_NN ._SENT 
+Fig_NN ._SENT 
+10_CD Download_NN :_: Download_NP high-res_NP image_NN (_( 153KB)Download_NP :_: Download_NP full-size_JJ image_NN Fig_NN ._SENT 
+10._CD Annual_JJ GHG_NN emissions_NNS ._SENT 
+As_IN shown_VVN in_IN Fig_NN ._SENT 
+9_CD ,_, the_DT fuel_NN consumption_NN of_IN Design_NP M_NP ,_, F_NP ,_, G_NP ,_, and_CC the_DT conventional_JJ propulsion_NN system_NN is_VBZ 3.88×105kg_NP ,_, 3.20×105kg_NP ,_, 6.25×105kg_NP ,_, and_CC 6.72×105kg_NP ,_, respectively_RB ._SENT 
+Hence_RB ,_, all_DT of_IN the_DT three_CD plug-in_NP HEPSs_NP achieve_VV less_JJR fuel_NN consumption_NN than_IN the_DT conventional_JJ propulsion_NN system_NN ._SENT 
+Specifically_RB ,_, Design_NP M_NP ,_, F_NP ,_, and_CC G_NP can_MD reduce_VV fuel_NN consumption_NN by_IN 42.26_CD %_NN ,_, 52.38_CD %_NN ,_, and_CC 6.99_CD %_NN ,_, respectively_RB ._SENT 
+When_WRB compared_VVN with_IN Design_NP F_NP ,_, which_WDT aimed_VVD at_IN minimum_JJ fuel_NN consumption_NN ,_, Design_NP M_NP increases_VVZ fuel_NN consumption_NN by_IN 20.6_CD %_NN ._SENT 
+When_WRB compared_VVN with_IN Design_NP G_NP ,_, which_WDT aimed_VVD at_IN minimum_JJ GHG_NN emissions_NNS ,_, Design_NP M_NP decreases_VVZ fuel_NN consumption_NN by_IN 37.9_CD %_NN ._SENT 
+As_IN shown_VVN in_IN Fig_NN ._SENT 
+10_CD ,_, GHG_NN emissions_NNS from_IN Design_NP M_NP ,_, F_NP ,_, G_NP ,_, and_CC the_DT conventional_JJ propulsion_NN system_NN are_VBP 2.47×106kg_NP ,_, 2.59×106kg_NP ,_, 2.35×106kg_NP ,_, and_CC 2.49×106kg_NP ,_, respectively_RB ._SENT 
+Compared_VVN with_IN the_DT conventional_JJ propulsion_NN system_NN ,_, Design_NP M_NP and_CC G_NP reduce_VV the_DT GHG_NN emissions_NNS by_IN 0.91_CD %_NN and_CC 5.64_CD %_NN ,_, respectively_RB ,_, while_IN Design_NP F_NP increases_VVZ GHG_NN emissions_NNS by_IN 3.71_CD %_NN ._SENT 
+When_WRB compared_VVN with_IN Design_NP F_NP ,_, Design_NP M_NP decreases_VVZ GHG_NN emissions_NNS by_IN 4.6_CD %_NN ._SENT 
+When_WRB compared_VVN with_IN Design_NP G_NP ,_, which_WDT aimed_VVD at_IN minimum_JJ GHG_NN emissions_NNS ,_, Design_NP M_NP increases_VVZ GHG_NN emissions_NNS by_IN 5.1_CD %_NN ._SENT 
+Overall_RB ,_, Design_NP M_NP is_VBZ better_RBR than_IN Design_NP F_NN in_IN terms_NNS of_IN GHG_NN emissions_NNS ,_, and_CC it_PP is_VBZ better_JJR than_IN Design_NP G_NP (_( only_RB pursing_VVG minimum_JJ GHG_NN emissions_NNS )_) in_IN terms_NNS of_IN fuel_NN consumption_NN ._SENT 
+Therefore_RB ,_, Design_NP M_NP is_VBZ closer_JJR to_TO the_DT ideal_JJ point_NN than_IN Design_NP F_NP and_CC G_NP as_RB shown_VVN in_IN Fig_NN ._SENT 
+6._CD According_VVG to_TO the_DT energy_NN management_NN strategy_NN ,_, one_CD or_CC two_CD diesel_JJ generators_NNS can_MD either_RB be_VB shut_VVN down_RP or_CC work_VV with_IN high_JJ efficiency_NN at_IN most_JJS of_IN the_DT working_VVG time_NN ,_, owing_VVG to_TO the_DT usage_NN of_IN large_JJ capacity_NN batteries_NNS ._SENT 
+Therefore_RB ,_, fuel_NN consumption_NN can_MD be_VB reduced_VVN by_IN using_VVG fewer_JJR diesel_NN engines_NNS ._SENT 
+The_DT working_VVG schedules_NNS of_IN the_DT diesel_JJ engines_NNS are_VBP provided_VVN in_IN Fig_NN ._SENT 
+11_CD for_IN the_DT four_CD designs_NNS ._SENT 
+One_CD or_CC two_CD diesel_JJ engines_NNS of_IN the_DT plug-in_NP HEPS_NNS can_MD stop_VV working_VVG or_CC consume_VV no_DT fuel_NN for_IN some_DT time_NN during_IN the_DT operating_VVG cycle_NN ._SENT 
+In_IN contrast_NN ,_, at_IN least_JJS one_CD diesel_JJ engine_NN of_IN the_DT conventional_JJ propulsion_NN system_NN stays_VVZ working_VVG all_PDT the_DT time_NN ._SENT 
+Further_RBR ,_, the_DT accumulated_VVN working_NN time_NN per_IN day_NN of_IN the_DT diesel_JJ engines_NNS in_IN Design_NP M_NP ,_, F_NP ,_, and_CC G_NP is_VBZ 13680s_NP ,_, 10800s_NP ,_, and_CC 22320s_NNS ,_, respectively_RB ,_, compared_VVN to_TO 39240s_NNS in_IN the_DT conventional_JJ propulsion_NN system_NN ._SENT 
+It_PP can_MD be_VB observed_VVN that_IN the_DT working_VVG time_NN of_IN the_DT diesel_JJ engines_NNS correspond_VV to_TO the_DT fuel_NN consumption_NN as_IN shown_VVN in_IN Fig_NN ._SENT 
+9._CD Fig_NN ._SENT 
+11_CD Download_NN :_: Download_NP high-res_NP image_NN (_( 533KB)Download_NP :_: Download_NP full-size_JJ image_NN Fig_NN ._SENT 
+11._CD Working_JJ schedule_NN of_IN the_DT generator_NN sets_VVZ ._SENT 
+Although_IN large_JJ amounts_NNS of_IN electricity_NN allow_VVP significant_JJ fuel_NN saving_NN ,_, GHG_NN emissions_NNS may_MD increase_VV due_JJ to_TO the_DT large_JJ GHG_NN intensity_NN of_IN the_DT electricity_NN from_IN the_DT shore_NN power_NN plant_NN ._SENT 
+Design_NN F_NN is_VBZ the_DT extreme_JJ example_NN ._SENT 
+As_IN seen_VVN from_IN Fig_NN ._SENT 
+12_CD ,_, Design_NP F_NP consumes_VVZ the_DT maximum_JJ electricity_NN (_( 1.69×106kWh_NP )_) from_IN the_DT shore_NN power_NN plant_NN ._SENT 
+Accordingly_RB ,_, Design_NP F_NP produces_VVZ the_DT maximum_JJ GHGs_NNS as_IN seen_VVN in_IN Fig_NN ._SENT 
+10_CD ,_, despite_IN the_DT minimum_JJ fuel_NN consumption_NN as_IN seen_VVN in_IN Fig_NN ._SENT 
+9._CD Compared_VVN with_IN Design_NP F_NP ,_, Design_NP M_NP consumes_VVZ less_JJR electricity_NN (_( 1.24×106kWh_NP )_) ,_, therefore_RB ,_, produces_VVZ less_JJR GHG_NN emissions_NNS ._SENT 
+Nevertheless_RB ,_, it_PP consumes_VVZ more_JJR diesel_NN fuel_NN ._SENT 
+As_IN a_DT whole_NN ,_, Design_NP M_NP is_VBZ a_DT trade-off_NN optimal_JJ solution_NN with_IN relatively_RB lower_JJR fuel_NN consumption_NN and_CC GHG_NN emissions_NNS ._SENT 
+Fig_NN ._SENT 
+12_CD Download_NN :_: Download_NP high-res_NP image_NN (_( 112KB)Download_NP :_: Download_NP full-size_JJ image_NN Fig_NN ._SENT 
+12._CD Annual_JJ shore_NN power_NN consumption_NN ._SENT 
+5.5_CD ._SENT 
+Sensitivity_NN analysis_NN First_NP ,_, the_DT scattered_JJ distribution_NN of_IN the_DT seven_CD optimization_NN variables_NNS along_IN with_IN the_DT population_NN in_IN the_DT Pareto_NP frontier_NN are_VBP provided_VVN in_IN Fig_NN ._SENT 
+13_CD in_IN order_NN to_TO determine_VV the_DT most_RBS sensible_JJ variables_NNS which_WDT are_VBP useful_JJ for_IN further_JJR study_NN ._SENT 
+Three_CD of_IN the_DT seven_CD variables_NNS ,_, i._NP e._NP ,_, motor_NN rotor_NN diameter_NN dM_NN ,_, motor_NN rotor_NN length_NN lM_NNS ,_, and_CC gear_NN ratio_NN i_NP ,_, remain_VVP almost_RB unchanged_JJ as_IN shown_VVN in_IN Fig_NN ._SENT 
+13(b_NP )_) ,_, (_( c_LS )_) ,_, and_CC (_( d_LS )_) ._SENT 
+This_DT indicates_VVZ that_IN the_DT three_CD variables_NNS do_VVP not_RB significantly_RB lead_VV to_TO contradiction_NN between_IN the_DT two_CD objective_NN indices_NN ._SENT 
+Among_IN the_DT other_JJ four_CD ,_, the_DT diesel_JJ engine_NN displacement_NN VD_NN ,_, shown_VVN in_IN Fig_NN ._SENT 
+13(a_NP )_) ,_, is_VBZ special_JJ because_IN it_PP is_VBZ always_RB close_JJ to_TO one_CD of_IN the_DT two_CD values_NNS ,_, i._NP e._NP ,_, 70×10-3m3_NP and_CC 81×10-3m3_NP ._SENT 
+In_IN contrast_NN ,_, the_DT remaining_VVG variables_NNS ,_, i._NP e._NP ,_, number_NN of_IN battery_NN modules_NNS nser_NN ,_, lower_RBR bound_VVN of_IN SOC_NN blower_NN ,_, and_CC upper_JJ bound_VVN of_IN SOC_NP bupper_NP ,_, are_VBP scattered_VVN within_IN the_DT allowable_JJ range_NN as_IN shown_VVN in_IN Fig_NN ._SENT 
+13(e–g_NP )_) ._SENT 
+Thus_RB ,_, these_DT three_CD variables_NNS do_VVP not_RB converge_VV regarding_VVG the_DT two_CD performance_NN indices_NN ._SENT 
+This_DT indicates_VVZ that_IN the_DT variable_NN either_RB leads_VVZ to_TO significant_JJ contradiction_NN between_IN the_DT two_CD indices_NN or_CC has_VHZ no_DT influence_NN on_IN them_PP ._SENT 
+The_DT details_NNS are_VBP revealed_VVN in_IN the_DT following_VVG paragraphs_NNS by_IN calculating_VVG the_DT effects_NNS of_IN the_DT variable_JJ variations_NNS ._SENT 
+Fig_NN ._SENT 
+13_CD Download_NN :_: Download_NP high-res_NP image_NN (_( 797KB)Download_NP :_: Download_NP full-size_JJ image_NN Fig_NN ._SENT 
+13._CD Scattered_JJ distribution_NN of_IN optimization_NN variables_NNS with_IN population_NN in_IN Pareto_NP front_NN ._SENT 
+Second_RB ,_, the_DT effects_NNS of_IN variations_NNS of_IN the_DT seven_CD optimization_NN variables_NNS on_IN the_DT performance_NN of_IN the_DT Pareto_NP solutions_NNS are_VBP investigated_VVN ._SENT 
+In_IN addition_NN to_TO validate_VV the_DT proposed_VVN bi-objective_JJ optimization_NN ,_, for_IN a_DT meaningful_JJ investigation_NN ,_, it_PP is_VBZ important_JJ to_TO predict_VV the_DT performance_NN even_RB if_IN the_DT optimal_JJ design_NN cannot_MD be_VB accurately_RB realized_VVN due_JJ to_TO complex_JJ engineering_NN issues_NNS such_JJ as_IN materials_NNS and_CC manufacturing_NN obstacles_NNS ._SENT 
+Three_CD designs_NNS are_VBP selected_VVN from_IN the_DT Pareto_NP front_NN ,_, Design_NP M_NP ,_, X_NP ,_, and_CC Y_NP (_( see_VV Fig_NN ._SENT 
+6_CD )_) ._SENT 
+Each_DT optimization_NN variable_NN ranges_NNS from_IN small_JJ to_TO large_JJ values_NNS within_IN the_DT allowable_JJ range_NN defined_VVN in_IN Table_NN A._NP 2._CD The_DT performance_NN is_VBZ evaluated_VVN regarding_VVG the_DT two_CD indices_NN ,_, fuel_NN consumption_NN and_CC GHG_NN emissions_NNS ,_, as_RB shown_VVN in_IN Fig_NN ._SENT 
+13_CD ,_, in_IN which_WDT the_DT arrows_NNS indicate_VVP the_DT performance_NN change_NN trend_NN as_IN the_DT optimization_NN variable_NN changes_NNS from_IN small_JJ to_TO large_JJ ._SENT 
+The_DT variation_NN of_IN the_DT diesel_JJ engine_NN displacement_NN VD_NN affects_VVZ the_DT performance_NN of_IN Design_NP M_NP ,_, X_NP ,_, and_CC Y_NN in_IN different_JJ ways_NNS ,_, as_RB seen_VVN in_IN Fig_NN ._SENT 
+14(a_NP )_) ._SENT 
+No_DT point_NN other_JJ than_IN Design_NP M_NP ,_, X_NP ,_, and_CC Y_NP can_MD achieve_VV better_JJR performance_NN regarding_VVG the_DT two_CD indices_NN ._SENT 
+These_DT results_NNS validate_VVP the_DT accuracy_NN of_IN the_DT bi-objective_JJ optimization_NN proposed_VVN in_IN this_DT study_NN ._SENT 
+Specifically_RB ,_, as_IN VD_NN decreases_NNS ,_, Design_NP M_NP and_CC X_NP present_VVP lower_JJR fuel_NN consumption_NN with_IN almost_RB unchanged_JJ GHG_NN emissions_NNS ._SENT 
+Design_NP Y_NP also_RB presents_VVZ lower_JJR fuel_NN consumption_NN but_CC higher_JJR GHG_NN emissions_NNS ._SENT 
+As_IN VD_NN increases_NNS ,_, Design_NP M_NP leads_VVZ to_TO higher_JJR fuel_NN consumption_NN with_IN slightly_RB higher_JJR GHG_NN emissions_NNS ._SENT 
+However_RB ,_, Design_NP X_NP presents_VVZ higher_JJR fuel_NN consumption_NN with_IN almost_RB unchanged_JJ GHG_NN emissions_NNS ,_, and_CC Design_NP Y_NP leads_VVZ to_TO lower_VV fuel_NN consumption_NN but_CC higher_JJR GHG_NN emissions_NNS ._SENT 
+Fig_NN ._SENT 
+14_CD Download_NN :_: Download_NP high-res_NP image_NN (_( 1MB)Download_NP :_: Download_NP full-size_JJ image_NN Fig_NN ._SENT 
+14._CD Effects_NNS of_IN variations_NNS of_IN the_DT seven_CD optimization_NN variables_NNS ._SENT 
+The_DT effects_NNS of_IN variations_NNS on_IN motor_NN rotor_NN diameter_NN dM_NN are_VBP illustrated_VVN in_IN Fig_NN ._SENT 
+14(b_NP )_) ._SENT 
+The_DT change_NN trends_NNS of_IN Design_NP M_NP ,_, X_NP ,_, and_CC Y_NP are_VBP similar_JJ ._SENT 
+As_IN dM_NN decreases_NNS ,_, the_DT three_CD optimal_JJ designs_NNS lead_VVP to_TO higher_JJR fuel_NN consumption_NN and_CC GHG_NN emissions_NNS ._SENT 
+As_IN dM_NN increases_NNS ,_, they_PP present_VVP a_DT significantly_RB higher_JJR fuel_NN consumption_NN and_CC GHG_NN emissions_NNS ._SENT 
+Therefore_RB ,_, Design_NP M_NP ,_, X_NP ,_, and_CC Y_NP are_VBP actually_RB local_JJ optimal_JJ in_IN their_PP$ neighborhoods_NNS ._SENT 
+A_DT similar_JJ trend_NN regarding_VVG variations_NNS on_IN motor_NN rotor_NN length_NN lM_NNS and_CC gear_NN ratio_NN i_NP can_MD be_VB observed_VVN in_IN Fig_NN ._SENT 
+14(c_NP )_) and_CC (_( d_LS )_) ._SENT 
+The_DT effects_NNS of_IN variations_NNS on_IN the_DT number_NN of_IN battery_NN modules_NNS nser_NN are_VBP illustrated_VVN in_IN Fig_NN ._SENT 
+14(e_NN )_) ._SENT 
+The_DT change_NN trends_NNS of_IN Design_NP M_NP ,_, X_NP ,_, and_CC Y_NP are_VBP similar_JJ ._SENT 
+As_IN nser_NN increases_NNS ,_, the_DT three_CD optimal_JJ designs_NNS lead_VVP to_TO lower_VV fuel_NN consumption_NN but_CC higher_JJR GHG_NN emissions_NNS ._SENT 
+As_IN nser_NN decreases_NNS ,_, they_PP present_VVP higher_JJR fuel_NN consumption_NN but_CC lower_JJR GHG_NN emissions_NNS ._SENT 
+Therefore_RB ,_, no_DT point_NN can_MD be_VB dominant_JJ over_IN the_DT others_NNS ._SENT 
+Intuitively_RB ,_, this_DT change_NN trend_NN is_VBZ in_IN line_NN with_IN the_DT Pareto_NP front_NN ._SENT 
+The_DT comparison_NN between_IN the_DT variation_NN designs_NNS and_CC the_DT Pareto_NP front_NN around_IN Design_NP M_NP is_VBZ plotted_VVN in_IN the_DT zoom-in_NP figure_NN at_IN the_DT top_JJ right_JJ corner_NN of_IN Fig_NN ._SENT 
+14(e_NN )_) ._SENT 
+Their_PP$ change_NN trend_NN is_VBZ the_DT same_JJ ,_, but_CC there_EX are_VBP solutions_NNS in_IN the_DT Pareto_NP front_NN which_WDT are_VBP better_JJR than_IN the_DT variation_NN designs_NNS ,_, regarding_VVG both_DT performance_NN indices_NN ._SENT 
+The_DT explanation_NN for_IN the_DT change_NN trend_NN is_VBZ that_IN more_JJR battery_NN modules_NNS allows_VVZ more_JJR electricity_NN usage_NN ,_, and_CC consequently_RB ,_, less_JJR fuel_NN consumption_NN ._SENT 
+Consequently_RB ,_, GHG_NN emissions_NNS become_VVP higher_JJR because_IN the_DT lifecycle_NN GHG_NN emission_NN coefficient_NN of_IN electricity_NN produced_VVN by_IN coal_NN is_VBZ two_CD times_NNS more_JJR than_IN that_IN of_IN diesel_JJ fuel_NN ._SENT 
+The_DT effects_NNS of_IN variations_NNS on_IN the_DT lower_JJR bound_VVN of_IN the_DT battery_NN SOC_NN blower_NN are_VBP illustrated_VVN in_IN Fig_NN ._SENT 
+14(f_NP )_) ._SENT 
+The_DT change_NN trends_NNS of_IN Design_NP M_NP ,_, X_NP ,_, and_CC Y_NP are_VBP contrary_JJ to_TO those_DT of_IN the_DT number_NN of_IN battery_NN modules_NNS in_IN Fig_NN ._SENT 
+14(e_NN )_) ._SENT 
+As_IN blower_NN increases_NNS ,_, the_DT three_CD optimal_JJ designs_NNS present_VVP higher_JJR fuel_NN consumption_NN but_CC lower_JJR GHG_NN emissions_NNS ._SENT 
+As_IN blower_NN gets_VVZ smaller_JJR ,_, they_PP lead_VVP to_TO lower_VV fuel_NN consumption_NN but_CC higher_JJR GHG_NN emissions_NNS ._SENT 
+Therefore_RB ,_, no_DT point_NN can_MD be_VB dominant_JJ over_IN the_DT others_NNS ._SENT 
+The_DT comparison_NN between_IN the_DT variation_NN designs_NNS and_CC the_DT Pareto_NP front_NN around_IN Design_NP M_NP is_VBZ plotted_VVN in_IN the_DT zoom-in_NP figure_NN at_IN the_DT top_JJ right_JJ corner_NN of_IN Fig_NN ._SENT 
+14(f_NP )_) ._SENT 
+Their_PP$ change_NN trend_NN is_VBZ the_DT same_JJ ,_, but_CC there_EX are_VBP solutions_NNS in_IN the_DT Pareto_NP front_NN which_WDT are_VBP better_JJR than_IN the_DT variation_NN designs_VVZ regarding_VVG both_DT performance_NN indices_NN ._SENT 
+The_DT explanation_NN for_IN the_DT change_NN trend_NN is_VBZ that_IN lower_JJR blower_NN allows_VVZ higher_JJR electricity_NN usage_NN ,_, and_CC consequently_RB ,_, lower_JJR fuel_NN consumption_NN and_CC higher_JJR GHG_NN emissions_NNS ._SENT 
+On_IN the_DT other_JJ hand_NN ,_, variations_NNS on_IN the_DT upper_JJ bound_VVN of_IN battery_NN SOC_NN bupper_NN present_VV no_DT observable_JJ effect_NN on_IN the_DT performance_NN of_IN the_DT three_CD optimal_JJ designs_NNS as_IN shown_VVN in_IN Fig_NN ._SENT 
+14(g_NP )_) ._SENT 
+The_DT upper_JJ bound_JJ bupper_NN of_IN Design_NP M_NP ,_, X_NP ,_, and_CC Y_NP are_VBP 82.92_CD %_NN ,_, 83.34_CD %_NN ,_, and_CC 80.03_CD %_NN ,_, respectively_RB ._SENT 
+Thus_RB ,_, the_DT difference_NN between_IN them_PP is_VBZ not_RB significant_JJ ._SENT 
+Overall_RB ,_, the_DT battery_NN SOC_NN barely_RB reaches_VVZ the_DT boundary_NN during_IN the_DT voyage_NN due_JJ to_TO the_DT large_JJ battery_NN capacity_NN provided_VVN by_IN increased_VVN use_NN of_IN battery_NN modules_NNS ._SENT 
+Therefore_RB ,_, the_DT performance_NN is_VBZ not_RB sensitive_JJ to_TO variations_NNS on_IN the_DT upper_JJ bound_JJ bupper_NN ._SENT 
+<Section> 6._CD Conclusion_NN </Section> A_DT bi-objective_JJ optimization_NN was_VBD proposed_VVN for_IN the_DT design_NN of_IN a_DT plug-in_NP HEPS_NNS ,_, considering_VVG not_RB only_RB fuel_VV consumption_NN but_CC also_RB GHG_NN emissions_NNS ._SENT 
+The_DT NSGA-II_NP method_NN was_VBD used_VVN to_TO explore_VV the_DT Pareto_NP optimal_JJ solution_NN set_NN ._SENT 
+A_DT real-time_JJ HIL_NP experimental_JJ platform_NN was_VBD built_VVN to_TO validate_VV the_DT effectiveness_NN of_IN the_DT optimization_NN ._SENT 
+The_DT experimental_JJ results_NNS showed_VVD that_IN the_DT optimal_JJ design_NN selected_VVN from_IN the_DT Pareto_NP solution_NN set_VVN of_IN the_DT bi-objective_JJ optimization_NN can_MD achieve_VV 37.9_CD %_NN lower_JJR fuel_NN consumption_NN than_IN the_DT single-objective_JJ optimization_NN which_WDT pursues_VVZ only_RB GHG_VV emissions_NNS ._SENT 
+At_IN the_DT same_JJ time_NN ,_, 4.6_CD %_NN less_JJR GHG_NN are_VBP emitted_VVN in_IN comparison_NN with_IN the_DT single-objective_JJ optimization_NN which_WDT pursues_VVZ only_RB fuel_VV consumption_NN ._SENT 
+Moreover_RB ,_, compared_VVN with_IN the_DT conventional_JJ propulsion_NN system_NN ,_, the_DT NSGA-II_NP has_VHZ advantages_NNS in_IN both_DT aspects_NNS ,_, i._NP e._NP ,_, 42.26_CD %_NN lower_JJR fuel_NN consumption_NN and_CC 0.91_CD %_NN lower_JJR GHG_NN emissions_NNS ._SENT 
+Further_RBR ,_, according_VVG to_TO a_DT sensitivity_NN analysis_NN regarding_VVG variations_NNS of_IN the_DT seven_CD optimization_NN variables_NNS ,_, three_CD variables_NNS (_( motor_NN rotor_NN diameter_NN ,_, motor_NN rotor_NN length_NN ,_, and_CC gear_NN ratio_NN )_) are_VBP of_IN local_JJ optimum_JJ at_IN the_DT Pareto_NP front_NN ;_: and_CC two_CD (_( number_NN of_IN battery_NN modules_NNS and_CC lower_JJR bound_JJ of_IN the_DT battery_NN SOC_NN )_) are_VBP of_IN strong_JJ sensitivity_NN regarding_VVG the_DT contradiction_NN between_IN fuel_NN consumption_NN and_CC GHG_NN emissions_NNS ._SENT 
+This_DT study_NN is_VBZ of_IN great_JJ significance_NN in_IN areas_NNS where_WRB electricity_NN is_VBZ mainly_RB produced_VVN from_IN coal_NN and_CC GHG_NN emission_NN reduction_NN is_VBZ difficult_JJ because_IN the_DT lifecycle_NN GHG_NN emission_NN coefficient_NN of_IN the_DT shore_NN supplied_VVD electricity_NN is_VBZ more_JJR than_IN two_CD times_NNS that_IN of_IN the_DT diesel_JJ fuel_NN ._SENT 
+The_DT proposed_VVN bi-objective_JJ method_NN can_MD be_VB applied_VVN to_TO the_DT design_NN of_IN various_JJ HEPSs_NP ,_, such_JJ as_IN offshore_JJ vessels_NNS ,_, research_NN ,_, and_CC exploration_NN vessels_NNS ._SENT 
+<Section> Acknowledgement_NN </Section> The_DT present_JJ research_NN was_VBD financially_RB supported_VVN by_IN the_DT National_NP Natural_NP Science_NP Foundation_NP of_IN China_NP (_( No._NN 51475284_CD )_) ._SENT 
+<Section> Appendix_NN ._SENT 
+</Section> Table_NN A._NP 1._CD Values_NNS of_IN parameters_NNS used_VVN in_IN the_DT simulation_NN [_SYM 4,11,26,28,43_CD ,_, [_SYM 47_CD ]_SYM ,_, [_SYM 48_CD ]_SYM ,_, [_SYM 49_CD ]_SYM ]_SYM ._SENT 
+Parameter_NN Nomenclature_NN Value_NP Ae/Ao_NP expanded_VVD blade–area_NN ratio_NN 0.5445_CD AT_IN advance_NN facing_VVG area_NN in_IN the_DT air_NN 128.60_CD m2_NN CAir_JJ air_NN resistance_NN coefficient_NN 0.8_CD CF_NP frictional_JJ resistance_NN coefficient_NN 2.2700_CD ×_NN 10−3_JJ CW_NP wave-making_NN resistance_NN coefficient_NN 2.7500_CD ×_NN 10−3_JJ FkWh_J_NP conversion_NN factor_NN from_IN kWh_NP to_TO J_NP 3.60_CD ×_NN 106_CD Gfuel_TTP_NN GHG_NN emission_NN coefficient_NN during_IN the_DT TTP_NN process_NN 3.17_CD Gfuel_WTT_NP GHG_NP emission_NN coefficient_NN during_IN the_DT WTT_NP process_NN 1.42_CD ×_NP 10−8_NP kg/J_NP Gele_NP lifecycle_NP GHG_NP emission_NN coefficient_NN of_IN shore_NN supplied_VVD electricity_NN 0.86_CD kg/kWh_NP LCV_NP lower_RBR calorific_JJ value_NN of_IN diesel_JJ fuel_NN 4.27_CD ×_NN 107_CD J/kg_NN Qbat_NN battery_NN capacity_NN 41_CD Ah_UH S_NP wet-surface_JJ area_NN of_IN hull_NN 1347.12_CD m2_NN SOC0_JJ initial_JJ state_NN of_IN charge_NN of_IN the_DT battery_NN 90_CD %_NN Z_NN number_NN of_IN the_DT propeller_NN blades_NNS 4_CD m_NN ship_NN mass_NN 1.7000_CD ×_NN 106_CD kg_NN nend_VVP maximum_JJ number_NN of_IN iterations_NNS 300_CD np_NN number_NN of_IN the_DT propellers_NNS 2_CD nser_max_NN maximum_JJ number_NN of_IN the_DT battery_NN modules_NNS 250_CD pitch/D_NN pitch_NN ratio_NN 0.702_CD t1_JJ thrust_NN deduction_NN coefficient_NN 0.1000_CD tmin_NN minimum_JJ duration_NN of_IN the_DT generator_NN start/stop_NN operation_NN 60_CD s_NNS vreq_JJ maximum_JJ speed_NN limitation_NN 7.72_CD m/s_NNS (_( 15_CD kn_NN )_) ηgear_NN efficiency_NN coefficient_NN of_IN the_DT gearbox_NN 0.98_CD ηgen_NN efficiency_NN coefficient_NN of_IN the_DT generator_NN 0.97_CD ρ_NN sea-water_NN density_NN 1.025_CD ×_NN 103_CD kg/m3_NN υ_JJ kinematic_JJ viscosity_NN of_IN sea_NN water_NN 1.1883_CD ×_NN 106_CD m2s−1_JJ Table_NN A._NP 2._CD Range_NP of_IN the_DT optimization_NN variables_NNS Optimization_NP variable_NN Lower_JJR bound_VVN Upper_NP bound_JJ displacement_NN of_IN the_DT diesel_JJ engine_NN VD(10-3m3_NN )_) 70_CD 140_CD diameter_NN of_IN the_DT motor_NN rotor_NN dM(m_NN )_) 0.30_CD 0.75_CD length_NN of_IN the_DT motor_NN rotor_NN lM(m_NN )_) 0.25_CD 0.95_CD gear_NN ratio_NN i_NP 8.00_CD 20.00_CD number_NN of_IN the_DT battery_NN modules_NNS nser_NN 50_CD 250_CD SOC_NN lower_JJR bound_VVN blower(_JJ %_NN )_) 10_CD 30_CD SOC_NN upper_JJ bound_VVN bupper(_JJ %_NN )_) 70_CD 90_CD Table_NN A._NP 3._CD Comparison_NN among_IN the_DT four_CD optimal_JJ designs_NNS ._SENT 
+Optimization_NP variable_JJ Design_NP M_NP Design_NP F_NP Design_NP G_NP Design_NP D_NP VD(10-3m3_NN )_) 81.26_CD 81.26_CD 83.16_CD 80.50_CD dM(m_NN )_) 0.56_CD 0.51_CD 0.67_CD 0.57_CD lM(m_NN )_) 0.32_CD 0.54_CD 0.30_CD 0.32_CD i_NP 15.93_CD 17.94_CD 16.12_CD 9.21_CD nser_NN 220_CD 244_CD 103_CD 244_CD blower(_JJ %_NN )_) 28.22_CD 13.56_CD 29.81_CD 13.32_CD bupper(_JJ %_NN )_) 82.92_CD 87.74_CD 88.52_CD 86.55_CD Table_NN A._NP 4._CD Specification_NN of_IN a_DT 120_CD ton_NN bollard_NN pull_VVP AHT_NNS [_SYM 50_CD ]_SYM ._SENT 
+Parameter_NN Value_NN Length_NN (_( oa_NN )_) 66.00_CD m_NN Length_NN (_( pp_NP )_) 57.00_CD m_NN Breadth_NN 16.00_CD m_NN Depth_NN 7.30_CD m_NN Draught_NN 6.20_CD m_NN Rated_VVN power_NN of_IN the_DT propulsive_JJ engines_NNS 2_CD ×_NN 3285_CD kW_NNS Rated_VVN power_NN of_IN the_DT generators_NNS 2_CD ×_NN 720_CD kW_NNS Gear_NP ratio_NN 800:141_CD <Section> References_NNS </Section> [_SYM 1_CD ]_SYM Y._NP Zhu_NP ,_, S._NP Zhou_NP ,_, Y._NP Feng_NP ,_, Z._NP Hu_NP ,_, L._NP Yuan_NP Influences_VVZ of_IN solar_JJ energy_NN on_IN the_DT energy_NN efficiency_NN design_NN index_NN for_IN new_JJ building_NN ships_NNS Int_NP J_NP Hydrogen_NN Energy_NP ,_, 42_CD (_( 2017_CD )_) ,_, pp_NP ._SENT 
+19389-19394_CD ArticleDownload_NP PDFView_NP Record_NP in_IN ScopusGoogle_JJ Scholar_NN [_SYM 2_CD ]_SYM J._NP H._NP Mccarthy_NP On_IN the_DT calculation_NN of_IN thrust_NN and_CC torque_NN fluctuations_NNS of_IN propellers_NNS in_IN nonuniform_JJ wake_NN flow_NN Sensor_NN Actuator_NN B_NP Chem_NP ,_, 161_CD (_( 1_LS )_) (_( 1961_CD )_) ,_, pp_NP ._SENT 
+80-87_CD View_NP Record_NP in_IN ScopusGoogle_JJ Scholar_NN [_SYM 3_CD ]_SYM M._NP C._NP Díaz-De-Baldasano_NP ,_, F._NP J._NP Mateos_NP ,_, L._NP R._NP Núñez-Rivas_NP ,_, T._NP J._NP Leo_NP Conceptual_JJ design_NN of_IN offshore_JJ platform_NN supply_NN vessel_NN based_VVN on_IN hybrid_JJ diesel_JJ generator-fuel_NN cell_NN power_NN plant_NN Appl_NP Energy_NP ,_, 116_CD (_( 3_LS )_) (_( 2014_CD )_) ,_, pp_NP ._SENT 
+91-100_CD ArticleDownload_NP PDFView_NP Record_NP in_IN ScopusGoogle_JJ Scholar_NN [_SYM 4_CD ]_SYM F._NP Baldi_NP ,_, F._NP Ahlgren_NP ,_, F._NP Melino_NP ,_, C._NP Gabrielii_NP ,_, K._NP Andersson_NP Optimal_JJ load_NN allocation_NN of_IN complex_JJ ship_NN power_NN plants_NNS Energy_NP Convers_NP Manag_NP ,_, 124_CD (_( 2016_CD )_) ,_, pp_NP ._SENT 
+344-356_CD ArticleDownload_NP PDFView_NP Record_NP in_IN ScopusGoogle_JJ Scholar_NN [_SYM 5_CD ]_SYM E._NP Ovrum_NP ,_, T._NP F._NP Bergh_NP Modelling_VVG lithium-ion_NN battery_NN hybrid_JJ ship_NN crane_NN operation_NN Appl_NP Energy_NP ,_, 152_CD (_( 2015_CD )_) ,_, pp_NP ._SENT 
+162-172_CD ArticleDownload_NP PDFView_NP Record_NP in_IN ScopusGoogle_JJ Scholar_NN [_SYM 6_CD ]_SYM G._NP Guidi_NP ,_, J._NP A._NP Suul_NP ,_, F._NP Jenset_NN ,_, I._NP Sorfonn_NP Wireless_NP charging_VVG for_IN ships_NNS :_: high-power_NN inductive_JJ charging_VVG for_IN battery_NN electric_JJ and_CC plug-in_JJ hybrid_JJ vessels_NNS IEEE_NN Electrification_NN Magazine_NP ,_, 5_CD (_( 3_LS )_) (_( 2017_CD )_) ,_, pp_NP ._SENT 
+22-32_CD CrossRefView_NP Record_NP in_IN ScopusGoogle_JJ Scholar_NN [_SYM 7_CD ]_SYM T._NP Takamasa_NP ,_, T._NP Oode_NP ,_, H._NP Kifune_NP ,_, E._NP Shimizu_NP Quick_NP charging_VVG plug-in_NP electric_JJ boat_NN “_NP RAICHO-I_NP ”_NP IEEE_NP electric_JJ ship_NN technologies_NNS symposium_NN ,_, alexandria_NP ,_, USA_NP (_( 2011_CD )_) Google_JJ Scholar_NN [_SYM 8_CD ]_SYM G._NP Zhou_NP ,_, X._NP Ou_NP ,_, X._NP Zhang_NP Development_NP of_IN electric_JJ vehicles_NNS use_VVP in_IN China_NP :_: a_DT study_NN from_IN the_DT perspective_NN of_IN life-cycle_NN energy_NN consumption_NN and_CC greenhouse_NN gas_NN emissions_NNS Energy_NP Policy_NP ,_, 59_CD (_( 3_LS )_) (_( 2013_CD )_) ,_, pp_NP ._SENT 
+875-884_CD ArticleDownload_NP PDFView_NP Record_NP in_IN ScopusGoogle_JJ Scholar_NN [_SYM 9_CD ]_SYM J._NP Shin_NP ,_, J._NP H._NP Lee_NP ,_, M._NP J._NP Realff_NP Operational_JJ planning_NN and_CC optimal_JJ sizing_VVG of_IN microgrid_NN considering_VVG multi-scale_JJ wind_NN uncertainty_NN Appl_NP Energy_NP ,_, 195_CD (_( 2017_CD )_) ,_, pp_NP ._SENT 
+617-633_CD View_NP Record_NP in_IN ScopusGoogle_JJ Scholar_NN [_SYM 10_CD ]_SYM M._NP Soleymani_NP ,_, A._NP Yoosofi_NP ,_, -D_NN ._SENT 
+M._NP Kandi_NP Sizing_VVG and_CC energy_NN management_NN of_IN a_DT medium_JJ hybrid_JJ electric_JJ boat_NN J_NP Mar_NP Sci_NP Technol_NN ,_, 20_CD (_( 4_LS )_) (_( 2015_CD )_) ,_, pp_NP ._SENT 
+739-751_CD CrossRefView_NP Record_NP in_IN ScopusGoogle_JJ Scholar_NN [_SYM 11_CD ]_SYM B._NP A._NP Skinner_NP ,_, G._NP T._NP Parks_NP ,_, P._NP R._NP Palmer_NP Comparison_NN of_IN submarine_JJ drive_NN topologies_NNS using_VVG multiobjective_JJ genetic_JJ algorithms_NNS IEEE_NN Veh_NN Technol_NN ,_, 58_CD (_( 1_LS )_) (_( 2009_CD )_) ,_, pp_NP ._SENT 
+57-68_CD CrossRefView_NP Record_NP in_IN ScopusGoogle_JJ Scholar_NN [_SYM 12_CD ]_SYM E._NP A._NP Sciberras_NP ,_, R._NP A._NP Norman_NP Multi-objective_JJ design_NN of_IN a_DT hybrid_JJ propulsion_NN system_NN for_IN marine_JJ vessels_NNS IET_NP Electr_NP Syst_NP Transp_NP ,_, 2_CD (_( 3_LS )_) (_( 2012_CD )_) ,_, pp_NP ._SENT 
+148-157_CD CrossRefView_NP Record_NP in_IN ScopusGoogle_JJ Scholar_NN [_SYM 13_CD ]_SYM J._NP P._NP Ribau_NP ,_, C._NP M._NP Silva_NP ,_, J._NP M._NP C._NP Sousa_NP Efficiency_NN ,_, cost_NN and_CC life_NN cycle_NN CO2_JJ optimization_NN of_IN fuel_NN cell_NN hybrid_NN and_CC plug-in_JJ hybrid_JJ urban_JJ buses_NNS Appl_NP Energy_NP ,_, 129_CD (_( 129_CD )_) (_( 2014_CD )_) ,_, pp_NP ._SENT 
+320-335_CD ArticleDownload_NP PDFView_NP Record_NP in_IN ScopusGoogle_JJ Scholar_NN [_SYM 14_CD ]_SYM L._NP Fang_NP ,_, S._NP Qin_NP ,_, G._NP Xu_NP ,_, T._NP Li_NP ,_, K._NP Zhu_NP Simultaneous_JJ optimization_NN for_IN hybrid_JJ electric_JJ vehicle_NN parameters_NNS based_VVN on_IN multi-objective_JJ genetic_JJ algorithms_NNS Energies_NNS ,_, 4_LS (_( 3_LS )_) (_( 2011_CD )_) ,_, pp_NP ._SENT 
+532-544_CD CrossRefView_NP Record_NP in_IN ScopusGoogle_JJ Scholar_NN [_SYM 15_CD ]_SYM T._NP Völker_NP Hybrid_JJ propulsion_NN concepts_NNS on_IN ships_NNS 33rd_VVP international_JJ scientific_JJ conference_NN "_'' science_NN in_IN practice_NN "_'' (_( 2015_CD )_) ,_, pp_NP ._SENT 
+66-76_CD Schweinfurt_NN ,_, Germany_NP View_NP Record_NP in_IN ScopusGoogle_JJ Scholar_NN [_SYM 16_CD ]_SYM G._NP Mokryani_NP Active_JJ distribution_NN networks_NNS planning_VVG with_IN integration_NN of_IN demand_NN response_NN Sol_NP Energy_NP ,_, 122_CD (_( 3_LS )_) (_( 2015_CD )_) ,_, pp_NP ._SENT 
+1362-1370_CD ArticleDownload_NP PDFView_NP Record_NP in_IN ScopusGoogle_JJ Scholar_NN [_SYM 17_CD ]_SYM A._NP M._NP Mora_NP ,_, J._NP J._NP Merelo_NP ,_, P._NP A._NP Castillo_NP ,_, M._NP G._NP Arenas_NP HCHAC_NP :_: a_DT family_NN of_IN MOACO_NP algorithms_NNS for_IN the_DT resolution_NN of_IN the_DT bi-criteria_NP military_JJ unit_NN pathfinding_NN problem_NN Comput_NN Oper_NP Res_NN ,_, 40_CD (_( 6_CD )_) (_( 2013_CD )_) ,_, pp_NP ._SENT 
+1524-1551_CD ArticleDownload_NP PDFView_NP Record_NP in_IN ScopusGoogle_JJ Scholar_NN [_SYM 18_CD ]_SYM M._NP H._NP Ahmadi_NP ,_, M._NP A._NP Ahmadi_NP ,_, M._NP Mehrpooya_NP ,_, M._NP Sameti_NP Thermo-ecological_JJ analysis_NN and_CC optimization_NN performance_NN of_IN an_DT irreversible_JJ three-heat-source_NN absorption_NN heat_NN pump_NN Energy_NP Convers_NP Manag_NP ,_, 90_CD (_( 2015_CD )_) ,_, pp_NP ._SENT 
+175-183_CD ArticleDownload_NP PDFView_NP Record_NP in_IN ScopusGoogle_JJ Scholar_NN [_SYM 19_CD ]_SYM M._NP H._NP Ahmadi_NP ,_, M._NP A._NP Ahmadi_NP ,_, R._NP Bayat_NP ,_, M._NP Ashouri_NP ,_, M._NP Feidt_NP Thermo-economic_JJ optimization_NN of_IN Stirling_NP heat_NN pump_NN by_IN using_VVG non-dominated_JJ sorting_VVG genetic_JJ algorithm_NN Energy_NP Convers_NP Manag_NP ,_, 91_CD (_( 2015_CD )_) ,_, pp_NP ._SENT 
+315-322_CD ArticleDownload_NP PDFView_NP Record_NP in_IN ScopusGoogle_JJ Scholar_NN [_SYM 20_CD ]_SYM M._NP H._NP Ahmadi_NP ,_, M._NP A._NP Ahmadi_NP ,_, S._NP A._NP J._NP R._NP Sadatsakkak_NP ,_, S._NP E._NP Reviews_VVZ Thermodynamic_JJ analysis_NN and_CC performance_NN optimization_NN of_IN irreversible_JJ Carnot_NN refrigerator_NN by_IN using_VVG multi-objective_JJ evolutionary_JJ algorithms_NNS (_( MOEAs_NNS )_) Renew_VV Sustain_VV Energy_NP Rev_NP ,_, 51_CD (_( 2015_CD )_) ,_, pp_NP ._SENT 
+1055-1070_CD ArticleDownload_NP PDFView_NP Record_NP in_IN ScopusGoogle_JJ Scholar_NN [_SYM 21_CD ]_SYM S._NP A._NP Sadatsakkak_NP ,_, M._NP H._NP Ahmadi_NP ,_, M._NP Ahmadi_NP Thermodynamic_JJ and_CC thermo-economic_JJ analysis_NN and_CC optimization_NN of_IN an_DT irreversible_JJ regenerative_JJ closed_JJ Brayton_NP cycle_NN Energy_NP Convers_NP Manag_NP ,_, 94_CD (_( 2015_CD )_) ,_, pp_NP ._SENT 
+124-129_CD ArticleDownload_NP PDFView_NP Record_NP in_IN ScopusGoogle_JJ Scholar_NN [_SYM 22_CD ]_SYM S._NP Sánchez-Orgaz_NP ,_, M._NP Pedemonte_NP ,_, P._NP Ezzatti_NP ,_, P._NP L._NP Curto-Risso_NP ,_, A._NP Medina_NP ,_, A._NP C._NP Hernández_NP Multi-objective_JJ optimization_NN of_IN a_DT multi-step_JJ solar-driven_NP Brayton_NP plant_NN Energy_NP Convers_NP Manag_NP ,_, 99_CD (_( 2015_CD )_) 346-58_CD Google_JJ Scholar_NN [_SYM 23_CD ]_SYM A._NP Ghodratnama_NP ,_, F._NP Jolai_NP ,_, R._NP Tavakkoli-Moghaddam_NP Solving_VVG a_DT new_JJ multi-objective_JJ multi-route_JJ flexible_JJ flow_NN line_NN problem_NN by_IN multi-objective_JJ particle_NN swarm_NN optimization_NN and_CC NSGA-II_NP J_NP Manuf_NP Syst_NP ,_, 36_CD (_( 2015_CD )_) ,_, pp_NP ._SENT 
+189-202_CD ArticleDownload_NP PDFView_NP Record_NP in_IN ScopusGoogle_JJ Scholar_NN [_SYM 24_CD ]_SYM B._NP Possel_NP ,_, L._NP J._NP J._NP Wismans_NP ,_, E._NP C._NP V._NP Berkum_NP ,_, M._NP C._NP J._NP Bliemer_NP The_DT multi-objective_JJ network_NN design_NN problem_NN using_VVG minimizing_VVG externalities_NNS as_IN objectives_NNS :_: comparison_NN of_IN a_DT genetic_JJ algorithm_NN and_CC simulated_JJ annealing_VVG framework_NN Transportation_NN (_( 2017_CD )_) ,_, pp_NP ._SENT 
+1-28_CD View_NP Record_NP in_IN ScopusGoogle_JJ Scholar_NN [_SYM 25_CD ]_SYM A._NP Fröberg_NP Extending_VVG the_DT inverse_JJ vehicle_NN propulsion_NN simulation_NN concept-to_RB improve_VV simulation_NN performance_NN Thesis_NN no_RB ._SENT 
+1181_CD ,_, linköping_VVG studies_NNS in_IN science_NN and_CC technology_NN ,_, Linköpings_NP Universitet_NP ,_, Sweden_NP (_( 2005_CD )_) Google_JJ Scholar_NN [_SYM 26_CD ]_SYM J._NP Holtrop_NP ,_, G._NP G._NP J._NP Mennen_NP An_DT Approximate_JJ power_NN prediction_NN method_NN Int_NP Shipbuild_NP Prog_NP ,_, 29_CD (_( 335_CD )_) (_( 1982_CD )_) ,_, pp_NP ._SENT 
+166-170_CD CrossRefView_NP Record_NP in_IN ScopusGoogle_JJ Scholar_NN [_SYM 27_CD ]_SYM J._NP S._NP Carlton_NP Marine_NP propellers_NNS and_CC propulsion_NN (_( third_JJ ed_NNS ._SENT 
+)_) ,_, Butterworth-Heinemann_NP ,_, Oxford_NP ,_, U._NP K._NP (_( 2012_CD )_) Google_JJ Scholar_NN [_SYM 28_CD ]_SYM J._NP Hou_NP ,_, J._NP Sun_NP ,_, H._NP F._NP Hofmann_NP Mitigating_JJ power_NN fluctuations_NNS in_IN electric_JJ ship_NN propulsion_NN with_IN hybrid_JJ energy_NN storage_NN system_NN :_: design_NN and_CC analysis_NN IEEE_NN J_NP Ocean_NP Eng_NP ,_, 99_CD (_( 2017_CD )_) ,_, pp_NP ._SENT 
+1-15_CD CrossRefView_NP Record_NP in_IN ScopusGoogle_JJ Scholar_NN [_SYM 29_CD ]_SYM M._NP M._NP Bernitsas_NP KT_NP ,_, KQ_NP and_CC efficiency_NN curves_NNS for_IN the_DT Wageningen_NP B-series_NNS propellers_NNS ._SENT 
+Technical_NP Report_NP University_NP of_IN Michigan_NP (_( 1981_CD )_) Google_JJ Scholar_NN [_SYM 30_CD ]_SYM G._NP Rizzoni_NP ,_, L._NP Guzzella_NP ,_, B._NP M._NP Baumann_NP Unified_JJ modeling_NN of_IN hybrid_JJ electric_JJ vehicle_NN drivetrains_NP IEEE_NP ASME_NN Trans_NP Mechatron_NP ,_, 4_CD (_( 3_LS )_) (_( 1999_CD )_) ,_, pp_NP ._SENT 
+246-257_CD View_NP Record_NP in_IN ScopusGoogle_JJ Scholar_NN [_SYM 31_CD ]_SYM P._NP Pisu_NP ,_, G._NP Rizzoni_NP A_DT comparative_JJ study_NN of_IN supervisory_JJ control_NN strategies_NNS for_IN hybrid_JJ electric_JJ vehicles_NNS IEEE_NP Trans_NP Control_NP Syst_NN Technol_NN ,_, 15_CD (_( 3_LS )_) (_( 2007_CD )_) ,_, pp_NP ._SENT 
+506-518_CD CrossRefView_NP Record_NP in_IN ScopusGoogle_JJ Scholar_NN [_SYM 32_CD ]_SYM O._NP Sundstrom_NP ,_, L._NP Guzzella_NP ,_, P._NP Soltic_JJ Torque-assist_NN hybrid_JJ electric_JJ powertrain_NN sizing_VVG :_: from_IN optimal_JJ control_NN towards_IN a_DT sizing_VVG law_NN IEEE_NP Trans_NP Control_NP Syst_NN Technol_NN ,_, 18_CD (_( 4_LS )_) (_( 2010_CD )_) ,_, pp_NP ._SENT 
+837-849_CD CrossRefView_NP Record_NP in_IN ScopusGoogle_JJ Scholar_NN [_SYM 33_CD ]_SYM M._NP Sorrentino_NP ,_, F._NP Mauramati_NP ,_, I._NP Arsie_NP ,_, A._NP Cricchio_NP ,_, C._NP Pianese_NP ,_, W._NP Nesci_NP Application_NN of_IN Willans_NP line_NN method_NN for_IN internal_JJ combustion_NN engines_NNS scalability_NN towards_IN the_DT design_NN and_CC optimization_NN of_IN eco-innovation_NN solutions_NNS (_( 2015_CD )_) ,_, pp_NP ._SENT 
+468-476_CD SAE_NP Technical_NP Paper_NP 2015-24-2397_CD View_NP Record_NP in_IN ScopusGoogle_JJ Scholar_NN [_SYM 34_CD ]_SYM K._NP C._NP Divya_NP ,_, J._NP Østergaard_NP Battery_NP energy_NN storage_NN technology_NN for_IN power_NN systems—an_NN overview_NN Electr_NP Power_NP Syst_NN Res_NNS ,_, 79_CD (_( 4_LS )_) (_( 2009_CD )_) ,_, pp_NP ._SENT 
+511-520_CD ArticleDownload_NP PDFView_NP Record_NP in_IN ScopusGoogle_JJ Scholar_NN [_SYM 35_CD ]_SYM L._NP Xu_NP ,_, C._NP D._NP Mueller_NP ,_, J._NP Li_NP ,_, M._NP Ouyang_NP ,_, Z._NP Hu_NP Multi-objective_JJ component_NN sizing_VVG based_VVN on_IN optimal_JJ energy_NN management_NN strategy_NN of_IN fuel_NN cell_NN electric_JJ vehicles_NNS Appl_NP Energy_NP ,_, 157_CD (_( 2015_CD )_) ,_, pp_NP ._SENT 
+664-674_CD ArticleDownload_NP PDFView_NP Record_NP in_IN ScopusGoogle_JJ Scholar_NN [_SYM 36_CD ]_SYM B._NP C._NP Chen_NP ,_, Y._NP Y._NP Wu_NP ,_, H._NP C._NP Tsai_NP Design_NP and_CC analysis_NN of_IN power_NN management_NN strategy_NN for_IN range_NN extended_VVD electric_JJ vehicle_NN using_VVG dynamic_JJ programming_NN Appl_NP Energy_NP ,_, 113_CD (_( 1_LS )_) (_( 2014_CD )_) ,_, pp_NP ._SENT 
+1764-1774_CD ArticleDownload_NP PDFView_NP Record_NP in_IN ScopusGoogle_JJ Scholar_NN [_SYM 37_CD ]_SYM S._NP Onori_NP ,_, L._NP Serrao_NP ,_, G._NP Rizzoni_NP Hybrid_JJ electric_JJ vehicles_NNS Springer_NP ,_, London_NP (_( 2016_CD )_) Google_JJ Scholar_NN [_SYM 38_CD ]_SYM V._NP H._NP Johnson_NP Battery_NP performance_NN models_NNS in_IN ADVISOR_NN J_NP Power_NP Sources_NNS ,_, 110_CD (_( 2_LS )_) (_( 2002_CD )_) ,_, pp_NP ._SENT 
+321-329_CD ArticleDownload_NP PDFView_NP Record_NP in_IN ScopusGoogle_JJ Scholar_NN [_SYM 39_CD ]_SYM B._NP Zahedi_NP ,_, L._NP E._NP Norum_NP ,_, K._NP B._NP Ludvigsen_NP Optimized_VVD efficiency_NN of_IN all-electric_JJ ships_NNS by_IN dc_NP hybrid_JJ power_NN systems_NNS J_NP Power_NP Sources_NNS ,_, 255_CD (_( -_: )_) (_( 2014_CD )_) ,_, pp_NP ._SENT 
+341-354_CD ArticleDownload_NP PDFView_NP Record_NP in_IN ScopusGoogle_JJ Scholar_NN [_SYM 40_CD ]_SYM Y._NP H._NP Hung_NP ,_, Y._NP M._NP Tung_NP ,_, C._NP H._NP Chang_NP Optimal_JJ control_NN of_IN integrated_JJ energy_NN management/mode_NN switch_NN timing_NN in_IN a_DT three-power-source_NN hybrid_NN powertrain_NN Appl_NP Energy_NP ,_, 173_CD (_( 2016_CD )_) ,_, pp_NP ._SENT 
+184-196_CD ArticleDownload_NP PDFView_NP Record_NP in_IN ScopusGoogle_JJ Scholar_NN [_SYM 41_CD ]_SYM Y._NP Yang_NP ,_, Z._NP Yang_NP ,_, G._NP Xu_NP ,_, N._NP Wang_NP Situation_NN and_CC prospect_NN of_IN energy_NN consumption_NN for_IN China_NP 's_POS thermal_JJ power_NN generation_NN Proc_NP CSEE_NP (_( 23_CD )_) (_( 2013_CD )_) ,_, pp_NP ._SENT 
+1-11_CD CrossRefView_NP Record_NP in_IN ScopusGoogle_JJ Scholar_NN [_SYM 42_CD ]_SYM B._NP Wang_NP ,_, X._NP Min_NP ,_, Y._NP Li_NP Study_NP on_IN the_DT economic_JJ and_CC environmental_JJ benefits_NNS of_IN different_JJ EV_NP powertrain_NN topologies_NNS Energy_NP Convers_NP Manag_NP ,_, 86_CD (_( 86_CD )_) (_( 2014_CD )_) ,_, pp_NP ._SENT 
+916-926_CD ArticleDownload_NP PDFView_NP Record_NP in_IN ScopusGoogle_JJ Scholar_NN [_SYM 43_CD ]_SYM R._NP Edwards_NP ,_, V._NP Mahieu_NP ,_, J._NP -C_NP ._SENT 
+Griesemann_NP ,_, J._NP -F_NP ._SENT 
+Larivé_NP ,_, D._NP J._NP Rickeard_NP Well-to-wheels_NP analysis_NN of_IN future_JJ automotive_JJ fuels_NNS and_CC powertrains_NNS in_IN the_DT European_JJ context_NN SAE_NP Trans_NP (_( 2004_CD )_) ,_, pp_NP ._SENT 
+1072-1084_CD View_NP Record_NP in_IN ScopusGoogle_JJ Scholar_NN [_SYM 44_CD ]_SYM K._NP Deb_NP ,_, A._NP Pratap_NP ,_, S._NP Agarwal_NP ,_, T._NP Meyarivan_NP A_DT fast_JJ and_CC elitist_NN multiobjective_JJ genetic_JJ algorithm_NN :_: NSGA-II_NP IEEE_NP Trans_NP Evol_NP Comput_NP ,_, 6_CD (_( 2_LS )_) (_( 2002_CD )_) ,_, pp_NP ._SENT 
+182-197_CD CrossRefView_NP Record_NP in_IN ScopusGoogle_JJ Scholar_NN [_SYM 45_CD ]_SYM M._NP Rabiee_NP ,_, M._NP Zandieh_NP ,_, P._NP Ramezani_NP Bi-objective_JJ partial_JJ flexible_JJ job_NN shop_NN scheduling_NN problem_NN :_: NSGA-II_NP ,_, NRGA_NP ,_, MOGA_NP and_CC PAES_NP approaches_VVZ Int_NP J_NP Prod_VV Res_NNS ,_, 50_CD (_( 24_CD )_) (_( 2012_CD )_) ,_, pp_NP ._SENT 
+7327-7342_CD CrossRefView_NP Record_NP in_IN ScopusGoogle_JJ Scholar_NN [_SYM 46_CD ]_SYM E._NP A._NP Sciberras_NP ,_, B._NP Zahawi_NP ,_, D._NP J._NP Atkinson_NP ,_, A._NP Juandó_NP Electric_NP auxiliary_JJ propulsion_NN for_IN improved_VVN fuel_NN efficiency_NN and_CC reduced_VVD emissions_NNS Proc_NP Inst_NP Mech_NP Eng_NP J_NP Mater_NP Eng_NP ,_, 229_CD (_( 1_LS )_) (_( 2015_CD )_) ,_, pp_NP ._SENT 
+36-44_CD CrossRefView_NP Record_NP in_IN ScopusGoogle_JJ Scholar_NN [_SYM 47_CD ]_SYM T._NP Sandmo_NP The_DT Norwegian_JJ Emission_NN Inventory_NN 2011_CD :_: documentation_NN of_IN methodologies_NNS for_IN estimating_VVG emissions_NNS og_NP greenhouse_NN gases_NNS and_CC long-range_JJ transboundary_NN air_NN pollutants_NNS Statistics_NP Norway_NP (_( 2011_CD )_) Google_JJ Scholar_NN [_SYM 48_CD ]_SYM A._NP Tsolakis_NP ,_, A._NP Megaritis_NP ,_, M._NP L._NP Wyszynski_NP ,_, K._NP Theinnoi_NP Engine_NP performance_NN and_CC emissions_NNS of_IN a_DT diesel_JJ engine_NN operating_VVG on_IN diesel-RME_NP (_( rapeseed_NN methyl_NN ester_NN )_) blends_NNS with_IN EGR_NP (_( exhaust_NN gas_NN recirculation_NN )_) Energy_NP ,_, 32_CD (_( 11_CD )_) (_( 2007_CD )_) ,_, pp_NP ._SENT 
+2072-2080_CD ArticleDownload_NP PDFView_NP Record_NP in_IN ScopusGoogle_JJ Scholar_NN [_SYM 49_CD ]_SYM Diesel-electric_JJ Propulsion_NN Plants_NP :_: a_DT brief_JJ guideline_NN how_WRB to_TO engineer_VV a_DT diesel-electric_JJ propulsion_NN system_NN ._SENT 
+http_NN :_: //marine_NN ._SENT 
+man_UH ._SENT 
+eu/_NP ._SENT 
+Man_NP Diesel_NP ,_, (_( accessed_VVD 15_CD September_NP 2016_CD )_) ._SENT 
+Google_JJ Scholar_NN [_SYM 50_CD ]_SYM AHTS_VVZ propulsion_NN for_IN swire_NP pacific_JJ offshore_RB ._SENT 
+http_NN :_: //marine_NN ._SENT 
+man_UH ._SENT 
+eu/_NP ,_, (_( accessed_VVD 30_CD November_NP 2015_CD )_) ._SENT 
+Google_NP Scholar_NN 

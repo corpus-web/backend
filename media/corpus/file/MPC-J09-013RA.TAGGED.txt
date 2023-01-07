@@ -1,0 +1,766 @@
+﻿_JJ <title> Coupling_NN methodology_NN for_IN smoothed_VVN particle_NN hydrodynamics_NNS modelling_VVG of_IN non-linear_JJ wave-structure_NN interactions_NNS </title> <author> 1_CD ,_, TimVerbrugghe_NP ,_, 2_CD ,_, José_NP ManuelDomínguez_NP ,_, 2_CD ,_, Alejandro_NP J.C.Crespo_NP ,_, 1_CD ,_, 3_CD ,_, CorradoAltomare_NP ,_, 1_CD ,_, VickyStratigaki_NP ,_, 1_CD ,_, PeterTroch_NP ,_, 1_CD ,_, AndreasKortenhaus_NP </author> <Affiliation> 1_CD ,_, Department_NP of_IN Civil_NP Engineering_NP ,_, Ghent_NP University_NP ,_, Technologiepark_NP 904_CD ,_, Zwijnaarde_NP ,_, B-9052_NP ,_, Belgium_NP ,_, 2_CD ,_, EPHYSLAB_NP Environmental_NP Physics_NN Laboratory_NP ,_, Universidade_NP de_NP Vigo_NP ,_, As_IN Lagoas_NP ,_, 32004_CD ,_, Ourense_NP ,_, Spain_NP ,_, 3_CD ,_, Flanders_NP Hydraulics_NNS Research_NP ,_, Berchemlei_NP 115_CD ,_, 2140_CD ,_, Antwerp_NP ,_, Belgium_NP </Affiliation> <year> 2018_CD </year> <Jounral> Coastal_NP Engineering_NP </Journal> <Publishing_house> Elsevier_NP </Publishing_house> <Text_Collector> Zhang_NP San，HEU_NP </Text_Collector> <DOI> https://doi.org/10.1016/j.coastaleng.2018.04.021_JJ </DOI> <URL> https://www.sciencedirect.com/science/article/pii/S0378383917304349_JJ </URL> Coupling_NN methodology_NN for_IN smoothed_VVN particle_NN hydrodynamics_NNS modelling_VVG of_IN non-linear_JJ wave-structure_NN interactions_NNS TimVerbrugghe_NP ,_, José_NP ManuelDomínguez_NP ,_, Alejandro_NP J.C.Crespo_NP ,_, CorradoAltomare_NP ,_, VickyStratigaki_NP ,_, PeterTroch_NP ,_, AndreasKortenhaus_NP Department_NP of_IN Civil_NP Engineering_NP ,_, Ghent_NP University_NP ,_, Technologiepark_NP 904_CD ,_, Zwijnaarde_NP ,_, B-9052_NP ,_, Belgium_NP EPHYSLAB_NP Environmental_NP Physics_NN Laboratory_NP ,_, Universidade_NP de_NP Vigo_NP ,_, As_IN Lagoas_NP ,_, 32004_CD ,_, Ourense_NP ,_, Spain_NP Flanders_NP Hydraulics_NN Research_NP ,_, Berchemlei_NP 115_CD ,_, 2140_CD ,_, Antwerp_NP ,_, Belgium_NP <Section> Highlights_VVZ </Section> A_DT 2-way_JJ coupling_NN method_NN between_IN OceanWave3D_NNS and_CC DualSPHysics_NNS is_VBZ proposed_VVN ._SENT 
+Horizontal_JJ orbital_JJ velocities_NNS are_VBP moving_VVG a_DT number_NN of_IN dynamic_JJ boundary_NN blocks_NNS ._SENT 
+Communication_NP is_VBZ handled_VVN by_IN OpenMPI_NP and_CC monitored_VVN by_IN a_DT Python_NN process_NN ._SENT 
+Validation_NN of_IN wave_NN propagation_NN is_VBZ done_VVN with_IN theoretical_JJ solutions_NNS ._SENT 
+Validation_NN of_IN wave-structure_NN interaction_NN is_VBZ done_VVN with_IN two_CD experimental_JJ datasets_NNS ._SENT 
+<Section> Abstract_JJ </Section> A_DT two-way_JJ coupling_NN methodology_NN for_IN wave_NN propagation_NN and_CC wave-structure_NN interaction_NN with_IN SPH_NN is_VBZ hereby_RB presented_VVN ._SENT 
+The_DT methodology_NN consists_VVZ of_IN combining_VVG a_DT fast_JJ ,_, fully_RB non-linear_JJ wave_NN propagation_NN model_NN ,_, OceanWave3D_RB ,_, with_IN an_DT accurate_JJ Smoothed_VVN Particle_NN Hydrodynamics_NNS (_( SPH_NN )_) solver_NN ,_, DualSPHysics_NP ._SENT 
+At_IN the_DT coupling_NN interface_NN in_IN the_DT SPH_NN zone_NN ,_, moving_VVG dynamic_JJ boundary_NN particles_NNS are_VBP applied_VVN ,_, which_WDT move_VVP according_VVG to_TO the_DT horizontal_JJ velocity_NN calculated_VVN in_IN the_DT wave_NN propagation_NN model_NN ._SENT 
+The_DT surface_NN elevation_NN is_VBZ registered_VVN in_IN the_DT SPH_NN zone_NN and_CC transferred_VVD back_RB to_TO the_DT wave_NN propagation_NN model_NN ._SENT 
+Using_VVG this_DT coupling_NN methodology_NN ,_, a_DT large_JJ domain_NN can_MD be_VB simulated_JJ with_IN the_DT wave_NN propagation_NN model_NN ,_, with_IN small_JJ ,_, discrete_JJ SPH_NN zones_NNS embedded_VVN to_TO locally_RB obtain_VV higher_JJR accuracies_NNS ._SENT 
+The_DT communication_NN between_IN the_DT solvers_NNS is_VBZ implemented_VVN using_VVG OpenMPI_NP ._SENT 
+Three_CD connected_JJ processes_NNS are_VBP run_VVN :_: OceanWave3D_NNS ,_, DualSPHysics_NNS and_CC Python_NN ._SENT 
+The_DT latter_NN is_VBZ used_VVN to_TO monitor_VV the_DT data_NNS transfer_VV and_CC manipulate_VV the_DT data_NNS in_IN an_DT efficient_JJ manner_NN ._SENT 
+The_DT coupling_NN methodology_NN is_VBZ validated_VVN by_IN simulating_VVG wave_NN propagation_NN of_IN linear_JJ and_CC non-linear_JJ waves_NNS ,_, and_CC comparing_VVG the_DT surface_NN elevations_NNS and_CC orbital_JJ velocities_NNS to_TO a_DT theoretical_JJ solution_NN ._SENT 
+Comparison_NN with_IN two_CD experimental_JJ datasets_NNS is_VBZ performed_VVN as_IN well_RB ._SENT 
+The_DT coupling_NN methodology_NN proofs_VVZ that_IN it_PP is_VBZ able_JJ to_TO accurately_RB propagate_VV waves_NNS and_CC shows_VVZ a_DT good_JJ agreement_NN with_IN theoretical_JJ and_CC experimental_JJ results_NNS ._SENT 
+KEYWORDS_NNS :_: Wave-structure_NN interaction_NN ;_: Wave_NP propagation_NN ;_: Smoothed_VVN particle_NN hydrodynamics_NNS ;_: Coupling_NN ;_: Message_NP passing_NN interface_NN <Section> 1._CD Introduction_NN </Section> During_IN the_DT past_JJ decades_NNS ,_, construction_NN of_IN offshore_JJ and_CC nearshore_JJ structures_NNS has_VHZ known_VVN a_DT steady_JJ increase_NN ._SENT 
+Next_JJ to_TO traditional_JJ oil_NN platforms_NNS ,_, offshore_JJ and_CC nearshore_JJ areas_NNS are_VBP suited_VVN for_IN the_DT installation_NN of_IN fixed_VVN and_CC floating_JJ wind_NN turbines_NNS ,_, artificial_JJ islands_NNS ,_, tidal_JJ turbines_NNS and_CC wave_NN energy_NN converters_NNS ._SENT 
+These_DT structures_NNS ,_, fixed_VVN or_CC floating_JJ ,_, have_VHP a_DT significant_JJ influence_NN on_IN the_DT local_JJ wave_NN field_NN ._SENT 
+Within_IN coastal_JJ engineering_NN it_PP is_VBZ of_IN great_JJ interest_NN to_TO be_VB able_JJ to_TO accurately_RB identify_VV the_DT wave_NN transformations_NNS influenced_VVN by_IN these_DT structures_NNS ._SENT 
+The_DT deployment_NN of_IN an_DT offshore/nearshore_JJ structure_NN affects_VVZ the_DT incident_NN wave_NN field_NN by_IN exhibiting_VVG wave_NN reflection_NN and_CC diffraction_NN ,_, as_RB well_RB as_IN wave_NN radiation_NN in_IN the_DT case_NN of_IN a_DT floating_JJ structure_NN (_( see_VV Fig_NN ._SENT 
+1_LS )_) ._SENT 
+These_DT wave_NN interactions_NNS close_JJ to_TO the_DT structures_NNS are_VBP called_VVN ”near-field”_JJ effects_NNS ,_, while_IN the_DT propagation_NN of_IN these_DT waves_NNS further_RBR away_RB from_IN the_DT structures_NNS are_VBP called_VVN ”far-field”_JJ effects_NNS ._SENT 
+The_DT superposition_NN of_IN these_DT phenomena_NNS results_NNS in_IN a_DT complex_NN perturbed_VVD wave_NN field_NN (_( Stratigaki_NP et_NP al_NP ._SENT 
+,_, 2014a_NP ,_, 2014b_NP ;_: Troch_NP and_CC Stratigaki_NP ,_, 2016_CD )_) ._SENT 
+Simulating_VVG the_DT wave_NN transformations_NNS within_IN and_CC around_IN a_DT WEC_NP array_NN is_VBZ complex_JJ ;_: it_PP is_VBZ difficult_JJ ,_, or_CC in_IN some_DT cases_NNS impossible_JJ ,_, to_TO simulate_VV both_DT near-field_NP and_CC far-field_NP effects_NNS using_VVG a_DT single_JJ numerical_JJ model_NN ,_, in_IN a_DT time_NN and_CC cost-efficient_JJ way_NN in_IN terms_NNS of_IN computation_NN time_NN and_CC effort_NN ._SENT 
+This_DT can_MD be_VB achieved_VVN by_IN coupling_NN of_IN a_DT wave-structure_NN interaction_NN solver_NN for_IN the_DT near-field_NP effects_NNS and_CC a_DT wave_NN propagation_NN model_NN for_IN the_DT far-field_NP effects_NNS ._SENT 
+This_DT strategy_NN is_VBZ well_RB documented_VVN in_IN literature_NN ,_, for_IN weak_JJ and_CC strong_JJ coupling_NN methods_NNS ._SENT 
+Fig_NN ._SENT 
+1._CD Visual_NP representation_NN of_IN incident_NN ,_, radiated_VVN and_CC diffracted_VVN waves_NNS around_IN an_DT array_NN of_IN 3_CD floating_JJ structures_NNS ._SENT 
+The_DT combination_NN of_IN these_DT wave_NN fields_VVZ results_NNS in_IN the_DT total_JJ wave_NN field_NN around_IN the_DT 3_CD floating_JJ structures_NNS ._SENT 
+Weakly_RB coupled_VVN models_NNS ,_, where_WRB one_CD model_NN is_VBZ run_VVN before_IN the_DT other_JJ (_( 1-way_JJ information_NN transfer_NN )_) ,_, have_VHP been_VBN applied_VVN to_TO connect_VV a_DT Boundary_NP Element_NN Method_NN (_( BEM_NP )_) solver_NN with_IN a_DT Volume-Of-Fluid_JJ (_( VOF_JJ )_) solver_NN in_IN Lachaume_NP et_CC al_NP ._SENT 
+(_( 2003_CD )_) and_CC Biausser_NP et_NP al_NP ._SENT 
+Similarly_RB ,_, a_DT fully_RB non-linear_JJ potential_JJ flow_NN (_( FNPF_NP )_) model_NN has_VHZ been_VBN used_VVN to_TO initialize_VV a_DT VOF_JJ model_NN in_IN Hildebrandt_NP et_CC al_NP ._SENT 
+(_( 2013_CD )_) ._SENT 
+A_DT similar_JJ coupling_NN is_VBZ realised_VVN in_IN Janssen_NP et_CC al_NP ._SENT 
+(_( 2010_CD )_) ,_, where_WRB a_DT particle-based_JJ Lattice-Boltzman_NP model_NN is_VBZ nested_VVN within_IN the_DT FNPF_NP model_NN ._SENT 
+For_IN linear_JJ simulation_NN over_IN variable_JJ bathymetry_NN ,_, there_EX have_VHP been_VBN studies_NNS coupling_NN a_DT wave_NN propagation_NN model_NN (_( shallow_JJ water_NN equations_NNS or_CC potential_JJ flow_NN theory_NN )_) and_CC a_DT BEM_NP wave-structure_NN interaction_NN solver_NN (_( Verbrugghe_NP et_NP al_NP ._SENT 
+,_, 2016_CD ,_, 2017a_NP ;_: Charrayre_NP et_NP al_NP ._SENT 
+,_, 2014_CD ;_: Verao_NP Fernandez_NP et_CC al_NP ._SENT 
+,_, 2017_CD ;_: Troch_NP and_CC Stratigaki_NP ,_, 2016_CD )_) ._SENT 
+Strong_JJ coupling_NN is_VBZ also_RB evident_JJ in_IN the_DT literature_NN ,_, for_IN example_NN BEM-level_JJ set_VVN methods_NNS (_( Colicchio_NP et_NP al_NP ._SENT 
+,_, 2006_CD )_) and_CC models_NNS where_WRB BEM_NP is_VBZ coupled_VVN to_TO VOF_VV (_( Kim_NP et_NP al_NP ._SENT 
+,_, 2010_CD ;_: Guo_NP et_NP al_NP ._SENT 
+,_, 2012_CD )_) ._SENT 
+Fully_RB non-linear_JJ potential_JJ flow_NN theory_NN solvers_NNS and_CC particle_NN methods_NNS hybrid_JJ algorithms_NNS have_VHP also_RB been_VBN tested_VVN with_IN success_NN ,_, demonstrated_VVN by_IN Sriram_NP et_CC al_NP ._SENT 
+(_( 2014_CD )_) ._SENT 
+In_IN this_DT research_NN ,_, focus_NN is_VBZ put_VVN on_IN coupling_NN of_IN a_DT fully_RB non-linear_JJ 3D_JJ potential_JJ flow_NN solver_NN (_( OceanWave3D_NNS (_( Engsig-Karup_NP et_NP al_NP ._SENT 
+,_, 2009_CD )_) )_) with_IN a_DT weakly-compressible_JJ SPH_NN (_( WCSPH_NN )_) wave-structure_NN interaction_NN solver_NN (_( DualSPHysics_NP (_( Crespo_NP et_NP al_NP ._SENT 
+,_, 2015_CD )_) )_) ._SENT 
+The_DT objective_NN is_VBZ to_TO simulate_VV wave_NN impacts_NNS on_IN floating_VVG and_CC fixed_VVN structures_NNS in_IN real_JJ sea_NN and_CC storm_NN conditions_NNS ,_, characterised_VVN by_IN irregular_JJ ,_, 3D_JJ waves_NNS with_IN the_DT occurrence_NN of_IN non-linear_JJ effects_NNS ._SENT 
+The_DT coupling_NN is_VBZ performed_VVN in_IN a_DT two-way_JJ manner_NN ,_, allowing_VVG the_DT disturbed_JJ wave_NN field_NN around_IN the_DT structure_NN to_TO be_VB propagated_VVN towards_IN the_DT far-field_NN ._SENT 
+The_DT coupled_VVN model_NN allows_VVZ for_IN simulation_NN of_IN offshore_JJ structures_NNS in_IN higher_JJR order_NN irregular_JJ waves_NNS and_CC more_JJR extreme_JJ wave_NN conditions_NNS ._SENT 
+This_DT coupling_NN methodology_NN has_VHZ been_VBN developed_VVN to_TO combine_VV :_: 1.The_JJ advantages_NNS of_IN the_DT approach_NN of_IN wave-structure_NN interaction_NN solvers_NNS based_VVN on_IN smoothed_VVN particle_NN hydrodynamics_NNS ,_, which_WDT accurately_RB formulate_VV and_CC efficiently_RB resolve_VV the_DT physical_JJ processes_NNS ,_, specifically_RB with_IN a_DT high_JJ accuracy_NN for_IN wave_NN forces_NNS (_( Altomare_NP et_NP al_NP ._SENT 
+,_, 2015_CD )_) ._SENT 
+2.And_NP ,_, the_DT benefits_NNS of_IN the_DT approach_NN of_IN wave_NN propagation_NN models_NNS ,_, which_WDT resolve_VV the_DT propagation_NN and_CC transformation_NN of_IN waves_NNS over_IN large_JJ distances_NNS ,_, with_IN a_DT fast_JJ computation_NN time_NN ,_, including_VVG bathymetric_JJ variability_NN over_IN the_DT domain_NN and_CC wave_NN transformation_NN processes_VVZ when_WRB approaching_VVG the_DT coastline_NN ._SENT 
+Smoothed_VVN particle_NN hydrodynamics_NNS are_VBP a_DT flexible_JJ Lagrangian_JJ and_CC mesh-less_JJ technique_NN for_IN Computational_JJ Fluid_NN Dynamics_NP (_( CFD_NN )_) ._SENT 
+The_DT Lagrangian_JJ reference_NN frame_NN of_IN SPH_NN makes_VVZ it_PP useful_JJ in_IN solving_VVG problems_NNS with_IN large_JJ deformations_NNS and_CC distorted_JJ free_JJ surfaces_VVZ ._SENT 
+In_IN comparison_NN with_IN other_JJ numerical_JJ methods_NNS ,_, the_DT SPH_NN formulation_NN is_VBZ simple_JJ and_CC robust_JJ (_( Monaghan_NP ,_, 2005_CD )_) ._SENT 
+SPH_NP has_VHZ been_VBN successfully_RB applied_VVN to_TO a_DT number_NN of_IN free-surface_JJ problems_NNS that_WDT involve_VVP wave_NN breaking_VVG and_CC splashing_VVG (_( Monaghan_NP and_CC Kos_NP ,_, 1999_CD ;_: Dalrymple_NP and_CC Rogers_NP ,_, 2006_CD )_) ._SENT 
+The_DT impact_NN between_IN a_DT rigid_JJ body_NN and_CC water_NN has_VHZ been_VBN studied_VVN in_IN Monaghan_NP et_CC al_NP ._SENT 
+(_( 2003_CD )_) ._SENT 
+A_DT fixed_VVN cylinder_NN in_IN a_DT wave_NN train_NN and_CC forced_VVN motion_NN of_IN cylinders_NNS generating_VVG waves_NNS is_VBZ mentioned_VVN in_IN Omidvar_NP et_CC al_NP ._SENT 
+(_( 2012_CD )_) ,_, while_IN floating_VVG bodies_NNS in_IN waves_NNS have_VHP been_VBN successfully_RB studied_VVN in_IN 2D_NNS (_( Manenti_NP et_NP al_NP ._SENT 
+2008_CD )_) ._SENT 
+The_DT feasibility_NN of_IN applying_VVG SPH_NN for_IN modelling_VVG of_IN wave_NN energy_NN converters_NNS has_VHZ been_VBN studied_VVN in_IN Verbrugghe_NP et_CC al_NP ._SENT 
+(_( 2017b_NP )_) ._SENT 
+3D_JJ problems_NNS of_IN wave_NN generation_NN by_IN a_DT heaving_VVG cone_NN and_CC a_DT floating_JJ body_NN in_IN waves_NNS undergoing_VVG predominantly_RB heave_NN motion_NN are_VBP investigated_VVN in_IN Omidvar_NP et_CC al_NP ._SENT 
+(_( 2013_CD )_) ._SENT 
+The_DT latter_NN has_VHZ also_RB indicated_VVN that_IN there_EX is_VBZ a_DT large_JJ benefit_NN of_IN calculating_VVG with_IN a_DT variable_JJ particle_NN mass_NN distribution_NN ._SENT 
+Coupling_NN SPH_NN solvers_NNS to_TO other_JJ models_NNS is_VBZ one_CD of_IN the_DT SPHERIC_JJ Grand_NP Challenges_NNS (_( Spheric_JJ -_: grand_JJ challenges_NNS )_) ._SENT 
+A_DT general_JJ algorithm_NN for_IN one-way_JJ coupling_NN of_IN SPH_NN with_IN an_DT external_JJ solution_NN has_VHZ been_VBN proposed_VVN in_IN Bouscasse_NP et_CC al_NP ._SENT 
+(_( 2013_CD )_) ._SENT 
+The_DT interaction_NN between_IN the_DT SPH_NN solver_NN and_CC the_DT external_JJ solution_NN is_VBZ achieved_VVN through_IN an_DT interface_NN region_NN containing_VVG a_DT ghost_NN fluid_NN ,_, used_VVN to_TO impose_VV any_DT external_JJ boundary_NN condition_NN ._SENT 
+In_IN Fourtakas_NP et_CC al_NP ._SENT 
+(_( 2018_CD )_) ,_, A_DT hybrid_JJ Eulerian-Lagrangian_JJ incompressible_JJ SPH_NN formulation_NN is_VBZ introduced_VVN ,_, where_WRB two_CD different_JJ SPH_NN formulations_NNS are_VBP coupled_VVN rather_RB than_IN two_CD completely_RB different_JJ solvers_NNS ._SENT 
+The_DT SPH_NN solver_NN DualSPHyics_NN has_VHZ been_VBN coupled_VVN in_IN Altomare_NP et_CC al_NP ._SENT 
+(_( 2016_CD )_) ,_, where_WRB a_DT one-way_JJ coupling_NN was_VBD realised_VVN with_IN the_DT wave_NN propagation_NN model_NN SWASH_NN ._SENT 
+A_DT numerical_JJ wave_NN flume_NN has_VHZ been_VBN created_VVN to_TO simulate_VV wave_NN impact_NN and_CC run-up_NN on_IN a_DT breakwater_NN ._SENT 
+The_DT first_JJ part_NN of_IN the_DT numerical_JJ flume_NN is_VBZ simulated_JJ using_VVG the_DT faster_JJR SWASH_NN model_NN ,_, while_IN the_DT wave_NN impact_NN and_CC run-up_NN are_VBP calculated_VVN using_VVG DualSPHysics_NNS ._SENT 
+Here_RB ,_, a_DT one-way_JJ coupling_NN is_VBZ sufficient_JJ ,_, since_IN there_EX is_VBZ only_RB interest_NN in_IN the_DT impact_NN of_IN waves_NNS on_IN the_DT breakwater_NN ._SENT 
+In_IN Kassiotis_NP et_CC al_NP ._SENT 
+(_( 2011_CD )_) ,_, a_DT similar_JJ approach_NN has_VHZ been_VBN adopted_VVN ,_, where_WRB a_DT 1D_JJ Boussinesq-type_NN wave_NN model_NN is_VBZ applied_VVN for_IN wave_NN propagation_NN in_IN most_JJS of_IN the_DT spatial_JJ domain_NN ,_, and_CC SPH_NN computations_NNS focus_VVP on_IN the_DT shoreline_NN or_CC close_VV to_TO off-shore_JJ structures_NNS ,_, where_WRB a_DT complex_JJ description_NN of_IN the_DT free-surface_NN is_VBZ required_VVN ._SENT 
+Similarly_RB ,_, an_DT incompressible_JJ SPH_NN solver_NN has_VHZ been_VBN coupled_VVN to_TO a_DT non-linear_JJ potential_JJ flow_NN solver_NN QALE-FEM_NN in_IN Fourtakas_NP et_CC al_NP ._SENT 
+(_( 2017_CD )_) ._SENT 
+In_IN Chicheportiche_NP et_CC al_NP ._SENT 
+(_( 2016_CD )_) ,_, a_DT one-way_JJ coupling_NN between_IN an_DT potential_JJ Eulerian_JJ model_NN and_CC an_DT SPH_NN solver_NN is_VBZ realised_VVN ,_, applying_VVG a_DT non-overlapping_VVG method_NN using_VVG the_DT unsteady_JJ Bernouilli_NN equation_NN at_IN the_DT interface_NN ._SENT 
+These_DT studies_NNS applied_VVD coupling_NN to_TO speed_VV up_RP the_DT simulation_NN time_NN by_IN minimizing_VVG the_DT computationally_RB intensive_JJ SPH_NN domain_NN ._SENT 
+Other_JJ studies_NNS apply_VVP coupling_NN to_TO combine_VV both_CC the_DT benefits_NNS of_IN mesh-based_JJ and_CC mesh-free_JJ CFD_NN methods_NNS ._SENT 
+In_IN Didier_NP et_CC al_NP ._SENT 
+(_( 2013_CD )_) ,_, the_DT wave_NN propagation_NN model_NN FLUINCO_NP is_VBZ coupled_VVN to_TO an_DT SPH_NN code_NN ,_, and_CC validated_VVD with_IN experimental_JJ data_NNS of_IN wave_NN impact_NN on_IN a_DT porous_JJ breakwater_NN ._SENT 
+A_DT hybrid_JJ multiphase_JJ OpenFOAM-SPH_NN model_NN is_VBZ presented_VVN in_IN Kumar_NP et_CC al_NP ._SENT 
+(_( 2015_CD )_) ,_, where_WRB the_DT SPH_NN method_NN is_VBZ used_VVN on_IN free_JJ surfaces_NNS or_CC near_JJ deformable_JJ boundaries_NNS whereas_IN OpenFOAM_NP is_VBZ used_VVN for_IN the_DT larger_JJR fluid_NN domain_NN ._SENT 
+A_DT similar_JJ coupling_NN is_VBZ used_VVN ,_, where_WRB breaking_NN waves_NNS are_VBP modelled_VVN with_IN SPH_NN and_CC the_DT deeper_JJR wave_NN kinematics_NNS are_VBP modelled_VVN with_IN a_DT Finite_JJ volume_NN method_NN ._SENT 
+This_DT has_VHZ been_VBN demonstrated_VVN in_IN Marrone_NP et_CC al_NP ._SENT 
+(_( 2016_CD )_) for_IN a_DT weakly-compressible_JJ SPH_NN (_( WCSPH_NN )_) solver_NN and_CC in_IN Napoli_NP et_CC al_NP ._SENT 
+(_( 2016_CD )_) for_IN an_DT incompressible_JJ SPH_NN (_( ISPH_NN )_) solver_NN ._SENT 
+In_IN the_DT present_JJ research_NN ,_, the_DT main_JJ reasons_NNS for_IN developing_VVG coupling_NN is_VBZ to_TO save_VV computation_NN time_NN and_CC to_TO achieve_VV fully_RB non-linear_JJ wave_NN generation_NN ._SENT 
+Compared_VVN to_TO all_PDT the_DT coupling_NN methodologies_NNS described_VVD above_RB ,_, the_DT here_RB presented_VVN coupling_NN methodology_NN differentiates_VVZ itself_PP based_VVN on_IN the_DT following_VVG novel_NN features_NNS :_: •The_JJ coupling_NN methodology_NN contains_VVZ two_CD coupling_NN interfaces_NNS :_: one_CD ’upwave’_NN of_IN the_DT SPH_NN domain_NN and_CC one_CD ’downwave’_NN of_IN the_DT SPH_NN domain_NN ;_: •The_VVG individual_JJ models_NNS are_VBP coupled_VVN at_IN every_DT time_NN step_NN using_VVG a_DT Message_NP Passing_NN Interface_NP (_( MPI_NP )_) implementation_NN ;_: •The_JJ coupling_NN information_NN is_VBZ shared_VVN between_IN the_DT coupled_VVN models_NNS based_VVN on_IN a_DT two-way_JJ principle_NN ;_: The_DT SPH_NN solver_NN receives_VVZ detailed_JJ information_NN on_IN the_DT wave_NN kinematics_NN from_IN the_DT wave_NN propagation_NN model_NN ,_, while_IN the_DT transformed_VVN surface_NN elevations_NNS (_( reflection_NN ,_, diffraction_NN and_CC radiation_NN )_) resulting_VVG from_IN the_DT wave-structure_NN interaction_NN are_VBP transferred_VVN back_RB to_TO the_DT wave_NN propagation_NN model_NN ._SENT 
+This_DT is_VBZ necessary_JJ for_IN two_CD reasons_NNS ._SENT 
+Firstly_RB ,_, the_DT interest_NN is_VBZ to_TO study_VV the_DT motions_NNS of_IN offshore_JJ and_CC near-shore_JJ floating_JJ structures_NNS ._SENT 
+Extending_VVG the_DT SPH_NN domain_NN until_IN the_DT coastline_NN ,_, would_MD lead_VV to_TO an_DT unnecessarily_RB large_JJ computational_JJ cost_NN ._SENT 
+For_IN this_DT ,_, boundary_NN conditions_NNS are_VBP needed_VVN upwave_NN and_CC in_IN the_DT lee_NN of_IN the_DT floating_JJ structure_NN ._SENT 
+A_DT two-way_JJ coupling_NN ensures_VVZ the_DT most_RBS accurate_JJ implementation_NN of_IN these_DT boundary_NN conditions_NNS ._SENT 
+Secondly_RB ,_, apart_RB from_IN the_DT floater_NN motions_VVZ ,_, the_DT main_JJ interest_NN is_VBZ to_TO study_VV the_DT effects_NNS of_IN the_DT floating_JJ structures_NNS on_IN the_DT wave_NN field_NN and_CC the_DT propagation_NN of_IN that_DT disturbed_JJ wave_NN field_NN further_RBR away_RB from_IN the_DT device_NN ._SENT 
+For_IN this_DT reason_NN a_DT two-way_JJ coupling_NN where_WRB the_DT surface_NN elevation_NN is_VBZ coupled_VVN back_RB to_TO the_DT wave_NN propagation_NN model_NN ,_, is_VBZ mandatory_JJ ._SENT 
+In_IN Section_NP 2_CD of_IN this_DT paper_NN ,_, the_DT principles_NNS of_IN the_DT coupling_NN methodology_NN are_VBP presented_VVN ._SENT 
+A_DT detailed_JJ description_NN of_IN the_DT models_NNS ,_, employed_VVN to_TO demonstrate_VV the_DT proposed_VVN coupling_NN ,_, is_VBZ provided_VVN ,_, followed_VVN by_IN an_DT explanation_NN of_IN the_DT coupling_NN algorithm_NN ._SENT 
+Next_RB ,_, the_DT results_NNS of_IN a_DT number_NN of_IN tests_NNS performed_VVN with_IN the_DT coupling_NN methodology_NN are_VBP discussed_VVN in_IN Section_NP 3._CD The_DT focus_NN is_VBZ put_VVN on_IN simulations_NNS of_IN linear_JJ and_CC non-linear_JJ waves_NNS ,_, as_RB well_RB as_IN comparing_VVG simulation_NN results_NNS to_TO those_DT obtained_VVN from_IN two_CD experimental_JJ datasets_NNS ._SENT 
+Finally_RB ,_, concluding_VVG remarks_NNS are_VBP made_VVN in_IN Section_NP 4._CD <Section> 2._CD Coupling_NN methodology_NN </Section> 2.1_CD ._SENT 
+Generic_JJ description_NN The_DT ideal_JJ strategy_NN for_IN a_DT 3D_JJ coupling_NN methodology_NN can_MD be_VB realised_VVN as_IN illustrated_VVN in_IN Fig_NN ._SENT 
+2._CD It_PP is_VBZ inspired_VVN by_IN the_DT work_NN by_IN Troch_NP and_CC Stratigaki_NP (_( 2016_CD )_) who_WP first_RB presented_VVD coupling_NN between_IN the_DT wave_NN propagation_NN model_NN MILDwave_NN (_( Troch_NP ,_, 1998_CD )_) and_CC the_DT BEM_NP wave-structure_NN interaction_NN solver_NN WAMIT_NP (_( Hill_NP )_) ,_, using_VVG an_DT internal_JJ circular_JJ wave_NN generation_NN boundary_NN around_IN floating_VVG structures_NNS to_TO pass_VV information_NN from_IN WAMIT_NP to_TO MILDwave_VV and_CC propagate_VV the_DT waves_NNS within_IN the_DT wave_NN propagation_NN domain_NN ._SENT 
+In_IN the_DT present_JJ work_NN ,_, a_DT large_JJ wave_NN propagation_NN domain_NN is_VBZ set_VVN up_RP for_IN propagating_VVG fully_RB non-linear_JJ ,_, short-crested_JJ 3D_JJ waves_NNS ._SENT 
+Within_IN the_DT large_JJ domain_NN ,_, a_DT number_NN of_IN fixed_VVN or_CC floating_JJ structures_NNS are_VBP installed_VVN ._SENT 
+The_DT wave-structure_NN interactions_NNS of_IN each_DT of_IN these_DT structures_NNS are_VBP modelled_VVN within_IN a_DT circular_JJ zone_NN ,_, closely_RB spaced_VVN around_IN the_DT structure_NN with_IN a_DT custom_NN designed_VVN interface_NN for_IN exchanging_VVG information_NN between_IN the_DT two_CD models_NNS ._SENT 
+Within_IN the_DT circular_JJ zone_NN ,_, the_DT interaction_NN of_IN the_DT floating_JJ structure_NN with_IN the_DT incident_NN waves_NNS is_VBZ calculated_VVN ,_, resulting_VVG in_IN a_DT combination_NN of_IN diffracted_VVN and_CC radiated_VVN waves_NNS ._SENT 
+Within_IN the_DT wave_NN propagation_NN domain_NN ,_, these_DT diffracted_VVN and_CC radiated_VVN waves_NNS can_MD propagate_VV further_RBR away_RB from_IN the_DT floating_JJ structure_NN ._SENT 
+Although_IN this_DT generic_JJ description_NN suggests_VVZ a_DT 3D_JJ coupling_NN methodology_NN ,_, the_DT proposed_VVN coupling_NN methodology_NN has_VHZ only_RB been_VBN applied_VVN here_RB in_IN 2D_NNS ,_, and_CC is_VBZ validated_VVN with_IN 2D_JJ test_NN cases_NNS ._SENT 
+For_IN the_DT application_NN of_IN the_DT coupling_NN methodology_NN ,_, the_DT wave_NN propagation_NN model_NN OceanWave3D_NN is_VBZ coupled_VVN to_TO the_DT SPH_NN wave-structure_NN interaction_NN solver_NN DualSPHysics_NNS ._SENT 
+Fig_NN ._SENT 
+2._CD Plan_NP view_NN (_( top_JJ )_) and_CC longitudinal_JJ section_NN along_IN section_NN AA′(bottom_NN )_) ,_, illustrating_VVG the_DT proposed_VVN coupling_NN principle_NN ._SENT 
+Circular_JJ wave-structure_NN interaction_NN zones_NNS (_( SPH_NN )_) with_IN a_DT fixed_VVN or_CC floating_JJ structure_NN in_IN the_DT centre_NN are_VBP coupled_VVN to_TO a_DT wave_NN propagation_NN model_NN ._SENT 
+Information_NN is_VBZ transferred_VVN at_IN the_DT interfaces_NNS upwave_NN and_CC in_IN the_DT lee_NN of_IN the_DT structure_NN ._SENT 
+2.2_CD ._SENT 
+Wave_NN propagation_NN model_NN The_DT first_JJ part_NN of_IN the_DT coupling_NN methodology_NN is_VBZ the_DT wave_NN propagation_NN model_NN ,_, generating_VVG and_CC propagating_VVG the_DT incident_NN waves_NNS ._SENT 
+The_DT open-source_NN fully_RB non-linear_JJ potential_JJ flow_NN solver_NN OceanWave3D_NN is_VBZ used_VVN for_IN this_DT task_NN (_( Engsig-Karup_NP et_NP al_NP ._SENT 
+,_, 2009_CD ,_, 2013_CD )_) ._SENT 
+It_PP is_VBZ aimed_VVN at_IN closing_VVG the_DT performance_NN gap_NN between_IN traditional_JJ Boussinesq-type_NN models_NNS and_CC volume-based_JJ solvers_NNS such_JJ as_IN the_DT fully_RB non-linear_JJ potential_JJ flow_NN model_NN ,_, and_CC enables_VVZ fast_JJ (_( near_JJ )_) real-time_JJ hydrodynamics_NN calculations_NNS ._SENT 
+The_DT fully_RB non-linear_JJ potential_JJ flow_NN problem_NN for_IN waves_NNS on_IN a_DT fluid_NN of_IN variable_JJ depth_NN is_VBZ applied_VVN to_TO calculate_VV the_DT free_JJ surface_NN elevations_NNS on_IN a_DT 3D_JJ grid_NN ._SENT 
+The_DT evolution_NN of_IN the_DT free_JJ surface_NN is_VBZ governed_VVN by_IN the_DT kinematic_JJ and_CC dynamic_JJ boundary_NN conditions_NNS :_: @(1_JJ )_) @(2_NN )_) These_DT are_VBP expressed_VVN in_IN function_NN of_IN the_DT free_JJ surface_NN quantities_NNS Φ˜=Φ(x,y,η,t_NN )_) and_CC w˜=∂zΦ|z=η_NP ._SENT 
+The_DT problem_NN is_VBZ discretized_VVN using_VVG a_DT method_NN of_IN lines_NNS approach_NN and_CC for_IN the_DT time-integration_NN of_IN the_DT free-surface_JJ conditions_NNS ,_, a_DT classical_JJ explicit_JJ four-stage_NN ,_, fourth-order_NP Runge-Kutta_NP scheme_NN is_VBZ employed_VVN ._SENT 
+Spatial_JJ derivatives_NNS are_VBP replaced_VVN by_IN the_DT discrete_JJ counterparts_NNS using_VVG the_DT high-order_NN finite_JJ difference_NN method_NN and_CC non-linear_JJ terms_NNS are_VBP treated_VVN by_IN direct_JJ product_NN approximations_NNS at_IN the_DT collocation_NN points_NNS ._SENT 
+At_IN the_DT structural_JJ boundaries_NNS of_IN the_DT domain_NN ,_, i.e._FW at_IN the_DT bottom_NN and_CC wall_NN sides_NNS ,_, Neumann_NP conditions_NNS are_VBP imposed_VVN ._SENT 
+2.3_CD ._SENT 
+Wave-structure_NN interaction_NN solver_NN 2.3.1_CD ._SENT 
+Smoothed_VVN particle_NN hydrodynamics_NNS The_DT software_NN used_VVN for_IN the_DT detailed_JJ modelling_VVG of_IN the_DT wave-structure_NN interactions_NNS is_VBZ DualSPHysics_NP (_( Crespo_NP et_NP al_NP ._SENT 
+,_, 2015_CD )_) ._SENT 
+It_PP applies_VVZ the_DT SPH_NN formulation_NN ,_, a_DT meshless_JJ method_NN that_WDT describes_VVZ the_DT fluid_NN as_IN a_DT set_NN of_IN discrete_JJ elements_NNS (_( named_VVN particles_NNS )_) ._SENT 
+The_DT physical_JJ properties_NNS of_IN a_DT particle_NN a_DT ,_, determined_VVN by_IN the_DT Navier-Stokes_NN equations_NNS ,_, can_MD be_VB calculated_VVN by_IN interpolation_NN of_IN the_DT values_NNS of_IN the_DT nearest_JJS neighbouring_VVG particles_NNS ._SENT 
+The_DT contribution_NN of_IN the_DT neighbouring_VVG particles_NNS is_VBZ weighted_VVN ,_, based_VVN on_IN their_PP$ distance_NN to_TO particle_NN a_DT ,_, using_VVG a_DT Kernel_NN function_NN W_NP and_CC a_DT smoothing_VVG length_NN h._NP When_WRB a_DT particle_NN is_VBZ at_IN a_DT distance_NN larger_JJR than_IN 2 h_NP away_RB from_IN particle_NN a_DT ,_, the_DT interaction_NN can_MD be_VB neglected_VVN ._SENT 
+Fundamentally_RB ,_, any_DT function_NN F(r_NN )_) ,_, defined_VVN in_IN r’_NP ,_, is_VBZ estimated_VVN by_IN integral_JJ approximation_NN :_: @(3_NP )_) In_IN order_NN to_TO numerically_RB solve_VV equation_NN (_( 3_CD )_) ,_, discretisation_NN is_VBZ necessary_JJ ._SENT 
+In_IN its_PP$ discrete_JJ form_NN ,_, the_DT integral_JJ approximation_NN transforms_VVZ into_IN an_DT interpolation_NN at_IN a_DT given_VVN location_NN (_( or_CC particle_NN a_DT )_) and_CC a_DT summation_NN over_IN all_PDT the_DT particles_NNS within_IN the_DT region_NN of_IN compact_JJ support_NN of_IN the_DT kernel_NN :_: @(4_NP )_) Here_RB ,_, Δvb_NP is_VBZ the_DT volume_NN of_IN the_DT neighbouring_VVG particle_NN b._NN If_IN Δvb=mb/ρb_NP ,_, with_IN m_NN and_CC ρ_NN being_VBG the_DT mass_NN and_CC density_NN of_IN particle_NN b_SYM ,_, then_RB equation_NN (_( 4_LS )_) becomes_VVZ :_: @(5_NP )_) The_DT choice_NN of_IN the_DT smoothing_VVG kernel_NN has_VHZ a_DT large_JJ influence_NN on_IN the_DT performance_NN of_IN the_DT SPH_NN model_NN ._SENT 
+The_DT kernel_NN is_VBZ expressed_VVN as_IN a_DT function_NN of_IN the_DT non-dimensional_JJ distance_NN between_IN particles_NNS q=r/h_NP ._SENT 
+Here_RB ,_, r_NN is_VBZ the_DT distance_NN between_IN a_DT certain_JJ particle_NN a_DT and_CC a_DT particle_NN b_SYM ,_, while_IN h_NN is_VBZ the_DT smoothing_VVG length_NN ,_, controlling_VVG the_DT area_NN around_IN particle_NN a_DT in_IN which_WDT neighbouring_VVG particles_NNS are_VBP considered_VVN ._SENT 
+In_IN this_DT research_NN ,_, a_DT Quintic_JJ kernel_NN is_VBZ applied_VVN (_( Wendland_NP ,_, 1995_CD )_) with_IN an_DT influence_NN domain_NN of_IN 2h_NP ,_, defined_VVN as_IN :_: @(6_NP )_) Here_RB ,_, αD_NN is_VBZ equal_JJ to_TO 7/4πh2_NP (_( 2D_NN )_) ._SENT 
+2.3.2_CD ._SENT 
+Governing_VVG equations_NNS The_DT governing_VVG equation_NN in_IN SPH_NN are_VBP the_DT Navier-Stokes_NNS equations_NNS ._SENT 
+In_IN its_PP$ SPH_NN formulation_NN ,_, the_DT momentum_NN conservation_NN is_VBZ expressed_VVN as_RB :_: @(7_JJ )_) In_IN equation_NN (_( 7_CD )_) ,_, Pk_NP is_VBZ the_DT pressure_NN of_IN particle_NN k_NN ,_, while_IN ρk_NN is_VBZ the_DT density_NN ._SENT 
+The_DT viscosity_NN term_NN Πab_NN is_VBZ based_VVN on_IN the_DT artificial_JJ viscosity_NN scheme_NN ,_, as_RB proposed_VVN by_IN Monaghan_NP (_( 1992_CD )_) ._SENT 
+It_PP is_VBZ a_DT common_JJ method_NN used_VVN in_IN SPH_NN to_TO introduce_VV viscosity_NN ,_, mainly_RB due_JJ to_TO its_PP$ simplicity_NN ._SENT 
+It_PP is_VBZ defined_VVN as_RB :_: @(8_NP )_) With_IN ρab¯¯¯¯=0.5(ρa+ρb_NP )_) ,_, rab=ra−rb_NP and_CC vab=va−vb_NP ,_, in_IN which_WDT rk_NN is_VBZ the_DT particle_NN position_NN and_CC vk_VV the_DT velocity_NN ._SENT 
+cab¯¯¯¯_NP is_VBZ the_DT mean_JJ speed_NN of_IN sound_NN and_CC α_NN is_VBZ a_DT coefficient_NN that_WDT needs_VVZ to_TO be_VB set_VVN by_IN the_DT user_NN to_TO ensure_VV a_DT proper_JJ dissipation_NN ._SENT 
+In_IN this_DT research_NN ,_, the_DT value_NN of_IN α_NN is_VBZ set_VVN to_TO 0.01_CD ,_, based_VVN on_IN Altomare_NP et_CC al_NP ._SENT 
+(_( 2015_CD )_) ,_, where_WRB wave_NN propagation_NN and_CC wave_NN loadings_NNS on_IN coastal_JJ structures_NNS were_VBD studied_VVN ._SENT 
+This_DT research_NN applies_VVZ a_DT weakly-compressible_JJ SPH_NN formulation_NN (_( WCSPH_NN )_) ._SENT 
+This_DT means_VVZ that_IN the_DT mass_NN of_IN every_DT particle_NN is_VBZ kept_VVN constant_JJ ,_, while_IN only_RB their_PP$ density_NN fluctuates_VVZ ._SENT 
+These_DT fluctuations_NNS are_VBP calculated_VVN by_IN solving_VVG the_DT continuity_NN equation_NN ,_, expressing_VVG the_DT conservation_NN of_IN mass_NN ._SENT 
+In_IN SPH_NN formulation_NN ,_, this_DT is_VBZ defined_VVN by_IN :_: @(9_NP )_) Using_VVG a_DT weighted_JJ summation_NN of_IN the_DT mass_JJ terms_NNS would_MD result_VV in_IN a_DT density_NN decrease_NN in_IN the_DT interface_NN between_IN fluids_NNS ,_, near_IN the_DT free_JJ surface_NN and_CC close_VV to_TO the_DT boundaries_NNS ._SENT 
+For_IN this_DT reason_NN ,_, a_DT time_NN differential_NN is_VBZ used_VVN ,_, as_RB suggested_VVN in_IN Monaghan_NP (_( 1992_CD )_) ._SENT 
+One_CD of_IN the_DT main_JJ reasons_NNS of_IN large_JJ computation_NN times_NNS in_IN compressible_JJ SPH_NN models_NNS is_VBZ the_DT necessity_NN for_IN a_DT very_RB small_JJ time_NN step_NN due_JJ to_TO the_DT inclusion_NN of_IN the_DT speed_NN of_IN sound_NN ._SENT 
+However_RB ,_, the_DT compressibility_NN can_MD be_VB adapted_VVN by_IN artificially_RB setting_VVG the_DT speed_NN of_IN sound_NN to_TO a_DT lower_JJR value_NN ,_, resulting_VVG in_IN a_DT reasonable_JJ time_NN step_NN ._SENT 
+This_DT enables_VVZ the_DT use_NN of_IN an_DT equation_NN of_IN state_NN to_TO determine_VV the_DT pressure_NN of_IN the_DT fluid_NN ._SENT 
+This_DT method_NN is_VBZ considerably_RB faster_RBR than_IN solving_VVG the_DT Poisson_NP 's_POS equation_NN ,_, appearing_VVG in_IN an_DT incompressible_JJ approach_NN ._SENT 
+According_VVG to_TO Monaghan_NP (_( 1994_CD )_) and_CC Batchelor_NP (_( 2000_CD )_) ,_, the_DT relationship_NN between_IN density_NN and_CC pressure_NN follows_VVZ Tait_NP 's_POS equation_NN of_IN state_NN ;_: a_DT small_JJ density_NN oscillation_NN will_MD lead_VV to_TO large_JJ pressure_NN variations_NNS :_: @(10_NP )_) Here_RB ,_, B_NP is_VBZ related_VVN to_TO the_DT compressibility_NN of_IN the_DT fluid_NN ,_, while_IN ρ0_NP is_VBZ the_DT reference_NN density_NN ,_, which_WDT is_VBZ set_VVN to_TO 1000kg/m3_NN in_IN this_DT research_NN ._SENT 
+The_DT parameter_NN γ_NN is_VBZ the_DT polytrophic_JJ constant_JJ ,_, ranging_VVG between_IN 1_CD and_CC 7._CD The_DT maximum_NN limit_NN for_IN the_DT density_NN is_VBZ set_VVN for_IN B=c2ρ0/γ_NP ,_, with_IN c_SYM the_DT speed_NN of_IN sound_NN ._SENT 
+Consequently_RB ,_, the_DT choice_NN of_IN B_NP is_VBZ of_IN high_JJ importance_NN ,_, since_IN it_PP determines_VVZ the_DT value_NN of_IN the_DT speed_NN of_IN sound_NN ._SENT 
+As_RB mentioned_VVN before_RB ,_, the_DT speed_NN of_IN sound_NN can_MD be_VB artificially_RB lowered_VVN to_TO ensure_VV a_DT reasonable_JJ time_NN step_NN (_( Monaghan_NP ,_, 1994_CD )_) ._SENT 
+However_RB it_PP is_VBZ advised_VVN to_TO keep_VV the_DT speed_NN of_IN sound_NN at_IN least_JJS 10_CD times_NNS faster_RBR than_IN the_DT maximum_JJ expected_VVN flow_NN velocity_NN ._SENT 
+The_DT time_NN integration_NN of_IN the_DT equations_NNS is_VBZ performed_VVN using_VVG a_DT two-stage_NP Symplectic_JJ method_NN ,_, which_WDT is_VBZ time_NN reversible_JJ in_IN the_DT absence_NN of_IN friction_NN or_CC viscuous_JJ effects_NNS (_( Leimkuhler_NP et_NP al_NP ._SENT 
+,_, 1996_CD )_) ._SENT 
+The_DT applied_VVN scheme_NN is_VBZ an_DT explicit_JJ second-order_NN Symplectic_JJ scheme_NN with_IN an_DT accuracy_NN in_IN time_NN of_IN O(Δt2_NN )_) and_CC involves_VVZ a_DT predictor_NN and_CC corrector_NN stage_NN ._SENT 
+An_DT explicit_JJ time_NN integration_NN scheme_NN is_VBZ applied_VVN ,_, depending_VVG on_IN the_DT CFL_NN number_NN ,_, the_DT force_NN terms_NNS and_CC the_DT viscuous_JJ diffusion_NN term_NN ._SENT 
+This_DT results_NNS in_IN a_DT variable_JJ time_NN step_NN Δt_NN ,_, calculated_VVN according_VVG to_TO Monaghan_NP and_CC Kos_NP (_( 1999_CD )_) ._SENT 
+2.3.3_CD ._SENT 
+Delta-SPH_NN formulation_NN Within_IN DualSPHysics_NNS it_PP is_VBZ also_RB possible_JJ to_TO apply_VV a_DT delta-SPH_NN formulation_NN ,_, that_WDT introduces_VVZ a_DT diffusive_JJ term_NN to_TO reduce_VV density_NN fluctuations_NNS ._SENT 
+The_DT state_NN equation_NN describes_VVZ a_DT very_RB stiff_JJ density_NN field_NN ,_, and_CC together_RB with_IN the_DT natural_JJ disordering_VVG of_IN the_DT Lagrangian_JJ particles_NNS ,_, high-frequency_NN low_JJ amplitude_NN oscillations_NNS are_VBP found_VVN to_TO populate_VV the_DT density_NN scalar_NN field_NN (_( Molteni_NP and_CC Colagrossi_NP ,_, 2009_CD )_) ._SENT 
+DualSPHysics_NP uses_VVZ a_DT diffusive_JJ term_NN in_IN the_DT continuity_NN equation_NN ,_, expanding_VVG equation_NN (_( 9_CD )_) to_TO :_: @(11_JJ )_) This_DT represents_VVZ the_DT original_JJ delta-SPH_NN formulation_NN by_IN Molteni_NP and_CC Colagrossi_NP (_( 2009_CD )_) ,_, with_IN the_DT free_JJ parameter_NN δΦ_NN that_WDT needs_VVZ to_TO be_VB attributed_VVN a_DT suitable_JJ value_NN ._SENT 
+This_DT modification_NN can_MD be_VB explained_VVN as_IN the_DT addition_NN of_IN the_DT Laplacian_NN of_IN the_DT density_NN field_NN to_TO the_DT continuity_NN equation_NN ._SENT 
+Antuono_NP et_NP al_NP ._SENT 
+(_( 2012_CD )_) has_VHZ presented_VVN a_DT careful_JJ analysis_NN of_IN the_DT influence_NN of_IN this_DT term_NN in_IN the_DT system_NN ,_, by_IN decomposing_VVG the_DT Laplacian_JJ operator_NN ,_, observing_VVG the_DT convergence_NN of_IN the_DT operators_NNS and_CC performing_VVG linear_JJ stability_NN analysis_NN to_TO inspect_VV the_DT influence_NN of_IN the_DT diffusive_JJ coefficient_NN ._SENT 
+This_DT equation_NN represents_VVZ exactly_RB a_DT diffusive_JJ term_NN in_IN the_DT domain_NN bulk_NN ._SENT 
+The_DT behaviour_NN changes_NNS close_JJ to_TO open_VV boundaries_NNS such_JJ as_IN the_DT free-surface_NN ._SENT 
+Due_JJ to_TO truncation_NN of_IN the_DT kernel_NN (_( there_EX are_VBP no_DT particles_NNS being_VBG sampled_VVN outside_IN of_IN an_DT open_JJ boundary_NN )_) ,_, the_DT first-order_NN contributions_NNS are_VBP not_RB null_JJ (_( Antuono_NP et_NP al_NP ._SENT 
+,_, 2012_CD )_) ,_, resulting_VVG in_IN a_DT net_JJ force_NN applied_VVN to_TO the_DT particles_NNS ._SENT 
+This_DT effect_NN is_VBZ not_RB considered_VVN relevant_JJ for_IN non-hydrostatic_JJ situations_NNS ,_, where_WRB this_DT force_NN is_VBZ many_JJ orders_NNS of_IN magnitude_NN inferior_JJ to_TO any_DT other_JJ force_NN involved_VVD ._SENT 
+Corrections_NNS to_TO this_DT effect_NN were_VBD proposed_VVN by_IN Antuono_NP et_CC al_NP ._SENT 
+(_( 2012_CD )_) ,_, but_CC involve_VV the_DT solution_NN of_IN a_DT renormalization_NN problem_NN for_IN the_DT density_NN gradient_NN ,_, with_IN considerable_JJ computational_JJ cost_NN ._SENT 
+A_DT delta-SPH_NP (_( δΦ_NP )_) coefficient_NN of_IN 0.1_CD is_VBZ recommended_VVN for_IN most_JJS applications_NNS and_CC applied_VVN in_IN this_DT work_NN (_( Crespo_NP et_NP al_NP ._SENT 
+,_, 2015_CD )_) ._SENT 
+2.3.4_CD ._SENT 
+Shifting_VVG algorithm_NN The_DT shifting_VVG algorithm_NN implemented_VVN in_IN DualSPHysics_NNS was_VBD proposed_VVN by_IN Lind_NP et_CC al_NP ._SENT 
+(_( 2012_CD )_) ,_, who_WP used_VVD Ficks_NP first_JJ law_NN of_IN diffusion_NN to_TO control_VV the_DT shifting_VVG magnitude_NN and_CC direction_NN ._SENT 
+One_CD sensitive_JJ issue_NN in_IN applying_VVG particle_NN shifting_VVG for_IN free-surface_NNS and_CC multiphase_JJ flows_NNS is_VBZ related_VVN to_TO careful_JJ implementation_NN of_IN shifting_VVG for_IN free-surface_NN and_CC phase_NN interface_NN particles_NNS (_( Khayyer_NP et_NP al_NP ._SENT 
+,_, 2017_CD ;_: Sun_NP et_NP al_NP ._SENT 
+,_, 2017_CD )_) that_WDT can_MD be_VB resolved_VVN through_IN careful_JJ reformulations_NNS of_IN the_DT shifting_VVG scheme_NN ._SENT 
+The_DT shifting_VVG algorithm_NN is_VBZ heavily_RB dependent_JJ on_IN a_DT full_JJ kernel_NN support_NN ,_, however_RB ,_, particles_NNS at_IN and_CC adjacent_JJ to_TO the_DT free_JJ surface_NN cannot_MD obtain_VV the_DT full_JJ kernel_NN support_NN ,_, which_WDT will_MD introduce_VV errors_NNS in_IN the_DT free-surface_JJ prediction_NN ,_, potentially_RB causing_VVG non-physical_JJ instabilities_NNS ._SENT 
+Applying_VVG Ficks_NP law_NN directly_RB would_MD result_VV in_IN the_DT rapid_JJ diffusion_NN of_IN fluid_JJ particles_NNS from_IN the_DT fluid_JJ bulk_NN ,_, due_JJ to_TO the_DT large_JJ concentration_NN gradients_NNS at_IN the_DT free_JJ surface_NN ._SENT 
+To_TO counter_VV this_DT effect_NN (_( Lind_NP et_NP al_NP ._SENT 
+,_, 2012_CD )_) ,_, proposed_VVD a_DT free-surface_JJ correction_NN that_WDT limits_VVZ diffusion_NN to_TO the_DT surface_NN normal_JJ but_CC allow_VV shifting_VVG on_IN the_DT tangent_NN to_TO the_DT free_JJ surface_NN ._SENT 
+Therefore_RB ,_, this_DT correction_NN is_VBZ also_RB implemented_VVN in_IN DualSPHysics_NNS and_CC used_VVN near_IN the_DT free_JJ surface_NN ,_, identified_VVN by_IN the_DT value_NN of_IN the_DT particle_NN divergence_NN ._SENT 
+Therefore_RB ,_, the_DT full_JJ shifting_VVG equations_NNS with_IN the_DT free_JJ surface_NN correction_NN are_VBP :_: @(12_NP )_) @(13_NP )_) Within_IN this_DT work_NN ,_, the_DT recommended_JJ values_NNS AFST=1.5_NP and_CC AFSM=2_NP are_VBP applied_VVN ._SENT 
+2.3.5_CD ._SENT 
+Boundary_NN conditions_NNS Within_IN this_DT research_NN ,_, the_DT boundary_NN conditions_NNS in_IN the_DT SPH_NN model_NN are_VBP described_VVN by_IN a_DT set_NN of_IN particles_NNS that_WDT are_VBP considered_VVN separate_JJ from_IN the_DT fluid_JJ particles_NNS ._SENT 
+The_DT method_NN is_VBZ called_VVN Dynamic_JJ Boundary_NP Conditions_NNS (_( DBC_NP )_) ,_, and_CC is_VBZ available_JJ within_IN the_DT DualSPHysics_NN software_NN ._SENT 
+These_DT boundary_NN conditions_NNS are_VBP presented_VVN and_CC validated_VVN in_IN Crespo_NP et_CC al_NP ._SENT 
+(_( 2007a_NP )_) ._SENT 
+The_DT boundary_NN particles_NNS have_VHP the_DT same_JJ properties_NNS as_IN the_DT fluid_JJ particles_NNS ,_, but_CC they_PP do_VVP n't_RB move_VV according_VVG to_TO the_DT forces_NNS exerted_VVN on_IN them_PP ._SENT 
+They_PP remain_VVP either_RB in_IN a_DT fixed_VVN position_NN or_CC move_NN according_VVG to_TO a_DT prescribed_JJ motion_NN ._SENT 
+When_WRB a_DT fluid_JJ particle_NN approaches_VVZ a_DT boundary_NN and_CC the_DT distance_NN between_IN the_DT boundary_NN particles_NNS and_CC the_DT fluid_JJ particles_NNS becomes_VVZ smaller_JJR than_IN twice_RB the_DT smoothing_VVG length_NN h_NN ,_, the_DT density_NN of_IN the_DT affected_JJ boundary_NN particles_NNS increases_NNS ,_, resulting_VVG in_IN a_DT pressure_NN increase_NN ._SENT 
+In_IN turn_NN ,_, this_DT results_NNS in_IN a_DT repulsive_JJ force_NN being_VBG exerted_VVN on_IN the_DT fluid_JJ particle_NN due_JJ to_TO the_DT pressure_NN term_NN in_IN the_DT momentum_NN equation_NN ._SENT 
+Stability_NN of_IN this_DT method_NN relies_VVZ on_IN the_DT length_NN of_IN time_NN step_NN taken_VVN being_VBG suitably_RB short_JJ in_IN order_NN to_TO handle_VV the_DT highest_JJS present_JJ velocity_NN of_IN any_DT fluid_JJ particles_NNS currently_RB interacting_VVG with_IN boundary_NN particles_NNS and_CC it_PP is_VBZ therefore_RB an_DT important_JJ issue_NN when_WRB considering_VVG how_WRB the_DT variable_JJ time_NN step_NN is_VBZ calculated_VVN ._SENT 
+Validations_NNS with_IN dam-break_NN flows_NNS and_CC sloshing_VVG tanks_NNS have_VHP been_VBN published_VVN with_IN good_JJ results_NNS and_CC also_RB comparing_VVG these_DT boundary_NN conditions_NNS with_IN other_JJ approaches_NNS (_( Domínguez_NP et_NP al_NP ._SENT 
+,_, 2015_CD )_) ._SENT 
+In_IN addition_NN ,_, DBC_NN have_VHP also_RB been_VBN shown_VVN to_TO be_VB suitable_JJ to_TO reproduce_VV complex_JJ geometries_NNS in_IN Altomare_NP et_CC al_NP ._SENT 
+(_( 2014_CD )_) and_CC can_MD be_VB used_VVN for_IN wave_NN generation_NN ,_, as_RB shown_VVN in_IN Altomare_NP et_CC al_NP ._SENT 
+(_( 2017_CD )_) ._SENT 
+2.3.6_CD ._SENT 
+Practical_JJ implementation_NN As_IN described_VVN above_IN ,_, solving_VVG the_DT SPH_NN formulation_NN of_IN the_DT Navier-Stokes_NNS equations_NNS requires_VVZ a_DT lot_NN of_IN computation_NN time_NN ._SENT 
+This_DT is_VBZ due_JJ to_TO the_DT compressibility_NN of_IN the_DT fluid_NN ,_, requiring_VVG a_DT small_JJ time_NN step_NN ,_, and_CC the_DT number_NN of_IN neighbouring_VVG particles_NNS within_IN the_DT kernel_NN ._SENT 
+Consequently_RB ,_, powerful_JJ computing_NN hardware_NN is_VBZ necessary_JJ to_TO perform_VV SPH_NN modelling_VVG ._SENT 
+DualSPHysics_NP ,_, the_DT software_NN applied_VVN in_IN this_DT research_NN ,_, was_VBD originally_RB written_VVN in_IN Fortran_NP and_CC only_RB available_JJ to_TO compute_VV on_IN Central_NP Processing_NP Units_NP (_( CPUs_NP )_) (_( SPHysics_NNS )_) ._SENT 
+However_RB ,_, in_IN recent_JJ years_NNS Graphics_NP Processing_NP Units_NP (_( GPUs_NP )_) have_VHP appeared_VVN as_IN a_DT low-cost_JJ alternative_NN to_TO accelerate_VV numerical_JJ models_NNS ._SENT 
+GPUs_NNS are_VBP designed_VVN to_TO manage_VV huge_JJ amounts_NNS of_IN data_NNS and_CC their_PP$ computing_NN power_NN has_VHZ developed_VVN to_TO be_VB much_RB larger_JJR and_CC faster_RBR than_IN conventional_JJ CPUs_NN in_IN certain_JJ cases_NNS ._SENT 
+Since_IN SPH_NN solvers_NNS have_VHP an_DT algorithmic_JJ structure_NN ,_, very_RB open_JJ to_TO parallelism_NN ,_, the_DT computing_NN power_NN of_IN GPUs_NN can_MD be_VB also_RB applied_VVN to_TO SPH_NN methods_NNS ._SENT 
+DualSPHyiscs_NP is_VBZ created_VVN specifically_RB with_IN GPUs_NN in_IN mind_NN ,_, giving_VVG the_DT user_NN the_DT choice_NN to_TO calculate_VV on_IN either_CC a_DT CUDA-enabled_JJ GPU_NP or_CC a_DT CPU_NN ._SENT 
+Several_JJ optimizations_NNS were_VBD implemented_VVN to_TO obtain_VV the_DT maximum_JJ performance_NN in_IN both_DT architectures_NNS (_( Domínguez_NP et_NP al_NP ._SENT 
+,_, 2013a_NP )_) ._SENT 
+DualSPHysics_NP also_RB has_VHZ a_DT Multi-GPU/CPU_NP version_NN that_WDT allows_VVZ its_PP$ execution_NN in_IN clusters_NNS to_TO carry_VV out_RP large_JJ simulations_NNS (_( Domínguez_NP et_NP al_NP ._SENT 
+,_, 2013b_NP )_) ._SENT 
+Within_IN the_DT present_JJ research_NN ,_, both_CC the_DT CPU_NN and_CC GPU_NP version_NN of_IN DualSPHysics_NNS are_VBP used_VVN to_TO run_VV the_DT two-way_JJ coupled_VVN wave_NN propagation_NN model_NN ._SENT 
+In_IN Table_NN 1_CD ,_, the_DT specific_JJ hardware_NN is_VBZ detailed_JJ ._SENT 
+Table_NN 1._CD Computing_NP power_NN employed_VVN for_IN the_DT present_JJ research_NN ._SENT 
+2.4_CD ._SENT 
+Coupling_NN methodology_NN 2.4.1_CD ._SENT 
+Principle_NN of_IN the_DT coupling_NN methodology_NN As_IN mentioned_VVN before_IN ,_, SPH_NN simulations_NNS are_VBP computationally_RB demanding_VVG ._SENT 
+Consequently_RB ,_, the_DT computational_JJ domain_NN size_NN in_IN an_DT SPH_NN model_NN is_VBZ often_RB limited_VVN to_TO a_DT zone_NN closely_RB spaced_VVD around_RP the_DT area_NN of_IN interest_NN ._SENT 
+However_RB ,_, for_IN accurate_JJ wave_NN propagation_NN ,_, there_EX is_VBZ a_DT spatial_JJ need_NN for_IN wave_NN generation_NN and_CC wave_NN absorption_NN ,_, around_IN 3–4_JJ wavelengths_NNS long_RB ._SENT 
+This_DT leads_VVZ to_TO a_DT significant_JJ increase_NN in_IN water_NN particles_NNS ,_, and_CC thus_RB higher_JJR computation_NN times_NNS ._SENT 
+Wave_NN generation_NN techniques_NNS available_JJ in_IN DualSPHysics_NNS are_VBP first_JJ and_CC second_JJ order_NN wave_NN generation_NN by_IN using_VVG piston-type_NN or_CC flap-type_NN wave_NN paddles_NNS (_( Altomare_NP et_NP al_NP ._SENT 
+,_, 2017_CD )_) ._SENT 
+This_DT wave_NN generation_NN method_NN requires_VVZ a_DT certain_JJ wave_NN propagation_NN length_NN before_IN the_DT full_JJ kinematics_NN and_CC surface_NN elevation_NN are_VBP developed_VVN ._SENT 
+By_IN coupling_NN DualSPHysics_NNS to_TO the_DT fully_RB non-linear_JJ potential_JJ flow_NN solver_NN OceanWave3D_NNS ,_, the_DT objective_NN is_VBZ to_TO simulate_VV higher-order_NP irregular_JJ short-crested_JJ waves_NNS in_IN a_DT domain_NN which_WDT is_VBZ as_RB small_JJ as_IN possible_JJ ._SENT 
+In_IN an_DT attempt_NN to_TO treat_VV both_CC the_DT problem_NN of_IN computational_JJ effort_NN and_CC the_DT problem_NN of_IN wave_NN generation_NN ,_, a_DT 2D_JJ coupling_NN methodology_NN as_IN illustrated_VVN in_IN Fig_NN ._SENT 
+3_CD is_VBZ developed_VVN ._SENT 
+Although_IN both_DT OceanWave3D_NNS and_CC DualSPHysics_NNS can_MD be_VB run_VVN in_IN 3D_NNS ,_, currently_RB only_RB a_DT 2D_JJ coupling_NN has_VHZ been_VBN implemented_VVN ,_, which_WDT is_VBZ described_VVN here_RB ._SENT 
+A_DT numerical_JJ wave_NN flume_NN is_VBZ created_VVN where_WRB waves_NNS are_VBP propagated_VVN within_IN a_DT two-way_JJ coupled_VVN model_NN ._SENT 
+In_IN the_DT large_JJ wave_NN propagation_NN domain_NN ,_, fully_RB non-linear_JJ waves_NNS are_VBP generated_VVN by_IN a_DT 2D_JJ implementation_NN of_IN OceanWave3D_NNS ._SENT 
+This_DT model_NN calculates_VVZ both_CC the_DT surface_NN elevation_NN and_CC horizontal_JJ and_CC vertical_JJ wave_NN kinematics_NNS over_IN a_DT varying_VVG bathymetry_NN ._SENT 
+The_DT fully_RB non-linear_JJ potential_JJ flow_NN equations_NNS are_VBP solved_VVN over_IN a_DT rectangular_JJ grid_NN ,_, which_WDT is_VBZ split_VVN up_RP in_IN vertical_JJ layers_NNS ._SENT 
+Waves_NNS are_VBP generated_VVN at_IN the_DT left_VVN side_NN and_CC absorbed_VVN at_IN the_DT right_JJ side_NN ,_, by_IN using_VVG relaxation_NN zones_NNS as_RB described_VVN in_IN Engsig-Karup_NP et_CC al_NP ._SENT 
+(_( 2009_CD )_) and_CC Larsen_NP and_CC Dancy_NP (_( 1983_CD )_) ._SENT 
+Fig_NN ._SENT 
+3._CD Principle_NN of_IN 2D_JJ coupling_NN between_IN OceanWave3D_NNS and_CC DualSPHysics_NNS around_IN a_DT structure_NN under_IN wave_NN action_NN ._SENT 
+The_DT top_JJ part_NN shows_VVZ the_DT complete_JJ domain_NN in_IN OceanWave3D_NNS ._SENT 
+The_DT bottom_JJ part_NN illustrates_VVZ the_DT DualSPHysics_NN zone_NN ._SENT 
+OceanWave3D_NN is_VBZ coupled_VVN to_TO DualSPHysics_NNS by_IN implementing_VVG two_CD internal_JJ coupling_NN interfaces_NNS within_IN the_DT OceanWave3D_JJ domain_NN :_: one_CD for_IN SPH_NN wave_NN generation_NN (_( interface_NN 1_CD in_IN Fig_NN ._SENT 
+3_LS )_) and_CC one_CD for_IN SPH_NN wave_NN absorption_NN (_( interface_NN 2_CD in_IN Fig_NN ._SENT 
+3_LS )_) ._SENT 
+At_IN the_DT interfaces_NNS ,_, the_DT horizontal_JJ orbital_JJ velocities_NNS are_VBP registered_VVN at_IN every_DT time_NN step_NN and_CC sent_VVD to_TO the_DT DualSPHysics_NN simulation_NN ._SENT 
+Here_RB ,_, the_DT orbital_JJ velocities_NNS are_VBP imposed_VVN on_IN the_DT dynamic_JJ boundary_NN conditions_NNS ._SENT 
+These_DT are_VBP implemented_VVN as_IN a_DT stack_NN of_IN rectangular_JJ moving_VVG boundary_NN blocks_NNS ,_, with_IN a_DT height_NN equal_JJ to_TO the_DT particle_NN size_NN ,_, dp_NP ._SENT 
+The_DT dynamic_JJ boundary_NN particles_NNS are_VBP generating_VVG waves_NNS at_IN the_DT left_JJ side_NN ,_, and_CC absorbing_VVG waves_NNS at_IN the_DT right_JJ side_NN ._SENT 
+The_DT horizontal_JJ position_NN of_IN every_DT moving_VVG boundary_NN block_NN can_MD be_VB calculated_VVN at_IN every_DT time_NN step_NN ,_, by_IN integrating_VVG the_DT horizontal_JJ orbital_JJ velocity_NN profile_NN using_VVG Equation_NN (_( 14_CD )_) :_: @(14_NP )_) Both_CC models_NNS are_VBP running_VVG simultaneously_RB ,_, albeit_IN DualSPHysics_NNS with_IN a_DT significantly_RB smaller_JJR time_NN step_NN ._SENT 
+At_IN the_DT end_NN of_IN each_DT OceanWave3D_JJ time_NN step_NN ,_, ΔtOW3D_RB ,_, both_DT models_NNS are_VBP synchronised_VVN ._SENT 
+DualSPHysics_NN transfers_NNS information_NN back_RB to_TO OceanWave3D_NNS ,_, specifically_RB surface_NN elevation_NN information_NN ._SENT 
+To_TO ensure_VV a_DT smooth_JJ transition_NN between_IN the_DT DualSPHysics_NP free_JJ surface_NN and_CC the_DT OceanWave3D_JJ free_JJ surface_NN ,_, a_DT ’relaxation_NN function’_NN is_VBZ applied_VVN (_( see_VV Fig_NN ._SENT 
+4_LS )_) ._SENT 
+The_DT applied_VVN function_NN frel_NN is_VBZ the_DT same_JJ as_RB is_VBZ applied_VVN within_IN OceanWave3D_NNS 's_POS generation_NN and_CC ’absorption_NN relaxation’_NN zones_NNS and_CC is_VBZ given_VVN in_IN Equation_NN (_( 15_CD )_) ,_, with_IN L_NP the_DT length_NN of_IN the_DT zone_NN ._SENT 
+@(15_NP )_) Fig_NN ._SENT 
+4._CD Sketch_NN of_IN ’relaxation_NN zones_NNS '_POS providing_VVG a_DT smooth_JJ transition_NN between_IN the_DT OceanWave3D_JJ domain_NN and_CC the_DT DualSPHysics_NN domain_NN ._SENT 
+2.4.2_CD ._SENT 
+Coupling_NN implementation_NN The_DT implementation_NN of_IN the_DT coupling_NN methodology_NN consists_VVZ of_IN 4_CD coupling_NN elements_NNS (_( see_VV Fig_NN ._SENT 
+5_LS )_) :_: 1.Python_NP Main_NP Script_NN 2.OceanWave3D_NN process_NN 3.Python_NP Interface_NP 4.DualSPHysics_NP process_NN Fig_NN ._SENT 
+5._CD Program_NN scheme_NN of_IN 2D_JJ coupling_NN between_IN Oceanwave3D_NNS and_CC DualSPHysics_NNS ._SENT 
+Three_CD processes_NNS are_VBP initiated_VVN and_CC connected_VVN via_IN an_DT OpenMPI_NP implementation_NN ._SENT 
+The_DT first_JJ element_NN is_VBZ the_DT Python_NN main_JJ script_NN ._SENT 
+it_PP is_VBZ a_DT preprocessor_NN ,_, used_VVN to_TO configure_VV the_DT coupled_VVN simulation_NN ._SENT 
+It_PP creates_VVZ input_NN files_NNS for_IN both_DT DualSPHysics_NNS and_CC OceanWave3D_NNS ,_, based_VVN on_IN the_DT user_NN input_NN ._SENT 
+It_PP launches_VVZ the_DT parallel_JJ execution_NN of_IN DualSPHysics_NNS ,_, OceanWave3D_NNS and_CC the_DT Python_NN communication_NN script_NN ._SENT 
+OpenMPI_NP is_VBZ used_VVN to_TO interconnect_VV these_DT three_CD processes_NNS ._SENT 
+It_PP applies_VVZ the_DT widespread_JJ MPI_NP standard_NN ,_, implemented_VVN by_IN all_DT platforms_NNS (_( here_RB ,_, Fortran_NP ,_, C++_NN and_CC Python_NN are_VBP connected_VVN )_) ,_, minimizes_VVZ the_DT necessary_JJ changes_NNS in_IN the_DT code_NN ,_, and_CC allows_VVZ the_DT distributed_VVN execution_NN of_IN programs_NNS ._SENT 
+The_DT second_JJ element_NN is_VBZ the_DT wave_NN propagation_NN model_NN (_( OceanWave3D_JJ process_NN )_) ;_: it_PP generates_VVZ and_CC propagates_VVZ the_DT waves_NNS in_IN a_DT large_JJ domain_NN ._SENT 
+It_PP provides_VVZ the_DT velocity_NN data_NNS for_IN the_DT coupling_NN interface_NN and_CC receives_VVZ the_DT surface_NN elevation_NN information_NN from_IN DualSPHysics_NNS ._SENT 
+The_DT third_JJ element_NN is_VBZ the_DT Python_NN Interface_NP :_: a_DT communication_NN process_NN ,_, which_WDT takes_VVZ care_NN of_IN the_DT communication_NN between_IN the_DT DualSPHysics_NN process_NN and_CC the_DT OceanWave3D_JJ process_NN ._SENT 
+Although_IN a_DT direct_JJ communication_NN between_IN these_DT processes_NNS is_VBZ possible_JJ with_IN MPI_NP ,_, the_DT use_NN of_IN a_DT dedicated_JJ Python_NN process_NN is_VBZ justified_VVN because_IN of_IN the_DT following_VVG reasons_NNS :_: •Each_NN model_NN uses_VVZ a_DT different_JJ coding_VVG language_NN ,_, so_RB a_DT high-level_JJ language_NN like_IN Python_NN simplifies_VVZ the_DT coupling_NN tasks_NNS ._SENT 
+•Both_JJ models_NNS are_VBP in_IN constant_JJ evolution_NN with_IN regular_JJ source_NN code_NN updates_NNS ._SENT 
+It_PP is_VBZ thus_RB beneficial_JJ to_TO minimize_VV the_DT necessary_JJ changes_NNS in_IN the_DT models_NNS ._SENT 
+•Using_VVG Python_NN as_IN the_DT communicator_NN allows_VVZ to_TO easily_RB monitor_VV intermediate_JJ results_NNS and_CC find_VV errors_NNS in_IN the_DT transferred_VVN data_NNS ._SENT 
+The_DT fourth_JJ element_NN is_VBZ the_DT DualSPHysics_NN process_NN ,_, where_WRB the_DT wave-structure_NN interaction_NN is_VBZ simulated_JJ in_IN a_DT small_JJ domain_NN ._SENT 
+It_PP applies_VVZ the_DT velocity_NN information_NN from_IN OceanWave3D_NNS to_TO generate_VV and_CC absorb_VV the_DT waves_NNS ,_, while_IN sending_VVG back_RB the_DT surface_NN elevation_NN information_NN ._SENT 
+2.4.3_CD ._SENT 
+Coupling_NN algorithm_NN In_IN practice_NN ,_, the_DT coupling_NN algorithm_NN is_VBZ coded_VVN as_RB follows_VVZ ._SENT 
+In_IN step_NN 1_CD ,_, the_DT main_JJ Python_NN script_NN is_VBZ run_VVN to_TO set_VV up_RP the_DT computation_NN ._SENT 
+The_DT following_VVG variables_NNS are_VBP initialized_VVN :_: •Flume_JJ parameters_NNS :_: length_NN ,_, depth_NN ,_, coupling_NN zone_NN ,_, mesh_NN size_NN ,_, particle_NN size_NN •Wave_NN parameters_NNS :_: wave_NN height_NN ,_, wave_NN period_NN ,_, wave_NN type_NN •Structure_NN parameters_NNS :_: shape_NN ,_, size_NN ,_, floating/fixed_JJ •Simulation_NN parameters_NNS :_: duration_NN ,_, time_NN step_NN Both_CC the_DT input_NN files_VVZ for_IN OceanWave3D_NNS and_CC DualSPHysics_NNS are_VBP created_VVN based_VVN on_IN the_DT selected_VVN input_NN parameters_NNS ._SENT 
+A_DT dedicated_JJ simulation_NN folder_NN is_VBZ created_VVN and_CC the_DT SPH_NN run_NN is_VBZ initialized_VVN by_IN running_VVG a_DT preprocessing_VVG tool_NN ._SENT 
+In_IN step_NN 2_CD ,_, the_DT main_JJ coupled_VVN model_NN is_VBZ initiated_VVN by_IN issuing_VVG an_DT MPI_NP run_VV where_WRB three_CD tasks_NNS are_VBP divided_VVN over_IN three_CD processes_NNS :_: •Process_NP 0_CD :_: OceanWave3D_NN simulation_NN •Process_NP 1_CD :_: Python_NN interface_NN (_( data_NNS processing_NN ,_, communication_NN hub_NN )_) •Process_NP 2_CD :_: DualSPHysics_NN simulation_NN The_DT coupling_NN algorithm_NN is_VBZ illustrated_VVN in_IN Fig_NN ._SENT 
+6._CD The_DT OceanWave3D_NN wave_NN propagation_NN model_NN is_VBZ run_VVN for_IN one_CD time_NN step_NN ._SENT 
+At_IN the_DT end_NN of_IN the_DT time_NN step_NN ,_, the_DT horizontal_JJ water_NN velocities_NNS at_IN the_DT coupling_NN zone_NN boundaries_NNS uj,1,uj,2_JJ with_IN j=1:m_NN and_CC m_NN the_DT number_NN of_IN vertical_JJ layers_NNS in_IN OceanWave3D_NNS ,_, and_CC the_DT surface_NN elevation_NN ηOW3D_NNS are_VBP sent_VVN to_TO the_DT Python_NN process_NN with_IN the_DT ”MPI_NP Send”_NN command_NN ._SENT 
+Since_IN the_DT DualSPHysics_NN simulation_NN has_VHZ much_RB more_RBR dynamic_JJ boundary_NN particles_NNS in_IN the_DT vertical_JJ direction_NN than_IN OceanWave3D_NNS has_VHZ vertical_JJ layers_NNS ,_, the_DT velocities_NNS need_VVP to_TO be_VB integrated_VVN and_CC interpolated_VVN to_TO the_DT boundary_NN block_NN positions_NNS xb1,i,xb2,i_NP with_IN i=1:n_NP and_CC n_NN the_DT number_NN of_IN the_DT boundary_NN blocks_NNS for_IN the_DT DualSPHysics_NN simulation_NN ._SENT 
+These_DT boundary_NN block_NN positions_NNS are_VBP sent_VVN to_TO the_DT DualSPHysics_NN process_NN ,_, together_RB with_IN the_DT x-coordinates_NNS ,_, xreq_NP ,_, of_IN the_DT OceanWave3D_JJ grid_NN points_NNS which_WDT lay_VVP within_IN the_DT coupling_NN zone_NN ._SENT 
+Next_RB ,_, DualSPHysics_NP is_VBZ run_VVN with_IN a_DT duration_NN ,_, equal_JJ to_TO the_DT OceanWave3D_JJ time_NN step_NN ._SENT 
+Within_IN DualSPHysics_NP ,_, the_DT surface_NN elevation_NN at_IN the_DT xreq_NP locations_NNS is_VBZ calculated_VVN with_IN the_DT built-in_JJ interpolation_NN routine_NN ._SENT 
+When_WRB DualSPHysics_NP has_VHZ run_VVN for_IN a_DT duration_NN equal_JJ to_TO the_DT OceanWave3D_JJ time_NN step_NN ,_, the_DT free_JJ surface_NN elevation_NN ,_, ηSPH_NP ,_, is_VBZ sent_VVN back_RB to_TO the_DT Python_NN process_NN ._SENT 
+Here_RB ,_, the_DT relaxation_NN function_NN given_VVN in_IN equation_NN (_( 15_CD )_) is_VBZ applied_VVN to_TO the_DT head_NN and_CC tail_NN of_IN the_DT free_JJ surface_NN array_NN ,_, to_TO ensure_VV a_DT smooth_JJ transition_NN between_IN the_DT OceanWave3D_NNS and_CC DualSPHysics_NNS solution_NN (_( see_VV Fig_NN ._SENT 
+4_CD for_IN relaxation_NN zones_NNS )_) ._SENT 
+Additionally_RB ,_, a_DT Savitzky-Golay_NN filter_NN (_( Savitzky_NP and_CC Golay_NP ,_, 1964_CD )_) is_VBZ applied_VVN to_TO ηSPH_VV to_TO mitigate_VV the_DT irregularities_NNS with_IN sizes_NNS smaller_JJR than_IN the_DT smoothing_VVG length_NN h=1.2⋅dp⋅2–√_NN ,_, caused_VVN by_IN the_DT interpolation_NN routine_NN ._SENT 
+This_DT filtered_VVN signal_NN ,_, ηf,r_NP ,_, is_VBZ finally_RB sent_VVN back_RB to_TO OceanWave3D_NN ,_, where_WRB its_PP$ original_JJ solution_NN ηOW3D_NN is_VBZ overwritten_VVN with_IN the_DT new_JJ free_JJ surface_NN received_VVN by_IN DualSPHysics_NNS ._SENT 
+In_IN this_DT version_NN of_IN the_DT coupled_VVN model_NN ,_, only_RB the_DT surface_NN elevation_NN is_VBZ transferred_VVN back_RB to_TO OceanWave3D_NNS ._SENT 
+Although_IN this_DT is_VBZ not_RB a_DT complete_JJ coupling_NN of_IN all_DT physical_JJ parameters_NNS ,_, it_PP does_VVZ result_NN in_IN accurate_JJ results_NNS for_IN the_DT proposed_VVN purposes_NNS ._SENT 
+The_DT main_JJ focus_NN of_IN the_DT research_NN is_VBZ on_IN wave_NN transformations_NNS within_IN and_CC around_IN WEC_NP arrays_VVZ ._SENT 
+This_DT focus_NN on_IN surface_NN elevation_NN and_CC floater_NN response_NN mainly_RB requires_VVZ a_DT good_JJ representation_NN of_IN the_DT wave_NN profile_NN and_CC accurate_JJ floater_NN dynamics_NNS ._SENT 
+For_IN the_DT interests_NNS of_IN the_DT topics_NNS with_IN which_WDT the_DT present_JJ research_NN deals_NNS ,_, the_DT applied_VVN coupling_NN principle_NN leads_VVZ to_TO highly_RB satisfactory_JJ results_NNS when_WRB investigating_VVG the_DT surface_NN elevation_NN and_CC floater_NN response_NN ._SENT 
+Moreover_RB ,_, by_IN not_RB coupling_NN back_RB the_DT velocity_NN field_NN ,_, the_DT typically_RB noisy_JJ velocity_NN fields_NNS in_IN SPH_NN will_MD not_RB be_VB introduced_VVN into_IN the_DT wave_NN propagation_NN model_NN ._SENT 
+Additionally_RB ,_, externally_RB added_VVD noise_NN would_MD lead_VV to_TO numerical_JJ instabilities_NNS ._SENT 
+Fig_NN ._SENT 
+6._CD Coding_VVG algorithm_NN of_IN coupling_NN between_IN Oceanwave3D_NNS and_CC DualSPHysics_NNS ._SENT 
+Data_NP is_VBZ transferred_VVN from_IN one_CD process_NN to_TO another_DT during_IN one_CD time_NN step_NN ._SENT 
+Visual_JJ representation_NN of_IN the_DT symbols_NNS can_MD be_VB found_VVN in_IN Fig_NN ._SENT 
+3._CD <Section> 3._CD Results_NNS and_CC discussion_NN </Section> A_DT series_NN of_IN test_NN cases_NNS is_VBZ performed_VVN for_IN validating_VVG the_DT proposed_VVN coupling_NN methodology_NN ._SENT 
+In_IN Test_NP Case_NP 1_CD ,_, a_DT range_NN of_IN linear_JJ and_CC non-linear_JJ waves_NNS are_VBP propagated_VVN over_IN a_DT flat_JJ sea_NN bottom_NN ,_, with_IN no_DT presence_NN of_IN structure_NN in_IN the_DT computational_JJ domain_NN ._SENT 
+Here_RB ,_, the_DT focus_NN lies_VVZ on_IN demonstrating_VVG the_DT ability_NN of_IN the_DT coupling_NN methodology_NN to_TO propagate_VV waves_NNS in_IN between_IN two_CD moving_VVG boundaries_NNS ._SENT 
+In_IN Test_NP Case_NP 2_CD ,_, the_DT coupled_VVN model_NN is_VBZ compared_VVN to_TO experimental_JJ data_NNS from_IN a_DT fixed_VVN Oscillating_VVG Water_NP Column_NN (_( OWC_NP )_) wave_NN energy_NN converter_NN ._SENT 
+In_IN Test_NP Case_NP 3_CD ,_, a_DT freely_RB floating_JJ box_NN is_VBZ simulated_JJ using_VVG the_DT coupled_VVN model_NN ,_, and_CC is_VBZ compared_VVN to_TO experimental_JJ data_NNS ._SENT 
+In_IN each_DT test_NN case_NN ,_, the_DT initial_JJ condition_NN is_VBZ a_DT zero_CD condition_NN with_IN a_DT steady_JJ water_NN level_NN and_CC no_DT particle_NN motion_NN ._SENT 
+3.1_CD ._SENT 
+Test_NN case_NN 1_CD :_: regular_JJ wave_NN propagation_NN In_IN this_DT section_NN ,_, the_DT described_VVN two-way_JJ coupled_VVN model_NN is_VBZ applied_VVN to_TO simulate_VV a_DT series_NN of_IN propagating_VVG waves_NNS ._SENT 
+The_DT waves_NNS are_VBP selected_VVN based_VVN on_IN their_PP$ linear_JJ or_CC non-linear_JJ characteristics_NNS ,_, as_RB described_VVN by_IN the_DT diagram_NN of_IN Le_NP Méhauté_NP (_( 1969_CD )_) ._SENT 
+A_DT selection_NN of_IN four_CD wave_NN types_NNS is_VBZ made_VVN ,_, which_WDT encompasses_VVZ a_DT wide_JJ range_NN of_IN non-linear_JJ and_CC linear_JJ theories_NNS ._SENT 
+The_DT specific_JJ characteristics_NNS such_JJ as_IN wave_NN height_NN H_NP ,_, wave_NN period_NN T_NN ,_, water_NN depth_NN d_SYM and_CC particle_NN size_NN dp_NN are_VBP listed_VVN in_IN Table_NN 2._CD The_DT particle_NN size_NN is_VBZ selected_VVN based_VVN on_IN the_DT refinement_NN method_NN described_VVN in_IN section_NN 3.2_CD ._SENT 
+The_DT validity_NN of_IN each_DT wave_NN theory_NN is_VBZ illustrated_VVN in_IN Fig_NN ._SENT 
+7._CD Table_NN 2._CD Wave_NP conditions_NNS ._SENT 
+Fig_NN ._SENT 
+7._CD Selection_NN of_IN waves_NNS tested_VVN with_IN the_DT two-way_JJ coupled_VVN model_NN ._SENT 
+Tests_NNS I-IV_NP are_VBP indicated_VVN on_IN the_DT graph_NN (_( adapted_VVN from_IN Le_NP Méhauté_NP (_( 1969_CD )_) )_) ._SENT 
+hgτ2_NP is_VBZ the_DT normalized_VVN water_NN depth_NN while_IN Hgτ2_NP is_VBZ the_DT normalized_VVN wave_NN height_NN ._SENT 
+The_DT numerical_JJ domain_NN and_CC test_NN set-up_NN is_VBZ illustrated_VVN in_IN Fig_NN ._SENT 
+8._CD It_PP consists_VVZ of_IN a_DT 2D_JJ wave_NN flume_NN with_IN a_DT total_JJ length_NN of_IN 50.0m_NP and_CC a_DT varying_VVG water_NN depth_NN according_VVG to_TO the_DT applied_VVN wave_NN conditions_NNS ._SENT 
+The_DT waves_NNS are_VBP generated_VVN within_IN OceanWave3D_NNS in_IN a_DT wave_NN generation_NN zone_NN with_IN a_DT length_NN of_IN 20.0m_NP ._SENT 
+At_IN the_DT other_JJ end_NN of_IN the_DT OceanWave3D_JJ domain_NN ,_, a_DT wave_NN absorption_NN zone_NN is_VBZ installed_VVN with_IN the_DT same_JJ length_NN ._SENT 
+The_DT DualSPHysics_NN zone_NN is_VBZ located_VVN between_IN x1=20.0m_NP and_CC x2=25.0m_NP ._SENT 
+Fig_NN ._SENT 
+8._CD Test_NN set-up_NN in_IN the_DT numerical_JJ domain_NN ._SENT 
+Lgen_NP is_VBZ the_DT wave_NN generation_NN zone_NN ,_, Labs_NP is_VBZ the_DT wave_NN absorption_NN zone_NN ._SENT 
+For_IN each_DT selected_JJ wave_NN type_NN test_NN from_IN Table_NN 2_CD ,_, a_DT time-series_NNS is_VBZ shown_VVN where_WRB three_CD wave_NN signals_NNS are_VBP compared_VVN :_: •Theoretical_JJ wave_NN signal_NN ,_, generated_VVD using_VVG WaveLab_NP (_( Frigaard_NP and_CC Andersen_NP ,_, 2014_CD )_) •Simulated_JJ wave_NN signal_NN using_VVG OceanWave3D_JJ •Simulated_JJ wave_NN signal_NN using_VVG the_DT two-way_JJ coupled_VVN model_NN By_IN analizing_VVG the_DT wave_NN signal_NN in_IN the_DT time-domain_NN ,_, typical_JJ non-linear_JJ wave_NN characteristics_NNS such_JJ as_IN wave_NN steepness_NN ,_, asymmetry_NN and_CC higher_JJR wave_NN troughs_NNS are_VBP checked_VVN for_IN accurate_JJ reproduction_NN ._SENT 
+3.1.1_CD ._SENT 
+Wave_NN type_NN test_NN I_PP -_: linear_JJ wave_NN The_DT first_JJ wave_NN type_NN test_NN includes_VVZ a_DT linear_JJ wave_NN with_IN a_DT wave_NN height_NN of_IN H=0.02m_NP ,_, wave_NN period_NN of_IN T=1.5s_NNS in_IN a_DT water_NN depth_NN of_IN d=1.0m_NP ._SENT 
+Since_IN this_DT wave_NN type_NN lies_VVZ within_IN the_DT linear_JJ theory_NN zone_NN (_( see_VV Fig_NN ._SENT 
+7_CD )_) ,_, the_DT surface_NN elevation_NN should_MD match_VV the_DT theoretical_JJ profile_NN ,_, defined_VVN in_IN Equation_NN (_( 16_CD )_) :_: @(16_NP )_) 3.1.2_CD ._SENT 
+Wave_NN type_NN test_NN II_NP -_: Stokes_NP 2nd_JJ order_NN wave_NN The_DT second_JJ wave_NN type_NN test_NN is_VBZ based_VVN on_IN a_DT non-linear_JJ wave_NN with_IN a_DT wave_NN height_NN of_IN H=0.08m_NP ,_, wave_NN period_NN of_IN T=2.0s_NNS in_IN a_DT water_NN depth_NN of_IN d=1.0m_NP ._SENT 
+This_DT results_NNS in_IN a_DT wave_NN profile_NN described_VVN by_IN the_DT Stokes_NP 2nd_JJ order_NN wave_NN theory_NN (_( see_VV Fig_NN ._SENT 
+7_CD )_) ,_, as_RB defined_VVN by_IN Equations_NNS (_( 17_CD )_) ,_, (_( 18_CD )_) ._SENT 
+@(17_JJ )_) @(18_NP )_) @(19_NP )_) @(20_NN )_) 3.1.3_CD ._SENT 
+Wave_NN type_NN test_NN III_NP -_: Stokes_NP 3rd_NP order_NN wave_NN The_DT third_JJ wave_NN type_NN test_NN is_VBZ based_VVN on_IN a_DT non-linear_JJ wave_NN with_IN a_DT wave_NN height_NN of_IN H=0.15m_NP ,_, wave_NN period_NN of_IN T=2.0s_NNS in_IN a_DT water_NN depth_NN of_IN d=0.7m_NP ._SENT 
+This_DT results_NNS in_IN a_DT wave_NN profile_NN described_VVN by_IN the_DT Stokes_NP 3rd_NP order_NN wave_NN theory_NN (_( see_VV Fig_NN ._SENT 
+7_CD )_) ,_, defined_VVN in_IN Equation_NN (_( 21_CD )_) ._SENT 
+@(21_NN )_) 3.1.4_CD ._SENT 
+Wave_NN type_NN test_NN IV_NP -_: stream_NN function_NN wave_NN The_DT last_JJ wave_NN type_NN test_NN is_VBZ based_VVN on_IN a_DT stream_NN function_NN wave_NN with_IN a_DT wave_NN height_NN of_IN H=0.06m_NP ,_, wave_NN period_NN of_IN T=2.0s_NNS in_IN a_DT water_NN depth_NN of_IN d=0.3m_NP ._SENT 
+The_DT Stream_NP function_NN wave_NN theory_NN was_VBD developed_VVN by_IN Dean_NP and_CC Dalrymple_NP (_( 1991_CD )_) ._SENT 
+The_DT method_NN involves_VVZ computing_VVG a_DT series_NN solution_NN to_TO the_DT fully_RB non-linear_JJ water_NN wave_NN problem_NN ,_, involving_VVG the_DT Laplace_NP equation_NN with_IN two_CD non-linear_JJ free_JJ surface_NN boundary_NN conditions_NNS (_( constant_JJ pressure_NN and_CC a_DT wave_NN height_NN constraint_NN )_) ._SENT 
+3.1.5_CD ._SENT 
+Comparison_NN of_IN surface_NN elevations_NNS The_DT results_NNS by_IN the_DT comparison_NN of_IN surface_NN elevations_NNS ,_, calculated_VVN at_IN the_DT centre_NN of_IN the_DT coupling_NN zone_NN ,_, are_VBP summarized_VVN in_IN Fig_NN ._SENT 
+9_CD and_CC in_IN Table_NN 3._CD In_IN Fig_NN ._SENT 
+9_CD ,_, the_DT surface_NN elevations_NNS for_IN all_DT 4_CD simulated_JJ wave_NN types_NNS are_VBP compared_VVN between_IN theoretical_JJ solution_NN ,_, a_DT stand-alone_JJ OceanWave3D_NN run_NN and_CC the_DT coupled_VVN model_NN ._SENT 
+In_IN general_NN ,_, the_DT simulation_NN results_NNS show_VVP a_DT very_RB good_JJ correspondence_NN with_IN the_DT theoretical_JJ solutions_NNS ._SENT 
+Both_CC the_DT wave_NN crest_NN and_CC wave_NN trough_NN are_VBP very_RB close_JJ to_TO the_DT theoretical_JJ results_NNS ._SENT 
+The_DT asymmetry_NN of_IN the_DT wave_NN profile_NN in_IN the_DT non-linear_JJ wave_NN types_NNS (_( II-IV_NP )_) is_VBZ also_RB reproduced_VVD ._SENT 
+The_DT accuracy_NN of_IN the_DT results_NNS is_VBZ quantified_VVN by_IN analysing_VVG the_DT surface_NN elevation_NN at_IN the_DT wave_NN crests_NNS and_CC the_DT wave_NN troughs_NNS ._SENT 
+The_DT two-way_JJ coupled_VVN model_NN is_VBZ compared_VVN to_TO the_DT theoretical_JJ solution_NN by_IN calculating_VVG the_DT ratio_NN of_IN the_DT wave_NN amplitudes_NNS err_VVP %_NN (_( equation_NN (_( 22_CD )_) )_) and_CC the_DT relative_JJ difference_NN errh_NN expressed_VVN in_IN the_DT smoothing_VVG length_NN h=1.2⋅dp⋅2–√_NN (_( equation_NN (_( 23_CD )_) )_) ._SENT 
+Here_RB ,_, aSPH_NN is_VBZ the_DT wave_NN amplitude_NN of_IN the_DT coupled_VVN model_NN results_NNS ,_, where_WRB aTheory_NN is_VBZ the_DT wave_NN amplitude_NN of_IN the_DT theoretical_JJ solution_NN ._SENT 
+@(22_NP )_) @(23_NP )_) Fig_NN ._SENT 
+9._CD Comparison_NN of_IN the_DT surface_NN elevations_NNS for_IN all_DT 4_CD simulated_JJ wave_NN types_NNS ,_, between_IN the_DT theoretical_JJ solution_NN ,_, a_DT stand-alone_JJ OceanWave3D_NN run_NN and_CC a_DT two-way_JJ coupled_VVN model_NN run_NN ._SENT 
+Table_NN 3._CD Relative_JJ errors_NNS of_IN coupled_VVN model_NN results_NNS with_IN respect_NN to_TO theoretical_JJ surface_NN elevation_NN ._SENT 
+The_DT results_NNS indicate_VVP that_IN the_DT propagated_VVN waves_NNS are_VBP very_RB close_JJ to_TO the_DT theoretical_JJ values_NNS ._SENT 
+The_DT relative_JJ errors_NNS range_VVP from_IN 1_CD %_NN to_TO 14_CD %_NN (_( see_VV Table_NN 3_CD )_) ,_, while_IN the_DT errors_NNS expressed_VVN in_IN smoothing_VVG length_NN h_NN range_NN from_IN 0.03h_NP to_TO 0.53h_NP ._SENT 
+The_DT maximum_JJ error_NN of_IN 14_CD %_NN is_VBZ registered_VVN at_IN the_DT wave_NN trough_NN of_IN the_DT 3rd_NP order_NN Stokes_NP wave_NN ._SENT 
+This_DT error_NN is_VBZ equivalent_JJ to_TO 0.53h_NP ,_, which_WDT is_VBZ still_RB within_IN the_DT acceptable_JJ error_NN of_IN 1h_NP for_IN an_DT SPH_NN simulation_NN ._SENT 
+In_IN general_NN ,_, the_DT wave_NN crest_NN is_VBZ better_RBR reproduced_VVD than_IN the_DT wave_NN trough_NN ,_, with_IN the_DT wave_NN trough_NN being_VBG more_RBR frequently_RB underestimated_VVN than_IN overestimated_VVN ._SENT 
+Similar_JJ results_NNS are_VBP noticeable_JJ for_IN a_DT stand-alone_JJ DualSPHysics_NN model_NN (_( Altomare_NP et_NP al_NP ._SENT 
+,_, 2017_CD )_) ._SENT 
+3.1.6_CD ._SENT 
+Comparison_NN of_IN orbital_JJ velocities_NNS A_DT wave_NN is_VBZ fully_RB characterised_VVN by_IN its_PP$ surface_NN elevation_NN and_CC by_IN the_DT horizontal_JJ and_CC vertical_JJ orbital_JJ velocities_NNS ._SENT 
+First_RB ,_, a_DT series_NN of_IN contour_NN plots_NNS is_VBZ presented_VVN where_WRB the_DT velocity_NN field_NN is_VBZ compared_VVN between_IN the_DT two-way_JJ coupled_VVN model_NN and_CC an_DT OceanWave3D_JJ simulation_NN ._SENT 
+The_DT results_NNS are_VBP given_VVN in_IN Fig_NN ._SENT 
+10._CD Here_RB ,_, four_CD sets_NNS of_IN two_CD contour_NN plots_NNS are_VBP given_VVN ;_: one_CD set_NN for_IN each_DT simulated_JJ wave_NN type_NN (_( I-IV_NP )_) ._SENT 
+In_IN each_DT set_NN ,_, the_DT left_JJ plot_NN is_VBZ the_DT result_NN from_IN a_DT stand-alone_JJ OceanWave3D_NN model_NN ,_, while_IN the_DT right_JJ one_CD is_VBZ the_DT coupled_VVN model_NN solution_NN ._SENT 
+Fig_NN ._SENT 
+10_CD is_VBZ aimed_VVN at_IN a_DT qualitative_JJ comparison_NN between_IN the_DT Eulerian_JJ OceanWave3D_NN model_NN and_CC the_DT Lagrangian_JJ DualSPHysics_NN model_NN ._SENT 
+For_IN each_DT set_NN ,_, the_DT same_JJ colour_NN range_NN is_VBZ used_VVN for_IN better_JJR comparison_NN ._SENT 
+The_DT velocity_NN range_NN is_VBZ very_RB comparable_JJ between_IN both_DT models_NNS ,_, but_CC some_DT differences_NNS are_VBP seen_VVN in_IN the_DT overall_JJ shape_NN of_IN the_DT velocity_NN field_NN ._SENT 
+Where_WRB OceanWave3D_NN gives_VVZ a_DT smooth_JJ result_NN with_IN a_DT clear_JJ transition_NN between_IN negative_JJ and_CC positive_JJ orbital_JJ velocities_NNS ,_, the_DT coupled_VVN model_NN result_NN is_VBZ significantly_RB less_RBR smooth_JJ ._SENT 
+At_IN a_DT first_JJ glance_NN ,_, the_DT coupled_VVN model_NN result_NN of_IN Wave_NP Type_NN Test_NP I_NP ,_, has_VHZ the_DT least_JJS smooth_JJ solution_NN ._SENT 
+This_DT is_VBZ however_RB a_DT result_NN of_IN the_DT limited_JJ velocity_NN range_NN (_( ±0.05m/s_NP )_) ._SENT 
+The_DT visible_JJ noise_NN can_MD be_VB attributed_VVN to_TO two_CD sources_NNS ._SENT 
+•The_NNS use_VVP of_IN a_DT weakly-compressible_JJ SPH_NN (_( WCSPH_NN )_) solver_NN leads_VVZ to_TO pressure_NN and_CC velocity_NN noise_NN ._SENT 
+Within_IN WCSPH_NN ,_, the_DT speed_NN of_IN sound_NN is_VBZ artificially_RB lowered_VVN to_TO keep_VV the_DT necessary_JJ time_NN step_NN reasonably_RB high_JJ ._SENT 
+However_RB ,_, this_DT leads_NNS to_TO non-physical_JJ pressure_NN waves_NNS propagating_VVG through_IN the_DT fluid_NN which_WDT result_VVP in_IN noisy_JJ pressure_NN and_CC velocity_NN values_NNS ._SENT 
+•The_NNS use_VVP of_IN dynamic_JJ boundary_NN conditions_NNS leads_VVZ to_TO pressure_VV peaks_NNS close_VV to_TO the_DT boundary_NN particles_NNS ._SENT 
+Here_RB ,_, the_DT boundary_NN particles_NNS satisfy_VV the_DT same_JJ equations_NNS as_IN the_DT fluid_JJ particles_NNS ,_, however_RB they_PP do_VVP not_RB move_VV according_VVG to_TO the_DT forces_NNS exerted_VVN on_IN them_PP ._SENT 
+Instead_RB ,_, they_PP move_VVP according_VVG to_TO the_DT orbital_JJ velocities_NNS received_VVN from_IN OceanWave3D_NNS ._SENT 
+Using_VVG this_DT boundary_NN condition_NN ,_, when_WRB a_DT fluid_JJ particle_NN approaches_VVZ a_DT boundary_NN particle_NN and_CC the_DT distance_NN between_IN them_PP decreases_VVZ beyond_IN the_DT kernel_NN range_NN ,_, the_DT density_NN of_IN the_DT boundary_NN particles_NNS increases_NNS giving_VVG rise_NN to_TO an_DT increase_NN in_IN pressure_NN ._SENT 
+This_DT results_NNS in_IN a_DT repulsive_JJ force_NN being_VBG exerted_VVN on_IN the_DT fluid_JJ particle_NN due_JJ to_TO the_DT pressure_NN term_NN in_IN the_DT momentum_NN equation_NN ._SENT 
+This_DT locally_RB enlarged_JJ pressure_NN leads_VVZ to_TO noise_NN in_IN pressure_NN waves_NNS and_CC consequently_RB noise_NN in_IN velocity_NN profiles_NNS within_IN the_DT fluid_NN ._SENT 
+A_DT more_RBR detailed_JJ explanation_NN can_MD be_VB found_VVN in_IN Crespo_NP et_CC al_NP ._SENT 
+(_( 2007b_NP )_) ._SENT 
+Fig_NN ._SENT 
+10._CD Four_CD sets_NNS of_IN contour_NN plots_NNS of_IN the_DT horizontal_JJ orbital_JJ velocities_NNS for_IN all_DT 4_CD simulated_JJ wave_NN types_NNS ._SENT 
+Each_DT set_NN contains_VVZ two_CD contour_NN plots_NNS :_: one_CD for_IN a_DT stand-alone_JJ OceanWave3D_NN model_NN ,_, and_CC one_CD for_IN the_DT coupled_VVN model_NN ._SENT 
+The_DT horizontal_JJ orbital_JJ velocities_NNS are_VBP plotted_VVN in_IN function_NN of_IN the_DT normalized_VVN water_NN depth_NN z/d_NNS ._SENT 
+It_PP can_MD be_VB concluded_VVN ,_, that_IN using_VVG WCSPH_NN is_VBZ inherently_RB sensitive_JJ to_TO noise_NN in_IN pressure_NN and_CC velocity_NN fields_NNS ._SENT 
+However_RB ,_, some_DT measures_NNS can_MD be_VB taken_VVN to_TO try_VV to_TO mitigate_VV the_DT noise_NN :_: •Using_VVG incompressible_JJ SPH_NN (_( ISPH_NN )_) would_MD lead_VV to_TO smoother_JJR velocity_NN and_CC pressure_NN fields_NNS ._SENT 
+ISPH_NP can_MD lead_VV to_TO high_JJ computational_JJ efforts_NNS and_CC computational_JJ time_NN ,_, but_CC this_DT is_VBZ compensated_VVN with_IN a_DT larger_JJR time_NN step_NN (_( Violeau_NP and_CC Rogers_NP ,_, 2016_CD )_) ._SENT 
+A_DT comparison_NN between_IN weakly_JJ compressible_JJ and_CC incompressible_JJ approaches_NNS can_MD be_VB found_VVN in_IN Lee_NP et_CC al_NP ._SENT 
+(_( 2010_CD )_) ._SENT 
+More_JJR information_NN about_IN both_DT WCSPH_NN and_CC ISPH_NN for_IN coastal_JJ and_CC ocean_NN engineering_NN can_MD be_VB also_RB found_VVN in_IN Gotoh_NP and_CC Khayyer_NP (_( 2018_CD )_) ._SENT 
+•Applying_VVG a_DT correction_NN term_NN to_TO the_DT dynamic_JJ boundary_NN particles_NNS ,_, which_WDT results_VVZ in_IN slightly_RB less_JJR pressure_NN noise_NN ,_, as_RB demonstrated_VVN in_IN Ren_NP et_CC al_NP ._SENT 
+(_( 2015_CD )_) ._SENT 
+However_RB ,_, a_DT free_JJ parameter_NN needs_VVZ to_TO be_VB tuned_VVN for_IN each_DT problem_NN and_CC here_RB we_PP want_VVP to_TO present_VV a_DT general_JJ approach_NN ._SENT 
+•Applying_VVG filtering_VVG of_IN the_DT noise_NN in_IN the_DT pressure_NN field_NN in_IN post-processing_NN ,_, using_VVG e.g._FW a_DT filtering_VVG technique_NN based_VVN on_IN Wavelet_NN Transform_VV ,_, as_IN presented_VVN in_IN Meringolo_NP et_CC al_NP ._SENT 
+For_IN the_DT purposes_NNS of_IN the_DT present_JJ study_NN ,_, this_DT is_VBZ not_RB necessary_JJ ._SENT 
+However_RB ,_, in_IN the_DT future_NN ,_, this_DT method_NN will_MD be_VB investigated_VVN to_TO see_VV if_IN it_PP can_MD be_VB valuable_JJ to_TO this_DT coupling_NN methodology_NN ._SENT 
+•Using_VVG a_DT diffusive_JJ numerical_JJ scheme_NN ,_, which_WDT is_VBZ available_JJ in_IN DualSPHysics_NNS as_IN the_DT delta-SPH_NN formulation_NN ,_, as_RB described_VVN in_IN Antuono_NP et_CC al_NP ._SENT 
+(_( 2010_CD )_) •Applying_VVG a_DT shifting_VVG algorithm_NN ,_, as_RB detailed_JJ in_IN section_NN 2.3.4_CD ._SENT 
+With_IN the_DT shifting_VVG algorithm_NN ,_, the_DT particles_NNS are_VBP moved_VVN (_( shifted_VVN )_) towards_IN areas_NNS with_IN fewer_JJR particles_NNS (_( lower_JJR particle_NN concentration_NN )_) allowing_VVG the_DT domain_NN to_TO maintain_VV a_DT uniform_JJ particle_NN distribution_NN and_CC eliminating_VVG any_DT voids_NNS that_WDT may_MD occur_VV due_JJ to_TO the_DT noise_NN ._SENT 
+Of_IN these_DT measures_NNS ,_, the_DT last_JJ two_CD are_VBP applied_VVN to_TO the_DT performed_VVN simulations_NNS in_IN this_DT study_NN ._SENT 
+Overall_RB ,_, there_EX is_VBZ a_DT good_JJ qualitative_JJ agreement_NN between_IN both_CC the_DT standalone_JJ OceanWave3D_NN model_NN and_CC the_DT coupled_VVN model_NN ,_, especially_RB concerning_VVG the_DT main_JJ objective_NN of_IN this_DT coupling_NN methodology_NN is_VBZ to_TO use_VV it_PP for_IN modelling_VVG of_IN the_DT free_JJ surface_NN and_CC WEC_JJ response_NN within_IN WEC_NP arrays_VVZ ._SENT 
+Regarding_VVG the_DT surface_NN elevations_NNS ,_, which_WDT is_VBZ the_DT focus_NN of_IN the_DT present_JJ study_NN ,_, the_DT coupling_NN methodology_NN does_VVZ perform_VV well_RB ._SENT 
+Next_RB ,_, the_DT horizontal_JJ orbital_JJ velocities_NNS at_IN location_NN x=22.5m_NN ,_, in_IN the_DT centre_NN of_IN the_DT coupled_VVN model_NN ,_, are_VBP compared_VVN in_IN more_JJR detail_NN to_TO the_DT solution_NN obtained_VVN with_IN a_DT stand-alone_JJ OceanWave3D_NN model_NN and_CC to_TO the_DT theoretical_JJ solution_NN as_IN well_RB ._SENT 
+In_IN Fig_NN ._SENT 
+11_CD ,_, the_DT velocity_NN profiles_NNS of_IN all_DT 4_CD waves_NNS at_IN the_DT centre_NN of_IN the_DT DualSPHysics_NNS domain_NN are_VBP given_VVN ._SENT 
+There_EX is_VBZ a_DT good_JJ correspondence_NN between_IN the_DT three_CD solutions_NNS ,_, with_IN the_DT coupled_VVN model_NN solution_NN having_VHG a_DT less_RBR continuous_JJ profile_NN ._SENT 
+However_RB ,_, the_DT values_NNS are_VBP close_JJ to_TO the_DT theoretical_JJ and_CC OceanWave3D_JJ solutions_NNS ._SENT 
+In_IN order_NN to_TO quantify_VV the_DT accuracy_NN of_IN the_DT simulated_JJ profiles_NNS ,_, the_DT normalized_VVN root_NN mean_VVP square_JJ error_NN RMSE=1n∑ni=1(ux,sim−ux,theory)2/max(ux,theory)−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−√_NN with_IN respect_NN to_TO the_DT theoretical_JJ solution_NN is_VBZ given_VVN in_IN Table_NN 4._CD The_DT error_NN between_IN OceanWave3D_NNS and_CC the_DT theoretical_JJ solution_NN is_VBZ denoted_VVN with_IN RMSET−O_NP ,_, while_IN the_DT error_NN between_IN the_DT coupled_VVN model_NN and_CC the_DT theoretical_JJ solution_NN is_VBZ denoted_VVN with_IN RMSET−S_NP ._SENT 
+Here_RB it_PP is_VBZ clear_JJ that_IN OceanWave3D_NN is_VBZ highly_RB capable_JJ of_IN producing_VVG an_DT accurate_JJ velocity_NN profile_NN with_IN very_RB low_JJ errors_NNS ranging_VVG from_IN 0.011_CD to_TO 0.04_CD ._SENT 
+The_DT coupled_VVN model_NN solution_NN is_VBZ slightly_RB further_RBR away_RB from_IN the_DT theoretical_JJ solution_NN with_IN RMSET−S_NNS ranging_VVG from_IN 0.041_CD to_TO 0.056_CD ._SENT 
+The_DT best_JJS results_NNS are_VBP obtained_VVN for_IN the_DT linear_JJ wave_NN (_( Wave_NP Type_NN Test_NP I_NP )_) and_CC the_DT Stokes_NP 3rd_NP order_NN wave_NN (_( Wave_NP Type_NN Test_NP III_NP )_) ._SENT 
+Fig_NN ._SENT 
+11._CD Comparison_NN of_IN the_DT horizontal_JJ velocity_NN profile_NN ux,i_NNS in_IN function_NN of_IN the_DT normalized_VVN water_NN depth_NN z/d_NNS for_IN all_DT 4_CD simulated_JJ wave_NN types_NNS ,_, between_IN the_DT theoretical_JJ solution_NN ,_, a_DT stand-alone_JJ OceanWave3D_NN run_NN and_CC a_DT two-way_JJ coupled_VVN model_NN run_NN ._SENT 
+Table_NN 4._CD RMSE_NN values_NNS of_IN velocity_NN profiles_NNS ._SENT 
+Finally_RB ,_, the_DT pressure_NN distribution_NN is_VBZ compared_VVN to_TO a_DT theoretical_JJ profile_NN in_IN Fig_NN ._SENT 
+12._CD The_DT mean_JJ total_JJ pressure_NN at_IN the_DT middle_JJ section_NN xs_NNS ,_, is_VBZ illustrated_VVN by_IN a_DT line_NN together_RB with_IN the_DT standard_JJ deviation_NN as_IN a_DT shaded_JJ area_NN ,_, calculated_VVN as_IN :_: @(24_NP )_) @(25_NP )_) Fig_NN ._SENT 
+12._CD Comparison_NN of_IN the_DT mean_JJ total_JJ pressure_NN and_CC the_DT corresponding_JJ standard_JJ deviation_NN in_IN function_NN of_IN the_DT normalized_VVN water_NN depth_NN z/d_NNS for_IN all_DT 4_CD simulated_JJ wave_NN types_NNS ,_, between_IN the_DT theoretical_JJ solution_NN and_CC a_DT two-way_JJ coupled_VVN model_NN run_NN ._SENT 
+The_DT standard_JJ deviation_NN is_VBZ directly_RB related_VVN to_TO the_DT added_JJ dynamic_JJ pressure_NN due_JJ to_TO the_DT wave_NN action_NN ._SENT 
+Good_JJ results_NNS are_VBP obtained_VVN ._SENT 
+The_DT wave_NN tests_VVZ I_PP ,_, II_NP and_CC IV_NP have_VHP excellent_JJ agreement_NN ,_, while_IN wave_NN test_NN III_NP has_VHZ a_DT good_JJ correspondence_NN for_IN the_DT mean_JJ pressure_NN ,_, but_CC has_VHZ a_DT significantly_RB higher_JJR standard_JJ deviation_NN ._SENT 
+Wave_NN test_NN III_NP has_VHZ the_DT highest_JJS wave_NN height_NN of_IN 0.15m_NN ,_, leading_VVG to_TO higher_JJR pressure_NN fluctuations_NNS and_CC higher_JJR velocities_NNS of_IN the_DT moving_VVG boundaries_NNS ._SENT 
+Again_RB ,_, the_DT RMSE_JJ values_NNS are_VBP calculated_VVN for_IN the_DT mean_JJ total_JJ pressure_NN as_IN RMSE=1n∑ni=1(psim−ptheory)2/max(ptheory)−−−−−−−−−−−−−−−−−−−−−−−−−−−−−√_NP ,_, see_VVP Table_NN 5._CD The_DT RMSE_NN values_VVZ for_IN all_DT 4_CD waves_NNS are_VBP low_JJ ,_, ranging_VVG from_IN 0.0049_CD to_TO 0.0469_CD ,_, with_IN the_DT best_JJS performance_NN for_IN wave_NN type_NN II_NP and_CC the_DT worst_JJS performance_NN for_IN wave_NN type_NN III_NP ._SENT 
+Table_NN 5._CD RMSE_NN values_NNS of_IN mean_JJ total_JJ pressure_NN profiles_NNS ._SENT 
+3.2_CD ._SENT 
+Convergence_NN analysis_NN For_IN each_DT of_IN the_DT 3_CD test_NN cases_NNS ,_, a_DT particle_NN size_NN is_VBZ selected_JJ which_WDT leads_VVZ to_TO a_DT result_NN that_WDT is_VBZ as_RB close_JJ as_IN possible_JJ to_TO a_DT converged_VVD result_NN ,_, without_IN sacrificing_VVG too_RB much_JJ computation_NN time_NN ._SENT 
+The_DT convergence_NN study_NN is_VBZ demonstrated_VVN here_RB for_IN Wave_NP Type_NN II_NP of_IN Test_NP Case_NP 1_CD ,_, but_CC has_VHZ been_VBN performed_VVN for_IN all_DT test_NN cases_NNS to_TO ensure_VV proper_JJ convergence_NN ._SENT 
+The_DT convergence_NN is_VBZ checked_VVN by_IN applying_VVG the_DT coupled_VVN model_NN to_TO the_DT wave_NN propagation_NN of_IN a_DT Stokes_NP 2nd_JJ order_NN wave_NN with_IN wave_NN height_NN H=0.08m_NN ,_, wave_NN period_NN T=2.0s_NNS in_IN a_DT water_NN depth_NN of_IN d=1.0m_NP ._SENT 
+The_DT simulation_NN is_VBZ performed_VVN for_IN four_CD different_JJ particle_NN sizes_NNS dp_NN ,_, with_IN a_DT refinement_NN factor_NN of_IN 2.0_CD ._SENT 
+The_DT surface_NN elevation_NN in_IN the_DT centre_NN of_IN the_DT domain_NN is_VBZ presented_VVN in_IN Fig_NN ._SENT 
+13._CD A_NP closer_JJR look_NN at_IN the_DT wave_NN trough_NN reveals_VVZ that_IN the_DT result_NN is_VBZ practically_RB converged_VVD for_IN the_DT two_CD finest_JJS particle_NN sizes_NNS dp,3_JJ and_CC dp,4_JJ ._SENT 
+In_IN order_NN to_TO estimate_VV the_DT relative_JJ convergence_NN error_NN ,_, the_DT exact_JJ solution_NN of_IN the_DT surface_NN elevation_NN at_IN the_DT wave_NN trough_NN ,_, ηt,exact_NP ,_, is_VBZ estimated_VVN based_VVN on_IN the_DT Richardson_NP 's_POS extrapolation_NN (_( Richardson_NP ,_, 1911_CD ;_: Richardson_NP and_CC Gaunt_NP ,_, 1927_CD )_) ,_, using_VVG the_DT surface_NN elevation_NN at_IN the_DT wave_NN trough_NN from_IN the_DT three_CD finest_JJS particle_NN sizes_NNS (_( ηt,2_NP from_IN dp,2_NP ,_, ηt,3_NN from_IN dp,3_NP ,_, ηt,4_NN from_IN dp,4_NN )_) ._SENT 
+The_DT exact_JJ solution_NN ηt,exact_NN is_VBZ given_VVN in_IN Table_NN 6_CD ,_, and_CC is_VBZ calculated_VVN as_RB follows_VVZ :_: @(26_NP )_) @(27_JJ )_) Fig_NN ._SENT 
+13._CD Convergence_NN of_IN the_DT surface_NN elevation_NN of_IN a_DT Stokes_NP 2nd_JJ order_NN wave_NN using_VVG four_CD particle_NN refinements_NNS (_( dp,1_JJ ,_, dp,2_JJ ,_, dp,3_JJ and_CC dp,4_JJ )_) ._SENT 
+A_DT closer_JJR look_NN is_VBZ taken_VVN at_IN the_DT wave_NN trough_NN to_TO show_VV the_DT convergence_NN ._SENT 
+Table_NN 6._CD Particle_NN size_NN convergence_NN and_CC Richardson_NP 's_POS extrapolation_NN ._SENT 
+The_DT results_NNS in_IN Table_NN 6_CD show_VVP that_IN already_RB for_IN the_DT particle_NN size_NN refinement_NN with_IN dp,3=0.005_NN the_DT error_NN is_VBZ low_JJ enough_RB at_IN 0.61_CD %_NN ._SENT 
+For_IN all_PDT the_DT test_NN performed_VVN in_IN this_DT research_NN ,_, a_DT similar_JJ refinement_NN is_VBZ performed_VVN to_TO ensure_VV a_DT converged_VVD result_NN ._SENT 
+3.3_CD ._SENT 
+Test_NN case_NN 2_CD :_: fixed_VVN OWC_NP Next_NP ,_, the_DT coupled_VVN model_NN is_VBZ applied_VVN to_TO model_VV the_DT surface_NN elevations_NNS around_IN a_DT fixed_VVN Oscillating_VVG Water_NP Column_NN (_( OWC_NP )_) wave_NN energy_NN converter_NN ._SENT 
+The_DT experiment_NN details_NNS are_VBP discussed_VVN in_IN Iturrioz_NP et_CC al_NP ._SENT 
+(_( 2014_CD )_) and_CC Crespo_NP et_NP al_NP ._SENT 
+(_( 2017_CD )_) ,_, and_CC the_DT results_NNS have_VHP been_VBN compared_VVN to_TO a_DT volume-based_JJ solver_NN ,_, and_CC to_TO a_DT stand-alone_JJ DualSPHysics_NN model_NN (_( Crespo_NP et_NP al_NP ._SENT 
+,_, 2017_CD )_) as_IN well_RB ._SENT 
+In_IN this_DT section_NN ,_, the_DT aim_NN is_VBZ to_TO obtain_VV results_NNS employing_VVG the_DT coupled_VVN model_NN ,_, with_IN high_JJ correspondence_NN to_TO the_DT stand-alone_JJ DualSPHysics_NN model_NN ._SENT 
+The_DT experimental_JJ and_CC numerical_JJ test_NN set-up_NN is_VBZ illustrated_VVN in_IN Fig_NN ._SENT 
+14._CD The_DT fixed_VVN OWC_NN device_NN is_VBZ positioned_VVN in_IN the_DT centre_NN of_IN the_DT coupled_VVN model_NN zone_NN ,_, which_WDT is_VBZ chosen_VVN to_TO be_VB 5m_NN wide_JJ ._SENT 
+The_DT OWC_NN has_VHZ a_DT submerged_JJ opening_NN of_IN 0.3m_NP ,_, while_IN the_DT square_JJ air_NN opening_NN at_IN the_DT top_JJ measures_NNS 0.05m_NN ._SENT 
+The_DT draft_NN of_IN the_DT device_NN is_VBZ 0.2m_NN and_CC the_DT water_NN depth_NN is_VBZ 0.6m_NN ._SENT 
+The_DT incident_NN wave_NN has_VHZ a_DT wave_NN height_NN of_IN H=0.08m_NP and_CC a_DT wave_NN period_NN T=3.2s_NNS ,_, resulting_VVG in_IN a_DT Stokes_NP 2nd_JJ order_NN wave_NN ._SENT 
+A_DT particle_NN size_NN of_IN dp=0.0050m_NN is_VBZ used_VVN ,_, which_WDT leads_VVZ to_TO a_DT converged_VVD result_NN after_IN testing_VVG several_JJ particle_NN sizes_NNS ._SENT 
+Fig_NN ._SENT 
+14._CD Experimental_JJ and_CC numerical_JJ test_NN set-up_NN for_IN modelling_VVG the_DT surface_NN elevation_NN inside_IN an_DT OWC_NN device_NN ._SENT 
+The_DT DualSPHysics_NN domain_NN and_CC OceanWave3D_NN domain_NN are_VBP indicated_VVN ._SENT 
+The_DT surface_NN elevation_NN is_VBZ registered_VVN in_IN the_DT centre_NN of_IN the_DT OWC_NN device_NN and_CC compared_VVN to_TO the_DT experimental_JJ data_NNS in_IN Fig_NN ._SENT 
+15._CD The_DT stand-alone_JJ DualSPHysics_NN simulation_NN results_NNS from_IN Crespo_NP et_CC al_NP ._SENT 
+(_( 2017_CD )_) are_VBP added_VVN to_TO the_DT comparison_NN ._SENT 
+There_EX is_VBZ a_DT very_RB good_JJ agreement_NN between_IN the_DT result_NN from_IN the_DT coupled_VVN model_NN ,_, the_DT stand-alone_JJ DualSPHysics_NN simulation_NN and_CC the_DT experimental_JJ data_NNS ._SENT 
+The_DT non-linear_JJ behaviour_NN when_WRB the_DT water_NN level_NN is_VBZ dropping_VVG inside_IN the_DT OWC_NN is_VBZ nicely_RB reproduced_VVD ._SENT 
+However_RB this_DT behaviour_NN is_VBZ not_RB visible_JJ during_IN the_DT rising_VVG of_IN the_DT water_NN level_NN ,_, although_IN it_PP is_VBZ present_JJ in_IN the_DT experimental_JJ data_NNS ._SENT 
+Quantitatively_RB the_DT correspondence_NN for_IN the_DT surface_NN elevation_NN is_VBZ excellent_JJ with_IN a_DT RMSE_JJ value_NN of_IN less_JJR than_IN half_PDT the_DT smoothing_VVG length_NN h._NN Additionally_RB ,_, Fig_VVP ._SENT 
+16_CD shows_NNS the_DT velocity_NN magnitude_NN around_IN the_DT OWC_NN device_NN within_IN the_DT DualSPHysics_NN domain_NN ._SENT 
+Upwave_NN and_CC in_IN the_DT lee_NN of_IN the_DT OWC_NN ,_, there_EX are_VBP locally_RB higher_JJR velocities_NNS up_RB to_TO 0.25m/s_NNS ,_, due_JJ to_TO the_DT disturbance_NN of_IN the_DT orbital_JJ velocities_NNS ._SENT 
+Fig_NN ._SENT 
+15._CD Surface_NP elevation_NN in_IN the_DT centre_NN of_IN the_DT OWC_NN device_NN compared_VVN to_TO experimental_JJ data_NNS and_CC a_DT stand-alone_JJ DualSPHysics_NN model_NN ._SENT 
+Fig_NN ._SENT 
+16._CD Velocity_NN magnitude_NN of_IN water_NN particles_NNS around_IN the_DT OWC_NN at_IN t=19s_NNS within_IN the_DT DualSPHysics_NN domain_NN of_IN the_DT coupled_VVN model_NN ._SENT 
+3.4_CD ._SENT 
+Test_NN case_NN 3_CD :_: floating_VVG box_NN In_IN a_DT third_JJ simulation_NN ,_, the_DT coupled_VVN model_NN is_VBZ applied_VVN to_TO compare_VV the_DT response_NN of_IN a_DT floating_JJ box_NN to_TO experimental_JJ data_NNS ,_, as_RB described_VVN in_IN Ren_NP et_CC al_NP ._SENT 
+(_( 2015_CD )_) ._SENT 
+The_DT experimental_JJ and_CC numerical_JJ test_NN set-up_NN is_VBZ illustrated_VVN in_IN Fig_NN ._SENT 
+17._CD The_DT full_JJ wave_NN propagation_NN domain_NN has_VHZ a_DT length_NN of_IN 20.0m_NP ._SENT 
+The_DT floating_JJ box_NN is_VBZ positioned_VVN at_IN x=5.5m_NN and_CC has_VHZ the_DT dimensions_NNS 0.3mx0.2m_NN (_( LxH_NP )_) with_IN a_DT draft_NN of_IN 0.1m_NP ._SENT 
+The_DT water_NN depth_NN is_VBZ 0.4m_NN ,_, while_IN the_DT DualSPHysics_NN domain_NN is_VBZ 6.0m_NN wide_JJ and_CC starts_VVZ at_IN x=4.0m_NN ._SENT 
+A_DT regular_JJ wave_NN with_IN wave_NN height_NN H=0.1m_NN and_CC wave_NN period_NN T=1.2s_NNS is_VBZ generated_VVN ,_, characterised_VVN as_IN a_DT Stokes_NP 3rd_NP order_NN wave_NN ._SENT 
+A_DT particle_NN size_NN of_IN dp=0.005m_NN is_VBZ used_VVN ._SENT 
+Fig_NN ._SENT 
+17._CD Experimental_JJ and_CC numerical_JJ test_NN set-up_NN for_IN simulation_NN of_IN the_DT response_NN of_IN a_DT floating_JJ box_NN to_TO a_DT custom_NN wave_NN signal_NN ._SENT 
+The_DT DualSPHysics_NN domain_NN and_CC OceanWave3D_NN domain_NN are_VBP indicated_VVN ._SENT 
+Since_IN the_DT simulation_NN is_VBZ performed_VVN in_IN 2D_NN ,_, the_DT motion_NN of_IN the_DT floating_JJ box_NN is_VBZ characterised_VVN by_IN three_CD degrees_NNS of_IN freedom_NN :_: heave_NN ,_, roll_NN and_CC surge_NN ._SENT 
+These_DT motions_NNS are_VBP compared_VVN to_TO the_DT experimental_JJ data_NNS and_CC a_DT stand-alone_JJ SPH_NN simulation_NN in_IN Fig_NN ._SENT 
+18._CD ”Graph_NN 1″_NN of_IN Fig_NN ._SENT 
+18_CD shows_NNS the_DT heaving_VVG motion_NN of_IN the_DT box_NN ._SENT 
+A_DT good_JJ correspondence_NN is_VBZ found_VVN with_IN a_DT maximum_JJ error_NN of_IN 1.37h_NP ._SENT 
+In_IN ”Graph_NP 2″_NP ,_, the_DT roll_NN motion_NN is_VBZ accurately_RB reproduced_VVD as_RB well_RB ,_, with_IN a_DT maximum_JJ error_NN of_IN 1.32h_NP ._SENT 
+”Graph_NP 3”_NP illustrates_VVZ the_DT drifting_VVG nature_NN within_IN the_DT surge_NN motion_NN ._SENT 
+The_DT largest_JJS error_NN is_VBZ found_VVN at_IN the_DT end_NN of_IN the_DT simulation_NN and_CC is_VBZ equal_JJ to_TO 4.7h_NP ._SENT 
+This_DT error_NN is_VBZ logically_RB larger_JJR than_IN the_DT error_NN on_IN the_DT other_JJ motions_NNS since_IN there_EX is_VBZ a_DT net_JJ drift_NN in_IN the_DT x-direction_NN ._SENT 
+The_DT slightest_JJS difference_NN in_IN drift_NN velocity_NN will_MD lead_VV to_TO larger_JJR errors_NNS over_IN time_NN ._SENT 
+Overall_RB ,_, the_DT stand-alone_JJ DualSPHysics_NN result_NN still_RB gives_VVZ slightly_RB more_RBR accurate_JJ results_NNS than_IN the_DT coupled_VVN model_NN ._SENT 
+This_DT is_VBZ probably_RB due_JJ to_TO the_DT larger_JJR domain_NN and_CC the_DT difference_NN between_IN the_DT paddle_NN wave_NN generation_NN and_CC the_DT coupled_VVN wave_NN generation_NN ._SENT 
+Fig_NN ._SENT 
+18._CD Time_NN series_NN of_IN the_DT surface_NN elevation_NN in_IN front_NN of_IN the_DT box_NN and_CC the_DT 3_CD motion_NN of_IN the_DT box_NN with_IN heave_NN ,_, roll_NN and_CC surge_NN responses_NNS ._SENT 
+Lastly_RB ,_, the_DT velocity_NN field_NN in_IN the_DT DualSPHysics_NN domain_NN of_IN the_DT coupled_VVN model_NN is_VBZ given_VVN in_IN Fig_NN ._SENT 
+19_CD ,_, with_IN maximum_JJ velocity_NN magnitude_NN of_IN 0.4m/s_NNS close_JJ to_TO the_DT floating_JJ box_NN ._SENT 
+The_DT velocity_NN is_VBZ shown_VVN at_IN time_NN t=7.5s_NNS ,_, when_WRB a_DT wave_NN crest_NN is_VBZ passing_VVG underneath_IN the_DT floating_JJ box_NN ._SENT 
+Fig_NN ._SENT 
+19._CD Velocity_NN magnitude_NN of_IN water_NN particles_NNS around_IN the_DT floating_JJ box_NN at_IN t=5s_NNS within_IN the_DT DualSPHysics_NN domain_NN of_IN the_DT coupled_VVN model_NN ._SENT 
+3.5_CD ._SENT 
+Computational_JJ speed-up_NNS One_CD of_IN the_DT main_JJ benefits_NNS of_IN applying_VVG the_DT present_JJ two-way_JJ coupling_NN methodology_NN ,_, is_VBZ to_TO keep_VV the_DT DualSPHysics_NN domain_NN as_IN small_JJ as_IN possible_JJ ._SENT 
+This_DT leads_VVZ to_TO a_DT significant_JJ reduction_NN of_IN computational_JJ effort_NN and_CC cost_NN ._SENT 
+In_IN order_NN to_TO quantify_VV the_DT achievable_JJ computational_JJ speed-up_NNS ,_, the_DT number_NN of_IN particles_NNS and_CC the_DT simulation_NN runtime_NN is_VBZ compared_VVN between_IN the_DT coupled_VVN model_NN and_CC a_DT stand-alone_JJ DualSPHysics_NN model_NN ._SENT 
+As_IN described_VVN in_IN Fig_NN ._SENT 
+8_CD ,_, the_DT OceanWave3D_JJ domain_NN has_VHZ a_DT length_NN of_IN 50.0m_NP ,_, while_IN the_DT DualSPHysics_NP domain_NN measures_NNS 5.0m_NN ._SENT 
+Theoretically_RB this_DT would_MD lead_VV to_TO a_DT computational_JJ speed-up_NNS of_IN 10._CD However_RB ,_, this_DT result_NN is_VBZ too_RB optimistic_JJ since_IN DualSPHysics_NNS is_VBZ capable_JJ of_IN doing_VVG stand-alone_JJ wave_NN propagation_NN simulations_NNS with_IN a_DT shorter_JJR numerical_JJ wave_NN flume_NN length_NN ._SENT 
+The_DT recommendation_NN is_VBZ to_TO have_VH a_DT flume_NN length_NN of_IN 4_CD wavelengths_NNS long_RB ._SENT 
+Based_VVN on_IN this_DT rule_NN of_IN thumb_NN ,_, the_DT stand-alone_JJ DualSPHysics_NN simulations_NNS are_VBP run_VVN and_CC compared_VVN to_TO the_DT coupled_VVN model_NN in_IN Table_NN 7._CD The_DT comparison_NN between_IN the_DT number_NN of_IN particles_NNS results_NNS in_IN a_DT theoretical_JJ speed-up_NNS ._SENT 
+However_RB ,_, the_DT runtime_NN comparison_NN indicates_VVZ that_IN there_EX can_MD be_VB a_DT difference_NN between_IN theoretical_JJ speed-up_NNS and_CC effective_JJ computational_JJ speed-up_NNS ._SENT 
+Nevertheless_RB ,_, it_PP is_VBZ clear_JJ that_IN a_DT significant_JJ computational_JJ speed-up_NNS is_VBZ possible_JJ by_IN applying_VVG the_DT coupling_NN methodology_NN ._SENT 
+The_DT effective_JJ computational_JJ speed-up_NNS ranges_NNS from_IN 134_CD %_NN to_TO 420_CD %_NN ._SENT 
+Table_NN 7._CD Computational_JJ speed-up_NNS for_IN all_DT performed_VVN tests_NNS ._SENT 
+In_IN order_NN to_TO estimate_VV how_WRB much_JJ overhead_JJ time_NN is_VBZ lost_VVN due_RB to_TO the_DT MPI_NP communications_NNS ,_, one_CD of_IN the_DT test_NN cases_NNS (_( Test_NP Case_NP 2_CD :_: fixed_VVN OWC_NN )_) is_VBZ run_VVN and_CC the_DT computation_NN time_NN dedicated_VVN to_TO the_DT individual_JJ processes_NNS is_VBZ monitored_JJ (_( see_VV Table_NN 8_CD )_) ._SENT 
+The_DT simulation_NN is_VBZ divided_VVN in_IN 4_CD timings_NNS :_: Initialisation_NN ,_, OceanWave3D_RB ,_, DualSPHysics_NNS and_CC Overhead_JJ time_NN ._SENT 
+The_DT latter_NN includes_VVZ the_DT integration_NN and_CC interpolation_NN of_IN orbital_JJ velocities_NNS to_TO boundary_NN block_NN positions_NNS and_CC the_DT filtering_VVG of_IN the_DT surface_NN elevation_NN ._SENT 
+From_IN Table_NN 8_CD ,_, it_PP is_VBZ clear_JJ that_IN almost_RB all_PDT the_DT computation_NN time_NN in_IN the_DT coupled_VVN model_NN is_VBZ taken_VVN up_RP by_IN the_DT DualSPHysics_NN process_NN taking_VVG 99.598_CD %_NN of_IN the_DT total_JJ load_NN ._SENT 
+The_DT second_JJ most_RBS demanding_JJ process_NN with_IN 0.273_CD %_NN is_VBZ the_DT OceanWave3D_JJ process_NN while_IN the_DT overhead_NN is_VBZ responsible_JJ for_IN only_RB 0.125_CD %_NN of_IN the_DT computational_JJ effort_NN ._SENT 
+Table_NN 8._CD Duration_NN of_IN different_JJ sub-processes_NNS during_IN OWC_NN test_NN case_NN ._SENT 
+<Section> 4._CD Conclusions_NNS </Section> In_IN this_DT paper_NN ,_, a_DT two-way_JJ coupling_NN methodology_NN between_IN a_DT fully_RB non-linear_JJ potential_JJ flow_NN wave_NN propagation_NN model_NN and_CC an_DT SPH_NN wave-structure_NN interaction_NN solver_NN was_VBD introduced_VVN ._SENT 
+The_DT coupled_VVN model_NN consists_VVZ of_IN a_DT nested_VVN SPH_NN zone_NN within_IN a_DT larger_JJR wave_NN propagation_NN domain_NN ._SENT 
+At_IN both_DT boundaries_NNS of_IN the_DT SPH_NN zone_NN ,_, there_EX is_VBZ an_DT interface_NN with_IN the_DT wave_NN propagation_NN model_NN ._SENT 
+Here_RB ,_, boundary_NN blocks_NNS are_VBP moved_VVN horizontally_RB ,_, matching_VVG the_DT horizontal_JJ orbital_JJ velocities_NNS underneath_IN the_DT wave_NN field_NN calculated_VVN with_IN the_DT wave_NN propagation_NN model_NN ._SENT 
+This_DT results_NNS in_IN wave_NN generating_VVG blocks_NNS at_IN the_DT left_VVN side_NN of_IN the_DT SPH_NN zone_NN and_CC wave_NN absorbing_VVG blocks_NNS on_IN the_DT right_JJ side_NN ._SENT 
+Within_IN the_DT SPH_NN zone_NN ,_, the_DT surface_NN elevation_NN and_CC wave_NN kinematics_NNS are_VBP registered_VVN and_CC sent_VVN back_RB to_TO the_DT wave_NN propagation_NN model_NN ._SENT 
+In_IN the_DT present_JJ research_NN ,_, the_DT introduced_VVN coupling_NN methodology_NN is_VBZ applied_VVN to_TO the_DT wave_NN propagation_NN model_NN OceanWave3D_NNS and_CC the_DT wave-structure_NN interaction_NN solver_NN DualSPHysics_NNS ._SENT 
+The_DT two-way_JJ coupled_VVN model_NN is_VBZ programmed_VVN within_IN an_DT OpenMPI_NP environment_NN ,_, where_WRB 3_CD subprocesses_NNS are_VBP transferring_VVG and_CC processing_VVG data_NNS ._SENT 
+Next_JJ to_TO an_DT OceanWave3D_NN and_CC DualSPHysics_NN process_NN ,_, there_EX is_VBZ a_DT Python_NN process_NN ,_, directing_VVG the_DT information_NN transfer_NN and_CC processing_VVG the_DT data_NNS before_IN sending_VVG it_PP to_TO the_DT dedicated_JJ process_NN ._SENT 
+The_DT code_NN is_VBZ compiled_VVN to_TO run_VV on_IN both_DT CPUs_NP and_CC GPUs_NP ._SENT 
+A_DT proof-of-concept_JJ 2D_NN coupled_VVN model_NN is_VBZ introduced_VVN to_TO demonstrate_VV the_DT capabilities_NNS of_IN the_DT two-way_JJ coupling_NN ._SENT 
+Firstly_RB ,_, wave_NN propagation_NN of_IN 4_CD different_JJ wave_NN types_NNS (_( linear_JJ and_CC non-linear_JJ )_) is_VBZ performed_VVN ,_, resulting_VVG in_IN a_DT very_RB high_JJ accuracy_NN with_IN errors_NNS that_WDT remain_VVP lower_JJR than_IN 1_CD smoothing_VVG length_NN h._NN Secondly_RB ,_, results_NNS from_IN the_DT coupled_VVN model_NN are_VBP compared_VVN to_TO those_DT from_IN two_CD experimental_JJ set-ups_NNS :_: one_CD with_IN a_DT fixed_VVN OWC_NN device_NN and_CC another_DT one_CD with_IN a_DT floating_JJ box_NN ._SENT 
+The_DT results_NNS show_VVP a_DT good_JJ agreement_NN with_IN errors_NNS remaining_VVG below_IN or_CC close_VV to_TO the_DT smoothing_VVG length_NN h._NN The_DT coupling_NN methodology_NN has_VHZ the_DT following_VVG generic_JJ benefits_NNS :_: •The_JJ computation_NN time_NN can_MD be_VB significantly_RB smaller_JJR since_IN only_RB a_DT part_NN of_IN the_DT full_JJ wave_NN propagation_NN domain_NN is_VBZ simulated_JJ in_IN the_DT wave-structure_NN interaction_NN solver_NN (_( here_RB ,_, SPH_NP )_) ._SENT 
+In_IN the_DT performed_VVN tests_NNS ,_, the_DT coupled_VVN model_NN has_VHZ at_IN least_JJS 2_CD to_TO 4_CD times_NNS less_JJR particles_NNS to_TO simulate_VV ,_, which_WDT directly_RB results_VVZ into_IN faster_JJR computation_NN times_NNS ;_: •Alternatively_RB ,_, for_IN the_DT same_JJ computation_NN time_NN as_IN a_DT stand-alone_JJ SPH_NN simulation_NN ,_, there_EX is_VBZ the_DT possibility_NN of_IN simulating_VVG more_JJR particles_NNS for_IN a_DT higher_JJR accuracy_NN ._SENT 
+•Almost_RB no_DT overhead_JJ time_NN is_VBZ lost_VVN ,_, since_IN the_DT SPH_NN computation_NN step_NN is_VBZ by_IN far_RB the_DT largest_JJS part_NN of_IN a_DT complete_JJ cycle_NN ;_: •The_JJ MPI_NP protocol_NN ensures_VVZ an_DT efficient_JJ and_CC practical_JJ way_NN of_IN transferring_VVG data_NNS from_IN one_CD model_NN to_TO another_DT ,_, since_IN it_PP minimizes_VVZ the_DT necessary_JJ source_NN code_NN alterations_NNS in_IN each_DT model_NN ;_: However_RB ,_, there_EX are_VBP a_DT number_NN of_IN limitations_NNS to_TO this_DT two-way_JJ coupling_NN methodology_NN ._SENT 
+Firstly_RB ,_, the_DT generation_NN and_CC absorption_NN of_IN waves_NNS in_IN the_DT coupled_VVN model_NN is_VBZ implemented_VVN by_IN horizontally_RB moving_VVG boundary_NN blocks_NNS ._SENT 
+This_DT means_VVZ the_DT vertical_JJ orbital_NN velocities_NNS and_CC surface_NN elevation_NN are_VBP not_RB coupled_VVN and_CC need_VVP to_TO be_VB generated_VVN within_IN DualSPHysics_NNS ._SENT 
+This_DT inevitably_RB leads_VVZ to_TO lower_JJR accuracy_NN ._SENT 
+Next_RB ,_, the_DT horizontally_RB moving_VVG boundaries_NNS slowly_RB drift_VVP away_RB from_IN each_DT other_JJ ,_, limiting_VVG the_DT simulation_NN time_NN ._SENT 
+Additionally_RB ,_, only_RB the_DT surface_NN elevation_NN is_VBZ coupled_VVN back_RB to_TO the_DT wave_NN propagation_NN model_NN ._SENT 
+A_DT stronger_JJR coupling_NN would_MD be_VB obtained_VVN when_WRB the_DT velocity_NN field_NN can_MD be_VB coupled_VVN back_RB as_RB well_RB ._SENT 
+This_DT would_MD ensure_VV that_IN both_CC the_DT velocity_NN field_NN and_CC surface_NN elevation_NN are_VBP exactly_RB the_DT same_JJ in_IN OceanWave3D_NNS and_CC DualSPHysics_NNS ,_, within_IN the_DT coupling_NN domain_NN ._SENT 
+The_DT difficulty_NN however_RB lies_VVZ within_IN integrating_VVG the_DT noisy_JJ DualSPHysics_NN velocities_NNS to_TO a_DT non-linear_JJ wave_NN potential_JJ field_NN for_IN OceanWave3D_NNS ._SENT 
+Lastly_RB ,_, only_RB 2D_VVG vertical_JJ simulations_NNS are_VBP supported_VVN ._SENT 
+In_IN future_JJ work_NN ,_, the_DT two-way_JJ coupled_VVN model_NN will_MD be_VB adapted_VVN to_TO overcome_VV these_DT limitations_NNS and_CC expanded_VVN with_IN the_DT following_VVG features_NNS :_: •The_RB moving_VVG boundary_NN blocks_NNS will_MD be_VB replaced_VVN by_IN buffer_NN zones_NNS with_IN inlet_NN and_CC outlet_NN boundary_NN conditions_NNS (_( Tafuni_NP et_NP al_NP ._SENT 
+,_, 2017_CD )_) ._SENT 
+This_DT will_MD result_VV in_IN automatic_JJ creation_NN and_CC removal_NN of_IN water_NN particles_NNS at_IN the_DT boundaries_NNS ;_: •The_JJ model_NN will_MD be_VB extended_VVN to_TO a_DT 3D_JJ domain_NN ._SENT 
+A_DT detailed_JJ study_NN will_MD be_VB performed_VVN to_TO investigate_VV the_DT benefits_NNS of_IN a_DT square_JJ coupling_NN zone_NN vs._IN a_DT circular_JJ coupling_NN zone_NN ;_: •Fully_RB non-linear_JJ ,_, short-crested_JJ irregular_JJ waves_NNS will_MD be_VB supported_VVN ;_: •Support_NN for_IN coupling_NN with_IN the_DT open-source_NN physics_NN engine_NN Chrono_NP (_( Project_NP chrono_NP -_: an_DT open_JJ source_NN multi-physics_NNS simulation_NN engine_NN )_) will_MD be_VB available_JJ in_IN the_DT new_JJ release_NN of_IN DualSPHysics_NNS ,_, and_CC will_MD also_RB be_VB supported_VVN in_IN the_DT coupled_VVN model_NN ._SENT 
+This_DT will_MD enable_VV the_DT modelling_VVG of_IN mechanical_JJ connections_NNS and_CC Power_NN Take-Off_NN systems_NNS ,_, leading_VVG to_TO more_JJR accurate_JJ results_NNS of_IN floating_VVG offshore_JJ devices_NNS ,_, such_JJ as_IN wave_NN energy_NN converters_NNS ._SENT 
+•Support_NN for_IN coupling_NN with_IN the_DT open-source_NN dynamic_JJ mooring_NN line_NN model_NN MoorDyn_NP (_( Hall_NP and_CC Goupee_NP ,_, 2015_CD )_) will_MD be_VB available_JJ in_IN the_DT new_JJ release_NN of_IN DualSPHysics_NNS ,_, and_CC will_MD also_RB be_VB supported_VVN in_IN the_DT coupled_VVN model_NN ._SENT 
+This_DT will_MD enable_VV the_DT modelling_VVG of_IN axial_JJ elasticity_NN ,_, hydrodynamics_NNS ,_, and_CC bottom_JJ contact_NN of_IN mooring_VVG lines_NNS ._SENT 
+•A_NP more_RBR complete_JJ coupling_NN will_MD be_VB studied_VVN to_TO investigate_VV the_DT possibility_NN of_IN sharing_VVG the_DT full_JJ velocity_NN field_NN and_CC surface_NN elevation_NN between_IN both_DT models_NNS ._SENT 
+The_DT difficulty_NN here_RB lies_VVZ in_IN integrating_VVG the_DT noisy_JJ SPH_NN velocity_NN field_NN to_TO a_DT three-dimensional_JJ wave_NN potential_JJ field_NN ._SENT 
+Logically_RB ,_, the_DT upgraded_VVN methodology_NN will_MD be_VB thoroughly_RB tested_VVN and_CC compared_VVN to_TO theoretical_JJ solutions_NNS and_CC experimental_JJ datasets_NNS ._SENT 
+<Section> Acknowledgments_NNS </Section> This_DT work_NN was_VBD supported_VVN by_IN the_DT Agency_NN for_IN Innovation_NN by_IN Science_NP and_CC Technology_NP in_IN Flanders_NP (_( IWT_NP )_) with_IN the_DT scholarship_NN 141402_CD ;_: and_CC the_DT Ministry_NP of_IN Economy_NP and_CC Competitiveness_NN of_IN the_DT Government_NN of_IN Spain_NP under_IN project_NN WELCOME_JJ ENE2016-75074-C2-1-R_NN ;_: and_CC the_DT Research_NP Foundation_NP Flanders_NP (_( FWO_NP )_) ,_, Belgium_NP -_: Research_NP project_NN No._NN 3G029114_NN ._SENT 
+<Section> References_NNS </Section> C._NP Altomare_NP ,_, A.J._NP Crespo_NP ,_, B._NP Rogers_NP ,_, J._NP Domínguez_NP ,_, X._NP Gironella_NP ,_, M._NP Gómez-Gesteira_NP Numerical_JJ modelling_VVG of_IN armour_NN block_NN sea_NN breakwater_NN with_IN smoothed_VVN particle_NN hydrodynamics_NN Comput_NN ._SENT 
+Struct_VV ._SENT 
+,_, 130_CD (_( 2014_CD )_) ,_, pp_NP ._SENT 
+34-45_CD C._NP Altomare_NP ,_, A.J._NP Crespo_NP ,_, J.M._NP Domínguez_NP ,_, M._NP Gómez-Gesteira_NP ,_, T._NP Suzuki_NP ,_, T._NP Verwaest_NP Applicability_NN of_IN Smoothed_VVN Particle_NN Hydrodynamics_NNS for_IN estimation_NN of_IN sea_NN wave_NN impact_NN on_IN coastal_JJ structures_NNS Coast_NP Eng_NP ._SENT 
+,_, 96_CD (_( 2015_CD )_) ,_, pp_NP ._SENT 
+1-12_CD ,_, 10.1016/j.coastaleng.2014.11.001_JJ C._NP Altomare_NP ,_, J.M._NP Domínguez_NP ,_, A.J.C._NP Crespo_NP ,_, T._NP Suzuki_NP ,_, I._NP Caceres_NP ,_, M._NP Gómez-Gesteira_NP Hybridisation_NN of_IN the_DT wave_NN propagation_NN model_NN SWASH_NN and_CC the_DT meshfree_JJ particle_NN method_NN SPH_NN for_IN real_JJ coastal_JJ applications_NNS Coast_NP Eng_NP ._SENT 
+J._NP ,_, 57_CD (_( 4_LS )_) (_( 2016_CD )_) ,_, pp_NP ._SENT 
+1-34_CD ,_, 10.1142/S0578563415500242_NP C._NP Altomare_NP ,_, J._NP Domínguez_NP ,_, A._NP Crespo_NP ,_, J._NP González-Cao_NP ,_, T._NP Suzuki_NP ,_, M._NP Gómez-Gesteira_NP ,_, P._NP Troch_NP Long-crested_VVD wave_NN generation_NN and_CC absorption_NN for_IN sph-based_JJ dualsphysics_NN model_NN Coast_NP Eng_NP ._SENT 
+,_, 127_CD (_( 2017_CD )_) ,_, pp_NP ._SENT 
+37-54_CD M._NP Antuono_NP ,_, A._NP Colagrossi_NP ,_, S._NP Marrone_NP ,_, D._NP Molteni_NP Free-surface_NN flows_NNS solved_VVN by_IN means_NNS of_IN sph_NN schemes_NNS with_IN numerical_JJ diffusive_JJ terms_NNS Comput_NN ._SENT 
+Phys_NPS ._SENT 
+Commun_NN ._SENT 
+,_, 181_CD (_( 3_LS )_) (_( 2010_CD )_) ,_, pp_NP ._SENT 
+532-549_CD M._NP Antuono_NP ,_, A._NP Colagrossi_NP ,_, S._NP Marrone_NP Numerical_JJ diffusive_JJ terms_NNS in_IN weakly-compressible_JJ sph_NN schemes_NNS Comput_NN ._SENT 
+Phys_NPS ._SENT 
+Commun_NN ._SENT 
+,_, 183_CD (_( 12_CD )_) (_( 2012_CD )_) ,_, pp_NP ._SENT 
+2570-2580_CD https://doi.org/10.1016/j.cpc.2012.07.006_NP G.K._NP Batchelor_NP An_DT Introduction_NN to_TO Fluid_JJ Dynamics_NPS Cambridge_NP university_NN press_NN (_( 2000_CD )_) B._NP Biausser_NP ,_, P._NP Fraunié_NP ,_, S._NP T._NP Grilli_NP ,_, R._NP Marcer_NP ,_, et_NP al._NPS ._SENT 
+,_, Numerical_JJ analysis_NN of_IN the_DT internal_JJ kinematics_NNS and_CC dynamics_NNS of_IN 3-d_NNS breaking_VVG waves_NNS on_IN slopes_NNS ,_, Int_NP ._SENT 
+J._NP Offshore_NP Polar_JJ Eng_NP ._SENT 
+14(04_NP )_) ._SENT 
+B._NP Bouscasse_NP ,_, S._NP Marrone_NP ,_, A._NP Colagrossi_NP ,_, A._NP Di_NP Mascio_NP Multi-purpose_NNS interfaces_NNS for_IN coupling_NN SPH_NN with_IN other_JJ solvers_NNS Proceedings_NNS of_IN the_DT 8th_JJ International_NP SPHERIC_JJ Workshop_NN ,_, Trondheim_NP (_( 2013_CD )_) F._NP Charrayre_NP ,_, M._NP Benoit_NP ,_, C._NP Peyrard_NP ,_, A._NP Babarit_NP ,_, H._NP S.-v_NP ._SENT 
+Edf_NP ,_, P._NP Paristech_NP Modeling_NN of_IN interactions_NNS in_IN a_DT farm_NN of_IN wave_NN energy_NN converters_NNS taking_VVG into_IN account_NN the_DT bathymetry_NN 14eme_NN Journées_VVZ de_NP l'Hydrodynamique_NP (_( 2014_CD )_) ,_, pp_NP ._SENT 
+1-12_CD J._NP Chicheportiche_NP ,_, V._NP Hergault_NP ,_, M._NP Yates_NP ,_, C._NP Raoult_NP ,_, A._NP Leroy_NP ,_, A._NP Joly_NP ,_, D._NP Violeau_NP Coupling_NN SPH_NN with_IN a_DT potential_JJ Eulerian_JJ model_NN for_IN wave_NN propagation_NN problems_NNS Proceedings_NNS of_IN the_DT 11th_JJ SPHERIC_JJ International_NP Workshop_NN ,_, No._NN 1_CD ,_, Munich_NP (_( 2016_CD )_) ,_, pp_NP ._SENT 
+246-252_CD G._NP Colicchio_NP ,_, M._NP Greco_NP ,_, O._NP Faltinsen_NP A_DT bem-level_JJ set_NN domain-decomposition_NN strategy_NN for_IN non-linear_JJ and_CC fragmented_JJ interfacial_JJ flows_NNS Int_NP ._SENT 
+J._NP Numer_NP ._SENT 
+Meth_NP ._SENT 
+Eng_NN ._SENT 
+,_, 67_CD (_( 10_CD )_) (_( 2006_CD )_) ,_, pp_NP ._SENT 
+1385-1419_CD A._NP Crespo_NP ,_, M._NP Gómez-Gesteira_NP ,_, R.A._NP Dalrymple_NP Boundary_NP conditions_NNS generated_VVN by_IN dynamic_JJ particles_NNS in_IN sph_NN methods_NNS CMC-Tech_VVP ._SENT 
+Sci_NP ._SENT 
+Press_NP ,_, 5_CD (_( 3_LS )_) (_( 2007_CD )_) ,_, p._NP 173_CD A.J.C._NP Crespo_NP ,_, M._NP Gómez-Gesteira_NP ,_, R.A._NP Dalrymple_NP Boundary_NP conditions_NNS generated_VVN by_IN dynamic_JJ particles_NNS in_IN SPH_NN methods_NNS Tech_NP ._SENT 
+Sci_NP ._SENT 
+Press_NP CMC_NP ,_, 5_CD (_( 3_LS )_) (_( 2007_CD )_) ,_, pp_NP ._SENT 
+173-184_CD A._NP Crespo_NP ,_, J._NP Domínguez_NP ,_, B._NP Rogers_NP ,_, M._NP Gómez-Gesteira_NP ,_, S._NP Longshaw_NP ,_, R._NP Canelas_NP ,_, R._NP Vacondio_NP ,_, A._NP Barreiro_NP ,_, O._NP García-Feal_NP DualSPHysics_NP :_: open-source_NP parallel_JJ CFD_NN solver_NN based_VVN on_IN smoothed_VVN particle_NN hydrodynamics_NNS (_( SPH_NN )_) Comput_NN ._SENT 
+Phys_NPS ._SENT 
+Commun_NN ._SENT 
+,_, 187_CD (_( 2015_CD )_) ,_, pp_NP ._SENT 
+204-216_CD ,_, 10.1016/j.cpc.2014.10.004_NP A._NP Crespo_NP ,_, C._NP Altomare_NP ,_, J._NP Domínguez_NP ,_, J._NP González-Cao_NP ,_, M._NP Gómez-Gesteira_NP Towards_IN simulating_VVG floating_JJ offshore_JJ oscillating_VVG water_NN column_NN converters_NNS with_IN smoothed_VVN particle_NN hydrodynamics_NN Coast_NP Eng_NP ._SENT 
+,_, 126_CD (_( 2017_CD )_) ,_, pp_NP ._SENT 
+11-26_CD R._NP Dalrymple_NP ,_, B._NP Rogers_NP Numerical_JJ modeling_NN of_IN water_NN waves_NNS with_IN the_DT sph_NN method_NN Coast_NP ._SENT 
+Eng_NN ._SENT 
+,_, 53_CD (_( 2_LS )_) (_( 2006_CD )_) ,_, pp_NP ._SENT 
+141-147_CD R.G._NP Dean_NP ,_, R.A._NP Dalrymple_NP Water_NP Wave_NP Mechanics_NNS for_IN Engineers_NNS and_CC Scientists_NNS ,_, vol_NP ._SENT 
+2_LS ,_, world_NN scientific_JJ publishing_NN Co_NP Inc_NP (_( 1991_CD )_) Didier_NP et_CC al_NP ._SENT 
+,_, 2013_CD E._NP Didier_NP ,_, D._NP Neves_NP ,_, P.R.F._NP Teixeira_NP ,_, M.G._NP Neves_NP ,_, M._NP Viegas_NP ,_, H._NP Soares_NP Coupling_NN of_IN FLUINCO_NP mesh-based_JJ and_CC SPH_VV mesh-free_JJ numerical_JJ codes_NNS for_IN the_DT modeling_NN of_IN wave_NN overtopping_VVG over_IN a_DT porous_JJ breakwater_NN International_NP Short_NP Course_NP on_IN Applied_NP Coastal_NP Research_NP ,_, Lisbon_NP (_( 2013_CD )_) J.M._NP Domínguez_NP ,_, A.J._NP Crespo_NP ,_, M._NP Gómez-Gesteira_NP Optimization_NP strategies_NNS for_IN cpu_NN and_CC gpu_NN implementations_NNS of_IN a_DT smoothed_VVN particle_NN hydrodynamics_NN method_NN Comput_NN ._SENT 
+Phys_NPS ._SENT 
+Commun_NN ._SENT 
+,_, 184_CD (_( 3_LS )_) (_( 2013_CD )_) ,_, pp_NP ._SENT 
+617-627_CD J.M._NP Domínguez_NP ,_, A.J._NP Crespo_NP ,_, D._NP Valdez-Balderas_NP ,_, B.D._NP Rogers_NP ,_, M._NP Gómez-Gesteira_NP New_NP multi-gpu_NP implementation_NN for_IN smoothed_VVN particle_NN hydrodynamics_NNS on_IN heterogeneous_JJ clusters_NNS Comput_NN ._SENT 
+Phys_NPS ._SENT 
+Commun_NN ._SENT 
+,_, 184_CD (_( 8_CD )_) (_( 2013_CD )_) ,_, pp_NP ._SENT 
+1848-1860_CD J._NP Domínguez_NP ,_, A._NP Crespo_NP ,_, G._NP Fourtakas_NP ,_, B._NP Rogers_NP ,_, J._NP Cercós-Pita_NP ,_, R._NP Vacondio_NP Evaluation_NN of_IN reliability_NN and_CC efficiency_NN of_IN different_JJ boundary_NN conditions_NNS in_IN an_DT sph_NN code_NN Proceedings_NNS of_IN the_DT 10th_JJ SPHERIC_JJ International_NP Workshop_NN ,_, Parma_NP ,_, Italy_NP (_( 2015_CD )_) A.P._NP Engsig-Karup_NP ,_, H.B._NP Bingham_NP ,_, O._NP Lindberg_NP An_DT efficient_JJ flexible-order_NN model_NN for_IN 3D_JJ nonlinear_JJ water_NN waves_NNS J._NP Comput_NN ._SENT 
+Phys_NPS ._SENT 
+,_, 228_CD (_( 6_CD )_) (_( 2009_CD )_) ,_, pp_NP ._SENT 
+2100-2118_CD ,_, 10.1016/j.jcp.2008.11.028_NP A.P._NP Engsig-Karup_NP ,_, S.L._NP Glimberg_NP ,_, A.S._NP Nielsen_NP ,_, O._NP Lindberg_NP Fast_NP hydrodynamics_NNS on_IN heterogeneous_JJ many-core_NN hardware_NN Designing_NP Scientific_NP Applications_NP on_IN GPUs_NP (_( 2013_CD )_) ,_, pp_NP ._SENT 
+251-294_CD G._NP Fourtakas_NP ,_, P.K._NP Stansby_NP ,_, B.D._NP Rogers_NP ,_, S.J._NP Lind_NP ,_, S._NP Yan_NP ,_, Q.W._NP Ma_NP ,_, et_NP al_NP ._SENT 
+On_IN the_DT coupling_NN of_IN incompressible_JJ sph_NN with_IN a_DT finite_JJ element_NN potential_JJ flow_NN solver_NN for_IN nonlinear_JJ free_JJ surface_NN flows_VVZ The_DT 27th_JJ International_NP Ocean_NP and_CC Polar_JJ Engineering_NP Conference_NP ,_, International_NP Society_NP of_IN Offshore_NP and_CC Polar_JJ Engineers_NNS (_( 2017_CD )_) G._NP Fourtakas_NP ,_, P._NP Stansby_NP ,_, B._NP Rogers_NP ,_, S._NP Lind_NP An_DT EulerianLagrangian_JJ incompressible_JJ SPH_NN formulation_NN (_( ELI-SPH_NN )_) connected_VVN with_IN a_DT sharp_JJ interface_NN Comput_NN ._SENT 
+Meth_NP ._SENT 
+Appl_NP ._SENT 
+Mech_NP ._SENT 
+Eng_NN ._SENT 
+,_, 329_CD (_( 329_CD )_) (_( 2018_CD )_) ,_, pp_NP ._SENT 
+532-552_CD ,_, 10.1016/j.cma.2017.09.029_NP P._NP Frigaard_NP ,_, T.L._NP Andersen_NP Analysis_NP of_IN Waves_NNS :_: Technical_JJ Documentation_NN for_IN Wavelab_NP 3_CD Tech_NP ._SENT 
+rep_NN ._SENT 
+Department_NP of_IN Civil_NP Engineering_NP ,_, Aalborg_NP University_NP (_( 2014_CD )_) H._NP Gotoh_NP ,_, A._NP Khayyer_NP On_IN the_DT state-of-the-art_JJ of_IN particle_NN methods_NNS for_IN coastal_JJ and_CC ocean_NN engineering_NN Coast_NP Eng_NP ._SENT 
+J._NP ,_, 0_CD (_( 0_CD )_) (_( 2018_CD )_) ,_, pp_NP ._SENT 
+1-25_CD ,_, 10.1080/21664250.2018.1436243_CD L.-d_NNS ._SENT 
+Guo_NP ,_, D.-p_NP ._SENT 
+Sun_NP ,_, W._NP Hao_NP A_DT new_JJ numerical_JJ wave_NN flume_NN combining_VVG the_DT 0–1_JJ type_NN bem_NN and_CC the_DT vof_JJ method_NN J._NP Hydrodyn_NP ._SENT 
+Ser_NP ._SENT 
+B_NP ,_, 24_CD (_( 4_LS )_) (_( 2012_CD )_) ,_, pp_NP ._SENT 
+506-517_CD M._NP Hall_NP ,_, A._NP Goupee_NP Validation_NN of_IN a_DT lumped-mass_NP mooring_NN line_NN model_NN with_IN DeepCwind_JJ semisubmersible_JJ model_NN test_NN data_NNS Ocean_NP ._SENT 
+Eng_NN ._SENT 
+,_, 104_CD (_( 2015_CD )_) ,_, pp_NP ._SENT 
+590-603_CD ,_, 10.1016/j.oceaneng.2015.05.035_NP http://www.sciencedirect.com/science/article/pii/S0029801815002279_NP A._NP Hildebrandt_NP ,_, V._NP Sriram_NP ,_, T._NP Schlurmann_NP ,_, et_NP al_NP ._SENT 
+Simulation_NP of_IN focusing_VVG waves_NNS and_CC local_JJ line_NN forces_NNS due_JJ to_TO wave_NN impacts_NNS on_IN a_DT tripod_NN structure_NN The_DT Twenty-third_NP International_NP Offshore_NP and_CC Polar_JJ Engineering_NP Conference_NP ,_, International_NP Society_NP of_IN Offshore_NP and_CC Polar_JJ Engineers_NNS (_( 2013_CD )_) Hill_NP C._NP Hill_NP ,_, Wamit_NP R_NP User_NP Manual_NP ._SENT 
+A._NP Iturrioz_NP ,_, R._NP Guanche_NP ,_, J._NP Armesto_NP ,_, M._NP Alves_NP ,_, C._NP Vidal_NP ,_, I._NP Losada_NP Time-domain_NP modeling_NN of_IN a_DT fixed_VVN detached_VVN oscillating_VVG water_NN column_NN towards_IN a_DT floating_JJ multi-chamber_NN device_NN Ocean_NP ._SENT 
+Eng_NN ._SENT 
+,_, 76_CD (_( 2014_CD )_) ,_, pp_NP ._SENT 
+65-74_CD https://doi.org/10.1016/j.oceaneng.2013.11.023_NP C.F._NP Janssen_NP ,_, M._NP Krafczyk_NP ,_, S._NP Grilli_NP ,_, et_NP al_NP ._SENT 
+Modeling_VVG of_IN wave_NN breaking_VVG andwave-structure_NN interactions_NNS by_IN coupling_NN of_IN fully_RB nonlinear_JJ potential_JJ flow_NN and_CC lattice-Boltzmann_NP models_NNS The_DT Twentieth_JJ International_NP Offshore_NP and_CC Polar_JJ Engineering_NP Conference_NP ,_, International_NP Society_NP of_IN Offshore_NP and_CC Polar_JJ Engineers_NNS (_( 2010_CD )_) C._NP Kassiotis_NP ,_, M._NP Ferrand_NP ,_, D._NP Violeau_NP ,_, B._NP Rogers_NP ,_, P._NP Stansby_NP ,_, M._NP Benoit_NP ,_, B.D._NP Rogers_NP ,_, P.K._NP Stansby_NP Coupling_NN SPH_NN with_IN a_DT 1-D_JJ Boussinesq-type_NN wave_NN model_NN 6th_JJ International_NP SPHERIC_JJ Workshop_NN ,_, Hamburg_NP (_( 2011_CD )_) ,_, pp_NP ._SENT 
+241-247_CD A._NP Khayyer_NP ,_, H._NP Gotoh_NP ,_, Y._NP Shimizu_NP Comparative_JJ study_NN on_IN accuracy_NN and_CC conservation_NN properties_NNS of_IN two_CD particle_NN regularization_NN schemes_NNS and_CC proposal_NN of_IN an_DT optimized_VVN particle_NN shifting_VVG scheme_NN in_IN isph_NN context_NN J._NP Comput_NN ._SENT 
+Phys_NPS ._SENT 
+,_, 332_CD (_( 2017_CD )_) ,_, pp_NP ._SENT 
+236-256_CD https://doi.org/10.1016/j.jcp.2016.12.005_NP S.-H_NP ._SENT 
+Kim_NP ,_, M._NP Yamashiro_NP ,_, A._NP Yoshida_NP A_DT simple_JJ two-way_JJ coupling_NN method_NN of_IN bem_NN and_CC vof_JJ model_NN for_IN random_JJ wave_NN calculations_NNS Coast_NP Eng_NP ._SENT 
+,_, 57_CD (_( 11_CD )_) (_( 2010_CD )_) ,_, pp_NP ._SENT 
+1018-1028_CD P._NP Kumar_NP ,_, Q._NP Yang_NP ,_, V._NP Jones_NP ,_, L._NP Mccue-Weil_NP Coupled_VVN SPH-FVM_NN simulation_NN within_IN the_DT OpenFOAM_NP framework_NN Procedia_NP IUTAM_NP ,_, 18_CD (_( 2015_CD )_) ,_, pp_NP ._SENT 
+76-84_CD ,_, 10.1016/j.piutam.2015.11.008_NP C._NP Lachaume_NP ,_, B._NP Biausser_NP ,_, P._NP Fraunié_NP ,_, S.T._NP Grilli_NP ,_, S._NP Guignard_NP ,_, et_NP al_NP ._SENT 
+Modeling_VVG of_IN breaking_VVG and_CC post-breakingwaves_NNS on_IN slopes_NNS by_IN coupling_NN of_IN bem_NN and_CC vof_JJ methods_NNS The_DT Thirteenth_JJ International_NP Offshore_NP and_CC Polar_JJ Engineering_NP Conference_NP ,_, International_NP Society_NP of_IN Offshore_NP and_CC Polar_JJ Engineers_NNS (_( 2003_CD )_) J._NP Larsen_NP ,_, H._NP Dancy_NP Open_NP boundaries_NNS in_IN short_JJ wave_NN simulations_NNS A_DT new_JJ approach_NN Coast_NP Eng_NP ._SENT 
+,_, 7_CD (_( 3_LS )_) (_( 1983_CD )_) ,_, pp_NP ._SENT 
+285-297_CD https://doi.org/10.1016/0378-3839(83)90022–90024_NP B._NP Le_NP Méhauté_NP An_DT introduction_NN to_TO hydrodynamics_NN and_CC water_NN waves_NNS Oceanic_JJ Fronts_NNS in_IN Coastal_NP Processes_NNS (_( 1969_CD )_) ,_, p._NP 114_CD E.-S_NNS ._SENT 
+Lee_NP ,_, D._NP Violeau_NP ,_, R._NP Issa_NP ,_, S._NP Ploix_NP Application_NN of_IN weakly_JJ compressible_JJ and_CC truly_RB incompressible_JJ SPH_NN to_TO 3-D_VV water_NN collapse_NN in_IN waterworks_NN J._NP Hydraul_NN ._SENT 
+Res_NNS ._SENT 
+,_, 48_CD (_( Suppl_NP ._SENT 
+1_LS )_) (_( 2010_CD )_) ,_, pp_NP ._SENT 
+50-60_CD ,_, 10.1080/00221686.2010.9641245_CD B.J._NP Leimkuhler_NP ,_, S._NP Reich_NP ,_, R.D._NP Skeel_NP Integration_NP methods_NNS for_IN molecular_JJ dynamics_NNS IMA_NP Vol_NP ._SENT 
+Math_NN ._SENT 
+its_PP$ Appl_NN ._SENT 
+,_, 82_CD (_( 1996_CD )_) ,_, pp_NP ._SENT 
+161-186_CD S._NP Lind_NP ,_, R._NP Xu_NP ,_, P._NP Stansby_NP ,_, B._NP Rogers_NP Incompressible_JJ smoothed_VVN particle_NN hydrodynamics_NNS for_IN free-surface_JJ flows_NNS :_: a_DT generalised_VVN diffusion-based_JJ algorithm_NN for_IN stability_NN and_CC validations_NNS for_IN impulsive_JJ flows_NNS and_CC propagating_VVG waves_NNS J._NP Comput_NN ._SENT 
+Phys_NPS ._SENT 
+,_, 231_CD (_( 2012_CD )_) ,_, pp_NP ._SENT 
+1499-1523_CD ,_, 10.1016/j.jcp.2011.10.027_JJ S._NP Manenti_NP ,_, A._NP Panizzo_NP ,_, P._NP Ruol_NP ,_, L._NP Martinelli_NP Sph_NN simulation_NN of_IN a_DT floating_JJ body_NN forced_VVN by_IN regular_JJ waves_NNS Proceedings_NNS of_IN 3rd_NP SPHERIC_JJ Workshop_NN (_( 2008_CD )_) ,_, pp_NP ._SENT 
+38-41_CD S._NP Marrone_NP ,_, A._NP Di_NP Mascio_NP ,_, D._NP Le_NP Touzé_JJ Coupling_NN of_IN smoothed_VVN particle_NN hydrodynamics_NNS with_IN finite_JJ volume_NN method_NN for_IN free-surface_NN flows_VVZ J._NP Comput_NP ._SENT 
+Phys_NPS ._SENT 
+,_, 310_CD (_( 2016_CD )_) ,_, pp_NP ._SENT 
+161-180_CD Meringolo_NP ,_, D.D._NP ,_, Colagrossi_NP ,_, A._NP ,_, Marrone_NP ,_, S._NP ,_, Aristodemo_NP ,_, F._NP ,_, On_IN the_DT Filtering_VVG of_IN Acoustic_JJ Components_NPS in_IN Weakly-compressible_JJ SPH_NN Simulations_NNS doi:10.1016/j.jfluidstructs.2017.01.005_JJ ._SENT 
+D._NP Molteni_NP ,_, A._NP Colagrossi_NP A_DT simple_JJ procedure_NN to_TO improve_VV the_DT pressure_NN evaluation_NN in_IN hydrodynamic_JJ context_NN using_VVG the_DT sph_NN Comput_NN ._SENT 
+Phys_NPS ._SENT 
+Commun_NN ._SENT 
+,_, 180_CD (_( 6_CD )_) (_( 2009_CD )_) ,_, pp_NP ._SENT 
+861-872_CD https://doi.org/10.1016/j.cpc.2008.12.004_NP J.J._NP Monaghan_NP Smoothed_VVN particle_NN hydrodynamics_NN Annu_NP ._SENT 
+Rev._NP Astron_NP ._SENT 
+Astrophys_NPS ._SENT 
+,_, 30_CD (_( 1_LS )_) (_( 1992_CD )_) ,_, pp_NP ._SENT 
+543-574_CD J.J._NP Monaghan_NP Simulating_VVG free_JJ surface_NN flows_NNS with_IN sph_NP J._NP Comput_NN ._SENT 
+Phys_NPS ._SENT 
+,_, 110_CD (_( 2_LS )_) (_( 1994_CD )_) ,_, pp_NP ._SENT 
+399-406_CD J.J._NP Monaghan_NP Smoothed_VVN particle_NN hydrodynamics_NN Rep._NP Prog_NP ._SENT 
+Phys_NPS ._SENT 
+,_, 68_CD (_( 8_CD )_) (_( 2005_CD )_) ,_, p._NP 1703_CD J._NP Monaghan_NP ,_, A._NP Kos_NP Solitary_JJ waves_NNS on_IN a_DT cretan_NP beach_NN J._NP Waterw_NN ._SENT 
+Port_NP ,_, Coast_NP ._SENT 
+Ocean_NP Eng_NP ._SENT 
+,_, 125_CD (_( 3_LS )_) (_( 1999_CD )_) ,_, pp_NP ._SENT 
+145-155_CD J._NP Monaghan_NP ,_, A._NP Kos_NP ,_, N._NP Issa_NP Fluid_JJ motion_NN generated_VVN by_IN impact_NN J._NP Waterw_NN ._SENT 
+Port_NP ,_, Coast_NP ._SENT 
+Ocean_NP Eng_NP ._SENT 
+,_, 129_CD (_( 6_CD )_) (_( 2003_CD )_) ,_, pp_NP ._SENT 
+250-259_CD E._NP Napoli_NP ,_, M._NP De_NP Marchis_NP ,_, C._NP Gianguzzi_NP ,_, B._NP Milici_NP ,_, A._NP Monteleone_NP A_DT coupled_VVN finite_JJ volume–smoothed_JJ particle_NN hydrodynamics_NN method_NN for_IN incompressible_JJ flows_NNS Comput_NN ._SENT 
+Meth_NP ._SENT 
+Appl_NP ._SENT 
+Mech_NP ._SENT 
+Eng_NN ._SENT 
+,_, 310_CD (_( 2016_CD )_) ,_, pp_NP ._SENT 
+674-693_CD P._NP Omidvar_NP ,_, P.K._NP Stansby_NP ,_, B.D._NP Rogers_NP Wave_NP body_NN interaction_NN in_IN 2d_NNS using_VVG smoothed_VVN particle_NN hydrodynamics_NNS (_( sph_NN )_) with_IN variable_JJ particle_NN mass_NN Int_NP ._SENT 
+J._NP Numer_NP ._SENT 
+Meth_NP ._SENT 
+Fluid_JJ ._SENT 
+,_, 68_CD (_( 6_CD )_) (_( 2012_CD )_) ,_, pp_NP ._SENT 
+686-705_CD P._NP Omidvar_NP ,_, P.K._NP Stansby_NP ,_, B.D._NP Rogers_NP Sph_NN for_IN 3d_JJ floating_JJ bodies_NNS using_VVG variable_JJ mass_JJ particle_NN distribution_NN Int_NP ._SENT 
+J._NP Numer_NP ._SENT 
+Meth_NP ._SENT 
+Fluid_JJ ._SENT 
+,_, 72_CD (_( 4_LS )_) (_( 2013_CD )_) ,_, pp_NP ._SENT 
+427-452_CD Project_NP chrono_NP -_: an_DT open_JJ source_NN multi-physics_NNS simulation_NN engine_NN ,_, https://projectchrono.org/_NP ._SENT 
+B._NP Ren_NP ,_, M._NP He_PP ,_, P._NP Dong_NP ,_, H._NP Wen_NP Nonlinear_JJ simulations_NNS of_IN wave_NN -_: induced_VVN motions_NNS of_IN a_DT freely_RB floating_JJ body_NN using_VVG WCSPH_NN method_NN Appl_NN ._SENT 
+Ocean_NN Res_NNS ._SENT 
+,_, 50_CD (_( 2015_CD )_) ,_, pp_NP ._SENT 
+1-12_CD ,_, 10.1016/j.apor.2014.12.003_NP L.F._NP Richardson_NP The_DT approximate_JJ arithmetical_JJ solution_NN by_IN finite_JJ differences_NNS of_IN physical_JJ problems_NNS involving_VVG differential_JJ equations_NNS ,_, with_IN an_DT application_NN to_TO the_DT stresses_NNS in_IN a_DT masonry_NN dam_NN Philosophical_JJ Transactions_NNS of_IN the_DT Royal_NP Society_NP of_IN London_NP ._SENT 
+Series_NP a_DT ,_, Containing_VVG Papers_NP of_IN a_DT Mathematical_JJ or_CC Physical_JJ Character_NN ,_, vol_NP ._SENT 
+210_CD (_( 1911_CD )_) ,_, pp_NP ._SENT 
+307-357_CD L.F._NP Richardson_NP ,_, J.A._NP Gaunt_NP The_DT deferred_JJ approach_NN to_TO the_DT limit_NN ._SENT 
+part_NN i._NP single_JJ lattice_NN ._SENT 
+part_NN ii_NNS ._SENT 
+interpenetrating_VVG lattices_NNS Philosophical_JJ Transactions_NNS of_IN the_DT Royal_NP Society_NP of_IN London_NP ._SENT 
+Series_NP a_DT ,_, Containing_VVG Papers_NP of_IN a_DT Mathematical_JJ or_CC Physical_JJ Character_NN ,_, vol_NP ._SENT 
+226_CD (_( 1927_CD )_) ,_, pp_NP ._SENT 
+299-361_CD A._NP Savitzky_NP ,_, M.J._NP Golay_NP Smoothing_VVG and_CC differentiation_NN of_IN data_NNS by_IN simplified_VVN least_JJS squares_NNS procedures_NNS Anal_JJ ._SENT 
+Chem_NN ._SENT 
+,_, 36_CD (_( 8_CD )_) (_( 1964_CD )_) ,_, pp_NP ._SENT 
+1627-1639_CD Spheric_JJ -_: grand_JJ challenges_NNS ,_, http://spheric-sph.org/grand-challenges_NP ._SENT 
+V._NP Sriram_NP ,_, Q._NP Ma_NP ,_, T._NP Schlurmann_NP A_DT hybrid_JJ method_NN for_IN modelling_VVG two_CD dimensional_JJ non-breaking_NN and_CC breaking_NN waves_NNS J._NP Comput_NN ._SENT 
+Phys_NPS ._SENT 
+,_, 272_CD (_( 2014_CD )_) ,_, pp_NP ._SENT 
+429-454_CD V._NP Stratigaki_NP ,_, P._NP Troch_NP ,_, T._NP Stallard_NP ,_, D._NP Forehand_NP ,_, J.P._NP Kofoed_NP ,_, M._NP Folley_NP ,_, M._NP Benoit_NP ,_, A._NP Babarit_NP ,_, J._NP Kirkegaard_NP Wave_NP basin_NN experiments_NNS with_IN large_JJ wave_NN energy_NN converter_NN arrays_VVZ to_TO study_VV interactions_NNS between_IN the_DT converters_NNS and_CC effects_NNS on_IN other_JJ users_NNS in_IN the_DT sea_NN and_CC the_DT coastal_JJ area_NN Energies_NNS ,_, 7_CD (_( 2_LS )_) (_( 2014_CD )_) ,_, pp_NP ._SENT 
+701-734_CD ,_, 10.3390/en7020701_JJ V._NP Stratigaki_NP ,_, P._NP Troch_NP ,_, T._NP Stallard_NP ,_, D._NP Forehand_NP ,_, J._NP Kofoed_NP ,_, M._NP Folley_NP ,_, M._NP Benoit_NP ,_, A._NP Babarit_NP ,_, J._NP Kirkegaard_NP ,_, Modelling_VVG of_IN wave_NN attenuation_NN induced_VVN by_IN multi-purpose_NNS floating_VVG structures_NNS used_VVN for_IN power_NN supply_NN and_CC coastal_JJ protection_NN ,_, Proceedings_NNS of_IN the_DT Coastal_NP Engineering_NP Conference_NP 2014_CD January_NP ._SENT 
+P._NP Sun_NP ,_, A._NP Colagrossi_NP ,_, S._NP Marrone_NP ,_, A._NP Zhang_NP The_DT deltaplus-sph_NN model_NN :_: simple_JJ procedures_NNS for_IN a_DT further_JJR improvement_NN of_IN the_DT sph_NN scheme_NN Comput_NN ._SENT 
+Meth_NP ._SENT 
+Appl_NP ._SENT 
+Mech_NP ._SENT 
+Eng_NN ._SENT 
+,_, 315_CD (_( 2017_CD )_) ,_, pp_NP ._SENT 
+25-49_CD https://doi.org/10.1016/j.cma.2016.10.028_NP A._NP Tafuni_NP ,_, J.M._NP Dominguez_NP ,_, R._NP Vacondio_NP ,_, A._NP Crespo_NP Accurate_JJ and_CC efficient_JJ SPH_NN open_JJ boundary_NN conditions_NNS for_IN real_JJ 3-D_JJ engineering_NN problems_NNS 12th_JJ International_NP SPHERIC_JJ Workshop_NN ,_, Ourense_NP (_( 2017_CD )_) ,_, pp_NP ._SENT 
+1-12_CD P._NP Troch_NP A_DT Numerical_JJ Model_NP for_IN Propagation_NN &_CC Transformation_NN of_IN Linear_NP Water_NP Waves_NNS Tech_NP ._SENT 
+rep_NN ._SENT 
+Department_NP of_IN Civil_NP Engineering_NP ,_, Ghent_NP University_NP (_( 1998_CD )_) P._NP Troch_NP ,_, V._NP Stratigaki_NP Phase-resolving_VVG wave_NN propagation_NN array_NN models_NNS M._NP Foley_NP (_( Ed_NP ._SENT 
+)_) ,_, Numerical_JJ Modelling_VVG of_IN Wave_NP Energy_NP Converters_NNS :_: State-of-the-art_JJ Techniques_NNS for_IN Single_NP Devices_NPS and_CC Arrays_NNS ,_, Elsevier_NP (_( 2016_CD )_) ,_, pp_NP ._SENT 
+191-216_CD ,_, 10.1016/B978-0-12-803210-7.00010-4_NP G._NP Verao_NP Fernandez_NP ,_, P._NP Balitsky_NP ,_, V._NP Stratigaki_NP ,_, P._NP Troch_NP Coupling_NN methodology_NN for_IN modelling_VVG the_DT near_JJ field_NN and_CC far_RB field_NN effects_NNS of_IN an_DT array_NN of_IN wave_NN energy_NN converters_NNS Vliz_NP Marine_NP Scientist_NN Day_NP (_( 2017_CD )_) ,_, p._NP 97_CD T._NP Verbrugghe_NP ,_, P._NP Troch_NP ,_, A._NP Kortenhaus_NP ,_, V._NP Stratigaki_NP Development_NP of_IN a_DT numerical_JJ modelling_VVG tool_NN for_IN combined_JJ near_JJ field_NN and_CC far_RB field_VV wave_NN transformations_NNS using_VVG a_DT coupling_NN of_IN potential_JJ flow_NN solvers_NNS Conference_NN :_: 2nd_JJ International_NP Conference_NP on_IN Renewable_JJ Energies_NNS Offshore_NP (_( 2016_CD )_) ,_, pp_NP ._SENT 
+61-68_CD T._NP Verbrugghe_NP ,_, V._NP Stratigaki_NP ,_, P._NP Troch_NP ,_, R._NP Rabussier_NP ,_, A._NP Kortenhaus_NP A_DT comparison_NN study_NN of_IN a_DT generic_JJ coupling_NN methodology_NN for_IN modeling_VVG wake_NN effects_NNS of_IN wave_NN energy_NN converter_NN arrays_VVZ Energies_NNS ,_, 10_CD (_( 1697_CD )_) (_( 2017_CD )_) ,_, pp_NP ._SENT 
+1-25_CD ,_, 10.3390/en10111697_JJ T._NP Verbrugghe_NP ,_, B._NP Devolder_NP ,_, J._NP Dominguez_NP ,_, A._NP Kortenhaus_NP ,_, P._NP Troch_NP Feasibility_NN study_NN of_IN applying_VVG sph_NN in_IN a_DT coupled_VVN simulation_NN tool_NN for_IN wave_NN energy_NN converter_NN arrays_VVZ Proceedings_NNS of_IN the_DT 12th_JJ Wave_NP and_CC Tidal_JJ Energy_NP Conference_NP (_( 2017_CD )_) ,_, pp_NP ._SENT 
+679-689_CD D._NP Violeau_NP ,_, B.D._NP Rogers_NP Smoothed_VVN particle_NN hydrodynamics_NNS (_( sph_NN )_) for_IN free-surface_JJ flows_NNS :_: past_JJ ,_, present_JJ and_CC future_JJ J._NP Hydraul_NNS ._SENT 
+Res_NNS ._SENT 
+,_, 54_CD (_( 1_LS )_) (_( 2016_CD )_) ,_, pp_NP ._SENT 
+1-26_CD H._NP Wendland_NP Piecewise_RB polynomial_JJ ,_, positive_JJ definite_JJ and_CC compactly_RB supported_VVN radial_JJ functions_NNS of_IN minimal_JJ degree_NN Adv_NP ._SENT 
+Comput_NN ._SENT 
+Math_NN ._SENT 
+,_, 4_CD (_( 1_LS )_) (_( 1995_CD )_) ,_, pp_NP ._SENT 
+389-396_CD 

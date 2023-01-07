@@ -1,0 +1,567 @@
+<title>Study of boron diffusion models and dilution accidents in nuclear reactor: A comprehensive review</title>
+<author>1, HaoYu, 2, Haoran,3,JuMingjunWang,4,JingZhang,5,SuizhengQiu,6,WenxiTian,7,G.H.Su</author>
+<Affiliation>1,Department of Nuclear Science and Technology, Xi’an Jiaotong University, Shaanxi 710049, China；2,State Key Laboratory of Multiphase Flow in Power Engineering, Xi’an Jiaotong University, Shaanxi 710049, China</Affiliation>
+<year>2020</year>
+<Jounral>Annals of Nuclear Energy</Journal>
+<Publishing_house>ELSEVIER</Publishing_house>
+<Text_Collector>XiaFan,HEU</Text_Collector>
+<DOI>10.1016/j.anucene.2020.107659</DOI>
+<URL>https://www.sciencedirect.com/science/article/pii/S0306454920303571</URL>
+Study of boron diffusion models and dilution accidents in nuclear reactor: A comprehensive review
+HaoYu,Haoran,JuMingjunWang,JingZhang,SuizhengQiu,WenxiTian,G.H.Su
+Department of Nuclear Science and Technology, Xi’an Jiaotong University, Shaanxi 710049, China
+State Key Laboratory of Multiphase Flow in Power Engineering, Xi’an Jiaotong University, Shaanxi 710049, China
+<Section>Highlights</Section>
+The boron tracking models implemented in thermal-hydraulic code are summarized.
+The history of boron dilution accident is reviewed.
+The research status of boron dilution accident is reviewed.
+The shortcomings in the present study are summarized and the outlook for future work is proposed.
+<Section>Abstract</Section>
+Due to the large neutron absorption cross section, the boron is widely used in the reactivity control of nuclear reactors. According to the experience of reactor operation, the non-uniform distribution of boron concentration in the reactor would lead to reactivity accidents or the difficulty of accurate adjustment of the reactor core power, threating the safety operation of reactors. More attention has been paid to the boron dilution accidents in nuclear reactor and a large amounts of experimental and theoretical studies have been carried out during the past decades. Several integral experiment facilities were set up to study the time and concentration of unborated water entering the pressure vessel and the mixing characteristics of borated water in the downcomer and lower plenum under the boron dilution accidents. The model for calculating boron transport are studied and the appropriate numerical algorithm schemes were implemented in the best-estimate code, subchannel code and CFD software, respectively. Higher order schemes were used to solve the boron conservation equations to reduce the numerical errors. The effect of power feedback under boron dilution accident is also studied by neutronic-thermohydraulic couple studies. In this paper, the current research status of boron dilution accident in nuclear reactor is summarized and the challenges are identified. This paper would contribute to a better understanding of the boron dilution scenario and provide future work guidance for researchers.
+Keywords：Boron dilution；Experiment；Theoretical model；Neutronic-thermohydraulic couple；Reactivity insertion
+<Section>1. Introduction</Section>
+Boron, as a type of neutron absorber, plays an important role in the process of nuclear reactor start-up, operation and shutdown and it provides great help for the reactor reactivity control and safety. Through the operation experience of pressurized water reactors (PWR), it would appear the reactor core power shift phenomenon due to the non-uniformed distribution of boron in some transient scenarios, such as the potential boron dilution accidents (BDA). Since 1980s, the effect of boron concentration distribution on reactor core reactivity has attracted great attentions in the world and was studied experimentally and numerically. During the boron dilution accident sequence caused by the loss of offsite power, the unborated water is accumulated in the primary coolant system, and then it would be transferred into the reactor vessel with the restart of reactor coolant pump.
+Woodruff et al. (Henninger and Woodruff, 1983) studied the boron dilution accident sequence using the TRAC-PF1 code. The power excursion was detected in the reactor core and then it was terminated due to the high concentrated boron coolant flowing into the reactor core. Mirkovic et al. (Mirkovic and Diamond, 1990) studied the boron dilution accidents in boiling water reactor (BWR) with RELAP5/MOD2. The low-borated water enters the reactor core due to the decrease of pressure during the process of reactor shut down, leading to a sharp increase of fuel temperature. Asahi et al. (Asahi and Wakabayashi, 1986) evaluated the safety features of Process Inherent Ultimate Safety (PIUS) reactor with THYDE-W. The thermal shock at the lower plenum was found to be acceptable during boron dilution accidents. Diamond et al. (1995) conducted the probabilistic safety analysis (PSA) of European pressurized water reactor (EPR) and concluded that the boron dilution accidents brought a great threat to the safety of reactor. Therefore, the research projects related to the study of boron diffusion process were initialed and the safety system for boron dilution accidents was designed and added, in order to reduce the possibility of fuel damage to an acceptable level (Eisenhut, 1985).
+In addition, Hyvärinen (1993) proposed another boron dilution accident mechanism following the sequence of small break loss of coolant accident (SBLOCA). During the LOCA scenarios, a large amount of steam was condensed in the steam generator, leading to the accumulation of unborated water. After the natural circulation was established or the reactor coolant pump was restarted, the unborated boron water column was pushed to the reactor core, which results in the core reactivity insertion. And then this type of accident sequence gradually became the main research object afterwards.
+In 1991, NRC (Rossi, 1991) realized the seriousness of boron dilution accident and began to consider its impact on the PWRs in U.S. Nourbakhsh et al. (Nourbakhsh and Cheng, 1995a, Nourbakhsh and Cheng, 1995b) studied the mixing phenomena of borated water in boron dilution accident through dimensional analysis. The results showed that the boron concentration in the reactor core would not be lower than 1200 ppm (initial 1500 ppm). Several countries have jointly carried out the analysis of VVER-1000 reactor boron dilution accidents under International Science and Technology Center (ISTC) (ISTC, 2001) framework, aiming to develop a 3D thermal hydraulic code and 3D neutron dynamics software to simulate boron dilution transient scenarios more accurately. Ivanov et al. (1999) compared the effect of boron dilution transients on VVER-440 and VVER-1000 through three-dimensional coupled neutron kinetics-thermal hydraulics code DYN3D (Kliem et al., 2016). The result showed that departure from nucleate boiling (DNB) occurred in both types of reactor cores, and then the core power decreased rapidly under the influence of doppler effects. The peak temperature in VVER-440 was much lower than that in VVER-1000. Arias et al. (Arias, 2009) studied the effect of boron dilution on boiling heat transfer considering the surface tension of solute. Results showed that the boron concentration would not alter the physic parameters significantly, and its impact on heat transfer could be ignored.
+Through the close international cooperation, several integrity experiment facilities, such as PKL (Umminger et al., 2003); UPTF (Glaeser, 1989, Weiss et al., 1986); ROCOM (Kliem et al., 2006); UM2×4 and VATT-02 (Dury et al., 2008), were set up to study the flow and mixing process of borated water in primary loop and pressure vessel. The verification of relevant analysis codes were also carried out based on the experiment data (Lycklama and Hoehne, 2006).
+Due to the limitation of computational methods and tools, these early studies mentioned above could not accurately describe the transport and diffusion process of boron in reactor pressure vessels so that the consequent power fluctuation could not be evaluated accurately. The development of computational method and the application of computational fluid dynamics (CFD) software makes it possible to accurately simulate the heterogeneous distribution of boron in the reactor core during boron dilution accident. The transport equations based on CFD or subchannel method were developed respectively and applied in the thermal hydraulic analysis code. The models were verified on the basis of experiment data. However, due to the lack of neutronic feedback, it is hard to accurately evaluate the effect of inhomogeneous concentration of boron on reactor core power distribution. Therefore, the coupling of the thermal-hydraulic and the neutron kinetics would be an effective method to the meet this challenge.
+The research paper published on boron dilution accident in nuclear reactor from 1994 to 2019 can be seen in Fig. 1.1. It can be seen from the figure that more and more researches on boron dilution accident had been conducted in recent years. Nevertheless, the achievement is relatively few and more work should be done. In this paper, a comprehensive review of boron diffusion models and dilution accidents in nuclear reactor is performed. The application and improvement of boron transport model in one-dimensional system code, subchannel code and CFD software are summarized. The relevant experiments for model verification are concluded. The neutron kinetic and thermal hydraulic coupling studies for boron dilution accident are presented. Based on the above conclusions, the existed research issues and future research directions are also discussed.
+Fig. 1.1. Research papers published on BDA.
+<Section>2. Boron transport model</Section>
+2.1. The best-estimate system code
+The RELAP5, which is the widely accepted system analysis code, provides a one-dimension solute transport model to simulate the boron transport process in the primary reactor coolant system. The method is based on the following assumptions (L.I.T. Co, 2005): 1) The presence of solute does not alter the physical properties of liquid (solvent); 2) The solute flows at the same velocity as the liquid phase (solvent) in the solution; 3) The inertia of solute is negligible; 4) The solute does not affect the process of energy transport.
+The assumptions above are now widely used in best-estimate code and subchannel code modelling. The transport process of boron in solution can be described by the mass transfer equation, in which the flow term and diffusion term should be considered. Based on fick's law, the boron mass conservation equation can be described as followed equation:
+@(2.1)
+where is the coolant density, kg/m3;  is the boron mass fraction;  is the mainstream solution velocity, m/s;  is the physical diffusion coefficient;  is the boron source term.
+In the earlier version of RELAP5, the physics diffusion process was considered to have no effect on the boron concentration in coolant. Therefore, a simple convection equation is used to calculate the boron transport in the reactor (Bandini et al., 2015).
+@(2.2)
+where  is the boron density in coolant, kg/m3.
+Generally, the first-order upwind difference is the default solution method in RELAP5, which has two formats, semi-implicit and implicit, as shown below:
+The semi-implicit algorithm:
+@(2.3)
+The implicit algorithm:
+2(2.4)
+Based on the solute transport assumptions, the existence of boron does not affect the coolant properties and energy transfer process, so that the solution of boron transport equation can be decoupled with the original thermal hydraulic equations. In other words, the hydraulic parameters were obtained by solving the mass, energy and momentum equation, and then the flow field parameters were used to solve the boron transport equations. The Eqs. (2.3), (2.4) can be easily solved in this way.
+In order to improve the accuracy of calculation, the second-order central difference Godunov scheme has been applied to the solution of boron diffusion equation in RELAP5 (Dury et al., 2008).
+@(2.5)
+@(2.6)
+where S is the cell-centered limited gradient.
+Taking into account of the effects of physical diffusion, e.g. turbulent and molecular diffusions, on the diffusion transport of boron, Freixa (Freixa et al., 2007) established an one-dimensional equation containing the diffusion term:
+@(2.7)
+The Godunov scheme was used to solve the Eq. (2.7) as follows:
+@(2.8)
+where @ is limited diffusion term.
+Freixa et al. (2007) implemented the improved Godunov scheme in RELAP5 and compared the calculated results with the theoretical solutions. As shown in Fig. 2.1, the improved Godunov scheme effectively reduced the numerical diffusion errors and took into account the physical diffusion process, which was more consistent with the actual situation compared with the original model. Freixa et al., 2007, Freixa et al., 2009) introduced the Godunov scheme to solve the modified boron tracking model to reduce the numerical diffusion and simulated the PKL F1.1 test. The results were compared with the experiment data, as shown in Fig. 2.2. The influence of turbulence mixing was considered and the numerical errors were reduced. The difference between the calculation results and experimental data was mainly accounted to the simulation difficulty caused by the vibration of thermal hydraulic results of PKL experiment.
+@Download : Download high-res image (128KB)Download : Download full-size image
+Fig. 2.1. The compared calculation results with different models (Freixa et al., 2007).
+@Download : Download high-res image (134KB)Download : Download full-size image
+Fig 2.2. The boron concentration in loop 4 (Freixa et al., 2007).
+Yang et al. (2017) compared the modified Godunov scheme and different methods against the analytical solution. The results showed that the improved Godunov scheme obtained more accurate results under different node length and time steps and the improved Godunov scheme is suitable for one-dimensional system code. Meanwhile, the calculation results with different flow rates show that, the axial diffusion process has little influence on the transport process of boron with high flow rates. In order to reduce the numerical errors of solution, Macian Juan et al. (Macian-Juan and Mahaffy, 1998) applied the QUICKEST-ULTIMATE scheme to solve the one-dimensional boron transport equation. The scheme was implemented in TRAC for the boron dilution transient analysis of AP600 (Macian-Juan and Mahaffy, 1998). The results showed that the higher-order scheme can obtain more accurate results. Wang et al. (2013) introduced the nonlinear flux limiter in TRACE code for the sake of elimination of numerical errors. Totally six kinds of limiters had been compared: MUSCL; Van Leer (VL), OSPRE, Van Albada (VA), ENO and Van Albada 2 (VA2). Results showed that the VA and MUSCL limiters had the best performance among the six limiters, which can improve both the calculation accuracy and efficiency. Barrachina et al. (2013) compared the upwind difference scheme, improved Godunov scheme and the QUICKEST–ULTIMATE scheme based on the best estimate code. The higher-order scheme could effectively reduce the numerical errors and the improved Godunov scheme was applicable in the simulation of physical diffusion in system analysis code.
+Umminger et al. (2002) carried out the numerical simulation research on PKL experiment condensation reflux accident and low-borated water column mixing after SBLOCA during natural circulation. The results showed that although the coolant from emergency core cooling system (ECC) was injected uniformly, the restart time and strength of natural circulation were different in loops. In PWR, it may lead to the mixing of different boron concentrations of coolant in the downcomer. Kasahara et al. (Kasahara, 2008) simulated the boron dilution accident after SBLOCA accident in PKL experiment with RELAP5/MOD3.3, including the overall system behavior (PKL-F1.1), the variation of boron concentration at the outlet of steam generator (PKL-F1.2) and the failure of residual heat removal system (PKL-E3.1). Results showed that the RELAP5 could successfully predict the time when the unborated water reached the cold leg inlet. Meanwhile, it was found that the simulation results show obvious oscillation due to numerical diffusion with boron tracking model. Bucalossi et al. (Bucalossi, 2005) compared the results calculated by different system codes (including RELAP5, ATHLET, CATHARE) on PKL experiment. It was considered that the current system code could only qualitatively predict the boron dilution accident after SBLOCA. Meanwhile, multi-dimensional analysis was needed to accurately simulate boron dilution accident in the reactor. Jasiulevicius et al., 2005, Jasiulevicius et al., 2006) simulated the failure of the residual heat removal system after the reactor cooling system stopped with TRACE, and compared to the PKL experimental results. The simulation results showed that the boron concentration will increase due to the evaporation of coolant, and then decrease with the condensation reflux. González (González et al., 2007) also simulated the Boron Dilution phenomenon after the failure of the residual heat removal system of Almaraz NPP designed by Westinghouse company with TRACE. It was found that the boron concentration fluctuated at the loop pipe and core outlet. Mascari et al. (2007) evaluated the ability of RELAP5 in simulating the system response in the reflux condensation condition in reactor at low pressure. The Fast Fourier Transform Based Method (FFT-BM) was used in the comparison between simulation results and the experiment data. The comparison results shows that the accuracy of the simulation had not meet the requirement. That is to say, the current system codes were lack of ability in simulating the scenario. Coscarelli et al. (2012) evaluated the ability of TRACE in simulating the boron dilution accident under different condition using FFT-BM. In the simulation, TRACE correctly predicted the stop and restart time of the natural circulation. Fluctuation of mass flow under two-phase natural circulation was detected. The boron concentration in the loop seal was qualitatively and quantitatively predicted.
+The research on boron dilution with best estimate code are summaried in Table 2.1. The system code had been applied to the simulation in boron dilution accident by researchers and some achievements have been obtained. However, the accuracy of the system code is unreliable in simulating the complex flow phenomena which would increase the uncertainty. The lack of capacity of studying the mixing flow feature would limit its application on boron dilution accident analysis. The multi-scale couple work would be a realistic approach to obtain
+Table 2.1. The summary research on BDA with BE code.
+2.2. The subchannel code
+The subchannel method has the advantages of low computational cost and high accuracy in reactor core thermal hydraulics analysis. Therefore, researchers developed the corresponding boron transport model based on subchannel analysis to evaluate the effect of BDA on the boron concentration distribution in reactor core. In the thermal hydraulic transient analysis code COBRA-EN, the boron transport equation is described as followed (Basile et al., 1999):
+@(2.9)
+where, i is the channel index; j is the index of axial level; A is the flow area, m2;@ is the axial mesh size; m is the coolant axial mass flowrate, kg/s; wk is the coolant lateral mass flow rate, kg/s.
+Ozdemir et al. (Ozdemir, 2012, Ozdemir et al., 2014) implemented the boron tracking model in COBRA-TF. A compared study was conducted in 2 × 2 multiple subchannel rod bundles. The flow distribution predicted by COBRA-TF matched well with STAR-CD (Ozdemir and Avramova, 2014). However, the obvious difference is appeared in the boron concentration distribution predicting.
+The axial velocity is greater than the transverse velocity in the reactor core subchannels. Hence the transverse diffusion process has great influences on the boron concentration distribution. In order to solve this problem, Yu et al. (2019) added the transverse diffusion term into the Eq. (2.9) and the following equation was established in subchannel coordinates:
+@(2.10)
+This model can better describe the variation of boron concentration distribution in rod bundle channels. However, due to the inherent limitations of subchannel analysis method, the numerical error will be generated when calculating the transverse flow diffusion process, which will affect the calculation accuracy. Shengzhe Li (Li and Liu, 2018) applied the modified Godunov scheme to solve the axial transport equation to reduce the numerical diffusion in axial direction during the reactor core subchannel analysis. The results showed that the dilution process would make little difference under the condition of homogeneous concentration entrance.
+2.3. The CFD method
+In addition to traditional thermal hydraulic calculation, the advanced computational fluid dynamics software integrate a large number of modules for function expansion. The species transport model in FLUENT (ANSYS Fluent User's Guide, 2014) can be applied to study the boron transport process for the nuclear reactor core. The species transport model is as followed:
+@(2.11)
+where, Ji is the diffusion flux of species i; Ri is the net rate of production of species i by chemical reaction; Si is the user-defined sources.
+@(2.12)
+where, Di,m is the mass diffusion coefficient for species i in the mixture; DT,i is the thermal diffusion coefficient;  is the turbulent viscosity;  is the turbulent Schmidt number.
+@(2.13)
+The turbulent diffusion coefficient in the species transport model is calculated by Schmidt number which is the ratio of kinematic viscosity coefficient and turbulent diffusion coefficient. The Schmidt number is valued as 0.7 by default in FLUENT. That is to say, the turbulent viscosity, which depends on the turbulent model, would directly affect the solution of species transport model.
+CFD method is capable of simulating the mixing process of coolant in complex geometry and obtaining the accurate distribution of boron concentration at the core entrance in the transient simulation of boron dilution. In order to verify the capacity of CFD model in simulating of boron dilution process, plenty of compared studies between CFD results and experiment data were conducted by researchers.
+Gango (1997) used CFD software PHOENICS and standard k-epsilon model to preliminarily study the mixing phenomenon of boron concentration in VVER-400 reactor under the boron dilution accidents. The completely unmixed water column was detected at the core entrance. The results calculated using different calculation methods, such as MSOU, QUICK and UDS, were compared. It was found that the precision of results calculated with the high order discrete format is much higher than that with the first order upwind format. Höhne et al. (2008) studied the effect of coolant density difference at the cold leg inlet on the process of boron dilution transient with ANSYS CFX and compared to the ROCOM experiment data. The Reynolds Stress Model (RSM) was employed to model the effects of the turbulence on the mean flow. The simulation without density difference shows a sector formation in the downcomer, while in the simulation with density difference, the injected coolant of lower density flowed around the core barrel at the top of the downcomer. Jayaraju et al. (2013) studied the transport and mixing characteristics in the pressure vessel during the boron dilution transient scenario with large eddy simulation (LES) using STAR-CCM+. The WALE model was used to generate polyhedral grid of about 15 million cells to model the detailed structure in the pressure vessel. The predicted boron concentration distribution using LES method showed good agreement with experimental data. The relative difference between ensemble averaged experiment data and LES prediction for the maximum value of boron concentration is 6.8% which is within the range of experiment variability limits. Mark et al. (Cotton et al., 2013) studied the effect of buoyancy on temporal and spatial development of boron concentration distribution in boron dilution transient scenario in PWR with CFX-5. During the boron dilution transient scenario initiated by the SB-LOCA, the temperature of injecting coolant will be higher than the temperature of fluid in the descending section when natural circulation started. The density driven flow would affect the concentration distribution. The dimensionless number analysis has been conducted and it was found that the Reynolds (Re) and Peclet (Pe) numbers had little effect on the evolution of boron concentration distribution. Meanwhile, the Richardson number (Ri = Gr/Re2) would evidently affect the concentration development in the upper and middle regions of downcomer. When Ri is higher than its baseline, a stable and circumferentially-uniform low-borated fluid stratified region would exist in the downcomer. Nevertheless, the strong mixing would occur and the concentration stratification would not happen at low Ri.
+The CFD method has unique advantage in studying the complex flow. The diffusion term and convective term in boron tracking model are based on turbulent viscosity and flow field parameter which obtained by solving the N-S equation. Therefore, the turbulent model used in CFD calculation would significantly affect the results. The CFD work and its turbulent model are summarized in Table 2.2. However, the results obtained by researchers meet disagreement in turbulent models. More research is needed to find out which model would produce better results.
+Table 2.2. Summary of CFD work on BDA.
+<Section>3. Experimental investigation</Section>
+The boron dilution scenario includes four important processes, including the formation of unborated water column, the column transport in the loop, slug mixing in the reactor pressure vessel (RPV) and power feedback in the reactor core. The previous three process had been experimental studied widely by researchers. The well-known test facilities are summarized and shown in Table 3.1. Besides the test facilities in the Table 3.1, there still be some relevant experiment, such as the HEU PLIF experiment (Eltayeb et al., 2019, Zhang et al., 2019), the slug mixing phenomenon was studied in the experiment. However, seldom researches had been published about the experiment. Among all the experimental facilities, the four test facilities are the most representative and introduced in detail.
+Table 3.1. The list of main experiment facilities for the BDA research.
+3.1. PKL
+The PKL facility (Mull et al., 2007) is a scaled-down model of the 1300 MW “Vorkonvoi” type KWU reactor with a volume and power ratio of 1:145 and height ratio of 1:1. The experiment facility is consisted of loop arranged symmetrically around the pressure vessel (Hertlein et al., 2003). The four loops contain coolant pumps and steam generators. The maximum operation pressure is 45 bar. Totally 314 heated rod bundles were contained in the core and the total power can reach 2.5 MW. The heated rods in the core and the U-tubes in the steam generator have the actual geometry and the number are scaled by 1:145. Two stand pipes are used to model the downcomer.
+The PKL test facility has been in operation science 1977 (Umminger et al., 2002). In 2001, The PKL-III test program was carried out to study the inherent boron dilution accident after LOCA. All the PKL boron dilution test were performed with actual boric acid and with adequate measurement technology for determining boron concentration. The formation and concentration of the borated water column under different boundary conditions have been investigated. The PKL-III D2.1 test and PKL-III D2.2 test investigated the boron dilution process during the natural circulation. The PKL-III E2.2 investigated the unborated water volumn in the worst conditions.
+Several integral and separate effect tests were conducted in the PKL test facility. The main results are as follows: 1) The condensed water volume is limited; 2) The condensed water would mix with the borated water; 3) The condensed slugs would not arrive at the PRV with ECC injection in the loop. The main purpose of PKL experiment is to answer when and how the low-borated water column would enter the reactor pressure vessel and applied to the validation of system code (Bucalossi, 2005, Jasiulevicius et al., 2005). The mixing process could not be modeled in the scaled-down PKL facility (see Fig. 3.1).
+Fig. 3.1. The PKL test facility (Mull et al., 2007).
+3.2. UPTF
+The UPTF-TRAM (Glaeser, 1989, Weiss et al., 1986, Umminger et al., 2001) (Upper Plenum Test Facility – Transient Accident Management) test facility is a full scale test facility of a four-loop 1300MWe KWU pressurized water reactor including the reactor vessel and four loops. The UPTF experiments dealt with the mixing of water flows with different boron concentration in the cold legs, RPV downcomer and the lower plenum.
+The boron acid was not used in the mixing experiment in order to prevent the damage of experiment installations. The different temperature coolant was used as the mixing indicator instead of boron acid solution. The normalized boron concentration was calculated according to the following formula:
+@(3.1)
+where, T0 is the average temperature at present time, TECCS is the temperature of ECCS injection water, THOT is the temperature of the condensed water (see Fig. 3.2).
+Fig. 3.2. The UPTF test facility (Glaeser, 1989).
+3.3. ROCOM
+The ROCOM experiment facility (Thomas Höhne, 2006) is a scaled-down model of the German KONVOI type pressurized water reactor with a volume ratio of 1:145. It contains four loops and the scaled RPV is made of the visualization perspex so that the mixing process in the RPV can be observed. All important details for coolant mixing along the flow path is modeled at a linear scale of 1:5. The travelling time of coolant is identified to that of the original reactor. The components which have significantly influence the velocity fields are modeled in detail, such as the core barrel with lower core support plate and core simulator, perforated drum in the lower plenum, and inlet and outlet nozzles. The salt tracer method is used to measure the mixing scalar. A special wire mesh sensor is used to measure the concentration distribution at core inlet. The concentration is valued by the local instantaneous conductivity.
+The dimensionless mixing scalar is calculated as a function of the electrical conductivity (Kliem et al., 2008):
+@(3.2)
+where, @ is the dimensionless mixing scalar; @ is the electrical conductivity value at core inlet;  @ is the initial electrical conductivity;  is the electrical conductivity of the injected water column.
+The PKL-III F.14 experiment studied the ECC injection after SBLOCA in cold leg. The boundary condition of ROCOM experiment is based on the PKL experiment data, such as the fluid velocity, the volume of unborated water, the time at which the unborated water column entering the vessel. The following problem has been investigated in the ROCOM experiment (Boumaza et al., 2014): 1) the stratification of the low-borated water column and the coolant in downcomer; 2) the mixing after ECC injecting; 3) the acceleration of ECC coolant inside downcomer (see Fig. 3.3).
+Fig. 3.3. The ROCOM test facility (Kliem et al., 2010).
+3.4. UM 2×4
+The NEA/CSNI organized several countries to conduct simulation studies on boron dilution accidents in order to test the computational capability of CFD software (Gavrilas and Höhne, 2001). The UM2×4 test facility was built in University of Maryland to verify the CFD calculation (Gavrilas and Kiger, 2001). The University of Maryland 2×4 Thermal Hydraulic Loop facility (UM2×4) is a scaled down model of the Three Mile Island Unit 2 Babcock & Wilcox (B&W) pressurized water reactor with pressure ratio 1:7, volume ratio 1:508 and height ratio of 1:4. The main components of reactor coolant system are included in the test facility, such as reactor vessel, two hot legs, four cold legs, two steam generators, four coolant pumps and a pressurizer. The facility is made of stainless steel, and the maximum operation pressure is 2.1 MPa (Gavrilas, 2007).
+Similarity, the mixing process of coolant with different temperatures was studied instead of boron acid concentration to protect the facility from corrosion. The cold leg A1 is constructed with a flow straighter to provide well-defined boundary conditions for numerical simulations. Hundreds of thermocouples were used to measure the temperatures at the downcomer and lower plenum (see Fig. 3.4).
+Fig. 3.4. The UM2×4 test facility (Gavrilas, 2007).
+Two test series had been carried out in the experiment platform. Test series A was designed to study the mixing of a single front as it enters the downcomer through cold leg A1 from an external source and leaves the system through an opening outlet at hot leg A. Test B studied a single water column of higher temperature circling in a single loop with the water of lower temperature (Gavrilas and Höhne, 2001).
+<Section>4. The neutron-thermal coupling study</Section>
+The core power feedback is one of the most concerned issue during the boron dilution transient which have a great influence on the consequence of accident scenarios. Some studies considering the power feedback have been performed to using the multi-dimensional neutron-thermal coupling method.
+The NURESAFE Collaborative Project aimed at making a new and significant step towards the establishing of a European Reference Simulation Platform. The NURESIM platform is based on the open software simulation platform SALOME. The platform provides a variety of code coupling interface, including system code, subchannel code, neutron kinetic code and so on. Calleja et al. (Calleja et al., 2014, Calleja, 2013) performed the coupling of COBAYA3 and DYN3D (Rohde et al., 2016) with SUBCHANFLOW inside the NURESIM platform. The coupled codes were used for the simulation of boron dilution transient after LOCA. The reactivity feedback and power excursion were studied in homogeneous and heterogeneous boron dilution scenario respectively. The results showed that the core power would increase sharply at beginning, then the power dropped rapidly due to the negative Doppler feedback. The maximum fuel temperature calculated by the coupled code would not be more than 1000 °C which was below the melting point of fuel.
+Jafari et al. (Jafari and Talebi, 2017) simulated the boron dilution transient caused by the defect of boron control system in VVER-1000 using MCNP and COBRA-EN respectively. The boron dilution transient was assumed to be in a semi-state condition. The boron concentration was regularly decreased and the control rods were inserted into the core to eliminate the effect of boron dilution. The power and net reactivity of reactor core remained unchanged in the simulation. By using the power distribution calculated by MCNPX, the thermal-hydraulic was calculated by COBRA-EN. The maximum temperature of the fuel is approximately 2200 °C which is below the melting point of UO2. But the reactor should be shut down immediately to avoid the fuel melting locally.
+Pla et al. (2011) studied the power feedback in boron dilution transient using the Relap5 coupled with PRACS code. The thermal-hydraulic calculation was conducted by Relap5; while the neutronic kinetics is calculated using PRACS code. The difference of zero-dimensional neutronic kinetics (0DNK) and 3-dimensional neutronic kinetics (3DNK) models was compared. The neutron macroscopic XSec database used in the 3D neutronic model was generated by the lattice transport code HELIOS. Results showed that the power feedback prediction is higher with the 0DNK model than that with the coupled 3DNK models. However, the Relap5 is an one-dimensional code so that the heterogeneous boron concentration could not be obtained. The qualitative results can be obtained by 1-D Relap5 couple 3-D PRACS code, but the quantitative results is incredible in boron dilution transients.
+Marco Pecchia (Pecchia et al., 2015) investigated the reactivity excursion of non-uniform boron distribution in the Atucha-2 NPP with the MCNP5 one-way coupling CFX code. The physics distribution (boron, temperature) in boron dilution transient was calculated by CFX and the results were delivered to MCNP5 using the mesh mapping technology. Results showed that the change in neutron flux was larger than the homogenized borated core which was called “boron self-shielding effect”. The flux difference can reach 60% in some computational nodes.
+Jimenez (Jimenez et al., 2015) verified neutron kinetics and the thermal-hydraulics coupling code with a boron dilution benchmark defined by Kliem (Kliem and Gommlich, 2011). Three injecting slugs with different volume were considered and the results were compared with the benchmark. The time dependent distribution of boron concentration at the core inlet was obtained by CFD calculation for the three transients. Similar results were obtained in all the three transient: power excursion occurred when the unborated water entering the reactor and then reduced to a relatively stable level and decreased slightly as the time go on.
+Kliem (Kliem et al., 2019) conducted a boron dilution analysis using ANSYS CFX coupled with the 3D nodal reactor dynamic code DYN3D. The interpolation technology was used to realize the data exchanging between different computational meshes which were used in CFX and CYN3D respectively. The same time step was used in CFX and DYN3D. The calculation data exchange once per time step. The transients of realistic (CFX/DYN3D) and homogeneous (DYN3D stand-alone) and no mixing (DYN3D stand-alone) were simulated respectively and the results were compared in the study. In the no-mixing case, the core became critical and even supercritical which reached a maximum reactivity of +2.1$ with the initial reactivity of about −43$. The assumed homogeneous mixing in the core predicted a higher value of the minimal boron concentration in the core than the realistic, meanwhile the predicted maximum reactivity was higher.
+However, the boron dilution transient is characterized by the instantaneous heterogeneous boron concentration, power excursion and changing neutron cross section. The characteristic of the temporal and spatial distribution of the core power in reactor could not be accurately calculated with the point reactor model. The three dimensional neutron kinetics code is necessary in boron dilution transient analysis to obtain the neutron flux feedback data. Coupling the multi-dimensional thermal hydraulic code (such as CFD and subchannel method) and the 3D neutron kinetic code (such as DYN3D, PRACS and COBAYA3) is the most realistic way to simulate the consequence of the boron dilution.
+<Section>5. Conclusions and outlook</Section>
+In this paper, state of the art of the analysis of boron diffusion and dilution transients was reviewed in the aspects of thermal-hydraulic model, experimental study, and thermal-neutronics coupling study. Several integral experiment facilities have been set up to study the boron dilution scenarios. The generation of unborated or low-borated water after LOCA was modeled in PKL experiment and the concentration and volume of water column have been studied in detail. The coolant mixing in the downcomer and lower plenum were investigated in the UPTF, UM2×4 and ROCOM facilities. The flow track and variation of the concentration distribution in the downcomer was experimentally studied. The time-based concentration distribution at the core inlet was obtained.
+The boron tracking model has been developed to describe the boron dilution in coolant numerically. The convective term and diffusion term have been taken into consideration. The numerical solution scheme applied to system code, subchannel code and CFD software have been developed respectively. Higher order schemes were used to reduce the numerical errors. A series of verification and validation work, including the code-to-experiment and code-to-code, have been performed. The modified boron tracking model and the higher order scheme describe the boron dilution process accurately. The simulation results fit well with the experiment data which indicated that the boron transport process can be predicted with the developed thermal-hydraulic code. The variation of boron concentration distribution in reactor core would lead to power distortion which would have a bad influence in reactor safety. Researchers have paid much attention to the interaction between the thermal hydraulics and neutron kinetics in the core to study the influence of the varying boron concentration on power distribution. Some coupling studies have been performed in the literatures and the thermal-hydraulic code and neutronic kinetic code was coupled to reveal the power feedback mechanism.
+Although the boron diffusion models and dilution accidents have been studied widely in the literatures, some challenging are also troubled the nuclear community and further work is necessary:
+1)
+However, the one-dimensional system code or point reactor model were unable to simulate the temporal and spatial neutron flux distribution in the core. The multi-dimensional thermal-hydraulic tools (such as CFD software, subchannel code) was coupled with the 3D neutronic kinetic code should be used in the simulation.
+2)
+Multi-dimensional neutronic-thermal couple benchmark problem should be conducted to verify the N-T coupling work.
+3)
+The BDA is characterized as a multi-scale and multi-physical coupled process, the multi-scale and multi-physical couple work should be done to study the scenario in system level.
+4)
+The turbulent term in boron dilution model is still to be verified under different flow condition, more accuracy mixing coefficient is remained to be proposed.
+<Section>Declaration of Competing Interest</Section>
+The authors declare that they have no known competing financial interests or personal relationships that could have appeared to influence the work reported in this paper.
+<Section>Acknowledgement</Section>
+This research has been supported by the National Natural Science Foundation of China (Grant No. 11705139).
+<Section>References</Section>
+ANSYS Fluent User's Guide, 2014
+ANSYS Fluent User's Guide
+ANSYS Inc
+Canonsburg, PA (2014)
+Google Scholar
+Arias, 2009
+F.J. Arias
+Boron dilution effect on boiling heat transfer with special reference to nuclear reactors technology
+Ann. Nucl. Energy, 36 (2009), pp. 1382-1385
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+Asahi and Wakabayashi, 1986
+Y. Asahi, H. Wakabayashi
+Some Transient Characteristics of PIUS
+Nucl. Technol., 72 (1) (1986), pp. 24-33
+View Record in ScopusGoogle Scholar
+Bandini et al., 2015
+G. Bandini, M. Polidori, A. Gerschenfeld, D. Pialla, S. Li, W.M. Ma, P. Kudinov, M. Jeltsov, K. Kööp, K. Huber, X. Cheng, C. Bruzzese, A.G. Class, D.P. Prill, A. Papukchiev, C. Geffray, R. Macian-Juan, L. Maas
+Assessment of systems codes and their coupling with CFD codes in thermal–hydraulic applications to innovative reactors
+Nucl. Eng. Des., 281 (2015), pp. 22-38
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+Barrachina et al., 2013
+Barrachina, T., Soler, A., Jambrina, A., Miró, R., Verdú, G., Concejal, A., 2013. High order boron transport scheme in TRAC-BF1, International Nuclear Atlantic Conference, Recife, PE, Brazil.
+Google Scholar
+Basile et al., 1999
+Basile, D., Beghi, M., Chierici, R., Salina, E., Brega, E., 1999. COBRA-EN: an upgraded version of the COBRA-3C/MIT code for thermal hydraulic transient analysis of light water reactor fuel assemblies and cores.
+Google Scholar
+Bertolotto et al., 2011
+D. Bertolotto, A. Manera, R. Macián-Juan, R. Chawla
+Improvement of the one-dimensional dissolved-solute convection equation using the QUICKEST–ULTIMATE algorithm
+Nucl. Eng. Des., 241 (2011), pp. 245-256
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+Boumaza et al., 2014
+M. Boumaza, F. Moretti, R. Dizene
+Numerical simulation of flow and mixing in ROCOM facility using uniform and non-uniform inlet flow velocity profiles
+Nucl. Eng. Des., 280 (2014), pp. 362-371
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+Boumaza et al., 2019
+M. Boumaza, T. Höhne, B. Mohammedi, R. Dizene
+The capability of Ansys CFX to predict the mixing phenomena in ROCOM test facility
+SN Appl. Sci., 1 (2019)
+Google Scholar
+Boyd, 2008
+C.F. Boyd
+Modeling approach and predictions of boron mixing in core bypass of ESBWR
+16th International Conference on Nuclear Engineering (ICONE16) Florida, USA Orlando (2008), pp. 411-420
+View Record in ScopusGoogle Scholar
+Bucalossi, 2005
+A. Bucalossi
+Validation of thermal-hydraulic codes for boron dilution transients in the context of the OECD/SETH Project
+EUROSAFE, Brussels, Belgium (2005)
+Google Scholar
+Bucalossi et al., 2011
+A. Bucalossi, F. Moretti, D. Melideo, A. Del Nevo, F.D. Auria, T. Höhne, E. Lisenkov, D. Gallori
+Experimental investigation of in-vessel mixing phenomena in a VVER-1000 scaled test facility during unsteady asymmetric transients
+Nucl. Eng. Des., 241 (2011), pp. 3068-3075
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+Bucalossi, 2005
+Bucalossi, A., 2005. Validation of thermal-hydraulic codes for boron dilution transients in the context of the OECD/SETH Project, Seminar.
+Google Scholar
+Calleja, 2013
+M. Calleja
+Improvements in Multi-physics and Multi-scale Methodologies for Safety-related Investigations of Pressurized Water Reactors within the NURESIM Platform
+Karlsruhe Institute of Technology (2013)
+Google Scholar
+Calleja et al., 2014
+M. Calleja, J. Jimenez, V. Sanchez, U. Imke, R. Stieglitz, R. Macián
+Investigations of boron transport in a PWR core with COBAYA3/SUBCHANFLOW inside the NURESIM platform
+Ann. Nucl. Energy, 66 (2014), pp. 74-84
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+Cho and Yoon, 2019
+Y.J. Cho, H.Y. Yoon
+Numerical analysis of the ROCOM boron dilution benchmark experiment using the CUPID code
+Nucl. Eng. Des., 341 (2019), pp. 167-175
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+Coscarelli et al., 2012
+Coscarelli, E., Galassi, G.M., Araneo, D., Auria, F.D., 2012. Analytical study of inherent boron dilution phenomenon during a small break LOCA scenario in a PWR system using the TRACE V5. 0 Code. In: 21th International Conference Nuclear Energy for New Europe, Ljubljana.
+Google Scholar
+Cotton et al., 2013
+M.A. Cotton, I.F.G. Garcia, B.P. Axcell
+On the role of buoyancy in determining the course of PWR boron dilution transients
+Appl. Therm. Eng., 58 (2013), pp. 430-438
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+Diamond et al., 1995
+Diamond, D.J., Kohut, P., Nourbakhsh, H., Valtonen, K., Secker, P., 1995. Probability and consequences of a rapid boron dilution sequence in a PWR, OECD Specialist Meeting on Boron Dilution Reactivity Transients, State College, PA.
+Google Scholar
+Dury et al., 2008
+T.V. Dury, B. Hemström, S.V. Shepel
+CFD simulation of the Vattenfall 1/5th-scale PWR model for boron dilution studies
+Nucl. Eng. Des., 238 (2008), pp. 577-589
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+Eisenhut, 1985
+Eisenhut, D.G., 1985. Inadvertent Boron Dilution Events (Generic Letter No. 85-05).
+Google Scholar
+Eltayeb et al., 2019
+A. Eltayeb, S. Tan, Z. Qi, A.A. Ala, N.M. Ahmed
+PLIF experimental validation of a FLUENT CFD model of a coolant mixing in reactor vessel down-comer
+Ann. Nucl. Energy, 128 (2019), pp. 190-202
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+Estelle and Frédéric 2006
+Estelle, G., Frédéric, G., 2006. CFX code application to the French reactor for inherent boron dilution safety issue, CFD4NRS, Garching, Munich.
+Google Scholar
+Farkas et al., 2016
+I. Farkas, E. Hutli, T. Farkas, A. Takács, A. Guba, I. Tóth
+Validation of computational fluid dynamics calculation using Rossendorf coolant mixing model flow measurements in primary loop of coolant in a pressurized water reactor model
+Nucl. Eng. Technol., 48 (2016), pp. 941-951
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+Freixa et al., 2007
+J. Freixa, F. Reventos, C. Pretel, L. Batet
+Boron transport model with physical diffusion for RELAP5
+Nucl. Technol., 160 (2007), pp. 205-215
+View Record in ScopusGoogle Scholar
+Freixa et al., 2009
+J. Freixa, F. Reventós, C. Pretel, L. Batet, I. Sol
+SBLOCA with boron dilution in pressurized water reactors. Impact on operation and safety
+Nucl. Eng. Des., 239 (2009), pp. 749-760
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+Gango, 1997
+P. Gango
+Numerical boron mixing studies for Loviisa nuclear power plant
+Nucl. Eng. Des., 177 (1997), pp. 239-254
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+Gavrilas and Höhne, 2001
+Gavrilas, M., Höhne, T., 2001. OECD/CSNI ISP Nr. 43 rapid boron dilution transient tests for code verification post test calculation with CFX-4.
+Google Scholar
+Gavrilas and Höhne, 2001
+Gavrilas, M., Höhne, T., 2001. OECD/CSNI ISP NR. 43 Rapid Boron Dilution Transient Tests For Code Verification Post Test Calculation with CFX-4, Forschungszentrum Rossendorf, pp. 738–744.
+Google Scholar
+Gavrilas and Kiger, 2001
+Gavrilas, M., Kiger, K., 2001. International standard problem (ISP) No. 43 Rapid Boron Dilution Transient Tests for Code Verification, Nuclear Energy Agency Comparison Report NEA/CSNI.
+Google Scholar
+Gavrilas, 2007
+Gavrilas, M., 2007. International Standard Problem No. 43: Results and Lessons Learned. In: Proceedings of the workshop on Benchmarking of CFD Codes for Application to Nuclear Reactor Safety (CFD4NRS).
+Google Scholar
+Glaeser, 1989
+H. Glaeser
+Downcomer and tie plate countercurrent flow in the Upper Plenum Test Facility (UPTF)
+Nucl. Eng. Des., 133 (1989), pp. 259-283
+Google Scholar
+González et al., 2007
+I. González, C. Queral, A. Expósito
+Phenomenology during the loss of residual heat removal system at midloop conditions with pressurizer PORVs open: associated boron dilution
+Ann. Nucl. Energy, 34 (2007), pp. 166-176
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+Henninger and Woodruff, 1983
+R.J. Henninger, S.B. Woodruff
+UNMITIGATED BORON DILUTION EVENTS IN A PWR
+Second International Topical Meeting on Nuclear Reactor Thermal hydraulics, Santa Barbara, California (1983)
+Google Scholar
+Hertlein et al., 2003
+R.J. Hertlein, K. Umminger, S. Kliem, H. Prasser, T. Höhne, F. Weiss
+Experimental and numerical investigation of boron dilution transients in pressurized water reactors
+Nucl. Technol., 141 (2003), pp. 88-107
+CrossRefGoogle Scholar
+Hertlein et al., 2003
+R.J. Hertlein, K. Umminger, S. Kliem, H.M. Prasser, T. Hoehne, F.P. Weiss
+Experimental and numerical investigation of boron dilution transients in pressurized water reactors
+Nucl. Technol., 141 (2003), pp. 88-107
+CrossRefGoogle Scholar
+Höhne et al., 2008
+T. Höhne, S. Kliem, U. Rohde, F. Weiss
+Boron dilution transients during natural circulation flow in PWR—Experiments and CFD simulations
+Nucl. Eng. Des., 238 (2008), pp. 1987-1995
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+Höhne et al., 2018
+T. Höhne, S. Kliem, U. Bieder
+IAEA CRP benchmark of ROCOM PTS test case for the use of CFD in reactor design using the CFD-Codes ANSYS CFX and TrioCFD
+Nucl. Eng. Des., 333 (2018), pp. 161-180
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+Hyvärinen, 1993
+J. Hyvärinen
+The inherent boron dilution mechanism in pressurized water reactors
+Nucl. Eng. Des., 145 (1993), pp. 227-240
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+ISTC, 2001
+ISTC, 2001. Boron Dilution in WWER Reactors.
+Google Scholar
+Ivanov et al., 1999
+K.N. Ivanov, U. Grundmann, S. Mittag, U. Rohde
+Comparative study of a boron dilution scenario in VVER reactors
+Ann. Nucl. Energy, 26 (1999), pp. 1331-1339
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+Jafari and Talebi, 2017
+N. Jafari, S. Talebi
+The effect of boron dilution transient on the VVER-1000 reactor core using MCNP and COBRA-EN codes
+KERNTECHNIK, 82 (3) (2017), pp. 308-315
+CrossRefView Record in ScopusGoogle Scholar
+Jasiulevicius et al., 2005
+A. Jasiulevicius, O. Zerkak, R. Macian-Juan
+Loss of residual heat removal system: TRACEv4. 00 simulation of a PKL experiment
+Trans. Am. Nucl. Soc., 92 (2005), pp. 442-443
+View Record in ScopusGoogle Scholar
+Jasiulevicius et al., 2006
+A. Jasiulevicius, O. Zerkak, R. Macian-Juan
+Investigation of Heat Transfer Mechanisms under Shutdown Plant Conditions with TRACEv4
+American Nuclear Society (2006)
+Google Scholar
+Jayaraju et al., 2013
+S.T. Jayaraju, P. Sathiah, E.M.J. Komen, E. Baglietto
+Large Eddy Simulation for an inherent boron dilution transient
+Nucl. Eng. Des., 262 (2013), pp. 484-498
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+Jimenez et al., 2015
+G. Jimenez, J.J. Herrero, A. Gommlich, S. Kliem, D. Cuervo, J. Jimenez
+Boron dilution transient simulation analyses in a PWR with neutronics/thermal-hydraulics coupled codes in the NURISP project
+Ann. Nucl. Energy, 84 (2015), pp. 86-97
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+Kasahara, 2008
+F. Kasahara
+Validation of analytical capabilities of RELAP5/MOD3.3 on boron dilution during SBLOCA and loss of residual heat removal system
+Heat Transfer Eng., 29 (2008), pp. 721-730
+CrossRefView Record in ScopusGoogle Scholar
+Kliem and Gommlich, 2011
+Kliem, S., Gommlich, M.S., 2011. Definition of a PWR boron dilution benchmark, A Collaborative Project NURISP report.
+Google Scholar
+Kliem et al., 2006
+Kliem, S., Rohde, U., Rossendorf, F., 2006. State of the art regarding the safety analysis of boron dilution events in Germany, University of London.
+Google Scholar
+Kliem et al., 2007
+S. Kliem, B. Hemström, Y. Bezrukov, T. Höhne, U. Rohde
+Comparative evaluation of coolant mixing experiments at the ROCOM, Vattenfall, and Gidropress test facilities
+Sci. Technol. Nucl. Ins., 2007 (2007)
+Google Scholar
+Kliem et al., 2008
+S. Kliem, T. Sühnel, U. Rohde, T. Höhne, H. Prasser, F. Weiss
+Experiments at the mixing test facility ROCOM for benchmarking of CFD codes
+Nucl. Eng. Des., 238 (2008), pp. 566-576
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+Kliem et al., 2010
+S. Kliem, T. Höhne, U. Rohde, F.P. Weiss
+Experiments on slug mixing under natural circulation conditions at the ROCOM test facility using high-resolution measurement techniques and numerical modeling
+Nucl. Eng. Des., 240 (2010), pp. 2271-2280
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+Kliem et al., 2016
+S. Kliem, Y. Bilodid, E. Fridman, S. Baier, A. Grahn, A. Gommlich, E. Nikitin, U. Rohde
+The reactor dynamics code DYN3D
+KERNTECHNIK, 81 (2016), pp. 170-172
+CrossRefView Record in ScopusGoogle Scholar
+Kliem et al., 2019
+S. Kliem, A. Grahn, Y. Bilodid, T. Höhne
+A realistic approach for the assessment of the consequences of heterogeneous boron dilution events in pressurized water reactors
+Nucl. Eng. Des., 349 (2019), pp. 150-161
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+L.I.T. Co, 2005
+L.I.T. Co, 2005. RELAP5 3D code manual volume I: Code structure, system models, and solution methods. The RELAP5-3D© Code Development Team.
+Google Scholar
+Labois et al., 2010
+M. Labois, J. Panyasantisuk, T. Höhne, S. Kliem, D. Lakehal
+On the prediction of boron dilution using the CMFD code TRANSAT: the ROCOM test case
+Proc. CFD4NRS 4. OECD-NEA, Washington, USA (2010)
+Google Scholar
+Li and Liu, 2018
+S. Li, X. Liu
+Development of boron tracking and boron hideout (CRUD) model based on subchannel approach
+Nucl. Eng. Des., 338 (2018), pp. 166-175
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+Lycklama and Hoehne, 2006
+J.A. Lycklama, T. Hoehne
+On the application of CFD modeling for the prediction of the degree of mixing in a PWR during a boron dilution transient
+2006 International Congress on Advances in Nuclear Power Plants, American Nuclear Society, Reno - Nevada (United States) (2006)
+Google Scholar
+Macian-Juan and Mahaffy, 1998
+R. Macian-Juan, J.H. Mahaffy
+Numerical diffusion and the tracking of solute fields in system codes: Part II. Multi-dimensional flows
+Nucl. Eng. Des., 179 (1998), pp. 321-344
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+Macian-Juan and Mahaffy, 1998
+R. Macian-Juan, J.H. Mahaffy
+Numerical diffusion and the tracking of solute fields in system codes: Part I. One-dimensional flows
+Nucl. Eng. Des., 179 (1998), pp. 297-319
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+Mascari et al., 2007
+Mascari, F., Vella, G., Nevo, A.D., Auria, F.D., 2007. Analysis, by RELAP5 code, of Boron Dilution Phenomena in a Mid-Loop Operation Transient, Performed in PKL III F2. 1 RUN 1 Test, Nuclear Energy for New Europe, Portoroz, Slovenia.
+Google Scholar
+Mirkovic and Diamond, 1990
+D. Mirkovic, D.J. Diamond
+Boron flushing during a BWR anticipated transient without scram
+Nuclear Regulatroy Commission (1990)
+Google Scholar
+Moretti et al., 2008
+F. Moretti, D. Melideo, F. D'Auria, H. Thomas, S.O. Kliem
+CFX simulations of ROCOM slug mixing experiments
+J. Power Energy Syst., 2 (2008), pp. 720-733
+CrossRefView Record in ScopusGoogle Scholar
+Moretti et al., 2009
+F. Moretti, D. Melideo, A.D. Nevo, F. D'Auria, T. Höhne, E. Lisenkov
+CFD Analysis of a Slug Mixing Experiment Conducted on a VVER-1000 Model
+Sci. Technol. Nucl. Install., 2009 (2009), p. 104
+Google Scholar
+Mull et al., 2007
+T. Mull, K. Umminger, A. Bucalossi, F. D'Auria, P. Monnier, I. Toth, W. Schwarz
+Final report of the OECD-PKL project
+FRAMATOME ANP (2007)
+Google Scholar
+Nigro and Auria, 2003
+A.L. Nigro, F.D. Auria
+PWR Core Response to Boron Dilution Transient
+Nuclear Energy for New Europe, Portorož, Slovenia (2003)
+Google Scholar
+Nourbakhsh and Cheng, 1995a
+Nourbakhsh, H.P., Cheng, Z., 1995. Mixing phenomena of interest to boron dilution during small break LOCAs in PWRs, Brookhaven National Laboratory.
+Google Scholar
+Nourbakhsh and Cheng, 1995b
+H.P. Nourbakhsh, Z. Cheng
+Potential for boron dilution during small-break LOCAs in PWRs
+Oecd/committee on Safety of Nuclear Installations Specialist Meeting on Boron Dilution Reactivity Transients (1995)
+Google Scholar
+Ozdemir, 2012
+O.E. Ozdemir
+Multi Dimensional Boron Transport Modelling in a Subchannel Approach
+The Pennsylvania State University (2012)
+Google Scholar
+Ozdemir et al., 2014
+O.E. Ozdemir, M.N. Avramova, K. Sato
+Multi-dimensional boron transport modeling in subchannel approach: Part I Model selection, implementation and verification of COBRA-TF boron tracking model
+Nucl. Eng. Des., 278 (2014), pp. 701-712
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+Ozdemir and Avramova, 2014
+O.E. Ozdemir, M.N. Avramova
+Multi-dimensional boron transport modeling in subchannel approach: Part II Validation of CTF boron tracking model and adding boron precipitation model
+Nucl. Eng. Des., 278 (2014), pp. 713-722
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+Pecchia et al., 2015
+M. Pecchia, C. Parisi, F. D'Auria, O. Mazzantini
+Application of MCNP for predicting power excursion during LOCA in Atucha-2 PHWR
+Ann. Nucl. Energy, 85 (2015), pp. 271-278
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+Pla et al., 2011
+P. Pla, C. Parisi, R. Galetti, F. D'Auria, G.M. Galassi, F. Reventos
+Basis for calculating boron dilution scenarios in PWR by 3D neutron kinetics
+Int. Topical Meet. on Nuclear Reactor Thermal-Hydraulics (2011)
+Google Scholar
+Reventós et al., 2008
+F. Reventós, J. Freixa, L. Batet, C. Pretel, D. Luebbesmeyer, D. Spaziani, J. Macek, F. Lahovsky, F. Kasahara, K. Umminger, R. Wegner
+An analytical comparative exercise on the OECD-SETH PKL E2.2 experiment
+Nucl. Eng. Des., 238 (4) (2008), pp. 1146-1154
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+Rohde et al., 2005a
+U. Rohde, S. Kliem, T. Hohne, R. Karlsson, B. Hemstrom, J. Lillington, T. Toppila, J. Elter, Y. Bezrukov
+Fluid mixing and flow distribution in the reactor circuit, measurement data base
+Nucl. Eng. Des., 235 (2005), pp. 421-443
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+Rohde et al., 2005b
+U. Rohde, T. Hohne, S. Kliem, M. Scheuerer, B. Hemstrom, T. Toppila, T. Dury, J. Klepac, J. Remis, R. Karlsson
+The European project FLOMIX-R: Fluid mixing and flow distribution in the reactor circuit-Final summary report
+Forschungszentrum Rossendorf (2005)
+Google Scholar
+Rohde et al., 2007
+U. Rohde, T. Höhne, S. Kliem, B. Hemström, M. Scheuerer, T. Toppila, A. Aszodi, I. Boros, I. Farkas, P. Mühlbauer
+Fluid mixing and flow distribution in a primary circuit of a nuclear pressurized water reactor—Validation of CFD codes
+Nucl. Eng. Des., 237 (2007), pp. 1639-1655
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+Rohde et al., 2016
+U. Rohde, S. Kliem, U. Grundmann, S. Baier, Y. Bilodid, S. Duerigen, E. Fridman, A. Gommlich, A. Grahn, L. Holt
+The reactor dynamics code DYN3D – models, validation and applications
+Prog. Nucl. Energy, 89 (2016), pp. 170-190
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+Rossi, 1991
+Rossi, C.E., 1991. Information Notice No. 91-54: Foreign Experience Regarding Boron Dilution, U.S. Nuclear Regulatory Commission.
+Google Scholar
+Schaffrath et al., 2007
+A. Schaffrath, K.C. Fischer, T. Hahm, S. Wussow
+Validation of the CFD code fluent by post-test calculation of a density-driven ROCOM experiment
+Nucl. Eng. Des., 237 (2007), pp. 1899-1908
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+Sohn and Lee, 2011
+S.W. Sohn, K.J. Lee
+Development of a boron concentration prediction model using multi-cell simulation of the automatic load follow operation
+Ann. Nucl. Energy, 38 (2011), pp. 463-473
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+Sun and William, 1995
+J.G. Sun, T.S. William
+Analysis of boron dilution in a four-loop PWR, Specialist Meeting on Boron Dilution Reactivity Transient
+U.S. Nuclear Regulatory Commission, State Collage, PA (1995)
+Google Scholar
+Thomas Höhne, 2006
+Thomas Höhne, S.K., 2006. Coolant mixing studies of natural circulation flows at the ROCOM test facility using Ansys CFX. Forschungszentrum Rossendorf (FZR).
+Google Scholar
+Tinoco et al., 2010
+H. Tinoco, P. Buchwald, W. Frid
+Numerical simulation of boron injection in a BWR
+Nucl. Eng. Des., 240 (2010), pp. 221-234
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+Toppila, 2008
+T. Toppila
+CFD simulation of Fortum PTS experiment
+Nucl. Eng. Des., 238 (2008), pp. 514-521
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+Tsyganov et al., 2017
+S.V. Tsyganov, A.V. Kotsarev, A.V. Baykov
+The process of asymmetric boron dilution at zero power of VVER-1000 on Kudankulam NPP and it simulation
+International Conference on Mathematics & Computational Methods Applied to Nuclear Science & Engineering (2017)
+Google Scholar
+Umminger et al., 2001
+K. Umminger, W. Kastner, J. Liebert, T. Mull
+Thermal hydraulics of PWRS with respect to boron dilution phenomena Experimental results from the test facilities PKL and UPTF
+Nucl. Eng. Des., 204 (2001), pp. 191-203
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+Umminger et al., 2002
+K. Umminger, R. Mandl, R. Wegner
+Restart of natural circulation in a PWR–PKL test results and s-relap5 calculations
+Nucl. Eng. Des., 215 (2002), pp. 39-50
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+Umminger et al., 2003
+K. Umminger, T. Mull, B. Schoen
+Experiments on boron dilution in the integral test facility, PKL
+The 10th International Topical Meeting on Nuclear Reactor Thermal Hydraulics (NURETH-10), Seoul, Korea (2003)
+Google Scholar
+Wang et al., 2013
+D. Wang, J.H. Mahaffy, J. Staudenmeier, C.G. Thurston
+Implementation and assessment of high-resolution numerical methods in TRACE
+Nucl. Eng. Des., 263 (2013), pp. 327-341
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+Weiss et al., 1986
+P. Weiss, M. Sawitzki, F. Winkler
+UPTF, a full-scale PWR loss-of-coolant accident experiment program
+Atomkernenergie Kerntechnik, 49 (1986), pp. 61-67
+View Record in ScopusGoogle Scholar
+Yang et al., 2017
+F. Yang, K. Zhou, Z. Wei
+Improvement of 1-D Boron tracking model of RELAP5
+Nucl. Power Eng., 3 (2017), pp. 141-144
+View Record in ScopusGoogle Scholar
+Yu et al., 2019
+H. Yu, M. Wang, R. Cai, D. Zhang, W. Tian, S. Qiu, G.H. Su
+Development and validation of boron diffusion model in nuclear reactor core subchannel analysis
+Ann. Nucl. Energy, 130 (2019), pp. 208-217
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+Zhang et al., 2019
+Q. Zhang, J. Su, W. Du, H. Yuan, F. Yang, S. Tan
+Experimental study on mixing phenomenon inside reactor down-comer under single-loop injection using laser induced fluorescence
+Prog. Nucl. Energy, 117 (2019), Article 103046
+ArticleDownload PDFGoogle Scholar

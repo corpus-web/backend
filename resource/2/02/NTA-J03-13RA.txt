@@ -1,0 +1,175 @@
+<title>Model-Assisted Approach for Probability of Detection (POD) in High-Temperature Ultrasonic NDE Using Low-Temperature Signals</title>
+<author>Prathamesh N. Bilgunde & Leonard J. Bond</author>
+<year>2018</year>
+<Jounral>Nuclear Technology</Journal>
+<Affiliation>Iowa State University, Department of Aerospace Engineering and Center for Nondestructive Evaluation, 1915 Scholl Road, Ames, Iowa 50011</Affiliation>
+<Publishing_house>ANS</Publishing_house>
+<Text_Collector>田苗，BFSU</Text_Collector>
+<DOI>10.1080/00295450.2017.1419782</DOI>
+<URL> https://doi.org/10.1080/00295450.2017.1419782</URL>
+Abstract — Advanced piezoelectric-based ultrasonic transducers offer the potential for in-coolant nondestruc- tive testing (NDT) measurements at high temperatures (HTs), including during hot standby (~260°C) for liquid- sodium–cooled advanced small modular reactors. The reliability of the NDT measurements is typically quantified by the probability of detection (POD) measured at the corresponding temperature. Obtaining such data in liquid sodium is challenging. Using a model-assisted POD approach, a transfer function is reported that enables data obtained on low carbon steel specimens at room temperature to give an estimated POD at an HT. A primary source of the difference in POD between room temperature and HT is due to the transducer material temperature- dependent performance. This paper demonstrates the transfer function approach using data for modified lead zirconium titanate (PZT-5A). A physics-based model was developed using a finite element method and used to quantify reduction in the scattering amplitude for standard reflectors, side drilled holes (SDHs), for a range of sizes, from 15°C to 195°C. Scattering amplitudes for the room-temperature–simulated data are compared with the experimental data measured at 2.25 MHz. A temperature correction and transfer functions were developed to transform the simulated temperature effect in the physics-based model to compare with the experimental data. The model-based approach was validated with experimental data. It was seen and validated for a PZT-5A ultrasonic transducer operating at 2.25 MHz that the 95% POD at 15°C was 0.58 λ, and due to variation in temperature- dependent properties of PZT-5A, the 95% POD was achieved only for a 1.41 λ SDH diameter.
+Keywords — MAPOD, high temperature, piezoelectric transducer.
+Note — Some figures may be in color only in the electronic version.
+I.INTRODUCTION
+Generation IV fast nuclear reactor designs are being developed to support sustainable development, economic competitiveness, and improved safety.1 Past experience, spe- cifically with regard to long-term maintenance experience from the Phoenix reactors (France), has underlined the need to provide effective and reliable inspection of components.2 The efficacy of the nondestructive testing (NDT) inspection is often quantified by the probability of detection (POD) curve. Previous studies have shown that signal-to-noise ratio becomes a critical issue for transducers operating in liquid sodium at a hot standby temperature of 260°C (Ref. 3).
+Particularly, the reduction in the signal strength as a function of temperature reduces the ability to identify and distinguish between an ultrasonic response from the defect and electrical noise. This reduction in signal strength can cause a reduction in POD in a high-temperature (HT) environment that needs to be predicted.
+From the POD perspective, actual nondestructive inspec- tion is highly variable due to human factors, experimental limitations, etc. Moreover, these experiments are time consuming and expensive due to the cost of the preparation of specimens with defects. A more cost-effective approach to increase confidence is using physics-based modeling to predict POD, and this has been demonstrated for many years.4 Sarkar et al.5 proposed a modeling methodology to estimate POD as a function of known fixed effect parameters. These
+models have been an integral part of a unified approach for model-assisted probability of detection6,7 (MAPOD). The basic idea behind MAPOD is to use an understanding of the effects of physical factors on the measurement results.6 Cobb et al.8 advocated development of hybrid finite element (FE) models to use in the MAPOD approach. The thesis of this work states that predictive modeling should be multidomain consisting of sensor, electronics, and power management. Crack geometry was the primary source of variability in this work.8 Smith et al. developed the full model-assisted (FMAPOD) approach9 and presented a transfer function approach10 that correlated the responses from an artificial defect to that of a real crack geometry. Aldrin et al.11 reported simulation-based POD studies for reliability assessment of structural health monitoring (SHM) systems within the frame- work of MAPOD. Jensen et al.12 explored uncertainty propa- gation through CIVA-multi-technique software (CEA-LIST, France) simulation models. Wirdelius et al.13 also developed POD based on synthetic data obtained from simSUNDT soft- ware. Pavlovi et al.14 reported POD data as a function of multiple parameters in contrast to the conventional signal response analysis. Li et al.15 developed a statistical  model for estimating POD based on the physical mechanisms of ultrasonic inspection. This work15 successfully demonstrates the intersection of statistical and physical modeling of ultra- sonic wave propagation for the purpose of estimating POD.
+In a harsh operating environment, such as a nuclear
+reactor, POD can be expected to reduce over time due to deterioration of sensor performance. Subair et al.16 reported FE modeling for the estimation of POD of nuclear components at room temperature. Roy et al.17 developed temperature-dependent, physics-based model- ing using experimental data up to 80°C. The objective of this work17 was to propose a temperature compensation strategy for guided waves. Similarly, Wang et al.18 reported an adaptive filtering technique for temperature compensation of Lamb  waves.  Recently,  Salmanpour  et al.19 proposed a new method of temperature correction and used it in conjunction with a delay and sum damage detection algorithm. The proposed method is based on baseline signal stretch with an improved minimum resi- dual allowing correction over a larger temperature range. Gianneo et al.20 reported the FMAPOD approach for inspection of a copper canister to plot the POD curve    for flat bottom holes where data were calculated using  CIVA-multi-technique software (CEA-LIST, France). In this work, the primary source of variability was structural attenuation. Gianneo et al.21 extended this work using FE models for a multiparameter POD formulation for a  Lamb waves–based SHM for light alloy aeronautical plates.  Yusa   et  al.22  evaluated  general  effects  of  flaw
+parameters on the ultrasonic response using the numerical simulations and experimental measurements on 316L steel specimens. Recently, Janapati et al.23 discussed the role of POD in nondestructive evaluation (NDE) and SHM. The focus of this work was quantifying the effect of transducer parameters on damage detection sensitivity. However, the effect of temperature dependency of piezoelectric material on the POD is not sufficiently quanti- fied. In the current work, temperature dependency of PZT-5A is modeled with regard to its effect on the POD. The objective of this work is to connect a microscopic material phenomenon that occurs within piezoelectric ceramics at an HT to an industrial practice of evaluating POD for quantifying perfor- mance of NDT inspections. This is achieved by a physics- based model using FE software COMSOL™ (Burlington, Massachusetts) (Ref. 24) and temperature-dependent material coefficients of PZT-5A (Ref. 25). Using the FE model, tem- perature correction and transfer factors are proposed to esti- mate POD value at an HT using POD of room temperature
+experimental data.
+II.PROBLEM DESCRIPTION
+The problem considered in this work consists of a planar compression wave (p-wave) transducer transmitting at normal incidence through a solid-solid interface as shown in Fig. 1. Let Ω be the domain of the problem connected by the Lipschitz boundaries qΩ. The low carbon steel block of 50 × 50 mm cross section and the piezo- electric transducer are represented by domain Ωsteel and Ωtransducer, respectively. The piezoelectric material PZT-5A domain has a length of 12.7 mm and a thickness of
+0.9mm. Hence, the computational domain is given by
+Ω = Ωsteel ∪ Ωtransducer as shown in Fig. 1.
+The elastic wave is scattered by the side drilled hole
+(SDH) in the solid. The p-wave response from the SDH is received by the same transducer in a pulse-echo solid-solid interface model. It is assumed that the plane of the transducer is perpendicular to the axis of the SDH. In the current work, the amplitude of p-wave reflected from SDHs is computed in terms of the vertical component of the displacement field in the FE model. The assumptions for the physics-based model are summarized and given as follows:
+1.There is a plain strain condition.
+2.The material behaves linearly  elastic.
+3.There is a small deformation of the plate, which thus implies that this theory is not applicable for large deformations of the piezoelectric material. This assumption is  particularly  valid  for  the  low-power piezoelectric-based
+Fig. 1.  Problem configuration to predict the response from SDHs at a normal incidence.
+ultrasonic transducers, which are used in linear ultrasonic measurements employed in SHM and NDE.
+The material is continuous and homogenous, which assumes uniform distribution of material properties to solve the problem within a continuum mechanics framework. This prevents the current approach from applying to the materials with significant discontinuity and inhomogeneity.
+5.The damping variation due to temperature is assumed negligible, since the objective of the current work is to primarily study effect of temperature-dependent piezoelectric material properties as a function of tempera- ture. Damping mainly causes changes in the magnitude and bandwidth of the resonance frequency response. Hence, if the Rayleigh damping coefficients as a function of temperature are measured, the temperature-dependent damping response can be included in the current transient FE model. The pyroelectric and magnetization effects con- tribute to the mechanical strain and electric displacement of the piezoelectric material as shown in Eqs. (1) and (2).
+6.Thermoelectric coupling resulting in a pyroelectric effect in the piezoelectric material is not considered 7.Magnetization effects are assumed negligible. The reasons for this are discussed in Sec. III.A.
+III.PHYSICS-BASED MODEL
+III.A.Constitutive Equation of Piezoelectric Material for Temperature Dependence
+The equations for piezoelectricity can be obtained using Gibbs thermodynamic potential as26
+@1
+@2
+where
+Si = Cauchy’s total mechanical strain tensor
+D = electric displacement tensor
+εT;H;θ = absolute permittivity at constant mechani- cal stress Ti, constant magnetic field H, and constant temperature θ
+s E,H,θ = elastic compliance coefficient at a constant electric field E, constant magnetic field H, and constant temperature θ
+dmi = piezoelectric c harge coefficient
+α = thermal expansion coefficient
+p = pyroelectric constant
+m = magneto-dielectric coefficient.
+The phase velocity of elastic waves for piezoelectric ceramic is significantly less than the electromagnetic waves. This implies a time derivative of magnetic field   H 0 indicating  absence  of  the  magnetization  effect  and presence of a quasi-static field. Thus, magneto- dielectric coupling from Eqs. (1) and (2) can be ignored. In the current work, the temperature difference dθ is assumed to be small, representing a gradual increase in the temperature of a piezoelectric-based  sensor.  Thus, for a quasi-thermal change in the piezoelectric material, the thermal expansion and pyroelectric effects can be ignored. This reduces Eqs. (1) and (2) to a strain charge form of linear theory of the piezoelectric effect, given by
+@3
+and
+@4
+The piezoelectric material modeled in this study, PZT-5A, exhibits a crystal structure with a symmetry of a hexagonal 6-mm class.25 The piezoelectric material is considered transversely isotropic if the poling axis aligns with one of the material symmetry axes25 as shown in the expanded view of transducer model in Fig. 1. Hence, for a two-dimensional physics-based model, the material matrix reduces to four elastic coefficients, three piezoelectric coefficients, and two dielectric coefficients. Hence, the piezoelectric stiffness matrix can be given as
+@5
+Further information regarding the temperature dependence of a piezoelectric material is given by Sabat et al.25 In the current FE model, the in-plane deformation problem is considered in the x-y plane as shown in Fig. 1. The poling axis of the soft PZT-5A coincides with the y-axis of the model. The assumed electromechanical load for the in-plane problem is given by (a) E1 ≠ 0, E3 ≠ 0, E2 = 0, also implies D1 ≠ 0, D3 ≠ 0, D2 = 0, and (b) mechanical displacement u1 ≠ 0, u3 ≠ 0, u2 = 0. Thus, the nonzero stress and strain components are given by σ11, σ33, σ13 and s11, s13, s33. The second assumption of nonzero mechanical displacement, strain, and stress also applies to linear elastic solids in the physics-based model.
+III.B.Constitutive Equations of Piezoelectric Material for Temperature Dependence
+The equation of linear momentum balance in the time domain is given by27
+@6
+where
+ρ =  assigned material density
+u =  mechanical displacement
+σ = second-order Piola-Kirchoff stress tensor
+Fv = body force.
+The top boundary (y = L) for the Ωsteel shown in Fig. 1 is kept traction free (σ31 = σ33 = σ11 = 0). A low-reflection boundary condition  is applied to the Ωsteel at x = 0 and    x = L boundaries to reduce reflection of the wave from side
+walls, which also reduces the degree of freedom for which the model is solved, and is given by24
+@7
+The vertices x =0 and x = L on the bottom boundary (y = 0) of
+the Ωsteel are modeled as fixed constraints (u = 0) representing the fixed support used to ensure the flatness of the structure
+during ultrasonic contact measurements. The boundaries of SDH are traction free (σ31 = σ33 = σ11 = 0).
+. Electrostatic Model for Piezoceramic
+As previously stated, for the piezoelectric media, the electric field (piezoelectric media) is assumed to be irro- tational. Thus, the electric field E is related to the scalar electric potential V by24
+@8
+@9
+The terminal boundary is assigned to the top electrode of the piezoelectric material, which is coupled to the lumped parametric model discussed in Sec. III.D. The bottom boundary of the ΩPZT is grounded (V = 0). Zero charge constraint is assigned in the domain ΩPZT at boundaries without terminal or ground boundaries given by Eq. (9). Charge density ρv in the domain ΩPZT is given by24
+@10
+III.D.Excitation of Transducer Using the Lumped Parametric Circuit Model
+In the experimental measurements, the piezoelectric transducer is excited with the pulsar-receiver circuit. This introduces electrical impedance mismatch between the trans- ducer and the instrumentation. This can be modeled in a FE model by introducing a resistor of impedance equal to that of the pulsar-receiver. In the current study, the impedance value is set to an ideal 50 Ω. The electric circuit module in COMSOL (Ref. 24) evaluates global variables, voltage, and current as a function of time. The transducer model discussed
+previously28 is excited with a Hamming windowed sinusoid signal with an amplitude of 160 V. The current at the back electrode of the piezoelectric element qDΩPZT is given by24
+@11
+Hence, the voltage on the electrode surface qDΩpiezo is
+given by
+@12
+III.E.Discretization
+A triangular element of maximum size 0.05 mm was used for meshing the complete domain Ω = ΩSS ∪ Ωtransducer. The total number of elements is 256 662 with an average
+growth rate of 1 and an average element quality equal to 0.99. This simulates the defect as a geometric discontinuity, which is kept traction free. The maximum element size is determined
+from Eq. (15) is then  given as	b
+ymod ¼ β0  þ β1x þ n ;	ð17Þ
+where system noise n has a normal distribution N (0, τ2). Using Bessel’s correction, τ2 is given by
+by the minimum shear wave speed of the material assigned to the computational domain given by28
+@13
+where
+hmax = maximum element size
+c = shear wave speed in the material
+f0 = highest frequency required in the spectrum
+N = number of element per wavelength
+t = time step
+CFL = Courant-Freidrich-Levi number29 equal to 0.2 from the numerical convergence study.28
+III.F.Probability of Detection Formulation
+The reflected signal displacement data from the physics-based model corresponds to response a. The
+be noted that y is the displacement amplitude of the true size (here, diameter) of the flaw a is relabted to
+@14
+which is of the linear equation form given by
+@15
+Equation (15) is of the form Ax = b. Using the theory of least- squares solutions from linear algebra, the estimate for βj is given as
+@16
+If system noise n is added to Eq. (15), the modified y from Eq. (15) is then  given as
+@17
+where system noise n has a normal distribution N (0, τ2). Using Bessel’s correction, τ2 is given by
+@18
+Using the Wald method given in the standard handbook MILHDBK-1823A (Appendix G) (Ref. 30), variance of y and ymod can be obtained as shown in Eqs. (19) and (20),
+@19
+@20
+The decision threshold yth for model data is set to exhibit a conventional nature observed in measurements-based POD curves. The detection threshold here is the amplitude of ver- tical component of displacement field u from the model data. The upper and lower 95% confidence bounds are plotted using the probit function. The POD curve is computed by Eq. (21) as
+@21
+where Θ is the cumulative distribution function. It should p-wave response from the SDHs computed using the physics-based model described previously.
+IV.RESULTS AND INTERPRETATION
+IV.A.Model Validation and Experimental Verification
+For the experimental verification, SDHs are machined into 1018 low-carbon-steel test blocks at a depth of 25 mm as shown in Fig. 2. A V306 Panametrics 2.25 MHz planar piezoelectric transducer with a 12.7-mm nominal element diameter is used for normal incidence contact measurements. For the near-field length (N) of 15.6 mm, the 6-dB beam width in the steel at the measured depth of SDHs (1.6 N) is 5 mm. As the defect size approaches the transducer beam width, the response is not only a function of the size of the defect but also a function of the reflection ratio and beam width.5,15 Hence, the largest flaw size is limited to 3.9 mm to reduce the beam width limitation effects. The minimum distance between two adjacent SDHs (22 mm) is also greater than the 6-dB beam width at a given depth (1.6 N) of SDHs. The Panametrics 5052 pulsar receiver with an energy setting at 2, repetition rate at 4, 40-dB gain, and damping set at 5 is used  with  a   1-m  coax  cable  and  Bayonet  Neill–
+Concelman connectors. The measurements acquired using the LeCroy HDO 4034 oscilloscope with a sampling fre- quency of 450 MHz are averaged 512 times to minimize the random electrical noise in the A-scan. Contact measurement for each SDH is repeated six times for all 16 SDHs to minimize the variability due to contact pressure. The mean of the six measurements for each SDH response ðxÞ is
+computed to compare with simulation data. The experimen- tal  error  for  each  SDH  response  is  given  by  e    σ=pN,
+where  σ is the standard  deviation  and  N is the number  of
+measurements for each SDH. The mean value of experimen- tal error e is assigned to the data as shown in Fig. 3a.
+Figure 3b shows  FE model–based  p-wave scattering
+amplitude as a function of SDH diameter. Figure 3c shows scattering amplitude model data for SDH reported by Lopez-Sanchez  et  al.31  The  increase  in  the normalized scattering amplitude as a function of flaw size is in good agreement with literature data as shown in Fig. 3d. For Figs. 3a, 3b, and 3c, scattering amplitude can be fitted logarithmically in the form given by y = m[ln(x) + c]. The experimental data shown in Fig. 3a acquired in terms of voltage amplitude are dependent upon the excitation pulse using the pulsar-receiver circuit. The scattering amplitude from the FE simulation is dependent on the amplitude of the input mechanical displacement to the model. As shown in Table I, this is expressed as the multi- plier factor mi in the fitted equations.
+This effect needs to be compensated to compare model and experimental data. The scattering amplitudes from experiment and models, corrected for the multiplier effect, are thus given by
+@22
+@23
+@24
+Figures 4a and 4b show a good agreement between model and experimental data for 0.4 < d/λ < 1 using the cor- rected scattering amplitudes of the SDHs from Eqs. (22), (23), and (24).
+For the d/λ greater than 1, the experimental scattering amplitude shows divergence from the FE model data. The transfer factors m1 and m2 from Eqs. (22) and (23) will be used to transform temperature effect from the physics- based model to the experimental POD.
+Fig. 2.  SDHs with diameter varying from 0.46 to 3.9 mm in a 1018 low-carbon-steel block.
+Fig. 3. p-wave scattering amplitude for (a) experimental data, (b) simulation data, (c) literature model data,31 and (d) comparison of normalized FE simulation and literature model data.
+TABLE I
+Logarithmic Fitting of the Data
+IV.B.Model Data for Scattering Amplitude Variation Due to Temperature Dependency of PZT-5A
+In this model case, the material coefficients corre- sponding to a particular temperature are based upon the temperature-dependent material coefficient in the literature.25  The  summed  temperature  effect   on   all the material coefficients from Eq. (5) results in the reduc- tion of the scattering amplitude with increase in temperature from 15°C to 195°C as shown in Fig. 5.
+Fig. 4. (a) and (b) Comparison of corrected p-wave scattering amplitudes from simulation data, experimental data, and previous published model data31 for SDH.
+Fig. 5. Displacement versus flaw size (diameter) due to the temperature dependence of material coefficients of PZT-5A.
+According to the experimental data,25 the magnitudes of s11, s13, s33, s44 coefficients reduce, whereas d33, d31,  ε33, ε11 increase as a function of temperature from 15°C  to 195°C due to the extrinsic and intrinsic contributions  in the piezoelectric cerami.25 Magnitude change in each of the material coefficients as a function of temperature contributes to the change in total mechanical strain Si and dielectric displacement Dm as described by Eqs. (3), (4), and (5). This influence of temperature on piezoelectric effect is related to the p-wave scattering amplitude reduc- tion through Eqs. (6) and (10). The logarithmic fitting of the simulated data in the form of Eq. (14) is shown in Table II, where a is the simulated reflected echo ampli- tude from SDH and a is the true size of the SDH.
+As the temperature increases from 15°C to 105°C, β1 reduces from 50% and β0 remains unchanged. Increasing temperature of the piezoelectric material from 105°C to 150°C reduces the value of β0 by 66% while the value of β1 remains unchanged. It should be noted that from 150°C to 195°C there is no change in the equation used for logarithmically fitting the data.
+TABLE II
+Logarithmic Fitting of Simulated Data
+IV.C.POD Curve with Temperature Dependency of PZT-5A
+Using Eqs. (14) through (21), POD values are calculated and the resulting data are plotted from the physics-based model data for different temperatures. The detection threshold Yth is expressed as the amplitude of the vertical component of the mechanical displacement field u from the model data. Figures 6a through 7b show POD values for 15°C, 105°C, 150°C, and 195°C.
+It should be noted that as the temperature is increased, the detection threshold needs to be lowered due to reduction in the scattering amplitude as explained in Sec. IV.B. However, the detection threshold is conventionally a system limitation that should be unmodified irrespective of the temperature. Hence, Yth (3.5E–8 mm)  at 15°C is selected as a fixed threshold for temperatures up to 195°C.
+Figure 8 shows the POD values for temperature increasing from 15°C to 195°C. It can  be  seen  from  Fig. 8 that increase in the temperature of the PZT-5A introduces a considerable source of variability in the POD for a given flaw size.
+The flaw size corresponding to POD = 0.95 increases from 2.1 mm (0.81 λ) at 15°C to more than 1.5 λ at 195°C as shown in Fig. 8. This shows that detectability of the defects with a probability of 0.95 limits to the flaw size of
+1.5 λ at 195°C as compared to 0.81 λ at 15°C at 2.25-MHz resonance center frequency.
+Moreover, for SDHs with a diameter between 0.54 (1.4 mm) and 1.17 λ (3 mm) in the low carbon steel the POD value varies significantly for 2.25-MHz transducer as shown in Fig. 8. For instance, the POD is estimated to reduce by 17% at 195°C as compared to 15°C for a flaw size of 3.9 mm (1.5 λ) as shown in Fig. 8. For artificial defects such as SDHs of size 1.1 λ, a significant 97% reduction in the POD value between 15°C and 195°C can be seen due to the temperature effect on the piezoelectric material. Table III quantifies the effect of temperature dependency for PZT-5A piezoelectric material properties at 2.25 MHz on the POD values.
+IV.D.Temperature Correction Factor K
+In Secs. IV.A, IV. B, and IV.C, the material coefficients for PZT-5A are altered based on the experimental data25 at corresponding temperatures. The effect of the temperature- dependent coefficients on the scattering amplitudes and hence the simulation-based POD is quantified in  Figs.  5 and 8, respectively.
+In this section, using the simulated data for temperature- dependent scattering amplitudes, a correction factor K for the temperature effect of PZT-5A is proposed, which is
+Fig. 6. Probability of detection: (a) 15°C and (b) 105°C for the predefined detection threshold Yth.
+Fig. 7. Probability of detection at (a) 150°C and (b) 195°C for the predefined detection threshold Yth.
+Fig. 8. Effect of temperature dependence of  PZT-5A  on the POD curve for a fixed threshold (Yth at 15°C) (the orange dashed line shows flaw size at POD = 0.95 from 15°C to 195°C).
+calculated as the ratio of the p-wave scattering amplitudes at 15°C to the scattering amplitude at the corresponding tem- perature. The numerical uncertainty in the correction factor is K ± 0.02 with the maximum deviation at SDH of 0.23-mm diameter. As shown in Fig. 9b, the value of K atcorresponding temperatures is essentially the magnitude by which the p-wave scattering amplitude needs to be compensated to match the POD at 15°C.
+IV.E.Estimation of HT POD Using Room Temperature Experimental Data
+In order to apply the temperature correction factor K from the physics-based model to the actual experimental data, the detection threshold is set as
+@25
+where Yth = 3.5E−8 (mm) is the detection threshold for the model data at 15°C and the transfer factors m1, m2 were obtained from Eqs. (22) and (23). Now, using this temperature correction factor K, reduction in the scatter- ing amplitudes of room temperature experimental data is calculated for 105°C, 150°C, and 195°C. In  this  way, Fig. 10 shows the estimation of HT POD using room temperature experimental data, correction factor K, and transfer factors m1 and m2.
+The flaw size corresponding to POD = 0.95 increases from 1.49 mm (0.58 λ) at 15°C to 3.58 mm (1.41 λ) at
+TABLE III
+Model-Based Data for POD as a Function of Flaw Size for Temperature Dependence of PZT-5A
+195°C as shown by the orange dashed line in Fig. 10. This shows that detectability of the defects with a probability of
+0.95 limits to the flaw size of 1.41 λ at 195°C as compared to 0.58 λ at 15°C. In other words, the temperature depen- dence of PZT-5A reduces the ability of the 2.25-MHz transducer to detect smaller defects, which otherwise would be possible to detect at 15°C with POD = 0.95.
+V.CONCLUSION
+This work demonstrated a FE pulse-echo model for scattering due to a cylindrical SDH in a steel specimen. The simulated p-wave scattering amplitude response from
+SDHs is in good agreement with the experimental and literature data for 0.4 < d/λ < 1 after correcting for experimental and numerical uncertainties. In the experi- mental and simulated data, the near-unity value of coeffi- cient of determination R2 indicated that the p-wave scattering amplitude due to SDH can be well represented by a logarithmic fitting and as a function of an SDH diameter. The p-wave scattering amplitude reduces as a function of temperature due to variation in the piezo- electric material parameters affecting the mechanical strain and electric displacement of the piezoelectric cera- mic. This changed the slope and intercept of the logarith- mically fitted data. The detection threshold for the simulation-based POD needed to be lowered as the tem- perature increased from 15°C to 195°C. For a constant threshold value, significant reduction in POD was pre- dicted, particularly in the SDHs with diameter from
+1.4mm (0.54 λ) to 3 mm (1.17 λ). A temperature correc-
+tion factor is proposed using scattering amplitudes esti- mated for 15°C, 105°C, 150°C, and 195°C from the physics-based model. This correction factor represented the change in the material coefficients of PZT-5A due to temperature-dependent intrinsic and extrinsic contribu- tions within the ceramic at an HT. Using the transfer factors obtained from experimental and simulated  data,   a detection threshold is formulated to calculate POD for experimental data at room temperature. Finally, using this experimental data, temperature-specific correction factor K and the transfer factors m1 and m2, a model-based approach has been demonstrated to estimate POD at HT using low-temperature ultrasonic pulse-echo measure- ments. The estimated POD data show that detectability with a probability of 0.95 limits the flaw size of 1.41 λ at 195°C as compared to 0.58 λ at 15°C. In other words, the temperature dependence of PZT-5A reduces the ability of 2.25-MHz transducer to detect smaller defects that other- wise  would  be  possible  to  detect  at   15°C   with   POD = 0.95.
+Fig. 9. Model-based POD (a) without correction factor and (b) with PZT-5A temperature correction factor K. The dashed lines (red, blue) indicate 95% confidence bounds for POD curve at 15°C.
+Fig. 10. Estimation of HT POD using room temperature experimental POD (dashed blue line) with a temperature correction factor for PZT-5A, obtained from the physics- based model.
+Acknowledgments
+This work is funded by the U.S. Department of Energy’s Office of Nuclear Energy under Nuclear Energy University programs and performed at the Centre for NDE at Iowa State University. The authors would like to acknowledge the assis- tance of Ribal Georges Sabat (Department of Physics, Royal Military College of Canada, Kingston, Ontario K7K 7B4, Canada, see Ref. 24), who provided the experimental data for PZT-5A (EC-65).

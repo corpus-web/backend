@@ -1,0 +1,309 @@
+<title>Assessment of RANS models in predicting mixing flow induced by split-type vanes in rod bundle</title>
+<author>1,JinbiaoXiong,2, ChuanLu,3,WenhaiQu,4,YanhuaYang，5，XuCheng</author>
+<Affiliation>1,School of Nuclear Science and Engineering, Shanghai Jiao Tong University, Shanghai, China;2,State Key Laboratory of Reactor System Design Technology, Nuclear Power Institute of China, Chengdu, China；3，Institute of Fusion and Reactor Technology, Karlsruhe Institute of Technology, Karlsruhe, Germany</Affiliation>
+<year>2020</year>
+<Jounral>Nuclear Engineering and Design</Journal>
+<Publishing_house>ELSEVIER</Publishing_house>
+<Text_Collector>XiaFan，HEU</Text_Collector>
+<DOI>10.1016/j.nucengdes.2020.110615</DOI>
+<URL>https://www.sciencedirect.com/science/article/pii/S0029549320301096</URL>
+Assessment of RANS models in predicting mixing flow induced by split-type vanes in rod bundle
+<Section>Highlights</Section>
+Nonlinear eddy viscosity and Reynolds stress model are assessed with PIV data in 5 × 5 bundle.
+Cubic model does not show superiority over quadratic model.
+Models overpredict lateral normal Reynolds stress, but underestimate axial normal one.
+Anisotropy of turbulence near the mixing vane cannot be predicted accurately.
+<Section>Abstract</Section>
+Turbulence model assessment is carried out based on particle image velocimetry (PIV) measurement data in a 5 × 5 rod bundle with split mixing vane for the nonlinear eddy viscosity models (NLEVMs) and the Reynolds stress transport (RST) model. The NLEVMs are applied with the two-layer wall treatment. The RST model is closed with the two-layer linear pressure strain model. The validation shows that the RST model is able to predict the mean flow vortices in the subchannel. The quadratic NLEVM predicts the similar, but smaller, vortices, while the cubic NLEVM fails to show the vortices. Comparing with the cross-flow velocities, prediction of axial velocity is relatively unsatisfactory. In general, the lateral normal Reynolds stresses are overpredicted by the models, while the axial normal Reynolds stress is underpredicted. In the near-wake region the lateral normal Reynolds stress can be reasonably predicted with the models, but the axial normal Reynolds stress cannot be predicted in a good accuracy. With the cubic term, the NLEVM predicts smaller normal Reynolds stresses, and especially small value of lateral component in the subchannel center. The NLEVMs which depend on local parameters, show relatively good prediction of the Reynolds stress in the subchannel center where the Reynolds stress is less influenced by the convection and diffusion effect. Invariant analysis of Reynolds stress anisotropy obtained with the models are carried out based on the Lumley triangle. Comparison of invariant analysis with large eddy simulation results of (Busco et al., 2019) indicates that the RST model can predict the far-wake turbulence anisotropy. The cubic NLEVM predicts non-realizable Reynolds stress close to the mixing vanes, while the quadratic model predicts inadequate turbulence anisotropy. All the models cannot predict the disk-like turbulence near the mixing vanes, which can be main reason of inaccurate prediction in the near-wake region.
+Keywords：Split mixing vane；Nonlinear eddy viscosity model；Reynolds stress transport model；Validation；Turbulence anisotropy；Lumley triangle
+<Section>1. Introduction</Section>
+In a pressurized water reactor (PWR) core the coolant flows through and cools the array of fuel rods which are assembled with the spacer grids. The mixing vanes fabricated on the spacer grids enhance heat transfer from fuel rods to coolant and in the meantime, promote the inter-subchannel mixing of mass, momentum and energy. These effects of mixing vanes are demanded to be quantified in the subchannel analysis, in order to predict the departure of nucleate boiling (DNB) critical heat flux (CHF). For straightforward measurement of mass transfer between subchannels resulted from single-phase mixing, the aqueous solution tracer was injected at selected positions in rod bundles by Sadatomi et al. (2004) and Ylönen et al. (2011) with measurement of tracer concentration in the downstream. Besides, experiments have also been widely carried out to measure the flow field in rod bundles, which provide fundamentals to understand the inter-subchannel mixing. For example, laser Doppler anemometry (LDA) measurement of rod-bundle flow downstream of spacer grid or mixing vanes has been carried out by Caraghiaur et al. (2009), Chang et al. (2014) and Xiong et al., 2014a, Xiong et al., 2014b). Particle image velocimetry (PIV) measurement has been performed by McClusky et al. (2002), In et al. (2015), Nguyen and Hassan (2017), Xiong et al. (2018) and Qu et al., 2019a, Qu et al., 2019b, Qu et al., 2019c. Heat transfer experiments have also been carried out to investigate heat transfer enhancement effect of the spacer grids (Yao et al., 1982, Miller et al., 2013, Holloway et al., 2008, In et al., 2015). Recently, Xiong et al. (2020) derived inter-subchannel mixing coefficients downstream of spacer grid based on the PIV measured flow data.
+Based on the rod-bundle flow and heat transfer experiments, benchmark activities have been initiated to validate computational fluid dynamics (CFD) analysis and to develop the best practice guideline (BPG). Three-dimensional flow field downstream of split- and swirl-mixing-vane spacer grids were measured for the OECD/NEA MATiS-H benchmark (Lee et al., 2014). In the synthesis of the benchmark, problem specific BPGs were recommended for the rod-bundle flow with mixing-vane spacer grids. In the EPRI-NESTOR benchmark (Kang and Hassan, 2016) CFD simulation for turbulent flow in rod bundles with simple support grids (SSGs) and mixing-vane grids (MVGs) under isothermal and thermal conditions were examined. The comparison of flow velocity was conducted only for the axial component. Based on the validation, the nonlinear eddy viscosity models (NLEVMs), e.g. the cubic k-ε model, and the Reynolds stress models were recommended to capture the complicated near-grid flow, as well as flow of less complexity far from the grid. Furthermore, both of the benchmarks stressed on the effect of mesh quality, especially near-grid mesh quality. With the validated approach, CFD simulations have been employed to investigate the inter-subchannel mixing and heat transfer enhancement downstream of spacer grids (Xiong et al., 2018, Wang et al., 2019, Zhu et al., 2014).
+In spite of considerable progress in computer and computational technology, direct numerical simulation (DNS) and large eddy simulation (LES) are still impractical for flow in rod bundles with mixing-vane spacer grid. DNS and LES have been mainly employed to simulate flow in bare rod bundle, e.g. (Mayer et al., 2007); (Baglietto et al., 2006) and (Ikeno and Kajishima, 2010). Recently, Busco and Hassan (Busco and Hassan, 2018) carried out LES for the flow in rod bundle with split-type mixing vanes. In the view point of computation efficiency, the Reynolds-Averaged Navier-Stokes (RANS) models, including the Reynolds stress model and the eddy viscosity models, are rational approach for CFD analysis of flow and heat transfer in fuel assemblies, especially when the Reynolds number is large. In this paper the commercial CFD code, Star-CCM+, is employed to validate the accuracy of RANS models for turbulent flow in a 5 × 5 rod bundle with split-mixing-vane (SMV) spacer grid based on the PIV measured flow field, including the lateral and axial flow. According to the recommendation of EPRI-NESTOR benchmark, CFD simulations are performed with the nonlinear eddy viscosity models and the Reynolds stress model. The effects of SMV spacer grid on inter-subchannel mixing are then investigated based on the CFD simulation result.
+<Section>2. Turbulence models</Section>
+2.1. Nonlinear eddy viscosity model
+In the two-equation linear eddy viscosity models, the Boussinesq hypothesis are usually used for the Reynolds stress closure problem, i.e.
+@(1)
+where the eddy viscosity is determined by
+@(2)
+with . The equation of k and ε
+@(3)
+@(4)
+where
+@(5)
+Since the dissipation rate equation was established in analogue to the equation of turbulence kinetic energy, the production and destruction terms are assumed to be proportional to large eddy turn-over time,  and the production and dissipation rate of turbulence kinetic energy. Hence, the production rate of  is defined by
+@(6)
+And the destruction rate of  is calculated with
+@(7)
+As has been recognized in references (Kang and Hassan, 2016, Házi, 2005), the isotropic assumption adopted in the linear eddy viscosity model, i.e. Eqs. (1), (2), cannot predict the anisotropic turbulence in the rod bundles. Baglietto et al. (2006) adjusted the coefficients of Lien et al.’s quadratic NLEVM (Lien et al., 1996) for prediction of secondary flow in bare rod bundle and demonstrated that the NLEVMs can further improve the prediction accuracy. The swirling and streamline curvature are strong near the mixing-vane spacer grid. Here Lien et al. (1996)’s quadratic and cubic closure models are employed to assess their applicability in modelling turbulence in rod bundle with SMV spacer grids. The closure model of Reynolds stress is as follows.
+@(8)
+The default model coefficients are utilized and defined in Table 1.
+Table 1. Model coefficients in the turbulence models.
+2.2. Reynolds stress transport model
+The Reynolds stress transport (RST) model solves the differential equations for the individual components of Reynolds stress tensor.
+@(9)
+where  is the convection term,  is the production rate tensor,  and  are the tensors of molecular and turbulent diffusion rate. The dissipation rate tensor is calculated with
+@(10)
+The dissipation rate  is obtained by solving Eq. (4). The pressure-strain term defined by
+@(11)
+must be modelled. Here the two-layer linear pressure strain model by Launder and Shima (1989) is utilized.
+@(12)
+The slow pressure-strain term
+@(13)
+The rapid pressure-strain term
+@(14)
+The slow wall-reflection term
+@(15)
+where  is the unit vector normal to the wall and
+@(16)
+The rapid wall-reflection term is defined by
+@(17)
+The coefficients in the two-layer pressure-strain model are given in Table 2.
+Table 2. Coefficients in two-layer pressure-strain model.
+2.3. Wall treatment
+The two-layer wall treatment is employed to model the near-wall turbulence in the NLEVMs and the RSMs. The model blends the one-equation model with the two-equation k-ε model in the first cell near the wall. The one-equation model solves equation only for k, but prescribes ε explicitly as
+@(18)
+According to Wolfshtein (1969);
+@(19)
+is given in Table 3. The ratio of eddy viscosity to molecular viscosity
+@(20)
+Table 3. Coefficients in two-layer wall treatment model.
+With the blending factor defined by
+@(21)
+the turbulent viscosity is calculated with
+@(22)
+A and  are given in Table 3.
+<Section>3. Mesh and boundary condition</Section>
+As point out by Kang and Hassan (2016) in the synthesis of EPRI-NESTOR benchmark, the validation of CFD simulation should be based on longer and wider regions. In order to establish more extensive experimental database for CFD validation, the high-fidelity measurement has been carried out with two-dimensional (2D) PIV at Shanghai Jiao Tong University for turbulent flow in the horizontal and vertical planes of a 5 × 5 rod bundle with the same configuration as the typical PWR fuel assembly. The top view of the spacer grid is shown in Fig. 1. For the central subchannels, i.e. SC-6, 7, 10 and 11, the flow field data is available from Z = 1Dh to 40Dh. For all the inner subchannels the experimental data is available at Z = 1Dh, 4Dh, 8Dh and 16Dh. Z = 0 is defined on the top of spacer strips, while (X, Y) = (0, 0) is defined at the center of the central rod, as shown in Fig. 2. The indices of the sixteen inner subchannels, from SC-1 to SC-16, defined in Fig. 2-b. The vertical-plane measurement is performed in the plane Y = −1.5P. The detailed geometry parameters of rod bundle and the in-house SMV spacer grid can be found in reference (Qu et al., 2019a). The rods, 9.5 mm in diameter and 1100 mm long, were arrayed in the pitch of 12.6 mm. The hydraulic diameter of the inner subchannel Dh = 11.78 mm. The inner dimension of flow channel cross section is 66.1 mm × 66.1 mm. In this paper the test case with the bulk velocity of 1 m/s is utilized to assess the turbulence models.
+Fig. 1. Top view of spacer grid.
+Fig. 2. Partial view of generated mesh (the numbers in b) indicate the subchannel indices).
+The simulation domain extends from Z = -10Dh to Z = 20Dh, where Z = 0 is defined on the top plane of spacer grid strip. As have been stressed in the previous benchmarks, mesh quality has strong impact on the simulation result. In order to reduce the number of mesh cell and keep good mesh quality, the polyhedral mesh is utilized to discretize the near-grid area, while the inlet and outlet part are extruded from the bottom and top plane of the polyhedral mesh. The stretching ratio of extrusion is set as 2.5, i.e. the thickness of the last layer of extruded cell is 2.5 times as thick as the first layer. Near the surface of spacer grid, mixing vanes, rod and channel walls, five prism layers are generated to assure good resolution of the wall layer of turbulence. Mesh sensitivity investigation CFD simulation with the RSM is carried out for the inner 2 × 2 subchannels using the base size as 1 mm, 0.5 mm, 0.25 mm and 0.175 mm. For such investigation the periodic boundary condition is utilized at the subchannel gaps. The sensitivity analysis shows that mesh refining with the base size below 0.25 mm affects the results marginally. Hence, the base size 0.25 mm is utilized. In the simulated case, y+ < 5 is assured in most of the wall cells. The exceptional large y+ appears near the mixing vanes which is below 10. In total, there are 32.91 million cells in the generated mesh. The partial view of the mesh is shown in Fig. 2. On the inlet boundary the fully developed flow in bard rod bundle is implemented, while the boundary condition at the outlet is pressure outlet.
+<Section>4. Mean flow velocity</Section>
+4.1. Cross flow velocity
+In Fig. 3 the calculated cross-flow mean velocities are compared with experimental data along the lines through the center of SC-5 to SC-8 at the elevations Z = 4Dh, 8Dh, 16Dh. Along these sample lines the X-velocity (U) indicates the inter-subchannel cross flow. It is found that the large X-velocity (U) occurs in the gap, i.e. when X = −2P, −1P, 0, 1P and 2P. At Z = 4Dh the predicted X-velocities with the models do not show great discrepancy and agree well with experiment measurement. However, the discrepancy enlarges in the downstream. At Z = 16Dh, the RST model predicts smallest magnitude of cross flow. It should be noted that due to the rotational symmetric arrangement of mixing vanes the measured X-velocity (U) is expected to be symmetric about X = 0 along the sample lines. The experiment measurement failed to present such symmetry in the far downstream, because the measurement of small-magnitude cross flow is very challenging.
+Fig. 3. Comparison between calculated and measured crossflow velocity components along the lines through the centers of SC-5 to SC-8.
+The difference in the predicted X-velocity (U) is not as remarkable as that of Y-velocity. The Y-velocity (V) plotted in Fig. 3 is tangential to the sample lines and indicates the rotational flow component and intra-subchannel mixing. We can see that the RST model predict the variation trend of tangential velocity (V) fairly well, even though the magnitude is sometimes underestimated. The quadratic NLEVM predicts profiles of tangential velocity similar to the RST model, even though the magnitude is smaller and some details are missing. In the contrast the cubic NLEVM predicts quite small tangential velocity. The simulated tangential flow velocities show good similarity at Z = 8Dh and 16Dh. However, in the measured tangential flow profile at Z = 16 Dh some local variations are missing, which may be attributed to relatively large uncertainty of measurement in the further downstream.
+Comparison on inter-subchannel cross flow is shown on the border of subchannels in Fig. 4. In consistence with the above analysis, the agreement is best near the spacer grid at Z = 1Dh and 4Dh. The inter-subchannel cross flow is stronger between the central subchannels, i.e. SC-6, 7, 10 and 11. The RST predicts the lowest inter-subchannel cross flow among all the models. The streamwise evolution of inter-subchannel cross flow in the gap center obtained from the experiments and CFD simulation is compared in Fig. 5. In the vertical plane the measurement error is not quite different in the near-wake and far-wake regions. From Fig. 5 all the models predict immediate increase of inter-subchannel cross flow downstream of spacer grid while the measured one is lagging. As will discuss later, the fluctuation velocity is remarkably underestimated at Z = 1Dh. It implies the RANS model cannot predict the strong production of turbulence near the mixing vane which can be caused by vortex shedding. And consequently, the inter-subchannel cross flow cannot be accurately predicted either in the near-wake region. The peak magnitude of measured cross-flow velocity is smaller than the CFD predicted ones, while the axial positions of peaks are well predicted. The cross-flow velocity is in general overpredicted by the models, while the prediction by the RST is closest to the measurement. When we compare the CFD result with the PIV measurement, it should be emphasized that each measured mean velocity is obtained in a certain volume. The gradient in the X-Y plane is much larger than in the Z direction. When the PIV measurement is carried out in a vertical plane, e.g. Y = −1.5P, the velocities have appreciable gradient in the thickness of laser sheet. And the thickness of laser sheet is about 1 mm, which is comparable to the gap width. Hence, the actual cross-flow velocity should be larger than the measured one. Discrepancy between the CFD prediction and the actual one should be less significant than that shown in Fig. 5.
+Fig. 4. Comparison calculated and measured crossflow velocity at the gap around the central rod.
+Fig. 5. Comparison of calculated and measured lateral velocity in the gap center between SC-14 and 15, (X, Y) = (0, −1.5P).
+The quantitative comparison of each cross-flow velocity component is useful to show the magnitude of discrepancy; however, the cross-flow pattern shows the overall intra- and inter-subchannel mixing across the rod bundle or fuel assembly. From Fig. 6, Fig. 7, Fig. 8, Fig. 9 the predicted and measured cross flow pattern are given on the planes Z = 1Dh, 4Dh, 8Dh and 16Dh. From the PIV measurement, we can see the flow downstream of the SMV spacer grid shows strong three-dimensional characteristics. And the magnitude of cross flow velocity is as large as 40% of the bulk flow velocity. The Reynolds stress transport (RST) model replicates the cross-flow patterns close to the PIV measurement, even though the discrepancy is still not negligible. In the prediction of the RST model the mean flow vortices appear at the meet points of two counter-current cross flow streams. The quadratic NLEVM predicts the similar vortices at the similar locations, in spite that the dimension of vortices is relatively small. In the contrast, the cubic NLEVM, which has higher degree of complexity, fails to show such vortices. The cubic NLEVM shows the localized large cross flow velocity at the gap, while the other models predict the peak magnitude of cross flow velocity near the rod surface orienting to the subchannel center, which is consistent to the experiment observation. From the above quantitative and qualitative comparison, we can conclude that the models overpredict the cross-flow in the near-wake region of mixing vanes, while in the far-wake region the cross flow can be reasonably predicted with the RST model and the quadratic NLEVM.
+Fig. 6. Comparison between calculated and measured cross flow pattern at Z = 1Dh.
+Fig. 7. Comparison between calculated and measured cross flow pattern at Z = 4Dh.
+Fig. 8. Comparison between calculated and measured cross flow pattern at Z = 8Dh.
+Fig. 9. Comparison between calculated and measured cross flow pattern at Z = 16Dh.
+4.2. Axial velocity
+The comparison on the axial flow velocity is carried out along the Z- and X-direction lines, as shown in Fig. 10, Fig. 11. As have reported by Kang and Hassan (2016) and Xiong et al. (2018), the accurate prediction of axial flow velocity can be hardly achieved with the RANS models. Similar to that have been observed for the cross-flow velocity, in the near-wake region of mixing vane the axial flow velocity can neither be predicted in a reasonable manner. In the far-wake region the prediction is closer to the measurement data. The comparison along X- and Z-direction lines shows the overall overprediction of axial velocity, even though the variation trend can be predicted to some extent. One major reason is also the measurement volume. When the axial velocity is measured, the laser sheet, about 1 mm thick, illuminates the vertical cross section Y = −1.5P in the rod bundle. As a consequence, the measured velocity is the average one in the 1 mm-thick volume. It can lead to underestimation of velocity in the subchannel and gap center when the velocity is non-uniform in the cross section. Such bias in the measurement volume makes it difficult to conclude on the accuracy of prediction on axial velocity in a quantitative manner.
+Fig. 10. Comparison of calculated and measured axial velocity (W) in the gap center between SC-14 and 15 and in the center of SC-15.
+Fig. 11. Comparison of measured and calculated axial flow velocity (W) along the lines through the center of SC-13 to SC-16 at Z = 4Dh, 8Dh and 16Dh.
+The contours of axial velocity distribution obtained with the turbulence models are compared in Fig. 12. The quadratic NLEVM and RST show the peak axial velocity in the center of mean-flow vortices (see from ***Fig. 7 to Fig. 9). Hence, we may predict that the vortices are produced by stretching of the flow in the axial direction. The RST model predicts high axial velocity near the rod surface and consequently leads large velocity gradient near the rod surface. The large velocity gradient will lead to stronger production of  and larger pressure drop. In the contrast the cubic NLEVM predicts peak axial velocity near the subchannel center. When the effect of mixing vanes decays the quadratic NLEVM shows more uniform axial velocity across the rod bundle, while the non-uniformity is strongest in the prediction by the RST.
+Fig. 12. Comparison of calculated axial velocity (W) distribution over the cross section of rod bundle, left: quadratic NLEVM; middle: cubic NLEVM; right: RST.
+<Section>5. Reynolds stress</Section>
+5.1. Normal stresses
+Fig. 13 presents the quantitative comparison between calculated and measured lateral normal Reynolds stress, i.e.  and , along the lines through the centers of SC-5 to SC-8 at the elevations Z = 1Dh, 4Dh, 8Dh, 16Dh. And the calculated and measured axial normal Reynolds stress, , is compared along the lines through the center of from SC-13 to SC-16 in Fig. 14. At Z = 1Dh all the models show the peaks of  right locations, but underpredicts the magnitude of peak. For  all the models predict chaotic distribution and even fail to show the location of peaks. At Z = 4Dh relatively good agreement between CFD simulation and experiment is observed, while in the far downstream all the models overpredict the two lateral normal Reynolds stress components, i.e.  and . Among the three models, the quadratic NLEVM predicts the largest  and . Inclusion of the cubic terms reduces all the components in the turbulence kinetic energy. The cubic NLEVM underpredicts the valley values of  and  in the subchannel center, e.g.  in the center of SC-5 and  in the center of SC-6. Even though not perfectly matched in magnitude, the RST model can predict the occurrence of peaks and valleys of  and  in the cross sections from Z = 4Dh to 16Dh.
+Fig. 13. Comparison between calculated and measured, along the lines through the centers of subchannel No. 5 to 8 at Z = 4Dh, 8Dh, 16Dh.
+Fig. 14. Comparison between calculated and measured along the lines through the centers of SC-13 to SC-16 at Z = 4Dh, 8Dh, 16Dh.
+At the three elevations from Z = 4Dh to 16Dh the experiment data shows relatively large  in the gap, which is resulted from strong production of  near the rod surface. The nonlinear eddy viscosity models fail to predict the large  in the gap. The nonlinear eddy viscosity models calculate the Reynolds stresses based on the local properties of the flow, e.g. the vorticity and the strain rate, and hence, cannot account for the diffusion and convection effect of Reynolds stress. As a consequence, the generated  near the wall may not affect that in the center of gap. In the contrast, the RST model which solves transport equations for the Reynolds stress predicts peak value of  in the gap at Z = 8Dh and 16Dh, even though the magnitude is still underestimated, especially in the far-wake region. As discussed in the previous section (see Fig. 10), the prediction of axial flow velocity distribution in the near-wake region of the mixing vane is inaccurate, which may lead to unsatisfactory prediction of  in the near-wake region, e.g. at Z = 4Dh.
+Comparison of  and  along the axial direction is shown in Fig. 15. We can see that the prediction of  and  in the near-wake region is not accurate in general. The experiment data shows sudden increase of  and  in the gap downstream of the spacer, which can be modeled by the RST model. However, the RST model shows more rapid decay than the experiment. In the subchannel center the nonlinear eddy viscosity models predict high peak value of  right downstream of the spacer, which is consistent with the experiment measurement. The cubic term improves the prediction of  in the subchannel center in the far-wake. As have been discussed above, the nonlinear eddy viscosity models calculate the Reynolds stress based on the local parameters. Hence, we may predict that in the subchannel center  and  is not appreciably affected by the upstream or surrounding conditions and can be predicted when other parameters are accurate. In Fig. 15-b  indicates the inter-subchannel turbulent mixing. The experiment shows increase of  in the gap between Z = 4Dh to 6Dh. None of the models can predict such phenomenon, which may lead to underestimation of inter-subchannel turbulent mixing in the far-wake region. It implies that the Reynolds stress in the gap cannot be predicted by the local models and the RST model should be improved for accurate prediction of inter-subchannel mixing.
+Fig. 15. Comparing predicted and measured normal Reynolds stress components along the axial lines through the gap and subchannel center.
+5.2. Anisotropy of turbulence
+The Lumley triangle (Lumley and Newman, 1977) utilizes the invariants of Reynolds stress tensor to represent the anisotropy of turbulence. The anisotropy tensor is defined by
+@(23)
+where . The three invariants of anisotropy tensor are
+@(24)
+@(25)
+@(26)
+Based on the latter two invariants (Choi and Lumley, 2001), two new parameters,  and , were defined.
+@(27)
+The Lumley triangle defines the realizable constrains of Reynolds stress. According to Pope (Pope, 2000);  is corresponded to oblate spheroid (rod-like) turbulence,  is corresponded to prolate spheroid (disk-like) turbulence and  the ellipse turbulence. The three vertices are corresponded to isotropic turbulence (0, 0), disk turbulence (−1/6, 1/6) and line turbulence (1/3, 1/3).
+In Fig. 16 the calculated Reynolds stress in the SC-7 at Z = 1Dh, 4Dh, 8Dh and 16Dh are plotted in the  domain. From the near-wake to the far-wake region the NLEVMs predict the turbulence approaching to the isotropic state. In general, the quadratic NLEVM predicts the Reynolds stress closer to the isotropic state than the cubic model does. The cubic NLEVM even predicts non-realizable Reynolds stress near the spacer grid. Hence, we can conclude that the NLEVMs, at least with the current parameter configuration, are not competent to predict the anisotropic features near the spacer grid and even far downstream. The RST model predicts the overall anisotropy close to the rod-like line, i.e. . In the far downstream i.e. Z = 16Dh is similar to the observation by Busco et al. (2019) who carried out the invariant analysis of Reynolds stress tensor downstream of split-type mixing vanes based on their large eddy simulation. In the near-wake region the LES by Busco et al. (2019) showed most of the Reynolds stresses are disk-like, where the average  is negative. Even though the RST model predicts more Reynolds stresses in the negative  domain in the near-wake region, the overall anisotropy predicted by the RST model is overwhelmingly rod-like. In Fig. 17 the subchannel-averaged anisotropy of Reynolds stress is shown from the Z = 1Dh to 16 Dh. The average  in the subchannel is positive in all the cross sections. As have discussed in the previous sections, the models show relatively unsatisfactory prediction in the near-wake region, which may be attributed to the inability to capture the turbulence anisotropy resulted from flow separation at the mixing vane edge. When the effect of flow separation decays in the far wake, turbulence can be fairly predicted again by the RST which can accurately predict the turbulence anisotropy in bare rod bundles.
+Fig. 16. Analysis of the predicted turbulence anisotropy with the models based on Lumley triangle.
+Fig. 17. Subchannel-averaged turbulence predicted by the RST model.
+In Fig. 18 the Reynolds stress anisotropy predicted by the RST models is plotted along three lines in the SC-7 at Z = 4Dh and 16Dh. Two of the lines are in the gap and one connects the subchannel center and its nearest rod surface point. Near the wall the turbulence are close to the one-component line state, i.e. @ = (1/3, 1/3), while in the subchannel center the turbulence is three-dimensional. In the far downstream the anisotropy in the gap predicted by the RST model is similar to that reported by Busco et al. (2019). Along the gap lines, i.e. the line 1 and 3, the anisotropy is mainly two-component rod-like. However, at Z = 4Dh turbulence is disk-like in the gap center. At Z = 16Dh long the line 2 the disk-like anisotropy can still be observed near the subchannel, which indicates that the effect of mixing vanes sustains at Z = 16Dh.
+Fig. 18. Reynolds stress anisotropy from wall to center predicted by the RST model.
+<Section>6. Conclusion</Section>
+In order to assess the ability of the quadratic and cubic nonlinear eddy viscosity models (NLEVMs) and the Reynolds stress model in predicting turbulent flow in the pressurized water reactor fuel assembly, the models are validated based on the particle image velocimetry (PIV) measurement data in a 5 × 5 rod bundle installed with split mixing vane. The RST model is closed with the two-layer linear pressure strain model. The nonlinear eddy viscosity models are applied with the two-layer wall treatment.
+The inter-subchannel cross flow can be fairly predicted with the models, except in the near-wake region of the spacer grid. The RST model predicts the intra-subchannel lateral flow closest to the experiment data, since it can capture the mean flow vortices in the axial direction. The quadratic NLEVM predicts the similar, but smaller, vortices. In the contrast, the cubic NLEVM fails to show the lateral vortices. All the models show immediate increase of inter-subchannel cross flow downstream of spacer grid in contrast to the lagging in the measurement. In general, the cross-flow velocity is overpredicted by the models. Prediction by the RST model is closest to the experiment. Comparing with the cross-flow velocities, the prediction of axial velocity is less satisfactory. Discrepancy between the models is also remarkable. It has also been illustrated that the measurement volume of velocity may have substantial effect on the validation conclusion and should be carefully considered.
+Except very close to the spacer grid (Z = 1Dh), the lateral normal Reynolds stresses are overpredicted by the models, while the axial normal Reynolds stress is underpredicted. In the near-wake region the lateral normal Reynolds stress can be reasonably predicted with the models, but the axial normal Reynolds stress cannot be well predicted. The cubic term reduces the predicted normal Reynolds stresses, and leads to very small value of lateral component in the subchannel center. The NLEVM shows relatively good prediction of the Reynolds stress in the subchannel center where the Reynolds stress is not influenced by the convection and diffusion effect. And the cubic NLEVM show better prediction than the quadratic model for axial normal Reynolds stress in the subchannel center. None of the models can predict increase of normal Reynolds stress controlling inter-subchannel mixing, which leads to underestimation of inter-subchannel turbulent mixing. Hence, the Reynolds stress in the gap cannot be predicted by the local models and the RST model should be improved for accurate prediction of inter-subchannel mixing.
+The invariant analysis of Reynolds stress anisotropy shows that the cubic NLEVM predicts the non-realizable Reynolds stress very close to the mixing vanes and the quadratic NLEVM predicts insufficient anisotropy. The anisotropy predicted by the RST model is similar to Busco et al’s. (2019) in the far wake, but still not adequate in the near-wake region where the disk-like anisotropy is dominant.
+<Section>CRediT authorship contribution statement</Section>
+Jinbiao Xiong: Methodology, Writing - original draft, Writing - review & editing. Lu Chuan: Resources. Wenhai Qu: Visualization. Yanhua Yang: Supervision. Xu Cheng: Supervision.
+<Section>Declaration of Competing Interest</Section>
+The authors declare that they have no known competing financial interests or personal relationships that could have appeared to influence the work reported in this paper.
+<Section>Acknowledgement</Section>
+The authors would like to acknowledge the National Natural Science Foundation of China for their funding for this work. (Project No. 51676120).
+<Section>References</Section>
+Baglietto et al., 2006
+E. Baglietto, H. Ninokata, T. Misawa
+CFD and DNS methodologies development for fuel bundle simulations
+Nucl. Eng. Des., 236 (14–16) (2006), pp. 1503-1510
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+Busco and Hassan, 2018
+G. Busco, Y.A. Hassan
+Space and energy-based turbulent scale-resolving simulations of flow in a 5 × 5 nuclear reactor core fuel assembly with a spacer grid
+Int. J. Heat Fluid Flow, 71 (2018), pp. 420-441
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+Busco et al., 2019
+G. Busco, E. Merzari, Y.A. Hassan
+Invariant analysis of the Reynolds stress tensor for a nuclear fuel assembly with spacer grid and split type vanes
+Int. J. Heat Fluid Flow, 77 (2019), pp. 144-156
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+Caraghiaur et al., 2009
+D. Caraghiaur, H. Anglart, W. Frid
+Experimental investigation of turbulent flow through spacer grids in fuel rod bundles
+Nucl. Eng. Des., 239 (10) (2009), pp. 2013-2021
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+Chang et al., 2014
+S.-K. Chang, S. Kim, C.-H. Song
+Turbulent mixing in a rod bundle with vaned spacer grids: OECD/NEA–KAERI CFD benchmark exercise test
+Nucl. Eng. Des., 279 (2014), pp. 19-36
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+Choi and Lumley, 2001
+K.-S. Choi, J.L. Lumley
+The return to isotropy of homogeneous turbulence
+J. Fluid Mech., 436 (2001), pp. 59-84
+CrossRefView Record in ScopusGoogle Scholar
+Házi, 2005
+G. Házi
+On turbulence models for rod bundle flow computations
+Ann. Nucl. Energy, 32 (7) (2005), pp. 755-761
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+Holloway et al., 2008
+M.V. Holloway, D.E. Beasley, M.E. Conner
+Single-phase convective heat transfer in rod bundles
+Nucl. Eng. Des., 238 (4) (2008), pp. 848-858
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+Ikeno and Kajishima, 2010
+T. Ikeno, T. Kajishima
+Analysis of dynamical flow structure in a square arrayed rod bundle
+Nucl. Eng. Des., 240 (2) (2010), pp. 305-312
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+In et al., 2015
+W.K. In, C.H. Shin, D.S. Oh, T.H. Chun
+Experimental observation and CFD prediction of flow mixing in a rod bundle with mixing-vane spacer grid
+10th Pacific Symposium on Flow Visualization and Image Processing, Naples, Italy (2015), p. 247
+View Record in ScopusGoogle Scholar
+In et al., 2015
+W.K. In, C.H. Shin, C.Y. Lee
+Convective heat transfer experiment of rod bundle flow with twist-vane spacer grid
+Nucl. Eng. Des., 295 (2015), pp. 173-181
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+Kang and Hassan, 2016
+S.K. Kang, Y.A. Hassan
+Computational fluid dynamics (CFD) round robin benchmark for a pressurized water reactor (PWR) rod bundle
+Nucl. Eng. Des., 301 (2016), pp. 204-231
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+Launder and Shima, 1989
+B.E. Launder, N. Shima
+Second-moment closure for the near-wall sublayer - development and application
+AIAA J., 27 (10) (1989), pp. 1319-1325
+CrossRefView Record in ScopusGoogle Scholar
+Lee et al., 2014
+J.R. Lee, J. Kim, C.-H. Song
+Synthesis of the turbulent mixing in a rod bundle with vaned spacer grids based on the OECD-KAERI CFD benchmark exercise
+Nucl. Eng. Des., 279 (2014), pp. 3-18
+ArticleDownload PDFCrossRefView Record in ScopusGoogle Scholar
+Lien et al., 1996
+F.S. Lien, W.L. Chen, M.A. Leschziner
+Low-Reynolds-number Eddy-viscosity modelling based on non-linear stress-strain/vorticity relations A2 - RODI, W
+G. Bergeles (Ed.), Engineering Turbulence Modelling and Experiments, Elsevier, Oxford (1996), pp. 91-100
+ArticleDownload PDFGoogle Scholar
+Lumley and Newman, 1977
+J.L. Lumley, G.R. Newman
+The return to isotropy of homogeneous turbulence
+J. Fluid Mech., 82 (1) (1977), pp. 161-178
+View Record in ScopusGoogle Scholar
+Mayer et al., 2007
+G. Mayer, J. Páles, G. Házi
+Large eddy simulation of subchannels using the lattice Boltzmann method
+Ann. Nucl. Energy, 34 (1) (2007), pp. 140-149
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+McClusky et al., 2002
+H.L. McClusky, M.V. Holloway, D.E. Beasley, M.E. Conner
+Development of swirling flow in a rod bundle subchannel
+J. Fluids Eng., 124 (3) (2002), pp. 747-755
+View Record in ScopusGoogle Scholar
+Miller et al., 2013
+D.J. Miller, F.B. Cheung, S.M. Bajorek
+On the development of a grid-enhanced single-phase convective heat transfer correlation
+Nucl. Eng. Des., 264 (2013), pp. 56-60
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+Nguyen and Hassan, 2017
+T. Nguyen, Y. Hassan
+Stereoscopic particle image velocimetry measurements of flow in a rod bundle with a spacer grid and mixing vanes at a low Reynolds number
+Int. J. Heat Fluid Flow, 67 (2017), pp. 202-219
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+Pope, 2000
+S.B. Pope
+Turbulent Flows
+Cambridge University Press, Cambridge (2000)
+Google Scholar
+Qu et al., 2019b
+W. Qu, J. Xiong, S. Chen, X. Cheng
+High-fidelity PIV measurement of cross flow in 5 × 5 rod bundle with mixing vane grids
+Nucl. Eng. Des., 344 (2019), pp. 131-143
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+Qu et al., 2019c
+W. Qu, J. Xiong, S. Chen, Z. Qiu, J. Deng, X. Cheng
+PIV measurement of turbulent flow downstream of mixing vane spacer grid in 5×5 rod bundle
+Ann. Nucl. Energy, 132 (2019), pp. 277-287
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+Qu et al., 2019a
+W. Qu, Z. Wang, J. Xiong, X. Cheng
+Experimental study of cross flow and lateral pressure drop in a 5 × 5 rod bundle with mixing vane spacer grid
+Nucl. Eng. Des., 353 (2019), Article 110209
+ArticleDownload PDFGoogle Scholar
+Sadatomi et al., 2004
+M. Sadatomi, A. Kawahara, K. Kano, Y. Sumi
+Single- and two-phase turbulent mixing rate between adjacent subchannels in a vertical 2×3 rod array channel
+Int. J. Multiph. Flow, 30 (5) (2004), pp. 481-498
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+Wang et al., 2019
+Y. Wang, Y.M. Ferng, L.X. Sun
+CFD assist in design of spacer-grid with mixing-vane for a rod bundle
+Appl. Therm. Eng., 149 (2019), pp. 565-577
+ArticleDownload PDFCrossRefView Record in ScopusGoogle Scholar
+Wolfshtein, 1969
+M. Wolfshtein
+The velocity and temperature distribution in one-dimensional flow with turbulence augmentation and pressure gradient
+Int. J. Heat Mass Transf., 12 (3) (1969), pp. 301-318
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+Xiong et al., 2014b
+J. Xiong, N. Yu, Y. Yu, X. Fu, X. Cheng, Y. Yang
+Experimental investigation on anisotropic turbulent flow in a 6×6 rod bundle with LDV
+Nucl. Eng. Des., 278 (2014), pp. 333-343
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+Xiong et al., 2014a
+J. Xiong, Y. Yu, N. Yu, X. Fu, H. Wang, X. Cheng, Y. Yang
+Laser Doppler measurement and CFD validation in 3x3 bundle flow
+Nucl. Eng. Des., 270 (2014), pp. 396-403
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+Xiong et al., 2018
+J. Xiong, W. Qu, Z. Wu, X. Cheng
+PIV measurement of cross flow in a rod bundle assisted by telecentric optics and matched index of refraction
+Ann. Nucl. Energy, 120 (2018), pp. 540-545
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+Xiong et al., 2018
+J. Xiong, R. Cheng, C. Lu, X. Chai, X. Liu, X. Cheng
+CFD simulation of swirling flow induced by twist vanes in a rod bundle
+Nucl. Eng. Des., 338 (2018), pp. 52-62
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+Xiong et al., 2020
+J. Xiong, W. Qu, T. Zhang, X. Chai, X. Liu, Y. Yang
+Experimental investigation on split-mixing-vane forced mixing in pressurized water reactor fuel assembly
+Ann. Nucl. Energy, 143 (2020), Article 107450
+ArticleDownload PDFGoogle Scholar
+Yao et al., 1982
+S.C. Yao, L.E. Hochreiter, W.J. Leech
+Heat-transfer augmentation in rod bundles near grid spacers
+J. Heat Transfer, 104 (1) (1982), pp. 76-81
+CrossRefView Record in ScopusGoogle Scholar
+Ylönen et al., 2011
+A. Ylönen, W.-M. Bissels, H.-M. Prasser
+Single-phase cross-mixing measurements in a 4×4 rod bundle
+Nucl. Eng. Des., 241 (7) (2011), pp. 2484-2493
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+Zhu et al., 2014
+X. Zhu, S. Morooka, Y. Oka
+Numerical investigation of grid spacer effect on heat transfer of supercritical water flows in a tight rod bundle
+Int. J. Therm. Sci., 76 (2014), pp. 245-257
+ArticleDownload PDFView Record in ScopusGoogle Scholar

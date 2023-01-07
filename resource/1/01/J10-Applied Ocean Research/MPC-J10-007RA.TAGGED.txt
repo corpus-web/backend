@@ -1,0 +1,669 @@
+﻿_JJ <title> Full_JJ scale_NN CFD_NN seakeeping_VVG simulations_NNS for_IN case_NN study_NN ship_NN redesigned_VVN from_IN V-shaped_JJ bulbous_JJ bow_NN to_TO X-bow_VV hull_NN form_NN </title> <author> KarolNiklas_NNS ,_, HannaPruszko_NP </author> <Affiliation> Gdansk_NP University_NP of_IN Technology_NP ,_, The_DT Faculty_NN of_IN Ocean_NP Engineering_NP and_CC Ship_NP Technology_NP ,_, 80-233_CD Gdansk_NP ,_, Poland_NP </Affiliation> <year> 2019_CD </year> <Jounral> Applied_NP Ocean_NP Research_NP </Journal> <Publishing_house> Elsevier_NP </Publishing_house> <Text_Collector> Zhang_NP San，HEU_NP </Text_Collector> <DOI> https://doi.org/10.1016/j.apor.2019.05.011_JJ </DOI> <URL> https://www.sciencedirect.com/science/article/pii/S014111871830720X_NP </URL> Full_JJ scale_NN CFD_NN seakeeping_VVG simulations_NNS for_IN case_NN study_NN ship_NN redesigned_VVN from_IN V-shaped_JJ bulbous_JJ bow_NN to_TO X-bow_VV hull_NN form_NN KarolNiklas_NNS ,_, HannaPruszko_NP Gdansk_NP University_NP of_IN Technology_NP ,_, The_DT Faculty_NN of_IN Ocean_NP Engineering_NP and_CC Ship_NP Technology_NP ,_, 80-233_CD Gdansk_NP ,_, Poland_NP <Section> Abstract_JJ </Section> Increasing_VVG propulsion_NN efficiency_NN ,_, safety_NN ,_, comfort_NN and_CC operability_NN are_VBP of_IN the_DT great_JJ importance_NN ,_, especially_RB for_IN small_JJ ships_NNS operating_VVG on_IN windy_JJ sites_NNS like_IN the_DT North_NP Sea_NP and_CC the_DT Baltic_NP Sea_NP ._SENT 
+Seakeeping_VVG performance_NN of_IN ships_NNS and_CC offshore_JJ structures_NNS can_MD be_VB analysed_VVN by_IN different_JJ methods_NNS and_CC the_DT one_CD that_WDT is_VBZ becoming_VVG increasingly_RB important_JJ is_VBZ CFD_NN RANS_NNS ._SENT 
+The_DT recent_JJ development_NN of_IN simulation_NN techniques_NNS together_RB with_IN rising_VVG HPC_NN accessibility_NN enables_VVZ performance_NN of_IN advanced_JJ seakeeping_VVG simulations_NNS for_IN ships_NNS in_IN a_DT full_JJ scale_NN ._SENT 
+The_DT paper_NN presents_VVZ CFD_NN seakeeping_NN analysis_NN for_IN a_DT case_NN study_NN vessel_NN in_IN two_CD variants_NNS :_: V-shaped_JJ bulbous_JJ bow_NN hull_NN form_NN (_( as_RB built_VVN )_) and_CC innovative_JJ hull_NN form_NN (_( X-bow_NP type_NN )_) ._SENT 
+The_DT study_NN presents_VVZ the_DT influence_NN of_IN redesigning_VVG the_DT ship_NN on_IN selected_JJ seakeeping_NN aspects_NNS ._SENT 
+The_DT advanced_JJ CFD_NN model_NN ,_, with_IN the_DT application_NN of_IN overset_VVN mesh_NN technique_NN ,_, was_VBD described_VVN in_IN detail_NN ._SENT 
+Selected_VVN numerical_JJ results_NNS were_VBD validated_VVN on_IN the_DT basis_NN of_IN experimental_JJ testing_NN in_IN a_DT towing_VVG tank_NN and_CC showed_VVD good_JJ agreement_NN ._SENT 
+The_DT approach_NN demonstrated_VVD here_RB of_IN performing_VVG the_DT CFD_NN seakeeping_VVG simulations_NNS for_IN the_DT analysis_NN of_IN ship_NN performance_NN in_IN a_DT full_JJ scale_NN and_CC close_VV to_TO real_JJ loading_NN conditions_NNS has_VHZ direct_JJ application_NN to_TO the_DT design_NN process_NN as_IN well_RB as_RB in_IN determination_NN of_IN optimal_JJ operational_JJ parameters_NNS of_IN any_DT ship_NN ._SENT 
+KEYWORDS_NNS :_: Ship_NN design_NN ;_: Seakeeping_NP ;_: Ship_NP motions_VVZ ;_: CFD_NN ;_: V-bow_NP ;_: X-bow_NP <Section> 1._CD Introduction_NN </Section> Currently_RB the_DT shipping_NN industry_NN is_VBZ paying_VVG much_RB more_JJR attention_NN to_TO the_DT efficiency_NN and_CC comfort_NN of_IN a_DT vessel_NN through_IN all_DT stages_NNS of_IN its_PP$ life_NN and_CC has_VHZ come_VVN to_TO look_VV for_IN new_JJ ,_, unconventional_JJ solutions_NNS ._SENT 
+As_IN a_DT result_NN ,_, naval_JJ architects_NNS together_RB with_IN hydrodynamic_JJ experts_NNS are_VBP trying_VVG to_TO implement_VV innovative_JJ hull_NN forms_NNS that_WDT are_VBP characterised_VVN by_IN improved_VVN seaworthiness_NN ._SENT 
+This_DT feature_NN is_VBZ very_RB important_JJ from_IN the_DT point_NN of_IN ship_NN operability_NN restrictions_NNS ,_, as_RB well_RB as_IN for_IN the_DT comfort_NN of_IN crew_NN and_CC passengers_NNS ._SENT 
+In_IN many_JJ cases_NNS ,_, additional_JJ aspects_NNS of_IN safety_NN related_VVN to_TO cargo_NN being_VBG transported_VVN are_VBP taken_VVN into_IN account_NN ._SENT 
+As_IN a_DT result_NN ,_, in_IN recent_JJ years_NNS unconventional_JJ shapes_NNS have_VHP been_VBN frequently_RB seen_VVN on_IN offshore_JJ vessels_NNS and_CC passenger_NN ferries_NNS ._SENT 
+Looking_VVG at_IN the_DT modern_JJ designs_NNS ,_, it_PP can_MD be_VB concluded_VVN that_DT modification_NN of_IN the_DT bow_NN shape_NN is_VBZ seen_VVN as_IN factor_NN that_WDT has_VHZ significant_JJ impact_NN on_IN the_DT ship_NN behaviour_NN in_IN rough_JJ weather_NN ._SENT 
+The_DT most_RBS popular_JJ unconventional_JJ bow_NN shapes_NNS having_VHG wide-ranged_VVN industrial_JJ application_NN are_VBP ‘Ax-bow’_JJ and_CC ‘Leadge-bow’_JJ proposed_VVN by_IN Universal_NP Shipbuilding_NP Corporation_NP ,_, ‘X-bow’_JJ type_NN proposed_VVN by_IN Ulstein_NP company_NN ,_, the_DT ‘Axe-bow’_JJ type_NN proposed_VVN by_RB [_SYM 1_CD ]_SYM and_CC used_VVN by_IN Damen_NNS company_NN ,_, the_DT ‘Havyard’_JJ type_NN proposed_VVN by_IN Havyard_NN company_NN ._SENT 
+Also_RB ,_, other_JJ hull_NN forms_NNS such_JJ as_IN the_DT inverted_JJ bow_NN on_IN the_DT mega_JJ yacht_NN M/V_NP A_NP and_CC on_IN the_DT FFG-7_JJ frigate_NN have_VHP been_VBN developed_VVN in_IN recent_JJ years_NNS ._SENT 
+Various_JJ evaluations_NNS of_IN design_NN concepts_NNS can_MD be_VB noticed_VVN as_IN well_RB �_JJ �_NN e.g._FW ‘Swan-bow’_JJ type_NN investigated_VVN by_IN MMC_NP company_NN ._SENT 
+Literature_NN review_NN found_VVD very_RB little_JJ data_NNS for_IN novel_JJ body_NN forms_NNS ._SENT 
+However_RB ,_, extensive_JJ research_NN results_NNS were_VBD published_VVN for_IN typical_JJ hulls_NNS ._SENT 
+Lloyd_NP ,_, in_IN his_PP$ book_NN titled_VVN ‘Ship_NN behaviour_NN in_IN rough_JJ weather’_NN [_SYM 2_CD ]_SYM ,_, indicates_VVZ that_IN certain_JJ main_JJ particulars_NNS influence_VVP seakeeping_VVG characteristics_NNS of_IN a_DT ship_NN ._SENT 
+He_PP particularly_RB points_VVZ out_RP the_DT impact_NN of_IN ship_NN length_NN L_NP ,_, ratios_NNS D/Lpp_NP and_CC B/Lpp_NP and_CC forward_JJ water_NN plane_NN area_NN coefficient_NN ._SENT 
+Modern_JJ designs_NNS focus_VVP especially_RB on_IN changing_VVG the_DT latter_JJ feature_NN ,_, because_IN most_JJS often_RB the_DT main_JJ ship_NN dimensions_NNS can_MD be_VB modified_VVN in_IN a_DT very_RB small_JJ range_NN due_JJ to_TO various_JJ design_NN limits_NNS ._SENT 
+In_IN recent_JJ years_NNS several_JJ papers_NNS have_VHP been_VBN published_VVN showing_VVG the_DT influence_NN of_IN redesigning_VVG a_DT bow_NN shape_NN on_IN a_DT vessel_NN 's_POS seakeeping_VVG performance_NN ._SENT 
+Matsumoto_NP et_NP al_NP ._SENT 
+[_SYM 3_CD ]_SYM presented_VVD two_CD new_JJ concepts_NNS of_IN bow_NN shape_NN �_NP �_NP the_DT Beak-bow_NN and_CC the_DT Ax-bow_NN ._SENT 
+Both_CC hull_NN forms_NNS had_VHD significantly_RB improved_VVN seakeeping_VVG performance_NN in_IN comparison_NN to_TO an_DT ordinary_JJ bow_NN form_NN ._SENT 
+The_DT added_JJ resistance_NN was_VBD reduced_VVN while_IN the_DT heave_NN and_CC pitch_NN motions_NNS were_VBD increased_VVN for_IN the_DT demonstrated_VVN concepts_NNS ._SENT 
+A_DT similar_JJ study_NN was_VBD presented_VVN in_IN paper_NN [_SYM 4_CD ]_SYM which_WDT described_VVD the_DT research_NN on_IN the_DT ‘Beak-bow’_NN ,_, the_DT ‘Ax-bow’_NN and_CC the_DT ‘Leadge-bow’_NN ._SENT 
+The_DT paper_NN presented_VVD results_NNS from_IN a_DT towing_VVG tank_NN tests_NNS ._SENT 
+He_PP also_RB presented_VVD the_DT comparison_NN of_IN full_JJ scale_NN performance_NN of_IN the_DT M/V_NP Kohyoshan_NP with_IN the_DT Ax-bow_NN to_TO its_PP$ sister_JJ vessel_NN with_IN conventional_JJ bow_NN ._SENT 
+Measurements_NNS showed_VVD advantages_NNS the_DT application_NN of_IN unconventional_JJ bow_NN shapes_NNS ,_, as_RB according_VVG to_TO towing_VVG tank_NN tests_VVZ modified_JJ shapes_NNS improved_VVD the_DT hull_NN resistance_NN in_IN a_DT range_NN from_IN 12_CD %_NN to_TO 30_CD %_NN ._SENT 
+According_VVG to_TO full_JJ scale_NN measurements_NNS ,_, application_NN of_IN the_DT Ax-bow_NN helped_VVD to_TO reduce_VV speed_NN loss_NN by_IN 70_CD %_NN ._SENT 
+The_DT other_JJ concept_NN of_IN bow_NN hull_NN form_NN was_VBD presented_VVN by_IN Seo_NP et_CC al_NP ._SENT 
+[_SYM 5_CD ]_SYM as_IN the_DT so-called_JJ ‘Goose_JJ neck_NN bulb’_NN ._SENT 
+The_DT redesigned_VVN bulbous_JJ bow_NN form_NN showed_VVD similar_JJ results_NNS of_IN added_JJ resistance_NN ,_, heave_NN ,_, pitch_NN and_CC accelerations_NNS as_IN the_DT initial_JJ hull_NN form_NN ._SENT 
+Kuroda_NP et_NP al_NP ._SENT 
+[_SYM 6_CD ]_SYM performed_VVD a_DT study_NN on_IN three_CD different_JJ bow_NN shapes_VVZ above_IN the_DT waterline_NN to_TO assess_VV the_DT influence_NN on_IN powering_VVG and_CC greenhouse_NN emissions_NNS ._SENT 
+According_VVG to_TO their_PP$ study_NN ,_, a_DT wall-sided_JJ hull_NN had_VHD the_DT advantage_NN over_IN the_DT primary_JJ case_NN study_NN vessel_NN ._SENT 
+Lee_NP et_NP al_NP ._SENT 
+[_SYM 7_CD ]_SYM presented_VVN results_NNS from_IN a_DT towing_VVG tank_NN experiment_NN for_IN the_DT KVLCC2_JJ hull_NN and_CC compared_VVN the_DT Ax-bow_NN and_CC the_DT Leadge-bow_NN to_TO the_DT original_JJ bow_NN shape_NN ._SENT 
+According_VVG to_TO their_PP$ study_NN the_DT Ax-bow_NN and_CC the_DT Leadge-bow_NN can_MD reduce_VV added_JJ resistance_NN slightly_RB ,_, while_IN the_DT motion_NN responses_NNS are_VBP similar_JJ among_IN all_DT three_CD hulls_NNS ._SENT 
+The_DT results_NNS were_VBD also_RB published_VVN in_IN Ref_NN ._SENT 
+[_SYM 8_CD ]_SYM ,_, discussing_VVG in_IN detail_NN the_DT experimental_JJ investigation_NN on_IN seakeeping_VVG performance_NN of_IN redesigned_VVN hull_NN forms_NNS ._SENT 
+White_NN [_SYM 9_CD ]_SYM investigated_VVD the_DT differences_NNS between_IN the_DT original_JJ bow_NN of_IN the_DT FFG-7_JJ frigate_NN and_CC the_DT inverted_JJ bow_NN form_NN ._SENT 
+The_DT experimental_JJ research_NN in_IN a_DT towing_VVG tank_NN included_VVD an_DT analysis_NN of_IN resistance_NN in_IN calm_JJ water_NN and_CC seakeeping_VVG in_IN both_DT regular_JJ waves_NNS and_CC irregular_JJ head_NN seas_NNS ._SENT 
+The_DT responses_NNS were_VBD characterised_VVN in_IN terms_NNS of_IN pitch_NN ,_, heave_NN ,_, and_CC vertical_JJ accelerations_NNS ._SENT 
+The_DT experiments_NNS showed_VVD the_DT reduced_VVN resistance_NN of_IN the_DT inverted_JJ bow_NN ._SENT 
+Furthermore_RB ,_, it_PP was_VBD found_VVN that_IN for_IN regular_JJ waves_NNS the_DT inverted_JJ bow_NN acts_NNS like_IN a_DT spring_NN that_WDT increases_VVZ the_DT amplitude_NN of_IN motion_NN but_CC decreases_VVZ the_DT acceleration_NN ._SENT 
+The_DT transfer_NN functions_NNS showed_VVD larger_JJR amplitudes_NNS ,_, especially_RB close_JJ to_TO the_DT resonance_NN frequencies_NNS ._SENT 
+A_DT non-linear_JJ interaction_NN between_IN the_DT inverted_JJ bow_NN and_CC the_DT irregular_JJ waves_NNS was_VBD found_VVN that_WDT enabled_VVD the_DT conclusion_NN that_IN the_DT inverted_JJ bow_NN improves_VVZ seakeeping_VVG performance_NN ._SENT 
+Yang_NP and_CC Kim_NP [_SYM 10_CD ]_SYM performed_VVN CFD_NN calculations_NNS for_IN the_DT determination_NN of_IN added_JJ resistance_NN of_IN the_DT KVLCC2_JJ tanker_NN with_IN different_JJ bow_NN shapes_NNS :_: original_JJ ,_, Ax-bow_NP and_CC Leadge-bow_NP ._SENT 
+The_DT analysis_NN was_VBD performed_VVN for_IN short_JJ head_NN waves_NNS and_CC different_JJ wave_NN amplitudes_NNS ,_, showing_VVG significant_JJ reduction_NN of_IN added_JJ resistance_NN for_IN modified_JJ body_NN forms_NNS ._SENT 
+According_VVG to_TO their_PP$ study_NN the_DT Leadge-bow_NN helps_VVZ to_TO reduce_VV added_JJ resistance_NN in_IN waves_NNS by_IN 30_CD %_NN ._SENT 
+Kim_NP et_NP al_NP ._SENT 
+[_SYM 49_CD ]_SYM presented_VVD the_DT seakeeping_VVG analysis_NN of_IN a_DT newly_RB developed_VVN bow_NN form_NN ,_, the_DT so-called_JJ KWP-bow_NN ._SENT 
+For_IN analysed_VVN cases_NNS it_PP was_VBD found_VVN that_IN a_DT ship_NN with_IN modified_JJ bow_NN shape_NN benefits_NNS from_IN reduction_NN of_IN required_JJ power_NN from_IN 5_CD %_NN to_TO 15_CD %_NN depending_VVG on_IN wave_NN height_NN ._SENT 
+The_DT presented_VVN experimental_JJ data_NNS demonstrated_VVD that_IN the_DT modified_JJ shape_NN had_VHD significantly_RB higher_JJR ship_NN movements_NNS for_IN λ/Lpp_NP between_IN 1_CD and_CC 1.5_CD ._SENT 
+The_DT article_NN [_SYM 11_CD ]_SYM describes_VVZ the_DT bow_NN hull_NN form_NN optimisation_NN of_IN a_DT bulk_JJ carrier_NN to_TO improve_VV seakeeping_VVG performance_NN ._SENT 
+The_DT redesigned_VVN bow_NN shape_NN had_VHD 10_CD %_NN lower_JJR mean_JJ added_JJ resistance_NN ._SENT 
+The_DT change_NN of_IN heave_NN amplitude_NN was_VBD very_RB little_JJ while_IN pitch_NN motion_NN was_VBD increased_VVN ._SENT 
+The_DT hull_NN shape_NN optimisation_NN in_IN waves_NNS with_IN the_DT use_NN of_IN CFD_NN was_VBD also_RB published_VVN in_IN Ref_NN ._SENT 
+[_SYM 12_CD ]_SYM ._SENT 
+Most_JJS of_IN the_DT papers_NNS focus_VVP on_IN analysis_NN of_IN the_DT benchmark_JJ hulls_NNS ;_: however_RB ,_, we_PP know_VVP little_RB about_IN comparisons_NNS of_IN CFD_NN computation_NN with_IN towing_VVG tank_NN tests_NNS for_IN existing_VVG ships_NNS ,_, especially_RB new_JJ innovative_JJ concepts_NNS such_JJ as_IN X-bow_NP type_NN ._SENT 
+This_DT paper_NN presents_VVZ advanced_JJ CFD_NN seakeeping_VVG analysis_NN of_IN the_DT case_NN study_NN vessel_NN (_( MS_NN Nawigator_NN XXI_NP ,_, IMO_NP 9161247_CD )_) ,_, which_WDT is_VBZ a_DT research_NN and_CC training_NN vessel_NN operating_VVG mainly_RB on_IN the_DT Baltic_NP Sea_NP ._SENT 
+The_DT overall_JJ hull_NN length_NN is_VBZ LOA = 60.3 m_NN and_CC design_NN speed_NN of_IN the_DT ship_NN is_VBZ 13_CD knots_NNS ._SENT 
+The_DT study_NN vessel_NN represents_VVZ the_DT modern_JJ ‘V’_JJ shaped_JJ hull_NN form_NN with_IN a_DT bulbous_JJ bow_NN ._SENT 
+The_DT first_JJ purpose_NN of_IN the_DT study_NN was_VBD to_TO examine_VV the_DT influence_NN that_IN modification_NN of_IN the_DT bow_NN shape_NN of_IN the_DT case_NN study_NN ship_NN has_VHZ on_RB added_VVN resistance_NN and_CC ship_NN motions_NNS ._SENT 
+The_DT bow_NN section_NN of_IN the_DT case_NN study_NN vessel_NN was_VBD redesigned_VVN to_TO a_DT shape_NN similar_JJ to_TO the_DT X-bow_NP type_NN ._SENT 
+The_DT second_JJ aim_NN was_VBD to_TO demonstrate_VV the_DT advanced_JJ CFD_NN simulation_NN as_IN an_DT effective_JJ tool_NN for_IN seakeeping_VVG analysis_NN ._SENT 
+The_DT development_NN of_IN numerical_JJ tools_NNS and_CC the_DT HPC_NP accessibility_NN enabled_VVD the_DT analysis_NN of_IN various_JJ designs_NNS in_IN a_DT virtual_JJ towing_VVG tank_NN with_IN great_JJ effectiveness_NN and_CC accuracy_NN ._SENT 
+The_DT credibility_NN of_IN CFD_NN RANS_NNS was_VBD proven_VVN by_IN many_JJ authors_NNS in_IN recent_JJ years_NNS ._SENT 
+Simonsen_NP et_NP al_NP ._SENT 
+[_SYM 13_CD ]_SYM performed_VVN CFD_NN simulations_NNS and_CC towing_VVG tank_NN experiments_NNS to_TO determine_VV seakeeping_VVG performance_NN of_IN the_DT KCS_NP container_NN ship_NN for_IN large_JJ amplitude_NN motions_NNS ._SENT 
+Good_JJ agreement_NN between_IN CFD_NN and_CC EFD_NN was_VBD found_VVN ._SENT 
+For_IN calm_JJ water_NN simulation_NN the_DT resistance_NN ,_, dynamic_JJ trim_JJ and_CC sinkage_NN were_VBD predicted_VVN within_IN a_DT range_NN of_IN 3–10_JJ %_NN ._SENT 
+In_IN waves_NNS ,_, CFD_NN captured_VVD the_DT heave_NN and_CC trim_VV motions_NNS within_IN ranges_NNS of_IN 5–14_JJ %_NN and_CC 1–23_JJ %_NN ,_, respectively_RB ._SENT 
+The_DT added_JJ resistance_NN was_VBD predicted_VVN within_IN a_DT range_NN of_IN 4–51_JJ %_NN ._SENT 
+Tezdogan_NP et_NP al_NP ._SENT 
+[_SYM 14_CD ]_SYM investigated_VVN responses_NNS of_IN the_DT KRISO_NP container_NN ship_NN model_NN on_IN head_NN waves_NNS at_IN slow_JJ steaming_VVG speed_NN ._SENT 
+The_DT study_NN used_VVD full_JJ scale_NN modelling_VVG approach_NN and_CC showed_VVD that_IN fully_RB nonlinear_JJ unsteady_JJ RANS_NNS simulation_NN can_MD be_VB used_VVN for_IN the_DT prediction_NN of_IN the_DT ship_NN motions_NNS and_CC added_VVD resistance_NN with_IN great_JJ accuracy_NN ._SENT 
+The_DT application_NN of_IN CFD_NN for_IN rising_VVG ship_NN efficiency_NN was_VBD demonstrated_VVN by_IN utilisation_NN of_IN a_DT slow_JJ steaming_VVG operation_NN ._SENT 
+The_DT capability_NN of_IN prediction_NN of_IN added_JJ resistance_NN ,_, ship_NN motions_NNS and_CC speed_NN loss_NN in_IN a_DT seaway_NN with_IN the_DT use_NN of_IN 2D_NNS and_CC 3D_JJ potential_JJ flow_NN method_NN and_CC the_DT CFD_NN (_( URANS_NP )_) was_VBD published_VVN by_IN Kim_NP et_CC al_NP ._SENT 
+[_SYM 15_CD ]_SYM ._SENT 
+Other_JJ hydrodynamic_JJ aspects_NNS were_VBD analysed_VVN such_JJ as_IN wind_NN loads_NNS acting_VVG on_IN ships_NNS superstructure_NN [_SYM 16_CD ]_SYM ,_, wave_NN loads_NNS acting_VVG on_IN offshore_JJ structures_NNS [_SYM 17_CD ]_SYM ,_, [_SYM 18_CD ]_SYM ,_, performance_NN of_IN marine_JJ propeller_NN [_SYM 19_CD ]_SYM ,_, the_DT effect_NN of_IN sea_NN waves_NNS on_IN propulsion_NN performance_NN [_SYM 20_CD ]_SYM and_CC ship_NN 's_POS manoeuvrability_NN [_SYM 21_CD ]_SYM ._SENT 
+A_DT recent_JJ study_NN recognised_VVD seakeeping_VVG simulations_NNS as_IN an_DT effective_JJ tool_NN in_IN the_DT development_NN of_IN smart_JJ ship_NN technology_NN [_SYM 22_CD ]_SYM by_IN utilising_VVG CFD_NN results_NNS ._SENT 
+The_DT seakeeping_VVG simulation_NN performed_VVN on_IN a_DT full_JJ scale_NN including_VVG close_NN to_TO real_JJ environmental_JJ loads_NNS can_MD deliver_VV crucial_JJ data_NNS for_IN raising_VVG the_DT efficiency_NN of_IN propulsion_NN ,_, especially_RB for_IN smart_JJ and_CC autonomous_JJ ships_NNS ._SENT 
+Despite_IN the_DT popularity_NN of_IN CFD_NN simulations_NNS ,_, other_JJ numerical_JJ methods_NNS can_MD also_RB be_VB used_VVN for_IN the_DT analysis_NN of_IN seakeeping_VVG performance_NN ,_, i.e._FW [_SYM 5_CD ]_SYM ,_, [_SYM 23_CD ]_SYM ,_, [_SYM 24_CD ]_SYM ,_, [_SYM 25_CD ]_SYM ,_, [_SYM 26_CD ]_SYM ,_, [_SYM 27_CD ]_SYM ,_, [_SYM 28_CD ]_SYM and_CC relevant_JJ phenomena_NNS ,_, i.e._FW slamming_VVG effect_NN [_SYM 29_CD ]_SYM ._SENT 
+This_DT paper_NN compares_VVZ results_NNS obtained_VVN from_IN numerical_JJ simulations_NNS calculated_VVN by_IN means_NNS of_IN unsteady_JJ Reynolds-averaged_JJ Navies-Stokes_NNS on_IN both_DT calm_JJ water_NN and_CC head_VV regular_JJ waves_NNS ._SENT 
+The_DT software_NN used_VVN for_IN computations_NNS was_VBD STAR-CCM+_JJ ,_, which_WDT has_VHZ implemented_VVN a_DT RANS_NNS solver_NN and_CC 6_CD DOF_JJ model_NN that_WDT allows_VVZ simulation_NN of_IN ship_NN motions_NNS ._SENT 
+Numerical_JJ analysis_NN was_VBD validated_VVN against_IN towing_VVG tank_NN experiments_NNS ._SENT 
+The_DT contents_NNS of_IN the_DT paper_NN are_VBP as_RB follows_VVZ ._SENT 
+In_IN Section_NP 2_CD ,_, the_DT case_NN study_NN vessel_NN is_VBZ described_VVN including_VVG the_DT modified_JJ version_NN of_IN the_DT bow_NN ._SENT 
+Section_NN 3_CD presents_NNS the_DT determination_NN of_IN a_DT calm_JJ water_NN resistance_NN which_WDT was_VBD a_DT starting_VVG point_NN for_IN analysis_NN ._SENT 
+Section_NN 4_CD describes_VVZ a_DT seakeeping_VVG analysis_NN of_IN both_CC the_DT original_JJ and_CC modified_JJ version_NN of_IN the_DT case_NN study_NN vessel_NN ._SENT 
+The_DT analysis_NN consists_VVZ of_IN a_DT detailed_JJ description_NN of_IN CFD_NN modelling_VVG ,_, results_NNS and_CC discussion_NN ._SENT 
+Finally_RB ,_, the_DT conclusions_NNS are_VBP given_VVN in_IN Section_NP 5._CD <Section> 2._CD The_DT case_NN study_NN vessel_NN </Section> The_DT MS_NN Nawigator_NN XXI_NP (_( IMO_NP 9161247_CD )_) was_VBD selected_VVN as_IN a_DT case_NN study_NN vessel_NN ._SENT 
+The_DT ship_NN was_VBD modelled_VVN in_IN 3D_JJ CAD_NN from_IN construction_NN body_NN lines_NNS and_CC the_DT ordinate_JJ table_NN ._SENT 
+The_DT main_JJ particulars_NNS of_IN the_DT existing_JJ vessel_NN and_CC modified_JJ hull_NN are_VBP presented_VVN in_IN Table_NN 1._CD Hydrostatic_JJ data_NNS was_VBD calculated_VVN for_IN the_DT real_JJ operating_VVG conditions_NNS ._SENT 
+The_DT original_JJ hull_NN form_NN was_VBD noted_VVN as_IN ‘CSV1’_NP (_( Case_NP Study_NP Vessel_NP 1_CD )_) and_CC the_DT redesigned_VVN version_NN was_VBD noted_VVN as_IN ‘CSV2’_NP (_( Case_NP Study_NP Vessel_NP 2_CD )_) ._SENT 
+The_DT body_NN form_NN before_IN and_CC after_IN modification_NN is_VBZ presented_VVN in_IN Fig_NN ._SENT 
+1._CD The_DT objective_NN of_IN the_DT hull_NN modification_NN was_VBD to_TO obtain_VV a_DT shape_NN with_IN improved_VVN seaworthiness_NN while_IN preserving_VVG shape_NN of_IN the_DT stern_JJ and_CC mid-ship_NN together_RB with_IN main_JJ dimensions_NNS ,_, displacement_NN ,_, waterline_NN length_NN ,_, draft_NN and_CC longitudinal_JJ centre_NN of_IN buoyancy_NN ._SENT 
+The_DT mass_NN distribution_NN was_VBD assumed_VVN to_TO be_VB similar_JJ for_IN both_DT hull_NN shapes_VVZ ._SENT 
+It_PP enabled_VVD capturing_VVG a_DT clear_JJ influence_NN of_IN a_DT bow_NN shape_NN modification_NN on_IN the_DT seakeeping_VVG performance_NN ._SENT 
+Redesigning_VVG the_DT bow_NN was_VBD performed_VVN by_IN taking_VVG a_DT pattern_NN of_IN the_DT X-bow_NP type_NN with_IN the_DT use_NN of_IN drawings_NNS from_IN the_DT patent_NN [_SYM 30_CD ]_SYM ._SENT 
+The_DT redesigning_VVG process_NN of_IN the_DT case_NN study_NN vessel_NN hull_NN form_NN was_VBD performed_VVN by_IN in-house_JJ tools_NNS for_IN advanced_JJ parametric_JJ modelling_VVG and_CC optimisation_NN ._SENT 
+The_DT tools_NNS were_VBD used_VVN as_IN an_DT add-on_NN to_TO the_DT NX/ModelCenter_NN software_NN ._SENT 
+At_IN first_JJ ,_, the_DT splines_NNS representing_VVG main_JJ hull_NN form_NN sections_NNS were_VBD modelled_VVN and_CC constrained_VVN with_IN parameters_NNS ._SENT 
+The_DT bow_NN contour_NN curve_NN ,_, 6_CD longitudinal_JJ cross_NN sections_NNS and_CC forecastle_NN deck_NN contour_NN curve_NN were_VBD used_VVN ._SENT 
+Continuous_JJ curvature_NN constraint_NN (_( G2_NP )_) with_IN the_DT surface_NN representing_VVG a_DT midship_JJ section_NN was_VBD applied_VVN ._SENT 
+The_DT parameters_NNS of_IN displacement_NN ,_, longitudinal_JJ centre_NN of_IN buoyancy_NN and_CC waterline_NN length_NN were_VBD defined_VVN ._SENT 
+Then_RB the_DT longitudinal_JJ position_NN of_IN surface_NN control_NN points_NNS was_VBD changed_VVN by_IN a_DT simple_JJ optimisation_NN algorithm_NN ._SENT 
+It_PP was_VBD supposed_VVN to_TO find_VV the_DT position_NN of_IN points_NNS at_IN which_WDT the_DT hydrostatic_JJ data_NNS of_IN a_DT new_JJ form_NN corresponds_VVZ to_TO the_DT CSV1_JJ data_NNS within_IN a_DT margin_NN of_IN 0.1_CD %_NN for_IN displacement_NN ,_, 1_CD %_NN for_IN waterline_NN length_NN and_CC 1_CD %_NN for_IN longitudinal_JJ centre_NN of_IN buoyancy_NN ._SENT 
+Table_NN 1._CD Main_JJ data_NNS of_IN the_DT case_NN study_NN vessel_NN ._SENT 
+Fig_NN ._SENT 
+1._CD The_DT case_NN study_NN vessel_NN hull_NN form_NN :_: ‘as_NP built’_NP (_( port_NN side_NN )_) and_CC redesigned_VVN to_TO X-bow_VV (_( starboard_NN )_) ._SENT 
+<Section> 3._CD Ship_NN resistance_NN on_IN calm_JJ water_NN </Section> The_DT starting_VVG point_NN for_IN performance_NN analysis_NN of_IN the_DT redesigned_VVN case_NN study_NN vessel_NN was_VBD the_DT determination_NN of_IN calm_JJ water_NN resistance_NN ._SENT 
+The_DT CFD_NN simulation_NN for_IN the_DT ship_NN ‘as_NP built’_NP (_( noted_VVN as_IN ‘CSV1’_NP )_) was_VBD performed_VVN and_CC validated_VVN against_IN a_DT towing_VVG tank_NN experiment_NN ._SENT 
+The_DT standard_JJ experiment_NN according_VVG to_TO the_DT ITTC_JJ recommendations_NNS [_SYM 31_CD ]_SYM was_VBD performed_VVN in_IN the_DT Towing_VVG Tank_NP of_IN Gdansk_NP University_NP of_IN Technology_NP ._SENT 
+The_DT second_JJ part_NN of_IN the_DT analysis_NN was_VBD a_DT CFD_NN simulation_NN for_IN the_DT redesigned_VVN bow_NN form_NN (_( modelled_VVN close_RB to_TO the_DT X-bow_NP type_NN and_CC noted_VVD as_IN ‘CSV2’_NN )_) ._SENT 
+The_DT calm_JJ water_NN resistance_NN was_VBD analysed_VVN for_IN a_DT speed_NN range_NN from_IN 5_CD knots_NNS to_TO 15_CD knots_NNS that_WDT corresponds_VVZ to_TO a_DT Froude_JJ number_NN from_IN Fr = 0.11_NN to_TO Fr = 0.33_NN ._SENT 
+The_DT resistance_NN curves_VVZ for_IN both_DT hull_NN forms_NNS were_VBD obtained_VVN and_CC compared_VVN to_TO each_DT other_JJ ._SENT 
+Section_NN 3.1_CD describes_VVZ experimental_JJ facility_NN and_CC setup_NN whereas_IN Sections_NNS 3.2–3.4_NN describe_VVP the_DT numerical_JJ model_NN setup_NN ,_, results_NNS and_CC discussion_NN ._SENT 
+3.1_CD ._SENT 
+Experimental_JJ model_NN The_DT towing_VVG tank_NN at_IN Gdansk_NP University_NP of_IN Technology_NP is_VBZ 40 m_NN long_RB ,_, 4 m_NP wide_JJ and_CC 3 m_NN deep_RB ._SENT 
+The_DT maximum_JJ speed_NN of_IN a_DT towing_VVG carriage_NN is_VBZ 2.5 m/s_JJ ._SENT 
+The_DT towing_VVG tank_NN is_VBZ equipped_VVN with_IN a_DT wave_NN maker_NN ,_, damping_VVG beach_NN and_CC wave_NN probe_NN to_TO measure_VV an_DT elevation_NN of_IN free_JJ water_NN surface_NN ._SENT 
+The_DT sampling_NN frequency_NN of_IN the_DT measured_VVN data_NNS is_VBZ 500 Hz_NP ._SENT 
+The_DT model_NN for_IN towing_VVG tank_NN tests_NNS was_VBD built_VVN in_IN a_DT scale_NN of_IN 1:25_CD ._SENT 
+During_IN experiment_NN it_PP was_VBD attached_VVN to_TO the_DT towing_VVG carriage_NN by_IN a_DT single_JJ post_NN having_VHG two_CD degrees_NNS of_IN freedom_NN (_( pitch_NN and_CC heave_NN )_) ._SENT 
+The_DT model_NN had_VHD no_DT initial_JJ heel_NN ,_, drift_VV and_CC trim_VV angle_NN ._SENT 
+Experimental_JJ setup_NN is_VBZ presented_VVN in_IN Fig_NN ._SENT 
+2._CD The_DT required_JJ values_NNS of_IN the_DT radius_NN of_IN inertia_NN and_CC longitudinal_JJ and_CC vertical_JJ centres_NNS of_IN gravity_NN were_VBD obtained_VVN using_VVG the_DT pendulum_NN method_NN ._SENT 
+The_DT range_NN of_IN speed_NN for_IN which_WDT the_DT model_NN was_VBD tested_VVN was_VBD 0.3–1.6 m/s_NNS with_IN 0.1 m/s_JJ increment_NN ._SENT 
+Towing_VVG tank_NN results_NNS were_VBD extrapolated_VVN to_TO the_DT full_JJ scale_NN using_VVG ITTC-78_JJ method_NN [_SYM 50_CD ]_SYM ._SENT 
+These_DT results_NNS were_VBD used_VVN for_IN validation_NN of_IN full_JJ scale_NN CFD_NN simulations_NNS ._SENT 
+Uncertainty_NN analysis_NN of_IN calm_JJ water_NN test_NN that_WDT follows_VVZ ITTC_JJ guidelines_NNS [_SYM 32_CD ]_SYM was_VBD performed_VVN ._SENT 
+Experimental_JJ uncertainty_NN did_VVD not_RB exceed_VV 2.5_CD %_NN for_IN the_DT lowest_JJS speed_NN case_NN ._SENT 
+Fig_NN ._SENT 
+2._CD Model_NP of_IN the_DT case_NN study_NN vessel_NN CSV1_JJ for_IN towing_VVG tank_NN experiments_NNS ._SENT 
+3.2_CD ._SENT 
+Numerical_JJ model_NN The_DT STAR_NN CCM+_NN software_NN was_VBD used_VVN to_TO solve_VV flow_NN around_IN the_DT ship_NN and_CC determine_VV the_DT resistance_NN ,_, dynamic_JJ trim_JJ and_CC heave_NN ._SENT 
+The_DT computations_NNS were_VBD performed_VVN by_IN means_NNS of_IN RANS_NNS ._SENT 
+For_IN three_CD dimensional_JJ unsteady_JJ viscous_JJ incompressible_JJ flow_NN continuity_NN and_CC momentum_NN equations_NNS may_MD be_VB written_VVN as_RB follows_VVZ [_SYM 33_CD ]_SYM :_: @(1_JJ )_) @(2_NN )_) where_WRB p_NN is_VBZ pressure_NN ,_, ρ_NP is_VBZ fluid_JJ density_NN ,_, ρu′i¯¯¯¯u′j¯¯¯¯_NP is_VBZ Reynolds_NP stresses_VVZ ,_, ui¯¯¯_JJ are_VBP averaged_VVN components_NNS of_IN velocity_NN vector_NN in_IN Cartesian_JJ system_NN of_IN coordinates_VVZ and_CC τij¯¯¯¯_NP are_VBP the_DT mean_JJ viscous_JJ stress_NN tensor_NN components_NNS ._SENT 
+@(3_NP )_) Solver_NN uses_VVZ finite_JJ volume_NN method_NN that_WDT discretises_VVZ in_IN the_DT whole_JJ domain_NN the_DT integral_JJ version_NN of_IN the_DT transport_NN equations_NNS ._SENT 
+Trubulent_JJ three-dimensional_JJ ,_, viscous_JJ multiphase_JJ flow_NN was_VBD modelled_VVN ._SENT 
+In_IN order_NN to_TO capture_VV the_DT interface_NN between_IN phases_NNS ,_, a_DT surface_NN capturing_VVG VOF_JJ (_( volume_NN of_IN fluid_NN )_) model_NN was_VBD applied_VVN ._SENT 
+The_DT k–ε_JJ model_NN was_VBD used_VVN for_IN turbulence_NN ._SENT 
+This_DT model_NN offers_VVZ a_DT good_JJ compromise_NN between_IN robustness_NN and_CC accuracy_NN ._SENT 
+The_DT model_NN is_VBZ also_RB a_DT frequent_JJ choice_NN when_WRB using_VVG STAR_JJ CCM+_JJ software_NN [_SYM 14_CD ]_SYM ,_, [_SYM 49_CD ]_SYM ._SENT 
+For_IN spatial_JJ discretisation_NN ,_, a_DT second_JJ order_NN upwind_RB numerical_JJ scheme_NN was_VBD used_VVN for_IN convection_NN term_NN ,_, and_CC a_DT first_JJ order_NN scheme_NN was_VBD used_VVN for_IN temporal_JJ discretisation_NN ._SENT 
+To_TO compute_VV motions_NNS of_IN a_DT ship_NN as_IN a_DT response_NN to_TO fluid_JJ forces_NNS ,_, the_DT model_NN of_IN DFBI_NP (_( dynamic_JJ fluid_JJ body_NN interaction_NN )_) was_VBD applied_VVN ,_, which_WDT enabled_VVD to_TO integrate_VV pressure_NN and_CC shear_NN forces_NNS over_IN the_DT surface_NN of_IN a_DT body_NN ._SENT 
+Acting_VVG forces_NNS and_CC moments_NNS were_VBD used_VVN to_TO find_VV in_IN iterative_JJ way_NN a_DT new_JJ position_NN of_IN an_DT object_NN after_IN translational_JJ motion_NN and_CC angular_JJ rotation_NN of_IN a_DT body_NN 's_POS centre_NN of_IN mass_NN ._SENT 
+3.3_CD ._SENT 
+Boundary_NN conditions_NNS and_CC computational_JJ mesh_NN The_DT setup_NN of_IN the_DT numerical_JJ domain_NN is_VBZ presented_VVN in_IN Table_NN 2._CD The_DT size_NN of_IN the_DT domain_NN and_CC a_DT ship_NN position_NN was_VBD specified_VVN in_IN order_NN to_TO avoid_VV reflection_NN from_IN the_DT side_NN and_CC downstream_JJ boundary_NN and_CC also_RB to_TO capture_VV the_DT Kelvin_NP wave_NN pattern_NN ._SENT 
+Additionally_RB ,_, to_TO minimise_VV the_DT reflections_NNS of_IN waves_NNS on_IN the_DT side_NN and_CC outlet_NN boundaries_NNS ,_, numerical_JJ wave_NN damping_VVG was_VBD applied_VVN ._SENT 
+The_DT side_NN view_NN of_IN the_DT domain_NN with_IN boundary_NN description_NN is_VBZ shown_VVN in_IN Fig_NN ._SENT 
+3_CD below_RB ._SENT 
+The_DT discretisation_NN of_IN the_DT volume_NN was_VBD performed_VVN according_VVG to_TO ITTC_JJ recommendations_NNS [_SYM 31_CD ]_SYM ,_, [_SYM 34_CD ]_SYM ._SENT 
+Standard_JJ refinements_NNS in_IN the_DT areas_NNS of_IN free_JJ surface_NN ,_, wake_NN and_CC near_IN the_DT hull_NN were_VBD applied_VVN �_JJ �_NN see_VVP Fig_NN ._SENT 
+4._CD Viscous_JJ sublayer_NN was_VBD not_RB resolved_VVN directly_RB and_CC wall_NN functions_NNS were_VBD applied_VVN ._SENT 
+For_IN calm_JJ water_NN simulations_NNS value_NN of_IN y+_NP were_VBD in_IN range_NN of_IN 30–200_NP ._SENT 
+The_DT approach_NN with_IN symmetry_NN plane_NN of_IN a_DT ship_NN was_VBD used_VVN and_CC the_DT total_JJ number_NN of_IN volumetric_JJ cells_NNS was_VBD equal_JJ to_TO 2.1_CD million_CD (_( fine_NN mesh_NN )_) ._SENT 
+Grid_NN convergence_NN study_NN for_IN speed_NN of_IN 10_CD knots_NNS was_VBD performed_VVN with_IN refinement_NN ratio_NN equal_JJ to_TO 2–√_NP applied_VVN to_TO the_DT value_NN of_IN cells’_JJ base_NN size_NN ._SENT 
+Medium_NN mesh_NN had_VHD 1 M_NN of_IN cells_NNS and_CC coarse_JJ mesh_NN had_VHD 0.5 M_NN of_IN cells_NNS ._SENT 
+The_DT total_JJ solver_NN CPU_NN time_NN was_VBD 372 h_NP ,_, 253 h_NP and_CC 103 h_NP for_IN the_DT fine_NN ,_, medium_NN and_CC coarse_JJ mesh_NN respectively_RB ._SENT 
+The_DT computations_NNS were_VBD performed_VVN on_IN 120_CD cores_NNS ._SENT 
+Verification_NN procedure_NN followed_VVD Generalised_VVN Richardson_NP Extrapolation_NN method_NN presented_VVN in_IN ITTC_NN guidelines_NNS �_JJ �_NP CFD_NN ,_, Resistance_NP and_CC Flow_NP Uncertainty_NN Analysis_NN in_IN CFD_NN Example_NN for_IN Resistance_NP and_CC Flow_NP �_NP �_NP 7.5-0.3-02-01_CD [_SYM 35_CD ]_SYM ._SENT 
+Results_NNS of_IN verification_NN study_NN are_VBP presented_VVN in_IN Table_NN 3._CD Table_NN 2._CD The_DT setup_NN of_IN CFD_NN domain_NN for_IN calm_JJ water_NN simulations_NNS ._SENT 
+Fig_NN ._SENT 
+3._CD The_DT domain_NN size_NN ,_, ship_NN position_NN and_CC boundaries_NNS specification_NN ._SENT 
+Fig_NN ._SENT 
+4._CD The_DT volume_NN mesh_NN for_IN calm_JJ water_NN resistance_NN simulations_NNS ._SENT 
+Table_NN 3._CD Results_NNS of_IN grid_NN convergence_NN study_NN ._SENT 
+3.4_CD ._SENT 
+Results_NNS The_DT resistance_NN curves_VVZ for_IN the_DT calm_JJ water_NN condition_NN are_VBP presented_VVN in_IN Fig_NN ._SENT 
+5._CD The_DT numerical_JJ model_NN of_IN the_DT ‘as_NP built’_JJ version_NN of_IN the_DT case_NN study_NN ship_NN (_( noted_VVN as_IN CSV1_JJ )_) was_VBD validated_VVN against_IN the_DT towing_VVG tank_NN test_NN results_NNS ._SENT 
+The_DT points_NNS from_IN experiments_NNS were_VBD noted_VVN as_IN EFD_NN (_( experimental_JJ fluid_JJ dynamics_NNS )_) ._SENT 
+Resistance_NN of_IN a_DT full_JJ scale_NN ship_NN was_VBD obtained_VVN from_IN towing_VVG tank_NN test_NN results_NNS using_VVG the_DT form_NN factor_NN method_NN and_CC k_NN was_VBD estimated_VVN by_IN Hughes-Prohaska_NP method_NN ._SENT 
+The_DT validation_NN of_IN CFD_NN computation_NN against_IN towing_VVG tank_NN results_NNS showed_VVD good_JJ agreement_NN ._SENT 
+A_DT comparison_NN of_IN the_DT resistance_NN curves_VVZ for_IN the_DT case_NN study_NN ship_NN before_IN and_CC after_IN the_DT bow_NN modification_NN reveals_VVZ the_DT influence_NN of_IN bow_NN shape_NN on_IN the_DT theoretical_JJ ship_NN performance_NN ._SENT 
+For_IN the_DT speed_NN between_IN 5_CD knots_NNS and_CC 8_CD knots_NNS ,_, the_DT bow_NN modification_NN resulted_VVD in_IN as_RB much_JJ as_IN 12_CD %_NN total_JJ drag_NN reduction_NN ._SENT 
+For_IN a_DT higher_JJR speed_NN of_IN about_RB 10–11_JJ knots_NNS the_DT drag_NN reduction_NN was_VBD about_RB 6_CD %_NN ._SENT 
+For_IN a_DT ship_NN velocities_NNS above_IN 10_CD knots_NNS the_DT modified_JJ bow_NN form_NN (_( CSV2_NP )_) had_VHD significantly_RB higher_JJR resistance_NN equal_JJ to_TO 9_CD %_NN for_IN a_DT speed_NN of_IN 12_CD knots_NNS and_CC 47_CD %_NN for_IN a_DT speed_NN of_IN 14_CD knots_NNS ._SENT 
+That_DT can_MD be_VB explained_VVN by_IN the_DT fact_NN that_IN the_DT shape_NN of_IN the_DT modified_JJ bow_NN generates_VVZ massive_JJ waves_NNS ._SENT 
+In_IN practice_NN the_DT maximum_JJ cruise_NN speed_NN of_IN the_DT vessel_NN is_VBZ about_RB 10–11_JJ knots_NNS ,_, and_CC considering_VVG this_DT the_DT bow_NN modification_NN (_( to_TO the_DT form_NN similar_JJ to_TO the_DT X-bow_NP type_NN )_) can_MD be_VB considered_VVN beneficial_JJ ._SENT 
+For_IN higher_JJR speeds_NNS than_IN 10_CD knots_NNS the_DT original_JJ body_NN form_NN of_IN the_DT case_NN study_NN vessel_NN benefits_NNS from_IN a_DT much_RB lower_JJR total_JJ resistance_NN ._SENT 
+Calculated_JJ values_NNS of_IN the_DT total_JJ resistance_NN RT_NP of_IN the_DT ship_NN for_IN speed_NN equal_JJ to_TO 5_CD knots_NNS and_CC 10_CD knots_NNS were_VBD later_RBR used_VVN to_TO calculate_VV added_JJ resistance_NN due_JJ to_TO waves_NNS �_JJ �_NP see_VVP Table_NN 4._CD Fig_NN ._SENT 
+5._CD Results_NNS of_IN calm_JJ water_NN resistance_NN for_IN the_DT ‘as_NP built’_NN ship_NN (_( CSV1_JJ )_) and_CC redesigned_VVN bow_NN (_( CSV2_NP )_) ._SENT 
+Table_NN 4._CD Selected_VVN results_NNS of_IN the_DT case_NN study_NN vessel_NN performance_NN on_IN calm_JJ water_NN ._SENT 
+<Section> 4._CD Seakeeping_VVG analysis_NN </Section> This_DT section_NN describes_VVZ the_DT full-scale_JJ seakeeping_NN analysis_NN of_IN the_DT case_NN study_NN vessels_NNS ,_, CSV1_JJ and_CC CSV2_JJ ._SENT 
+In_IN particular_JJ the_DT effect_NN of_IN redesigning_VVG the_DT bow_NN to_TO the_DT form_NN similar_JJ to_TO the_DT X-bow_NP type_NN was_VBD investigated_VVN ._SENT 
+In_IN Sections_NNS 4.1–4.5_JJ the_DT advanced_JJ CFD_NN numerical_JJ model_NN for_IN the_DT seakeeping_VVG simulation_NN is_VBZ described_VVN in_IN detail_NN ._SENT 
+In_IN Section_NP 4.6_CD the_DT validation_NN of_IN seakeeping_VVG simulations_NNS against_IN towing_VVG tank_NN tests_NNS is_VBZ presented_VVN ,_, giving_VVG good_JJ agreement_NN and_CC confirmation_NN that_IN the_DT CFD_NN modelling_VVG approach_NN can_MD be_VB used_VVN for_IN the_DT analysis_NN of_IN seakeeping_VVG performance_NN of_IN the_DT case_NN study_NN vessel_NN ._SENT 
+In_IN Section_NP 4.7_CD ,_, the_DT results_NNS from_IN CFD_NN seakeeping_VVG analysis_NN are_VBP presented_VVN for_IN common_JJ weather_NN conditions_NNS on_IN the_DT Baltic_NP Sea_NP and_CC the_DT North_NP Sea_NP ._SENT 
+The_DT purpose_NN of_IN the_DT study_NN was_VBD to_TO show_VV the_DT effect_NN of_IN redesigning_VVG the_DT bow_NN section_NN on_IN added_JJ resistance_NN ,_, heave_NN and_CC pitch_NN ._SENT 
+Finally_RB in_IN Section_NP 4.8_CD ,_, the_DT analysis_NN for_IN rough_JJ sea_NN conditions_NNS is_VBZ presented_VVN giving_VVG a_DT comparison_NN of_IN the_DT seakeeping_VVG performance_NN of_IN the_DT CSV2_NN in_IN comparison_NN with_IN the_DT CSV1_NN ._SENT 
+4.1_CD ._SENT 
+Seakeeping_VVG towing_VVG tank_NN tests_NNS Experiment_NN was_VBD carried_VVN out_RP in_IN towing_VVG tank_NN of_IN Gdansk_NP University_NP of_IN Technology_NP ._SENT 
+The_DT validation_NN study_NN was_VBD carried_VVN out_RP for_IN both_DT speeds_NNS of_IN 5_CD and_CC 10_CD knots_NNS ._SENT 
+Wave_NN height_NN was_VBD constant_JJ during_IN experiment_NN and_CC was_VBD equal_JJ to_TO 0.078 m_NN ._SENT 
+Wave_NN length_NN was_VBD picked_VVN so_RB that_IN for_IN given_VVN speed_NN it_PP results_VVZ in_IN encounter_NN frequency_NN equal_JJ to_TO natural_JJ heave_NN motions_VVZ frequency_NN of_IN a_DT ship_NN ._SENT 
+Encounter_NN frequency_NN was_VBD defined_VVN as_IN fe=g/(2πλ)−−−−−−−√+U/�_JJ �_( ._SENT 
+The_DT natural_JJ heave_NN frequency_NN of_IN the_DT ship_NN was_VBD estimated_VVN according_VVG to_TO the_DT formula_NN published_VVN in_IN Ref_NN ._SENT 
+[_SYM 36_CD ]_SYM :_: ω3=C33/(m+A33)−−−−−−−−−−−−√_NP ,_, where_WRB C33 = ρgAW_NN is_VBZ heave_NN restoring_VVG force_NN and_CC AW_NN is_VBZ waterplane_NN area_NN ._SENT 
+The_DT coefficient_NN A33_NN can_MD be_VB approximated_VVN as_IN m_NN which_WDT is_VBZ the_DT mass_NN of_IN the_DT ship_NN ._SENT 
+Natural_JJ heave_NN frequency_NN of_IN the_DT case_NN study_NN vessel_NN estimated_VVN by_IN the_DT formula_NN was_VBD fn = 0.22 Hz_NP and_CC encounter_NN frequency_NN was_VBD equal_JJ to_TO fe = 0.21 Hz_NP ._SENT 
+It_PP corresponded_VVD to_TO values_NNS of_IN Lpp/�_JJ �_( equal_JJ to_TO 0.87_CD for_IN speed_NN of_IN 5_CD knots_NNS and_CC 1.19_CD for_IN speed_NN of_IN 10_CD knots_NNS ._SENT 
+Wave_NN maker_NN generated_VVN sine_IN wave_NN with_IN prescribed_JJ parameters_NNS ._SENT 
+The_DT free_JJ s_NN surface_NN elevation_NN was_VBD recorded_VVN by_IN the_DT probe_NN located_VVN 15 m_NP from_IN the_DT wave_NN generator_NN ._SENT 
+The_DT setup_NN of_IN model_NN during_IN seakeeping_VVG tests_NNS was_VBD the_DT same_JJ as_RB for_IN calm_JJ water_NN experiments_NNS ._SENT 
+Total_JJ resistance_NN ,_, heave_NN and_CC pitch_NN motions_NNS ,_, wave_NN height_NN were_VBD recorded_VVN ._SENT 
+Momentum_NN of_IN inertia_NN IYY_NN and_CC position_NN of_IN the_DT centre_NN of_IN gravity_NN obtained_VVN by_IN pendulum_NN method_NN was_VBD scaled_VVN and_CC used_VVN in_IN numerical_JJ simulations_NNS ._SENT 
+4.2_CD ._SENT 
+Simulation_NN conditions_NNS Seakeeping_VVG analysis_NN was_VBD performed_VVN for_IN a_DT regular_JJ head_NN wave_NN and_CC two_CD wave_NN heights_NNS ._SENT 
+The_DT first_JJ wave_NN height_NN was_VBD H = 1.95 m_NN with_IN a_DT period_NN from_IN T = 5 s_NNS to_TO T = 10 s_NNS to_TO simulate_VV the_DT most_RBS frequently_RB occurring_VVG weather_NN conditions_NNS on_IN the_DT Baltic_NP Sea_NP and_CC the_DT North_NP Sea_NP ._SENT 
+The_DT second_JJ wave_NN height_NN was_VBD H = 4 m_NN with_IN a_DT period_NN equal_JJ T = 6.8 s_NNS to_TO simulate_VV a_DT rough_JJ sea_NN conditions_NNS on_IN the_DT North_NP Sea_NP ._SENT 
+The_DT 5th_JJ Order_NP Stoke_NP 's_POS wave_NN model_NN was_VBD used_VVN ._SENT 
+Table_NN 5_CD summarises_VVZ all_PDT the_DT data_NNS for_IN waves_NNS used_VVN for_IN the_DT seakeeping_VVG analysis_NN ._SENT 
+Simulations_NNS were_VBD formerly_RB run_VVN for_IN the_DT vessel_NN speed_NN of_IN 5_CD knots_NNS and_CC 10_CD knots_NNS that_WDT correspond_VV to_TO Fr = 0.11_JJ and_CC Fr = 0.22_JJ ,_, respectively_RB ._SENT 
+For_IN the_DT rough_JJ sea_NN condition_NN ,_, only_RB a_DT speed_NN of_IN 5_CD knots_NNS was_VBD analysed_VVN ._SENT 
+The_DT value_NN of_IN the_DT shortest_JJS analysed_VVN wave_NN was_VBD λ/Lpp = 0.73_JJ ,_, as_IN it_PP was_VBD concluded_VVN in_IN Ref_NN ._SENT 
+[_SYM 37_CD ]_SYM that_IN for_IN short_JJ waves_NNS the_DT ship_NN motion_NN induced_VVD added_JJ resistance_NN is_VBZ negligible_JJ ._SENT 
+Another_DT study_NN [_SYM 38_CD ]_SYM of_IN the_DT effect_NN of_IN wave_NN parameters_NNS on_IN seakeeping_VVG characteristics_NNS of_IN a_DT KCS_NP model_NN confirmed_VVD the_DT well-known_JJ relation_NN that_IN for_IN long_JJ waves_NNS the_DT ship_NN motion_NN is_VBZ in_IN accordance_NN with_IN the_DT wave_NN elevation_NN ._SENT 
+Thus_RB the_DT presented_VVN study_NN was_VBD limited_VVN to_TO the_DT wave_NN length_NN corresponding_JJ to_TO the_DT λ/Lpp = 2.38_NN ._SENT 
+Table_NN 5._CD Wave_NP data_NNS used_VVN for_IN the_DT seakeeping_VVG analysis_NN ._SENT 
+4.3_CD ._SENT 
+Modelling_VVG physics_NNS The_DT seakeeping_NN simulation_NN was_VBD calculated_VVN by_IN means_NNS of_IN FVM_NP RANS_NP equations_NNS and_CC dynamic_JJ fluid_JJ body_NN interaction_NN (_( DFBI_NP )_) solver_NN ._SENT 
+Ship_NN was_VBD allowed_VVN to_TO pitch_VV and_CC heave_VV ,_, other_JJ degrees_NNS of_IN freedom_NN were_VBD restrained_VVN ._SENT 
+Turbulence_NN was_VBD modelled_VVN using_VVG two-equations_NNS realisable_JJ k–ε_JJ model_NN with_IN all_DT y+_JJ treatment_NN ._SENT 
+For_IN velocity_NN inlet_NN boundary_NN turbulence_NN was_VBD specified_VVN by_IN turbulence_NN intensity_NN and_CC turbulent_JJ viscosity_NN ratio_NN ._SENT 
+The_DT former_JJ was_VBD set_VVN to_TO 0.01_CD and_CC the_DT latter_NN to_TO 10._CD The_DT volume_NN of_IN fluid_JJ Waves_NNS model_NN was_VBD used_VVN in_IN order_NN to_TO apply_VV the_DT 5th_JJ order_NN Stokes_NP waves_NNS ._SENT 
+The_DT CFD_NN simulations_NNS were_VBD performed_VVN for_IN the_DT 1st_JJ order_NN sine_IN wave_NN model_NN and_CC for_IN the_DT 5th_JJ order_NN Stokes_NP wave_NN model_NN and_CC very_RB little_JJ influence_NN on_IN the_DT results_NNS was_VBD found_VVN ._SENT 
+For_IN example_NN for_IN wavelengths_NNS λ/L = 0.73_JJ ,_, 1.03_CD ,_, 1.19_CD ._SENT 
+1.35_CD and_CC 1.7_CD the_DT calculated_JJ average_JJ difference_NN of_IN heave_NN ,_, pitch_NN and_CC added_VVD resistance_NN did_VVD not_RB exceed_VV 1.6_CD %_NN ,_, 5_CD %_NN and_CC 2.5_CD %_NN accordingly_RB ._SENT 
+On_IN average_NN it_PP was_VBD equal_JJ 0.2_CD %_NN ,_, 1.1_CD %_NN ,_, 0.1_CD %_NN accordingly_RB ._SENT 
+The_DT results_NNS were_VBD analysed_VVN over_IN 10_CD periods_NNS of_IN encounter_NN after_IN the_DT repeatable_JJ ship_NN response_NN was_VBD achieved_VVN ._SENT 
+The_DT details_NNS concerning_VVG numerical_JJ set_VVN up_RP of_IN simulations_NNS are_VBP described_VVN in_IN the_DT following_VVG sections_NNS ._SENT 
+4.4_CD ._SENT 
+Mesh_NN generation_NN and_CC boundary_NN conditions_NNS The_DT volume_NN mesh_NN for_IN seakeeping_VVG analysis_NN was_VBD built_VVN based_VVN on_IN the_DT ITTC_NN guidelines_NNS and_CC literature_NN review_NN ._SENT 
+According_VVG to_TO the_DT latest_JJS guidelines_NNS [_SYM 34_CD ]_SYM ,_, an_DT inlet_NN face_NN should_MD be_VB positioned_VVN on_IN one_CD length_NN of_IN a_DT body_NN in_IN the_DT upstream_JJ direction_NN ,_, whereas_IN outlet_NN boundary_NN ought_MD to_TO be_VB positioned_VVN two_CD lengths_NNS downstream_JJ ._SENT 
+It_PP was_VBD reduced_VVN compared_VVN to_TO a_DT previous_JJ ITTC_NN paper_NN ,_, where_WRB 1–2_NP Lpp_NP was_VBD a_DT suggested_VVN value_NN for_IN an_DT inlet_NN and_CC 3–5_NP Lpp_NP was_VBD a_DT suggested_VVN value_NN for_IN an_DT outlet_NN [_SYM 39_CD ]_SYM ._SENT 
+After_IN a_DT literature_NN review_NN of_IN similar_JJ cases_NNS it_PP was_VBD concluded_VVN that_IN the_DT distance_NN of_IN the_DT inlet_NN boundary_NN varied_VVN from_IN 0.41_CD Lpp_NP as_RB presented_VVD in_IN Ref_NN ._SENT 
+[_SYM 40_CD ]_SYM to_TO 2_CD Lpp_NP according_VVG to_TO Ref_NN ._SENT 
+[_SYM 38_CD ]_SYM ._SENT 
+For_IN an_DT outlet_NN boundary_NN the_DT distance_NN varied_VVN from_IN 1.8_CD Lpp_NP [_SYM 41_CD ]_SYM to_TO 4.5_NP Lpp_NP [_SYM 14_CD ]_SYM ._SENT 
+Other_JJ authors_NNS located_VVN the_DT side_NN boundary_NN in_IN a_DT range_NN of_IN 0.6_CD Lpp_NP [_SYM 42_CD ]_SYM to_TO 2.5_CD Lpp + �_NN �_( [_SYM 43_CD ]_SYM ._SENT 
+Top_JJ and_CC bottom_JJ boundaries_NNS were_VBD located_VVN between_IN 0.2_CD Lpp_NP [_SYM 42_CD ]_SYM to_TO 1_CD Lpp_NP [_SYM 14_CD ]_SYM and_CC 0.8_CD Lpp_NP [_SYM 40_CD ]_SYM to_TO 3_CD Lpp_NP [_SYM 38_CD ]_SYM accordingly_RB ._SENT 
+The_DT simulation_NN presented_VVN in_IN this_DT paper_NN had_VHD the_DT following_VVG domain_NN size_NN ._SENT 
+The_DT forward_JJ boundary_NN was_VBD positioned_VVN at_IN a_DT distance_NN of_IN 1.7_CD Lpp_NP upstream_JJ from_IN the_DT bow_NN and_CC the_DT velocity_NN inlet_NN boundary_NN condition_NN was_VBD used_VVN for_IN this_DT surface_NN ._SENT 
+The_DT pressure_NN outlet_NN condition_NN was_VBD applied_VVN for_IN downstream_JJ boundary_NN positioned_VVD 5.4_CD Lpp_NP from_IN the_DT hull_NN ._SENT 
+The_DT remaining_VVG top_NN ,_, bottom_NN and_CC side_NN boundary_NN distances_NNS from_IN the_DT hull_NN were_VBD 1_CD Lpp_NP ,_, 1.8_CD Lpp_NP and_CC 1.6_NP Lpp_NP respectively_RB and_CC a_DT velocity_NN inlet_NN condition_NN was_VBD used_VVN for_IN all_DT faces_NNS ._SENT 
+Calculations_NNS were_VBD performed_VVN for_IN half_NN of_IN the_DT model_NN ,_, thus_RB a_DT symmetry_NN boundary_NN condition_NN was_VBD applied_VVN at_IN the_DT PS_NP of_IN a_DT ship_NN ._SENT 
+The_DT overset_VVN mesh_NN method_NN was_VBD used_VVN ._SENT 
+This_DT approach_NN allows_VVZ for_IN discretization_NN of_IN computational_JJ domain_NN with_IN two_CD meshes_NNS that_WDT overlap_VVP each_DT other_JJ ._SENT 
+The_DT overset_VVN mesh_NN was_VBD selected_VVN because_IN significant_JJ translations_NNS and_CC rotations_NNS of_IN the_DT ship_NN due_JJ to_TO waves_NNS were_VBD expected_VVN ._SENT 
+Two_CD regions_NNS were_VBD defined_VVN :_: the_DT ‘background’_NN containing_VVG the_DT far-field_NP flow_NN domain_NN and_CC the_DT ‘overlap’_JJ volume_NN that_WDT surrounds_VVZ the_DT ship_NN ._SENT 
+The_DT overlap_VVP region_NN was_VBD coupled_VVN with_IN a_DT ship_NN to_TO translate_VV and_CC rotate_VV in_IN the_DT stationary_JJ background_NN zone_NN ._SENT 
+This_DT approach_NN allowed_VVN for_IN providing_VVG better_JJR stability_NN of_IN simulations_NNS ._SENT 
+Due_JJ to_TO the_DT fact_NN that_IN background_NN zone_NN was_VBD not_RB able_JJ to_TO translate_VV with_IN a_DT ship_NN it_PP provided_VVD proper_JJ mesh_NN resolution_NN in_IN the_DT whole_JJ numerical_JJ domain_NN ._SENT 
+The_DT size_NN of_IN overset_VVN domain_NN was_VBD as_RB follows_VVZ :_: 1.4_CD Lpp × 0.22_NN Lpp × 0.65_NP Lpp_NP ._SENT 
+Discretisation_NN of_IN volume_NN space_NN around_IN the_DT body_NN was_VBD performed_VVN with_IN sufficient_JJ resolution_NN having_VHG parameters_NNS similar_JJ to_TO those_DT used_VVN in_IN the_DT calm_JJ water_NN simulations_NNS described_VVN in_IN Section_NP 3.2_CD ._SENT 
+The_DT volume_NN mesh_NN for_IN seakeeping_VVG simulations_NNS is_VBZ presented_VVN in_IN Fig_NN ._SENT 
+6._CD Fig_NN ._SENT 
+6._CD The_DT volume_NN mesh_NN for_IN seakeeping_VVG simulations_NNS ._SENT 
+The_DT proper_JJ wave_NN modelling_VVG was_VBD required_VVN to_TO apply_VV special_JJ discretisation_NN at_IN a_DT free_JJ surface_NN zone_NN ._SENT 
+The_DT ITCC_NN [_SYM 39_CD ]_SYM recommends_VVZ using_VVG at_IN least_JJS 40_CD grid_NN points_NNS for_IN the_DT shortest_JJS wave_NN length_NN when_WRB second-order_NN spatial_JJ accuracy_NN is_VBZ used_VVN ._SENT 
+Similar_JJ guidelines_NNS published_VVN in_IN 2011_CD [_SYM 44_CD ]_SYM suggest_VVP the_DT same_JJ value_NN but_CC also_RB refer_VVP to_TO irregular_JJ waves_NNS and_CC emphasise_VV the_DT influence_NN of_IN the_DT order_NN of_IN accuracy_NN of_IN chosen_VVN numerical_JJ scheme_NN ,_, and_CC also_RB suggest_VVP using_VVG at_IN least_JJS 20_CD grid_NN points_NNS in_IN the_DT vertical_JJ direction_NN where_WRB a_DT free_JJ surface_NN is_VBZ expected_VVN ._SENT 
+User_NP Guide_NP of_IN the_DT STAR_NN CCM+_NN suggests_VVZ a_DT value_NN of_IN 80_CD points_NNS per_IN wave_NN length_NN and_CC 20_CD per_IN wave_NN height_NN ._SENT 
+If_IN laminar_JJ sub-layer_NN is_VBZ solved_VVN ,_, the_DT recommended_JJ value_NN of_IN y+_NN is_VBZ less_JJR than_IN one_CD with_IN expansion_NN ratio_NN equal_JJ to_TO 1.2_CD and_CC 20_CD grid_NN points_NNS within_IN the_DT boundary_NN layer_NN ._SENT 
+If_IN wall_NN functions_NNS are_VBP applied_VVN ,_, y+_NP should_MD be_VB 30 ≤ y+ ≤ 100_JJ ,_, and_CC the_DT expansion_NN ratio_NN should_MD be_VB 1.2_CD with_IN 15_CD grid_NN points_NNS placed_VVN within_IN boundary_NN layer_NN ._SENT 
+In_IN the_DT paper_NN focusing_VVG on_IN added_JJ resistance_NN and_CC motions_NNS of_IN KVLCC2_JJ vessel_NN [_SYM 40_CD ]_SYM ,_, the_DT discretisation_NN ensuring_VVG 22–27_JJ grid_NN points_NNS per_IN wave_NN amplitude_NN and_CC 60–200_JJ points_NNS per_IN wave_NN length_NN was_VBD applied_VVN near_IN a_DT free_JJ surface_NN ._SENT 
+In_IN a_DT similar_JJ study_NN ,_, Deng_NP et_CC al_NP ._SENT 
+[_SYM 41_CD ]_SYM applied_VVD 60_CD nodes_NNS per_IN wave_NN length_NN and_CC 10_CD nodes_NNS per_IN wave_NN height_NN ._SENT 
+For_IN a_DT comparison_NN study_NN of_IN KCS_NP ship_NN by_IN Simonsen_NP et_CC al_NP ._SENT 
+[_SYM 13_CD ]_SYM ,_, the_DT value_NN of_IN y+_NP was_VBD around_RB 1_CD and_CC approximately_RB 100_CD points_NNS in_IN x_NN direction_NN were_VBD used_VVN per_IN wave_NN length_NN and_CC 10_CD points_NNS were_VBD used_VVN in_IN the_DT vertical_JJ direction_NN ._SENT 
+Seo_NP et_NP al_NP ._SENT 
+[_SYM 38_CD ]_SYM applied_VVD a_DT mesh_NN with_IN values_NNS of_IN y+_JJ 171–178_NN ._SENT 
+In_IN another_DT publication_NN Wu_NP et_NP al_NP ._SENT 
+[_SYM 45_CD ]_SYM used_VVN 30_CD cells_NNS per_IN wave_NN length_NN and_CC 10–20_JJ cells_NNS per_IN wave_NN height_NN ._SENT 
+Tezdogan_NP et_NP al_NP ._SENT 
+[_SYM 14_CD ]_SYM applied_VVD 150_CD grid_NN points_NNS per_IN wave_NN length_NN and_CC a_DT minimum_NN of_IN 20_CD cells_NNS per_IN wave_NN height_NN ._SENT 
+The_DT presented_VVN seakeeping_NN simulation_NN of_IN the_DT case_NN study_NN vessel_NN follows_VVZ the_DT aforementioned_JJ best_JJS practices_NNS ._SENT 
+Depending_VVG on_IN wave_NN parameters_NNS ,_, between_IN 18_CD and_CC 30_CD grid_NN points_NNS per_IN wave_NN height_NN and_CC between_IN 85_CD and_CC 120_CD grid_NN points_NNS per_IN wave_NN length_NN were_VBD applied_VVN ._SENT 
+The_DT mesh_NN was_VBD built_VVN with_IN the_DT use_NN of_IN hexahedral_JJ cells_NNS in_IN the_DT whole_JJ domain_NN except_IN the_DT elements_NNS in_IN close_JJ proximity_NN to_TO a_DT ship_NN surface_NN where_WRB prism_NN cells_NNS were_VBD applied_VVN ._SENT 
+The_DT mesh_NN resolution_NN at_IN the_DT boundary_NN layer_NN resulted_VVN in_IN values_NNS of_IN y+_NN in_IN range_NN of_IN 30–200_NP ._SENT 
+This_DT was_VBD found_VVN to_TO be_VB sufficient_JJ for_IN the_DT seakeeping_VVG simulation_NN ._SENT 
+To_TO monitor_VV the_DT wave_NN parameters_NNS (_( height_NN and_CC period_NN )_) the_DT wave_NN probe_NN was_VBD placed_VVN 65 m_NN from_IN the_DT inlet_NN boundary_NN which_WDT corresponded_VVD to_TO the_DT distance_NN of_IN 5 m_NN in_IN front_NN of_IN the_DT ship_NN 's_POS bow_NN ._SENT 
+This_DT position_NN enabled_VVD to_TO control_VV the_DT parameters_NNS of_IN the_DT wave_NN that_WDT was_VBD actually_RB acting_VVG on_IN the_DT hull_NN ._SENT 
+It_PP was_VBD verified_VVN that_IN the_DT wave_NN was_VBD not_RB damped_VVN in_IN the_DT domain_NN before_IN reaching_VVG the_DT ship_NN ._SENT 
+On_IN the_DT other_JJ hand_NN the_DT probe_NN at_IN this_DT position_NN was_VBD not_RB subjected_VVN to_TO wave_NN reflections_NNS from_IN the_DT bow_NN ._SENT 
+Additional_JJ refinement_NN was_VBD used_VVN to_TO ensure_VV the_DT same_JJ size_NN of_IN cells_NNS in_IN the_DT interface_NN between_IN overset_VVN and_CC background_NN region_NN ._SENT 
+The_DT approach_NN with_IN symmetry_NN plane_NN of_IN a_DT ship_NN was_VBD used_VVN ._SENT 
+The_DT total_JJ number_NN of_IN volumetric_JJ cells_NNS in_IN overset_VVN region_NN was_VBD equal_JJ 2.25_CD million_CD calls_NNS and_CC in_IN background_NN 7.75_CD million_CD cells_NNS which_WDT gave_VVD total_JJ number_NN of_IN 9_CD million_CD cells_NNS ._SENT 
+The_DT total_JJ solver_NN CPU_NN time_NN was_VBD 56847 h_NP and_CC the_DT simulation_NN was_VBD run_VVN on_IN 480_CD cores_NNS ._SENT 
+In_IN order_NN to_TO check_VV the_DT accuracy_NN of_IN numerical_JJ solution_NN grid_NN convergence_NN study_NN was_VBD carried_VVN out_RP ._SENT 
+Two_CD additional_JJ simulations_NNS with_IN coarser_JJR and_CC finer_JJR mesh_NN were_VBD performed_VVN ._SENT 
+Results_NNS of_IN grid_NN convergence_NN study_NN are_VBP presented_VVN in_IN Section_NP 4.7_CD ._SENT 
+4.5_CD ._SENT 
+Discretisation_NN schemes_NNS The_DT ITTC_NN [_SYM 39_CD ]_SYM clearly_RB indicates_VVZ the_DT SOU_NN (_( second_JJ order_NN upwind_JJ )_) scheme_NN as_IN the_DT best_JJS compromise_NN between_IN robustness_NN and_CC accuracy_NN and_CC is_VBZ recommended_VVN for_IN all_DT convection-diffusion_NN types_NNS of_IN transport_NN equations_NNS ._SENT 
+A_DT first_JJ order_NN scheme_NN in_IN time_NN is_VBZ acceptable_JJ only_RB for_IN quasi-steady_JJ solutions_NNS ._SENT 
+Also_RB the_DT STAR-CCM+_JJ user_NN 's_VBZ manual_JJ indicates_VVZ the_DT second_JJ order_NN scheme_NN as_IN the_DT proper_JJ one_CD for_IN seakeeping_VVG simulations_NNS ._SENT 
+In_IN this_DT study_NN ,_, spatial_JJ and_CC temporal_JJ order_NN of_IN discretisation_NN was_VBD chosen_VVN based_VVN on_IN given_VVN guidelines_NNS ._SENT 
+4.6_CD ._SENT 
+Time_NN step_VV There_EX are_VBP couple_NN of_IN rules_NNS that_WDT apply_VVP to_TO the_DT choice_NN of_IN an_DT appropriate_JJ time_NN step_NN ._SENT 
+The_DT first_JJ of_IN them_PP is_VBZ the_DT Courant-Friedrich-Lewy_JJ condition_NN ,_, which_WDT refers_VVZ to_TO the_DT number_NN of_IN points_NNS travelled_VVN by_IN a_DT particle_NN of_IN fluid_NN within_IN a_DT time_NN step_NN and_CC is_VBZ represented_VVN by_IN Cmax_NN coefficient_NN defined_VVN by_IN Eq_NP ._SENT 
+(_( 4_CD )_) ,_, where_WRB u_NN ,_, Δt_NP ,_, Δx_NP stands_VVZ for_IN fluid_JJ velocity_NN ,_, time_NN step_NN and_CC size_NN of_IN volume_NN element_NN accordingly_RB ._SENT 
+@(4_NP )_) The_DT second_JJ one_CD results_NNS from_IN the_DT guideline_NN for_IN the_DT application_NN of_IN the_DT CFD_NN to_TO seakeeping_VVG simulations_NNS [_SYM 39_CD ]_SYM ._SENT 
+It_PP is_VBZ advised_VVN to_TO use_VV at_IN least_JJS 100_CD steps_NNS per_IN period_NN of_IN periodic_JJ phenomena_NNS ,_, i.e._FW ,_, an_DT incoming_JJ wave_NN ,_, and_CC at_IN least_JJS 20_CD time_NN steps_NNS per_IN period_NN for_IN the_DT highest_JJS frequency_NN to_TO be_VB resolved_VVN for_IN complex_JJ unsteady_JJ phenomena_NNS ._SENT 
+If_IN a_DT two_CD equations_NNS turbulence_NN model_NN is_VBZ used_VVN (_( i.e._FW k–ε_NP ,_, k–�_NP �_NP )_) the_DT time_NN step_NN should_MD be_VB smaller_JJR than_IN 0.01_CD L/U_NN ._SENT 
+L_NP and_CC U_NP stand_VVP for_IN ship_NN length_NN and_CC fluid_JJ velocity_NN ._SENT 
+Other_JJ requirements_NNS can_MD be_VB found_VVN in_IN latest_JJS recommendations_NNS of_IN software_NN developers_NNS ._SENT 
+According_VVG to_TO the_DT STAR-CCM+_JJ manual_JJ the_DT Cmax_NP (_( CFL_NP )_) number_NN for_IN cells_NNS in_IN the_DT free_JJ surface_NN should_MD be_VB smaller_JJR than_IN 0.5_CD ._SENT 
+Time_NN step_NN should_MD be_VB equal_JJ to_TO T/2.4n_NP ,_, where_WRB T_NN is_VBZ wave_NN period_NN and_CC n_NN is_VBZ number_NN of_IN grid_NN points_NNS per_IN wave_NN length_NN ._SENT 
+Another_DT restriction_NN results_NNS from_IN the_DT overset_VVN mesh_NN model_NN ._SENT 
+If_IN a_DT second_JJ order_NN temporal_JJ discretisation_NN scheme_NN is_VBZ chosen_VVN ,_, the_DT overset_VVN mesh_NN cannot_MD move_VV relative_JJ to_TO the_DT background_NN zone_NN by_IN more_JJR than_IN half_PDT the_DT smallest_JJS cell_NN size_NN within_IN time_NN step_NN ._SENT 
+In_IN fact_NN ,_, this_DT determines_VVZ the_DT maximum_NN allowed_VVD time_NN step_NN for_IN the_DT seakeeping_VVG simulation_NN ._SENT 
+In_IN articles_NNS ,_, authors_NNS most_RBS often_RB refer_VVP the_DT value_NN of_IN applied_VVN time_NN step_NN to_TO a_DT wave_NN period_NN or_CC frequency_NN of_IN encounter_NN ._SENT 
+Deng_NP et_NP al_NP ._SENT 
+[_SYM 41_CD ]_SYM and_CC Tezdogan_NP et_NP al_NP ._SENT 
+[_SYM 43_CD ]_SYM used_VVN in_IN their_PP$ computations_NNS 256_CD and_CC 250_CD time_NN steps_NNS per_IN period_NN ,_, respectively_RB ._SENT 
+Simonsen_NP et_NP al_NP ._SENT 
+[_SYM 13_CD ]_SYM and_CC Seo_NP et_NP al_NP ._SENT 
+[_SYM 38_CD ]_SYM used_VVN 85_CD steps_NNS per_IN period_NN of_IN encounter_NN within_IN a_DT range_NN of_IN 439_CD and_CC 937_CD ,_, respectively_RB ,_, and_CC Tezdogan_NP et_NP al_NP ._SENT 
+[_SYM 14_CD ]_SYM precisely_RB followed_VVN ITTC_NN guidelines_NNS and_CC used_VVN 100_CD steps_NNS per_IN wave_NN period_NN ._SENT 
+Deng_NP et_NP al_NP ._SENT 
+[_SYM 41_CD ]_SYM analysed_VVD the_DT influence_NN of_IN time_NN step_NN and_CC mesh_NN resolution_NN on_IN ship_NN motion_NN and_CC added_VVD resistance_NN ._SENT 
+It_PP was_VBD concluded_VVN that_IN for_IN a_DT time_NN accurate_JJ solution_NN ,_, the_DT time_NN step_NN needs_VVZ to_TO be_VB reduced_VVN for_IN finer_JJR meshes_NNS ,_, and_CC it_PP is_VBZ advised_VVN to_TO avoid_VV an_DT unnecessarily_RB fine_JJ grid_NN as_IN it_PP may_MD cause_VV high_JJ time_NN discretization_NN error_NN ._SENT 
+In_IN this_DT study_NN ,_, second_JJ order_NN implicit_JJ unsteady_JJ model_NN was_VBD selected_VVN ._SENT 
+The_DT authors_NNS found_VVN as_IN the_DT most_RBS demanding_JJ condition_NN to_TO meet_VV the_DT relative_JJ movement_NN of_IN the_DT background_NN and_CC overset_VV regions_NNS ._SENT 
+Because_IN of_IN relatively_RB small_JJ length_NN of_IN a_DT case_NN study_NN ship_NN ,_, it_PP is_VBZ very_RB prone_JJ to_TO motions_NNS due_JJ to_TO waves_NNS ._SENT 
+To_TO ensure_VV that_IN the_DT overset_VVN mesh_NN moves_VVZ less_JJR than_IN half_PDT the_DT smallest_JJS cell_NN size_NN within_IN a_DT time_NN step_NN ,_, very_RB small_JJ time_NN steps_NNS were_VBD used_VVN in_IN the_DT background_NN zone_NN ._SENT 
+For_IN a_DT wave_NN height_NN of_IN H = 2 m_NN (_( the_DT most_RBS common_JJ wave_NN height_NN at_IN the_DT analysed_VVN site_NN )_) the_DT time_NN step_NN of_IN 0.005 s_NP was_VBD applied_VVN ._SENT 
+For_IN rough_JJ sea_NN simulations_NNS (_( H = 4 m_NP )_) the_DT time_NN step_NN needed_VVN to_TO be_VB reduced_VVN to_TO the_DT value_NN of_IN 0.002 s_NP ._SENT 
+4.7_CD ._SENT 
+Validation_NN of_IN the_DT CFD_NN seakeeping_VVG model_NN by_IN towing_VVG tank_NN experiments_NNS and_CC grid_NN convergence_NN study_NN A_DT validation_NN study_NN of_IN the_DT CFD_NN seakeeping_VVG model_NN was_VBD performed_VVN by_IN towing_VVG tank_NN experiments_NNS ._SENT 
+In_IN order_NN to_TO compare_VV the_DT results_NNS calculated_VVN by_IN CFD_NN and_CC measured_VVN by_IN experiment_NN in_IN a_DT towing_VVG tank_NN ,_, the_DT transfer_NN function_NN and_CC added_VVD resistance_NN coefficients_NNS were_VBD calculated_VVN ._SENT 
+The_DT scale_NN effect_NN on_IN the_DT transfer_NN function_NN and_CC added_VVD resistance_NN coefficient_NN should_MD be_VB commented_VVD ._SENT 
+According_VVG to_TO Ref_NN ._SENT 
+[_SYM 2_CD ]_SYM viscous_JJ forces_NNS do_VVP not_RB influence_VV ships’_JJ motion_NN dynamics_NNS significantly_RB (_( except_IN roll_NN motions_NNS )_) ._SENT 
+In_IN analysed_VVN cases_NNS the_DT requirement_NN to_TO scale_VV viscous_JJ forces_NNS in_IN the_DT correct_JJ proportion_NN to_TO inertia_NN forces_NNS may_MD be_VB omitted_VVN and_CC it_PP is_VBZ not_RB essential_JJ to_TO match_VV model_NN and_CC full_JJ scale_NN Reynolds_NP numbers_NNS ._SENT 
+However_RB ,_, roughening_VVG the_DT model_NN surface_NN at_IN the_DT estimated_JJ transition_NN point_NN near_IN the_DT fore_NN section_NN was_VBD applied_VVN to_TO compensate_VV for_IN the_DT neglect_NN of_IN Reynolds_NP number_NN scaling_NN ._SENT 
+To_TO reduce_VV Reynolds_NP number_NN scaling_VVG problems_NNS to_TO a_DT minimum_NN the_DT largest_JJS practical_JJ model_NN scale_NN was_VBD used_VVN ._SENT 
+The_DT model_NN scale_NN was_VBD limited_VVN by_IN the_DT towing_VVG tank_NN run_NN length_NN and_CC tank_NN wall_NN interference_NN ._SENT 
+Preserving_VVG the_DT identity_NN of_IN the_DT Froude_JJ number_NN only_RB enabled_VVD a_DT reasonable_JJ towing_VVG speed_NN of_IN the_DT model_NN ._SENT 
+On_IN the_DT other_JJ hand_NN [_SYM 46_CD ]_SYM indicates_VVZ that_IN scale_NN effect_NN exists_VVZ and_CC its_PP$ magnitude_NN depends_VVZ on_IN shape_NN of_IN a_DT ship_NN ,_, type_NN of_IN experiments_NNS being_VBG carried_VVN out_RP and_CC size_NN of_IN a_DT model_NN ._SENT 
+The_DT scale_NN effect_NN is_VBZ expected_VVN to_TO be_VB the_DT highest_JJS for_IN an_DT investigation_NN of_IN roll_NN damping_VVG ,_, when_WRB viscous_JJ forces_NNS plays_VVZ significant_JJ role_NN ._SENT 
+However_RB ,_, it_PP was_VBD not_RB the_DT purpose_NN of_IN this_DT study_NN ._SENT 
+Numerous_JJ other_JJ authors_NNS indicate_VVP that_IN the_DT scale_NN effect_NN cannot_MD be_VB completely_RB neglected_VVN ._SENT 
+In_IN Ref_NN ._SENT 
+[_SYM 47_CD ]_SYM authors_NNS show_VVP that_IN the_DT scale_NN effect_NN strongly_RB influences_VVZ boundary_NN layer_NN ,_, flow_NN separation_NN ,_, vortex_NN formation_NN and_CC wave_NN breaking_NN effects_NNS ._SENT 
+The_DT influence_NN of_IN model_NN scale_NN on_IN the_DT isowake_NN distribution_NN in_IN the_DT vicinity_NN of_IN the_DT ducted_JJ propeller_NN was_VBD presented_VVN in_IN Ref_NN ._SENT 
+[_SYM 48_CD ]_SYM ._SENT 
+Thus_RB ,_, to_TO have_VH better_JJR overview_NN on_IN the_DT scale_NN effect_NN on_IN ships’_JJ motions_NNS and_CC added_VVD resistance_NN it_PP is_VBZ recommended_VVN to_TO run_VV simulations_NNS and_CC experiments_NNS on_IN a_DT series_NN of_IN geo-sim_NN models_NNS ._SENT 
+However_RB ,_, in_IN presented_VVN study_NN it_PP is_VBZ believed_VVN that_IN pure_JJ comparison_NN of_IN transfer_NN functions_NNS and_CC added_VVD resistance_NN coefficients_NNS provided_VVD an_DT accurate_JJ assessment_NN ._SENT 
+The_DT coefficient_NN of_IN added_JJ resistance_NN was_VBD defined_VVN according_VVG to_TO Eq_NP ._SENT 
+(_( 5_CD )_) ._SENT 
+In_IN the_DT denominator_NN ,_, the_DT symbols_NNS being_VBG used_VVN are_VBP as_RB follows_VVZ :_: water_NN density_NN ,_, gravity_NN ,_, acceleration_NN ,_, wave_NN amplitude_NN ,_, beam_NN and_CC length_NN between_IN perpendiculars_NNS of_IN the_DT ship_NN ._SENT 
+Calm_JJ water_NN resistance_NN Fx,calm_NN is_VBZ extracted_VVN from_IN resistance_NN in_IN waves_NNS Fx,wave_NN ._SENT 
+The_DT Cartesian_JJ coordinate_VV system_NN was_VBD applied_VVN at_IN the_DT AP_NP crossing_VVG BP_NP with_IN x-axis_NN towards_IN bow_NN ,_, y-axis_NN towards_IN portside_NN and_CC z-axis_NN towards_IN deck_NN ._SENT 
+Both_DT Fx,calm_NN and_CC Fx,wave_NN were_VBD measured_VVN in_RB x_SYM direction_NN ._SENT 
+The_DT latter_NN was_VBD calculated_VVN using_VVG Fourier_NP Series_NP ,_, which_WDT enables_VVZ the_DT analysis_NN of_IN the_DT time_NN history_NN of_IN the_DT force_NN ._SENT 
+Each_DT record_NN of_IN a_DT time_NN dependent_JJ quantity_NN �_NN �_NN may_MD can_MD be_VB approximated_VVN by_IN Eq_NP ._SENT 
+(_( 6_CD )_) ._SENT 
+Where_WRB φn_NP and_CC γn_NP are_VBP nth_JJ harmonic_JJ amplitude_NN and_CC corresponding_JJ phase_NN respectively_RB ._SENT 
+In_IN order_NN to_TO calculate_VV the_DT total_JJ resistance_NN the_DT 0th_JJ harmonic_JJ needs_NNS to_TO be_VB calculated_VVN from_IN Eq_NP ._SENT 
+(_( 7_CD )_) ._SENT 
+This_DT corresponds_VVZ to_TO the_DT average_JJ value_NN of_IN resistance_NN time_NN history_NN [_SYM 14_CD ]_SYM ._SENT 
+Motions_NNS of_IN a_DT ship_NN are_VBP analysed_VVN using_VVG heave_NN and_CC pitch_NN transfer_NN functions_NNS ,_, which_WDT are_VBP expressed_VVN by_IN Eqs_NP ._SENT 
+(_( 8_CD )_) and_CC (_( 9_CD )_) ,_, respectively_RB ,_, where_WRB ζI1_JJ ,_, x31_JJ and_CC x51_JJ are_VBP amplitudes_NNS of_IN wave_NN elevation_NN ,_, heave_NN and_CC pitch_NN time_NN history_NN and_CC k_NN is_VBZ the_DT wave_NN number_NN k = 2π/�_NN �_( ._SENT 
+@(5_NP )_) @(6_NP )_) @(7_JJ )_) @(8_NP )_) @(9_NP )_) Fig_NN ._SENT 
+7_CD presents_NNS the_DT comparison_NN of_IN heave_NN and_CC pitch_NN transfer_NN functions_NNS and_CC added_VVD resistance_NN coefficient_NN for_IN velocity_NN of_IN v = 5_JJ knots_NNS and_CC v = 10_JJ knots_NNS and_CC for_IN the_DT encounter_NN frequency_NN fe = 0.21 Hz_NP ._SENT 
+For_IN the_DT speed_NN of_IN v = 5_JJ knots_NNS ,_, the_DT added_JJ resistance_NN coefficient_NN is_VBZ in_IN very_RB good_JJ agreement_NN with_IN the_DT experimental_JJ data_NNS (_( 7_CD %_NN difference_NN )_) �_NP �_NP see_VVP Table_NN 6._CD However_RB ,_, the_DT value_NN of_IN heave_NN transfer_NN function_NN was_VBD overestimated_VVN by_IN 16_CD %_NN and_CC the_DT value_NN of_IN pitch_NN transfer_NN function_NN was_VBD underestimated_VVN by_IN 12_CD %_NN ._SENT 
+For_IN the_DT speed_NN v = 10_NN knots_NNS ,_, the_DT heave_NN and_CC pitch_NN transfer_NN functions_NNS correspond_VV to_TO the_DT experimental_JJ data_NNS very_RB well_RB (_( 2_LS %_NN and_CC 3_CD %_NN ,_, respectively_RB )_) ._SENT 
+However_RB ,_, the_DT calculated_JJ added_JJ resistance_NN coefficient_NN was_VBD underestimated_VVN by_IN 36_CD %_NN ._SENT 
+Considering_VVG the_DT highly_RB nonlinear_JJ nature_NN of_IN the_DT seakeeping_VVG analysis_NN the_DT performed_VVN CFD_NN simulations_NNS are_VBP in_IN good_JJ agreement_NN with_IN the_DT experimental_JJ data_NNS ._SENT 
+Fig_NN ._SENT 
+7._CD The_DT transfer_NN function_NN (_( heave_NN and_CC pitch_NN )_) and_CC added_VVD resistance_NN coefficient_NN for_IN Fr = 0.11_JJ and_CC Fr = 0.22_JJ ._SENT 
+Table_NN 6._CD The_DT results_NNS and_CC relative_JJ errors_NNS between_IN CFD_NN and_CC EFD_NN (_( towing_VVG tank_NN )_) ._SENT 
+In_IN Fig_NN ._SENT 
+8_CD the_DT comparison_NN of_IN time_NN history_NN plots_NNS of_IN the_DT ship_NN motions_NNS computed_VVN by_IN the_DT CFD_NN simulation_NN and_CC measured_VVN by_IN the_DT towing_VVG tank_NN experiments_NNS is_VBZ presented_VVN ._SENT 
+It_PP is_VBZ noted_VVN that_IN slight_JJ difference_NN in_IN frequency_NN occur_VVP ._SENT 
+However_RB ,_, the_DT amplitude_NN values_NNS were_VBD in_IN very_RB good_JJ agreement_NN ._SENT 
+Fig_NN ._SENT 
+8._CD Results_NNS of_IN pitch_NN and_CC heave_NN for_IN CSV1_NN and_CC speed_NN of_IN Fr = 0.11_JJ (_( left_JJ )_) and_CC Fr = 0.22_NP (_( right_NN )_) ._SENT 
+Grid_NN convergence_NN study_NN was_VBD performed_VVN for_IN three_CD meshes_NNS ._SENT 
+Base_JJ size_NN of_IN element_NN was_VBD increased_VVN and_CC reduced_VVN by_IN factor_NN of_IN two_CD compared_VVN to_TO primary_JJ simulation_NN ._SENT 
+Only_JJ cells_NNS in_IN the_DT overset_VVN region_NN were_VBD modified_VVN ._SENT 
+Simonsen_NP et_NP al_NP ._SENT 
+[_SYM 13_CD ]_SYM noticed_VVD that_IN coarser_JJR mesh_NN resolution_NN in_IN the_DT background_NN region_NN might_MD lead_VV to_TO undesired_JJ wave_NN amplitude_NN reduction_NN ._SENT 
+Similar_JJ effect_NN was_VBD found_VVN in_IN presented_VVN study_NN ._SENT 
+Table_NN 7_CD presents_VVZ number_NN of_IN elements_NNS in_IN the_DT overset_VVN and_CC background_NN region_NN for_IN all_DT three_CD meshes_NNS ._SENT 
+Table_NN 7._CD Number_NP of_IN elements_NNS in_IN the_DT overset_VVN and_CC background_NN region_NN ._SENT 
+In_IN Fig_NN ._SENT 
+9_CD results_NNS of_IN mesh_NN convergence_NN study_NN for_IN aforementioned_JJ cases_NNS were_VBD presented_VVN ._SENT 
+Variations_NNS of_IN total_JJ resistance_NN coefficient_NN ,_, pitch_NN and_CC heave_NN transfer_NN functions_NNS due_JJ to_TO number_NN of_IN cells_NNS was_VBD presented_VVN ._SENT 
+Motions_NNS of_IN the_DT vessel_NN achieved_VVD convergence_NN even_RB for_IN the_DT coarse_JJ mesh_NN ._SENT 
+However_RB higher_JJR number_NN of_IN cells_NNS was_VBD required_VVN to_TO properly_RB predict_VV the_DT total_JJ resistance_NN ._SENT 
+Relative_JJ difference_NN between_IN results_NNS obtained_VVN for_IN fine_NN and_CC medium_NN resolution_NN mesh_NN did_VVD not_RB exceed_VV 2_CD %_NN ._SENT 
+Therefore_RB ,_, due_JJ to_TO significant_JJ computational_JJ resourced_NN required_VVN to_TO perform_VV computations_NNS for_IN the_DT finest_JJS grid_NN all_DT simulations_NNS were_VBD run_VVN for_IN medium_JJ resolution_NN mesh_NN ._SENT 
+Fig_NN ._SENT 
+9._CD Grid_NN convergence_NN study_NN ._SENT 
+4.8_CD ._SENT 
+Results_NNS of_IN CFD_NN seakeeping_VVG simulations_NNS for_IN the_DT wave_NN height_NN H = 2 m_NN The_DT seakeeping_VVG performance_NN of_IN a_DT case_NN study_NN vessel_NN was_VBD analysed_VVN for_IN the_DT wave_NN high_JJ equal_JJ H = 2 m_NN and_CC the_DT range_NN of_IN wave_NN period_NN Ta_NP from_IN 5_CD to_TO 10 s_NNS that_WDT corresponds_VVZ to_TO the_DT wave/ship_NN length_NN ratio_NN λ/Lpp_NP from_IN 0.726_CD to_TO 2.38_CD ._SENT 
+Fig_NN ._SENT 
+10_CD presents_VVZ plots_NNS of_IN heave_NN and_CC pitch_NN transfer_NN functions_NNS and_CC added_VVD resistance_NN coefficient_NN due_JJ to_TO waves_NNS versus_IN relative_JJ wave_NN length_NN (_( λ/Lpp_NP )_) ._SENT 
+Fig_NN ._SENT 
+10._CD Transfer_NN function_NN of_IN heave_NN ,_, pitch_NN and_CC added_VVD resistance_NN coefficient_NN for_IN Fr = 0.11_JJ (_( left_JJ )_) and_CC Fr = 0.22_NP (_( right_NN )_) ._SENT 
+For_IN the_DT ship_NN speed_NN v = 5_JJ knots_NNS (_( Fr = 0.11_JJ )_) and_CC relatively_RB short_JJ waves_NNS the_DT initial_JJ hull_NN form_NN (_( CSV1_JJ )_) in_IN comparison_NN to_TO the_DT redesigned_VVN version_NN (_( CSV2_NP )_) had_VHD smaller_JJR heave_NN and_CC pitch_NN amplitudes_NNS ._SENT 
+For_IN the_DT wave_NN length_NN equal_JJ to_TO the_DT length_NN of_IN the_DT ship_NN the_DT heave_NN amplitude_NN was_VBD 53_CD %_NN smaller_JJR ._SENT 
+For_IN relatively_RB long_JJ waves_NNS (_( λ/Lpp > 2_NP )_) the_DT response_NN of_IN CSV2_NP was_VBD similar_JJ to_TO CSV1_JJ with_IN a_DT difference_NN of_IN heave_NN and_CC pitch_NN about_IN 1_CD %_NN ._SENT 
+The_DT curve_NN of_IN added_JJ resistance_NN for_IN the_DT redesigned_VVN ship_NN (_( CSV2_NP )_) was_VBD less_RBR steep_JJ and_CC the_DT vessel_NN did_VVD not_RB suffer_VV from_IN such_PDT a_DT significant_JJ increase_NN of_IN resistance_NN ._SENT 
+For_IN λ/L = 0.87_JJ the_DT modified_VVN hull_NN benefits_NNS from_IN a_DT 14_CD %_NN reduction_NN of_IN added_JJ resistance_NN compared_VVN to_TO the_DT ‘as_NP built’_NP hull_NN shape_NN ._SENT 
+However_RB ,_, for_IN waves_NNS with_IN length_NN equal_JJ to_TO the_DT ship_NN length_NN ,_, the_DT CSV1_NN had_VHD 19_CD %_NN smaller_JJR total_JJ resistance_NN ._SENT 
+For_IN long_JJ waves_NNS λ/Lpp = 2.38_NN ,_, the_DT modified_JJ design_NN had_VHD an_DT even_RB smaller_JJR 50_CD %_NN added_VVD resistance_NN ._SENT 
+The_DT average_JJ reduction_NN of_IN added_JJ resistance_NN coefficient_NN for_IN the_DT speed_NN of_IN 5_CD knots_NNS and_CC wave_NN periods_NNS from_IN T = 5 s_NNS to_TO T = 10 s_NNS was_VBD equal_JJ 11.6_CD %_NN ._SENT 
+For_IN the_DT ship_NN speed_NN v = 10_JJ knots_NNS (_( Fr = 0.22_NP )_) ,_, heave_NN transfer_NN function_NN had_VHD higher_JJR value_NN for_IN the_DT redesigned_VVN vessel_NN (_( CSV2_NP )_) over_IN the_DT full_JJ range_NN of_IN wave_NN lengths_NNS ._SENT 
+Also_RB similar_JJ to_TO conclusions_NNS of_IN Simonsen_NP et_CC al_NP ._SENT 
+[_SYM 13_CD ]_SYM ,_, it_PP was_VBD found_VVN that_IN the_DT peak_NN response_NN of_IN both_DT hull_NN shapes_VVZ increased_VVN with_IN increased_VVN speed_NN ._SENT 
+For_IN λ/Lpp ≈ 1.3_NP ,_, what_WP according_VVG to_TO the_DT strip_NN theory_NN corresponds_VVZ to_TO maximum_NN of_IN excitation_NN loads_NNS ,_, the_DT ship_NN suffers_VVZ from_IN a_DT significant_JJ increase_NN of_IN vertical_JJ motion_NN which_WDT is_VBZ up_RB to_TO 40_CD %_NN higher_JJR than_IN for_IN the_DT initial_JJ bow_NN design_NN (_( CSV1_JJ )_) ._SENT 
+The_DT initial_JJ design_NN had_VHD much_RB smaller_JJR heave_NN motion_NN amplification_NN ._SENT 
+Over_IN the_DT whole_JJ range_NN of_IN wave_NN lengths_NNS the_DT pitch_NN motion_NN was_VBD very_RB similar_JJ for_IN both_DT designs_NNS with_IN the_DT biggest_JJS difference_NN of_IN 13.3_CD %_NN occurring_VVG for_IN the_DT shortest_JJS waves_NNS ._SENT 
+Unlike_IN the_DT low_JJ speed_NN case_NN (_( v = 5_JJ knots_NNS )_) ,_, the_DT peak_NN value_NN of_IN added_JJ resistance_NN for_IN the_DT modified_JJ hull_NN is_VBZ higher_JJR than_IN that_DT of_IN the_DT initial_JJ design_NN ,_, with_IN a_DT relative_JJ increase_NN of_IN resistance_NN of_IN 13.1_CD %_NN ._SENT 
+It_PP occurs_VVZ for_IN wave_NN lengths_NNS that_WDT correspond_VV to_TO maximum_JJ heave_NN motion_NN and_CC large_JJ excitations_NNS ._SENT 
+For_IN long_JJ waves_NNS the_DT added_JJ resistance_NN was_VBD between_IN 16_CD %_NN and_CC 24_CD %_NN lower_JJR for_IN the_DT redesigned_VVN bow_NN (_( CSV2_NP )_) ._SENT 
+The_DT average_JJ reduction_NN of_IN added_JJ resistance_NN coefficient_NN for_IN the_DT speed_NN of_IN 10_CD knots_NNS and_CC wave_NN periods_NNS from_IN T = 5 s_NNS to_TO T = 10 s_NNS was_VBD equal_JJ 9.4_CD %_NN ._SENT 
+Table_NN 8_CD presents_VVZ exact_JJ values_NNS of_IN pitch_NN and_CC heave_NN transfer_NN functions_NNS as_RB well_RB as_IN added_JJ resistance_NN coefficient_NN for_IN both_DT hull_NN forms_NNS ._SENT 
+Table_NN 8._CD The_DT results_NNS of_IN pitch_NN and_CC heave_NN transfer_NN functions_NNS and_CC added_VVD resistance_NN for_IN the_DT CSV1_JJ and_CC CSV2_JJ ._SENT 
+Fig_NN ._SENT 
+11_CD shows_NNS the_DT comparison_NN of_IN representative_JJ time_NN history_NN plots_NNS over_IN four_CD periods_NNS of_IN encounter_NN of_IN pitch_NN ,_, heave_NN and_CC total_JJ resistance_NN for_IN v = 5_JJ knots_NNS (_( Fn = 0.11_JJ )_) and_CC v = 10_JJ knots_NNS Fn = 0.22_JJ ._SENT 
+The_DT relative_JJ wave_NN length_NN was_VBD equal_JJ λ/L = 0.87_JJ for_IN the_DT lower_JJR speed_NN case_NN and_CC λ/L = 1.02_NN for_IN the_DT higher_JJR speed_NN case_NN ._SENT 
+For_IN the_DT lower_JJR speed_NN case_NN the_DT resistance_NN showed_VVD that_IN the_DT modified_JJ bow_NN form_NN had_VHD a_DT much_RB lower_JJR oscillation_NN of_IN amplitudes_NNS (_( see_VV Fig_NN ._SENT 
+11_CD )_) ._SENT 
+It_PP is_VBZ noticeable_JJ that_IN for_IN both_DT speeds_VVZ the_DT redesigned_VVN vessel_NN (_( CSV2_NP )_) dives_VVZ deeper_JJR into_IN the_DT water_NN as_IN the_DT bow_NN more_RBR easily_RB cuts_VVZ the_DT wave_NN ._SENT 
+Fig_NN ._SENT 
+11._CD The_DT plot_NN of_IN heave_NN ,_, pitch_NN and_CC total_JJ resistance_NN for_IN Fr = 0.11_JJ (_( left_JJ )_) and_CC Fr = 0.22_NP (_( right_NN )_) ._SENT 
+The_DT two_CD analysed_VVN bow_NN designs_NNS were_VBD also_RB analysed_VVN with_IN respect_NN to_TO slamming_VVG ._SENT 
+In_IN Fig_NN ._SENT 
+12_CD the_DT time_NN history_NN over_IN three_CD periods_NNS of_IN encounter_NN of_IN the_DT dynamic_JJ pressure_NN acting_VVG on_IN the_DT hull_NN are_VBP presented_VVN ._SENT 
+The_DT pressure_NN was_VBD measured_VVN on_IN a_DT whole_JJ hull_NN surface_NN in_IN each_DT time_NN step_NN ._SENT 
+The_DT maximum_JJ values_NNS for_IN both_DT ships_NNS were_VBD placed_VVN at_IN a_DT bow_NN section_NN ._SENT 
+The_DT plots_NNS refer_VVP to_TO the_DT same_JJ wave_NN lengths_NNS and_CC speeds_NNS as_IN the_DT data_NNS presented_VVN in_IN Fig_NN ._SENT 
+11._CD The_DT redesigned_VVN bow_NN (_( SCV2_NP )_) had_VHD much_RB lower_JJR dynamic_JJ pressure_NN peaks_NNS resulted_VVN from_IN slamming_VVG ._SENT 
+The_DT pressure_NN peaks_NNS were_VBD lower_JJR because_IN of_IN the_DT effect_NN of_IN cutting_VVG head_NN waves_NNS by_IN slimmer_JJR bow_NN without_IN a_DT bulb_NN and_CC a_DT flare_VVP (_( outward_RB curvature_NN of_IN ship_NN 's_POS hull_NN surface_NN above_IN the_DT waterline_NN )_) ._SENT 
+The_DT peak_NN value_NN for_IN the_DT vessel_NN speed_NN v = 5_NN knots_NNS was_VBD equal_JJ 58 kPa_NP and_CC 22 kPa_NP for_IN the_DT ‘as_NP built’_NP and_CC the_DT modified_JJ bow_NN shape_NN ,_, respectively_RB ._SENT 
+For_IN a_DT higher_JJR speed_NN of_IN v = 10_JJ knots_NNS the_DT peak_NN value_NN of_IN dynamic_JJ pressure_NN was_VBD equal_JJ 69 kPa_NP and_CC 38 kPa_NP respectively_RB ._SENT 
+Thus_RB the_DT huge_JJ benefit_NN resulting_VVG from_IN the_DT X-bow_NP body_NN form_NN was_VBD a_DT 62_CD %_NN and_CC 45_CD %_NN lower_JJR value_NN of_IN the_DT maximum_JJ dynamic_JJ pressure_NN for_IN v = 5_JJ knots_NNS and_CC v = 10_JJ knots_NNS ,_, respectively_RB ._SENT 
+Fig_NN ._SENT 
+12._CD Time_NP history_NN plot_NN of_IN dynamic_JJ pressure_NN for_IN Fr = 0.11_JJ (_( left_JJ )_) and_CC Fr = 0.22_NP (_( right_NN )_) ._SENT 
+In_IN Fig_NN ._SENT 
+13_CD the_DT comparison_NN of_IN accelerations_NNS computed_VVN at_IN the_DT centre_NN of_IN gravity_NN for_IN both_DT hull_NN forms_NNS was_VBD presented_VVN ._SENT 
+The_DT history_NN over_IN three_CD periods_NNS of_IN encounter_NN for_IN both_DT low_JJ and_CC high_JJ speed_NN refers_VVZ to_TO the_DT same_JJ wavelengths_NNS as_IN in_IN Fig_NN ._SENT 
+12._CD Amplitude_NN of_IN acceleration_NN for_IN CSV1_NN was_VBD equal_JJ to_TO 0.72 m/s2_NN and_CC 1.44 m/s2_NN for_IN 5_CD knots_NNS and_CC 10_CD knots_NNS respectively_RB ._SENT 
+Whereas_IN for_IN the_DT CSV2_NN it_PP was_VBD equal_JJ to_TO 0.88 m/s2_NP and_CC 1.68 m/s2_NP ._SENT 
+Thus_RB the_DT modified_JJ vessel_NN was_VBD subjected_VVN to_TO 22_CD %_NN higher_JJR accelerations_NNS for_IN speed_NN of_IN 5_CD knots_NNS and_CC 16_CD %_NN higher_JJR acceleration_NN for_IN speed_NN of_IN 10_CD knots_NNS for_IN analysed_VVN wavelengths_NNS ._SENT 
+Fig_NN ._SENT 
+13._CD Time_NP history_NN plot_NN of_IN acceleration_NN at_IN the_DT centre_NN of_IN gravity_NN for_IN Fr = 0.11_JJ (_( left_JJ )_) and_CC Fr = 0.22_NP (_( right_NN )_) ._SENT 
+4.9_CD ._SENT 
+Results_NNS of_IN CFD_NN seakeeping_VVG simulations_NNS for_IN the_DT wave_NN height_NN H = 4 m_NN The_DT case_NN study_NN ship_NN behaviour_NN in_IN rough_JJ weather_NN conditions_NNS is_VBZ here_RB analysed_VVN ._SENT 
+The_DT study_NN was_VBD restricted_VVN to_TO a_DT speed_NN of_IN v = 5_JJ knots_NNS ._SENT 
+Rough_JJ sea_NN conditions_NNS on_IN the_DT North_NP Sea_NP were_VBD assumed_VVN with_IN wave_NN height_NN H = 4 m_NN and_CC wave_NN period_NN T = 6.8 s_NNS ._SENT 
+Table_NN 9_CD presents_VVZ results_NNS of_IN the_DT performed_VVN CFD_NN seakeeping_VVG simulations_NNS for_IN the_DT ship_NN ‘as_NP built’_NP (_( CSV1_JJ )_) and_CC for_IN the_DT redesigned_VVN version_NN (_( CSV2_NP )_) ._SENT 
+The_DT values_NNS of_IN heave_NN and_CC pitch_NN transfer_NN functions_NNS and_CC added_VVD resistance_NN coefficient_NN are_VBP analysed_VVN here_RB ._SENT 
+The_DT presented_VVN results_NNS show_VVP that_IN both_CC the_DT ship_NN motions_NNS and_CC the_DT added_JJ resistance_NN were_VBD higher_JJR for_IN the_DT modified_JJ design_NN ;_: however_RB ,_, the_DT difference_NN in_IN the_DT latter_NN is_VBZ negligibly_RB small_JJ ._SENT 
+Table_NN 9._CD The_DT CFD_NN results_NNS of_IN seakeeping_VVG performance_NN of_IN the_DT case_NN study_NN vessel_NN for_IN the_DT wave_NN H = 4 m_NN ,_, T = 6.8 s_NP ._SENT 
+The_DT true_JJ benefit_NN of_IN the_DT application_NN of_IN the_DT X-bow_NP form_NN can_MD be_VB seen_VVN by_IN analysing_VVG the_DT maximum_JJ dynamic_JJ pressure_NN acting_VVG on_IN the_DT hull_NN as_IN a_DT result_NN of_IN slamming_VVG ._SENT 
+The_DT pressure_NN was_VBD measured_VVN on_IN a_DT whole_JJ hull_NN surface_NN in_IN each_DT time_NN step_NN ._SENT 
+The_DT maximum_JJ values_NNS for_IN both_DT ships_NNS were_VBD placed_VVN at_IN a_DT bow_NN section_NN ._SENT 
+A_DT time_NN history_NN plot_NN of_IN the_DT representative_JJ time_NN period_NN is_VBZ presented_VVN in_IN Fig_NN ._SENT 
+14._CD The_DT modified_JJ bow_NN form_NN benefits_NNS significantly_RB from_IN the_DT lower_JJR values_NNS of_IN the_DT dynamic_JJ pressure_NN ._SENT 
+The_DT maximum_JJ value_NN was_VBD 61 kPa_NP for_IN the_DT SCV1_JJ hull_NN and_CC 45 kPa_NP (_( 36_CD %_NN lower_JJR )_) for_IN the_DT CSV2_NN ._SENT 
+The_DT pressure_NN peaks_NNS were_VBD lower_JJR for_IN the_DT ship_NN noted_VVD as_IN CSV2_NN because_IN of_IN the_DT effect_NN of_IN cutting_VVG head_NN waves_NNS by_IN slimmer_JJR bow_NN without_IN a_DT bulb_NN and_CC a_DT flare_VVP ._SENT 
+Fig_NN ._SENT 
+14._CD Time_NP history_NN plot_NN of_IN dynamic_JJ pressure_NN for_IN Fr = 0.11_NN and_CC wave_NN H = 4 m_NN ,_, T = 6.8 s_NP ._SENT 
+It_PP is_VBZ worth_JJ noting_VVG that_IN the_DT X-bow_NP type_NN has_VHZ the_DT superstructure_NN moved_VVD completely_RB forward_RB to_TO prevent_VV occurrence_NN of_IN green_JJ water_NN ._SENT 
+Notwithstanding_IN the_DT lack_NN of_IN green_JJ water_NN does_VVZ not_RB result_VV from_IN the_DT X-bow_NP hull_NN form_NN but_CC from_IN the_DT lack_NN of_IN a_DT fore_NN deck_NN ._SENT 
+4.10_CD ._SENT 
+Simulation_NN performance_NN using_VVG high_JJ power_NN computing_NN (_( HPC_NP )_) The_DT HPC_NP computing_NN performance_NN was_VBD analysed_VVN with_IN the_DT use_NN of_IN full_JJ scale_NN CFD_NN seakeeping_NN model_NN having_VHG 9.0 M_NN cells_NNS (_( 6.7 M_NN background_NN ,_, 2.3 M_NP overset_VVD )_) ._SENT 
+The_DT software_NN was_VBD STAR_JJ CCM+_NP 12.04.011_CD ._SENT 
+The_DT calculation_NN was_VBD performed_VVN with_IN the_DT use_NN of_IN supercomputer_NN Tryton_NP at_IN Academic_NP Computing_NP Center_NP at_IN Gdansk_NP University_NP of_IN Technology_NP ._SENT 
+The_DT cluster_NN consists_VVZ of_IN 3214_CD processors_NNS Intel®_JJ Xeon®_NP Processor_NN E5_NP v3_NP @_SYM 2.3 GHz_NP ,_, 12-core_NP (_( Haswell_NP )_) ,_, 218_CD TB_NN total_JJ system_NN memory_NN and_CC Mellanox_JJ InfiniBand_NN with_IN FDR_NP 56 Gb/s_NP bandwidth_NN (_( fat_JJ tree_NN topology_NN )_) ._SENT 
+Total_JJ theoretical_JJ peak_NN performance_NN of_IN the_DT system_NN is_VBZ equal_JJ 1.48_CD PFLOPS_NNS ._SENT 
+In_IN Fig_NN ._SENT 
+15_CD the_DT computing_NN performance_NN was_VBD presented_VVN as_IN number_NN of_IN computed_VVN simulation_NN iterations_NNS per_IN hour_NN normalised_VVN to_TO number_NN of_IN iterations_NNS calculated_VVN by_IN a_DT single_JJ cluster_NN node_NN (_( 24_CD cores_NNS )_) ._SENT 
+The_DT results_NNS show_VVP that_IN up_IN to_TO 48_CD cores_NNS the_DT scalability_NN of_IN computational_JJ efficiency_NN was_VBD linear_JJ ._SENT 
+For_IN simulations_NNS run_VVN on_IN 120–480_JJ cores_NNS the_DT computing_NN performance_NN was_VBD reduced_VVN significantly_RB ._SENT 
+For_IN example_NN by_IN increasing_VVG number_NN of_IN cores_NNS from_IN 240_CD to_TO 480_CD the_DT number_NN of_IN computed_VVN iterations_NNS per_IN hour_NN per_IN node_NN increased_VVN by_IN 34_CD %_NN ._SENT 
+For_IN the_DT simulations_NNS performed_VVN on_IN 720–1200_JJ cores_NNS the_DT computing_NN performance_NN was_VBD reduced_VVN significantly_RB by_IN software_NN and_CC hardware_NN limitations_NNS ._SENT 
+Finally_RB ,_, the_DT use_NN of_IN 2400_CD cores_NNS caused_VVD dramatic_JJ slowdown_NN in_IN the_DT calculations_NNS ._SENT 
+It_PP was_VBD due_JJ to_TO software_NN limitations_NNS and_CC slower_JJR communication_NN between_IN server_NN nodes_NNS ._SENT 
+For_IN the_DT analysed_VVN case_NN the_DT reasonable_JJ number_NN of_IN 120_CD cores_NNS per_IN job_NN was_VBD found_VVN for_IN parallel_JJ jobs_NNS ._SENT 
+Fig_NN ._SENT 
+15._CD HPC_NN performance_NN during_IN full_JJ scale_NN CFD_NN seakeeping_VVG simulations_NNS ._SENT 
+<Section> 5._CD Summary_NN </Section> In_IN recent_JJ years_NNS ,_, the_DT maritime_JJ sector_NN has_VHZ grown_VVN a_DT desire_NN for_IN more_RBR efficient_JJ and_CC comfortable_JJ ships_NNS ._SENT 
+This_DT refers_VVZ to_TO all_DT aspects_NNS and_CC stages_NNS of_IN a_DT ship_NN life_NN cycle_NN ._SENT 
+One_CD aspect_NN which_WDT is_VBZ of_IN great_JJ importance_NN is_VBZ seakeeping_VVG performance_NN ._SENT 
+The_DT analysis_NN of_IN ship_NN behaviour_NN on_IN waves_NNS most_RBS often_RB includes_VVZ an_DT estimation_NN of_IN added_JJ resistance_NN and_CC ship_NN motions_NNS ._SENT 
+These_DT determine_VVP ship_NN efficiency_NN and_CC comfort_NN of_IN a_DT crew_NN and_CC passengers_NNS ._SENT 
+In_IN many_JJ cases_NNS ,_, i.e._FW for_IN offshore_JJ vessels_NNS ,_, increased_VVD operability_NN in_IN a_DT heavy_JJ weather_NN conditions_NNS is_VBZ also_RB important_JJ ._SENT 
+For_IN all_DT types_NNS of_IN ships_NNS there_EX is_VBZ also_RB a_DT need_NN to_TO increase_VV ship_NN reliability_NN and_CC safety_NN ._SENT 
+It_PP is_VBZ also_RB worth_JJ pointing_VVG out_RP that_IN the_DT shipping_NN industry_NN is_VBZ currently_RB at_IN a_DT milestone_NN of_IN technological_JJ development_NN ._SENT 
+Autonomous_JJ shipping_NN may_MD revolutionise_VV the_DT shipping_VVG industry_NN in_IN upcoming_JJ years_NNS ,_, and_CC analysis_NN of_IN seakeeping_VVG performance_NN will_MD become_VV even_RB more_RBR important_JJ ._SENT 
+Despite_IN growing_VVG popularity_NN of_IN CFD_NN simulations_NNS for_IN the_DT analysis_NN of_IN seakeeping_VVG performance_NN ,_, there_EX are_VBP several_JJ papers_NNS that_WDT only_RB describe_VVP innovative_JJ hull_NN shapes_VVZ i.e._FW the_DT ‘Leadge-bow’_NN ._SENT 
+Trying_VVG to_TO fill_VV this_DT gap_NN ,_, the_DT purpose_NN of_IN this_DT study_NN was_VBD to_TO investigate_VV the_DT influence_NN of_IN redesigning_VVG a_DT traditional_JJ ‘V’_JJ shaped_JJ bow_NN with_IN a_DT bulb_NN to_TO the_DT innovative_JJ X-bow_NN type_NN ._SENT 
+The_DT study_NN was_VBD performed_VVN with_IN the_DT use_NN of_IN the_DT case_NN study_NN vessel_NN preserving_VVG the_DT most_RBS important_JJ hydrostatic_JJ parameters_NNS ._SENT 
+As_IN a_DT result_NN ,_, the_DT pure_JJ influence_NN of_IN changing_VVG the_DT bow_NN form_NN on_IN seakeeping_VVG performance_NN was_VBD investigated_VVN by_IN advanced_JJ CFD_NN simulations_NNS ._SENT 
+The_DT presented_VVN comparison_NN study_NN consisted_VVN of_IN the_DT analysis_NN of_IN calm_JJ water_NN resistance_NN as_RB well_RB as_IN the_DT ship_NN seakeeping_VVG performance_NN for_IN two_CD wave_NN heights_NNS ._SENT 
+The_DT first_JJ analysed_VVN wave_NN height_NN was_VBD H = 2 m_JJ (_( periods_NNS of_IN T_NN from_IN 5 s_NNS to_TO 10 s_NNS )_) which_WDT simulated_JJ the_DT most_RBS frequently_RB occurring_VVG wave_NN height_NN on_IN the_DT North_NP Sea_NP and_CC the_DT Baltic_NP Sea_NP ._SENT 
+The_DT second_JJ wave_NN height_NN simulated_JJ rough_JJ sea_NN conditions_NNS on_IN the_DT North_NP Sea_NP (_( H = 4 m_NP ,_, T = 6.8 s_NP )_) ._SENT 
+The_DT results_NNS were_VBD validated_VVN against_IN experiment_NN in_IN a_DT towing_VVG tank_NN ._SENT 
+The_DT motions_NNS of_IN the_DT ship_NN and_CC added_VVD resistance_NN due_JJ to_TO waves_NNS were_VBD investigated_VVN for_IN two_CD speeds_NNS :_: v = 5_JJ knots_NNS (_( Fn = 0.11_JJ )_) and_CC v = 10_JJ knots_NNS (_( Fn = 0.22_NP )_) ._SENT 
+The_DT results_NNS of_IN the_DT CFD_NN simulations_NNS on_IN calm_JJ water_NN demonstrate_VVP that_IN the_DT modified_JJ hull_NN had_VHD lower_JJR total_JJ resistance_NN for_IN the_DT range_NN of_IN speed_NN from_IN 5_CD knots_NNS to_TO 11_CD knots_NNS ._SENT 
+For_IN the_DT speed_NN of_IN 5_CD knots_NNS to_TO 8_CD knots_NNS the_DT reduction_NN was_VBD equal_JJ to_TO 12_CD %_NN ._SENT 
+For_IN a_DT speed_NN of_IN 10_CD knots_NNS to_TO 11_CD knots_NNS ,_, which_WDT is_VBZ the_DT cruise_NN speed_NN of_IN the_DT ship_NN ,_, the_DT total_JJ resistance_NN reduction_NN was_VBD equal_JJ to_TO 6_CD %_NN ._SENT 
+For_IN higher_JJR speeds_NNS (_( above_IN 10_CD knots_NNS )_) the_DT modified_JJ hull_NN suffers_VVZ from_IN an_DT increase_NN of_IN the_DT resistance_NN even_RB up_RB to_TO 44_CD %_NN for_IN the_DT maximum_NN analysed_VVD speed_NN of_IN 15_CD knots_NNS ._SENT 
+Results_NNS obtained_VVN from_IN numerical_JJ analysis_NN are_VBP in_IN a_DT good_JJ agreement_NN with_IN the_DT towing_VVG tank_NN experiment_NN ._SENT 
+The_DT relative_JJ error_NN between_IN the_DT two_CD methods_NNS was_VBD from_IN 1_CD %_NN for_IN high_JJ speed_NN to_TO 15_CD %_NN for_IN the_DT low_JJ speed_NN cases_NNS ._SENT 
+It_PP should_MD be_VB noticed_VVN that_IN the_DT relative_JJ difference_NN of_IN total_JJ resistance_NN between_IN CSV1_JJ and_CC CSV2_NP has_VHZ similar_JJ order_NN of_IN magnitude_NN as_IN the_DT error_NN between_IN the_DT CFD_NN and_CC the_DT EFD_NN for_IN the_DT CSV1_NN ._SENT 
+It_PP is_VBZ a_DT common_JJ issue_NN that_IN for_IN the_DT lower_JJR speed_NN cases_NNS the_DT comparison_NN of_IN resistance_NN between_IN different_JJ methods_NNS is_VBZ questionable_JJ ._SENT 
+However_RB ,_, the_DT difference_NN of_IN the_DT resistance_NN calculated_VVN for_IN different_JJ designs_NNS and_CC considered_VVN in_IN each_DT method_NN separately_RB is_VBZ expected_VVN to_TO give_VV similar_JJ relative_JJ results_NNS ._SENT 
+Although_IN it_PP was_VBD not_RB confirmed_VVN in_IN presented_VVN work_NN due_JJ to_TO a_DT lack_NN of_IN towing_VVG tank_NN results_NNS for_IN the_DT CSV2_NN ._SENT 
+That_DT is_VBZ why_WRB based_VVN only_RB on_IN the_DT calm_JJ water_NN CFD_NN results_NNS ,_, it_PP is_VBZ expected_VVN that_IN for_IN the_DT cruising_VVG speed_NN of_IN 10_CD knots_NNS redesigning_VVG the_DT bow_NN to_TO the_DT X-bow_NP type_NN can_MD be_VB beneficial_JJ ._SENT 
+The_DT results_NNS of_IN the_DT CFD_NN seakeeping_VVG simulations_NNS enable_VV the_DT comparison_NN of_IN the_DT redesigned_VVN bow_NN (_( X-bow_NP form_NN )_) to_TO the_DT existing_VVG one_CD (_( ‘V’_NN shaped_VVN bulbous_JJ bow_NN )_) ._SENT 
+For_IN the_DT wave_NN H = 2 m_NN (_( T = 5–10 s_NP )_) the_DT modified_JJ bow_NN in_IN general_NN was_VBD characterised_VVN by_IN higher_JJR amplitude_NN of_IN motions_NNS for_IN both_DT speeds_NNS (_( 5_CD knots_NNS and_CC 10_CD knots_NNS )_) and_CC all_DT analysed_VVN wavelengths_NNS ._SENT 
+This_DT resulted_VVD in_IN higher_JJR accelerations_NNS of_IN the_DT CSV2_NN caused_VVN by_IN ship_NN motions_NNS which_WDT decreases_VVZ comfort_NN and_CC safety_NN onboard_JJ a_DT ship_NN ._SENT 
+This_DT was_VBD due_JJ to_TO the_DT effect_NN of_IN cutting_VVG the_DT incoming_JJ waves_NNS by_IN the_DT X-bow_NN which_WDT dives_VVZ relatively_RB deeper_JJR than_IN traditional_JJ ‘V’_JJ bow_NN form_NN ._SENT 
+Increased_VVN volume_NN above_IN the_DT waterline_NN prevents_VVZ the_DT original_JJ hull_NN from_IN vertical_JJ movements_NNS of_IN the_DT bow_NN ._SENT 
+However_RB ,_, it_PP results_VVZ in_IN slamming_VVG ,_, which_WDT is_VBZ a_DT huge_JJ disadvantage_NN from_IN a_DT comfort_NN and_CC safety_NN point_NN of_IN view_NN ._SENT 
+For_IN the_DT redesigned_VVN bow_VVP the_DT maximum_JJ dynamic_JJ pressure_NN was_VBD up_RB to_TO 2.6_CD times_NNS lower_JJR in_IN comparison_NN with_IN the_DT ‘V’_JJ shaped_JJ bulbous_JJ bow_NN ._SENT 
+For_IN long_JJ waves_NNS ,_, the_DT reduction_NN of_IN added_JJ resistance_NN of_IN the_DT modified_JJ hull_NN might_MD be_VB observed_VVN for_IN both_DT 5_CD knots_NNS and_CC 10_CD knots_NNS speed_NN ._SENT 
+Also_RB ,_, it_PP seems_VVZ to_TO be_VB beneficial_JJ for_IN lower_JJR speeds_NNS as_RB only_RB for_IN waves_NNS λ/Lpp = 0.73_JJ and_CC λ/Lpp = 1_JJ did_VVD the_DT original_JJ hull_NN have_VHP lower_RBR added_VVN resistance_NN ._SENT 
+For_IN the_DT speed_NN of_IN v = 10_JJ knots_NNS the_DT modified_JJ hull_NN had_VHD a_DT higher_JJR peak_NN value_NN of_IN added_JJ resistance_NN in_IN conditions_NNS that_WDT corresponds_VVZ to_TO theoretical_JJ maximum_JJ load_NN ,_, which_WDT also_RB caused_VVD high_JJ amplitude_NN of_IN the_DT motions_NNS ._SENT 
+The_DT average_JJ reduction_NN of_IN added_JJ resistance_NN coefficient_NN resulting_VVG from_IN redesigning_VVG the_DT bow_NN from_IN the_DT ‘V’_JJ form_NN to_TO the_DT ‘X-bow’_JJ form_NN was_VBD 11_CD %_NN ._SENT 
+To_TO validate_VV CFD_NN simulations_NNS ,_, the_DT towing_VVG tank_NN experiments_NNS were_VBD conducted_VVN for_IN speeds_NNS of_IN 5_CD knots_NNS and_CC 10_CD knots_NNS ._SENT 
+The_DT numerical_JJ results_NNS were_VBD found_VVN to_TO be_VB in_IN good_JJ agreement_NN with_IN experiment_NN ._SENT 
+Based_VVN on_IN presented_VVN results_NNS two_CD final_JJ conclusions_NNS might_MD be_VB formulated_VVN ._SENT 
+First_JJ of_IN all_DT ,_, the_DT CFD_NN analysis_NN provides_VVZ a_DT very_RB useful_JJ tool_NN to_TO compare_VV different_JJ designs_NNS and_CC optimise_VV both_DT calm_JJ water_NN and_CC seakeeping_VVG performance_NN ._SENT 
+The_DT recent_JJ software_NN development_NN and_CC HPC_NN accessibility_NN enabled_VVD simulation_NN of_IN ship_NN behaviour_NN on_IN a_DT full_JJ scale_NN together_RB with_IN the_DT inclusion_NN of_IN modelling_VVG waves_NNS close_VV to_TO real_JJ environmental_JJ conditions_NNS ._SENT 
+This_DT is_VBZ huge_JJ progress_NN and_CC major_JJ upcoming_JJ developments_NNS in_IN the_DT field_NN are_VBP expected_VVN ._SENT 
+The_DT results_NNS of_IN numerical_JJ seakeeping_NN analysis_NN can_MD be_VB widely_RB used_VVN at_IN the_DT design_NN stage_NN of_IN the_DT ship_NN ._SENT 
+But_CC an_DT even_RB more_RBR interesting_JJ application_NN of_IN the_DT results_NNS is_VBZ possible_JJ for_IN optimisation_NN of_IN ship_NN operation_NN (_( i.e._FW speed_NN )_) in_IN particular_JJ weather_NN conditions_NNS ._SENT 
+Secondly_RB ,_, as_RB expected_VVN the_DT analysis_NN of_IN the_DT seakeeping_VVG performance_NN of_IN two_CD analysed_VVD bow_NN forms_NNS revealed_VVD a_DT well-known_JJ principle_NN �_NP �_NP improving_VVG one_CD seakeeping_NN property_NN causes_VVZ deterioration_NN of_IN the_DT other_JJ ._SENT 
+Significantly_RB reduced_VVN slamming_VVG of_IN the_DT X-bow_NP form_NN was_VBD coupled_VVN with_IN higher_JJR amplitudes_NNS of_IN heave_NN and_CC pitch_NN ._SENT 
+It_PP is_VBZ impossible_JJ to_TO improve_VV all_DT aspects_NNS of_IN seakeeping_VVG performance_NN at_IN the_DT same_JJ time_NN ,_, so_RB the_DT task_NN for_IN a_DT designer_NN is_VBZ to_TO find_VV a_DT suitable_JJ compromise_NN ._SENT 
+What_WP is_VBZ more_JJR ,_, the_DT seakeeping_VVG driven_VVN design_NN for_IN any_DT ship_NN depends_VVZ strongly_RB on_IN operational_JJ profile_NN (_( sea_NN site_NN ,_, environmental_JJ conditions_NNS ,_, speed_NN ,_, etc._FW )_) ._SENT 
+Thus_RB ,_, to_TO find_VV the_DT optimal_JJ design_NN a_DT detailed_JJ analysis_NN including_VVG the_DT wave_NN loads_NNS that_IN vessel_NN is_VBZ most_RBS likely_JJ to_TO operate_VV in_IN is_VBZ essential_JJ ._SENT 
+<Section> Acknowledgement_NN </Section> The_DT research_NN was_VBD supported_VVN by_IN the_DT National_NP Centre_NP for_IN Research_NP and_CC Development_NP (_( NCRD_NP )_) and_CC the_DT SmartPS_NP project_NN No._NN MARTECII/SmartPS/4/2016_NN ._SENT 
+The_DT research_NN was_VBD supported_VVN by_IN the_DT Academic_NP Computer_NP Centre_NP in_IN Gdansk_NP (_( CI_NP TASK_NN )_) ._SENT 
+All_DT support_NN is_VBZ highly_RB appreciated_VVN by_IN the_DT authors_NNS ._SENT 
+The_DT authors_NNS thank_VVP the_DT reviewers_NNS for_IN valuable_JJ comments_NNS ._SENT 
+<Section> References_NNS </Section> [_SYM 1_CD ]_SYM J.A._NP Keuning_NP ,_, S.L._NP Toxopeus_NP ,_, J._NP Pinkster_NP The_DT effect_NN of_IN bowshape_NN on_IN the_DT seakeeping_VVG performance_NN of_IN a_DT fast_JJ monohull_NN FAST_RB 2001_CD ,_, 6th_JJ International_NP Conference_NP on_IN Fast_NP Sea_NP Transportation_NP (_( 2001_CD )_) ,_, pp_NP ._SENT 
+197-212_CD [_SYM 2_CD ]_SYM A.R.J.M._NP Lloyd_NP Seakeeping_NP �_NP �_NP Ship_NP Behaviour_NN in_IN Rough_NP Weather_NP A_NP R_NP J_NP M_NP Lloyd_NP ,_, 26_CD Sprithead_NP Avenue_NP ,_, Gosport_NP ,_, United_NP Kingdom_NP (_( 1989_CD )_) [_SYM 3_CD ]_SYM K._NP Matsumoto_NP ,_, K._NP Hirota_NP ,_, K._NP Takagishi_NP Development_NP of_IN Energy_NP Saving_VVG Bow_NP Shape_NP at_IN Sea_NP (_( 2000_CD )_) ,_, pp_NP ._SENT 
+479-485_CD Retrieved_VVN from_IN :_: http://mararchief.tudelft.nl/file/22967/_NP (_( 21.06.18_CD )_) [_SYM 4_CD ]_SYM K._NP Hirota_NP ,_, et_NP al_NP ._SENT 
+Development_NN of_IN bow_NN shape_NN to_TO reduce_VV the_DT added_JJ resistance_NN due_JJ to_TO waves_NNS and_CC verification_NN of_IN full_JJ scale_NN measurement_NN Proceedings_NNS of_IN the_DT International_NP Conference_NP on_IN Marine_NP Research_NP and_CC Transportation_NP (_( 2005_CD )_) ,_, pp_NP ._SENT 
+63-70_CD [_SYM 5_CD ]_SYM M.-G_NN ._SENT 
+Seo_NP ,_, K.-H_NP ._SENT 
+Kim_NP ,_, D.-M_NP ._SENT 
+Park_NP ,_, Y._NP Kim_NP Comparative_JJ study_NN on_IN added_JJ resistance_NN for_IN different_JJ hull_NN forms_NNS by_IN using_VVG weakly-nonlinear_JJ seakeeping_VVG formulations_NNS J._NP Soc_NP ._SENT 
+Naval_NP Arch_NP ._SENT 
+Korea_NP ,_, 50_CD (_( 1_LS )_) (_( 2013_CD )_) ,_, pp_NP ._SENT 
+49-58_CD Retrieved_VVN from_IN :_: http://koreascience.or.kr/journal/view.jsp_NN ?_SENT 
+kj=DHJSCN&py=2013&vnc=v50n1&sp=49_NP (_( 21.06.18_CD )_) [_SYM 6_CD ]_SYM M._NP Kuroda_NP ,_, M._NP Tsujimoto_NP ,_, N._NP Sasaki_NP ,_, S._NP Ohmatsu_NP ,_, K._NP Takagi_NP Study_NP on_IN the_DT bow_NN shapes_VVZ above_IN the_DT waterline_NN in_IN view_NN of_IN the_DT powering_VVG and_CC greenhouse_NN gas_NN emissions_NNS in_IN actual_JJ seas_NNS Proc_NN ._SENT 
+Inst_NP ._SENT 
+Mech_NP ._SENT 
+Eng_NP ._SENT 
+Part_NP M_NP :_: J._NP Eng_NP ._SENT 
+Marit_NP ._SENT 
+Environ_VV ._SENT 
+,_, 226_CD (_( 1_LS )_) (_( 2012_CD )_) ,_, pp_NP ._SENT 
+23-35_CD [_SYM 7_CD ]_SYM J._NP Lee_NP ,_, D.-M_NP ._SENT 
+Park_NP ,_, Y._NP Kim_NP Comparison_NN of_IN added_JJ resistance_NN for_IN different_JJ bow_NN shapes_NNS of_IN KVLCC2_NP Ship_NP &_CC Ocean_NP Engineering_NP Research_NP Exchange_NP Meeting_VVG (_( 2013_CD )_) [_SYM 8_CD ]_SYM J._NP Lee_NP ,_, D.-M_NP ._SENT 
+Park_NP ,_, Y._NP Kim_NP Experimental_JJ investigation_NN on_IN the_DT added_JJ resistance_NN of_IN modified_JJ KVLCC2_JJ hull_NN forms_NNS with_IN different_JJ bow_NN shapes_VVZ Proc_NN ._SENT 
+Inst_NP ._SENT 
+Mech_NP ._SENT 
+Eng_NP ._SENT 
+Part_NP M_NP :_: J._NP Eng_NP ._SENT 
+Marit_NP ._SENT 
+Environ_VV ._SENT 
+,_, 231_CD (_( 2_LS )_) (_( 2017_CD )_) ,_, pp_NP ._SENT 
+395-410_CD Retrieved_VVN from_IN :_: http://journals.sagepub.com/doi/10.1177/1475090216643981_JJ (_( 21.06.18_CD )_) [_SYM 9_CD ]_SYM J.K._NP White_NP Numerical_JJ and_CC experimental_JJ investigation_NN of_IN the_DT effect_NN of_IN an_DT inverted_JJ bow_NN on_IN the_DT hydrodynamic_JJ performance_NN of_IN navy_NN combatant_JJ hull_NN forms_NNS (_( Ph.D_NN ._SENT 
+thesis_NN )_) Massachusetts_NP Institute_NP of_IN Technology_NP (_( 2015_CD )_) Retrieved_VVD from_IN :_: https://dspace.mit.edu/handle/1721.1/100057#files-area_NP (_( 21.06.18_CD )_) [_SYM 10_CD ]_SYM K.-K_NN ._SENT 
+Yang_NP ,_, Y._NP Kim_NP Numerical_JJ analysis_NN of_IN added_JJ resistance_NN on_IN blunt_JJ ships_NNS with_IN different_JJ bow_NN shapes_NNS in_IN short_JJ waves_NNS J._NP Marine_NP Sci_NP ._SENT 
+Technol_NN ._SENT 
+,_, 22_CD (_( 2_LS )_) (_( 2017_CD )_) ,_, pp_NP ._SENT 
+245-258_CD [_SYM 11_CD ]_SYM J.-W_NN ._SENT 
+Yu_NP ,_, C.-M_NP ._SENT 
+Lee_NP ,_, I._NP Lee_NP ,_, J.-E_NN ._SENT 
+Choi_NP Bow_NP hull-form_NN optimization_NN in_IN waves_NNS of_IN a_DT 66,000_CD DWT_NN bulk_NN carrier_NN Int_NP ._SENT 
+J._NP Naval_NP Arch_NP ._SENT 
+Ocean_NP Eng_NP ._SENT 
+,_, 9_CD (_( 5_LS )_) (_( 2017_CD )_) ,_, pp_NP ._SENT 
+499-508_CD Retrieved_VVN from_IN :_: https://www.sciencedirect.com/science/article/pii/S2092678216305349_JJ ?_SENT 
+via%3Dihub_NP (_( 21.06.18_CD )_) [_SYM 12_CD ]_SYM S._NP Zhang_NP ,_, T._NP Tezdogan_NP ,_, B._NP Zhang_NP ,_, L._NP Xu_NP ,_, Y._NP Lai_NP Hull_NP form_NN optimisation_NN in_IN waves_NNS based_VVN on_IN CFD_NN technique_NN Ships_NNS Offshore_NP Struct_NN ._SENT 
+,_, 13_CD (_( 2_LS )_) (_( 2018_CD )_) ,_, pp_NP ._SENT 
+149-164_CD Retrieved_VVN from_IN :_: https://www.tandfonline.com/doi/full/10.1080/17445302.2017.1347231_JJ (_( 03.09.18_CD )_) [_SYM 13_CD ]_SYM C.D._NP Simonsen_NP ,_, J.F._NP Otzen_NP ,_, S._NP Joncquez_NP ,_, F._NP Stern_NP EFD_NN and_CC CFD_NN for_IN KCS_NP heaving_VVG and_CC pitching_VVG in_IN regular_JJ head_NN waves_NNS J._NP Marine_NP Sci_NP ._SENT 
+Technol_NN ._SENT 
+,_, 18_CD (_( 4_LS )_) (_( 2013_CD )_) ,_, pp_NP ._SENT 
+435-459_CD Retrieved_VVN from_IN :_: http://link.springer.com/10.1007/s00773-013-0219-0_NP (_( 21.06.18_CD )_) [_SYM 14_CD ]_SYM T._NP Tezdogan_NP ,_, et_NP al_NP ._SENT 
+Full-scale_JJ unsteady_JJ RANS_NNS CFD_NN simulations_NNS of_IN ship_NN behaviour_NN and_CC performance_NN in_IN head_NN seas_NNS due_JJ to_TO slow_VV steaming_VVG Ocean_NP Eng_NP ._SENT 
+,_, 97_CD (_( 2015_CD )_) ,_, pp_NP ._SENT 
+186-206_CD [_SYM 15_CD ]_SYM M._NP Kim_NP ,_, O._NP Hizir_NP ,_, O._NP Turan_NP ,_, S._NP Day_NP ,_, A._NP Incecik_NP Estimation_NN of_IN added_JJ resistance_NN and_CC ship_NN speed_NN loss_NN in_IN a_DT seaway_NN Ocean_NP Eng_NP ._SENT 
+,_, 141_CD (_( 2017_CD )_) ,_, pp_NP ._SENT 
+465-476_CD Retrieved_VVN from_IN :_: http://linkinghub.elsevier.com/retrieve/pii/S0029801817303530_NP (_( 28.08.18_CD )_) [_SYM 16_CD ]_SYM W.D._NP Janssen_NP ,_, B._NP Blocken_NP ,_, H.J._NP van_NP Wijhe_NP CFD_NN simulations_NNS of_IN wind_NN loads_NNS on_IN a_DT container_NN ship_NN :_: validation_NN and_CC impact_NN of_IN geometrical_JJ simplifications_NNS J._NP Wind_NP Eng_NP ._SENT 
+Ind._NP Aerodyn_NP ._SENT 
+,_, 166_CD (_( 2017_CD )_) ,_, pp_NP ._SENT 
+106-116_CD [_SYM 17_CD ]_SYM K._NP Raed_NP ,_, D._NP Karmakar_NP ,_, C._NP Guedes_NP Soares_NP Uncertainty_NN modelling_VVG of_IN wave_NN loads_NNS acting_VVG on_IN semi-submersible_JJ floating_JJ support_NN structure_NN for_IN offshore_JJ wind_NN turbine_NN C._NP Guedes_NP Soares_NP (_( Ed_NP ._SENT 
+)_) ,_, Renewable_JJ Energies_NNS Offshore_NP (_( 2015_CD )_) ,_, pp_NP ._SENT 
+945-951_CD [_SYM 18_CD ]_SYM K._NP Niklas_NP Strength_NP analysis_NN of_IN a_DT large-size_JJ supporting_VVG structure_NN for_IN an_DT offshore_JJ wind_NN turbine_NN Pol_NP ._SENT 
+Marit_NP ._SENT 
+Res_NNS ._SENT 
+,_, 24_CD (_( s1_JJ )_) (_( 2017_CD )_) Retrieved_VVD from_IN :_: http://www.degruyter.com/view/j/pomr.2017.24.issue-s1/pomr-2017-0034/pomr-2017-0034.xml_NP (_( 16.06.17_CD )_) [_SYM 19_CD ]_SYM G._NP Dubbioso_NP ,_, R._NP Muscari_NP ,_, F._NP Ortolani_NP ,_, A._NP Di_NP Mascio_NP Analysis_NP of_IN propeller_NN bearing_VVG loads_NNS by_IN CFD_NN ._SENT 
+Part_NN I_PP :_: Straight_RB ahead_RB and_CC steady_JJ turning_VVG maneuvers_NNS Ocean_NP Eng_NP ._SENT 
+,_, 130_CD (_( 2017_CD )_) ,_, pp_NP ._SENT 
+241-259_CD Retrieved_VVN from_IN :_: https://doi.org/10.1016/j.oceaneng.2016.12.004_NN [_SYM 20_CD ]_SYM B._NP Taskar_NP ,_, K.K._NP Yum_NP ,_, S._NP Steen_NP ,_, E._NP Pedersen_NP The_DT effect_NN of_IN waves_NNS on_IN engine-propeller_NN dynamics_NNS and_CC propulsion_NN performance_NN of_IN ships_NNS Ocean_NP Eng_NP ._SENT 
+,_, 122_CD (_( 2016_CD )_) ,_, pp_NP ._SENT 
+262-277_CD [_SYM 21_CD ]_SYM A._NP Mofidi_NP ,_, P.M._NN Carrica_NN Simulations_NNS of_IN zigzag_JJ maneuvers_NNS for_IN a_DT container_NN ship_NN with_IN direct_JJ moving_VVG rudder_NN and_CC propeller_NN Comput_NN ._SENT 
+Fluids_NNS ,_, 96_CD (_( 2014_CD )_) ,_, pp_NP ._SENT 
+191-203_CD Retrieved_VVN from_IN :_: https://doi.org/10.1016/j.compfluid.2014.03.017_JJ [_SYM 22_CD ]_SYM K._NP Niklas_NP Supporting_VVG development_NN of_IN the_DT smart_JJ ship_NN technology_NN by_IN CFD_NN simulation_NN of_IN ship_NN behavior_NN in_IN close_NN to_TO real_JJ operational_JJ conditions_NNS Guedes_NP Soares_NP ,_, Teixeira_NP (_( Eds_NPS ._SENT 
+)_) ,_, Maritime_NP Transportation_NP and_CC Harvesting_NN of_IN Sea_NP Resources_NPS ,_, Taylor_NP &_CC Francis_NP Group_NP ,_, London_NP (_( 2018_CD )_) ,_, pp_NP ._SENT 
+535-540_CD [_SYM 23_CD ]_SYM K._NP Sariöz_NP ,_, E._NP Narli_NP Effect_NN of_IN criteria_NNS on_IN seakeeping_VVG performance_NN assessment_NN Ocean_NP Eng_NP ._SENT 
+,_, 32_CD (_( 10_CD )_) (_( 2005_CD )_) ,_, pp_NP ._SENT 
+1161-1173_CD [_SYM 24_CD ]_SYM A._NP Sayli_NP ,_, A.D._NP Alkan_NP ,_, R._NP Nabergoj_NP ,_, A.O._NP Uysal_NP Seakeeping_VVG assessment_NN of_IN fishing_NN vessels_NNS in_IN conceptual_JJ design_NN stage_NN Ocean_NP Eng_NP ._SENT 
+,_, 34_CD (_( 5–6_NP )_) (_( 2007_CD )_) ,_, pp_NP ._SENT 
+724-738_CD [_SYM 25_CD ]_SYM M._NP Tello_NP ,_, S._NP Ribeiro_NP e_SYM Silva_NP ,_, C._NP Guedes_NP Soares_NP Seakeeping_VVG performance_NN of_IN fishing_NN vessels_NNS in_IN irregular_JJ waves_NNS Ocean_NP Eng_NP ._SENT 
+,_, 38_CD (_( 5–6_NP )_) (_( 2011_CD )_) ,_, pp_NP ._SENT 
+763-773_CD Retrieved_VVN from_IN :_: https://www.sciencedirect.com/science/article/pii/S0029801811000060_NP (_( 31.08.18_CD )_) [_SYM 26_CD ]_SYM H._NP Bagheri_NP ,_, H._NP Ghassemi_NP ,_, A._NP Dehghanian_NP Optimizing_VVG the_DT seakeeping_VVG performance_NN of_IN ship_NN hull_NN forms_NNS using_VVG genetic_JJ algorithm_NN TransNav_NP ,_, 8_CD (_( 1_LS )_) (_( 2014_CD )_) ,_, pp_NP ._SENT 
+49-57_CD Retrieved_VVN from_IN :_: http://www.transnav.eu/Article_Optimizing_the_Seakeeping_Performance_Bagheri,29,484.html_NN [_SYM 27_CD ]_SYM J._NP Parunov_NP ,_, M._NP Corak_NP ,_, I._NP Gledic_JJ Comparison_NN of_IN two_CD practical_JJ methods_NNS for_IN seakeeping_VVG assessment_NN of_IN damaged_JJ ship_NN Marstruct-2015_NN (_( 2012_CD )_) (_( 2015_CD )_) ,_, pp_NP ._SENT 
+37-44_CD [_SYM 28_CD ]_SYM H._NP Reza_NP Taghva_NP ,_, H._NP Ghassemi_NP ,_, H._NP Nowruzi_NP Seakeeping_NP performance_NN estimation_NN of_IN the_DT container_NN ship_NN under_IN irregular_JJ wave_NN condition_NN using_VVG artificial_JJ neural_JJ network_NN Am_NP ._SENT 
+J._NP Civil_NP Eng_NP ._SENT 
+Arch_NN ._SENT 
+,_, 6_CD (_( 4_LS )_) (_( 2018_CD )_) ,_, pp_NP ._SENT 
+147-153_CD Retrieved_VVN from_IN :_: http://pubs.sciepub.com/ajcea/6/4/3/index.html_NN [_SYM 29_CD ]_SYM J.W._NP Ringsberg_NP ,_, S.E._NP Heggelund_NP ,_, P._NP Lara_NP ,_, B.-S_NP ._SENT 
+Jang_NP ,_, S.E._NP Hirdaris_NP Structural_NP response_NN analysis_NN of_IN slamming_VVG impact_NN on_IN free_JJ fall_NN lifeboats_NNS Marine_NP Struct_NN ._SENT 
+,_, 54_CD (_( 2017_CD )_) ,_, pp_NP ._SENT 
+112-126_CD Retrieved_VVN from_IN :_: https://www.sciencedirect.com/science/article/pii/S0951833916301782_NP (_( 23.05.18_CD )_) [_SYM 30_CD ]_SYM Ulstein_NP Design_NP AS_IN A_DT Foreship_NN Arrangement_NN for_IN a_DT Vessel_NP of_IN the_DT Deplacement_NN Type_NN World_NP International_NP Property_NP Organization_NP (_( 2006_CD )_) Retrieved_VVD from_IN :_: https://worldwide.espacenet.com/publicationDetails/originalDocument_NN ?_SENT 
+DB=EPODOC&locale=en_EP&FT=D&date=20060914&CC=WO&NR=2006096066A1&KC=A1_JJ (_( 18.05.18_CD )_) [_SYM 31_CD ]_SYM ITTC_NN Recommended_VVD Procedures_NNS and_CC Guidelines_NNS �_JJ �_NP Resistance_NP Test_NP �_NP �_NP 7.5-02-02-01_CD International_NP Towing_VVG Tank_NP Conference_NP (_( 2011_CD )_) ,_, pp_NP ._SENT 
+1-13_CD [_SYM 32_CD ]_SYM ITTC_NN Recommended_VVD Procedures_NNS and_CC Guidelines_NNS :_: 7.5-02-02-02_CD General_NP Guideline_NN for_IN Uncertainty_NN Analysis_NN in_IN Resistance_NN Tests_NNS Recommended_VVD Procedures_NNS and_CC Guidelines_NNS (_( 2014_CD )_) [_SYM 33_CD ]_SYM J.H._NP Ferziger_NP ,_, M._NP Peric_JJ Computational_JJ Methods_NNS for_IN Fluid_JJ Dynamics_NP Springer_NP (_( 2002_CD )_) Retrieved_VVD from_IN :_: http://servidor.demec.ufpr.br/CFD/bibliografia/Ferziger_NP Peric_NP -_: Computational_JJ Methods_NNS for_IN Fluid_JJ Dynamics_NPS ,_, 3rd_NP Ed_NP -_: 2002.pdf_NP (_( 12.07.18_CD )_) [_SYM 34_CD ]_SYM ITTC_JJ Practical_JJ Guidelines_NNS for_IN Ship_NP Resistance_NP CFD_NP �_NP �_NP 7.5-03-02-04_CD ITTC_NP �_NP �_NP Recommended_VVD Procedures_NNS and_CC Guidelines_NNS (_( 2014_CD )_) ,_, pp_NP ._SENT 
+1-9_CD Retrieved_VVN from_IN :_: https://ittc.info/media/4198/75-03-02-04.pdf_NP (_( 21.05.18_CD )_) [_SYM 35_CD ]_SYM ITTC_NP CFD_NP ,_, Resistance_NP and_CC Flow_NP Uncertainty_NN Analysis_NN in_IN CFD_NN Exapmles_NNS for_IN Resistance_NP and_CC Flow_NP (_( 1999_CD )_) [_SYM 36_CD ]_SYM M._NP Irvine_NP ,_, J._NP Longo_NP ,_, F._NP Stern_NP Pitch_NN and_CC heave_NN tests_NNS and_CC uncertainty_NN assessment_NN for_IN a_DT surface_NN combatant_NN in_IN regular_JJ head_NN waves_NNS J._NP Ship_NP Res_NNS ._SENT 
+(_( 2008_CD )_) [_SYM 37_CD ]_SYM B.J._NP Guo_NP ,_, S._NP Steen_NP ,_, G.B._NP Deng_NP Seakeeping_VVG prediction_NN of_IN KVLCC2_NN in_IN head_NN waves_NNS with_IN RANS_NP Appl_NP ._SENT 
+Ocean_NP Res_NNS ._SENT 
+,_, 35_CD (_( 2012_CD )_) ,_, pp_NP ._SENT 
+56-67_CD [_SYM 38_CD ]_SYM S._NP Seo_NP ,_, S._NP Park_NP ,_, B.Y._NP Koo_NP Effect_NN of_IN wave_NN periods_NNS on_IN added_JJ resistance_NN and_CC motions_NNS of_IN a_DT ship_NN in_IN head_NN sea_NN simulations_NNS Ocean_NP Eng_NP ._SENT 
+,_, 137_CD (_( October_NP )_) (_( 2017_CD )_) ,_, pp_NP ._SENT 
+309-327_CD Retrieved_VVN from_IN :_: https://doi.org/10.1016/j.oceaneng.2017.04.009_NP (_( 22.06.18_CD )_) [_SYM 39_CD ]_SYM ITTC_NP ITTC_NP �_NP �_NP Recommended_VVD Procedures_NNS and_CC Guidelines_NNS �_JJ �_JJ Practical_JJ Guidelines_NNS for_IN Ship_NP CFD_NP Applications_NP ._SENT 
+7.5-03-02-03_CD (_( Revision_NN 01_CD )_) ITTC_NP �_NP �_NP Recommended_VVD Procedures_NNS and_CC Guidelines_NNS (_( 2014_CD )_) ,_, p._NP 19_CD Retrieved_VVD from_IN :_: https://ittc.info/media/4196/75-03-02-03.pdf_NP (_( 22.05.18_CD )_) [_SYM 40_CD ]_SYM H._NP Sadat-Hosseini_NP ,_, et_NP al_NP ._SENT 
+CFD_NN verification_NN and_CC validation_NN of_IN added_JJ resistance_NN and_CC motions_NNS of_IN KVLCC2_NN with_IN fixed_VVN and_CC free_JJ surge_NN in_IN short_JJ and_CC long_JJ head_NN waves_NNS Ocean_NP Eng_NP ._SENT 
+,_, 59_CD (_( 2013_CD )_) ,_, pp_NP ._SENT 
+240-273_CD [_SYM 41_CD ]_SYM G.B._NP Deng_NP ,_, P._NP Queutey_NP ,_, M._NP Visonneau_NP RANS_NP prediction_NN of_IN the_DT KVLCC2_JJ tanker_NN in_IN head_NN waves_NNS J._NP Hydrodyn_NP ._SENT 
+,_, 22_CD (_( 5_CD (_( Suppl_NP ._SENT 
+1_LS )_) )_) (_( 2010_CD )_) ,_, pp_NP ._SENT 
+459-464_CD [_SYM 42_CD ]_SYM P.M._NN Carrica_NN ,_, K.J._NP Paik_NP ,_, H.S._NP Hosseini_NP ,_, F._NP Stern_NP URANS_NP analysis_NN of_IN a_DT broaching_VVG event_NN in_IN irregular_JJ quartering_NN seas_NNS J._NP Marine_NP Sci_NP ._SENT 
+Technol_NN ._SENT 
+,_, 13_CD (_( 4_LS )_) (_( 2008_CD )_) ,_, pp_NP ._SENT 
+395-407_CD [_SYM 43_CD ]_SYM T._NP Tezdogan_NP ,_, A._NP Incecik_NP ,_, O._NP Turan_NP Full-scale_JJ unsteady_JJ RANS_NNS simulations_NNS of_IN vertical_JJ ship_NN motions_NNS in_IN shallow_JJ water_NN Ocean_NP Eng_NP ._SENT 
+,_, 123_CD (_( 2016_CD )_) ,_, pp_NP ._SENT 
+131-145_CD [_SYM 44_CD ]_SYM ITTC_JJ Practical_JJ Guidelines_NNS for_IN Ship_NP CFD_NP Applications_NP �_NP �_NP 7.5-03-02-03_CD ITTC_NP �_NP �_NP Recommended_VVD Procedures_NNS and_CC Guidelines_NNS (_( 2011_CD )_) ,_, pp_NP ._SENT 
+1-18_CD [_SYM 45_CD ]_SYM C.S._NP Wu_NP ,_, D.C._NP Zhou_NP ,_, L._NP Gao_NP ,_, Q.M._NP Miao_NP CFD_NN computation_NN of_IN ship_NN motions_NNS and_CC added_VVD resistance_NN for_IN a_DT high_JJ speed_NN trimaran_NN in_IN regular_JJ head_NN waves_NNS Int_NP ._SENT 
+J._NP Naval_NP Arch_NP ._SENT 
+Ocean_NP Eng_NP ._SENT 
+,_, 3_CD (_( 1_LS )_) (_( 2011_CD )_) ,_, pp_NP ._SENT 
+105-110_CD [_SYM 46_CD ]_SYM J._NP Dudziak_NP Teoria_NP Okrętu_NP ._SENT 
+Second_JJ ._SENT 
+Fundacja_NP Promocji_NP Przemysłu_NP Okrętowego_NP i_NP Gospodarki_NP Morskiej_NP ,_, Gdansk_NP (_( 2008_CD )_) [_SYM 47_CD ]_SYM K._NP Hochkirch_NP ,_, B._NP Mallol_NP On_IN the_DT importance_NN of_IN full-scale_JJ CFD_NN simulations_NNS for_IN ships_NNS Proceedings_NNS of_IN the_DT 12th_JJ International_NP Conference_NP on_IN Computer_NP Applications_NP and_CC Information_NP Technology_NP in_IN the_DT Maritime_NP Industries_NPS (_( COMPIT_NP 2013_CD )_) ,_, Cortona_NP (_( 2013_CD )_) ,_, pp_NP ._SENT 
+85-95_CD View_NP Record_NP in_IN ScopusGoogle_JJ Scholar_NN [_SYM 48_CD ]_SYM M._NP Visonneau_NP ,_, P._NP Queutey_NP ,_, G.B._NP Deng_NP Model_NP and_CC full-scale_JJ free-surface_JJ viscous_JJ flows_NNS around_IN fully-appended_JJ ships_NNS Proceedings_NNS of_IN the_DT European_JJ Conference_NN on_IN Computational_JJ Fluid_NN Dynamics_NP (_( ECCOMAS_NP CFD_NP 2006_CD )_) ,_, Delft_NN (_( 2006_CD )_) ,_, pp_NP ._SENT 
+1-16_CD [_SYM 49_CD ]_SYM Y.C._NP Kim_NP ,_, et_NP al_NP ._SENT 
+Analysis_NN of_IN added_JJ resistance_NN and_CC seakeeping_VVG responses_NNS in_IN head_NN sea_NN conditions_NNS for_IN low-speed_NN full_JJ ships_NNS using_VVG URANS_NNS approach_VVP Int_NP ._SENT 
+J._NP Naval_NP Arch_NP ._SENT 
+Ocean_NP Eng_NP ._SENT 
+,_, 9_CD (_( 6_CD )_) (_( 2017_CD )_) ,_, pp_NP ._SENT 
+641-654_CD [_SYM 50_CD ]_SYM ITTC_NP 1978_CD ITTC_NP Performance_NP Prediction_NN Method_NN ITTC_NP �_NP �_NP Recommended_VVD Procedures_NNS and_CC Guidelines_NNS 1978_JJ ITTC_NP Performance_NP Prediction_NN Method_NN �_JJ �_NP 7.5-02-03-01.4_CD (_( 2017_CD )_) 

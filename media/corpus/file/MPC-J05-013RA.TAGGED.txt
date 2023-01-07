@@ -1,0 +1,444 @@
+﻿_JJ <title> Time-Frequency_NN Features_NNS of_IN 3-D_JJ Sound_JJ Propagation_NN in_IN Wedge-Shaped_JJ Oceanic_JJ Waveguides_NNS </title> <author> 1_CD ,_, Frédéric_NP Sturm_NP ,_, 2_CD ,_, Julien_NP Bonnel_NP </author> <Affiliation> 1_CD ,_, Laboratoire_NP de_FW Mécanique_NP des_FW Fluides_NP et_FW d'Acoustique_NP (_( UMR_NP CNRS_NP 5509_CD )_) ,_, Ecole_NP Centrale_NP de_NP Lyon_NP ,_, Ecully_NP Cedex_NP ,_, France_NP ,_, 2_CD ,_, Lab-STICC_NP (_( UMR_NP CNRS_NP 6285_CD )_) ,_, ENSTA_NP Bretagne_NP (_( Université_NP Européenne_NP de_NP Bretagne)—Pôle_NP STIC/AP_NP ,_, Brest_NP Cedex_NP ,_, France_NP </Affiliation> <year> 2016_CD </year> <Jounral> IEEE_NN journal_NN of_IN oceanic_JJ engineering_NN </Journal> <Publishing_house> Institute_NP of_IN Electrical_NP and_CC Electronics_NP Engineers_NPS </Publishing_house> <Text_Collector> Zhang_NP San，HEU_NP </Text_Collector> <DOI> 10.1109/JOE.2015.2461711_JJ </DOI> <URL> https://ieeexplore.ieee.org/document/7360246_JJ </URL> Time-Frequency_NN Features_NNS of_IN 3-D_JJ Sound_JJ Propagation_NN in_IN Wedge-Shaped_JJ Oceanic_JJ Waveguides_NNS Frédéric_JJ Sturm_NP ,_, Julien_NP Bonnel_NP Laboratoire_NP de_FW Mécanique_NP des_FW Fluides_NP et_FW d'Acoustique_NP (_( UMR_NP CNRS_NP 5509_CD )_) ,_, Ecole_NP Centrale_NP de_NP Lyon_NP ,_, Ecully_NP Cedex_NP ,_, France_NP Lab-STICC_NP (_( UMR_NP CNRS_NP 6285_CD )_) ,_, ENSTA_NP Bretagne_NP (_( Université_NP Européenne_NP de_NP Bretagne)—Pôle_NP STIC/AP_NP ,_, Brest_NP Cedex_NP ,_, France_NP <Section> Abstract_JJ </Section> This_DT paper_NN considers_VVZ propagation_NN of_IN low-frequency_NN broadband_NN pulses_NNS in_IN shallow_JJ water_NN ._SENT 
+It_PP focuses_VVZ on_IN across-slope_NN propagation_NN in_IN wedge-shaped_JJ oceanic_JJ waveguides_NNS and_CC on_IN single_JJ hydrophone_NN receiving_VVG configurations_NNS ._SENT 
+In_IN a_DT low-frequency_NN shallow-water_NN context_NN ,_, propagation_NN is_VBZ dispersive_JJ and_CC usually_RB described_VVN by_IN modal_JJ theory_NN ._SENT 
+However_RB ,_, in_IN the_DT presence_NN of_IN a_DT tilted_JJ bottom_NN ,_, propagation_NN is_VBZ also_RB affected_VVN by_IN 3-D_JJ effects_NNS (_( horizontal_JJ refractions_NNS )_) ._SENT 
+The_DT paper_NN shows_VVZ that_IN time-frequency_NN analysis_NN is_VBZ a_DT suitable_JJ tool_NN to_TO illustrate_VV and_CC understand_VV 3-D_JJ propagation_NN ._SENT 
+It_PP illustrates_VVZ the_DT pertinence_NN of_IN the_DT time-frequency_NN analysis_NN of_IN 3-D_JJ signal_NN by_IN proposing_VVG an_DT algorithm_NN to_TO estimate_VV the_DT seabed_NN slope_NN using_VVG a_DT single_JJ receiver_NN ._SENT 
+The_DT method_NN is_VBZ benchmarked_VVN on_IN numerical_JJ simulations_NNS ,_, and_CC successfully_RB applied_VVN on_IN small-scale_JJ experimental_JJ data_NNS ._SENT 
+<Section> 1._CD Introduction_NN </Section> In_IN shallow-water_NN and_CC littoral_JJ environments_NNS ,_, acoustic_JJ waves_NNS can_MD propagate_VV over_IN relatively_RB long_JJ distances_NNS ,_, and_CC the_DT sound_JJ propagation_NN is_VBZ strongly_RB influenced_VVN by_IN the_DT seabed_NN properties_NNS ._SENT 
+When_WRB considering_VVG low-frequency_NN sources_NNS ,_, the_DT oceanic_JJ environment_NN acts_NNS as_IN a_DT dispersive_JJ waveguide_NN and_CC sound_JJ propagation_NN can_MD be_VB described_VVN appropriately_RB by_IN modal_JJ theory_NN ._SENT 
+The_DT acoustic_JJ field_NN can_MD be_VB separated_VVN into_IN several_JJ components_NNS called_VVD modes_NNS ,_, each_DT of_IN them_PP propagating_VVG dispersively_RB ._SENT 
+In_IN a_DT single_JJ receiver_NN context_NN ,_, an_DT efficient_JJ tool_NN to_TO analyze_VV modal_JJ dispersion_NN is_VBZ time-frequency_NN (_( TF_NP )_) analysis_NN [_SYM 1_CD ]_SYM ,_, [_SYM 2_CD ]_SYM ._SENT 
+It_PP allows_VVZ for_IN modal_JJ filtering_VVG [_SYM 3_CD ]_SYM ,_, [_SYM 4_CD ]_SYM ,_, dispersion_NN curve_NN estimation_NN [_SYM 5_CD ]_SYM ,_, [_SYM 6_CD ]_SYM ,_, and_CC thus_RB source_NN localization_NN [_SYM 7_CD ]_SYM and_CC geoacoustic_JJ inversion_NN [_SYM 8]–[9][10_NP ]_SYM ._SENT 
+However_RB ,_, most_RBS dispersion-based_JJ studies_NNS consider_VVP only_RB 2-D_VV waveguides_NNS ._SENT 
+In_IN this_DT paper_NN ,_, TF_NN analysis_NN is_VBZ used_VVN to_TO study_VV the_DT propagation_NN of_IN low-frequency_NN broadband_NN pulses_NNS in_IN 3-D_JJ shallow-water_NN waveguides_NNS ,_, and_CC more_RBR specifically_RB in_IN 3-D_VVG wedge-shaped_JJ environments_NNS ._SENT 
+The_DT objectives_NNS of_IN this_DT paper_NN are_VBP twofold_JJ ._SENT 
+First_RB ,_, the_DT paper_NN shows_VVZ that_IN TF_NN analysis_NN is_VBZ a_DT suitable_JJ tool_NN to_TO illustrate_VV and_CC understand_VV across-slope_NN propagation_NN of_IN broadband_NN pulses_NNS in_IN wedge-shaped_JJ waveguides_NNS ._SENT 
+Second_RB ,_, the_DT paper_NN demonstrates_VVZ that_IN ,_, as_IN for_IN 2-D_JJ cases_NNS ,_, the_DT TF_NN dispersion_NN of_IN the_DT modes_NNS contains_VVZ information_NN about_IN the_DT seabed_NN ._SENT 
+This_DT phenomenon_NN is_VBZ illustrated_VVN with_IN a_DT simple_JJ algorithm_NN allowing_VVG estimation_NN of_IN the_DT seabed_NN slope_NN using_VVG a_DT single_JJ receiver_NN ._SENT 
+It_PP has_VHZ been_VBN demonstrated_VVN both_CC numerically_RB [_SYM 11]–[12][13][14][15_NP ]_SYM and_CC experimentally_RB [_SYM 16_CD ]_SYM ,_, [_SYM 17_CD ]_SYM that_DT acoustic_JJ propagation_NN in_IN wedge-shaped_JJ waveguides_NNS is_VBZ affected_VVN by_IN horizontal_JJ refraction_NN ._SENT 
+If_IN source_NN and_CC receiver_NN are_VBP far_RB enough_RB from_IN each_DT other_JJ ,_, it_PP can_MD lead_VV to_TO remarkable_JJ 3-D_NN effects_NNS ._SENT 
+Correct_JJ prediction_NN of_IN these_DT effects_NNS requires_VVZ fully_RB 3-D_VV models_NNS and_CC computation_NN codes_NNS [_SYM 18_CD ]_SYM ._SENT 
+Among_IN existing_VVG 3-D_JJ codes_NNS available_JJ in_IN the_DT underwater_JJ acoustics_NN community_NN ,_, parabolic_JJ equation_NN (_( PE)-based_JJ models_NNS are_VBP largely_RB used_VVN [_SYM 19]–[20][21][22][23][24][25_NP ]_SYM ,_, [_SYM 15_CD ]_SYM ,_, [_SYM 26]–[27][28][29_NP ]_SYM ._SENT 
+In_IN this_DT paper_NN ,_, the_DT 3-D_JJ PE_NN code_NN of_IN [_SYM 15_CD ]_SYM will_MD be_VB used_VVN ._SENT 
+Its_PP$ reasonable_JJ (_( at_IN least_JJS at_IN very_RB low_JJ frequencies_NNS )_) computational_JJ cost_NN allows_VVZ calculations_NNS in_IN four_CD dimensions_NNS :_: three_CD spatial_JJ dimensions_NNS and_CC time_NN ._SENT 
+A_DT Fourier_NP synthesis_NN approach_NN is_VBZ used_VVN to_TO handle_VV the_DT time_NN dependence_NN of_IN the_DT acoustic_JJ signals_NNS ._SENT 
+It_PP is_VBZ thus_RB possible_JJ to_TO simulate_VV the_DT propagation_NN of_IN broadband_NN pulses_NNS ,_, and_CC to_TO jointly_RB address_VV the_DT problem_NN of_IN 3-D_JJ effects_NNS and_CC TF_NN dispersion_NN ._SENT 
+Because_IN of_IN waveguide_NN dispersion_NN ,_, the_DT source_NN signal_NN is_VBZ distorted_VVN during_IN propagation_NN ._SENT 
+This_DT dispersion_NN is_VBZ ambivalent_JJ ._SENT 
+On_IN the_DT one_CD hand_NN ,_, it_PP tends_VVZ to_TO complicate_VV the_DT analysis_NN of_IN the_DT received_VVN signal_NN ._SENT 
+On_IN the_DT other_JJ hand_NN ,_, if_IN properly_RB characterized_VVN ,_, dispersion_NN conveys_VVZ information_NN about_IN the_DT propagation_NN medium_NN and_CC can_MD be_VB used_VVN as_IN a_DT tomographic_JJ tool_NN ._SENT 
+In_IN this_DT paper_NN ,_, it_PP will_MD be_VB shown_VVN that_IN TF_NN dispersion_NN of_IN a_DT broadband_NN pulse_NN propagated_VVN in_IN a_DT 3-D_JJ wedge-shaped_JJ waveguide_NN is_VBZ particularly_RB affected_VVN by_IN horizontal_JJ refraction_NN effects_NNS ._SENT 
+Because_IN of_IN the_DT seabed_NN slope_NN ,_, a_DT given_VVN mode_NN can_MD be_VB received_VVN twice_RB on_IN a_DT single_JJ receiver_NN ,_, and_CC the_DT TF_NN dispersions_NNS of_IN both_DT modal_JJ arrivals_NNS are_VBP greatly_RB different_JJ from_IN one_CD another_DT ._SENT 
+As_RB will_MD be_VB shown_VVN in_IN this_DT paper_NN ,_, the_DT differences_NNS observed_VVD between_IN the_DT two_CD arrivals_NNS of_IN the_DT same_JJ mode_NN can_MD be_VB explained_VVN by_IN modal_JJ ray_NN considerations_NNS ._SENT 
+The_DT TF_NN pattern_NN of_IN the_DT received_VVN signal_NN contains_VVZ information_NN on_IN the_DT 3-D_JJ configuration_NN of_IN the_DT waveguide_NN ,_, and_CC can_MD thus_RB be_VB used_VVN at_IN the_DT core_NN of_IN an_DT inversion_NN process_NN to_TO estimate_VV waveguide_NN parameters_NNS ._SENT 
+In_IN particular_JJ ,_, the_DT paper_NN will_MD show_VV that_IN it_PP is_VBZ possible_JJ to_TO estimate_VV the_DT seabed_NN slope_NN by_IN matching_VVG the_DT TF_NN pattern_NN of_IN the_DT received_VVN signal_NN with_IN simulated_JJ replicas_NNS ._SENT 
+The_DT paper_NN is_VBZ organized_VVN as_RB follows_VVZ ._SENT 
+Section_NP II_NP describes_VVZ the_DT 3-D_JJ propagation_NN over_IN a_DT tilted_JJ bottom_NN in_IN a_DT single-receiver_NN context_NN ._SENT 
+First_RB ,_, it_PP briefly_RB describes_VVZ the_DT well-known_JJ results_NNS on_IN across-slope_NN propagation_NN in_IN wedge-shaped_JJ waveguides_NNS ,_, and_CC then_RB introduces_VVZ TF_NN analysis_NN and_CC its_PP$ advantages_NNS to_TO analyze_VV the_DT 3-D_JJ effects_NNS ._SENT 
+Section_NP III_NP shows_VVZ how_WRB TF_NP analysis_NN can_MD be_VB used_VVN at_IN the_DT core_NN of_IN an_DT algorithm_NN to_TO estimate_VV the_DT seabed_NN slope_NN ._SENT 
+The_DT estimation_NN procedure_NN is_VBZ described_VVN in_IN Section_NP III-A_NP and_CC its_PP$ sensitivity_NN is_VBZ studied_VVN in_IN Section_NN III-B_NN ._SENT 
+Small-scale_JJ experimental_JJ data_NNS are_VBP considered_VVN in_IN Section_NP IV_NP ._SENT 
+Finally_RB ,_, Section_NN V_NN provides_VVZ some_DT concluding_VVG remarks_NNS ._SENT 
+<Section> 2._CD Three-Dimensional_JJ Propagation_NN Analysis_NN in_IN a_DT Single-Receiver_NP Context_NN </Section> A._NP Time-Series_NP Computation_NN We_PP consider_VVP a_DT 3-D_JJ wedge-shaped_JJ oceanic_JJ environment_NN which_WDT consists_VVZ of_IN a_DT lossless_JJ homogeneous_JJ water_NN layer_NN (_( sound_JJ speed_NN :_: cw=_NN 1488.12_CD m/s_NNS ,_, density_NN :_: ρw=_NP 1_CD g/cm3_NN )_) overlying_VVG a_DT lossy_JJ half-space_NN sediment_NN bottom_NN (_( sound_JJ speed_NN :_: csed=_NN 1700_CD m/s_NNS ,_, density_NN :_: ρsed=_NP 1.99_CD g/cm3_NN ,_, and_CC absorption_NN :_: 0.5_CD dB/�_NN �_( )_) ._SENT 
+No_DT shear_NN energy_NN is_VBZ assumed_VVN in_IN the_DT sediment_NN ._SENT 
+An_DT isotropic_JJ point_NN source_NN is_VBZ situated_VVN at_IN a_DT depth_NN of_IN 9_CD m_NN above_IN the_DT sloping_JJ bottom_NN where_WRB the_DT water_NN depth_NN is_VBZ 44.5_CD m._NN The_DT bottom_JJ slope_NN is_VBZ 4.5°_JJ ._SENT 
+Simulated_JJ time_NN series_NN at_IN a_DT constant_JJ receiver_NN depth_NN of_IN 8_CD m_NN and_CC at_IN several_JJ distances_NNS in_IN the_DT across-slope_NN direction_NN ,_, i.e._FW ,_, along_IN the_DT direction_NN corresponding_JJ to_TO the_DT 44.5-m_NN isobath_NN ,_, obtained_VVN by_IN fully_RB 3-D_JJ computations_NNS are_VBP plotted_VVN in_IN Fig_NN ._SENT 
+1._CD The_DT source_NN signal_NN is_VBZ a_DT five-cycle_NN pulse_NN wave_NN with_IN a_DT Gaussian-like_JJ envelope_NN centered_VVN at_IN frequency_NN fc=_NP 150_CD Hz_NP ._SENT 
+The_DT source_NN pulse_NN is_VBZ displayed_VVN in_IN the_DT upper_JJ left_JJ subplot_NN of_IN Fig_NN ._SENT 
+1._CD The_DT numerical_JJ results_NNS were_VBD obtained_VVN using_VVG the_DT 3-D_JJ PE-based_JJ model_JJ 3DWAPE_NN [_SYM 15_CD ]_SYM coupled_VVN with_IN a_DT Fourier_NP synthesis_NN technique_NN to_TO handle_VV the_DT time_NN dependence_NN of_IN the_DT source_NN signal_NN ._SENT 
+Fig_NN ._SENT 
+1.Time_JJ series_NN (_( receiver_NN depth_NN :_: 8_CD m_NN )_) for_IN a_DT bottom_JJ slope_NN of_IN 4.5°_NN at_IN several_JJ distances_NNS (_( from_IN 1_CD to_TO 5_CD km_NN )_) in_IN the_DT across-slope_NN direction_NN corresponding_JJ to_TO fully_RB 3-D_JJ computations_NNS using_VVG the_DT 3-D_JJ PE_NN code_NN 3DWAPE_NN ._SENT 
+The_DT simulated_JJ signals_NNS were_VBD scaled_VVN appropriately_RB to_TO compensate_VV for_IN cylindrical_JJ spreading_VVG ._SENT 
+The_DT source_NN pulse_NN is_VBZ plotted_VVN in_IN the_DT upper_JJ left_JJ panel_NN ._SENT 
+Before_IN proceeding_VVG to_TO the_DT analysis_NN of_IN the_DT time_NN series_NN displayed_VVN in_IN Fig_NN ._SENT 
+1_LS ,_, let_VV us_PP make_VV some_DT preliminary_JJ comments_NNS ._SENT 
+Since_IN the_DT computation_NN domain_NN in_IN the_DT across-slope_NN direction_NN is_VBZ range_NN independent_JJ ,_, it_PP is_VBZ seen_VVN by_IN any_DT 2-D_JJ model_NN such_JJ as_IN the_DT classical_JJ Pekeris_NN waveguide_NN ._SENT 
+In_IN this_DT specific_JJ direction_NN ,_, the_DT waveguide_NN leads_VVZ to_TO the_DT existence_NN of_IN four_CD distinct_JJ propagating_VVG modes_NNS at_IN 150_CD Hz_NP ._SENT 
+Therefore_RB ,_, considering_VVG the_DT broadband_NN source_NN pulse_NN described_VVD above_RB ,_, the_DT 2-D_NN propagating_VVG signal_NN would_MD split_VV up_RP in_IN four_CD distinct_JJ wave_NN packets_NNS ,_, the_DT dispersion_NN of_IN each_DT individual_JJ modal_JJ wave_NN packet_NN increasing_VVG as_IN the_DT receiver_NN moves_VVZ out_RP in_IN range_NN ._SENT 
+In_IN addition_NN (_( see_VV ,_, for_IN instance_NN ,_, [_SYM 30_CD ]_SYM )_) ,_, for_IN each_DT propagating_VVG mode_NN ,_, the_DT first_JJ arrivals_NNS would_MD consist_VV of_IN high-frequency_NN contributions_NNS ,_, whereas_IN the_DT later_JJR arrivals_NNS would_MD have_VH a_DT more_JJR low-frequency_NN content_NN (_( above_IN the_DT Airy_JJ phase_NN )_) ._SENT 
+The_DT time_NN series_NN corresponding_JJ to_TO the_DT 3-D_JJ solutions_NNS ,_, i.e._FW ,_, those_DT displayed_VVN in_IN Fig_NN ._SENT 
+1_LS ,_, show_VV a_DT different_JJ modal_JJ structure_NN ._SENT 
+They_PP give_VVP evidence_NN of_IN well-known_JJ 3-D_JJ effects_NNS for_IN each_DT propagating_VVG mode_NN ,_, e.g._FW ,_, multiple_JJ arrivals_NNS of_IN each_DT mode_NN ,_, being_VBG distinguishable_JJ at_IN some_DT ranges_NNS ,_, then_RB merging_VVG together_RB and_CC progressively_RB disappearing_VVG as_IN the_DT receiver_NN moves_VVZ out_RP across_IN slope_NN (_( mode_NN shadow_NN zone_NN effect_NN )_) ._SENT 
+The_DT reader_NN is_VBZ referred_VVN to_TO [_SYM 15_CD ]_SYM for_IN a_DT more_RBR detailed_JJ description_NN of_IN the_DT 3-D_JJ effects_NNS experienced_VVN by_IN the_DT propagating_VVG modes_NNS ._SENT 
+Though_IN less_RBR evident_JJ for_IN the_DT present_JJ wedge-like_JJ geometry_NN than_IN for_IN the_DT classical_JJ 3-D_NN Acoustical_JJ Society_NP of_IN America_NP (_( ASA_NP )_) wedge_NN benchmark_NN (_( characterized_VVN by_IN a_DT 2.86°_JJ bottom_NN slope_NN )_) ,_, a_DT closer_JJR examination_NN of_IN the_DT 3-D_NN received_VVD signals_NNS reveals_VVZ that_IN the_DT frequency_NN content_NN of_IN a_DT given_VVN wave_NN packet_NN varies_VVZ in_IN range_NN (_( compare_VV ,_, for_IN instance_NN ,_, the_DT wave_NN packet_NN associated_VVN to_TO mode_NN 3_CD at_IN ranges_NNS of_IN 1.5_CD and_CC 2_CD km_NN )_) ._SENT 
+This_DT effect_NN ,_, which_WDT appears_VVZ first_JJ for_IN higher_JJR modes_NNS ,_, is_VBZ known_VVN as_IN the_DT range_NN dependence_NN of_IN the_DT cut-on_NP frequency_NN (_( or_CC ,_, equivalently_RB ,_, the_DT frequency_NN dependence_NN of_IN mode_NN cutoff_NN range_NN )_) of_IN a_DT propagating_VVG mode_NN [_SYM 12_CD ]_SYM ,_, [_SYM 13_CD ]_SYM ,_, [_SYM 31_CD ]_SYM ._SENT 
+Interestingly_RB ,_, we_PP can_MD observe_VV (_( see_VV ,_, for_IN instance_NN ,_, at_IN a_DT distance_NN of_IN 5_CD km_NN )_) ,_, looking_VVG at_IN the_DT first_JJ 3-D_JJ modal_JJ arrival_NN associated_VVN to_TO mode_NN 1_CD ,_, that_DT high_JJ frequencies_NNS arrive_VVP before_IN low_JJ frequencies_NNS (_( similar_JJ to_TO the_DT 2-D_JJ situation_NN )_) whereas_IN on_IN the_DT contrary_JJ ,_, low_JJ frequencies_NNS arrive_VVP before_IN high_JJ frequencies_NNS for_IN the_DT second_JJ 3-D_NN arrival_NN of_IN mode_NN 1._CD The_DT same_JJ observation_NN can_MD be_VB made_VVN when_WRB comparing_VVG the_DT two_CD adjacent_JJ 3-D_JJ modal_JJ arrivals_NNS of_IN mode_NN 2_CD at_IN a_DT distance_NN of_IN 2.5_CD km_NN ._SENT 
+As_IN clearly_RB shown_VVN hereafter_RB ,_, the_DT TF_NP analysis_NN allows_VVZ a_DT much_RB better_JJR visualization_NN and_CC understanding_NN of_IN this_DT effect_NN ._SENT 
+B._NP Time-Frequency_NP Analysis_NP 1._CD Spectrograms_NNS of_IN 2-D_NN and_CC 3-D_NN Signals_NNS Let_VVD s(t_NP )_) denote_VVP the_DT time-domain_NP signal_NN received_VVD on_IN a_DT single_JJ receiver_NN after_IN propagating_VVG in_IN the_DT wedge-shaped_JJ oceanic_JJ waveguide_NN described_VVD above_RB ,_, computed_VVD using_VVG either_DT 2-D_JJ calculation_NN or_CC fully_RB 3-D_JJ calculation_NN ._SENT 
+The_DT time-domain_NP signal_NN s(t_NN )_) can_MD be_VB brought_VVN into_IN the_DT TF_NN domain_NN using_VVG short_JJ time_NN Fourier_NN transform_VV (_( STFT_NP )_) as_RB follows_VVZ [_SYM 1_CD ]_SYM :_: @(1_JJ )_) where_WRB an_DT asterisk_NN denotes_VVZ complex_JJ conjugation_NN ._SENT 
+In_IN (_( 1_LS )_) ,_, w(t_NP )_) denotes_VVZ a_DT window_NN function_NN centered_VVN around_IN zero_CD ._SENT 
+Spectrograms_NP (_( SPs_NP )_) of_IN the_DT received_VVN signals_NNS s(t_NN )_) are_VBP then_RB given_VVN by_IN @(2_NP )_) Fig_NN ._SENT 
+2_CD shows_NNS the_DT SPs_NNS of_IN the_DT received_VVN signals_NNS at_IN a_DT depth_NN of_IN 8_CD m_NN ,_, corresponding_JJ to_TO 2-D_JJ computations_NNS ,_, after_IN propagation_NN across_IN slope_NN for_IN several_JJ ranges_NNS (_( from_IN 1_CD to_TO 4_CD km_NN )_) ._SENT 
+The_DT gray_JJ curves_NNS superimposed_VVN on_IN the_DT SPs_NNS in_IN each_DT panel_NN correspond_VV to_TO the_DT 2-D_JJ theoretical_JJ dispersion_NN curves_NNS of_IN the_DT four_CD propagating_VVG modes_NNS ,_, given_VVN by_IN tm(f)=r/cg,m(f_NP )_) ,_, 1≤m≤4_NP ,_, where_WRB r_NN denotes_VVZ the_DT source–receiver_NN distance_NN and_CC cg,m(f_NN )_) denotes_VVZ the_DT group_NN speed_NN of_IN mode_NN m_NN at_IN frequency_NN f._NN Hence_RB ,_, tm(f_NP )_) corresponds_VVZ to_TO the_DT arrival_NN time_NN of_IN mode_NN m_NN at_IN frequency_NN f._JJ Note_NN that_IN ,_, for_IN each_DT mode_NN ,_, the_DT part_NN of_IN the_DT theoretical_JJ dispersion_NN curve_NN corresponding_JJ to_TO frequencies_NNS below_IN the_DT Airy_JJ phase_NN is_VBZ not_RB displayed_VVN ._SENT 
+The_DT SPs_NNS of_IN Fig_NN ._SENT 
+2_LS follow_VV the_DT form_NN of_IN the_DT dispersion_NN curves_NNS ,_, spread_VVN according_VVG to_TO the_DT window_NN function_NN used_VVD ._SENT 
+We_PP observe_VVP that_IN at_IN large_JJ ranges_NNS ,_, modes_NNS are_VBP well_RB separated_VVN in_IN the_DT TF_NN domain_NN ._SENT 
+For_IN relatively_RB smaller_JJR source–receiver_NN ranges_NNS ,_, the_DT modes_NNS tend_VVP to_TO overlap_VV (_( generating_NN interferences_NNS )_) and_CC become_VV thus_RB more_RBR hardly_RB distinguishable_JJ in_IN the_DT TF_NN domain_NN (_( see_VV [_SYM 4_CD ]_SYM for_IN a_DT detailed_JJ study_NN on_IN modal_JJ TF_NN separability_NN )_) ._SENT 
+For_IN a_DT given_VVN mode_NN m_NN ,_, the_DT SPs_NNS confirm_VVP that_IN the_DT early_JJ arrivals_NNS of_IN mode_NN m_NN consist_VVP of_IN high-frequency_NN contributions_NNS ,_, whereas_IN the_DT late_JJ arrivals_NNS of_IN mode_NN m_NN have_VHP a_DT low-frequency_NN content_NN ._SENT 
+Fig_NN ._SENT 
+2.Spectrograms_NNS of_IN the_DT simulated_JJ signals_NNS (_( receiver_NN depth_NN :_: 8_CD m_NN )_) corresponding_JJ to_TO 2-D_VV computations_NNS at_IN several_JJ across-slope_NN distances_NNS (_( from_IN 1_CD to_TO 4_CD km_NN )_) ._SENT 
+The_DT gray_JJ curves_NNS superimposed_VVN on_IN the_DT SPs_NNS in_IN each_DT panel_NN correspond_VV to_TO the_DT 2-D_JJ theoretical_JJ dispersion_NN curves_NNS of_IN the_DT propagating_VVG modes_NNS ._SENT 
+The_DT SPs_NNS corresponding_JJ to_TO fully_RB 3-D_JJ computations_NNS are_VBP shown_VVN in_IN Fig_NN ._SENT 
+3_CD for_IN several_JJ source–receiver_NN distances_NNS (_( from_IN 1_CD to_TO 5_CD km_NN with_IN an_DT increment_NN of_IN 0.5_CD km_NN )_) ._SENT 
+As_RB in_IN Fig_NN ._SENT 
+2_LS ,_, they_PP correspond_VV to_TO receivers_NNS at_IN a_DT 8-m_NN fixed_VVN depth_NN situated_VVN in_IN the_DT across-slope_NN direction_NN ._SENT 
+Several_JJ observations_NNS can_MD be_VB made_VVN ._SENT 
+As_RB in_IN Fig_NN ._SENT 
+2_LS ,_, the_DT SPs_NNS enable_VVP the_DT separation_NN of_IN the_DT modal_JJ arrivals_NNS ._SENT 
+However_RB ,_, unlike_IN in_IN 2-D_NN ,_, one_CD mode_NN can_MD now_RB have_VH two_CD distinct_JJ arrivals_NNS at_IN some_DT ranges_NNS and_CC be_VB missing_VVG at_IN others_NNS ._SENT 
+For_IN instance_NN ,_, as_RB in_IN 2-D_NN ,_, there_EX is_VBZ one_CD single_JJ arrival_NN of_IN mode_NN 3_CD at_IN both_DT r=_JJ 1_CD km_NN and_CC r=_JJ 1.5_CD km_NN ;_: there_EX are_VBP two_CD arrivals_NNS of_IN mode_NN 3_CD at_IN r=_NP 2_CD km_NN ;_: mode_NN 3_CD is_VBZ absent_JJ for_IN ranges_NNS larger_JJR than_IN 2.5_CD km_NN ._SENT 
+Note_NN that_IN ,_, if_IN present_NN ,_, the_DT second_JJ modal_JJ arrival_NN can_MD be_VB well_RB separated_VVN in_IN time_NN from_IN the_DT first_JJ modal_JJ arrival_NN (_( see_VV ,_, for_IN instance_NN ,_, at_IN distances_NNS ranging_VVG from_IN 2.5_CD to_TO 5_CD km_NN for_IN mode_NN 1_CD )_) but_CC can_MD also_RB be_VB merged_VVN with_IN the_DT first_JJ modal_JJ arrival_NN (_( see_VV at_IN r=_NP 3_CD and_CC 3.5_CD km_NN for_IN mode_NN 2_CD ;_: see_VV also_RB at_IN r=_NP 2_CD km_NN for_IN mode_NN 3_CD )_) ._SENT 
+For_IN each_DT mode_NN and_CC for_IN each_DT source–receiver_NN distance_NN ,_, the_DT TF_NN shape_NN of_IN the_DT first_JJ modal_JJ arrival_NN approximately_RB follows_VVZ the_DT TF_NN shape_NN of_IN the_DT corresponding_JJ 2-D_NN predictions_NNS shown_VVN in_IN Fig_NN ._SENT 
+2_LS ,_, with_IN higher_JJR frequencies_NNS arriving_VVG first_JJ ._SENT 
+The_DT shape_NN of_IN the_DT second_JJ modal_JJ arrival_NN ,_, when_WRB present_JJ ,_, looks_VVZ like_IN the_DT shape_NN of_IN the_DT first_JJ one_CD but_CC is_VBZ reversed_VVN in_IN time_NN ,_, low_JJ frequencies_NNS arriving_VVG now_RB first_JJ ._SENT 
+We_PP note_VVP that_IN at_IN short_JJ distances_NNS (_( e.g._FW ,_, at_IN r=_NP 1_CD km_NN )_) ,_, each_DT mode_NN corresponds_VVZ to_TO an_DT almost_RB direct_JJ propagation_NN between_IN the_DT source_NN and_CC the_DT receiver_NN and_CC thus_RB includes_VVZ nearly_RB no_DT 3-D_JJ effects_NNS ._SENT 
+As_IN a_DT consequence_NN ,_, its_PP$ shape_NN in_IN the_DT TF_NP domain_NN deviates_VVZ only_RB very_RB slightly_RB from_IN the_DT 2-D_JJ theoretical_JJ dispersion_NN curve_NN (_( plotted_VVD in_IN gray_JJ for_IN comparison_NN )_) ._SENT 
+We_PP observe_VVP ,_, however_RB ,_, that_IN even_RB at_IN r=_NP 1_CD km_NN ,_, unlike_IN the_DT first_JJ three_CD propagating_VVG modes_NNS ,_, mode_NN 4_CD deviates_NNS remarkably_RB from_IN its_PP$ 2-D_JJ dispersion_NN curve_NN ,_, indicating_VVG that_IN the_DT 3-D_JJ effects_NNS experienced_VVN by_IN mode_NN 4_CD cannot_MD be_VB neglected_VVN at_IN r=_NP 1_CD km_NN ._SENT 
+As_IN the_DT receiver_NN moves_VVZ out_RP in_IN range_NN ,_, we_PP observe_VVP a_DT now_RB more_RBR pronounced_JJ deviation_NN of_IN the_DT first_JJ arrival_NN of_IN each_DT mode_NN from_IN the_DT corresponding_JJ 2-D_NN dispersion_NN curve_NN ,_, this_DT deviation_NN appearing_VVG first_JJ for_IN higher_JJR modes_NNS than_IN for_IN lower_JJR modes_NNS ._SENT 
+We_PP observe_VVP also_RB that_IN for_IN a_DT given_VVN propagating_VVG mode_NN ,_, as_IN the_DT receiver_NN moves_VVZ out_RP in_IN range_NN ,_, low_JJ frequencies_NNS disappear_VVP before_IN high_JJ frequencies_NNS ._SENT 
+This_DT phenomenon_NN ,_, which_WDT is_VBZ due_JJ to_TO horizontal_JJ refraction_NN effects_NNS ,_, is_VBZ precisely_RB the_DT range_NN dependence_NN of_IN the_DT cut-on_NP frequency_NN of_IN a_DT propagating_VVG mode_NN ,_, as_RB discussed_VVN in_IN Section_NP II-A_NP ._SENT 
+Fig_NN ._SENT 
+3.Spectrograms_NNS of_IN the_DT simulated_JJ signals_NNS (_( receiver_NN depth_NN :_: 8_CD m_NN )_) corresponding_JJ to_TO fully_RB 3-D_VV computations_NNS at_IN several_JJ across-slope_NN distances_NNS (_( from_IN 1_CD to_TO 5_CD km_NN )_) ._SENT 
+The_DT gray_JJ curves_NNS superimposed_VVN on_IN the_DT SPs_NNS in_IN each_DT panel_NN correspond_VV to_TO the_DT 2-D_JJ theoretical_JJ dispersion_NN curves_NNS of_IN the_DT propagating_VVG modes_NNS ._SENT 
+2._CD Mode_NP Ray_NP Analogies_NNS All_PDT these_DT observations_NNS can_MD be_VB explained_VVN using_VVG mode_NN ray_NN analogies_NNS as_RB follows_VVZ ._SENT 
+First_RB ,_, recall_VVP that_IN ,_, when_WRB considering_VVG 3-D_JJ wedge-like_JJ oceanic_JJ waveguides_NNS ,_, modes_NNS can_MD be_VB viewed_VVN ,_, at_IN a_DT fixed_VVN frequency_NN ,_, as_IN rays_NNS propagating_VVG along_IN hyperbolic_JJ paths_NNS in_IN the_DT horizontal_JJ plane_NN ,_, being_VBG horizontally_RB refracted_VVN toward_IN regions_NNS of_IN deeper_JJR water_NN [_SYM 36_CD ]_SYM ._SENT 
+Modal_JJ ray_NN paths_NNS can_MD be_VB easily_RB determined_VVN using_VVG the_DT method_NN given_VVN in_RB [_SYM 22_CD ]_SYM ._SENT 
+Let_VV Γm,ϕ0_NP denote_VV the_DT modal_JJ ray_NN path_NN that_WDT corresponds_VVZ to_TO the_DT mth_JJ mode_NN and_CC makes_VVZ initially_RB an_DT angle_NN ϕ0∈_NN [_SYM −90°_NP ,_, 90°_NN ]_SYM with_IN respect_NN to_TO the_DT across-slope_NN direction_NN :_: ϕ0=90∘_NP (_( ϕ0=−90∘_NP )_) corresponds_VVZ to_TO an_DT initial_JJ launch_NN in_IN the_DT upslope_NN direction_NN (_( in_IN the_DT downslope_NN direction_NN )_) and_CC ϕ0=0∘_JJ points_NNS across_IN slope_NN ._SENT 
+For_IN a_DT wedge-shaped_JJ waveguide_NN ,_, and_CC according_VVG to_TO a_DT Cartesian_JJ coordinate_VV system_NN centered_VVN on_IN the_DT source_NN with_IN the_DT x-axis_NN (_( resp_NN ._SENT 
+,_, y-axis_NP )_) corresponding_JJ to_TO the_DT across-slope_NN (_( resp_NN ._SENT 
+,_, upslope_NP )_) direction_NN ,_, the_DT water_NN depth_NN h_NN depends_VVZ on_IN the_DT y_NN variable_NN only_RB and_CC the_DT modal_JJ ray_NN path_NN Γm,ϕ0_NN can_MD be_VB viewed_VVN as_IN the_DT graph_NN of_IN function_NN x⟼ym,ϕ0(x_NN )_) satisfying_VVG the_DT following_VVG first-order_NN nonlinear_JJ ordinary_JJ differential_NN equation_NN :_: @(3_NP )_) and_CC y(x=0)=0_NP ._SENT 
+In_IN (_( 3_LS )_) ,_, cm_NP is_VBZ the_DT y-dependent_JJ phase_NN velocity_NN of_IN the_DT mth_JJ mode_NN satisfying_VVG cw<cm(y_NN )_) <csed and cm(y=0)=cr,m, with cr,m the horizontal phase velocity of the mth mode at the source location. The value of cm(y) for any given y is numerically evaluated by solving the characteristic equation @ where ηm(y) and γm(y) are defined by @ with ω=2πf. Modal rays, traveling first upslope (i.e., ϕ0> 0_CD )_) ,_, turn_VVP back_RB downslope_VV on_IN condition_NN that_IN their_PP$ grazing_NN angles_NNS do_VVP not_RB exceed_VV the_DT critical_JJ grazing_NN angle_NN ,_, leading_VVG to_TO a_DT shadow_NN zone_NN region_NN in_IN the_DT across-slope_NN direction_NN at_IN a_DT sufficiently_RB large_JJ distance_NN from_IN the_DT source_NN (_( the_DT so-called_JJ mode_NN cutoff_NN range_NN )_) ._SENT 
+The_DT cutoff_NN range_NN of_IN a_DT given_VVN mode_NN is_VBZ shifted_VVN out_RP in_IN range_NN with_IN increasing_VVG frequency_NN (_( see_VV ,_, for_IN instance_NN ,_, [_SYM 12]–[13][14_NP ]_SYM ,_, [_SYM 31_CD ]_SYM ,_, and_CC [_SYM 32_CD ]_SYM )_) ._SENT 
+Considering_VVG a_DT broadband_NN source_NN pulse_NN ,_, this_DT means_VVZ that_IN the_DT extinction_NN of_IN a_DT given_VVN modal_JJ wave_NN packet_NN ,_, instead_RB of_IN being_VBG abrupt_JJ ,_, takes_VVZ place_NN in_IN an_DT extended_JJ region_NN along_IN the_DT across-slope_NN direction_NN ._SENT 
+This_DT is_VBZ what_WP the_DT SPs_NNS of_IN Fig_NN ._SENT 
+3_CD show_NN for_IN modes_NNS 4_CD ,_, 3_CD ,_, and_CC 2_CD ;_: a_DT larger_JJR maximum_NN computation_NN range_NN would_MD be_VB required_VVN to_TO see_VV the_DT same_JJ effect_NN for_IN mode_NN 1._CD Assuming_VVG that_IN ,_, at_IN a_DT given_JJ frequency_NN f_SYM ,_, the_DT receiver_NN range_NN is_VBZ less_JJR than_IN the_DT cutoff_NN range_NN of_IN mode_NN m_NN ,_, and_CC depending_VVG on_IN its_PP$ position_NN along_IN the_DT across-slope_NN direction_NN ,_, a_DT receiver_NN may_MD see_VV either_RB one_CD single_JJ arrival_NN of_IN mode_NN m_NN ,_, or_CC two_CD distinct_JJ arrivals_NNS of_IN the_DT same_JJ mode_NN m._NN In_IN the_DT latter_JJ case_NN ,_, the_DT first_JJ mode_NN arrival_NN corresponds_VVZ to_TO a_DT ray_NN launched_VVN at_IN a_DT low_JJ horizontal_JJ angle_NN ϕ0,1>0_NN with_IN respect_NN to_TO the_DT across-slope_NN direction_NN ,_, and_CC the_DT second_NN to_TO a_DT ray_NN launched_VVN at_IN a_DT higher_JJR horizontal_JJ angle_NN ϕ0,2>ϕ0,1_NN ._SENT 
+Note_NN that_IN the_DT first_JJ and_CC second_JJ arrivals_NNS of_IN the_DT same_JJ mode_NN are_VBP often_RB referred_VVN to_TO in_IN the_DT literature_NN as_IN “direct”_JJ arrival_NN and_CC “echo.”_NN The_DT paths_NNS of_IN these_DT first_JJ and_CC second_JJ eigenrays_NNS depend_VVP on_IN frequency_NN and_CC source–receiver_NN range_NN ._SENT 
+For_IN example_NN ,_, the_DT characteristics_NNS of_IN the_DT modal_JJ rays_NNS associated_VVN to_TO mode_NN 2_CD launched_VVN from_IN the_DT source_NN and_CC connected_VVN with_IN a_DT receiver_NN in_IN the_DT across-slope_NN direction_NN are_VBP given_VVN in_IN Table_NN I_NN for_IN three_CD frequencies_NNS (_( f=_NP 125_CD ,_, 150_CD ,_, and_CC 175_CD Hz_NP )_) within_IN the_DT frequency_NN band_NN of_IN the_DT source_NN pulse_NN and_CC for_IN two_CD source–receiver_NN ranges_NNS (_( r=_NP 2.5_CD and_CC 3_CD km_NN )_) ._SENT 
+The_DT length_NN and_CC the_DT travel_NN time_NN of_IN a_DT modal_JJ eigenray_NN path_NN ,_, denoted_VVD ,_, respectively_RB ,_, Lϕ0_NN and_CC tϕ0_NN in_IN Table_NN I_PP ,_, are_VBP obtained_VVN by_IN integrating_VVG along_IN the_DT curve_NN Γm,ϕ0_NN as_RB follows_VVZ :_: @_SYM where_WRB cg,m_NP denotes_VVZ the_DT y-dependent_JJ group_NN speed_NN of_IN mode_NN m._JJ Note_NN that_IN there_EX are_VBP no_DT data_NNS at_IN 125_CD Hz_NP in_IN Table_NN I_NN for_IN a_DT receiver_NN range_NN of_IN 3_CD km_NN (_( which_WDT is_VBZ beyond_IN the_DT cutoff_NN range_NN of_IN mode_NN 2_CD at_IN 125_CD Hz_NP )_) ._SENT 
+Table_NN I_NN Characteristics_NNS (_( for_IN several_JJ frequencies_NNS within_IN the_DT frequency_NN band_NN of_IN the_DT source_NN pulse_NN )_) of_IN the_DT modal_JJ rays_NNS associated_VVN to_TO mode_NN 2_CD launched_VVN from_IN the_DT source_NN and_CC connected_VVN with_IN a_DT receiver_NN in_IN the_DT across-slope_NN direction_NN ._SENT 
+The_DT angle_NN ϕ0_NN Denotes_VVZ the_DT Initial_JJ Launch_NN Angle_NP (_( ϕ0=90∘_NP Points_NP Upslope_NP and_CC ϕ0=0∘_NP Points_NP Across_IN Slope_NP )_) of_IN a_DT Modal_JJ Eigenray_NN ,_, Lϕ0_NP Denotes_VVZ the_DT Length_NN of_IN a_DT Modal_JJ Eigenray_NN Path_NN ,_, and_CC tϕ0_NP denotes_VVZ its_PP$ travel_NN time_NN Let_VV us_PP analyze_VV first_RB the_DT frequency_NN content_NN of_IN the_DT first_JJ arrival_NN (_( i.e._FW ,_, the_DT “direct”_JJ arrival_NN )_) of_IN a_DT mode_NN ._SENT 
+For_IN a_DT given_VVN mode_NN m_NN and_CC a_DT fixed_VVN source–receiver_NN range_NN ,_, ϕ0,1_JJ decreases_NNS as_IN frequency_NN increases_NNS ._SENT 
+In_IN other_JJ words_NNS ,_, the_DT higher_JJR frequency_NN paths_NNS deviate_VVP less_JJR and_CC less_JJR from_IN the_DT straight_JJ line_NN connecting_VVG the_DT source_NN and_CC the_DT receiver_NN as_IN frequency_NN increases_NNS (_( see_VV Fig_NN ._SENT 
+4_LS )_) ._SENT 
+Therefore_RB ,_, the_DT leading_VVG edge_NN of_IN the_DT first_JJ arrival_NN of_IN mode_NN m_NN consists_VVZ of_IN high-frequency_NN contributions_NNS and_CC the_DT trailing_VVG edge_NN consists_VVZ of_IN low-frequency_NN contributions_NNS ._SENT 
+This_DT is_VBZ similar_JJ to_TO what_WP was_VBD observed_VVN for_IN the_DT single_JJ arrival_NN of_IN each_DT propagating_VVG mode_NN for_IN the_DT 2-D_JJ Pekeris_NN waveguide_NN (_( see_VV the_DT 2-D_JJ SPs_NNS shown_VVN in_IN Fig_NN ._SENT 
+2_LS )_) ._SENT 
+For_IN instance_NN ,_, for_IN mode_NN 2_CD ,_, at_IN a_DT source–receiver_NN range_NN of_IN 2.5_CD km_NN ,_, ϕ0,1_NN is_VBZ equal_JJ to_TO 10.75°_NP (_( arrival_NN time_NN :_: 1.743_CD s_NN )_) at_IN 125_CD Hz_NP and_CC ϕ0,1_NN reduces_VVZ to_TO 4.1°_NP (_( arrival_NN time_NN :_: 1.704_CD s_NN )_) at_IN 175_CD Hz_NP ._SENT 
+The_DT 175-Hz_NP eigenray_NP arrives_VVZ thus_RB ≈0.039_JJ s_NN before_IN the_DT 125-Hz_NP eigenray_NP at_IN 2.5_CD km_NN ._SENT 
+It_PP is_VBZ worth_JJ noting_VVG that_IN ,_, for_IN each_DT frequency_NN ,_, ϕ0,1_JJ (_( i.e._FW ,_, the_DT initial_JJ bending_VVG of_IN the_DT corresponding_JJ eigenray_NN path_NN )_) ,_, which_WDT is_VBZ relatively_RB low_JJ at_IN small_JJ source–receiver_NN ranges_NNS ,_, increases_NNS as_IN the_DT receiver_NN moves_VVZ out_RP in_IN range_NN (_( e.g._FW ,_, at_IN 150_CD Hz_NP ,_, ϕ0,1=5.9∘_NN at_IN r=_NP 2.5_CD km_NN and_CC ϕ0,1=9.85∘_NN at_IN r=_NP 3_CD km_NN )_) ._SENT 
+This_DT explains_VVZ why_WRB the_DT shape_NN of_IN the_DT first_JJ arrival_NN of_IN each_DT mode_NN deviates_VVZ more_JJR and_CC more_JJR in_IN the_DT TF_NN domain_NN from_IN the_DT corresponding_JJ theoretical_JJ 2-D_NN dispersion_NN curve_NN as_IN the_DT receiver_NN moves_VVZ out_RP in_IN range_NN ._SENT 
+Fig_NN ._SENT 
+4.Modal_JJ rays_NNS in_IN the_DT (_( horizontal_NN )_) xy-plane_NN associated_VVN to_TO the_DT same_JJ mode_NN ,_, launched_VVN from_IN the_DT source_NN S_NP and_CC connected_VVN with_IN a_DT receiver_NN R_NN positioned_VVN along_IN the_DT across-slope_NN direction_NN ,_, at_IN two_CD distinct_JJ frequencies_NNS f1_JJ (_( solid_JJ lines_NNS )_) and_CC f2_NP (_( dashed_VVN lines_NNS )_) with_IN f2>f1_NN ._SENT 
+Let_VV us_PP analyze_VV now_RB the_DT frequency_NN content_NN of_IN the_DT second_JJ arrival_NN (_( i.e._FW ,_, the_DT “echo”_NN )_) of_IN a_DT mode_NN ._SENT 
+As_IN illustrated_VVN in_IN Fig_NN ._SENT 
+4_LS ,_, for_IN a_DT given_VVN mode_NN m_NN and_CC a_DT fixed_VVN source–receiver_NN range_NN ,_, ϕ0,2_NP now_RB increases_VVZ as_IN frequency_NN increases_NNS ._SENT 
+The_DT corresponding_JJ eigenray_NN path_NN penetrates_VVZ farther_RBR into_IN the_DT shallower_JJR portion_NN of_IN the_DT 3-D_JJ wedge-shaped_JJ waveguide_NN as_IN frequency_NN increases_NNS ._SENT 
+The_DT low-frequency_NN paths_NNS are_VBP thus_RB shorter_JJR than_IN the_DT high-frequency_NN paths_NNS ,_, and_CC low_JJ frequencies_NNS arrive_VVP now_RB before_IN high_JJ frequencies_NNS ._SENT 
+The_DT second_JJ arrival_NN of_IN a_DT mode_NN appears_VVZ thus_RB reversed_VVN in_IN time_NN in_IN the_DT TF_NN domain_NN ._SENT 
+For_IN instance_NN ,_, at_IN a_DT source–receiver_NN range_NN of_IN 2.5_CD km_NN ,_, ϕ0,2=15.6∘_NP (_( arrival_NN time_NN :_: 1.773_CD s_NN )_) at_IN 125_CD Hz_NP and_CC ϕ0,2=21.7∘_NP (_( arrival_NN time_NN :_: 1.814_CD s_NN )_) at_IN 175_CD Hz_NP for_IN mode_NN 2._CD Unlike_IN the_DT first_JJ arrival_NN of_IN mode_NN 2_CD ,_, the_DT 125-Hz_NP eigenray_NP for_IN the_DT second_JJ arrival_NN of_IN mode_NN 2_CD arrives_VVZ ≈0.041_JJ s_NNS before_IN the_DT corresponding_JJ 175-Hz_NP eigenray_NP at_IN r=_NP 2.5_CD km_NN ._SENT 
+<Section> 3._CD Application_NN </Section> The_DT main_JJ idea_NN of_IN this_DT section_NN is_VBZ to_TO demonstrate_VV the_DT pertinence_NN of_IN analyzing_VVG 3-D_JJ effects_NNS using_VVG TF_NN analysis_NN ._SENT 
+For_IN this_DT purpose_NN ,_, we_PP propose_VVP an_DT algorithm_NN allowing_VVG estimation_NN of_IN the_DT seabed_NN slope_NN using_VVG simple_JJ TF_NN analysis_NN ._SENT 
+Classical_JJ single–receiver_NN inversion_NN schemes_NNS based_VVN on_IN modal_JJ dispersion_NN [_SYM 8]–[9][10_NP ]_SYM in_IN 2-D_JJ waveguides_NNS estimate_VVP dispersion_NN curves_NNS tm(f_NN )_) from_IN the_DT received_VVN signal_NN ,_, and_CC compare_VV them_PP to_TO parameter-dependent_JJ replicas_NNS tm(f,α_NN )_) ,_, where_WRB α_NP is_VBZ a_DT set_NN of_IN parameters_NNS that_WDT characterize_VVP the_DT oceanic_JJ environment_NN ._SENT 
+However_RB ,_, dispersion_NN curve_NN estimation_NN requires_VVZ dedicated_JJ TF_NN methods_NNS ,_, even_RB in_IN the_DT classical_JJ 2-D_JJ case_NN [_SYM 2_CD ]_SYM ,_, [_SYM 3_CD ]_SYM ,_, [_SYM 5_CD ]_SYM ._SENT 
+The_DT proposed_VVN algorithm_NN ,_, although_IN not_RB based_VVN on_IN dispersion_NN curves_NNS ,_, takes_VVZ also_RB advantage_VV from_IN the_DT mode_NN TF_NN localization_NN ._SENT 
+It_PP uses_VVZ classical_JJ STFT_NN and_CC does_VVZ not_RB require_VV other_JJ advanced_JJ TF_NN processing_NN ._SENT 
+A._NP Methodology_NN The_DT algorithm_NN compares_VVZ the_DT received_VVN signal_NN smes(t_NN )_) with_IN simulated_JJ replicas_NNS s(t,α_NN )_) ,_, where_WRB α_NP is_VBZ the_DT seabed_NN slope_NN used_VVN to_TO compute_VV the_DT replicas_NNS ._SENT 
+However_RB ,_, the_DT matching_VVG function_NN is_VBZ computed_VVN in_IN the_DT TF_NN domain_NN ,_, and_CC focuses_VVZ particularly_RB on_IN specific_JJ regions_NNS where_WRB modal_JJ energy_NN is_VBZ concentrated_VVN ._SENT 
+More_RBR specifically_RB ,_, the_DT algorithm_NN finds_VVZ energetic_JJ TF_NN regions_NNS corresponding_JJ to_TO a_DT given_VVN slope_NN α_NN ,_, and_CC looks_VVZ whether_IN the_DT corresponding_JJ TF_NN regions_NNS of_IN the_DT received_VVN signal_NN are_VBP energetic_JJ as_IN well_RB ._SENT 
+To_TO do_VV so_RB ,_, time-domain_NP replicas_NNS s(t,α_NN )_) are_VBP computed_VVN using_VVG 3DWAPE_NN and_CC their_PP$ SPs(t,f,α_NN )_) are_VBP computed_VVN using_VVG classical_JJ signal_NN processing_NN routines_NNS (_( see_VV Section_NP II_NP )_) ._SENT 
+Then_RB ,_, a_DT TF_NN masking_VVG function_NN M(t,f,α_NN )_) is_VBZ defined_VVN for_IN each_DT replica_NN (_( for_IN an_DT example_NN ,_, see_VV Fig_NN ._SENT 
+5_LS )_) ._SENT 
+The_DT mask_NN M(t,f,α_NN )_) is_VBZ a_DT binary_JJ map_NN of_IN the_DT TF_NN domain_NN with_IN 1-values_NNS where_WRB modal_JJ energy_NN is_VBZ important_JJ and_CC 0-values_NNS elsewhere_RB ._SENT 
+It_PP is_VBZ defined_VVN by_IN comparing_VVG SP_NP values_NNS with_IN an_DT energy_NN threshold_NN T0_NN as_RB follows_VVZ :_: @(4_NP )_) Note_VV that_IN the_DT threshold_NN value_NN 0<T0(α)<1_NN depends_VVZ on_IN α_NN ._SENT 
+Indeed_RB ,_, for_IN estimation_NN purpose_NN ,_, it_PP is_VBZ required_VVN that_IN the_DT mask_NN energy_NN (_( i.e._FW ,_, the_DT number_NN of_IN 1-values_NNS )_) be_VB constant_JJ for_IN every_DT replicas_NNS ._SENT 
+Mathematically_RB ,_, the_DT threshold_NN value_NN T0(α_NN )_) is_VBZ defined_VVN for_IN each_DT α_NN under_IN the_DT constraint_NN ∫t∫f[M(t,f,α)]2dtdf=A_NN ,_, where_WRB A_DT is_VBZ a_DT constant_JJ ._SENT 
+Specific_JJ A_DT value_NN is_VBZ chosen_VVN so_RB that_IN the_DT masks_NNS M(t,f,α_NN )_) highlight_VV the_DT TF_NN modal_JJ patterns_NNS ._SENT 
+Fig_NN ._SENT 
+5.Computed_JJ masks_NNS (_( black=1,white=0_NP )_) for_IN range_NN r=_NP 3.5_CD km_NN and_CC slope_NN values_NNS from_IN 1°_NN to_TO 8°_NP ._SENT 
+To_TO quantify_VV the_DT match_NN between_IN the_DT received_VVN signal_NN smes(t_NN )_) and_CC the_DT replicas_NNS s(t,α_NN )_) ,_, a_DT criterion_NN function_NN J_NP is_VBZ defined_VVN as_IN the_DT amount_NN of_IN measured_VVN TF_NN energy_NN integrated_VVN inside_IN the_DT masks_NNS @(5_NN )_) where_WRB SPmes(t,f_NP )_) is_VBZ the_DT SP_NP of_IN the_DT received_VVN signal_NN smes(t_NN )_) ._SENT 
+Note_NN that_IN ∫t∫fSPmes(t,f)dtdf_NP corresponds_VVZ to_TO the_DT received_VVN signal_NN energy_NN ._SENT 
+The_DT criterion_NN J(α_NN )_) is_VBZ thus_RB the_DT energy_NN of_IN the_DT received_VVN signal_NN that_WDT is_VBZ concentrated_VVN into_IN a_DT TF_NN region_NN defined_VVN by_IN the_DT mask_NN M(t,f,α_NN )_) ._SENT 
+If_IN the_DT replica_NN s(t,α_NN )_) matches_VVZ the_DT received_VVN signal_NN smes(t_NN )_) ,_, then_RB the_DT mask_NN M(t,f,α_NN )_) corresponds_VVZ to_TO a_DT highly_RB energetic_JJ TF_NN region_NN ._SENT 
+Consequently_RB ,_, the_DT estimated_JJ slope_NN α�_NN �_NN is_VBZ the_DT one_CD that_WDT maximizes_VVZ J_NP @(6_NP )_) Estimation_NN of_IN α�_NP �_NP thus_RB requires_VVZ the_DT maximization_NN of_IN the_DT criterion_NN J._NP As_IN the_DT criterion_NN function_NN J_NP is_VBZ mono-dimensional_JJ ,_, its_PP$ maximization_NN can_MD be_VB obtained_VVN using_VVG a_DT simple_JJ grid_NN search_NN ._SENT 
+Note_NN that_IN the_DT masking_VVG process_NN ,_, given_VVN by_IN (_( 5_LS )_) and_CC (_( 6_CD )_) ,_, is_VBZ similar_JJ to_TO what_WP was_VBD done_VVN by_IN Gervaise_NP et_CC al_NP ._SENT 
+[_SYM 33_CD ]_SYM in_IN the_DT context_NN of_IN single-receiver_NP geoacoustic_JJ inversion_NN using_VVG broadband_NN ship_NN noise_NN ._SENT 
+B._NP Simulated_JJ Data_NP In_IN this_DT section_NN ,_, the_DT slope_NN estimation_NN algorithm_NN described_VVN in_IN Section_NP III-A_NP is_VBZ applied_VVN on_IN simulated_JJ data_NNS ._SENT 
+The_DT criterion_NN function_NN J(α_NN )_) will_MD be_VB maximized_VVN using_VVG grid_NN search_NN for_IN α_NN between_IN 1°_JJ (_( lower_VV bound_VVN )_) and_CC 8°_JJ (_( upper_JJ bound_VVN )_) with_IN a_DT discretization_NN step_NN of_IN 0.25°_NP ._SENT 
+Considered_VVN simulated_JJ signals_NNS are_VBP the_DT ones_NNS that_WDT have_VHP been_VBN used_VVN to_TO compute_VV the_DT SPs_NNS in_IN Fig_NN ._SENT 
+3._CD This_DT section_NN is_VBZ restricted_VVN to_TO ranges_NNS from_IN 1_CD to_TO 3.5_CD km_NN ,_, as_IN it_PP allows_VVZ meaningful_JJ comparisons_NNS with_IN the_DT available_JJ experimental_JJ data_NNS presented_VVN in_IN Section_NP IV_NP ._SENT 
+To_TO study_VV its_PP$ sensitivity_NN ,_, the_DT estimation_NN algorithm_NN is_VBZ applied_VVN on_IN noise-free_JJ simulated_JJ signals_NNS ._SENT 
+The_DT criterion_NN J_NP is_VBZ computed_VVN for_IN every_DT source–receiver_NN ranges_NNS (_( from_IN 1_CD to_TO 3.5_CD km_NN with_IN 0.5-km_NN steps_NNS )_) ._SENT 
+The_DT inversion_NN is_VBZ run_VVN for_IN three_CD sets_NNS of_IN threshold_NN value_NN :_: T1(α),T2(α_NP )_) ,_, and_CC T3(α_NP )_) ,_, so_IN that_WDT three_CD different_JJ criteria_NNS J1,J2_JJ ,_, and_CC J3_NP are_VBP computed_VVN for_IN each_DT range_NN ._SENT 
+As_IN explained_VVN in_IN Section_NP III-A_NP ,_, the_DT threshold_NN is_VBZ adapted_VVN for_IN each_DT replica_NN so_RB that_IN the_DT area_NN covered_VVN by_IN the_DT mask_NN M(t,f,α_NN )_) stays_VVZ constant_JJ during_IN the_DT inversion_NN ._SENT 
+Here_RB ,_, the_DT threshold_NN sets_VVZ T1(α),T2(α_JJ )_) ,_, and_CC T3(α_JJ )_) are_VBP chosen_VVN so_IN that_DT :_: for_IN a_DT given_VVN threshold_NN set_VVN Ti(α_NP )_) ,_, the_DT areas_NNS covered_VVN by_IN the_DT corresponding_JJ masks_NNS are_VBP constant_JJ ;_: the_DT mask_NN areas_NNS corresponding_JJ to_TO T2(α_NP )_) are_VBP 50_CD %_NN smaller_JJR than_IN for_IN T1(α_NP )_) ;_: the_DT mask_NN areas_NNS corresponding_JJ to_TO T3(α_NP )_) are_VBP 50_CD %_NN bigger_JJR than_IN for_IN T1(α_NP )_) ;_: the_DT three_CD average_JJ threshold_NN values_NNS denoted_VVD T1˜,T2˜_JJ ,_, and_CC T3˜_NP are_VBP equal_JJ to_TO 0.48_CD ,_, 0.65_CD ,_, and_CC 0.37_CD ,_, respectively_RB ._SENT 
+The_DT inversion_NN results_NNS are_VBP presented_VVN in_IN Fig_NN ._SENT 
+6._CD One_CD can_MD observe_VV that_IN ,_, whatever_WDT the_DT source–receiver_NN range_NN ,_, the_DT inversion_NN is_VBZ not_RB sensitive_JJ to_TO the_DT threshold_NN value_NN ._SENT 
+At_IN the_DT shortest_JJS range_NN (_( 1_CD km_NN )_) ,_, the_DT criterion_NN is_VBZ nearly_RB flat_JJ ,_, which_WDT means_VVZ that_IN ,_, at_IN that_DT range_NN ,_, the_DT estimation_NN sensitivity_NN is_VBZ very_RB poor_JJ ,_, and_CC one_PP can_MD assume_VV that_DT slope_NN estimation_NN will_MD not_RB be_VB possible_JJ in_IN a_DT real_JJ case_NN scenario_NN ._SENT 
+This_DT can_MD be_VB explained_VVN by_IN looking_VVG at_IN the_DT corresponding_JJ SP_NP displayed_VVD in_IN the_DT upper_JJ left_JJ panel_NN of_IN Fig_NN ._SENT 
+3._CD As_RB discussed_VVN in_IN Section_NN II-B_NN ,_, at_IN that_DT distance_NN ,_, the_DT differences_NNS between_IN the_DT 3-D_JJ modal_JJ patterns_NNS of_IN modes_NNS 1–3_NN and_CC the_DT corresponding_JJ 2-D_JJ dispersion_NN curves_NNS are_VBP barely_RB visible_JJ ,_, which_WDT indicates_VVZ that_IN there_EX is_VBZ nearly_RB no_DT 3-D_JJ effects_NNS for_IN modes_NNS 1–3_JJ ._SENT 
+Although_IN mode_NN 4_CD appears_VVZ to_TO be_VB more_RBR affected_VVN by_IN 3-D_JJ effects_NNS ,_, it_PP overlaps_VVZ in_IN the_DT TF_NN domain_NN with_IN mode_NN 3._CD It_PP is_VBZ thus_RB difficult_JJ to_TO benefit_VV from_IN its_PP$ TF_NN dispersion_NN ,_, and_CC as_IN a_DT consequence_NN to_TO estimate_VV the_DT seabed_NN slope_NN ._SENT 
+Fig_NN ._SENT 
+6.Normalized_JJ criteria_NNS for_IN several_JJ source–receiver_NN ranges_NNS and_CC for_IN several_JJ threshold_NN values_NNS ._SENT 
+On_IN each_DT panel_NN ,_, J1_NN is_VBZ given_VVN by_IN the_DT solid_JJ line_NN ,_, J2_NP is_VBZ given_VVN by_IN the_DT dashed_VVN line_NN ,_, and_CC J3_NP is_VBZ given_VVN by_IN the_DT dotted_JJ line_NN ;_: the_DT vertical_JJ gray_JJ line_NN indicates_VVZ the_DT true_JJ value_NN (_( 4.5°_NP )_) of_IN the_DT bottom_JJ slope_NN ._SENT 
+When_WRB increasing_VVG the_DT source–receiver_NN range_NN :_: 1_LS )_) the_DT modal_JJ TF_NN separation_NN tends_VVZ to_TO increase_VV ;_: 2_LS )_) the_DT TF_NN shapes_VVZ of_IN the_DT “direct”_JJ arrivals_NNS differ_VVP more_JJR and_CC more_JJR from_IN the_DT corresponding_JJ 2-D_JJ dispersion_NN curves_NNS ;_: and_CC 3_LS )_) the_DT 3-D_JJ “echoes”_NN appear_VVP ._SENT 
+As_IN a_DT result_NN ,_, estimation_NN gains_NNS in_IN sensitivity_NN :_: the_DT criterion_NN main_JJ maximum_NN becomes_VVZ more_RBR and_CC more_RBR identifiable_JJ ._SENT 
+It_PP is_VBZ clear_JJ that_IN this_DT phenomenon_NN will_MD stop_VV if_IN one_PP goes_VVZ farther_RBR in_IN range_NN than_IN the_DT shadow_NN zone_NN of_IN mode_NN 1_CD (_( Section_NP II-A_NP )_) ._SENT 
+Another_DT interesting_JJ (_( but_RB penalizing_VVG )_) property_NN of_IN criterion_NN J_NP is_VBZ that_IN it_PP possesses_VVZ several_JJ ambiguity_NN sidelobes_NNS ,_, which_WDT can_MD be_VB attributed_VVN to_TO the_DT masking_VVG process_NN ._SENT 
+As_IN an_DT example_NN ,_, let_VV us_PP consider_VV the_DT 3.5-km_NN case_NN ._SENT 
+At_IN that_DT distance_NN ,_, the_DT computed_VVN criterion_NN J_NP exhibits_VVZ two_CD ambiguity_NN sidelobes_NNS corresponding_JJ to_TO slope_NN values_NNS of_IN 3°_JJ and_CC 6°_JJ (_( see_VV Fig_NN ._SENT 
+6_CD ,_, r=_NP 3.5_CD km_NN )_) ._SENT 
+Indeed_RB ,_, looking_VVG at_IN the_DT corresponding_JJ computed_VVN masks_NNS (_( see_VV Fig_NN ._SENT 
+5_LS ,_, slopes_VVZ 3°_NP and_CC 6°_NP )_) ,_, one_PP can_MD observe_VV that_IN they_PP possess_VVP 1-values_NNS at_IN locations_NNS in_IN the_DT TF_NN domain_NN where_WRB there_EX is_VBZ actually_RB energy_NN in_IN the_DT received_VVN signal_NN (_( displayed_VVN in_IN Fig_NN ._SENT 
+3_LS ,_, r=_NP 3.5_CD km_NN )_) ._SENT 
+More_RBR specifically_RB ,_, considering_VVG only_RB the_DT 6°_JJ replica_NN ,_, the_DT mask_NN focuses_VVZ on_IN the_DT two_CD arrivals_NNS (_( “direct”_JJ arrival_NN at_IN time_NN t≃_JJ 0.04_CD s_NNS and_CC its_PP$ “echo”_NN at_IN t≃_JJ 0.08_CD s_NNS )_) of_IN mode_NN 1_CD (_( see_VV Fig_NN ._SENT 
+5_LS ,_, slope_NN 6°_NN )_) ._SENT 
+Once_RB applied_VVN on_IN the_DT received_VVN signal_NN (_( see_VV Fig_NN ._SENT 
+6_CD ,_, r=_NP 3.5_CD km_NN )_) ,_, the_DT first_JJ part_NN of_IN the_DT mask_NN (_( t≃_NP 0.04_CD s_NN )_) integrates_VVZ the_DT energy_NN corresponding_JJ to_TO the_DT “direct”_JJ arrival_NN of_IN mode_NN 1_CD ,_, while_IN the_DT second_JJ part_NN of_IN the_DT mask_NN (_( t≃_NP 0.08_CD s_NN )_) integrates_VVZ the_DT energy_NN corresponding_JJ to_TO the_DT merger_NN of_IN both_DT “direct”_JJ arrival_NN and_CC “echo”_NN of_IN mode_NN 2._CD Consequently_RB ,_, although_IN the_DT replica_NN does_VVZ not_RB correspond_VV to_TO the_DT measured_VVN signal_NN ,_, the_DT mask_NN still_RB integrates_VVZ modal_JJ energy_NN ._SENT 
+This_DT phenomenon_NN generates_VVZ a_DT sidelobe_NN in_IN the_DT criterion_NN J._NP The_DT same_JJ kind_NN of_IN argument_NN can_MD be_VB retained_VVN to_TO justify_VV the_DT presence_NN of_IN other_JJ sidelobes_NNS ._SENT 
+Note_NN that_IN the_DT presence_NN of_IN nonnegligible_JJ sidelobes_NNS at_IN some_DT ranges_NNS is_VBZ a_DT penalizing_VVG factor_NN for_IN the_DT estimation_NN process_NN and_CC additional_JJ tests_NNS performed_VVN to_TO assess_VV the_DT estimation_NN algorithm_NN under_IN different_JJ signal-to-noise_NN ratio_NN (_( SNR_NP )_) conditions_NNS showed_VVD that_IN it_PP can_MD lead_VV to_TO wrong_JJ slope_NN estimation_NN under_IN low_JJ SNR_NP conditions_NNS (_( results_NNS not_RB shown_VVN here_RB )_) ._SENT 
+However_RB ,_, Section_NP IV_NP will_MD show_VV that_IN the_DT algorithm_NN is_VBZ robust_JJ enough_RB to_TO provide_VV good_JJ slope_NN estimation_NN on_IN experimental_JJ data_NNS ._SENT 
+Before_IN going_VVG further_JJR with_IN experimental_JJ data_NNS ,_, it_PP is_VBZ interesting_JJ to_TO test_VV the_DT robustness_NN of_IN the_DT inversion_NN method_NN when_WRB some_DT environmental_JJ parameters_NNS are_VBP not_RB known_VVN perfectly_RB ._SENT 
+In_IN particular_JJ ,_, it_PP may_MD be_VB unrealistic_JJ to_TO assume_VV that_IN the_DT seabed_NN geoacoustic_JJ parameters_NNS are_VBP known_VVN exactly_RB ._SENT 
+As_IN a_DT consequence_NN ,_, we_PP consider_VVP environmental_JJ mismatch_NN for_IN the_DT seabed_NN sound_NN speed_NN csed_VVD ._SENT 
+The_DT whole_JJ method_NN is_VBZ run_VVN with_IN replica_NN computed_VVN with_IN csed_VVN equal_JJ to_TO 1625_CD ,_, 1650_CD ,_, 1675_CD ,_, 1725_CD ,_, 1750_CD ,_, and_CC 1775_CD m/s_NNS ,_, while_IN the_DT true_JJ csed_JJ is_VBZ equal_JJ to_TO 1700_CD m/s_NNS ._SENT 
+The_DT corresponding_JJ slope_NN estimation_NN results_NNS are_VBP presented_VVN in_IN Table_NN II_NP (_( note_NN that_IN the_DT true_JJ slope_NN is_VBZ 4.5°_JJ )_) ._SENT 
+For_IN a_DT reasonable_JJ seabed_NN mismatch_NN (_( ±50_NP m/s_NP )_) ,_, the_DT slope_NN estimation_NN is_VBZ nearly_RB unaffected_JJ ,_, except_IN at_IN very_RB short_JJ ranges_NNS (_( i.e._FW ,_, ranges_VVZ less_JJR than_IN 1_CD km_NN )_) ._SENT 
+When_WRB mismatch_NN increases_NNS ,_, the_DT slope_NN estimation_NN result_NN deteriorates_VVZ ._SENT 
+Except_IN at_IN short_JJ ranges_NNS ,_, the_DT estimated_JJ slope_NN stays_VVZ in_IN the_DT order_NN of_IN magnitude_NN ._SENT 
+Table_NN II_NP Slope_NP estimation_NN result_NN when_WRB mismatch_NN in_IN the_DT seabed_NN sound_NN speed_NN is_VBZ considered_VVN ._SENT 
+The_DT true_JJ seabed_NN sound_NN speed_NN is_VBZ 1700_CD m/s_NNS while_IN the_DT replica_NN are_VBP computed_VVN with_IN 1625_CD ,_, 1650_CD ,_, 1725_CD ,_, 1750_CD ,_, and_CC 1775_CD m/s_NNS ._SENT 
+The_DT true_JJ slope_NN is_VBZ 4.5°_JJ <Section> 4._CD Experimental_JJ Data_NP </Section> To_TO demonstrate_VV the_DT practical_JJ capability_NN of_IN the_DT estimation_NN algorithm_NN ,_, it_PP is_VBZ applied_VVN on_IN small-scale_JJ experimental_JJ data_NNS ._SENT 
+The_DT scaled_VVN experiments_NNS were_VBD conducted_VVN in_IN July_NP 2007_CD in_IN the_DT large_JJ indoor_JJ tank_NN of_IN the_DT LMA-CNRS_NNS laboratory_NN in_IN Marseille_NP ,_, France_NP ._SENT 
+The_DT following_VVG paragraphs_NNS summarize_VV important_JJ experimental_JJ features_NNS while_IN a_DT detailed_JJ description_NN of_IN the_DT experimental_JJ protocol_NN can_MD be_VB found_VVN in_RB [_SYM 34_CD ]_SYM ._SENT 
+The_DT tank_NN consists_VVZ in_IN a_DT thin_JJ layer_NN of_IN fresh_JJ water_NN overlying_VVG a_DT thick_JJ layer_NN of_IN calibrated_VVN river_NN sand_NN ._SENT 
+Its_PP$ dimensions_NNS are_VBP 10-m_JJ length_NN ,_, 3-m_NN width_NN ,_, and_CC 1-m_NN depth_NN ._SENT 
+A_DT sloping_JJ bottom_NN geometry_NN with_IN the_DT wedge_NN apex_NN oriented_VVN lengthwise_RB over_IN the_DT entire_JJ length_NN of_IN the_DT tank_NN was_VBD created_VVN using_VVG a_DT rake_NN inclined_VVN at_IN ≃4.5°_NP ._SENT 
+The_DT water_NN depth_NN at_IN the_DT source_NN ,_, measured_VVN using_VVG a_DT high-frequency_NN transducer_NN ,_, is_VBZ ≃45_NP mm_NP ._SENT 
+The_DT water_NN sound_NN speed_NN ,_, deduced_VVN from_IN the_DT water_NN temperature_NN [_SYM 35_CD ]_SYM ,_, is_VBZ 1488.12_CD m/s_NNS ._SENT 
+The_DT geoacoustic_JJ parameters_NNS of_IN the_DT sandy_JJ bottom_NN were_VBD measured_VVN on_IN separate_JJ sand_NN samples_NNS and_CC refined_JJ using_VVG in_IN situ_NP acoustic_JJ experiments_NNS ._SENT 
+Their_PP$ values_NNS are_VBP :_: sound_JJ speed_NN 1700±50_NP m/s_NP ,_, density_NN 1.99±0.01_JJ g/cm3_NN ,_, and_CC attenuation_NN 0.5±0.1_JJ dB/�_NN �_( ._SENT 
+The_DT source_NN signal_NN is_VBZ a_DT five-cycle_NN pulse_NN with_IN Gaussian_JJ envelope_NN with_IN 0.04-ms_NP duration_NN ._SENT 
+The_DT source_NN spectrum_NN is_VBZ centered_VVN at_IN 150_CD kHz_NN with_IN a_DT 100-kHz_NP bandwidth_NN ._SENT 
+The_DT source_NN depth_NN is_VBZ ≃9_NP mm_NP and_CC the_DT receiver_NN depth_NN is_VBZ ≃8_NP mm_NP ._SENT 
+The_DT propagation_NN track_NN is_VBZ in_IN the_DT across-slope_NN direction_NN ._SENT 
+The_DT SPs_NNS corresponding_JJ to_TO the_DT experimental_JJ signals_NNS are_VBP displayed_VVN in_IN Fig_NN ._SENT 
+7_CD for_IN source–receiver_NN distances_NNS from_IN 1_CD to_TO 3.5_CD m_NN with_IN 50-cm_NN steps_NNS ._SENT 
+Experimental_JJ signals_NNS possess_VVP an_DT excellent_JJ SNR_NN ._SENT 
+Fig_NN ._SENT 
+7.Spectrograms_NNS of_IN the_DT experimental_JJ received_VVN signals_NNS collected_VVN during_IN the_DT tank_NN experiment_NN at_IN several_JJ across-slope_NN distances_NNS (_( from_IN 1_CD to_TO 3.5_CD m_NN )_) ._SENT 
+The_DT whole_JJ small-scale_JJ experiment_NN mimics_VVZ the_DT long-range_JJ shallow-water_NN propagation_NN scenario_NN described_VVN in_IN Section_NP II_NP with_IN a_DT scale_NN factor_NN of_IN 1000:1_CD ._SENT 
+Note_NN that_IN ,_, as_IN shown_VVN meticulously_RB in_RB [_SYM 34_CD ]_SYM ,_, the_DT experimental_JJ signals_NNS ,_, whose_WP$ SPs_NNS are_VBP shown_VVN in_IN Fig_NN ._SENT 
+7_CD ,_, compare_VVP very_RB well_RB with_IN the_DT simulated_JJ signals_NNS presented_VVN in_IN Fig_NN ._SENT 
+3._CD The_DT slope_NN of_IN the_DT tilted_JJ bottom_NN in_IN the_DT tank_NN was_VBD estimated_VVN considering_VVG each_DT of_IN the_DT experimental_JJ signals_NNS whose_WP$ SPs_NNS are_VBP shown_VVN in_IN Fig_NN ._SENT 
+7._CD Estimated_JJ values_NNS of_IN the_DT slope_NN are_VBP αˆ=4.5∘_JJ for_IN every_DT ranges_NNS ,_, with_IN the_DT exception_NN of_IN range_NN 1.5_CD m_NN (_( αˆ=5.0∘_NP )_) and_CC range_VVP 2_CD m_NN (_( αˆ=4.75∘_NP )_) ._SENT 
+Corresponding_JJ criteria_NNS J_NP ,_, presented_VVN in_IN Fig_NN ._SENT 
+8_CD ,_, compare_VVP favorably_RB with_IN the_DT simulated_JJ ones_NNS (_( shown_VVN in_IN Fig_NN ._SENT 
+6_CD )_) ._SENT 
+Fig_NN ._SENT 
+8.Normalized_JJ criterion_NN J_NP for_IN the_DT experimental_JJ data_NNS for_IN several_JJ source–receiver_NN ranges_NNS ._SENT 
+On_IN each_DT panel_NN ,_, the_DT vertical_JJ dashed_VVN line_NN indicates_VVZ the_DT estimated_JJ value_NN of_IN the_DT slope_NN :_: αˆ=4.5∘_JJ except_IN for_IN range_NN 1.5_CD m_NN (_( αˆ=5.0∘_NP )_) and_CC 2_CD m_NN (_( αˆ=4.75∘_NP )_) ._SENT 
+Note_NN that_IN the_DT experimental_JJ bottom_NN slope_NN α_NN is_VBZ approximately_RB 4.5°_JJ ._SENT 
+These_DT results_NNS are_VBP satisfactory_JJ and_CC prove_VV estimation_NN efficiency_NN for_IN experimental_JJ data_NNS with_IN good_JJ SNR_NN ._SENT 
+Note_NN that_IN ,_, although_IN the_DT experimental_JJ protocol_NN was_VBD well_RB calibrated_VVN ,_, all_DT experimental_JJ parameters_NNS are_VBP known_VVN up_RP to_TO a_DT (_( often_RB unknown_JJ )_) precision_NN ._SENT 
+The_DT good_JJ estimation_NN results_NNS obtained_VVD considering_VVG experimental_JJ data_NNS show_VVP that_IN the_DT estimation_NN algorithm_NN is_VBZ robust_JJ to_TO relatively_RB small_JJ theory_NN error_NN (_( model_NN mismatch_NN )_) ._SENT 
+<Section> 5._CD Conclusion_NN </Section> In_IN this_DT paper_NN ,_, 3-D_JJ propagation_NN in_IN wedge-shaped_JJ oceanic_JJ waveguides_NNS was_VBD considered_VVN ._SENT 
+It_PP was_VBD shown_VVN that_IN TF_NN analysis_NN is_VBZ a_DT suitable_JJ tool_NN to_TO analyze_VV across-slope_NN propagation_NN and_CC ,_, in_IN particular_JJ ,_, it_PP provides_VVZ interesting_JJ insights_NNS on_IN the_DT modal_JJ dispersion_NN of_IN the_DT 3-D_JJ signals_NNS ._SENT 
+It_PP was_VBD shown_VVN also_RB that_IN the_DT TF_NN domain_NN is_VBZ particularly_RB well_RB suited_VVN to_TO better_RBR understand_VV horizontal_JJ refraction_NN phenomena_NNS ._SENT 
+Indeed_RB ,_, at_IN certain_JJ ranges_NNS ,_, a_DT given_VVN mode_NN can_MD possess_VV two_CD distinct_JJ arrivals_NNS :_: the_DT first_JJ arrival_NN often_RB referred_VVD to_TO as_IN “direct,”_NN and_CC the_DT second_JJ arrival_NN called_VVD “echo.”_JJ The_DT “direct”_JJ arrival_NN has_VHZ a_DT TF_NN dispersion_NN very_RB similar_JJ to_TO the_DT TF_NN dispersion_NN in_IN classical_JJ 2-D_JJ shallow-water_NN waveguides_NNS ,_, with_IN high_JJ frequencies_NNS arriving_VVG before_IN low_JJ frequencies_NNS ._SENT 
+On_IN the_DT contrary_NN ,_, the_DT “echo”_JJ (_( when_WRB present_JJ )_) always_RB appears_VVZ time_NN reversed_VVN ;_: its_PP$ TF_NN dispersion_NN consists_VVZ now_RB in_IN low_JJ frequencies_NNS arriving_VVG before_IN high_JJ frequencies_NNS ._SENT 
+This_DT phenomenon_NN has_VHZ been_VBN explained_VVN using_VVG mode_NN ray_NN analogy_NN ._SENT 
+Because_IN the_DT “echo”_JJ high-frequency_NN content_NN can_MD go_VV further_JJR upslope_NN than_IN the_DT “echo”_JJ lower_JJR frequencies_NNS ,_, it_PP travels_VVZ a_DT longer_JJR way_NN between_IN the_DT source_NN and_CC the_DT receiver_NN ,_, and_CC finally_RB arrives_VVZ after_IN lower_JJR frequencies_NNS ._SENT 
+This_DT interesting_JJ phenomenon_NN creates_VVZ characteristic_JJ patterns_NNS in_IN the_DT SPs_NNS of_IN the_DT received_VVN signals_NNS ._SENT 
+These_DT patterns_NNS carry_VVP information_NN about_IN the_DT 3-D_NN varying_VVG properties_NNS of_IN the_DT waveguide_NN ,_, and_CC can_MD be_VB used_VVN as_IN the_DT input_NN of_IN an_DT estimation_NN scheme_NN to_TO estimate_VV parameters_NNS that_WDT characterize_VVP the_DT 3-D_NN varying_VVG oceanic_JJ environment_NN ._SENT 
+In_IN this_DT paper_NN ,_, which_WDT focuses_VVZ on_IN oceanic_JJ waveguides_NNS with_IN wedge-shaped_JJ geometries_NNS ,_, we_PP proposed_VVD an_DT estimation_NN algorithm_NN which_WDT allows_VVZ estimating_VVG the_DT bottom_JJ slope_NN using_VVG a_DT single_JJ receiver_NN ._SENT 
+It_PP is_VBZ based_VVN on_IN comparisons_NNS of_IN SPs_NNS of_IN the_DT received_VVN signal_NN with_IN SPs_NNS of_IN simulated_JJ replica_NN ,_, by_IN focusing_VVG on_IN particular_JJ parts_NNS of_IN the_DT TF_NN domain_NN where_WRB modal_JJ dispersion_NN is_VBZ important_JJ ._SENT 
+The_DT sensitivity_NN of_IN the_DT estimation_NN algorithm_NN was_VBD studied_VVN on_IN simulated_JJ data_NNS ._SENT 
+An_DT experimental_JJ validation_NN was_VBD performed_VVN on_IN small-scale_JJ data_NNS recorded_VVN in_IN an_DT ultrasonic_JJ tank_NN ._SENT 
+While_IN the_DT experimental_JJ data_NNS have_VHP a_DT really_RB good_JJ SNR_NN ,_, some_DT experimental_JJ parameters_NNS are_VBP not_RB known_VVN with_IN a_DT good_JJ precision_NN ._SENT 
+The_DT estimation_NN algorithm_NN nonetheless_RB allows_VVZ an_DT accurate_JJ estimation_NN of_IN the_DT sandy_JJ bottom_NN slope_NN ._SENT 
+Although_IN this_DT paper_NN focuses_VVZ on_IN slope_NN estimation_NN ,_, the_DT proposed_VVN technique_NN may_MD be_VB used_VVN also_RB to_TO infer_VV other_JJ environmental_JJ parameters_NNS ,_, such_JJ as_IN source_NN range_NN and/or_NN seabed_NN geoacoustic_JJ properties_NNS ._SENT 
+Because_IN the_DT TF_NP modal_JJ pattern_NN highly_RB depends_VVZ on_IN range_NN ,_, the_DT proposed_VVN method_NN should_MD allow_VV accurate_JJ source_NN localization_NN ._SENT 
+The_DT method_NN ,_, however_RB ,_, is_VBZ not_RB highly_RB sensitive_JJ to_TO seabed_NN sound_NN speed_NN ;_: it_PP is_VBZ likely_JJ that_IN it_PP would_MD not_RB be_VB effective_JJ to_TO perform_VV geoacoustic_JJ inversion_NN ._SENT 
+However_RB ,_, it_PP is_VBZ well_RB known_VVN that_IN classical_JJ TF-based_JJ modal_JJ inversions_NNS allow_VVP accurate_JJ geoacoustic_JJ inversion_NN [_SYM 8]–[9][10_NP ]_SYM ._SENT 
+These_DT methods_NNS are_VBP based_VVN on_IN modal_JJ TF_NN dispersion_NN curves_NNS ,_, while_IN the_DT method_NN proposed_VVN in_IN this_DT paper_NN is_VBZ based_VVN on_IN modal_JJ TF_NN masks_NNS ._SENT 
+The_DT dispersion_NN curves_NNS are_VBP the_DT exact_JJ localization_NN of_IN the_DT modes_NNS in_IN the_DT TF_NN domain_NN while_IN the_DT masks_NNS are_VBP the_DT global_JJ positions_NNS of_IN the_DT modal_JJ energy_NN in_IN the_DT TF_NN domain_NN ._SENT 
+It_PP is_VBZ thus_RB natural_JJ that_IN the_DT methods_NNS in_RB [_SYM 8]–[9][10_NP ]_SYM are_VBP more_RBR sensitive_JJ to_TO small_JJ modifications_NNS of_IN the_DT modal_JJ TF_NN pattern_NN (_( such_JJ as_IN those_DT created_VVN by_IN small_JJ variations_NNS of_IN the_DT seabed_NN sound_NN speed_NN or_CC density_NN )_) ._SENT 
+A_DT meaningful_JJ point_NN demonstrated_VVN in_IN this_DT paper_NN is_VBZ that_IN the_DT TF_NN patterns_NNS of_IN the_DT modes_NNS are_VBP highly_RB impacted_VVN by_IN 3-D_JJ propagation_NN effects_NNS ._SENT 
+However_RB ,_, existing_VVG modal_JJ inversion_NN schemes_NNS based_VVN on_IN TF_NN dispersion_NN curves_VVZ never_RB consider_VV potential_JJ 3-D_NN effects_NNS ._SENT 
+Future_JJ work_NN should_MD consider_VV such_JJ effects_NNS and_CC their_PP$ impact_NN on_IN the_DT estimated_JJ geoacoustic_JJ parameters_NNS ._SENT 
+<Section> References_NNS </Section> 1._CD F._NP Hlawatsch_NP and_CC G._NP Boudreaux-Bartels_NP ,_, "_'' Linear_NP and_CC quadratic_JJ time-frequency_NN signal_NN representations_NNS "_'' ,_, IEEE_NP Signal_NP Process_NN ._SENT 
+Mag_NN ._SENT 
+,_, vol_NP ._SENT 
+9_CD ,_, no_RB ._SENT 
+2_LS ,_, pp_NP ._SENT 
+21-67_CD ,_, Apr_NP ._SENT 
+1992._CD 2._CD J._NP Bonnel_NP ,_, G._NP Le_NP Touzé_NP ,_, B._NP Nicolas_NP and_CC J._NP Mars_NP ,_, "_`` Physics-based_JJ time-frequency_NN representations_NNS for_IN underwater_JJ acoustics_NNS :_: Power_NN class_NN utilization_NN with_IN waveguide-invariant_JJ approximation_NN "_'' ,_, IEEE_NP Signal_NP Process_NN ._SENT 
+Mag_NN ._SENT 
+,_, vol_NP ._SENT 
+30_CD ,_, no_RB ._SENT 
+6_CD ,_, pp_NP ._SENT 
+120-129_CD ,_, Nov._NP 2013._CD 3._CD G._NP Le_NP Touzé_NP ,_, B._NP Nicolas_NP ,_, J._NP Mars_NP and_CC J._NP Lacoume_NNS ,_, "_'' Matched_VVD representations_NNS and_CC filters_NNS for_IN guided_VVN waves_NNS "_'' ,_, IEEE_NP Trans_NP ._SENT 
+Signal_NN Process_NN ._SENT 
+,_, vol_NP ._SENT 
+57_CD ,_, no_RB ._SENT 
+5_CD ,_, pp_NP ._SENT 
+1783-1795_CD ,_, May_NP 2009._CD 4._CD J._NP Bonnel_NP ,_, C._NP Gervaise_NP ,_, P._NP Roux_NP ,_, B._NP Nicolas_NP and_CC J._NP Mars_NP ,_, "_`` Modal_JJ depth_NN function_NN estimation_NN using_VVG time-frequency_NN analysis_NN "_'' ,_, J._NP Acoust_NP ._SENT 
+Soc_NP ._SENT 
+Amer_NN ._SENT 
+,_, vol_NP ._SENT 
+130_CD ,_, pp_NP ._SENT 
+61-71_CD ,_, 2011._CD 5._CD J._NP Hong_NP ,_, K._NP Sun_NP and_CC Y._NP Kim_NP ,_, "_`` Dispersion-based_JJ short-time_JJ Fourier_NN transform_VV applied_VVN to_TO dispersive_JJ wave_NN analysis_NN "_'' ,_, J._NP Acoust_NP ._SENT 
+Soc_NP ._SENT 
+Amer_NN ._SENT 
+,_, vol_NP ._SENT 
+117_CD ,_, pp_NP ._SENT 
+2949-2960_CD ,_, 2005._CD 6._CD J._NP Bonnel_NP ,_, B._NP Nicolas_NP ,_, J._NP Mars_NP and_CC S._NP Walker_NP ,_, "_`` Estimation_NN of_IN modal_JJ group_NN velocities_NNS with_IN a_DT single_JJ receiver_NN for_IN geoacoustic_JJ inversion_NN in_IN shallow_JJ water_NN "_'' ,_, J._NP Acoust_NP ._SENT 
+Soc_NP ._SENT 
+Amer_NN ._SENT 
+,_, vol_NP ._SENT 
+128_CD ,_, pp_NP ._SENT 
+719-727_CD ,_, 2010._CD 7._CD J._NP Bonnel_NP ,_, A._NP M._NP Thode_NP ,_, S._NP B._NP Blackwell_NP ,_, K._NP Kim_NP and_CC A._NP M._NP Macrander_NP ,_, "_'' Range_NP estimation_NN of_IN bowhead_NN whale_NN (_( Balaena_NP mysticetus_NP )_) calls_VVZ in_IN the_DT Arctic_NP using_VVG a_DT single_JJ hydrophone_NN "_'' ,_, J._NP Acoust_NP ._SENT 
+Soc_NP ._SENT 
+Amer_NN ._SENT 
+,_, vol_NP ._SENT 
+136_CD ,_, pp_NP ._SENT 
+145-155_CD ,_, 2014._CD 8._CD G._NP Potty_NN ,_, J._NP Miller_NP ,_, J._NP Lynch_NP and_CC K._NP Smith_NP ,_, "_`` Tomographic_JJ inversion_NN for_IN sediment_NN parameters_NNS in_IN shallow_JJ water_NN "_'' ,_, J._NP Acoust_NP ._SENT 
+Soc_NP ._SENT 
+Amer_NN ._SENT 
+,_, vol_NP ._SENT 
+108_CD ,_, pp_NP ._SENT 
+973-986_CD ,_, 2000._CD 9._CD S._NP Rajan_NP and_CC K._NP Becker_NP ,_, "_`` Inversion_NN for_IN range-dependent_JJ sediment_NN compressional-wave-speed_NN profiles_NNS from_IN modal_JJ dispersion_NN data_NNS "_'' ,_, IEEE_NP J._NP Ocean_NP ._SENT 
+Eng_NN ._SENT 
+,_, vol_NP ._SENT 
+35_CD ,_, no_RB ._SENT 
+1_LS ,_, pp_NP ._SENT 
+43-58_CD ,_, Jan._NP 2010._CD 10._CD J._NP Bonnel_NP ,_, S._NP E._NP Dosso_NP and_CC N._NP R._NP Chapman_NP ,_, "_`` Bayesian_JJ geoacoustic_JJ inversion_NN of_IN single_JJ hydrophone_NN light_JJ bulb_NN data_NNS using_VVG warping_VVG dispersion_NN analysis_NN "_'' ,_, J._NP Acoust_NP ._SENT 
+Soc_NP ._SENT 
+Amer_NN ._SENT 
+,_, vol_NP ._SENT 
+134_CD ,_, pp_NP ._SENT 
+120-130_CD ,_, 2014._CD 11._CD D._NP E._NP Weston_NP ,_, "_`` Horizontal_JJ refraction_NN in_IN a_DT three-dimensional_JJ medium_NN of_IN variable_JJ stratification_NN "_'' ,_, Proc_NP ._SENT 
+Phys_NPS ._SENT 
+Soc_NN ._SENT 
+,_, vol_NP ._SENT 
+78_CD ,_, pp_NP ._SENT 
+46-52_CD ,_, 1961._CD 12._CD C._NP H._NP Harrison_NP ,_, "_`` Acoustic_JJ shadow_NN zones_NNS in_IN the_DT horizontal_JJ plane_NN "_'' ,_, J._NP Acoust_NP ._SENT 
+Soc_NP ._SENT 
+Amer_NN ._SENT 
+,_, vol_NP ._SENT 
+65_CD ,_, pp_NP ._SENT 
+56-61_CD ,_, 1979._CD 13._CD M._NP J._NP Buckingham_NP ,_, "_`` Theory_NN of_IN three-dimensional_JJ acoustic_JJ propagation_NN in_IN a_DT wedgelike_JJ ocean_NN with_IN a_DT penetrable_JJ bottom_NN "_'' ,_, J._NP Acoust_NP ._SENT 
+Soc_NP ._SENT 
+Amer_NN ._SENT 
+,_, vol_NP ._SENT 
+82_CD ,_, pp_NP ._SENT 
+198-210_CD ,_, 1987._CD 14._CD E._NP K._NP Westwood_NP ,_, "_`` Broadband_NN modeling_NN of_IN the_DT three-dimensional_JJ penetrable_JJ wedge_NN "_'' ,_, J._NP Acoust_NP ._SENT 
+Soc_NP ._SENT 
+Amer_NN ._SENT 
+,_, vol_NP ._SENT 
+92_CD ,_, pp_NP ._SENT 
+2212-2222_CD ,_, 1992._CD 15._CD F._NP Sturm_NP ,_, "_`` Numerical_JJ study_NN of_IN broadband_NP sound_JJ pulse_NN propagation_NN in_IN three-dimensional_JJ oceanic_JJ waveguides_NNS "_'' ,_, J._NP Acoust_NP ._SENT 
+Soc_NP ._SENT 
+Amer_NN ._SENT 
+,_, vol_NP ._SENT 
+117_CD ,_, pp_NP ._SENT 
+1058-1079_CD ,_, 2005._CD 16._CD R._NP Doolittle_NP ,_, A._NP Tolstoy_NP and_CC M._NP Buckingham_NP ,_, "_`` Experimental_JJ confirmation_NN of_IN horizontal_JJ refraction_NN of_IN CW_NP acoustic_JJ radiation_NN from_IN a_DT point_NN source_NN in_IN a_DT wedge-shaped_JJ ocean_NN environment_NN "_'' ,_, J._NP Acoust_NP ._SENT 
+Soc_NP ._SENT 
+Amer_NN ._SENT 
+,_, vol_NP ._SENT 
+83_CD ,_, pp_NP ._SENT 
+2117-2125_CD ,_, 1988._CD 17._CD A._NP Korakas_NP ,_, F._NP Sturm_NP ,_, J.-P_NP ._SENT 
+Sessarego_NP and_CC D._NP Ferrand_NP ,_, "_'' Scaled_VVD model_NN experiment_NN of_IN long-range_JJ across-slope_NN pulse_NN propagation_NN in_IN a_DT penetrable_JJ wedge_NN "_'' ,_, J._NP Acoust_NP ._SENT 
+Soc_NP ._SENT 
+Amer_NN ._SENT 
+,_, vol_NP ._SENT 
+126_CD ,_, pp_NP ._SENT 
+EL22-EL27_JJ ,_, 2009._CD 18._CD A._NP Tolstoy_NP ,_, "_'' 3-D_VVZ propagation_NN issues_NNS and_CC models_NNS "_'' ,_, J._NP Comput_NP ._SENT 
+Acoust_NN ._SENT 
+,_, vol_NP ._SENT 
+4_LS ,_, pp_NP ._SENT 
+243-271_CD ,_, 1996._CD 19._CD D._NP Lee_NP ,_, A._NP Pierce_NP and_CC E._NP Shang_NP ,_, "_`` Parabolic_JJ equation_NN development_NN in_IN the_DT twentieth_JJ century_NN "_'' ,_, J._NP Comput_NP ._SENT 
+Acoust_NN ._SENT 
+,_, vol_NP ._SENT 
+8_CD ,_, pp_NP ._SENT 
+527-637_CD ,_, 2000._CD 20._CD M._NP Collins_NP and_CC S._NP Ching-Bing_NP ,_, "_'' A_DT three-dimensional_JJ parabolic_JJ equation_NN model_NN that_WDT includes_VVZ the_DT effects_NNS of_IN rough_JJ boundaries_NNS "_'' ,_, J._NP Acoust_NP ._SENT 
+Soc_NP ._SENT 
+Amer_NN ._SENT 
+,_, vol_NP ._SENT 
+87_CD ,_, pp_NP ._SENT 
+1104-1109_CD ,_, 1990._CD 21._CD D._NP Lee_NP ,_, G._NP Botseas_NP and_CC W._NP Siegmann_NP ,_, "_`` Examination_NN of_IN three-dimensional_JJ effects_NNS using_VVG a_DT propagation_NN model_NN with_IN azimuth-coupling_VVG capability_NN (_( FOR3D_JJ )_) "_'' ,_, J._NP Acoust_NP ._SENT 
+Soc_NP ._SENT 
+Amer_NN ._SENT 
+,_, vol_NP ._SENT 
+91_CD ,_, pp_NP ._SENT 
+3192-3202_CD ,_, 1992._CD 22._CD J._NP A._NP Fawcett_NP ,_, "_'' Modeling_VVG three-dimensional_JJ propagation_NN in_IN an_DT oceanic_JJ wedge_NN using_VVG parabolic_JJ equation_NN methods_NNS "_'' ,_, J._NP Acoust_NP ._SENT 
+Soc_NP ._SENT 
+Amer_NN ._SENT 
+,_, vol_NP ._SENT 
+93_CD ,_, pp_NP ._SENT 
+2627-2632_CD ,_, 1993._CD 23._CD K._NP Smith_NP ,_, "_'' A_DT three-dimensional_JJ propagation_NN algorithm_NN using_VVG finite_JJ azimuthal_JJ aperture_NN "_'' ,_, J._NP Acoust_NP ._SENT 
+Soc_NP ._SENT 
+Amer_NN ._SENT 
+,_, vol_NP ._SENT 
+106_CD ,_, pp_NP ._SENT 
+3231-3239_CD ,_, 1999._CD 24._CD C._NP F._NP Chen_NP ,_, Y.-T_NP ._SENT 
+Lin_NP and_CC D._NP Lee_NP ,_, "_'' A_DT three-dimensional_JJ azimuthal_JJ wide-angle_NN model_NN "_'' ,_, J._NP Comput_NP ._SENT 
+Acoust_NN ._SENT 
+,_, vol_NP ._SENT 
+7_CD ,_, pp_NP ._SENT 
+269-288_CD ,_, 1999._CD 25._CD G._NP H._NP Brooke_NP ,_, D._NP J._NP Thomson_NP and_CC G._NP R._NP Ebbeson_NP ,_, "_`` PECan_NN :_: A_DT canadian_JJ parabolic_JJ equation_NN model_NN for_IN underwater_JJ sound_JJ propagation_NN "_'' ,_, J._NP Comput_NP ._SENT 
+Acoust_NN ._SENT 
+,_, vol_NP ._SENT 
+9_CD ,_, pp_NP ._SENT 
+69-100_CD ,_, 2001._CD 26._CD M._NP E._NP Austin_NP and_CC N._NP R._NP Chapman_NP ,_, "_'' The_DT use_NN of_IN tessellation_NN in_IN three-dimensional_JJ parabolic_JJ equation_NN modeling_NN "_'' ,_, J._NP Comput_NP ._SENT 
+Acoust_NN ._SENT 
+,_, vol_NP ._SENT 
+19_CD ,_, pp_NP ._SENT 
+221-239_CD ,_, 2011._CD 27._CD Y.-T_NN ._SENT 
+Lin_NP and_CC T._NP Duda_NP ,_, "_'' A_DT higher-order_NN split-step_VVZ Fourier_NP parabolic-equation_NP sound_JJ propagation_NN solution_NN scheme_NN "_'' ,_, J._NP Acoust_NP ._SENT 
+Soc_NP ._SENT 
+Amer_NN ._SENT 
+,_, vol_NP ._SENT 
+132_CD ,_, pp_NP ._SENT 
+EL61-EL67_JJ ,_, 2012._CD 28._CD Y.-T_NN ._SENT 
+Lin_NP ,_, J._NP Collis_NP and_CC T._NP Duda_NP ,_, "_'' A_DT three-dimensional_JJ parabolic_JJ equation_NN model_NN of_IN sound_JJ propagation_NN using_VVG higher-order_NN operator_NN splitting_NN and_CC padé_JJ approximants_NNS "_'' ,_, J._NP Acoust_NP ._SENT 
+Soc_NP ._SENT 
+Amer_NN ._SENT 
+,_, vol_NP ._SENT 
+132_CD ,_, pp_NP ._SENT 
+EL364-EL370_NP ,_, 2012._CD 29._CD Y.-T_NN ._SENT 
+Lin_NP ,_, T._NP Duda_NP and_CC A._NP Newhall_NP ,_, "_`` Three-dimensional_JJ sound_JJ propagation_NN models_NNS using_VVG the_DT parabolic-equation_NN approximation_NN and_CC the_DT split-step_JJ Fourier_NN method_NN "_'' ,_, J._NP Comput_NP ._SENT 
+Acoust_NN ._SENT 
+,_, vol_NP ._SENT 
+21_CD ,_, 2013._CD 30._CD F._NP Jensen_NP ,_, W._NP Kuperman_NP ,_, M._NP Porter_NP and_CC H._NP Schmidt_NP ,_, Computational_JJ Ocean_NP Acoustics_NN ,_, New_NP York_NP ,_, NY_NP USA:Springer-Verlag_NP ,_, 2011._CD 31._CD S._NP A._NP L._NP Glegg_NP ,_, G._NP B._NP Deane_NP and_CC I._NP G._NP House_NP ,_, "_`` Comparison_NN between_IN theory_NN and_CC model_NN scale_NN measurements_NNS of_IN three-dimensional_JJ sound_JJ propagation_NN in_IN a_DT shear_NN supporting_VVG penetrable_JJ wedge_NN "_'' ,_, J._NP Acoust_NP ._SENT 
+Soc_NP ._SENT 
+Amer_NN ._SENT 
+,_, vol_NP ._SENT 
+94_CD ,_, pp_NP ._SENT 
+2334-2342_CD ,_, 1993._CD 32._CD S._NP A._NP L._NP Glegg_NP and_CC J._NP R._NP Yoon_NP ,_, "_`` Experimental_JJ measurements_NNS of_IN three-dimensional_JJ propagation_NN in_IN a_DT wedge-shaped_JJ ocean_NN with_IN pressure-release_NN boundary_NN conditions_NNS "_'' ,_, J._NP Acoust_NP ._SENT 
+Soc_NP ._SENT 
+Amer_NN ._SENT 
+,_, vol_NP ._SENT 
+87_CD ,_, pp_NP ._SENT 
+101-105_CD ,_, 1990._CD 33._CD C._NP Gervaise_NP ,_, B._NP Kinda_RB ,_, J._NP Bonnel_NP ,_, Y._NP Stefan_NP and_CC S._NP Vallez_NP ,_, "_'' Passive_NP geoacoustic_JJ inversion_NN with_IN a_DT single_JJ hydrophone_NN using_VVG broadband_NN ship_NN noise_NN "_'' ,_, J._NP Acoust_NP ._SENT 
+Soc_NP ._SENT 
+Amer_NN ._SENT 
+,_, vol_NP ._SENT 
+131_CD ,_, pp_NP ._SENT 
+1999-2010_CD ,_, 2012._CD 34._CD F._NP Sturm_NP and_CC A._NP Korakas_NP ,_, "_`` Comparisons_NNS of_IN laboratory_NN scale_NN measurements_NNS of_IN three-dimensional_JJ acoustic_JJ propagation_NN with_IN solutions_NNS by_IN a_DT parabolic_JJ equation_NN model_NN "_'' ,_, J._NP Acoust_NP ._SENT 
+Soc_NP ._SENT 
+Amer_NN ._SENT 
+,_, vol_NP ._SENT 
+133_CD ,_, pp_NP ._SENT 
+108-118_CD ,_, 2013._CD 35._CD N._NP Bilaniuk_NP and_CC G._NP S._NP K._NP Wong_NP ,_, "_`` Speed_VV of_IN sound_NN in_IN pure_JJ water_NN as_IN a_DT function_NN of_IN temperature_NN "_'' ,_, J._NP Acoust_NP ._SENT 
+Soc_NP ._SENT 
+Amer_NN ._SENT 
+,_, vol_NP ._SENT 
+93_CD ,_, pp_NP ._SENT 
+1609-1612_CD ,_, 1993._CD 36._CD H._NP Weinberg_NP and_CC R._NP Burridge_NP ,_, "_`` Horizontal_JJ ray-theory_NN for_IN ocean_NN acoustics_NNS "_'' ,_, J._NP Acoust_NP ._SENT 
+Soc_NP ._SENT 
+Amer_NN ._SENT 
+,_, vol_NP ._SENT 
+55_CD ,_, pp_NP ._SENT 
+63-79_CD ,_, 1974._CD 

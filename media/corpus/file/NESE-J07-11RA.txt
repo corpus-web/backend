@@ -1,0 +1,293 @@
+<title>Numerical simulation of three-dimensional flow and heat transfer characteristics of liquid lead–bismuth</title>
+<author>1,ShaopengHe,2,MingjunWang,3,JingZhang,4,WenxiTian,5,SuizhengQiu,6,G.H.Su</author>
+<Affiliation>1,State Key Laboratory of Multiphase Flow in Power Engineering, School of Nuclear Science and Technology, Xi’an Jiaotong University, Xi’an, 710049, China</Affiliation>
+<year>2021</year>
+<Jounral>Nuclear Engineering and Technology</Journal>
+<Publishing_house>Elsevier</Publishing_house>
+<Text_Collector>XiaFan，HEU</Text_Collector>
+<DOI>10.1016/j.net.2020.12.025</DOI>
+<URL>https://www.sciencedirect.com/science/article/pii/S1738573320309931</URL>
+Numerical simulation of three-dimensional flow and heat transfer characteristics of liquid lead–bismuth
+ShaopengHe,MingjunWang,JingZhang,WenxiTian,SuizhengQiu,G.H.Su
+State Key Laboratory of Multiphase Flow in Power Engineering, School of Nuclear Science and Technology, Xi’an Jiaotong University, Xi’an, 710049, China
+<Section>Abstract</Section>
+Liquid lead-bismuth cooled fast reactor is one of the most promising reactor types among the fourth-generation nuclear energy systems. The flow and heat transfer characteristics of lead-bismuth eutectic (LBE) are completely different from ordinary fluids due to its special thermal properties, causing that the traditional Reynolds analogy is no longer recommended and appropriate. More accurate turbulence flow and heat transfer model for the liquid metal lead-bismuth should be developed and applied in CFD simulation.
+In this paper, a specific CFD solver for simulating the flow and heat transfer of liquid lead-bismuth based on the k - ε - kθ - εθ model was developed based on the open source platform OpenFOAM. Then the advantage of proposed model was demonstrated and validated against a set of experimental data. Finally, the simulation of LBE turbulent flow and heat transfer in a 7-pin wire-wrapped rod bundle with the k - ε - kθ - εθ model was carried out. The influence of wire on the flow and heat transfer characteristics and the three-dimensional distribution of key thermal hydraulic parameters such as temperature, cross-flow velocity and Nusselt number were studied and presented.
+Compared with the traditional SED model with a constant Prt = 1.5 or 2.0, the k - ε - kθ - εθ model is more accurate on predicting the turbulence flow and heat transfer of liquid lead-bismuth. The average relative error of the k - ε - kθ - εθ model is reduced by 11.1% at most under the simulation conditions in this paper. This work is meaningful for the thermal hydraulic analysis and structure design of fuel assembly in the liquid lead-bismuth cooled fast reactor.
+Keywords:Liquid lead-bismuth;Turbulence model;Wire spacers;OpenFOAM
+<Section>1. Introduction</Section>
+Liquid lead-bismuth cooled fast reactor is one of the six main reactors of the fourth-generation reactor systems, which has many advantages such as strong natural circulation ability and good neutron economy. However, due to the special thermal properties of lead-bismuth eutectic (LBE), such as the low Prandtl number and high thermal conductivity, the flow and heat transfer characteristics of LBE is quite different from ordinary fluids, bringing many difficulties to the research and design of liquid lead-bismuth cooled fast reactor, especially in the Computational Fluid Dynamics (CFD) simulation [1,2]. CFD method has great potential in the study of detailed three-dimensional flow and heat transfer characteristics due to the high cost and risk of liquid metal experiments [3]. The flow and heat transfer characteristics of liquid metals represented by liquid lead-bismuth and sodium are widely studied in recent years [4,5]. It’s urgent to use more accurate turbulence flow and heat transfer models for the liquid metal lead-bismuth in CFD codes to carry out high-precision numerical simulations.
+In some commercial software, the most widely adopted turbulence flow and heat transfer model is the Simple Eddy Diffusivity (SED) model with a constant turbulent Prandtl number [6]. The SED model is based on the Reynolds analogy, which assumed that the thermal boundary layer is similar to the flow boundary layer. For the fluids with a Prandtl number close to 1.0, such as the water and air, the acceptable results can be obtained by the SED model with a constant turbulent Prandtl number 0.85–1.0. For liquid metals with the Prandtl number far less than 1.0, the simulation results of SED models with a constant turbulent Prandtl number can no longer fit well with the experimental correlations [7]. Studies have shown that the CFD prediction results of the Nusselt number would show a sharp drop with the increase of turbulent Prandtl number [8].
+To overcome these difficulties, other methods and models have been implemented. For example, as a kind of mixed law-of-the-wall, Kays model [9] was proposed to calculate the turbulent Prandtl number with a function of turbulent viscosity, which can well simulate the global flow and heat transfer characteristics, but can’t capture the flow behaviors near the wall. Some correlations for calculating turbulent Prandtl number fitted by the direct numerical simulation data can be only applied to some limited geometries. Furthermore, subchannel analysis code specially for sodium-cooled fast reactor wire-wrapped assemblies was developed in some study which shown good accuracy [10]. Direct numerical simulation and large eddy simulation have high accuracy, but only for narrow Reynolds number range and part of simple geometry due to the limitation of computational resource. The detailed comparison and introduction of the above methods could be referred to Refs. [2,11,12].
+In recent years, several more theoretical methods have been developed based on the Algebraic Heat Flux Model (AHFM), aiming to solve the scale difference between the thermal and flow layers of the liquid metal [[13], [14], [15]]. These models can be combined with some no-linear turbulence models and the transport equation of turbulent heat flux vector can be solved explicitly or implicitly through making some necessary hypotheses. As one of the models based on AHFM, the k - ε - kθ - εθ turbulence model was defined in Ref. [16], and it has been validated in Refs. [6,17] by DNS data and some correlations of square and triangular lattice geometries. In this model, a modified low-Reynolds number k - ε model is combined with the kθ - εθ thermal turbulence model. The turbulent thermal diffusivity is introduced in an explicit expression by introducing appropriate time scale variables and solved by the kθ - εθ thermal turbulence model. In addition, many researchers have studied the influence of wire on the flow and heat transfer characteristics in the fuel bundle of liquid metal nuclear reactor. Experimental and simulation results in a hexagonal 19-pin fuel bundle are presented in Ref. [18]. CFD analysis of a 7-pin and 19-pin sodium-cooled fast reactor wire-wrapped fuel bundle was carried out in Refs. [19,20], respectively. The pressure drops and heat transfer in the bundle were analyzed.
+In this paper, we developed a specific solver for simulating the flow and heat transfer of liquid lead-bismuth based on the k - ε - kθ - εθ model in the open source platform OpenFOAM. Then the model and solver were validated with the data of Johnson LBE heat transfer experiments [21]. In the final section, the simulation results of liquid lead-bismuth turbulence flow and heat transfer in a 7-pin wire-wrapped rod bundle using the k - ε - kθ - εθ model were presented, including the three-dimensional distribution of key thermal hydraulic parameters such as temperature, cross-flow velocity and Nusselt number. Also, the influence of wire on the flow and heat transfer characteristics of lead-bismuth in the rod bundle was revealed.
+<Section>2. Heat and momentum transport model</Section>
+2.1. Conservation equation
+The liquid lead-bismuth flow in the nuclear reactor can be considered as the incompressible single-phase turbulence flow. Since the turbulence is difficult to describe accurately, the Reynolds average procedure has been widely used by solving the Navier-Stokes equations for averaged fields. And the turbulence model is developed and applied to take into account the effects of turbulence. Therefore, the flow and heat transfer of liquid lead-bismuth can be described by the following incompressible and Reynolds average conservation equations:
+@(1)
+@(2)
+@(3)
+where the U and T are the averaged velocity and temperature fields, p is the averaged static pressure, ρ is the density, μ is the dynamic viscosity, Cp is the Specific heat capacity and λ is the heat conductivity of the fluid.
+Two additional unknown terms are introduced into the equation after the Reynolds average procedure: Reynolds stress tensor  and the turbulent heat flux vector . An appropriate turbulence flow and heat transfer model is required to solve these unknown terms. The Boussinesq hypothesis was introduced to solve the first unknown term: Reynolds stress tensor. For the turbulent heat flux, it is generally written as the following algebraic approximate solution of transport equation for the turbulent heat flux.
+@(4)
+where αt is the turbulent thermal diffusivity. There is a big difference between the k - ε - kθ - εθ model and the SED model in the calculation of turbulent thermal diffusivity. For the SED model with a constant turbulent Prandtl number, the turbulent thermal diffusivity can be directly calculated as follows by assuming the similarity between thermal and dynamical boundary layers.
+@(5)
+For liquid metals with Pr ≪1, however, this assumption and the relationship are no longer available. In the following sections, we present the modified low-Reynolds number k – ε model and the kθ - εθ model [22] for computing the Reynolds stress tensor and the turbulent thermal diffusivity, respectively.
+2.2. K - ε model
+The k – ε model is a common two-equation turbulence model, which is suitable for simulating fully developed turbulent flows. In our study, we have adopted a low-Reynolds number modified k-ε model [23]. Similar to the standard k - ε model, the Boussinesq hypothesis is introduced:
+@(6)
+where τt is the turbulent Reynolds stress, vt is the turbulent viscosity and k is the turbulent kinetic energy. The turbulent kinetic energy and its dissipation rate are defined as follows:
+@(7)
+Different from the standard k – ε model, the turbulence viscosity defined in the modified k – ε model is:
+@(8)
+where Cμ is a model constant with 0.09, the τlu is the local dynamical characteristic time, which is introduced to correct the near wall behavior and modify the standard k – ε model in the low Reynolds number range. The local dynamical characteristic time is modeled from the dynamical characteristic time τu = k/ε, which can be writing as:
+@(9)
+where the four functions f1μ, A1μ, f2μ and A2μ can be specified as:
+@(10)
+@(11)
+@(12)
+@(13)
+where @ is the turbulent Reynolds number, 2 is the normalized distance from the wall and @ is the distance from the wall.
+In order to calculate the turbulence viscosity, the local dynamical characteristic time should be obtained. Furthermore, the turbulent kinetic energy and its dissipation rate need to be solved by the following equations for k and ε.
+@(14)
+@(15)
+with
+@(16)
+@(17)
+The model constants adopted in this work are as follows:
+2.3. kθ - εθ model
+As mentioned above, through Equation (3), the unknown turbulent heat flux is transformed into the turbulent thermal diffusivity αt which can be solved directly by the kθ - εθ model without assuming the similarity between thermal and dynamical boundary layers. In kθ - εθ model, αt is expressed as
+@(18)
+where Cθ = 0.1 and τlθ is the local thermal characteristic time, which is defined to describe the energy diffusion and turbulence heat transfer in the turbulent processes of liquid metals more accurately. In order to calculate the τlθ, two new variables: average square temperature fluctuation kθ and its dissipation εθ are defined as
+@(19)
+In addition, the thermal characteristic time τθ and the ratio R between the thermal and dynamical time are defined as:
+@(20)
+Considering that the turbulence flow and heat transfer behavior varies from the wall to the bulk flow in the turbulence flow field, the kθ - εθ model considers three different characteristic times to model the local thermal characteristic time: the asymptotic dynamical time τu, the thermal characteristic time τθ and the mixed time τm.
+The kθ - εθ model makes the following hypothesis: in the region near the wall, it’s appropriate to use the time ratio R to compute the local thermal characteristic time τlθ, while in the intermediate region between the wall and the bulk flow, τlθ is proportional to the mixed time τm which is defined as 1/τm=1/τu + 1/τθ. And then in the bulk region far away from the wall, the asymptotic dynamical time τu is simply proportional to the turbulent viscosity and τlθ is proportional to the τu. For more details about the discussion on the physical assumptions could be found in Ref. [24]. Based on the above hypothesis, the local thermal characteristic time τlθ can be written as
+@(21)
+where the functions f1θ, B1θ, f2θ and B2θ are set reasonably to model the three characteristic time in different regions discussed above. They can be written as
+@(22)
+@(23)
+@(24)
+where Cγ = 0.3, . For more details about these model functions fj and Bk, one could refer to Refs. [24,25].
+Similar to the k equation and ε equation, there are two transport equations for the average square temperature fluctuation kθ and its dissipation εθ, which can be constructed as [26].
+@(25)
+@(26)
+where Pθ is the source term, which can be written in this model as:
+@(27)
+Pk is defined by (16). Taking into account the simulation of liquid metal, the equation coefficients defined in Ref. [27] are set as Cd1 = 1.0, Cp1 = 0.925, Cp2 = 0.9 and
+@(28)
+The boundary conditions to be set with the kθ - εθ model in the simulations of the following sections are also briefly explained here. The model can be set as three types of boundary conditions: the constant temperature, the constant heat flux and the mixed boundary conditions. These three boundary conditions assume that the wall temperature, or the wall heat flux, or both are uniform in space and constant in time, respectively. Considering that uniform heat flux is applied on the wall in the following simulations and there is no significant difference between the simulation results under the constant heat flux and the mixed boundary condition as shown in Ref. [16], we applied the mixed boundary condition in the simulation of section 3 Model validation, 4 Rod bundle with wire spacers. In other words, we set the average square temperature fluctuation kθ on the wall to zero and the time ratio R is equal to the laminar Prandtl number Pr on the wall to calculate the dissipation εθ.
+<Section>3. Model validation</Section>
+3.1. Experiment benchmark
+In 1951, a series of heat transfer experiments related to the molten lead-bismuth eutectic in turbulent pipe flow were carried out by Johnson et al. Institute of Engineering Research, University of California [21]. Experimental heat transfer data and results for turbulent flow of LBE in a vertical mild steel tube were presented. The schematic diagram of the experimental setup is shown in Fig. 1., including the main test section on the right side and its cross section and vertical section A-A on the left side.
+Fig. 1. Schematic diagram of the Johnson LBE experimental setup [21].
+As shown in Fig. 1, the test section mainly consists of a mild steel tube with an inside diameter of Di = 16.56 mm and an outside diameter of Do = 19.05 mm, which was encased in a 6.35 mm thick aluminum jacket. Uniform heat flux on the tube wall was accomplished by a winding insulated nichrome wire wrapped uniformly over the aluminum jacket. The cold liquid lead-bismuth was heated in the bottom-up flow. The axial length of the entire test section L is 1219.2 mm and was subdivided evenly into eight temperature measuring sections, each of which was equipped with thermocouples to measure the temperatures of aluminum jacket Ttx. The inlet and outlet fluid temperatures Tf1, Tf2 were measured by the thermocouples at the corresponding positions and the fluid temperature Tfx at the other axial positions was obtained by linear interpolation as
+@(29)
+The heat transfer coefficient h of each axial position could be calculated as:
+@(30)
+where A is the inside tube surface heat transfer area, qe is the net electrical input and Rs, Ral are the thermal resistance of the wild steel tube wall and aluminum jacket respectively.
+Four series of the tests were carried out. The test matrix is presented in Table 1. Two series of water test mainly were made to verify and support the reliability of the equipment and technique. Experimental data such as heat transfer coefficient and Nusselt number were reported at three axial positions: x/Di = 4.6, 13.8 and 23.0. In this section, a total of 11 experimental data points of initial and final series of lead-bismuth tests were selected for model verification, as shown in Table 2. Considering that the early data tend to be low due to the partial removal of the absorbed gas layer, only the data after 20 h in each series were selected.
+Table 1. Johnson heat transfer tests matrix.
+Table 2. Selected experimental data points in the simulations.
+The generated structural mesh of test section in the simulation is shown in Fig. 2. The velocity-inlet condition is applied at the inlet, zero-gradient condition is applied at the outlet and the uniform heat flux and no slip boundary are applied at the wall. The physical properties of lead-bismuth in the simulation are referenced from Handbook on Lead-bismuth Eutectic of Nuclear Energy Agency [28] and only depend on the temperature, as shown in Table 3. The mesh independence analysis was performed and the results are shown in Fig. 3. When the number of meshes is about 40000, the mesh-independent solution and appropriate mesh density are obtained.
+Fig. 2. The structural mesh of test section.
+Table 3. The physical properties of lead-bismuth from the LBE-Handbook (NEA, 2015).
+Fig. 3. The mesh independence analysis of circular tube case.
+3.2. Results comparison
+In this section, the SED model with a constant turbulent Prandtl number of 1.5 or 2.0 and the k - ε - kθ - εθ model were applied to simulate the Johnson heat transfer experiment, so as to show that the accuracy of k - ε - kθ - εθ model in predicting liquid metal turbulence flow and heat transfer has been improved compared with the traditional SED model under the simulation condition of this paper. The Nusselt number at three axial positions of x/Di = 4.6, 13.8 and 23.0 computed with different turbulence model are compared with the experimental data in Fig. 4, Fig. 5, Fig. 6, respectively. In addition, a maximum relative error ±13% of the experimental data considering that the precision of the instrumentation is also shown in Fig. 4, Fig. 5, Fig. 6 with purple lines. The simulation values of Nusselt numbers are calculated as follows:
+@(31)
+where Tw is the mean wall temperature and Tb is the mass weighted average temperature of the fluid. They can be calculated as follows:
+@(32)
+where n is the normal vector of cross section. The Nusselt number simulation value was calculated based on the physical properties in Table 3 which depend on the average cross-sectional fluid temperature as shown in Equation (32).
+Fig. 4. Nusselt number as a function of Peclet number computed with k - ε - kθ - εθ model and SED model with Prt = 1.5 and 2.0 compared with Johnson experimental data at x/Di = 4.6.
+Fig. 5. Nusselt number as a function of Peclet number computed with k - ε - kθ - εθ model and SED model with Prt = 1.5 and 2.0 compared with Johnson experimental data at x/Di = 13.8.
+Fig. 6. Nusselt number as a function of Peclet number computed with k - ε - kθ - εθ model and SED model with Prt = 1.5 and 2.0 compared with Johnson experimental data at x/Di = 23.0.
+As shown in Fig. 4, there is no significant difference between the predicted values of Nusselt number of each model at the first axial position of x/Di = 4.6, which is close to the inlet. Although the predicted Nusselt number of the k - ε - kθ - εθ model is slightly higher than that of the SED model, the predicted values of these models are all within the error range of experimental data.
+In Figs. 5 and 6, the predicted value of SED model is higher than that of the k - ε - kθ - εθ model at these two axial positions of x/Di = 13.8 and 23.0. Under partial simulation conditions, the predicted value of SED model exceeded the error range of experimental data, while that of the k - ε - kθ - εθ model is closer to the experimental data. Moreover, the predicted value of SED model with Prt = 2 is lower than that with Prt = 1.5 and closer to the k - ε - kθ - εθ turbulence model at the three axial positions. “The relative error RE between the predicted values of different turbulence models and the experimental data was calculated by Equation (33) as shown in Table 4.“. The relative error of the k - ε - kθ - εθ model is much smaller than that of the SED model at the positions of x/Di = 13.8 and x/Di = 23.0. On the whole, the average relative error of three positions of the k - ε - kθ - εθ model is reduced by 11.1% at most than that of the SED model. Hence the correctness and accuracy of the user-defined solver based on the k - ε - kθ - εθ model, which is developed in OpenFOAM in this paper, have been demonstrated and validated.
+@(33)
+Table 4. The relative errors between the predicted values of different turbulence models and the experimental data.
+<Section>4. Rod bundle with wire spacers</Section>
+4.1. Geometry and mesh
+In this section, the flow and heat transfer of liquid lead-bismuth in a rod bundle with wire spacers is simulated with the k - ε - kθ - εθ model and some characteristics of three-dimensional flow and heat transfer in the rod bundle are studied. The geometric model simulated in this section is a seven-rod bundle with wire spacers of the inter-wrapper heat transfer experiment, as shown in Fig. 7 [29]. The length of the whole calculation domain is L = 262 mm, which is a pitch of the wire (1 Pw). The main geometric dimensions are presented in Table 5. The liquid lead-bismuth flows from top to bottom within the rod bundle and is heated by the wall of seven rods with the uniform heat flux. The simulated conditions are shown in Table 6. The mass flow rate of LBE is determined according to 20%–100% of the rated conditions, with the inlet temperature of 573 K.
+Fig. 7. Geometry of rod bundle with wire spacers and its section view.
+Table 5. The main geometric dimensions of rod bundle.
+Table 6. The simulated conditions of rod bundle.
+The unstructured mesh consisting of polyhedral cells with a boundary layer of hexagonal cells is adapted in this simulation, as shown in Fig. 8 Three types of mesh with different mesh number of 1.66 M, 1.96 M and 2.34 M were created to perform the grid sensitivity study. The temperature profile along the line A (shown in Fig. 7) taken at the outlet of the rod bundle with different mesh numbers are presented in Fig. 9 under the condition of case #1. The temperature profile along the line A is very similar for the three meshes. It can be considered that the mesh independent results are obtained when the mesh number is 1.66 M. The properties of lead-bismuth remain as a function of temperature, as shown in Table 3.
+Fig. 8. The mesh condition of rod bundle at outlet.
+Fig. 9. Temperature profile taken at the outlet along the line A in Fig. 7 with different mesh numbers.
+4.2. Numerical results
+The three-dimensional velocity and temperature fields within the rod bundle are shown in Fig. 10. It is obvious that the velocity magnitude and temperature distribution are asymmetrical in each section, which is quite different from the bare rod bundle. This asymmetric distribution can be explained by Fig. 11, showing several streamlines within the rod bundles. The flow of liquid lead-bismuth is influenced by the spinning wire and rotates along the direction of spinning wire. This indicates that there is a strong cross flow and mix of the liquid within the rod bundles.
+Fig. 10. Velocity magnitude and temperature distribution of different sections within the bundle.
+Fig. 11. Several streamlines flowing through a same line C within the rod bundle.
+In order to quantify the intensity of the cross flow in the rod bundle, the cross-flow velocity Uc and the non-dimensional cross-flow velocity Tc is defined as
+@(34)
+The cross-flow velocity vector fields of the wire-wrapped rod bundle and the bare rod bundle in the middle section (Z = 131 mm) under the same simulation conditions are shown in Fig. 12. The cross-flow velocity within the wire-wrapped rod bundle is more than one order of magnitude larger than that in the bare rod bundle, and presents a counterclockwise rotation distribution, which is consistent with the direction of the spinning wire. At the micro-scale level, as shown in Fig. 13, a vortex develops between two flows of opposite directions in the region A of Fig. 12, leading to the enhancement of turbulence flow and heat transfer in this region.
+Fig. 12. The cross-flow velocity vector field on the middle cross section (Z = 131 mm) of wire-wrapped rod bundle and bare rod bundle.
+Fig. 13. A vortex develops between two flows of opposite directions in the region 1 of Fig. 12.
+Fig. 14 shows the cross-flow velocity distribution at different cross sections. In each section, the area with a high cross-flow velocity appears at the edge of the rod bundle far away from the wire and it will rotate with the increase of axial position. The rotation period is a pitch of the wire, namely, 262 mm. Fig. 15 illustrates the cross-flow velocity distribution along the z-axis under the simulation conditions of different Reynolds numbers listed in Table 6. The cross-flow velocity is not so sensitive to the Reynolds number and it only decreases slightly with the increase of Reynolds number, indicating that the z-direction velocity is larger and the flow is more stable at a high Reynolds number.
+Fig. 14. The cross-flow velocity distribution at different cross sections along the z axis.
+Fig. 15. The cross-flow velocity distribution along the z axis with different Reynolds numbers.
+The intense transverse flow caused by the spinning wire also affects the local heat transfer within the wire-wrapped rod bundle. In Fig. 16, we present the temperature and velocity magnitude distribution along the line B (Shown in Fig. 7) of bare rod bundle and wire-wrapped bundle under the same simulation conditions, respectively, in order to study the flow and heat transfer characteristics in the center local channel. In the bare rod bundle, the velocity magnitude reached a stable value after an entrance length and the temperature rises uniformly because the fluid velocity is nearly stable. While in the wire-wrapped bundle, the peak velocity and temperature are lower than the former and the velocity and temperature fluctuate periodically due to the wire barrier, which can also be captured in the 61-pin wire-wrapped bundle [30].
+Fig. 16. The temperature and velocity magnitude distribution along the line B in Fig. 7.
+Fig. 17 and Fig. 18 show the compared wall temperature and local Nusselt number NuL in central rod taken from the outlet between the wire wrapped rod bundle and bare rod bundle in the same simulation conditions. The NuL was still calculated by (31) and the Tf was obtained by the mass weighted average of fluid around the central rod according to (32). In general, the wall temperature in the wire-wrapped rod is lower and the NuL is higher, indicating that the cross-flow and mixing of the liquid enhance the heat transfer obviously. A sudden high temperature and low Nusselt number occurs in the narrow gap between the rod and the wire (about 0° and 180°), where the heat transfer is deteriorative, threatening the integrity of fuel rods in the reactor core. Fig. 19 shows the axial distribution of the cross-section Nusselt number Nuc under different Reynolds Numbers. The Tf is the mass weighted fluid temperature of the section for computing the Nuc and the Tw is the average wall temperature of all heating rods calculated with (30). The Nuc decreases as the fluid is heated along the z axis and increases naturally with the decrease of Reynolds number. For different Reynolds Numbers, the development length of Nuc is close, about five times hydraulics diameters.
+Fig. 17. Circumferential temperature distribution of the central rod, the direction of rotation is shown in the figure on the right.
+Fig. 18. Circumferential Nusselt number distribution of the central rod, Tf is obtained by the mass weighted average of the fluid in the blue region as shown on the right. (For interpretation of the references to colour in this figure legend, the reader is referred to the Web version of this article.)
+Fig. 19. The axial distribution of the cross-section Nusselt number with different Reynolds Numbers.
+<Section>5. Conclusion</Section>
+In this paper, a specific CFD solver based on the k - ε - kθ - εθ model was developed in the open source platform OpenFOAM and was validated with experimental results. Compared with the traditional SED model with a constant Prt, the k - ε - kθ - εθ model is more accurate on predicting turbulent flow and heat transfer of liquid lead-bismuth. The average relative error of the k - ε - kθ - εθ model is reduced by 11.1% at most than that of the SED model under the simulation conditions of this paper.
+The turbulence flow and heat transfer of liquid lead-bismuth in a wire-wrapped rod bundle was simulated. The strong transverse flow caused by spinning wire in the rod bundle was found, leading to a non-asymmetric distribution of velocity and temperature fields. The cross-flow velocity is not so sensitive to Reynolds number of the simulation range. The periodic fluctuation of temperature and velocity in the subchannel were observed. It should be noted that this cross flow also enhances the heat transfer in the rod bundles, but there are also heat transfer deterioration regions with a high wall temperature at the narrow gap between the wire and the rod.
+<Section>Declaration of competing interest</Section>
+The authors declare that they have no known competing financial interests or personal relationships that could have appeared to influence the work reported in this paper.
+<Section>Acknowledgement</Section>
+This research has been supported by the National Natural Science Foundation of China (Grant No. 12075185) and Young Elite Scientists Sponsorship Program by CAST (No.2019QNRC001).
+<Section>References</Section>
+[1]
+J. Pacio, K. Litfifin, A. Batta, et al.
+Heat transfer to liquid metals in a hexagonal rod bundle with grid spacers: experimental and simulation results
+Int. J. Nuclear Engineering and Design, 290 (2015), pp. 27-39
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+[2]
+F. Roelofs, A. Shams, I. Otic, et al.
+Status and perspective of turbulence heat transfer modelling for the industrial application of liquid metal flows
+Int. J. Nuclear Engineering and Design, 290 (2015), pp. 99-106
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+[3]
+M.J. Wang, Y.J. Wang, W.X. Tian, et al.
+Recent progress of CFD applications in PWR thermal hydraulics study and future directions
+Int. J. Annals of Nuclear Energy, 150 (2021), p. 107836
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+[4]
+H. Qin, C.L. Wang, M.J. Wang, D.L. Zhang, W.X. Tian, G.H. Su, S.Z. Qiu
+Numerical investigation on thermal-hydraulic characteristics of NaK in a helical wire wrapped annulus
+Int. J. Heat Mass Transfer, 145 (2019), p. 118689
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+[5]
+X.A. Wang, D.L. Zhang, M.J. Wang, P. Song, S.B. Wang, Y. Liang, Y.P. Zhang, W.X. Tian, S.Z. Qiu, G.H. Su
+Hybrid medium model for conjugate heat transfer modeling in the core of sodium-cooled fast reactor
+Int. J. Nucl. Eng. Technol., 52 (2019), pp. 708-720
+CrossRefView Record in ScopusGoogle Scholar
+[6]
+S. Manservisi, F. Menghini
+Triangular rod bundle simulations of a k - ε - kθ - εθ CFD heat transfer turbulence model for heavy liquid metal
+Int. J. Nuclear Engineering and Design, 273 (2014), pp. 251-270
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+[7]
+H. Kawamura, H. Abe, Y. Matsuo
+DNS of turbulent heat transfer in channel flow with respect to Reynolds and Prandtl number effects
+Int. J. Heat Fluid Flow, 20 (1999), pp. 196-207
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+[8]
+X. Cheng, N. Tak
+CFD analysis of thermal-hydraulic behavior of heavy liquid metals in sub-channels
+Int. J. Nuclear Engineering and Design (2006), pp. 1874-1885
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+[9]
+W. Kays
+Turbulent Prandtl number - where are we
+Int. J. Heat Transfer. Trans. ASME, 116 (1994), pp. 284-295
+CrossRefView Record in ScopusGoogle Scholar
+[10]
+R.L. Sun, D.L. Zhang, Y. Liang, M.J. Wang, W.X. Tian, S.Z. Qiu, G.H. Su
+Development of a subchannel analysis code for SFR wire-wrapped fuel assemblies
+Int. J. Progress Nucl. Energy, 104 (2018), pp. 327-341
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+[11]
+X. Cheng, N. Tak
+Investigation on turbulent heat transfer to lead-bismuth eutectic flows in circular tubes for nuclear application
+Int. J. Nuclear Engineering and Design, 236 (2006), pp. 385-393
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+[12]
+M. Duponcheel, L. Bricteux, M. Manconi, et al.
+Assessment of RANS and improved near-wall modeling for forced convection at low Prandtl numbers based on LES up to Re = 2000
+Int. J. Heat Mass Tran., 75 (2014), pp. 470-482
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+[13]
+S. Kenjeres, K. Hanjalic
+Convective rolls and heat transfer in finite-length Rayleigh–Bernard convection: a two-dimensional numerical study
+Phys. Rev., 62 (6) (2000), pp. 7987-7998
+CrossRefView Record in ScopusGoogle Scholar
+[14]
+S. Kenjeres, S.B. Gunarjo, K. Hanjalic
+Contribution to elliptic relaxation modelling of turbulent natural and mixed convection
+Int. J. Heat Fluid Flow, 26 (4) (2005), pp. 569-586
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+[15]
+A. Shams, F. Roelofs, E. Baglietto, S. Lardeau, S. Kenjeres
+Assessment and calibration of an algebraic turbulent heat flux model for low-Prandtl fluids
+Int. J. Heat Mass Tran., 79 (2014), pp. 589-601
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+[16]
+S. Manservisi, F. Menghini
+A CFD four parameter heat transfer turbulence model for engineering applications in heavy liquid metals
+Int. J. Heat Mass Tran., 69 (2014), pp. 312-326
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+[17]
+S. Manservisi, F. Menghini
+CFD simulations in heavy liquid metal flows for square lattice bare rod bundle geometries with a four-parameter heat transfer turbulence model
+Int. J. Nuclear Engineering and Design, 295 (2015), pp. 251-260
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+[18]
+J. Pacio, K. Litfin, A. Batta, et al.
+Heat transfer to liquid metals in a hexagonal rod bundle with grid spacers: experimental and simulation results
+Nucl. Eng. Des., 290 (2015), pp. 27-39
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+[19]
+D.L. Wang, C.H. Peng, Y. Guo
+Thermal-hydraulic analysis of a 7-pin sodium-cooled fast reactor wire-wrapped fuel bundle
+Int. J. Heat Mass Tran., 160 (2020), p. 120178
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+[20]
+J. Li, D. Fang, C. Guo, M.J. Wang, J. Deng, W.X. Tian, S.Z. Qiu, G.H. Su
+Numerical Study on the Thermal Hydraulic Characteristics in a Wire-Wrapped Assembly of LFR
+Frontier in Energy Research (2020), p. 548065
+View Record in ScopusGoogle Scholar
+[21]
+H.A. Johnson, J.P. Hartnett, W.J. Clabaugh
+Heat transfer to molten lead-bismuth eutectic in turbulent pipe flow
+Int. C. The Atomic Energy Commission (1951), pp. 1-105
+CrossRefView Record in ScopusGoogle Scholar
+[22]
+K. Abe, T. Kondoh, Y. Nagano
+A two-equation heat transfer model reflecting second-moment closures for wall and free turbulent flows
+Int. J. Heat Fluid Flow, 17 (1996), pp. 228-237
+ArticleDownload PDFGoogle Scholar
+[23]
+K. Abe, T. Kondoh, Y. Nagano
+A new turbulence model for predicting fluid flow and heat transfer in separating and reattaching flows. II. Thermal field calculations
+Int. J. Heat Mass Tran., 38 (8) (1995), pp. 1467-1481
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+[24]
+C.B. Hwang, C.A. Lin
+A low Reynolds number two-equation kt–et model to predict thermal field
+Int. J. Heat Mass Tran., 42 (1999), pp. 3217-3230
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+[25]
+B. Deng, W. Wu, S. Xi
+A near-wall two-equation heat transfer model for wall turbulent flow
+Int. J. Heat Mass Tran., 44 (2001), pp. 691-698
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+[26]
+H. Hattori, Y. Nagano, M. Tagawa
+W. Rodi, F. Martelli (Eds.), Analysis of Turbulent Heat Transfer under Various Thermal Conditions with Two-Equation Models, Engineering Turbulence Modeling and Experiments 2 (1993), pp. 43-52
+ArticleDownload PDFGoogle Scholar
+[27]
+Y. Nagano, M. Shimada
+Development of a two-equation heat transfer model based on direct simulations of turbulent flows with different Prandtl numbers
+Phys. Fluids, 8 (1996), pp. 3379-3402
+View Record in ScopusGoogle Scholar
+[28]
+Nuclear Energy Agency
+Handbook on lead-bismuth eutectic alloy and lead properties
+Materials Compatibility, Thermal-hydraulics and Technologies, OECD/NEA (2015)
+Google Scholar
+[29]
+H.J. Uitslag-Doolaarda, F. Roelofsa, J.C. Paciob, et al.
+Experiment design to assess the inter-wrapper heat transfer in LMFR
+Int. J. Nucl. Eng.Des., 341 (2019), pp. 297-305
+Google Scholar
+[30]
+J. Chen, D.L. Zhang, P. Song, X. Wang, S.B. Wang, Y. Liang, S.Z. Qiu, Y.P. Zhang, M.J. Wang, G.H. Su
+CFD investigation on thermal-hydraulic behaviors of a wire-wrapped fuel subassembly for sodium-cooled fast reactor
+Int. J. Ann. Nucl. Energy, 113 (2018), pp. 256-269
+ArticleDownload PDFView Record in ScopusGoogle Scholar

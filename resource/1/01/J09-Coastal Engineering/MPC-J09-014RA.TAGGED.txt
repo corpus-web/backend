@@ -1,0 +1,687 @@
+﻿_JJ <title> Numerical_JJ study_NN of_IN wave_NN interaction_NN with_IN a_DT composite_JJ breakwater_NN located_VVN on_IN permeable_JJ bed_NN </title> <author> HassanAkbari_NP ,_, AmirTaherkhani_NP </author> <Affiliation> Department_NP of_IN Civil_NP Engineering_NP ,_, Tarbiat_NP Modares_NP University_NP ,_, Tehran_NP ,_, Iran_NP </Affiliation> <year> 2019_CD </year> <Jounral> Coastal_NP Engineering_NP </Journal> <Publishing_house> Elsevier_NP </Publishing_house> <Text_Collector> Zhang_NP San，HEU_NP </Text_Collector> <DOI> https://doi.org/10.1016/j.coastaleng.2018.12.006_NP </DOI> <URL> https://www.sciencedirect.com/science/article/pii/S0378383918303272_NP </URL> Numerical_JJ study_NN of_IN wave_NN interaction_NN with_IN a_DT composite_JJ breakwater_NN located_VVN on_IN permeable_JJ bed_NN HassanAkbari_NP ,_, AmirTaherkhani_NP Department_NP of_IN Civil_NP Engineering_NP ,_, Tarbiat_NP Modares_NP University_NP ,_, Tehran_NP ,_, Iran_NP <Section> Highlights_VVZ </Section> A_DT novel_JJ mesh-less_JJ method_NN is_VBZ proposed_VVN for_IN modeling_VVG coupled_VVN wave_NN interaction_NN with_IN a_DT caisson_NN breakwater_NN ._SENT 
+A_DT new_JJ scheme_NN is_VBZ introduced_VVN with_IN no_DT tuning_VVG parameter_NN to_TO model_NN both_CC static_JJ and_CC dynamic_JJ friction_NN forces_NNS beneath_IN the_DT caisson_NN ._SENT 
+A_DT modified_JJ technique_NN based_VVN on_IN δ-SPH_NN scheme_NN is_VBZ proposed_VVN to_TO correct_VV the_DT pressure_NN field_NN in_IN porous_JJ media_NNS ._SENT 
+Wave_NN penetration_NN through_IN porous_JJ media_NNS under_IN the_DT caisson_NN and_CC its_PP$ uplift_NN pressure_NN is_VBZ investigated_VVN ._SENT 
+The_DT numerical_JJ results_NNS are_VBP compatible_JJ with_IN experimental_JJ data_NNS and_CC analytical_JJ solutions_NNS ._SENT 
+<Section> Abstract_JJ </Section> The_DT response_NN of_IN a_DT composite_JJ breakwater_NN against_IN wave_NN load_NN is_VBZ numerically_RB investigated_VVN using_VVG Smoothed_VVN Particle_NN Hydrodynamic_JJ (_( SPH_NN )_) model_NN ._SENT 
+Permeability_NN of_IN the_DT stone_NN layer_NN beneath_IN the_DT caisson_NN is_VBZ implemented_VVN in_IN the_DT model_NN and_CC a_DT new_JJ scheme_NN free_JJ of_IN any_DT tuning_VVG parameter_NN is_VBZ introduced_VVN to_TO estimate_VV the_DT dynamic_JJ friction_NN forces_NNS transitionally_RB applied_VVN to_TO the_DT moving_VVG caisson_NN ._SENT 
+To_TO overcome_VV pressure_NN noises_NNS inside_IN the_DT porous_JJ medium_NN ,_, a_DT treatment_NN based_VVN on_IN δ-SPH_NN scheme_NN is_VBZ utilized_VVN and_CC its_PP$ performance_NN is_VBZ verified_VVN by_IN modeling_VVG a_DT simple_JJ hydrostatic_JJ condition_NN inside_IN a_DT homogeneous_JJ porous_JJ medium_NN ._SENT 
+The_DT model_NN ability_NN in_IN simulating_VVG fluid_JJ flow_NN through_IN porous_JJ media_NNS is_VBZ approved_VVN by_IN modeling_VVG dam_NN break_NN flow_NN through_IN a_DT porous_JJ block_NN ._SENT 
+In_IN addition_NN ,_, a_DT caisson_NN breakwater_NN with_IN an_DT impermeable_JJ bed_NN is_VBZ modeled_VVN and_CC the_DT results_NNS are_VBP compared_VVN with_IN experimental_JJ and_CC other_JJ numerical_JJ results_NNS to_TO validate_VV the_DT performance_NN of_IN the_DT introduced_VVN friction_NN coefficient_NN ._SENT 
+Then_RB ,_, the_DT same_JJ caisson_NN but_CC with_IN a_DT permeable_JJ bed_NN is_VBZ simulated_JJ against_IN the_DT incident_NN waves_NNS and_CC the_DT horizontal_JJ forces_NNS as_RB well_RB as_IN sliding_VVG displacements_NNS are_VBP calculated_VVN ._SENT 
+Good_JJ agreements_NNS with_IN the_DT experimental_JJ data_NNS show_VVP the_DT acceptable_JJ performance_NN of_IN the_DT developed_VVN model_NN as_RB well_RB as_IN the_DT importance_NN level_NN of_IN the_DT permeable_JJ bed_NN on_IN the_DT caisson_NN response_NN ._SENT 
+Based_VVN on_IN the_DT results_NNS ,_, neglecting_VVG the_DT flow_NN through_IN the_DT porous_JJ bed_NN of_IN the_DT caisson_NN may_MD result_VV in_IN an_DT overestimated_VVN wave_NN force_NN and_CC an_DT underestimated_VVN caisson_NN sliding_VVG ._SENT 
+Finally_RB ,_, the_DT caisson_NN responses_NNS to_TO different_JJ wave_NN conditions_NNS are_VBP studied_VVN and_CC it_PP is_VBZ shown_VVN that_IN the_DT peak_NN load_NN on_IN the_DT caisson_NN increases_VVZ as_IN the_DT wave_NN height_NN or_CC wave_NN period_NN rises_NNS ._SENT 
+KEYWORDS_NNS :_: Caisson_NN breakwater_NN ;_: Sliding_VVG ;_: Dynamic_JJ friction_NN ;_: Porosity_NN ;_: SPH_NN <Section> 1._CD Introduction_NN </Section> Stability_NP study_NN of_IN composite_JJ breakwaters_NNS due_JJ to_TO wave_NN interaction_NN is_VBZ very_RB complex_JJ because_IN of_IN the_DT porosity_NN of_IN rubble-mound_JJ bed_NN as_IN the_DT foundation_NN of_IN such_JJ structures_NNS ;_: however_RB ,_, it_PP is_VBZ of_IN great_JJ importance_NN in_IN coastal_JJ engineering_NN ._SENT 
+There_EX are_VBP three_CD main_JJ types_NNS of_IN failure_NN mode_NN for_IN composite_JJ breakwaters_NNS :_: a_DT )_) overturning_VVG ,_, b_LS )_) excessive_JJ sliding_VVG and_CC ,_, c_LS )_) failure_NN of_IN seabed_NN foundation_NN ._SENT 
+The_DT two_CD last_JJ modes_NNS occur_VVP more_RBR frequently_RB than_IN the_DT first_JJ one_CD ._SENT 
+Failure_NN of_IN sea_NN bed_NN foundation_NN is_VBZ usually_RB due_JJ to_TO weakness_NN of_IN soil_NN parameters_NNS against_IN applied_VVN loads_NNS or_CC liquefaction_NN phenomenon_NN ._SENT 
+On_IN the_DT other_JJ hand_NN ,_, sliding_VVG is_VBZ one_CD the_DT important_JJ failure_NN modes_NNS in_IN practice_NN as_RB reported_VVD by_IN Wang_NP et_CC al_NP ._SENT 
+(_( 2016_CD )_) ._SENT 
+There_EX are_VBP two_CD issues_NNS as_IN studying_VVG wave_NN interaction_NN with_IN a_DT composite_JJ breakwater_NN ;_: firstly_RB ,_, fluid_JJ interaction_NN with_IN porous_JJ medium_NN and_CC secondly_RB ,_, caisson_NN sliding_VVG due_JJ to_TO wave_NN impact_NN ._SENT 
+The_DT latter_JJ case_NN depends_VVZ also_RB on_IN friction_NN forces_NNS between_IN caisson_NN and_CC rubble-mound_NN bed_NN as_RB well_RB as_IN the_DT effective_JJ weight_NN of_IN caisson_NN ._SENT 
+Numerical_JJ modeling_NN can_MD be_VB used_VVN as_IN a_DT great_JJ tool_NN to_TO understand_VV the_DT phenomenon_NN ._SENT 
+Many_JJ attempts_NNS have_VHP been_VBN made_VVN to_TO simulate_VV wave_NN interaction_NN with_IN porous_JJ coastal_JJ structures_NNS by_IN developing_VVG the_DT numerical_JJ models_NNS ._SENT 
+The_DT previous_JJ modelings_NNS in_IN recent_JJ decades_NNS to_TO simulate_VV a_DT fluid_JJ flow_NN inside_IN porous_JJ medium_NN are_VBP based_VVN on_IN macroscopic_JJ and_CC microscopic_JJ approaches_NNS ._SENT 
+In_IN a_DT microscopic_JJ approach_NN interaction_NN of_IN fluid_JJ flow_NN with_IN the_DT particles_NNS of_IN the_DT porous_JJ medium_NN is_VBZ simulated_JJ in_IN detail_NN ._SENT 
+Hence_RB ,_, geometry_NN ,_, size_NN ,_, and_CC position_NN of_IN particles_NNS should_MD be_VB simulated_JJ in_IN a_DT microscopic_JJ model_NN ._SENT 
+The_DT complexity_NN of_IN geometry_NN ,_, size_NN ,_, and_CC position_NN of_IN porous_JJ medium_NN particles_NNS engender_VVP less_JJR accuracy_NN in_IN microscopic_JJ models_NNS ._SENT 
+Additionally_RB ,_, simulating_VVG all_DT details_NNS leads_VVZ to_TO higher_JJR computational_JJ costs_NNS in_IN comparison_NN with_IN macroscopic_JJ models_NNS ._SENT 
+On_IN the_DT other_JJ hand_NN ,_, macroscopic_JJ models_NNS only_RB consider_VVP the_DT general_JJ behavior_NN of_IN the_DT fluid_NN inside_IN the_DT porous_JJ medium_NN ,_, and_CC the_DT details_NNS such_JJ as_IN size_NN ,_, shape_NN ,_, and_CC position_NN of_IN particles_NNS are_VBP not_RB simulated_JJ ._SENT 
+Actually_RB ,_, such_JJ models_NNS only_RB introduce_VV a_DT simple_JJ linear_JJ relation_NN between_IN the_DT flow_NN rate_NN and_CC the_DT pressure_NN drop_NN ._SENT 
+Firstly_RB ,_, Darcy_NP introduced_VVD such_JJ relation_NN in_IN the_DT 19th_JJ century_NN ._SENT 
+Forchheimer_NP (_( 1901_CD )_) added_VVD a_DT non-linear_JJ term_NN to_TO Darcy_NP 's_POS equation_NN to_TO consider_VV additional_JJ pressure_NN drop_NN for_IN the_DT higher_JJR velocities_NNS ._SENT 
+Brinkman_NP (_( 1949_CD )_) then_RB added_VVD viscosity_NN shear_NN stress_NN term_NN to_TO the_DT equation_NN ._SENT 
+Van_NP Gent_NP (_( 1994_CD )_) eliminated_VVN viscosity_NN shear_NN stress_NN term_NN introduced_VVN by_IN Brinkman_NP (_( 1949_CD )_) and_CC recommended_VVD linear_JJ and_CC nonlinear_JJ porous_JJ coefficients_NNS in_IN addition_NN to_TO the_DT inertial_JJ coefficient_NN for_IN his_PP$ proposed_VVN Navier-Stokes_NN model_NN ._SENT 
+Later_RBR ,_, Liu_NP et_CC al_NP ._SENT 
+(_( 1999_CD )_) investigated_VVD wave_NN interaction_NN with_IN porous_JJ coastal_JJ structures_NNS using_VVG proposed_VVN Navier-Stokes_NNS model_NN by_IN Van_NP Gent_NP (_( 1994_CD )_) ._SENT 
+They_PP modified_VVN linear_JJ porous_JJ coefficient_NN by_IN simulating_VVG dam-break_NN wave_NN passing_VVG through_IN two_CD porous_JJ blocks_NNS with_IN different_JJ porosities_NNS and_CC comparing_VVG the_DT results_NNS with_IN the_DT experimental_JJ results_NNS ._SENT 
+Liu_NP et_NP al_NP ._SENT 
+(_( 1999_CD )_) employed_VVN two_CD sets_NNS of_IN different_JJ equations_NNS for_IN the_DT fluid_JJ flow_NN inside_IN and_CC outside_IN of_IN the_DT porous_JJ medium_NN and_CC developed_VVD their_PP$ numerical_JJ model_NN by_IN applying_VVG appropriate_JJ boundary_NN conditions_NNS ._SENT 
+Mizutani_NP et_NP al_NP ._SENT 
+(_( 1998_CD )_) developed_VVD a_DT model_NN to_TO simulate_VV dynamic_JJ wave_NN interaction_NN with_IN porous_JJ submerged_JJ breakwater_NN placed_VVN on_IN sand_NN beds_NNS ._SENT 
+Mizutani_NP et_NP al_NP ._SENT 
+(_( 1998_CD )_) implemented_VVD the_DT Modified_VVN Navier-Stokes_NN equations_NNS to_TO simulate_VV the_DT fluid_JJ flow_NN based_VVN on_IN Boundary_NP Element_NN Method_NN (_( BEM_NP )_) and_CC used_VVN Biot_NN equations_NNS to_TO simulate_VV poroelastic_JJ medium_NN based_VVN on_IN Finite_JJ Element_NN Method_NN (_( FEM_NP )_) ._SENT 
+Losada_NP et_NP al_NP ._SENT 
+(_( 1996_CD )_) developed_VVD two_CD 3-D_NN models_NNS using_VVG Finite_JJ Difference_NN Method_NN (_( FDM_NP )_) to_TO investigate_VV kinematics_NNS and_CC dynamics_NNS of_IN non-breaking_VVG regular_JJ waves_NNS ,_, inside_JJ and_CC outside_JJ of_IN the_DT porous_JJ submerged_JJ breakwater_NN ._SENT 
+In_IN this_DT study_NN ,_, effects_NNS of_IN incident_NN wave_NN properties_NNS ,_, breakwater_NN geometry_NN ,_, and_CC porous_JJ materials_NNS on_IN reflection_NN ,_, transmission_NN ,_, and_CC diffraction_NN of_IN the_DT wave_NN have_VHP been_VBN investigated_VVN ._SENT 
+In_IN another_DT study_NN ,_, Hsu_NP et_CC al_NP ._SENT 
+(_( 2002_CD )_) derived_VVN Volume-Averaged/Reynolds_NNS Averaged_VVD Navier-Stokes_NNS (_( VARANS_NP )_) equations_NNS by_IN adopting_VVG the_DT nonlinear_JJ eddy_NN viscosity_NN assumption_NN ._SENT 
+Surface_NN wave_NN motions_NNS in_IN the_DT vicinity_NN of_IN both_DT rigid_JJ and_CC permeable_JJ coastal_JJ structures_NNS were_VBD described_VVN well_RB with_IN their_PP$ developed_JJ model_NN ._SENT 
+Wang_NP al_NP ._SENT 
+(_( 2006_CD )_) studied_VVD the_DT motion_NN of_IN caisson_NN breakwater_NN on_IN the_DT porous_JJ bed_NN under_IN wave_NN excitation_NN by_IN developing_VVG a_DT numerical_JJ model_NN ._SENT 
+They_PP have_VHP classified_VVN motion_NN modes_NNS into_IN two_CD categories_NNS :_: (_( 1_LS )_) the_DT horizontal_JJ and_CC rotational_JJ vibration_NN coupled_VVN motion_NN ,_, and_CC (_( 2_LS )_) the_DT horizontal_JJ slide_NN and_CC rotational_JJ vibration_NN coupled_VVN motion_NN ._SENT 
+The_DT caisson_NN and_CC the_DT porous_JJ bed_NN have_VHP formed_VVN a_DT Mass-Spring-Damper_NN system_NN considering_VVG horizontal_JJ and_CC rotational_JJ damping_VVG coefficients_NNS and_CC spring_NN constants_NNS of_IN equivalent_JJ horizontal_NN and_CC rotational_JJ springs_NNS ._SENT 
+Also_RB ,_, the_DT friction_NN between_IN caisson_NN and_CC foundation_NN has_VHZ been_VBN considered_VVN using_VVG frictional_JJ coefficient_NN ._SENT 
+Testing_VVG and_CC comparing_VVG the_DT numerical_JJ by_IN a_DT physical_JJ model_NN experiment_NN lead_NN to_TO presenting_VVG dynamic_JJ friction_NN coefficient_NN between_IN caisson_NN and_CC porous_JJ foundation_NN ._SENT 
+Higuera_NP et_NP al_NP ._SENT 
+(_( 2014a_NP )_) conducted_VVD an_DT investigation_NN into_IN the_DT interaction_NN of_IN waves_NNS and_CC porous_JJ coastal_JJ structures_NNS ._SENT 
+They_PP solved_VVD VRANS_NNS equations_NNS for_IN the_DT pure_JJ fluid_NN and_CC the_DT fluid_NN inside_IN porous_JJ medium_NN phases_NNS ._SENT 
+Also_RB ,_, the_DT turbulence_NN inside_IN the_DT porous_JJ medium_NN has_VHZ been_VBN considered_VVN using_VVG k−ε_JJ and_CC k−�_JJ �_JJ models_NNS ._SENT 
+Then_RB ,_, Higuera_NP et_CC al_NP ._SENT 
+(_( 2014b_NP )_) employed_VVN the_DT model_NN to_TO simulate_VV 3-D_JJ wave_NN interaction_NN with_IN caisson_NN breakwater_NN on_IN a_DT porous_JJ foundation_NN and_CC investigate_VV overtopping_VVG ,_, transmission_NN and_CC pressure_NN field_NN around_IN caisson_NN ._SENT 
+Jeng_NP et_NP al_NP ._SENT 
+(_( 2013_CD )_) developed_VVD an_DT integrated_JJ model_NN for_IN modeling_VVG wave–seabed–structure_NN interactions_NNS by_IN solving_VVG VARANS_NNS equations_NNS (_( for_IN fluid_JJ domain_NN )_) in_IN combination_NN with_IN the_DT dynamic_JJ Biot_NN 's_POS equations_NNS (_( for_IN porous_JJ sea_NN bed_NN )_) ._SENT 
+Later_RBR ,_, Ye_NP et_CC al_NP ._SENT 
+(_( 2014_CD )_) applied_VVD this_DT model_NN to_TO study_VV breaking_VVG wave_NN interaction_NN with_IN a_DT fixed_VVN composite_JJ breakwater_NN ._SENT 
+They_PP investigated_VVD wave-induced_JJ liquefaction_NN in_IN seabed_NN foundation_NN and_CC indicated_VVD that_IN the_DT turbulent_JJ energy_NN and_CC impact_NN force_NN of_IN a_DT breaking_JJ wave_NN is_VBZ much_RB greater_JJR than_IN a_DT non-breaking_JJ wave_NN ._SENT 
+The_DT aforementioned_JJ studies_NNS implemented_VVN Eulerian_JJ approach_NN which_WDT may_MD generate_VV numerical_JJ instabilities_NNS due_JJ to_TO the_DT calculation_NN of_IN flow_NN convective_JJ acceleration_NN ._SENT 
+On_IN the_DT other_JJ hand_NN ,_, Lagrangian_JJ approach_NN overcomes_VVZ the_DT challenge_NN by_IN solving_VVG the_DT governing_VVG equations_NNS for_IN moving_VVG particles_NNS separately_RB ._SENT 
+In_IN addition_NN ,_, in_IN recent_JJ decades_NNS coastal_JJ engineering_NN researchers_NNS have_VHP been_VBN paid_VVN attention_NN to_TO Lagrangian_JJ approach_NN due_JJ to_TO the_DT great_JJ ability_NN of_IN Lagrangian_JJ approach_NN in_IN free_JJ surface_NN determination_NN ._SENT 
+Smoothed_VVN Particle_NN Hydrodynamics_NNS (_( SPH_NN )_) is_VBZ a_DT typical_JJ method_NN in_IN recent_JJ decades_NNS which_WDT solves_VVZ governing_VVG equations_NNS for_IN particles_NNS using_VVG computational_JJ domain_NN discretization_NN ._SENT 
+As_IN calculation_NN domain_NN increases_VVZ the_DT number_NN of_IN particles_NNS rises_NNS which_WDT result_VVP in_IN higher_JJR computational_JJ cost_NN (_( Losada_NP et_NP al_NP ._SENT 
+,_, 2016_CD )_) ._SENT 
+Many_JJ attempts_NNS have_VHP been_VBN made_VVN to_TO reduce_VV the_DT computational_JJ cost_NN of_IN SPH_NN based_VVN models_NNS using_VVG parallel_JJ calculation_NN and_CC GPU_NP ._SENT 
+Although_IN SPH_NN originally_RB was_VBD developed_VVN in_IN Astrophysics_NNS at_IN first_JJ ,_, Monaghan_NP and_CC Kos_NP (_( 1999_CD )_) employed_VVN this_DT method_NN by_IN introducing_VVG WCSPH_NN model_NN for_IN fluid_JJ hydrodynamics_NNS considering_VVG weakly_JJ compressibility_NN of_IN fluid_NN ._SENT 
+WCSPH_NP calculates_VVZ pressure_NN field_VV explicitly_RB which_WDT engender_VVP some_DT instabilities_NNS in_IN pressure_NN field_NN ._SENT 
+Shao_NP and_CC Lo_NP (_( 2003_CD )_) developed_VVN ISPH_NN method_NN considering_VVG incompressibility_NN of_IN fluid_NN and_CC using_VVG semi-implicit_JJ method_NN for_IN calculation_NN of_IN pressure_NN field_NN ._SENT 
+Pressure_NN variations_NNS and_CC instabilities_NNS of_IN ISPH_NN is_VBZ less_JJR than_IN WCSPH_NN ;_: however_RB ,_, explicit_JJ calculations_NNS of_IN WCSPH_NN provide_VVP the_DT opportunity_NN of_IN parallel_JJ computing_NN which_WDT results_VVZ in_IN less_JJR computational_JJ costs_NNS for_IN the_DT real_JJ problems_NNS with_IN large_JJ geometries_NNS ._SENT 
+Concerning_VVG model_NN accuracy_NN ,_, several_JJ modifications_NNS have_VHP also_RB been_VBN introduced_VVN to_TO decrease_VV SPH_NN errors_NNS ._SENT 
+For_IN example_NN Akbari_NP (_( 2016_CD )_) introduced_VVD a_DT surface_NN viscosity_NN to_TO reduce_VV local_JJ surface_NN fluctuations_NNS and_CC Molteni_NP and_CC Colagrossi_NP (_( 2009_CD )_) added_VVD an_DT artificial_JJ diffusion_NN term_NN to_TO the_DT continuity_NN equation_NN to_TO reduce_VV pressure_NN field_NN fluctuations_NNS ._SENT 
+The_DT latter_JJ one_CD is_VBZ also_RB applied_VVN in_IN this_DT study_NN to_TO well_RB predict_VV the_DT pressure_NN around_IN the_DT caisson_NN and_CC consequently_RB to_TO model_VV the_DT caisson_NN movement_NN accurately_RB ._SENT 
+Since_IN analysis_NN of_IN a_DT composite_JJ breakwater_NN involves_VVZ both_DT wave_NN interaction_NN with_IN porous_JJ medium_NN and_CC wave_NN interaction_NN with_IN a_DT rigid_JJ caisson_NN ,_, it_PP is_VBZ required_VVN to_TO review_VV numerical_JJ studies_NNS concerning_VVG both_DT of_IN these_DT issues_NNS ._SENT 
+As_IN one_CD of_IN the_DT first_JJ attempts_NNS to_TO solve_VV wave_NN interaction_NN with_IN a_DT porous_JJ medium_NN ,_, Shao_NP (_( 2010_CD )_) developed_VVD an_DT ISPH_NN model_NN to_TO study_VV wave_NN overtopping_VVG from_IN a_DT porous_JJ breakwater_NN ._SENT 
+The_DT developed_VVN model_NN solves_VVZ 2-D_JJ Unsteady_JJ Navier-Stokes_NNS equation_NN for_IN the_DT fluid_JJ outside_NN of_IN medium_NN and_CC Navier-Stokes_VVZ type_NN equation_NN by_IN adding_VVG resulted_VVN friction_NN forces_NNS of_IN the_DT porous_JJ medium_NN for_IN the_DT fluid_NN inside_IN the_DT medium_NN ._SENT 
+Finally_RB ,_, the_DT developed_JJ model_NN verified_VVN by_IN simulating_VVG wave_NN diffraction_NN over_IN porous_JJ bed_NN ,_, and_CC overtopping_VVG and_CC wave_NN run-up_NN of_IN breaking_VVG waves_NNS over_IN protected_JJ breakwater_NN with_IN porous_JJ materials_NNS have_VHP been_VBN investigated_VVN ._SENT 
+Although_IN the_DT model_NN is_VBZ able_JJ to_TO simulate_VV wave_NN interaction_NN with_IN porous_JJ medium_NN and_CC determination_NN of_IN breaking_VVG wave_NN overtopping_VVG ,_, run-up_NN and_CC free_JJ surface_NN variations_NNS ,_, no_DT flow_NN turbulence_NN model_NN has_VHZ been_VBN considered_VVN for_IN the_DT developed_VVN model_NN ._SENT 
+Akbari_NP and_CC Namin_NP (_( 2013_CD )_) introduced_VVD an_DT ISPH_NN model_NN which_WDT consider_VVP porous_JJ medium_NN by_IN adding_VVG linear_JJ and_CC non-linear_JJ resistant_JJ forces_NNS for_IN low_JJ and_CC high_JJ Raynold_NP 's_POS numbers_NNS ,_, respectively_RB ._SENT 
+They_PP employed_VVN the_DT same_JJ coefficient_NN and_CC equations_NNS of_IN resistance_NN forces_NNS due_JJ to_TO porous_JJ medium_NN utilized_VVN by_IN Shao_NP ._SENT 
+In_IN contrast_NN with_IN Shao_NP 's_POS model_NN ,_, this_DT model_NN does_VVZ not_RB solve_VV two_CD separate_JJ equations_NNS for_IN fluid_JJ inside_NN and_CC outside_IN the_DT porous_JJ medium_NN but_CC a_DT set_NN of_IN NS_NP equations_NNS would_MD be_VB solved_VVN for_IN the_DT whole_JJ computational_JJ domain_NN ._SENT 
+A_DT background_NN porosity_NN map_NN was_VBD defined_VVN in_IN their_PP$ study_NN while_IN resistance_NN force_NN due_JJ to_TO porous_JJ medium_NN was_VBD diminished_VVN whenever_WRB no_DT porosity_NN exists_VVZ ._SENT 
+However_RB ,_, the_DT study_NN does_VVZ not_RB consider_VV any_DT turbulence_NN model_NN ._SENT 
+In_IN order_NN to_TO simulate_VV wave_NN interaction_NN with_IN porous_JJ structures_NNS ,_, Akbari_NP (_( 2014_CD )_) developed_VVD a_DT numerical_JJ model_NN based_VVN on_IN ISPH_NN using_VVG NS_NP equations_NNS for_IN the_DT total_JJ domain_NN similar_JJ to_TO Akbari_NP and_CC Namin_NP (_( 2013_CD )_) ._SENT 
+He_PP applied_VVD SPS_NP turbulence_NN model_NN and_CC introduced_VVD apparent_JJ density_NN for_IN the_DT fluid_JJ particles_NNS inside_IN porous_JJ medium_NN ._SENT 
+Regarding_VVG the_DT concept_NN of_IN apparent_JJ density_NN ,_, the_DT density_NN of_IN particles_NNS inside_IN porous_JJ medium_NN should_MD be_VB less_JJR than_IN the_DT particles_NNS of_IN pure_JJ fluid_NN ._SENT 
+Later_RBR ,_, Ren_NP et_CC al_NP ._SENT 
+(_( 2016_CD )_) developed_VVD a_DT numerical_JJ model_NN based_VVN on_IN WCSPH_NN to_TO simulate_VV fluid_JJ flow_NN and_CC porous_JJ structures_NNS ._SENT 
+Similar_JJ to_TO Akbari_NP ,_, 2014_CD ,_, Ren_NP et_CC al_NP ._SENT 
+,_, 2016_CD employed_VVN NS_NP equations_NNS for_IN the_DT total_JJ domain_NN ,_, SPS_NP turbulence_NN model_NN and_CC apparent_JJ density_NN ._SENT 
+Also_RB ,_, variable_JJ smoothing_VVG length_NN has_VHZ been_VBN used_VVN in_IN their_PP$ research_NN to_TO reduce_VV pressure_NN variations_NNS ._SENT 
+Later_RBR ,_, Wen_NP et_CC al_NP ._SENT 
+(_( 2018a_NP )_) developed_VVD a_DT three-dimensional_JJ WCSPH_NN porous_JJ flow_NN model_NN and_CC assessed_VVD 3D_JJ effects_NNS of_IN flow_NN around_IN a_DT breakwater_NN head_NN ._SENT 
+Recently_RB ,_, Khayyer_NP et_CC al_NP ._SENT 
+(_( 2018_CD )_) reformulated_VVN the_DT governing_VVG equations_NNS based_VVN on_IN volume_NN fraction_NN idea_NN in_IN two-phase_JJ mixture_NN theory_NN ._SENT 
+They_PP modeled_VVD the_DT effect_NN of_IN porous_JJ media_NNS with_IN linear_JJ and_CC nonlinear_JJ resistance_NN force_NN terms_NNS and_CC utilized_VVD a_DT modified_JJ Poisson_NP Pressure_NN Equation_NN to_TO minimize_VV numerical_JJ errors_NNS in_IN their_PP$ developed_JJ ISPH_NN model_NN ._SENT 
+Although_IN some_DT good_NN researches_VVZ have_VH been_VBN conducted_VVN on_IN fluid_JJ interaction_NN with_IN porous_JJ medium_NN using_VVG SPH_NN ,_, few_JJ studies_NNS have_VHP focused_VVN on_IN the_DT stability_NN of_IN composite_JJ breakwater_NN using_VVG SPH_NN especially_RB by_IN considering_VVG foundation_NN porosity_NN ._SENT 
+As_IN mentioned_VVN earlier_RBR ,_, fluid_JJ interaction_NN with_IN the_DT rigid_JJ body_NN as_RB well_RB as_IN friction_NN force_NN between_IN two_CD surfaces_VVZ is_VBZ of_IN great_JJ importance_NN in_IN the_DT simulation_NN of_IN composite_JJ breakwater_NN stability_NN ._SENT 
+As_IN one_CD of_IN the_DT initial_JJ studies_NNS ,_, Monaghan_NP et_CC al_NP ._SENT 
+(_( 2003_CD )_) applied_VVN WCSPH_NN to_TO simulate_VV a_DT rigid_JJ body_NN motion_NN on_IN a_DT curved_VVN ramp_NN and_CC its_PP$ impact_NN with_IN water_NN as_RB well_RB as_IN solitary_JJ wave_NN generation_NN ._SENT 
+They_PP imposed_VVD a_DT friction_NN force_NN between_IN the_DT curved_VVN ramp_NN and_CC rigid_JJ body_NN then_RB compared_VVN the_DT numerical_JJ with_IN experimental_JJ results_NNS to_TO introduce_VV the_DT friction_NN coefficient_NN between_IN these_DT surfaces_VVZ ._SENT 
+Rogers_NP et_NP al_NP ._SENT 
+(_( 2010_CD )_) developed_VVD a_DT model_NN to_TO simulate_VV concrete_JJ caisson_NN stability_NN against_IN sliding_VVG due_JJ to_TO interaction_NN with_IN regular_JJ waves_NNS by_IN means_NNS of_IN SPHysics_NNS ,_, an_DT open-source_NN code_NN based_VVN on_IN WCSPH_NN ._SENT 
+In_IN order_NN to_TO simulate_VV the_DT interaction_NN of_IN regular_JJ wave_NN and_CC caisson_NN breakwater_NN with_IN the_DT impermeable_JJ bottom_NN ,_, the_DT experimental_JJ setup_NN of_IN Wang_NP et_CC al_NP ._SENT 
+(_( 2006_CD )_) was_VBD used_VVN considering_VVG repulsive_JJ force_NN boundary_NN condition_NN and_CC impermeable_JJ caisson_NN bottom_NN ._SENT 
+They_PP utilized_VVD the_DT introduced_VVN dynamic_JJ friction_NN force_NN by_IN Wang_NP et_CC al_NP ._SENT 
+(_( 2006_CD )_) and_CC calculated_VVN exerting_VVG dynamic_JJ and_CC static_JJ friction_NN forces_NNS on_IN caisson_NN considering_VVG a_DT threshold_NN velocity_NN for_IN the_DT caisson_NN ._SENT 
+This_DT velocity_NN was_VBD used_VVN to_TO detect_VV whether_IN static_JJ or_CC dynamic_JJ friction_NN force_NN should_MD be_VB applied_VVN ._SENT 
+They_PP utilized_VVD two_CD threshold_NN velocities_NNS and_CC concluded_VVD that_IN it_PP has_VHZ a_DT considerable_JJ impact_NN on_IN the_DT impulsive_JJ peaks_NNS of_IN the_DT wave_NN loading_NN ._SENT 
+In_IN another_DT study_NN ,_, Jian_NP et_CC al_NP ._SENT 
+(_( 2016_CD )_) utilized_VVD a_DT developed_VVN ISPH_NN model_NN to_TO simulate_VV dam-break_NN flow_NN interaction_NN with_IN both_DT fixed_VVN and_CC movable_JJ rigid_JJ bodies_NNS ._SENT 
+In_IN their_PP$ study_NN ,_, virtual_JJ particles_NNS were_VBD modeled_VVN besides_IN rigid_JJ boundaries_NNS to_TO simulate_VV solid_JJ boundaries_NNS ._SENT 
+In_IN addition_NN ,_, equal_JJ dynamic_JJ and_CC static_JJ friction_NN coefficients_NNS were_VBD taken_VVN into_IN account_NN at_IN the_DT interface_NN between_IN the_DT structure_NN and_CC the_DT bed_NN ._SENT 
+On_IN the_DT other_JJ hand_NN ,_, to_TO determine_VV friction_NN forces_NNS ,_, the_DT buoyant_JJ force_NN due_JJ to_TO the_DT fluid_JJ upward_JJ pressure_NN was_VBD neglected_VVN which_WDT may_MD cause_VV some_DT errors_NNS in_IN modeling_NN ._SENT 
+In_IN the_DT present_JJ study_NN ,_, the_DT effect_NN of_IN a_DT permeable_JJ bed_NN on_IN caisson_NN movement_NN is_VBZ studies_NNS and_CC a_DT new_JJ scheme_NN is_VBZ introduced_VVN to_TO model_VV dynamic_JJ frictions_NNS during_IN the_DT caisson_NN sliding_VVG ._SENT 
+The_DT developed_VVN WCSPH_NN numerical_JJ model_NN has_VHZ been_VBN introduced_VVN after_IN explanation_NN of_IN governing_VVG equations_NNS ._SENT 
+Also_RB ,_, boundary_NN conditions_NNS and_CC exerting_VVG friction_NN forces_NNS have_VHP been_VBN presented_VVN ._SENT 
+Afterward_RB ,_, the_DT developed_JJ numerical_JJ model_NN has_VHZ been_VBN verified_VVN by_IN simulating_VVG dam-break_NN flow_NN passing_VVG through_IN porous_JJ block_NN and_CC comparing_VVG the_DT results_NNS with_IN available_JJ experimental_JJ results_NNS ._SENT 
+During_IN verification_NN procedure_NN of_IN the_DT developed_VVN model_NN ,_, experimental_JJ setup_NN of_IN Wang_NP et_CC al_NP ._SENT 
+(_( 2006_CD )_) has_VHZ been_VBN considered_VVN to_TO investigate_VV the_DT efficiency_NN of_IN applied_VVN friction_NN force_NN ._SENT 
+Then_RB ,_, regular_JJ wave_NN interaction_NN with_IN the_DT concrete_JJ caisson_NN on_IN an_DT impermeable_JJ bed_NN has_VHZ been_VBN simulated_JJ ,_, and_CC the_DT results_NNS have_VHP been_VBN compared_VVN with_IN available_JJ numerical_JJ and_CC experimental_JJ results_NNS ._SENT 
+Finally_RB ,_, the_DT developer_NN model_NN has_VHZ been_VBN employed_VVN to_TO simulate_VV the_DT interaction_NN of_IN regular_JJ waves_NNS and_CC composite_JJ breakwater_NN with_IN porous_JJ foundation_NN ,_, and_CC the_DT numerical_JJ model_NN results_NNS have_VHP been_VBN compared_VVN with_IN Wang_NP et_CC al_NP ._SENT 
+(_( 2006_CD )_) experimental_JJ results_NNS ._SENT 
+<Section> 2._CD Principles_NNS and_CC SPH_NN model_NN </Section> 2.1_CD ._SENT 
+Governing_VVG equations_NNS In_IN the_DT present_JJ study_NN ,_, a_DT numerical_JJ model_NN has_VHZ been_VBN developed_VVN to_TO simulate_VV stability_NN of_IN concrete_JJ caisson_NN on_IN the_DT porous_JJ bed_NN against_IN sliding_VVG due_JJ to_TO interaction_NN with_IN regular_JJ waves_NNS ._SENT 
+Considering_VVG the_DT nature_NN of_IN the_DT problem_NN the_DT governing_VVG equations_NNS can_MD be_VB divided_VVN into_IN two_CD types_NNS :_: the_DT governing_VVG equations_NNS of_IN fluid-porous_JJ medium_NN interaction_NN and_CC the_DT governing_VVG equations_NNS of_IN fluid-rigid_JJ body_NN interaction_NN and_CC movement_NN of_IN the_DT rigid_JJ body_NN ._SENT 
+Both_DT types_NNS have_VHP been_VBN elaborated_VVN on_IN in_IN the_DT following_NN ._SENT 
+2.1.1_CD ._SENT 
+Fluid_JJ flow_NN in_IN porous_JJ medium_NN Similar_JJ to_TO Ren_NP 's_POS et_NP al_NP ._SENT 
+study_NN ,_, continuity_NN equation_NN and_CC RANS_NNS equations_NNS have_VHP been_VBN applied_VVN to_TO the_DT fluid_JJ flow_NN inside_IN the_DT porous_JJ medium_NN ._SENT 
+@(1_JJ )_) @(2_NN )_) Where_WRB ,_, vD_NN is_VBZ Darcy_NP velocity_NN which_WDT is_VBZ product_NN of_IN porous_JJ medium_NN porosity_NN (_( nw_NN )_) and_CC intrinsic_JJ fluid_JJ velocity_NN (_( vf_NP )_) ._SENT 
+ρ_NP is_VBZ fluid_JJ density_NN ;_: P_NN is_VBZ fluid_JJ pressure_NN ;_: t_NN is_VBZ time_NN ,_, and_CC g_NN is_VBZ gravitational_JJ acceleration_NN vector_NN ._SENT 
+Also_RB ,_, a_DT and_CC b_LS are_VBP linear_JJ and_CC nonlinear_JJ coefficients_NNS of_IN porous_JJ medium_NN resistance_NN ,_, respectively_RB ._SENT 
+Considering_VVG these_DT equations_NNS ,_, as_IN the_DT fluid_NN is_VBZ inside_RB of_IN porous_JJ medium_NN nw_NN is_VBZ equal_JJ to_TO porosity_NN of_IN porous_JJ medium_NN which_WDT is_VBZ positive_JJ and_CC less_JJR than_IN unity_NN ._SENT 
+Also_RB ,_, as_IN the_DT fluid_NN is_VBZ outside_JJ of_IN the_DT porous_JJ medium_NN nw_NN is_VBZ equal_JJ to_TO unity_NN so_IN a_DT and_CC b_LS should_MD be_VB zero_CD which_WDT result_VVP in_IN elimination_NN of_IN exerting_VVG forces_NNS on_IN fluid_NN due_JJ to_TO porous_JJ medium_NN ,_, and_CC Eq_NP ._SENT 
+(_( 1_CD )_) and_CC Eq_NP ._SENT 
+(_( 2_LS )_) would_MD be_VB altered_VVN to_TO original_JJ NS_NP equations_NNS ._SENT 
+In_IN recent_JJ decades_NNS many_JJ attempts_NNS have_VHP been_VBN made_VVN to_TO introduce_VV accurate_JJ values_NNS of_IN a_DT and_CC b_LS ;_: however_RB ,_, there_EX is_VBZ no_DT general_JJ agreement_NN on_IN these_DT issue_NN ._SENT 
+Generally_RB Forchheimer_NP 's_POS empirical_JJ relationship_NN is_VBZ used_VVN to_TO estimate_VV the_DT coefficients_NNS as_RB :_: @(3_NP )_) @(4_NP )_) Where_WRB υ0_NP is_VBZ water_NN kinematic_JJ viscosity_NN (_( equal_JJ to_TO 10−6 m2/s_NPS )_) ,_, D50_NP is_VBZ the_DT mean_JJ grain_NN diameter_NN of_IN the_DT porous_JJ material_NN ,_, and_CC α_NP and_CC β_NP are_VBP the_DT empirical_JJ coefficients_NNS of_IN linear_JJ and_CC non-linear_JJ drag_NN force_NN ,_, respectively_RB ._SENT 
+Different_JJ values_NNS have_VHP been_VBN suggested_VVN for_IN α_NN and_CC β_NN based_VVN on_IN different_JJ experimental_JJ setups_NNS ._SENT 
+For_IN instance_NN ,_, Van_NP Gent_NP (_( 1994_CD )_) suggested_VVD α=1000_JJ and_CC β=1.1_JJ ,_, and_CC Hsu_NP et_NP al_NP ._SENT 
+(_( 2002_CD )_) as_IN well_RB as_IN Liu_NP et_CC al_NP ._SENT 
+(_( 1999_CD )_) recommended_VVD α=200_JJ and_CC β=1.1_JJ ._SENT 
+Basically_RB ,_, proposed_VVD values_NNS can_MD be_VB classified_VVN in_IN two_CD categories_NNS ,_, first_JJ )_) based_VVN on_IN physical_JJ models_NNS ,_, and_CC second_JJ )_) based_VVN on_IN analytical_JJ derivations_NNS ._SENT 
+In_IN the_DT first_JJ definition_NN ,_, the_DT coefficients_NNS can_MD be_VB used_VVN as_IN calibration_NN factors_NNS to_TO get_VV the_DT best_JJS results_NNS ._SENT 
+On_IN the_DT other_JJ hand_NN ,_, analytically_RB derived_VVN equations_NNS are_VBP mathematically_RB approved_VVN and_CC they_PP are_VBP not_RB dependent_JJ on_IN a_DT special_JJ case_NN (_( including_VVG grain_NN diameter_NN ,_, flow_NN condition_NN ,_, etc._FW )_) ._SENT 
+As_IN reported_VVN by_IN Wen_NP et_CC al_NP ._SENT 
+(_( 2018a_NP )_) ,_, there_EX is_VBZ not_RB yet_RB a_DT general_JJ agreement_NN on_IN the_DT accurate_JJ values_NNS of_IN these_DT two_CD coefficients_NNS ._SENT 
+For_IN example_NN in_IN the_DT recent_JJ studies_NNS ,_, Peng_NP et_CC al_NP ._SENT 
+(_( 2017_CD )_) and_CC Khayyer_NP et_NP al_NP ._SENT 
+(_( 2018_CD )_) applied_VVD a_DT quadratic_JJ form_NN with_IN Ergun_NP 's_POS coefficients_NNS in_IN their_PP$ study_NN and_CC Ren_NP et_NP al_NP ._SENT 
+(_( 2015_CD )_) and_CC Wen_NP et_NP al_NP ._SENT 
+(_( 2018a_NP )_) used_VVD the_DT suggested_VVN values_NNS by_IN Du_NP Plessis_NP (_( 1994_CD )_) ._SENT 
+As_IN one_CD of_IN the_DT recent_JJ attempts_NNS to_TO find_VV the_DT best_JJS values_NNS ,_, Ye_NP et_CC al_NP ._SENT 
+(_( 2018_CD )_) designated_VVN an_DT experimental_JJ device_NN and_CC proposed_VVD a_DT statistic-based_JJ methodology_NN to_TO determine_VV these_DT coefficients_NNS through_IN a_DT small_JJ number_NN of_IN tests_NNS ._SENT 
+Among_IN few_JJ studies_NNS investigated_VVD these_DT coefficients_NNS especially_RB in_IN SPH_NN models_NNS ,_, Akbari_NP (_( 2014_CD )_) reviewed_VVD different_JJ suggestions_NNS and_CC showed_VVD that_IN two_CD analytically_RB derived_VVN equations_NNS proposed_VVN by_IN Du_NP Plessis_NP (_( 1994_CD )_) and_CC Wu_NP et_NP al_NP ._SENT 
+(_( 2008_CD )_) (_( which_WDT are_VBP not_RB limited_VVN to_TO a_DT specified_JJ case_NN )_) are_VBP nearly_RB compatible_JJ with_IN the_DT Liu_NP et_NP al._NP 's_POS (_( 1999_CD )_) suggestion_NN in_IN predicting_VVG the_DT porous_JJ resistance_NN forces_NNS against_IN the_DT flow_NN ._SENT 
+Therefore_RB ,_, in_IN this_DT study_NN ,_, after_IN a_DT sensitivity_NN analysis_NN ,_, the_DT proposed_VVN values_NNS by_IN Liu_NP et_CC al_NP ._SENT 
+(_( 1999_CD )_) as_IN α=200_JJ and_CC β=1.1_JJ are_VBP applied_VVN to_TO the_DT models_NNS ._SENT 
+In_IN WCSPH_NN method_NN the_DT pressure_NN field_NN relates_VVZ to_TO fluid_JJ density_NN by_IN state_NN equation_NN ._SENT 
+Therefore_RB ,_, small_JJ variations_NNS of_IN fluid_JJ density_NN give_VV rise_NN to_TO errors_NNS in_IN pressure_NN field_NN ._SENT 
+To_TO minimize_VV this_DT drawback_NN ,_, an_DT artificial_JJ diffusion_NN term_NN has_VHZ been_VBN used_VVN in_IN continuity_NN equation_NN in_IN the_DT present_JJ study_NN ._SENT 
+The_DT second_JJ term_NN on_IN the_DT right-hand_JJ side_NN of_IN continuity_NN equation_NN represents_VVZ artificial_JJ diffusion_NN term_NN ,_, δ-SPH_NP ,_, introduced_VVN by_IN Molteni_NP and_CC Colagrossi_NP (_( 2009_CD )_) ._SENT 
+The_DT added_JJ term_NN result_NN in_IN density_NN fluctuation_NN reduction_NN which_WDT decreases_VVZ pressure_NN filed_VVD fluctuation_NN ._SENT 
+δΦ_NP shows_VVZ the_DT intensity_NN of_IN applied_VVN numerical_JJ correction_NN which_WDT is_VBZ between_IN 0_CD and_CC 0.1_CD (_( Molteni_NP and_CC Colagrossi_NP ,_, 2009_CD )_) ._SENT 
+Later_RBR ,_, Antuono_NP et_CC al_NP ._SENT 
+(_( 2012_CD )_) showed_VVD that_IN this_DT treatment_NN could_MD not_RB conserve_VV fluid_JJ volume_NN for_IN a_DT long-time_JJ simulation_NN and_CC it_PP will_MD make_VV the_DT fluid_JJ particles_NNS tend_VVP to_TO move_VV upwards_RB near_IN the_DT free_JJ surface_NN boundary_NN ._SENT 
+They_PP proposed_VVD a_DT correction_NN to_TO this_DT drawback_NN ._SENT 
+However_RB ,_, as_IN reported_VVN by_IN Wen_NP et_CC al_NP ._SENT 
+(_( 2018b_NP )_) ,_, it_PP is_VBZ time-consuming_JJ because_IN it_PP needs_VVZ renormalized_JJ density_NN gradient_NN ._SENT 
+Recently_RB Wen_NP et_NP al_NP ._SENT 
+(_( 2018b_NP )_) introduced_VVD another_DT modification_NN too_RB ._SENT 
+It_PP should_MD be_VB noted_VVN that_DT none_NN of_IN these_DT methods_NNS have_VHP been_VBN applied_VVN to_TO model_VV flow_NN through_IN porous_JJ media_NNS ._SENT 
+In_IN the_DT present_JJ study_NN ,_, no_DT long-time_JJ simulation_NN is_VBZ selected_VVN and_CC δ-SPH_NN ,_, introduced_VVN by_IN Molteni_NP and_CC Colagrossi_NP (_( 2009_CD )_) has_VHZ been_VBN utilized_VVN to_TO reduce_VV the_DT spurious_JJ numerical_JJ noises_NNS both_CC inside_RB and_CC outside_IN the_DT porous_JJ medium_NN ._SENT 
+It_PP is_VBZ shown_VVN that_IN pressure_NN patterns_NNS can_MD be_VB improved_VVN significantly_RB using_VVG this_DT diffusive_JJ term_NN ._SENT 
+More_JJR improvement_NN can_MD be_VB achieved_VVN clearly_RB using_VVG the_DT modified_VVN methods_NNS especially_RB for_IN long_JJ time_NN simulations_NNS ._SENT 
+The_DT third_JJ and_CC fourth_JJ terms_NNS on_IN the_DT right-hand_JJ side_NN of_IN Eq_NP ._SENT 
+(_( 2_LS )_) represent_VV the_DT forces_NNS due_JJ to_TO laminar_JJ and_CC SPS_NP turbulence_NN viscosities_NNS ._SENT 
+Gotoh_NP et_NP al_NP ._SENT 
+(_( 2004_CD )_) introduced_VVD SPS_NP turbulence_NN viscosity_NN to_TO consider_VV turbulence_NN in_IN their_PP$ numerical_JJ model_NN ._SENT 
+In_IN the_DT third_JJ term_NN on_IN the_DT right_JJ hand_NN of_IN Eq_NP ._SENT 
+(_( 2_CD )_) ,_, υ0_NP is_VBZ fluid_JJ kinematic_JJ viscosity_NN ,_, and_CC τ�_NP �_NP �_NP is_VBZ SPS_NP stress_NN tensor_NN defined_VVN as_IN below_RB :_: @(5_NP )_) Where_WRB vt_NP is_VBZ eddy_NN viscosity_NN which_WDT can_MD be_VB determined_VVN using_VVG standard_JJ Smagorinsky_NP model_NN (_( Smagorinsky_NP ,_, 1963_CD )_) ,_, S˜ij_NP is_VBZ the_DT rate_NN of_IN strain_NN tensor_NN ,_, and_CC CI_NP is_VBZ equal_JJ to_TO 0.00066_CD following_NN Blinn_NP et_NP al_NP ._SENT 
+(_( 2003_CD )_) ._SENT 
+@(6_NP )_) @(7_JJ )_) Cs_NP is_VBZ Smagorinsky_NP constant_JJ (_( equal_JJ to_TO 0.12_CD )_) ,_, Δl_NP is_VBZ initial_JJ particles_NNS distance_NN ,_, and_CC |S¯|_NN as_IN local_JJ strain_NN rate_NN can_MD be_VB calculated_VVN as_RB below_RB :_: @(8_NP )_) In_IN the_DT present_JJ study_NN ,_, the_DT fluid_NN has_VHZ been_VBN assumed_VVN weakly_RB comprehensible_JJ ,_, and_CC the_DT introduced_VVN state_NN equation_NN by_IN Monaghan_NP (_( 1994_CD )_) has_VHZ been_VBN utilized_VVN to_TO calculate_VV pressure_NN field_NN ._SENT 
+@(9_NP )_) Where_WRB γ=7_JJ ,_, ρ0_NN is_VBZ reference_NN density_NN (_( 1000 kg/m3_NN for_IN water_NN )_) ,_, and_CC C0_NP is_VBZ speed_NN of_IN sound_NN at_IN reference_NN density_NN ,_, the_DT value_NN of_IN which_WDT should_MD be_VB at_IN least_JJS ten_CD times_NNS faster_RBR than_IN maximum_JJ fluid_JJ velocity_NN to_TO keep_VV density_NN variations_NNS less_JJR than_IN 1_CD %_NN ._SENT 
+2.1.2_CD ._SENT 
+Rigid_JJ body_NN movement_NN Movement_NN of_IN a_DT rigid_JJ body_NN can_MD be_VB studied_VVN employing_VVG Newton_NP 's_POS dynamic_JJ equations_NNS of_IN a_DT rigid_JJ body_NN as_RB :_: @(10_NP )_) @(11_JJ )_) Where_WRB M_NP is_VBZ mass_JJ ,_, V_NN is_VBZ velocity_NN ,_, I_PP is_VBZ moment_NN of_IN inertia_NN ,_, Ω�_NP �_NP �_NP is_VBZ angular_JJ velocity_NN ,_, F_NP and_CC M_NP are_VBP applied_VVN external_JJ force_NN and_CC moment_NN on_IN the_DT rigid_JJ body_NN ,_, respectively_RB ._SENT 
+Movement_NN of_IN the_DT rigid_JJ body_NN has_VHZ been_VBN used_VVN to_TO study_VV concrete_JJ caisson_NN failure_NN due_JJ to_TO regular_JJ waves_NNS ._SENT 
+Failure_NN modes_NNS of_IN composite_JJ caisson_NN breakwater_NN include_VVP sliding_VVG and_CC overturning_VVG of_IN caisson_NN ,_, movement_NN ,_, fracture_NN and_CC damage_NN to_TO armor_NN layer_NN ,_, scouring_VVG and_CC failure_NN of_IN rubble-mound_JJ bed_NN (_( Goda_NP and_CC Takagi_NP ,_, 2000_CD )_) ._SENT 
+Regarding_VVG failure_NN modes_NNS of_IN the_DT composite_JJ breakwater_NN ,_, sliding_VVG and_CC overturning_VVG are_VBP related_VVN to_TO concrete_JJ caisson_NN movement_NN while_IN the_DT other_JJ failure_NN modes_NNS are_VBP associated_VVN to_TO the_DT failure_NN of_IN rubble-mound_JJ bed_NN ._SENT 
+It_PP is_VBZ worth_JJ mentioning_VVG that_IN overturning_VVG is_VBZ not_RB considered_VVN as_IN a_DT failure_NN mode_NN of_IN a_DT caisson_NN breakwater_NN because_IN the_DT failure_NN of_IN rubble-mound_JJ bed_NN occurs_VVZ prior_RB to_TO the_DT overturning_VVG of_IN concrete_JJ caisson_NN (_( Goda_NP and_CC Takagi_NP ,_, 2000_CD )_) ._SENT 
+Therefore_RB ,_, the_DT present_JJ study_NN considers_VVZ horizontal_JJ sliding_VVG of_IN the_DT concrete_JJ caisson_NN ._SENT 
+On_IN this_DT account_NN ,_, only_RB Eq_NP ._SENT 
+(_( 10_CD )_) is_VBZ used_VVN ,_, and_CC Eq_NP ._SENT 
+(_( 11_CD )_) can_MD be_VB neglected_VVN ._SENT 
+Considering_VVG the_DT aforementioned_JJ points_NNS ,_, V_NN is_VBZ equal_JJ to_TO the_DT magnitude_NN of_IN rigid_JJ body_NN velocity_NN ._SENT 
+It_PP should_MD be_VB noticed_VVN here_RB that_IN the_DT movement_NN of_IN the_DT rigid_JJ body_NN on_IN a_DT rigid_JJ bed_NN or_CC has_VHZ an_DT interface_NN with_IN another_DT rigid_JJ body_NN is_VBZ complicatedly_RB related_VVN to_TO the_DT combination_NN of_IN impact_NN and_CC frictional_JJ forces_NNS ._SENT 
+As_IN one_PP should_MD incorporate_VV deformation_NN as_RB well_RB as_IN elastic_JJ and_CC plastic_JJ interactions_NNS between_IN two_CD bodies_NNS ,_, generally_RB the_DT impact_NN force_NN can_MD be_VB neglected_VVN in_IN many_JJ engineering_NN problems_NNS ._SENT 
+The_DT Coulomb_NN law_NN as_IN the_DT most_RBS typical_JJ and_CC practical_JJ friction_NN model_NN says_VVZ that_IN the_DT friction_NN force_NN is_VBZ applied_VVN in_IN the_DT opposite_JJ direction_NN of_IN body_NN 's_POS movement_NN and_CC it_PP is_VBZ the_DT product_NN of_IN the_DT normal_JJ contact_NN force_NN and_CC the_DT coefficient_NN of_IN friction_NN with_IN a_DT direction_NN (_( Stewart_NP ,_, 2000_CD )_) ._SENT 
+2.2_CD ._SENT 
+Discretization_NN of_IN governing_VVG equations_NNS using_VVG SPH_NN method_NN Smoothed_VVN particles_NNS hydrodynamics_NN is_VBZ a_DT Lagrangian_JJ meshless_JJ method_NN in_IN computational_JJ fluid_JJ dynamics_NNS which_WDT discretize_VVP computational_JJ domain_NN then_RB solves_VVZ Navier-Stokes_NN equations_NNS for_IN each_DT particle_NN considering_VVG physical_JJ features_NNS of_IN neighboring_JJ particles_NNS ._SENT 
+New_JJ physical_JJ features_NNS are_VBP calculated_VVN in_IN each_DT time_NN step_NN ,_, and_CC the_DT particles_NNS move_NN in_IN the_DT computational_JJ domain_NN based_VVN on_IN these_DT new_JJ features_NNS ._SENT 
+Neighboring_JJ particles_NNS are_VBP calculated_VVN using_VVG a_DT weight_NN function_NN so-called_JJ Kernel_NN function_NN or_CC smoothing_VVG function_NN ._SENT 
+The_DT kernel_NN function_NN is_VBZ a_DT function_NN of_IN the_DT dimensionless_JJ distance_NN of_IN particles_NNS ,_, q = r/h_NP where_WRB r_NN is_VBZ the_DT distance_NN between_IN two_CD particles_NNS ,_, and_CC h_NN is_VBZ smoothing_VVG length_NN of_IN kernel_NN function_NN which_WDT is_VBZ assumed_VVN 1.2dp_NN in_IN the_DT present_JJ study_NN where_WRB dp_NN is_VBZ the_DT initial_JJ spacing_NN between_IN particles_NNS ._SENT 
+For_IN a_DT continuous_JJ computational_JJ domain_NN ,_, SPH_NP determines_VVZ a_DT quantity_NN in_IN a_DT particular_JJ position_NN considering_VVG its_PP$ neighborhood_NN using_VVG the_DT following_VVG equation_NN :_: @(12_NP )_) Where_WRB F(r_NP )_) is_VBZ the_DT value_NN of_IN the_DT quantity_NN in_IN the_DT position_NN r_NN ,_, F(r’_NP )_) is_VBZ the_DT quantity_NN in_IN position_NN r’_NN ,_, W_NP is_VBZ kernel_NN function_NN and_CC h_NN is_VBZ smoothing_VVG length_NN ._SENT 
+Eq_NP ._SENT 
+(_( 12_CD )_) can_MD be_VB rewritten_VVN for_IN a_DT discrete_JJ computational_JJ domain_NN as_RB :_: @(13_NP )_) Where_WRB F(ra_NP )_) is_VBZ the_DT quantity_NN for_IN particle_NN a_DT ,_, F(rb_NP )_) is_VBZ the_DT quantity_NN for_IN particle_NN b_SYM ,_, ra_NNS and_CC rb_NN respectively_RB are_VBP the_DT position_NN of_IN particles_NNS a_DT and_CC b_LS ,_, mb_NP is_VBZ mass_JJ of_IN particle_NN b_SYM and_CC ρapp,b_NP is_VBZ the_DT apparent_JJ density_NN of_IN particle_NN b._NP According_VVG to_TO Akbari_NP (_( 2014_CD )_) ,_, apparent_JJ density_NN is_VBZ fluid_JJ density_NN times_CC medium_NN porosity_NN ._SENT 
+The_DT porosity_NN of_IN pure_JJ fluid_NN is_VBZ 1_CD (_( apparent_JJ density_NN is_VBZ equal_JJ to_TO actual_JJ density_NN )_) and_CC the_DT porosity_NN of_IN porous_JJ medium_NN is_VBZ less_JJR than_IN 1._CD Many_JJ researchers_NNS (_( Monaghan_NP and_CC Lattanzio_NP ,_, 1985_CD ,_, Wendland_NP ,_, 1995_CD )_) have_VHP proposed_VVN different_JJ relationships_NNS for_IN Kernel_NN function_NN ._SENT 
+Generally_RB ,_, the_DT Kernel_NN function_NN has_VHZ replaced_VVN with_IN Dirac_NP Delta_NP function_NN and_CC should_MD satisfy_VV the_DT same_JJ condition_NN ._SENT 
+The_DT results_NNS of_IN SPH_NN methods_NNS depend_VVP on_IN the_DT selection_NN of_IN Kernel_NN function_NN and_CC smoothing_VVG length_NN ._SENT 
+Wendland_NP Kernel_NN function_NN has_VHZ been_VBN used_VVN in_IN the_DT present_JJ study_NN ._SENT 
+Regarding_VVG the_DT explanations_NNS about_IN discretization_NN of_IN SPH_NN method_NN ,_, the_DT discretized_JJ governing_VVG equations_NNS of_IN current_JJ study_NN have_VHP been_VBN presented_VVN as_RB below_RB :_: @(14_NP )_) @(15_NP )_) @(16_NP )_) Where_WRB mk_NN is_VBZ mass_JJ of_IN each_DT particle_NN of_IN the_DT rigid_JJ body_NN ,_, and_CC fk_NP is_VBZ the_DT force_NN acting_VVG on_IN each_DT particle_NN of_IN the_DT rigid_JJ body_NN due_JJ to_TO surrounding_VVG fluid_JJ particles_NNS ._SENT 
+f→k_NP can_MD be_VB determined_VVN as_IN the_DT following_NN :_: @(17_JJ )_) Where_WRB fka_NP denotes_VVZ mass_JJ unit_NN force_NN acting_VVG on_IN a_DT particle_NN of_IN rigid_JJ body_NN ‘k’_NN by_IN fluid_JJ particle_NN ‘a’_NN ._SENT 
+According_VVG to_TO the_DT Newton_NP 's_POS third_JJ law_NN ,_, the_DT applied_VVN force_NN upon_IN rigid_JJ body_NN particle_NN by_IN the_DT fluid_JJ particle_NN is_VBZ equal_JJ and_CC in_IN the_DT opposite_JJ direction_NN of_IN the_DT applied_VVN force_NN upon_IN fluid_JJ particle_NN by_IN a_DT particle_NN of_IN a_DT rigid_JJ body_NN ._SENT 
+Mathematical_JJ demonstration_NN of_IN this_DT law_NN is_VBZ :_: @(18_NP )_) Employing_VVG dynamic_JJ boundary_NN condition_NN and_CC solving_VVG governing_VVG equations_NNS for_IN both_DT fluid_JJ and_CC rigid_JJ body_NN particles_NNS ,_, the_DT applied_VVN mass_NN unit_NN force_NN upon_IN fluid_JJ particle_NN a_DT by_IN rigid_JJ body_NN particle_NN k_NN (_( fak_NP )_) is_VBZ determined_VVN ._SENT 
+Then_RB ,_, by_IN putting_VVG this_DT value_NN in_IN Eq_NP ._SENT 
+(_( 18_CD )_) the_DT applied_VVN mass_NN unit_NN force_NN upon_IN rigid_JJ body_NN particle_NN ‘k’_NN by_IN fluid_JJ particle_NN ‘a’_NP (_( fka_NP )_) can_MD be_VB calculated_VVN ._SENT 
+Afterward_RB ,_, the_DT applied_VVN force_NN upon_IN rigid_JJ body_NN particle_NN ‘k’_NN by_IN surrounding_VVG fluid_JJ particles_NNS can_MD be_VB resulted_VVN by_IN putting_VVG fka_NP in_IN Eq_NP ._SENT 
+(_( 18_CD )_) ._SENT 
+2.3_CD ._SENT 
+Boundary_NN conditions_NNS 2.3.1_CD ._SENT 
+Free_JJ surface_NN boundary_NN The_DT particles_NNS at_IN free_JJ surface_NN possess_VVP less_JJR neighbor_NN particles_NNS relative_JJ to_TO the_DT particles_NNS inside_IN the_DT fluid_NN ,_, and_CC density_NN drop_NN occurs_VVZ due_JJ to_TO kernel_NN truncation_NN at_IN free_JJ surface_NN ._SENT 
+The_DT current_JJ study_NN assumes_VVZ particles_NNS with_IN a_DT density_NN drop_NN more_JJR than_IN 10_CD %_NN of_IN reference_NN density_NN as_IN free_JJ surface_NN particles_NNS ,_, the_DT pressure_NN at_IN which_WDT is_VBZ equal_JJ to_TO zero_VV ._SENT 
+2.3.2_CD ._SENT 
+Interface_NP between_IN inside_JJ and_CC outside_JJ of_IN porous_JJ medium_NN Since_IN in_IN the_DT present_JJ study_NN a_DT set_NN of_IN equations_NNS have_VHP been_VBN solved_VVN in_IN the_DT total_JJ computational_JJ domain_NN ,_, the_DT porosity_NN of_IN a_DT fluid_JJ particle_NN located_VVN completely_RB inside_IN pure_JJ field_NN zone_NN is_VBZ unity_NN (_( See_VV Fig_NN ._SENT 
+1_LS )_) ._SENT 
+In_IN this_DT condition_NN ,_, resistance_NN forces_NNS due_JJ to_TO porous_JJ medium_NN are_VBP zero_NN in_IN governing_VVG equations_NNS of_IN fluid_JJ flow_NN ._SENT 
+On_IN the_DT other_JJ hand_NN ,_, if_IN fluid_JJ particle_NN is_VBZ inside_RB porous_JJ medium_NN ,_, its_PP$ porosity_NN is_VBZ equal_JJ to_TO porosity_NN of_IN porous_JJ medium_NN ,_, and_CC the_DT particle_NN is_VBZ exposed_VVN to_TO resistance_NN forces_NNS due_JJ to_TO porous_JJ medium_NN ._SENT 
+When_WRB there_EX is_VBZ a_DT particle_NN at_IN the_DT boundary_NN between_IN inside_JJ and_CC outside_JJ of_IN porous_JJ medium_NN ,_, transitional_JJ condition_NN happens_VVZ ._SENT 
+In_IN the_DT present_JJ study_NN ,_, the_DT width_NN of_IN transition_NN zone_NN is_VBZ equal_JJ to_TO four_CD time_NN of_IN mean_JJ grain_NN diameter_NN of_IN porous_JJ materials_NNS (_( 4D50_NP )_) ._SENT 
+The_DT porosity_NN of_IN particles_NNS within_IN transition_NN zone_NN can_MD be_VB calculated_VVN using_VVG SPH_NN integration_NN technique_NN ._SENT 
+Therefore_RB ,_, the_DT porosity_NN of_IN computational_JJ domain_NN particles_NNS would_MD be_VB changed_VVN from_IN unity_NN to_TO porous_JJ medium_NN porosity_NN gradually_RB as_RB discussed_VVN in_IN more_JJR detail_NN by_IN Akbari_NP and_CC Namin_NP (_( 2013_CD )_) ._SENT 
+Fig_NN ._SENT 
+1._CD The_DT interface_NN between_IN the_DT porous_JJ medium_NN and_CC pure_JJ fluid_NN ._SENT 
+2.3.3_CD ._SENT 
+Wall_NP and_CC rigid_JJ boundary_NN condition_NN Dynamic_JJ boundary_NN condition_NN has_VHZ been_VBN used_VVN in_IN the_DT current_JJ study_NN ._SENT 
+The_DT equations_NNS of_IN SPH_NN have_VHP been_VBN solved_VVN for_IN all_PDT the_DT fluid_NN and_CC boundary_NN particles_NNS ,_, and_CC the_DT quantities_NNS of_IN particles_NNS have_VHP been_VBN calculated_VVN in_IN each_DT step_NN ._SENT 
+Dummy_JJ particles_NNS are_VBP defined_VVN at_IN the_DT outer_JJ side_NN of_IN the_DT wall_NN boundary_NN to_TO amend_VV the_DT reduced_VVN particle_NN densities_NNS due_JJ to_TO kernel_NN truncation_NN ._SENT 
+In_IN order_NN to_TO prevent_VV movement_NN of_IN boundary_NN particles_NNS ,_, the_DT velocity_NN of_IN rigid_JJ boundary_NN particles_NNS set_VVN to_TO zero_VV for_IN fixed_VVN walls_NNS or_CC set_VVN to_TO the_DT velocity_NN of_IN a_DT rigid_JJ body_NN based_VVN on_IN its_PP$ calculated_JJ movements_NNS ._SENT 
+Wave_NN paddle_NN is_VBZ modeled_VVN with_IN this_DT type_NN of_IN boundary_NN condition_NN and_CC an_DT active_JJ dynamic_JJ wave_NN absorber_NN is_VBZ utilized_VVN based_VVN on_IN Altomare_NP et_CC al_NP ._SENT 
+(_( 2017_CD )_) to_TO minimize_VV possible_JJ wave_NN reflection_NN from_IN the_DT wave_NN maker_NN ._SENT 
+2.3.4_CD ._SENT 
+friction_NN between_IN the_DT rigid_JJ body_NN and_CC the_DT bed_NN As_IN a_DT static_JJ body_NN is_VBZ subjected_VVN to_TO an_DT external_JJ force_NN which_WDT is_VBZ less_JJR than_IN static_JJ friction_NN force_NN ,_, no_DT movement_NN happens_VVZ ._SENT 
+In_IN another_DT word_NN ,_, the_DT static_JJ fraction_NN force_NN is_VBZ able_JJ to_TO resist_VV the_DT external_JJ force_NN ._SENT 
+Once_IN the_DT external_JJ force_NN is_VBZ equal_JJ to_TO static_JJ force_NN ,_, the_DT movement_NN of_IN the_DT body_NN is_VBZ initiated_VVN ._SENT 
+On_IN the_DT other_JJ hand_NN ,_, when_WRB the_DT movement_NN begins_VVZ ,_, the_DT body_NN is_VBZ subjected_VVN to_TO a_DT dynamic_JJ friction_NN force_NN ._SENT 
+The_DT coefficient_NN of_IN friction_NN depends_VVZ on_IN the_DT nature_NN of_IN the_DT materials_NNS in_IN contact_NN as_RB well_RB as_IN contact_NN conditions_NNS ;_: however_RB ,_, the_DT static_JJ friction_NN coefficient_NN is_VBZ always_RB greater_JJR than_IN dynamic_JJ friction_NN coefficient_NN (_( Olsson_NP et_NP al_NP ._SENT 
+,_, 1998_CD )_) ._SENT 
+Therefore_RB ,_, the_DT friction_NN force_NN changes_NNS to_TO dynamic_JJ force_NN from_IN static_JJ force_NN considering_VVG the_DT external_JJ force_NN ._SENT 
+Another_DT approach_NN to_TO interpret_VV static_JJ force_NN change_NN to_TO a_DT dynamic_JJ force_NN is_VBZ choosing_VVG a_DT threshold_NN velocity_NN ._SENT 
+In_IN this_DT approach_NN ,_, if_IN the_DT body_NN velocity_NN is_VBZ less_JJR than_IN a_DT threshold_NN velocity_NN then_RB static_JJ friction_NN force_NN overcomes_VVZ external_JJ force_NN and_CC acts_NNS on_IN the_DT body_NN ._SENT 
+Obviously_RB ,_, as_IN the_DT body_NN moves_NNS ,_, the_DT dynamic_JJ friction_NN force_NN acts_VVZ on_IN the_DT body_NN (_( Kawachi_NP et_NP al_NP ._SENT 
+,_, 1998_CD )_) ._SENT 
+Rogers_NP et_NP al_NP ._SENT 
+(_( 2010_CD )_) employed_VVN this_DT approach_NN to_TO simulate_VV the_DT movement_NN of_IN caisson_NN due_JJ to_TO interaction_NN with_IN regular_JJ waves_NNS ._SENT 
+However_RB ,_, when_WRB the_DT friction_NN force_NN is_VBZ between_IN static_JJ and_CC dynamic_JJ states_NNS ,_, they_PP assumed_VVD a_DT transitional_JJ state_NN to_TO prevent_VV error_NN and_CC non-physical_JJ movements_NNS of_IN the_DT body_NN by_IN interpolating_VVG static_JJ and_CC dynamic_JJ forces_NNS ._SENT 
+They_PP concluded_VVD that_IN the_DT change_NN in_IN the_DT threshold_NN velocity_NN has_VHZ a_DT significant_JJ impact_NN on_IN the_DT impulsive_JJ peaks_NNS of_IN the_DT wave_NN loading_NN ._SENT 
+Considering_VVG the_DT fact_NN which_WDT no_DT accurate_JJ method_NN has_VHZ been_VBN proposed_VVN yet_RB to_TO determine_VV the_DT threshold_NN velocity_NN ,_, static_JJ and_CC dynamic_JJ friction_NN coefficients_NNS based_VVN on_IN experimental_JJ studies_NNS done_VVN by_IN Wang_NP et_CC al_NP ._SENT 
+(_( 2006_CD )_) have_VHP been_VBN used_VVN in_IN the_DT present_JJ study_NN to_TO determine_VV the_DT friction_NN force_NN acts_VVZ on_IN the_DT interface_NN of_IN concrete_JJ caisson_NN and_CC bed_NN in_IN the_DT developed_VVN numerical_JJ model_NN ._SENT 
+The_DT friction_NN force_NN between_IN concrete_JJ caisson_NN and_CC bed_NN ,_, ffriction_NN ,_, can_MD be_VB calculated_VVN using_VVG the_DT following_VVG well-known_JJ equation_NN :_: @(19_NP )_) Where_WRB μ_NN denotes_VVZ static_JJ or_CC dynamic_JJ friction_NN coefficient_NN ,_, and_CC Fz_NP stands_VVZ for_IN acting_VVG normal_JJ force_NN on_IN the_DT concrete_JJ caisson_NN ._SENT 
+More_JJR descriptions_NNS about_IN this_DT force_NN is_VBZ presented_VVN in_IN section_NN 3.4_CD ._SENT 
+In_IN the_DT current_JJ study_NN ,_, according_VVG to_TO the_DT experimental_JJ study_NN of_IN Wang_NP et_CC al_NP ._SENT 
+(_( 2006_CD )_) ,_, the_DT dynamic_JJ friction_NN force_NN is_VBZ equal_JJ to_TO 0.5_CD (_( μdynamic=0.5_NP )_) and_CC the_DT static_JJ friction_NN force_NN between_IN concrete_JJ caisson_NN and_CC the_DT rubble-mound_JJ bed_NN is_VBZ 0.6_CD (_( μstatic=0.6_NN )_) based_VVN on_IN the_DT study_NN of_IN Tanimoto_NP and_CC Takahashi_NP (_( 1994_CD )_) ._SENT 
+Therefore_RB ,_, no_DT calibration_NN is_VBZ required_VVN to_TO find_VV the_DT optimum_JJ factors_NNS ._SENT 
+Fig_NN ._SENT 
+2_LS demonstrates_VVZ the_DT process_NN of_IN friction_NN force_NN application_NN in_IN this_DT research_NN ._SENT 
+In_IN this_DT figure_NN ,_, Vxn_NP is_VBZ concrete_JJ caisson_NN velocity_NN in_IN x_NN direction_NN at_IN time_NN step_NN n._NP Fx,hyd_NP is_VBZ the_DT hydrodynamic_JJ force_NN acting_VVG on_IN concrete_JJ caisson_NN in_IN x-direction_NN and_CC it_PP is_VBZ obtained_VVN by_IN vector_NN sum_NN of_IN hydrostatic_JJ and_CC wave_NN force_NN acting_VVG on_IN two_CD vertical_JJ sides_NNS of_IN caisson_NN ._SENT 
+Ffriction_NN ,_, static_JJ and_CC Ffriction_NN ,_, dynamic_JJ are_VBP the_DT maximum_JJ possible_JJ static_JJ and_CC dynamic_JJ friction_NN forces_NNS ,_, respectively_RB and_CC Fapplied_VVN is_VBZ the_DT total_JJ net_JJ force_NN applied_VVN on_IN concrete_JJ caisson_NN in_IN x-direction_NN ._SENT 
+The_DT applied_VVN approach_NN in_IN this_DT study_NN can_MD be_VB described_VVN simply_RB as_IN the_DT following_VVG :_: if_IN horizontal_JJ hydrodynamic_JJ force_NN is_VBZ less_JJR than_IN friction_NN force_NN then_RB horizontal_JJ force_NN is_VBZ not_RB able_JJ to_TO overcome_VV the_DT friction_NN force_NN and_CC the_DT value_NN of_IN applied_VVN load_NN on_IN the_DT caisson_NN becomes_VVZ zero_CD ._SENT 
+If_IN the_DT horizontal_JJ hydrodynamic_JJ force_NN is_VBZ greater_JJR than_IN friction_NN force_NN then_RB friction_NN force_NN should_MD be_VB subtracted_VVN from_IN the_DT horizontal_JJ hydrodynamic_JJ force_NN ._SENT 
+Afterward_RB ,_, rigid_JJ body_NN velocity_NN in_IN available_JJ time_NN step_NN is_VBZ used_VVN to_TO determine_VV the_DT static_JJ or_CC dynamic_JJ type_NN ._SENT 
+If_IN body_NN velocity_NN is_VBZ zero_CD (_( the_DT body_NN is_VBZ still_RB )_) the_DT acting_JJ friction_NN force_NN is_VBZ static_JJ otherwise_RB it_PP is_VBZ dynamic_JJ ._SENT 
+Regarding_VVG the_DT fact_NN that_IN an_DT exact_JJ non-zero_NP velocity_NN is_VBZ hardly_RB resulted_VVN in_IN a_DT numerical_JJ model_NN based_VVN on_IN discrete_JJ solutions_NNS ,_, the_DT mentioned_VVN criterion_NN has_VHZ been_VBN satisfied_VVN in_IN the_DT current_JJ research_NN by_IN considering_VVG the_DT velocity_NN ratio_NN of_IN two_CD subsequent_JJ time_NN steps_NNS ._SENT 
+Negative_JJ and_CC positive_JJ ratios_NNS correspond_VV to_TO zero_CD and_CC non-zero_NP velocities_NNS ,_, respectively_RB ._SENT 
+A_DT similar_JJ criterion_NN (_( i.e._FW change_NN of_IN the_DT velocity_NN direction_NN of_IN the_DT sliding_VVG motion_NN )_) was_VBD applied_VVN by_IN Wang_NP et_CC al_NP ._SENT 
+(_( 2006_CD )_) to_TO find_VV the_DT end_NN of_IN the_DT caisson_NN sliding_VVG ._SENT 
+Fig_NN ._SENT 
+2._CD Flowchart_NN of_IN calculation_NN the_DT applied_VVN load_NN on_IN caisson_NN ._SENT 
+2.4_CD ._SENT 
+Time_NN stepping_VVG Verlet_NP 's_POS explicit_JJ method_NN (_( Verlet_NP ,_, 1967_CD )_) has_VHZ been_VBN used_VVN to_TO apply_VV time_NN stepping_VVG and_CC calculate_VV new_JJ values_NNS of_IN physical_JJ quantities_NNS of_IN particles_NNS ._SENT 
+An_DT appropriate_JJ time_NN step_NN of_IN the_DT simulation_NN depends_VVZ on_IN Courant-Friedrichs-Lewy_JJ condition_NN ,_, force_NN terms_NNS ,_, and_CC viscous_JJ diffusion_NN term_NN ._SENT 
+Following_VVG Monaghan_NP et_CC al_NP ._SENT 
+(_( 1999_CD )_) ,_, variable_JJ time_NN steps_NNS have_VHP been_VBN implemented_VVN as_RB :_: @(20_NP )_) @(21_JJ )_) @(22_NN )_) Where_WRB Δtf_NN is_VBZ based_VVN on_IN the_DT force_NN per_IN unit_NN mass_NN and_CC Δtcv_NP combines_VVZ the_DT viscous_JJ time_NN step_NN and_CC Courant_NP controls_VVZ ._SENT 
+All_PDT the_DT simulations_NNS have_VHP been_VBN performed_VVN using_VVG an_DT Intel®_NP core™_NP i7-4770k_NP CPU@3.5GHz(8CPUs_NP )_) processor_NN and_CC CFL_NN number_NN is_VBZ selected_VVN as_IN 0.2_CD ._SENT 
+<Section> 3._CD Model_NP verification_NN and_CC numerical_JJ results_NNS </Section> In_IN this_DT section_NN ,_, four_CD different_JJ cases_NNS have_VHP been_VBN modeled_VVN to_TO investigate_VV flows_NNS through_IN porous_JJ media_NNS and_CC wave_NN interaction_NN with_IN caisson_NN breakwater_NN as_IN the_DT main_JJ two_CD concerns_NNS of_IN this_DT study_NN ._SENT 
+At_IN first_JJ ,_, the_DT efficiency_NN of_IN δ-SPH_NN technique_NN in_IN damping_VVG unwanted_JJ pressure_NN fluctuations_NNS in_IN porous_JJ media_NNS is_VBZ studied_VVN by_IN means_NNS of_IN modeling_VVG the_DT hydrostatic_JJ pressure_NN inside_IN a_DT homogenous_JJ porous_JJ medium_NN ._SENT 
+It_PP should_MD be_VB noted_VVN that_IN the_DT appropriateness_NN of_IN this_DT technique_NN was_VBD approved_VVN outside_RB but_CC not_RB inside_IN the_DT porous_JJ medium_NN ._SENT 
+Then_RB ,_, flow_NN through_IN porous_JJ media_NNS is_VBZ investigated_VVN by_IN modeling_VVG dam-break_NN flow_NN through_IN porous_JJ medium_NN and_CC comparing_VVG the_DT results_NNS with_IN experimental_JJ data_NNS ._SENT 
+As_IN the_DT third_JJ case_NN ,_, wave_NN interaction_NN with_IN a_DT caisson_NN breakwater_NN with_IN impermeable_JJ bed_NN is_VBZ modeled_VVN and_CC the_DT results_NNS are_VBP compared_VVN with_IN the_DT results_NNS of_IN similar_JJ numerical_JJ studies_NNS as_RB well_RB as_IN the_DT experimental_JJ data_NNS ._SENT 
+The_DT introduced_VVN friction_NN force_NN in_IN Eq_NP ._SENT 
+(_( 19_CD )_) is_VBZ utilized_VVN to_TO evaluate_VV the_DT resistant_JJ force_NN against_IN the_DT active_JJ wave_NN pressure_NN and_CC to_TO calculate_VV the_DT caisson_NN sliding_VVG history_NN ._SENT 
+A_DT similar_JJ case_NN is_VBZ modeled_VVN as_IN the_DT last_JJ case_NN but_CC with_IN considering_VVG the_DT permeability_NN beneath_IN the_DT caisson_NN ._SENT 
+The_DT results_NNS are_VBP analyzed_VVN versus_IN experimental_JJ data_NNS to_TO depict_VV the_DT importance_NN of_IN wave_NN penetration_NN through_IN porous_JJ bed_NN in_IN the_DT total_JJ response_NN of_IN the_DT caisson_NN breakwater_NN ._SENT 
+3.1_CD ._SENT 
+Hydrostatic_JJ pressure_NN inside_IN homogenous_JJ porous_JJ medium_NN In_IN order_NN to_TO investigate_VV the_DT effect_NN of_IN additive_JJ artificial_JJ diffusion_NN term_NN in_IN continuity_NN equation_NN on_IN pressure_NN variations_NNS ,_, the_DT hydrostatic_JJ fluid_JJ pressure_NN inside_IN a_DT homogeneous_JJ porous_JJ medium_NN with_IN porosity_NN equal_JJ to_TO 0.5_CD has_VHZ been_VBN investigated_VVN ._SENT 
+The_DT dimensions_NNS of_IN the_DT medium_NN have_VHP been_VBN presented_VVN in_IN Fig_NN ._SENT 
+3._CD Because_IN the_DT fluid_NN is_VBZ motionless_JJ the_DT fluid_JJ pressure_NN in_IN an_DT arbitrary_JJ point_NN should_MD be_VB analytically_RB equal_JJ to_TO ρgh_NP ._SENT 
+ρ_NP is_VBZ fluid_JJ density_NN ,_, g_NN is_VBZ gravitational_JJ acceleration_NN ,_, and_CC h_NN is_VBZ the_DT height_NN from_IN the_DT fluid_JJ surface_NN ._SENT 
+To_TO study_VV this_DT issue_NN ,_, the_DT problem_NN has_VHZ been_VBN simulated_JJ by_IN considering_VVG and_CC without_IN considering_VVG artificial_JJ diffusion_NN term_NN in_IN Eq_NP ._SENT 
+(_( 1_CD )_) ,_, then_RB the_DT results_NNS have_VHP been_VBN compared_VVN with_IN analytical_JJ results_NNS ._SENT 
+Fig_NN ._SENT 
+4_LS demonstrates_VVZ the_DT pressure_NN field_NN for_IN the_DT selected_JJ area_NN in_IN the_DT figure_NN for_IN three_CD different_JJ time_NN steps_NNS ._SENT 
+As_IN shown_VVN in_IN Fig_NN ._SENT 
+4_LS ,_, lack_NN of_IN δ-SPH_NN artificial_JJ diffusion_NN term_NN engenders_VVZ significant_JJ variations_NNS of_IN fluid_JJ pressure_NN field_NN which_WDT result_VVP in_IN errors_NNS ._SENT 
+Also_RB ,_, it_PP can_MD be_VB observed_VVN that_IN variations_NNS decrease_VV in_IN higher_JJR time_NN steps_NNS ;_: however_RB ,_, it_PP does_VVZ not_RB diminish_VV ._SENT 
+Fig_NN ._SENT 
+5_CD presents_VVZ time_NN series_NN of_IN simulated_JJ pressure_NN to_TO analytical_JJ pressure_NN ration_NN for_IN a_DT point_NN at_IN the_DT bottom_NN of_IN the_DT tank_NN ._SENT 
+It_PP has_VHZ been_VBN shown_VVN that_IN the_DT variations_NNS decrease_VVP as_IN time_NN passes_NNS by_IN considering_VVG and_CC without_IN considering_VVG δ-SPH_NN artificial_JJ diffusion_NN term_NN ._SENT 
+However_RB ,_, in_IN case_NN of_IN lack_NN of_IN artificial_JJ diffusion_NN term_NN variations_NNS still_RB happen_VVP is_VBZ higher_JJR times_NNS ._SENT 
+Also_RB ,_, it_PP is_VBZ observable_JJ that_IN without_IN considering_VVG artificial_JJ diffusion_NN term_NN ,_, the_DT simulated_JJ pressure_NN to_TO the_DT analytical_JJ pressure_NN ratio_NN is_VBZ overestimated_VVN ,_, and_CC additive_JJ artificial_JJ diffusion_NN term_NN decreases_VVZ pressure_NN variations_NNS considerably_RB ._SENT 
+In_IN this_DT study_NN ,_, δΦ_NP set_VVD to_TO 0.1_CD based_VVN on_IN the_DT depicted_VVN results_NNS in_IN Figs_NNS ._SENT 
+4_CD and_CC 5._CD Fig_NN ._SENT 
+3._CD Geometry_NN of_IN motionless_JJ fluid_NN inside_IN homogeneous_JJ porous_JJ medium_NN ._SENT 
+Fig_NN ._SENT 
+4._CD Fluid_JJ pressure_NN field_NN variations_NNS ;_: presence_NN of_IN artificial_JJ diffusion_NN term_NN (_( left_VVN )_) ,_, lack_NN of_IN artificial_JJ diffusion_NN term_NN (_( right_NN )_) ._SENT 
+Fig_NN ._SENT 
+5._CD Time_NN series_NN of_IN the_DT modified_JJ (_( black_JJ line_NN with_IN less_JJR fluctuation_NN )_) and_CC the_DT unmodified_JJ (_( red_JJ line_NN with_IN more_JJR fluctuation_NN )_) simulated_JJ pressure_NN ratios_NNS (_( P/ρgh_NP )_) for_IN a_DT point_NN at_IN the_DT bottom_NN of_IN the_DT water_NN tank_NN with_IN depth_NN of_IN 0.5 m_NP ._SENT 
+Although_IN the_DT results_NNS are_VBP satisfactory_JJ in_IN this_DT case_NN ,_, Antuono_NP et_CC al_NP ._SENT 
+(_( 2012_CD )_) reported_VVD that_IN free-surface_JJ particles_NNS will_MD gradually_RB move_VV upwards_RB using_VVG this_DT treatment_NN and_CC therefore_RB ,_, it_PP is_VBZ not_RB appropriate_JJ for_IN long-time_JJ simulations_NNS ._SENT 
+They_PP modeled_VVD a_DT hydrostatic_JJ case_NN and_CC showed_VVD considerable_JJ errors_NNS at_IN free_JJ surface_NN boundary_NN at_IN equivalent_JJ t = 40s_NP ,_, (_( here_RB ,_, the_DT simulation_NN time_NN is_VBZ 4.0s_NPS )_) ._SENT 
+Since_IN the_DT maximum_JJ value_NN of_IN this_DT error_NN occurs_VVZ in_IN a_DT hydrostatic_JJ condition_NN ,_, this_DT case_NN is_VBZ selected_VVN in_IN the_DT present_JJ study_NN to_TO check_VV the_DT efficiency_NN of_IN using_VVG artificial_JJ diffusion_NN term_NN introduced_VVN by_IN Molteni_NP and_CC Colagrossi_NP (_( 2009_CD )_) in_IN flow_NN modeling_NN through_IN porous_JJ media_NNS in_IN a_DT no_RB long-time_JJ simulation_NN ._SENT 
+The_DT results_NNS have_VHP been_VBN improved_VVN clearly_RB in_IN this_DT case_NN and_CC therefore_RB ,_, this_DT modification_NN is_VBZ applied_VVN to_TO other_JJ cases_NNS too_RB ._SENT 
+It_PP clear_VVP that_IN using_VVG modified_JJ methods_NNS is_VBZ necessary_JJ for_IN long-time_JJ simulations_NNS ._SENT 
+3.2_CD ._SENT 
+Dam-break_NN flow_NN through_IN porous_JJ medium_NN In_IN this_DT part_NN of_IN the_DT verification_NN procedure_NN ,_, the_DT dam-break_NN flow_NN through_IN homogeneous_JJ porous_JJ block_NN has_VHZ been_VBN simulated_JJ ._SENT 
+Fig_NN ._SENT 
+6_CD illustrates_VVZ the_DT case_NN geometry_NN that_WDT is_VBZ compatible_JJ with_IN the_DT experimental_JJ data_NNS investigated_VVN by_IN Liu_NP et_CC al_NP ._SENT 
+(_( 1999_CD )_) ._SENT 
+The_DT water_NN tank_NN is_VBZ 89.2 cm_NN long_RB and_CC the_DT initial_JJ height_NN and_CC width_NN of_IN the_DT water_NN column_NN is_VBZ 25_CD and_CC 28 cm_NP ,_, respectively_RB ._SENT 
+Crushed_JJ rocks_NNS with_IN a_DT porosity_NN equal_JJ to_TO 0.49_CD are_VBP used_VVN as_IN the_DT material_NN of_IN porous_JJ block_NN with_IN the_DT width_NN of_IN 29 cm_NP ._SENT 
+Mean_JJ diameter_NN of_IN porous_JJ medium_JJ particles_NNS (_( d50_NP )_) is_VBZ 0.0159 m_NN in_IN middle_NN of_IN the_DT water_NN tank_NN ._SENT 
+The_DT problem_NN has_VHZ been_VBN simulated_JJ for_IN 3 s_NP ._SENT 
+Fig_NN ._SENT 
+6._CD Geometry_NN of_IN dam-break_NN flow_NN through_IN homogenous_JJ porous_JJ block_NN ._SENT 
+A_DT numerical_JJ model_NN using_VVG 14'181_JJ particles_NNS with_IN the_DT initial_JJ distance_NN equal_JJ to_TO 0.0025_CD has_VHZ been_VBN developed_VVN to_TO simulate_VV the_DT problem_NN ._SENT 
+Fig_NN ._SENT 
+7_CD demonstrates_VVZ fluid_JJ pressure_NN variations_NNS without_IN applying_VVG δ-SPH_NN artificial_JJ diffusion_NN term_NN for_IN 0.2s_NPS ,_, 0.6s_NPS ,_, 1.0s_NPS and_CC 1.6s_NPS time_NN steps_NNS ._SENT 
+It_PP can_MD be_VB observed_VVN that_IN once_RB fluid_NN enters_VVZ porous_JJ medium_NN ,_, fluid_JJ pressure_NN variations_NNS happen_VVP particularly_RB in_IN the_DT boundary_NN of_IN pure_JJ fluid_NN and_CC porous_JJ medium_NN ._SENT 
+This_DT issue_NN shows_VVZ some_DT errors_NNS in_IN calculation_NN of_IN the_DT pressure_NN acting_VVG on_IN the_DT fluid_NN ._SENT 
+Regarding_VVG 2-1-1_CD and_CC 3-1_CD sections_NNS ,_, Fig_NN ._SENT 
+8_CD presents_VVZ fluid_JJ pressure_NN variations_NNS for_IN 0.2s_NPS ,_, 0.6s_NPS ,_, 1.0s_NPS and_CC 1.6s_NPS time_NN steps_NNS in_IN presence_NN of_IN δ-SPH_NN artificial_JJ diffusion_NN term_NN with_IN a_DT δΦ_NN equal_JJ to_TO 0.1_CD ._SENT 
+As_IN shown_VVN in_IN Fig_NN ._SENT 
+8_CD ,_, using_VVG artificial_JJ diffusion_NN term_NN results_NNS in_IN smoother_JJR pressure_NN field_NN with_IN less_JJR numerical_JJ variations_NNS ._SENT 
+It_PP can_MD be_VB observed_VVN in_IN 0.2s_NNS when_WRB fluid_NN enters_VVZ porous_JJ medium_NN a_DT high_JJ pressure_NN zone_NN occurs_VVZ in_IN the_DT boundary_NN of_IN pure_JJ field_NN and_CC porous_JJ medium_NN ._SENT 
+Also_RB ,_, it_PP can_MD be_VB perceived_VVN that_IN the_DT developed_JJ numerical_JJ model_NN is_VBZ able_JJ to_TO calculate_VV the_DT pressure_NN inside_IN porous_JJ medium_NN ._SENT 
+Fig_NN ._SENT 
+9_CD shows_VVZ fluid_JJ free_JJ surface_NN variations_NNS in_IN different_JJ time_NN steps_NNS ._SENT 
+The_DT results_NNS of_IN the_DT current_JJ study_NN have_VHP been_VBN compared_VVN with_IN the_DT results_NNS of_IN Liu_NP et_CC al._NP 's_POS (_( 1999_CD )_) experimental_JJ study_NN and_CC Akbari_NP 's_POS (_( 2014_CD )_) numerical_JJ model_NN ._SENT 
+Also_RB ,_, Fig_VVP ._SENT 
+10_NP has_VHZ provided_VVN the_DT same_JJ comparison_NN for_IN the_DT flow_NN free_JJ surface_NN in_IN the_DT middle_NN of_IN the_DT computational_JJ domain_NN (_( x = 0.445 m_NP )_) within_IN simulation_NN time_NN ._SENT 
+In_IN the_DT experimental_JJ setup_NN there_EX is_VBZ a_DT 2 cm_NN distance_NN between_IN the_DT fluid_JJ and_CC porous_JJ medium_NN due_JJ to_TO presence_NN of_IN gate_NN which_WDT prevents_VVZ fluid_JJ passing_NN at_IN beginning_VVG of_IN modeling_NN ._SENT 
+As_IN shown_VVN in_IN Fig_NN ._SENT 
+9_CD ,_, the_DT volume_NN of_IN fluid_NN has_VHZ been_VBN released_VVN and_CC reaches_VVZ porous_JJ medium_NN at_IN 0.2 s_NP ._SENT 
+At_IN this_DT time_NN ,_, a_DT reflected_VVN wave_NN has_VHZ been_VBN generated_VVN because_IN of_IN applying_VVG resistance_NN forces_NNS on_IN fluid_NN ._SENT 
+It_PP can_MD be_VB noticed_VVN that_IN as_IN time_NN steps_NNS pass_VVP ,_, the_DT effect_NN of_IN the_DT initial_JJ condition_NN decreases_NNS ,_, and_CC the_DT agreement_NN between_IN the_DT current_JJ study_NN and_CC the_DT experimental_JJ one_CD increases_NNS ._SENT 
+It_PP can_MD be_VB concluded_VVN from_IN the_DT compatible_JJ results_NNS that_IN the_DT developed_JJ numerical_JJ model_NN in_IN the_DT present_JJ study_NN has_VHZ an_DT acceptable_JJ performance_NN to_TO determine_VV free_JJ surface_NN flow_NN in_IN the_DT porous_JJ medium_NN as_RB well_RB as_IN the_DT fluid_JJ pressure_NN distribution_NN inside_IN the_DT porous_JJ medium_NN ._SENT 
+Fig_NN ._SENT 
+7._CD Fluid_JJ pressure_NN distribution_NN inside_IN the_DT porous_JJ medium_NN at_IN t = 0.2s_NPS ,_, t = 0.6s_NPS ,_, t = 1s_NPS ,_, t = 1.6s_NPS in_IN lack_NN of_IN δ-SPH_NN artificial_JJ diffusion_NN term_NN ._SENT 
+Fig_NN ._SENT 
+8._CD Fluid_JJ pressure_NN distribution_NN inside_IN the_DT porous_JJ medium_NN at_IN t = 0.2s_NPS ,_, t = 0.6s_NPS ,_, t = 1s_NPS ,_, t = 1.6s_NPS in_IN presence_NN of_IN δ-SPH_NN artificial_JJ diffusion_NN term_NN ._SENT 
+Fig_NN ._SENT 
+9._CD Comparison_NN of_IN free_JJ surface_NN of_IN dam-break_NN flow_NN through_IN porous_JJ medium_NN at_IN t = 0.2s_NP ,_, 0.6s_NP ,_, 1s_NP ,_, 1.6s_NP ,_, 2s_NP ;_: the_DT current_JJ study_NN (_( —�_NP �_NP )_) ,_, Liu_NP et_CC al_NP ._SENT 
+(_( 1999_CD )_) (_( ●_NP )_) ,_, Akbari_NP (_( 2014_CD )_) (_( )_) ._SENT 
+Fig_NN ._SENT 
+10._CD Comparison_NN of_IN free_JJ surface_NN of_IN dam-break_NN flow_NN through_IN porous_JJ medium_NN in_IN middle_NN of_IN the_DT porous_JJ medium_NN ;_: the_DT current_JJ study_NN (_( —�_NP �_NP )_) ,_, Liu_NP et_CC al_NP ._SENT 
+(_( 1999_CD )_) (_( ●_NP )_) ,_, Akbari_NP (_( 2014_CD )_) (_( )_) ._SENT 
+3.3_CD ._SENT 
+Regular_JJ wave_NN interaction_NN with_IN caisson_NN breakwater_NN on_IN impermeable_JJ bed_NN In_IN this_DT section_NN ,_, in_IN order_NN to_TO investigate_VV the_DT performance_NN of_IN new_JJ approach_NN of_IN applying_VVG friction_NN force_NN between_IN rigid_JJ body_NN and_CC bed_NN ,_, the_DT interaction_NN of_IN regular_JJ waves_NNS and_CC caisson_NN breakwater_NN with_IN impermeable_JJ bed_NN has_VHZ been_VBN considered_VVN ._SENT 
+Therefore_RB ,_, the_DT experimental_JJ setup_NN of_IN Wang_NP et_CC al._NP 's_POS (_( 2006_CD )_) which_WDT has_VHZ studied_VVN the_DT horizontal_JJ movement_NN of_IN concrete_JJ caisson_NN on_IN the_DT rubble-mound_JJ bed_NN has_VHZ been_VBN considered_VVN to_TO study_VV the_DT performance_NN of_IN the_DT new_JJ approach_NN of_IN applying_VVG friction_NN force_NN between_IN rigid_JJ body_NN and_CC bed_NN ._SENT 
+Fig_NN ._SENT 
+11_CD illustrates_VVZ the_DT schematic_NN of_IN the_DT problem_NN ._SENT 
+Wave_NN flume_NN used_VVN by_IN Wang_NP et_CC al_NP ._SENT 
+(_( 2006_CD )_) to_TO perform_VV their_PP$ experiments_NNS is_VBZ 30 m_NN long_RB ,_, 1 m_NP wide_JJ and_CC 1 m_NN high_NN ._SENT 
+The_DT caisson_NN was_VBD 0.4 m_NN long_RB ,_, 0.3 m_NP wide_JJ and_CC 0.375 m_NN high_NN ,_, and_CC it_PP was_VBD filled_VVN with_IN the_DT material_NN with_IN density_NN of_IN 1440 kg/m3_NP ._SENT 
+Material_NN of_IN the_DT caisson_NN was_VBD Plexiglas_NNS and_CC a_DT concrete_JJ board_NN was_VBD located_VVN on_IN its_PP$ bottom_JJ increase_NN frictional_JJ force_NN ._SENT 
+It_PP should_MD be_VB noticed_VVN here_RB that_IN an_DT impermeable_JJ bed_NN has_VHZ been_VBN considered_VVN here_RB in_IN contrast_NN with_IN Wang_NP et_CC al._NP 's_POS (_( 2006_CD )_) study_NN ._SENT 
+As_IN the_DT bed_NN has_VHZ no_DT porosity_NN ,_, there_EX is_VBZ not_RB a_DT hydrodynamic_JJ pressure_NN on_IN the_DT bottom_NN of_IN the_DT caisson_NN ._SENT 
+Hence_RB ,_, only_RB the_DT hydrostatic_JJ pressure_NN on_IN the_DT bottom_NN of_IN caisson_NN should_MD be_VB considered_VVN and_CC buoyant_JJ weight_NN has_VHZ been_VBN employed_VVN in_IN the_DT simulation_NN ._SENT 
+Flume_NN water_NN depth_NN is_VBZ 0.325 m_NN which_WDT is_VBZ similar_JJ to_TO the_DT experimental_JJ setup_NN ._SENT 
+Also_RB ,_, according_VVG to_TO the_DT experimental_JJ setup_NN ,_, the_DT wave_NN period_NN is_VBZ 1.3s_JJ and_CC wave_NN height_NN is_VBZ 0.167 m_NN ._SENT 
+The_DT problem_NN has_VHZ been_VBN simulated_JJ using_VVG 62085_CD particles_NNS with_IN an_DT initial_JJ distance_NN equal_JJ to_TO 0.0075 m_NN ._SENT 
+Fig_NN ._SENT 
+11._CD Schematic_JJ view_NN of_IN the_DT caisson_NN breakwater_NN placed_VVN on_IN a_DT foundation_NN ._SENT 
+Fig_NN ._SENT 
+12_CD illustrates_VVZ the_DT results_NNS of_IN fluid_JJ pressure_NN distribution_NN pattern_NN for_IN three_CD time_NN steps_NNS ._SENT 
+At_IN t = 1.425 s_NNS the_DT wave_NN is_VBZ propagating_VVG toward_IN the_DT caisson_NN ._SENT 
+Then_RB ,_, at_IN t = 1.55_NN the_DT wave_NN reaches_VVZ the_DT caisson_NN and_CC generates_VVZ a_DT high_JJ pressure_NN zone_NN in_IN front_NN of_IN the_DT caisson_NN then_RB runs_VVZ up_RP from_IN left_VVN side_NN of_IN the_DT caisson_NN ._SENT 
+The_DT run-up_NN reaches_VVZ its_PP$ highest_JJS value_NN at_IN t = 1.675 s_NNS as_IN the_DT next_JJ wave_NN is_VBZ closing_VVG to_TO the_DT caisson_NN (_( See_VV Fig_NN ._SENT 
+12_CD )_) ._SENT 
+Following_VVG Wang_NP et_CC al_NP ._SENT 
+(_( 2006_CD )_) and_CC Rogers_NP et_NP al_NP ._SENT 
+(_( 2010_CD )_) ,_, t = 0_NN in_IN this_DT case_NN (_( as_RB well_RB as_IN in_IN sections_NNS 3_CD Model_NP verification_NN and_CC numerical_JJ results_NNS ,_, 4_CD Caisson_NN behavior_NN due_JJ to_TO wave_NN properties_NNS )_) ,_, is_VBZ the_DT time_NN when_WRB the_DT wave_NN reaches_VVZ the_DT caisson_NN i.e._FW nearly_RB at_IN 5.1s_NNS of_IN the_DT simulation_NN time_NN ._SENT 
+In_IN previous_JJ cases_NNS (_( section_NN 3.1_CD and_CC 3.1_CD )_) t = 0_NN was_VBD the_DT initial_JJ time_NN of_IN the_DT simulations_NNS ._SENT 
+Fig_NN ._SENT 
+12._CD Fluid_JJ pressure_NN pattern_NN around_IN the_DT caisson_NN at_IN t = 1.425_NP ,_, 1.55s_NP ,_, 1.675s_NP ._SENT 
+Afterward_RB ,_, the_DT movement_NN of_IN caisson_NN breakwater_NN due_JJ to_TO regular_JJ waves_NNS within_IN computational_JJ time_NN has_VHZ been_VBN presented_VVN in_IN Fig_NN ._SENT 
+13._CD The_NP results_NNS have_VHP been_VBN compared_VVN with_IN Rogers_NP et_CC al._NP 's_POS (_( 2010_CD )_) numerical_JJ model_NN as_RB well_RB as_IN Wang_NP et_CC al._NP 's_POS (_( 2006_CD )_) experimental_JJ model_NN ._SENT 
+As_IN shown_VVN in_IN the_DT figure_NN ,_, as_IN wave_NN reaches_VVZ caisson_NN breakwater_NN ,_, caisson_NN initiates_NNS to_TO move_VV ._SENT 
+When_WRB the_DT wave_NN goes_VVZ back_RB and_CC the_DT fluid_JJ surface_NN in_IN shoreward_RB is_VBZ lower_JJR than_IN the_DT fluid_JJ surface_NN in_IN seaward_RB ,_, the_DT mentioned_VVN movement_NN is_VBZ backward_RB ._SENT 
+As_IN the_DT next_JJ wave_NN reaches_VVZ the_DT caisson_NN ,_, it_PP has_VHZ another_DT forward_JJ movement_NN ._SENT 
+The_DT maximum_NN of_IN this_DT movement_NN is_VBZ 0.002 m at_NP t = 6s_NP ._SENT 
+Regarding_VVG the_DT caisson_NN width_NN (_( 0.3 m_NP )_) ,_, it_PP is_VBZ observable_JJ that_IN the_DT caisson_NN has_VHZ a_DT horizontal_NN sliding_VVG equal_JJ to_TO 0.67_CD %_NN of_IN its_PP$ width_NN ._SENT 
+By_IN comparing_VVG the_DT results_NNS of_IN the_DT current_JJ study_NN and_CC Rogers_NP et_NP al._NP 's_POS (_( 2010_CD )_) numerical_JJ model_NN with_IN the_DT results_NNS of_IN Wang_NP et_CC al._NP 's_POS (_( 2006_CD )_) experimental_JJ study_NN ,_, it_PP can_MD be_VB concluded_VVN that_IN the_DT numerical_JJ models_NNS are_VBP successful_JJ in_IN prediction_NN of_IN caisson_NN movement_NN trend_NN ;_: however_RB ,_, they_PP have_VHP quantitative_JJ errors_NNS ._SENT 
+As_IN shown_VVN in_IN Fig_NN ._SENT 
+14_CD ,_, the_DT applied_VVN horizontal_JJ wave_NN force_NN on_IN the_DT caisson_NN are_VBP well_RB predicted_VVN by_IN both_CC the_DT numerical_JJ model_NN developed_VVN in_IN this_DT study_NN and_CC the_DT one_CD developed_VVN by_IN Rogers_NP et_CC al_NP ._SENT 
+(_( 2010_CD )_) ._SENT 
+However_RB ,_, the_DT caisson_NN movement_NN to_TO the_DT left_JJ (_( nearly_RB 0.3 mm_NP during_IN a_DT wave_NN period_NN as_IN measured_VVN in_IN the_DT experiment_NN )_) is_VBZ not_RB truly_RB predicted_VVN by_IN means_NNS of_IN the_DT introduced_VVN model_NN in_IN the_DT current_JJ study_NN ._SENT 
+This_DT movement_NN can_NN occurs_VVZ due_JJ to_TO two_CD factors_NNS :_: a_DT )_) higher_JJR shoreward_JJ water_NN level_NN during_IN wave_NN reflection_NN off_IN the_DT caisson_NN block_NN as_RB reported_VVD by_IN Rogers_NP et_CC al_NP ._SENT 
+(_( 2010_CD )_) and_CC ,_, b_LS )_) small_JJ rotational_JJ vibrations_NNS of_IN the_DT caisson_NN during_IN wave_NN impact_NN as_RB reported_VVD by_IN Wang_NP et_CC al_NP ._SENT 
+(_( 2006_CD )_) ._SENT 
+A_DT small_JJ rotation_NN can_MD generate_VV some_DT small_JJ horizontal_JJ movement_NN at_IN the_DT caisson_NN center_NN ._SENT 
+Based_VVN on_IN the_DT applied_VVN forces_NNS on_IN the_DT caisson_NN and_CC their_PP$ measured_VVN amplitude_NN in_IN the_DT experiment_NN ,_, it_PP seems_VVZ that_IN the_DT seaward_JJ movement_NN of_IN the_DT caisson_NN is_VBZ related_VVN mostly_RB to_TO the_DT second_JJ factor_NN ._SENT 
+Since_IN no_DT rotation_NN is_VBZ modeled_VVN in_IN this_DT study_NN ,_, such_JJ movements_NNS due_JJ to_TO rotation_NN can_MD not_RB be_VB modeled_VVN ._SENT 
+This_DT movement_NN may_MD be_VB simulated_JJ by_IN means_NNS of_IN adjusting_VVG the_DT calibration_NN coefficients_NNS ._SENT 
+However_RB ,_, this_DT is_VBZ not_RB a_DT good_JJ solution_NN and_CC on_IN the_DT other_JJ hand_NN ,_, no_DT calibration_NN factor_NN is_VBZ applied_VVN in_IN the_DT current_JJ study_NN ._SENT 
+It_PP can_MD be_VB seen_VVN in_IN Fig_NN ._SENT 
+13_CD that_IN the_DT mean_JJ sliding_VVG values_NNS predicted_VVN by_IN Rogers_NP et_CC al_NP ._SENT 
+(_( 2010_CD )_) are_VBP still_RB more_RBR compatible_JJ with_IN the_DT measured_VVN data_NN that_WDT is_VBZ due_JJ to_TO using_VVG two_CD calibration_NN factors_NNS (_( transition_NN force_NN and_CC threshold_NN velocity_NN )_) in_IN their_PP$ model_NN ._SENT 
+In_IN addition_NN ,_, these_DT factors_NNS have_VHP covered_VVN the_DT effect_NN of_IN impulsive_JJ force_NN underside_NN of_IN the_DT caisson_NN which_WDT can_MD not_RB be_VB modeled_VVN in_IN an_DT impermeable_JJ bed_NN condition_NN ._SENT 
+Meanwhile_RB ,_, a_DT model_NN free_JJ of_IN any_DT calibration_NN factor_NN is_VBZ introduced_VVN here_RB to_TO be_VB practical_JJ in_IN design_NN of_IN a_DT caisson_NN breakwater_NN with_IN any_DT geometry_NN ._SENT 
+Fig_NN ._SENT 
+13._CD Horizontal_JJ caisson_NN displacement_NN versus_CC time_NN ;_: current_JJ study_NN (_( ──_NP )_) ,_, Rogers_NP et_CC al_NP ._SENT 
+(_( 2010_CD )_) (_( ─_NP •_NP ─_NP )_) ,_, Wang_NP et_CC al_NP ._SENT 
+(_( 2006_CD )_) (_( ─▫─_NP )_) ._SENT 
+Fig_NN ._SENT 
+14._CD Horizontal_JJ wave_NN force_NN applied_VVN on_IN the_DT caisson_NN versus_IN time_NN ;_: current_JJ study_NN (_( ──_NP )_) ,_, Rogers_NP et_CC al_NP ._SENT 
+(_( 2010_CD )_) (_( )_) ,_, Wang_NP et_CC al_NP ._SENT 
+(_( 2006_CD )_) (_( ─▫─_NP )_) ._SENT 
+In_IN addition_NN ,_, the_DT comparisons_NNS reveal_VVP two_CD points_NNS :_: (_( a_DT )_) application_NN of_IN dynamic_JJ boundary_NN condition_NN is_VBZ efficient_JJ for_IN simulation_NN of_IN fluid-rigid_JJ submerged_JJ body_NN interaction_NN ,_, (_( b_LS )_) the_DT approach_NN of_IN applying_VVG friction_NN force_NN in_IN this_DT study_NN (_( considering_VVG both_DT dynamic_JJ and_CC static_JJ coefficient_NN instead_RB of_IN only_RB considering_VVG the_DT static_JJ coefficient_NN )_) produce_VVP acceptable_JJ results_NNS ._SENT 
+It_PP should_MD be_VB noted_VVN that_DT application_NN of_IN dynamic_JJ boundary_NN condition_NN instead_RB of_IN repulsive_JJ force_NN boundary_NN condition_NN reduces_VVZ computational_JJ cost_NN significantly_RB (_( Singh_NP and_CC Borker_NP ,_, 2010_CD )_) ._SENT 
+3.4_CD ._SENT 
+Regular_JJ wave_NN interaction_NN with_IN caisson_NN breakwater_NN on_IN permeable_JJ bed_NN In_IN order_NN to_TO investigate_VV regular_JJ wave_NN interaction_NN with_IN caisson_NN breakwater_NN with_IN porous_JJ bed_NN ,_, the_DT experimental_JJ setup_NN used_VVN by_IN Wang_NP et_CC al_NP ._SENT 
+(_( 2006_CD )_) has_VHZ been_VBN applied_VVN ._SENT 
+They_PP studied_VVD the_DT horizontal_JJ movement_NN of_IN concrete_JJ caisson_NN with_IN rubble-mound_JJ bed_NN ,_, experimentally_RB ._SENT 
+The_DT geometry_NN and_CC properties_NNS of_IN this_DT experimental_JJ setup_NN have_VHP been_VBN introduced_VVN in_IN Section_NP 3-3_CD ._SENT 
+Since_IN properties_NNS of_IN the_DT rubble_NN mound_NN foundation_NN were_VBD not_RB given_VVN by_IN Wang_NP et_CC al_NP ._SENT 
+(_( 2006_CD )_) ,_, the_DT porosity_NN and_CC mean_VV diameter_NN of_IN rocks_NNS have_VHP been_VBN assumed_VVN 0.45_CD and_CC 0.008 m_NP ,_, respectively_RB ._SENT 
+These_DT values_NNS are_VBP selected_VVN based_VVN on_IN typical_JJ materials_NNS used_VVN as_IN rubble-mound_NNS in_IN physical_JJ models_NNS and_CC it_PP is_VBZ tried_VVN to_TO be_VB compatible_JJ relatively_RB with_IN the_DT values_NNS in_IN the_DT previous_JJ simulated_JJ case_NN (_( dam_NN break_NN )_) ._SENT 
+Similar_JJ to_TO the_DT experimental_JJ model_NN ,_, wave_NN flume_NN water_NN depth_NN is_VBZ 0.325 m_NP ,_, wave_NN period_NN is_VBZ 1.3 s_JJ ,_, and_CC wave_NN height_NN is_VBZ 0.167 m_NN ._SENT 
+The_DT problem_NN has_VHZ been_VBN simulated_JJ using_VVG 101'295_NN particles_NNS with_IN an_DT initial_JJ distance_NN of_IN 0.005 m_NP ._SENT 
+The_DT required_JJ run_NN time_NN for_IN this_DT case_NN is_VBZ nearly_RB 22 h_NN using_VVG an_DT Intel®_NP core™_NP i7-4770k_NP CPU@3.5 GHz(8CPUs_NP )_) processor_NN ._SENT 
+In_IN contrast_NN to_TO the_DT previous_JJ case_NN ,_, since_IN the_DT caisson_NN has_VHZ been_VBN placed_VVN on_IN a_DT porous_JJ bed_NN ,_, the_DT pressure_NN distribution_NN under_IN the_DT caisson_NN includes_VVZ both_DT hydrostatic_JJ and_CC hydrodynamic_JJ pressures_NNS ._SENT 
+The_DT difference_NN has_VHZ been_VBN illustrated_VVN in_IN Fig_NN ._SENT 
+15._CD Because_IN numerical_JJ models_NNS with_IN an_DT impermeable_JJ bed_NN are_VBP not_RB able_JJ to_TO calculate_VV the_DT pressure_NN under_IN the_DT caisson_NN accurately_RB so_RB these_DT models_NNS use_VVP approximations_NNS to_TO consider_VV hydrostatic_JJ pressure_NN ._SENT 
+It_PP should_MD be_VB noted_VVN that_IN the_DT vertical_JJ force_NN in_IN Eq_NP ._SENT 
+(_( 19_CD )_) depends_VVZ directly_RB on_IN the_DT uplift_NN pressure_NN as_RB well_RB as_IN the_DT caisson_NN weight_NN and_CC therefore_RB ,_, it_PP is_VBZ important_JJ to_TO include_VV this_DT pressure_NN in_IN calculation_NN of_IN the_DT maximum_JJ friction_NN force_NN ._SENT 
+Since_IN no_DT uplift_NN pressure_NN is_VBZ calculated_VVN in_IN the_DT case_NN with_IN impermeable_JJ bed_NN ,_, a_DT fixed_VVN value_NN is_VBZ decreased_VVN from_IN the_DT caisson_NN weight_NN in_IN that_DT case_NN (_( section_NN 3.3_CD )_) to_TO consider_VV the_DT floating_JJ force_NN ._SENT 
+However_RB ,_, by_IN solving_VVG the_DT governing_VVG equations_NNS of_IN the_DT fluid_NN in_IN the_DT porous_JJ medium_NN ,_, the_DT actual_JJ pressure_NN under_IN the_DT caisson_NN is_VBZ calculated_VVN ._SENT 
+As_IN schematically_RB shown_VVN in_IN Fig_NN ._SENT 
+15_CD ,_, the_DT actual_JJ pressure_NN will_MD be_VB applied_VVN in_IN equations_NNS of_IN motion_NN in_IN each_DT time_NN step_NN if_IN the_DT porous_JJ media_NNS beneath_IN the_DT caisson_NN is_VBZ modeled_VVN ._SENT 
+Fig_NN ._SENT 
+16_CD presents_VVZ fluid_JJ pressure_NN distribution_NN around_IN the_DT caisson_NN at_IN t = 1.425 s_NPS ,_, t = 1.55 s_NPS and_CC t = 1.675 s_NPS ._SENT 
+At_IN t = 1.425 s_NNS the_DT wave_NN trough_NN reaches_VVZ the_DT breakwater_NN so_IN pressure_NN reduction_NN occurs_VVZ seaward_RB of_IN the_DT caisson_NN ._SENT 
+At_IN t = 1.55 s_NNS the_DT wave_NN crest_NN reaches_VVZ the_DT caisson_NN so_IN a_DT significant_JJ pressure_NN is_VBZ applied_VVN on_IN the_DT caisson_NN ._SENT 
+At_IN t = 1.65_NN the_DT incident_NN wave_NN runs_VVZ up_RP the_DT left_VVN side_NN of_IN the_DT caisson_NN and_CC reaches_VVZ its_PP$ maximum_JJ height_NN ._SENT 
+As_IN depicted_VVN in_IN Fig_NN ._SENT 
+16_CD ,_, the_DT fluid_JJ particles_NNS inside_IN porous_JJ bed_NN have_VHP a_DT greater_JJR distance_NN than_IN the_DT pure_JJ fluid_JJ particles_NNS because_IN rocks_NNS have_VHP filled_VVN some_DT portions_NNS of_IN rubble-mound_JJ bed_NN ._SENT 
+The_DT cause_NN of_IN such_JJ particle_NN pattern_NN has_VHZ been_VBN discussed_VVN in_IN more_JJR details_NNS by_IN Akbari_NP (_( 2014_CD )_) ._SENT 
+Fig_NN ._SENT 
+15._CD A_DT schematic_JJ fluid_JJ pressure_NN distribution_NN beneath_IN the_DT caisson_NN with_IN permeable_JJ bed_NN (_( right_NN )_) and_CC impermeable_JJ bed_NN (_( left_VVN )_) ._SENT 
+Fig_NN ._SENT 
+16._CD The_DT fluid_JJ pressure_NN contours_NNS around_IN the_DT caisson_NN at_IN t = 1.425s_NP ,_, 1.55s_NP ,_, 1.675s_NP ._SENT 
+In_IN the_DT following_NN ,_, the_DT fluid_JJ velocity_NN distribution_NN pattern_NN has_VHZ been_VBN investigated_VVN ._SENT 
+It_PP is_VBZ clear_JJ that_IN the_DT presence_NN of_IN a_DT porous_JJ medium_NN reduces_VVZ the_DT fluid_JJ particles_NNS velocity_NN ._SENT 
+Fig_NN ._SENT 
+17_CD shows_NNS fluid_JJ velocity_NN distribution_NN pattern_NN since_IN the_DT wave_NN is_VBZ reaching_VVG the_DT breakwater_NN until_IN it_PP reaches_VVZ at_IN the_DT highest_JJS point_NN due_JJ to_TO run-up_NN for_IN both_DT impermeable_JJ and_CC permeable_JJ beds_NNS ._SENT 
+As_IN shown_VVN in_IN this_DT Figure_NN ,_, as_IN the_DT wave_NN reaches_VVZ the_DT porous_JJ bed_NN ,_, the_DT wave_NN starts_VVZ to_TO run_VV up_RP ._SENT 
+Since_IN a_DT portion_NN of_IN wave_NN body_NN enters_VVZ the_DT porous_JJ medium_NN ,_, the_DT velocity_NN of_IN particles_NNS which_WDT propagate_VVP on_IN the_DT rubble-mound_JJ bed_NN and_CC hit_VVD the_DT caisson_NN decreases_VVZ ._SENT 
+The_DT velocity_NN reduction_NN results_NNS in_IN a_DT decrease_NN of_IN applied_VVN wave_NN pressure_NN on_IN the_DT caisson_NN ._SENT 
+Such_JJ reduction_NN cannot_MD be_VB modeled_VVN if_IN an_DT impermeable_JJ bed_NN was_VBD considered_VVN ._SENT 
+Fig_NN ._SENT 
+17_CD reveals_VVZ that_IN the_DT reduction_NN of_IN fluid_JJ velocity_NN close_NN to_TO the_DT bed_NN does_VVZ not_RB occur_VV in_IN the_DT caissons_NNS located_VVN on_IN the_DT impermeable_JJ bed_NN ._SENT 
+Consequently_RB ,_, more_JJR pressure_NN (_( and_CC obviously_RB more_JJR force_NN )_) acts_VVZ on_IN the_DT face_NN of_IN the_DT caisson_NN in_IN the_DT case_NN of_IN neglecting_VVG the_DT porosity_NN of_IN the_DT base_NN foundation_NN ._SENT 
+Fig_NN ._SENT 
+17._CD Pattern_NN of_IN fluid_JJ velocity_NN distribution_NN at_IN t = 1.425s_NPS ,_, 1.55s_NPS ,_, 1.675s_NPS ,_, 1.825s_NPS ;_: (_( Left_NP )_) :_: impermeable_JJ bed_NN ,_, and_CC (_( Right_NP )_) :_: permeable_JJ bed_NN ._SENT 
+In_IN the_DT following_NN ,_, the_DT horizontally_RB applied_VVN force_NN on_IN the_DT caisson_NN as_RB well_RB as_IN the_DT horizontal_JJ displacement_NN of_IN it_PP has_VHZ been_VBN compared_VVN with_IN the_DT results_NNS of_IN Wang_NP et_CC al._NP 's_POS (_( 2006_CD )_) experimental_JJ data_NNS and_CC with_IN the_DT numerical_JJ results_NNS of_IN the_DT current_JJ study_NN for_IN the_DT case_NN with_IN impermeable_JJ bed_NN ._SENT 
+Fig_NN ._SENT 
+18_CD shows_NNS the_DT results_NNS of_IN horizontally_RB applied_VVN force_NN on_IN the_DT caisson_NN ._SENT 
+It_PP can_MD be_VB observed_VVN that_IN the_DT results_NNS of_IN the_DT numerical_JJ model_NN with_IN the_DT porous_JJ bed_NN in_IN this_DT study_NN agree_VVP well_RB with_IN the_DT experimental_JJ results_NNS ._SENT 
+As_IN the_DT results_NNS of_IN the_DT numerical_JJ models_NNS with_IN and_CC without_IN porous_JJ bed_NN are_VBP compared_VVN ,_, it_PP is_VBZ clear_JJ that_IN the_DT porous_JJ bed_NN leads_VVZ to_TO a_DT reduction_NN of_IN the_DT applied_VVN horizontal_JJ force_NN on_IN the_DT caisson_NN ._SENT 
+Such_JJ decrease_NN is_VBZ because_IN of_IN wave_NN penetration_NN into_IN the_DT porous_JJ bed_NN and_CC damping_VVG some_DT portions_NNS of_IN the_DT wave_NN energy_NN ._SENT 
+As_IN shown_VVN in_IN Fig_NN ._SENT 
+18_CD ,_, this_DT leads_VVZ to_TO a_DT reduction_NN of_IN applied_VVN wave_NN pressure_NN on_IN the_DT caisson_NN ._SENT 
+Fig_NN ._SENT 
+19_CD shows_NNS the_DT comparison_NN between_IN the_DT results_NNS of_IN horizontal_JJ displacement_NN of_IN the_DT caisson_NN for_IN the_DT numerical_JJ models_NNS with_IN and_CC without_IN permeable_JJ beds_NNS and_CC the_DT experimental_JJ data_NNS reported_VVN by_IN Wang_NP et_CC al_NP ._SENT 
+(_( 2006_CD )_) ._SENT 
+It_PP can_MD be_VB concluded_VVN that_IN the_DT developed_JJ numerical_JJ model_NN is_VBZ able_JJ to_TO well_RB predict_VV the_DT trend_NN of_IN the_DT caisson_NN horizontal_NN displacement_NN ._SENT 
+Also_RB ,_, the_DT comparisons_NNS reveal_VVP that_IN modeling_VVG the_DT porous_JJ bed_NN increases_VVZ the_DT horizontal_JJ displacement_NN of_IN the_DT caisson_NN ._SENT 
+In_IN the_DT first_JJ view_NN ,_, this_DT is_VBZ incompatible_JJ with_IN the_DT reduced_VVN horizontal_JJ wave_NN force_NN in_IN the_DT presence_NN of_IN the_DT permeable_JJ bed_NN beneath_IN the_DT caisson_NN ._SENT 
+However_RB ,_, the_DT fact_NN is_VBZ that_IN the_DT upward_JJ pressure_NN applied_VVN to_TO the_DT caisson_NN increases_VVZ due_JJ to_TO the_DT porous_JJ bed_NN ,_, and_CC this_DT phenomenon_NN leads_VVZ to_TO a_DT reduction_NN of_IN normal_JJ force_NN on_IN the_DT rubble-mound_JJ bed_NN ._SENT 
+As_IN this_DT happens_VVZ ,_, applied_VVD friction_NN force_NN decreases_VVZ so_RB the_DT caisson_NN with_IN porous_JJ bed_NN moves_VVZ more_RBR than_IN the_DT one_CD with_IN the_DT impermeable_JJ bed_NN ._SENT 
+Once_RB the_DT wave_NN crest_NN reaches_VVZ the_DT caisson_NN ,_, the_DT wave_NN pressure_NN growths_NNS beneath_IN the_DT caisson_NN and_CC this_DT is_VBZ simultaneous_JJ with_IN the_DT caisson_NN movement_NN ._SENT 
+The_DT important_JJ note_NN is_VBZ that_IN as_IN water_NN elevation_NN in_IN front_NN of_IN the_DT caisson_NN drops_VVZ ,_, the_DT active_JJ wave_NN force_NN as_RB well_RB as_IN the_DT hydrodynamic_JJ pressure_NN beneath_IN the_DT caisson_NN decreases_VVZ so_RB the_DT movement_NN would_MD be_VB zero_CD ,_, and_CC has_VHZ no_DT effect_NN on_IN the_DT ultimate_JJ movement_NN of_IN the_DT caisson_NN ._SENT 
+It_PP can_MD be_VB concluded_VVN finally_RB that_IN neglecting_VVG the_DT permeable_JJ bed_NN results_NNS in_IN overestimated_VVN wave_NN pressure_NN in_IN front_NN of_IN the_DT caisson_NN yet_RB in_IN underestimated_VVN wave_NN pressure_NN beneath_IN the_DT caisson_NN during_IN the_DT caisson_NN sliding_VVG ._SENT 
+Fig_NN ._SENT 
+18._CD Time_NN series_NN of_IN horizontal_JJ wave_NN force_NN acting_VVG on_IN the_DT caisson_NN ,_, developed_VVN model_NN with_IN permeable_JJ bed_NN (_( ──_NP )_) ,_, developed_VVN model_NN with_IN impermeable_JJ bed_NN (_( )_) ,_, Wang_NP et_CC al._NP 's_POS (_( 2006_CD )_) experiment_NN (_( ─_NP �_NP �_NP �_) ─_NP )_) ._SENT 
+Fig_NN ._SENT 
+19._CD Time_NN series_NN of_IN horizontal_JJ displacement_NN of_IN the_DT caisson_NN ;_: developed_VVN model_NN with_IN permeable_JJ bed_NN (_( ──_NP )_) ,_, developed_VVN model_NN with_IN impermeable_JJ bed_NN (_( )_) ,_, Wang_NP et_CC al._NP 's_POS (_( 2006_CD )_) experiment_NN (_( ─_NP �_NP �_NP �_) ─_NP )_) ._SENT 
+<Section> 4._CD Caisson_NN behavior_NN due_JJ to_TO wave_NN properties_NNS </Section> In_IN the_DT following_NN ,_, the_DT applied_VVN wave_NN force_NN and_CC caisson_NN displacement_NN have_VHP been_VBN investigated_VVN by_IN changing_VVG wave_NN properties_NNS ._SENT 
+To_TO achieve_VV this_DT objective_NN ,_, four_CD incident_NN waves_NNS presented_VVN in_IN Table_NN 1_CD have_VHP been_VBN investigated_VVN ._SENT 
+The_DT last_JJ two_CD columns_NNS in_IN Table_NN 1_CD show_NN wave_NN height_NN to_TO wavelength_NN ratio_NN and_CC wave_NN height_NN to_TO water_NN depth_NN ratio_NN ._SENT 
+Both_DT ratios_NNS have_VHP been_VBN used_VVN as_IN the_DT measures_NNS to_TO study_VV wave_NN breaking_NN ._SENT 
+Based_VVN on_IN deep-water_JJ and_CC depth-limited_JJ wave_NN breaking_VVG criteria_NNS ,_, a_DT wave_NN breaks_VVZ as_IN H/L_NN or_CC H/d_NNS are_VBP greater_JJR than_IN 0.14_CD and_CC 0.78_CD ,_, respectively_RB ._SENT 
+Considering_VVG these_DT criteria_NNS and_CC the_DT last_JJ two_CD columns_NNS of_IN Table_NN 1_CD ,_, it_PP can_MD be_VB concluded_VVN that_IN no_DT wave_NN breaking_NN happens_VVZ ._SENT 
+This_DT is_VBZ usually_RB compatible_JJ with_IN the_DT practical_JJ situation_NN of_IN a_DT composite_JJ breakwater_NN that_WDT is_VBZ designed_VVN for_IN deep_JJ water_NN conditions_NNS ._SENT 
+The_DT results_NNS of_IN the_DT applied_VVN horizontal_JJ force_NN on_IN the_DT caisson_NN for_IN two_CD sample_NN cases_NNS of_IN these_DT non-breaking_JJ waves_NNS have_VHP been_VBN provided_VVN in_IN Fig_NN ._SENT 
+20._CD It_PP is_VBZ clear_JJ that_IN larger_JJR wave_NN heights_NNS generate_VVP larger_JJR forces_NNS ._SENT 
+Horizontal_JJ displacements_NNS of_IN caisson_NN for_IN the_DT introduced_VVN waves_NNS in_IN Table_NN 1_CD are_VBP depicted_VVN in_IN Fig_NN ._SENT 
+21._CD It_PP should_MD be_VB noticed_VVN here_RB that_IN no_DT horizontal_JJ displacement_NN happens_VVZ for_IN the_DT wave_NN height = 0.0835 m_NN and_CC wave_NN period = 1.3 s_NNS ._SENT 
+The_DT maximum_JJ horizontal_NN applied_VVD force_NN on_IN the_DT caisson_NN corresponding_JJ to_TO each_DT case_NN is_VBZ also_RB presented_VVN in_IN this_DT figure_NN as_IN ‘FHmax’_NN in_IN parenthesis_NN ._SENT 
+It_PP is_VBZ observable_JJ that_IN the_DT maximum_NN applied_VVD force_NN on_IN the_DT caisson_NN as_RB well_RB as_IN the_DT ultimate_JJ displacement_NN of_IN the_DT caisson_NN increases_VVZ when_WRB the_DT wave_NN height_NN or_CC wave_NN period_NN increases_NNS ._SENT 
+However_RB ,_, this_DT conclusion_NN about_IN the_DT total_NN sliding_VVG is_VBZ not_RB always_RB true_JJ for_IN the_DT wave_NN periods_NNS due_JJ to_TO the_DT fact_NN that_IN a_DT caisson_NN may_MD experience_VV less_JJR number_NN of_IN waves_NNS with_IN large_JJ periods_NNS than_IN small_JJ periods_NNS during_IN a_DT storm_NN with_IN a_DT constant_JJ duration_NN ._SENT 
+Table_NN 1._CD Incident_NN wave_NN properties_NNS ._SENT 
+Fig_NN ._SENT 
+20._CD Time_NN series_NN of_IN the_DT horizontal_JJ wave_NN force_NN acting_VVG on_IN caisson_NN ._SENT 
+Fig_NN ._SENT 
+21._CD Time_NN series_NN of_IN the_DT caisson_NN horizontal_NN displacement_NN ;_: Maximum_JJ horizontal_JJ wave_NN forces_NNS are_VBP presented_VVN in_IN parenthesis_NN ._SENT 
+<Section> 5._CD Conclusion_NN </Section> In_IN the_DT present_JJ study_NN ,_, a_DT numerical_JJ model_NN has_VHZ been_VBN developed_VVN to_TO simulate_VV wave_NN interaction_NN with_IN a_DT composite_JJ breakwater_NN using_VVG WCSPH_NN method_NN ._SENT 
+Porosity_NN beneath_IN the_DT caisson_NN and_CC friction_NN forces_NNS between_IN the_DT caisson_NN and_CC its_PP$ bedding_NN stones_NNS are_VBP modeled_VVN to_TO evaluate_VV the_DT applied_JJ and_CC resistant_JJ forces_NNS accurately_RB ._SENT 
+An_DT efficient_JJ method_NN free_JJ of_IN any_DT tuning_VVG parameter_NN is_VBZ proposed_VVN to_TO apply_VV the_DT static_JJ and_CC dynamic_JJ friction_NN forces_NNS ._SENT 
+On_IN the_DT other_JJ hand_NN ,_, efficiency_NN of_IN the_DT δ-SPH_NN method_NN in_IN smoothing_VVG the_DT pressure_NN field_NN inside_IN porous_JJ media_NNS is_VBZ approved_VVN by_IN modeling_VVG the_DT hydrostatic_JJ condition_NN ._SENT 
+Then_RB ,_, flow_NN through_IN porous_JJ media_NNS is_VBZ verified_VVN by_IN modeling_VVG dam_NN break_NN flow_NN through_IN porous_JJ block_NN and_CC by_IN comparing_VVG the_DT results_NNS with_IN experimental_JJ data_NNS and_CC similar_JJ numerical_JJ results_NNS ._SENT 
+Then_RB ,_, the_DT developed_JJ numerical_JJ model_NN has_VHZ been_VBN utilized_VVN to_TO model_VV wave_NN interaction_NN with_IN a_DT caisson_NN located_VVN on_IN an_DT impermeable_JJ bed_NN ._SENT 
+The_DT results_NNS are_VBP compared_VVN with_IN experimental_JJ as_RB well_RB as_IN other_JJ numerical_JJ data_NNS to_TO show_VV the_DT performance_NN of_IN the_DT introduced_VVN friction_NN force_NN ._SENT 
+The_DT results_NNS agree_VVP well_RB with_IN the_DT experiments_NNS ;_: however_RB it_PP is_VBZ further_RBR improved_VVN by_IN taking_VVG into_IN account_NN the_DT porosity_NN of_IN the_DT bed_NN layer_NN ._SENT 
+As_IN the_DT final_JJ case_NN ,_, the_DT developed_JJ model_NN has_VHZ been_VBN used_VVN to_TO simulate_VV wave_NN interaction_NN with_IN the_DT caisson_NN breakwater_NN placed_VVN on_IN the_DT porous_JJ bed_NN ._SENT 
+The_DT results_NNS of_IN the_DT applied_VVN force_NN and_CC the_DT horizontal_JJ displacement_NN of_IN the_DT caisson_NN have_VHP been_VBN compared_VVN with_IN the_DT available_JJ experimental_JJ results_NNS ._SENT 
+The_DT comparisons_NNS show_VVP a_DT good_JJ agreement_NN between_IN the_DT developed_VVN model_NN and_CC the_DT experimental_JJ data_NNS ._SENT 
+It_PP is_VBZ concluded_VVN that_IN the_DT maximum_JJ wave_NN force_NN on_IN the_DT caisson_NN will_MD be_VB decreased_VVN and_CC the_DT caisson_NN sliding_VVG will_MD be_VB increased_VVN if_IN permeability_NN beneath_IN the_DT caisson_NN is_VBZ applied_VVN ._SENT 
+Finally_RB ,_, the_DT effect_NN of_IN wave_NN height_NN and_CC period_NN on_IN the_DT applied_VVN force_NN to_TO the_DT caisson_NN (_( and_CC subsequently_RB the_DT caisson_NN displacement_NN )_) has_VHZ been_VBN studied_VVN ._SENT 
+Based_VVN on_IN the_DT results_NNS ,_, the_DT following_VVG points_NNS can_MD be_VB concluded_VVN briefly_RB :_: 1)Variations_NNS in_IN the_DT pressure_NN field_NN due_JJ to_TO the_DT equation_NN of_IN state_NN in_IN WCSPH_NN method_NN have_VHP been_VBN significantly_RB mitigated_VVN using_VVG δ-SPH_NN diffusion_NN term_NN in_IN the_DT continuity_NN equation_NN ._SENT 
+Neglecting_VVG this_DT improvement_NN can_MD generate_VV considerable_JJ pressure_NN noises_VVZ particularly_RB inside_IN the_DT porous_JJ media_NNS ._SENT 
+2)In_NP addition_NN to_TO the_DT pressure_NN ,_, flow_NN through_IN porous_JJ media_NNS can_MD be_VB modeled_VVN accurately_RB using_VVG the_DT developed_VVN model_NN in_IN this_DT study_NN and_CC there_EX is_VBZ an_DT acceptable_JJ agreement_NN between_IN the_DT simulated_JJ water_NN surface_NN variation_NN and_CC experimental_JJ results_NNS ._SENT 
+3)The_NNS introduced_VVD approach_NN of_IN applying_VVG static_JJ and_CC dynamic_JJ friction_NN coefficients_NNS can_MD properly_RB simulate_VVP the_DT caisson_NN response_NN to_TO the_DT applied_VVN wave_NN load_NN ._SENT 
+The_DT applied_VVN forces_NNS on_IN the_DT caisson_NN as_RB well_RB as_IN caisson_NN displacement_NN show_VVP an_DT acceptable_JJ agreement_NN between_IN the_DT experimental_JJ and_CC the_DT numerical_JJ results_NNS ._SENT 
+4)The_JJ caisson_NN response_NN to_TO the_DT applied_VVN waves_NNS has_VHZ been_VBN improved_VVN by_IN considering_VVG the_DT porous_JJ medium_NN in_IN the_DT model_NN ._SENT 
+Employing_VVG the_DT permeable_JJ medium_NN beneath_IN the_DT caisson_NN has_VHZ led_VVN to_TO more_JJR agreement_NN between_IN the_DT experimental_JJ and_CC the_DT numerical_JJ results_NNS of_IN caisson_NN displacement_NN ._SENT 
+5)In_NP case_NN of_IN modeling_VVG than_IN neglecting_VVG the_DT permeable_JJ bed_NN ,_, a_DT portion_NN of_IN the_DT wave_NN body_NN penetrates_VVZ to_TO the_DT porous_JJ media_NNS ._SENT 
+On_IN one_CD hand_NN ,_, the_DT penetrated_VVN wave_NN leads_VVZ to_TO less_JJR wave_NN load_NN in_IN front_NN of_IN the_DT caisson_NN and_CC on_IN the_DT other_JJ hand_NN ,_, it_PP generates_VVZ higher_JJR uplift_NN beneath_IN the_DT caisson_NN ._SENT 
+This_DT effect_NN is_VBZ more_RBR sensible_JJ during_IN the_DT impact_NN of_IN the_DT wave_NN crest_NN and_CC finally_RB results_NNS in_IN more_JJR sliding_VVG of_IN the_DT caisson_NN ._SENT 
+As_IN a_DT result_NN ,_, an_DT overestimated_VVN horizontal_JJ force_NN and_CC an_DT underestimated_VVD sliding_VVG displacement_NN will_MD be_VB estimated_VVN if_IN porosity_NN beneath_IN the_DT caisson_NN is_VBZ ignored_VVN ._SENT 
+6)By_JJ changing_VVG wave_NN properties_NNS ,_, the_DT maximum_NN applied_VVD force_NN on_IN the_DT caisson_NN increases_VVZ as_IN the_DT wave_NN height_NN or_CC wave_NN period_NN rises_NNS ._SENT 
+However_RB ,_, as_IN the_DT wave_NN period_NN rises_VVZ ,_, the_DT caisson_NN experiences_VVZ less_JJR number_NN of_IN incident_NN waves_NNS during_IN a_DT similar_JJ storm_NN duration_NN and_CC consequently_RB it_PP is_VBZ probable_JJ to_TO experience_VV less_JJR sliding_VVG even_RB under_IN larger_JJR peak_NN loads_NNS ._SENT 
+<Section> References_NNS </Section> H._NP Akbari_NP Modified_VVN moving_VVG particle_NN method_NN for_IN modeling_VVG wave_NN interaction_NN with_IN multi_NP layered_VVD porous_JJ structures_NNS Coast_NP ._SENT 
+Eng_NN ._SENT 
+,_, 89_CD (_( 2014_CD )_) ,_, pp_NP ._SENT 
+1-19_CD H._NP Akbari_NP Simulation_NP of_IN wave_NN overtopping_VVG using_VVG an_DT improved_VVN SPH_NN method_NN Coast_NP ._SENT 
+Eng_NN ._SENT 
+,_, 126_CD (_( 2016_CD )_) ,_, pp_NP ._SENT 
+51-68_CD H._NP Akbari_NP ,_, M.M._NP Namin_NP Moving_VVG particle_NN method_NN for_IN modeling_VVG wave_NN interaction_NN with_IN porous_JJ structures_NNS Coast_NP ._SENT 
+Eng_NN ._SENT 
+,_, 74_CD (_( 2013_CD )_) ,_, pp_NP ._SENT 
+59-73_CD C._NP Altomare_NP ,_, J.M._NP Domínguez_NP ,_, A.J.C._NP Crespo_NP ,_, J._NP González-Cao_NP ,_, T._NP Suzuki_NP ,_, M._NP Gómez-Gesteira_NP ,_, P._NP Troch_NP Long-crested_VVD wave_NN generation_NN and_CC absorption_NN for_IN SPH-based_JJ DualSPHysics_NN model_NN Coast_NP ._SENT 
+Eng_NN ._SENT 
+,_, 127_CD (_( 2017_CD )_) ,_, pp_NP ._SENT 
+37-54_CD M._NP Antuono_NP ,_, A._NP Colagrossi_NP ,_, S._NP Marrone_NP Numerical_JJ diffusive_JJ terms_NNS in_IN weakly-compressible_JJ SPH_NN schemes_NNS Comput_NN ._SENT 
+Phys_NPS ._SENT 
+Commun_NN ._SENT 
+,_, 183_CD (_( 2012_CD )_) ,_, pp_NP ._SENT 
+2570-2580_CD L._NP Blin_NP ,_, A._NP Hadjadj_NP ,_, L._NP Vervisch_NP Large_JJ eddy_NN simulation_NN of_IN turbulent_JJ flows_NNS in_IN reversing_VVG systems_NNS J._NP Turbul_NN ._SENT 
+,_, 4_CD (_( 2003_CD )_) H._NP Brinkman_NP A_DT calculation_NN of_IN the_DT viscous_JJ force_NN exerted_VVN by_IN a_DT flowing_VVG fluid_NN on_IN a_DT dense_JJ swarm_NN of_IN particles_NNS Flow_NP ,_, Turbul_NP ._SENT 
+Combust_JJ ._SENT 
+,_, 1_CD (_( 1_LS )_) (_( 1949_CD )_) ,_, p._NP 27_CD J.P._NP Du_NP Plessis_NP Analytical_NP quantification_NN of_IN coefficients_NNS in_IN the_DT Ergun_NN equation_NN for_IN fluid_JJ friction_NN in_IN a_DT packed_JJ bed_NN Transport_NN Porous_JJ Media_NP ,_, 16_CD (_( 1994_CD )_) ,_, pp_NP ._SENT 
+189-207_CD P._NP Forchheimer_NP Wasserbewegung_NP durch_VVZ boden_NP Zeitz_NP ._SENT 
+Ver_NP ._SENT 
+Duetch_NP Ing_NP ._SENT 
+,_, 45_CD (_( 1901_CD )_) ,_, pp_NP ._SENT 
+1782-1788_CD Y._NP Goda_NP ,_, H._NP Takagi_NP A_DT reliability_NN design_NN method_NN of_IN caisson_NN breakwaters_NNS with_IN optimal_JJ wave_NN heights_NNS Coast_NP Eng_NP ._SENT 
+J._NP ,_, 42_CD (_( 04_CD )_) (_( 2000_CD )_) ,_, pp_NP ._SENT 
+357-387_CD H._NP Gotoh_NP ,_, S._NP Shao_NP ,_, T._NP Memita_NP SPH-LES_VVZ model_NN for_IN numerical_JJ investigation_NN of_IN wave_NN interaction_NN with_IN partially_RB immersed_VVN breakwater_NN Coast_NP Eng_NP ._SENT 
+J._NP ,_, 46_CD (_( 01_CD )_) (_( 2004_CD )_) ,_, pp_NP ._SENT 
+39-63_CD P._NP Higuera_NP ,_, J.L._NP Lara_NP ,_, I.J._NP Losada_NP Three-dimensional_JJ interaction_NN of_IN waves_NNS and_CC porous_JJ coastal_JJ structures_NNS using_VVG OpenFOAM®_NN ._SENT 
+Part_NP II_NP :_: Application_NN Coast_NP ._SENT 
+Eng_NN ._SENT 
+,_, 83_CD (_( 2014_CD )_) ,_, pp_NP ._SENT 
+259-270_CD P._NP Higuera_NP ,_, J.L._NP Lara_NP ,_, I.J._NP Losada_NP Three-dimensional_JJ interaction_NN of_IN waves_NNS and_CC porous_JJ coastal_JJ structures_NNS using_VVG OpenFOAM®_NN ._SENT 
+Part_NN I_PP :_: formulation_NN and_CC validation_NN Coast_NP ._SENT 
+Eng_NN ._SENT 
+,_, 83_CD (_( 2014_CD )_) ,_, pp_NP ._SENT 
+243-258_CD T.J._NP Hsu_NP ,_, T._NP Sakakiyama_NP ,_, P.L.F._NP Liu_NP A_DT numerical_JJ model_NN for_IN wave_NN motions_NNS and_CC turbulence_NN flows_NNS in_IN front_NN of_IN a_DT composite_JJ breakwater_NN Coast_NP ._SENT 
+Eng_NN ._SENT 
+,_, 46_CD (_( 1_LS )_) (_( 2002_CD )_) ,_, pp_NP ._SENT 
+25-50_CD D.S._NP Jeng_NP ,_, J.H._NP Ye_NP ,_, J.S._NP Zhang_NP ,_, P.L.F._NP Liu_NP An_DT integrated_JJ model_NN for_IN the_DT wave-induced_JJ seabed_NN response_NN around_IN marine_JJ structures_NNS :_: model_NN verifications_NNS and_CC applications_NNS Coast_NP ._SENT 
+Eng_NN ._SENT 
+,_, 72_CD (_( 2013_CD )_) ,_, pp_NP ._SENT 
+1-19_CD W._NP Jian_NP ,_, D._NP Liang_NP ,_, S._NP Shao_NP ,_, R._NP Chen_NP ,_, K._NP Yang_NP Smoothed_VVN particle_NN hydrodynamics_NN simulations_NNS of_IN dam-break_NN flows_NNS around_IN movable_JJ structures_NNS Int_NP ._SENT 
+J._NP Offshore_NP Polar_JJ Eng_NP ._SENT 
+,_, 26_CD (_( 01_CD )_) (_( 2016_CD )_) ,_, pp_NP ._SENT 
+33-40_CD K._NP Kawachi_NP ,_, H._NP Suzuki_NP ,_, F._NP Kimura_NP Technical_NP issues_NNS on_IN simulating_VVG impulse_NN and_CC friction_NN in_IN three_CD dimensional_JJ rigid_JJ body_NN dynamics_NNS Computer_NP Animation_NN 98._CD Proceedings_NNS ,_, IEEE_NP (_( 1998_CD )_) A._NP Khayyer_NP ,_, H._NP Gotoh_NP ,_, Y._NP Shimizu_NP ,_, K._NP Gotoh_NP ,_, H._NP Falahaty_NP ,_, S._NP Shao_NP Development_NP of_IN a_DT projection-based_JJ SPH_NN method_NN for_IN numerical_JJ wave_NN flume_NN with_IN porous_JJ media_NNS of_IN variable_JJ porosity_NN Coast_NP ._SENT 
+Eng_NN ._SENT 
+,_, 140_CD (_( 2018_CD )_) ,_, pp_NP ._SENT 
+1-22_CD P.L.-F_NN ._SENT 
+Liu_NP ,_, P._NP Lin_NP ,_, K.A._NP Chang_NP ,_, T._NP Sakakiyama_NP Numerical_JJ modeling_NN of_IN wave_NN interaction_NN with_IN porous_JJ structures_NNS J._NP Waterw_NNS ._SENT 
+Port_NP ,_, Coast_NP ._SENT 
+Ocean_NP Eng_NP ._SENT 
+,_, 125_CD (_( 6_CD )_) (_( 1999_CD )_) ,_, pp_NP ._SENT 
+322-330_CD I._NP Losada_NP ,_, R._NP Silva_NP ,_, M._NP Losada_NP 3-D_VVD non-breaking_VVG regular_JJ wave_NN interaction_NN with_IN submerged_JJ breakwaters_NNS Coast_NP ._SENT 
+Eng_NN ._SENT 
+,_, 28_CD (_( 1–4_NP )_) (_( 1996_CD )_) ,_, pp_NP ._SENT 
+229-248_CD I.J._NP Losada_NP ,_, J.L._NP Lara_NP ,_, M._NP del_NP Jesus_NP Modeling_VVG the_DT Interaction_NP of_IN Water_NP Waves_NNS with_IN Porous_JJ Coastal_NP Structures_NNS American_NP Society_NP of_IN Civil_NP Engineers_NPS (_( 2016_CD )_) N._NP Mizutani_NP ,_, A.M._RB Mostafa_NP ,_, K._NP Iwata_NP Nonlinear_JJ regular_JJ wave_NN ,_, submerged_JJ breakwater_NN and_CC seabed_NN dynamic_JJ interaction_NN Coast_NP ._SENT 
+Eng_NN ._SENT 
+,_, 33_CD (_( 2_LS )_) (_( 1998_CD )_) ,_, pp_NP ._SENT 
+177-202_CD D._NP Molteni_NP ,_, A._NP Colagrossi_NP A_DT simple_JJ procedure_NN to_TO improve_VV the_DT pressure_NN evaluation_NN in_IN hydrodynamic_JJ context_NN using_VVG the_DT SPH_NN Comput_NN ._SENT 
+Phys_NPS ._SENT 
+Commun_NN ._SENT 
+,_, 180_CD (_( 6_CD )_) (_( 2009_CD )_) ,_, pp_NP ._SENT 
+861-872_CD J.J._NP Monaghan_NP Simulating_VVG free_JJ surface_NN flows_NNS with_IN SPH_NP J._NP Comput_NN ._SENT 
+Phys_NPS ._SENT 
+,_, 110_CD (_( 2_LS )_) (_( 1994_CD )_) ,_, pp_NP ._SENT 
+399-406_CD J._NP Monaghan_NP ,_, A._NP Kos_NP Solitary_JJ waves_NNS on_IN a_DT Cretan_JJ beach_NN J._NP Waterw_NN ._SENT 
+Port_NP ,_, Coast_NP ._SENT 
+Ocean_NP Eng_NP ._SENT 
+,_, 125_CD (_( 3_LS )_) (_( 1999_CD )_) ,_, pp_NP ._SENT 
+145-155_CD J.J._NP Monaghan_NP ,_, J.C._NP Lattanzio_NP A_DT refined_JJ particle_NN method_NN for_IN astrophysical_JJ problems_NNS Astron_NN ._SENT 
+Astrophys_NPS ._SENT 
+,_, 149_CD (_( 1985_CD )_) ,_, pp_NP ._SENT 
+135-143_CD J.J._NP Monaghan_NP ,_, R.A.F._NP Cas_NP ,_, A.M._RB Kos_NP ,_, M._NP Hallworth_NP Gravity_NN currents_NNS descending_VVG a_DT ramp_NN in_IN a_DT stratified_VVN tank_NN J._NP Fluid_JJ Mech_NP ._SENT 
+,_, 379_CD (_( 1999_CD )_) ,_, pp_NP ._SENT 
+39-69_CD J._NP Monaghan_NP ,_, A._NP Kos_NP ,_, N._NP Issa_NP Fluid_JJ motion_NN generated_VVN by_IN impact_NN J._NP Waterw_NN ._SENT 
+Port_NP ,_, Coast_NP ._SENT 
+Ocean_NP Eng_NP ._SENT 
+,_, 129_CD (_( 6_CD )_) (_( 2003_CD )_) ,_, pp_NP ._SENT 
+250-259_CD H._NP Olsson_NP ,_, K.J._NP Astromet_NP ,_, C._NP Canudas_NP de_NP Wit_NP ,_, M._NP Gafvert_NP ,_, P._NP Lischinsky_NP Friction_NN models_NNS and_CC friction_NN compensation_NN Eur_NN ._SENT 
+J._NP Control_NP ,_, 4_CD (_( 3_LS )_) (_( 1998_CD )_) ,_, pp_NP ._SENT 
+176-195_CD C._NP Peng_NP ,_, G._NP Xu_NP ,_, W._NP Wu_NP ,_, H.S._NP Yu_NP ,_, C._NP Wang_NP Multiphase_JJ SPH_NN modeling_NN of_IN free_JJ surface_NN flow_NN in_IN porous_JJ media_NNS with_IN variable_JJ porosity_NN Comput_NN ._SENT 
+Geotech_NN ._SENT 
+,_, 81_CD (_( 2017_CD )_) ,_, pp_NP ._SENT 
+239-248_CD B._NP Ren_NP ,_, H._NP Wen_NP ,_, P._NP Dong_NP ,_, Y._NP Wang_NP Improved_VVD SPH_NN simulation_NN of_IN wave_NN motions_NNS and_CC turbulent_JJ flows_NNS through_IN porous_JJ media_NNS Coast_NP ._SENT 
+Eng_NN ._SENT 
+,_, 107_CD (_( 2015_CD )_) ,_, pp_NP ._SENT 
+14-27_CD B._NP Ren_NP ,_, H._NP Wen_NP ,_, P._NP Dong_NP ,_, Y._NP Wang_NP Improved_VVD SPH_NN simulation_NN of_IN wave_NN motions_NNS and_CC turbulent_JJ flows_NNS through_IN porous_JJ medium_NN Coast_NP ._SENT 
+Eng_NN ._SENT 
+,_, 107_CD (_( 2016_CD )_) ,_, pp_NP ._SENT 
+14-27_CD B.D._NP Rogers_NP ,_, R.A._NP Dalrymple_NP ,_, P.K._NP Stansby_NP Simulation_NP of_IN caisson_NN breakwater_NN movement_NN using_VVG 2-D_JJ SPH_NP J._NP Hydraul_VVZ ._SENT 
+Res_NNS ._SENT 
+,_, 48_CD (_( S1_JJ )_) (_( 2010_CD )_) ,_, pp_NP ._SENT 
+135-141_CD S._NP Shao_NP Incompressible_JJ SPH_NN flow_NN model_NN for_IN wave_NN interactions_NNS with_IN porous_JJ medium_NN Coast_NP ._SENT 
+Eng_NN ._SENT 
+,_, 57_CD (_( 3_LS )_) (_( 2010_CD )_) ,_, pp_NP ._SENT 
+304-316_CD S._NP Shao_NP ,_, E.Y._NP Lo_NP Incompressible_JJ SPH_NN method_NN for_IN simulating_VVG Newtonian_JJ and_CC non-Newtonian_JJ flows_NNS with_IN a_DT free_JJ surface_NN Adv_NP ._SENT 
+Water_NN Resour_NN ._SENT 
+,_, 26_CD (_( 7_CD )_) (_( 2003_CD )_) ,_, pp_NP ._SENT 
+787-800_CD A.P._NP Singh_NP ,_, R.D._NP Borker_NP Smoothed_VVN Particle_NN Hydrodynamics_NN Department_NP of_IN Aerospace_NP Engineering_NP Indian_NP Institute_NP of_IN Technology_NP ,_, Bombay_NP Mumbai_NP (_( 2010_CD )_) J._NP Smagorinsky_NP General_NP circulation_NN experiments_NNS with_IN the_DT primitive_JJ equations_NNS :_: I._NN The_DT basic_JJ experiment_NN Mon_NP ._SENT 
+Weather_NP Rev._NP ,_, 91_CD (_( 3_LS )_) (_( 1963_CD )_) ,_, pp_NP ._SENT 
+99-164_CD D.E._NP Stewart_NP Rigid-body_NN dynamics_NNS with_IN friction_NN and_CC impact_NN SIAM_NP Rev._NP ,_, 42_CD (_( 1_LS )_) (_( 2000_CD )_) ,_, pp_NP ._SENT 
+3-39_CD K._NP Tanimoto_NP ,_, S._NP Takahashi_NP Design_NP and_CC construction_NN of_IN caisson_NN breakwaters—the_NNS Japanese_JJ experience_NN Coast_NP ._SENT 
+Eng_NN ._SENT 
+,_, 22_CD (_( 1–2_NP )_) (_( 1994_CD )_) ,_, pp_NP ._SENT 
+57-77_CD M._NP Van_NP Gent_NP The_DT modelling_VVG of_IN wave_NN action_NN on_IN and_CC in_IN coastal_JJ structures_NNS Coast_NP ._SENT 
+Eng_NN ._SENT 
+,_, 22_CD (_( 3–4_NP )_) (_( 1994_CD )_) ,_, pp_NP ._SENT 
+311-339_CD L._NP Verlet_NP Computer_NP “experiments”_NP on_IN classical_JJ fluids_NNS ._SENT 
+I._NP Thermodynamical_JJ properties_NNS of_IN Lennard-Jones_NNS molecules_NNS Phys_NNS ._SENT 
+Rev._NP ,_, 159_CD (_( 1_LS )_) (_( 1967_CD )_) ,_, pp_NP ._SENT 
+98-103_CD Y.Z._NP Wang_NP ,_, N.N._NP Chen_NP ,_, L.H._NP Chi_NP Numerical_JJ simulation_NN on_IN joint_JJ motion_NN process_NN of_IN various_JJ modes_NNS of_IN caisson_NN breakwater_NN under_IN wave_NN excitation_NN Int_NP ._SENT 
+J._NP Num_NP ._SENT 
+Method_NN Biomed_NP ._SENT 
+Eng_NN ._SENT 
+,_, 22_CD (_( 6_CD )_) (_( 2006_CD )_) ,_, pp_NP ._SENT 
+535-545_CD Y.c._NP Wang_NP ,_, Y.z._NP Wang_NP ,_, Q.m._NP Li_NP ,_, L.z._NP Chen_NP Application_NN of_IN importance_NN sampling_VVG method_NN in_IN sliding_VVG failure_NN simulation_NN of_IN caisson_NN breakwaters_NNS China_NP Ocean_NP Eng_NP ._SENT 
+,_, 30_CD (_( 3_LS )_) (_( 2016_CD )_) ,_, pp_NP ._SENT 
+469-482_CD H._NP Wen_NP ,_, B._NP Ren_NP ,_, G._NP Wang_NP 3D_NNS SPH_VVP porous_JJ flow_NN model_NN for_IN wave_NN interaction_NN with_IN permeable_JJ structures_NNS Appl_NN ._SENT 
+Ocean_NN Res_NNS ._SENT 
+,_, 75_CD (_( 2018_CD )_) ,_, pp_NP ._SENT 
+223-233_CD H._NP Wen_NP ,_, B._NP Ren_NP ,_, X._NP Yu_NP An_DT improved_VVN SPH_NN model_NN for_IN turbulent_JJ hydrodynamics_NNS of_IN a_DT 2D_NN oscillating_VVG water_NN chamber_NN Ocean_NP Eng_NP ._SENT 
+,_, 150_CD (_( 2018_CD )_) ,_, pp_NP ._SENT 
+152-166_CD H._NP Wendland_NP Piecewise_RB polynomial_JJ ,_, positive_JJ definite_JJ and_CC compactly_RB supported_VVN radial_JJ functions_NNS of_IN minimal_JJ degree_NN Adv_NP ._SENT 
+Comput_NN ._SENT 
+Math_NN ._SENT 
+,_, 4_CD (_( 1_LS )_) (_( 1995_CD )_) ,_, pp_NP ._SENT 
+389-396_CD J._NP Wu_NP ,_, B._NP Yu_NP ,_, M._NP Yun_NP A_DT resistance_NN model_NN for_IN flow_NN through_IN porous_JJ media_NNS Transport_VV Porous_JJ Media_NP ,_, 71_CD (_( 2008_CD )_) ,_, pp_NP ._SENT 
+331-343_CD J._NP Ye_NP ,_, J._NP Dongsheng_NP ,_, P.L.F._NP Liu_NP ,_, A.H.C._NP Chan_NP ,_, W._NP Ren_NP ,_, Z._NP Changqi_NP Breaking_VVG wave-induced_JJ response_NN of_IN composite_JJ breakwater_NN and_CC liquefaction_NN in_IN seabed_NN foundation_NN Coast_NP ._SENT 
+Eng_NN ._SENT 
+,_, 85_CD (_( 2014_CD )_) ,_, pp_NP ._SENT 
+72-86_CD j._NP Ye_NP ,_, Z._NP Zhang_NP ,_, J._NP Shan_NP Statistics-based_JJ method_NN for_IN determination_NN of_IN drag_NN coefficient_NN for_IN nonlinear_JJ porous_JJ flow_NN in_IN calcareous_JJ sand_NN soil_NN Bull_NP ._SENT 
+Eng_NP ._SENT 
+Geol_NN ._SENT 
+Environ_VV ._SENT 
+(_( 2018_CD )_) ,_, 10.1007/s10064-018-1330-6_NP 

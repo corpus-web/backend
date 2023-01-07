@@ -1,0 +1,171 @@
+<title>Verification and validation of large eddy simulation with Nek5000 for cold leg mixing benchmark</title>
+<author>1,Jonathan K.Lai, 2,EliaMerzari，3，Yassin A.Hassan，4，PaulFischer，5，OanaMarin</author>
+<Affiliation>1，Texas A&M University, United States；2，Argonne National Laboratory, United States</Affiliation>
+<year>2020</year>
+<Jounral>Nuclear Engineering and Design</Journal>
+<Publishing_house>ELSEVIER</Publishing_house>
+<Text_Collector>XiaFan，HEU</Text_Collector>
+<DOI>10.1016/j.nucengdes.2019.110427</DOI>
+<URL>https://www.sciencedirect.com/science/article/pii/S0029549319304583</URL>
+Verification and validation of large eddy simulation with Nek5000 for cold leg mixing benchmark
+Jonathan K.Lai,EliaMerzari,Yassin A.Hassan,PaulFischer,OanaMarin
+Texas A&M University, United States
+Argonne National Laboratory, United States
+<Section>Highlights</Section>
+Large eddy simulation of Cold Leg Mixing Benchmark with Nek5000.
+Verification of short transience of initial buoyant mixing.
+Investigation of influence of model treatment and Schmidt number.
+Validation with particle image velocimetry measurements for cold leg.
+<Section>Abstract</Section>
+Large eddy simulation (LES) of an experimental benchmark investigating buoyant mixing among two fluids is developed for verification and validation. Flow physics involve a completely closed system where after a valve is opened, two initially stationary fluids with different densities are allowed to mix. The Boussinesq approximation and low-Mach equations are coded into spectral element code Nek5000 to predict the buoyancy forces, and miscibility is accounted for using the advection-diffusion equation for concentration. Due to computational costs of higher order solutions, current analysis consists of initial flow development after the valve is opened. Minor differences between the models and Schmidt number are found within the turbulent spectrum and time integrated quantities. Moreover, solutions for higher polynomial orders are compared to quantify error due to spatial discretization. Error estimates using a posteriori spectral derivation of truncation and quadrature error are also calculated. Validation with particle image velocimetry (PIV) reveals good prediction of both average and fluctuating components of the primary flow within the cold leg but less accurate results in the downcomer. It is concluded that instabilities due to resolving more of the interface using the high molecular Schmidt number is essential for accurately predicting this type of flow.
+<Section>1. Introduction</Section>
+Predicting the turbulent characteristics of mixing for fluids with variable properties is essential for prolonging the lifespan of a reactor pressure vessel (RPV). In the critical scenario of a loss-of-coolant accident, rapid cooling of the RPV can induce thermal loads in a high pressure environment leading to vessel failure. Emergency core cooling (ECC) injection of cold water into the hot coolant vessel leads to a phenomena known as pressurized thermal shock (PTS). Evaluation of PTS involves analysis of the temperature distributions within the RPV, nozzle, and downcomer (Araneo and D’Auria, 2012, Best Practice Guidelines for the use of CFD in Nuclear Reactor Safety Applications, 2007). To address nuclear reactor safety, past works would often use one-dimensional system codes for predicting the complex three-dimensional physics. However, the advent of supercomputing has enabled the use of computational fluid dynamics (CFD) to assess this mixing scenario more accurately than ever before.
+Considerable progress in studying PTS can be attributed to the breadth of both experimental and computational work in literature. Early works such as Theofanous et al. (1984) show that stratification of the flow controls the response of the system, rather than perfect mixing between the fluids. Now with numerical experiments, CFD can be utilized to aid severe accident system codes by generating more accurate parameters such as the discharge coefficient within the leg (Boyd, 2006). Studies that attempt to model the entire phenomena are also being done in works such as Shams et al., 2016, Sharabi et al., 2016. Validation for PTS applications is becoming commonplace, and one study compared the transient CFD simulations with experiments of natural circulation with ECC injection (Scheuerer and Weis, 2012).
+The present study also investigates the PTS phenomena but has the unique characteristic of being a completely closed system. Rather than having an inlet and outlet, the flow is purely driven by the buoyancy effects attributed to density differences between two miscible fluids. This cold leg mixing benchmark experiment is being performed for the NEA/OECD benchmark and will aid in validating CFD investigations. Large eddy simulations (LES) of this case has been developed using verification and validation of relevant quantities to judge its fidelity for buoyancy and turbulent mixing.
+<Section>2. Numerical methodology</Section>
+The fluid domain is chosen such that a fully structured mesh can be made for both tanks and leg. Minor simplifications to the gasket at the bottom of the RPV and the sharp edges of the inner valve, as seen in Fig. 1, lead to negligible changes in geometry which decrease the overall fluid volume by less than 0.1%. At t = 0 s, both fluids have zero velocity magnitudes as well as a zero static pressure difference, which is controlled by modifying the tank heights. Since the valve is opened very quickly, the initial separation between the two fluids is assumed to be a vertical plane as shown in Fig. 2.
+Fig. 1. Geometry of fluid domain with origin at valve center with the initially heavy fluid in the negative x-direction and initially light fluid in the positive x-direction.
+Fig. 2. Initial conditions of heavy (red) and light (blue) fluids at slice z = 0 m with zero velocities. (For interpretation of the references to colour in this figure legend, the reader is referred to the web version of this article.)
+Since the system is completely closed, the boundary conditions at all walls consist of no slip for the velocity equations and zero gradients for the concentration equations. Fluid mixtures of DI water with ethanol (light fluid) and DI water with NaCl (heavy fluid) produces a density of 956.54 kg/m3 and 1064.70 kg/m3 respectively. This means the density difference is 10.7% using its mean as the reference density. Additionally, the dynamic viscosity of the two fluids have substantial differences: the light fluid is 2.45 × 10−3 Pa-s while the heavy fluid is 1.09 × 10−3 Pa-s.
+2.1. Mathematical framework
+Due to simplicity in implementation and relatively small density differences, the Boussinesq approximation (BA) can be used to account for buoyancy. This assumption allows the Navier-Stokes equations to be greatly simplified using continuity from incompressibility. All fluid properties are functions of concentration ϕ, whose initial values are calculated using density and molecular weight of the ethanol and NaCl mixtures. This mass concentration is defined as the moles over volume (mol/m3). After the valve opens, these concentrations are governed using the following advection–diffusion equation
+(1)ρ∂ϕ∂t+u∙∇ϕ=∇∙ρD∇ϕ
+where the mass diffusivity is calculated using the molecular Schmidt number (Sc = ν/D), which is a function of the molecular diffusivity. The magnitudes of the diffusion coefficients for ethanol to water and salt to water are within 103, hence Sc is estimated to be 1000. This work considers cases with Sc = 1 and Sc = 1000. Since viscosity also varies among fluids, a linear relationship can be used to calculate the local viscosity as a function of the local concentration
+(2)μ=μL-(μL-μH)(ϕ-ϕL)ϕH-ϕL
+where the subscripts L and H stand for the light and heavy fluids respectively. For the Boussinesq approximation, replacing the local density with its reference value plus its change in density leads to the following Navier-Stokes equations (Spiegel and Veronis, 1960)
+(3)ρ0∂u∂t+u∙∇u=-∇P+∇∙μ∇u+∇uT+ρ-ρ0g
+(4)∇∙u=0
+where μ is the local viscosity, ρ is the local density, and ρ0 is the reference density. Typically, the source term is replaced with the temperature difference times the coefficient of thermal expansion, but this additional simplification is not needed since the problem under consideration is isothermal.
+If density differences play a significant role in the physics, the divergence of velocity cannot be assumed to be zero. The low-Mach (LM) formulation is an appropriate method to account for variable property fluids while upholding conservation laws (Tomboulides et al., 1997)
+(5)ρ∂u∂t+u∙∇u=-∇P+∇∙μ∇u+∇uT-23∇∙uI+ρ-ρ0g
+(6)∇∙u=-1ρdρdϕ∂ϕ∂t+u∙∇ϕ
+In theory, LM should perform better than BA since it accounts for additional physics. Due to previous assumptions of linearity between density and concentration, the beta coefficient dρ/dϕ is calculated since the derivative of this linear function is constant. When Sc = 1000 is considered, the entropy viscosity method (EVM) is needed, which adds artificial diffusion at local regions with high entropy. This method is needed, since the spectral element method can become very unstable for the tight gradients when the mass diffusivity between the two fluids are low. EVM is one method when considering low diffusivity simulations.
+(7)νEx,t=cEh2xR(Dhx,t)/‖E(uh-E-(uh)‖∞,Ω
+where h is the local mesh size, uh is the local velocity, cE is a tunable constant, R is a positive function based on the LES method, Dh is the entropy residual, E is entropy, and details on the other functions can be found within Guermond et al. (2011). Simulating the molecular mass diffusion is nearly impossible since it requires even more grid refinement than resolving the Kolmogorov length scales, so the added diffusion from EVM allows higher order solutions to be developed while maintaining numerical stability. Therefore, the effective mass diffusivity is actually the addition of the artificial viscosity from EVM and the diffusivity defined from the molecular diffusivity.
+2.2. Spectral element method
+The equations aforementioned are incorporated into the spectral element code Nek5000 to generate an accurate representation of the chosen model. Previous studies with this code has shown this tool is suitable for simulating the desired flow field and has received significant verification and validation (Obabko et al., 2015). Operator integration factor splitting is implemented, so convection is integrated in subsets. The PN–PN formulation is employed with both velocity and pressure, which are discretized using polynomial degree of N. An explicit low-pass filter is applied at each time step with a weight dependent on the specified polynomial order N. The filtering attenuation function is applied to the Nth mode using α = 0.05. This implies that the filter will have less weight on resolved elements, where energy at the highest mode will be small. For less resolved elements, the spectral filter will dissipate more energy to stabilize the solution.
+A fully structured mesh of 474,720 hexahedral elements is built within ANSYS ICEM CFD and discretized into (N + 1)3 Gauss-Lobatto-Legendre (GLL) points. The higher orders of the spectral element method allows for more accurate solutions than low order finite element methods. Refinements are made at wall regions as well as locations with velocity and concentration gradients in the mesh shown in Fig. 3. Wall effects are resolved as all near-wall GLL points remain within a y+ of less than 1 during all stages of the transient flow.
+Fig. 3. Mesh of spectral elements for N = 7 at (a) valve and (b) T-junction of light tank.
+<Section>3. Verification of flow development</Section>
+From intuition, the two most essential physics that govern this type of flow are the treatment of buoyancy and the mixing between the miscible fluids. Hence, sensitivity is performed on modeling of the governing equations (LM and BA) and the Schmidt number (Sc = 1 and Sc = 1000) with its molecular value having a magnitude of 1000. Due to computational costs of LES, sensitivity analysis is performed on a medium grid with N = 5 and results for N = 7 will be conducted only for the initial development of the flow. Simulations with Sc = 1000 will be referred to using the caption “with EVM.”
+3.1. Frequency spectrum
+The growth of the fluid front is studied with a turbulent spectrum near the center of the valve for the first 3 s, a time frame before the waves of the initial Kelvin-Helmholtz instability leave the valve. Points near the instability show similar trends and using one second averaging windows, the frequency spectrum is calculated in Fig. 4. With higher Sc, more energy resides within the highest frequencies. Likewise, using Sc of unity reflects larger energy content within the lowest frequencies. Although the Schmidt number has the greatest influence, it is evident that the LM model shows slightly more energy for the high frequencies. The slope of the −5/3 power law is imposed on Fig. 4 to show that for all models under consideration, the cascade within the initial subinertial range of turbulence matches best with the EVM models.
+Fig. 4. Normalized frequency spectrum for the fluctuating component of streamwise velocity.
+3.2. Velocity profiles
+To visualize the influence of Sc, four line profiles taken at distances 2 cm away from the valve center as shown in Fig. 5b. This instantaneous density contour for N = 5 shows that the fluid front has already passed the lines by one second and that the initial transience of the flow is highly complex. The effect of the Schmidt number is apparent in Fig. 5, where the gradients of concentration are much smoother with Sc = 1. Moreover, the greater scales of motion in the bottom right front for both cases compared to the top left front is due to the difference in fluid properties. This is the result of dynamic viscosity of the heavy fluid being less than half of the light fluid, meaning the effective Reynolds number is much larger.
+Fig. 5. Density contour of heavy (red) and light (blue) fluids at t = 1 s with line locations at slice z = 0 m using LM with (a) Sc = 1 and (b) Sc = 1000 with EVM for N = 5. (For interpretation of the references to colour in this figure legend, the reader is referred to the web version of this article.)
+It is evident that different models and Sc will have a drastic effect on the instantaneous velocity profiles. However, averaging these simulations over a short time interval in Fig. 6 show that there are little differences of the temporal movement of the front. Although the maximums and minimums are almost identical, the largest source of discrepancy occurs at the interface. This is in part due to the more complex concentration gradients when using Sc = 1000, which lead to more complex buoyant forces.
+Fig. 6. Two second averages from 1 to 3 s at (a) line 1 and (b) line 2.
+To quantify the deviation between the various cases, lines are integrated to get a 2D flow rate as shown in Table 1. No apparent trend can be observed from the resulting data, other than concluding that variations are small. Percent differences, calculated by dividing the standard deviations (σ) by its mean (μ) between the four values, accumulate up to 2% and show that the initial propagation of the fluid front is insensitive to the chosen model and mixing parameters. This does not imply that entire simulation is insensitive to these parameters as this problem is highly dependent on its transience. This will be observed in the validation section.
+Table 1. Flow rate (m2/s) along lines averaged from 1 to 3 s.
+3.3. Spatial discretization error
+No established method for quantifying uncertainty for spectral element methods has been documented in best practice guidelines (as documented in Best Practice Guidelines for the use of CFD in Nuclear Reactor Safety Applications, 2007). Still, one a posteriori error estimate relies on taking the summation of the truncation error and quadrature error. For a given spectral element, the approximation for a given polynomial order takes the form
+(8)uNer=∑n=0NaneLn(r)
+where Ln is the Legendre polynomial of aen is the spectral coefficient. Using the last four points of the spectrum, the decaying function [a(n)] can be constructed and the error estimate can be written as (Deville et al., 2002)
+(9)∊est=aN2122N+1+∫N+1∞an212(2N+1)dn1/2
+A more conventional method to quantify spatial discretization error only considers h-refinement methodology; however, some assumptions can be made to apply Oberkampf’s (2010) mathematical models to a p-refinement scenario. Since Legendre polynomials can be analogous with the Taylor series expansion, the terms in Eq. (8) can take the same general form used in Richardson extrapolation
+(10)fh=f-+gphp+gp+1hp+1+gp+2hp+2+⋯
+for a given polynomial order where f- is the exact solution. Hence when combining a N = 5 expansion with a N = 7 expansion of the same mesh and dropping the higher order terms, the error can be simplified to
+(11)∊=FsfN=7-fN=5
+where the factor of safety Fs = 3 for solutions with two grids. Assuming solutions for N = 7 approach the exact solution, error bars for the lines over a 2 s averaging window is show in Fig. 7 using LM with EVM. Moreover, the error estimates are superimposed onto the same figure to visualize how they vary with p-refinement errors.
+Fig. 7. Error bars and error estimate of streamwise velocity for LM with EVM.
+As one would expect, the largest errors are located at the interface of the two fluids. This is the consequence of sharp gradients that are present in the fluid front. In fact, lines that average more of the fluid front (line 4) result in larger errors due to difficulty in capturing the scales of motion, while lines that averages periods when the flow begins to smooth out (line 1) tend to have much smaller error. Additionally, the current LES method used cannot resolve a continuously moving interface, so mesh refinements are only made at the wall regions causing the interface to have relatively large errors. Work to address mesh refinements for the Kelvin Helmholtz instability and moving of the interface should be considered in the future.
+<Section>4. Validation with PIV</Section>
+PIV measurements are taken at the cold leg and downcomer at locations shown in Fig. 8. Statistics from experiments are provided in increments of 10 s, starting from 6.38 and 10.84 s for the cold leg and downcomer respectively. Validation of LES will be conducted using the starting time of 6.5 and 11.0 s with the same time increments.
+Fig. 8. Instantaneous density at 8.1 s of heavy (red) and light (blue) fluids with slices at both horizontal and vertical PIV measurement windows. (For interpretation of the references to colour in this figure legend, the reader is referred to the web version of this article.)
+4.1. Fluid front evolution
+The first aspect of the simulation to validate is the temporal evolution of fluid due to buoyancy effects. Using density as the reference, the location of the fluid front is estimated every 0.5 s for each simulation as shown in Fig. 9. Using the velocity magnitude as reference, the locations of when the flow enters and exits the PIV window are also shown. The need to use velocity to calculate the fluid front for PIV is due to not having concentration measurements at these locations. Moreover, the use of velocity to calculate the fluid front for simulations is difficult, since the double precision of whole-field data reveals non-zero velocities before the fluid front passes. Rather than setting an arbitrary limit of what is considered non-zero, the concentration is the most accurate method to calculate the fluid front location.
+Fig. 9. Temporal evolution of the fluid front with PIV window entrance and exit times.
+In Fig. 9, it is observed that the LM model matches closer to PIV than BA for the initial transience of the flow. Another observation is the significant divergence from Sc = 1 and Sc = 1000 at around 0.9 m when the flow begins to enter the pipe fitting. This is where the radius of the pipe begins to expand and the influence of the Schmidt number begins to have a substantial influence with even the slightest changes in geometry. The slight inflection of the fluid front location is due to entrance effects into the downcomer.
+A simple linear regression model allows the speed of the fluid front to be calculated. This line is not plotted in Fig. 9, rather Table 2 documents the result of linear regression and quantifies the faster front of LM compared to BA as previously described. Using the entrance and exit points from the PIV window, the estimated velocity can be calculated to be 10.2733 cm/s. LES overpredicts this value by a maximum of only 6%, which is reasonable considering the fact that simulations account for a 9 s time frame compared to the 1.72 s window of the experiment. Even when considering a 2.0 s time window, the slope of the simulations varies less than 1%, confirming this comparison. Overall, the nearly identical temporal evolutions of the front provide confidence that the growth of the system is the same and that comparisons over a given time frame will validate the same state of the system.
+Table 2. Velocity of fluid front using data points from Fig. 9.
+4.2. Velocity comparisons
+Statistics for three 10 s time intervals are compared with PIV for the different models considered in Fig. 10, Fig. 11, Fig. 12, Fig. 13. For brevity, only streamwise velocities are shown for cold leg and downcomer. Spanwise velocities tend to be over 50 times smaller than streamwise velocities, so discussions of the physics are more easily explained with the primary component of the flow. This is not to say that validation of the spanwise velocity is inconsequential. In fact, the general trend is that LES struggles to accurately predict them more than streamwise components.
+Fig. 10. Average streamwise velocity in cold leg for LES and PIV using same legend as Fig. 9.
+For the cold leg, the mean streamwise velocities in Fig. 10 show that the countercurrent flows have almost identical shapes as the experiment. Moreover, the average location of the interface as it moves in the positive y-direction is well-predicted for all time frames. Models with Sc = 1000 produces more accurate mean values for all stages of the flow. A low Schmidt number suppresses Kelvin-Helmholtz instabilities and velocity swirls one would typically observe in countercurrent flows. This claim is substantiated by the velocity fluctuations shown in Fig. 11, where fluctuations are much larger when using the higher Schmidt number, notably for later time frames from 16.5 to 36.5 s. Therefore, resolving the instabilities become an essential part of accurately modeling the cold leg for a closed system.
+Fig. 11. Average deviation of the streamwise velocity in cold leg using same legend as Fig. 9.
+Even though the cold leg predicts smaller velocities going towards the RPV with lower Sc, the velocities in the downcomer are typically larger (results which are not shown for brevity). This counterintuitive result can be explained by larger spanwise velocities when using Sc = 1. The high velocity with large mass diffusivity results in the flow entering the downcomer to hit the inner wall of the RPV earlier, causing more directional spreading that lowers the energy in the freestream velocity and puts them into secondary flows.
+In the downcomer in Fig. 12, the use of higher Sc and EVM for the average velocities in the downcomer match better. More detailed analysis on the downcomer is investigated in (Lai et al., 2019). The fluctuations in the streamwise direction are very similar for all cases in the first time frame in Fig. 13. At later times, there becomes a substantial difference for the Schmidt number. The lack of mixing using Sc = 1 shows that the flow tends to have a bias towards the inner wall, whereas more mixing causes a flatter profile.
+Fig. 12. Average streamwise velocity in downcomer using same legend as Fig. 9.
+Fig. 13. Average deviation of the streamwise velocity in dowcomer using same legend as Fig. 9.
+Similarities between LM and BA show that the buoyancy term is more dominant than the variable densities within the other Navier-Stokes terms. Some discrepancies between the two models are apparent, but it is difficult to make conclusions whether one model compares better than another. On the other hand, using Sc = 1 performs poorly compared to Sc = 1000, especially at later time integration windows where low Schmidt number increases diffusion and removes the instabilities that prove to be essential for this flow. This continually decaying system poses a huge challenge, because even small inaccuracies in initial conditions for a given time after the valve has been opened will accumulate to larger errors. Nevertheless, important findings about the flow have been found.
+4.3. Error bars
+To readdress previously conducted verification, error bars have been imposed on the first 10 s average at multiple locations in the cold leg and downcomer in Fig. 14, Fig. 15 respectively. The mean quantities from the cold leg show that variation is greatest at the inflection point. For x = 0.730, it is shown that the error bars are within range of the experimental measurements, whereas the small error bars at x = 0.748 are not. This is attributed to the lower accuracy of having only 2 simulations of different polynomial orders. The deviation of streamwise velocity in cold leg has larger error bars at the bottom with the heavy fluid due to the passing of the fluid front. The larger error bars is the result of having more variation than the average quantities.
+Fig. 14. Error bars for LM with EVM of streamwise average and deviation at (a) x = 0.730 m and (b) x = 0.748 m in cold leg.
+Fig. 15. Error bars for LM with EVM of streamwise average and deviation at (a) y = −0.161 m and (b) y = −0.169 m in downcomer.
+The downcomer shows much greater error bars, because the entrance of the fluid front has more complicated physics such as impingement and spreading in the z-direction. Hence, the error bars for the average streamwise velocity in the downcomer are much larger. The deviation of streamwise velocity show that there is less variation and that the flow is more turbulent compared to the cold leg. Overall, verification shows that the results are mostly within range of experiment measurements. Future work should consider including error bars for both experiment and simulation.
+<Section>5. Conclusion</Section>
+Verification of the initial flow development using two different models (LM and BA) and treatments of the Schmidt number (Sc = 1 and Sc = 1000) have been conducted. Minor deviations for the frequency spectrum and average quantities for the first several seconds of the flow show that the development of the fluid front is less sensitive to these parameters and more dependent on the buoyant forces. Quantification of error using p-refinement and the summation of truncation and quadrature error show higher errors at the interface and the fluid front, whose growth depends on the initial Kelvin-Helmholtz instability. However after the initial front passes, errors begin to diminish due to the lower scales of motion.
+Validation shows that velocity measurements fair well with LES predictions. Mixing within the cold leg compares best when using higher Sc with EVM than the other cases. The first 10 s window shows good comparisons, while instabilities due to low mass diffusion create turbulence that appears in later time windows. Although mean quantities are not as affected, the fluctuating components are heavily impacted by whether or not the interface is resolved. The downcomer does not compare as well with PIV and has been investigated in (Lai et al., 2019). However, later times begin to show better results, perhaps due to capturing more instabilities within the flow before entering the downcomer. Like the cold leg, the fluctuations match significantly better when using Sc = 1000. Overall, it is proven that capturing the effects of the interface is necessary for predicting the turbulence for this flow.
+Comparing numerical error bars with experimental measurements shows many values are within error range for the cold leg. There are greater differences for the downcomer due to the more complicated physics and greater variability from transience. In conclusion, it has been shown that using two polynomial orders for p-refinement can produce good error bars. Nonetheless, greater accuracy could be attained with the use of three or more simulations at different orders with the cost of computational resources. The challenge in properly calculating uncertainty for this work will be ongoing. In the future, additional studies on the error estimate from Deville, Fischer, and Mund (2002) should be done to determine whether it can produce as accurate uncertainties as other methods (Fig. 1).
+<Section>Conflict of interest</Section>
+The authors declare that there is no conflict of interest.
+<Section>Acknowledgements</Section>
+The authors would like to acknowledge the Thermal-Hydraulic Research Laboratory at Texas A&M University for the experimental data for cold leg mixing (http://thrlab.tamu.edu/). Also, this research used resources of the Argonne Leadership Computing Facility, which is a DOE Office of Science User Facility supported under Contract DE-AC02-06CH11357.
+<Section>References</Section>
+Araneo and D’Auria, 2012
+Dino A. Araneo, Francesco D’Auria
+Methodology for Pressurized Thermal Shock Analysis in Nuclear Power Plant, Applied Fracture Mechanics, InTech (2012), 10.5772/63317
+Google Scholar
+Best Practice Guidelines for the use of CFD in Nuclear Reactor Safety Applications, 2007
+Best Practice Guidelines for the Use of CFD in Nuclear Reactor Safety Applications, 2007. Nuclear Energy Agency – Committee on the Safety of Nuclear Installations.
+Google Scholar
+Boyd, 2006
+Christopher F. Boyd
+Prediction of severe accident counter current natural circulation flows in the hot leg of a pressurized water reactor
+Proceedings of ICONE14 (2006)
+Google Scholar
+Deville et al., 2002
+M.O. Deville, P.F. Fischer, E.H. Mund
+High-Order Methods for Incompressible Fluid Flow
+Cambridge University Press (2002)
+Google Scholar
+Guermond et al., 2011
+Jean Luc Guermond, Richard Pasquetti, Bojan Popov
+Entropy viscosity method for nonlinear conservation laws
+J. Comput. Phys., 230 (11) (2011), pp. 4248-4267, 10.1016/j.jcp.2010.11.043
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+Lai et al., 2019
+J.K. Lai, E. Merzari, Y.A. Hassan
+Sensitivity analyses in a buoyancy-driven closed system with high resolution CFD using Boussinesq approximation and variable density models
+Int. J. Heat Fluid Flow, 75 (2019), pp. 1-13
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+Obabko et al., 2015
+Aleksandr Obabko, et al.
+Verification and validation of Nek5000 for T-Junction, Matis, SIBERIA, and max experiments
+Proceedings of the 16th International Topical Meeting on Nuclear Reactor Thermal-Hydraulics, NURETH-16, Chicago, Illinois (2015)
+Google Scholar
+Oberkampf and Roy, 2010
+William L. Oberkampf, Christopher J. Roy
+Verification and Validation in Scientific Computing
+Cambridge University Press (2010)
+Google Scholar
+Scheuerer and Weis, 2012
+Martina Scheuerer, Johannes Weis
+Transient computational fluid dynamics analysis of emergency core cooling injection at natural circulation conditions
+Nucl. Eng. Des., 253 (2012), pp. 343-350, 10.1016/j.nucengdes.2011.08.063
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+Shams et al., 2016
+A. Shams, G. Damiani, D. Rosa, E.M.J. Komen
+Design of a single-phase PTS numerical experiment for a reference direct numerical simulation
+Nucl. Eng. Des., 300 (2016), pp. 282-296, 10.1016/j.nucengdes.2016.01.038
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+Sharabi et al., 2016
+M. Sharabi, et al.
+Computational fluid dynamics study of pressurized thermal shock phenomena in the reactor pressure vessel
+Nucl. Eng. Des., 299 (2016), pp. 136-145
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+Spiegel and Veronis, 1960
+E.A. Spiegel, G. Veronis
+On the Boussinesq approximation for a compressible fluid
+Astrophys. J., 131 (1960), p. 442
+CrossRefGoogle Scholar
+Theofanous et al., 1984
+Theofanous, Prepared T.G., Nourbakhsh, H.P., Gherson, P., Iyer, K., 1984. Decay of Buoyancy Driven Stratified Layers with Applications to Pressurized Thermal Shock (PTS). Lafayette, IN.
+Google Scholar
+Tomboulides et al., 1997
+A.G. Tomboulides, J.C.Y. Lee, S.A. Orszag
+Numerical simulation of low mach number reactive flows
+J. Sci. Comput., 12 (2) (1997), pp. 139-167
+http://link.springer.com/10.1023/A:1025669715376
+View Record in ScopusGoogle Scholar

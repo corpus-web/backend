@@ -1,0 +1,212 @@
+<title>Design and heat transfer optimization of a 1 kW free-piston stirling engine for space reactor power system</title>
+<author>1,ZhiwenDai,2,ChenglongWang,3,DalinZhang,4,WenxiTian,5,SuizhengQiu,6,G.H.Su</author>
+<Affiliation>1,School of Nuclear Science and Technology, Shanxi Engineering Research Center of Advanced Nuclear Energy, State Key Laboratory of Multiphase Flow in Power Engineering, Xi'an Jiaotong University, Xi'an, 710049, China</Affiliation>
+<year>2021</year>
+<Jounral>Nuclear Engineering and Technology</Journal>
+<Publishing_house>Elsevier</Publishing_house>
+<Text_Collector>XiaFan，HEU</Text_Collector>
+<DOI>10.1016/j.net.2021.01.022</DOI>
+<URL>https://www.sciencedirect.com/science/article/pii/S1738573321000437</URL>
+Design and heat transfer optimization of a 1 kW free-piston stirling engine for space reactor power system
+ZhiwenDai,ChenglongWang,DalinZhang,WenxiTian,SuizhengQiu,G.H.Su
+School of Nuclear Science and Technology, Shanxi Engineering Research Center of Advanced Nuclear Energy, State Key Laboratory of Multiphase Flow in Power Engineering, Xi'an Jiaotong University, Xi'an, 710049, China
+<Section>Abstract</Section>
+The Free-Piston Stirling engine (FPSE) is of interest for many research in aerospace due to its advantages of long operating life, higher efficiency, and zero maintenance. In this study, a 1-kW FPSE was proposed by analyzing the requirements of Space Reactor Power Systems (SRPS), of which performance was evaluated by developing a code through the Simple Analysis Method. The results of SAM showed that the critical parameters of FPSE could satisfy the designed requirements. The heater of the FPSE was designed with the copper rectangular fins to enhance heat transfer, and the parametric study of the heater was performed with Computational Fluid Dynamics (CFD) software STAR-CCM+. The Performance Evaluation Criteria (PEC) was used to evaluate the heat transfer enhancement of the fins in the heater. The numerical results of the CFD program showed that pressure drop and Nusselt number ratio had a linear growth with the height of fins, and PEC number decreased as the height of fins increased, and the optimum height of the fin was set as 4 mm according to the minimum heat exchange surface area. This paper can provide theoretical supports for the design and numerical analysis of an FPSE for SRPSs.
+Keywords:Space reactor power system;Simple adiabatic analysis;Design and analysis;Free-piston stirling engine
+<Section>1. Introduction</Section>
+With the increasing demand for space exploration, SRPS combined with high efficiency, power, and reliability energy converters has been garnering significant interest by many institutes. Energy converters can be categorized as static and dynamic converters (including Brayton engines, FPSE, and Rankine engines) [1].
+The FPSE has been proposed and analyzed extensively by companies and institutes since Beale's invention in 1964. NASA fabricated and tested a 12.5 kW FPSE for the SP-100 program, and the coolant from the SP-100 reactor core was transferred through the heating tube inside the FPSE's shell [2]. The Sunpower company proposed and tested a 1-kW prototype engine (Re-1000) for NASA in the 1990s, many improvements have been made through the prototype design [3]. Then, the Sunpower Company optimized and designed a 35 kW FPSE for RTGs, analysis results from engines were presented [4]. The Sunpower company recently developed and tested a 12.5-kW FPSE named ASC-E3 in 2010 for space reactor systems [5]. The Sunpower company has been done a lot of work on the FPSE for space application, it also provides ASE for the next generation of SRPS (The KILPOWER project), the first heat pipe reactor would be launched to space in the next few years. Lin et al. designed a novel FPSE with a maximum electrical power of 300W, the system integrated with four FPSEs and potassium heat pipes was performed, and the single FPSE failure test was conducted in his study [6].
+Lots of work have been conducted on the design and analysis of FPSEs. Niell designed, simulated, and tested a 3 kW FPSE, and a theoretical simulation model was developed combined with a third-order and dynamic analysis method [7]. Zare et al. proposed a novel approach for designing the FPSEs based on a desirable frequency and genetic algorithm, which was validated through an experimental engine [8]. Fan et al. designed and analyzed a 100 kW FPSE for the lunar surface application, and a theoretical model was developed to predict the thermal efficiency for the developed FPSE [9]. Qi et al. designed a 400W FPSE, rectangular and triangular fins were used to enhance the heat transfer in the heater of the proposed FPSE; results show that the triangular fins have a better heat transfer performance than the rectangular fins [10]. Dai et al. proposed a 20Kw FPSE for high-level space nuclear power reactors, and the key parameters influence of the hot side and cold side temperature was analyzed in his study [11]. In a 1 kW FPSE used in the ground application, copper straight fins have been used in the heater to enhance the heater transfer instead of the heating tube, shown in Fig. 1. However, the volume and mass of this FPSE are not suitable for the space application.
+Fig. 1. Copper straight fin used in a 1-kW FPSE.
+Theoretical analysis of the FPSE has been widely conducted. The analysis method for the FPSE could be classified into four orders, including the Schmidt analysis method, ideal adiabatic analysis method, simple analysis method, third-order method, and CFD methods et al. [12]. Ni et al. proposed the Improved Simple Analysis Method by improving the SAM based on experimental results, which added more energy losses than the SAM [13]. There is also some other commercial software based on the third-order analysis method used in FPSE analysis, such as Sage et al.
+Although many studies and have been conducted on the design and numerical analysis of the FPSE, few FPSEs are suitable for space nuclear power reactors. Hence, a 1 kW FPSE is proposed herein based on the requirements of space nuclear power reactors. A code was developed to evaluate the engine's performance based on the SAM, and the key component heater has been numerically analyzed to evaluate the heat transfer performance. This paper could provide some theoretical supports for the design and numerical analysis of an FPSE for SRPSs.
+<Section>2. FPSE design and evaluation</Section>
+2.1. Primary design of a 1 kW FPSE
+Fig. 2 shows a common type of an FPSE, it mainly contains seven parts: the piston, the displacer, the expansion space, the compression space, the heater, the cooler, the regenerator, and other structures such as the pressure shell and support structures. The expansion space is connected with the heater, and the compression space is connected with the cooler, as shown in Fig. 2.
+Fig. 2. Conceptual design of FPSE.
+Fig. 3 shows the parameters of SRPS that uses a heat pipe reactor according to the temperature at the reactor core outlet and the design power. It can be found that the mean temperature of the core outlet is approximately from 900K to 1000 K for those SRPSs that used Stirling converters. Hence, the temperature of the heat source is chosen at 1000 K, and the FPSE's temperature ratio is selected as 2, which is commonly determined in the design of an FPSE. Fig. 3 also shows that for the SRPS that has been in the prototype reactor procedure, the output power is from 1 kW–10 kW. As the FPSE's distribution is typically adjusted to reduce vibration, the number of FPSEs in an SRPS conceptional design is four to eight. Therefore, the design power of FPSE is selected as 1 kW, which would be widely used to combine with an SPRS.
+Fig. 3. Parameter of space nuclear power reactor.
+The working gas is critical to the design and analysis of the FPSE, and the helium is selected as the working gas due to the low viscosity, low density, and high thermal conductivity to improve the performance of the Stirling cycle and decrease the flow resistance simultaneously [11]. When the key parameters (Including heat source and cold source temperature) and materials of the working gas are determined, the design and analysis of an FPSE are relatively straightforward as following procedures.
+The output power P can be written as eq. (1), according to the Schmidt method. The key parameter of FPSE, including the diameter of cylinder Dcy and the swept volume of piston Vp could be calculated by eq. (2) and eq. (3) as follows:
+@(1)
+Where:
+@(2)
+@(3)
+Where vdm is the average piston speed, and vdm= 2Sdω; Z is the Stirling cylinder number, equals to 1 in the FPSE; Pavg is the mean pressure, assumed as 5 Mpa during the preliminary calculation; Bn is the Beale number. The parameter of the FPSE can be determined according to eq. (4); the volume of displacer Vd can be calculated as follows [14]:
+@(4)
+Where:
+@(5)
+@(6)
+@(7)
+@(8)
+@(9)
+At last, the displacer amplitude Sd could be calculated through the volume of the displacer Vd and the cylinder's diameter.
+2.2. Key parameters analysis and evaluation of the FPSE
+The basic parameters of the FPSE could be calculated from the above procedures. However, some parameters need to be determined, such as mean pressure and phase angle between the piston and displacer. The influence of mean pressure on the output power is shown in Fig. 4, and it shows that the output power increased as the average pressure increased in the proposed FPSE when the other parameters are not changed. Hence the mean pressure is selected as 5 MPa that could meet the requirement of the design value. Fig. 5 shows the influence of the phase angle on the output power, and it can be found that the output power increased with the phase angle and come to the maximum point when the phase angle equal to 75°; hence the phase angle is chosen as 75° in the design of FPSE. Through the design procedure mentioned, the parameters of an FPSE is determined. However, the output power needs to be evaluated to determine if it can satisfy the design value. The SAM is developed to analyze the output power of the proposed FPSE.
+Fig. 4. The influence of mean pressure on the output power.
+Fig. 5. Influence of the phase angle on the output power.
+From the SAM, it is assumed that the piston and displacer are moved in sinusoidal motions, the volume changes of the expansion space Ve(t) and compression space Vc(t) in the FPSE could be expressed through the Schmidt method in Appendix A as follows:
+@(10)
+@(11)
+According to the Schmidt method, it also needs to calculate the mass of working gas (mg)and regenerator temperature (TR) before the next step. After the preparatory work of Schmidt method, the ideal adiabatic model could be developed. Appendix B presents the differential equations for the ideal adiabatic model, it calculated by the fourth-order Runge–Kutta method. As the ideal adiabatic analysis is mainly based on the following assumptions: a) the compression and expansion processes are adiabatic; b) pressure drops are non-existent; c) the regenerator's efficiency is perfect. Hence, the primary heat transferring loss needs to be evaluated when an ideal Stirling cycle is obtained, including the regenerator heat transfer loss and flow resistance power loss. For the heat transfer loss calculation in the regenerator, the temperature difference between the wire and working gas needs to be considered for a non-ideal regenerator. The heat transfer loss in regenerator (Qr, loss) and the efficiency of the regenerator ε could be written as follows:
+@(12)
+Where ε is the efficiency of the regenerator, writing as follows:
+@(13)
+@(14)
+@(15)
+NTU is the number of transfer units, Awg is the regenerator's internal wetted area, and St is the Stanton number. Flow resistance power loss in the FPSE could be calculated as the following equations.
+@(16)
+As the flow in the heater is oscillating flow, it is assumed that flow is always turbulent. Use the Blasius relation for all Reynolds numbers (for the heater and cooler):
+@(17)
+For the regenerator, it could be considered as a porous area:
+@(18)
+The power loss of flow resistance in the FPSE could be calculated through the integral in one Stirling cycle as follows:
+@(19)
+According to the heat transfer loss analysis in the SAM, the actual output power Wacip could be calculated as follows:
+@(20)
+Where Wadip the ideal output power. The actual heat inlet of the heater and actual heat outlet of the cooler and could be written:
+@(21)
+@(22)
+The actual temperatures in the heater Tgh and cooler Tgk can be calculated as follow equations, which would are used for the iterative solution to get the final results.
+@(23)
+@(24)
+Where Ah and Ac are the area of heat exchange surface in the heater and cooler.
+2.3. Solution procedure
+A Fortran code was developed to design and perform the proposed FPSE based on the SAM. program flow diagram is illustrated in Fig. 6. In the first stage, when the primary parameter of the FPSE was selected, and the primary parameters of the FPSE are calculated according to eq. (1) to eq. (9). In the second stage, the parameters such as mean pressure, phase angle need to be validated and determined. In the third stage, the performance analysis of the proposed FPSE was conducted by the SAM. The expansion and compression space's temperatures were assumed as the temperature of the heat source and cold source initially; the ideal adiabatic model in Appendix B could be calculated using the fourth-order Runge–Kutta method:
+@(25)
+Fig. 6. Program flow diagram of the design procedure and SAM.
+In the final step, the heat transfer loss in the developed FPSE needs to be calculated. The temperature in the expansion and compression space can be obtained according to the iterative calculation when the temperature calculated could satisfy convergence. The final design values of the proposed 1 kW FPSE are shown in Table 1; the output power of the developed FPSE is 1.3 kW above the design requirements through the analysis of the code.
+Table 1. The main design values of a 1 kW FPSE.
+<Section>3. Mathematical models</Section>
+3.1. Meshing strategy and material properties
+The straight fins with triangular shapes are simulated to evaluate the heat transfer enhancement in the heater. Fig. 7 shows the schematic diagram of the parameter study with the CFD program; the cross-section of each fin is the same for all the cases. The height of fins ranges from 3 mm to 4.5 mm, and the number of the fin is 312; the area of the heating surface could satisfy the requirement when the height greater than 4 mm. Numerical simulation to be conducted using a 1/24th heater section could reduce mesh requirements and computational time simultaneously. The computational fluid dynamics commercial software STAR-CCM+ is used to establish the 1/24th heater model. It consists of the thirteen full scales of fins, and it requires choosing an appropriate meshing method to achieve accurate and credible numerical results without overwhelmingly increasing the mesh grids.
+Fig. 7. 1/24 full-scale Heater model.
+The mesh of the heater is shown in Fig. 8. Local mesh refinement is used in the working gas flow region and the contact surface with the fins. As the conduction is only used to calculate the fins region (Solid region), the mesh is not accurate than the working gas region (flow region) to reduce the computational complexity. Mesh sensitivity study has been shown in Table 2. Key temperature parameters and base size in helium coolant channel with mesh number, including outlet helium average temperature (Tave,out), the maximum temperature of the heat exchange surface (Th,max), average coolant temperature Tave and pressure drop () in the heater are compared. Overall, there are a total of 110 million cells for the 1/24th heater CFD model.
+Fig. 8. Mesh of the 1/24 full-scale Heater.
+Table 2. Mesh sensitivity study.
+Physical properties in the CFD model mainly contains the working gas region and the solid region of fins. Helium was selected as the working gas due to its low viscosity, low density, and high thermal conductivity to improve the Stirling cycle's performance and decrease the flow resistance inside the FPSE simultaneously. Copper is used as a fin in the heat to enhance the heat transfer. Table 3 presents the working gas and copper fins' properties in the heater of the CFD program.
+Table 3. Physical properties of working gas in CFD.
+3.2. Turbulent model and heat transfer optimization criterion
+The Shear-Stress Transport (SST) k-ω model contains all considerations of the standard k-ω model, it accounts for the transport of the turbulence shear stress in the definition of the turbulent viscosity. Hence, the SST k-ω model can provide more accurate and reliable prediction results for various flow forms. The K-ω turbulence model with all y + wall treatment uses a relatively coarse mesh without prism layers. y+ ≤ 2 is suggested to be satisfied for the SST k-ω model; the maximum y+ on the heating exchange surface in the CFD program is 0.65 within the model's requirement.
+PEC number is selected to evaluate the performance of the heater, which is a comprehensive evaluation of the heat transfer and resistance performance, and it can be written as follows:
+@(26)
+Where Nu is the average Nusselt number of the improved heater, Nu0 is the Nusselt number of the original heater. f/f0 is the heater's resistance coefficient ratio with fins or without fins. The heat transfer coefficient is used to obtain the Nusselt number writing as follows:
+@(27)
+@(28)
+Where tave is the average temperature of heating surface in one cycle, Ah is the heating area, and resistance coefficient f can be obtained by darcy formula:
+@(29)
+3.3. Numerical solutions and conditions
+When the material properties and numerical mesh grid are determined, performing the thermal-hydraulics characteristics of the heater are relatively straightforward. The three-dimensional (3-D), implicit unsteady with the turbulent model was used to simulate the FPSE. The inner wall is configured as an adiabatic wall. The inlet's helium temperature is set as 721K, which is the regenerator's average temperature. The outlet was selected as a pressure outlet, and the value of pressure is set as the mean pressure of FPSE equals 5Mpa. The helium's mass flow rate in the inlet shown in Fig. 9, shows the helium's mass flow rate calculated by the SAM, and User Field Function is responsible for giving the periodic motion in the inlet. The detailed setting and values of boundary conditions are shown in Table 4. For each step of the transient calculation, the inner iteration step was tested and set as 300 steps to achieve a blow 10−6 residuals, and the physical time step on the CFD program is set as 0.001s according to the frequency of the proposed FPSE (0.014s).
+Fig. 9. Mass flow rate in the FPSE.
+Table 4. Boundaries conditions.
+<Section>4. Results and discussion</Section>
+4.1. Verification and validation
+Verification against the SAM has been conducted with our previous work, which was verified with the Re-1000 Stirling engine; the results show that the code can precisely predict the output power of an FPSE. Validation against the CFD program has been conducted by comparing the results given by Huq [15]. The schematic diagram of the experiment devices and dimensions of the test section is shown in Fig. 10, and the parameters are in millimeters (mm); the test section consisted of a circular tube (70 × 26, 1520 mm length) with six longitudinal fins (15 mm high and 3 mm thickness). The diffuser was used to minimize the heat loss at the suction side; a flexible duct was installed between the tile inlet section of the diffuser and gate value to reduce the vibration. Fig. 11 shows the mesh of the experiment device and the CFD program's boundaries. Local grid refinement on the test section is developed to make the calculations more accurate.
+Fig. 10. Schematic diagram of the experiment devices and dimensions of the test section.
+Fig. 11. Structure mesh of the experiment device.
+The validation result is shown in Fig. 12, it shows the friction factor of the internal fin pipe according to the increased of Reynold numbers. The black dot line is the friction factor of experiment data with the experimental error of ±9%, while the red dot line is the calculation results given by the CFD model. It can be found that the trend of friction factor that calculates by the CFD program is similar to experimental results, and the error between the experimental results and calculation results is about 11%. However, it is noteworthy that the friction factor is somewhat different by comparing with those in experimental data, it is due to some parameters are lost in experiment data (such as the value opening). The results proved that the CFD model has good fidelity for the calculation.
+Fig. 12. The friction factor of the internal fin pipe and the numerical results.
+4.2. Numerical analysis of the heater
+Fig. 13 shows the key parameters of the FPSE changed with the height of the fins, including the pressure drop and Nusselt number ratio. The black dot line illustrates the heater's pressure drop varied with different height of fins, and it can be observed that the pressure drop has a linear growth with the height of fins and increased as the height of fins increased. The red dot line shows the Nusselt number ratio of the original heater (without fins) and heater with rectangular fins at a different height of fins on the heat exchange surface, it shows that the Nusselt number ratio of the heater nearly has a linear growth with the fins' height, while the growth trend is slowing.
+Fig. 13. Key parameters changed with the height of the fin.
+PEC number changed with the height of the fins shown in Fig. 14. It can be observed that the PEC number decreased as the fins' height increased (at the height of fins ranged from 3 mm to 4.5 mm). The PEC number at the height of fins range from 3 mm to 4.5 mm is greater than 1, which means that there is still a heat transfer optimation for the rectangular fins in the heater. Considering the minimum area of the heat exchange surface, the fin's optimum height needs to greater than or equal 4 mm, the height of fins equals 4 mm eventually.
+Fig. 14. PEC number changed with the height of the fin.
+Fig. 15 shows the temperature distribution in the middle position of the heater, in which the flow rate comes to the maximum point (T = π/2). It shows that the temperature difference of working gas and fins is small (less than 20K) in the flow regions between the fins. In contrast, the temperature of working gas is much lower in the top region of fins. The temperature distribution of the fins (solid region) and the flow region in one Stirling cycle has been shown in Fig. 16, it shows the cross-section at the top of the fins (A), ors the cross-section at the bottom of the fins (B) when the height of fins equals 4 mm. It can be found that when the flow reversed (T = π/4 and T = 3π/4), the temperature difference between the fin and the working gas comes to the maximum point. The temperature difference is small at the solid region, as the copper (solid fin region) conductivity is much higher than the conductivity of working gas. For the working gas's temperature distribution, the fins' top region's temperature is much lower than the fins' bottom region's temperature. The outlet temperature of heater also illustrates that the heater is adequate to enhance the heat transfer between the regenerator and the expansion space.
+Fig. 15. Temperature distribution in the middle position of the heater.
+Fig. 16. Temperature distribution of the fin in one Stirling cycle.
+<Section>5. Conclusion</Section>
+In this paper, a 1-kW FPSE was proposed by analyzing the requirements of SRPSs. A code was developed based on the SAM to evaluate the performance of the proposed FPSE, which was solved using the fourth-order Runge–Kutta method. The heater of the FPSE was designed and numerically analyzed with the CFD program. The conclusions are summarized as follows:
+1.
+For model verification and validation, The SAM model results were benchmarked with the experimental data, and the calculation results of CFD program agrees well with experimental data by Huq et al. showing the fidelity and reasonability of the SAM model and CFD program.
+2.
+The results of SAM model showed that the output power of the proposed FPSE is 1.3 kW, which satisfied the design requirements considering the heat transfer loss.
+3.
+The numerical analysis of the heater has been conducted with CFD program, where the boundaries were given by results of the SAM model. Pressure drop and Nusselt number ratio has a linear growth with the fin height, and increased as the height of fins increased. PEC number decreased as the height of fins increased with the range from 3 mm to 4.5 mm, and the optimum height of the fin equals 4 mm according to the minimum area of heat exchange surface.
+<Section>Data availability</Section>
+All datasets supporting the results are included in this article.
+<Section>Declaration of competing interest</Section>
+The authors declare that they have no known competing financial interests or personal relationships that could have appeared to influence the work reported in this paper.
+<Section>Acknowledgement</Section>
+The authors would like to thank the National Natural Science Foundation of China (No. 11675162), National Key Research and Development Program of China (No. 2019YFB1901100).
+<Section>Appendix A. Equations for the Schmidt method</Section>
+Equations for the Schmidt model
+,
+<Section>Appendix B. Equations for the ideal adiabatic model</Section>
+Equations for the ideal adiabatic model
+<Section>References</Section>
+[1]
+Zhiwen Dai, et al.
+Thermoelectric characteristics analysis of thermionic space nuclear power reactor
+Int. J. Energy Res., 4 (2019)
+Google Scholar
+[2]
+G. Dochat
+SPDE/SPRE Final Summary Report
+NASA Contractor Report (1993)
+Google Scholar
+[3]
+J.G. Schreiber
+RE-1000 Free-Piston Stirling Engine Update
+(1985)
+Google Scholar
+[4]
+J.G. Wood, N. Lane
+Advanced 35 W Free-Piston Stirling Engine for Space Power Applications[J]
+(2003)
+Google Scholar
+[5]
+W. Wong, et al.
+Pathfinding the Flight Advanced Stirling Convertor Design with the ASC-E3
+(2012)
+Google Scholar
+[6]
+M. Lin, et al.
+Space power system of free piston Stirling generator based on potassium heat pipe[J]
+Front. Energy, 14 (1) (2020), pp. 1-10
+CrossRefView Record in ScopusGoogle Scholar
+[7]
+Ivan Niell Deetlefs
+Design, Simulation, Manufacture and Testing of a Free-Piston Stirling engine[J]
+(2014)
+Google Scholar
+[8]
+S. Zare, A.R. Tavakolpour-Saleh
+Frequency-based design of a free piston Stirling engine using genetic algorithm[J]
+Energy, 109 (aug.15) (2016), pp. 466-480
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+[9]
+S. Fan, et al.
+Thermodynamic analysis and optimization of a Stirling cycle for lunar surface nuclear power system
+Appl. Therm. Eng., 111 (2017), pp. 60-67
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+[10]
+Zong lei Qi
+Performance Investigations on Heat Exchanger of Free-Piston Stirling Engine
+(2014)
+Thesis
+Google Scholar
+[11]
+Dai, et al.
+Design and analysis of a free-piston stirling engine for space nuclear power reactor
+Nuclear Engineering and Technology (2020)
+Google Scholar
+[12]
+R.W. Dyson, et al.
+Review of computational stirling analysis methods
+AIAA J. (2004)
+Google Scholar
+[13]
+M. Ni, et al.
+Improved simple analytical model and experimental study of a 100W β-type stirling engine
+Appl. Energy, 169 (2016), pp. 768-787
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+[14]
+R. Shoureshi
+ANALYSIS AND DESIGN OF STIRLING ENGINES FOR WASTE-HEAT RECOVERY
+Thesis (1981)
+Google Scholar
+[15]
+M. Huq, A.U. Huq, M.M. Rahman
+Experimental measurements of heat transfer in an internally finned tube[J]
+Int. Commun. Heat Mass Tran., 25 (5) (1998), pp. 619-630
+ArticleDownload PDFView Record in ScopusGoogle Scholar

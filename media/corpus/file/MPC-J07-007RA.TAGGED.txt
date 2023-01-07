@@ -1,0 +1,475 @@
+﻿_JJ <title> Potential_JJ and_CC limitations_NNS of_IN scale_NN resolved_VVN simulations_NNS for_IN ship_NN hydrodynamics_NN applications_NNS </title> <author> 1_CD ,_, Nikolai_NP Kornev_NP ,_, 1_CD ,_, Ivan_NP Shevchuk_NP ,_, 2_CD ,_, Nawar_NP Abbas_NP ,_, 3_CD ,_, Pascal_NP Anschau_NP ,_, 1_CD ,_, Sina_NP Samarbakhsh_NP </author> <Affiliation> 1_CD ,_, Chair_NN of_IN Modeling_VVG and_CC Simulation_NP ,_, University_NP of_IN Rostock_NP ,_, Rostock_NP ,_, Germany_NP ,_, 2_CD ,_, Faculty_NN of_IN Mechanical_NP and_CC Electrical_NP Engineering_NP ,_, University_NP of_IN Tishreen_NP ,_, Latakia_NP ,_, Syria_NP ,_, 3_CD ,_, Ship_NP Model_NP Basin_NP ,_, Potsdam_NP ,_, Germany_NP </Affiliation> <year> 2019_CD </year> <Jounral> Ship_NP Technology_NP Research_NP </Journal> <Publishing_house> Taylor_NP and_CC Francis_NP Online_JJ </Publishing_house> <Text_Collector> Zhang_NP San，HEU_NP </Text_Collector> <DOI> https://doi.org/10.1080/09377255.2019.1574965_NP </DOI> <URL> https://www-tandfonline-com/doi/full/10.1080/09377255.2019.1574965_NP </URL> Potential_JJ and_CC limitations_NNS of_IN scale_NN resolved_VVN simulations_NNS for_IN ship_NN hydrodynamics_NN applications_NNS Nikolai_NP Kornev_NP ,_, Ivan_NP Shevchuk_NP ,_, Nawar_NP Abbas_NP ,_, Pascal_NP Anschau_NP ,_, Sina_NP Samarbakhsh_NP Chair_NN of_IN Modeling_VVG and_CC Simulation_NP ,_, University_NP of_IN Rostock_NP ,_, Rostock_NP ,_, Germany_NP Faculty_NN of_IN Mechanical_NP and_CC Electrical_NP Engineering_NP ,_, University_NP of_IN Tishreen_NP ,_, Latakia_NP ,_, Syria_NP Ship_NP Model_NP Basin_NP ,_, Potsdam_NP ,_, Germany_NP <Section> Abstract_JJ </Section> The_DT paper_NN gives_VVZ an_DT overview_NN of_IN experience_NN gathered_VVN by_IN the_DT authors_NNS in_IN development_NN and_CC application_NN of_IN hybrid_JJ URANS/LES_NNS methods_NNS for_IN the_DT solution_NN of_IN ship_NN hydrodynamic_JJ problems_NNS ._SENT 
+Difficulties_NNS arising_VVG at_IN the_DT interface_NN between_IN URANS_NPS and_CC LES_FW are_VBP discussed_VVN and_CC illustrated_VVN for_IN a_DT channel_NN flow_NN benchmark_NN ._SENT 
+A_DT hybrid_JJ model_NN developed_VVN by_IN the_DT authors_NNS is_VBZ described_VVN ._SENT 
+It_PP was_VBD shown_VVN that_IN pure_JJ LES_FW has_VHZ advantages_NNS over_IN hybrid_JJ models_NNS provided_VVD a_DT sufficient_JJ resolution_NN can_MD be_VB attained_VVN for_IN a_DT given_VVN Re_NP number_NN ._SENT 
+Advantages_NNS of_IN hybrid_JJ models_NNS over_IN RANS-based_JJ ones_NNS is_VBZ demonstrated_VVN for_IN the_DT determination_NN of_IN wake_NN parameters_NNS behind_IN models_NNS of_IN full_JJ bottomed_VVN ships_NNS JBC_NP and_CC KVLCC2_NP ._SENT 
+Difficulties_NNS with_IN prediction_NN of_IN the_DT ship_NN resistance_NN by_IN hybrid_JJ methods_NNS are_VBP discussed_VVN ._SENT 
+KEYWORDS_NNS :_: Scale_NN resolving_VVG simulation_NN ,_, LES_FW ,_, URANS_NP ,_, wake_NN ,_, resistance_NN <Section> 1._CD Introduction_NN </Section> Most_JJS applications_NNS of_IN CFD_NN to_TO ship_VV hydrodynamics_NNS are_VBP restricted_VVN to_TO (_( U)RANS-based_JJ analysis_NN ._SENT 
+The_DT scale-resolving_JJ simulations_NNS (_( SRS_NP )_) ,_, like_VVP LES_FW or_CC hybrid_JJ URANS/LES_NNS are_VBP still_RB not_RB widely_RB used_VVN in_IN practice_NN because_IN of_IN higher_JJR computational_JJ costs_NNS ._SENT 
+In_IN cases_NNS where_WRB strong_JJ separations_NNS do_VVP not_RB occur_VV (_( e.g._FW ships_NNS with_IN low_JJ block_NN coefficients_NNS )_) (_( U)RANS_NNS may_MD be_VB a_DT perfect_JJ choice_NN ._SENT 
+However_RB ,_, as_IN the_DT results_NNS of_IN the_DT recent_JJ workshop_NN on_IN CFD_NN in_IN ship_NN hydrodynamics_NNS (_( Larsson_NP et_NP al_NP ._SENT 
+2015_CD )_) indicate_VVP ,_, increase_NN of_IN the_DT block_NN coefficient_NN may_MD impair_VV the_DT accuracy_NN of_IN model_NN predictions_NNS ._SENT 
+The_DT reason_NN is_VBZ most_RBS likely_JJ that_IN the_DT URANS_NNS models_NNS may_MD in_IN some_DT cases_NNS poorly_RB predict_VVP the_DT momentum_NN transport_NN after_IN the_DT separation_NN (_( Spalart_NP 2000_CD )_) ._SENT 
+Due_JJ to_TO high_JJ diffusivity_NN URANS_NNS is_VBZ also_RB known_VVN for_IN smearing_VVG out_RP the_DT flow_NN features_VVZ in_IN time_NN (_( for_IN flows_NNS with_IN inner_JJ instabilities_NNS such_JJ as_IN bluff_JJ body_NN flows_NNS )_) and_CC space_NN (_( in_IN the_DT wakes_NNS )_) ._SENT 
+These_DT issues_NNS can_MD be_VB partly_RB avoided_VVN when_WRB the_DT hybrid_NN RANS/LES_VVZ models_NNS are_VBP used_VVN ._SENT 
+The_DT variety_NN of_IN different_JJ hybrid_JJ approaches_NNS proposed_VVN to_TO date_NN is_VBZ large_JJ ._SENT 
+Therefore_RB ,_, only_RB the_DT models_NNS which_WDT are_VBP more_JJR or_CC less_RBR popular_JJ in_IN the_DT ship_NN hydromechanics_NN community_NN are_VBP going_VVG to_TO be_VB discussed_VVN in_IN the_DT current_JJ paper_NN ._SENT 
+Probably_RB the_DT most_RBS popular_JJ family_NN of_IN the_DT hybrid_JJ methods_NNS is_VBZ the_DT DES_NP one_CD ._SENT 
+Spalart_NP et_NP al_NP ._SENT 
+(_( 1997_CD )_) made_VVD one_CD of_IN the_DT first_JJ attempts_NNS to_TO create_VV a_DT hybrid_NN RANS/LES_VVZ method_NN by_IN introducing_VVG the_DT cell_NN size_NN dependency_NN into_IN the_DT destruction_NN term_NN of_IN the_DT Spalart-Allmaras_NP model_NN ._SENT 
+By_IN these_DT means_NN ,_, the_DT detached_VVN eddies_NNS distant_JJ from_IN the_DT wall_NN are_VBP resolved_VVN using_VVG the_DT LES_FW ,_, whereas_IN the_DT attached_VVN vortices_NNS are_VBP modelled_VVN using_VVG RANS_NNS ._SENT 
+Hence_RB ,_, the_DT method_NN was_VBD entitled_VVN the_DT Detached-Eddy_NP Simulation_NP ._SENT 
+Later_RBR on_RB ,_, other_JJ versions_NNS of_IN DES_NP were_VBD proposed_VVN ,_, based_VVN on_IN the_DT k−�_NP �_NP SST_NP model_NN (_( Strelets_NP 2001_CD )_) ._SENT 
+After_IN recognising_VVG the_DT modelled-stress_NN depletion_NN (_( MSD_NP )_) and_CC the_DT grid-induced_JJ separation_NN (_( GIS_NP )_) issues_NNS ,_, the_DT shielded_VVN version_NN of_IN DES_NP was_VBD proposed_VVN by_IN Spalart_NP et_CC al_NP ._SENT 
+(_( 2006_CD )_) ,_, where_WRB the_DT RANS_NP method_NN was_VBD used_VVN in_IN the_DT entire_JJ boundary_NN layer_NN ,_, independent_JJ of_IN the_DT grid_NN resolution_NN ._SENT 
+Further_JJR development_NN of_IN the_DT DES_NP ,_, aimed_VVN at_IN removing_VVG the_DT log-layer_NN mismatch_NN problem_NN when_WRB the_DT model_NN is_VBZ used_VVN in_IN WMLES_NNS mode_NN (_( i.e._FW the_DT interface_NN is_VBZ located_VVN in_IN the_DT log-layer_NN )_) ,_, which_WDT resulted_VVD in_IN the_DT construction_NN of_IN the_DT Improved_VVN Delayed_JJ Detached-Eddy_NP Simulation_NP (_( IDDES_NP )_) (_( Shur_NP et_NP al_NP ._SENT 
+2008_CD )_) ._SENT 
+Much_RB later_RBR ,_, after_IN sufficient_JJ experience_NN of_IN DES_NP application_NN was_VBD gathered_VVN in_IN the_DT community_NN ,_, further_JJR problems_NNS of_IN the_DT method_NN ,_, reflected_VVN in_IN Menter_NP (_( 2018_CD )_) were_VBD revealed_VVN ,_, such_JJ as_IN insufficient_JJ shielding_VVG and_CC too_RB slow_JJ transition_NN to_TO LES_FW in_IN the_DT free_JJ shear_NN layers_NNS (_( grey_JJ area_NN problem_NN )_) ._SENT 
+To_TO partly_RB remedy_VV the_DT first_JJ problem_NN the_DT re-calibration_NN of_IN the_DT shielding_VVG function_NN was_VBD proposed_VVN by_IN Gritskevich_NP et_CC al_NP ._SENT 
+(_( 2011_CD )_) ,_, whereas_IN the_DT attempts_NNS to_TO accelerate_VV the_DT RANS/LES_NNS transition_NN were_VBD made_VVN by_IN Mockett_NP et_CC al_NP ._SENT 
+(_( 2015_CD )_) ._SENT 
+An_DT alternative_JJ solution_NN to_TO both_DT problems_NNS was_VBD proposed_VVN by_IN Menter_NP (_( 2018_CD )_) and_CC embodied_VVN in_IN his_PP$ SBES_NP (_( Stress-Blended_NP Eddy_NP Simulation_NP )_) and_CC SDES_NP (_( Shielded_VVN Detached-Eddy_NP Simulation_NP )_) approaches_NNS ._SENT 
+However_RB ,_, the_DT exact_JJ description_NN of_IN both_DT methods_NNS is_VBZ proprietary_JJ and_CC remains_VVZ unpublished_JJ and_CC therefore_RB unusable_JJ for_IN the_DT scientific_JJ community_NN ._SENT 
+Along_IN with_IN the_DT application_NN of_IN DES_NP ,_, some_DT ship_NN hydrodynamics_NN experts_NNS tried_VVD to_TO apply_VV and_CC also_RB to_TO develop_VV alternative_JJ approaches_NNS ._SENT 
+An_DT example_NN of_IN such_PDT an_DT approach_NN is_VBZ the_DT PANS_NNS method_NN of_IN Girimaji_NP (_( 2005_CD )_) ._SENT 
+According_VVG to_TO its_PP$ definition_NN it_PP cannot_MD be_VB ,_, strictly_RB speaking_VVG ,_, called_VVD a_DT hybrid_JJ RANS/LES_NNS method_NN ,_, since_IN the_DT turbulent_JJ stresses_NNS are_VBP independent_JJ of_IN the_DT grid_NN spacing_NN ._SENT 
+This_DT dependency_NN was_VBD introduced_VVN only_RB in_IN the_DT later_JJR versions_NNS of_IN PANS_NNS (_( Krajnovic_NP et_NP al_NP ._SENT 
+2015_CD )_) ._SENT 
+In_IN its_PP$ original_JJ version_NN PANS_NNS is_VBZ related_VVN to_TO the_DT so-called_JJ bridging_VVG methods_NNS ._SENT 
+In_IN some_DT works_NNS ,_, much_RB better_JJR flow_NN predictions_NNS were_VBD obtained_VVN using_VVG PANS_NNS when_WRB compared_VVN to_TO DDES_NNS (_( see_VV ,_, for_IN instance_NN Vaz_NP et_NP al_NP ._SENT 
+2017_CD )_) ._SENT 
+However_RB ,_, these_DT simulations_NNS were_VBD restricted_VVN to_TO bluff_VV bodies_NNS and_CC the_DT Reynolds_NP numbers_NNS studied_VVD were_VBD rather_RB small_JJ and_CC did_VVD not_RB correspond_VV to_TO a_DT fully_RB turbulent_JJ flow_NN ._SENT 
+Therefore_RB ,_, further_JJR tests_NNS are_VBP required_VVN before_IN the_DT model_NN can_MD be_VB recommended_VVN for_IN ship_NN flows_NNS ._SENT 
+Another_DT interesting_JJ approach_NN deserving_JJ attention_NN is_VBZ the_DT DHRL_NN ,_, proposed_VVN by_IN Bhushan_NP and_CC Walters_NP (_( 2012_CD )_) ._SENT 
+The_DT idea_NN of_IN this_DT approach_NN is_VBZ to_TO use_VV a_DT dynamic_JJ procedure_NN ,_, similar_JJ to_TO that_DT of_IN Lilly_NP ,_, to_TO determine_VV the_DT percentage_NN of_IN LES_FW used_VVN in_IN the_DT particular_JJ computational_JJ cell_NN ._SENT 
+In_IN order_NN to_TO do_VV that_IN ,_, the_DT explicit_JJ time-averaging_NN procedure_NN is_VBZ used_VVN to_TO compute_VV the_DT levels_NNS of_IN the_DT resolved_VVN Reynolds_NP stresses_NNS ,_, which_WDT are_VBP then_RB compared_VVN to_TO the_DT RANS_NNS ones_NNS ._SENT 
+Tests_NNS of_IN the_DT model_NN were_VBD presented_VVN in_IN Bhushan_NP et_CC al_NP ._SENT 
+(_( 2013_CD )_) for_IN the_DT canonical_JJ flows_NNS as_IN well_RB as_RB for_IN two_CD hull_NN forms_NNS (_( surface_VV combatant_JJ 5415_CD and_CC DARPA_NP suboff_NP )_) and_CC showed_VVD encouraging_JJ results_NNS ._SENT 
+The_DT scale_NN resolving_VVG methods_NNS were_VBD applied_VVN by_IN many_JJ research_NN groups_NNS for_IN simulating_VVG the_DT flows_NNS around_IN the_DT ships_NNS in_IN the_DT model_NN and_CC also_RB in_IN the_DT full_JJ scale_NN ,_, see_VVP for_IN example_NN Visonneau_NP et_NP al_NP ._SENT 
+(_( 2016_CD )_) ,_, Fureby_NP et_CC al_NP ._SENT 
+(_( 2016_CD )_) ,_, Xing_NP et_CC al_NP ._SENT 
+(_( 2012_CD )_) ,_, and_CC Bhushan_NP et_NP al_NP ._SENT 
+(_( 2012_CD )_) ._SENT 
+Decreasing_VVG the_DT turbulent_JJ viscosity_NN at_IN a_DT small_JJ distance_NN from_IN the_DT ship_NN allows_VVZ one_CD to_TO reproduce_VV flow_NN physics_NNS much_RB richer_JJR as_IN compared_VVN to_TO URANS_NNS ._SENT 
+This_DT way_NN ,_, a_DT more_RBR detailed_JJ analysis_NN of_IN the_DT ship_NN wakes_NNS and_CC their_PP$ vortical_JJ structures_NNS could_MD be_VB conducted_VVN ._SENT 
+For_IN example_NN ,_, it_PP was_VBD possible_JJ to_TO find_VV the_DT correspondence_NN between_IN the_DT particular_JJ vortices_NNS in_IN the_DT wake_NN and_CC the_DT peaks_NNS in_IN the_DT spectrum_NN of_IN the_DT velocity_NN fluctuations_NNS (_( Bhushan_NP et_NP al_NP ._SENT 
+2012_CD )_) ._SENT 
+In_IN the_DT recent_JJ series_NN of_IN works_NNS ,_, Abbas_NP (_( see_VV for_IN example_NN Abbas_NP et_NP al_NP ._SENT 
+2015_CD ;_: Abbas_NP and_CC Kornev_NP 2016_CD )_) studied_VVD the_DT unsteady_JJ loadings_NNS on_IN the_DT propeller_NN of_IN a_DT KVLCC_NN tanker_NN at_IN different_JJ manoeuvering_VVG conditions_NNS in_IN model_NN scale_NN using_VVG the_DT hybrid_NN URANS/LES_VVZ method_NN of_IN Kornev_NP et_CC al_NP ._SENT 
+(_( 2011_CD )_) ._SENT 
+The_DT results_NNS were_VBD in_IN a_DT fair_JJ agreement_NN with_IN the_DT engineering_NN methods_NNS for_IN estimation_NN of_IN forces_NNS and_CC moments_NNS fluctuations_NNS on_IN the_DT propellers_NNS ._SENT 
+One_CD of_IN the_DT most_RBS important_JJ conclusions_NNS of_IN the_DT work_NN was_VBD that_IN URANS_NP tends_VVZ to_TO strongly_RB underpredict_VV the_DT standard_JJ deviation_NN of_IN propeller_NN forces_NNS and_CC moments_NNS ._SENT 
+Liefvendahl_NP and_CC Bensow_NP (_( 2014_CD )_) conducted_VVD the_DT analysis_NN of_IN thrust_NN and_CC pressure_NN fluctuations_NNS for_IN the_DT model_NN of_IN a_DT chemical_JJ tanker_NN using_VVG wall-modelled_JJ LES_FW ._SENT 
+In_IN their_PP$ paper_NN ,_, the_DT authors_NNS noted_VVD the_DT importance_NN of_IN capturing_VVG the_DT wake_NN instationarity_NN for_IN the_DT successful_JJ prediction_NN of_IN alternating_VVG thrust_NN �_JJ �_NN in_IN all_DT simulations_NNS the_DT signal_NN of_IN thrust_NN contained_VVD non-periodic_JJ components_NNS ,_, attributed_VVD to_TO unsteady_JJ effects_NNS in_IN the_DT velocity_NN field_NN ._SENT 
+Good_JJ agreement_NN with_IN experimental_JJ data_NNS for_IN thrust_NN fluctuations_NNS was_VBD attained_VVN ._SENT 
+In_IN the_DT presented_VVN results_NNS ,_, one_PP can_MD notice_VV a_DT considerable_JJ dependence_NN of_IN the_DT thrust_NN variations_NNS on_IN the_DT upstream_JJ flow_NN separation_NN ._SENT 
+The_DT major_JJ contribution_NN to_TO the_DT observed_JJ pressure_NN oscillations_NNS was_VBD that_IN from_IN propeller_NN blade_NN rotation_NN and_CC was_VBD mostly_RB periodic_JJ ._SENT 
+This_DT paper_NN gives_VVZ an_DT overview_NN of_IN experience_NN gathered_VVN by_IN the_DT authors_NNS in_IN development_NN and_CC application_NN of_IN hybrid_JJ URANS/LES_NNS methods_NNS for_IN computations_NNS of_IN wake_NN parameters_NNS behind_IN full_JJ ships_NNS at_IN model_NN scale_NN ._SENT 
+The_DT paper_NN is_VBZ organised_VVN as_RB follows_VVZ ._SENT 
+Difficulties_NNS arising_VVG at_IN the_DT interface_NN between_IN URANS_NPS and_CC LES_FW are_VBP discussed_VVN and_CC illustrated_VVN for_IN the_DT channel_NN flow_NN case_NN in_IN Section_NP 2._CD The_DT hybrid_JJ model_NN developed_VVN by_IN the_DT authors_NNS (_( SLH_NP )_) is_VBZ described_VVN in_IN Section_NP 3._CD Performance_NN of_IN LES_FW and_CC hybrid_JJ simulations_NNS at_IN moderate_JJ Re_NP numbers_NNS are_VBP presented_VVN in_IN Section_NP 4_CD for_IN the_DT forward_RB facing-step_JJ flow_NN ._SENT 
+The_DT advantages_NNS of_IN hybrid_JJ models_NNS compared_VVN to_TO RANS-based_JJ ones_NNS are_VBP demonstrated_VVN for_IN the_DT determination_NN of_IN wake_NN parameters_NNS behind_IN full_JJ ships_NNS (_( JBC_NP ,_, KVLCC2_NP )_) in_IN Section_NP 5_CD as_IN well_RB as_RB for_IN unsteady_JJ propeller_NN loadings_NNS in_IN Section_NP 6._CD Finally_RB ,_, difficulties_NNS with_IN prediction_NN of_IN the_DT ship_NN resistance_NN by_IN hybrid_JJ methods_NNS are_VBP discussed_VVN in_IN Section_NP 7._CD <Section> 2._CD Interface_NP problem_NN in_IN hybrid_JJ simulations_NNS </Section> The_DT interface_NN problem_NN ,_, also_RB known_VVN as_IN the_DT grey_JJ zone_NN problem_NN in_IN hybrid_JJ simulations_NNS ,_, was_VBD acknowledged_VVN very_RB early_RB just_RB a_DT few_JJ years_NNS after_IN that_WDT the_DT detached_VVN eddy_NN simulation_NN method_NN was_VBD first_RB proposed_VVN in_IN Spalart_NP et_CC al_NP ._SENT 
+(_( 1997_CD )_) (_( see_VV ,_, for_IN instance_NN ,_, Travin_NP et_CC al_NP ._SENT 
+2000_CD )_) ._SENT 
+The_DT problem_NN consists_VVZ of_IN the_DT reduction_NN of_IN eddy_NN viscosity_NN below_IN the_DT RANS_NP level_NN and_CC ,_, therefore_RB ,_, in_IN the_DT lack_NN of_IN resolved_VVN turbulent_JJ stresses_NNS at_IN the_DT LES_FW side_NN of_IN the_DT interface_NN ._SENT 
+This_DT happens_VVZ due_JJ to_TO the_DT resolution_NN which_WDT is_VBZ not_RB sufficient_JJ to_TO fully_RB support_VV the_DT LES_FW content_NN and_CC to_TO secure_VV a_DT correct_JJ generation_NN of_IN instabilities_NNS in_IN the_DT LES_FW zone_NN ._SENT 
+The_DT DES_NP limiter_NN reduces_VVZ the_DT eddy_NN viscosity_NN in_IN the_DT URANS_NP zone_NN resulting_VVG in_IN the_DT lack_NN of_IN modelled_VVN stresses_NNS at_IN the_DT URANS_NP side_NN of_IN the_DT interface_NN ._SENT 
+This_DT leads_VVZ to_TO the_DT depletion_NN of_IN stresses_NNS and_CC skin_NN friction_NN and_CC can_MD cause_VV premature_JJ separation_NN (_( so-called_JJ grid-_NN induced_VVD separations_NNS )_) ._SENT 
+The_DT application_NN of_IN DDES-like_JJ shielding_VVG only_JJ shifts_NNS this_DT problem_NN away_RB from_IN the_DT body_NN but_CC does_VVZ not_RB solve_VV it_PP completely_RB ._SENT 
+The_DT problem_NN is_VBZ reflected_VVN in_IN the_DT analysis_NN of_IN the_DT flow_NN structures_NNS obtained_VVN in_IN our_PP$ simulations_NNS for_IN the_DT channel_NN test_NN case_NN at_IN Reτ=395_JJ (_( see_VV Figure_NP 1_CD )_) ._SENT 
+As_IN seen_VVN in_IN the_DT middle_JJ picture_NN ,_, switching_VVG between_IN URANS_NNS and_CC LES_FW regions_NNS in_IN IDDES_NP simulations_NNS takes_VVZ place_NN in_IN the_DT middle_NN of_IN the_DT buffer_NN zone_NN in_IN the_DT region_NN of_IN intensive_JJ formation_NN of_IN turbulent_JJ vortices_NNS and_CC generation_NN of_IN the_DT turbulent_JJ kinetic_JJ energy_NN ._SENT 
+The_DT flow_NN structures_NNS in_IN LES_FW simulations_NNS have_VHP smaller_JJR scales_NNS and_CC are_VBP predominantly_RB located_VVN closer_RBR to_TO the_DT wall_NN than_IN the_DT structures_NNS in_IN IDDES_NP simulations_NNS ._SENT 
+Formation_NN of_IN structures_NNS in_IN LES_FW simulations_NNS occurs_VVZ in_IN the_DT buffer_NN zone_NN ,_, whereas_IN the_DT IDDES_NP flow_NN structures_NNS arise_VVP rather_RB in_IN the_DT logarithmic_JJ one_CD ._SENT 
+Detailed_JJ analysis_NN of_IN LES_FW structures_NNS shows_VVZ that_IN these_DT quickly_RB break_VV down_RP into_IN smaller_JJR ones_NNS in_IN the_DT buffer_NN zone_NN and_CC in_IN the_DT beginning_NN of_IN the_DT logarithmic_JJ area_NN ._SENT 
+This_DT process_NN is_VBZ not_RB observed_VVN in_IN hybrid_JJ simulations_NNS because_IN the_DT formation_NN of_IN vortex_NN structures_NNS is_VBZ delayed_VVN due_RB to_TO lack_NN of_IN perturbations_NNS and_CC increased_VVD damping_VVG of_IN vortices_NNS in_IN URANS_NNS area_NN ._SENT 
+Indeed_RB ,_, the_DT flow_NN is_VBZ much_RB smoother_JJR in_IN the_DT buffer_NN zone_NN in_IN IDDES_NP simulations_NNS compared_VVN to_TO that_DT in_IN LES_FW ._SENT 
+Hybrid_JJ structures_NNS are_VBP developed_VVN at_IN the_DT border_NN of_IN buffer_NN zone_NN and_CC logarithmic_JJ zones_NNS when_WRB the_DT turbulent_JJ viscosity_NN drops_VVZ down_RP to_TO the_DT levels_NNS ,_, closer_JJR to_TO those_DT of_IN LES_FW ._SENT 
+Surprisingly_RB ,_, despite_IN the_DT substantial_JJ difference_NN in_IN structures_NNS ,_, satisfactory_JJ results_NNS for_IN the_DT friction_NN coefficient_NN (_( CLESf=0.97_JJ ,_, CIDDESf=0.98_JJ ,_, whereas_IN the_DT exact_JJ value_NN is_VBZ 1_CD )_) and_CC longitudinal_JJ velocities_NNS we_PP obtained_VVD in_IN both_DT simulations_NNS (_( see_VV Figure_NP 2_CD )_) ._SENT 
+Figure_NN 1._CD Comparison_NN of_IN the_DT mean_JJ velocity_NN profiles_NNS for_IN the_DT developed_VVN channel_NN flow_NN at_IN Reτ=395_NN between_IN LES_FW (_( DSM_NP )_) and_CC hybrid_JJ model_NN (_( SST-IDDES_NP )_) ._SENT 
+The_DT Reichardt_NP 's_POS correlation_NN is_VBZ used_VVN as_IN reference_NN ._SENT 
+The_DT averaged_VVD wall-normal_JJ spacing_NN is_VBZ y+=1_JJ ,_, the_DT resolutions_NNS in_IN downstream_JJ and_CC spanwise_JJ directions_NNS are_VBP x+=40_JJ and_CC z+=20_JJ ,_, respectively_RB ._SENT 
+Figure_NN 2._CD Comparison_NN of_IN the_DT channel_NN flow_NN at_IN Reτ=395_NN ._SENT 
+LES_FW (_( left_JJ )_) versus_CC IDDES_NP (_( right_NN )_) ._SENT 
+Snapshots_NNS of_IN λ2_JJ structures_NNS (_( upper_JJ )_) ,_, longitudinal_JJ vorticity_NN ωx_NP (_( middle_NN )_) and_CC longitudinal_JJ velocity_NN ux_NNS (_( lower_VV )_) ._SENT 
+The_DT interface_NN between_IN URANS_NPS and_CC LES_FW is_VBZ defined_VVN as_IN the_DT line_NN with_IN 50_CD %_NN of_IN URANS_NP content_NN defined_VVN as_IN ~fd=0.5_NP ,_, where_WRB fd~_NP is_VBZ the_DT shielding_VVG function_NN (_( see_VV Gritskevich_NP et_CC al_NP ._SENT 
+2011_CD )_) ._SENT 
+No_DT modelled-stress_NN depletion_NN or_CC log-layer_NN mismatch_NN was_VBD documented_VVN in_IN IDDES_NP simulations_NNS ._SENT 
+This_DT might_MD be_VB because_IN these_DT time_NN averaged_VVD flow_NN parameters_NNS are_VBP too_RB conservative_JJ to_TO indicate_VV the_DT above-mentioned_JJ differences_NNS in_IN the_DT flow_NN structures_NNS ._SENT 
+For_IN more_JJR complex_JJ flows_NNS ,_, this_DT difference_NN may_MD have_VH a_DT more_RBR crucial_JJ effect_NN ._SENT 
+The_DT fact_NN that_IN a_DT combination_NN of_IN theoretically_RB different_JJ methods_NNS is_VBZ used_VVN at_IN the_DT interface_NN poses_VVZ a_DT significant_JJ problem_NN ._SENT 
+Not_RB just_RB the_DT turbulent_JJ viscosity_NN has_VHZ to_TO quickly_RB change_VV between_IN the_DT two_CD zones_NNS ,_, but_CC also_RB the_DT physically_RB adequate_JJ resolved_VVN turbulent_JJ structures_NNS have_VHP to_TO appear_VV on_IN the_DT LES_FW side_NN of_IN the_DT interface_NN ._SENT 
+In_IN this_DT regard_NN ,_, the_DT works_NNS of_IN Piomelli_NP et_CC al_NP ._SENT 
+(_( 2003_CD )_) and_CC Davidson_NP and_CC Billson_NP (_( 2006_CD )_) have_VH to_TO be_VB mentioned_VVN ._SENT 
+In_IN the_DT first_JJ work_NN ,_, the_DT random_JJ fluctuations_NNS are_VBP introduced_VVN at_IN the_DT interface_NN ,_, which_WDT partly_RB compensate_VV the_DT problem_NN discussed_VVN above_IN ._SENT 
+However_RB ,_, since_IN the_DT statistical_JJ parameters_NNS of_IN the_DT turbulence_NN are_VBP not_RB taken_VVN into_IN account_NN in_IN the_DT forcing_VVG procedure_NN ,_, the_DT validity_NN of_IN the_DT generated_VVN structures_NNS also_RB remains_VVZ an_DT open_JJ question_NN ._SENT 
+In_IN the_DT work_NN of_IN Davidson_NP and_CC Billson_NP ,_, the_DT forcing_VVG method_NN was_VBD considerably_RB improved_VVN and_CC also_RB recovers_VVZ the_DT realistic_JJ turbulence_NN parameters_NNS ._SENT 
+However_RB ,_, the_DT flows_NNS ,_, which_WDT were_VBD studied_VVN in_IN both_DT of_IN the_DT works_NNS are_VBP rather_RB simple_JJ and_CC therefore_RB the_DT methods_NNS are_VBP not_RB applicable_JJ for_IN industrial_JJ applications_NNS ._SENT 
+In_IN Germano_NP (_( 2004_CD )_) and_CC Rajamani_NP and_CC Kim_NP (_( 2010_CD )_) ,_, it_PP was_VBD shown_VVN ,_, how_WRB to_TO design_VV the_DT hybrid_JJ URANS/LES_NNS methods_NNS ,_, which_WDT theoretically_RB should_MD not_RB suffer_VV from_IN any_DT interface_NN problems_NNS (_( the_DT so-called_JJ hybrid-filtering_NN approach_NN )_) ._SENT 
+Unfortunately_RB ,_, this_DT approach_NN is_VBZ also_RB hardly_RB applicable_JJ in_IN practice_NN ,_, since_IN the_DT proposed_VVN equations_NNS are_VBP harder_JJR to_TO solve_VV than_IN usual_JJ URANS_NNS or_CC LES_FW equations_NNS ._SENT 
+Moreover_RB ,_, the_DT operation_NN of_IN the_DT recovery_NN of_IN the_DT LES_FW velocity_NN field_NN from_IN the_DT hybrid_JJ velocity_NN field_NN (_( de-convolution_NN )_) is_VBZ ill-defined_JJ ,_, because_IN the_DT information_NN about_RB resolved_VVN turbulence_NN is_VBZ missing_VVG in_IN the_DT interface_NN region_NN ._SENT 
+In_IN order_NN to_TO avoid_VV this_DT problem_NN (_( Sanchez-Rocha_NP and_CC Menon_NP 2011_CD )_) added_VVD random_JJ fluctuations_NNS to_TO the_DT velocity_NN field_NN ._SENT 
+This_DT makes_VVZ the_DT method_NN similar_JJ to_TO that_DT of_IN Piomelli_NP ,_, but_CC on_IN a_DT more_RBR solid_JJ theoretical_JJ basis_NN ._SENT 
+Therefore_RB ,_, this_DT direction_NN of_IN hybrid_JJ methods_NNS '_POS development_NN seems_VVZ to_TO be_VB promising_JJ to_TO the_DT authors_NNS ._SENT 
+For_IN the_DT LH_NP model_NN ,_, which_WDT is_VBZ going_VVG to_TO be_VB presented_VVN in_IN the_DT next_JJ section_NN ,_, the_DT grey_JJ area_NN is_VBZ somewhat_RB less_RBR pronounced_JJ ,_, since_IN the_DT viscosity_NN is_VBZ rapidly_RB switched_VVN between_IN the_DT regions_NNS ,_, allowing_VVG for_IN a_DT faster_JJR development_NN of_IN resolved_VVN turbulent_JJ content_NN ._SENT 
+Summarising_VVG ,_, at_IN the_DT moment_NN ,_, there_EX is_VBZ no_RB general_JJ practically_RB applicable_JJ remedy_NN for_IN the_DT grey_JJ area_NN problem_NN ._SENT 
+Its_PP$ solution_NN should_MD be_VB found_VVN for_IN each_DT particular_JJ case_NN separately_RB :_: as_RB soon_RB as_IN the_DT grey_JJ area_NN problem_NN is_VBZ revealed_VVN ,_, modification_NN of_IN mesh_NN resolution_NN or_CC numerical_JJ schemes_NNS or_CC even_RB change_VV of_IN the_DT simulation_NN strategy_NN should_MD be_VB undertaken_VVN ._SENT 
+The_DT mesh_NN refinement_NN can_MD lead_VV to_TO a_DT more_RBR rapid_JJ RANS/LES_NNS transition_NN ,_, the_DT use_NN of_IN centred_VVN numerical_JJ schemes_NNS can_MD speed-up_NNS the_DT transition_NN by_IN slight_JJ numerical_JJ instabilities_NNS ,_, whereas_IN the_DT use_NN of_IN a_DT synthetic_JJ turbulence_NN generator_NN can_MD directly_RB introduce_VV the_DT fluctuations_NNS triggering_VVG the_DT turbulence_NN transition_NN ._SENT 
+<Section> 3._CD LH_NP hybrid_JJ model_NN </Section> The_DT momentum_NN equations_NNS written_VVN in_IN terms_NNS of_IN URANS_NNS or_CC LES_FW formulations_NNS can_MD be_VB represented_VVN in_IN a_DT general_JJ form_NN :_: @(1_JJ )_) where_WRB ui_NP is_VBZ the_DT velocity_NN component_NN ,_, p_NN is_VBZ the_DT pressure_NN ,_, ρ_NP is_VBZ density_NN ,_, ν_NP is_VBZ the_DT kinematic_JJ viscosity_NN and_CC fi_NP is_VBZ the_DT source_NN term_NN ._SENT 
+For_IN LES_FW ,_, the_DT overline_NN means_VVZ the_DT filtering_VVG and_CC the_DT turbulent_JJ stresses_NNS are_VBP the_DT sugrid-scale_NN stresses_VVZ τhij=τSGSij(�_NP �_NP ,_, u¯¯¯i_NP ,_, C_NP )_) ,_, whereas_IN for_IN URANS_NNS the_DT overline_NN stands_VVZ for_IN the_DT time_NN averaging_NN and_CC the_DT turbulent_JJ stresses_NNS are_VBP the_DT Reynolds_NP stresses_VVZ τhij=τRANSij=τtij(u¯¯¯i_NP ,_, k_NN ,_, ϵ_NP ,_, C_NP )_) ._SENT 
+Here_RB �_NP �_NP is_VBZ the_DT characteristic_JJ cell_NN size_NN ,_, k_NN is_VBZ the_DT turbulence_NN kinetic_JJ energy_NN ,_, ε_NP is_VBZ the_DT dissipation_NN rate_NN and_CC C_NP is_VBZ a_DT certain_JJ constant_JJ ._SENT 
+Although_IN this_DT similarity_NN is_VBZ purely_RB formal_JJ ,_, this_DT form_NN is_VBZ very_RB convenient_JJ in_IN implementation_NN allowing_VVG one_CD to_TO easily_RB blend_VV URANS_NNS and_CC LES_FW approaches_NNS by_IN changing_VVG the_DT τhij_NP ._SENT 
+The_DT equation_NN (_( 1_CD )_) is_VBZ accompanied_VVN by_IN the_DT continuity_NN constraint_NN ._SENT 
+Introducing_VVG a_DT blending_VVG function_NN f(x,t)∈[0,1_NN ]_SYM which_WDT is_VBZ 1_CD in_IN the_DT RANS_NP region_NN and_CC 0_CD in_IN the_DT LES_FW one_CD ,_, the_DT blended_VVD (_( hybrid_NN )_) stress_VVP τhij_NP can_MD be_VB represented_VVN as_IN a_DT weighted_JJ sum_NN of_IN the_DT RANS_NPS and_CC LES_FW components_NNS :_: @(2_NP )_) Solution_NN of_IN (_( 1_LS )_) with_IN corresponding_JJ hybrid_JJ stresses_NNS provides_VVZ a_DT velocity_NN field_NN which_WDT is_VBZ continuous_JJ over_IN the_DT whole_JJ computational_JJ domain_NN ._SENT 
+The_DT choice_NN of_IN f_NN is_VBZ the_DT main_JJ challenge_NN in_IN the_DT construction_NN of_IN a_DT robust_JJ hybrid_JJ method_NN ._SENT 
+If_IN the_DT blending_NN function_NN is_VBZ rapidly_RB changed_VVN from_IN 1_CD to_TO 0_CD ,_, so_RB that_IN the_DT region_NN ,_, where_WRB 0 < f < 1_NN is_VBZ thin_JJ ,_, the_DT hybridisation_NN strategy_NN is_VBZ called_VVN RANS/LES_VVZ interfacing_NN ._SENT 
+If_IN f=f(x_NP )_) ,_, then_RB the_DT interface_NN region_NN is_VBZ prescribed_VVN and_CC called_VVN ‘hard’_NN ._SENT 
+On_IN the_DT contrary_NN ,_, if_IN the_DT interface_NN dynamically_RB changes_VVZ its_PP$ position_NN in_IN time_NN depending_VVG on_IN the_DT solution_NN ,_, (_( i.e._FW f=f(x,t_NP )_) )_) then_RB the_DT interface_NN is_VBZ ‘soft’_JJ ._SENT 
+Blending_VVG of_IN the_DT RANS_NPS and_CC LES_FW models_NNS ,_, which_WDT both_CC use_VV the_DT eddy_NN viscosity_NN concept_NN (_( e.q._NP k−�_NP �_NP SST_NP model_NN with_IN Smagorinsky_NP model_NN )_) is_VBZ done_VVN through_IN the_DT viscosity_NN instead_RB of_IN the_DT stress_NN itself_PP :_: @(3_NP )_) with_IN @_SYM being_VBG a_DT strain-rate_NN tensor_NN ._SENT 
+The_DT original_JJ version_NN of_IN the_DT LH_NP (_( LeMoS_NP Hybrid_NN ,_, LeMoS_NP is_VBZ the_DT German_JJ translation_NN of_IN the_DT chair_NN of_IN modeling_NN and_CC simulation_NN )_) model_NN was_VBD proposed_VVN in_IN Kornev_NP et_CC al_NP ._SENT 
+(_( 2011_CD )_) ._SENT 
+This_DT hybrid_JJ method_NN follows_VVZ the_DT concept_NN of_IN unified_JJ soft-interface_JJ modeling_NN using_VVG the_DT eddy-viscosity_NN concept_NN (_( 3_CD )_) ._SENT 
+The_DT computational_JJ domain_NN is_VBZ dynamically_RB decomposed_VVN into_IN RANS_NPS and_CC LES_FW regions_NNS based_VVN on_IN the_DT ratio_NN h=h(x_NN ,_, t)=L(x_NP ,_, t)/Δ(x_NP )_) between_IN the_DT integral_JJ length_NN scale_NN L_NP and_CC the_DT characteristic_JJ cell_NN size_NN Δ=0.5(Δ2max+V2/3)−−−−−−−−−−−−−−√_NN ._SENT 
+This_DT form_NN for_IN �_NP �_NP is_VBZ proved_VVN to_TO be_VB the_DT most_RBS suitable_JJ choice_NN for_IN very_RB elongated_VVN cells_NNS with_IN a_DT longitudinal_JJ dominating_JJ size_NN oriented_VVN along_IN the_DT ship_NN surface_NN ._SENT 
+The_DT hybrid_JJ viscosity_NN is_VBZ represented_VVN as_IN a_DT weighted_JJ sum_NN of_IN kinematic_JJ turbulent_JJ viscosity_NN and_CC subgrid_JJ scale_NN viscosity_NN :_: @(4_NP )_) The_DT blending_VVG function_NN f=f(x,t_NN )_) reads_VVZ :_: @(6_NP )_) Cells_NNS ,_, having_VHG h<h1_JJ are_VBP considered_VVN too_RB large_JJ for_IN resolving_VVG the_DT local_JJ energy-containing_NN vortices_NNS ,_, and_CC for_IN them_PP the_DT turbulent_JJ kinematic_JJ viscosity_NN νt_NN is_VBZ calculated_VVN using_VVG Menter_NP 's_POS k−�_NP �_NP SST_NP model_NN (_( Menter_NP et_NP al_NP ._SENT 
+2003_CD )_) ._SENT 
+Parameters_NNS h1_JJ and_CC h2_NN were_VBD chosen_VVN as_IN 0.95_CD and_CC 1.05_CD ,_, respectively_RB ._SENT 
+To_TO estimate_VV the_DT integral_JJ length_NN scale_NN L_NP ,_, the_DT Prandl-Kolmogorov_NP formula_NN (_( Schlichting_NP 2000_CD )_) with_IN the_DT proportionality_NN factor_NN CL=1_NN is_VBZ used_VVN ._SENT 
+Recalling_VVG that_IN ω=ϵ/kβ�_NP �_NP ,_, one_PP obtains_VVZ :_: @(7_JJ )_) where_WRB β∗=0.09_JJ ._SENT 
+This_DT way_NN L_NP is_VBZ represented_VVN in_IN terms_NNS of_IN turbulent_JJ quantities_NNS ,_, used_VVN in_IN underlying_VVG k−�_NP �_NP SST_NP model_NN ._SENT 
+Hybrid_JJ viscosity_NN obtained_VVN in_IN the_DT described_VVN manner_NN is_VBZ also_RB used_VVN for_IN the_DT calculation_NN of_IN the_DT production_NN and_CC diffusion_NN terms_NNS in_IN k_NN and_CC �_JJ �_JJ equations_NNS ._SENT 
+Since_IN the_DT body_NN is_VBZ entirely_RB submerged_VVN in_IN the_DT URANS_NP zone_NN ,_, the_DT boundary_NN conditions_NNS for_IN k_NN and_CC �_JJ �_NN typical_JJ for_IN k−�_NP �_NP SST_NP model_NN are_VBP enforced_VVN on_IN the_DT body_NN surface_NN ._SENT 
+According_VVG to_TO its_PP$ idea_NN ,_, this_DT model_NN is_VBZ similar_JJ to_TO the_DT X-LES_NNS model_NN based_VVN on_IN the_DT combination_NN of_IN the_DT turbulent-non_JJ turbulent_JJ (_( TNT_NP )_) k−�_NP �_NP URANS_NP and_CC subgrid_NP k_NN -equation_NP LES_FW models_NNS (_( see_VV Kok_NP et_CC al_NP ._SENT 
+2004_CD )_) ._SENT 
+The_DT LH_NP model_NN was_VBD improved_VVN in_IN Shevchuk_NP and_CC Kornev_NP (_( 2018_CD )_) by_IN introduction_NN of_IN shielding_VVG ,_, which_WDT would_MD force_VV the_DT RANS/LES_NNS interface_NN of_IN LH_NP model_NN to_TO move_VV farther_RBR from_IN the_DT wall_NN and_CC reduce_VV the_DT grid-induced_JJ separation_NN in_IN a_DT way_NN which_WDT is_VBZ analogous_JJ to_TO transformation_NN of_IN DES_NP to_TO DDES_NP ._SENT 
+Since_IN the_DT criterion_NN of_IN the_DT RANS/LES_NNS switch_VVP in_IN LH_NP model_NN is_VBZ the_DT ratio_NN of_IN integral_JJ lengthscale_NP L_NP to_TO cell_NN size_NN �_JJ �_NN it_PP was_VBD decided_VVN to_TO modify_VV the_DT lenthscale_NP L_NP in_IN the_DT following_VVG way_NN :_: @(8_NP )_) where_WRB @(9_JJ )_) After_IN that_IN the_DT modified_JJ lengthscale_NN L~_NN is_VBZ used_VVN for_IN determination_NN of_IN RANS/LES_NP interface_NN instead_RB of_IN a_DT pure_JJ L._NP In_IN the_DT boundary_NN layer_NN ,_, the_DT function_NN fd_NN tends_VVZ to_TO zero_VV and_CC reduces_VVZ the_DT integral_JJ lenthscale_NN to_TO zero_VV near_IN the_DT wall_NN ,_, so_RB that_IN the_DT ratio_NN L~/�_NN �_NN is_VBZ kept_VVN small_JJ in_IN the_DT vicinity_NN of_IN the_DT body_NN ._SENT 
+The_DT model_NN therefore_RB switches_VVZ to_TO RANS_NNS near_IN the_DT wall_NN ,_, regardless_RB of_IN the_DT mesh_NN resolution_NN ._SENT 
+In_IN what_WP follows_VVZ the_DT modified_JJ version_NN of_IN LH_NP model_NN is_VBZ referred_VVN to_TO as_RB Shielded_VVN LeMoS_NP Hybrid_NN (_( SLH_NP )_) ._SENT 
+<Section> 4._CD Performance_NN of_IN LES_FW and_CC hybrid_JJ simulations_NNS at_IN moderate_JJ Re_NP numbers_NNS </Section> Originally_RB ,_, the_DT detached_VVN eddy_NN simulation_NN was_VBD developed_VVN for_IN flows_NNS with_IN separations_NNS ,_, to_TO accurately_RB predict_VV unsteady_JJ motion_NN of_IN multiple_JJ scale_NN eddies_NNS detached_VVN from_IN a_DT body_NN ._SENT 
+One_CD of_IN the_DT ideal_JJ test_NN cases_NNS which_WDT convincingly_RB shows_VVZ advantages_NNS of_IN this_DT technique_NN is_VBZ the_DT backward_RB facing_VVG step_NN flow_NN ._SENT 
+In_IN this_DT case_NN ,_, the_DT flow_NN separation_NN occurs_VVZ at_IN the_DT sharp_JJ edge_NN with_IN creation_NN of_IN the_DT large_JJ recirculation_NN zone_NN ._SENT 
+Hybrid_JJ techniques_NNS are_VBP proved_VVN to_TO be_VB very_RB efficient_JJ in_IN prediction_NN of_IN the_DT velocity_NN field_NN and_CC length_NN of_IN the_DT recirculation_NN area_NN ._SENT 
+The_DT flow_NN around_IN the_DT forward_RB facing_VVG step_NN differs_VVZ substantially_RB from_IN the_DT backward_RB facing_VVG one_CD ._SENT 
+There_EX are_VBP two_CD regions_NNS of_IN separation_NN ._SENT 
+The_DT upstream_JJ separation_NN arises_VVZ from_IN the_DT adverse_JJ pressure_NN gradient_NN in_IN front_NN of_IN the_DT step_NN face_NN ._SENT 
+The_DT second_JJ massive_JJ separation_NN takes_VVZ place_NN over_IN the_DT sharp_JJ edge_NN and_CC has_VHZ a_DT fixed_VVN point_NN of_IN separation_NN ._SENT 
+The_DT flow_NN in_IN the_DT separation_NN bubble_NN is_VBZ dominated_VVN by_IN vortices_NNS shedding_VVG from_IN the_DT step_NN edge_NN and_CC their_PP$ motion_NN downstream_JJ ._SENT 
+The_DT simulation_NN of_IN this_DT separation_NN bubble_NN is_VBZ more_RBR difficult_JJ than_IN behind_IN the_DT backward_RB facing-step_JJ because_IN the_DT boundary_NN layer_NN at_IN the_DT separation_NN point_NN is_VBZ very_RB thin_JJ ,_, which_WDT results_VVZ in_IN a_DT formation_NN of_IN concentrated_JJ vortices_NNS convected_VVD close_RB to_TO the_DT wall_NN and_CC strongly_RB interacting_VVG with_IN it_PP ._SENT 
+Additionally_RB ,_, there_EX is_VBZ a_DT correlation_NN between_IN turbulent_JJ fluctuations_NNS in_IN both_DT separation_NN zones_NNS ._SENT 
+Results_NNS of_IN simulations_NNS and_CC measurement_NN for_IN the_DT forward_RB facing_VVG step_NN are_VBP presented_VVN in_IN Figures_NNS 3_CD and_CC 4._CD The_DT measurement_NN of_IN the_DT velocity_NN field_NN was_VBD performed_VVN in_IN the_DT cavitation_NN tunnel_NN of_IN the_DT Ship_NP Model_NP Basin_NP Potsdam_NP (_( SVA_NP )_) ._SENT 
+The_DT Reynolds_NP number_NN based_VVN on_IN the_DT step_NN height_NN h_NN =_SYM 0.17 m_NN and_CC the_DT incident_NN velocity_NN U∞=3 m/s_NNS is_VBZ Re=5.1⋅105_JJ ._SENT 
+The_DT computational_JJ domain_NN height_NN is_VBZ 5h_NP ,_, the_DT spanwise_JJ width_NN of_IN the_DT domain_NN equals_VVZ 5h_NP ._SENT 
+The_DT inlet_NN and_CC outlet_NN are_VBP located_VVN at_IN x=−4h_NP and_CC 20h_NP ,_, respectively_RB ,_, and_CC the_DT step_NN edge_NN is_VBZ placed_VVN at_IN the_DT point_NN x=z=0_NN ._SENT 
+The_DT computational_JJ domain_NN geometry_NN corresponds_VVZ to_TO that_DT of_IN the_DT experimental_JJ one_CD ._SENT 
+Velocity_NN measurements_NNS ,_, performed_VVD using_VVG both_CC the_DT Particle_NN Image_NN (_( PIV_NP )_) and_CC Laser_NP Doppler_NP Velocimetry_NP (_( LDV_NP )_) methods_NNS ,_, show_VVP an_DT acceptable_JJ agreement_NN between_IN them_PP ._SENT 
+The_DT uncertainty_NN of_IN PIV_NP measurements_NNS for_IN this_DT experiment_NN is_VBZ estimated_VVN as_IN 2.5_CD %_NN ,_, whereas_IN the_DT LDV_NP measurements_NNS are_VBP more_RBR accurate_JJ with_IN the_DT uncertainty_NN of_IN 0.5_CD %_NN ._SENT 
+The_DT simulations_NNS were_VBD performed_VVN using_VVG DDES_NNS ,_, IDDES_NNS (_( both_CC based_VVN on_IN the_DT Spalart_NP Allmaras_NP URANS_NP model_NN )_) ,_, LH_NP (_( without_IN SLH_NP modification_NN ,_, see_VVP Section_NP 3_CD )_) and_CC LES_FW models_NNS on_IN the_DT same_JJ grid_NN with_IN 7.846.360_CD cells_NNS ._SENT 
+Since_IN the_DT values_NNS of_IN x+,y+_NP and_CC z+_NP averaged_VVD over_IN the_DT step_NN surface_NN are_VBP all_RB equal_JJ to_TO 21_CD ,_, the_DT near-wall_NN modelled_VVN (_( NWM_NN )_) LES_FW with_IN the_DT wall_NN function_NN based_VVN on_IN the_DT Spalding_NP velocity_NN profile_NN (_( Spalding_NP 1961_CD )_) was_VBD utilised_VVN in_IN computations_NNS ._SENT 
+For_IN all_DT turbulence_NN models_NNS ,_, the_DT Crank_NP Nicolson_NP scheme_NN is_VBZ applied_VVN for_IN the_DT temporal_JJ derivatives_NNS ,_, whereas_IN the_DT limited_JJ Linear_NP scheme_NN with_IN the_DT mix_NN 90_CD %_NN CDS_NP +10_NP %_NN UDS_NNS is_VBZ used_VVN for_IN the_DT convection_NN term_NN ._SENT 
+The_DT average_JJ time_NN being_VBG equal_JJ to_TO tav=tU∞/h=12⋅3/0.17=212_NN was_VBD found_VVN from_IN the_DT statistics_NNS convergence_NN tests_NNS ._SENT 
+Computations_NNS were_VBD performed_VVN with_IN the_DT Courant_NP number_NN of_IN 0.2_CD ._SENT 
+Velocity_NN at_IN the_DT inlet_NN was_VBD set_VVN to_TO U∞_NN without_IN fluctuations_NNS ._SENT 
+Figure_NN 3._CD An_DT instantaneous_JJ field_NN of_IN the_DT axial_JJ velocity_NN from_IN hybrid_JJ (_( LH_NP )_) simulations_NNS ._SENT 
+Figure_NN 4._CD Time_NN averaged_VVD axial_JJ velocity_NN component_NN ux/U∞_NN of_IN the_DT flow_NN around_IN the_DT forward_JJ facing-_NN step_NN in_IN the_DT middle_JJ plane_NN along_IN different_JJ lines_NNS e12_JJ ,_, e22_JJ and_CC e26_JJ ._SENT 
+Velocity_NN distributions_NNS along_IN lines_NNS e12_JJ (_( 0.6 h_NP from_IN the_DT face_NN )_) ,_, e22(2.6 h_NP )_) and_CC e26_NP (_( 3.4 h_NP )_) (_( see_VV Figure_NP 3_CD )_) are_VBP presented_VVN in_IN Figure_NP 4._CD LES_FW simulations_NNS ,_, carried_VVD out_RP with_IN the_DT Dynamic_JJ Smagorinsky_NP model_NN ,_, agree_VVP well_RB with_IN the_DT LDV_NP measurement_NN data_NNS ._SENT 
+Better_JJR agreement_NN with_IN LDV_NP data_NNS is_VBZ a_DT quite_RB reasonable_JJ factor_NN since_IN ,_, as_IN it_PP is_VBZ known_VVN ,_, the_DT accuracy_NN of_IN LDV_NP is_VBZ higher_JJR than_IN PIV_NP ._SENT 
+LH_NP model_NN shows_VVZ minimum_JJ deviations_NNS from_IN LES_FW for_IN all_DT sections_NNS up_RP to_TO the_DT wall_NN z=0_NN ._SENT 
+Obviously_RB ,_, since_IN the_DT switching_NN between_IN LES_FW and_CC URANS_NP does_VVZ not_RB explicitly_RB depend_VV on_IN the_DT wall_NN distance_NN and_CC it_PP is_VBZ determined_VVN by_IN the_DT flow_NN physics_NN ,_, the_DT transition_NN to_TO the_DT LES_FW mode_NN occurs_VVZ very_RB close_VV to_TO the_DT wall_NN in_IN LH_NP simulations_NNS ._SENT 
+Performance_NN of_IN DDES_NP is_VBZ low_RB compared_VVN to_TO other_JJ models_NNS ,_, especially_RB close_JJ to_TO the_DT wall_NN ._SENT 
+IDDES_NP behaves_VVZ much_RB better_JJR ,_, although_IN it_PP shows_VVZ too_RB big_JJ excess_NN of_IN the_DT longitudinal_JJ velocity_NN within_IN the_DT shear_NN layer_NN above_IN the_DT separation_NN bubble_NN at_IN −0.075<z<−0.10_NP ._SENT 
+The_DT slope_NN ∂ux/∂z_NN is_VBZ much_RB higher_JJR than_IN in_IN LDV_NP measurements_NNS resulting_VVG in_IN the_DT overestimation_NN of_IN the_DT longitudinal_JJ velocity_NN within_IN the_DT shear_NN layer_NN ._SENT 
+These_DT results_NNS and_CC the_DT analysis_NN of_IN flows_NNS snapshots_NNS point_VVP out_RP that_IN the_DT thickness_NN of_IN the_DT separation_NN bubble_NN is_VBZ underestimated_VVN in_IN IDDES_NP simulations_NNS ._SENT 
+Obviously_RB ,_, the_DT activation_NN of_IN the_DT URANS_NNS on_IN the_DT grid_NN with_IN sufficient_JJ resolution_NN results_NNS in_IN the_DT deterioration_NN of_IN the_DT simulation_NN accuracy_NN ._SENT 
+These_DT results_NNS are_VBP interesting_JJ from_IN the_DT point_NN of_IN view_NN that_IN hybrid_JJ simulations_NNS are_VBP performed_VVN on_IN the_DT grid_NN with_IN a_DT resolution_NN which_WDT can_MD be_VB considered_VVN as_IN a_DT sufficient_JJ one_CD ,_, because_IN NWM_NN LES_FW simulations_NNS demonstrate_VVP a_DT good_JJ performance_NN ._SENT 
+It_PP is_VBZ a_DT common_JJ opinion_NN that_IN the_DT accuracy_NN degradation_NN of_IN hybrid_JJ methods_NNS arises_VVZ when_WRB the_DT LES_FW zone_NN penetrates_VVZ too_RB deep_JJ into_IN the_DT insufficiently_RB resolved_VVN boundary_NN layer_NN ._SENT 
+Here_RB we_PP have_VHP another_DT situation_NN with_IN a_DT similar_JJ effect_NN ._SENT 
+Therefore_RB ,_, forced_JJ activation_NN of_IN the_DT URANS_NP zone_NN based_VVN on_IN the_DT pure_JJ geometrical_JJ wall_NN distance_NN can_MD play_VV a_DT negative_JJ role_NN for_IN the_DT simulation_NN accuracy_NN ._SENT 
+This_DT simple_JJ test_NN case_NN leads_VVZ to_TO the_DT conclusion_NN that_IN the_DT application_NN of_IN LES_FW is_VBZ more_RBR preferable_JJ ,_, provided_VVD the_DT sufficient_JJ resolution_NN can_MD be_VB attained_VVN for_IN the_DT given_VVN Re_NP number_NN ._SENT 
+For_IN most_JJS of_IN practically_RB relevant_JJ applications_NNS ,_, this_DT is_VBZ not_RB the_DT case_NN and_CC ,_, consequently_RB ,_, there_EX is_VBZ no_DT alternative_NN to_TO hybrid_JJ techniques_NNS ._SENT 
+Formal_JJ application_NN of_IN LES_FW on_IN coarse_JJ grid_NN results_NNS in_IN under_IN resolution_NN of_IN the_DT boundary_NN layer_NN which_WDT is_VBZ reflected_VVN ,_, for_IN instance_NN ,_, in_IN a_DT strong_JJ underestimation_NN of_IN the_DT ship_NN resistance_NN (_( see_VV Table_NN 1_CD in_IN Kornev_NP et_CC al_NP ._SENT 
+2011_CD )_) ._SENT 
+Good_JJ performance_NN of_IN the_DT LH_NP model_NN ,_, demonstrated_VVN above_IN ,_, points_VVZ out_RP that_IN more_RBR sensible_JJ models_NNS switching_VVG the_DT URANS_NPS and_CC LES_FW zones_NNS according_VVG to_TO criteria_NNS based_VVN on_IN pure_JJ flow_NN parameters_NNS could_MD be_VB a_DT good_JJ alternative_NN to_TO DES_NP and_CC LES_FW ._SENT 
+Unfortunately_RB ,_, our_PP$ experience_NN shows_VVZ that_IN there_EX is_VBZ no_DT universal_JJ model_NN choice_NN ._SENT 
+In_IN the_DT next_JJ Section_NP 5.2_CD ,_, we_PP demonstrate_VVP the_DT limitation_NN of_IN the_DT LH_NP model_NN ._SENT 
+<Section> 5._CD Determination_NN of_IN the_DT nominal_JJ ship_NN wake_NN using_VVG hybrid_JJ methods_NNS </Section> 5.1_CD ._SENT 
+Application_NN of_IN the_DT LH_NP model_NN on_IN block_NN structured_VVN non-ambiguous_JJ grids_NNS ._SENT 
+The_DT definition_NN of_IN non-ambiguous_JJ grid_NN was_VBD introduced_VVN by_IN Spalart_NP et_CC al_NP ._SENT 
+(_( 2006_CD )_) ._SENT 
+The_DT grid_NN is_VBZ non-ambiguous_JJ if_IN the_DT resolution_NN in_IN downstream_JJ direction_NN Δx_NN is_VBZ larger_JJR than_IN the_DT boundary_NN layer_NN thickness_NN δ_NN ,_, i.e._FW Δx/δ≥1_JJ ._SENT 
+There_EX is_VBZ a_DT widespread_JJ opinion_NN that_IN RANS_NP methods_NNS are_VBP capable_JJ of_IN accurate_JJ modelling_VVG of_IN the_DT time_NN averaged_VVD wake_NN and_CC the_DT unsteady_JJ loadings_NNS on_IN a_DT propeller_NN due_JJ to_TO the_DT wake_NN non-uniformity_NN ._SENT 
+This_DT might_MD be_VB true_JJ for_IN ships_NNS with_IN small_JJ and_CC moderate_JJ block_NN coefficient_NN CB_NP ._SENT 
+However_RB ,_, for_IN full_JJ ships_NNS with_IN CB>0.8_NP ,_, the_DT application_NN of_IN the_DT hybrid_JJ techniques_NNS shows_VVZ serious_JJ advantages_NNS ._SENT 
+This_DT is_VBZ illustrated_VVN below_IN for_IN the_DT JBC_NP (_( Japan_NP Bulk_NN Carrier_NP )_) test_NN case_NN (_( Kornev_NP and_CC Abbas_NP 2018_CD )_) ._SENT 
+LH_NP simulations_NNS were_VBD performed_VVN with_IN block_NN structured_JJ grid_NN with_IN 30 M_NN cells_NNS ._SENT 
+The_DT computations_NNS have_VHP been_VBN carried_VVN out_RP with_IN the_DT fixed_VVN maximal_JJ Courant_NP number_NN Co_NP of_IN 0.8_CD within_IN the_DT real-time_JJ period_NN of_IN 22 s_NP ._SENT 
+The_DT averaged_VVD wall-normal_JJ spacing_NN is_VBZ y+=0.28_JJ ,_, the_DT resolutions_NNS in_IN downstream_JJ and_CC cross_NN directions_NNS are_VBP x+=924_JJ and_CC z+=200_JJ ,_, respectively_RB ._SENT 
+The_DT study_NN has_VHZ been_VBN performed_VVN for_IN the_DT constant_JJ velocity_NN of_IN U=1.179 m/s_NNS corresponding_JJ to_TO the_DT model_NN length_NN based_VVN Reynolds_NP number_NN of_IN Re=7.46×106_NP ._SENT 
+For_IN the_DT detailed_JJ description_NN of_IN the_DT numerical_JJ setup_NN and_CC the_DT test_NN case_NN ,_, as_RB well_RB as_IN for_IN the_DT validation_NN and_CC verification_NN procedure_NN results_NNS the_DT reader_NN is_VBZ referred_VVN to_TO the_DT work_NN (_( Kornev_NP and_CC Abbas_NP 2018_CD )_) ._SENT 
+A_DT remarkable_JJ achievement_NN of_IN the_DT hybrid_JJ simulations_NNS is_VBZ the_DT reproduction_NN of_IN the_DT closed_JJ velocity_NN contour_NN (_( ‘island’_NP )_) u/U=0.2_NP (_( s._NP Figure_NP 5(b_NP )_) )_) ,_, which_WDT is_VBZ similar_JJ to_TO the_DT experimental_JJ one_CD ._SENT 
+In_IN URANS_NP simulations_NNS (_( Figure_NP 5(c_NP )_) )_) the_DT closed_JJ contours_NNS are_VBP not_RB revealed_VVN ._SENT 
+The_DT presence_NN of_IN this_DT island_NN was_VBD previously_RB associated_VVN with_IN the_DT effect_NN of_IN a_DT strong_JJ longitudinal_JJ bilge_NN vortex_NN with_IN a_DT deficit_NN in_IN the_DT axial_JJ velocity_NN ,_, which_WDT is_VBZ well_RB known_VVN from_IN the_DT aircraft_NN tip_NN vortices_NNS ._SENT 
+As_IN it_PP was_VBD shown_VVN in_IN Kornev_NP and_CC Abbas_NP (_( 2018_CD )_) ,_, the_DT longitudinal_JJ vortex_NN exists_VVZ only_RB in_IN a_DT time_NN averaged_VVD sense_NN ._SENT 
+Our_PP$ simulations_NNS with_IN IDDES_NNS at_IN 10 M_NN cells_NNS revealed_VVD the_DT existence_NN of_IN the_DT island_NN u/U=0.3_NN ._SENT 
+Therefore_RB ,_, one_PP can_MD expect_VV that_IN IDDES_NP has_VHZ also_RB the_DT potential_NN to_TO reproduce_VV the_DT averaged_VVN wake_NN field_NN properly_RB at_IN higher_JJR grid_NN resolutions_NNS ._SENT 
+Recently_RB ,_, Visonneau_NP et_CC al_NP ._SENT 
+(_( 2016_CD )_) showed_VVD that_IN a_DT very_RB high_JJ accuracy_NN in_IN the_DT prediction_NN of_IN the_DT mean_JJ wake_NN velocities_NNS and_CC reproduction_NN of_IN the_DT closed_JJ contour_NN u/U=0.2_NN can_MD also_RB be_VB attained_VVN with_IN a_DT double_JJ model_NN computation_NN using_VVG wall_NN resolved_VVN EARSM_NN and_CC adaptive_JJ grid_NN refinement_NN ._SENT 
+Advantages_NNS of_IN the_DT EARSM_NN models_NNS were_VBD also_RB documented_VVN by_IN Pereira_NP et_CC al_NP ._SENT 
+(_( 2017_CD )_) for_IN the_DT mean_JJ wake_NN prediction_NN behind_IN the_DT KVLCC2_JJ ship_NN ._SENT 
+Concluding_VVG ,_, the_DT wake_NN in_IN hybrid_JJ simulations_NNS is_VBZ more_RBR non-uniform_JJ and_CC closer_RBR to_TO experiments_NNS for_IN full_JJ ships_NNS than_IN in_IN the_DT most_JJS of_IN RANS/URANS_NNS simulations_NNS ._SENT 
+Figure_NN 5._CD Time_NN averaged_VVD axial_JJ velocity_NN component_NN u/U_NN at_IN the_DT cross_NN section_NN S2=x/LPP=0.9625_NN ._SENT 
+Measurement_NN done_VVN at_IN the_DT National_NP Maritime_NP Research_NP Institute_NP (_( NMRI_NP )_) (_( a_DT )_) versus_IN hybrid_JJ LH_NP (_( b_LS )_) and_CC URANS_NP k−ωSST_NP (_( c_LS )_) simulations_NNS ._SENT 
+The_DT calculation_NN of_IN turbulent_JJ fluctuations_NNS in_IN a_DT wake_NN is_VBZ a_DT big_JJ challenge_NN for_IN CFD_NN ._SENT 
+A_DT convincing_JJ result_NN ,_, illustrating_VVG advantages_NNS of_IN the_DT LH_NP hybrid_NN simulations_NNS is_VBZ presented_VVN in_IN Figure_NP 6._CD The_DT agreement_NN of_IN hybrid_JJ simulations_NNS with_IN the_DT experimental_JJ PIV_NP data_NNS of_IN NMRI_NP is_VBZ much_RB better_JJR than_IN that_IN of_IN 13_CD URANS_NNS and_CC RANS_NNS simulations_NNS ,_, which_WDT are_VBP located_VVN within_IN the_DT shaded_JJ area_NN ._SENT 
+They_PP are_VBP not_RB personalised_VVN because_IN they_PP were_VBD presented_VVN in_IN the_DT summary_NN of_IN the_DT Tokyo_NP workshop_NN (_( see_VV Larsson_NP et_CC al_NP ._SENT 
+2015_CD )_) ._SENT 
+The_DT local_JJ bumps_NNS in_IN the_DT vertical_JJ distribution_NN of_IN TKE_NP in_IN the_DT section_NN S7_JJ and_CC in_IN the_DT horizontal_JJ distribution_NN in_IN the_DT section_NN S4_NN seem_VVP to_TO be_VB an_DT artefact_NN in_IN experimental_JJ data_NNS processing_VVG because_IN they_PP have_VHP no_RB physically_RB proper_JJ explanation_NN ._SENT 
+It_PP is_VBZ interesting_JJ that_IN the_DT estimated_VVN averaged_VVD TKE_NP behind_IN the_DT KVLCC2_JJ tanker_NN k−−√=14%U∞_NN (_( see_VV Pattenden_NP et_CC al_NP ._SENT 
+2004_CD )_) is_VBZ in_IN accordance_NN with_IN NMRI_NP measurement_NN data_NNS for_IN the_DT JBC_NN k≈0.025m2/s2_NN ._SENT 
+Our_PP$ simulation_NN with_IN IDDES_NNS at_IN 10 M_NN cells_NNS has_VHZ also_RB shown_VVN a_DT clear_JJ tendency_NN for_IN TKE_NP to_TO get_VV sufficiently_RB higher_JJR when_WRB the_DT hybrid_NN URANS/LES_VVZ simulation_NN technique_NN is_VBZ applied_VVN ._SENT 
+We_PP expect_VVP that_IN the_DT accuracy_NN of_IN IDDES_NP results_NNS will_MD be_VB comparable_JJ with_IN our_PP$ hybrid_JJ simulation_NN at_IN the_DT same_JJ grid_NN resolution_NN ._SENT 
+This_DT was_VBD confirmed_VVN in_IN DES_NP -SST_NP simulations_NNS by_IN Visonneau_NP et_CC al_NP ._SENT 
+(_( 2016_CD )_) who_WP used_VVD grids_NNS up_RP to_TO 25 M_NN cells_NNS ._SENT 
+Figure_NN 6._CD Turbulence_NN kinetic_JJ energy_NN in_IN vertical_JJ and_CC horizontal_JJ directions_NNS at_IN cross_NN sections_NNS S4=x/LPP=0.9843_JJ and_CC S7=x/LPP=1.0_JJ ._SENT 
+Numerical_JJ results_NNS using_VVG hybrid_JJ model_NN LH_NN in_IN comparison_NN with_IN experimental_JJ data_NNS of_IN NMRI_NP ._SENT 
+Shaded_JJ area_NN shows_VVZ the_DT region_NN occupied_VVN by_IN curves_NNS obtained_VVD using_VVG different_JJ URANS_NNS simulations_NNS ._SENT 
+yv_NP and_CC zv_NP are_VBP the_DT coordinates_VVZ of_IN the_DT averaged_VVN bilge_NN vortex_NN ._SENT 
+5.2_CD ._SENT 
+Application_NN of_IN the_DT LH_NP model_NN on_IN unstructured_JJ grids_NNS with_IN ambiguous_JJ spacing_NN According_VVG to_TO Spalart_NP et_CC al_NP ._SENT 
+(_( 2006_CD )_) ,_, a_DT grid_NN is_VBZ ambiguous_JJ if_IN the_DT resolution_NN in_IN downstream_JJ direction_NN Δx_NN is_VBZ smaller_JJR than_IN the_DT boundary_NN layer_NN thickness_NN δ_NN ,_, i.e._FW Δx/δ≤1_JJ ._SENT 
+The_DT previous_JJ sections_NNS demonstrated_VVD some_DT advantages_NNS of_IN the_DT LH_NP model_NN over_IN other_JJ URANS_NNS and_CC hybrid_JJ models_NNS ._SENT 
+A_DT key_JJ factor_NN for_IN this_DT success_NN was_VBD the_DT use_NN of_IN high_JJ quality_NN block_VV structured_JJ grids_NNS ._SENT 
+For_IN arbitrary_JJ grids_NNS we_PP found_VVD disadvantages_NNS of_IN the_DT LH_NP model_NN ,_, which_WDT forced_VVD us_PP to_TO improve_VV the_DT LH_NN to_TO SLH_NP version_NN ._SENT 
+The_DT test_NN simulations_NNS were_VBD performed_VVN for_IN a_DT model_NN M1926_NN of_IN an_DT inland_RB ship_VV studied_VVN experimentally_RB by_IN the_DT Duisburg_NP Development_NP Centre_NP for_IN Ship_NP Technology_NP and_CC Transport_NP Systems_NPS (_( DST_NP )_) at_IN shallow_JJ water_NN conditions_NNS (_( List_NP et_NP al_NP ._SENT 
+2015_CD )_) ._SENT 
+The_DT model_NN with_IN geometrical_JJ parameters_NNS Loa=11 m_NN ,_, B=1.14 m_NP ,_, T_NN =_SYM 0.25 m_NN ,_, and_CC CB=0.877_JJ was_VBD free_JJ to_TO sink_VV and_CC trim_VV with_IN sinkage_NN and_CC trim_VV angle_NN of_IN 0.02 m_NP and_CC 0.021∘_NP ,_, respectively_RB ._SENT 
+The_DT Re_NP number_NN based_VVN on_IN the_DT ship_NN length_NN Loa_NP and_CC incident_NN velocity_NN U∞_NN is_VBZ 1.37⋅107_JJ ._SENT 
+Computations_NNS were_VBD conducted_VVN in_IN a_DT single-phase_JJ formulation_NN for_IN the_DT experimentally_RB obtained_VVN ship_NN attitude_NN with_IN the_DT free_JJ surface_NN replaced_VVN by_IN a_DT symmetry_NN plane_NN ._SENT 
+Since_IN the_DT free_JJ surface_NN deformation_NN was_VBD quite_RB small_JJ at_IN Fn=0.12_NP ,_, this_DT simplification_NN should_MD not_RB noticeably_RB affect_VV the_DT ship_NN wake_NN ._SENT 
+Three_CD simulation_NN strategies_NNS were_VBD used_VVN :_: RANS_NP k−�_NP �_NP SST_NP ,_, IDDES_NNS based_VVN on_IN k−�_NP �_NP SST_NP with_IN turbulence_NN forcing_VVG in_IN a_DT form_NN of_IN a_DT synthetic_JJ turbulence_NN generator_NN (_( see_VV Gritskevich_NP et_CC al_NP ._SENT 
+2011_CD )_) and_CC LH_NP ,_, SLH_NP models_NNS without_IN forcing_VVG ._SENT 
+Three_CD gradually_RB refined_VVN meshes_NNS were_VBD built_VVN for_IN this_DT test_NN case_NN :_: coarse_JJ ,_, medium_NN and_CC fine_NN ,_, containing_VVG 4.3M_NP ,_, 9.0M_NP ._SENT 
+20M_NN cells_NNS ,_, respectively_RB ._SENT 
+Mesh_NN refinement_NN was_VBD done_VVN by_IN decreasing_VVG the_DT base_JJ cell_NN size_NN by_IN 2–√_NP ._SENT 
+For_IN each_DT of_IN the_DT meshes_NNS Δy+w<1.0_NN ._SENT 
+Wall-normal_JJ grading_VVG of_IN cells_NNS in_IN the_DT boundary_NN layer_NN mesh_NN was_VBD 1.15_CD ._SENT 
+According_VVG to_TO recommendations_NNS from_IN Spalart_NP (_( 2000_CD )_) the_DT resolutions_NNS in_IN directions_NNS tangential_JJ to_TO the_DT wall_NN are_VBP Δz+=Δx+=420_JJ ,_, 300_CD and_CC 210_CD for_IN coarse_JJ ,_, medium_JJ and_CC fine_JJ grids_NNS ,_, respectively_RB ._SENT 
+The_DT stern_JJ region_NN of_IN the_DT model_NN was_VBD immersed_VVN into_IN a_DT refinement_NN box_NN with_IN isotropic_JJ hexahedral_JJ cells_NNS with_IN edge_NN lengths_NNS of_IN 0.016 m_NP ,_, 0.011 m_NP and_CC 0.008 m_NP ,_, in_IN order_NN to_TO guarantee_VV that_IN no_DT sharp_JJ jumps_NNS in_IN cell_NN sizes_NNS occur_VVP ._SENT 
+The_DT necessity_NN of_IN the_DT turbulence_NN generator_NN application_NN for_IN the_DT present_JJ case_NN is_VBZ due_JJ to_TO two_CD following_NN reasons_NNS ._SENT 
+First_RB ,_, the_DT model_NN M1926_NN is_VBZ a_DT well_RB streamlined_JJ body_NN without_IN any_DT noticeable_JJ separation_NN ._SENT 
+Therefore_RB ,_, a_DT natural_JJ development_NN of_IN the_DT turbulence_NN ,_, which_WDT happens_VVZ spontaneously_RB for_IN bluff_JJ bodies_NNS ,_, full_JJ ships_NNS and_CC steps_NNS ,_, is_VBZ problematic_JJ ._SENT 
+Second_RB ,_, for_IN IDDES_NP simulation_NN ,_, the_DT synthetic_JJ turbulence_NN generator_NN is_VBZ needed_VVN to_TO suppress_VV the_DT grey-area_NN problem_NN ._SENT 
+As_IN demonstrated_VVN in_IN previous_JJ cases_NNS ,_, the_DT LH_NP model_NN possesses_VVZ an_DT inherent_JJ instability_NN which_WDT allows_VVZ one_CD to_TO diminish_VV the_DT grey_JJ area_NN problem_NN ._SENT 
+The_DT generator_NN was_VBD placed_VVN at_IN a_DT distance_NN of_IN 2(h−T)=0.5 m_NN upstream_RB from_IN the_DT end_NN of_IN the_DT cylindrical_JJ part_NN of_IN the_DT hull_NN ,_, so_RB that_IN the_DT synthetic_JJ turbulence_NN could_MD ‘adapt’_JJ itself_PP to_TO the_DT flow_NN before_IN reaching_VVG the_DT stern_JJ region_NN ._SENT 
+For_IN the_DT detailed_JJ description_NN of_IN the_DT numerical_JJ setup_NN and_CC the_DT test_NN case_NN itself_PP ,_, the_DT reader_NN is_VBZ referred_VVN to_TO the_DT work_NN of_IN Shevchuk_NP and_CC Kornev_NP (_( 2018_CD )_) ._SENT 
+The_DT nominal_JJ wake_NN fraction_NN w=1−|⟨ux⟩|/U∞_NN was_VBD calculated_VVN from_IN the_DT measured_VVN velocity_NN field_NN and_CC compared_VVN to_TO the_DT computed_VVN results_NNS in_IN form_NN of_IN 2D_JJ contour_NN plots_NNS in_IN the_DT propeller_NN plane_NN (_( see_VV Figure_NP 7_CD )_) ._SENT 
+The_DT solution_NN for_IN the_DT k−�_NP �_NP SST_NP model_NN converges_VVZ already_RB on_IN the_DT medium_JJ mesh_NN with_IN only_JJ slight_JJ variations_NNS between_IN the_DT medium_NN and_CC fine_NN meshes_NNS near_IN the_DT middle_JJ line_NN plane_NN ._SENT 
+Analysis_NN of_IN the_DT Figure_NN 7_CD allows_VVZ to_TO conclude_VV that_IN the_DT RANS_NP k−�_NP �_NP SST_NP model_NN is_VBZ suitable_JJ for_IN the_DT wake_NN prediction_NN ,_, since_IN the_DT stern_JJ is_VBZ very_RB well_RB streamlined_JJ and_CC strong_JJ separations_NNS are_VBP absent_JJ ._SENT 
+However_RB ,_, the_DT anchor-like_JJ form_NN of_IN the_DT wake_NN fraction_NN near_IN the_DT middle-line_NN plane_NN is_VBZ smeared_VVN ,_, so_RB that_IN the_DT inclination_NN angle_NN does_VVZ not_RB correspond_VV to_TO that_WDT observed_VVD in_IN experiment_NN ._SENT 
+This_DT problem_NN becomes_VVZ less_RBR pronounced_JJ on_IN the_DT fine_JJ mesh_NN ._SENT 
+However_RB ,_, the_DT peak_NN of_IN the_DT wake_NN fraction_NN in_IN the_DT propeller_NN plane_NN at_IN φ≈270∘_NN is_VBZ not_RB captured_VVN at_IN all_DT and_CC the_DT mesh_NN refinement_NN seems_VVZ to_TO play_VV next_JJ to_TO no_DT role_NN here_RB ._SENT 
+Figure_NN 7._CD Comparison_NN of_IN the_DT wake_NN obtained_VVN on_IN the_DT fine_JJ grid_NN with_IN 20 M_NN of_IN cells_NNS using_VVG different_JJ methods_NNS :_: (_( a_DT )_) experiment_NN ,_, (_( b_LS )_) SST-RANS_NP ,_, (_( c_LS )_) LH_NP ,_, (_( d_LS )_) SST-IDDES_NNS ._SENT 
+Results_NNS for_IN the_DT mean_JJ velocity_NN field_NN ,_, obtained_VVD using_VVG IDDES_NNS appear_VVP to_TO be_VB of_IN nearly_RB the_DT same_JJ quality_NN as_IN those_DT delivered_VVN by_IN RANS_NP k−�_NP �_NP SST_NP and_CC even_RB better_RBR in_IN some_DT regions_NNS ._SENT 
+The_DT anchor-like_JJ form_NN of_IN the_DT wake_NN fraction_NN is_VBZ successfully_RB reproduced_VVD and_CC the_DT inclination_NN angle_NN is_VBZ visually_RB close_JJ to_TO the_DT experimentally_RB observed_JJ one_CD ._SENT 
+The_DT surprising_JJ result_NN is_VBZ that_IN the_DT solution_NN on_IN the_DT coarse_JJ mesh_NN is_VBZ the_DT best_JJS one_CD ,_, shown_VVN by_IN IDDES_NP ,_, whereas_IN the_DT solution_NN on_IN medium_NN and_CC fine_NN grids_NNS slightly_RB deteriorates_VVZ ._SENT 
+This_DT may_MD be_VB a_DT sign_NN ,_, that_IN the_DT shielding_VVG functions_NNS of_IN IDDES_NNS ,_, being_VBG purely_RB empiric_JJ ,_, behave_VV themselves_PP inappropriately_RB ,_, when_WRB the_DT mesh_NN is_VBZ refined_VVN and_CC should_MD be_VB recalibrated_VVN ._SENT 
+This_DT issue_NN requires_VVZ further_JJR analysis_NN ._SENT 
+On_IN all_DT meshes_NNS ,_, the_DT original_JJ LH_NP model_NN showed_VVD very_RB strong_JJ separations_NNS at_IN the_DT stern_JJ and_CC ,_, as_IN a_DT result_NN ,_, predicted_VVD too_RB high_JJ wake_NN fraction_NN in_IN the_DT region_NN y∈[0,0.22_NN ]_SYM ._SENT 
+As_IN it_PP is_VBZ known_VVN ,_, the_DT DES_NP model_NN without_IN shielding_VVG can_MD work_VV properly_RB only_RB when_WRB the_DT constraint_NN Δx/δ≥1_NN is_VBZ satisfied_JJ (_( Spalart_NP et_NP al_NP ._SENT 
+2006_CD )_) ,_, which_WDT means_VVZ ,_, that_IN the_DT mesh_NN spacing_NN in_IN wall-parallel_NP direction_NN should_MD be_VB equal_JJ to_TO or_CC larger_JJR than_IN the_DT boundary_NN layer_NN thickness_NN ._SENT 
+The_DT meshes_NNS ,_, which_WDT were_VBD used_VVN in_IN the_DT current_JJ study_NN ,_, do_VVP not_RB satisfy_VV this_DT constraint_NN because_IN of_IN their_PP$ generation_NN strategy_NN ._SENT 
+As_IN previously_RB mentioned_VVN the_DT cell_NN sizes_NNS in_IN the_DT stern_JJ region_NN were_VBD quite_RB small_JJ and_CC approximately_RB an_DT order_NN of_IN magnitude_NN smaller_JJR than_IN the_DT boundary_NN layer_NN thickness_NN ._SENT 
+Since_IN the_DT previously_RB mentioned_VVN constraint_NN was_VBD violated_VVN ,_, application_NN of_IN LH_NP model_NN ,_, which_WDT uses_VVZ no_DT shielding_VVG and_CC has_VHZ no_DT control_NN of_IN resolved-to-modelled_JJ stress_NN ratio_NN ,_, resulted_VVN in_IN grid_NN induced_VVN separation_NN ._SENT 
+The_DT sensitivity_NN of_IN the_DT model_NN to_TO the_DT mesh_NN is_VBZ certainly_RB a_DT substantial_JJ drawback_NN ,_, which_WDT initiated_VVD the_DT modification_NN of_IN the_DT LH_NP model_NN (_( Shevchuk_NP and_CC Kornev_NP 2018_CD )_) ._SENT 
+The_DT newly_RB designed_VVN SLH_NP model_NN was_VBD tested_VVN and_CC compared_VVN to_TO the_DT original_JJ LH_NN (_( see_VV Figure_NP 8_CD )_) ._SENT 
+One_PP can_MD notice_VV ,_, that_IN the_DT application_NN of_IN shielding_VVG considerably_RB improves_VVZ the_DT predictions_NNS provided_VVN by_IN the_DT model_NN ._SENT 
+The_DT inadequately_RB strong_JJ separations_NNS predicted_VVN by_IN LH_NP were_VBD supressed_VVN when_WRB SLH_NP was_VBD used_VVN ,_, which_WDT led_VVD to_TO better_JJR agreement_NN with_IN experimental_JJ data_NNS ._SENT 
+A_DT very_RB interesting_JJ result_NN is_VBZ that_IN on_IN a_DT sufficiently_RB fine_JJ mesh_NN SLH_NP and_CC IDDES_NP deliver_VVP almost_RB identical_JJ results_NNS both_CC for_IN the_DT wake_NN fraction_NN and_CC for_IN the_DT standard_JJ deviation_NN of_IN longitudinal_JJ velocity_NN ._SENT 
+One_PP can_MD conclude_VV ,_, that_IN the_DT proposed_VVN modified_JJ model_NN is_VBZ superior_JJ to_TO the_DT old_JJ one_CD in_IN terms_NNS of_IN robustness_NN and_CC accuracy_NN ._SENT 
+Therefore_RB ,_, it_PP can_MD be_VB recommended_VVN for_IN use_NN on_IN ambiguous_JJ grids_NNS (_( Δx/δ<1_JJ )_) ._SENT 
+Figure_NN 8._CD Comparison_NN of_IN the_DT wake_NN obtained_VVD using_VVG original_JJ LH_NP (_( left_VVN )_) and_CC SLH_NP (_( right_NN )_) formulations_NNS on_IN the_DT fine_JJ mesh_NN ._SENT 
+<Section> 6._CD Hybrid_JJ simulation_NN for_IN unsteady_JJ loadings_NNS on_IN propeller_NN </Section> It_PP is_VBZ commonly_RB believed_VVN that_IN the_DT propeller_NN fluctuations_NNS arise_VVP due_JJ to_TO non-uniform_JJ distribution_NN of_IN the_DT flow_NN velocity_NN at_IN the_DT propeller_NN plane_NN ._SENT 
+The_DT turbulent_JJ velocity_NN fluctuations_NNS in_IN the_DT wake_NN are_VBP considered_VVN to_TO be_VB of_IN minor_JJ importance_NN for_IN propeller_NN unsteady_JJ loadings_NNS ,_, at_IN least_JJS at_IN frequencies_NNS of_IN a_DT few_JJ first_JJ BPF_NP (_( blade_NN passing_NN frequencies_NNS )_) ._SENT 
+Therefore_RB ,_, the_DT RANS-based_JJ approaches_NNS should_MD be_VB sufficient_JJ to_TO predict_VV the_DT unsteady_JJ loadings_NNS on_IN the_DT propeller_NN ._SENT 
+Our_PP$ experience_NN ,_, however_RB ,_, shows_VVZ that_IN such_PDT a_DT concept_NN is_VBZ true_JJ for_IN slender_JJ hulls_NNS and_CC hulls_NNS with_IN moderate_JJ block_NN coefficients_NNS ._SENT 
+For_IN full_JJ ships_NNS the_DT unsteady_JJ loadings_NNS on_IN the_DT propeller_NN are_VBP substantially_RB determined_VVN by_IN the_DT wake_NN unsteadiness_NN ,_, which_WDT is_VBZ caused_VVN by_IN multiple_JJ separations_NNS and_CC vortex_NN formation_NN in_IN the_DT ship_NN stern_JJ area_NN ._SENT 
+These_DT physical_JJ effects_NNS can_MD be_VB captured_VVN only_RB by_IN scale_NN resolving_VVG techniques_NNS ._SENT 
+The_DT results_NNS are_VBP presented_VVN in_IN Figure_NP 9_CD for_IN the_DT KVLCC2_JJ ship_NN hull_NN with_IN rotating_VVG 5_CD blades_NNS propeller_NN VP1356_NN ._SENT 
+Detailed_JJ description_NN of_IN the_DT test_NN case_NN and_CC numerical_JJ setup_NN can_MD be_VB found_VVN in_IN Abbas_NP and_CC Kornev_NP (_( 2016_CD )_) ._SENT 
+The_DT cumulative_JJ distribution_NN function_NN allows_VVZ one_CD to_TO estimate_VV the_DT probability_NN of_IN the_DT thrust_NN fluctuations_NNS magnitude_NN ._SENT 
+For_IN instance_NN ,_, the_DT hybrid_JJ LH_NP simulations_NNS predict_VVP that_IN the_DT probability_NN of_IN longitudinal_JJ thrust_NN fluctuations_NNS Px_NN within_IN the_DT range_NN ±0.05Px¯¯¯¯¯¯_NN ,_, where_WRB Px¯¯¯¯¯¯_NP is_VBZ the_DT mean_JJ thrust_NN ,_, is_VBZ 0.9_CD (_( CDF_NN is_VBZ between_IN 0.05_CD and_CC 0.95_CD )_) ._SENT 
+A_DT very_RB small_JJ fluctuation_NN is_VBZ predicted_VVN by_IN URANS_NP k−�_NP �_NP SST_NP model_NN ._SENT 
+A_DT probability_NN of_IN 0.9_CD corresponds_VVZ to_TO the_DT fluctuations_NNS ±0.02Px¯¯¯¯¯¯_NN ,_, whereas_IN 5_CD %_NN fluctuations_NNS ±0.05Px¯¯¯¯¯¯_NN are_VBP impossible_JJ ._SENT 
+LES_FW with_IN the_DT Dynamic_JJ mixed_JJ model_NN (_( DMM_NP )_) shows_VVZ unrealistically_RB large_JJ fluctuations_NNS since_IN the_DT boundary_NN layer_NN was_VBD poorely_RB resolved_VVN ,_, which_WDT results_VVZ in_IN massive_JJ flow_NN separations_NNS and_CC formation_NN of_IN strong_JJ unsteady_JJ vortices_NNS ._SENT 
+To_TO this_DT date_NN ,_, it_PP is_VBZ difficult_JJ to_TO validate_VV these_DT results_NNS due_JJ to_TO unavailability_NN of_IN reliable_JJ experimental_JJ data_NNS ._SENT 
+The_DT estimations_NNS ,_, presented_VVN in_IN Abbas_NP et_CC al_NP ._SENT 
+(_( 2015_CD )_) for_IN the_DT propeller_NN behind_IN the_DT KVLCC2_JJ tanker_NN ,_, show_VVP that_IN URANS_NP computations_NNS with_IN the_DT k−�_NP �_NP SST_NP model_NN predict_VVP regular_JJ periodic_JJ oscillations_NNS of_IN small_JJ amplitude_NN (_( Figure_NP 10_CD )_) which_WDT is_VBZ much_RB less_JJR than_IN that_DT of_IN the_DT hybrid_JJ method_NN and_CC ,_, what_WP is_VBZ more_RBR important_JJ ,_, is_VBZ sufficiently_RB smaller_JJR than_IN that_IN of_IN practical_JJ engineering_NN methods_NNS (_( see_VV Figure_NP 20_CD in_IN Abbas_NP et_CC al_NP ._SENT 
+2015_CD )_) ._SENT 
+Two_CD possible_JJ reasons_NNS can_MD be_VB responsible_JJ for_IN that_DT ._SENT 
+First_RB ,_, as_IN shown_VVN in_IN Figure_NP 5_CD ,_, the_DT URANS_NP techniques_NNS smooth_VV the_DT wake_NN ._SENT 
+Second_RB ,_, the_DT flow_NN fluctuations_NNS are_VBP filtered_VVN out_RP by_IN the_DT Reynolds_NP averaging_NN ._SENT 
+Similar_JJ effects_NNS were_VBD documented_VVN for_IN unsteady_JJ loadings_NNS on_IN the_DT propeller_NN MP.687_JJ behind_IN the_DT JBC_NN model_NN (_( Abbas_NP and_CC Kornev_NP 2015_CD )_) as_IN well_RB as_RB for_IN propellers_NNS VP1356_NP and_CC MOERI_NP (_( KP458_NP )_) behind_IN the_DT KVLCC2_JJ model_NN under_IN steady_JJ drift_NN and_CC yaw_VVP motion_NN (_( Abbas_NP and_CC Kornev_NP 2016_CD )_) ._SENT 
+This_DT analysis_NN indicates_VVZ that_IN the_DT hybrid_JJ methods_NNS are_VBP of_IN a_DT big_JJ importance_NN to_TO properly_RB predict_VV the_DT unsteady_JJ loadings_NNS on_IN propellers_NNS behind_IN full_JJ ships_NNS ._SENT 
+Figure_NN 9._CD History_NN of_IN the_DT propeller_NN thrust_NN ._SENT 
+Hybrid_JJ LH_NP versus_CC k−ωSST_NP simulations_NNS (_( Abbas_NP et_NP al_NP ._SENT 
+2015_CD )_) ._SENT 
+Figure_VV 10._CD Cumulative_JJ distribution_NN function_NN of_IN the_DT thrust_NN obtained_VVN by_IN k−�_NP �_NP SST_NP ,_, LH_NP hybrid_NN ,_, DMM_NP and_CC IDDES_NP at_IN β=120_NP ._SENT 
+<Section> 7._CD Prediction_NN of_IN the_DT ship_NN resistance_NN by_IN hybrid_JJ method_NN ._SENT 
+</Section> Previous_JJ sections_NNS demonstrated_VVD advantages_NNS of_IN the_DT hybrid_JJ methods_NNS for_IN prediction_NN of_IN wake_NN parameters_NNS and_CC propeller_NN loadings_NNS ._SENT 
+The_DT aim_NN of_IN this_DT section_NN is_VBZ to_TO show_VV difficulties_NNS in_IN the_DT solution_NN of_IN a_DT traditional_JJ task_NN of_IN ship_NN hydromechanics_NNS ,_, namely_RB in_IN the_DT prediction_NN of_IN the_DT ship_NN resistance_NN ._SENT 
+Table_NN 1_CD presents_NNS the_DT validation_NN and_CC verification_NN (_( V&V_NP )_) results_NNS for_IN force_NN coefficients_NNS resulting_VVG from_IN three_CD grid_NN resolutions_NNS for_IN the_DT bare_JJ hull_NN of_IN the_DT JBC_NP test_NN case_NN using_VVG k-�_NP �_NP SST_NP and_CC hybrid_JJ models_NNS ._SENT 
+The_DT bare_JJ hull_NN was_VBD studied_VVN with_IN three_CD gradually_RB refined_VVN block_NN structured_VVN grids_NNS containing_VVG 9.89 M_NN (_( further_VV referred_VVN to_TO as_RB G3_JJ grid_NN )_) ,_, 17.10 M_NP (_( G2_NP grid_NN )_) and_CC 29.53 M_NP (_( G1_JJ grid_NN )_) cells_NNS ._SENT 
+All_DT grids_NNS were_VBD obtained_VVN from_IN the_DT G3_JJ grid_NN by_IN gradual_JJ refinement_NN ._SENT 
+For_IN that_IN the_DT blocks_NNS everywhere_RB in_IN the_DT computational_JJ domain_NN have_VHP been_VBN refined_VVN by_IN multiplying_VVG the_DT cell_NN numbers_NNS by_IN a_DT factor_NN of_IN 1.2_CD in_IN all_DT three_CD directions_NNS (_( x,y,z_NP )_) ._SENT 
+The_DT position_NN of_IN the_DT first_JJ node_NN for_IN different_JJ grids_NNS is_VBZ shown_VVN in_IN Table_NN 1._CD Since_IN y+<1_JJ no_DT wall_NN functions_NNS were_VBD applied_VVN ._SENT 
+All_DT methods_NNS show_VVP monotonic_JJ convergence_NN when_WRB the_DT resolution_NN grows_VVZ ._SENT 
+For_IN the_DT k−�_NP �_NP SST_NP ,_, the_DT maximal_JJ value_NN of_IN the_DT comparison_NN error_NN of_IN the_DT CT_NP |E%D|=|100(S−D)/D|_NP ,_, where_WRB S_NP stands_VVZ for_IN simulation_NN and_CC D_NP for_IN experimental_JJ results_NNS ,_, is_VBZ smaller_JJR than_IN 2.36_CD %_NN and_CC smaller_JJR than_IN 4.41_CD %_NN for_IN hybrid_NN ._SENT 
+Table_NN 1._CD Ship_NN resistance_NN of_IN the_DT JBC_NN at_IN Fn=0.142_NN with_IN different_JJ grids_NNS and_CC two_CD turbulence_NN models_NNS ._SENT 
+The_DT skin_NN friction_NN coefficient_NN is_VBZ defined_VVN according_VVG to_TO the_DT ITTC_NP 1957_CD Model-Ship_NN Correlation_NN Line_NP (_( ITTC_NP ,_, 2002_CD )_) as_RB follows_VVZ :_: @(10_NP )_) The_DT comparison_NN for_IN the_DT CF_NP and_CC CP_NP from_IN the_DT RANS_NP solution_NN with_IN the_DT ITTC_NP estimation_NN shows_VVZ that_IN the_DT maximal_JJ value_NN of_IN the_DT |E%ITTC|_NN is_VBZ 6.36_CD %_NN ,_, whereas_IN it_PP increases_VVZ in_IN the_DT hybrid_NN to_TO 42.23_CD %_NN !_SENT 
+Obviously_RB ,_, the_DT friction_NN resistance_NN is_VBZ underestimated_VVN in_IN hybrid_JJ simulations_NNS and_CC this_DT is_VBZ a_DT typical_JJ feature_NN of_IN all_DT hybrid_JJ models_NNS ._SENT 
+The_DT origin_NN of_IN this_DT problem_NN lies_VVZ in_IN the_DT difficulty_NN to_TO reproduce_VV the_DT turbulence_NN transport_NN through_IN the_DT interface_NN between_IN URANS_NPS and_CC LES_FW zones_NNS ._SENT 
+If_IN the_DT resolution_NN becomes_VVZ higher_JJR ,_, like_IN in_IN the_DT present_JJ calculations_NNS ,_, the_DT LES_FW area_NN approaches_VVZ the_DT wall_NN ,_, resulting_VVG in_IN a_DT reduction_NN of_IN the_DT modelled_VVN turbulent_JJ viscosity_NN νt_NN ._SENT 
+The_DT turbulence_NN of_IN the_DT LES_FW area_NN should_MD compensate_VV this_DT effect_NN ,_, but_CC it_PP remains_VVZ underdeveloped_JJ due_JJ to_TO resolution_NN which_WDT is_VBZ still_RB non-sufficient_JJ to_TO resolve_VV the_DT vortex_NN generation_NN within_IN the_DT near-wall_NN flow_NN ._SENT 
+As_IN a_DT result_NN ,_, the_DT friction_NN is_VBZ reduced_VVN and_CC even_RB grid-induced_JJ separation_NN (_( GIS_NP )_) can_MD arise_VV on_IN the_DT ambiguous_JJ grids_NNS ._SENT 
+Contrary_JJ to_TO CF_NP ,_, the_DT pressure_NN drag_NN coefficient_NN CP_NP is_VBZ overestimated_VVN ._SENT 
+One_CD additional_JJ reason_NN for_IN this_DT disagreement_NN ,_, which_WDT is_VBZ difficult_JJ to_TO prove_VV because_IN of_IN large_JJ computational_JJ runtime_NN ,_, could_MD be_VB insufficient_JJ average_JJ time_NN in_IN unsteady_JJ hybrid_JJ simulations_NNS ._SENT 
+Two_CD errors_NNS for_IN CF_NP and_CC CP_NP compensate_VV each_DT other_JJ resulting_VVG in_IN a_DT proper_JJ estimation_NN of_IN the_DT total_JJ resistance_NN ._SENT 
+The_DT maximal_JJ value_NN of_IN the_DT total_JJ resistance_NN |E%D|_NN simulation_NN error_NN does_VVZ not_RB exceed_VV 4.41_CD %_NN ._SENT 
+It_PP is_VBZ well_RB known_VVN that_IN the_DT error_NN in_IN CFD_NN prediction_NN is_VBZ due_JJ to_TO both_DT numerical_JJ and_CC modelling_VVG errors_NNS which_WDT are_VBP thoroughly_RB studied_VVN by_IN Pereira_NP et_CC al_NP ._SENT 
+(_( 2017_CD )_) for_IN the_DT KVLCC2_JJ model_NN case_NN ._SENT 
+For_IN the_DT JBC_NN case_NN ,_, we_PP also_RB performed_VVD verification_NN and_CC validation_NN tests_NNS published_VVN in_IN details_NNS in_IN Kornev_NP and_CC Abbas_NP (_( 2018_CD )_) ._SENT 
+As_IN seen_VVN from_IN the_DT Table_NN 1_CD ,_, the_DT wrong_JJ ratio_NN between_IN CP_NP and_CC CF_NP remains_VVZ almost_RB constant_JJ (_( ∼0.6_NP )_) at_IN all_DT resolutions_NNS ._SENT 
+Therefore_RB ,_, this_DT disadvantage_NN is_VBZ not_RB due_JJ to_TO numerical_JJ errors_NNS but_CC rather_RB the_DT modelling_VVG error_NN ._SENT 
+This_DT weakness_NN of_IN hybrid_JJ models_NNS should_MD be_VB analysed_VVN in_IN the_DT future_NN ._SENT 
+To_TO prove_VV our_PP$ method_NN ,_, we_PP also_RB performed_VVD IDDES_NP hybrid_JJ simulations_NNS for_IN G3_JJ grid_NN ._SENT 
+Unfortunately_RB ,_, CT,CF,CP×10−3_NP ,_, which_WDT are_VBP 3.84_CD ,_, 2.13_CD and_CC 1.70_CD ,_, respectively_RB ,_, show_VVP the_DT same_JJ tendency_NN :_: CF_NP is_VBZ underestimated_VVN ,_, whereas_IN CP_NP is_VBZ overestimated_VVN ._SENT 
+Obviously_RB ,_, the_DT accuracy_NN of_IN the_DT RANS_NNS k−ωSST_VVP model_NN for_IN determination_NN of_IN integral_JJ forces_NNS is_VBZ still_RB higher_JJR than_IN that_IN of_IN hybrid_JJ ones_NNS ._SENT 
+However_RB ,_, as_IN mentioned_VVN above_IN ,_, there_EX is_VBZ no_DT alternative_NN to_TO hybrid_NN and_CC LES_FW approaches_NNS for_IN determination_NN of_IN wake_NN parameters_NNS ,_, especially_RB behind_IN full_JJ block_NN ships_NNS ._SENT 
+<Section> 8._CD Conclusions_NNS </Section> Hybrid_JJ turbulence_NN models_NNS based_VVN on_IN the_DT combination_NN of_IN URANS_NNS (_( close_VV to_TO the_DT wall_NN )_) and_CC LES_FW (_( far_RB from_IN the_DT wall_NN )_) techniques_NNS are_VBP becoming_VVG increasingly_RB popular_JJ in_IN ship_NN hydromechanics_NNS ._SENT 
+Their_PP$ application_NN for_IN the_DT common_JJ practical_JJ use_NN is_VBZ strongly_RB limited_VVN by_IN high_JJ computational_JJ time_NN ,_, which_WDT is_VBZ at_IN least_JJS two_CD orders_NNS higher_JJR than_IN that_IN of_IN URANS_NNS simulations_NNS ._SENT 
+For_IN instance_NN ,_, while_IN the_DT calculation_NN of_IN the_DT JBC_NN case_NN with_IN 30 M_NN of_IN cells_NNS using_VVG steady_JJ RANS_NNS requires_VVZ a_DT few_JJ hours_NNS ,_, the_DT unsteady_JJ hybrid_JJ simulations_NNS should_MD run_VV a_DT couple_NN of_IN months_NNS to_TO get_VV reliable_JJ statistically_RB averaged_VVN data_NNS using_VVG the_DT same_JJ grid_NN and_CC number_NN of_IN processors_NNS ._SENT 
+To_TO capture_VV fast_JJ fine_JJ scale_NN flow_NN structures_NNS ,_, the_DT time_NN step_NN is_VBZ kept_VVN very_RB small_JJ ._SENT 
+The_DT requirement_NN of_IN a_DT small_JJ time_NN step_NN along_IN with_IN simulation_NN of_IN a_DT substantial_JJ real-time_JJ period_NN result_NN in_IN a_DT large_JJ computational_JJ time_NN ._SENT 
+Therefore_RB ,_, one_CD of_IN the_DT most_RBS important_JJ tasks_NNS is_VBZ the_DT development_NN of_IN computational_JJ strategies_NNS which_WDT can_MD reduce_VV the_DT computational_JJ costs_NNS of_IN hybrid_JJ simulations_NNS and_CC increase_VV their_PP$ applications_NNS in_IN practice_NN ._SENT 
+For_IN the_DT time_NN being_VBG ,_, the_DT hybrid_JJ methods_NNS in_IN ship_NN hydromechanics_NNS are_VBP still_RB remaining_VVG a_DT research_NN tool_NN aimed_VVN at_IN the_DT solution_NN of_IN specific_JJ problems_NNS with_IN strong_JJ unsteady_JJ effects_NNS such_JJ as_IN ,_, as_IN shown_VVN in_IN this_DT paper_NN ,_, wake_NN and_CC unsteady_JJ propeller_NN loadings_NNS behind_IN full_JJ ships_NNS (_( see_VV Sections_NNS 5_CD and_CC 6_CD )_) ._SENT 
+For_IN such_JJ problems_NNS ,_, the_DT hybrid_JJ methods_NNS clearly_RB demonstrate_VVP their_PP$ advantage_NN over_IN other_JJ existing_JJ approaches_NNS based_VVN on_IN RANS_NP methodology_NN ._SENT 
+The_DT mean_JJ wake_NN velocities_NNS are_VBP determined_VVN with_IN a_DT satisfactory_JJ accuracy_NN (_( Figure_NP 5_CD )_) and_CC very_RB promising_JJ results_NNS were_VBD obtained_VVN for_IN the_DT wake_NN turbulence_NN (_( Figure_NP 6_CD )_) ._SENT 
+Apart_RB from_IN the_DT technical_JJ problems_NNS ,_, which_WDT can_MD be_VB solved_VVN by_IN increase_NN of_IN the_DT computer_NN power_NN ,_, certain_JJ problems_NNS of_IN principal_JJ character_NN are_VBP also_RB encountered_VVN in_IN hybrid_JJ methods_NNS ._SENT 
+They_PP are_VBP caused_VVN by_IN the_DT combination_NN of_IN theoretically_RB different_JJ methods_NNS at_IN the_DT interface_NN between_IN URANS_NPS and_CC LES_FW zones_NNS ._SENT 
+As_IN a_DT result_NN ,_, the_DT accuracy_NN of_IN the_DT solution_NN of_IN certain_JJ traditional_JJ ship_NN hydromechanics_NN tasks_NNS ,_, like_IN prediction_NN of_IN the_DT ship_NN resistance_NN ,_, could_MD be_VB lower_JJR than_IN the_DT accuracy_NN of_IN common_JJ RANS_NP methods_NNS (_( see_VV Section_NP 7_CD )_) ._SENT 
+This_DT is_VBZ because_IN of_IN improper_JJ reproduction_NN of_IN complex_JJ turbulent_JJ processes_NNS in_IN boundary_NN layers_NNS as_RB illustrated_VVN in_IN Section_NP 2._CD RANS_NP methods_NNS ,_, for_IN instance_NN k−�_NP �_NP SST_NP ,_, predict_VVP the_DT resistance_NN very_RB accurately_RB because_IN in_IN these_DT methods_NNS ,_, their_PP$ constants_NNS and_CC key_JJ relations_NNS are_VBP thoroughly_RB adjusted_VVN for_IN such_JJ tasks_NNS ._SENT 
+Despite_IN all_DT shortcomings_NNS ,_, however_RB ,_, hybrid_JJ models_NNS are_VBP the_DT most_RBS promising_JJ turbulence_NN models_NNS for_IN ship_NN hydromechanics_NN applications_NNS ._SENT 
+<Section> Disclosure_NN statement_NN </Section> No_DT potential_JJ conflict_NN of_IN interest_NN was_VBD reported_VVN by_IN the_DT authors_NNS ._SENT 
+<Section> References_NNS </Section> Abbas_NP N_NP ,_, Kornev_NP N._NP 2015._CD Computations_NNS of_IN the_DT Japan_NP bulk_NN carrier_NN using_VVG URANS_NNS and_CC URANS/LES_NNS methods_NNS implemented_VVN into_IN OpenFoam_NP toolkit_NP ._SENT 
+In_RB :_: Workshop_NN on_IN CFD_NN in_IN Ship_NN Hydrodynamics_NNS ,_, Tokyo_NP 2015_CD ,_, 6_CD pages_NNS ._SENT 
+Abbas_NP N_NP ,_, Kornev_NP N._NP 2016._CD Study_NN of_IN unsteady_JJ loadings_NNS on_IN the_DT propeller_NN under_IN steady_JJ drift_NN and_CC yaw_VV motion_NN using_VVG URANS_NNS ,_, hybrid_JJ (_( URANS-LES_NNS )_) and_CC LES_FW methods_NNS ._SENT 
+Ship_NN Technol_NN Res_NNS ._SENT 
+63(2):121–131_JJ ._SENT 
+doi_NP :_: 10.1080/09377255.2016.1211582_CD Abbas_NP N_NP ,_, Kornev_NP N_NP ,_, Shevchuk_NP I_NP ,_, Anschau_NP P._NP 2015._CD CFD_NN prediction_NN of_IN unsteady_JJ forces_NNS on_IN marine_JJ propellers_NNS caused_VVN by_IN the_DT wake_NN nonuniformity_NN and_CC nonstationarity_NN ._SENT 
+Ocean_NP Eng_NP ._SENT 
+104:659–672_NP ._SENT 
+doi_NP :_: 10.1016/j.oceaneng.2015.06.007_JJ Bhushan_NP S_NP ,_, Alam_NP M_NP ,_, Walters_NP D._NP 2013._CD Evaluation_NN of_IN hybrid_JJ RANS/LES_NNS models_NNS for_IN prediction_NN of_IN flow_NN around_IN surface_NN combatant_NN and_CC Suboff_NN geometries_NNS ._SENT 
+Comput_NN Fluids_NNS ._SENT 
+88:834–849_NP ._SENT 
+doi_NP :_: 10.1016/j.compfluid.2013.07.020_NP Bhushan_NP S_NP ,_, Walters_NP D._NP 2012._CD A_DT dynamic_JJ hybrid_NN Reynolds-averaged_VVN Navier_NP Stokes_NP ?_SENT 
+Large_JJ Eddy_NP simulation_NN modeling_NN framework_NN ._SENT 
+Phys_NP Fluids_NNS ._SENT 
+24(1):015103_NP ._SENT 
+doi_NP :_: 10.1063/1.3676737_CD Bhushan_NP S_NP ,_, Xing_NP T_NN ,_, Stern_NP F._NP 2012._CD Vortical_JJ structures_NNS and_CC instability_NN analysis_NN for_IN Athena_NP wetted_VVD transom_NN flow_NN with_IN full-scale_JJ validation_NN ._SENT 
+J_NP Fluids_NNS Eng_NP ._SENT 
+134(3):031201–031201_JJ ._SENT 
+doi_NP :_: 10.1115/1.4006173_CD Davidson_NP L_NP ,_, Billson_NP M._NP 2006._CD Hybrid_JJ LES-RANS_NNS using_VVG synthesized_VVN turbulent_JJ fluctuations_NNS for_IN forcing_VVG in_IN the_DT interface_NN region_NN ._SENT 
+Int_NP J_NP Heat_NP Fluid_JJ Flow_NP ._SENT 
+27(6):1028–1042_NP ._SENT 
+doi_NP :_: 10.1016/j.ijheatfluidflow.2006.02.025_NP Fureby_NP C_NP ,_, Toxopeus_NP S_NP ,_, Johansson_NP M_NP ,_, Tormalm_NP M_NP ,_, Petterson_NP K._NP 2016._CD A_DT computational_JJ study_NN of_IN the_DT flow_NN around_IN the_DT KVLCC2_JJ model_NN hull_NN at_IN straight_RB ahead_RB conditions_NNS and_CC at_IN drift_NN ._SENT 
+Ocean_NP Eng_NP ._SENT 
+118:1–16_NP ._SENT 
+doi_NP :_: 10.1016/j.oceaneng.2016.03.029_NP Germano_NP M._NP 2004._CD Properties_NP of_IN the_DT hybrid_JJ RANS/LES_NNS filter_NN ._SENT 
+Theoret_NP Comput_NP Fluid_JJ Dyn_NP ._SENT 
+17(4):225–231_JJ ._SENT 
+doi_NP :_: 10.1007/s00162-004-0116-6_NP Girimaji_NP S._NP 2005._CD Partially-averaged_JJ Navier-Stokes_NNS model_NN for_IN turbulence_NN :_: a_DT Reynolds-averaged_NN Navier-Stokes_VVZ to_TO direct_VV numerical_JJ simulation_NN bridging_VVG method_NN ._SENT 
+J_NP Appl_NP Mech_NP ._SENT 
+73(3):413–421_JJ ._SENT 
+doi_NP :_: 10.1115/1.2151207_CD Gritskevich_NP M_NP ,_, Garbaruk_NP A_NP ,_, Schütze_NP J_NP ,_, Menter_NP F._NP 2011._CD Development_NP of_IN DDES_NP and_CC IDDES_NP formulations_NNS for_IN the_DT k−�_JJ �_JJ shear_NN stress_NN transport_NN model_NN ._SENT 
+Flow_NN Turbul_NN Combust_JJ ._SENT 
+88(3):431–449_NP ._SENT 
+doi_NP :_: 10.1007/s10494-011-9378-4_NP Kok_NP J_NP ,_, Dol_NN H_NN ,_, Oskam_NP B_NP ,_, van_NP der_NP Ven_NP H._NP 2004._CD Extra-large_JJ Eddy_NP simulation_NN of_IN massively_RB separated_JJ flows_NNS ._SENT 
+42nd_NP AIAA_NP Aerospace_NP Sciences_NPS Meeting_VVG and_CC Exhibit_NN ._SENT 
+American_NP Institute_NP of_IN Aeronautics_NP and_CC Astronautics_NNS ._SENT 
+DOI:10.2514/6.2004-264_NP ._SENT 
+Kornev_NP N_NP ,_, Abbas_NP N._NP 2018._CD Vorticity_NN structures_NNS and_CC turbulence_NN in_IN the_DT wake_NN of_IN full_JJ block_NN ships_NNS ._SENT 
+J_NP Marine_NP Sci_NP Technol_NN ._SENT 
+23(3):567–579_NP ._SENT 
+doi_NP :_: 10.1007/s00773-017-0493-3_NP Kornev_NP N_NP ,_, Taranov_NP A_NP ,_, Shchukin_NP E_NP ,_, Kleinsorge_NP L._NP 2011._CD Development_NP of_IN hybrid_JJ URANS-LES_NNS methods_NNS for_IN flow_NN simulation_NN in_IN the_DT ship_NN stern_JJ area_NN ._SENT 
+Ocean_NP Eng_NP ._SENT 
+38:1831–1838_NP ._SENT 
+doi_NP :_: 10.1016/j.oceaneng.2011.09.024_NP Krajnovic_NP S_NP ,_, Minelli_NP G_NP ,_, Basara_NP B._NP 2015._CD Partially-averaged_JJ Navier-Stokes_NNS simulations_NNS of_IN two_CD bluff_JJ body_NN flows_NNS ._SENT 
+Appl_NP Math_NP Comput_NN ._SENT 
+272:692–706_NP ._SENT 
+Larsson_NP L_NP ,_, Stern_NP F_NP ,_, Visonneau_NP M_NP ,_, Hirata_NP N_NP ,_, Hino_NP T_NN ,_, Kim_NP J_NP ,_, editors_NNS ._SENT 
+2015._CD Tokyo_NP 2015_CD �_NN �_NN a_DT workshop_NN on_IN CFD_NN in_IN ship_NN hydrodynamics_NNS ;_: Dec_NP 2015._CD Liefvendahl_NP M_NP ,_, Bensow_NP R._NP 2014._CD Simulation-based_JJ analysis_NN of_IN hull-propeller_NN interaction_NN for_IN a_DT single-screw_JJ transport_NN ship_NN ._SENT 
+Proceedings_NNS of_IN the_DT 30th_JJ Symposium_NN on_IN Naval_NP Hydrodynamics_NNS ,_, Hobart_NP ,_, Tasmania_NP ._SENT 
+Lilly_NP D._NP 1992._CD A_DT proposed_VVN modification_NN of_IN the_DT Germano_NP subgrid_NP �_NP �_NP scale_NN closure_NN method_NN ._SENT 
+Phys_NP Fluids_NNS A._NP 4(3):633–635_NP ._SENT 
+doi_NP :_: 10.1063/1.858280_CD List_NP S_NP ,_, Rögner_NP K_NP ,_, Freidhoff_NP B._NP 2015._CD WAKE_NN ._SENT 
+An_DT veränderliche_NP Wassertiefen_NP angepasste_NP Konzepte_NP zur_NP Energiesparung_NP durch_VVZ Vergleichmässigung_NP des_NP Propellerzustroms_NNS ._SENT 
+DST_NP Bericht_NP 2162._CD Menter_NP F._NP 2018._CD Stress-blended_JJ Eddy_NP simulation_NN (_( SBES_NP )_) �_NP �_NP a_DT new_JJ paradigm_NN in_IN hybrid_JJ RANS-LES_NNS modeling_NN ._SENT 
+In_RB :_: Hoarau_NP Y_NP ,_, Peng_NP SH_NP ,_, Schwamborn_NP D_NP ,_, Revell_NP A_NP ,_, editors_NNS ._SENT 
+Progress_NN in_IN hybrid_JJ RANS-LES_NNS modelling_VVG ._SENT 
+HRLM_NP 2016._CD Springer_NP ._SENT 
+(_( Notes_NNS on_IN numerical_JJ fluid_JJ mechanics_NNS and_CC multidisciplinary_JJ design_NN ;_: vol_NN ._SENT 
+137_CD )_) ._SENT 
+Menter_NP F_NP ,_, Kuntz_NP M_NP ,_, Langtry_NP R._NP 2003._CD Ten_CD years_NNS of_IN industrial_JJ experience_NN with_IN the_DT SST_NP turbulence_NN model_NN ._SENT 
+Turbulence_NN ,_, Heat_NP and_CC Mass_NP Transf_NP ._SENT 
+4(1_NN )_) :_: 625–632_NN ._SENT 
+Mockett_NP C_NP ,_, Fuchs_NP M_NP ,_, Garbaruk_NP A_NP ,_, Shur_NP M_NP ,_, Spalart_NN P_NN ,_, Strelets_NP M_NP ,_, Thiele_NP F_NP ,_, Travin_NP A._NP 2015._CD Progress_NN in_IN hybrid_JJ RANS-LES_NNS modelling_VVG ._SENT 
+In_RB :_: Girimaji_NP S_NP ,_, Haase_NP W_NP ,_, Peng_NP S-H_NP ,_, Schwamborn_NP D_NP ,_, editors_NNS ._SENT 
+Papers_NNS Contributed_VVD to_TO the_DT 5th_JJ Symposium_NN on_IN Hybrid_JJ RANS-LES_NNS Methods_NNS ,_, 2014_CD Mar_NP 19–21_NN ;_: College_NP Station_NP ,_, A&M_NP University_NP ,_, Texas_NP ,_, USA_NP ._SENT 
+Springer_NP International_NP Publishing_NP ,_, part_NN Two_CD Non-zonal_JJ Approaches_NNS to_TO Accelerate_VV RANS_NPS to_TO LES_FW Transition_NN of_IN Free_NP Shear_NP Layers_NNS in_IN DES_NP ,_, p._JJ 187–201_NN ._SENT 
+Pattenden_NP R_NP ,_, Turnock_NP S_NP ,_, Bressloff_NP N._NP 2004._CD The_DT use_NN of_IN Detached-Eddy_JJ simulation_NN in_IN ship_NN hydrodynamics_NNS ._SENT 
+In_RB :_: 25th_JJ Symposium_NN on_IN Naval_NP Hydrodynamics_NNS ._SENT 
+Canada_NP ._SENT 
+Pereira_NP F_NP ,_, Eça_NP L_NP ,_, Vaz_NP G._NP 2017._CD Verification_NP and_CC validation_NN exercises_NNS for_IN the_DT flow_NN around_IN the_DT KVLCC2_JJ tanker_NN at_IN model_NN and_CC full-scale_JJ Reynolds_NP numbers_NNS ._SENT 
+Ocean_NP Eng_NP ._SENT 
+129:133–148_NP ._SENT 
+doi_NP :_: 10.1016/j.oceaneng.2016.11.005_NP Piomelli_NP U_NP ,_, Balaras_NP E_NP ,_, Pasinato_NP H_NP ,_, Squires_NP K_NP ,_, Spalart_NP P._NP 2003._CD The_DT inner-outer_NN layer_NN interface_NN in_IN large-Eddy_JJ simulations_NNS with_IN wall-layer_NN models_NNS ._SENT 
+Int_NP J_NP Heat_NP Fluid_JJ Flow_NP ._SENT 
+24(4):538–550_NP ._SENT 
+doi_NP :_: 10.1016/S0142-727X(03)00048-1_JJ Rajamani_NP B_NP ,_, Kim_NP J._NP 2010._CD A_DT hybrid-filter_NN approach_NN to_TO turbulence_NN simulation_NN ._SENT 
+Flow_NN Turbul_NN Combust_JJ ._SENT 
+85(3):421–441_JJ ._SENT 
+doi_NP :_: 10.1007/s10494-010-9254-7_JJ Sanchez-Rocha_NP M_NP ,_, Menon_NP S._NP 2011._CD An_DT order-of-magnitude_NN approximation_NN for_IN the_DT hybrid_JJ terms_NNS in_IN the_DT compressible_JJ hybrid_JJ RANS/LES_NNS governing_VVG equations_NNS ._SENT 
+J_NP Turbul_NP ._SENT 
+12:N16_NP ._SENT 
+doi_NP :_: 10.1080/14685248.2011.560153_CD Schlichting_NP H_NP (_( 2000_CD )_) ._SENT 
+Boundary_NN layer_NN theory_NN ._SENT 
+Springer_NP ._SENT 
+Shevchuk_NP I_NP ,_, Kornev_NP N._NP 2018._CD Improved_VVD version_NN of_IN LeMos_NP hybrid_JJ model_NN for_IN ambiguous_JJ grid_NN densities_NNS ._SENT 
+Int_NP J_NP Naval_NP Archit_NP Ocean_NP Eng_NP ._SENT 
+10(3):270–281_JJ ._SENT 
+doi_NP :_: 10.1016/j.ijnaoe.2017.09.008_NP Shur_NP M_NP ,_, Spalart_NN P_NN ,_, Strelets_NP M_NP ,_, Travin_NP A._NP 2008._CD A_DT hybrid_NN RANS-LES_VVZ approach_NN with_IN delayed-DES_NNS and_CC wall-modelled_NN LES_FW capabilities_NNS ._SENT 
+Int_NP J_NP Heat_NP Fluid_JJ Flow_NP ._SENT 
+29(6):1638–1649_NP ._SENT 
+doi_NP :_: 10.1016/j.ijheatfluidflow.2008.07.001_JJ Spalart_NN P._NP 2000._CD Strategies_NNS for_IN turbulence_NN modelling_VVG and_CC simulations_NNS ._SENT 
+Int_NP J_NP Heat_NP Fluid_JJ Flow_NP ._SENT 
+21(3):252–263_NP ._SENT 
+doi_NP :_: 10.1016/S0142-727X(00)00007-2_NP Spalart_NP P_NN ,_, Deck_NP S_NP ,_, Shur_NP M_NP ,_, Squires_NP K_NP ,_, Strelets_NP M_NP ,_, Travin_NP A._NP 2006._CD A_DT new_JJ version_NN of_IN Detached-Eddy_JJ simulation_NN ,_, resistant_JJ to_TO ambiguous_JJ grid_NN densities_NNS ._SENT 
+Theoret_NP Comput_NP Fluid_JJ Dyn_NP ._SENT 
+20(3):181–195_NP ._SENT 
+doi_NP :_: 10.1007/s00162-006-0015-0_NP Spalart_NP P_NN ,_, Jou_NP W_NP ,_, Strelets_NP M_NP ,_, Allmaras_NP S._NP 1997._CD Comments_NNS of_IN feasibility_NN of_IN LES_FW for_IN wings_NNS ,_, and_CC on_IN a_DT hybrid_JJ RANS/LES_NNS approach_NN ._SENT 
+In_RB :_: International_NP Conference_NP on_IN DNS/LES_NP ,_, Aug_NN 4–8_NN ;_: Ruston_NP (_( LA_NP )_) ._SENT 
+Spalding_NP D._NP 1961._CD A_DT single_JJ formula_NN for_IN the_DT law_NN of_IN the_DT wall_NN ._SENT 
+J_NP Appl_NP Mech_NP Trans_NP ASME_NN Ser_NP E._NP 28:455–458_NP ._SENT 
+doi_NP :_: 10.1115/1.3641728_CD Strelets_NNS M._NP 2001._CD Detached_VVN eddy_NN simulation_NN of_IN massively_RB separated_JJ flows_NNS ._SENT 
+39th_NP Aerospace_NP Sciences_NPS Meetings_NNS and_CC exhibit_NN ._SENT 
+American_NP Institute_NP of_IN Aeronautics_NP and_CC Astronautics_NNS ._SENT 
+Travin_NP A_NP ,_, Shur_NP M_NP ,_, Strelets_NP M_NP ,_, Spalart_NP P._NP 2000._CD Detached-Eddy_NP simulations_NNS past_IN a_DT circular_JJ cylinder_NN ._SENT 
+Flow_NN Turbul_NN Combust_JJ ._SENT 
+63:293–313_NP ._SENT 
+doi_NP :_: 10.1023/A:1009901401183_NP Vaz_NP G_NP ,_, Pereira_NP F_NP ,_, Eca_NP L._NP 2017._CD On_IN the_DT prediction_NN of_IN shear-layer_NN flows_NNS with_IN RANS_NP and_CC SRS_NP models_NNS ._SENT 
+In_RB :_: Visonneau_NP M_NP ,_, Quetey_NP P_NN ,_, Le_NP Touze_NP D_NP ,_, editors_NNS ._SENT 
+Proceedings_NNS of_IN the_DT VII_NP International_NP Conference_NP on_IN Computational_JJ Methods_NNS in_IN Marine_NP Engineering_NP (_( MARINE_JJ )_) ,_, Nantes_NP ,_, France_NP ._SENT 
+Visonneau_NP M_NP ,_, Deng_NP G_NP ,_, Guilmineau_NP E_NP ,_, Queutey_NP P_NN ,_, Wackers_NNS J._NP 2016._CD Local_JJ and_CC global_JJ assessment_NN of_IN the_DT flow_NN around_IN the_DT Japan_NP bulk_NN carrier_NN with_IN and_CC without_IN energy_NN saving_VVG devices_NNS at_IN model_NN and_CC full_JJ scale_NN ._SENT 
+In_RB :_: Proceeding_VVG 31th_JJ Symposium_NN on_IN Naval_NP Hydrodynamics_NNS ;_: Monterey_NP (_( CA_MD )_) ._SENT 
+p._NP 1–20_NP ._SENT 
+Xing_NP T_NN ,_, Bhushan_NP S_NP ,_, Stern_NP F._NP 2012._CD Vortical_JJ and_CC turbulent_JJ structures_NNS for_IN KVLCC2_NN at_IN drift_NN angle_NN 0_CD ,_, 12_CD and_CC 30_CD degrees_NNS ._SENT 
+Ocean_NP Eng_NP ._SENT 
+55:23–43_NP ._SENT 
+doi_NP :_: 10.1016/j.oceaneng.2012.07.026_NP 

@@ -1,0 +1,362 @@
+<title>CFD simulation of thermal hydraulic phenomena in enclosed cavity of nuclear power plants</title>
+<author>1,ChongChen,2,XingjunWang,3,MingjunWang,4,YuboQi,5,JingZhang,6,WenxiTian,7,SuizhengQiu,8,G.H.Sua</author>
+<Affiliation>1,Karlsruhe Institute of Technology, Institute of Neutron Physics and Reactor Technology, Hermann-von-Helmholtz-Platz 1, 76344 Eggenstein-Leopoldshafen, Germany;2,VTT Technical Research Centre of Finland Ltd., P.O. Box 1000, FI-02044 VTT, Finland</Affiliation>
+<year>2020</year>
+<Jounral>Annals of Nuclear Energy</Journal>
+<Publishing_house>ELSEVIER</Publishing_house>
+<Text_Collector>XiaFan，HEU</Text_Collector>
+<DOI>10.1016/j.anucene.2020.107953</DOI>
+<URL>https://www.sciencedirect.com/science/article/pii/S0306454920306496</URL>
+CFD simulation of thermal hydraulic phenomena in enclosed cavity of nuclear power plants
+ManuelGarcía,JaakkoLeppänen,VictorSanchez-Espinoza
+Karlsruhe Institute of Technology, Institute of Neutron Physics and Reactor Technology, Hermann-von-Helmholtz-Platz 1, 76344 Eggenstein-Leopoldshafen, Germany
+VTT Technical Research Centre of Finland Ltd., P.O. Box 1000, FI-02044 VTT, Finland
+<Section>Highlights</Section>
+Compressible governing equations and improved compressible phase change model were used to calculate the thermal hydraulic phenomena in enclosed cavity.
+Coolant natural convection result in significant thermal stratification in vertical direction.
+Vapor accumulates in upper part of pipe and the corrosion in the region is more serious.
+Increasing the initial pressure is an effective means to alleviate “dead-leg” phenomenon.
+<Section>Abstract</Section>
+The “dead-leg” in nuclear power plants (NPP) are pipes, which are connected with the primary loop and isolated by two check valves setting at both ends. It is a typical enclosed cavity. As the temperature and pressure in primary side is higher, the coolant in tube is heated by the valve and becoming two phase state, resulting in the corrosion of valves. In present work, the CFD method was employed to study the single phase and two phase thermal hydraulic phenomena in enclosed cavity. The buoyancy was calculated by solving compressible governing equations, and the mixture multiphase model and improved compressible phase change model were used to calculate the boiling process. The models are validated against with the experiment data and the simulation results show great agreement. The coolant natural convection occurs and the significant thermal stratification exists in the vertical direction. The void fraction increases at first and tends to a stable value finally. The vapor accumulates in the upper part of the pipe and the corrosion in the region is more serious. The trend of pressure increasing is consistent with void fraction and self-pressurization phenomenon is caused by the compression of vapor. Increasing the initial pressure could reduce boiling process greatly and it is an effective means to alleviate “dead-leg” phenomenon. This work is meaningful for the deep understanding of thermal hydraulic phenomena in enclosed cavity and provides valuable guidance for engineering.
+Keywords：CFD;Enclosed cavity;“dead-leg”;Two-phase;Natural convection
+<Section>1. Introduction</Section>
+The “dead-leg” are defined as the pipes that are connected with the primary loop and isolated by two check valves setting at both ends in nuclear power plants (NPP), as shown in Fig. 1. It is a typical enclosed cavity of NPPs. During the normal operations, the fluid in the cavity maintains stagnant. As the temperature and pressure in primary side is higher, the liquid in “dead-leg” is heated by the valve and evaporates, then the ions may accumulate at the vapor-water interface, leading to the corrosion of valves. This is called “dead-leg” phenomenon in NPP. It has been a key reason to cause the reduction service life of valves in the primary loop and a major technical problem in NPPs.
+Fig. 1. Schematic diagram of “dead-leg” pipes.
+In 1983, the issue happened in the Bugey nuclear power plant which attracted wide attentions in the world. In 1988, Electricity de France (EDF) started to solve the “dead-leg” problem in the residual heat removal system. They used the method of introducing external pressure to suppress the coolant boiling in the ”dead-leg”. In 2005, EDF tried to address the “dead-leg” issue in the safety injection system through the principle of “self-pressurization”, but the problem is not well solved. As the mechanism process of “dead-leg” phenomenon was not very clear, many countries have studied this problem from different aspects in recent years.
+In the enclosed cavities, affected by the temperature difference between the both sides of valves, the natural convection will appear. Generally, the density is an important factor for the calculation of natural convection. There are mainly three ways to solve this problem: Boussinesq approximation, incompressible ideal gas and the real density (Li, 2015, Song and Guo, 2012). Kuznetsov and Sheremet (2011) investigated the natural convection phenomena in the square cavity with the constant heat source on the left wall. The Boussinesq approximation and finite difference method were used to study the temperature and flow fields in the square cavity. The result indicated that the distribution of air temperature could be effectively influenced by the vertical position of heat source. Roslan et al. (2014) studied the natural convection in square cavity with one cylindrical heat source and the temperature of cylinder is a sine function of time. It is found that the heat transfer increases with the increase of temperature curve amplitude. Zhang (2014) study the natural convection in a complex confined space using the Fluent and the heat network method software SINDA/FLUINT, The results showed great differences with the two methods. Goloviznin et al. (2017) proposed CABARET scheme to solve the natural convection problem. The calculated results were in good agreement with the experimental data, which proves the rationality of scheme. Gao and Yang (2014) calculated the temperature characteristics in the “dead-leg” pipe under the condition of full working medium using CFX. The research showed that “dead-leg” phenomenon could be avoided by adjusting the arrangement of pipes. Zhang et al. (2015) studied the temperature and flow fields in closed square cavity with small heat source using the PIV. The result presented that influenced by the bottom heating, a complete circulation flow was formed.
+The coolant in the enclosed cavities is heated by the valves and the vapor will be generated, so this area includes complex compressible two phase flow phenomena. At present, the two-phase flow research is mostly focused on the pool boiling, flow boiling and condensation (Chen et al., 2017, Juarsa et al., 2014, Li et al., 2019a, Li et al., 2019b, Li et al., 2015, Shirai et al., 2010, Thome, 2004, Zhang et al., 2019). Zhang et al. (2019) investigated the orientation effect of boiling for downward facing heating plate and the results indicated that the inclined angle had little effect on the saturated pool boiling heat transfer. Shirai et al. (2010) carried out experiments study on the boiling and CHF of LH2. It is found that the heat transfer is obviously enhanced with the increase of pressure. Between 0.1 MPa and 1.0 MPa, the CHF will increase firstly and then decrease, then it will reach the maximum value at 0.3 MPa.
+The process of bubble nucleation, growth, departure and breaking at the valve have an important impact on the “dead-leg” phenomenon. Many researchers have also conducted the study of bubble dynamics in boiling process. Thiagarajan et al. (2015) used visual method to study the bubble dynamics characteristics of microporous surface and common surface of copper during the boiling process. The results showed that for the copper microporous surface, the heat transfer coefficient was increased by 50–270%, and the critical heat flux was increased by 33–60%. Many other visual experiments have also been conducted to study the influence factors of bubble dynamics such as surface roughness (Mchale and Garimella, 2010), (Chen and Chung, 2002), contact angle (Maurus et al., 2002) and gravity (Ma and Chung, 2001). Jung and Kim (2014) measured the temperature at the bottom of a single bubble during its growth by using infrared thermal imager. The result indicated that the temperature would decrease sharply during the growth period of bubbles, and rise gradually with the separation of bubbles.
+In recent years, the numerical methods were widely used in the two-phase flow to study local characteristics (Fang et al., 2020a, Fang et al., 2020b, Feng et al., 2019, Khan et al., 2020). Dong et al. (2010) proposed a two-dimensional composite model by adding the phase change model to the large density ratio model. The model could accurately predict the bubble growth process and temperature around bubble during the boiling process. Chen et al. (2019) combined VOF method and dynamic mesh method to investigate the bubble rising characteristic for Marine nuclear power system. Habib et al., 2014, Krepper et al., 2007 used two fluid model, improved RPI boiling model and consider a variety of interphase models to simulate the CHF subcooled boiling. The research results were in good agreement with the experimental data. Gao et alGao et al., 2012. studied the natural convection in “dead-leg” pipe for PWR. The result presented the temperature distribution and air–water interface near the valve, revealing the mechanism of valve corrosion to some extent. However, their study did not consider the mass and energy transfer between the two phases.
+From the above review, we could conclude that the researches concentrated on the thermal hydraulic characteristics of enclosed cavities such as “dead-leg” are comparatively insufficient, especially for multiphase phenomena. As it is difficult to conduct a visualization experiment in enclosed cavity, the flow field and phase interface are hard to figure out in detail. In present work, the CFD method has been used to investigate the basic thermal hydraulic phenomena in the enclosed cavity, including the natural convection and multiphase flow characteristics, in order to provide a theoretical basis for solving “dead-leg” phenomena of NPPs.
+<Section>2. Mathematic model</Section>
+2.1. Natural convection model
+During the heating process, the coolant density varies with the increase of temperature, then the buoyancy could be generated because of the density difference.
+(1)@
+Buoyancy is the key driven force of natural convection and many researchers use the Boussinesq model to calculate the buoyancy in the literatures (Chmaissem et al., 2002, Gonzalez et al., 2013), however, the Boussinesq model is suitable for the condition of small temperature difference in which the density changes linearly, so it is not applicable to the “dead-leg” phenomena. Some researchers proposed to use compressible governing equations (Zimmermann and Groll, 2014). In present work, the density is calculated as Eq. (2), the applicable range of this equation is: 293 < T < 550 K, 0.1 < P < 6.0 MPa.
+(2)@
+2.2. Governing equations for multiphase flow
+The coolant in enclosed cavity is heated by the valves and may evaporate after reaching the saturated temperature. The mixture multiphase model was used in this paper to simulate the two-phase process, the governing equation can be written as follows:
+Continuity equation:
+(3)@
+Momentum Equation:
+(4)@
+Energy Equation:
+(5)@
+The volume fraction equation for vapor:
+(6)@
+where, @ is the mixture density, @ ,@ is the volume fraction of vapor and liquid,@is pressure, @ the viscosity of mixture, @is the gravitational acceleration, @is the surface tension. @ is the volumetric heat source and @ is the mass source, @ is the effective conductivity.
+@ is the mass-averaged velocity:
+(7)@
+@ is the drift velocity:
+(8)@
+2.3. Mass and heat transfer
+In this work, the vapor will appear at the valve and the mass source is calculate based on the kinetic theory for a flat interface (Tanasawa, 1991).
+(10)@
+According to the Clausius –Clapeyron equation:
+(11)@
+Substitution of Eq. (11) into Eq. (10):
+(12)@
+where F is the condensation rate for per unit area, @ is the accommodation coefficient, R is the universal gas constant, M is the molecular mass of the vapor, hfg is the latent heat of vaporization. Assume that all vapor bubbles have the same diameter, the interfacial area density is:
+(13)@
+where d is Sauter mean diameter. The mass source could be written as:
+(14)@
+The derivation methods for evaporation and condensation are the same, and the mass transfer for evaporation and condensation were shown as Eq. (15) and Eq. (16) respectively.
+Evaporation process:
+(15)@
+Condensation process:
+(16)@
+The mass source could be written as:
+(17)@
+where re, rc are the evaporation and condensation coefficient respectively. Based on the above analysis, the coefficient could be written as:
+@
+(18)@
+The accommodation coefficients for both the evaporation and condensation are set to 0.1 based the experimental results of (Rohsenow, 1956).
+In the enclosed cavity, the pressure will rise dramatically during the boiling process, so the saturation temperature may also be changing. The saturation temperature will be calculated as follows:
+(19)@
+The energy source could be written as:
+(20)@
+<Section>3. Numerical methods</Section>
+3.1. Geometry model
+The geometry in present work is shown as Fig. 2. The calculation domain was a straight pipe with the length of 2000 mm/6000 mm and the diameter of 132 mm. It includes two parts, the stainless steel valve and the pipe section. The valve inclination angle is 73 degrees.
+Fig. 2. CFD calculation domain.
+3.2. Grid independent solution
+In this study, the hexahedral mesh is constructed in both fluid and solid domain. In order to improve the calculation accuracy for the local flow and heat transfer characteristics near the valve, the y plus value must be less than one, so finer mesh has been used near the wall, shown as in the Fig. 3.
+Fig. 3. Mesh condition.
+According to the Best Practice Guideline (BPG), the mesh sensitivity study is necessary for a reliable nuclear thermal hydraulic CFD analysis. In this work, for the 2000 mm straight pipe, three different mesh conditions were generated with the number of 192000, 258,000 and 516,000 respectively.
+For the case with the heat wall temperature of 373 k, the average temperature on the surface x = 200 mm at 5000 s is shown as Fig. 4(a). Fig. 4(b) presents the void fraction during the boiling process with three different types of meshes. It can be seen from the above results, the temperature and amount of vapor are nearly the same as the mesh number increases from 258,000 to 516000, so considering the balance of calculation accuracy and computational resource requirement, the mesh condition with 258,000 hex meshes is used in present work.
+Fig. 4. Mesh sensitivity study.
+3.3. Boundary conditions and numerical method
+The material of valve is stainless steel. The initial pressure is 0.1 MPa and the cavity is filled with water at first. The boundary conditions are shown as Fig. 5. The calculation domain includes fluid part and solid part (valve). Constant temperature or constant heat flux boundary condition is used in heat wall, and the temperature of cold wall is fixed at 293 K. The side wall of valve is adiabatic. It is assumed that there is natural convection outside the pipe. According to the work of Yang and Zhang (1994), the Nu number could be calculated as follows:
+(21)@
+where, Gr is the Grashof number:
+(22)@
+where @ is the volumetric thermal expansion coefficient, @ is the gravitational acceleration, @ is the kinematic viscosity, @ is the diameter of the pipe, @ and @are the temperature of the wall and air respectively. Pr is the Prandtl number of air.
+Fig. 5. Boundary conditions.
+The primary parameter for the transition from laminar to turbulent in natural convection is the Rayleigh number:
+(23)@
+where @ is the volumetric thermal expansion coefficient, @ is the gravitational acceleration, @ is the kinematic viscosity, @is the diameter of the pipe, @ and @are the temperature of the wall and air respectively, @ is the thermal diffusivity.
+In this study, the Ra number is equal to 1.14 × 1011, based on the theory of Wei and Yang (1996), the flow inside the tube is turbulent. Based on the turbulent model sensitivity study, The Standard @model and enhancing wall function are used to calculate the turbulent flow.
+3.4. Validation of the CFD method
+An experimental study was carried out for an enclosed cavity. Fig. 6 shows the schematic diagram of experimental system. In the experiment, the electric heating device is used to simulate the temperature of primary side in NPP, and the heat is transmitted to the ‘dead-leg’ pipe section through the valve. The valve is simulated by a stainless steel plate with one end inclined with the inclined angle of 73 degrees. The pipe is filled with water initially.
+Fig. 6. Schematic diagram of faculty.
+The temperature is measured by K-type thermocouples. One of the thermocouples is set in the center of valve to detect the solid wall temperature (MT1). In addition, 8 groups of thermocouples are set in the fluid area (MT2-MT15). The axial location of thermocouples in the experiment is shown in Fig. 7(a). The first three groups of thermocouples are settled as Fig. 7(b) and each group has three K-type thermocouples to investigate the thermal stratification in vertical. The pressure transducers are used to measure the pressure during the experiment.
+Fig. 7. Schematic diagram of thermocouple locations.
+The CFD geometry model in calculation were consistent with the experiments, as shown in Fig. 2. When the heat wall is fixed at 373 K, the temperature distribution in the pipe at 10000 s was shown in Fig. 8. It can be seen that temperature will decrease along the axial direction and the relative high temperature will appear near the upper part of valve. The obvious thermal stratification is appeared in the vertical direction. Although the CFD result in Fig. 8(b) was slightly lower than the experimental result, the trend of experimental and simulation results is nearly the same and the maximum temperature deviation between experiment and CFD is 1.01 K which could be ignored compared to the maximum temperature difference of fluid (32.3 K for MT2 and MT15), it indicated that the CFD model in present work is reliable.
+Fig. 8. Temperature distribution at 10000 s.
+To validate the multiphase simulation method, the case with constant heat flux boundary conditions are simulated with the heat flux of 180 kW/m2. As it is very difficult to measure the void fraction of vapor, the pressure is selected as the parameter to make the comparison. Fig. 9 presents the pressure comparison between the CFD results and experiment data. We can see from the results that the pressure is constant at initial, then the pressure will rise rapidly as the evaporation of water.
+Fig. 9. Pressure during the heat process.
+The above results show that the temperature and pressure in the simulation agree well with the experimental results, indicating that the established CFD model in present work is reliable to study the thermal hydraulic phenomena in enclosed cavity.
+<Section>4. Results and discussion</Section>
+4.1. Natural convection
+The coolant natural convection in the enclosed cavity is investigated at first. Fig. 10 shows the temperature distribution of the water in horizontal straight pipe with length of 2000 mm and diameter of 132 mm. It can be found that the temperature near the valve is relative higher, then it will drop slightly as far away from the heating wall. The temperature distribution at four different cross sections is shown in Fig. 10(b). The result shows that temperature decreases gradually along the direction of gravity and the significant thermal stratification appears in the vertical direction.
+Fig. 10. Temperature distribution of the pipe.
+The temperatures in vertical direction at x = 100 mm, x = 1000 mm, x = 1900 mm are shown in Fig. 11. The thermal stratification occurs for all the cross sections, and it is more obviously in the region near the valve with the maximum temperature difference of 22 K. We could also find that the temperature at the upper resign of pipe (above 100 mm) decreases slightly, however, the temperature in the lower region (below 100 mm) is nearly the same.
+Fig. 11. Temperature in vertical direction.
+The velocity distribution is shown in Fig. 12 and the natural convection appears due to the temperature difference between the heat and cold walls. At the upper region of cavity, the water flows from valve to the cold wall, while it flows in the opposite direction at the bottom. The local flow characteristics near the valve and cold wall can be seen from the figure. The water near the valve would be heated, resulting in the density decrease, then it will flow upward and the cold water on the other side flows downward. The above results show that natural convection is the reason to cause thermal stratification in the vertical direction.
+Fig. 12. The flow field distribution.
+The temperature and flow filed at different time is shown in Fig. 13. At initial (t = 500 s), the upper left area is heated and the temperature is relative higher, while the temperature in the region below y = 66 mm is nearly the same. At this time, local natural convection is formed as shown in Fig. 13(b). Then with the heating of fluid, the range of natural convection is increasing (t = 5000 s). After a long time of heating (t = 30000 s), a stable natural convection and obvious thermal stratification in the whole cavity would be formed.
+Fig. 13. Transient characteristics of flow and temperature fields.
+4.2. Two phase flow character in enclosed cavity
+4.2.1. Phenomena during heating process
+For the 2000 mm straight pipe, the heat wall is fixed to 600 K and the void fraction during heating process is shown in Fig. 14. It can be seen that the void fraction increases at first and tends to a stable value finally. At the beginning, as the fluid temperature is relatively low and does not reach the saturation temperature, there is no vapor generated in the pipe and the pressure is keeping constant.
+Fig. 14. Void fraction during heating.
+At about 120 s, the vapor appeared near the top of valve firstly. Fig. 15 shows the temperature and void fraction near the valve at this time. It can be seen that the temperature near valve is uneven and coolant temperature in the upper region is relatively high. It reaches saturation temperature and a small amount of vapor is generated. At this time, the wall superheat is about 5.0 K. This result is consistent with the research about the start point of subcooled pool boiling(Das et al., 2003).
+Fig. 15. Temperature and void fraction in the valve at 120 s.
+Then at the initial stage of boiling, the void fraction increases very slowly and it is only generated on the upper part of valve. The temperature and void fraction near the valve at 1000 s are shown in Fig. 16. The temperature is relatively high in the upper region of valve, especially at the edge, and the vapor is concentrated in this region. After 1000 s, the growth rate of void fraction is gradually accelerated and it will increase linearly after 1500 s. We can see from Fig. 18 that most fluid near the valve reaches saturation, and bubbles appear at the entire surface of the valve and accumulate in the upper region at 2000 s. This is because the wall superheat is larger in this region, and more bubbles will be formed. In addition, due to the buoyancy effect, the bubbles in the bottom will rise and gather in the upper area Fig. 17.
+Fig. 16. Temperature and void fraction in the valve at 1000 s.
+Fig. 17. Temperature and void fraction in the valve at 2000 s.
+We can also see from Fig. 14 that after 7000 s, the growth rate of void fraction will decrease and the void fraction is nearly constant after 10000 s. This phenomenon is caused by the variation of pressure. The increase of pressure and void fraction are consistent. At initial, as the void fraction changes slowly, the pressure is essentially the same. Then due to the rapid generation of vapor, the pressure increases rapidly. During this process the saturation temperature will increase and the boiling process will be limited. The phenomenon that pressure rises spontaneously during the heating process is called “self-pressurization “phenomenon.
+Fig. 18 (a) shows the temperature near the valve under the stable state. It can be found that there is obvious thermal stratification in vertical direction. The void fraction is shown in Fig. 18 (b) and an obvious gas–liquid interface will be formed in the stable state. By comparison with Fig. 18 (a), the high temperature region is mainly located in the region with higher void fraction and the temperature stratification is particularly obvious at the water–vapor interface. Fig. 18(c) shows the turbulent kinetic energy near the valve, it indicates that the turbulence intense is higher at the interface and this phenomenon will aggravate the corrosion of valve inevitably.
+Fig. 18. Thermal hydraulic characteristics near the valve.
+According to the operation experience of NPPs, some ions tend to gather at the gas–liquid interface, accelerating the corrosion of valve. So we can conclude that the serious corrosion area is located in the region with higher void fraction and higher temperature, especially at the interface.
+Fig. 19(d) shows real corroded valve in “dead-leg” pipe. By comparing with the predicted positions by simulation, it can be found that the two results are consistent, which further proves that the result in present work could reveal the mechanism of “dead-leg” phenomenon effectively.
+Fig. 19. Axial temperature distribution at different heights.
+4.2.2. Temperature and velocity distribution
+The axial temperatures with different heights (y = 127 mm, 66 mm, 5 mm) at 12500 s are shown in Fig. 19. We can see from the results that the overall temperature will increase greatly with the heights, but the temperature distribution is similar with the single phase condition shown in previous. As more vapor gathers in the upper area, the convective heat transfer in this region will reduce. So in this condition, the vertical thermal stratification is more obvious. The maximum temperature difference is more than 30 K, which is 50% higher than that under single-phase condition.
+The flow field under steady state (t = 12500 s) is shown in Fig. 20. It can be seen that as large amount of vapor are formed and accumulated near the valve, the natural convection is greatly limited and the velocity is lower in this region. We could infer that the thermal stratification near the valve may be caused by the accumulation of vapor rather than natural convection, which is different with the single phase condition. In the middle and back of the pipe, local natural convection is formed. In addition, a large eddy will be formed at the center, which will make the temperature more uniform in the vertical direction (black and red line in Fig. 19).
+Fig. 20. Flow field under steady state.
+4.3. Pressure effect
+Pressure is one of the key factors that affects the phase change in enclosed cavity. As the pressure increases, the saturation temperature increases. The variation of void fraction with different initial pressure is shown in Fig. 21. When the initial pressure is 0.1 MPa and 2.0 MPa, the trends of void fraction are similar. It will increase firstly, and finally keep constant. The time of vapor begins to appear for the two cases is 120 s and 7500 s respectively. When the initial pressure is 4 MPa, no vapor is generated during the heating process. The results indicate that increasing the initial pressure could reduce boiling process greatly. With the increase of initial pressure, the heating time will be extended when the vapor begins to generate.
+Fig. 21. Void fraction for different initial pressure.
+The variation of pressure during the heating process is shown in Fig. 22. By comparison with the results in Fig. 21, it can be seen that the trend of pressure increasing is consistent with the void fraction. This confirms that the increasing of pressure in the enclosed cavity is mainly caused by the compression of vapor. When the initial pressure is 2 MPa, it will take more time to reach the stable condition (20000 s). The growth of pressure under two conditions is 1.481 MPa and 0.564 MPa respectively.
+Fig. 22. Pressure during heating process.
+Based on the above analysis, we can conclude that pressurization can effectively inhibit the boiling process, which is an effective means to alleviate the “dead-leg” phenomenon. This result could provide a theoretical basis for the related system and structure optimization in NPPs.
+4.4. Initial liquid level
+In this section, the effect of liquid level on the thermal hydraulic phenomena in enclosed cavity will be investigated. The geometry model and boundary condition are consistent with previous calculation, and the initial liquid level height is 66 mm. The variations of gas–liquid interface at different time are shown in Fig. 23. During the heating process, the height of liquid level keeps decreasing. Influenced by the liquid evaporation, the gas–liquid interface will produce a large fluctuation. Especially, in the contact area of valve and fluid, the oscillation of liquid level is more obvious.
+Fig. 23. Gas-liquid interface.
+Fig. 24 presents the distribution of turbulent kinetic energy. The turbulence intensity in the contact area between the gas–liquid interface and the valve is relatively higher. This is because upper region of valve is directly contacted to the gas and could not be cooled sufficiently, resulting in local high temperature in this area (shown in Fig. 25). As the oscillation of liquid level, liquid will contact with the high temperature wall intermittently and a small amount of vapor will be produced, leading to the further increase of turbulence intensity. In addition, the intermittent contact will also cause thermal fatigue and aggravate valve damage. So we could infer that the corrosion is more serious under the condition that the coolant is not full in the enclosed cavity.
+Fig. 24. Turbulent kinetic energy.
+Fig. 25. Temperature distribution.
+<Section>5. Conclusion</Section>
+In present work, the mixture multiphase model and improved compressible phase change model has been used to calculate the flow and heat transfer characteristic for the enclosed cavity. Some important conclusions are drawn as follows:
+1)
+The simulation results agree well with the experimental data, indicating that the established models are reliable to study the thermal hydraulic phenomena in enclosed cavity. The natural convection occurs and the significant thermal stratification is existed in the vertical direction.
+2)
+The void fraction increases at first and tends to a stable value finally. The obvious thermal stratification and gas–liquid interface will be formed and the vapor may accumulate in the upper part of pipe, leading to a serious corrosion in the region. The trend of pressure increasing is consistent with void fraction and the “self-pressurization” phenomenon may be caused by the compression of vapor.
+3)
+Increasing the initial pressure could reduce boiling process greatly, it is an effective means to alleviate “dead-leg” phenomenon. When the liquid in enclosed cavity is not full, gas–liquid interface will produce a large fluctuation, corrosion will be more serious than the case with full water inventory initially.
+<Section>CRediT authorship contribution statement</Section>
+Chong Chen: Software, Writing - original draft. Xingjun Wang: Data curation. Mingjun Wang: Funding acquisition. Yubo Qi: Project administration. Jing Zhang: Data curation. Wenxi Tian: Supervision, Project administration. Suizheng Qiu: . G.H. Su: Writing - review & editing.
+<Section>Declaration of Competing Interest</Section>
+The authors declare that they have no known competing financial interests or personal relationships that could have appeared to influence the work reported in this paper.
+<Section>Acknowledgement</Section>
+This research has been supported by the National Natural Science Foundation of China (Grant No. 12075185).
+<Section>Appendix A. Supplementary data</Section>
+The following are the Supplementary data to this article:
+Download : Download XML file (326B)
+Supplementary data 1.
+<Section>Research data for this article</Section>
+Data not available / No data was used for the research described in the article
+About research data
+<Section>References</Section>
+Chen et al., 2019
+C. Chen, M. Wang, X. Zhao, H. Ju, X. Wang, W. Tian, S. Qiu, G.H. Su
+Numerical study on the single bubble rising behaviors under rolling conditions
+Nucl. Eng. Des., 349 (2019), pp. 183-192
+ArticleDownload PDFCrossRefView Record in ScopusGoogle Scholar
+Chen and Chung, 2002
+T. Chen, J.N. Chung
+Coalescence of bubbles in nucleate boiling on microheaters
+Int. J. Heat Mass Transfer, 45 (2002), pp. 2329-2341
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+Chen et al., 2017
+Z. Chen, A. Haginiwa, Y. Utaka
+Detailed structure of microlayer in nucleate pool boiling for water measured by laser interferometric method
+Int. J. Heat Mass Transfer, 108 (2017), pp. 1285-1291
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+Chmaissem et al., 2002
+W. Chmaissem, S.J. Suh, M. Daguenet
+Numerical study of the Boussinesq model of natural convection in an annular space: having a horizontal axis bounded by circular and elliptical isothermal cylinders
+Appl. Therm. Eng., 22 (2002), pp. 1013-1025
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+Das et al., 2003
+S.K. Das, N. Putra, W. Roetzel
+Pool boiling characteristics of nano-fluids
+Int. J. Heat Mass Transfer, 46 (2003), pp. 851-862
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+Dong et al., 2010
+Z. Dong, W. Li, Y. Song
+A numerical investigation of bubble growth on and departure from a superheated wall by lattice Boltzmann method
+Int. J. Heat Mass Transfer, 53 (2010), pp. 4908-4916
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+Fang et al., 2020a
+D. Fang, L. Li, J. Li, M. Wang, H. Yu, J. Zhang, S. Qiu, W. Tian, G. Su
+Full-scale numerical study on the thermal-hydraulic characteristics of steam-water separation system in an advanced PWR UTSG. Part two: Droplets separation process
+Prog. Nucl. Energy, 118 (2020), Article 103139
+ArticleDownload PDFGoogle Scholar
+Fang et al., 2020b
+D. Fang, M. Wang, Y. Duan, J. Li, G. Qiu, W. Tian, C. Zuo, G. Su, S. Qiu
+Full-scale numerical study on the flow characteristics and mal-distribution phenomena in SG steam-water separation system of an advanced PWR
+Prog. Nucl. Energy, 118 (2020), Article 103075
+ArticleDownload PDFGoogle Scholar
+Feng et al., 2019
+T. Feng, M. Wang, P. Song, L. Liu, W. Tian, G.H. Su, S. Qiu
+Numerical research on thermal mixing characteristics in a 45-degree T-junction for two-phase stratified flow during the emergency core cooling safety injection
+Prog. Nucl. Energy, 114 (2019), pp. 91-104
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+Gao et al., 2012
+Gao, Y., Li, W., Han, Z., Li, Z., 2012. Numerical simulation and analyze of “dead leg” phenomena in M310 nuclear reactor. In: Proceedings of the 15th National Congress of reactor structural mechanics.
+Google Scholar
+Gao and Yang, 2014
+J. Gao, H. Yang
+Hazard Analysis of Primary Loop Related Dead Pipe Segment and Thermal Stratification
+At. Energy Sci. Technol., 48 (2014), pp. 1218-1222
+View Record in ScopusGoogle Scholar
+Goloviznin et al., 2017
+V.M. Goloviznin, I. Korotkin, S.A. Finogenov
+Modeling of turbulent natural convection in enclosed tall cavities
+J. Appl. Mech. Tech. Phys., 58 (2017), pp. 1211-1222
+CrossRefView Record in ScopusGoogle Scholar
+Gonzalez et al., 2013
+M.M. Gonzalez, J.F.H. Palafox, C.E. Gasca
+Numerical study of the Boussinesq approach validity for natural convection and surface thermal radiation in an open cavity
+Rev. Mex. Fis., 59 (2013), pp. 594-605
+CrossRefView Record in ScopusGoogle Scholar
+Habib et al., 2014
+M.A. Habib, M.A. Nemitallah, M. Elnakla
+Current status of CHF predictions using CFD modeling technique and review of other techniques especially for non-uniform axial and circumferential heating profiles
+Ann. Nucl. Energy., 70 (2014), pp. 188-207
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+Juarsa et al., 2014
+M. Juarsa, N. Putra, W.N. Septiadi, A.R. Antariksawan
+Experimental study on the effect of gap size to CCFL and CHF in a vertical of narrow rectangular channel during quenching process
+Ann. Nucl. Energy., 72 (2014), pp. 391-400
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+Jung and Kim, 2014
+S. Jung, H. Kim
+An experimental method to simultaneously measure the dynamics and heat transfer associated with a single bubble during nucleate boiling on a horizontal surface
+Int. J. Heat Mass Transfer, 73 (2014), pp. 365-375
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+Khan et al., 2020
+I. Khan, M. Wang, Y. Zhang, W. Tian, G. Su, S. Qiu
+Two-phase bubbly flow simulation using CFD method: A review of models for interfacial forces
+Prog. Nucl. Energy, 125 (2020), Article 103360
+ArticleDownload PDFGoogle Scholar
+Krepper et al., 2007
+E. Krepper, B. Koncar, Y. Egorov
+CFD modelling of subcooled boiling—Concept, validation and application to fuel assembly design
+Nucl. Eng. Des., 237 (2007), pp. 716-731
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+Kuznetsov and Sheremet, 2011
+G.V. Kuznetsov, M.A. Sheremet
+Conjugate natural convection in an enclosure with a heat source of constant heat transfer rate
+Int. J. Heat Mass Transfer, 54 (2011), pp. 260-268
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+Li, 2015
+M. Li
+Numerical simulation of large-temperature-difference natural convection in the enclosed cavity
+Xi'an University of Architecture and Technology (2015)
+Google Scholar
+Li et al., 2019a
+W. Li, J. Wang, Z. Sun, Y. Zhou, J. Liu, Z. Meng
+Experimental investigation on thermal stratification induced by steam direct contact condensation with non-condensable gas
+Appl. Therm. Eng., 154 (2019), pp. 628-636
+ArticleDownload PDFCrossRefView Record in ScopusGoogle Scholar
+Li et al., 2019b
+W. Li, J. Wang, Y. Zhou, Z. Sun, Z. Meng
+Investigation on steam contact condensation injected vertically at low mass flux: Part I pure steam experiment
+Int. J. Heat Mass Transfer, 131 (2019), pp. 301-312
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+Li et al., 2015
+W. Li, F. Yang, T. Alam, J.A. Khan, C. Li
+Experimental and theoretical studies of critical heat flux of flow boiling in microchannels with microbubble-excited high-frequency two-phase oscillations
+Int. J. Heat Mass Transfer, 88 (2015), pp. 368-378
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+Ma and Chung, 2001
+Y. Ma, J. Chung
+A study of bubble dynamics in reduced gravity forced-convection boiling
+Int. J. Heat Mass Transfer, 44 (2001), pp. 399-415
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+Maurus et al., 2002
+R. Maurus, V. Ilchenko, T. Sattelmayer
+Study of the bubble characteristics and the local void fraction in subcooled flow boiling using digital imaging and analysing techniques
+Exp. Therm. Fluid Sci., 26 (2002), pp. 147-155
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+Mchale and Garimella, 2010
+J.P. Mchale, S.V. Garimella
+Bubble nucleation characteristics in pool boiling of a wetting liquid on smooth and rough surfaces
+Int. J. Multiphase Flow, 36 (2010), pp. 249-260
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+Rohsenow, 1956
+W.M. Rohsenow
+Heat transfer and temperature distribution in laminar film condensation
+Trans. Asme, 78 (1956), pp. 1645-1648
+Google Scholar
+Roslan et al., 2014
+R. Roslan, H. Saleh, I. Hashim, A. Bataineh
+Natural convection in an enclosure containing a sinusoidally heated cylindrical source
+Int. J. Heat Mass Transfer, 70 (2014), pp. 119-127
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+Shirai et al., 2010
+Y. Shirai, H. Tatsumoto, M. Shiotsu, K. Hata, H. Kobayashi, Y. Naruo, Y. Inatani
+Boiling heat transfer from a horizontal flat plate in a pool of liquid hydrogen
+Cryogenics, 50 (2010), pp. 410-416
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+Song and Guo, 2012
+S. Song, X. Guo
+Boussinesq Approximation and Numerical Simulation of Natural Convection in a Closed Square Cavity
+Chin. Q. Mech., 033 (2012), pp. 60-67
+View Record in ScopusGoogle Scholar
+Tanasawa, 1991
+I. Tanasawa
+Advances in condensation heat transfer
+Adv. Heat Transfer, 21 (1991), pp. 55-139
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+Thiagarajan et al., 2015
+S.J. Thiagarajan, R. Yang, C. King, S. Narumanchi
+Bubble dynamics and nucleate pool boiling heat transfer on microporous copper surfaces
+Int. J. Heat Mass Transfer, 89 (2015), pp. 1297-1315
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+Thome, 2004
+J.R. Thome
+Boiling in microchannels: a review of experiment and theory
+Int. J. Heat Fluid Flow, 25 (2004), pp. 128-139
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+Wei and Yang, 1996
+Q. Wei, S. Yang
+An Experimental Study of Natural Convective Heat Transfer of Air in vertical Annular on the High Rayleigh Number Condition
+J. Eng. Thermophys., 17 (1996), pp. 75-80
+View Record in ScopusGoogle Scholar
+Yang and Zhang, 1994
+Yang, S.-M., Zhang, Z.-Z., 1994. An experimental study of natural convection heat transfer from a horizontal cylinder in high Rayleigh number laminar and turbulent regions. In: International Heat Transfer Conference Digital Library. Begel House Inc.
+Google Scholar
+Zhang, 2014
+B. Zhang
+Natural Convection Heat Transfer Study and Thermal Analysis Within an Aircraft Complex Enclosed Space
+Harbin Institute of Technology (2014)
+Google Scholar
+Zhang et al., 2015
+X. Zhang, G. Su, J. Yu, Z. Yao, F. He
+PIV measurement and simulation of turbulent thermal free convection over a small heat source in a large enclosed cavity
+Build. Sci., 90 (2015), pp. 105-113
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+Zhang et al., 2019
+Y. Zhang, K. Deng, C. Wang, G. Su, W. Tian, S. Qiu
+Experimental investigation on saturated pool boiling CHF for downward facing heating surface with different sizes and aspect ratio
+Int. J. Therm. Sci., 138 (2019), pp. 459-466
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+Zimmermann and Groll, 2014
+C. Zimmermann, R. Groll
+Modelling turbulent heat transfer in a natural convection flow
+J. Appl. Math. Phys., 2 (2014), pp. 662-670
+CrossRefView Record in ScopusGoogle Scholar

@@ -1,0 +1,162 @@
+<title>Synergistic spent nuclear fuel dynamics within the European Union</title>
+<author>Jin Whan Bae, Cliﬀord E. Singer, Kathryn D. Huﬀ</author>
+<year>2019</year>
+<Jounral>Progress in Nuclear Energy</Journal>
+<Affiliation>Dept. of Nuclear, Plasma, and Radiological Engineering, University of Illinois at Urbana-Champaign, IL, 61801, Urbana, USA</Affiliation>
+<Publishing_house>Elsevier</Publishing_house>
+<Text_Collector>田苗，BFSU</Text_Collector>
+<DOI>10.1016/j.pnucene.2019.02.001</DOI>
+<URL>https://doi.org/10.1016/j.pnucene.2019.02.001</URL>
+ABSTRACT
+The  French  2012–2015  Commission  Nationale  d’Evaluation  Reports  emphasize preparation  for a  transition  from Light  Water  Reactors  (LWRs)  to  Sodium-Cooled  Fast  Reactors  (SFRs).  We  used  the  CYCLUS  nuclear  fuel  cycle simulator to explore the feasibility of enabling a French transition to an SFR ﬂeet by using Used Nuclear Fuel (UNF) from other European Union (EU) nations. A CYCLUS simulation captured nuclear power deployment in the EU  from  1970  to  2160.  In  this  simulation,  France  begins  its  planned  transition  to  SFRs  as  existing  LWRs  are decommissioned. These SFRs are fueled with UNF accumulated by other EU nations and reprocessed in France. The impact of reactor lifetime extensions and SFR breeding ratios on time-to-transition were investigated with additional simulations. These simulations demonstrate that France can avoid deployment of additional LWRs by accepting UNF from other EU nations, that lifetime extensions delay time-to-transition, and improved breeding ratios are not particularly impactful.
+Keywords:
+Nuclear fuel cycle European union Transition
+Agent-based Simulation
+Spent nuclear fuel
+1.Introduction
+The stated long term plan for nuclear deployment in France targets a technology transition to Sodium-Cooled Fast Reactors (SFRs) (CNE2, 2015). However, the current inventory of French Used Nuclear Fuel (UNF) is insuﬃcient to fuel that transition without building new Light Water Reactors (LWRs).
+If instead, France accepted UNF from other European Union (EU) nations and used it to produce Mixed Oxide Fuel (MOX) for new SFRs, the MOX created will fuel a French transition to an SFR ﬂeet and allow France to avoid building additional LWRs.
+We used the CYCLUS nuclear fuel cycle simulator (Huﬀ et al., 2016) to simulate EU spent nuclear material inventory accumulation and to model the proposed French technology transition from LWRs to SFRs. CYCLUS is an agent-based extensible framework for modeling the ﬂow of material through future nuclear fuel cycles. We calculated the used fuel inventory in EU member states and propose a potential collaborative strategy of used fuel management.
+Past research focuses solely on France and typically assumes that additional LWRs, namely European Pressurized Reactors (EPRs), supply the UNF required to produce MOX (Carré and Delbecq, 2009; Martin and Coquelet-Pascal, 2017; Freynet  et  al.,  2016;  Merino  Rodríguez  et al., 2014). The strategies in these works estimate full SFR transition in 2100. Other recent work in the literature investigates partitioning and transmutation in a European context, with Accelerator-Driven Systems (ADSs) and Gen-IV reactors (Fazio, 2013; Álvarez-Velarde
+et al., 2008), to reduce radiotoxicity for disposal. However, little recent work considers synergistic international spent fuel arrangements. This work ﬁnds that a collaborative strategy can reduce the need to con- struct additional LWRs in France, if the SFRs are as commercially competitive as recent work suggests they may be (Zhao et al., 2009).
+2.Methodology
+We simulated the nuclear reactor operating history in the EU be- ginning in 1970 including MOX production and use in France. The si- mulation captured all discrete regions, reactor facilities, and materials involved in EU historical reactor operation using CYCLUS fuel cycle si- mulation framework and CYCAMORE agents. In this simulation, the UNF from EU nations is stored for later use in French SFRs and France begins production of fuel for SFRs in 2020 by recycling the stored UNF. The SFRs are modeled after the Advanced Sodium Technological Reactor for Industrial Demonstration (ASTRID) breeder reactor (Varaine et al., 2012). All scripts and data used for the simulations in this article are available in (Bae et al., 2018).
+2.1.Cyclus
+CYCLUS is an agent-based fuel cycle simulation framework (Huﬀ     et al., 2016), which means that each reactor, reprocessing plant, and fuel fabrication plant is modeled as an agent. A CYCLUS simulation contains prototypes, which are fuel cycle facilities with pre-deﬁned parameters, that are deployed in the simulation as facility agents. En- capsulating the facility agents are the Institution and Region. A Region agent holds a set of Institutions. An Institution agent can deploy or decommission facility agents. The Institution agent is part of a Region agent, which can contain multiple Institution agents. Several versions of Institution and Region exist, varying in complexity and functions (Huﬀ et al., 2014). DeployInst is used as the institution archetype for this work, where the institution deploys agents at user-deﬁned timesteps.
+At each timestep (one month), agents make requests for materials or bid to supply them and exchange with one another. A market-like mechanism called the dynamic resource exchange (Gidden and Wilson, 2016) governs the exchanges. Each material resource has a quantity, composition, name, and a unique identiﬁer for output analysis.
+In this work, each nation is represented as a distinct Region agent, that contains Institution agents, each deploying Facility agents. The Institution agents then deploy agents according to a user-deﬁned de- ployment scheme.
+2.2.Nuclear deployment in the EU
+The International Atomic Energy Agency (IAEA) Power Reactor Information System (PRIS) database (IAEA, 2017) contains worldwide reactor operation history. The computational workﬂow in this work, shown in Fig. 1, automates data extraction from the PRIS database. We import this database directly as a csv ﬁle to populate the simulation with deployment information, listing the country, reactor unit, type, net capacity (Megawatts electric(MWe)), status, operator, construction date, ﬁrst criticality date, ﬁrst grid date, commercial date, shutdown date (if applicable), and unit capacity factor for 2013. Then only the EU countries are extracted from the csv ﬁle. We developed a python script to generate a CYCLUS compatible input ﬁle accordingly, which lists the individual reactor units as agents.
+Projections of future reactor deployment in this simulation are based on assessment of analyses from references, for instance PRIS, for reactors planned for construction (IAEA, 2017), the World Nuclear Association (2017), and literature concerning the future of nuclear power in a global (Joskow and Parsons, 2012) and European context
+Fig. 1. Green circles and blue boxes represent ﬁles and software processes, respectively, in the computational workﬂow.
+Table 1
+Power reactors under construction and planned. Replicated from (Association, 2017).
+Table 1 lists the reactors that are currently planned or under con- struction in the EU. In the simulation, all planned constructions are completed without delay or failure and reach a lifetime of 60 years.
+For each EU nation, we categorize the growth trajectory is cate- gorized from “Aggressive Growth” to “Aggressive Shutdown”. “Aggressive growth” is characterized by a rigorous expansion of nuclear power, while “Aggressive Shutdown” is characterized as a transition to rapidly de-nuclearize the nation's electric grid. We categorize each nation's growth trajectory into ﬁve degrees depending on G, the growth trajectory metric:
+The growth trajectory and speciﬁc plan of each nation in the EU is listed in Table 2.
+Using this categorization to drive facility deployment, the simula- tion captures regional diﬀerences in reactor power capacity and UNF production as a function of time. Accordingly, Fig. 2 shows the resulting simulated installed capacity in EU nations. Sudden capacity reductions seen near 2025 and in the 2040s result from end-of-license reactor re- tirements and nuclear phaseout plans in nations such as Germany, Belgium and Sweden.
+2.3.French SFR deployment schedule
+Fig. 3 shows the French transition to SFRs modeled in this simula- tion. Historically aggressive growth of nuclear in the 1980s leads to a substantial shutdown of nuclear in the 2040s, which, in the simulation, are replaced by new SFRs. The net capacity is kept constant at 64.7 GWe, which is the maximum predicted installed capacity in France.
+Fig. 4 shows the deployment required to support the transition in Fig. 3. France must build 1.78 ASTRIDs per year, on average, to make up for the end-of-license decommissioning of power plants built in the 1980s and 1990s. The second period of aggressive building occurs when
+Table 2
+Projected nuclear power strategies of EU nations (Association, 2017).
+the ﬁrst generation of SFRs decommission after 60 years. Starting in 2040, France deploys 600-MWe SFRs to make up for decommissioned French LWR capacity. This results in an installed SFR capacity of 64.7 GWe by 2078 when the ﬁnal LWR is decommissioned.
+Finally, Fig. 5 shows the total deployment scheme we simulated. The French transition to SFRs couples with the historical and projected operation of EU reactors. The steep transition from 2040 to 2060 re- ﬂects the scheduled decommissioning of reactors built in the  1975–2000 era of aggressive nuclear growth in France.
+These ﬁgures reﬂect that, for the given assumptions, bursts of construction are necessary to maintain capacity. In reality, a con- struction rate of ﬁve reactors every year is ambitious, but might have the advantage of larger scale production of components and more modular assembly and construction if major components can mostly be built oﬀ site.
+This analysis establishes a multi-national material ﬂow and de- monstrates that, if such an aggressive deployment scheme took place, the SFRs would have enough fuel. Alternatively, the deployment of new SFRs can be spread out by staggering scheduled decommissioning of LWRs through lifetime extensions. For example, we increased the ori- ginal lifetime of French LWRs (60 years) randomly by sampling from a uniform distribution of lifetime extension magnitudes between 0 and 25 years. This results in a more gradual transition and ASTRID construc- tion burden, as shown in Figs. 6 and 7. The eﬀect of LWR lifetime
+Fig. 3. The potential French transition from LWRs to  SFRs when assisted  by UNF from other EU nations.
+Fig. 4. The deployment of SFRs in France is characterized by a period of ag- gressive building.
+extension is discussed in Section 6.2.
+2.4.Material ﬂow
+The fuel cycle is represented by a series of facility agents whose material ﬂow is illustrated in Fig. 8, along with the CYCLUS archetypes that were used to model each facility. In this diagram, MOX Reactors
+Fig. 2. Installed nuclear capacity in the EU is distinguished by Regions in CYCLUS. The large shift near 2025 is caused by total nuclear phaseout in Germany and   Belgium.
+Fig. 5. The total deployment scheme we simulated relies on UNF collaboration among nations.
+Fig. 6. The transition to ASTRIDs becomes more gradual if the French LWRs lifetime extensions are sampled from a uniform distribution [0,25] years.
+uranium, or sent to the repository. The plutonium mixed with depleted uranium (tails) makes MOX (Both for French LWRs and ASTRIDs). Reprocessed uranium is unused and stockpiled. Uranium is reprocessed in order to separate the raﬃnate (minor actinides and ﬁssion products) from usable material. Though neglected in this work, reprocessed ur- anium may substitute depleted uranium for MOX production. In the simulations, suﬃcient depleted uranium existed that the complication of preparing reprocessed uranium for incorporation into reactor fuel was not included. However, further in the future where the depleted uranium inventory drains, reprocessed uranium (or, natural uranium) will need to be utilized.
+3.Scenario speciﬁcations
+Table 3 lists the scenario speciﬁcations deﬁning the simulations presented in this work. The reprocessing and MOX fabrication capacity in France prior to 2020 is modeled after the French La Hague and MELOX sites (Schneider and Marignac, 2008; Hugelmann and Greneche, 1999).
+4.Reactor speciﬁcations
+Three major reactors are used in the simulation, PWR, Boiling Water Reactor (BWR), and ASTRID-type SFR reactors.
+For LWRs, we used a linear core size model to capture varying re-
+actor capacity. For example, a 1,200 MWe PWR has 193 1,200
+1,000
+232
+Fig. 7. The acute construction burden lessens if the French LWRs lifetime ex- tensions are sampled from a uniform distribution [0,25] years.
+include both French PWRs and SFRs.
+A mine facility provides natural uranium, which is enriched by an enrichment facility to produce Uranium Oxide Fuel (UOX). Enrichment wastes (tails) are disposed of to a sink facility representing ultimate disposal. The enriched UOX fuels the LWRs which in turn produce spent UOX. The used fuel is sent to a wet storage facility for a minimum of 72 months. (Carré and Delbecq, 2009).
+The cooled fuel is then reprocessed to separate plutonium and
+UOX assemblies, each weighing 446 kg. After each 18 month cycle, one- third of the core (77 assemblies) discharges. Refueling is assumed to take two months to complete, during which the reactor is shut down. The speciﬁcations are deﬁned in Table 4 which details the reactor speciﬁcations in this simulation. LWR speciﬁcations are modiﬁed line- arly for varying power capacity. The ASTRID design targets a 60 year lifetime, which this simulation assumes for all ASTRIDs (Gauché, 2012).
+4.1.Material deﬁnitions
+Reactor transmutation of the nuclear fuel was modeled using iso- topic ‘recipes’, such that fresh and spent fuel recipes were deﬁned for each reactor type (see Table 5 and A.13).
+This work relied on reference LWR UOX and LWR MOX composi- tions retrieved from Advanced Fuel Cycles Initiative (AFCI) analyses in Appendix C of (Piet et al., 2006). The LWR UOX depletion calculations were conducted using ORIGEN2 with the PWR one group cross sections provided by default. Meanwhile, the LWR MOX depletion calculations relied on WIMS8 (WIMS8, 1999) to provide accurate cross sections to
+Fig. 8. Fuel cycle facilities (blue boxes) represented by CYCLUS archetypes (in parentheses) pass materials (red ovals) around the simulation.
+ORIGEN. For this purpose, WIMS8 calculations used the 172-group, JEF2.2-based cross section library.
+Finally, the ASTRID compostions were retrieved from the ASTRID design as published in (Varaine et al., 2012).
+5.Results
+First, we conﬁrmed that France does not have enough LWR UNF to transition into a fully SFR ﬂeet. As shown in Fig. 9, France cannot meet the ASTRID fuel demand without receiving LWR UNF from other EU nations. France is able to fuel some of its ASTRIDs and breed more plutonium, but cannot meet the fuel demand of all ASTRIDs with this aggressive deployment scheme.
+Table 3
+Simulation speciﬁcations.
+5.1.Nuclear material inventory
+Table 6 lists EU material inventory in 2050. The materials continue to accumulate after 2050, but the UNF France receives before 2050 is most impactful for the feasibility of the transition. Note that Table 6 distinguishes the UOX in the simulation either stored or reprocessed to create MOX.
+Figs. 10 and 12 show the accumulation of tails and used fuel over time in the EU. Tails accumulate as a by-product of uranium enrich- ment. Spent fuel is discharged from reactors every refueling period. The entire core is discharged when the reactor decommissions. A total of 1,330,165 MTHM of tails and 85,111 MTHM of UNF have accumulated by 2050. Fig. 11 shows the amount of fuel used in the EU. The tails mass accumulation rate is fairly steady, with peaks occurring when new re- actors are deployed. In Fig. 12, the peaks are caused by reactor de- commissioning which triggers all the batches in the ﬁnal reactor core to be sent to the repository.
+5.2.French SFR deployment
+Reprocessing the UNF collected from all EU nations can provide approximately 913 tons of plutonium. Table 7 lists the isotope, mass fraction, and quantity of plutonium that can be obtained from the 2050 UNF inventory. With the SFR breeding ratio above one, France can transition into a fully SFR ﬂeet without extra construction of LWRs.
+From Varaine et al. (2012), a French ASTRID-type 600MWe SFR consumes 1.125 metric tons of plutonium a year, with an initial plu- tonium loading of 4.9 metric tons.
+Used MOX from an ASTRID reactor is 23.95% plutonium in this simulation (see Table 5), whereas fresh MOX is 22% plutonium. The plutonium breeding ratio in this simulation is thus assumed to be
+1.08.
+Fig. 13 shows MOX loaded in the SFRs per month. The plot has peaks during a period of aggressive deployment of SFRs followed by an equilibrium at 83 MTHM. The peaks reoccur with the deployment of the second generation of SFRs. The spikes are due to initial fuel demand corresponding to these new deployments. The initial cores loaded into new SFRs rely on the MOX created from legacy UNF. Once the deployed SFRs create enough extra plutonium, the legacy UNF is no longer used. Notably, this switch from a less preferred fuel origin to a more preferred fuel origin is handled automatically within CYCLUS via user-deﬁned
+Table 4
+Baseline LWR and ASTRID simulation speciﬁcations.
+Table 5
+Fresh fuel compositions in the simulation (Piet et al., 2006; Varaine et al., 2012).
+Fig. 9. ASTRID fuel demand compared with fuel supply from only France in the simulation. The lack of initial ASTRID fuel is caused by the lack of LWR UNF to reprocess. The initial shortage then causes a decrease in plutonium bred by ASTRIDs and thus a decrease in ASTRID fuel supply.
+Table 6
+EU nuclear material inventory in 2050.
+preferences within its dynamic resource exchange algorithm (Gidden and Wilson, 2016).
+Fig. 14 shows the average monthly reprocessing demand and total reprocessing demand for each timestep. The average monthly re- processing demand grows steeply with the deployment of ASTRIDS, and later decreases when LWR UNF is no longer reprocessed. The average monthly reprocessing demand is calculated for each timestep i with equation (1). Timestep 600 is the year 2020, when reprocessing begins
+for ASTRID fuel.
+@1
+Fig. 15 shows the separated plutonium discharge per month from the reprocessing plant. The plutonium outﬂux does not precisely follow the fuel demand because CYCLUS agents have material buﬀers that store commodity fuel for later usage. UNF is stored for the initial loading of SFRs. Plutonium separated from legacy UNF meets plutonium demands suﬃciently to reduce the reprocessing demand for the ﬁrst aggressive deployment of SFRs. The plutonium from reprocessing legacy fuel is a ﬂat rectangle because the reprocessing throughput was set to 183.2
+MTHM to avoid reprocessing all the legacy in one timestep.
+month
+Table 8 lists French reprocessing and ASTRID fuel fabrication me-
+trics. These results demonstrate that despite the large amount of initial plutonium that has to be reprocessed prior to ASTRID deployment, the 20 years (2020–2040) of ASTRID fuel preparation allows a reasonable level of average UOX reprocessing capacity demand.
+6.Sensitivity analysis
+An important aspect of any fuel cycle transition scenario is the ac- crual of ﬁssile materials for new reactor deployment. The collaborative strategy makes a transition possible from the perspective of material availability, but the aggressive transition demands a signiﬁcant increase in reprocessing capacity.
+We explored the impact of two key variables, the lifetime of French LWRS and the breeding ratio of ASTRID reactors. The range over which we varied these parameters (Table 9) sought to capture the full span of their uncertainty.
+Note that ASTRID breeding ratios are arbitrarily increased by direct adjustment of their output fuel compositions. We did not take into ac-count the other reactor parameters (e.g. core size, initial fuel compo- sition, fuel residence time, etc.) that would be necessary to achieve a higher breeding ratio. More detailed analyses of the reactor physics and their eﬀect on this transition scenario should be pursued in future work.
+6.1.Breeding ratio
+Increase in the breeding ratio of ASTRID reactors decreases the total
+Fig. 10. Simulated accumulation of tails in the EU is shown as a function of time.
+reprocessing demand, since less UNF must be reprocessed to extract the same amount of plutonium. Additionally, ASTRIDs become self-sus- taining more quickly due to higher breeding of plutonium.
+Fig. 16 shows the relationship between breeding ratio and fuel loading in ASTRIDs. The ASTRIDs produce more plutonium, reducing the plutonium demand from reprocessed UOX. However, since LWR UNF is not the limiting factor for this transition scenario, increasing the breeding ratio does not play a signiﬁcant role in the transition scenario, especially considering the technical diﬃculty in achieving a high breeding ratio.
+The sensitivity analysis also shows, as demonstrated in Fig. 17 that increasing the breeding ratio decreases the mass of LWR UNF required for the transition.
+The diﬀerential impacts of varying the breeding ratios are shown in Table 10. The diﬀerences were calculated using equation (2).
+@2
+6.2.Lifetime extension of French LWRs
+Extending the lifetime of French LWRs lowers the average monthly UOX reprocessing demand, since the ASTRID deployment becomes delayed (shown in Fig. 18). The plutonium demand is delayed, allowing the reprocessing plant more time to prepare plutonium for ASTRID reactors.
+Fig. 19 shows the change in ASTRID fuel loading with LWR lifetime extension. The ASTRID fuel loaded with plutonium from LWR UNF conveys the corresponding LWR UNF reprocessing demand. The change in ASTRID deployment alters ASTRID fuel loading patterns. However, increasing the LWR lifetimes does not increase the LWR UNF demand signiﬁcantly (less than 1% for the 20-year extension case), because ASTRIDs become self-sustaining at similar times after the ﬁrst ASTRID deployment.
+The quantitative eﬀects of LWR lifetime extensions are shown in Table 11. The diﬀerences were calculated using equation (2) as well. Since LWR lifetime extensions shorten the span of ASTRID operations, less ASTRID fuel is needed when LWR lifetimes are extended. There- fore, it is not fair to compare the mass of total UNF reprocessed, since less plutonium is extracted from UNF. Instead, we compared the average reprocessing values and the total amount of LWR UNF re-processed. There is not a signiﬁcant diﬀerence (less than % for the 20- year extension case) in the amount of LWR UNF reprocessed. The delay in ASTRID deployment spreads out the LWR UNF reprocessing demand,thereby dramatically reducing (39% for the 20-year extension case) the average monthly LWR UNF reprocessing demand.
+7.Conclusion
+This work demonstrates that France can transition into a fully SFR
+Fig. 11. Simulated total EU fuel usage is shown as a function of time.
+Fig. 12. Simulated EU UNF accumulation and discharge is shown as a function of time. The large peak near 2025 is due to the planned German nuclear phase-out, in which all German reactors will have been decommissioned by 2022.
+Table 7
+Plutonium in the UNF inventory.
+ﬂeet with installed capacity of 64,700 MWe without building additional LWRs if France receives UNF from other EU nations. Supporting the SFR ﬂeet requires an average reprocessing capacity of 61.3 MTHM per month, and an average fabrication capacity of 36.9 MTHM per month. The sensitivity study explored the eﬀect of increased SFR breeding ratio and existing LWR lifetime extension. Increasing the breeding ratio reduced the amount of LWR UNF required to transition up to 9.6% and decreased the total reprocessing demand up to 0.3%. Increasing the lifetime of existing LWRs was not signiﬁcant in reducing the LWR UNF required to transition, but provided the beneﬁt of decreased average
+reprocessing demand due to delayed ASTRID transition.
+Since most EU nations do not have an operating UNF repository or a management plan, they have a strong incentive to send their UNF to France. In particular, the nations planning aggressive nuclear reduction will be able phase out nuclear without constructing a permanent re- pository. France has an incentive to take this fuel, since recycling used fuel from other nations will allow France to meet their MOX demand without new construction of LWRs.
+Table 12 lists EU nations and their UNF inventory in 2050. We analyzed a strategy in which the nations reducing their nuclear ﬂeet send their UNF to France. The sum of UNF from Bulgaria, Poland, Czech Republic, Italy, Slovenia, Belgium, Spain and Germany provides enough
+55,500
+shown in bold in Table 12. Sweden and Finland are not considered because they have established national nuclear waste management plans.
+If France receives LWR UNF from all EU nations, except Sweden and Finland, it will have a surplus of 20,516 MTHM of LWR UNF. This in- ventory can be leveraged to increase nuclear power capacity as the transition takes place. However, pragmatic limitations such as new reactor construction, reprocessing throughput, and political concerns remain.
+On the other hand, in these simulations, some complex political and economic factors were not incorporated and various assumptions were present in this scenario. For example, Germany's current policy is to not reprocess its LWR fuel (Töpfer et al., Hirche), and this policy would create a shortage in the supply of LWR UNF for ASTRID MOX produc- tion. Continuation of that German policy would not, however, be in- compatible with a change in EU policy that frees EU countries from
+Fig. 13. Fuel loaded into SFRs was simulated in discrete batches.
+Fig. 14. Average monthly reprocessing demand and total reprocessing demand are plotted for each timestep.
+creating their high level waste repositories, since France could still agree to take in Germany's UNF for direct disposal. The analysis method described herein could readily be adapted to account for such possibi- lities. The collaborative option explored here may hold value for the EU nuclear community, and may enable France to advance more rapidly into a closed fuel cycle.
+8.Future work
+This analysis relies on many simplifying assumptions concerning reactor physics and depletion. Future work implementing higher ﬁde- lity fuel burnup and depletion models may more faithfully resolve plutonium vector changes in ASTRID and MOX PWR cores. Additionally, incorporating true isotopic vectors for initial and end-of- life core compositions will improve accuracy for many metrics of in- terest.
+Acknowledgments
+This research is being performed using funding received from the DOE Oﬃce of Nuclear Energy’s Nuclear Energy University Program via NEUP Project 16-10512: Demand-Driven Cycamore Archetypes (DE- NE0008567). Additionally, early conception of this work was supported by The Program in Arms Control & Domestic and International Security (ACDIS), an interdisciplinary venture at the University of Illinois at
+Table 8
+In the French transition to SFRs, the total legacy UNF reprocessed is the amount of UNF France needs for a transition into a fully SFR ﬂeet.
+Table 9
+Both LWR lifetime and ASTRID breeding ratio impact transitional reprocessing demand.
+Fig. 15. The separated plutonium discharge from the reprocessing plant in Tonne Pu . The plutonium from LWR UNF is created after the demand is gone due to material month buﬀers in CYCLUS.
+Fig. 16. ASTRID fuel loading patters are altered by changes in ASTRID breeding ratio. Less ASTRID fuel comes from reprocessed LWR UNF because ASTRIDs generate more plutonium.
+Fig. 17. Sensitivity analysis demonstrates that increasing the breeding ratio decreases the required UOX UNF.
+Table 10
+Breeding ratio impact on reprocessing requirements.
+Urbana-Champaign that facilitates objective research, academics, and outreach about international security issues within the academic and policymaking communities.
+The authors would like to thank members of Advanced Reactors and Fuel Cycles research group (ARFC) at the University of Illinois at Urbana-Champaign, in particular Gyu Tae Park, who provided valuable code reviews and proofreading. We also thank our colleagues from the
+Fig. 18. The ratio of ASTRIDs to LWRs in France demarcates the transition period.
+Cyclus community, particularly those in the University of Wisconsin Computational Nuclear Engineering Research Group (CNERG) and the University of South Carolina Energy Research Group: Scopatz (ERGS who provided collaborative support in the core software, Cyclus, en-abling this work although they may not agree with all of the inter-pretations/conclusions of this paper.The authors contributed to this work as described below. Jin Whan Bae conceived and designed the simulations, wrote the paper, prepared ﬁgures and/or tables, performed the computation work, contributed to the software product, and reviewed drafts of the paper. Cliﬀord E. Singer conceived and designed the simulations and reviewed drafts of the paper. Kathryn D. Huﬀ directed and supervised the work, conceived and designed the simulations, wrote the paper, prepared ﬁgures and/or tables, contributed to the software product, and reviewed drafts of the paper.
+Fig. 19. ASTRID fuel loading patterns are altered by changes in ASTRID deployment caused by the lifetime extension of LWRs.
+Table 11
+LWR lifetime extension impact on reprocessing requirements.
+Table 12
+EU nations and their respective UNF inventory.
+Table A.13
+Spent Fuel Compositions
+Appendix B. Supplementary data
+Supplementary data to this article can be found online at https://doi.org/10.1016/j.pnucene.2019.02.001.

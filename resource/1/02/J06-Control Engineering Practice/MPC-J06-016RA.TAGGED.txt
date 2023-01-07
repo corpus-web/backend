@@ -1,0 +1,404 @@
+<title> Robust_JJ controller_NN design_NN for_IN marine_JJ electric_JJ propulsion_NN system_NN over_IN controller_NN area_NN network_NN </title> <author> Peng_NP ,_, Huachao_NP ;_: Zhu_NP ,_, Xiaoyuan_NP ;_: Yang_NP ,_, Liu_NP ;_: Zhang_NP ,_, Guichen_NP </author> <Affiliation> 1_CD Merchant_NN Marine_NP College_NP ,_, Shanghai_NP Maritime_NP University_NP ,_, Shanghai_NP ;_: 201306_CD ,_, China_NP </Affiliation> <year> 2020_CD </year> <Jounral> Control_NP Engineering_NP Practice_NN </Journal> <Publishing_house> Elsevier_NP Ltd_NP </Publishing_house> <Text_Collector> Liu_NP Kai，HEU_NP </Text_Collector> <DOI> 10.1016/j_NP ._SENT 
+conengprac.2020.104512_JJ </DOI> <URL> https_NNS :_: //www_NNS ._SENT 
+sciencedirect_NNS ._SENT 
+com/science/article/pii/S0967066118300558_NP ?_SENT 
+via%3Dihub_NP </URL> <Section> Highlights_VVZ </Section> •_JJ A_DT discrete-time_JJ model_NN is_VBZ developed_VVN for_IN marine_JJ electric_JJ propulsion_NN system_NN ._SENT 
+•_NP A_DT robust_JJ controller_NN is_VBZ proposed_VVN against_IN the_DT disturbances_NNS ._SENT 
+•_JJ Comparative_JJ simulation_NN tests_NNS using_VVG detailed_JJ CAN_NN model_NN are_VBP conducted_VVN ._SENT 
+<Section> Abstract_JJ </Section> With_IN the_DT consistent_JJ tendency_NN of_IN electrification_NN and_CC intelligentization_NN of_IN marine_JJ systems_NNS in_IN recent_JJ years_NNS ,_, the_DT electric_JJ propulsion_NN system_NN has_VHZ been_VBN a_DT prospective_JJ candidate_NN for_IN ships_NNS due_JJ to_TO its_PP$ potential_NN in_IN energy_NN saving_NN ,_, environmental_JJ protection_NN ,_, high_JJ efficiency_NN ,_, and_CC high_JJ reliability_NN ._SENT 
+However_RB ,_, time-varying_VVG delays_NNS of_IN communication_NN networks_NNS would_MD be_VB induced_VVN due_RB to_TO increasing_VVG information_NN exchange_NN requirement_NN that_WDT caused_VVD by_IN the_DT increasing_VVG number_NN of_IN devices_NNS connecting_VVG to_TO the_DT communication_NN networks_NNS as_RB well_RB as_IN bandwidth_NN limitation_NN of_IN marine_JJ network_NN ._SENT 
+Meanwhile_RB ,_, the_DT propeller_NN load_NN is_VBZ difficult_JJ to_TO model_VV due_JJ to_TO the_DT complexity_NN of_IN ship_NN dynamics_NNS ,_, which_WDT increases_VVZ the_DT uncertainty_NN of_IN marine_JJ electric_JJ propulsion_NN system_NN ._SENT 
+Thus_RB ,_, robust_JJ control_NN of_IN the_DT marine_JJ electric_JJ propulsion_NN system_NN is_VBZ necessary_JJ and_CC challenging_JJ ._SENT 
+This_DT paper_NN presents_VVZ a_DT mixed_JJ H∞∕LQR_NP robust_JJ controller_NN design_NN for_IN marine_JJ electric_JJ propulsion_NN system_NN to_TO address_VV robust_JJ speed_NN tracking_VVG problem_NN under_IN possible_JJ network-induced_JJ delays_NNS ._SENT 
+The_DT propeller_NN dynamic_JJ model_NN is_VBZ built_VVN via_IN open-water_JJ experimental_JJ data_NNS to_TO reflect_VV propeller_NN load_NN characteristics_NNS ._SENT 
+Then_RB ,_, a_DT delay-free_JJ model_NN is_VBZ established_VVN for_IN the_DT marine_JJ electric_JJ propulsion_NN system_NN by_IN using_VVG system_NN augmentation_NN technique_NN ,_, with_IN the_DT random_JJ network-induced_JJ delay_NN characterized_VVN by_IN polytopic_JJ inclusions_NNS and_CC Taylor_NP series_NN expansion_NN ._SENT 
+A_DT mixed_JJ H∞∕LQR_NP robust_JJ controller_NN design_NN is_VBZ proposed_VVN for_IN the_DT marine_JJ electric_JJ propulsion_NN system_NN ._SENT 
+Finally_RB ,_, based_VVN on_IN a_DT detailed_JJ controller_NN area_NN network_NN model_NN ,_, the_DT performance_NN and_CC effectiveness_NN of_IN the_DT mixed_JJ H∞∕LQR_NP robust_JJ controller_NN are_VBP demonstrated_VVN by_IN comparative_JJ simulation_NN tests_NNS of_IN a_DT marine_JJ electric_JJ propulsion_NN system_NN with_IN 4.088_CD MW_NNS permanent_JJ magnet_NN synchronous_JJ motor_NN (_( PMSM_NN )_) ._SENT 
+Keywords：Marine_JJ electric_JJ propulsion_NN system；CAN-induced_VVD delay；Polytopic_JJ inclusions；Mixed_JJ H∞∕LQR_NN ；robust_NN controller_NN <Section> 1._CD Introduction_NN </Section> Electrification_NN and_CC intelligentization_NN have_VHP become_VVN two_CD significant_JJ trends_NNS of_IN ships_NNS (_( He_PP et_CC al_NP ._SENT 
+,_, 2014_CD )_) and_CC the_DT marine_JJ electric_JJ propulsion_NN has_VHZ been_VBN a_DT prospective_JJ candidate_NN for_IN modern_JJ ships_NNS due_JJ to_TO its_PP$ superiority_NN of_IN energy_NN saving_NN ,_, environmental_JJ emission_NN reduction_NN ,_, high_JJ efficiency_NN ,_, and_CC superior_JJ maneuverability_NN (_( Apsley_NP et_NP al_NP ._SENT 
+,_, 2009_CD ,_, Hansen_NP and_CC Wendt_NP ,_, 2015_CD ,_, Kanellos_NP et_CC al_NP ._SENT 
+,_, 2014_CD )_) ._SENT 
+The_DT permanent_JJ magnet_NN synchronous_JJ motor_NN has_VHZ the_DT advantages_NNS of_IN economic_JJ fuel_NN consumption_NN ,_, high-power_NN factor_NN ,_, compactness_NN and_CC fast_JJ dynamic_JJ response_NN (_( Liu_NP et_NP al_NP ._SENT 
+,_, 2016_CD )_) ,_, which_WDT is_VBZ an_DT ideal_JJ choice_NN for_IN the_DT marine_JJ electric_JJ propulsion_NN system_NN ._SENT 
+However_RB ,_, accurate_JJ dynamic_JJ model_NN of_IN ships_NNS is_VBZ very_RB difficult_JJ to_TO be_VB built_VVN due_RB to_TO complexity_NN of_IN water_NN resistance_NN ,_, which_WDT mainly_RB consists_VVZ of_IN three_CD parts_NNS :_: friction_NN ,_, viscous_JJ pressure_NN and_CC wave-making_NN resistance_NN (_( Sulligoi_NP et_NP al_NP ._SENT 
+,_, 2016_CD )_) ._SENT 
+It_PP is_VBZ also_RB complex_JJ to_TO establish_VV the_DT propeller_NN load_NN model_NN on_IN account_NN of_IN the_DT difficulties_NNS on_IN obtaining_VVG the_DT function_NN between_IN the_DT coefficients_NNS of_IN ship_NN motion_NN ,_, which_WDT would_MD cause_VV adversely_RB effect_NN of_IN the_DT robust_JJ control_NN of_IN the_DT marine_JJ electric_JJ propulsion_NN system_NN (_( Vicenzutti_NP et_NP al_NP ._SENT 
+,_, 2015_CD )_) ._SENT 
+Therefore_RB ,_, it_PP is_VBZ of_IN great_JJ importance_NN to_TO enhance_VV robustness_NN of_IN controller_NN in_IN the_DT marine_JJ electric_JJ propulsion_NN system_NN ._SENT 
+The_DT research_NN work_NN of_IN PMSM_NN control_NN have_VHP been_VBN widely_RB explored_VVN in_IN recent_JJ years_NNS (_( Kommuri_NP et_NP al_NP ._SENT 
+,_, 2016_CD ,_, Krishnan_NP ,_, 2017_CD ,_, Sant_NP et_CC al_NP ._SENT 
+,_, 2014_CD ,_, Zhou_NP et_CC al_NP ._SENT 
+,_, 2019_CD )_) ._SENT 
+For_IN the_DT controller_NN design_NN of_IN PMSM_NN ,_, there_EX are_VBP PI_NN controller_NN (_( Apte_NP et_NP al_NP ._SENT 
+,_, 2016_CD ,_, Krishnan_NP ,_, 2017_CD )_) ,_, sliding_VVG mode_NN controller_NN (_( Qian_NP et_NP al_NP ._SENT 
+,_, 2018_CD )_) ,_, the_DT adaptive_JJ neural_JJ controller_NN (_( Yu_NP et_NP al_NP ._SENT 
+,_, 2014_CD ,_, Zhang_NP et_CC al_NP ._SENT 
+,_, 2012_CD )_) ,_, H∞_JJ robust_JJ controller_NN (_( Mendoza-Mondragón_NP et_NP al_NP ._SENT 
+,_, 2018_CD ,_, Ramírez-Villalobos_NP et_CC al_NP ._SENT 
+,_, 2017_CD ,_, Zhu_NP et_CC al_NP ._SENT 
+,_, 2014_CD )_) and_CC so_RB on_IN ._SENT 
+Generally_RB ,_, these_DT controller_NN designs_VVZ for_IN PMSM_NN starts_NNS from_IN the_DT equilibrium_NN point_NN by_IN default_NN ,_, and_CC the_DT load_NN of_IN motor_NN is_VBZ only_RB disturbance_NN in_IN motor_NN control_NN ._SENT 
+However_RB ,_, for_IN the_DT actual_JJ marine_JJ electric_JJ propulsion_NN system_NN ,_, the_DT reference_NN load_NN is_VBZ usually_RB very_RB large_JJ and_CC difficult_JJ to_TO give_VV very_RB accurate_JJ value_NN due_JJ to_TO the_DT complexity_NN of_IN load_NN acted_VVN on_IN motor_NN ._SENT 
+It_PP makes_VVZ the_DT controllers_NNS designed_VVN for_IN the_DT motor_NN may_MD not_RB suitable_JJ for_IN the_DT marine_JJ electric_JJ propulsion_NN system_NN ._SENT 
+The_DT propeller_NN load_NN disturbances_NNS induce_VV significant_JJ effect_NN of_IN the_DT speed_NN tracking_VVG control_NN of_IN the_DT ship_NN in_IN the_DT marine_JJ electric_JJ propulsion_NN system_NN ._SENT 
+In_IN Ren_NP et_CC al_NP ._SENT 
+(_( 2015_CD )_) ,_, the_DT propeller_NN load_NN characteristics_NNS are_VBP fully_RB analyzed_VVN and_CC the_DT propeller_NN load_NN model_NN is_VBZ established_VVN based_VVN on_IN propeller_NN open-water_NN experimental_JJ data_NNS ._SENT 
+A_DT sliding-mode_NN observer_NN is_VBZ developed_VVN to_TO estimating_VVG the_DT rotor_NN position_NN and_CC speed_NN of_IN PMSM_NN for_IN the_DT marine_JJ electric_JJ propulsion_NN system_NN ._SENT 
+However_RB ,_, the_DT stable_JJ tracking_NN of_IN the_DT ship_NN speed_NN is_VBZ not_RB discussed_VVN ,_, which_WDT is_VBZ of_IN great_JJ importance_NN to_TO the_DT marine_JJ propulsion_NN system_NN ._SENT 
+In_IN Abdelrauf_NP et_CC al_NP ._SENT 
+(_( 2018_CD )_) ,_, a_DT speed_NN PID_NN controller_NN design_NN is_VBZ proposed_VVN for_IN the_DT electric_JJ propulsion_NN system_NN ,_, in_IN which_WDT generalized_VVD predictive_JJ control_NN algorithm_NN is_VBZ adopted_VVN for_IN parameter_NN tuning_VVG ._SENT 
+However_RB ,_, it_PP is_VBZ actually_RB a_DT rotational_JJ speed_NN control_NN of_IN the_DT PMSM_NN as_IN the_DT propeller_NN load_NN model_NN is_VBZ not_RB considered_VVN ._SENT 
+In_IN Zhao_NP et_CC al_NP ._SENT 
+(_( 2018_CD )_) ,_, by_IN using_VVG the_DT H∞_JJ output_NN feedback_NN control_NN law_NN ,_, adaptive_JJ fault-tolerant_JJ PI_NN tracking_VVG control_NN scheme_NN is_VBZ developed_VVN to_TO guarantees_NNS good_JJ tracking_NN performance_NN and_CC fault-tolerant_JJ performance_NN for_IN the_DT marine_JJ propulsion_NN system_NN ,_, in_IN which_WDT a_DT simple_JJ propeller_NN load_NN model_NN is_VBZ used_VVN and_CC its_PP$ nonlinear_JJ dynamical_JJ characteristics_NNS is_VBZ not_RB analyzed_VVN in_IN detail_NN ._SENT 
+Along_IN with_IN the_DT improvement_NN of_IN ship_NN electrification_NN ,_, the_DT controller_NN area_NN network_NN (_( CAN_NN )_) can_MD transmit_VV signal_NN between_IN actuators_NNS ,_, controllers_NNS and_CC sensors_NNS (_( Kambrath_NP et_NP al_NP ._SENT 
+,_, 2018_CD )_) ._SENT 
+Due_JJ to_TO the_DT increasing_VVG number_NN of_IN devices_NNS connected_VVN to_TO the_DT communication_NN networks_NNS as_RB well_RB as_IN the_DT bandwidth_NN limitation_NN of_IN marine_JJ network_NN ,_, network-induced_JJ delays_NNS is_VBZ more_RBR likely_JJ to_TO happen_VV ._SENT 
+It_PP could_MD lead_VV to_TO performance_NN deterioration_NN and_CC even_RB instability_NN of_IN the_DT control_NN system_NN (_( Shi_NP and_CC Yu_NP ,_, 2011_CD ,_, Zhang_NP et_CC al_NP ._SENT 
+,_, 2018_CD )_) ,_, which_WDT should_MD be_VB considered_VVN in_IN the_DT speed_NN tracking_VVG controller_NN design_NN of_IN marine_JJ electric_JJ propulsion_NN system_NN ._SENT 
+In_IN the_DT robust_JJ controller_NN design_NN ,_, there_EX are_VBP two_CD approaches_NNS to_TO model_VV the_DT uncertainties_NNS ,_, namely_RB norm-bounded_VVN uncertainties_NNS and_CC polytopic_JJ ones_NNS with_IN limited_JJ number_NN of_IN vertices_NN (_( Song_NP et_NP al_NP ._SENT 
+,_, 2019_CD ,_, Wang_NP et_CC al_NP ._SENT 
+,_, 2013_CD )_) ._SENT 
+In_IN some_DT determinable_JJ system_NN matrices_NNS ,_, the_DT polytopic_JJ uncertainties_NNS which_WDT possess_VVP limited_JJ number_NN of_IN vertices_NN have_VHP been_VBN extensively_RB applied_VVN to_TO deal_VV with_IN uncertainties_NNS of_IN control_NN system_NN (_( Caruntu_NP et_NP al_NP ._SENT 
+,_, 2013_CD )_) ._SENT 
+Generally_RB ,_, the_DT time-varying_VVG delays_NNS induced_VVN by_IN network_NN are_VBP bounded_VVN in_IN a_DT small_JJ specific_JJ range_NN ._SENT 
+Hence_RB ,_, these_DT uncertainties_NNS would_MD be_VB modeled_VVN in_IN form_NN of_IN polytope_NN with_IN a_DT small_JJ number_NN of_IN vertices_NN (_( Choi_NP and_CC Lee_NP ,_, 2011_CD ,_, Moghadam_NP and_CC Tahami_NP ,_, 2012_CD )_) ._SENT 
+In_IN Zhu_NP et_CC al_NP ._SENT 
+(_( 2015_CD )_) ,_, a_DT robust_JJ controller_NN is_VBZ designed_VVN for_IN electrified_VVN powertrain_NN system_NN to_TO obtain_VV active_JJ oscillation_NN damping_VVG despite_IN the_DT delays_NNS by_IN induced_VVN CAN_MD ,_, in_IN which_WDT the_DT system_NN uncertainties_NNS are_VBP handled_VVN by_IN using_VVG polytopic_JJ inclusion_NN method_NN ._SENT 
+By_IN using_VVG polytopic_JJ inclusions_NNS method_NN to_TO deal_VV with_IN CAN-induced_JJ delay_NN uncertainties_NNS ,_, an_DT optimal_JJ H∞∕LQR_NP robust_JJ controller_NN is_VBZ developed_VVN for_IN the_DT integrated_JJ motor-transmission_NN powertrain_NN system_NN over_IN CAN_NN (_( Liu_NP et_NP al_NP ._SENT 
+,_, 2018_CD )_) ._SENT 
+These_DT methods_NNS have_VHP been_VBN successfully_RB applied_VVN in_IN ground_NN vehicle_NN integrated_JJ motor-transmission_NN powertrain_NN system_NN while_NN have_VHP not_RB applied_VVN in_IN marine_JJ electric_JJ propulsion_NN system_NN ._SENT 
+For_IN the_DT marine_JJ electric_JJ propulsion_NN system_NN ,_, as_IN the_DT torque_NN ,_, voltage_NN ,_, and_CC also_RB current_JJ are_VBP generally_RB all_DT very_RB large_JJ ,_, control_NN input_NN constraint_NN is_VBZ of_IN great_JJ significance_NN ,_, which_WDT can_MD reduce_VV the_DT burden_NN of_IN the_DT converter_NN ._SENT 
+Thus_RB ,_, in_IN order_NN to_TO track_VV target_NN ship_NN speed_NN under_IN the_DT coupling_NN effects_NNS of_IN propeller_NN load_NN characteristics_NNS and_CC CAN-induced_JJ time-varying_VVG delays_NNS in_IN the_DT marine_JJ electric_JJ propulsion_NN system_NN ,_, a_DT novel_NN mixed_VVN H∞∕LQR_NP robust_JJ controller_NN is_VBZ proposed_VVN ,_, which_WDT not_RB only_RB possesses_VVZ strong_JJ robustness_NN ,_, but_CC also_RB makes_VVZ tradeoff_NN between_IN the_DT magnitude_NN of_IN control_NN signal_NN and_CC tracking_NN performance_NN ._SENT 
+The_DT major_JJ contribution_NN of_IN this_DT paper_NN lies_VVZ in_IN the_DT following_VVG respects_NNS ._SENT 
+(_( 1_CD )_) A_DT delay-free_JJ discrete-time_JJ model_NN is_VBZ developed_VVN for_IN marine_JJ electric_JJ propulsion_NN system_NN ,_, which_WDT simultaneously_RB considers_VVZ CAN-induced_JJ delays_NNS ,_, dynamical_JJ characteristics_NNS of_IN PMSM_NN and_CC propeller_NN load_NN characteristics_NNS ;_: (_( 2_LS )_) A_DT mixed_JJ H∞∕LQR_NP robust_JJ controller_NN is_VBZ designed_VVN for_IN marine_JJ electric_JJ propulsion_NN system_NN ,_, which_WDT can_MD achieve_VV strong_JJ robustness_NN to_TO attenuate_VV the_DT external_JJ disturbance_NN and_CC effectively_RB track_VV reference_NN rotational_JJ speed_NN with_IN lower_JJR control_NN voltage_NN and_CC smaller_JJR voltage_NN fluctuations_NNS ;_: (_( 3_LS )_) The_DT propeller_NN load_NN simulation_NN model_NN and_CC detailed_JJ CAN_NN model_NN are_VBP built_VVN ._SENT 
+The_DT performance_NN of_IN proposed_VVN robust_JJ controller_NN is_VBZ validated_VVN by_IN using_VVG comparative_JJ simulation_NN tests_NNS of_IN a_DT marine_JJ electric_JJ propulsion_NN system_NN ._SENT 
+The_DT following_VVG part_NN of_IN paper_NN is_VBZ organized_VVN into_IN three_CD sections_NNS ._SENT 
+Section_NN 2_CD introduces_VVZ dynamical_JJ modeling_NN of_IN marine_JJ electric_JJ propulsion_NN system_NN over_IN CAN_NN and_CC the_DT propeller_NN load_NN model_NN and_CC presents_VVZ the_DT mixed_JJ robust_JJ controller_NN ._SENT 
+In_IN Section_NP 3_CD ,_, simulation_NN results_NNS are_VBP discussed_VVN ._SENT 
+Section_NN 4_CD summarizes_VVZ conclusions_NNS ._SENT 
+<Section> 2._CD Problem_NN formulation_NN </Section> 2.1_CD ._SENT 
+Dynamical_JJ model_NN of_IN the_DT marine_JJ electric_JJ propulsion_NN system_NN over_RB CAN_MD The_DT CAN-based_JJ structure_NN of_IN the_DT marine_JJ electric_JJ propulsion_NN system_NN is_VBZ described_VVN in_IN Fig_NN ._SENT 
+1._CD The_DT composition_NN of_IN control_NN system_NN is_VBZ PMSM_NN ,_, inverter_NN ,_, controller_NN ,_, current_JJ sensor_NN ,_, velocity_NN sensor_NN and_CC propeller_NN ._SENT 
+The_DT sensors_NNS measure_VV the_DT state_NN information_NN of_IN PMSM_NN and_CC then_RB send_VV it_PP to_TO controller_NN periodically_RB through_IN the_DT CAN_NN bus_NN ._SENT 
+Based_VVN on_IN the_DT measurement_NN and_CC target_VV rotational_JJ speed_NN ,_, the_DT controller_NN computes_VVZ required_JJ motor_NN control_NN voltage_NN ._SENT 
+Then_RB the_DT PMSM_NN is_VBZ actuated_VVN by_IN control_NN voltage_NN to_TO generate_VV the_DT desired_VVN torque_NN to_TO drive_VV propeller_NN ._SENT 
+Fig_NN ._SENT 
+1._CD Schematic_NN of_IN the_DT marine_JJ electric_JJ propulsion_NN control_NN system_NN in_IN a_DT CAN_NN environment_NN ._SENT 
+The_DT dynamic_JJ model_NN of_IN the_DT PMSM_NN is_VBZ depicted_VVN as_RB follows_VVZ ,_, which_WDT considers_VVZ the_DT flux-linkage_NN characteristics_NNS ._SENT 
+(_( Ren_NP et_NP al_NP ._SENT 
+,_, 2015_CD )_) (_( 1)⎧⎩⎨⎪⎪⎪⎪u3s=Ri3s+Φ̇_NP 3sΦ3s=L3si3s+ϕf⋅F3s(θe)Tm=12pn∂∂θm(iT3s⋅Φ3s_NPS )_) where_WRB (_( 2)i3s=[iAiBiC]T_NP ,_, Φ3s=[ϕAϕBϕC]T_NP ,_, u3s=[uAuBuC]T_NP ,_, R=diag{RRR_NP }_) ,_, F3s(θe)=⎡⎣⎢sinθesin(θe−2π∕3)sin(θe+2π∕3)⎤⎦⎥_NP ,_, L3s=Lm3⎡⎣⎢1cos(2π∕3)cos(4π∕3)cos(2π∕3)1cos(2π∕3)cos(4π∕3)cos(2π∕3)1⎤⎦⎥+Ll3I_NP Based_VVN on_IN the_DT transformation_NN of_IN Park_NP and_CC Clark_NP ,_, the_DT dynamic_JJ model_NN of_IN the_DT PMSM_NN can_MD be_VB described_VVN in_IN the_DT following_VVG form_NN as_IN (_( 3)⎧⎩⎨⎪⎪⎪⎪ud=Rid+Ldi̇_NP d−npωeLqiquq=Riq+Lqi̇_NP q+npωe(Ldid+ψf)Tm=32pniq[id(Ld−Lq)+ψf_NP ]_SYM where_WRB i_NP is_VBZ current_JJ ,_, R_NP is_VBZ the_DT resistance_NN and_CC ωe_NN is_VBZ the_DT motor_NN speed_NN ,_, Ld_NP and_CC Lq_NP denote_VVP the_DT inductance_NN the_DT d_NN axis_NN and_CC q_NN axis_NN respectively_RB ,_, u_NN is_VBZ voltage_NN ,_, np_NP is_VBZ the_DT number_NN of_IN pole-pairs_NN ,_, ψf_NP is_VBZ the_DT flux_NN of_IN the_DT permanent_JJ magnet_NN ,_, output_NN torque_NN of_IN the_DT PMSM_NN is_VBZ Tm_NN ._SENT 
+According_VVG to_TO the_DT model_NN of_IN PMSM_NN in_IN the_DT d−q_NP synchronous_JJ rotation_NN coordinate_VV system_NN ,_, id=0_JJ control_NN strategy_NN is_VBZ usually_RB adopted_VVN ._SENT 
+That_DT is_VBZ ,_, the_DT expected_VVN value_NN of_IN the_DT DC_NP component_NN of_IN the_DT stator_NN armature_NN is_VBZ maintained_VVN all_PDT the_DT time_NN (_( Ren_NP et_NP al_NP ._SENT 
+,_, 2015_CD )_) ._SENT 
+For_IN the_DT tabular_JJ three-phase_JJ PMSM_NN ,_, the_DT stator_NN inductance_NN meets_VVZ the_DT requirement_NN of_IN Ld=Lq=Ls_NNS ._SENT 
+At_IN this_DT time_NN ,_, the_DT dynamic_JJ model_NN of_IN PMSM_NN can_MD be_VB described_VVN as_RB (_( 4)Jẇ_NP =32npiqψf−TL−Bwmuq=Riq+Li̇_NP q+npωeψf_NP where_WRB ,_, TL_NP is_VBZ the_DT propeller_NN load_NN torque_NN ,_, J_NP denotes_VVZ the_DT inertia_NN of_IN motor_NN ,_, wm_NP denotes_VVZ mechanical_JJ angular_JJ velocity_NN ,_, B_NP is_VBZ the_DT motor_NN damping_VVG ,_, respectively_RB ._SENT 
+Select_VV the_DT phase_NN currents_NNS error_NN in_IN the_DT q_NN axis_NN ,_, the_DT motor_NN speed_NN error_NN ,_, the_DT motor_NN speed_NN error_NN integration_NN as_IN the_DT system_NN states_NNS ._SENT 
+The_DT control_NN input_NN is_VBZ the_DT motor_NN torque_NN ._SENT 
+Based_VVN on_IN the_DT dynamic_JJ model_NN of_IN PMSM_NN shown_VVN in_IN Eq_NP ._SENT 
+(_( 4_CD )_) ,_, the_DT model_NN of_IN marine_JJ electric_JJ propulsion_NN system_NN can_MD be_VB described_VVN in_IN a_DT state–space​_JJ form_NN as_IN (_( 5)x=[x1x2x3]Tx1=e1=i∗q−iqx2=e2=w∗m−wmx3=e3=∫(w∗m−wm)dtu=eq=u∗q−uqẋ_NP =Ax+Bu+EwA=⎡⎣⎢⎢⎢−RL3npψf2J0−npψfL−BJ1000⎤⎦⎥⎥⎥B=[1L00]TE=[0−1J0]T_NP where_WRB i∗q_NP is_VBZ reference_NN current_JJ of_IN q_NN axis_NN ,_, w∗m_NP is_VBZ reference_NN mechanical_JJ angular_JJ velocity_NN ,_, u∗q_NP is_VBZ reference_NN voltage_NN of_IN q_NN axis_NN ,_, x_LS is_VBZ system_NN state_NN error_NN vector_NN ,_, u_NN is_VBZ control_NN input_NN ,_, w_NN denotes_VVZ external_JJ system_NN input_NN ,_, A∈R3×3_NP is_VBZ the_DT system_NN matrix_NN and_CC B∈R3×1_NN is_VBZ the_DT input_NN matrix_NN ._SENT 
+E_SYM is_VBZ external_JJ system_NN matrix_NN ._SENT 
+2.2_CD ._SENT 
+Modeling_VVG of_IN the_DT network-induced_JJ time-varying_NN delays_NNS Fig_VVP ._SENT 
+2_LS depicts_VVZ the_DT CAN-induced_JJ time-varying_NN delays_NNS of_IN marine_JJ electric_JJ propulsion_NN system_NN ._SENT 
+Generally_RB ,_, the_DT in_IN the_DT practical_JJ control_NN of_IN marine_JJ electric_JJ propulsion_NN system_NN ,_, sensors_NNS which_WDT work_VVP under_IN the_DT time-driven_JJ mode_NN execute_VV periodically_RB with_IN fixed_VVN sampling_NN time_NN ,_, while_IN motor_NN controller_NN and_CC PMSM_NN are_VBP in_IN event-driven_JJ mode_NN ._SENT 
+Once_IN controller_NN node_NN receives_VVZ the_DT measurement_NN s(k_NN )_) at_IN t1_JJ under_IN the_DT influence_NN of_IN CAN-induced_JJ delay_NN ,_, controller_NN node_NN will_MD execute_VV immediately_RB and_CC then_RB compute_VV the_DT required_JJ control_NN voltage_NN as_IN control_NN signal_NN uk_NN with_IN the_DT measurements_NNS ._SENT 
+The_DT Inverter_NN node_NN will_MD convert_VV the_DT control_NN voltage_NN to_TO a_DT suitable_JJ three-phase_JJ AC_NP and_CC apply_VV the_DT three-phase_JJ AC_NP to_TO the_DT PMSM_NN ._SENT 
+Due_JJ to_TO the_DT CAN-induced_JJ delays_NNS ,_, the_DT control_NN voltage_NN uk_NP will_NN starts_VVZ to_TO work_VV at_IN time_NN t2_NN and_CC then_RB ends_VVZ at_IN time_NN t4_NN ._SENT 
+According_VVG to_TO Liu_NP et_CC al_NP ._SENT 
+(_( 2018_CD )_) ,_, as_IN the_DT network-induced_JJ time-varying_NN delays_NNS bring_VVP nonlinear_JJ uncertainties_NNS to_TO the_DT discrete-time_JJ model_NN of_IN the_DT marine_JJ electric_JJ propulsion_NN system_NN ,_, the_DT control_NN signals_VVZ for_IN PMSM_NN may_MD be_VB coupled_VVN within_IN each_DT sampling_NN period_NN ._SENT 
+When_WRB considered_VVN the_DT influence_NN of_IN time-varying_VVG delays_NNS induced_VVN by_IN CAN_NN ,_, the_DT control_NN input_NN of_IN the_DT marine_JJ electric_JJ propulsion_NN system_NN (_( 5_CD )_) can_MD be_VB depicted_VVN as_RB follows_VVZ (_( Zhu_NP et_NP al_NP ._SENT 
+,_, 2015_CD )_) :_: (_( 6)u(t)=uk_NP ,_, ∀t∈[tk+τk_NP ,_, tk+1+τk+1_NN ]_SYM ,_, tk=kTs_VVZ where_WRB τs_NP is_VBZ the_DT network-induced_JJ delay_NN at_IN each_DT step_NN k_NN and_CC Ts_NN denotes_VVZ the_DT sampling_NN period_NN ._SENT 
+Fig_NN ._SENT 
+2._CD Effect_NN of_IN CAN-induced_JJ time-varying_JJ delays_NNS ._SENT 
+In_IN the_DT real_JJ shipborne_JJ network_NN system_NN ,_, the_DT network_NN delays_NNS usually_RB are_VBP bounded_VVN unless_IN there_EX is_VBZ a_DT hardware_NN fault_NN ._SENT 
+Therefore_RB ,_, the_DT CAN-induced_JJ delay_NN is_VBZ bounded_VVN and_CC without_IN loss_NN of_IN generality_NN ,_, the_DT maximum_JJ delay_NN is_VBZ described_VVN as_IN (_( 7)τlarge=(α+η)Ts_NP ,_, α∈Z+_NP ,_, η∈R[0,1_JJ )_) The_DT discrete_JJ model_NN of_IN the_DT marine_JJ electric_JJ propulsion_NN system_NN with_IN network-induced_JJ delays_NNS can_MD be_VB written_VVN as_RB (_( Zhu_NP et_NP al_NP ._SENT 
+,_, 2015_CD )_) :_: (_( 8)x(k+1)=A1x(k)+B1u(k)+E1w(k)+Δ0_NP ,_, k(u(k−1)−u(k))+Δ1_NN ,_, k(u(k−2)−u(k−1))+⋯+Δα_NP ,_, k(u(k−α−1)−u(k−α))A1≔eATs_NP ,_, B1≔∫Ts0eA(Ts−θ)Bdθ_NP ,_, E1≔∫Ts0eA(Ts−θ)EdθΔi_NP ,_, k≔⎧⎩⎨⎪⎪⎪⎪0_NP ,_, ∫τk−i−iTs0eA(Ts−θ)dθB_NP ,_, ∫Ts0eA(Ts−θ)dθB_NP ,_, τk−i−iTs≤00≤τk−i−iTs≤TsTs≤τk−i−iTsi=0,1_NN ,_, …_NP ,_, α_NP First_NP ,_, the_DT control_NN inputs_NNS are_VBP all_RB assumed_VVN as_IN u(k_NN )_) in_IN each_DT control_NN period_NN kTs∼(k+1)Ts_NNS ._SENT 
+Then_RB ,_, section_NN of_IN the_DT control_NN input_NN u(k_NN )_) will_MD be_VB replaced_VVN on_IN the_DT basis_NN of_IN the_DT arrival_NN time_NN of_IN control_NN input_NN u(k−1_NN )_) ._SENT 
+The_DT control_NN period_NN for_IN u(k−1_NN )_) is_VBZ determined_VVN by_IN the_DT delay_NN τk_NN ._SENT 
+In_IN the_DT same_JJ way_NN ,_, u(k−2_NP )_) will_MD replace_VV the_DT section_NN of_IN control_NN input_NN u(k−1_NN )_) ._SENT 
+Finally_RB ,_, the_DT control_NN input_NN will_MD be_VB end_NN with_IN u(k−α−1_JJ )_) on_IN the_DT basis_NN of_IN the_DT maximum_JJ delay_NN time_NN expressed_VVN in_IN (_( 7_CD )_) ._SENT 
+When_WRB τk−i−iTs≤0_NP ,_, the_DT control_NN signal_NN u(k−i_NP )_) will_MD act_VV on_IN the_DT bottom_JJ actuator_NN before_IN the_DT time_NN of_IN kTs_NNS ,_, so_RB that_IN the_DT control_NN signal_NN u(k−i−1_NN )_) will_MD not_RB appear_VV in_IN the_DT interval_NN of_IN kTs∼(k+1)Ts_NNS ._SENT 
+The_DT action_NN signal_NN u(k−i_NP )_) will_MD not_RB be_VB controlled_VVN by_IN the_DT new_JJ signal_NN u(k−i−1_NN )_) ._SENT 
+Therefore_RB ,_, Δi_NP ,_, k=0_NP ._SENT 
+When_WRB 0≤τk−i−iTs≤T_NP ,_, the_DT control_NN signal_NN u(k−i−1_NN )_) will_MD appear_VV in_IN the_DT interval_NN of_IN kTs∼(k+1)Ts_NNS at_IN the_DT moment_NN τk−i−iTs_NNS ,_, and_CC the_DT size_NN of_IN the_DT interval_NN in_IN which_WDT the_DT acting_VVG signal_NN u(k−i_NNS )_) is_VBZ updated_VVN by_IN the_DT controlled_VVN signal_NN u(k−i−1_NN )_) is_VBZ τk−i−iTs_JJ ._SENT 
+When_WRB τk−i−iTs≥Ts_NP ,_, the_DT control_NN signal_NN u(k−i_NP )_) will_MD act_VV on_IN the_DT bottom_JJ actuator_NN after_IN the_DT time_NN of_IN kTs_NNS ,_, and_CC the_DT action_NN signal_NN u(k−i_NP )_) will_MD all_RB be_VB updated_VVN by_IN the_DT control_NN signal_NN u(k−i−1_NN )_) ,_, whose_WP$ interval_NN size_NN is_VBZ Ts_JJ (_( Liu_NP et_NP al_NP ._SENT 
+,_, 2018_CD )_) ._SENT 
+In_IN order_NN to_TO facilitate_VV the_DT design_NN of_IN subsequent_JJ robust_JJ controller_NN that_IN based_VVN on_IN model_NN established_VVN by_IN the_DT polytopic_JJ modeling_NN method_NN ,_, the_DT coefficient_NN matrix_NN Δi_NP ,_, k_NN is_VBZ linearized_VVN first_RB ._SENT 
+By_IN using_VVG Taylor_NP series_NN expansion_NN approach_NN ,_, it_PP can_MD be_VB rewritten_VVN as_RB (_( 9)Δ(x)=AτxτAτ=eATs[(−1)21_JJ !_SENT 
+A0(−1)32_NP !_SENT 
+A1⋯(−1)h+1(h_NP )_) !_SENT 
+Ah−1]xτ=[xx2⋯xh]T_NN where_WRB h_NN is_VBZ the_DT Taylor_NP series_NN expansion_NN ._SENT 
+Therefore_RB ,_, for_IN any_DT network_NN delay_NN τk_NN ,_, the_DT coefficient_NN matrix_NN Δi_NP ,_, k_NN can_MD be_VB expressed_VVN as_RB (_( 10){Δi_NP ,_, k=∑hn=0ηi_NP ,_, n(k)Δˆ1_NN ,_, nB_NP ,_, ∀i=0,1_NN ,_, …α−1Δi_NP ,_, k=∑hn=0ηi_NP ,_, n(k)Δˆ0_NP ,_, nB_NP ,_, i=α∑hn=0ηi_NP ,_, n(k)=1_JJ Thus_RB ,_, the_DT coefficient_NN matrix_NN Δi_NP ,_, k_NN in_IN Eq_NP ._SENT 
+(_( 8_CD )_) has_VHZ a_DT linear_JJ relationship_NN with_IN the_DT network_NN delays_NNS by_IN using_VVG Taylor_NP series_NN expansion_NN and_CC polytope_NN modeling_NN ._SENT 
+For_IN purpose_NN of_IN obtaining_VVG a_DT delay-free_JJ model_NN for_IN marine_JJ electric_JJ propulsion_NN system_NN ,_, the_DT system_NN augmentation_NN technique_NN is_VBZ adopted_VVN and_CC a_DT new_JJ state_NN variable_NN is_VBZ defined_VVN as_IN (_( 11)xˆ(k)=[xT(k)uT(k−1)⋯uT(k−α−1)]T_NP Then_RB ,_, the_DT marine_JJ electric_JJ propulsion_NN system_NN in_IN Eq_NP ._SENT 
+(_( 8_CD )_) is_VBZ expressed_VVN in_IN a_DT delay-free_JJ form_NN as_IN (_( 12)xˆ(k)=A2xˆ(k)+B2u(k)+E2w(k)A2=⎡⎣⎢⎢⎢⎢⎢⎢⎢A100⋮0Δ0_NP ,_, k−Δ1_JJ ,_, k0I⋮0⋯⋯⋯⋮⋯Δα−1_JJ ,_, k−Δα_NP ,_, k00⋮IΔα_NP ,_, k00⋮0⎤⎦⎥⎥⎥⎥⎥⎥⎥B2=[BT1−ΔT0_NP ,_, k00⋯0]TE2=[ET100⋯0]T_NP 2.3_CD ._SENT 
+Modeling_VVG of_IN the_DT propeller_NN load_NN During_IN voyage_NN ,_, external_JJ resistance_NN of_IN ship_NN mainly_RB includes_VVZ the_DT resistance_NN of_IN water_NN and_CC the_DT resistance_NN of_IN air_NN in_IN Fig_NN ._SENT 
+3._CD Since_IN the_DT resistance_NN of_IN air_NN Ra_NP is_VBZ relatively_RB small_JJ in_IN general_JJ conditions_NNS ,_, only_RB the_DT resistance_NN of_IN water_NN will_MD be_VB considered_VVN ._SENT 
+The_DT resistance_NN formed_VVN by_IN water_NN consists_VVZ of_IN three_CD parts_NNS ,_, which_WDT are_VBP resistance_NN wave-making_NN resistance_NN ,_, viscous_JJ pressure_NN ,_, and_CC friction_NN resistance_NN ._SENT 
+The_DT resistance_NN of_IN friction_NN Rf_NP refers_VVZ to_TO the_DT drag_NN caused_VVN by_IN the_DT viscosity_NN of_IN the_DT water_NN on_IN the_DT submerged_JJ part_NN of_IN the_DT ship_NN when_WRB it_PP is_VBZ moving_VVG forward_RB ._SENT 
+The_DT stern_JJ vortex_NN around_IN the_DT propeller_NN cause_VV the_DT viscous_JJ pressure_NN resistance_NN Rv_NN which_WDT leads_VVZ to_TO the_DT reduction_NN of_IN the_DT stern_JJ water_NN pressure_NN ._SENT 
+Thus_RB ,_, the_DT distribution_NN of_IN hull_NN pressure_NN will_MD change_VV ,_, which_WDT leads_VVZ to_TO the_DT uneven_JJ hull_NN pressure_NN and_CC thus_RB generates_VVZ resistance_NN Rvx_NN ._SENT 
+When_WRB the_DT propeller_NN rotates_VVZ ,_, it_PP causes_VVZ additional_JJ resistance_NN Rvr_NN in_IN the_DT direction_NN of_IN rotation_NN (_( Wang_NP et_NP al_NP ._SENT 
+,_, 2017_CD )_) ._SENT 
+The_DT waves_NNS cause_VVP wave-making_NN resistance_NN Rw_VVZ when_WRB the_DT ship_NN moves_VVZ forward_RB ._SENT 
+The_DT resistance_NN of_IN viscous_JJ pressure_NN and_CC wave-making_NN can_MD be_VB combined_VVN into_IN residuary_JJ resistance_NN Rr_NP ._SENT 
+Ft_NP is_VBZ the_DT propulsive_JJ force_NN generated_VVN by_IN propeller_NN ,_, Ff_NN is_VBZ the_DT buoyancy_NN force_NN and_CC v_NN is_VBZ the_DT ship_NN speed_NN ._SENT 
+The_DT functional_JJ relation_NN between_IN the_DT resistive_JJ drag_NN R_NN and_CC the_DT ship_NN velocity_NN vs_NP is_VBZ fitted_VVN according_VVG to_TO the_DT ship_NN experiments_NNS data_NNS in_IN Table_NN 1_CD as_IN (_( Ren_NP et_NP al_NP ._SENT 
+,_, 2012_CD )_) :_: (_( 13)R=Rf+Rr=0.20143−0.059vs−0.20979vs2_JJ Fig_NN ._SENT 
+3._CD Resistance_NN of_IN ship_NN during_IN sailing_NN ._SENT 
+When_WRB the_DT direction_NN of_IN thrust_NN generated_VVN by_IN the_DT propeller_NN in_IN water_NN is_VBZ the_DT same_JJ as_IN the_DT forward_JJ direction_NN of_IN the_DT ship_NN ,_, it_PP will_MD push_VV the_DT ship_NN forward_RB ._SENT 
+Meanwhile_RB ,_, it_PP will_MD also_RB be_VB subject_JJ to_TO the_DT resistance_NN moment_NN generated_VVN by_IN seawater_NN when_WRB the_DT propeller_NN rotates_VVZ ._SENT 
+In_IN general_NN ,_, the_DT propeller_NN is_VBZ directly_RB connected_VVN to_TO the_DT hull_NN through_IN the_DT driving_VVG device_NN ,_, so_RB the_DT role_NN of_IN hull_NN wake_NN in_IN the_DT propeller_NN must_MD be_VB considered_VVN in_IN the_DT analysis_NN (_( Wang_NP et_NP al_NP ._SENT 
+,_, 2019_CD )_) ._SENT 
+When_WRB the_DT propeller_NN rotates_VVZ in_IN the_DT stern_JJ ,_, the_DT total_JJ thrust_NN Pm_NN generated_VVN by_IN the_DT propeller_NN overcomes_VVZ the_DT resistance_NN of_IN the_DT ship_NN R_NN and_CC the_DT additional_JJ resistance_NN ΔP_NN ._SENT 
+In_IN the_DT actual_JJ calculation_NN ,_, the_DT thrust_NN deduction_NN coefficient_NN t_NN is_VBZ used_VVN to_TO represent_VV the_DT additional_JJ resistance_NN ΔP_NN ,_, which_WDT can_MD be_VB calculated_VVN by_IN the_DT following_VVG empirical_JJ formula_NN (_( Ren_NP et_NP al_NP ._SENT 
+,_, 2012_CD )_) ._SENT 
+(_( 14)Pm=R+ΔPt=ΔPP=P−RP=0.7w+0.06_JJ Table_NN 1._CD Parameters_NNS of_IN ship_NN resistance_NN ._SENT 
+Table_NN 2._CD The_DT propeller_NN open_JJ water_NN characteristic_NN ._SENT 
+When_WRB the_DT ship_NN sails_NNS at_IN a_DT steady_JJ speed_NN ,_, the_DT ship_NN efficient_JJ thrust_NN force_NN Pe_NN generated_VVN by_IN the_DT propeller_NN is_VBZ equal_JJ to_TO the_DT resistance_NN suffered_VVD by_IN the_DT ship_NN and_CC the_DT torque_NN TL_NP can_MD be_VB expressed_VVN as_RB follows_VVZ (_( Ren_NP et_NP al_NP ._SENT 
+,_, 2015_CD )_) ._SENT 
+(_( 15)Pe=_NP (_( 1−t)Kpjrn2D4pTL=Kmjrn2D5p10Kmj=0.49543−0.21832J−0.20979J2Kpj=0.38955−0.27115J−0.10256J2_NP The_DT thrust_NN coefficients_NNS Kpj_NP and_CC torque_NN coefficients_NNS Kmj_NN are_VBP a_DT function_NN of_IN the_DT advance_NN number_NN J_NP ,_, which_WDT are_VBP achieved_VVN based_VVN on_IN the_DT data_NNS in_IN Table_NN 2._CD Fig_NN ._SENT 
+4_CD shows_NNS a_DT schematic_NN of_IN the_DT propeller_NN dynamic_JJ load_NN model_NN to_TO establish_VV the_DT simulation_NN model_NN based_VVN on_IN propeller_NN load_NN characteristics_NNS and_CC corresponding_JJ parameters_NNS values_NNS of_IN the_DT model_NN shown_VVN in_IN Table_NN 3._CD vp_NN is_VBZ the_DT ship_NN advance_NN speed_NN ,_, J_NP is_VBZ the_DT propeller_NN advance_NN number_NN and_CC vp_NN is_VBZ smaller_JJR than_IN the_DT ship_NN speed_NN vs_NP without_IN considering_VVG the_DT wake_NN fraction_NN ._SENT 
+The_DT load_NN torque_NN generated_VVN by_IN the_DT propeller_NN is_VBZ a_DT stable_JJ value_NN ,_, when_WRB the_DT ship_NN speed_NN reaches_VVZ a_DT stable_JJ value_NN (_( Hansen_NP &_CC Wendt_NP ,_, 2015_CD )_) ._SENT 
+Therefore_RB ,_, based_VVN on_IN actual_JJ measured_VVN data_NNS of_IN the_DT propeller_NN load_NN torque_NN ,_, the_DT relationship_NN between_IN propeller_NN speed_NN and_CC propeller_NN load_NN torque_NN is_VBZ obtained_VVN by_IN adopting_VVG nonlinear_JJ fitting_JJ method_NN ._SENT 
+Then_RB utilizing_VVG the_DT relationship_NN ,_, calibration_NN method_NN can_MD be_VB used_VVN to_TO calculate_VV control_NN voltage_NN corresponding_JJ to_TO the_DT propeller_NN speed_NN ._SENT 
+However_RB ,_, the_DT established_VVN propeller_NN dynamic_JJ load_NN mathematical_JJ model_NN only_RB considers_VVZ the_DT linear_JJ motion_NN of_IN the_DT ship_NN ,_, while_IN the_DT actual_JJ motion_NN of_IN the_DT ship_NN on_IN the_DT sea_NN is_VBZ very_RB complicated_VVN ._SENT 
+In_IN addition_NN ,_, fitting_JJ errors_NNS of_IN data_NNS are_VBP generally_RB inevitable_JJ ._SENT 
+Hence_RB ,_, there_RB exist_VVP errors_NNS of_IN control_NN voltage_NN between_IN actual_JJ needed_JJ control_NN voltage_NN and_CC control_NN voltage_NN calculating_VVG by_IN calibration_NN method_NN ._SENT 
+The_DT controller_NN is_VBZ designed_VVN to_TO compensate_VV the_DT error_NN of_IN control_NN voltage_NN ._SENT 
+Fig_NN ._SENT 
+4._CD Mathematical_JJ model_NN building_NN diagram_NN of_IN the_DT propeller_NN load_NN ._SENT 
+Remark_NN 1_CD For_IN the_DT actual_JJ marine_JJ electric_JJ propulsion_NN system_NN ,_, the_DT reference_NN load_NN is_VBZ usually_RB very_RB large_JJ and_CC difficult_JJ to_TO get_VV the_DT accurate_JJ value_NN due_JJ to_TO its_PP$ high_JJ nonlinearity_NN as_RB well_RB as_IN complexity_NN ._SENT 
+Different_JJ from_IN the_DT simplified_VVN propeller_NN load_NN model_NN the_DT used_VVN in_IN Abdelrauf_NP et_CC al_NP ._SENT 
+(_( 2018_CD )_) and_CC Zhao_NP et_NP al_NP ._SENT 
+(_( 2018_CD )_) ,_, this_DT paper_NN fully_RB considers_VVZ the_DT propeller_NN load_NN characteristics_NNS and_CC dynamical_JJ characteristics_NNS of_IN PMSM_NN in_IN the_DT controller_NN design_NN ,_, which_WDT can_MD obtain_VV better_JJR tracking_NN performance_NN ._SENT 
+Remark_VV 2_CD Different_JJ form_NN the_DT work_NN in_IN Ren_NP et_CC al_NP ._SENT 
+(_( 2015_CD )_) ,_, in_IN which_WDT a_DT sliding-mode_NN observer_NN is_VBZ mainly_RB designed_VVN ,_, this_DT paper_NN proposes_VVZ a_DT robust_JJ controller_NN for_IN marine_JJ electric_JJ propulsion_NN system_NN ._SENT 
+It_PP can_MD achieve_VV strong_JJ robustness_NN to_TO attenuate_VV the_DT external_JJ disturbance_NN and_CC effectively_RB track_VV reference_NN rotational_JJ speed_NN under_IN the_DT coupling_NN effect_NN of_IN CAN-induced_JJ delays_NNS ,_, dynamical_JJ characteristics_NNS of_IN PMSM_NN and_CC propeller_NN load_NN characteristics_NNS ._SENT 
+2.4_CD ._SENT 
+Mixed_JJ H∞∕LQR_NP controller_NN design_NN By_IN using_VVG state_NN feedback_NN control_NN law_NN u(k)=Kx(k_NN )_) ,_, the_DT delay-free_JJ model_NN of_IN the_DT marine_JJ electric_JJ propulsion_NN system_NN can_MD be_VB rewritten_VVN as_RB (_( 16)x(k+_NP 1)=(A2+B2K)x(k)+E2w(k_NP )_) The_DT proposed_VVN mixed_JJ H∞∕LQR_NN controller_NN possesses_VVZ the_DT superiority_NN of_IN the_DT LQR_NP controller_NN which_WDT not_RB only_RB possesses_VVZ strong_JJ robustness_NN ,_, but_CC also_RB makes_VVZ tradeoff_NN between_IN the_DT magnitude_NN of_IN control_NN signal_NN and_CC tracking_VVG performance_NN by_IN adjusting_VVG the_DT values_NNS of_IN positive-definite_JJ weighting_NN matrices_NNS Q_NP and_CC R._NP A_DT quadratic_JJ cost_NN function_NN is_VBZ designed_VVN as_IN performance_NN index_NN J_NP combining_VVG the_DT control_NN signal_NN and_CC the_DT tracking_VVG error_NN is_VBZ defined_VVN and_CC expressed_VVN as_IN (_( Wang_NP et_NP al_NP ._SENT 
+,_, 2017_CD )_) ._SENT 
+(_( 17)J=∑k=0∞[xˆ(k)TQxˆ(k)+u(k)TRu(k_NP )_) ]_SYM where_WRB Q=QT>0_NP ,_, R=RT>0_NP ._SENT 
+The_DT performance_NN index_NN J_NP can_MD be_VB expressed_VVN as_IN the_DT 2-norm_NN of_IN the_DT following_VVG control_NN signal_NN Z(k_NN )_) for_IN control_NN objective_NN to_TO be_VB controlled_VVN :_: (_( 18)Z(k)=EX(k)+Fu(k)E=Q120∗_NP ;_: F=0∗R12Q=c100000c200000c300000c40_NP ;_: R=c5_NN The_DT response_NN speed_NN of_IN current_JJ and_CC rotational_JJ speed_NN and_CC the_DT steady-state_NN error_NN of_IN rotational_JJ speed_NN can_MD be_VB changed_VVN by_IN adjusting_VVG the_DT weighting_NN parameters_NNS c1_JJ ,_, c2_NP ,_, c3_NP ,_, respectively_RB ._SENT 
+The_DT weighting_NN parameters_NNS c4_JJ ,_, c5_JJ are_VBP related_VVN to_TO control_VV voltage_NN ,_, which_WDT can_MD balance_VV the_DT control_NN performance_NN and_CC the_DT amplitude_NN of_IN control_NN voltage_NN ._SENT 
+Then_RB ,_, considering_VVG the_DT external_JJ disturbance_NN term_NN w(k_NN )_) in_IN the_DT augmented_JJ system_NN is_VBZ bounded_VVN ,_, the_DT H∞_JJ optimization_NN is_VBZ employed_VVN to_TO maximally_RB attenuate_VV the_DT effect_NN of_IN the_DT external_JJ disturbance_NN to_TO the_DT signal_NN Z(k_NN )_) on_IN the_DT basis_NN of_IN LQR_NP control_NN method_NN (_( Wang_NP et_NP al_NP ._SENT 
+,_, 2019_CD )_) ._SENT 
+The_DT H∞_JJ performance_NN of_IN control_NN signal_NN Z(k_NN )_) can_MD be_VB defined_VVN as_RB (_( 19)‖TZ(k)w(k)‖∞=sup‖w(k)‖2≠0‖Z(k)‖2‖w(k)‖2<γ_NN where_WRB ‖Z(k)‖22=∑k=0∞Z(k)TZ(k_NP )_) ,_, ‖w(k)‖22=∑k=0∞w(k)Tw(k_NP )_) ._SENT 
+Table_NN 3._CD Parameters_NNS of_IN propeller_NN load_NN ._SENT 
+For_IN the_DT purpose_NN of_IN demonstrating_VVG the_DT Lyapunov_NP stability_NN of_IN the_DT closed-loop_NP control_NN system_NN ,_, the_DT Lyapunov_NP candidate_NN function_NN is_VBZ selected_VVN as_IN following_NN :_: (_( 20)V(k)=X(k)TPX(k_NP )_) The_DT difference_NN equation_NN of_IN the_DT Lyapunov_NP function_NN is_VBZ evaluated_VVN as_IN (_( 21)ΔV(k)=X(k+1)TPX(k+1)−X(k)TPX(k_NP )_) The_DT H∞_JJ performance_NN (_( 19_CD )_) can_MD be_VB equivalent_JJ to_TO (_( 22)∥Z(k)∥22<γ2∥w(k)∥22_NN Further_RBR ,_, the_DT objective_JJ function_NN is_VBZ defined_VVN as_IN (_( 23)ξ=ΔV(k)+Z(k)TZ(k)−γ2w(k)Tw(k)<0_NP The_DT objective_JJ function_NN ξ_NN in_IN (_( 23_CD )_) is_VBZ satisfied_VVN if_IN the_DT following_VVG condition_NN holds_VVZ :_: (_( 24)⎡⎣⎢⎢(A2+B2K)TP(A2+B2K)+(E+FK)T(E+FK)−P∗(A2+B2K)TPE2ET2PE2−γ2I⎤⎦⎥⎥<0_NN Based_VVN on_IN Schur_NP complement_VV theory_NN ,_, the_DT matrix_NN inequality_NN (_( 24_CD )_) can_MD be_VB given_VVN as_RB (_( 25)⎡⎣⎢⎢⎢⎢−P∗∗∗0−I∗∗P(A2+B2K)E+FK−P∗PE200−γ2I⎤⎦⎥⎥⎥⎥<0_NN However_RB ,_, due_JJ to_TO the_DT bilinear_JJ item_NN P(A2+B2K_NN )_) ,_, in_IN Eq_NP ._SENT 
+(_( 25_CD )_) fails_VVZ to_TO be_VB directly_RB applied_VVN ._SENT 
+To_TO solve_VV this_DT problem_NN ,_, P−1=L_NP ,_, V=KP−1_NN is_VBZ defined_VVN and_CC multiply_VV both_DT sides_NNS of_IN Eq_NP ._SENT 
+(_( 25_CD )_) with_IN diag(P−1_JJ ,_, I_PP ,_, P−1_JJ ,_, I_PP )_) ._SENT 
+The_DT following_VVG linear_JJ matrix_NN inequality_NN can_MD be_VB achieved_VVN (_( 26)⎡⎣⎢⎢⎢⎢−L∗∗∗0−I∗∗A2L+B2VEL+FV−L∗E200−γ2I⎤⎦⎥⎥⎥⎥<0_NP The_DT feedback_NN control_NN gain_NN K_NN can_MD be_VB calculated_VVN as_RB (_( 27)K=VL−1_JJ The_DT optimal_JJ mixed_JJ H∞∕LQR_NN controller_NN gain_NN K_NN can_MD be_VB achieved_VVN by_IN calculating_VVG the_DT following_VVG minimization_NN problem_NN ._SENT 
+minγ2Isubjectto(26_NN )_) 2.5_CD ._SENT 
+Robust_JJ energy-to-peak_NN controller_NN design_NN In_IN order_NN to_TO evaluate_VV the_DT tracking_VVG performance_NN of_IN the_DT speed_NN ,_, the_DT tracking_VVG error_NN of_IN the_DT mechanical_JJ angular_JJ velocity_NN wm_NN can_MD be_VB chosen_VVN as_IN control_NN output_NN and_CC the_DT tracking_VVG error_NN of_IN PMSM_NN phase_NN current_JJ iq_NP is_VBZ chosen_VVN as_IN another_DT control_NN output_NN to_TO reflect_VV oscillations_NNS of_IN motor_NN voltage_NN (_( Zhu_NP et_NP al_NP ._SENT 
+,_, 2015_CD )_) ._SENT 
+(_( 28)Z1=C1xˆ_NP ,_, Z2=C2xˆC1=[I00[0⋯0]α+1_NN ]_SYM C2=[0I0[0⋯0]α+1_NN ]_SYM ._SENT 
+On_IN the_DT premise_NN of_IN satisfying_VVG the_DT speed_NN tracking_VVG performance_NN ,_, energy-to-peak_NN performance_NN index_NN is_VBZ selected_VVN to_TO optimize_VV the_DT transient_JJ performance_NN of_IN the_DT controller_NN and_CC improve_VV oscillation_NN damping_VVG control_NN of_IN motor_NN voltage_NN in_IN marine_JJ electric_JJ propulsion_NN system_NN ._SENT 
+(_( 29)∥Z1∥∞<γ1∥w∥2∥Z2∥∞<γ2∥w∥2_JJ In_IN the_DT practice_NN marine_JJ electric_JJ propulsion_NN system_NN ,_, the_DT state_NN feedback_NN control_NN gain_NN K_NN can_MD be_VB used_VVN directly_RB to_TO obtain_VV required_JJ control_NN performance_NN ._SENT 
+The_DT closed_JJ loop_NN augmentation_NN system_NN (_( 16_CD )_) can_MD be_VB stable_JJ with_IN two_CD energy-to-perk_NN performance_NN indexes_NNS γ1_JJ and_CC γ2_JJ if_IN there_RB exist_VV matrices_NNS PT=P_NN ,_, M_NP ,_, Y_NP such_JJ that_IN the_DT following_VVG matrix_NN in_IN equalities_NNS can_MD be_VB satisfied_JJ (_( 30)⎡⎣⎢−P∗∗A2M+B2YP−M−MT∗E20−I⎤⎦⎥<0[−P∗PCT1−γ21I]<0[−P∗PCT2−γ22I]<0_NP The_DT feedback_NN control_NN gain_NN can_MD be_VB calculated_VVN as_RB (_( 31)K=YM−1_JJ The_DT level_NN γ1_NN is_VBZ prescribed_VVN in_IN advance_NN and_CC the_DT minimum_JJ energy-to-peak_NN performance_NN index_NN γ2_NN can_MD be_VB achieved_VVN by_IN calculating_VVG the_DT following_VVG minimization_NN problem_NN ._SENT 
+(_( 32)minγ2Isubjectto(30_NP )_) Furthermore_RB ,_, the_DT following_VVG matrix_NN in_IN equalities_NNS can_MD make_VV marine_JJ electric_JJ propulsion_NN system_NN satisfied_VVD the_DT stability_NN and_CC robust_JJ energy-to-peak_NN performance_NN (_( Zhu_NP et_NP al_NP ._SENT 
+,_, 2015_CD )_) ._SENT 
+(_( 33)⎡⎣⎢−P∗∗A2_NP ,_, iM+B2_NP ,_, iYP−M−MT∗E20−I⎤⎦⎥<0∀i=1,2_NP ,_, …_NP ,_, (_( h+1)α+1_JJ Remark_NN 3_CD In_IN order_NN to_TO better_RBR consider_VV the_DT electrical_JJ characteristics_NNS of_IN the_DT driving_VVG motor_NN ,_, different_JJ from_IN the_DT work_NN in_IN Liu_NP et_CC al_NP ._SENT 
+(_( 2018_CD )_) and_CC Zhu_NP et_NP al_NP ._SENT 
+(_( 2015_CD )_) ,_, the_DT voltage_NN instead_RB of_IN torque_NN is_VBZ selected_VVN as_IN the_DT control_NN input_NN ._SENT 
+<Section> 3._CD Simulation_NP results_NNS </Section> In_IN this_DT section_NN ,_, comparative_JJ simulation_NN tests_NNS are_VBP conducted_VVN to_TO examine_VV the_DT effectiveness_NN of_IN the_DT proposed_VVN method_NN ._SENT 
+Fig_NN ._SENT 
+5_CD shows_NNS the_DT marine_JJ electric_JJ propulsion_NN system_NN model_NN is_VBZ established_VVN in_IN MATLAB/Simulink_NP ._SENT 
+There_EX are_VBP mainly_RB composed_VVN of_IN marine_JJ electric_JJ propulsion_NN system_NN ,_, controller_NN ,_, network_NN delay_NN signal_NN and_CC CAN_NN bus_NN ._SENT 
+The_DT controller_NN would_MD compute_VV the_DT required_JJ control_NN voltage_NN on_IN the_DT basis_NN of_IN the_DT reference_NN rotational_JJ speed_NN signal_NN and_CC the_DT feedback_NN state_NN signal_NN in_IN the_DT marine_JJ electric_JJ propulsion_NN system_NN ._SENT 
+Simulation_NN diagram_NN of_IN CAN_NN Node_NP and_CC CAN_NN bus_NN are_VBP shown_VVN as_IN Fig_NN ._SENT 
+6_CD ,_, Fig_NN ._SENT 
+7_CD ,_, respectively_RB ._SENT 
+With_IN the_DT help_NN of_IN CAN_NN bus_NN ,_, practical_JJ control_NN voltage_NN would_MD be_VB applied_VVN to_TO PMSM_NN in_IN the_DT marine_JJ electric_JJ propulsion_NN system_NN according_VVG to_TO these_DT commands_NNS ._SENT 
+Parameter_NN values_NNS of_IN PMSM_NN in_IN the_DT marine_JJ electric_JJ propulsion_NN system_NN are_VBP given_VVN in_IN Table_NN 4._CD A_DT controller_NN area_NN network_NN module_NN is_VBZ built_VVN in_IN Sim_NP Events_NNS to_TO better_RBR reflect_VV the_DT characteristics_NNS of_IN the_DT uncertainty_NN time-varying_VVG delay_NN induced_VVN by_IN communication_NN network_NN congestion_NN ._SENT 
+The_DT CAN-induced_JJ time-varying_NN delays_NNS will_MD be_VB generated_VVN by_IN disturbance_NN signal_NN ._SENT 
+Fig_NN ._SENT 
+8_CD ,_, Fig_NN ._SENT 
+9_CD show_NN the_DT characteristics_NNS of_IN the_DT CAN_NN model_NN which_WDT works_VVZ under_IN normal_JJ network_NN condition_NN when_WRB the_DT background_NN traffic_NN model_NN is_VBZ set_VVN off_RP ._SENT 
+The_DT utilization_NN of_IN normal_JJ CAN_NN bus_NN is_VBZ below_IN 0.5_CD ._SENT 
+It_PP can_MD be_VB seen_VVN that_IN there_EX are_VBP small_JJ communication_NN delays_NNS in_IN the_DT normal_JJ network_NN ,_, which_WDT can_MD be_VB ignored_VVN ._SENT 
+The_DT network_NN congestion_NN comes_VVZ out_RP once_IN the_DT background_NN traffic_NN model_NN is_VBZ set_VVN on_IN ._SENT 
+The_DT CAN_NN bus_NN utilization_NN of_IN congestion_NN network_NN is_VBZ ascending_VVG to_TO approximately_RB 0.9_CD ._SENT 
+Meanwhile_RB ,_, the_DT considerable_JJ delays_NNS are_VBP produced_VVN in_IN the_DT signal_NN transmission_NN ._SENT 
+In_IN order_NN to_TO keep_VV generality_NN ,_, the_DT network-induced_JJ delay_NN is_VBZ time-varying_VVG and_CC uniformly_RB distributed_VVN ._SENT 
+The_DT maximum_JJ network-induced_JJ delay_NN is_VBZ set_VVN as_IN 1.4_CD Ts_NNS and_CC the_DT sampling_NN period_NN is_VBZ selected_VVN Ts=10_JJ ms_NNS ._SENT 
+Band-limited_JJ white_JJ noise_NN shown_VVN in_IN Fig_NN ._SENT 
+10_CD is_VBZ used_VVN to_TO simulate_VV measurement_NN noises_NNS of_IN each_DT sensor_NN ._SENT 
+Fig_NN ._SENT 
+5._CD Simulation_NP diagram_NN for_IN marine_JJ electric_JJ propulsion_NN system_NN ._SENT 
+Fig_NN ._SENT 
+6._CD Simulation_NP diagram_NN of_IN CAN_NN Node_NP ._SENT 
+Fig_NN ._SENT 
+7._CD Simulation_NP diagram_NN of_IN CAN_NN Bus_NN ._SENT 
+Table_NN 4._CD Parameters_NNS of_IN PMSM_NN in_IN marine_JJ electric_JJ propulsion_NN system_NN ._SENT 
+Table_NN 5._CD Designed_VVN gain_NN of_IN different_JJ controllers_NNS ._SENT 
+The_DT robust_JJ energy-to-peak_NN controller_NN and_CC conventional_JJ PI_NN controller_NN are_VBP selected_VVN for_IN comparative_JJ analysis_NN ._SENT 
+In_IN the_DT robust_JJ energy-to-peak_NN controller_NN ,_, the_DT performance_NN index_NN γ1_NN is_VBZ set_VVN as_IN 0.02_CD ._SENT 
+The_DT control_NN gains_NNS of_IN conventional_JJ PI_NN controller_NN are_VBP tuned_VVN well_RB by_IN the_DT trial-and-error_NN method_NN ._SENT 
+Table_NN 5_CD gives_VVZ all_PDT the_DT gains_NNS of_IN different_JJ controller_NN ._SENT 
+Fig_NN ._SENT 
+8._CD Normal_JJ network_NN condition_NN ._SENT 
+Fig_NN ._SENT 
+9._CD Congested_VVN network_NN condition_NN ._SENT 
+Fig_NN ._SENT 
+10._CD Band-limited_JJ white_JJ noise_NN in_IN the_DT sensor_NN nodes_NNS ._SENT 
+The_DT load_NN torque_NN generated_VVN by_IN the_DT propeller_NN is_VBZ a_DT stable_JJ value_NN ,_, when_WRB the_DT ship_NN speed_NN reaches_VVZ a_DT stable_JJ value_NN (_( Hansen_NP &_CC Wendt_NP ,_, 2015_CD )_) ._SENT 
+Therefore_RB ,_, based_VVN on_IN actual_JJ measured_VVN data_NNS of_IN the_DT propeller_NN load_NN torque_NN ,_, the_DT relationship_NN between_IN propeller_NN load_NN torque_NN and_CC propeller_NN speed_NN is_VBZ obtained_VVN by_IN adopting_VVG nonlinear_JJ fitting_JJ method_NN ._SENT 
+Then_RB utilizing_VVG the_DT relationship_NN between_IN propeller_NN load_NN torque_NN and_CC propeller_NN speed_NN ,_, calibration_NN method_NN can_MD be_VB used_VVN to_TO calculate_VV control_NN voltage_NN corresponding_JJ to_TO the_DT propeller_NN speed_NN ._SENT 
+However_RB ,_, the_DT established_VVN propeller_NN dynamic_JJ load_NN mathematical_JJ model_NN only_RB considers_VVZ the_DT linear_JJ motion_NN of_IN the_DT ship_NN ,_, while_IN the_DT actual_JJ motion_NN of_IN the_DT ship_NN on_IN the_DT sea_NN is_VBZ very_RB complicated_VVN ._SENT 
+In_IN addition_NN ,_, fitting_JJ errors_NNS of_IN data_NNS are_VBP generally_RB inevitable_JJ ._SENT 
+Hence_RB ,_, there_RB exist_VVP errors_NNS of_IN control_NN voltage_NN between_IN actual_JJ needed_JJ control_NN voltage_NN and_CC control_NN voltage_NN calculating_VVG by_IN calibration_NN method_NN ._SENT 
+The_DT controller_NN is_VBZ designed_VVN to_TO compensate_VV the_DT error_NN of_IN control_NN voltage_NN ._SENT 
+The_DT simulation_NN diagram_NN of_IN propeller_NN load_NN characteristics_NNS showed_VVD in_IN Fig_NN ._SENT 
+11._CD In_IN the_DT simulation_NN model_NN ,_, the_DT output_NN load_NN torque_NN changes_NNS according_VVG to_TO the_DT input_NN propeller_NN speed_NN ,_, which_WDT can_MD better_RBR simulate_VVP the_DT actual_JJ situation_NN of_IN the_DT load_NN change_NN in_IN the_DT marine_JJ electric_JJ propulsion_NN system_NN ._SENT 
+Fig_NN ._SENT 
+12_CD ,_, Fig_NN ._SENT 
+13_CD show_NN that_IN the_DT proposed_VVN mixed_JJ H∞∕LQR_NN controller_NN can_MD effectively_RB compensate_VV the_DT error_NN of_IN control_NN voltage_NN to_TO adjust_VV propulsion_NN PMSM_NN electromagnetic_JJ torque_NN under_IN different_JJ reference_NN rotational_JJ speeds_NNS ,_, which_WDT simulate_VVP different_JJ operation_NN conditions_NNS of_IN ship_NN ._SENT 
+It_PP can_MD be_VB clearly_RB seen_VVN that_IN the_DT propeller_NN dynamic_JJ load_NN mathematical_JJ model_NN can_MD effectively_RB simulate_VVP the_DT external_JJ load_NN on_IN the_DT propeller_NN ._SENT 
+Based_VVN on_IN these_DT characteristics_NNS of_IN CAN_NN communication_NN and_CC propeller_NN dynamic_JJ load_NN module_NN ,_, in_IN order_NN to_TO demonstrate_VV the_DT effectiveness_NN of_IN the_DT proposed_VVN controller_NN ,_, two_CD different_JJ scenarios_NNS are_VBP conducted_VVN as_RB follows_VVZ ._SENT 
+Fig_NN ._SENT 
+11._CD Simulation_NP diagram_NN of_IN propeller_NN load_NN characteristics_NNS ._SENT 
+Fig_NN ._SENT 
+12._CD Propulsion_NN PMSM_NN electromagnetic_JJ torque_NN and_CC propeller_NN load_NN torque_NN during_IN acceleration_NN test_NN ._SENT 
+Fig_NN ._SENT 
+13._CD Propulsion_NN PMSM_NN electromagnetic_JJ torque_NN and_CC propeller_NN load_NN torque_NN during_IN continue_VV acceleration_NN test_NN ._SENT 
+3.1_CD ._SENT 
+Acceleration_NN test_NN The_DT acceleration_NN scenario_NN is_VBZ selected_VVN as_IN the_DT first_JJ simulation_NN test_NN ,_, in_IN which_WDT the_DT rotational_JJ speed_NN is_VBZ set_VVN to_TO accelerate_VV from_IN 0_CD to_TO 100_CD r/min_NN ._SENT 
+The_DT rotational_JJ speed_NN tracking_VVG performance_NN under_IN normal_JJ CAN_NN bus_NN is_VBZ shown_VVN as_IN Fig_NN ._SENT 
+14._CD Furthermore_RB ,_, considering_VVG time-varying_VVG delays_NNS induced_VVN by_IN CAN_NN ,_, Fig_NN ._SENT 
+15_CD shows_NNS the_DT rotational_JJ speed_NN tracking_VVG performance_NN ._SENT 
+From_IN Fig_NN ._SENT 
+14_CD ,_, Fig_NN ._SENT 
+15_CD ,_, all_PDT the_DT controllers_NNS can_MD attenuate_VV the_DT effect_NN of_IN external_JJ load_NN disturbance_NN as_RB well_RB as_IN sensor_NN noise_NN under_IN normal_JJ network_NN condition_NN and_CC achieve_VV desired_VVN control_NN performance_NN ._SENT 
+In_IN the_DT transient_JJ response_NN process_NN ,_, the_DT proposed_VVN controller_NN and_CC robust_JJ energy-to-peak_NN controller_NN all_RB possess_VVP overshoots_VVZ while_IN the_DT overshoot_VVP of_IN proposed_VVN controller_NN is_VBZ smaller_JJR than_IN that_DT of_IN the_DT robust_JJ energy-to-peak_NN controller_NN ._SENT 
+And_CC the_DT phenomenon_NN reflects_VVZ the_DT fact_NN that_IN the_DT proposed_VVN mixed_JJ H∞∕LQR_NN controller_NN can_MD balance_VV the_DT control_NN performance_NN and_CC magnitude_NN of_IN control_NN signal_NN by_IN adjusting_VVG the_DT values_NNS of_IN Q_NP and_CC R._NP All_NP the_DT controllers_NNS reach_VVP steady_JJ state_NN needing_VVG roughly_RB the_DT same_JJ time_NN ,_, approximately_RB 0.22_CD s._NN However_RB ,_, when_WRB CAN_NN is_VBZ under_IN congested_VVN condition_NN ,_, the_DT superiority_NN of_IN proposed_VVN controller_NN will_MD show_VV evidently_RB ._SENT 
+As_RB is_VBZ shown_VVN in_IN Fig_NN ._SENT 
+15_CD ,_, robust_JJ energy-to-peak_NN controller_NN and_CC the_DT proposed_VVN controller_NN can_MD still_RB track_VV the_DT desired_VVN rotational_JJ speed_NN despite_IN network-induced_JJ time_NN varying_VVG delays_NNS and_CC sensor_NN noise_NN ._SENT 
+However_RB ,_, conventional_JJ PI_NN controller_NN fails_VVZ to_TO track_VV the_DT desired_VVN rotational_JJ speed_NN and_CC oscillates_VVZ severely_RB after_IN 0.2_CD s._NPS Comparing_VVG with_IN the_DT robust_JJ energy-to-peak_NN controller_NN ,_, the_DT proposed_VVN controller_NN has_VHZ no_RB overshoots_VVZ ._SENT 
+Fig_NN ._SENT 
+14._CD Rotational_JJ speed_NN tracking_VVG performance_NN under_IN normal_JJ CAN_NN condition_NN in_IN acceleration_NN test_NN ._SENT 
+Fig_NN ._SENT 
+15._CD Rotational_JJ speed_NN tracking_VVG performance_NN under_IN congested_VVN CAN_NN condition_NN in_IN acceleration_NN test_NN ._SENT 
+Besides_IN the_DT response_NN of_IN rotational_JJ speed_NN ,_, motor_NN phase_NN current_JJ is_VBZ another_DT important_JJ performance_NN index_NN of_IN the_DT marine_JJ electric_JJ propulsion_NN system_NN ._SENT 
+Comparing_VVG response_NN of_IN motor_NN phase_NN current_JJ in_IN Fig_NN ._SENT 
+16_CD ,_, Fig_NN ._SENT 
+17_CD ,_, it_PP can_MD be_VB clearly_RB seen_VVN that_IN the_DT proposed_VVN controller_NN and_CC robust_JJ energy-to-peak_NN controller_NN can_MD still_RB possess_VV well_RB control_VV performance_NN under_IN congested_VVN CAN_NN condition_NN ._SENT 
+However_RB ,_, the_DT conventional_JJ PI_NN controller_NN fails_VVZ to_TO maintain_VV well_RB performance_NN as_IN that_DT under_IN normal_JJ CAN_NN condition_NN ._SENT 
+Fig_NN ._SENT 
+16._CD Response_NP of_IN A_DT phase_NN current_JJ under_IN normal_JJ CAN_NN condition_NN in_IN acceleration_NN test_NN ._SENT 
+Fig_NN ._SENT 
+17._CD Response_NP of_IN A_DT phase_NN current_JJ under_IN congested_VVN CAN_NN condition_NN in_IN acceleration_NN test_NN ._SENT 
+To_TO further_RBR investigate_VV the_DT control_NN signal_NN difference_NN between_IN these_DT three_CD controllers_NNS ,_, the_DT response_NN results_NNS of_IN control_NN voltages_NNS are_VBP put_VVN together_RB in_IN Fig_NN ._SENT 
+18_CD ,_, Fig_NN ._SENT 
+19._CD It_PP can_MD be_VB seen_VVN that_IN adjusting_VVG time_NN of_IN robust_JJ energy-to-peak_NN controller_NN and_CC proposed_VVN controller_NN are_VBP the_DT same_JJ ,_, but_CC the_DT robust_JJ energy-to-peak_NN controller_NN results_VVZ higher_JJR voltage_NN and_CC has_VHZ larger_JJR overshoot_VVP in_IN the_DT first_JJ 0.18_CD s_NNS during_IN transient_JJ response_NN ,_, while_IN the_DT proposed_VVN controller_NN with_IN lower_JJR control_NN voltage_NN shows_VVZ its_PP$ superiority_NN over_IN the_DT others_NNS ._SENT 
+As_RB is_VBZ shown_VVN in_IN Fig_NN ._SENT 
+19_CD ,_, the_DT response_NN of_IN control_NN voltage_NN with_IN the_DT conventional_JJ PI_NN controller_NN under_IN network_NN delay_NN has_VHZ serious_JJ oscillation_NN and_CC the_DT corresponding_JJ system_NN is_VBZ divergent_JJ ._SENT 
+Therefore_RB ,_, compared_VVN to_TO the_DT conventional_JJ PI_NN controller_NN and_CC robust_JJ energy-to-peak_NN controller_NN ,_, the_DT proposed_VVN controller_NN possesses_VVZ obviously_RB advantages_NNS ._SENT 
+Fig_NN ._SENT 
+18._CD Response_NP of_IN control_NN voltage_NN under_IN normal_JJ CAN_NN condition_NN in_IN acceleration_NN test_NN ._SENT 
+Fig_NN ._SENT 
+19._CD Response_NP of_IN control_NN voltage_NN under_IN congested_VVN CAN_NN condition_NN in_IN acceleration_NN test_NN ._SENT 
+3.2_CD ._SENT 
+Continuous_JJ acceleration_NN test_NN In_IN order_NN to_TO further_RBR indicate_VV the_DT robust_JJ performance_NN of_IN the_DT proposed_VVN controller_NN ,_, the_DT continuous_JJ acceleration_NN test_NN is_VBZ carried_VVN out_RP ,_, and_CC the_DT reference_NN rotational_JJ speed_NN jumps_NNS from_IN 0_CD to_TO 70_CD r/min_NN at_IN 5_CD s_NNS and_CC jumps_NNS again_RB from_IN 70_CD to_TO 145_CD r/min_NN at_IN 10_CD s_NNS during_IN simulation_NN to_TO simulate_VV the_DT acceleration_NN process_NN of_IN ship_NN navigation_NN ._SENT 
+Fig_NN ._SENT 
+20_CD ,_, Fig_NN ._SENT 
+21_CD show_NN the_DT tracking_VVG performance_NN of_IN the_DT three_CD controllers_NNS under_IN the_DT normal_JJ CAN_NN condition_NN and_CC congested_VVN CAN_NN condition_NN ,_, respectively_RB ._SENT 
+It_PP can_MD be_VB seen_VVN that_IN when_WRB the_DT CAN_NN bus_NN is_VBZ working_VVG under_IN normal_JJ network_NN condition_NN ,_, the_DT three_CD controllers_NNS have_VHP good_JJ tracking_NN performance_NN ,_, which_WDT is_VBZ similar_JJ to_TO that_DT in_IN the_DT acceleration_NN test_NN ._SENT 
+However_RB ,_, when_WRB the_DT CAN_NN bus_NN produces_VVZ time_NN delays_NNS ,_, the_DT conventional_JJ PI_NN controller_NN fails_VVZ to_TO track_VV the_DT reference_NN rotational_JJ speed_NN while_IN the_DT other_JJ two_CD controllers_NNS can_MD keep_VV its_PP$ good_JJ tracking_NN performance_NN ._SENT 
+From_IN the_DT responses_NNS of_IN A_DT phase_NN current_JJ under_IN the_DT congested_VVN CAN_NN condition_NN in_IN Fig_NN ._SENT 
+22_CD ,_, compared_VVN with_IN robust_JJ energy-to-peak_NN controller_NN ,_, the_DT proposed_VVN mixed_JJ H∞∕LQR_NP controller_NN results_NNS lower_RBR current_JJ in_IN the_DT transient_JJ response_NN process_NN ,_, approximately_RB 2500A_NN less_RBR ,_, which_WDT can_MD reduce_VV the_DT burden_NN of_IN the_DT converter_NN ._SENT 
+Fig_NN ._SENT 
+20._CD Rotational_JJ speed_NN tracking_VVG performance_NN under_IN normal_JJ CAN_NN condition_NN in_IN continuous_JJ acceleration_NN test_NN ._SENT 
+Fig_NN ._SENT 
+21._CD Rotational_JJ speed_NN tracking_VVG performance_NN under_IN congested_VVN CAN_NN condition_NN in_IN continuous_JJ acceleration_NN test_NN ._SENT 
+Fig_NN ._SENT 
+22._CD Response_NP of_IN A_DT phase_NN current_JJ under_IN congested_VVN CAN_NN condition_NN in_IN continuous_JJ acceleration_NN test_NN ._SENT 
+It_PP can_MD be_VB obviously_RB seen_VVN from_IN Fig_NN ._SENT 
+24_CD that_IN the_DT response_NN of_IN control_NN voltage_NN with_IN the_DT conventional_JJ PI_NN controller_NN under_IN congested_VVN CAN_NN condition_NN fluctuates_VVZ wildly_RB between_IN the_DT minimum_JJ and_CC maximum_JJ voltage_NN which_WDT would_MD degrade_VV the_DT driving_VVG stability_NN of_IN PMSM_NN ._SENT 
+Furthermore_RB ,_, though_IN the_DT proposed_VVN mixed_JJ H∞∕LQR_NN controller_NN and_CC robust_JJ energy-to-peak_NN controller_NN can_MD effectively_RB track_VV the_DT reference_NN rotational_JJ the_DT proposed_VVN mixed_JJ H∞∕LQR_NN controller_NN can_MD make_VV some_DT tradeoff_NN between_IN the_DT control_NN performance_NN and_CC the_DT control_NN signal_NN by_IN legitimately_RB adjusting_VVG the_DT values_NNS of_IN Q_NP and_CC R._NP It_PP can_MD be_VB seen_VVN from_IN Fig_NN ._SENT 
+23_CD ,_, Fig_NN ._SENT 
+24_CD that_IN the_DT proposed_VVN mixed_JJ H∞∕LQR_NN controller_NN can_MD not_RB only_RB need_VVP lower_JJR control_NN voltage_NN ,_, approximately_RB 45_CD V_NN less_JJR ,_, to_TO track_VV the_DT reference_NN rotational_JJ speed_NN in_IN the_DT second_JJ simulation_NN than_IN that_DT of_IN robust_JJ energy-to-peak_NN controller_NN in_IN the_DT transient_JJ process_NN but_CC also_RB has_VHZ smaller_JJR voltage_NN fluctuations_NNS in_IN approximately_RB 0.2_CD s_NNS after_IN each_DT acceleration_NN process_NN ._SENT 
+Based_VVN on_IN the_DT analysis_NN above-mentioned_JJ ,_, the_DT proposed_VVN mixed_JJ H∞∕LQR_NN controller_NN indicates_VVZ the_DT superiority_NN of_IN control_NN property_NN in_IN the_DT tracking_VVG performance_NN for_IN rotational_JJ speed_NN ._SENT 
+Fig_NN ._SENT 
+23._CD Response_NP of_IN control_NN voltage_NN under_IN normal_JJ CAN_NN condition_NN in_IN continuous_JJ acceleration_NN test_NN ._SENT 
+Fig_NN ._SENT 
+24._CD Response_NP of_IN control_NN voltage_NN under_IN congested_VVN CAN_NN condition_NN in_IN continue_VV acceleration_NN test_NN ._SENT 
+<Section> 4._CD Conclusion_NN </Section> In_IN this_DT paper_NN ,_, a_DT mixed_JJ H∞∕LQR_NP robust_JJ controller_NN is_VBZ proposed_VVN for_IN the_DT marine_JJ electric_JJ propulsion_NN system_NN in_IN order_NN to_TO achieve_VV good_JJ tracking_VVG performance_NN of_IN rotational_JJ speed_NN and_CC the_DT optimization_NN of_IN control_NN voltage_NN with_IN network-induced_JJ time-varying_JJ delays_NNS ._SENT 
+Detailed_JJ propeller_NN load_NN model_NN is_VBZ established_VVN and_CC verified_VVN effectively_RB by_IN the_DT simulation_NN model_NN ._SENT 
+Based_VVN on_IN polytopic_JJ inclusion_NN modeling_VVG approach_NN and_CC Tylor_NP series_NN expansion_NN ,_, the_DT nonlinear_JJ uncertainties_NNS introduced_VVN by_IN the_DT controller_NN working_VVG under_IN the_DT event-driven_JJ manner_NN and_CC coupling_NN effects_NNS of_IN delays_NNS induced_VVN by_IN CAN_NN are_VBP handled_VVN ._SENT 
+A_DT delay-free_JJ discrete_JJ time_NN model_NN is_VBZ established_VVN for_IN the_DT marine_JJ electric_JJ propulsion_NN system_NN with_IN system_NN augmentation_NN technique_NN ._SENT 
+Then_RB ,_, a_DT mixed_JJ H∞∕LQR_NN controller_NN is_VBZ designed_VVN to_TO realize_VV good_JJ speed_NN tracking_VVG performance_NN for_IN the_DT marine_JJ electric_JJ propulsion_NN system_NN with_IN CAN-induced_JJ time-varying_VVG delays_NNS and_CC propeller_NN load_NN characteristics_NNS ._SENT 
+It_PP not_RB only_RB possesses_VVZ strong_JJ robustness_NN ,_, but_CC also_RB makes_VVZ tradeoff_NN between_IN the_DT magnitude_NN of_IN control_NN signal_NN and_CC tracking_NN performance_NN ._SENT 
+Based_VVN on_IN a_DT detailed_JJ CAN_NN communication_NN simulation_NN module_NN ,_, two_CD scenarios_NNS including_VVG acceleration_NN test_NN and_CC continuous_JJ acceleration_NN test_NN are_VBP carried_VVN out_RP ._SENT 
+Compared_VVN with_IN the_DT conventional_JJ PI_NN controller_NN ,_, the_DT proposed_VVN mixed_JJ H∞∕LQR_NN controller_NN can_MD effectively_RB track_VV the_DT reference_NN rotational_JJ speed_NN ,_, which_WDT manifests_VVZ well_RB robust_JJ performance_NN to_TO attenuate_VV the_DT coupling_NN effect_NN of_IN network-induced_JJ delays_NNS and_CC sensor_NN noise_NN ._SENT 
+Compared_VVN with_IN the_DT robust_JJ energy-to-peak_NN controller_NN ,_, the_DT proposed_VVN mixed_JJ H∞∕LQR_NN controller_NN can_MD result_VV lower_JJR control_NN voltage_NN and_CC smaller_JJR voltage_NN fluctuations_NNS in_IN transient_JJ response_NN ,_, which_WDT display_VVP its_PP$ superiority_NN ._SENT 
+In_IN the_DT future_JJ research_NN ,_, the_DT observer-based_JJ control_NN is_VBZ worth_JJ to_TO study_VV (_( Zhu_NP &_CC Li_NP ,_, 2019_CD )_) ._SENT 
+And_CC the_DT neural_JJ network_NN algorithm_NN can_MD be_VB considered_VVN to_TO applied_VVN to_TO marine_JJ electric_JJ propulsion_NN system_NN (_( Wu_NP et_NP al_NP ._SENT 
+,_, 2019_CD )_) ._SENT 
+<Section> Declaration_NN of_IN Competing_VVG Interest_NN </Section> The_DT authors_NNS declare_VVP that_IN they_PP have_VHP no_RB known_VVN competing_VVG financial_JJ interests_NNS or_CC personal_JJ relationships_NNS that_WDT could_MD have_VH appeared_VVN to_TO influence_VV the_DT work_NN reported_VVD in_IN this_DT paper_NN ._SENT 
+<Section> Acknowledgments_NNS </Section> This_DT work_NN is_VBZ supported_VVN by_IN the_DT National_NP Natural_NP Science_NP Foundation_NP of_IN China_NP (_( under_IN Grant_NP 51605278_CD ,_, 51779136_CD )_) ,_, and_CC Eastern_NP Scholar_NN Program_NN at_IN Shanghai_NP Institutions_NPS of_IN Higher_JJR Learning_NP ._SENT 
+<Section> References_NNS </Section> Abdelrauf_NP et_CC al_NP ._SENT 
+,_, 2018_CD Abdelrauf_NP A._NP A._NP ,_, Saad_NP W._NP W._NP ,_, Hebala_NP A._NP ,_, Galea_NP M._NP Model_NP predictive_JJ control_NN based_VVN PID_JJ controller_NN for_IN PMSM_NN for_IN propulsion_NN systems_NNS 2018_CD IEEE_NN international_JJ conference_NN on_IN electrical_JJ systems_NNS for_IN aircraft_NN ,_, railway_NN ,_, ship_NN propulsion_NN and_CC road_NN vehicles_NNS &_CC international_JJ transportation_NN electrification_NN conference_NN (_( ESARS-ITEC_NP )_) (_( 2018_CD )_) ,_, pp_NP ._SENT 
+1-7_CD CrossRefGoogle_NN Scholar_NN Apsley_NP et_NP al_NP ._SENT 
+,_, 2009_CD Apsley_NP J._NP M._NP ,_, Gonzalez-Villasenor_NP A._NP ,_, Barnes_NP M._NP ,_, Smith_NP A._NP C._NP ,_, Williamson_NP S._NP ,_, Schuddebeurs_NP …_NP J._NP D._NP ,_, McDonald_NP J._NP R._NP Propulsion_NN drive_NN models_NNS for_IN full_JJ electric_JJ marine_JJ propulsion_NN systems_NNS IEEE_VVP Transactions_NNS on_IN Industry_NP Applications_NP ,_, 45_CD (_( 2_LS )_) (_( 2009_CD )_) ,_, pp_NP ._SENT 
+676-684_CD CrossRefView_NP Record_NP in_IN ScopusGoogle_NP Scholar_NN Apte_NP et_NP al_NP ._SENT 
+,_, 2016_CD Apte_NP A._NP A._NP ,_, Joshi_NP V._NP A._NP ,_, Walambe_NP R._NP A._NP ,_, Godbole_NP A._NP A._NP Speed_NN control_NN of_IN PMSM_NN using_VVG disturbance_NN observer_NN IFAC-PapersOnLine_NN ,_, 49_CD (_( 1_LS )_) (_( 2016_CD )_) ,_, pp_NP ._SENT 
+308-313_CD ArticleDownload_NP PDFView_NP Record_NP in_IN ScopusGoogle_NP Scholar_NN Caruntu_NP et_NP al_NP ._SENT 
+,_, 2013_CD Caruntu_NP C._NP F._NP ,_, Lazar_NP M._NP ,_, Gielen_NP R._NP H._NP ,_, Van_NP den_NN Bosch_NP P._NP P._NP J._NP ,_, Di_NP Cairano_NP S._NP Lyapunov_NP based_VVD predictive_JJ control_NN of_IN vehicle_NN drivetrains_NNS over_IN CAN_NN Control_NP Engineering_NP Practice_NN ,_, 21_CD (_( 12_CD )_) (_( 2013_CD )_) ,_, pp_NP ._SENT 
+1884-1898_CD ArticleDownload_NP PDFView_NP Record_NP in_IN ScopusGoogle_NP Scholar_NN Choi_NP and_CC Lee_NP ,_, 2011_CD Choi_NP C._NP ,_, Lee_NP W._NP Analysis_NP and_CC compensation_NN of_IN time_NN delay_NN effects_NNS in_IN hardware-in-the-loop_NN simulation_NN for_IN automotive_JJ PMSM_NN drive_NN system_NN IEEE_NN Transactions_NNS on_IN Industrial_NP Electronics_NP ,_, 59_CD (_( 9_CD )_) (_( 2011_CD )_) ,_, pp_NP ._SENT 
+3403-3410_CD Google_NN Scholar_NN Hansen_NP and_CC Wendt_NP ,_, 2015_CD Hansen_NP J._NP F._NP ,_, Wendt_NP F._NP History_NN and_CC state_NN of_IN the_DT art_NN in_IN commercial_JJ electric_JJ ship_NN propulsion_NN ,_, integrated_JJ power_NN systems_NNS ,_, and_CC future_JJ trends_NNS Proceedings_NNS of_IN the_DT IEEE_NN ,_, 103_CD (_( 12_CD )_) (_( 2015_CD )_) ,_, pp_NP ._SENT 
+2229-2242_CD CrossRefView_NP Record_NP in_IN ScopusGoogle_NP Scholar_NN He_PP et_CC al_NP ._SENT 
+,_, 2014_CD He_PP L._NP ,_, Xu_NP W._NP ,_, Bu_NP W._NP ,_, Shi_NP L._NP Dynamic_JJ analysis_NN and_CC design_NN of_IN air_NN spring_NN mounting_VVG system_NN for_IN marine_JJ propulsion_NN system_NN Journal_NP of_IN Sound_NP and_CC Vibration_NN ,_, 333_CD (_( 20_CD )_) (_( 2014_CD )_) ,_, pp_NP ._SENT 
+4912-4929_CD ArticleDownload_NP PDFView_NP Record_NP in_IN ScopusGoogle_NP Scholar_NN Kambrath_NP et_NP al_NP ._SENT 
+,_, 2018_CD Kambrath_NP J._NP K._NP ,_, Yoon_NP C._NP ,_, Mathew_NP J._NP ,_, Liu_NP X._NP ,_, Wang_NP Y._NP ,_, Gajanayake_NP …_NP C._NP J._NP ,_, Yoon_NP Y._NP J._NP Mitigation_NN of_IN resonance_NN vibration_NN effects_NNS in_IN marine_JJ propulsion_NN IEEE_NN Transactions_NNS on_IN Industrial_NP Electronics_NP ,_, 66_CD (_( 8_CD )_) (_( 2018_CD )_) ,_, pp_NP ._SENT 
+6159-6169_CD Google_NN Scholar_NN Kanellos_NP et_NP al_NP ._SENT 
+,_, 2014_CD Kanellos_NP F._NP D._NP ,_, Prousalidis_NP J._NP M._NP ,_, Tsekouras_NP G._NP J._NP Control_NP system_NN for_IN fuel_NN consumption_NN minimization–gas_NNS emission_NN limitation_NN of_IN full_JJ electric_JJ propulsion_NN ship_NN power_NN systems_NNS Proceedings_NNS of_IN the_DT Institution_NP of_IN Mechanical_NP Engineers_NPS ,_, Part_NP M_NP :_: Journal_NP of_IN Engineering_NP for_IN the_DT Maritime_NP Environment_NP ,_, 228_CD (_( 1_LS )_) (_( 2014_CD )_) ,_, pp_NP ._SENT 
+17-28_CD CrossRefView_NP Record_NP in_IN ScopusGoogle_NP Scholar_NN Kommuri_NP et_NP al_NP ._SENT 
+,_, 2016_CD Kommuri_NP S._NP K._NP ,_, Defoort_NP M._NP ,_, Karimi_NP H._NP R._NP ,_, Veluvolu_NP K._NP C._NP A_DT robust_JJ observer-based_JJ sensor_NN fault-tolerant_JJ control_NN for_IN PMSM_NN in_IN electric_JJ vehicles_NNS IEEE_VVP Transactions_NNS on_IN Industrial_NP Electronics_NP ,_, 63_CD (_( 12_CD )_) (_( 2016_CD )_) ,_, pp_NP ._SENT 
+7671-7681_CD CrossRefView_NP Record_NP in_IN ScopusGoogle_NP Scholar_NN Krishnan_NP ,_, 2017_CD Krishnan_NP R._NP Permanent_JJ magnet_NN synchronous_JJ and_CC brushless_JJ DC_NP motor_NN drives_VVZ CRC_NP press_NN (_( 2017_CD )_) Google_NP Scholar_NN Liu_NP et_NP al_NP ._SENT 
+,_, 2016_CD Liu_NP X._NP ,_, Chen_NP H._NP ,_, Zhao_NP J._NP ,_, Belahcen_NP A._NP Research_NP on_IN the_DT performances_NNS and_CC parameters_NNS of_IN interior_JJ PMSM_NN used_VVN for_IN electric_JJ vehicles_NNS IEEE_VVP Transactions_NNS on_IN Industrial_NP Electronics_NP ,_, 63_CD (_( 6_CD )_) (_( 2016_CD )_) ,_, pp_NP ._SENT 
+3533-3545_CD View_NP Record_NP in_IN ScopusGoogle_NP Scholar_NN Liu_NP et_NP al_NP ._SENT 
+,_, 2018_CD Liu_NP Y._NP ,_, Zhu_NP X._NP ,_, Zhang_NP H._NP ,_, Basin_NP M._NP Improved_VVD robust_JJ speed_NN tracking_VVG controller_NN design_NN for_IN an_DT integrated_JJ motor-transmission_NN powertrain_NN system_NN over_IN controller_NN area_NN network_NN IEEE/ASME_NN Transactions_NNS on_IN Mechatronics_NNS ,_, 23_CD (_( 3_LS )_) (_( 2018_CD )_) ,_, pp_NP ._SENT 
+1404-1414_CD View_NP Record_NP in_IN ScopusGoogle_NP Scholar_NN Mendoza-Mondragón_NP et_NP al_NP ._SENT 
+,_, 2018_CD Mendoza-Mondragón_NP F._NP ,_, Hernández-Guzmán_NP V._NP M._NP ,_, Rodríguez-Reséndiz_NP J._NP Robust_JJ speed_NN control_NN of_IN permanent_JJ magnet_NN synchronous_JJ motors_NNS using_VVG two-degrees-of-freedom_NN control_NN IEEE_NN Transactions_NNS on_IN Industrial_NP Electronics_NP ,_, 65_CD (_( 8_CD )_) (_( 2018_CD )_) ,_, pp_NP ._SENT 
+6099-6108_CD CrossRefView_NP Record_NP in_IN ScopusGoogle_NP Scholar_NN Moghadam_NP and_CC Tahami_NP ,_, 2012_CD Moghadam_NP M._NP A._NP G._NP ,_, Tahami_NP F._NP Sensorless_JJ control_NN of_IN PMSMs_NNS with_IN tolerance_NN for_IN delays_NNS and_CC stator_NN resistance_NN uncertainties_NNS IEEE_VVP Transactions_NNS on_IN Power_NP Electronics_NP ,_, 28_CD (_( 3_LS )_) (_( 2012_CD )_) ,_, pp_NP ._SENT 
+1391-1399_CD Google_NN Scholar_NN Qian_NP et_NP al_NP ._SENT 
+,_, 2018_CD Qian_NP J._NP ,_, Ji_NP C._NP ,_, Pan_NP N._NP ,_, Wu_NP J._NP Improved_VVD sliding_VVG mode_NN control_NN for_IN permanent_JJ magnet_NN synchronous_JJ motor_NN speed_NN regulation_NN system_NN Applied_NP Sciences_NPS ,_, 8_CD (_( 12_CD )_) (_( 2018_CD )_) ,_, p._NP 2491_CD CrossRefGoogle_NN Scholar_NN Ramírez-Villalobos_NP et_NP al_NP ._SENT 
+,_, 2017_CD Ramírez-Villalobos_NP R._NP ,_, Aguilar_NP L._NP T._NP ,_, Coria_NP L._NP N._NP Sensorless_JJ H∞_NN speed-tracking_VVG synthesis_NN for_IN surface-mount_JJ permanent_JJ magnet_NN synchronous_JJ motor_NN ISA_NP Transactions_NNS ,_, 67_CD (_( 2017_CD )_) ,_, pp_NP ._SENT 
+140-150_CD ArticleDownload_NP PDFView_NP Record_NP in_IN ScopusGoogle_NP Scholar_NN Ren_NP et_NP al_NP ._SENT 
+,_, 2015_CD Ren_NP J._NP J._NP ,_, Liu_NP Y._NP C._NP ,_, Wang_NP N._NP ,_, Liu_NP S._NP Y._NP Sensorless_JJ control_NN of_IN ship_NN propulsion_NN interior_JJ permanent_JJ magnet_NN synchronous_JJ motor_NN based_VVN on_IN a_DT new_JJ sliding_VVG mode_NN observer_NN ISA_NP Transactions_NNS ,_, 54_CD (_( 2015_CD )_) ,_, pp_NP ._SENT 
+15-26_CD ArticleDownload_NP PDFView_NP Record_NP in_IN ScopusGoogle_NP Scholar_NN Ren_NP et_NP al_NP ._SENT 
+,_, 2012_CD Ren_NP J._NP J._NP ,_, Liu_NP Y._NP C._NP ,_, Zhao_NP Y._NP T._NP ,_, Guo_NP H._NP H._NP Research_NP on_IN the_DT direct_JJ torque_NN control_NN system_NN of_IN PMSM_NN with_IN propeller_NN load_NN Electric_NP Machines_NP and_CC Control_NP ,_, 7_CD (_( 2012_CD )_) ,_, pp_NP ._SENT 
+49-55_CD View_NP Record_NP in_IN ScopusGoogle_NP Scholar_NN Sant_NP et_NP al_NP ._SENT 
+,_, 2014_CD Sant_NP A._NP V._NP ,_, Khadkikar_NP V._NP ,_, Xiao_NP W._NP ,_, Zeineldin_NP H._NP H._NP Four-axis_NN vector-controlled_VVD dual-rotor_NN PMSM_NN for_IN plug-in_NP electric_JJ vehicles_NNS IEEE_VVP Transactions_NNS on_IN Industrial_NP Electronics_NP ,_, 62_CD (_( 5_LS )_) (_( 2014_CD )_) ,_, pp_NP ._SENT 
+3202-3212_CD Google_NN Scholar_NN Shi_NP and_CC Yu_NP ,_, 2011_CD Shi_NP Y._NP ,_, Yu_NP B._NP Robust_JJ mixed_JJ H2/H∞_JJ control_NN of_IN networked_VVN control_NN systems_NNS with_IN random_JJ time_NN delays_NNS in_IN both_DT forward_RB and_CC backward_RB communication_NN links_NNS Automatica_NP ,_, 47_CD (_( 4_LS )_) (_( 2011_CD )_) ,_, pp_NP ._SENT 
+754-760_CD ArticleDownload_NP PDFView_NP Record_NP in_IN ScopusGoogle_NP Scholar_NN Song_NN et_NP al_NP ._SENT 
+,_, 2019_CD Song_NP Y._NP ,_, Wang_NP Z._NP ,_, Ding_NP D._NP ,_, Wei_NP G._NP Robust_JJ H2/H∞_NN model_NN predictive_JJ control_NN for_IN linear_JJ systems_NNS with_IN polytopic_JJ uncertainties_NNS under_IN weighted_JJ MEF-TOD_JJ protocol_NN IEEE_NN Transactions_NNS on_IN Systems_NP ,_, Man_NP ,_, and_CC Cybernetics_NNS :_: Systems_NNS ,_, 49_CD (_( 7_CD )_) (_( 2019_CD )_) ,_, pp_NP ._SENT 
+1470-1481_CD CrossRefView_NP Record_NP in_IN ScopusGoogle_NP Scholar_NN Sulligoi_NP et_NP al_NP ._SENT 
+,_, 2016_CD Sulligoi_NP G._NP ,_, Vicenzutti_NP A._NP ,_, Menis_NP R._NP All-electric_JJ ship_NN design_NN :_: From_IN electrical_JJ propulsion_NN to_TO integrated_JJ electrical_JJ and_CC electronic_JJ power_NN systems_NNS IEEE_VVP Transactions_NNS on_IN Transportation_NP Electrification_NN ,_, 2_LS (_( 4_LS )_) (_( 2016_CD )_) ,_, pp_NP ._SENT 
+507-521_CD CrossRefView_NP Record_NP in_IN ScopusGoogle_NP Scholar_NN Vicenzutti_NP et_NP al_NP ._SENT 
+,_, 2015_CD Vicenzutti_NP A._NP ,_, Bosich_NP D._NP ,_, Giadrossi_NP G._NP ,_, Sulligoi_NP G._NP The_DT role_NN of_IN voltage_NN controls_NNS in_IN modern_JJ all-electric_JJ ships_NNS :_: Toward_IN the_DT all_RB electric_JJ ship_NN IEEE_NN Electrification_NN Magazine_NP ,_, 3_CD (_( 2_LS )_) (_( 2015_CD )_) ,_, pp_NP ._SENT 
+49-65_CD CrossRefView_NP Record_NP in_IN ScopusGoogle_NP Scholar_NN Wang_NP et_NP al_NP ._SENT 
+,_, 2019_CD Wang_NP N._NP ,_, Karimi_NP H._NP R._NP ,_, Li_NP H._NP ,_, Su_NP S._NP F._NP Accurate_JJ trajectory_NN tracking_VVG of_IN disturbed_JJ surface_NN vehicles_NNS :_: A_DT finite-time_JJ control_NN approach_NN IEEE/ASME_NN Transactions_NNS on_IN Mechatronics_NNS ,_, 24_CD (_( 3_LS )_) (_( 2019_CD )_) ,_, pp_NP ._SENT 
+1064-1074_CD CrossRefView_NP Record_NP in_IN ScopusGoogle_NP Scholar_NN Wang_NP et_NP al_NP ._SENT 
+,_, 2017_CD Wang_NP C._NP ,_, Sun_NP S._NP ,_, Sun_NP S._NP ,_, Li_NP L._NP Numerical_JJ analysis_NN of_IN propeller_NN exciting_JJ force_NN in_IN oblique_JJ flow_NN Journal_NP of_IN Marine_NP Science_NP and_CC Technology_NP ,_, 22_CD (_( 4_LS )_) (_( 2017_CD )_) ,_, pp_NP ._SENT 
+602-619_CD CrossRefView_NP Record_NP in_IN ScopusGoogle_NP Scholar_NN Wang_NP et_NP al_NP ._SENT 
+,_, 2013_CD Wang_NP R._NP ,_, Zhang_NP H._NP ,_, Wang_NP J._NP Linear_NP parameter-varying_VVG controller_NN design_NN for_IN four-wheel_NN independently_RB actuated_VVD electric_JJ ground_NN vehicles_NNS with_IN active_JJ steering_NN systems_NNS IEEE_VVP Transactions_NNS on_IN Control_NP Systems_NPS Technology_NP ,_, 22_CD (_( 4_LS )_) (_( 2013_CD )_) ,_, pp_NP ._SENT 
+1281-1296_CD CrossRefGoogle_NN Scholar_NN Wu_NP et_NP al_NP ._SENT 
+,_, 2019_CD Wu_NP Z._NP ,_, Karimi_NP H._NP R._NP ,_, Dang_NP C._NP A_DT deterministic_JJ annealing_VVG neural_JJ network_NN algorithm_NN for_IN the_DT minimum_JJ concave_JJ cost_NN transportation_NN problem_NN IEEE_NN Transactions_NNS on_IN Neural_JJ Networks_NNS ,_, 24_CD (_( 2019_CD )_) ,_, pp_NP ._SENT 
+1-13_CD CrossRefView_NP Record_NP in_IN ScopusGoogle_NP Scholar_NN Yu_NP et_NP al_NP ._SENT 
+,_, 2014_CD Yu_NP J._NP ,_, Shi_NP P._NP ,_, Dong_NP W._NP ,_, Chen_NP B._NP ,_, Lin_NP C._NP Neural_JJ network-based_JJ adaptive_JJ dynamic_JJ surface_NN control_NN for_IN permanent_JJ magnet_NN synchronous_JJ motors_NNS IEEE_VVP Transactions_NNS on_IN Neural_JJ Networks_NPS and_CC Learning_NP Systems_NP ,_, 26_CD (_( 3_LS )_) (_( 2014_CD )_) ,_, pp_NP ._SENT 
+640-645_CD View_NP Record_NP in_IN ScopusGoogle_NP Scholar_NN Zhang_NP et_NP al_NP ._SENT 
+,_, 2018_CD Zhang_NP H._NP ,_, Shi_NP Y._NP ,_, Wang_NP J._NP ,_, Chen_NP H._NP A_DT new_JJ delay-compensation_NN scheme_NN for_IN networked_VVN control_NN systems_NNS in_IN controller_NN area_NN networks_NNS IEEE_VVP Transactions_NNS on_IN Industrial_NP Electronics_NP ,_, 65_CD (_( 9_CD )_) (_( 2018_CD )_) ,_, pp_NP ._SENT 
+7239-7247_CD CrossRefView_NP Record_NP in_IN ScopusGoogle_NP Scholar_NN Zhang_NP et_NP al_NP ._SENT 
+,_, 2012_CD Zhang_NP X._NP ,_, Sun_NP L._NP ,_, Zhao_NP K._NP ,_, Sun_NP L._NP Nonlinear_JJ speed_NN control_NN for_IN PMSM_NN system_NN using_VVG sliding-mode_NN control_NN and_CC disturbance_NN compensation_NN techniques_NNS IEEE_VVP Transactions_NNS on_IN Power_NP Electronics_NP ,_, 28_CD (_( 3_LS )_) (_( 2012_CD )_) ,_, pp_NP ._SENT 
+1358-1365_CD CrossRefGoogle_NN Scholar_NN Zhao_NP et_NP al_NP ._SENT 
+,_, 2018_CD Zhao_NP Z._NP ,_, Yang_NP Y._NP ,_, Zhou_NP J._NP ,_, Li_NP L._NP ,_, Yang_NP Q._NP Adaptive_JJ fault-tolerant_JJ PI_NN tracking_VVG control_NN for_IN ship_NN propulsion_NN system_NN ISA_NP Transactions_NNS ,_, 80_CD (_( 2018_CD )_) ,_, pp_NP ._SENT 
+279-285_CD ArticleDownload_NP PDFView_NP Record_NP in_IN ScopusGoogle_NP Scholar_NN Zhou_NP et_NP al_NP ._SENT 
+,_, 2019_CD Zhou_NP K._NP ,_, Ai_NP M._NP ,_, Sun_NP Y._NP ,_, Wu_NP X._NP ,_, Li_NP R._NP PMSM_NN vector_NN control_NN strategy_NN based_VVN on_IN active_JJ disturbance_NN rejection_NN controller_NN Energies_NNS ,_, 12_CD (_( 20_CD )_) (_( 2019_CD )_) ,_, p._NP 3827_CD CrossRefGoogle_NN Scholar_NN Zhu_NP and_CC Li_NP ,_, 2019_CD Zhu_NP X._NP ,_, Li_NP W._NP Takagi–Sugeno_NP fuzzy_JJ model-based_JJ shaft_NN torque_NN estimation_NN for_IN integrated_JJ motor-transmission_NN system_NN ISA_NP Transactions_NNS ,_, 93_CD (_( 2019_CD )_) ,_, pp_NP ._SENT 
+14-22_CD ArticleDownload_NP PDFView_NP Record_NP in_IN ScopusGoogle_NP Scholar_NN Zhu_NP et_NP al_NP ._SENT 
+,_, 2015_CD Zhu_NP X._NP ,_, Zhang_NP H._NP ,_, Cao_NP D._NP ,_, Fang_NP Z._NP Robust_JJ control_NN of_IN integrated_JJ motor-transmission_NN powertrain_NN system_NN over_IN controller_NN area_NN network_NN for_IN automotive_JJ applications_NNS Mechanical_NP Systems_NPS and_CC Signal_NP Processing_NP ,_, 58_CD (_( 2015_CD )_) ,_, pp_NP ._SENT 
+15-28_CD ArticleDownload_NP PDFView_NP Record_NP in_IN ScopusGoogle_NP Scholar_NN Zhu_NP et_NP al_NP ._SENT 
+,_, 2014_CD Zhu_NP X._NP ,_, Zhang_NP H._NP ,_, Wang_NP J._NP ,_, Fang_NP Z._NP Robust_JJ lateral_JJ motion_NN control_NN of_IN electric_JJ ground_NN vehicles_NNS with_IN random_JJ network-induced_JJ delays_NNS IEEE_VVP Transactions_NNS on_IN Vehicular_JJ Technology_NP ,_, 64_CD (_( 11_CD )_) (_( 2014_CD )_) ,_, pp_NP ._SENT 
+4985-4995_CD 

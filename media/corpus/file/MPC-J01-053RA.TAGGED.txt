@@ -1,0 +1,486 @@
+<title> Characterization_NN and_CC reduction_NN of_IN flow_NN separation_NN in_IN jet_NN pumps_NNS for_IN laminar_JJ oscillatory_JJ flows_NNS </title> <author> Timmer_NP ,_, MAG_NN (_( Timmer_NP ,_, Michael_NP A._NP G._NP )[_NP 1_CD ]_SYM ;_: Oosterhuis_NP ,_, JP_NP (_( Oosterhuis_NP ,_, Joris_NP P._NP )[_NP 1_CD ]_SYM ;_: Buhler_NP ,_, S_NP (_( Buhler_NP ,_, Simon)[_NP 1_CD ]_SYM ;_: Wilcox_NP ,_, D_NP (_( Wilcox_NP ,_, Douglas)[_NP 2_CD ]_SYM ;_: van_NP der_NP Meer_NP ,_, TH_NN (_( van_NP der_NP Meer_NP ,_, Theo_NP H._NP )[_NP 1_CD ]_SYM </author> <Affiliation> 1_CD ]‎_NP Univ_NP Twente_NP ,_, Dept_NP Thermal_JJ Engn_NN ,_, Enschede_NP ,_, Netherlands_NPS [_SYM 2_CD ]‎_NN Chart_NN Inc_NP ,_, Troy_NP ,_, NY_NP 12180_CD USA_NP </Affiliation> <year> 2016_CD </year> <Jounral> Journal_NP of_IN the_DT Acoustical_JJ Society_NP of_IN America_NP </Journal> <Publishing_house> ACOUSTICAL_JJ SOC_NP AMER_NP AMER_NP INST_NP PHYSICS_NN ,_, STE_NP 1_CD NO_RB 1_CD ,_, 2_CD HUNTINGTON_NP QUADRANGLE_NN ,_, MELVILLE_NP ,_, NY_NP 11747-4502_CD USA_NP </Publishing_house> <Text_Collector> Wang_NP Shuaiyin，HEU_NP </Text_Collector> <DOI> 10.1121/1.4939490_CD </DOI> <URL> https_NNS :_: //asa-scitation-org-s_NNS ._SENT 
+wvpn_NP ._SENT 
+hrbeu_NP ._SENT 
+edu_NP ._SENT 
+cn/doi/10.1121/1.4939490_JJ </URL> <Section> ABSTRACT_JJ </Section> A_DT computational_JJ fluid_JJ dynamics_NNS model_NN is_VBZ used_VVN to_TO predict_VV the_DT oscillatory_JJ flow_NN through_IN tapered_VVN cylindrical_JJ tube_NN sections_NNS (_( jet_NN pumps_NNS )_) ._SENT 
+The_DT asymmetric_JJ shape_NN of_IN jet_NN pumps_NNS results_NNS in_IN a_DT time-averaged_JJ pressure_NN drop_NN that_WDT can_MD be_VB used_VVN to_TO suppress_VV Gedeon_NP streaming_VVG in_IN closed-loop_JJ thermoacoustic_JJ devices_NNS ._SENT 
+However_RB ,_, previous_JJ work_NN has_VHZ shown_VVN that_DT flow_NN separation_NN in_IN the_DT diverging_VVG flow_NN direction_NN counteracts_VVZ the_DT time-averaged_JJ pressure_NN drop_NN ._SENT 
+In_IN this_DT work_NN ,_, the_DT characteristics_NNS of_IN flow_NN separation_NN in_IN jet_NN pumps_NNS are_VBP identified_VVN and_CC coupled_VVN with_IN the_DT observed_JJ jet_NN pump_NN performance_NN ._SENT 
+Furthermore_RB ,_, it_PP is_VBZ shown_VVN that_IN the_DT onset_NN of_IN flow_NN separation_NN can_MD be_VB shifted_VVN to_TO larger_JJR displacement_NN amplitudes_NNS by_IN designs_NNS that_WDT have_VHP a_DT smoother_JJR transition_NN between_IN the_DT small_JJ opening_NN and_CC the_DT tapered_VVN surface_NN of_IN the_DT jet_NN pump_NN ._SENT 
+These_DT design_NN alterations_NNS also_RB reduce_VV the_DT duration_NN of_IN separated_JJ flow_NN ,_, resulting_VVG in_IN more_RBR effective_JJ and_CC robust_JJ jet_NN pumps_NNS ._SENT 
+To_TO make_VV the_DT proposed_VVN jet_NN pump_NN designs_VVZ more_RBR compact_JJ without_IN reducing_VVG their_PP$ performance_NN ,_, the_DT minimum_JJ big_JJ opening_NN radius_NN that_WDT can_MD be_VB implemented_VVN before_IN the_DT local_JJ minor_JJ losses_NNS have_VHP an_DT influence_NN on_IN the_DT jet_NN pump_NN performance_NN is_VBZ investigated_VVN ._SENT 
+To_TO validate_VV the_DT numerical_JJ results_NNS ,_, they_PP are_VBP compared_VVN with_IN experimental_JJ results_NNS for_IN one_CD of_IN the_DT proposed_VVN jet_NN pump_NN designs_NNS ._SENT 
+<Section> I._NP INTRODUCTION_NN </Section> A_DT promising_JJ kind_NN of_IN thermoacoustic_JJ device_NN is_VBZ based_VVN on_IN a_DT traveling_VVG wave_NN configuration_NN ,_, consisting_VVG of_IN a_DT closed-loop_NN tube.1,2_NN Despite_IN the_DT high_JJ achievable_JJ efficiency_NN ,_, one_CD of_IN the_DT main_JJ problems_NNS of_IN these_DT designs_NNS is_VBZ the_DT possible_JJ occurrence_NN of_IN a_DT time-averaged_JJ mass_NN flux_NN (_( Gedeon_NP streaming).3_NP In_IN a_DT closed-loop_NN configuration_NN ,_, this_DT type_NN of_IN acoustic_JJ streaming_VVG causes_NNS unwanted_JJ convective_JJ heat_NN transport_NN that_WDT has_VHZ a_DT detrimental_JJ effect_NN on_IN the_DT device_NN 's_POS efficiency_NN ._SENT 
+Control_NN of_IN Gedeon_NP streaming_VVG is_VBZ ,_, therefore_RB ,_, crucial_JJ to_TO achieve_VV efficient_JJ closed-loop_NN thermoacoustic_JJ devices.4_NN A_DT frequently_RB used_VVN manner_NN to_TO suppress_VV Gedeon_NP streaming_VVG is_VBZ the_DT utilization_NN of_IN a_DT jet_NN pump.5–8_NN This_DT is_VBZ a_DT static_JJ component_NN consisting_VVG of_IN a_DT tapered_VVN tube_NN section_NN with_IN two_CD unequally_RB sized_VVD openings_NNS ._SENT 
+The_DT asymmetric_JJ design_NN causes_VVZ an_DT imbalance_NN in_IN the_DT hydrodynamic_JJ end_NN effects_NNS ,_, resulting_VVG in_IN a_DT time-averaged_JJ pressure_NN drop_NN across_IN the_DT jet_NN pump_NN ._SENT 
+By_IN balancing_VVG the_DT time-averaged_JJ pressure_NN drop_NN of_IN the_DT jet_NN pump_NN with_IN that_WDT caused_VVD by_IN the_DT rest_NN of_IN the_DT thermoacoustic_JJ device_NN ,_, Gedeon_NP streaming_VVG can_MD be_VB suppressed.5_JJ A_DT schematic_NN of_IN a_DT typical_JJ jet_NN pump_NN geometry_NN with_IN its_PP$ parameters_NNS is_VBZ depicted_VVN in_IN Fig_NN ._SENT 
+1._CD The_DT outer_JJ tube_NN has_VHZ a_DT radius_NN of_IN R0_NP and_CC the_DT big_JJ opening_NN and_CC small_JJ opening_NN (_( “_JJ waist_NN ”_NN )_) have_VH a_DT radius_NN of_IN Rb_NP and_CC Rs_NP ,_, respectively_RB ._SENT 
+A_DT curvature_NN of_IN Rc_NP is_VBZ applied_VVN at_IN the_DT jet_NN pump_NN waist_NN to_TO decrease_VV the_DT local_JJ contraction_NN minor_JJ losses_NNS ,_, therewith_RB increasing_VVG the_DT time-averaged_JJ pressure_NN drop_NN ._SENT 
+Given_VVN the_DT aforementioned_JJ parameters_NNS ,_, the_DT tapered_VVN surface_NN with_IN angle_NN α_NN determines_VVZ the_DT axial_JJ jet_NN pump_NN length_NN LJP_NN ,_, or_CC vice_JJ versa_RB ._SENT 
+figure_NN FIG_NN ._SENT 
+1._CD Axisymmetric_JJ representation_NN of_IN a_DT jet_NN pump_NN with_IN parameters_NNS that_WDT define_VV the_DT geometry_NN ._SENT 
+Bottom_JJ dashed_VVN line_NN indicates_VVZ center_NN line_NN ,_, top_JJ solid_JJ line_NN indicates_VVZ outer_JJ tube_NN wall_NN ._SENT 
+Reproduced_VVD from_IN Ref_NN ._SENT 
+9._CD PPT|High-resolution_NN A._NP Quasi-steady_NP approximation_NN The_DT current_JJ design_NN guidelines_NNS for_IN jet_NN pumps_NNS are_VBP based_VVN on_IN a_DT quasi-steady_JJ approximation_NN derived_VVN by_IN Backhaus_NP and_CC Swift.5_NP The_DT jet_NN pump_NN performance_NN is_VBZ approximated_VVN by_IN using_VVG minor_JJ loss_NN coefficients_NNS reported_VVD for_IN the_DT abrupt_JJ expansion_NN and_CC contraction_NN in_IN steady_JJ pipe_NN flow_NN ._SENT 
+Following_VVG Iguchi_NP and_CC Ohmi,10_NP it_PP is_VBZ assumed_VVN that_IN the_DT oscillatory_JJ flow_NN can_MD be_VB decomposed_VVN in_IN two_CD quasi-steady_JJ flows_NNS ._SENT 
+The_DT jet_NN pump_NN performance_NN in_IN terms_NNS of_IN the_DT time-averaged_JJ pressure_NN drop_NN is_VBZ then_RB given_VVN by5_JJ @(1_NN )_) where_WRB |u1_JJ ,_, JP|_NP is_VBZ the_DT radially_RB averaged_VVN velocity_NN amplitude_NN inside_IN the_DT jet_NN pump_NN waist_NN and_CC the_DT subscripts_NNS “_NN s_NN ”_NN and_CC “_NN b_SYM ”_NP denote_VV the_DT small_JJ opening_NN and_CC the_DT big_JJ opening_NN ,_, respectively_RB ._SENT 
+K_NP exp_NP is_VBZ the_DT minor_JJ loss_NN coefficient_NN for_IN expanding_VVG flow_NN and_CC Kcon_NN is_VBZ the_DT minor_JJ loss_NN coefficient_NN for_IN contracting_NN flow_NN ,_, which_WDT are_VBP both_CC well_RB documented_VVN for_IN a_DT wide_JJ range_NN of_IN geometries_NNS in_IN steady_JJ flows.11_NN The_DT penalty_NN of_IN utilizing_VVG minor_JJ losses_NNS to_TO establish_VV a_DT time-averaged_JJ pressure_NN drop_NN is_VBZ the_DT associated_JJ dissipation_NN of_IN acoustic_JJ power_NN ._SENT 
+Following_VVG the_DT aforementioned_JJ quasi-steady_JJ approximation_NN ,_, the_DT jet_NN pump_NN performance_NN in_IN terms_NNS of_IN the_DT time-averaged_JJ acoustic_JJ power_NN dissipation_NN is_VBZ given_VVN by5_JJ @(2_NN )_) The_DT optimal_JJ jet_NN pump_NN design_NN is_VBZ such_JJ that_IN it_PP will_MD establish_VV the_DT required_JJ time-averaged_JJ pressure_NN drop_NN to_TO cancel_VV Gedeon_NP streaming_VVG with_IN a_DT minimal_JJ amount_NN of_IN acoustic_JJ power_NN dissipation_NN ._SENT 
+According_VVG to_TO the_DT quasi-steady_JJ approximation_NN ,_, this_DT can_MD be_VB established_VVN by_IN maximizing_VVG the_DT difference_NN between_IN the_DT contraction_NN and_CC expansion_NN minor_JJ loss_NN coefficients_NNS while_IN keeping_VVG the_DT sum_NN of_IN the_DT minor_JJ loss_NN coefficients_NNS to_TO a_DT minimum_NN ._SENT 
+Designs_NNS such_JJ as_IN the_DT one_CD presented_VVN in_IN Fig_NN ._SENT 
+1_LS have_VHP been_VBN based_VVN on_IN this_DT analysis_NN ._SENT 
+However_RB ,_, recent_JJ work_NN has_VHZ shown_VVN that_IN the_DT accuracy_NN of_IN the_DT quasi-steady_JJ approximation_NN is_VBZ limited_VVN and_CC that_IN factors_NNS other_JJ than_IN the_DT expansion_NN and_CC contraction_NN minor_JJ losses_NNS play_VVP an_DT important_JJ part.9,12,13_NN Possibly_RB ,_, the_DT most_RBS compelling_JJ example_NN of_IN this_DT is_VBZ the_DT effect_NN of_IN the_DT taper_NN angle_NN on_IN the_DT jet_NN pump_NN performance_NN ._SENT 
+Petculescu_NP and_CC Wilen12_NP have_VHP experimentally_RB shown_VVN that_IN a_DT larger_JJR taper_NN angle_NN increases_VVZ the_DT minor_JJ losses_NNS for_IN flow_NN in_IN the_DT diverging_VVG jet_NN pump_NN direction_NN ._SENT 
+This_DT will_MD result_VV in_IN a_DT significant_JJ performance_NN drop_NN due_JJ to_TO the_DT smaller_JJR time-averaged_JJ pressure_NN drop_NN and_CC the_DT higher_JJR time-averaged_JJ acoustic_JJ power_NN dissipation_NN ._SENT 
+Petculescu_NP and_CC Wilen12_NP suggest_VVP that_IN the_DT dependency_NN on_IN the_DT taper_NN angle_NN is_VBZ caused_VVN by_IN a_DT shift_NN in_IN the_DT axial_JJ point_NN ,_, and_CC therewith_RB the_DT local_JJ radius_NN at_IN which_WDT flow_NN separation_NN occurs_VVZ ._SENT 
+However_RB ,_, they_PP could_MD not_RB provide_VV clear_JJ evidence_NN of_IN the_DT existence_NN of_IN flow_NN separation_NN with_IN their_PP$ experimental_JJ setup_NN ._SENT 
+In_IN a_DT recent_JJ numerical_JJ study_NN ,_, the_DT time-averaged_JJ velocity_NN fields_NNS inside_IN several_JJ jet_NN pump_NN geometries_NNS have_VHP been_VBN examined_VVN ,_, and_CC it_PP was_VBD concluded_VVN from_IN the_DT axial_JJ streaming_VVG field_NN that_IN flow_NN separation_NN had_VHD indeed_RB occurred.9_JJ The_DT separated_JJ flow_NN was_VBD only_RB observed_VVN above_IN certain_JJ displacement_NN amplitudes_NNS and_CC its_PP$ onset_NN was_VBD found_VVN at_IN lower_JJR displacement_NN amplitudes_NNS for_IN larger_JJR taper_NN angles_NNS ._SENT 
+The_DT study_NN also_RB showed_VVD that_IN a_DT severe_JJ decrease_NN in_IN jet_NN pump_NN performance_NN started_VVD at_IN approximately_RB the_DT same_JJ displacement_NN amplitude_NN as_IN the_DT onset_NN of_IN flow_NN separation_NN ._SENT 
+It_PP was_VBD therefore_RB suggested_VVN that_IN the_DT latter_NN is_VBZ the_DT cause_NN of_IN the_DT problematic_JJ performance_NN drop_NN observed_VVD above_IN certain_JJ displacement_NN amplitudes_NNS ._SENT 
+Next_JJ to_TO axial_JJ streaming_VVG resulting_VVG from_IN flow_NN separation_NN ,_, it_PP is_VBZ necessary_JJ to_TO examine_VV the_DT flow_NN field_NN in_IN the_DT vicinity_NN of_IN the_DT separation_NN in_IN further_JJR detail_NN ._SENT 
+This_DT will_MD provide_VV more_JJR insight_NN into_IN the_DT influence_NN of_IN flow_NN separation_NN on_IN the_DT performance_NN of_IN jet_NN pumps_NNS ,_, which_WDT can_MD subsequently_RB be_VB used_VVN to_TO improve_VV jet_NN pump_NN designs_NNS ._SENT 
+In_IN the_DT following_NN ,_, a_DT clear_JJ definition_NN of_IN separation_NN in_IN oscillatory_JJ flows_NNS is_VBZ sought_VVN to_TO serve_VV as_IN a_DT basis_NN for_IN this_DT investigation_NN ._SENT 
+B._NP Flow_NP separation_NN In_IN an_DT element_NN with_IN increasing_VVG cross-sectional_JJ area_NN ,_, such_JJ as_IN the_DT diverging_VVG direction_NN of_IN a_DT jet_NN pump_NN ,_, the_DT boundary_NN layer_NN can_MD separate_VV due_JJ to_TO the_DT adverse_JJ pressure_NN gradient_NN overcoming_VVG the_DT kinetic_JJ energy_NN of_IN the_DT fluid.14_NN In_IN steady_JJ flow_NN ,_, the_DT separation_NN is_VBZ often_RB characterized_VVN by_IN vanishing_VVG wall_NN shear_NN stresses_NNS and_CC flow_NN reversal_NN at_IN the_DT most_RBS upstream_JJ point_NN ._SENT 
+Downstream_JJ of_IN this_DT point_NN the_DT flow_NN is_VBZ separated_VVN ,_, resulting_VVG in_IN recirculation_NN and_CC a_DT wake_NN of_IN disturbed_JJ flow_NN that_WDT generates_VVZ minor_JJ losses_NNS ._SENT 
+However_RB ,_, Despard_NP and_CC Miller15_NP have_VHP experimentally_RB shown_VVN that_IN flow_NN reversal_NN in_IN an_DT oscillatory_JJ flow_NN occurs_VVZ periodically_RB at_IN all_DT surface_NN points_NNS in_IN the_DT adverse_JJ pressure_NN gradient_NN regime_NN ,_, thus_RB ,_, also_RB upstream_RB of_IN the_DT wake_NN formation_NN ._SENT 
+They_PP stress_VVP that_IN the_DT steady_JJ flow_NN characterization_NN of_IN flow_NN separation_NN is_VBZ thus_RB unsuitable_JJ for_IN oscillatory_JJ flow_NN ,_, and_CC they_PP propose_VVP to_TO characterize_VV flow_NN separation_NN with_IN the_DT surface_NN point_NN that_IN first_JJ experiences_NNS flow_NN reversal_NN during_IN the_DT period_NN of_IN oscillation_NN ._SENT 
+This_DT point_NN can_MD uniquely_RB be_VB determined_VVN and_CC wake_NN formation_NN was_VBD found_VVN to_TO invariably_RB begin_VV in_IN the_DT immediate_JJ neighborhood_NN of_IN this_DT point_NN ._SENT 
+Simpson_NP agreed_VVD that_IN “_NP it_PP is_VBZ too_RB narrow_JJ a_DT view_NN ”_NN to_TO characterize_VV flow_NN separation_NN with_IN vanishing_VVG surface_NN shear_NN stresses_NNS and_CC flow_NN reversal_NN in_IN oscillatory_JJ flow_NN ,_, since_IN flow_NN reversal_NN can_MD occur_VV without_IN the_DT separation_NN of_IN the_DT boundary_NN layer.16_NN He_PP emphasizes_VVZ that_IN separation_NN must_MD mean_VV the_DT complete_JJ breakdown_NN or_CC “_JJ breakaway_NN ”_NN of_IN the_DT boundary_NN layer_NN ,_, which_WDT subsequently_RB has_VHZ a_DT significant_JJ interaction_NN with_IN the_DT bulk_JJ flow_NN ._SENT 
+It_PP therefore_RB seems_VVZ necessary_JJ to_TO extend_VV the_DT characterization_NN of_IN Despard_NP and_CC Miller_NP with_IN a_DT measure_NN that_WDT identifies_VVZ the_DT breakaway_NN of_IN the_DT boundary_NN layer_NN ._SENT 
+This_DT could_MD be_VB done_VVN with_IN the_DT use_NN of_IN the_DT time-averaged_JJ velocity_NN fields_NNS inside_IN the_DT jet_NN pump_NN ,_, as_RB was_VBD shown_VVN in_IN previous_JJ work.9_NP King_NP and_CC Smith_NP performed_VVD experiments_NNS with_IN a_DT purely_RB oscillatory_JJ flow_NN in_IN a_DT diffuser_NN to_TO investigate_VV flow_NN separation_NN and_CC minor_JJ losses_NNS for_IN different_JJ operating_VVG conditions_NNS and_CC diffuser_JJR angles.17_JJ They_PP state_VVP that_IN the_DT minor_JJ losses_NNS are_VBP mainly_RB due_JJ to_TO random_JJ motions_NNS generated_VVN after_IN the_DT flow_NN separates_NN ,_, and_CC that_IN it_PP is_VBZ therefore_RB reasonable_JJ to_TO assume_VV that_IN a_DT longer_JJR duration_NN of_IN flow_NN separation_NN over_IN a_DT larger_JJR spatial_JJ extent_NN results_NNS in_IN bigger_JJR minor_JJ losses_NNS ._SENT 
+Due_JJ to_TO the_DT analogous_JJ adverse_JJ pressure_NN gradient_NN in_IN a_DT diffuser_NN and_CC a_DT jet_NN pump_NN ,_, their_PP$ results_NNS show_VVP that_IN one_PP should_MD aim_VV to_TO shorten_VV the_DT duration_NN and_CC spatial_JJ extent_NN of_IN flow_NN separation_NN in_IN the_DT diverging_VVG direction_NN of_IN a_DT jet_NN pump_VV to_TO increase_VV its_PP$ performance_NN ._SENT 
+King_NP and_CC Smith_NP have_VHP shown_VVN that_IN this_DT can_MD be_VB accomplished_VVN by_IN decreasing_VVG the_DT taper_VV angle_NN of_IN the_DT geometry_NN and_CC by_IN operating_VVG at_IN either_CC a_DT higher_JJR Reynolds_NP number_NN for_IN a_DT given_VVN displacement_NN amplitude_NN or_CC a_DT lower_JJR displacement_NN amplitude_NN for_IN a_DT given_VVN Reynolds_NP number.17_JJ Schlichting18_NN had_VHD a_DT more_RBR general_JJ view_NN when_WRB he_PP stated_VVD that_IN the_DT flow_NN separation_NN point_NN is_VBZ highly_RB dependent_JJ on_IN the_DT adverse_JJ pressure_NN gradient_NN in_IN the_DT boundary_NN layer_NN ,_, and_CC that_IN this_DT pressure_NN is_VBZ imposed_VVN by_IN the_DT pressure_NN of_IN the_DT bulk_JJ flow_NN ._SENT 
+This_DT demonstrates_VVZ that_IN it_PP is_VBZ possible_JJ to_TO control_VV flow_NN separation_NN by_IN geometrical_JJ variations_NNS that_WDT alter_VVP the_DT adverse_JJ pressure_NN gradient_NN of_IN the_DT bulk_JJ flow_NN ._SENT 
+An_DT example_NN of_IN this_DT is_VBZ the_DT aforementioned_JJ decrease_NN of_IN the_DT taper_NN angle_NN ,_, but_CC this_DT might_MD lead_VV to_TO undesirably_RB large_JJ jet_NN pumps_NNS ._SENT 
+To_TO increase_VV the_DT performance_NN of_IN jet_NN pumps_NNS while_IN keeping_VVG them_PP compact_JJ ,_, it_PP therefore_RB seems_VVZ most_JJS effective_JJ to_TO aim_VV at_IN reducing_VVG the_DT adverse_JJ pressure_NN gradient_NN only_RB in_IN the_DT immediate_JJ vicinity_NN of_IN the_DT point_NN of_IN flow_NN separation_NN ._SENT 
+In_IN this_DT paper_NN ,_, we_PP investigate_VV flow_NN separation_NN in_IN the_DT adverse_JJ pressure_NN gradient_NN regime_NN of_IN jet_NN pumps_NNS using_VVG a_DT computational_JJ fluid_JJ dynamics_NNS (_( CFD_NN )_) model_NN ,_, which_WDT will_MD be_VB described_VVN in_IN Sec_NN ._SENT 
+II_NP ._SENT 
+In_IN Sec_NN ._SENT 
+III_NP ,_, we_PP propose_VVP a_DT measure_NN to_TO characterize_VV flow_NN separation_NN in_IN jet_NN pumps_NNS and_CC use_VV this_DT to_TO examine_VV flow_NN separation_NN and_CC its_PP$ effect_NN on_IN the_DT jet_NN pump_NN performance_NN ._SENT 
+In_IN Sec_NN ._SENT 
+IV_NP A_NP ,_, jet_NN pump_NN designs_NNS that_WDT aim_VVP to_TO suppress_VV flow_NN separation_NN and_CC increase_VV the_DT jet_NN pump_NN performance_NN are_VBP investigated_VVN ._SENT 
+Subsequently_RB ,_, partly_RB due_JJ to_TO the_DT increased_VVN length_NN of_IN the_DT proposed_VVN designs_NNS ,_, the_DT extent_NN to_TO which_WDT jet_NN pumps_NNS can_MD be_VB made_VVN more_RBR compact_JJ without_IN reducing_VVG their_PP$ performance_NN is_VBZ investigated_VVN in_IN Sec_NN ._SENT 
+IV_NP B._NP Finally_RB ,_, an_DT experimental_JJ validation_NN of_IN the_DT CFD_NN model_NN for_IN one_CD of_IN the_DT proposed_VVN jet_NN pump_NN designs_NNS is_VBZ given_VVN in_IN Sec_NN ._SENT 
+IV_NP C._NP <Section> II_NP ._SENT 
+MODELING_VVG </Section> In_IN order_NN to_TO predict_VV the_DT performance_NN of_IN several_JJ jet_NN pump_NN designs_NNS ,_, numerical_JJ simulations_NNS are_VBP performed_VVN ._SENT 
+For_IN this_DT purpose_NN ,_, a_DT two-dimensional_JJ axisymmetric_JJ CFD_NN model_NN similar_JJ to_TO previous_JJ work9_NN is_VBZ developed_VVN using_VVG the_DT commercial_JJ software_NN package_NN ANSYS_NP CFX_NP 14.5.19_CD The_DT computational_JJ domain_NN with_IN the_DT applied_VVN boundary_NN conditions_NNS and_CC the_DT analysis_NN of_IN the_DT transient_JJ results_NNS are_VBP described_VVN here_RB ._SENT 
+An_DT experimental_JJ validation_NN of_IN the_DT model_NN is_VBZ presented_VVN in_IN Sec_NN ._SENT 
+IV_NP C._NP A._NP CFD_NN model_NN All_DT jet_NN pump_NN geometries_NNS are_VBP housed_VVN within_IN an_DT outer_JJ tube_NN with_IN radius_NN R0_NP =_SYM 30_CD mm_NP and_CC length_NN L0_NN =_SYM 500_CD mm_NP on_IN either_DT side_NN of_IN the_DT jet_NN pump_NN ._SENT 
+The_DT working_VVG fluid_NN is_VBZ air_NN at_IN a_DT mean_JJ pressure_NN of_IN p0_NP =_SYM 1_CD atm_NN and_CC a_DT mean_JJ temperature_NN of_IN T0_NP =_SYM 300_CD K_NN ,_, which_WDT corresponds_VVZ to_TO the_DT conditions_NNS in_IN the_DT experimental_JJ setup_NN (_( see_VV Sec_JJ ._SENT 
+IV_NP C_NP )_) ._SENT 
+The_DT unsteady_JJ ,_, fully_RB compressible_JJ Navier-Stokes_NN equations_NNS are_VBP used_VVN to_TO predict_VV the_DT transient_JJ flow_NN field_NN in_IN the_DT entire_JJ computational_JJ domain_NN ._SENT 
+To_TO form_VV a_DT closed_JJ system_NN of_IN equations_NNS ,_, the_DT ideal_JJ gas_NN law_NN is_VBZ used_VVN as_IN an_DT equation_NN of_IN state_NN and_CC the_DT total_JJ energy_NN equation_NN ,_, including_VVG the_DT viscous_JJ work_NN term_NN ,_, is_VBZ used_VVN to_TO describe_VV the_DT energy_NN transport.20_NN No_DT turbulence_NN modeling_NN is_VBZ applied_VVN as_IN the_DT presented_VVN results_NNS all_DT fall_NN within_IN the_DT regime_NN of_IN laminar_JJ flow_NN (_( see_VV Sec_JJ ._SENT 
+II_NP D_NP )_) ._SENT 
+The_DT governing_VVG equations_NNS are_VBP discretized_VVN using_VVG a_DT high_JJ resolution_NN advection_NN scheme_NN in_IN space_NN and_CC a_DT second-order_NN backward_RB Euler_NP scheme_NN in_IN time_NN ._SENT 
+For_IN each_DT case_NN ,_, 10_CD wave_NN periods_NNS are_VBP simulated_JJ with_IN 1000_CD time-steps_NNS per_IN period_NN ._SENT 
+The_DT experimental_JJ validation_NN (_( Sec_JJ ._SENT 
+IV_NP C_NP )_) is_VBZ performed_VVN at_IN an_DT acoustic_JJ frequency_NN of_IN 80_CD Hz_NP ,_, while_IN all_DT other_JJ simulations_NNS are_VBP performed_VVN at_IN an_DT acoustic_JJ frequency_NN of_IN 20_CD Hz_NP ._SENT 
+For_IN the_DT latter_NN ,_, this_DT results_NNS in_IN a_DT time-step_NN of_IN Δt=5×10−5_NP s._NP A_DT schematic_NN of_IN the_DT computational_JJ domain_NN with_IN the_DT applied_VVN boundary_NN conditions_NNS is_VBZ given_VVN in_IN Fig_NN ._SENT 
+2._CD At_IN the_DT left_VVN boundary_NN of_IN the_DT domain_NN ,_, the_DT acoustic_JJ wave_NN is_VBZ generated_VVN using_VVG a_DT sinusoidal_JJ boundary_NN condition_NN with_IN a_DT specified_JJ velocity_NN amplitude_NN and_CC frequency_NN ._SENT 
+To_TO ensure_VV a_DT traveling_VVG wave_NN ,_, a_DT time-domain_NP impedance_NN boundary_NN condition_NN (_( TDIBC_NN )_) based_VVN on_IN the_DT work_NN of_IN Huber_NP et_CC al.21_JJ and_CC Kaess_NP et_NP al.22_NP is_VBZ applied_VVN at_IN the_DT right_JJ boundary_NN of_IN the_DT domain_NN ._SENT 
+This_DT approach_NN sets_VVZ the_DT local_JJ pressure_NN according_VVG to_TO the_DT specified_JJ complex_JJ reflection_NN coefficient_NN (_( |R|=0_JJ for_IN a_DT traveling_VVG wave_NN )_) ._SENT 
+More_JJR details_NNS about_IN the_DT boundary_NN condition_NN and_CC its_PP$ implementation_NN can_MD be_VB found_VVN in_IN the_DT work_NN of_IN Van_NP der_NP Poel,23_NN which_WDT has_VHZ been_VBN carried_VVN out_RP as_IN part_NN of_IN this_DT research_NN ._SENT 
+Note_NN that_IN the_DT described_VVN numerical_JJ setup_NN ensures_VVZ a_DT zero_CD mean_JJ mass_NN flux_NN across_IN the_DT boundaries_NNS of_IN the_DT computational_JJ domain_NN ._SENT 
+figure_NN FIG_NN ._SENT 
+2._CD Schematic_NN of_IN the_DT computational_JJ domain_NN with_IN the_DT applied_VVN boundary_NN conditions_NNS (_( not_RB to_TO scale_VV )_) ._SENT 
+Point_NP A_NP represents_VVZ the_DT position_NN where_WRB the_DT time-averaged_JJ velocity_NN u2_NN ,_, L_NP is_VBZ measured_VVN to_TO detect_VV flow_NN separation_NN (_( Sec_JJ ._SENT 
+III_NP A_NP )_) ._SENT 
+Dotted_JJ lines_NNS at_IN the_DT left-_NN and_CC right-hand_JJ sides_NNS depict_VVP the_DT local_JJ boundary_NN conditions_NNS ,_, and_CC the_DT bottom_NN dashed_VVN line_NN represents_VVZ the_DT symmetry_NN axis_NN ._SENT 
+PPT|High-resolution_NN Figure_NN 2_CD shows_VVZ that_IN an_DT adiabatic_JJ no-slip_NN boundary_NN condition_NN is_VBZ applied_VVN at_IN the_DT jet_NN pump_NN wall_NN ._SENT 
+Because_IN the_DT viscous_JJ wall_NN losses_NNS of_IN the_DT jet_NN pump_NN are_VBP the_DT sole_JJ interest_NN for_IN this_DT work_NN ,_, an_DT adiabatic_JJ slip_NN boundary_NN condition_NN is_VBZ used_VVN at_IN the_DT outer_JJ tube_NN wall_NN ._SENT 
+The_DT axisymmetry_NN is_VBZ established_VVN by_IN applying_VVG symmetry_NN boundary_NN conditions_NNS on_IN the_DT planes_NNS normal_JJ to_TO the_DT azimuthal_JJ direction_NN ._SENT 
+B._NP Computational_JJ mesh_NN The_DT computational_JJ mesh_NN is_VBZ validated_VVN in_IN previous_JJ work_NN and_CC details_NNS about_IN the_DT spatial_JJ discretization_NN are_VBP only_RB briefly_RB repeated_VVN here.9_NN Within_IN a_DT region_NN of_IN 50_CD mm_NP from_IN the_DT jet_NN pump_NN ,_, the_DT mesh_NN is_VBZ unstructured_JJ and_CC consists_VVZ of_IN triangular_JJ and_CC quadrilateral_JJ elements_NNS with_IN a_DT maximum_JJ size_NN of_IN 1_CD mm_NP ._SENT 
+A_DT local_JJ refinement_NN of_IN 0.5_CD mm_NP is_VBZ used_VVN near_IN the_DT jet_NN pump_NN waist_NN and_CC at_IN the_DT transition_NN from_IN the_DT no-slip_NN to_TO the_DT slip_NN boundary_NN condition_NN at_IN the_DT left-hand_JJ side_NN of_IN the_DT jet_NN pump_NN ._SENT 
+Furthermore_RB ,_, an_DT inflation_NN layer_NN is_VBZ applied_VVN such_JJ that_IN a_DT minimum_NN of_IN 15_CD elements_NNS is_VBZ present_JJ within_IN a_DT distance_NN of_IN 2πδν_NN from_IN the_DT jet_NN pump_NN wall_NN ._SENT 
+Here_RB δν_NP is_VBZ the_DT viscous_JJ penetration_NN depth_NN given_VVN by_IN δν=μ0/πρ0f⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯√_NP ._SENT 
+In_IN the_DT remaining_VVG part_NN of_IN the_DT domain_NN ,_, a_DT structured_JJ mesh_NN with_IN only_JJ quadrilateral_JJ elements_NNS is_VBZ constructed_VVN ._SENT 
+In_IN the_DT radial_JJ direction_NN ,_, the_DT mesh_NN size_NN is_VBZ fixed_VVN at_IN 1_CD mm_NP ,_, whereas_IN in_IN the_DT axial_JJ direction_NN ,_, the_DT mesh_NN size_NN increases_NNS from_IN 1_CD mm_NP near_IN the_DT jet_NN pump_NN section_NN up_RB to_TO 10_CD mm_NP at_IN the_DT boundaries_NNS of_IN the_DT domain_NN ._SENT 
+The_DT typical_JJ mesh_NN size_NN is_VBZ 40000_CD nodes_NNS for_IN the_DT geometries_NNS presented_VVN in_IN this_DT work_NN ._SENT 
+This_DT results_NNS in_IN a_DT single_JJ core_NN computational_JJ time_NN of_IN ∼40_JJ h_NN on_IN an_DT Intel_NP Core_NP i7_JJ CPU_NN ._SENT 
+C._NP Data_NP analysis_NN To_TO investigate_VV the_DT jet_NN pump_NN performance_NN ,_, the_DT transient_JJ solution_NN fields_NNS of_IN the_DT last_JJ five_CD wave_NN periods_NNS are_VBP processed_VVN ._SENT 
+A_DT discrete_JJ Fourier_NN transform_VV at_IN the_DT specified_JJ wave_NN frequency_NN is_VBZ used_VVN to_TO acquire_VV the_DT complex_JJ amplitudes_NNS of_IN the_DT flow_NN field_NN variables_NNS ._SENT 
+For_IN the_DT sinusoidal_JJ jet_NN pump_NN velocity_NN ,_, the_DT displacement_NN amplitude_NN ξ1_JJ inside_IN the_DT jet_NN pump_NN waist_NN is_VBZ calculated_VVN by_IN ξ1=||u1_NN ,_, JP||2πf_NP ,_, (_( 3_LS )_) where_WRB ||u1_JJ ,_, JP||_NP is_VBZ the_DT velocity_NN amplitude_NN in_IN the_DT jet_NN pump_NN waist_NN determined_VVN by_IN an_DT area-weighted_JJ average_NN over_IN the_DT cross_NN section_NN ._SENT 
+Similar_JJ to_TO the_DT dimensionless_JJ stroke_NN length_NN L0/h_NP of_IN Smith_NP and_CC Swift,13_NP the_DT displacement_NN amplitude_NN in_IN the_DT jet_NN pump_NN waist_NN is_VBZ scaled_VVN with_IN the_DT local_JJ diameter_NN (_( Ds=2Rs_NNS )_) to_TO acquire_VV the_DT Keulegan-Carpenter_NN number_NN KCD=ξ1Ds_NNS ._SENT 
+(_( 4_LS )_) The_DT time-averaged_JJ pressure_NN drop_NN Δp2_NN over_IN the_DT jet_NN pump_NN is_VBZ calculated_VVN by_IN taking_VVG the_DT difference_NN of_IN the_DT spatially_RB averaged_VVN ,_, time_NN mean_JJ pressure_NN on_IN either_DT side_NN of_IN the_DT jet_NN pump_NN ._SENT 
+The_DT time-averaged_JJ acoustic_JJ power_NN dissipation_NN ΔĖ_NP 2_CD is_VBZ determined_VVN similarly_RB from_IN the_DT difference_NN in_IN acoustic_JJ power_NN ,_, which_WDT is_VBZ given_VVN by24_JJ Ė_JJ 2(x)=12ℜ[p1̃(x)U1(x_NN )_) ]_SYM ,_, (_( 5_LS )_) where_WRB p1̃_NP (_( x_LS )_) is_VBZ the_DT complex_JJ conjugate_JJ of_IN the_DT area-averaged_JJ pressure_NN amplitude_NN and_CC U1(x_NN )_) is_VBZ the_DT complex_JJ volume_NN flow_NN rate_NN ._SENT 
+To_TO be_VB able_JJ to_TO compare_VV cases_NNS with_IN different_JJ geometries_NNS and_CC operating_VVG conditions_NNS ,_, the_DT performance_NN indicators_NNS Δp2_JJ and_CC ΔĖ_JJ 2_CD are_VBP scaled_VVN according_VVG to_TO the_DT work_NN of_IN Smith_NP and_CC Swift,13_JJ Δp∗2=8Δp2ρ0||u1_NN ,_, JP||2_NP ,_, (_( 6_CD )_) ΔĖ_JJ ∗2=3πΔĖ_JJ 2ρ0As||u1_NN ,_, JP||3_NP ._SENT 
+(_( 7_CD )_) An_DT effective_JJ jet_NN pump_NN should_MD generate_VV the_DT required_VVN amount_NN of_IN dimensionless_JJ pressure_NN drop_NN to_TO cancel_VV Gedeon_NP streaming_VVG ,_, while_IN the_DT dimensionless_JJ acoustic_JJ power_NN dissipation_NN is_VBZ minimal_JJ ._SENT 
+Hence_RB ,_, the_DT ratio_NN of_IN Δp∗2_NP over_IN ΔĖ_NP ∗2_NP is_VBZ referred_VVN to_TO as_IN the_DT effectiveness_NN of_IN the_DT jet_NN pump_NN ._SENT 
+D._NP Laminar_JJ flow_NN The_DT modeling_NN of_IN turbulence_NN continues_VVZ to_TO be_VB a_DT major_JJ issue_NN in_IN predicting_VVG flow_NN separation.25_JJ Turbulence_NN models_NNS ,_, such_JJ as_IN the_DT wide_JJ variety_NN of_IN low-Reynolds_NP number_NN k-epsilon_NN models_NNS ,_, fail_VVP to_TO reproduce_VV the_DT near-wall_NN flow_NN characteristics_NNS in_IN detail.26_NN Therefore_RB ,_, it_PP is_VBZ ensured_VVN in_IN this_DT work_NN that_IN the_DT flow_NN remains_VVZ laminar_JJ within_IN the_DT entire_JJ computational_JJ domain_NN so_RB that_IN no_DT turbulence_NN modeling_NN is_VBZ needed_VVN ._SENT 
+This_DT is_VBZ done_VVN through_IN the_DT use_NN of_IN the_DT acoustic_JJ Reynolds_NP number_NN ,_, which_WDT is_VBZ defined_VVN as_IN Reδ=|u1|ρ0δνμ0_NP ._SENT 
+(_( 8_CD )_) The_DT maximum_JJ acoustic_JJ Reynolds_NP number_NN occurs_VVZ at_IN the_DT jet_NN pump_NN waist_NN ,_, where_WRB the_DT velocity_NN amplitude_NN is_VBZ the_DT largest_JJS ._SENT 
+The_DT critical_JJ Reynolds_NP number_NN for_IN laminar_JJ oscillatory_JJ pipe_NN flow_NN is_VBZ derived_VVN by_IN Ohmi_NP and_CC Iguchi_NP as27_JJ Rec=305(Dδν)1/7_JJ ._SENT 
+(_( 9_CD )_) For_IN all_DT results_NNS presented_VVN in_IN this_DT work_NN ,_, the_DT acoustic_JJ Reynolds_NP number_NN in_IN the_DT jet_NN pump_NN waist_NN is_VBZ kept_VVN smaller_JJR than_IN the_DT critical_JJ Reynolds_NP number_NN ._SENT 
+This_DT verifies_VVZ that_IN the_DT flow_NN remains_VVZ within_IN the_DT laminar_JJ regime_NN and_CC ,_, thus_RB ,_, no_DT additional_JJ turbulence_NN modeling_NN is_VBZ needed_VVN ._SENT 
+<Section> III_NP ._SENT 
+CHARACTERIZATION_NN OF_IN FLOW_NN SEPARATION_NN </Section> To_TO characterize_VV and_CC investigate_VV the_DT separation_NN of_IN flow_NN in_IN the_DT diverging_VVG direction_NN of_IN jet_NN pumps_NNS ,_, a_DT reference_NN geometry_NN based_VVN on_IN the_DT design_NN of_IN Fig_NN ._SENT 
+1_CD is_VBZ used_VVN ._SENT 
+Table_NN I_PP lists_VVZ the_DT geometrical_JJ parameters_NNS of_IN the_DT reference_NN geometry_NN ._SENT 
+Note_NN that_IN the_DT big_JJ opening_NN is_VBZ eliminated_VVN ,_, i._NP e._NP ,_, Rb=R0_NP ,_, such_JJ that_IN the_DT tapered_VVN surface_NN of_IN the_DT jet_NN pump_NN reaches_VVZ the_DT outer_JJ tube_NN (_( see_VV Fig_NN ._SENT 
+2_LS )_) ._SENT 
+This_DT is_VBZ done_VVN to_TO independently_RB investigate_VV the_DT separation_NN of_IN flow_NN and_CC the_DT extent_NN to_TO which_WDT jet_NN pumps_NNS can_MD be_VB made_VVN more_RBR compact_JJ (_( Sec_JJ ._SENT 
+IV_NP B_NP )_) ._SENT 
+This_DT also_RB negates_VVZ the_DT effect_NN of_IN vortex_NN generation_NN at_IN the_DT big_JJ opening_NN from_IN the_DT flow_NN separation_NN analysis_NN ._SENT 
+TABLE_NN I._NN Dimensions_NNS of_IN the_DT simulated_JJ reference_NN geometry_NN ._SENT 
+The_DT corresponding_JJ jet_NN pump_NN design_NN is_VBZ depicted_VVN in_IN Fig_NN ._SENT 
+1._CD First_NP ,_, a_DT measure_NN to_TO determine_VV the_DT breakaway_NN of_IN the_DT boundary_NN layer_NN is_VBZ specified_VVN using_VVG the_DT numerical_JJ results_NNS of_IN the_DT reference_NN geometry_NN ._SENT 
+This_DT is_VBZ followed_VVN with_IN an_DT analysis_NN of_IN the_DT time_NN and_CC axial_JJ point_NN at_IN which_WDT flow_NN reversal_NN first_RB occurs_VVZ along_IN the_DT jet_NN pump_NN wall_NN ._SENT 
+Both_DT results_NNS are_VBP then_RB used_VVN to_TO investigate_VV the_DT influence_NN of_IN flow_NN separation_NN on_IN the_DT jet_NN pump_NN performance_NN ._SENT 
+A._NP Boundary_NP layer_NN breakaway_NN To_TO characterize_VV flow_NN separation_NN by_IN the_DT breakaway_NN of_IN the_DT boundary_NN layer_NN ,_, we_PP focus_VVP on_IN the_DT half-period_NN in_IN which_WDT the_DT bulk_JJ flow_NN in_IN the_DT jet_NN pump_NN waist_NN is_VBZ moving_VVG leftward_JJ (_( 0<t/T<0.5_NP )_) ._SENT 
+Here_RB ,_, a_DT period_NN of_IN time_NN T_NN is_VBZ defined_VVN to_TO start_VV when_WRB the_DT bulk_JJ flow_NN velocity_NN u_NN at_IN the_DT jet_NN pump_NN waist_NN is_VBZ zero_CD ,_, and_CC the_DT flow_NN starts_VVZ moving_VVG leftward_RB ._SENT 
+To_TO identify_VV the_DT boundary_NN layer_NN breakaway_NN ,_, we_PP first_RB look_VVP at_IN the_DT flow_NN in_IN the_DT vicinity_NN of_IN the_DT jet_NN pump_NN wall_NN ._SENT 
+It_PP is_VBZ observed_VVN in_IN all_DT investigated_VVN cases_NNS that_IN the_DT flow_NN in_IN the_DT boundary_NN layer_NN changes_NNS direction_NN ,_, while_IN the_DT bulk_JJ flow_NN is_VBZ still_RB leftward_JJ ._SENT 
+Thus_RB ,_, the_DT boundary_NN layer_NN is_VBZ leading_VVG the_DT bulk_JJ flow_NN in_IN phase_NN ._SENT 
+An_DT example_NN where_WRB the_DT reversed_JJ flow_NN has_VHZ already_RB occurred_VVN is_VBZ given_VVN in_IN Fig_NN ._SENT 
+3._CD Here_RB ,_, the_DT velocity_NN field_NN at_IN the_DT end_NN of_IN the_DT leftward_JJ acceleration_NN (_( t/T=0.25_NP )_) is_VBZ shown_VVN for_IN KCD=3.5_NP ._SENT 
+At_IN this_DT Keulegan-Carpenter_NN number_NN ,_, the_DT first_JJ flow_NN reversal_NN occurred_VVD at_IN t/T≈0.08_NP ._SENT 
+This_DT initially_RB reversed_VVN flow_NN has_VHZ been_VBN observed_VVN to_TO move_VV rightward_JJ along_IN the_DT wall_NN until_IN it_PP reached_VVD the_DT contracting_NN bulk_NN flow_NN at_IN the_DT jet_NN pump_NN waist_NN ._SENT 
+At_IN this_DT point_NN ,_, the_DT reversed_JJ flow_NN was_VBD prohibited_VVN from_IN moving_VVG any_DT further_JJR and_CC it_PP was_VBD forced_VVN to_TO move_VV downward_JJ and_CC recirculate_JJ into_IN the_DT bulk_JJ flow_NN ._SENT 
+This_DT recirculation_NN continues_VVZ up_RP to_TO t/T=0.5_NN ,_, and_CC induces_VVZ a_DT stream_NN of_IN vortices_NNS that_WDT propagate_VVP leftward_RB with_IN the_DT bulk_JJ flow_NN ._SENT 
+These_DT vortices_NNS and_CC the_DT resulting_VVG wake_NN formation_NN can_MD be_VB seen_VVN at_IN the_DT instant_NN in_IN time_NN depicted_VVN in_IN Fig_NN ._SENT 
+3_LS ,_, and_CC are_VBP found_VVN to_TO be_VB present_JJ for_IN all_DT cases_NNS investigated_VVN in_IN this_DT work_NN ._SENT 
+For_IN example_NN ,_, a_DT transient_JJ representation_NN of_IN the_DT wake_NN formation_NN process_NN at_IN KCD=7.3_NN is_VBZ available_JJ in_IN Mm_NP ._SENT 
+1._CD figure_NN FIG_NN ._SENT 
+3._CD (_( Color_NN online_JJ )_) Vector_NP plot_NN of_IN the_DT velocity_NN field_NN for_IN a_DT section_NN of_IN the_DT reference_NN geometry_NN where_WRB t/T=0.25_NP and_CC KCD=3.5_NP ._SENT 
+The_DT underlaying_VVG shades_NNS depict_VVP the_DT vorticity_NN field_NN ._SENT 
+PPT|High-resolution_NP Mm_NP ._SENT 
+1._CD Evolution_NN of_IN the_DT flow_NN field_NN in_IN the_DT full_JJ reference_NN jet_NN pump_NN geometry_NN at_IN KCD=7.3_NN for_IN 0<t/T<0.7_JJ ._SENT 
+This_DT is_VBZ a_DT file_NN of_IN type_NN “_JJ mpg_NN ”_NN (_( 6.0_CD Mb_NN )_) ._SENT 
+Two_CD distinct_JJ cases_NNS of_IN wake_NN formation_NN as_IN a_DT function_NN of_IN displacement_NN amplitude_NN can_MD be_VB identified_VVN ._SENT 
+For_IN KCD≤1.7_JJ ,_, the_DT induced_VVN vortices_NNS propagate_VVP only_RB slightly_RB toward_IN the_DT left_NN ,_, after_IN which_WDT the_DT bulk_JJ flow_NN changes_NNS direction_NN ._SENT 
+The_DT vorticity_NN remains_VVZ present_JJ for_IN some_DT time_NN ,_, but_CC diminishes_VVZ during_IN the_DT half-period_NN of_IN rightward_JJ bulk_NN flow_NN ._SENT 
+This_DT only_JJ results_NNS in_IN a_DT deviation_NN from_IN a_DT purely_RB oscillatory_JJ flow_NN in_IN the_DT direct_JJ vicinity_NN of_IN the_DT jet_NN pump_NN waist_NN ._SENT 
+In_IN the_DT rest_NN of_IN the_DT flow_NN field_NN ,_, no_DT significant_JJ disturbances_NNS are_VBP caused_VVN by_IN this_DT vorticity_NN ._SENT 
+For_IN KCD>1.7_JJ ,_, the_DT vorticity_NN does_VVZ not_RB diminish_VV completely_RB during_IN the_DT rightward_JJ bulk_NN flow_NN ._SENT 
+This_DT causes_NNS time-averaged_VVD streaming_VVG inside_IN the_DT jet_NN pump_NN ,_, significantly_RB disturbing_VVG the_DT purely_RB sinusoidal_JJ flow_NN ._SENT 
+The_DT latter_JJ case_NN is_VBZ characterized_VVN as_IN flow_NN separation_NN due_JJ to_TO the_DT large_JJ disturbance_NN of_IN the_DT bulk_JJ flow_NN caused_VVN by_IN the_DT breakaway_NN of_IN the_DT boundary_NN layer_NN ._SENT 
+It_PP can_MD be_VB identified_VVN by_IN a_DT negative_JJ time-averaged_JJ velocity_NN at_IN the_DT symmetry_NN axis_NN and_CC a_DT positive_JJ time-averaged_JJ velocity_NN inside_IN the_DT rest_NN of_IN the_DT jet_NN pump_NN ,_, as_RB shown_VVN in_IN previous_JJ work.9_NN The_DT transition_NN between_IN the_DT two_CD cases_NNS occurs_VVZ when_WRB the_DT vorticity_NN induced_VVN by_IN the_DT flow_NN reversal_NN remains_VVZ present_JJ during_IN the_DT rightward_JJ acceleration_NN of_IN the_DT bulk_JJ flow_NN (_( 0.5<t/T<0.75_NP )_) ._SENT 
+If_IN the_DT vorticity_NN is_VBZ still_RB present_JJ after_IN t/T=0.75_NP ,_, the_DT flow_NN at_IN the_DT symmetry_NN axis_NN is_VBZ found_VVN to_TO remain_VV predominantly_RB negative_JJ and_CC flow_NN separation_NN has_VHZ occurred_VVN ._SENT 
+As_IN a_DT measure_NN for_IN the_DT latter_NN ,_, we_PP state_VVP that_IN flow_NN separation_NN has_VHZ occurred_VVN if_IN u2_NP ,_, L||u1_JJ ,_, FF||≤−1_NN ,_, (_( 10_CD )_) where_WRB u2_NP ,_, L_NP is_VBZ the_DT time-averaged_JJ axial_JJ velocity_NN at_IN the_DT point_NN just_RB left_VVN of_IN the_DT big_JJ jet_NN pump_NN opening_NN ,_, as_RB depicted_VVN by_IN point_NN A_DT in_IN Fig_NN ._SENT 
+2._CD ||u1_NN ,_, FF||_NP is_VBZ the_DT amplitude_NN of_IN the_DT far_JJ field_NN oscillatory_JJ flow_NN at_IN the_DT left-hand_JJ side_NN of_IN the_DT jet_NN pump_NN ._SENT 
+For_IN undisturbed_JJ oscillatory_JJ flow_NN ,_, this_DT velocity_NN amplitude_NN is_VBZ approximately_RB equal_JJ in_IN the_DT entire_JJ outer_JJ tube_NN to_TO the_DT left_NN of_IN the_DT jet_NN pump_NN ._SENT 
+Equation_NN (_( 10_CD )_) therefore_RB states_VVZ that_IN flow_NN separation_NN has_VHZ occurred_VVN if_IN there_EX is_VBZ a_DT negative_JJ streaming_VVG velocity_NN at_IN the_DT symmetry_NN axis_NN that_WDT is_VBZ bigger_JJR than_IN the_DT local_JJ amplitude_NN of_IN the_DT oscillatory_JJ flow_NN ._SENT 
+It_PP is_VBZ found_VVN that_IN the_DT ratio_NN of_IN Eq_NP ._SENT 
+(_( 10_CD )_) is_VBZ slightly_RB positive_JJ if_IN no_DT flow_NN separation_NN occurs_VVZ and_CC is_VBZ significantly_RB less_JJR than_IN −1_JJ if_IN flow_NN separation_NN does_VVZ occur_VV ._SENT 
+It_PP therefore_RB seems_VVZ to_TO be_VB an_DT appropriate_JJ measure_NN to_TO identify_VV the_DT breakaway_NN of_IN the_DT boundary_NN layer_NN and_CC the_DT resulting_VVG flow_NN separation_NN ._SENT 
+B._NP First_NP flow_NN reversal_NN So_RB far_RB ,_, it_PP has_VHZ been_VBN shown_VVN that_IN flow_NN reversal_NN along_IN the_DT jet_NN pump_NN wall_NN occurs_VVZ during_IN leftward_JJ bulk_NN flow_NN ._SENT 
+Despard_NP and_CC Miller15_JJ state_NN that_IN the_DT time_NN and_CC axial_JJ point_NN at_IN which_WDT this_DT flow_NN reversal_NN first_RB occurs_VVZ is_VBZ important_JJ to_TO characterize_VV flow_NN separation_NN ._SENT 
+Therefore_RB ,_, we_PP have_VHP written_VVN an_DT algorithm_NN that_WDT searches_VVZ for_IN the_DT point_NN along_IN the_DT jet_NN pump_NN wall_NN where_WRB the_DT flow_NN changes_VVZ sign_NN during_IN negative_JJ bulk_NN flow_NN (_( 0<t/T<0.5_NP )_) ._SENT 
+The_DT axial_JJ point_NN and_CC time_NN at_IN which_WDT this_DT occurs_VVZ are_VBP averaged_VVN over_IN the_DT last_JJ five_CD wave_NN periods_NNS ._SENT 
+It_PP is_VBZ found_VVN that_IN the_DT axial_JJ point_NN of_IN first_JJ flow_NN reversal_NN is_VBZ situated_VVN 1.9_CD mm_NP left_VVN of_IN the_DT jet_NN pump_NN waist_NN ,_, where_WRB the_DT local_JJ radius_NN is_VBZ 7.4_CD mm_NP (_( see_VV Fig_NN ._SENT 
+3_LS )_) ._SENT 
+This_DT result_NN is_VBZ found_VVN to_TO be_VB independent_JJ of_IN the_DT displacement_NN amplitude_NN and_CC oscillation_NN frequency_NN ,_, which_WDT was_VBD also_RB reported_VVN by_IN Despard_NP and_CC Miller15_NP in_IN their_PP$ experimental_JJ work_NN ._SENT 
+The_DT leftward_JJ wake_NN formation_NN starts_VVZ in_IN the_DT immediate_JJ vicinity_NN of_IN the_DT first_JJ flow_NN reversal_NN point_NN ,_, although_IN this_DT is_VBZ hard_JJ to_TO clarify_VV for_IN the_DT reference_NN geometry_NN as_IN this_DT point_NN is_VBZ close_JJ to_TO the_DT jet_NN pump_NN waist_NN ._SENT 
+This_DT will_MD become_VV clearer_JJR in_IN Sec_NN ._SENT 
+IV_NP A_NP ,_, where_WRB geometries_NNS are_VBP presented_VVN that_DT shift_NN the_DT first_JJ flow_NN reversal_NN point_NN away_RB from_IN the_DT jet_NN pump_NN waist_NN ._SENT 
+The_DT time_NN at_IN which_WDT flow_NN reversal_NN first_RB occurs_VVZ is_VBZ depicted_VVN in_IN Fig_NN ._SENT 
+4_CD as_IN a_DT function_NN of_IN KCDflow_JJ separation_NN ._SENT 
+For_IN increasing_VVG displacement_NN amplitude_NN ,_, the_DT first_JJ occurrence_NN of_IN flow_NN reversal_NN shifts_VVZ to_TO earlier_RBR on_IN in_IN the_DT period_NN ._SENT 
+Following_VVG King_NP and_CC Smith,17_JJ it_PP is_VBZ therefore_RB reasonable_JJ to_TO state_NN that_IN the_DT longer_JJR duration_NN of_IN flow_NN separation_NN for_IN increasing_VVG displacement_NN amplitudes_NNS generates_VVZ more_JJR minor_JJ losses_NNS in_IN the_DT leftward_JJ direction_NN ._SENT 
+In_IN turn_NN ,_, this_DT will_MD reduce_VV the_DT time-averaged_JJ pressure_NN drop_NN across_IN the_DT jet_NN pump_VV when_WRB compared_VVN with_IN the_DT situation_NN where_WRB no_DT flow_NN separation_NN would_MD occur_VV ._SENT 
+To_TO investigate_VV the_DT impact_NN of_IN reducing_VVG the_DT time_NN of_IN first_JJ flow_NN reversal_NN on_IN the_DT jet_NN pump_NN performance_NN ,_, the_DT dimensionless_JJ pressure_NN drop_NN in_IN the_DT flow_NN separation_NN regime_NN is_VBZ examined_VVN in_IN Sec_NN ._SENT 
+III_NP C._NP figure_NN FIG_NN ._SENT 
+4._CD Time_NN at_IN which_WDT flow_NN reversal_NN was_VBD first_RB found_VVN as_IN a_DT function_NN of_IN KCD_NNS ._SENT 
+Only_RB the_DT cases_NNS with_IN flow_NN separation_NN for_IN the_DT reference_NN geometry_NN are_VBP depicted_VVN ._SENT 
+PPT|High-resolution_NP C._NP Effect_NN of_IN flow_NN separation_NN on_IN performance_NN Now_RB that_IN flow_NN separation_NN has_VHZ been_VBN characterized_VVN in_IN terms_NNS of_IN the_DT breakaway_NN of_IN the_DT boundary_NN layer_NN and_CC flow_NN reversal_NN ,_, its_PP$ influence_NN on_IN the_DT jet_NN pump_NN performance_NN can_MD be_VB investigated_VVN ._SENT 
+The_DT dimensionless_JJ pressure_NN drop_NN as_IN a_DT function_NN of_IN KCD_NNS for_IN the_DT reference_NN geometry_NN is_VBZ depicted_VVN in_IN Fig_NN ._SENT 
+5._CD For_IN KCD<0.5_NN ,_, there_EX is_VBZ no_DT significant_JJ dimensionless_JJ pressure_NN drop_NN ._SENT 
+Thereafter_RB ,_, it_PP starts_VVZ increasing_VVG rapidly_RB for_IN larger_JJR displacement_NN amplitudes_NNS ,_, up_RB to_TO a_DT maximum_NN at_IN KCD=1.3_NP ._SENT 
+After_IN this_DT maximum_NN ,_, a_DT severe_JJ decay_NN in_IN the_DT dimensionless_JJ pressure_NN drop_NN for_IN increasing_VVG displacement_NN amplitudes_NNS occurs_VVZ ._SENT 
+Therefore_RB ,_, there_EX is_VBZ only_RB a_DT small_JJ range_NN of_IN displacement_NN amplitudes_NNS in_IN which_WDT the_DT jet_NN pump_NN effectively_RB produces_VVZ the_DT required_JJ pressure_NN drop_NN to_TO cancel_VV Gedeon_NP streaming_VVG ._SENT 
+Moreover_RB ,_, even_RB if_IN the_DT jet_NN pump_NN is_VBZ operated_VVN around_IN the_DT point_NN of_IN maximum_JJ performance_NN ,_, there_EX is_VBZ a_DT large_JJ sensitivity_NN of_IN the_DT performance_NN on_IN small_JJ changes_NNS in_IN the_DT operating_VVG conditions_NNS ._SENT 
+To_TO suppress_VV Gedeon_NP streaming_VVG ,_, it_PP can_MD therefore_RB be_VB difficult_JJ to_TO induce_VV the_DT correct_JJ amount_NN of_IN time-averaged_JJ pressure_NN drop_NN with_IN this_DT jet_NN pump_NN design_NN ._SENT 
+In_IN the_DT search_NN for_IN more_JJR robust_JJ jet_NN pump_NN designs_NNS ,_, which_WDT do_VVP not_RB have_VH a_DT small_JJ range_NN of_IN effective_JJ performance_NN ,_, it_PP is_VBZ important_JJ to_TO understand_VV why_WRB the_DT dimensionless_JJ pressure_NN drop_NN reduces_VVZ so_RB severely_RB above_IN certain_JJ displacement_NN amplitudes_NNS ._SENT 
+figure_NN FIG_NN ._SENT 
+5._CD Dimensionless_JJ pressure_NN drop_NN as_IN a_DT function_NN of_IN KCD_NNS for_IN the_DT reference_NN geometry_NN ._SENT 
+Three_CD flow_NN regimes_NNS are_VBP shown_VVN :_: no_DT flow_NN separation_NN (_( light_JJ gray_JJ markers_NNS )_) ,_, partial_JJ flow_NN separation_NN (_( dark_JJ gray_JJ marker_NN )_) ,_, and_CC full_JJ flow_NN separation_NN (_( black_JJ markers_NNS )_) ._SENT 
+The_DT dashed_VVN black_JJ line_NN represents_VVZ the_DT quasi-steady_JJ approximation_NN ._SENT 
+PPT|High-resolution_NN The_DT black_JJ markers_NNS in_IN Fig_NN ._SENT 
+5_LS depict_VV the_DT dimensionless_JJ pressure_NN drop_NN of_IN the_DT cases_NNS where_WRB flow_NN separation_NN according_VVG to_TO Eq_NP ._SENT 
+(_( 10_CD )_) was_VBD found_VVN ._SENT 
+All_DT cases_NNS are_VBP situated_VVN in_IN the_DT declining_VVG part_NN of_IN the_DT dimensionless_JJ pressure_NN drop_NN ,_, i._NP e._NP ,_, after_IN the_DT maximum_NN at_IN KCD=1.3_NP ._SENT 
+This_DT shows_VVZ that_IN there_EX is_VBZ a_DT direct_JJ relation_NN between_IN flow_NN separation_NN and_CC a_DT decrease_NN in_IN jet_NN pump_NN performance_NN ._SENT 
+For_IN increasing_VVG displacement_NN amplitude_NN ,_, the_DT negative_JJ effect_NN of_IN flow_NN separation_NN on_IN the_DT dimensionless_JJ pressure_NN drop_NN is_VBZ increasing_VVG ._SENT 
+As_IN described_VVN in_IN Sec_NN ._SENT 
+III_NP B_NP ,_, this_DT can_MD be_VB attributed_VVN to_TO flow_VV reversal_NN occurring_VVG earlier_RBR on_IN in_IN the_DT period_NN (_( see_VV Fig_NN ._SENT 
+4_LS )_) ,_, which_WDT induces_VVZ more_JJR minor_JJ losses_NNS that_WDT reduce_VVP the_DT dimensionless_JJ pressure_NN drop_NN ._SENT 
+The_DT light_JJ gray_JJ markers_NNS in_IN Fig_NN ._SENT 
+5_CD show_NN the_DT cases_NNS were_VBD no_DT flow_NN separation_NN is_VBZ present_JJ and_CC the_DT dimensionless_JJ pressure_NN drop_NN rises_VVZ with_IN increasing_VVG KCD_NNS ._SENT 
+The_DT dimensionless_JJ pressure_NN drop_NN does_VVZ not_RB reach_VV the_DT value_NN of_IN the_DT quasi-steady_JJ approximation_NN (_( dashed_VVN black_JJ line_NN )_) ._SENT 
+This_DT can_MD be_VB attributed_VVN to_TO flow_VV separation_NN ,_, recalling_VVG that_IN only_JJ expansion_NN and_CC contraction_NN minor_JJ losses_NNS at_IN the_DT jet_NN pump_NN openings_NNS are_VBP included_VVN in_IN the_DT quasi-steady_JJ approximation_NN ._SENT 
+The_DT onset_NN of_IN flow_NN separation_NN occurs_VVZ at_IN KCD=2.1_NN ,_, which_WDT is_VBZ such_PDT a_DT low_JJ Keulegan-Carpenter_NN number_NN that_IN the_DT dimensionless_JJ pressure_NN drop_NN cannot_MD increase_VV up_RP to_TO the_DT value_NN that_IN it_PP could_MD without_IN flow_NN separation_NN ._SENT 
+To_TO acquire_VV a_DT higher_JJR maximum_JJ dimensionless_JJ pressure_NN drop_NN ,_, the_DT onset_NN of_IN flow_NN separation_NN should_MD therefore_RB be_VB shifted_VVN to_TO a_DT higher_JJR displacement_NN amplitude_NN ,_, as_RB attempted_VVN in_IN Sec_NN ._SENT 
+IV_NP A._NP So_RB far_RB ,_, the_DT decreasing_VVG dimensionless_JJ pressure_NN drop_NN has_VHZ been_VBN attributed_VVN to_TO flow_VV separation_NN ,_, but_CC why_WRB the_DT dimensionless_JJ pressure_NN drop_NN decreases_NNS before_IN the_DT onset_NN of_IN flow_NN separation_NN according_VVG to_TO Eq_NP ._SENT 
+(_( 10_CD )_) has_VHZ not_RB been_VBN explained_VVN ._SENT 
+First_JJ of_IN all_DT ,_, it_PP should_MD be_VB clear_JJ that_IN a_DT decay_NN of_IN the_DT dimensionless_JJ pressure_NN drop_NN does_VVZ not_RB represent_VV a_DT decay_NN of_IN the_DT time-averaged_JJ pressure_NN drop_NN ;_: it_PP means_VVZ that_IN the_DT latter_JJ increases_NNS in_IN a_DT manner_NN less_RBR than_IN quadratic_NN ._SENT 
+We_PP thus_RB seek_VVP to_TO explain_VV why_WRB the_DT time-averaged_JJ pressure_NN drop_NN changes_NNS from_IN increasing_VVG more_JJR than_IN quadratically_RB (_( light_JJ gray_JJ markers_NNS in_IN Fig_NN ._SENT 
+5_LS )_) to_TO less_JJR than_IN quadratically_RB (_( dark_JJ gray_JJ marker_NN in_IN Fig_NN ._SENT 
+5_LS )_) ._SENT 
+The_DT velocity_NN field_NN of_IN the_DT first_JJ case_NN that_WDT experiences_VVZ a_DT decrease_NN in_IN the_DT dimensionless_JJ pressure_NN drop_NN is_VBZ shown_VVN during_IN the_DT rightward_JJ bulk_NN flow_NN in_IN Fig_NN ._SENT 
+6._CD At_IN the_DT depicted_VVN instant_NN in_IN time_NN (_( t/T=0.65_NP )_) ,_, the_DT generation_NN of_IN the_DT rightward_JJ expansion_NN minor_JJ losses_NNS has_VHZ just_RB started_VVN ._SENT 
+This_DT can_MD be_VB seen_VVN by_IN the_DT flow_NN reversal_NN and_CC vorticity_NN along_IN the_DT right-hand_JJ side_NN of_IN the_DT jet_NN pump_NN wall_NN ._SENT 
+Additionally_RB ,_, the_DT vorticity_NN induced_VVN during_IN the_DT leftward_JJ bulk_NN flow_NN is_VBZ still_RB present_JJ just_RB to_TO the_DT left_NN of_IN the_DT jet_NN pump_NN waist_NN ._SENT 
+This_DT vorticity_NN will_MD diminish_VV before_IN t/T=0.75_NN ,_, and_CC will_MD not_RB cause_VV time-averaged_JJ streaming_VVG inside_IN the_DT jet_NN pump_NN ._SENT 
+However_RB ,_, it_PP does_VVZ prevail_VV up_RP to_TO the_DT time_NN where_WRB the_DT generation_NN of_IN the_DT expansion_NN minor_JJ losses_NNS in_IN the_DT rightward_JJ direction_NN starts_NNS ._SENT 
+Therefore_RB ,_, the_DT vorticity_NN reduces_VVZ the_DT strength_NN of_IN the_DT rightward_JJ bulk_NN flow_NN during_IN this_DT period_NN and_CC ,_, therewith_RB ,_, the_DT minor_JJ losses_NNS in_IN the_DT rightward_JJ direction_NN that_WDT are_VBP predominantly_RB responsible_JJ for_IN the_DT time-averaged_JJ pressure_NN drop_NN across_IN the_DT jet_NN pump_NN ._SENT 
+In_IN contrast_NN ,_, for_IN the_DT cases_NNS with_IN an_DT increasing_VVG dimensionless_JJ pressure_NN drop_NN (_( KCD≤1.3_NP )_) ,_, the_DT vorticity_NN is_VBZ completely_RB diminished_VVN during_IN the_DT time_NN at_IN which_WDT the_DT expansion_NN minor_JJ losses_NNS start_VVP ._SENT 
+This_DT shows_VVZ that_IN the_DT interaction_NN between_IN the_DT two_CD causes_NNS a_DT decrease_NN in_IN the_DT dimensionless_JJ pressure_NN drop_NN for_IN displacement_NN amplitudes_NNS even_RB lower_JJR than_IN those_DT where_WRB flow_NN separation_NN is_VBZ present_JJ ._SENT 
+This_DT situation_NN is_VBZ referred_VVN to_TO as_RB partial_JJ flow_NN separation_NN ,_, since_IN there_EX is_VBZ a_DT short_JJ interaction_NN of_IN the_DT induced_VVN vorticity_NN with_IN the_DT bulk_JJ flow_NN ,_, but_CC no_RB time-averaged_VVD streaming_VVG inside_IN the_DT jet_NN pump_NN occurs_VVZ ._SENT 
+figure_NN FIG_NN ._SENT 
+6._CD (_( Color_NN online_JJ )_) Vector_NP plot_NN of_IN the_DT velocity_NN field_NN for_IN a_DT section_NN of_IN the_DT reference_NN geometry_NN where_WRB t/T=0.65_JJ and_CC KCD=1.7_JJ ._SENT 
+The_DT underlaying_VVG shade_NN depict_VVP the_DT vorticity_NN field_NN ._SENT 
+PPT|High-resolution_NN The_DT negative_JJ effect_NN on_IN the_DT time-averaged_JJ pressure_NN drop_NN for_IN the_DT partial_JJ flow_NN separation_NN is_VBZ also_RB present_JJ for_IN the_DT case_NN of_IN full_JJ flow_NN separation_NN ._SENT 
+Due_JJ to_TO the_DT non-diminishing_VVG vorticity_NN and_CC resulting_VVG negative_JJ streaming_VVG at_IN the_DT symmetry_NN axis_NN ,_, the_DT effect_NN will_MD even_RB be_VB larger_JJR ._SENT 
+Therefore_RB ,_, next_JJ to_TO the_DT wake_NN formation_NN that_WDT increases_VVZ the_DT minor_JJ losses_NNS in_IN the_DT leftward_JJ direction_NN ,_, flow_NN separation_NN also_RB decreases_VVZ the_DT minor_JJ losses_NNS in_IN the_DT rightward_JJ direction_NN ._SENT 
+This_DT shows_VVZ another_DT incentive_NN to_TO reduce_VV flow_NN separation_NN in_IN an_DT effort_NN to_TO increase_VV the_DT performance_NN of_IN jet_NN pumps_NNS ._SENT 
+<Section> IV_NP ._SENT 
+REDUCTION_NN OF_IN FLOW_NN SEPARATION_NN </Section> In_IN Sec_NN ._SENT 
+III_NP ,_, it_PP was_VBD shown_VVN that_IN the_DT point_NN of_IN first_JJ flow_NN reversal_NN is_VBZ close_JJ to_TO the_DT jet_NN pump_NN waist_NN for_IN the_DT reference_NN geometry_NN ._SENT 
+In_IN an_DT effort_NN to_TO reduce_VV the_DT negative_JJ effects_NNS of_IN flow_NN separation_NN on_IN the_DT jet_NN pump_NN performance_NN ,_, we_PP propose_VVP design_NN alterations_NNS that_WDT reduce_VVP the_DT adverse_JJ pressure_NN gradient_NN in_IN the_DT vicinity_NN of_IN this_DT point_NN ._SENT 
+A._NP Increased_VVD transition_NN length_NN A_DT reduced_VVN adverse_JJ pressure_NN gradient_NN near_IN the_DT point_NN of_IN first_JJ flow_NN reversal_NN is_VBZ ensured_VVN by_IN creating_VVG a_DT longer_JJR and_CC smoother_JJR transition_NN from_IN the_DT jet_NN pump_NN waist_NN to_TO the_DT tapered_VVN surface_NN ._SENT 
+For_IN the_DT reference_NN geometry_NN ,_, this_DT transition_NN is_VBZ done_VVN by_IN a_DT circle_NN trajectory_NN with_IN the_DT same_JJ radius_NN as_IN the_DT radius_NN of_IN curvature_NN of_IN the_DT small_JJ opening_NN ._SENT 
+For_IN the_DT adjusted_JJ designs_NNS ,_, the_DT transition_NN radius_NN Rt_NN is_VBZ increased_VVN while_IN keeping_VVG the_DT radius_NN of_IN curvature_NN Rc_NN of_IN the_DT small_JJ jet_NN pump_NN opening_VVG constant_JJ ._SENT 
+An_DT example_NN of_IN such_PDT a_DT design_NN is_VBZ depicted_VVN in_IN Fig_NN ._SENT 
+7_CD ,_, where_WRB Rt_NNS =_SYM 28_CD mm_NP ,_, LJP_NN =_SYM 94.5_CD mm_NP ,_, and_CC the_DT other_JJ parameters_NNS are_VBP the_DT same_JJ as_IN the_DT reference_NN geometry_NN ._SENT 
+When_WRB compared_VVN with_IN the_DT reference_NN geometry_NN (_( Rt_NNS =_SYM 5_CD mm_NP and_CC LJP_NP =_SYM 91.5_CD mm_NP )_) ,_, this_DT design_NN has_VHZ an_DT increased_VVN length_NN ΔLJP_NN of_IN 3_CD mm_NP due_JJ to_TO the_DT elongated_VVN transition_NN length_NN ._SENT 
+By_IN further_RBR varying_VVG Rt_NNS ,_, different_JJ geometries_NNS are_VBP designed_VVN that_WDT are_VBP characterized_VVN by_IN the_DT extra_JJ transition_NN length_NN ΔLJP_VVP they_PP introduce_VV with_IN respect_NN to_TO the_DT reference_NN case_NN ._SENT 
+Six_CD different_JJ geometries_NNS are_VBP examined_VVN :_: ΔLJP_NN =_SYM 3_CD mm_NP ,_, 5_CD mm_NP ,_, 10_CD mm_NP ,_, 20_CD mm_NP ,_, 30_CD mm_NP ,_, and_CC 50_CD mm_NP ._SENT 
+figure_NN FIG_NN ._SENT 
+7._CD Axisymmetric_JJ representation_NN of_IN the_DT adjusted_JJ jet_NN pump_NN with_IN parameters_NNS that_WDT define_VV the_DT geometry_NN ._SENT 
+Bottom_JJ dashed_VVN line_NN indicates_VVZ center_NN line_NN ,_, top_JJ solid_JJ line_NN indicates_VVZ outer_JJ tube_NN wall_NN ._SENT 
+Rt_NN is_VBZ varied_VVN to_TO acquire_VV different_JJ geometries_NNS ._SENT 
+PPT|High-resolution_NN The_DT performance_NN of_IN the_DT adjusted_JJ jet_NN pump_NN geometries_NNS and_CC the_DT reference_NN geometry_NN is_VBZ depicted_VVN in_IN Fig_NN ._SENT 
+8_CD in_IN terms_NNS of_IN the_DT (_( a_DT )_) dimensionless_JJ pressure_NN drop_NN and_CC (_( b_LS )_) acoustic_JJ power_NN dissipation_NN ._SENT 
+All_DT geometries_NNS show_VVP a_DT very_RB similar_JJ increase_NN of_IN the_DT dimensionless_JJ pressure_NN drop_NN for_IN increasing_VVG displacement_NN amplitude_NN up_RB to_TO KCD=1.3_NN ._SENT 
+At_IN this_DT Keulegan-Carpenter_NN number_NN ,_, the_DT displacement_NN amplitude_NN ,_, up_RB to_TO which_WDT no_DT flow_NN separation_NN is_VBZ present_JJ (_( light_JJ gray_JJ markers_NNS )_) ,_, is_VBZ reached_VVN for_IN the_DT reference_NN geometry_NN ._SENT 
+Here_RB ,_, a_DT maximum_JJ dimensionless_JJ pressure_NN drop_NN of_IN Δp∗2=0.66_NN is_VBZ acquired_VVN ._SENT 
+For_IN the_DT cases_NNS with_IN an_DT increased_VVN transition_NN length_NN ,_, the_DT region_NN of_IN no_DT flow_NN separation_NN (_( light_JJ gray_JJ markers_NNS )_) is_VBZ extended_VVN to_TO a_DT larger_JJR displacement_NN amplitude_NN compared_VVN with_IN the_DT reference_NN geometry_NN ._SENT 
+Therefore_RB ,_, the_DT dimensionless_JJ pressure_NN drop_NN continues_VVZ to_TO increase_VV ,_, resulting_VVG in_IN an_DT improvement_NN of_IN the_DT maximum_JJ dimensionless_JJ pressure_NN drop_NN up_RB to_TO Δp∗2=0.91_JJ for_IN ΔLJP_NP =_SYM 50_CD mm_NP ._SENT 
+It_PP is_VBZ worth_JJ noting_VVG that_IN for_IN the_DT geometries_NNS with_IN the_DT largest_JJS transition_NN lengths_NNS ,_, the_DT flow_NN separation_NN is_VBZ postponed_VVN to_TO such_PDT a_DT displacement_NN amplitude_NN that_IN the_DT dimensionless_JJ pressure_NN drop_NN even_RB reaches_VVZ the_DT value_NN predicted_VVD by_IN the_DT quasi-steady_JJ approximation_NN (_( dashed_VVN black_JJ line_NN )_) ._SENT 
+Eventually_RB ,_, just_RB as_RB for_IN the_DT reference_NN geometry_NN ,_, the_DT dimensionless_JJ pressure_NN drop_NN decreases_VVZ again_RB for_IN all_DT geometries_NNS with_IN increasing_VVG displacement_NN amplitude_NN ._SENT 
+However_RB ,_, for_IN a_DT larger_JJR ΔLJP_NN ,_, the_DT decrease_NN of_IN the_DT dimensionless_JJ pressure_NN drop_NN is_VBZ significantly_RB reduced_VVN compared_VVN with_IN a_DT smaller_JJR transition_NN length_NN ._SENT 
+This_DT results_NNS in_IN a_DT broader_JJR range_NN of_IN displacement_NN amplitudes_NNS where_WRB the_DT dimensionless_JJ pressure_NN drop_NN is_VBZ near_IN its_PP$ maximum_NN for_IN increasing_VVG ΔLJP_NN ._SENT 
+Therefore_RB ,_, a_DT larger_JJR transition_NN length_NN shows_VVZ a_DT positive_JJ influence_NN on_IN the_DT maximum_JJ dimensionless_JJ pressure_NN drop_NN as_RB well_RB as_IN the_DT robustness_NN of_IN the_DT jet_NN pump_NN ._SENT 
+figure_NN FIG_NN ._SENT 
+8._CD (_( a_DT )_) Dimensionless_JJ pressure_NN drop_NN and_CC (_( b_LS )_) acoustic_JJ power_NN dissipation_NN as_IN a_DT function_NN of_IN KCD_NNS for_IN the_DT transition_NN lengths_NNS :_: ΔLJP_NN =_SYM 0_CD mm_NP (_( ●_NP ,_, reference_NN )_) ,_, ΔLJP_NN =_SYM 3_CD mm_NP (_( ◀_NP )_) ,_, LJP_NN =_SYM 5_CD mm_NP (_( ▶_NP )_) ,_, ΔLJP_NN =_SYM 10_CD mm_NP (_( ▼_NP )_) ,_, ΔLJP_NN =_SYM 20_CD mm_NP (_( ▲_NP )_) ,_, ΔLJP_NN =_SYM 30_CD mm_NP (_( ■_NP )_) ,_, and_CC ΔLJP_NN =_SYM 50_CD mm_NP (_( ♦_NP )_) ._SENT 
+Three_CD flow_NN regimes_NNS are_VBP depicted_VVN :_: no_DT flow_NN separation_NN (_( light_JJ gray_JJ markers_NNS )_) ,_, partial_JJ flow_NN separation_NN (_( dark_JJ gray_JJ markers_NNS )_) ,_, and_CC full_JJ flow_NN separation_NN (_( black_JJ markers_NNS )_) ._SENT 
+The_DT dashed_VVN black_JJ line_NN represents_VVZ the_DT quasi-steady_JJ approximation_NN ._SENT 
+PPT|High-resolution_NN In_IN Fig_NN ._SENT 
+8(a_NP )_) ,_, it_PP can_MD be_VB seen_VVN that_IN the_DT initial_JJ increase_NN of_IN the_DT dimensionless_JJ pressure_NN drop_NN up_RB to_TO a_DT maximum_NN occurs_VVZ for_IN all_DT geometries_NNS in_IN the_DT regime_NN where_WRB no_DT flow_NN separation_NN is_VBZ present_JJ (_( light_JJ gray_JJ markers_NNS )_) ._SENT 
+The_DT regime_NN of_IN partial_JJ flow_NN separation_NN (_( dark_JJ gray_JJ markers_NNS )_) is_VBZ first_RB found_VVN at_IN displacement_NN amplitudes_NNS just_RB above_IN the_DT maximum_JJ dimensionless_JJ pressure_NN drop_NN ._SENT 
+This_DT is_VBZ followed_VVN by_IN full_JJ flow_NN separation_NN (_( black_JJ markers_NNS )_) and_CC a_DT decrease_NN of_IN the_DT dimensionless_JJ pressure_NN drop_NN ._SENT 
+These_DT results_NNS show_VVP that_IN for_IN increased_VVN transition_NN lengths_NNS ,_, the_DT different_JJ flow_NN regimes_NNS occur_VVP at_IN the_DT same_JJ characteristic_JJ points_NNS of_IN the_DT dimensionless_JJ pressure_NN drop_NN curve_NN as_IN for_IN the_DT reference_NN geometry_NN ._SENT 
+This_DT confirms_VVZ the_DT proposed_VVN characterization_NN of_IN flow_NN separation_NN and_CC its_PP$ influence_NN on_IN the_DT jet_NN pump_NN performance_NN ._SENT 
+So_RB far_RB ,_, we_PP have_VHP only_RB examined_VVN the_DT dimensionless_JJ pressure_NN drop_NN ,_, but_CC the_DT dimensionless_JJ acoustic_JJ power_NN dissipation_NN is_VBZ also_RB an_DT important_JJ measure_NN to_TO quantify_VV the_DT jet_NN pump_NN performance_NN ._SENT 
+An_DT effective_JJ jet_NN pump_NN will_MD have_VH a_DT high_JJ pressure_NN drop_NN at_IN the_DT cost_NN of_IN a_DT low_JJ acoustic_JJ power_NN dissipation_NN ._SENT 
+In_IN Fig_NN ._SENT 
+8(b_NP )_) ,_, it_PP can_MD be_VB seen_VVN that_IN all_DT geometries_NNS have_VHP an_DT asymptotically_RB high_JJ ΔĖ_JJ ∗2_NN for_IN displacement_NN amplitudes_NNS that_WDT approach_VVP zero_NN ._SENT 
+This_DT is_VBZ caused_VVN by_IN the_DT scaling_NN of_IN the_DT acoustic_JJ power_NN dissipation_NN with_IN the_DT velocity_NN amplitude_NN cubed_VVN [_SYM see_VV Eq_NP ._SENT 
+(_( 7_CD )_) ]_SYM ,_, which_WDT is_VBZ very_RB small_JJ for_IN these_DT displacement_NN amplitudes_NNS ._SENT 
+The_DT dimensionless_JJ acoustic_JJ power_NN dissipation_NN then_RB drops_VVZ quickly_RB with_IN increasing_VVG displacement_NN amplitude_NN ._SENT 
+In_IN the_DT regime_NN without_IN flow_NN separation_NN (_( light_JJ gray_JJ markers_NNS )_) ,_, the_DT cases_NNS with_IN a_DT larger_JJR transition_NN length_NN have_VHP more_RBR acoustic_JJ power_NN dissipation_NN ._SENT 
+This_DT can_MD be_VB explained_VVN by_IN the_DT increased_VVN jet_NN pump_NN length_NN in_IN the_DT vicinity_NN of_IN the_DT jet_NN pump_NN waist_NN ,_, where_WRB the_DT velocity_NN amplitude_NN is_VBZ the_DT largest_JJS and_CC therewith_RB the_DT most_RBS viscous_JJ losses_NNS occur_VVP ._SENT 
+For_IN increasing_VVG KCD_NNS ,_, flow_NN separation_NN (_( black_JJ markers_NNS )_) sets_VVZ in_IN causing_VVG the_DT dimensionless_JJ acoustic_JJ power_NN dissipation_NN to_TO increase_VV significantly_RB ,_, especially_RB for_IN the_DT cases_NNS with_IN the_DT smallest_JJS ΔLJP_NN ._SENT 
+As_IN a_DT result_NN of_IN this_DT ,_, a_DT larger_JJR transition_NN length_NN is_VBZ favorable_JJ for_IN high_JJ displacement_NN amplitudes_NNS in_IN the_DT flow_NN separation_NN regime_NN due_JJ to_TO the_DT reduced_VVN acoustic_JJ power_NN dissipation_NN ._SENT 
+This_DT can_MD be_VB explained_VVN by_IN the_DT reduction_NN of_IN the_DT minor_JJ losses_NNS generated_VVN by_IN flow_NN separation_NN compared_VVN with_IN a_DT case_NN that_WDT has_VHZ a_DT smaller_JJR transition_NN length_NN ._SENT 
+This_DT same_JJ reason_NN also_RB ensured_VVD a_DT larger_JJR dimensionless_JJ pressure_NN drop_NN for_IN a_DT higher_JJR ΔLJP_NN in_IN the_DT flow_NN separation_NN regime_NN [_SYM black_JJ markers_NNS in_IN Fig_NN ._SENT 
+8(a_NP )_) ]_SYM ._SENT 
+To_TO investigate_VV why_WRB the_DT minor_JJ losses_NNS induced_VVN by_IN flow_NN separation_NN are_VBP reduced_VVN for_IN increased_VVN transition_NN lengths_NNS ,_, the_DT first_JJ point_NN of_IN flow_NN reversal_NN is_VBZ identified_VVN for_IN the_DT cases_NNS where_WRB flow_NN separation_NN occurs_VVZ ._SENT 
+This_DT process_NN is_VBZ visually_RB depicted_VVN in_IN Mm_NP ._SENT 
+2_CD ,_, where_WRB a_DT one-to-one_JJ comparison_NN is_VBZ shown_VVN of_IN the_DT flow_NN reversal_NN between_IN the_DT reference_NN geometry_NN (_( also_RB shown_VVN in_IN Mm_NP ._SENT 
+1_LS )_) and_CC the_DT case_NN with_IN ΔLJP=20_NP mm_NP at_IN KCD≈7.4_NP ._SENT 
+Using_VVG the_DT algorithm_NN described_VVN in_IN Sec_NN ._SENT 
+III_NP B_NP ,_, the_DT time_NN and_CC point_NN of_IN first_JJ flow_NN reversal_NN are_VBP determined_VVN ._SENT 
+For_IN all_DT cases_NNS ,_, the_DT time_NN at_IN which_WDT the_DT first_JJ flow_NN reversal_NN is_VBZ found_VVN is_VBZ depicted_VVN in_IN Fig_NN ._SENT 
+9_CD as_IN a_DT function_NN of_IN KCD_NNS ._SENT 
+All_DT geometries_NNS show_VVP a_DT decrease_NN in_IN the_DT time_NN of_IN first_JJ flow_NN reversal_NN with_IN increasing_VVG displacement_NN amplitude_NN ,_, which_WDT will_MD cause_VV more_JJR minor_JJ losses_NNS in_IN the_DT leftward_JJ direction_NN ._SENT 
+This_DT concurs_VVZ with_IN the_DT reduction_NN of_IN the_DT dimensionless_JJ pressure_NN drop_NN and_CC the_DT increase_NN of_IN the_DT dimensionless_JJ acoustic_JJ power_NN dissipation_NN for_IN an_DT increasing_VVG displacement_NN amplitude_NN ._SENT 
+For_IN all_DT displacement_NN amplitudes_NNS in_IN the_DT flow_NN separation_NN regime_NN ,_, an_DT increase_NN in_IN ΔLJP_NP leads_VVZ to_TO a_DT delay_NN in_IN the_DT time_NN of_IN first_JJ flow_NN reversal_NN ._SENT 
+Therefore_RB ,_, by_IN increasing_VVG the_DT transition_NN length_NN ,_, the_DT minor_JJ losses_NNS generated_VVN by_IN the_DT wake_NN formation_NN of_IN flow_NN separation_NN are_VBP reduced_VVN ._SENT 
+This_DT explains_VVZ why_WRB the_DT dimensionless_JJ pressure_NN drop_NN is_VBZ higher_JJR and_CC the_DT dimensionless_JJ acoustic_JJ power_NN dissipation_NN is_VBZ lower_JJR for_IN larger_JJR transition_NN lengths_NNS in_IN the_DT flow_NN separation_NN regime_NN ._SENT 
+Next_JJ to_TO that_DT ,_, it_PP can_MD be_VB seen_VVN that_IN the_DT onset_NN of_IN flow_NN separation_NN occurs_VVZ at_IN a_DT higher_JJR displacement_NN amplitude_NN for_IN a_DT larger_JJR transition_NN length_NN ._SENT 
+This_DT ensures_VVZ that_IN the_DT maximum_JJ dimensionless_JJ pressure_NN drop_NN is_VBZ increased_VVN and_CC shifted_VVN to_TO higher_JJR values_NNS of_IN KCD_NNS ,_, as_RB can_MD be_VB seen_VVN in_IN Fig_NN ._SENT 
+8(a_NP )_) ._SENT 
+figure_NN FIG_NN ._SENT 
+9._CD Time_NN at_IN which_WDT flow_NN reversal_NN was_VBD first_RB found_VVN as_IN a_DT function_NN of_IN KCD_NNS ._SENT 
+Only_RB the_DT cases_NNS with_IN flow_NN separation_NN are_VBP depicted_VVN ._SENT 
+Symbols_NNS indicate_VVP the_DT transition_NN lengths_NNS :_: ΔLJP_NN =_SYM 0_CD mm_NP (_( ●_NP ,_, reference_NN )_) ,_, ΔLJP_NN =_SYM 3_CD mm_NP (_( ◀_NP )_) ,_, ΔLJP_NN =_SYM 5_CD mm_NP (_( ▶_NP )_) ,_, ΔLJP_NN =_SYM 10_CD mm_NP (_( ▼_NP )_) ,_, ΔLJP_NN =_SYM 20_CD mm_NP (_( ▲_NP )_) ,_, ΔLJP_NN =_SYM 30_CD mm_NP (_( ■_NP )_) ,_, and_CC ΔLJP_NN =_SYM 50_CD mm_NP (_( ♦_NP )_) ._SENT 
+PPT|High-resolution_NP Mm_NP ._SENT 
+2._CD Comparison_NN of_IN the_DT flow_NN fields_NNS in_IN the_DT reference_NN jet_NN pump_NN geometry_NN (_( at_IN KCD=7.3_NN )_) and_CC in_IN the_DT geometry_NN with_IN ΔLJP=20_NP mm_NP (_( at_IN KCD=7.5_NN )_) for_IN 0<t/T<0.5_NN ._SENT 
+This_DT is_VBZ a_DT file_NN of_IN type_NN “_JJ mpg_NN ”_NN (_( 8.5_CD Mb_NN )_) ._SENT 
+The_DT spatial_JJ point_NN along_IN the_DT wall_NN where_WRB flow_NN reversal_NN first_RB occurs_VVZ is_VBZ found_VVN to_TO shift_VV away_RP from_IN the_DT jet_NN pump_NN waist_NN for_IN an_DT increasing_VVG transition_NN length_NN ._SENT 
+For_IN all_DT cases_NNS ,_, the_DT leftward_JJ wake_NN formation_NN caused_VVN by_IN the_DT reversed_JJ flow_NN was_VBD found_VVN to_TO begin_VV in_IN the_DT immediate_JJ vicinity_NN of_IN this_DT point_NN ._SENT 
+An_DT example_NN of_IN this_DT is_VBZ shown_VVN in_IN Fig_NN ._SENT 
+10_CD for_IN the_DT case_NN where_WRB ΔLJP_NN =_SYM 10_CD mm_NP and_CC t/T=0.25_NP ._SENT 
+Here_RB ,_, a_DT leftward_JJ propagating_VVG wake_NN is_VBZ formed_VVN from_IN the_DT point_NN of_IN first_JJ flow_NN reversal_NN ,_, while_IN the_DT flow_NN to_TO the_DT right_NN of_IN this_DT point_NN remains_VVZ calm_JJ and_CC does_VVZ not_RB generate_VV any_DT significant_JJ minor_JJ losses_NNS ._SENT 
+figure_NN FIG_NN ._SENT 
+10._CD (_( Color_NN online_JJ )_) Vector_NP plot_NN of_IN the_DT velocity_NN field_NN in_IN the_DT vicinity_NN of_IN the_DT jet_NN pump_NN waist_NN for_IN the_DT geometry_NN with_IN ΔLJP_NP =_SYM 10_CD mm_NP ,_, where_WRB t/T=0.25_NP and_CC KCD=7.4_NP ._SENT 
+The_DT underlaying_VVG shades_NNS depict_VVP the_DT vorticity_NN field_NN ._SENT 
+PPT|High-resolution_NN As_IN previously_RB mentioned_VVN ,_, the_DT point_NN of_IN first_JJ flow_NN reversal_NN is_VBZ shifted_VVN away_RB from_IN the_DT jet_NN pump_NN waist_NN ._SENT 
+However_RB ,_, due_JJ to_TO the_DT different_JJ slopes_NNS of_IN the_DT geometries_NNS in_IN the_DT vicinity_NN of_IN the_DT jet_NN pump_NN waist_NN ,_, it_PP is_VBZ more_RBR meaningful_JJ to_TO look_VV at_IN the_DT local_JJ radius_NN Rsep_NNS at_IN which_WDT flow_NN reversal_NN first_RB occurs_VVZ ._SENT 
+For_IN a_DT specific_JJ displacement_NN amplitude_NN and_CC frequency_NN ,_, the_DT local_JJ radius_NN will_MD determine_VV the_DT local_JJ fluid_JJ velocity_NN ._SENT 
+This_DT will_NN ,_, in_IN turn_NN ,_, determine_VV the_DT magnitude_NN of_IN the_DT minor_JJ losses_NNS of_IN the_DT leftward_JJ wake_NN formation_NN ._SENT 
+Figure_NN 11_CD depicts_VVZ Rsep_NNS as_IN a_DT function_NN of_IN ΔLJP_NP ,_, where_WRB the_DT error_NN bars_NNS indicate_VVP the_DT standard_JJ deviation_NN of_IN Rsep_NNS for_IN different_JJ displacement_NN amplitudes_NNS at_IN a_DT given_VVN ΔLJP_NN ._SENT 
+For_IN the_DT reference_NN case_NN Rsep_NNS =_SYM 7.4_CD mm_NP ,_, which_WDT is_VBZ very_RB close_JJ to_TO the_DT radius_NN at_IN the_DT jet_NN pump_NN waist_NN (_( Rs_NP =_SYM 7.0_CD mm_NP )_) ,_, and_CC hence_RB large_JJ minor_JJ losses_NNS are_VBP generated_VVN ._SENT 
+By_IN elongating_VVG the_DT transition_NN length_NN ,_, the_DT local_JJ radius_NN of_IN flow_NN reversal_NN can_MD be_VB increased_VVN to_TO Rsep_VV ≈_NP 8.5_CD mm_NP for_IN ΔLJP_NP =_SYM 5_CD mm_NP ._SENT 
+Further_RBR increasing_VVG the_DT transition_NN length_NN has_VHZ no_DT significant_JJ effect_NN on_IN Rsep_NNS for_IN the_DT geometries_NNS that_WDT are_VBP investigated_VVN in_IN this_DT work_NN ._SENT 
+Nevertheless_RB ,_, the_DT increase_NN of_IN Rsep_NNS will_MD reduce_VV the_DT minor_JJ losses_NNS generated_VVN by_IN the_DT wake_NN formation_NN when_WRB compared_VVN with_IN the_DT reference_NN geometry_NN ,_, therewith_RB increasing_VVG the_DT jet_NN pump_NN performance_NN ._SENT 
+figure_NN FIG_NN ._SENT 
+11._CD Local_JJ radius_NN Rsep_NNS at_IN which_WDT flow_NN reversal_NN is_VBZ first_RB found_VVN as_IN a_DT function_NN of_IN ΔLJP_NP ._SENT 
+Error_NN bars_NNS indicate_VVP the_DT standard_JJ deviation_NN of_IN Rsep_NNS for_IN different_JJ displacement_NN amplitudes_NNS at_IN a_DT given_VVN ΔLJP_NN ._SENT 
+PPT|High-resolution_NP B._NP Compact_JJ designs_NNS In_IN Sec_NN ._SENT 
+IV_NP A_NP ,_, it_PP is_VBZ shown_VVN that_IN by_IN increasing_VVG the_DT transition_NN length_NN between_IN the_DT small_JJ jet_NN pump_NN opening_NN and_CC the_DT tapered_VVN surface_NN ,_, both_CC the_DT effectiveness_NN and_CC robustness_NN of_IN the_DT jet_NN pump_NN are_VBP significantly_RB increased_VVN ._SENT 
+The_DT downfall_NN of_IN improving_VVG the_DT performance_NN in_IN this_DT manner_NN is_VBZ the_DT increased_VVN jet_NN pump_NN length_NN ,_, which_WDT prohibits_VVZ the_DT design_NN of_IN compact_JJ thermoacoustic_JJ devices_NNS ._SENT 
+So_RB far_RB ,_, we_PP have_VHP investigated_VVN designs_NNS that_WDT have_VHP a_DT tapered_VVN surface_NN up_RP to_TO the_DT outer_JJ tube_NN radius_NN (_( Fig_NN ._SENT 
+7_CD )_) ,_, while_IN jet_NN pumps_NNS can_MD be_VB made_VVN more_RBR compact_JJ by_IN cutting_VVG the_DT tapered_VVN surface_NN at_IN a_DT specific_JJ radius_NN Rb_NN (_( as_RB shown_VVN in_IN Fig_NN ._SENT 
+1_LS )_) ._SENT 
+According_VVG to_TO the_DT quasi-steady_JJ approximation_NN ,_, the_DT minor_JJ losses_NNS generated_VVN at_IN the_DT big_JJ opening_NN will_MD decrease_VV the_DT jet_NN pump_NN performance_NN ._SENT 
+However_RB ,_, they_PP are_VBP estimated_VVN to_TO be_VB a_DT factor_NN (_( Rs/Rb)4_NN less_RBR than_IN those_DT at_IN the_DT small_JJ opening_NN ._SENT 
+Therefore_RB ,_, the_DT extent_NN to_TO which_WDT the_DT radius_NN of_IN the_DT big_JJ opening_NN and_CC therewith_RB the_DT total_JJ jet_NN pump_NN length_NN can_MD be_VB reduced_VVN before_IN a_DT significant_JJ performance_NN drop_NN occurs_VVZ is_VBZ investigated_VVN ._SENT 
+This_DT is_VBZ done_VVN for_IN the_DT geometry_NN with_IN ΔLJP_NP =_SYM 20_CD mm_NP as_IN this_DT design_NN is_VBZ not_RB much_RB longer_RBR than_IN the_DT reference_NN geometry_NN ,_, but_CC still_RB shows_VVZ a_DT great_JJ performance_NN improvement_NN (_( see_VV Fig_NN ._SENT 
+8_CD )_) ._SENT 
+The_DT total_JJ length_NN of_IN the_DT geometry_NN with_IN ΔLJP_NP =_SYM 20_CD mm_NP is_VBZ LJP_NN =_SYM 111.5_CD mm_NP ._SENT 
+The_DT performance_NN of_IN six_CD geometries_NNS with_IN a_DT reduced_VVN length_NN are_VBP compared_VVN with_IN this_DT geometry_NN ,_, namely_RB :_: LJP_NN =_SYM 63.5_CD mm_NP ,_, 49.5_CD mm_NP ,_, 45.5_CD mm_NP ,_, 40.5_CD mm_NP ,_, 35.5_CD mm_NP ,_, and_CC 25.5_CD mm_NP ._SENT 
+The_DT corresponding_JJ big_JJ hole_NN radii_NNS are_VBP Rb_NN =_SYM 17.1_CD mm_NP ,_, 13.4_CD mm_NP ,_, 12.3_CD mm_NP ,_, 11.1_CD mm_NP ,_, 10.0_CD mm_NP ,_, and_CC 8.3_CD mm_NP ,_, respectively_RB ._SENT 
+Note_NN that_IN the_DT radius_NN of_IN the_DT small_JJ opening_NN ,_, Rs_NP ,_, is_VBZ 7_CD mm_NP for_IN all_DT geometries_NNS ._SENT 
+In_IN Fig_NN ._SENT 
+12_CD ,_, the_DT dimensionless_JJ pressure_NN drop_NN is_VBZ shown_VVN as_IN a_DT function_NN of_IN Rb_NN for_IN several_JJ Keulegan-Carpenter_NN numbers_NNS ._SENT 
+The_DT jet_NN pump_NN performance_NN is_VBZ depicted_VVN for_IN values_NNS of_IN KCD_NNS in_IN the_DT no_DT flow_NN separation_NN regime_NN (_( KCD=1.3_NP and_CC KCD=2.8_NP )_) ,_, the_DT partial_JJ flow_NN separation_NN regime_NN (_( KCD=3.6_NP )_) ,_, and_CC the_DT full_JJ flow_NN separation_NN regime_NN (_( KCD=5.4_NP )_) ._SENT 
+It_PP can_MD be_VB seen_VVN that_IN there_EX is_VBZ no_DT difference_NN in_IN the_DT trend_NN for_IN the_DT various_JJ values_NNS of_IN KCD_NNS ._SENT 
+Therefore_RB ,_, reducing_VVG the_DT big_JJ hole_NN radius_NN has_VHZ a_DT similar_JJ effect_NN in_IN each_DT flow_NN regime_NN ._SENT 
+At_IN all_DT Keulegan-Carpenter_NN numbers_NNS ,_, no_DT performance_NN drop_NN is_VBZ present_JJ for_IN a_DT small_JJ reduction_NN of_IN the_DT big_JJ hole_NN radius_NN ._SENT 
+For_IN Rb≲_NP 13_CD mm_NP ,_, the_DT minor_JJ losses_NNS generated_VVN at_IN the_DT big_JJ hole_NN become_VVN too_RB large_JJ ,_, resulting_VVG in_IN a_DT significant_JJ reduction_NN of_IN Δp∗2_JJ (_( see_VV Fig_NN ._SENT 
+12_CD )_) and_CC increase_NN of_IN ΔĖ_JJ ∗2_NN ._SENT 
+This_DT transition_NN was_VBD found_VVN at_IN the_DT same_JJ big_JJ hole_NN radius_NN for_IN the_DT reference_NN geometry_NN (_( ΔLJP_NN =_SYM 0_CD mm_NP )_) ,_, and_CC can_MD therefore_RB be_VB used_VVN as_IN a_DT general_JJ result_NN for_IN all_DT geometries_NNS presented_VVN in_IN this_DT work_NN ._SENT 
+figure_NN FIG_NN ._SENT 
+12._CD Dimensionless_JJ pressure_NN drop_NN as_IN a_DT function_NN of_IN Rb_NP ._SENT 
+Lines_NNS indicate_VVP a_DT constant_JJ KCD_NN for_IN the_DT values_NNS :_: KCD=1.3_NP (_( ●_NP )_) ,_, KCD=2.8_NP (_( ▲_NP )_) ,_, KCD=3.6_NP (_( ▼_NP )_) ,_, and_CC KCD=5.4_NP (_( ♦_NP )_) ._SENT 
+PPT|High-resolution_NN Despite_IN the_DT reduced_VVN performance_NN for_IN a_DT geometry_NN with_IN a_DT big_JJ hole_NN radius_NN that_WDT approaches_VVZ the_DT small_JJ hole_NN radius_NN ,_, the_DT length_NN of_IN jet_NN pumps_NNS can_MD still_RB be_VB significantly_RB decreased_VVN ._SENT 
+As_IN an_DT example_NN ,_, for_IN the_DT cases_NNS with_IN ΔLJP_NP =_SYM 20_CD mm_NP (_( Fig_NN ._SENT 
+12_CD )_) ,_, the_DT geometry_NN with_IN LJP_NP =_SYM 49.5_CD mm_NP has_VHZ the_DT same_JJ performance_NN as_IN the_DT geometry_NN with_IN LJP_NP =_SYM 111.5_CD mm_NP ._SENT 
+This_DT shows_VVZ that_IN the_DT jet_NN pumps_NNS ,_, as_RB proposed_VVN in_IN Sec_NN ._SENT 
+IV_NP A_NP ,_, can_MD be_VB made_VVN much_RB more_RBR compact_JJ without_IN reducing_VVG their_PP$ performance_NN ._SENT 
+C._NP Experimental_JJ validation_NN To_TO validate_VV the_DT numerical_JJ results_NNS presented_VVN in_IN this_DT work_NN ,_, the_DT jet_NN pump_NN design_NN with_IN ΔLJP_NP =_SYM 20_CD mm_NP ,_, Rb_NP =_SYM 13.4_CD mm_NP ,_, and_CC LJP_NN =_SYM 49.5_CD mm_NP is_VBZ constructed_VVN using_VVG a_DT 3D_JJ printing_NN method_NN ._SENT 
+The_DT performance_NN of_IN the_DT jet_NN pump_NN is_VBZ investigated_VVN in_IN an_DT experimental_JJ setup_NN that_WDT is_VBZ similar_JJ to_TO the_DT one_CD previously_RB used_VVN by_IN Aben.28_NN The_DT jet_NN pump_NN is_VBZ situated_VVN in_IN a_DT tube_NN with_IN two_CD pressure_NN sensors_NNS on_IN either_DT side_NN of_IN the_DT jet_NN pump_NN ._SENT 
+An_DT acoustic_JJ wave_NN with_IN a_DT frequency_NN of_IN 80_CD Hz_NP is_VBZ generated_VVN by_IN a_DT loudspeaker_NN ._SENT 
+At_IN each_DT displacement_NN amplitude_NN ,_, the_DT mean_JJ pressure_NN and_CC the_DT pressure_NN amplitude_NN are_VBP determined_VVN by_IN averaging_VVG over_IN 60_CD s._NN For_IN accuracy_NN ,_, the_DT data_NNS where_WRB the_DT standard_JJ deviation_NN of_IN the_DT pressure_NN is_VBZ >10_JJ %_NN of_IN the_DT mean_JJ pressure_NN have_VHP been_VBN left_VVN out_RP ._SENT 
+From_IN the_DT remaining_VVG pressure_NN data_NNS in_IN the_DT laminar_JJ regime_NN ,_, the_DT values_NNS for_IN KCD_NN ,_, Δp∗2_NP ,_, and_CC ΔĖ_NP ∗2_NP are_VBP calculated_VVN ._SENT 
+Figure_NN 13_CD shows_VVZ the_DT (_( a_DT )_) dimensionless_JJ pressure_NN drop_NN and_CC (_( b_LS )_) acoustic_JJ power_NN dissipation_NN for_IN the_DT experimental_JJ and_CC numerical_JJ results_NNS as_IN a_DT function_NN of_IN KCD_NNS ._SENT 
+For_IN all_DT values_NNS of_IN KCD_NN ,_, there_EX is_VBZ a_DT good_JJ correspondence_NN between_IN the_DT experimentally_RB and_CC numerically_RB determined_VVN dimensionless_JJ pressure_NN drop_NN ._SENT 
+The_DT initial_JJ increase_NN ,_, the_DT maximum_NN ,_, and_CC the_DT following_VVG decrease_NN of_IN Δp∗2_NN are_VBP all_RB very_RB similar_JJ ._SENT 
+This_DT shows_VVZ that_IN the_DT numerical_JJ model_NN is_VBZ able_JJ to_TO accurately_RB predict_VV the_DT dimensionless_JJ pressure_NN drop_NN ._SENT 
+figure_NN FIG_NN ._SENT 
+13._CD (_( a_DT )_) Dimensionless_JJ pressure_NN drop_NN and_CC (_( b_LS )_) acoustic_JJ power_NN dissipation_NN as_IN a_DT function_NN of_IN KCD_NNS for_IN the_DT numerical_JJ simulations_NNS (_( ●_NP )_) and_CC experimental_JJ investigation_NN (_( ♦_NP )_) at_IN 80_CD Hz_NP ._SENT 
+Experimental_JJ data_NNS where_WRB the_DT standard_JJ deviation_NN of_IN the_DT pressure_NN is_VBZ larger_JJR than_IN 10_CD %_NN of_IN the_DT mean_JJ pressure_NN have_VHP been_VBN omitted_VVN ._SENT 
+PPT|High-resolution_NN The_DT dimensionless_JJ acoustic_JJ power_NN dissipation_NN [_SYM Fig_NN ._SENT 
+13(b_NP )_) ]_SYM for_IN the_DT experiments_NNS is_VBZ significantly_RB higher_RBR compared_VVN with_IN the_DT numerical_JJ results_NNS for_IN the_DT entire_JJ range_NN of_IN KCD_NNS ._SENT 
+However_RB ,_, the_DT trends_NNS in_IN ΔĖ_NP ∗2_NP are_VBP found_VVN to_TO be_VB the_DT same_JJ ._SENT 
+In_IN recent_JJ experiments_NNS ,_, the_DT effect_NN of_IN the_DT surface_NN roughness_NN on_IN the_DT jet_NN pump_NN performance_NN has_VHZ been_VBN investigated_VVN and_CC it_PP is_VBZ found_VVN that_IN it_PP has_VHZ a_DT significant_JJ effect_NN on_IN ΔĖ_JJ ∗2_NN ._SENT 
+The_DT difference_NN is_VBZ large_JJ enough_RB to_TO explain_VV the_DT discrepancy_NN between_IN the_DT experiments_NNS with_IN the_DT 3D_JJ printed_JJ jet_NN pump_NN and_CC the_DT numerical_JJ results_NNS ,_, where_WRB no_DT surface_NN roughness_NN is_VBZ modeled_VVN ._SENT 
+This_DT ,_, combined_VVN with_IN the_DT good_JJ prediction_NN of_IN the_DT dimensionless_JJ pressure_NN drop_NN [_SYM Fig_NN ._SENT 
+13(a_NP )_) ]_SYM ,_, establishes_VVZ enough_JJ confidence_NN in_IN the_DT validity_NN of_IN the_DT numerical_JJ results_NNS presented_VVN in_IN this_DT work_NN ._SENT 
+Furthermore_RB ,_, the_DT good_JJ correspondence_NN shows_VVZ that_IN the_DT proposed_VVN jet_NN pump_NN designs_NNS with_IN an_DT increased_VVN transition_NN length_NN not_RB only_RB have_VH an_DT improved_VVN performance_NN numerically_RB ,_, but_CC also_RB experimentally_RB ._SENT 
+<Section> V._CC CONCLUSIONS_NNS </Section> A_DT CFD_NN model_NN is_VBZ used_VVN to_TO investigate_VV the_DT separation_NN of_IN oscillatory_JJ flows_NNS in_IN jet_NN pumps_NNS ._SENT 
+A_DT decrease_NN in_IN jet_NN pump_NN performance_NN is_VBZ shown_VVN to_TO be_VB the_DT direct_JJ result_NN of_IN separation_NN in_IN the_DT diverging_VVG flow_NN direction_NN ._SENT 
+The_DT time_NN in_IN the_DT period_NN at_IN which_WDT flow_NN reversal_NN first_RB occurs_VVZ reduces_VVZ for_IN an_DT increasing_VVG displacement_NN amplitude_NN ._SENT 
+This_DT further_RBR degrades_VVZ the_DT jet_NN pump_NN performance_NN by_IN both_CC a_DT decreasing_VVG Δp∗2_NN and_CC increasing_VVG ΔĖ_JJ ∗2_NN ._SENT 
+By_IN increasing_VVG the_DT transition_NN length_NN between_IN the_DT small_JJ jet_NN pump_NN opening_NN and_CC the_DT tapered_VVN surface_NN ,_, the_DT onset_NN of_IN flow_NN separation_NN is_VBZ shifted_VVN to_TO higher_JJR displacement_NN amplitudes_NNS compared_VVN with_IN the_DT reference_NN geometry_NN ._SENT 
+This_DT results_NNS in_IN an_DT increase_NN of_IN the_DT maximum_JJ dimensionless_JJ pressure_NN drop_NN from_IN Δp∗2=0.66_NN for_IN the_DT reference_NN geometry_NN up_RB to_TO Δp∗2=0.91_JJ for_IN an_DT increased_VVN transition_NN length_NN of_IN ΔLJP_NP =_SYM 50_CD mm_NP ._SENT 
+Furthermore_RB ,_, the_DT time_NN at_IN which_WDT flow_NN reversal_NN first_RB occurs_VVZ is_VBZ delayed_VVN and_CC the_DT first_JJ flow_NN reversal_NN point_NN is_VBZ shifted_VVN to_TO a_DT location_NN with_IN a_DT larger_JJR local_JJ radius_NN ._SENT 
+This_DT reduces_VVZ the_DT minor_JJ losses_NNS of_IN the_DT leftward_JJ wake_NN formation_NN in_IN the_DT flow_NN separation_NN regime_NN ,_, therewith_RB increasing_VVG Δp∗2_NN and_CC reducing_VVG ΔĖ_JJ ∗2_NN ._SENT 
+Increasing_VVG the_DT transition_NN length_NN of_IN the_DT reference_NN geometry_NN therefore_RB ensures_VVZ a_DT more_RBR robust_JJ and_CC effective_JJ jet_NN pump_NN design_NN ._SENT 
+The_DT designs_NNS with_IN an_DT increased_VVN transition_NN length_NN have_VHP more_RBR acoustic_JJ power_NN dissipation_NN in_IN the_DT regime_NN without_IN flow_NN separation_NN due_JJ to_TO their_PP$ elongated_VVN geometry_NN ._SENT 
+Next_JJ to_TO that_DT ,_, the_DT increased_VVN length_NN prohibits_VVZ the_DT design_NN of_IN compact_JJ thermoacoustic_JJ devices_NNS ._SENT 
+Therefore_RB ,_, it_PP is_VBZ shown_VVN that_IN these_DT jet_NN pump_NN designs_NNS can_MD be_VB made_VVN more_RBR compact_JJ by_IN reducing_VVG the_DT radius_NN of_IN the_DT big_JJ opening_NN without_IN degrading_JJ the_DT jet_NN pump_NN performance_NN ._SENT 
+To_TO further_RBR increase_VV the_DT compactness_NN ,_, jet_NN pumps_NNS with_IN multiple_JJ holes_NNS or_CC a_DT larger_JJR taper_NN angle_NN should_MD be_VB investigated_VVN ._SENT 
+The_DT results_NNS of_IN the_DT numerical_JJ model_NN correspond_VV well_RB with_IN the_DT experimental_JJ investigation_NN ._SENT 
+Nevertheless_RB ,_, all_DT simulations_NNS are_VBP performed_VVN in_IN the_DT laminar_JJ regime_NN ,_, since_IN no_DT suitable_JJ turbulence_NN model_NN for_IN oscillatory_JJ flows_NNS exists_VVZ ._SENT 
+To_TO include_VV the_DT effect_NN that_IN turbulence_NN will_MD have_VH on_IN flow_NN separation_NN and_CC the_DT jet_NN pump_NN performance_NN ,_, future_JJ work_NN should_MD focus_VV on_IN developing_VVG and_CC validating_VVG a_DT relatively_RB low-cost_JJ turbulence_NN model_NN that_WDT can_MD be_VB used_VVN in_IN turbulent_JJ oscillatory_JJ flow_NN ._SENT 
+Alternatively_RB ,_, the_DT reduction_NN of_IN flow_NN separation_NN and_CC its_PP$ effect_NN on_IN the_DT jet_NN pump_NN performance_NN can_MD be_VB investigated_VVN experimentally_RB in_IN the_DT turbulent_JJ regime_NN ._SENT 
+<Section> ACKNOWLEDGMENTS_NNS </Section> Bosch_NP Thermotechnology_NP and_CC Agentschap_NP NL_NP are_VBP thankfully_RB acknowledged_VVN for_IN the_DT financial_JJ support_NN as_IN part_NN of_IN the_DT Korte_NP Termijn_NP Energieonderzoek_NP (_( EOS-KTO_NP )_) research_NN program_NN under_IN Project_NP No._NN KTOT03009_NN ._SENT 
+<Section> REFERENCES_NNS </Section> 1._CD P._NP H._NP Ceperley_NP ,_, “_NP A_NP pistonless_NP Stirling_NP engine—The_VVD traveling_VVG wave_NN heat_NN engine_NN ,_, ”_NP J._NP Acoust_NP ._SENT 
+Soc_NP ._SENT 
+Am_NP ._SENT 
+66_CD ,_, 1508–1513_NP (_( 1979_CD )_) ._SENT 
+https_NNS :_: //doi_NP ._SENT 
+org/10.1121/1.383505_NP ,_, Google_NP ScholarScitation_NP ,_, ISI_NP 2._CD S._NP Backhaus_NP and_CC G._NP W._NP Swift_NP ,_, “_NP A_NP thermoacoustic_NP Stirling_NP heat_NN engine_NN ,_, ”_JJ Nature_NP 399_CD ,_, 335–338_NP (_( 1999_CD )_) ._SENT 
+https_NNS :_: //doi_NP ._SENT 
+org/10.1038/20624_NP ,_, Google_NP ScholarCrossref_NP 3._CD D._NP Gedeon_NP ,_, “_NP DC_NP gas_NN flows_NNS in_IN Stirling_NP and_CC pulse-tube_NP cryocoolers_NP ,_, ”_NN in_IN Cryocoolers_NNS (_( Springer_NP ,_, New_NP York_NP ,_, 1997_CD )_) ,_, Vol_NP ._SENT 
+9_CD ,_, pp_NP ._SENT 
+385–392_NP ._SENT 
+Google_NP ScholarCrossref_NP 4._CD G._NP W._NP Swift_NP ,_, D._NP L._NP Gardner_NP ,_, and_CC S._NP Backhaus_NP ,_, “_JJ Acoustic_JJ recovery_NN of_IN lost_VVN power_NN in_IN pulse_NN tube_NN refrigerators_NNS ,_, ”_NP J._NP Acoust_NP ._SENT 
+Soc_NP ._SENT 
+Am_NP ._SENT 
+105_CD ,_, 711–724_NP (_( 1999_CD )_) ._SENT 
+https_NNS :_: //doi_NP ._SENT 
+org/10.1121/1.426262_NP ,_, Google_NP ScholarScitation_NP 5._CD S._NP Backhaus_NP and_CC G._NP W._NP Swift_NP ,_, “_NP A_NP thermoacoustic-Stirling_NP heat_NN engine_NN :_: Detailed_JJ study_NN ,_, ”_NP J._NP Acoust_NP ._SENT 
+Soc_NP ._SENT 
+Am_NP ._SENT 
+107_CD ,_, 3148–3166_NP (_( 2000_CD )_) ._SENT 
+https_NNS :_: //doi_NP ._SENT 
+org/10.1121/1.429343_NP ,_, Google_NP ScholarScitation_NP ,_, ISI_NP 6._CD T._NP Biwa_NP ,_, Y._NP Tashiro_NP ,_, M._NP Ishigaki_NP ,_, Y._NP Ueda_NP ,_, and_CC T._NP Yazaki_NP ,_, “_JJ Measurements_NNS of_IN acoustic_JJ streaming_VVG in_IN a_DT looped-tube_NP thermoacoustic_JJ engine_NN with_IN a_DT jet_NN pump_NN ,_, ”_NP J._NP Appl_NP ._SENT 
+Phys_NPS ._SENT 
+101_CD ,_, 064914_CD (_( 2007_CD )_) ._SENT 
+https_NNS :_: //doi_NP ._SENT 
+org/10.1063/1.2713360_NP ,_, Google_NP ScholarCrossref_NP ,_, ISI_NP 7._CD S._NP Boluriaan_NP and_CC P._NP J._NP Morris_NP ,_, “_JJ Acoustic_JJ streaming_VVG :_: From_IN Rayleigh_NP to_TO today_NN ,_, ”_NP Int_NP ._SENT 
+J._NP Aeroacoust_NP ._SENT 
+2_LS ,_, 255–292_JJ (_( 2003_CD )_) ._SENT 
+https_NNS :_: //doi_NP ._SENT 
+org/10.1260/147547203322986142_NP ,_, Google_NP ScholarCrossref_NP 8._CD S._NP Boluriaan_NP and_CC P._NP J._NP Morris_NP ,_, “_JJ Suppression_NN of_IN traveling_VVG wave_NN streaming_VVG using_VVG a_DT jet_NN pump_NN ,_, ”_NN in_IN 41st_NP AIAA_NP Aerospace_NP Sciences_NPS Meeting_VVG and_CC Exhibit_NN (_( AIAA_NP ,_, Reno_NP ,_, NV_NP ,_, 2003_CD )_) ,_, pp_NP ._SENT 
+1–11_JJ ._SENT 
+Google_NP ScholarCrossref_NP 9._CD J._NP P._NP Oosterhuis_NP ,_, S._NP Bühler_NP ,_, T._NP H._NP van_NP der_NP Meer_NP ,_, and_CC D._NP Wilcox_NP ,_, “_NP A_DT numerical_JJ investigation_NN on_IN the_DT vortex_NN formation_NN and_CC flow_NN separation_NN of_IN the_DT oscillatory_JJ flow_NN in_IN jet_NN pumps_NNS ,_, ”_NP J._NP Acoust_NP ._SENT 
+Soc_NP ._SENT 
+Am_NP ._SENT 
+137_CD ,_, 1722–1731_JJ (_( 2015_CD )_) ._SENT 
+https_NNS :_: //doi_NP ._SENT 
+org/10.1121/1.4916279_NP ,_, Google_NP ScholarScitation_NP ,_, ISI_NP 10._CD M._NP Iguchi_NP and_CC M._NP Ohmi_NP ,_, “_NP Analysis_NP of_IN free_JJ oscillating_VVG flow_NN in_IN a_DT U-shaped_JJ tube_NN ,_, ”_NP Bull_NP ._SENT 
+JSME_NP 25_CD ,_, 1398–1405_NP (_( 1982_CD )_) ._SENT 
+https_NNS :_: //doi_NP ._SENT 
+org/10.1299/jsme1958.25.1398_NP ,_, Google_NP ScholarCrossref_NP 11._CD I._NP E._NP Idelchik_NP ,_, “_NP Resistance_NP to_TO flow_VV through_IN orifices_NNS with_IN sudden_JJ change_NN in_IN velocity_NN and_CC flow_NN area_NN ,_, ”_NN in_IN Handbook_NN of_IN Hydraulic_JJ Resistance_NN ,_, 4th_JJ ed_NNS ._SENT 
+(_( Begell_NP House_NP ,_, New_NP York_NP ,_, 2007_CD )_) ,_, Chap_NN ._SENT 
+4_LS ,_, pp_NP ._SENT 
+223–275_NP ._SENT 
+Google_NP Scholar_NN 12._CD A._NP Petculescu_NP and_CC L._NP A._NP Wilen_NP ,_, “_JJ Oscillatory_JJ flow_NN in_IN jet_NN pumps_NNS :_: Nonlinear_JJ effects_NNS and_CC minor_JJ losses_NNS ,_, ”_NP J._NP Acoust_NP ._SENT 
+Soc_NP ._SENT 
+Am_NP ._SENT 
+113_CD ,_, 1282–1292_NP (_( 2003_CD )_) ._SENT 
+https_NNS :_: //doi_NP ._SENT 
+org/10.1121/1.1543932_NP ,_, Google_NP ScholarScitation_NP ,_, ISI_NP 13._CD B._NP L._NP Smith_NP and_CC G._NP W._NP Swift_NP ,_, “_NP Power_NP dissipation_NN and_CC time-averaged_JJ pressure_NN in_IN oscillating_VVG flow_NN through_IN a_DT sudden_JJ area_NN change_NN ,_, ”_NP J._NP Acoust_NP ._SENT 
+Soc_NP ._SENT 
+Am_NP ._SENT 
+113_CD ,_, 2455–2463_NP (_( 2003_CD )_) ._SENT 
+https_NNS :_: //doi_NP ._SENT 
+org/10.1121/1.1564022_NP ,_, Google_NP ScholarScitation_NP ,_, ISI_NP 14._CD A._NP Petculescu_NP ,_, “_JJ Viscous_JJ losses_NNS in_IN porous_JJ media_NNS and_CC jet-pumps_NNS under_IN oscillatory_JJ flow_NN conditions_NNS ,_, ”_NP Ph._NP D._NP thesis_NN ,_, Ohio_NP University_NP ,_, 2002._CD Google_NN Scholar_NN 15._CD R._NP A._NP Despard_NP and_CC J._NP A._NP Miller_NP ,_, “_JJ Separation_NN in_IN oscillating_VVG laminar_JJ boundary-layer_NN flows_NNS ,_, ”_NP J._NP Fluid_JJ Mech_NP ._SENT 
+47_CD ,_, 21–31_JJ (_( 1971_CD )_) ._SENT 
+https_NNS :_: //doi_NP ._SENT 
+org/10.1017/S0022112071000909_NP ,_, Google_NP ScholarCrossref_NP 16._CD R._NP L._NP Simpson_NP ,_, “_NP A_DT review_NN of_IN some_DT phenomena_NNS in_IN turbulent_JJ flow_NN separation_NN ,_, ”_NP J._NP Fluids_NNS Eng_NP ._SENT 
+103_CD ,_, 520_CD (_( 1981_CD )_) ._SENT 
+https_NNS :_: //doi_NP ._SENT 
+org/10.1115/1.3241761_JJ ,_, Google_JJ ScholarCrossref_NP 17._CD C._NP V._NP King_NP and_CC B._NP L._NP Smith_NP ,_, “_JJ Oscillating_VVG flow_NN in_IN a_DT 2-D_JJ diffuser_NN ,_, ”_NP Exp_NP ._SENT 
+Fluids_NNS 51_CD ,_, 1577–1590_NP (_( 2011_CD )_) ._SENT 
+https_NNS :_: //doi_NP ._SENT 
+org/10.1007/s00348-011-1170-7_JJ ,_, Google_JJ ScholarCrossref_NP 18._CD H._NP Schlichting_NP ,_, Boundary-Layer_NN Theory_NN ,_, 6th_JJ ed_NNS ._SENT 
+(_( McGraw-Hill_NP ,_, New_NP York_NP ,_, 1968_CD )_) ._SENT 
+Google_NP Scholar_NN 19._CD ANSYS_NP ,_, “_NP ANSYS_NP CFX_NP ,_, Release_NP 14.5_CD ”_NN (_( ANSYS_NP Inc._NP ,_, Canonsburg_NP ,_, PA_NN ,_, 2011_CD )_) ._SENT 
+Google_NP Scholar_NN 20._CD ANSYS_NP ,_, “_JJ Governing_VVG equations_NNS ,_, ”_NN in_IN ANSYS_NP CFX-Solver_NP Theory_NN Guide_NP (_( ANSYS_NP Inc._NP ,_, Canonsburg_NP ,_, PA_NN ,_, 2012_CD )_) ,_, pp_NP ._SENT 
+18–26_NP ._SENT 
+Google_NP Scholar_NN 21._CD A._NP Huber_NP ,_, P._NP Romann_NP ,_, and_CC W._NP Polifke_NP ,_, “_JJ Filter-based_JJ time-domain_NN impedance_NN boundary_NN conditions_NNS for_IN CFD_NN applications_NNS ,_, ”_NN in_IN ASME_NN Turbo_NP Expo_NP 2008_CD :_: Power_NN for_IN Land_NP ,_, Sea_NP and_CC Air_NP (_( ASME_NN ,_, Berlin_NP ,_, Germany_NP ,_, 2008_CD )_) ,_, pp_NP ._SENT 
+901–911_JJ ._SENT 
+Google_NP ScholarCrossref_NP 22._CD R._NP Kaess_NP ,_, A._NP Huber_NP ,_, and_CC W._NP Polifke_NP ,_, “_NP A_NP time-domain_NP impedance_NN boundary_NN condition_NN for_IN compressible_JJ turbulent_JJ flow_NN ,_, ”_NN in_IN 14th_JJ AIAA/CEAS_NP Aeroacoustics_NP Conference_NP (_( AIAA_NP ,_, Vancouver_NP ,_, Canada_NP ,_, 2008_CD )_) ,_, pp_NP ._SENT 
+1–15_NP ._SENT 
+Google_NP ScholarCrossref_NP 23._CD B._NP Van_NP der_NP Poel_NP ,_, “_NP Time-domain_NP impedance_NN boundary_NN conditions_NNS in_IN computational_JJ fluid_JJ dynamics_NNS for_IN use_NN in_IN thermoacoustic_JJ modeling_NN ,_, ”_NP M._NP Sc_NP ._SENT 
+thesis_NN ,_, University_NP of_IN Twente_NP ,_, The_DT Netherlands_NP 2013_CD ,_, available_JJ at_IN http_NN :_: //purl_NN ._SENT 
+utwente_NP ._SENT 
+nl/essays/67782_NP ._SENT 
+Google_NP Scholar_NN 24._CD G._NP W._NP Swift_NP ,_, “_JJ Acoustic_JJ power_NN ,_, ”_NN in_IN Thermoacoustics_NNS :_: A_DT Unifying_JJ Perspective_NP for_IN Some_DT Engines_NNS and_CC Refrigerators_NNS (_( Acoustical_JJ Society_NP of_IN America_NP ,_, Melville_NP ,_, NY_NP ,_, 2002_CD )_) ,_, pp_NP ._SENT 
+105–116_NP ._SENT 
+Google_NP Scholar_NN 25._CD E._NP M._NP Cherry_NP ,_, C._NP J._NP Elkins_NP ,_, and_CC J._NP K._NP Eaton_NP ,_, “_JJ Geometric_JJ sensitivity_NN of_IN three-dimensional_JJ separated_JJ flows_NNS ,_, ”_NP Int_NP ._SENT 
+J._NP Heat_NP Fluid_JJ Flow_NP 29_CD ,_, 803–811_JJ (_( 2008_CD )_) ._SENT 
+https_NNS :_: //doi_NP ._SENT 
+org/10.1016/j_NP ._SENT 
+ijheatfluidflow.2008.01.018_NP ,_, Google_NP ScholarCrossref_NP 26._CD V._NP Michelassi_NP ,_, W._NP Rodi_NP ,_, and_CC J._NP Zhu_NP ,_, “_NP Testing_NP a_DT low-Reynolds_NP number_NN k-epsilon_NN turbulence_NN model_NN based_VVN on_IN direct_JJ simulation_NN data_NNS ,_, ”_NP AIAA_NP J._NP 31_CD ,_, 1720–1723_NP (_( 1993_CD )_) ._SENT 
+https_NNS :_: //doi_NP ._SENT 
+org/10.2514/3.11835_NP ,_, Google_NP ScholarCrossref_NP 27._CD M._NP Ohmi_NP and_CC M._NP Iguchi_NP ,_, “_JJ Critical_JJ Reynolds_NP number_NN in_IN an_DT oscillating_VVG pipe_NN flow_NN ,_, ”_NP Bull_NP ._SENT 
+JSME_NP 25_CD ,_, 165–172_NP (_( 1982_CD )_) ._SENT 
+https_NNS :_: //doi_NP ._SENT 
+org/10.1299/jsme1958.25.165_NP ,_, Google_NP ScholarCrossref_NP 28._CD P._NP Aben_NP ,_, “_JJ High-amplitude_NN thermoacoustic_JJ flow_NN interacting_VVG with_IN solid_JJ boundaries_NNS ,_, ”_NP Ph._NP D._NP thesis_NN ,_, Eindhoven_NP University_NP of_IN Technology_NP ,_, 2010._CD Google_NN Scholar_NN 

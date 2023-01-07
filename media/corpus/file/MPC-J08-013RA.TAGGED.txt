@@ -1,0 +1,433 @@
+﻿_NP <title> Analysis_NP of_IN ship_NN collision_NN damage_NN by_IN combining_VVG Monte_NP Carlo_NP simulation_NN and_CC the_DT artificial_JJ neural_JJ network_NN approach_NN </title> <author> Liping_NP Sun_NP ,_, Qi_NP Zhang_NP ,_, Gang_NP Ma_NP ,_, Tianyue_NP Zhang_NP </author> <Affiliation> College_NP of_IN Shipbuilding_NP Engineering_NP ,_, Harbin_NP Engineering_NP University_NP ,_, Harbin_NP ,_, China_NP </Affiliation> <year> 2017_CD </year> <Jounral> Ships_NNS and_CC offshore_JJ structure_NN </Journal> <Publishing_house> Taylor_NP &_CC Francis_NP </Publishing_house> <Text_Collector> Zhang_NP San，HEU_NP </Text_Collector> <DOI> https://doi.org/10.1080/17445302.2016.1258759_NP </DOI> <URL> https://www.tandfonline.com/doi/full/10.1080/17445302.2016.1258759_JJ </URL> Optimisation_NN of_IN passenger_NN ship_NN structures_NNS in_IN concept_NN design_NN stage_NN Liping_NP Sun_NP ,_, Qi_NP Zhang_NP ,_, Gang_NP Ma_NP ,_, Tianyue_NP Zhang_NP College_NP of_IN Shipbuilding_NP Engineering_NP ,_, Harbin_NP Engineering_NP University_NP ,_, Harbin_NP ,_, China_NP <Section> Abstract_JJ </Section> Ship_NN collision_NN is_VBZ a_DT highly_RB hazardous_JJ accident_NN with_IN potentially_RB serious_JJ consequences_NNS ._SENT 
+Thus_RB ,_, evaluating_VVG the_DT ship_NN collision_NN risk_NN with_IN quantitative_JJ analysis_NN of_IN damage_NN ,_, which_WDT is_VBZ characterised_VVN by_IN uncertainties_NNS ,_, is_VBZ necessary_JJ ._SENT 
+Monte_NP Carlo_NP simulation_NN (_( MCS_NP )_) is_VBZ a_DT flexible_JJ and_CC efficient_JJ method_NN for_IN this_DT purpose_NN ._SENT 
+However_RB ,_, large_JJ computing_NN resources_NNS are_VBP required_VVN for_IN MCS-based_JJ risk_NN assessment_NN ,_, especially_RB when_WRB numerous_JJ random_JJ variables_NNS are_VBP involved_VVN ._SENT 
+In_IN addition_NN ,_, ship_NN collision_NN damage_NN models_NNS are_VBP complicated_VVN and_CC are_VBP usually_RB resolved_VVN by_IN the_DT finite_JJ element_NN method_NN (_( FEM_NP )_) ,_, which_WDT is_VBZ computationally_RB expensive_JJ ._SENT 
+To_TO address_VV this_DT problem_NN ,_, a_DT coupled_VVN method_NN is_VBZ proposed_VVN in_IN this_DT paper_NN :_: the_DT artificial_JJ neural_JJ network_NN (_( ANN_NP )_) model_NN was_VBD combined_VVN with_IN MCS_NP to_TO assess_VV collision_NN damage_NN quantitatively_RB ._SENT 
+A_DT dynamic_JJ simulation_NN in_IN the_DT time_NN domain_NN was_VBD used_VVN to_TO predict_VV the_DT structural_JJ response_NN resulting_VVG from_IN a_DT ship_NN collision_NN ._SENT 
+Then_RB the_DT ANN_NP was_VBD trained_VVN based_VVN on_IN the_DT collision_NN data_NNS and_CC used_VVN as_IN a_DT substitute_NN for_IN the_DT iterative_JJ FEM_NN runs_VVZ within_IN the_DT MCS_NP procedure_NN ._SENT 
+A_DT benchmark_JJ collision_NN case_NN is_VBZ used_VVN to_TO verify_VV the_DT practicability_NN of_IN the_DT proposed_VVN method_NN ,_, and_CC a_DT qualitative_JJ uncertainty_NN analysis_NN is_VBZ also_RB conducted_VVN in_IN this_DT quantitative_JJ damage_NN assessment_NN ._SENT 
+KEYWORDS_NNS :_: Ship_NN collision_NN ,_, damage_NN assessment_NN ,_, ANN_NP ,_, MCS_NP <Section> 1._CD Introduction_NN </Section> In_IN recent_JJ years_NNS ,_, at_IN least_JJS 4572_CD serious_JJ accidents_NNS associated_VVN with_IN merchant_NN passengers_NNS and_CC cargo_NN ships_NNS occurred_VVD from_IN 2000_CD to_TO 2012_CD ,_, and_CC a_DT high_JJ frequency_NN (_( 1.76_CD �_JJ �_NP 10-3_CD )_) of_IN the_DT total_JJ loss_NN caused_VVN by_IN collisions_NNS was_VBD reported_VVN in_IN Eleftheria_NP et_CC al_NP ._SENT 
+(_( 2016_CD )_) ._SENT 
+The_DT ship_NN collisions_NNS composed_VVN 47.6_CD %_NN of_IN the_DT accidents_NNS that_WDT occurred_VVD during_IN winter_NN navigation_NN in_IN Finnish_JJ maritime_JJ areas_NNS from_IN 2002_CD to_TO 2003_CD and_CC 2009_CD to_TO 2012_CD (_( Banda_NP et_NP al_NP ._SENT 
+2015_CD )_) ._SENT 
+From_IN 1999_CD to_TO 2001_CD ,_, five_CD severe_JJ collision_NN accidents_NNS occurred_VVD between_IN floating_JJ production_NN storage_NN and_CC offloading_VVG (_( FPSO_NP )_) system_NN and_CC shuttle_NN tankers_NNS in_IN Beihai_NP ,_, China_NP alone_RB (_( Fan_NP 2010_CD )_) ._SENT 
+Ship_NN collision_NN may_MD lead_VV to_TO disasters_NNS such_JJ as_IN cargo_NN leakage_NN ,_, pollution_NN ,_, and_CC death_NN ._SENT 
+Collisions_NNS have_VHP caused_VVN 32.8_CD %_NN of_IN accidents_NNS with_IN severe_JJ damages_NNS by_IN the_DT type_NN of_IN unit_NN and_CC main_JJ event_NN were_VBD caused_VVN by_IN a_DT collision_NN (_( IOGP_NP 2010_CD )_) ,_, while_IN 33_CD %_NN of_IN the_DT fatalities_NNS in_IN ship_NN accidents_NNS have_VHP been_VBN caused_VVN by_IN collisions_NNS (_( IOGP_NP 2014_CD )_) ._SENT 
+These_DT statistics_NNS indicate_VVP that_IN risk_NN analysis_NN of_IN ship_NN collisions_NNS is_VBZ crucial_JJ for_IN the_DT shipping_NN community_NN ._SENT 
+Youssef_NP et_NP al_NP ._SENT 
+(_( 2014a_NP )_) created_VVD a_DT quantitative_JJ risk_NN assessment_NN for_IN collisions_NNS involving_VVG double_JJ hull_NN oil_NN tankers_NNS ._SENT 
+The_DT collision_NN risk_NN assessment_NN includes_VVZ the_DT knowledge_NN of_IN accident_NN occurring_VVG frequency_NN and_CC collision_NN consequence_NN assessment_NN ._SENT 
+The_DT occurring_VVG frequency_NN may_MD be_VB estimated_VVN in_IN a_DT navigational_JJ area_NN or_CC extrapolation_NN from_IN historical_JJ data_NNS ._SENT 
+The_DT consequences_NNS would_MD be_VB measured_VVN in_IN terms_NNS of_IN structural_JJ damage_NN ,_, the_DT number_NN of_IN fatalities_NNS and_CC injuries_NNS ,_, and_CC the_DT impact_NN on_IN environment_NN ._SENT 
+This_DT paper_NN focuses_VVZ on_IN the_DT damage_NN assessment_NN ._SENT 
+A_DT framework_NN for_IN the_DT quantitative_JJ assessment_NN of_IN collision_NN risk_NN requires_VVZ various_JJ accident_NN scenarios_NNS ,_, which_WDT is_VBZ characterised_VVN with_IN uncertainties_NNS ,_, to_TO be_VB identified_VVN ._SENT 
+Using_VVG Monte_NP Carlo_NP simulations_NNS (_( MCS_NP )_) �_NP �_NP rather_RB than_IN time-consuming_JJ and_CC complicated_JJ tests_NNS �_JJ �_NN is_VBZ a_DT popular_JJ method_NN to_TO deal_VV with_IN such_JJ uncertainties_NNS ._SENT 
+The_DT range_NN and_CC the_DT distribution_NN of_IN the_DT evaluated_VVN variables_NNS of_IN the_DT problems_NNS can_MD be_VB predicted_VVN by_IN statistically_RB analysing_VVG the_DT results_NNS obtained_VVN from_IN MCS_NP (_( Yan_NP and_CC Li_NP 2007_CD )_) ._SENT 
+Lutzen_NP and_CC Pedersen_NP (_( 2001_CD )_) and_CC Brown_NP and_CC Chen_NP (_( 2002_CD )_) used_VVD a_DT MCS_NP to_TO estimate_VV the_DT damage_NN distribution_NN of_IN a_DT struck_VVN vessel_NN based_VVN on_IN simplified_VVN procedures_NNS of_IN ship_NN collision_NN ._SENT 
+Martin_NP et_NP al_NP ._SENT 
+(_( 2016_CD )_) used_VVD a_DT quantitative_JJ framework_NN and_CC MCS_NP to_TO investigate_VV the_DT risk_NN of_IN deadly_JJ collisions_NNS between_IN marine_JJ wildlife_NN and_CC boats_NNS ._SENT 
+Large_JJ numbers_NNS of_IN accident_NN scenarios_NNS should_MD be_VB applicable_JJ to_TO cover_VV in_IN quantitative_JJ analyses_NNS of_IN ship_NN collision_NN damage_NN ;_: thus_RB ,_, selecting_VVG an_DT appropriate_JJ damage_NN calculation_NN method_NN is_VBZ essential_JJ to_TO reducing_VVG simulation_NN time_NN ._SENT 
+Numerous_JJ studies_NNS have_VHP been_VBN conducted_VVN on_IN ship_NN collision_NN ._SENT 
+The_DT simplest_JJS approach_NN is_VBZ the_DT one-dimensional_JJ method_NN proposed_VVN by_IN Minorsky_NP (_( 1958_CD )_) ,_, which_WDT only_RB considers_VVZ the_DT surge_NN of_IN the_DT striking_JJ ship_NN and_CC the_DT sway_NN of_IN the_DT struck_VVN ship_NN ._SENT 
+The_DT collision_NN analysis_NN software_NN ,_, DAMAGE_NN ,_, developed_VVN by_IN Simonsen_NP (_( 1999_CD )_) at_IN MIT_NP is_VBZ suitable_JJ for_IN non-central_JJ collisions_NNS and_CC considers_VVZ the_DT sway_NN of_IN the_DT striking_JJ ship_NN ._SENT 
+Hutchison_NP (_( 1986_CD )_) proposed_VVD an_DT advanced_JJ method_NN with_IN three_CD degrees_NNS of_IN freedom_NN to_TO analyse_VV the_DT motions_NNS of_IN both_DT ships_NNS (_( surge_NN ,_, sway_NN ,_, and_CC yaw_VV )_) involved_VVN in_IN a_DT ship_NN collision_NN ._SENT 
+An_DT improved_VVN methodology_NN was_VBD proposed_VVN by_IN Crake_NN (_( 1995_CD )_) ,_, Rawson_NP et_CC al_NP ._SENT 
+(_( 1998_CD )_) ,_, Pedersen_NP and_CC Zhang_NP (_( 1998_CD )_) ,_, and_CC Zhang_NP (_( 1999_CD )_) ._SENT 
+Deformation_NN energy_NN is_VBZ considered_VVN in_IN the_DT collision_NN model_NN proposed_VVN by_IN Pedersen_NP and_CC Zhang_NP (_( 1998_CD )_) ,_, Tabri_NP (_( 2009_CD )_) ,_, and_CC Tabri_NP et_NP al_NP ._SENT 
+(_( 2012_CD )_) ._SENT 
+Ehlers_NP and_CC Tabri_NP (_( 2012_CD )_) presented_VVD a_DT semi-analytical_JJ method_NN to_TO evaluate_VV ship_NN collision_NN damage_NN under_IN the_DT rupture_NN of_IN shell_NN plating_NN and_CC the_DT motions_NNS of_IN the_DT ships_NNS ._SENT 
+Several_JJ meta-modelling_VVG methods_NNS for_IN estimating_VVG the_DT extent_NN of_IN collision_NN damage_NN were_VBD proposed_VVN by_IN Ståhlberg_NP et_CC al_NP ._SENT 
+(_( 2013_CD )_) ,_, Sormunen_NP et_CC al_NP ._SENT 
+(_( 2013_CD )_) ,_, and_CC Van_NP de_NP Wiel_NP and_CC van_NP Drop_NP (_( 2011_CD )_) ._SENT 
+Ship_NN collisions_NNS are_VBP increasingly_RB simulated_JJ with_IN numerical_JJ methods_NNS predicting_VVG the_DT structural_JJ damage_NN ._SENT 
+Generally_RB ,_, numerical_JJ methods_NNS are_VBP more_RBR accurate_JJ and_CC require_VV more_JJR computational_JJ resources_NNS than_IN analytical_JJ and_CC empirical_JJ methods_NNS ._SENT 
+Excessive_JJ computational_JJ resources_NNS will_MD be_VB used_VVN if_IN the_DT numerical_JJ method_NN is_VBZ applied_VVN in_IN MCS_NP ._SENT 
+Therefore_RB ,_, finding_VVG a_DT new_JJ method_NN is_VBZ necessary_JJ to_TO ensure_VV the_DT accuracy_NN of_IN the_DT damage_NN assessment_NN and_CC to_TO reduce_VV computation_NN time_NN ._SENT 
+The_DT artificial_JJ neural_JJ network_NN (_( ANN_NP )_) model_NN was_VBD introduced_VVN by_IN Papanikolaou_NP (_( 2009_CD )_) to_TO predict_VV collision_NN damage_NN ._SENT 
+The_DT clearest_JJS advantage_NN of_IN this_DT model_NN is_VBZ its_PP$ high_JJ computing_NN efficiency_NN ,_, given_VVN the_DT same_JJ required_JJ accuracy_NN ._SENT 
+This_DT model_NN is_VBZ generally_RB used_VVN as_IN a_DT substitute_NN for_IN time-consuming_JJ models_NNS in_IN engineering_NN ._SENT 
+The_DT MCS–ANN_NP approach_NN has_VHZ been_VBN used_VVN to_TO analyse_VV the_DT reliability_NN of_IN complex_JJ flood_NN defence_NN structures_NNS by_IN Kingston_NP et_CC al_NP ._SENT 
+(_( 2011_CD )_) ._SENT 
+This_DT approach_NN has_VHZ also_RB been_VBN applied_VVN to_TO investigate_VV the_DT variability_NN of_IN copper_NN concentration_NN in_IN phytoremediation-contaminated_JJ soils_NNS (_( Hattab_NP et_NP al_NP ._SENT 
+2013_CD )_) ._SENT 
+These_DT studies_NNS showed_VVD that_IN the_DT combined_JJ MCS–ANN_NP method_NN is_VBZ efficient_JJ and_CC accurate_JJ ._SENT 
+In_IN this_DT paper_NN ,_, a_DT practical_JJ method_NN that_WDT combines_VVZ the_DT ANN_NP model_NN and_CC MCS-based_JJ risk_NN assessment_NN is_VBZ proposed_VVN ._SENT 
+The_DT ANN_NP model_NN is_VBZ used_VVN to_TO substitute_VV iterative_JJ finite_JJ element_NN method_NN (_( FEM_NP )_) calculations_NNS in_IN ship_NN collision_NN models_NNS by_IN approximating_VVG complicated_JJ input–output_NN relationships_NNS ._SENT 
+Thus_RB ,_, the_DT number_NN of_IN FEM_NN simulations_NNS could_MD be_VB significantly_RB reduced_VVN without_IN compromising_VVG accuracy_NN ._SENT 
+The_DT ANN_NP model_NN is_VBZ then_RB connected_VVN to_TO the_DT MCS_NP to_TO predict_VV the_DT distribution_NN of_IN damage_NN in_IN ship_NN collision_NN risk_NN assessment_NN ._SENT 
+A_DT case_NN is_VBZ provided_VVN for_IN comparison_NN to_TO verify_VV the_DT application_NN potential_NN of_IN MCS–ANN-based_JJ risk_NN assessment_NN methods_NNS in_IN ship_NN collision_NN risk_NN assessment_NN ._SENT 
+<Section> 2._CD Methodology_NN of_IN combined_JJ MCS_NP and_CC ANN_NP </Section> 2.1_CD ._SENT 
+MCS_NP MCS_NP has_VHZ been_VBN widely_RB used_VVN to_TO simulate_VV the_DT risk_NN assessment_NN process_NN ;_: its_PP$ random_JJ variables_NNS are_VBP expressed_VVN as_IN a_DT probability_NN density_NN distribution_NN (_( PDF_NP )_) ._SENT 
+This_DT method_NN was_VBD created_VVN based_VVN on_IN the_DT law_NN of_IN large_JJ numbers_NNS and_CC is_VBZ used_VVN to_TO analyse_VV uncertainty_NN (_( Gong_NP and_CC Qian_NP 2004_CD )_) ._SENT 
+After_IN many_JJ samplings_NNS and_CC calculations_NNS ,_, the_DT final_JJ results_NNS can_MD be_VB expressed_VVN through_IN a_DT probability_NN distribution_NN ,_, which_WDT can_MD be_VB fitted_VVN by_IN statistically_RB analysing_VVG outputs_NNS ._SENT 
+The_DT results_NNS of_IN MCS_NP are_VBP sensitive_JJ to_TO the_DT number_NN of_IN samples_NNS ._SENT 
+According_VVG to_TO the_DT Kolmogorov–Smirnov_NP Test_NP ,_, the_DT required_JJ number_NN of_IN samples_NNS for_IN MCS_NP can_MD be_VB gained_VVN from_IN the_DT following_VVG inequality_NN (_( Amstadter_NP 1971_CD )_) :_: @(1_JJ )_) where_WRB n_NN is_VBZ the_DT sample_NN number_NN of_IN the_DT control_NN parameter_NN in_IN MCS_NP ,_, Dn is_NP the_DT maximum_NN desired_VVD error_NN of_IN the_DT random_JJ variable_NN ,_, γ is_NP the_DT confidence_NN level_NN ,_, and_CC λγis_NP a_DT constant_JJ related_VVN to_TO confidence_NN level_NN ._SENT 
+Table_NN 1_CD shows_NNS the_DT general_JJ value_NN of_IN λγ and γ_NP ._SENT 
+Table_NN 1._CD General_NP value_NN used_VVN in_IN the_DT Kolmogorov–Smirnov_NP Test_NP ._SENT 
+The_DT mathematical_JJ form_NN and_CC theory_NN of_IN MCS_NP are_VBP straightforward_JJ and_CC time-consuming_JJ because_IN all_PDT the_DT possible_JJ collision_NN scenarios_NNS are_VBP considered_VVN in_IN the_DT damage_NN assessment_NN ._SENT 
+In_IN this_DT paper_NN ,_, an_DT ANN_NP is_VBZ incorporated_VVN with_IN MCS_NP to_TO reduce_VV the_DT calculation_NN time_NN and_CC to_TO improve_VV computational_JJ efficiency_NN ._SENT 
+2.2_CD ._SENT 
+ANN_NP architecture_NN and_CC training_NN algorithm_NN The_DT ANN_NP algorithm_NN resembles_VVZ the_DT computational_JJ function_NN of_IN the_DT brain_NN (_( Hagan_NP et_NP al_NP ._SENT 
+1996_CD )_) ._SENT 
+This_DT algorithm_NN comprises_VVZ many_JJ interconnected_VVN nodes_NNS ._SENT 
+Each_DT node_NN represents_VVZ a_DT specific_JJ output_NN function_NN ,_, namely_RB ,_, the_DT activation_NN function_NN ._SENT 
+The_DT weighted_JJ signal_NN value_NN is_VBZ represented_VVN by_IN the_DT connections_NNS between_IN each_DT pair_NN of_IN nodes_NNS ._SENT 
+The_DT output_NN of_IN an_DT ANN_NP is_VBZ closely_RB related_VVN to_TO the_DT connection_NN type_NN ,_, weight_NN value_NN ,_, and_CC activation_NN function_NN ._SENT 
+A_DT typical_JJ ANN_NP architecture_NN is_VBZ shown_VVN in_IN Figure_NP 1_CD ;_: it_PP includes_VVZ the_DT input_NN layer_NN ,_, the_DT hidden_JJ layer_NN ,_, and_CC the_DT output_NN layer_NN ._SENT 
+Figure_NN 1._CD Architecture_NP of_IN ANN_NP ._SENT 
+ANN_NP simulation_NN is_VBZ performed_VVN in_IN two_CD stages_NNS ._SENT 
+In_IN the_DT first_JJ training_NN stage_NN ,_, sample_NN data_NNS are_VBP introduced_VVN into_IN the_DT ANN_NP model_NN and_CC the_DT weights_NNS are_VBP adjusted_VVN according_VVG to_TO the_DT error_NN between_IN the_DT model_NN output_NN value_NN and_CC the_DT ideal_JJ output_NN value_NN until_IN the_DT error_NN meets_VVZ the_DT required_JJ tolerance_NN ._SENT 
+In_IN the_DT second_JJ application_NN stage_NN ,_, a_DT satisfied_JJ output_NN will_MD be_VB provided_VVN through_IN the_DT well-established_JJ ANN_NP model_NN based_VVN on_IN the_DT input_NN data_NNS in_IN practical_JJ problems_NNS ._SENT 
+The_DT accuracy_NN of_IN the_DT ANN_NP model_NN is_VBZ sensitive_JJ to_TO the_DT number_NN of_IN neurons_NNS in_IN the_DT hidden_JJ layer_NN ._SENT 
+Generally_RB ,_, the_DT number_NN of_IN hidden_JJ layer_NN neurons_NNS is_VBZ identified_VVN by_IN trial-and-error_NN ,_, and_CC the_DT model_NN with_IN the_DT most_RBS accurate_JJ results_NNS is_VBZ employed_VVN ._SENT 
+Numerous_JJ algorithms_NNS can_MD be_VB selected_VVN to_TO train_VV ANNs_NPS ._SENT 
+In_IN this_DT study_NN ,_, the_DT Levenberge_NP Marquardt_NP (_( LM_NP )_) algorithm_NN is_VBZ applied_VVN to_TO train_VV networks_NNS for_IN its_PP$ efficiency_NN ._SENT 
+The_DT LM_NP algorithm_NN is_VBZ faster_RBR and_CC generates_VVZ a_DT smaller_JJR error_NN than_IN standard_JJ gradient_JJ descent_NN training_NN methods_NNS (_( Hagan_NP et_NP al_NP ._SENT 
+1996_CD )_) ._SENT 
+2.3_CD ._SENT 
+MCS–ANN_NP method_NN The_DT popularity_NN of_IN the_DT ANN_NP originates_VVZ from_IN its_PP$ ability_NN to_TO distinguish_VV the_DT relationships_NNS within_IN numerical_JJ data_NNS through_IN mapping_VVG the_DT relationships_NNS between_IN input_NN and_CC output_NN variables_NNS (_( Goh_NP and_CC Kulhawy_NP 2005_CD )_) ._SENT 
+In_IN this_DT study_NN ,_, the_DT ANN_NP is_VBZ applied_VVN to_TO predict_VV collision_NN damage_NN ._SENT 
+This_DT process_NN includes_VVZ the_DT following_VVG steps_NNS :_: (_( 1_LS )_) select_VV an_DT appropriate_JJ ANN_NP mode_NN and_CC training_NN rule_NN ;_: (_( 2_LS )_) prepare_VV training_NN ,_, validation_NN ,_, and_CC testing_VVG data_NNS groups_NNS ;_: and_CC (_( 3_LS )_) train_VV the_DT ANN_NP model_NN ._SENT 
+The_DT back_JJ propagation_NN (_( BP_NP )_) model_NN is_VBZ widely_RB used_VVN for_IN neural_JJ network_NN structures_NNS in_IN many_JJ fields_NNS ._SENT 
+Hornik_NP et_NP al_NP ._SENT 
+(_( 1989_CD ,_, 1990_CD )_) indicated_VVD that_IN the_DT BP_NP model_NN can_MD approximate_VV any_DT function_NN with_IN any_DT accuracy_NN ._SENT 
+Therefore_RB ,_, a_DT BP_NP network_NN is_VBZ employed_VVN in_IN this_DT study_NN ._SENT 
+The_DT structure_NN of_IN the_DT BP_NP model_NN is_VBZ shown_VVN in_IN Figure_NP 2._CD It_PP includes_VVZ the_DT input_NN vector_NN X_NN with_IN a_DT dimension_NN of_IN R_NP ,_, weight_NN matrices_NNS WH_NP and_CC WO_MD ,_, hidden_JJ layer_NN H_NN ,_, output_NN layer_NN O_NN ,_, bias_NN matrix_NN b_SYM ,_, number_NN of_IN neurons_NNS M_NP ,_, and_CC transfer_VV function_NN �_JJ �_NN ._SENT 
+The_DT outputs_NNS of_IN hidden_JJ layer_NN aH_NNS are_VBP expressed_VVN as_RB follows_VVZ :_: aH=ϕH⋅(WH⋅X+bH_NP )_) Figure_NP 2._CD Structure_NN of_IN back_JJ propagation_NN model_NN ._SENT 
+for_IN the_DT outputs_NNS of_IN BP_NP model_NN ,_, Y_NP is_VBZ expressed_VVN as_RB follows_VVZ :_: Y=ϕH⋅(WO⋅aH+bO_NP )_) The_DT BP_NP network_NN is_VBZ built_VVN with_IN the_DT sets_NNS of_IN input_NN and_CC output_NN data_NNS obtained_VVN from_IN LS–DYNA_NP (_( non-linear_JJ finite_JJ element_NN analysis_NN software_NN program_NN )_) ._SENT 
+The_DT struck_VVN ship_NN damage_NN in_IN the_DT collision_NN scenarios_NNS sampled_VVN by_IN MCS_NP is_VBZ calculated_VVN using_VVG the_DT network_NN after_IN the_DT network_NN has_VHZ been_VBN established_VVN ._SENT 
+The_DT probabilistic_JJ distribution_NN of_IN the_DT collision_NN damage_NN can_MD therefore_RB be_VB obtained_VVN efficiently_RB ._SENT 
+The_DT whole_JJ procedure_NN of_IN the_DT MCS–ANN-based_JJ method_NN is_VBZ outlined_VVN in_IN Figure_NP 3._CD Figure_NN 3._CD Procedure_NN of_IN the_DT MCS–ANN_NP method_NN for_IN estimating_VVG ship_NN collision_NN damage_NN ._SENT 
+<Section> 3._CD Case_NN study_NN on_IN damage_NN assessment_NN of_IN ship_NN collision_NN </Section> 3.1_CD ._SENT 
+Simulation_NN of_IN ship_NN collision_NN 3.1.1_CD ._SENT 
+FEM_NN for_IN dynamic_JJ simulation_NN of_IN ship_NN collision_NN A_DT simulation_NN of_IN the_DT ship_NN collision_NN is_VBZ performed_VVN to_TO verify_VV the_DT accuracy_NN of_IN the_DT model_NN ._SENT 
+The_DT Association_NP for_IN Structural_NP Improvement_NP of_IN the_DT Shipbuilding_NP Industry_NP (_( ASIS_NN )_) collision_NN model_NN test_NN of_IN 1993_CD is_VBZ selected_JJ (_( ASIS_NN 1993_CD )_) ._SENT 
+This_DT simulation_NN is_VBZ performed_VVN to_TO study_VV the_DT failure_NN mechanism_NN of_IN the_DT side_NN structure_NN of_IN an_DT oil_NN tanker_NN ._SENT 
+A_DT very_RB large_JJ crude_JJ carriers_NNS (_( VLCC_NP )_) sidewall_NN structure_NN is_VBZ modelled_VVN with_IN a_DT scaling_VVG factor_NN of_IN 1:2_CD ,_, as_RB shown_VVN in_IN Figure_NP 4._CD In_IN the_DT dynamic_JJ test_NN ,_, the_DT 8.4_CD ton_NN indenter_NN falls_VVZ freely_RB from_IN a_DT height_NN of_IN 4.8_CD m_NN with_IN an_DT impact_NN speed_NN of_IN 9.7_CD m/s_NNS at_IN the_DT side_NN shell_NN ._SENT 
+The_DT length_NN of_IN the_DT shell_NN elements_NNS is_VBZ kept_VVN less_JJR than_IN 35_CD mm_NP for_IN high_JJ accuracy_NN ._SENT 
+Figure_NN 4._CD Double-shell_NN structure_NN model_NN in_IN ASIS_NN test_NN (_( 1993_CD )_) ._SENT 
+Paik_NP and_CC Hughes_NP (_( 2006_CD )_) suggested_VVD that_IN Belytschko–Tsay_NP (_( BT_NP )_) type_NN shell_NN elements_NNS are_VBP appropriate_JJ to_TO model_VV thin-walled_JJ structures_NNS ,_, such_JJ as_IN ships_NNS ._SENT 
+Unlike_IN the_DT BT_NP element_NN ,_, the_DT Hughes–Liu-type_NN is_VBZ more_RBR effective_JJ when_WRB large_JJ deformations_NNS are_VBP expected_VVN ,_, and_CC analyses_NNS warped_VVD configurations_NNS accurately_RB (_( Hallquist_NP 2006_CD )_) ._SENT 
+In_IN addition_NN ,_, plastic_JJ deformation_NN can_MD be_VB obtained_VVN efficiently_RB as_IN the_DT number_NN of_IN through-shell-thickness_NN integration_NN points_NNS increases_NNS (_( Hallquist_NP 2006_CD )_) ._SENT 
+The_DT Hughes–Liu-type_NN element_NN with_IN 3-nip_NN integration_NN points_NNS is_VBZ adopted_VVN together_RB with_IN the_DT failure_NN strain_NN criterion_NN applied_VVN in_IN this_DT paper_NN ._SENT 
+Fracture_NN or_CC tearing_VVG of_IN the_DT steel_NN of_IN a_DT structure_NN tends_VVZ to_TO occur_VV earlier_RBR as_IN the_DT loading_VVG speed_NN increases_NNS ._SENT 
+The_DT following_VVG equation_NN ,_, which_WDT is_VBZ derived_VVN from_IN the_DT Cowper–Symonds_NP formula_NN ,_, is_VBZ used_VVN to_TO estimate_VV the_DT dynamic_JJ fracture_NN strain_NN (_( Jones_NP 1989_CD )_) :_: @(2_NP )_) where_WRB ϵf_NP is_VBZ the_DT static_JJ failure_NN strain, ϵfd_NN is_VBZ the_DT dynamic_JJ failure_NN strain_NN ,_, ϵr_NP is_VBZ the_DT strain_NN rate_NN ,_, and_CC C_NP and_CC P_NN are_VBP the_DT Cowper–Symonds_NP material_NN property_NN coefficients_NNS ._SENT 
+The_DT fracture_NN strain_NN of_IN mild_JJ steel_NN will_MD be_VB small_JJ when_WRB C_NP =_SYM 40.4_CD and_CC P_NN =_SYM 5._CD However_RB ,_, Paik_NP (_( 2007_CD )_) recommends_VVZ the_DT value_NN of_IN C_NP to_TO range_VV from_IN 7000_CD to_TO 10,000_CD and_CC P_NN to_TO range_VV from_IN 2_CD to_TO 4._CD Finally_RB ,_, C_NP =_SYM 7000_CD and_CC P_NN =_SYM 4_CD are_VBP used_VVN in_IN this_DT paper_NN ._SENT 
+Automatic_JJ surface-to-surface_JJ contact_NN is_VBZ applied_VVN to_TO describe_VV the_DT interaction_NN force_NN between_IN the_DT indenter_NN and_CC the_DT sidewall_NN ._SENT 
+The_DT contacts_NNS between_IN all_DT parts_NNS of_IN the_DT sidewall_NN are_VBP set_VVN to_TO an_DT automatic_JJ single_JJ surface_NN ,_, and_CC the_DT friction_NN coefficients_NNS of_IN all_DT contacts_NNS are_VBP set_VVN to_TO 0.3_CD ._SENT 
+The_DT deformation_NN of_IN the_DT sidewall_NN at_IN indentation_NN equals_VVZ 0.4_CD m_NN in_IN the_DT form_NN of_IN the_DT FEM_NN shown_VVN in_IN Figure_NP 5._CD The_DT numerical_JJ simulation_NN is_VBZ compared_VVN with_IN the_DT ASIS_NN model_NN test_NN through_IN instantaneous_JJ force_NN and_CC absorbed_VVN energy_NN with_IN the_DT different_JJ indentations_NNS shown_VVN in_IN Figure_NP 6._CD Therefore_RB ,_, the_DT results_NNS obtained_VVN by_IN the_DT FEM_NN are_VBP consistent_JJ with_IN the_DT ASIS_NN model_NN test_NN ,_, which_WDT indicates_VVZ that_IN the_DT FEM_NN can_MD be_VB used_VVN to_TO present_VV actual_JJ ship_NN collision_NN progress_NN ._SENT 
+The_DT settings_NNS in_IN this_DT simulation_NN are_VBP used_VVN in_IN the_DT following_VVG collision_NN scenarios_NNS sampled_VVN by_IN MCS_NP ._SENT 
+Figure_NN 5._CD Deformation_NN of_IN side_NN structures_NNS (_( indentation_NN 0.4_CD )_) ._SENT 
+(_( This_DT figure_NN is_VBZ available_JJ in_IN colour_NN online_JJ ._SENT 
+)_) Figure_NP 6._CD Comparisons_NNS of_IN the_DT numerical_JJ simulation_NN with_IN ASIS_NN model_NN test_NN ._SENT 
+(_( This_DT figure_NN is_VBZ available_JJ in_IN colour_NN online_JJ ._SENT 
+)_) 3.1.2_CD ._SENT 
+Establishing_VVG the_DT collision_NN scenario_NN The_DT 150_CD k_NN DWT_NN (_( dead_JJ weight_NN tonnage_NN )_) VLCC_NN in_IN Brown_NP and_CC Chen_NP (_( 2002_CD )_) is_VBZ selected_VVN as_IN the_DT struck_VVN ship_NN ._SENT 
+The_DT probability_NN is_VBZ constant_JJ along_IN the_DT longitudinal_JJ impact_NN location_NN of_IN the_DT struck_VVN ship_NN (_( IMO_NP 1995_CD )_) ._SENT 
+The_DT collision_NN deformation_NN occurs_VVZ only_RB around_IN the_DT contact_NN area_NN ._SENT 
+Therefore_RB ,_, one_CD section_NN of_IN the_DT struck_VVN ship_NN was_VBD modelled_VVN ,_, as_RB shown_VVN in_IN Figure_NP 7._CD The_DT material_NN density_NN is_VBZ adjusted_VVN to_TO ensure_VV consistency_NN between_IN the_DT mass_NN of_IN the_DT model_NN and_CC the_DT struck_VVN ship_NN ._SENT 
+The_DT principal_JJ and_CC structural_JJ parameters_NNS are_VBP displayed_VVN in_IN Tables_NP 2_CD and_CC 3_CD ,_, respectively_RB ._SENT 
+Figure_NN 7._CD The_DT FEM_NN model_NN of_IN struck_VVN ship_NN ._SENT 
+(_( This_DT figure_NN is_VBZ available_JJ in_IN colour_NN online_JJ ._SENT 
+)_) Table_NN 2._CD Principal_NN parameters_NNS struck_VVD ship_NN ._SENT 
+Table_NN 3._CD Structural_JJ parameters_NNS of_IN stuck_JJ ship_NN ._SENT 
+Table_NN 4._CD Material_NN properties_NNS for_IN struck_VVN ship_NN ._SENT 
+The_DT struck_VVN ship_NN is_VBZ modelled_VVN by_IN using_VVG a_DT mild_JJ 0.12_CD m_NN steel_NN shell_NN element_NN ._SENT 
+The_DT equivalent_JJ plastic_NN strain_NN is_VBZ widely_RB used_VVN as_IN the_DT failure_NN criterion_NN of_IN the_DT structure_NN in_IN the_DT simulation_NN of_IN ship_NN collision_NN (_( Calle_NP and_CC Alves_NP 2015_CD )_) ._SENT 
+The_DT failure_NN of_IN mild_JJ steel_NN is_VBZ greater_JJR than_IN 0.3_CD in_IN most_JJS tests_NNS ,_, but_CC the_DT geometrical_JJ stress_NN concentration_NN of_IN the_DT model_NN cannot_MD be_VB accurately_RB captured_VVN because_IN of_IN the_DT coarse_JJ mesh_NN size_NN in_IN a_DT ship_NN collision_NN ._SENT 
+A_DT failure_NN plastic_NN strain_NN of_IN 0.2_CD is_VBZ considered_VVN as_IN appropriate_JJ for_IN the_DT mesh_NN size_NN and_CC material_NN (_( Törnqvist_NP 2003_CD )_) ._SENT 
+The_DT material_NN properties_NNS are_VBP listed_VVN in_IN Table_NN 4._CD This_DT simulation_NN is_VBZ conducted_VVN with_IN five_CD types_NNS of_IN striking_JJ ships_NNS :_: a_DT tanker_NN ,_, a_DT bulk_JJ carrier_NN ,_, a_DT freighter_NN ,_, a_DT passenger_NN ship_NN ,_, and_CC a_DT container_NN ._SENT 
+The_DT striking_JJ ship_NN is_VBZ set_VVN with_IN a_DT rigid_JJ body_NN ,_, and_CC the_DT struck_VVN ship_NN is_VBZ fixed_VVN by_IN one_CD side_NN ._SENT 
+The_DT impact_NN position_NN in_IN the_DT vertical_JJ direction_NN is_VBZ determined_VVN by_IN the_DT relative_JJ draft_NN of_IN both_DT ships_NNS ._SENT 
+The_DT influence_NN of_IN fluid_NN is_VBZ considered_VVN with_IN different_JJ added_JJ mass_NN coefficients_NNS ,_, 0.4_CD for_IN the_DT struck_VVN ship_NN in_IN sway_NN and_CC 0.02_CD for_IN the_DT striking_JJ ship_NN in_IN the_DT surge_NN ._SENT 
+3.2_CD ._SENT 
+Application_NN of_IN MCS–ANN_NP method_NN on_IN ship_NN collision_NN In_IN the_DT MCS–ANN_NP approach_NN ,_, the_DT displacement_NN ,_, impact_NN angle_NN ,_, and_CC velocity_NN are_VBP considered_VVN as_IN control_NN parameters_NNS and_CC are_VBP assumed_VVN to_TO be_VB uncorrelated_VVN ._SENT 
+Goerlandt_NP et_NP al_NP ._SENT 
+(_( 2012_CD )_) indicated_VVD that_IN different_JJ assumptions_NNS for_IN the_DT impact_NN scenario_NN will_MD cause_VV significantly_RB different_JJ results_NNS in_IN risk_NN analysis_NN ._SENT 
+This_DT claim_NN was_VBD confirmed_VVN by_IN Samuelides_NP et_CC al_NP ._SENT 
+(_( 2008_CD )_) ,_, Ståhlberg_NP et_CC al_NP ._SENT 
+(_( 2013_CD )_) ,_, and_CC Goerlandt_NP et_NP al_NP ._SENT 
+(_( 2016_CD )_) ._SENT 
+Youssef_NP et_NP al_NP ._SENT 
+(_( 2014_CD )_) suggested_VVD a_DT sampling_NN technique_NN for_IN selecting_VVG a_DT certain_JJ number_NN of_IN prospective_JJ collision_NN scenarios_NNS ._SENT 
+The_DT model_NN used_VVN by_IN Brown_NP and_CC Chen_NP (_( 2002_CD )_) is_VBZ employed_VVN to_TO verify_VV the_DT feasibility_NN of_IN the_DT method_NN proposed_VVN in_IN this_DT study_NN ._SENT 
+Figure_NN 8._CD Worldwide_NP all_DT tankers_NNS DWT_NN distribution_NN ._SENT 
+(_( This_DT figure_NN is_VBZ available_JJ in_IN colour_NN online_JJ ._SENT 
+)_) Figure_NP 9._CD Worldwide_NP all_DT bulk_JJ cargo_NN DWT_NN distribution_NN ._SENT 
+(_( This_DT figure_NN is_VBZ available_JJ in_IN colour_NN online_JJ ._SENT 
+)_) Figure_NP 10._CD Worldwide_NP all_DT freighters_NNS DWT_NN distribution_NN ._SENT 
+(_( This_DT figure_NN is_VBZ available_JJ in_IN colour_NN online_JJ ._SENT 
+)_) Figure_NP 11._CD Worldwide_NP all_DT passenger_NN DWT_NN distribution_NN ._SENT 
+(_( This_DT figure_NN is_VBZ available_JJ in_IN colour_NN online_JJ ._SENT 
+)_) Figure_NP 12._CD Worldwide_NP all_DT container_NN DWT_NN distribution_NN ._SENT 
+(_( This_DT figure_NN is_VBZ available_JJ in_IN colour_NN online_JJ ._SENT 
+)_) Table_NN 5._CD Displacement_NN distributions_NNS of_IN each_DT type_NN striking_JJ ship_NN ._SENT 
+Figure_NN 13._CD Probability_NN of_IN striking_JJ ship_NN type_NN ._SENT 
+(_( This_DT figure_NN is_VBZ available_JJ in_IN colour_NN online_JJ ._SENT 
+)_) The_DT parameters_NNS of_IN collision_NN scenarios_NNS in_IN MCS_NP are_VBP sampled_VVN from_IN the_DT probability_NN density_NN distribution_NN ._SENT 
+The_DT best-fit_JJ distributions_NNS for_IN displacement_NN of_IN each_DT type_NN are_VBP shown_VVN in_IN Figures_NNS 8–12_JJ (_( ORI_NP 1980_CD )_) ,_, and_CC the_DT specific_JJ description_NN is_VBZ displayed_VVN in_IN Table_NN 5._CD The_DT distributions_NNS for_IN different_JJ striking_JJ ship_NN types_NNS are_VBP different_JJ and_CC must_MD be_VB applied_VVN individually_RB ._SENT 
+Thus_RB ,_, the_DT type_NN of_IN striking_JJ ship_NN is_VBZ considered_VVN as_IN a_DT reference_NN parameter_NN for_IN identifying_VVG the_DT distribution_NN and_CC range_NN of_IN the_DT striking_JJ ship_NN displacement_NN but_CC not_RB as_IN a_DT control_NN parameter_NN in_IN this_DT paper_NN ._SENT 
+The_DT probability_NN of_IN collision_NN for_IN each_DT type_NN of_IN striking_JJ ship_NN is_VBZ displayed_VVN in_IN Figure_NP 13._CD These_DT probabilities_NNS were_VBD globally_RB derived_VVN from_IN the_DT fraction_NN of_IN ship_NN type_NN by_IN Lloyds_NP (_( 1993_CD )_) ._SENT 
+The_DT bow_NN shape_NN and_CC the_DT bow_NN height_NN of_IN all_DT striking_JJ ships_NNS are_VBP assumed_VVN to_TO be_VB identical_JJ with_IN the_DT tanker_NN ._SENT 
+The_DT curve_NN of_IN the_DT bow_NN height_NN displacement_NN of_IN the_DT tanker_NN ,_, which_WDT was_VBD gathered_VVN from_IN the_DT data_NNS of_IN Lloyds_NP (_( 1993_CD )_) ,_, is_VBZ shown_VVN in_IN Figure_NP 14._CD The_DT impact_NN velocity_NN data_NNS are_VBP collected_VVN from_IN the_DT Sandia_NP National_NP Laboratories_NPS (_( 1998_CD )_) ,_, and_CC limited_JJ ship_NN collision_NN data_NNS is_VBZ obtained_VVN from_IN USCG_NN (_( 1990_CD )_) ,_, as_RB shown_VVN in_IN Figure_NP 15._CD Brown_NP and_CC Chen_NP (_( 2002_CD )_) indicated_VVD that_IN a_DT normal_JJ distribution_NN (_( M_NP =_SYM 90°_NP ,_, S_NP =_SYM 28.97°_NN )_) is_VBZ suitable_JJ for_IN the_DT collision_NN angle_NN data_NNS derived_VVN from_IN Sandia_NP National_NP Laboratories_NPS (_( 1998_CD )_) ,_, which_WDT ranges_VVZ from_IN 0°_NN to_TO 180°_NN ._SENT 
+Figure_NN 14._CD All_NP tankers_NNS bow_VVP height_NN vs._IN displacement_NN ._SENT 
+(_( This_DT figure_NN is_VBZ available_JJ in_IN colour_NN online_JJ ._SENT 
+)_) Figure_NP 15._CD Speed_NN distribution_NN of_IN striking_JJ ship_NN ._SENT 
+(_( This_DT figure_NN is_VBZ available_JJ in_IN colour_NN online_JJ ._SENT 
+)_) A_DT three-layer_NP BP_NP network_NN is_VBZ employed_VVN ,_, and_CC the_DT input_NN layer_NN includes_VVZ three_CD neurons_NNS that_WDT correspond_VV to_TO the_DT three_CD collision_NN parameters_NNS mentioned_VVD earlier_RBR ._SENT 
+One_CD neuron_NN ,_, which_WDT represents_VVZ the_DT collision_NN penetration_NN length_NN ,_, is_VBZ present_JJ in_IN the_DT output_NN layer_NN ._SENT 
+A_DT logsig_NP function_NN is_VBZ selected_VVN as_IN the_DT transfer_NN function_NN in_IN the_DT hidden_JJ layer_NN ,_, and_CC a_DT purelin_NP function_NN is_VBZ used_VVN for_IN the_DT output_NN layer_NN ._SENT 
+In_IN this_DT paper_NN ,_, the_DT data_NNS for_IN establishing_VVG the_DT BP_NP model_NN comprise_VVP of_IN three_CD groups_NNS ._SENT 
+The_DT first_JJ training_NN group_NN modifies_VVZ the_DT connection_NN weights_NNS ,_, decides_VVZ when_WRB to_TO stop_VV training_NN ,_, and_CC optimises_VVZ the_DT network_NN structure_NN ._SENT 
+The_DT second_JJ validation_NN group_NN checks_VVZ the_DT validity_NN of_IN the_DT BP_NP model_NN ._SENT 
+The_DT third_JJ test_NN group_NN checks_VVZ the_DT generalising_VVG ability_NN of_IN the_DT BP_NP model_NN ._SENT 
+After_IN numerous_JJ trials_NNS ,_, the_DT number_NN of_IN neurons_NNS in_IN the_DT hidden_JJ layer_NN is_VBZ set_VVN to_TO 12._CD Therefore_RB ,_, the_DT structure_NN for_IN the_DT BP_NP model_NN is_VBZ built_VVN as_IN a_DT type_NN of_IN 3-12-1_CD ._SENT 
+The_DT BP_NP model_NN is_VBZ programmed_VVN in_IN MATLAB_NN for_IN the_DT iterations_NNS in_IN the_DT damage_NN assessment_NN procedure_NN ._SENT 
+<Section> 4._CD Results_NNS </Section> The_DT correlation_NN coefficient_NN is_VBZ selected_VVN to_TO estimate_VV the_DT accuracy_NN of_IN the_DT BP_NP model_NN and_CC is_VBZ expressed_VVN as_RB follows_VVZ :_: @(3_NP )_) where_WRB xi_NN represents_VVZ the_DT calculated_JJ penetration_NN length_NN ,_, x¯_NP is_VBZ the_DT average_JJ penetration_NN length_NN ,_, yi_NP represents_VVZ the_DT calculated_JJ penetration_NN length_NN generated_VVN by_IN the_DT BP_NP model_NN ,_, y¯_NP is_VBZ the_DT average_JJ penetration_NN length_NN ,_, and_CC n_NN indicates_VVZ the_DT number_NN of_IN BP_NP training_NN data_NNS ,_, validation_NN ,_, and_CC test_NN sets_NNS ._SENT 
+ r2_NP shows_VVZ the_DT degree_NN of_IN correlation_NN between_IN the_DT results_NNS generated_VVN by_IN BP_NP model_NN and_CC the_DT numerical_JJ method_NN ._SENT 
+In_IN this_DT paper_NN ,_, 75_CD %_NN of_IN the_DT data_NN is_VBZ used_VVN for_IN training_NN ,_, 10_CD %_NN is_VBZ used_VVN for_IN validation_NN ,_, and_CC 15_CD %_NN is_VBZ used_VVN for_IN testing_NN ._SENT 
+The_DT convergence_NN of_IN the_DT BP_NP model_NN is_VBZ also_RB tested_VVN with_IN a_DT population_NN size_NN of_IN samples_NNS from_IN 55_CD to_TO 70._CD The_DT generalised_VVN results_NNS in_IN Table_NN 6_CD show_VVP that_IN the_DT trained_JJ BP_NP model_NN is_VBZ convergent_JJ ._SENT 
+When_WRB the_DT number_NN of_IN training_NN samples_NNS is_VBZ increased_VVN to_TO 70_CD ,_, the_DT average_JJ absolute_JJ value_NN ,_, ∣∣RE¯¯¯¯¯∣∣_NP ,_, is_VBZ 0.268_CD %_NN ,_, which_WDT is_VBZ sufficiently_RB small_JJ and_CC indicates_VVZ that_IN the_DT BP_NP model_NN can_MD be_VB established_VVN accurately_RB based_VVN on_IN those_DT samples_NNS ._SENT 
+In_IN Figure_NP 16_CD ,_, small_JJ generalisation_NN errors_NNS and_CC good_JJ correlation_NN (_( 0.99939_CD for_IN the_DT training_NN sets_NNS ,_, 0.99732_CD for_IN the_DT test_NN sets_VVZ ,_, and_CC 0.99725_CD for_IN the_DT validation_NN sets_NNS )_) can_MD be_VB observed_VVN between_IN the_DT results_NNS generalised_VVN and_CC calculated_VVN ,_, thereby_RB indicating_VVG that_IN the_DT BP_NP model_NN can_MD be_VB used_VVN to_TO represent_VV the_DT repeated_JJ calculation_NN of_IN the_DT numerical_JJ method_NN with_IN little_JJ bias_NN ._SENT 
+The_DT model_NN can_MD generate_VV an_DT accurate_JJ value_NN of_IN the_DT corresponding_JJ collision_NN damage_NN based_VVN on_IN the_DT basic_JJ random_JJ input_NN parameters_NNS ._SENT 
+The_DT weight_NN matrices_NNS and_CC bias_NN vectors_NNS of_IN this_DT model_NN are_VBP shown_VVN in_IN Table_NN 7._CD Table_NN 6._CD Generalised_VVN results_NNS of_IN damage_NN penetration_NN ._SENT 
+Figure_NN 16._CD Comparison_NN between_IN the_DT ANN_NP model_NN and_CC the_DT FEM_NP analysis_NN using_VVG (_( a_DT )_) training_NN data_NN ,_, (_( b_LS )_) test_NN data_NNS ,_, and_CC (_( c_LS )_) validation_NN data_NNS ._SENT 
+The_DT figure_NN illustrates_VVZ the_DT generalisation_NN errors_NNS relation_NN between_IN the_DT generalised_VVN results_NNS the_DT ANN_NP model_NN and_CC the_DT FEM_NP numerical_JJ analysis_NN results_NNS in_IN normalised_VVN form_NN ._SENT 
+(_( This_DT figure_NN is_VBZ available_JJ in_IN colour_NN online_JJ ._SENT 
+)_) Table_NN 7._CD Outcome_NN of_IN the_DT trained_JJ BP_NP model_NN ._SENT 
+The_DT number_NN of_IN samples_NNS in_IN the_DT MCS_NP process_NN is_VBZ 10,000_CD (_( Brown_NP and_CC Chen_NP 2002_CD )_) ;_: in_IN this_DT study_NN ,_, however_RB ,_, the_DT required_JJ number_NN of_IN samples_NNS in_IN MCS_NP is_VBZ estimated_VVN by_IN Equation_NN (_( 1_CD )_) ,_, and_CC the_DT maximum_JJ allowable_JJ error_NN ,_, Dn_NP ,_, is_VBZ assumed_VVN to_TO be_VB ±_JJ 1°_NN for_IN the_DT impact_NN angle_NN ,_, ±0.01_JJ k_NN DWT_NN for_IN the_DT striking_JJ ship_NN displacement_NN ,_, and_CC ±0.1_JJ m/s_NNS for_IN the_DT impact_NN velocity_NN ._SENT 
+A_DT parameter_NN of_IN 95_CD %_NN was_VBD selected_VVN as_IN the_DT confidence_NN level_NN γ_NN ._SENT 
+The_DT required_VVN size_NN of_IN sampling_NN obtained_VVN through_IN Equation_NN (_( 1_CD )_) is_VBZ 18,496_CD ._SENT 
+In_IN this_DT paper_NN ,_, the_DT sizes_NNS of_IN sampling_NN ,_, 10,000_CD and_CC 18,496_CD ,_, are_VBP both_CC calculated_VVN to_TO predict_VV the_DT penetration_NN length_NN distribution_NN ._SENT 
+In_IN the_DT MCS–ANN_NP approach_NN ,_, the_DT penetration_NN length_NN is_VBZ exported_VVN in_IN the_DT form_NN of_IN numerical_JJ data_NNS as_IN the_DT output_NN value_NN of_IN the_DT BP_NP model_NN ,_, which_WDT indicates_VVZ that_IN no-penetration_NN cases_NNS will_MD not_RB be_VB presented_VVN ._SENT 
+However_RB ,_, 2533_CD no-penetration_NN cases_NNS were_VBD identified_VVN in_IN Brown_NP and_CC Chen_NP 's_POS study_NN ._SENT 
+For_IN comparison_NN ,_, these_DT cases_NNS are_VBP categorised_VVN as_IN a_DT group_NN with_IN 0.5_CD m_NN maximum_NN penetration_NN ,_, and_CC the_DT results_NNS are_VBP shown_VVN in_IN Figure_NP 17._CD The_DT predicted_VVN distribution_NN of_IN penetration_NN acquired_VVN from_IN the_DT MCS–ANN_NP approach_NN is_VBZ consistent_JJ with_IN the_DT predicted_VVN distribution_NN of_IN penetration_NN from_IN Brown_NP and_CC Chen_NP (_( 2002_CD )_) ._SENT 
+Figure_NN 17._CD Comparison_NN of_IN the_DT predicted_VVN penetration_NN distribution_NN ._SENT 
+(_( This_DT figure_NN is_VBZ available_JJ in_IN colour_NN online_JJ ._SENT 
+)_) Figure_NP 18._CD Comparison_NN of_IN penetration_NN (_( Chen_NP 2000_CD )_) ._SENT 
+(_( This_DT figure_NN is_VBZ available_JJ in_IN colour_NN online_JJ ._SENT 
+)_) <Section> 5._CD Discussion_NN </Section> 5.1_CD ._SENT 
+Results_NNS analysis_NN Figure_NN 17_CD shows_VVZ that_IN the_DT penetration_NN statistics_NNS in_IN the_DT span_NN where_WRB the_DT penetration_NN is_VBZ greater_JJR than_IN 2_CD m_NN are_VBP generally_RB identical_JJ ._SENT 
+The_DT value_NN in_IN the_DT span_NN where_WRB the_DT penetration_NN is_VBZ less_JJR than_IN 2_CD m_NN is_VBZ slightly_RB different_JJ ._SENT 
+Such_JJ results_NNS are_VBP explained_VVN as_RB follows_VVZ :_: (_( 1_LS )_) The_DT accuracy_NN of_IN the_DT simulation_NN program_NN of_IN simplified_VVN collision_NN SIMCOL_NN is_VBZ lower_JJR than_IN that_DT of_IN LS–DYNA_NP ,_, as_RB shown_VVN in_IN Figure_NP 18._CD (_( 2_LS )_) Collision_NN damage_NN is_VBZ influenced_VVN by_IN the_DT shape_NN of_IN the_DT ship_NN bow_NN ._SENT 
+The_DT bow_NN shapes_VVZ of_IN five_CD ship_NN types_NNS are_VBP different_JJ ._SENT 
+To_TO simplify_VV the_DT complexity_NN of_IN sampling_NN ,_, the_DT differences_NNS between_IN bow_NN shapes_NNS are_VBP disregarded_VVN in_IN this_DT paper_NN ._SENT 
+In_IN addition_NN ,_, the_DT bow_NN shape_NN used_VVN in_IN this_DT method_NN is_VBZ distinct_JJ from_IN the_DT bow_NN shape_NN used_VVN in_IN Brown_NP and_CC Chen_NP (_( 2002_CD )_) ._SENT 
+We_PP replaced_VVD the_DT LS–DYNA_NN with_IN an_DT ANN_NP model_NN to_TO reduce_VV the_DT effort_NN required_VVN for_IN numerical_JJ calculations_NNS ._SENT 
+Compared_VVN with_IN 10,000_CD SIMCOL_NN runs_NNS ,_, only_RB 70_CD typical_JJ collision_NN cases_NNS require_VVP calculation_NN by_IN LS–DYNA_NP in_IN the_DT MCS–ANN_NP approach_NN ;_: this_DT result_NN indicates_VVZ the_DT efficiency_NN of_IN the_DT proposed_VVN method_NN ._SENT 
+Moreover_RB ,_, the_DT number_NN of_IN samples_NNS (_( 18,496_CD )_) required_VVN in_IN the_DT conventional_JJ MCS_NP method_NN is_VBZ calculated_VVN in_IN the_DT proposed_VVN approach_NN to_TO improve_VV the_DT accuracy_NN of_IN assessment_NN ._SENT 
+5.2_CD ._SENT 
+Uncertainty_NN analysis_NN for_IN the_DT collision_NN damage_NN assessment_NN Probability_NN is_VBZ a_DT tool_NN used_VVN to_TO express_VV uncertainty_NN ,_, which_WDT is_VBZ the_DT main_JJ component_NN of_IN risk_NN ;_: possible_JJ uncertainty_NN factors_NNS in_IN the_DT background_NN knowledge_NN must_MD be_VB highlighted_VVN ,_, and_CC their_PP$ effect_NN on_IN risk_NN should_MD be_VB assessed_VVN (_( Flage_NP and_CC Aven_NP 2009_CD )_) ._SENT 
+Goerlandt_NP and_CC Montewka_NP (_( 2015b_NP )_) suggested_VVD that_IN uncertainty_NN should_MD be_VB systematically_RB considered_VVN in_IN risk_NN assessment_NN and_CC that_IN several_JJ applications_NNS should_MD be_VB conducted_VVN to_TO show_VV the_DT relevance_NN of_IN uncertainty_NN treatment_NN ._SENT 
+Sormunen_NP et_NP al_NP ._SENT 
+(_( 2015_CD )_) performed_VVD an_DT uncertainty_NN analysis_NN in_IN maritime_JJ risk_NN analysis_NN through_IN a_DT case_NN study_NN on_IN chemical_JJ tanker_NN collisions_NNS ._SENT 
+In_IN this_DT paper_NN ,_, to_TO accomplish_VV quantitative_JJ analysis_NN of_IN damage_NN in_IN ship_NN collision_NN risk_NN assessment_NN ,_, the_DT uncertainty_NN of_IN each_DT collision_NN random_JJ parameter_NN is_VBZ considered_VVN as_IN a_DT certain_JJ assumption_NN similar_JJ to_TO the_DT uncertainty_NN of_IN each_DT collision_NN random_JJ parameter_NN in_IN Brown_NP and_CC Chen_NP 's_POS study_NN (_( 2002_CD )_) ,_, which_WDT was_VBD obtained_VVN by_IN historical_JJ data_NNS ._SENT 
+Moreover_RB ,_, several_JJ assumptions_NNS are_VBP made_VVN in_IN the_DT numerical_JJ simulation_NN to_TO save_VV time_NN and_CC computing_NN resources_NNS :_: Only_RB one_CD section_NN of_IN the_DT ship_NN is_VBZ modelled_VVN based_VVN on_IN the_DT assumption_NN that_IN collision_NN probability_NN among_IN ships_NNS is_VBZ consistent_JJ (_( IMO_NP 1995_CD )_) ._SENT 
+This_DT assumption_NN results_NNS from_IN the_DT application_NN of_IN the_DT collision_NN damage_NN model_NN to_TO mid-ship_NN sections_NNS ,_, whereas_IN the_DT hull_NN structural_JJ capacity_NN near_IN bulkheads_NNS is_VBZ greater_JJR than_IN the_DT hull_NN structural_JJ capacity_NN near_IN the_DT midpoint_NN between_IN bulkheads_NNS ._SENT 
+However_RB ,_, in_IN other_JJ impact_NN scenario_NN models_NNS (_( Youssef_NP et_NP al_NP ._SENT 
+2013_CD ,_, 2014_CD )_) ,_, the_DT probability_NN is_VBZ not_RB uniform_JJ ._SENT 
+Under_IN these_DT assumptions_NNS ,_, other_JJ ship_NN sections_NNS require_VVP modelling_VVG ._SENT 
+The_DT mesh_NN size_NN affects_VVZ the_DT damage_NN in_IN collision_NN cases_NNS ._SENT 
+Kõrgesaar_NP and_CC Romanoff_NP (_( 2014_CD )_) studied_VVD the_DT influence_NN of_IN mesh_NN size_NN ,_, stress_NN triaxiality_NN ,_, and_CC damage-induced_JJ softening_NN on_IN the_DT ductile_JJ fracture_NN of_IN large-scale_JJ shell_NN structures_NNS ._SENT 
+In_IN this_DT paper_NN ,_, the_DT mesh_NN size_NN is_VBZ set_VVN to_TO 0.12_CD m_NN ,_, and_CC the_DT corresponding_JJ failure_NN plastic_NN strain_NN is_VBZ 0.2_CD ;_: this_DT value_NN is_VBZ considered_VVN as_IN an_DT appropriate_JJ value_NN for_IN the_DT mesh_NN size_NN ,_, 0.12_CD (_( Törnqvist_NN 2003_CD )_) ._SENT 
+Assuming_VVG that_IN rigidity_NN is_VBZ common_JJ in_IN striking_JJ ships_NNS but_CC deformable_JJ bows_NNS are_VBP also_RB present_JJ ,_, the_DT damage_NN behaviour_NN varies_VVZ ._SENT 
+Haris_NP and_CC Amdahl_NP (_( 2013_CD )_) studied_VVD a_DT ship–ship_NN collision_NN damage_NN accounting_NN for_IN bow_NN and_CC side_NN deformation_NN interactions_NNS ._SENT 
+The_DT assumptions_NNS made_VVN in_IN the_DT numerical_JJ simulation_NN may_MD also_RB have_VH a_DT greater_JJR or_CC lesser_JJR degree_NN that_WDT constitutes_VVZ an_DT uncertainty_NN factor_NN ._SENT 
+Each_DT uncertainty_NN factor_NN is_VBZ assessed_VVN through_IN a_DT simple_JJ uncertainty_NN rating_NN scheme_NN (_( Table_NN 8_CD )_) proposed_VVN in_IN Flage_NN and_CC Aven_JJ (_( 2009_CD )_) and_CC is_VBZ outlined_VVN in_IN Appendix_NN 1._CD The_DT collision_NN damage_NN model_NN is_VBZ considered_VVN as_IN a_DT basic_JJ factor_NN ,_, and_CC the_DT effect_NN of_IN the_DT assumptions_NNS made_VVN in_IN the_DT numerical_JJ simulation_NN is_VBZ considered_VVN ._SENT 
+Table_NN 8._CD Uncertainties_NNS underlying_VVG the_DT damage_NN assessment_NN ._SENT 
+For_IN example_NN ,_, ME5_NP is_VBZ considered_VVN as_IN a_DT collision_NN damage_NN model_NN ._SENT 
+Numerical_JJ method_NN coupled_VVN with_IN an_DT ANN_NP is_VBZ used_VVN to_TO calculate_VV collision_NN damage_NN ._SENT 
+The_DT assumptions_NNS in_IN the_DT numerical_JJ simulation_NN ,_, such_JJ as_IN the_DT rigid_JJ striking_JJ bow_NN and_CC mesh_NN size_NN ,_, are_VBP reasonable_JJ ._SENT 
+In_IN addition_NN ,_, much_RB of_IN the_DT relevant_JJ support_NN data_NNS ,_, such_JJ as_IN the_DT striking_JJ probability_NN along_IN a_DT ship_NN ,_, is_VBZ derived_VVN from_IN IMO_NP (_( 1995_CD )_) ._SENT 
+The_DT accuracy_NN of_IN the_DT numerical_JJ model_NN and_CC the_DT BP_NP model_NN has_VHZ been_VBN verified_VVN in_IN the_DT method_NN section_NN ,_, but_CC no_DT general_JJ consistency_NN is_VBZ available_JJ for_IN the_DT collision_NN damage_NN model_NN used_VVN in_IN this_DT paper_NN ._SENT 
+For_IN these_DT reasons_NNS ,_, ME5_NP is_VBZ considered_VVN to_TO involve_VV low_JJ to_TO medium_JJ uncertainty_NN ._SENT 
+<Section> 6._CD Conclusion_NN </Section> In_IN this_DT paper_NN ,_, a_DT combined_JJ MCS–ANN_NP method_NN was_VBD proposed_VVN to_TO assess_VV the_DT probabilistic_JJ extent_NN of_IN the_DT damage_NN in_IN collision_NN risk_NN assessment_NN ._SENT 
+The_DT present_JJ method_NN combines_VVZ the_DT calculation_NN accuracy_NN of_IN a_DT numerical_JJ method_NN and_CC the_DT ANN_NP 's_POS capacity_NN for_IN generalisation_NN ._SENT 
+The_DT ANN_NP significantly_RB reduced_VVD the_DT number_NN of_IN numerical_JJ calculations_NNS and_CC eliminated_VVD the_DT sample_NN size_NN limitation_NN of_IN MCS_NP ._SENT 
+The_DT reliability_NN and_CC superiority_NN (_( measured_VVN in_IN terms_NNS of_IN efficiency_NN and_CC accuracy_NN )_) of_IN the_DT MCS–ANN_NP approach_NN in_IN ship_NN collision_NN risk_NN assessment_NN was_VBD verified_VVN by_IN comparing_VVG the_DT penetration_NN damage_NN distribution_NN obtained_VVN by_IN Brown_NP and_CC Chen_NP (_( 2002_CD )_) to_TO that_DT obtained_VVN in_IN the_DT present_JJ paper_NN ._SENT 
+The_DT proposed_VVN method_NN can_MD be_VB applied_VVN to_TO analyse_VV other_JJ complex_NN ,_, uncertain_JJ offshore_JJ structural_JJ problems_NNS ._SENT 
+<Section> Disclosure_NN statement_NN </Section> No_DT potential_JJ conflict_NN of_IN interest_NN was_VBD reported_VVN by_IN the_DT authors_NNS ._SENT 
+<Section> Additional_JJ information_NN </Section> Funding_NP This_DT work_NN was_VBD supported_VVN by_IN the_DT National_NP 111_CD project_NN [_SYM grant_NN number_NN B07019_NP ]_SYM from_IN the_DT Administration_NN of_IN Foreign_JJ Experts_NNS Affairs_NPS and_CC Ministry_NP of_IN Education_NP of_IN China_NP ;_: the_DT “offshore_JJ project_NN on_IN development_NN of_IN failure_NN database_NN of_IN FPSO_NP devices_NNS and_CC risk_NN assessment_NN system_NN [_SYM grant_NN number_NN 201450905]”_NN from_IN the_DT Ministry_NP of_IN Industry_NP and_CC Information_NP Technology_NP of_IN China_NP ;_: the_DT National_NP Natural_NP Science_NP Foundation_NP of_IN China_NP [_SYM grant_NN number_NN 51509045_CD ]_SYM ;_: the_DT Fundamental_JJ Research_NP Funds_NNS for_IN the_DT Central_JJ Universities_NNS [_SYM grant_NN number_NN HEUCFM160101_NN ]_SYM ;_: the_DT Science_NP Foundation_NP of_IN Heilongjiang_NP Province_NP [_SYM grant_NN number_NN QC2014C049_NP ]_SYM ._SENT 
+<Section> References_NNS </Section> Amstadter_VVP BL_NP ._SENT 
+1971._CD Reliability_NN mathematics_NNS :_: fundamentals_NNS ,_, practices_NNS ,_, procedures_NNS ._SENT 
+Vol_NP ._SENT 
+1._CD New_NP York_NP (_( NY_NP )_) :_: McGraw-Hill_NP Companies_NPS ._SENT 
+[_SYM ASIS_NN ]_SYM Association_NP of_IN Structural_NP Improvement_NP of_IN Shipbuilding_NP ._SENT 
+1993._CD Prediction_NN methodology_NN of_IN tanker_NN structural_JJ failure&_JJ consequential_JJ oil_NN spill_NN ._SENT 
+Tokyo_NP :_: Association_NP of_IN Structural_NP Improvement_NP of_IN Shipbuilding_NP Industry_NP of_IN Japan_NP ._SENT 
+p._NP III.39–III.47_JJ ._SENT 
+Banda_NP OAV_NP ,_, Goerlandt_NP F_NP ,_, Montewka_NP J_NP ,_, Kujala_NP P._NP 2015._CD A_DT risk_NN analysis_NN of_IN winter_NN navigation_NN in_IN Finnish_JJ sea_NN areas_NNS ._SENT 
+Accid_JJ Anal_JJ Prev_NP ._SENT 
+79:100–116_NP ._SENT 
+Brown_NP AJ_NP ,_, Chen_NP D._NP 2002._CD Probabilistic_JJ method_NN for_IN predicting_VVG ship_NN collision_NN damage_NN ._SENT 
+Ocean_NP Eng_NP Int_NP J._NP 6(1):54–65_NP ._SENT 
+Calle_NP MAG_NN ,_, Alves_NP M._NP 2015._CD A_DT review-analysis_NN on_IN material_NN failure_NN modeling_NN in_IN ship_NN collision_NN ._SENT 
+Ocean_NP Eng_NP ._SENT 
+106:20–38_NP ._SENT 
+Chen_NP D._NP 2000._CD Simplified_VVN collision_NN model_NN (_( SIMCOL_NN )_) [_SYM dissertation_NN ]_SYM ._SENT 
+Blacksburg_NP (_( VA_NP )_) :_: Virginia_NP Tech_NP ._SENT 
+Crake_NN K._NP 1995._CD Probabilistic_JJ evaluations_NNS of_IN tanker_NN ship_NN damage_NN in_IN grounding_VVG events_NNS [_SYM naval_JJ engineer_NN thesis_NN ]_SYM ._SENT 
+Cambridge_NP (_( MA_NN )_) :_: MIT_NP ._SENT 
+Ehlers_NP S_NP ,_, Tabri_NP K._NP 2012._CD A_DT combined_JJ numerical_JJ and_CC semi-analytical_JJ collision_NN damage_NN assessment_NN procedure_NN ._SENT 
+Mar_NP Struct_NN ._SENT 
+28(1):101–119_NP ._SENT 
+Eleftheria_NP E_NP ,_, Apostolos_NP P_NN ,_, Markos_NP V._NP 2016._CD Statistical_NP analysis_NN of_IN ship_NN accidents_NNS and_CC review_NN of_IN safety_NN level_NN ._SENT 
+Saf_NP Sci_NP ._SENT 
+85:282–292_NP ._SENT 
+Fan_NN H._NP 2010._CD Risk_NN analysis_NN of_IN FPSO_NP external_JJ transmission_NN system_NN [_SYM master_NN 's_POS thesis_NN ]_SYM ._SENT 
+Harbin_NP (_( China_NP )_) :_: Harbin_NP Engineering_NP University_NP ._SENT 
+Chinese_JJ ._SENT 
+Flage_NP R_NP ,_, Aven_NP T._NP 2009._CD Expressing_VVG and_CC communicating_VVG uncertainty_NN in_IN relation_NN to_TO quantitative_JJ risk_NN analysis_NN ._SENT 
+Reliab_NP Risk_NP Anal_JJ Theory_NN Appl_NN ._SENT 
+2(13):9–18_NP ._SENT 
+Goerlandt_NP F_NP ,_, Goite_NP H_NP ,_, Banda_NP OAV_NP ,_, Höglund_NP A_NP ,_, Ahonen-Rainio_NP P_NN ,_, Lensu_NP M._NP 2016._CD An_DT analysis_NN of_IN wintertime_NN navigational_JJ accidents_NNS in_IN the_DT Northern_NP Baltic_NP Sea_NP ._SENT 
+Safety_NP Science_NP ,_, doi_NP :_: 10.1016/j.ssci.2016.09.011_JJ ._SENT 
+Goerlandt_NP F_NP ,_, Montewka_NP J._NP 2015a_NP ._SENT 
+A_DT framework_NN for_IN risk_NN analysis_NN of_IN maritime_JJ transportation_NN systems_NNS :_: a_DT case_NN study_NN for_IN oil_NN spill_NN from_IN tankers_NNS in_IN a_DT ship–ship_NN collision_NN ._SENT 
+Saf_NP Sci_NP ._SENT 
+76:42–66_NP ._SENT 
+Goerlandt_NP F_NP ,_, Montewka_NP J._NP 2015b_NP ._SENT 
+Maritime_JJ transportation_NN risk_NN analysis_NN :_: review_NN and_CC analysis_NN in_IN light_NN of_IN some_DT foundational_JJ issues_NNS ._SENT 
+Reliab_NP Eng_NP Syst_NP Saf_NP ._SENT 
+138:115–134_NP ._SENT 
+Goerlandt_NP F_NP ,_, Ståhlberg_NP K_NP ,_, Kujala_NP P._NP 2012._CD Influence_NN of_IN impact_NN scenario_NN models_NNS on_IN collision_NN risk_NN analysis_NN ._SENT 
+Ocean_NP Eng_NP ._SENT 
+47:74–87_JJ ._SENT 
+Goh_NP ATC_NP ,_, Kulhawy_NP FH_NP ._SENT 
+2005._CD Reliability_NN assessment_NN of_IN serviceability_NN performance_NN of_IN braced_VVN retaining_VVG walls_NNS using_VVG a_DT neural_JJ network_NN approach_NN ._SENT 
+Int_NP J_NP Numer_NP Anal_JJ Methods_NNS Geomech_VVP ._SENT 
+29(6):627–642_NP ._SENT 
+Gong_NP G_NP ,_, Qian_NP M._NP 2004._CD Application_NN of_IN stochastic_JJ process_NN and_CC application_NN in_IN algorithms_NNS and_CC Intelligent_JJ Computing_NP ._SENT 
+Bei_NP Jing_NP :_: Tsinghua_NP University_NP Press_NP ._SENT 
+Chinese_JJ ._SENT 
+Hagan_NP MT_NP ,_, Demuth_NP HB_NP ,_, Beale_NP M._NP 1996._CD Neural_JJ network_NN design_NN ._SENT 
+Boston_NP (_( MA_NN )_) :_: PWS_NP Publishing_NP ._SENT 
+Hallquist_NP JO_NN ._SENT 
+2006._CD LS-DYNA_NP theory_NN manual_JJ ._SENT 
+Livermore_NP (_( CA_MD )_) :_: LSTC_NP (_( Livermore_NP Software_NP Technology_NP Corporation_NP )_) ._SENT 
+Haris_NP S_NP ,_, Amdahl_NP J._NP 2013._CD Analysis_NN of_IN ship–ship_NN collision_NN damage_NN accounting_NN for_IN bow_NN and_CC side_NN deformation_NN interaction_NN ._SENT 
+Mar_NP Struct_NN ._SENT 
+32:18–48_NP ._SENT 
+Hattab_NP N_NP ,_, Hambli_NP R_NP ,_, Motelica-Heino_NP M_NP ,_, Mench_NP M._NP 2013._CD Neural_JJ network_NN and_CC Monte_NP Carlo_NP simulation_NN approach_NN to_TO investigate_VV variability_NN of_IN copper_NN concentration_NN in_IN phytoremediated_JJ contaminated_JJ soils_NNS ._SENT 
+J_NP Environ_VVP Manage_VV ._SENT 
+129:134–142_NP ._SENT 
+Hornik_NP K_NP ,_, Stinchcombe_NP M_NP ,_, White_NP H._NP 1989._CD Multilayer_JJ feedforward_JJ networks_NNS are_VBP universal_JJ approximators_NNS ._SENT 
+Neural_JJ Netw_NNS ._SENT 
+2(5):359–366_NP ._SENT 
+Hornik_NP K_NP ,_, Stinchcombe_NP M_NP ,_, White_NP H._NP 1990._CD Universal_NP approximation_NN of_IN an_DT unknown_JJ mapping_NN and_CC its_PP$ derivatives_NNS using_VVG multilayer_JJ feedforward_JJ networks_NNS ._SENT 
+Neural_JJ Netw_NNS ._SENT 
+3(5):551–560_NP ._SENT 
+Hutchison_NP BL_NP ._SENT 
+1986._CD Barge_NP collisions_NNS ,_, rammings_NNS and_CC groundings_NNS �_JJ �_NN an_DT engineering_NN assessment_NN of_IN the_DT potential_NN for_IN damage_NN to_TO radioactive_JJ material_NN transport_NN casks_NNS ._SENT 
+Alexandria_NP (_( VA_NP )_) :_: National_JJ Academies_NNS of_IN Sciences_NPS ,_, Engineering_NP ,_, and_CC Medicine_NP Press_NP ;_: Report_NP No._NN :_: SAND85-7165_NP TTC-05212_NP ._SENT 
+[_SYM IMO_NP ]_SYM International_NP Maritime_NP Organization_NP ._SENT 
+1995._CD Interim_JJ guidelines_NNS for_IN approval_NN of_IN alternative_JJ methods_NNS of_IN design_NN and_CC construction_NN of_IN oil_NN tankers_NNS under_IN Regulation_NP ,_, Resolution_NP Marine_NP Environment_NP Protection_NP Committee_NP 66_CD (_( 37_CD )_) ._SENT 
+London_NP (_( UK_NP )_) :_: IMODOCS_NNS ._SENT 
+[_SYM IOGP_NP ]_SYM International_NP Association_NP of_IN Oil_NP and_CC Gas_NP Producers_NPS ._SENT 
+2010._CD Risk_NN assessment_NN data_NNS directory_NN ._SENT 
+London_NP (_( UK_NP )_) :_: IOGP_NP ;_: Report_NP No._NN 434–17_JJ ,_, March_NP 2010._CD [_SYM IOGP_NN ]_SYM International_NP Association_NP of_IN Oil_NP and_CC Gas_NP Producers_NPS ._SENT 
+2015._CD Safety_NP performance_NN indicators_NNS �_JJ �_NP 2014_CD data_NNS ._SENT 
+London_NP (_( UK_NP )_) :_: IOGP_NP ;_: IOGP_NP Data_NP Series_NP report_NN ,_, June_NP 2015._CD Jones_NP N._NP 1989._CD On_IN the_DT dynamic_JJ inelastic_JJ failure_NN of_IN beams_VVZ ._SENT 
+In_RB :_: Wierzbicki_NP T_NN and_CC Jones_NP N_NP ,_, editors_NNS ._SENT 
+Structural_JJ failure_NN ._SENT 
+New_NP York_NP (_( NY_NP )_) :_: John_NP Wiley_NP ;_: Chapter_NP 5_CD ,_, p._NP 133–159_NP ._SENT 
+Kingston_NP GB_NP ,_, Rajabalinejad_NP M_NP ,_, Gouldby_NP BP_NP ,_, Van_NP Gelder_NN PH_NN ._SENT 
+2011._CD Computational_JJ intelligence_NN methods_NNS for_IN the_DT efficient_JJ reliability_NN analysis_NN of_IN complex_JJ flood_NN defence_NN structures_NNS ._SENT 
+Struct_NN Saf_NN ._SENT 
+33(1):64–73_NP ._SENT 
+Kõrgesaar_NP M_NP ,_, Romanoff_NP J._NP 2014._CD Influence_NN of_IN mesh_NN size_NN ,_, stress_NN triaxiality_NN and_CC damage_NN induced_VVD softening_VVG on_IN ductile_JJ fracture_NN of_IN large-scale_JJ shell_NN structures.Mar_NN Struct_NN ._SENT 
+38:1–17_JJ ._SENT 
+Lloyds_NP ,_, 1993._CD Worldwide_NP ship_NN data_NNS ,_, provided_VVN by_IN MARAD_NP ._SENT 
+Washington_NP (_( DC_NP )_) ,_, United_NP States_NPS ._SENT 
+Lützen_NP M_NP ,_, Pedersen_NP PT_NP ._SENT 
+2001._CD Ship_NN collision_NN damage_NN [_SYM dissertation_NN ]_SYM ._SENT 
+Copenhagen_NP (_( Danmarks_NP )_) :_: Technical_NP University_NP of_IN Denmark_NP ._SENT 
+Martin_NP J_NP ,_, Sabatier_NP Q_NP ,_, Gowan_NP TA_NP ,_, Giraud_NP C_NP ,_, Gurarie_NP E_NP ,_, Calleson_NP CS_NP ,_, Ortega-Ortiz_NP JG_NP ,_, Deutsch_NP CJ_NP ,_, Rycyk_NP A_NP ,_, Koslovsky_NP SM_NP ._SENT 
+2016._CD A_DT quantitative_JJ framework_NN for_IN investigating_VVG risk_NN of_IN deadly_JJ collisions_NNS between_IN marine_JJ wildlife_NN and_CC boats_NNS ._SENT 
+Methods_NNS Ecol_NN Evol_NN ._SENT 
+7(1):42–50_NP ._SENT 
+Minorsky_NP VU_NN ._SENT 
+1958._CD An_DT analysis_NN of_IN ship_NN collisions_NNS with_IN reference_NN to_TO protection_NN of_IN nuclear_JJ power_NN plants_NNS ._SENT 
+New_NP York_NP (_( NY_NP )_) :_: Sharp_NP (_( George_NP G._NP )_) Inc._NP Report_NP No._NN :_: NP-7475_NN ._SENT 
+ORI_NP ._SENT 
+1980._CD Hazardous_JJ environment_NN experienced_VVN by_IN radioactive_JJ material_NN packages_NNS transported_VVN by_IN water_NN ._SENT 
+Silver_NP Spring_NP (_( MD_NP )_) :_: Sandia_NP National_NP Laboratory_NP ,_, Department_NP of_IN Energy_NP ._SENT 
+Paik_NP JK_NP ._SENT 
+2007._CD Practical_JJ techniques_NNS for_IN finite_JJ element_NN modeling_VVG to_TO simulate_VV structural_JJ crashworthiness_NN in_IN ship_NN collisions_NNS and_CC grounding_NN (_( part_NN I_PP :_: theory_NN )_) ._SENT 
+Ships_NNS Offshore_NP Struct_NN ._SENT 
+2(1):69–80_NP ._SENT 
+Paik_NP JK_NP ,_, Hughes_NP OF_IN ._SENT 
+2006._CD Ships_NNS structures_NNS ._SENT 
+In_RB :_: RE_IN Melchers_NP and_CC R_NP Hough_NP ,_, editors_NNS ._SENT 
+Modeling_VVG complex_JJ engineering_NN structures_NNS ._SENT 
+Reston_NP (_( VA_NP )_) :_: The_DT American_NP Society_NP of_IN Civil_NP Engineers_NPS ._SENT 
+Chapter_NP 10_CD ,_, p._NP 275–312_NP ._SENT 
+Papanikolaou_NP A_NP ,_, editor_NN ._SENT 
+2009._CD Risk-based_JJ ship_NN design_NN :_: methods_NNS ,_, tools_NNS and_CC applications_NNS ._SENT 
+Berlin_NP Heidelberg_NP (_( Germany_NP )_) :_: Springer_NP Science_NP &_CC Business_NP Media_NP ._SENT 
+Pedersen_NP PT_NP ,_, Zhang_NP S._NP 1998._CD On_IN impact_NN mechanics_NNS in_IN ship_NN collisions_NNS ._SENT 
+Mar_NP Struct_NN ._SENT 
+11(10):429–449_NP ._SENT 
+Rawson_NP C_NP ,_, Crake_NN K_NP ,_, Brown_NP AJ_NP ._SENT 
+1998._CD Assessing_VVG the_DT environmental_JJ performance_NN of_IN tankers_NNS in_IN accidental_JJ grounding_NN and_CC collision_NN ._SENT 
+SNAME_NP Trans_NP ._SENT 
+106:41–58_NP ._SENT 
+Samuelides_NP MS_NN ,_, Tabri_NP K_NP ,_, Incecik_NP A_NP ,_, Dimou_NP ,_, D._NP 2008._CD Scenarios_NNS for_IN the_DT assessment_NN of_IN the_DT collision_NN behavior_NN of_IN ships_NNS ._SENT 
+Int_NP Shipbuilding_NP Prog_NP ._SENT 
+55(1–2):145–162_NP ._SENT 
+Sandia_NP National_NP Laboratories_NPS ._SENT 
+1998._CD Data_NNS and_CC methods_NNS for_IN the_DT assessment_NN of_IN the_DT risks_NNS associated_VVN with_IN the_DT maritime_JJ transport_NN of_IN radioactive_JJ materials_NNS results_NNS of_IN the_DT SeaRAM_NN program_NN studies_NNS ._SENT 
+Albuquerque_NP (_( NM_NP )_) ._SENT 
+:_: National_NP Technical_NP Information_NP Service_NP ,_, Springfield_NP ._SENT 
+Report_NN No._NN :_: SAND98-1171/2_NN ._SENT 
+Simonsen_NP BC_NP ._SENT 
+1999._CD Theory_NN and_CC validation_NN for_IN the_DT DAMAGE_NN collision_NN module_NN ._SENT 
+Joint_JJ MIT_NP industry_NN program_NN on_IN tanker_NN safety_NN ._SENT 
+Cambridge_NP (_( MA_NN )_) :_: Institute_NP of_IN Technology_NP (_( MIT_NP )_) ;_: Report_NP No._NN :_: 67._CD Sormunen_NP OVE_NP ,_, Ehlers_NP S_NP ,_, Kujala_NP P._NP 2013._CD Collision_NN consequence_NN estimation_NN model_NN for_IN chemical_NN tankers_NNS ._SENT 
+Proc_NP Inst_NP Mech_NP Eng_NP Part_NP M_NP :_: J_NP Eng_NP Marit_NP Environ_VVP ._SENT 
+227(2):98–106_NP ._SENT 
+Sormunen_NP OVE_NP ,_, Goerlandt_NP F_NP ,_, Häkkinen_NP J_NP ,_, Posti_NP A_NP ,_, Hänninen_NP M_NP ,_, Montewka_NP J_NP ,_, Ståhlberg_NP K_NP ,_, Kujala_NP P._NP 2015._CD Uncertainty_NN in_IN maritime_JJ risk_NN analysis_NN :_: extended_JJ case_NN study_NN on_IN chemical_JJ tanker_NN collisions_NNS ._SENT 
+Proc_NP Inst_NP Mech_NP Eng_NP Part_NP M_NP :_: J_NP Eng_NP Marit_NP Environ_VVP ._SENT 
+229(3):303–320_NP ._SENT 
+Ståhlberg_NP K_NP ,_, Goerlandt_NP F_NP ,_, Ehlers_NP S_NP ,_, Kujala_NP P._NP 2013._CD Impact_NN scenario_NN models_NNS for_IN probabilistic_JJ risk-based_JJ design_NN for_IN ship–ship_NN collision_NN ._SENT 
+Mar_NP Struct_NN ._SENT 
+33:238–264_NP ._SENT 
+Tabri_NP K._NP 2012._CD Influence_NN of_IN coupling_NN in_IN the_DT prediction_NN of_IN ship_NN collision_NN damage_NN ._SENT 
+Ships_NNS Offshore_NP Struct_NN ._SENT 
+7(1):47–54_NP ._SENT 
+Tabri_NP K_NP ,_, Broekhuijsen_NP J_NP ,_, Matusiak_NP J_NP ,_, Varsta_NP P._NP 2009._CD Analytical_NP modelling_VVG of_IN ship_NN collision_NN based_VVN on_IN full-scale_JJ experiments_NNS ._SENT 
+Mar_NP Struct_NN ._SENT 
+22(1):42–61_JJ ._SENT 
+Tørnqvist_NP R._NP 2003._CD Design_NN of_IN crashworthy_JJ ship_NN structures_NNS [_SYM doctoral_JJ dissertation_NN ]_SYM ._SENT 
+Copenhagen_NP (_( Denmark_NP )_) :_: Technical_NP University_NP of_IN Denmark_NP ._SENT 
+[_SYM USCG_NP ]_SYM United_NP States_NPS Coast_NP Guard_NP ._SENT 
+1990._CD USCG_NN ship_NN casualty_NN data_NNS ._SENT 
+1982–1990_NP ._SENT 
+Washington_NP (_( DC_NP )_) :_: United_NP States_NPS Coast_NP Guard_NP ._SENT 
+Van_NP de_NP Wiel_NP G_NP ,_, van_NN Dorp_NN JR_NP ._SENT 
+2011._CD An_DT oil_NN outflow_NN model_NN for_IN tanker_NN collisions_NNS and_CC groundings_NNS ._SENT 
+Ann_NP Oper_NP Res_NNS ._SENT 
+187(1):279–304_NP ._SENT 
+Yan_NP C_NP ,_, Li_NP Y._NP 2007._CD The_DT Monte_NP Carlo_NP optimization_NN model_NN for_IN satellite_NN cost_NN prediction_NN ._SENT 
+J_NP Acta_NP Astronaut_NN ._SENT 
+28(4):1039–1043_NP ._SENT 
+Chinese_JJ ._SENT 
+Youssef_NP SAM_NP ,_, Ince_NP ST_NP ,_, Kim_NP YS_NP ,_, Paik_NP JK_NP ,_, Cheng_NP F_NP ,_, Kim_NP MS_NN ._SENT 
+2014a_NP ._SENT 
+Quantitative_JJ risk_NN assessment_NN for_IN collisions_NNS involving_VVG double_JJ hull_NN oil_NN tankers_NNS ._SENT 
+Int_NP J_NP Marit_NP Eng_NP ._SENT 
+156(Part_JJ A2):157–174_NN ._SENT 
+Youssef_NP SAM_NP ,_, Kim_NP YS_NP ,_, Paik_NP JK_NP ,_, Cheng_NP F_NP ,_, Kim_NP MS_NN ._SENT 
+2014b_NP ._SENT 
+Hazard_NN indentification_NN and_CC probabilistic_JJ scenario_NN selection_NN for_IN ship-ship_NN collision_NN accidents_NNS ._SENT 
+Int_NP J_NP Marit_NP Eng_NP ._SENT 
+156(Part_JJ A1):61–80_NN ._SENT 
+Youssef_NP SAM_NP ,_, Paik_NP JK_NP ,_, Kim_NP YS_NP ,_, Kim_NP MS_NN ,_, Cheng_NP F._NP 2013._CD Probabilistic_JJ selection_NN of_IN ship-ship_NN collision_NN scenarios_NNS ._SENT 
+In_RB :_: ASME_NP 2013_CD 32nd_NP International_NP Conference_NP on_IN Ocean_NP ,_, Offshore_NP and_CC Arctic_NP Engineering_NP ._SENT 
+Nantes_NP ,_, France_NP from_IN June_NP 9–14_NP ._SENT 
+New_NP York_NP (_( NY_NP )_) :_: American_NP Society_NP of_IN Mechanical_NP Engineers_NPS ._SENT 
+V02AT02A027-V02AT02A027_JJ ._SENT 
+Zhang_NP S._NP 1999._CD The_DT mechanics_NNS of_IN ship_NN collisions_NNS [_SYM Ph._NP D_NP thesis_NN ]_SYM ._SENT 
+[_SYM Lyngby_NP (_( Denmark_NP )_) ]_SYM :_: Department_NN of_IN Naval_NP Architecture_NP and_CC Offshore_NP Engineering_NP ._SENT 
+Technical_NP University_NP of_IN Denmark_NP ._SENT 

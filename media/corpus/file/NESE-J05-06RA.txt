@@ -1,0 +1,184 @@
+<title>Research on debris in-vessel cooling and retention behavior for the small modular reactor ACP100</title>
+<author>1,QinganXiang,2,JianDeng3,JuanDu,4,JinshengBi,5,BaowenChen,5,WeiLi</author>
+<Affiliation>1,Science and Technology on Reactor System Design Technology Laboratory, Nuclear Power Institute of China, Chengdu, 610041, China;2,Nuclear and Radiation Safety Center, Ministry of Environment Protection of PR China, Beijing, 100082, China</Affiliation>
+<year>2021</year>
+<Jounral>Progress in Nuclear Energy</Journal>
+<Publishing_house>ELSEVIER</Publishing_house>
+<Text_Collector>XiaFan，HEU</Text_Collector>
+<DOI>10.1016/j.pnucene.2021.103641</DOI>
+<URL>https://www.sciencedirect.com/science/article/pii/S0149197021000135</URL>
+Research on debris in-vessel cooling and retention behavior for the small modular reactor ACP100
+QinganXiang,JianDeng,JuanDu,JinshengBi,BaowenChen,WeiLi
+Science and Technology on Reactor System Design Technology Laboratory, Nuclear Power Institute of China, Chengdu, 610041, China
+Nuclear and Radiation Safety Center, Ministry of Environment Protection of PR China, Beijing, 100082, China
+<Section>Abstract</Section>
+In this paper, the debris in-vessel cooling and retention behavior of the small modular reactor ACP100 design in severe accident is studied using MELCOR 2.1 code. A complete MELCOR input deck of ACP100 has been built. In ACP100, in-vessel retention strategy is essential for safety enhancement, and is realized by passive water injection into the flow channel between reactor pressure vessel outer surface and reactor cavity, namely cavity injection system, when the core exit temperature is higher than 650 °C. The severe accident is conservatively assumed to be triggered by a double-ended rupture of one direct vessel injection line. The collapse behavior of the fuel assembly is estimated by MELCOR fuel rod degradation model, and the failure behavior of the lower core plate is predicted by the ANSYS software. The results show that the core center partially collapse and melt to form a core molten pool, while most fuel assemblies surrounding the core molten pool remain intact. The lower core plate is still able to support the core molten pool and uncollapsed fuel assemblies throughout the simulation. The heat transfer processes associated with the core barrel, reactor pressure vessel, and lower core plate are also discussed. The decay heat can be effectively removed by the cavity injection system, so that debris retention in the reactor pressure vessel is feasible and even the appearance of molten pool in the lower head can be avoidable.
+<Section>Graphical abstract</Section>
+Image 1
+Keywords:Small modular reactor;Severe accidentIn-vessel retention;MELCOR
+<Section>1. Introduction</Section>
+As a crucial mitigation strategy for nuclear reactor severe accident management, the In-Vessel Retention (IVR) of molten corium is commonly seen in Generation III reactors. Specifically, during the course of core uncovery, melting and molten corium relocation into the Reactor Pressure Vessel (RPV) lower head, the reactor cavity (accommodating the RPV in the containment) and RPV outer wall would be kept inundated by either passive water injection system or pre-existing water tank, in order to achieve effective cooling and retention of the molten corium and thus maintain the RPV structural integrity during a severe accident. Typical implementation of the IVR strategy in large water-cooled reactors can be found in the CANDU reactor (Mladin et al., 2010), AP1000 (Esmaili and Khatib-Rahbar, 2004), APR1400 (Rempe and Knudson, 2004), and ACP1000 (Guang et al., 2015), for example. Considering its importance and great potential to enhance reactor safety, IVR has also been proposed for smaller-sized water-cooled reactors, such as the Small Integral Reactor (SIR) design (Park et al., 2013), the Integrated Pressurized Water Reactor (IPWR) design IP200 (Jiang et al., 2019) and the Small Modular Reactor (SMR) design ACP100 (Zhu et al., 2016). The IVR strategy is especially indispensable for small reactors to maintain the structural integrity of the RPV, since unlike large reactors there is no large concrete containment to prevent from radioactivity leakage. There have been several studies on the analysis of the feasibility of SMR IVR over the last few years. Park et al. (2013) analyzed the IVR for the Korea SIR design, i.e., External Reactor Vessel Cooling (ERVC), and obtained a thermal safety margin for the prevention of reactor vessel failure during a severe accident, by comparing the thermal load from molten corium with the maximum heat removal rate limited by the Critical Heat Flux (CHF) on the RPV outer wall under external coolant. Applying the SCDAP/RELAP5 system code with built-in finite element computation module COUPLE, Zhu et al. (2016) and Jiang et al. (2019) conducted performance analyses of the IVR-ERVC for SMR ACP100 and IPWR IP200 designs respectively. Andriolo et al. (2019) adapted a corium stratification model developed for large-sized prospective pressurized water reactors (PWRs) for use in the modular severe accident analysis code MAAP5_EDF, to analyze the performance of IVR in SMRs. However, in most of the above-mentioned works only thermal analysis was carried out, in contrast to the complex in-vessel severe accident phenomena.
+Compared to existing large commercial reactors, SMRs are expected to deliver affordable nuclear power. These compact and advanced reactors are envisioned to have versatile uses, such as electricity generation, process heat and desalination. Generally, the coolant of SMR designs can be light-water or non-light water such as liquid metal, molten salt or gas, i.e., downscaled from Generation IV reactors (Locatelli et al., 2013). Relying on the existing Light Water Reactor (LWR) technology, light-water cooled SMR can be technically more mature than those adopting non light-water coolants. Thus, this paper deals with ACP100 (Song et al., 2014) which is a 100MWe-class PWR-type SMR designed by China National Nuclear Corporation (CNNC) with the design features of passive safety, compact layout and relatively low power density. For the ACP100 IVR, the RPV outer wall is cooled by a passive reactor cavity injection system (CIS) (Yu, 2014) to prevent significant collapse of fuel assemblies and failure of the lower core plate, and even retain the debris within the core. The capability of the ACP100 IVR system needs thorough assessment to clarify whether the decay heat can be effectively removed and in-vessel retention of debris can be achieved to maintain the RPV structural integrity by the CIS under severe accident conditions.
+In this paper, we performed a severe accident analysis for the ACP100 SMR using the up-to-date code MELCOR version 2.1 (Sandia National Laboratories, 2015), where double-ended rupture of a safety injection pipeline was assumed as the conservative initiator of the accident. Severe accident management guideline requires that, the passive CIS should be activated when core exit temperature reaches 650 °C. With the established ACP100 MELCOR input model, the radiation and convective heat transfer through core barrel, lower core plate and RPV wall into the flow channel of the CIS were obtained. Also, the fuel rod failure model in MELCOR is turned on to evaluate the structural state of fuel assemblies. The lower core plate can be an important barrier to downward relocation of debris into the RPV lower head. Therefore, after the MELCOR simulation was done, the acquired temperature and deformation of the lower core plate was passed to the finite element software ANSYS, to predict its high-temperature creep failure behavior. By this method, a relatively comprehensive understanding of debris in-vessel retention performance for the ACP100 SMR was gained.
+<Section>2. Analysis method</Section>
+2.1. MELCOR code description
+MELCOR is a system code developed by Sandia National Laboratory (SNL) for the National Nuclear Regulatory Commission (NRC) of the United States, mainly for severe accident analysis of LWRs. It takes into account the main in- and ex-vessel phenomena in the process of severe accidents in LWRs, as well as source term calculation of radionuclides that can be used for radiation dose estimation with other external codes. While MELCOR is under constant development, MELCOR version 2.1 is used in this paper. Compared with the last major version 1.8.5 which is widely used in the literature, newly added changes include removal of RPV lower head model (referred to as BH in MELCOR), improvement of reactor core model (COR), and addition of spent fuel pool (SFP) model and the functionality for high-temperature gas-cooled reactor severe accident. Especially, in the PWR COR model, more important components including core baffle and former plate can be considered; the models of molten pool and crust formation within the reactor core and lower head are improved; besides, the RPV lower head high-temperature failure prediction is enhanced. These new features of this version are of great benefit to more realistic and reliable simulation of reactor core damage and mitigation by IVR evaluation in the case of severe accident assumed in this paper.
+2.2. MELCOR input model of ACP100
+The MELCOR input model of ACP100 contains RPV, primary loop system (four loops), secondary loop system, automatic pressure relief system, passive core cooling system and passive CIS. The nodalization diagram of the MELCOR input model of ACP100 power plant is shown in Fig. 1. This MELCOR 2.1 input deck consists of 120 control volumes and 200 flow paths.
+Fig. 1
+Fig. 1. Nodalization diagram for the MELCOR input deck of ACP100 reactor coolant system.
+The reactor core is divided into six radial rings, with the first to the fourth ring representing coolant flow channels within fuel assemblies, the fifth ring the flow channel between fuel assemblies and core bypass region, and the sixth ring flow region in the lower head. The first five core radial rings are equivalent in cross section area to 3.5, 9.5, 14, 18 and 12 fuel assemblies, respectively. The reactor core in the axial direction is discretized into 21 segments. The first six axial segments represent the lower head, the seventh segment the lower core plate, the eighth and ninth segments the lower non-active region, the 10th to 19th segment the core active region, while the 20th and 21st segments are for the upper non-active core region.
+2.3. Analysis assumptions
+Double-end rupture of one Direct Vessel Injection (DVI) line is selected as a conservative initiating event. Main assumptions are made as follows: (1) There is only one core makeup tank (CMT) and one accumulator (ACC) available during the accident; (2) the outlet isolation valve of water tank is stuck, resulting in failure of the passive core cooling system; (3) the CIS can be successfully started but with a short decay when the core exit temperature increases to 650 °C; (4) the water injection into reactor cavity cannot enter the RPV through the broken safety injection line; (5) the water injection from the CMT may lead to opening of the first, second and third pressure relief valves, which will cause additional coolant loss from the RPV. Therefore, the accident scenario leads to a fast loss of coolant in the RPV and accelerating core degradation, due to rapid uncovery of reactor core and almost adiabatic heating. Under this circumstance, the IVR through the water natural circulation established by the CIS becomes the only way to remove decay heat, cool the RPV wall and retain the debris with the RPV.
+3. Key theoretical models
+The models of radiation heat transfer between the core barrel and RPV cylinder wall, and fuel rod failure in MELCOR version 2.1 are described in this section. The high temperature creep failure model of the lower core plate implemented in the ANSYS software is also introduced.
+3.1. Radiation heat transfer model
+Radiation heat transfer occurs between heat structures and gas or steam, heat structures (such as exposed lower core plate) and water, as well as between adjacent heat structures (such as between core barrel and RPV cylinder). The formula of radiation heat transfer model is simple, but the calculation of radiation heat transfer view factor between adjacent heat structures is more complex. The radiation heat transfer model between the core barrel and RPV cylinder is as follows:
+@(1)
+where@is the radiation heat flux (power per unit surface),@is the Stefan–Boltzmann constant,@and ,@and ,@and@are the temperatures, surface area and emissivities of the surfaces, respectively, and@is the view factor from surface 1 to surface 2. When the core barrel and RPV cylinder approximately have the same height (Corson, 2011), the view factor from the RPV inner wall to the core barrel can be calculated as:
+@(2)
+The parameters a, b and c are defined by,
+@(3)
+@(4)
+@(5)
+where,@is the inner radius of the RPV cylinder,@is the radius of the core barrel,@is the node height of the RPV cylinder (also the core barrel),@is the distance from the bottom of the RPV cylinder node (also the bottom of the core barrel node).@is an integer multiple of . When the base of the core barrel node and RPV cylinder node is at the same elevation, the above Eq. (2) is simplified to the following equation (Corson, 2011):
+@(6)
+where @, @, @, and . Then, the view factor from the core barrel to the RPV cylinder can be determined using a simple view factor relationship:
+@(7)
+where @, .
+3.2. Fuel rod failure model
+With the increase of fuel temperature, the zircaloy clad is oxidized to form a zirconium dioxide layer on the outer surface in the high-temperature steam environment. The melting temperature of the zirconium dioxide layer is higher than zircaloy, so part of the melted zircaloy can be released from the crack of the zirconium dioxide layer, while the zirconium dioxide layer may still maintain a rod-like structure. The relationship between the residual time before collapse of intact fuel rod and clad temperature is shown in Table 1 (Ross et al., 2014). The considered failure mechanism of fuel rod is that either melting failure of oxidized clad or creep failure of lower core plate which leads to collapse of fuel rods due to loss of support.
+Table 1. Relation of time to failure (collapse) of intact fuel rod and clad temperature.
+3.3. Failure model of lower core plate
+The lower core plate creep failure analysis is performed using the finite element software ANSYS. The failure behavior of the lower core plate which is made of stainless steel relies on its high temperature tensile test data and creep rupture material property, under the thermomechanical loads due to weight of the fuel assemblies and high temperature of the lower core plate. It is assumed conservatively that only the region below 1130 °C in the lower core plate can bear mechanical load.
+Considering the complexity of high-temperature failure mechanisms for the lower core plate, two sensitivity cases are analyzed: negligible creep and significant creep. The failure criterion for the case of negligible creep is simply that the primary membrane stress is greater than the ultimate stress, while in the case of significant creep, ruptures happens when the lifetime fraction exceeds 1.0. The creep life of the lower core plate is predicted by the Larson and Miller method (Larson and Miller, 1952) assuming various applied constant stresses and temperatures. Table 2 shows the creep rupture lifetime at specified stresses and temperatures for the lower core plate material (Segura, 2017).
+Table 2. Creep rupture lifetime of the lower core plate material dependent on temperature and stress.
+<Section>4. Analysis results</Section>
+4.1. Status of core structure
+Table 3 lists key scenarios of this accident. Apparently, because of low core power, the severe accident progression for the ACP100 SMR is much slower as compared to the case of large reactors, especially considering that this accident is caused by a double-ended rupture of one DVI line.
+Table 3. Key scenarios during the severe accident analyzed in this work.
+Due to the axial power profile, the maximum temperature of the core barrel is located in the middle of active core region. The peak temperatures of the core barrel inner and outer surfaces are shown in Fig. 2. The peak temperature on the inner surface approaches its melting temperature, which indicates that partial melting would occur on the core barrel inner surface, while the outer surface does not melt. The inner and outer surface temperatures decrease slowly after reaching peak values, because the heat removed by radiation to the RPV, radiation to the steam and convection with residual coolant is a little larger than that received from the core. The temperature of the lower core plate is shown in Fig. 3. Initially, the lower core plate is heated by heat conduction from the above fuel assemblies. About 17 h after the accident, the lower core plate temperature begins to decrease gradually after reaching the peak value of 1130 °C, because of cooling from steam flow from the RPV lower head still containing water. After the water in the lower head is depleted, the lower core plate temperature stops decrease and slightly increases, due to deteriorated convection heat transfer condition. However, there is no melting of the lower core plate which can still support the fuel assemblies and core molten pool at least during the first ~54 h after the accident.
+Fig. 2. Peak temperature of the core barrel.
+Fig. 3. Temperature of the lower core plate.
+Fig. 4, Fig. 5, Fig. 6 display the temperature distribution in the core structure at different moments. Melt-through of the core barrel is clearly seen. The maximum core temperatures at 6, 10 and 17 h after the accident are about 2370 °C, 2300 °C and 2220 °C, respectively. Consistent with Fig. 3, the peak temperature in the core region begins to decrease after 6 h following the accident. Due to the ultimate heat sink created by the CIS, high-temperature region of the reactor core is clearly shrinking, while the lower core plate temperature is increasing until about 17 h after the accident. The simulation results show that 90% active core region (from the top) and the upper nonactive region in radial rings 1 and 2 (containing 13 groups of fuel assemblies) would melt and collapse to form a core molten pool. The remaining 10% active core region and the bottom nonactive region in radial rings 1 and 2 (44 groups of fuel assemblies) remain intact. The core baffle and core former plate partially (upper 80% and middle 60% respectively) melt, and the resultant molten materials can relocate radially into the lower head where residual water boiling off would be accelerated.
+Fig. 4. Distribution of core temperature (°C) 6 h after the accident.
+Fig. 5. Distribution of core temperature (°C) 10 h after the accident.
+Fig. 6. Distribution of core temperature (°C) 17 h after the accident.
+4.2. Status of lower head
+The partially melted core baffle and core former plate and other low melting point materials migrate into the lower head and are cooled by water. Fig. 7 shows that the water level and water mass decrease slowly, and the lower head dries out after about 42 h following the accident.
+Fig. 7. Water level and water mass in the RPV lower head.
+Before the lower head dries out, due to the heat transfer between the lower core plate and water pool in the lower head, water is evaporated and steam can cool the lower core plate, core molten pool and remaining intact fuel assemblies, to some extent. The lower core plate is cooled down first, so its temperature gradually decreases. After the lower head dries out, due to the lack of rising water vapor cooling on the outer surface of the core molten pool, the temperature of the lower core plate increases slowly (see Fig. 3). The inner surface temperature of the lower head and the temperature of the lower core plate remain relatively stable after the radiation heat transfer and convective heat transfer reaches stability which is maintained by the CIS.
+4.3. CIS heat transfer analysis
+The comparison of core decay heat with the heat taken away by the CIS is shown in Fig. 8. During the initial 3 h after the accident, the core barrel temperature increases rapidly (see Fig. 2), since the heat produced by radioactive decay is considerably larger than that removed by the heat sink of the CIS. The radiation heat transfer between the core barrel outer surface and RPV inner surface causes the temperature of the RPV inner wall to rise rapidly. Therefore, the heat removed by the CIS increases rapidly 4 h after the accident, until it is close to about 90% of the core decay heat at 6.3 h after the accident. Although the capability of the CIS drops with time, it always keeps close to the decay heat curve during the accident scenario.
+Fig. 8. Decay heat and heat removal from the CIS.
+When the RPV outer wall is cooled down by the CIS, about 90% of the core decay heat is carried out through radiation and convective heat transfer from the core barrel to the RPV cylinder. About 10% of the core decay heat is taken out via the latent heat of water vaporization in the lower head before drying up, and radiation heat transfer from the lower core plate to the lower head after drying up. In this way, the core gradually cools to realize debris retention in the RPV.
+4.4. Core barrel heat transfer analysis
+The heat transfer through the core barrel includes radiation heat transfer to the RPV cylinder, radiation heat transfer to the steam, and convection heat transfer with the residual coolant. Heat removal from the core barrel outer surface is shown in Fig. 9. The structural integrity of the RPV cylinder wall is mainly risked by the heat transferred from the core barrel which can be effectively discharged by the CIS to keep the RPV cylindrical wall under low enough temperatures. Fig. 10 presents the proportions of radiation and convective heat transfer from the core barrel outer surface. Apparently, the convective heat transfer with coolant and radiation heat transfer to the RPV cylinder wall accounts for around 40% heat removal capability, while the radiation heat transfer to steam accounts for around 20%.
+Fig. 9. Heat removal from the core barrel outer surface and the RPV cylinder.
+Fig. 10. Proportions of radiation and convection heat transfer from the core barrel outside surface.
+4.5. Analysis of lower core plate integrity
+Considering the fact that the lower core plate thickness is much smaller than its radius, and to save computational time, the lower core plate is simplified as a plate instead of 3D solid structure to analyze its bending behavior using the plate theory in the ANSYS package. Fig. 11 shows the stress state in the lower core plate at the maximum temperature (1130 °C). The maximum primary membrane stress in Fig. 11(a) is 2.48 MPa, and the total stress (primary membrane stress plus bending stress) in Fig. 11(b) is 20.8 MPa. For the analysis with negligible creep, both the maximum primary membrane stress and total stress are less than 24.5 MPa, the yield strength of 304 stainless steel at 1130 °C, which indicates that the failure criterion is not satisfied, and thus the lower core plate will not suffer plastic instability or excessive deformation.
+Fig. 11. Distributions of stresses (Pa) in the lower core plate: (a) primary membrane stress and (b) total stress.
+For the analysis with significant creep, the effect of stress on the behavior of lower core plate as a function of time can be estimated by the use of creep rupture lifetime fraction. According to Table 2, the residual time period before creep rupture is 30 h under 3 MPa and 1200 °C. On the other hand, there are less than 20 h during which the lower core plate temperature exceeds 1000 °C, as can be seen from Fig. 3 for the variation of lower core plate temperature. This conservatively has a contribution of 0.67 to the lifetime fraction. For temperatures lower than 1000 °C and under a load of 3 MPa, the residual time is significantly longer and has little impact on the lifetime fraction. Therefore, the cumulated lifetime fraction is less than 1.0, which means that the failure criterion would not be met, and creep rupture would not affect the structure integrity of the lower core plate under the studied accident condition.
+<Section>5. Conclusions</Section>
+In this paper, MELCOR 2.1 code is used to study the heat transfer, core melting and in-vessel debris retention of ACP100 during the severe accident initiated by a double-ended break of one safety injection line. The mitigation effect of the passive CIS is discussed. The high-temperature creep failure of the lower core plate is also studied by ANSYS program. Important conclusions are made as follows:
+(1)
+About 13 groups (22.8%) of fuel assemblies in the center of the core would melt and collapse to form molten pool within the reactor core, while the other 44 groups of fuel assemblies surrounding the molten pool can remain intact.
+(2)
+17 h after the accident, the lower core plate reaches a peak temperature of 1130 °C, then the temperature begins to decrease. The uncollapsed fuel assemblies and core molten pool are always supported by the lower core plate.
+(3)
+When the RPV outer wall is cooled by the passive CIS, about 90% of the core decay heat is carried out through radiation and convective heat transfer from the core barrel to the RPV cylinder, and about 10% of the core decay heat is brought out through the radiation heat transfer and convective heat transfer from the lower core plate. Of the total heat transferred from the core barrel, about 40% is via radiation heat transfer to the RPV cylinder, about 40% is by convective heat transfer with water/steam coolant, and about 20% is through radiation heat transfer to steam.
+(4)
+As the passive CIS creates an ultimate heat sink to constantly cool the RPV and reactor core, the lower core plate could support molten pool and uncollapsed fuel assemblies above. Either plasticity instability or creep rupture phenomenon will not occur in the lower core plate. The structure integrity of the lower core plate, therefore, plays an important role in retaining the debris in the reactor core and avoiding the formation of molten pool in the RPV lower head, which greatly reduces the risk of radioactivity release in the analyzed accident.
+<Section>Credit author statement</Section>
+Qingan Xiang: Visualization, Investigation, Jian Deng: Conceptualization, methodology, Juan Du: Investigation, Software, Jinsheng Bi: Investigation, Software, Baowen Chen: Writing - Original Draft, Wei Li: Critical review & Editing.
+<Section>Declaration of competing interest</Section>
+The authors declare that they have no known competing financial interests or personal relationships that could have appeared to influence the work reported in this paper.
+<Section>Acknowledgements</Section>
+This work was supported by the project: National Key R&D Program of China (Grant No.2018YFB1900100). We thank Nuclear and Radiation Safety Center of the Ministry of Environmental Protection for providing the right to use the computer program.
+<Section>References</Section>
+Andriolo et al., 2019
+L. Andriolo, C. Meriot, N. Bakouta
+Preliminary investigations of the feasibility of in-vessel melt retention strategies for a small modular reactor concept
+J. Nucl. Eng. Radiat. Sci., 5 (2) (2019)
+Google Scholar
+Corson, 2011
+J. Corson
+Development of MELCOR Input Techniques for High Temperature Gas-cooled Reactor Analysis
+Thesis, Texas A & M University (2011)
+Google Scholar
+Esmaili and Khatib-Rahbar, 2004
+H. Esmaili, M. Khatib-Rahbar
+Analysis of In-Vessel Retention and Ex-Vessel Fuel Coolant Interaction for AP1000
+NUREG/CR-6849 (2004)
+ERI/NRC-04-201
+Google Scholar
+Guang et al., 2015
+Z. Guang, Q.A. Xiang, B. Chen, H. Yu
+Probability analysis for effectiveness of IVR strategy during severe accidents for ACP1000 through ROAAM
+Nucl. Power Eng., 36 (6) (2015), pp. 56-60
+(in Chinese)
+Google Scholar
+Jiang et al., 2019
+N. Jiang, T. Cong, M. Peng
+Margin evaluation of in-vessel melt retention for small IPWR
+Prog. Nucl. Energy, 110 (2019), pp. 224-235
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+Larson and Miller, 1952
+F.R. Larson, J. Miller
+Time-temperature relationship for rupture and creep stresses
+Transactions of ASME, 74 (1952), pp. 765-771
+View Record in ScopusGoogle Scholar
+Locatelli et al., 2013
+G. Locatelli, M. Mancini, N. Todeschini
+Generation IV nuclear reactors: current status and future prospects
+Energy Pol., 61 (2013), pp. 1503-1520
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+Mladin et al., 2010
+M. Mladin, D. Dupleac, I. Prisecaru, D. Mladin
+Adapting and applying SCDAP/RELAP5 to CANDU in-vessel retention studies
+Ann. Nucl. Energy, 37 (6) (2010), pp. 845-852
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+Park et al., 2013
+R.J. Park, J.R. Lee, K.S. Ha, H.Y. Kim
+Evaluation of in-vessel corium retention through external reactor vessel cooling for small integral reactor
+Nucl. Eng. Des., 262 (2013), pp. 571-578
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+Rempe and Knudson, 2004
+J.L. Rempe, D.L. Knudson
+Margin for In-Vessel Retention in the APR1400-VESTA and SCDAP/RELAP5-3D Analyses, INEEL/EXT-04-02549
+Idaho National Engineering and Environmental Laboratory (2004)
+Google Scholar
+Ross et al., 2014
+K. Ross, J. Phillips, R.O. Gauntt, K.C. Wagner
+MELCOR Best Practices as Applied in the State-Of-The-Art Reactor Consequence Analyses (SOARCA) Project
+NUREG/CR-7008 (2014)
+Google Scholar
+Sandia National Laboratories, 2015
+Sandia National Laboratories
+Primer and Users' Guide
+MELCOR Computer Code Manuals, vol. 1 (2015)
+Version 2.1.6840. SAND2015-6691 R
+Google Scholar
+Segura, 2017
+A. Segura
+Integrity of Severe Accident Valve General Drawing: 2N2091
+China Nuclear Power Engineering Company (2017)
+Google Scholar
+Song et al., 2014
+D. Song, W. Zeng, S. Liu
+Safety aspects of small and medium size reactor ACP100
+Canada-China Conference on Advanced Reactor Development (CCCARD-2014) Proceedings, Canadian Nuclear Society, Canada (2014)
+293Megabytes
+Google Scholar
+Yu, 2014
+H. Yu
+Advanced Nuclear Reactor Safety Design Technology Research in NPIC. Canada. The 19th Pacific Basin Nuclear Conference (PBNC 2014)
+British Columbia, Canada, Vancouver (2014)
+August 24-28
+Google Scholar
+Zhu et al., 2016
+D. Zhu, Q. Xiang, M. Zhang, C. Deng, J. Deng, G. Jiang, H. Yu
+Evaluation of in-vessel corium retention margin for small modular reactor ACP100
+Ann. Nucl. Energy, 94 (2016), pp. 684-690
+ArticleDownload PDFView Record in ScopusGoogle Scholar

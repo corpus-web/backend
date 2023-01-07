@@ -1,0 +1,460 @@
+﻿_NP <title> Investigation_NP of_IN a_DT semi-submersible_JJ floating_JJ wind_NN turbine_NN in_IN surge_NN decay_NN using_VVG CFD_NP </title> <author> 1_CD ,_, Simon_NP Burmester_NP ,_, 1_CD ,_, 2_CD ,_, Guilherme_NP Vaz_NP ,_, 2_CD ,_, Sebastien_NP Gueydon_NP ,_, 1_CD ,_, Ould_NP el_NN Moctar_NP </author> <Affiliation> 1_CD ,_, Department_NP of_IN Transportation_NP and_CC Environmental_NP Systems_NPS ,_, Hiroshima_NP University_NP ,_, Hiroshima_NP ,_, Japan_NP ,_, 2_CD ,_, MPAT_NP ,_, National_NP Maritime_NP Research_NP Institute_NP ,_, Mitaka_NP ,_, Japan_NP </Affiliation> <year> 2020_CD </year> <Jounral> Ship_NP Technology_NP Research_NP </Journal> <Publishing_house> Taylor_NP and_CC Francis_NP Online_JJ </Publishing_house> <Text_Collector> Zhang_NP San，HEU_NP </Text_Collector> <DOI> https://doi.org/10.1080/09377255.2018.1555987_JJ </DOI> <URL> https://www-tandfonline-com/doi/full/10.1080/09377255.2018.1555987_JJ </URL> Investigation_NN of_IN a_DT semi-submersible_JJ floating_JJ wind_NN turbine_NN in_IN surge_NN decay_NN using_VVG CFD_NP Simon_NP Burmester_NP ,_, Guilherme_NP Vaz_NP ,_, Sebastien_NP Gueydon_NP ,_, Ould_NN el_NN Moctar_NP Institute_NP of_IN Ship_NP Technology_NP ,_, Ocean_NP Engineering_NP and_CC Transport_NP Systems_NPS (_( ISMT_NP )_) ,_, University_NP of_IN Duisburg-Essen_NP ,_, Duisburg_NP ,_, Germany_NP Maritime_NP Research_NP Institute_NP Netherlands_NP (_( MARIN_NP )_) ,_, Wageningen_NP ,_, The_DT Netherlands_NPS <Section> Abstract_JJ </Section> The_DT hydrodynamic_JJ damping_VVG estimation_NN of_IN the_DT surge_NN motion_NN and_CC the_DT flow_NN characteristics_NNS of_IN a_DT moored_VVN semi-submersible_JJ floating_JJ offshore_JJ wind_NN turbine_NN is_VBZ the_DT focus_NN of_IN this_DT paper_NN ._SENT 
+The_DT numerical_JJ surge_NN decay_NN tests_NNS were_VBD investigated_VVN using_VVG a_DT Reynolds-Averaged_JJ Navier–Stokes_NN solver_NN ._SENT 
+Solution_NN verification_NN on_IN the_DT numerical_JJ simulations_NNS was_VBD performed_VVN by_IN estimation_NN of_IN the_DT numerical_JJ errors_NNS and_CC uncertainties_NNS ._SENT 
+A_DT linear_JJ stiffness_NN matrix_NN and_CC a_DT non-linear_JJ quasi-static_JJ mooring_NN model_NN were_VBD used_VVN in_IN the_DT equations_NNS of_IN motion_NN ._SENT 
+Several_JJ surge_NN decay_NN simulations_NNS were_VBD performed_VVN to_TO understand_VV the_DT effects_NNS of_IN wave_NN radiation_NN ,_, coupled_VVN motions_NNS and_CC non-linear_JJ moorings_NNS on_IN the_DT hydrodynamic_JJ damping_VVG and_CC the_DT flow_NN field_NN around_IN the_DT floater_NN ._SENT 
+The_DT numerical_JJ results_NNS were_VBD compared_VVN with_IN experimental_JJ data_NNS ._SENT 
+The_DT free_JJ surface_NN had_VHD major_JJ effects_NNS on_IN the_DT hydrodynamic_JJ damping_VVG and_CC the_DT flow_NN field_NN ._SENT 
+Keywords_NNS :_: Computational_JJ fluid_JJ dynamics_NNS (_( CFD_NN )_) ,_, RANSE_NP ,_, floating_VVG offshore_JJ wind_NN ,_, hydrodynamic_JJ damping_VVG ,_, moorings_NNS ,_, solution_NN verification_NN <Section> 1._CD Introduction_NN </Section> An_DT increasing_VVG interest_NN in_IN floating_VVG offshore_JJ wind_NN turbines_NNS (_( FOWTs_NP )_) can_MD be_VB noted_VVN in_IN recent_JJ years_NNS ._SENT 
+This_DT interest_NN is_VBZ not_RB solely_RB academic_JJ as_RB can_MD be_VB seen_VVN by_IN the_DT first_JJ five_CD FOWTs_NNS connected_VVN to_TO the_DT grid_NN in_IN Scotland_NP (_( Remy_NP and_CC Mbistrova_NP 2018_CD )_) ._SENT 
+Thereby_RB ,_, also_RB the_DT amount_NN of_IN simulation_NN tools_NNS ,_, their_PP$ need_NN and_CC fidelity_NN increases_NNS ._SENT 
+This_DT increase_NN is_VBZ attended_VVN by_IN the_DT need_NN to_TO better_RBR assess_VV the_DT reliability_NN and_CC accuracy_NN of_IN these_DT tools_NNS ._SENT 
+In_IN the_DT past_NN ,_, most_JJS simulations_NNS were_VBD carried_VVN out_IN using_VVG potential-flow-based_JJ solvers_NNS for_IN the_DT hydrodynamics_NN and_CC Blade-Element-Momentum_NN theory_NN (_( BEMT_NP )_) for_IN the_DT aerodynamics_NNS (_( Cordle_NP and_CC Jonkman_NP 2011_CD )_) ._SENT 
+These_DT tools_NNS were_VBD also_RB applied_VVN for_IN the_DT analysis_NN and_CC design_NN of_IN floating_VVG wind_NN turbines_NNS ._SENT 
+In_IN the_DT work_NN of_IN Robertson_NP et_CC al_NP ._SENT 
+(_( 2017_CD )_) ,_, several_JJ potential-flow_NN solvers_NNS were_VBD used_VVN to_TO simulate_VV different_JJ load_NN conditions_NNS involving_VVG the_DT OC5_NP (_( Offshore_NP Code_NP Comparison_NN ,_, Collaboration_NN ,_, Continued_VVN ,_, with_IN Correlation_NN )_) semi-submersible_JJ floating_JJ wind_NN turbine_NN ._SENT 
+It_PP could_MD be_VB shown_VVN that_IN potential-flow-based_JJ methods_NNS cannot_MD accurately_RB represent_VV the_DT oscillatory_JJ motions_NNS of_IN the_DT floater_NN at_IN the_DT natural_JJ frequencies_NNS ._SENT 
+The_DT reason_NN lies_VVZ in_IN the_DT inaccurate_JJ prediction_NN of_IN the_DT viscous_JJ effects_NNS by_IN simplified_VVN methods_NNS adopted_VVN for_IN these_DT solvers_NNS ._SENT 
+Since_IN the_DT floater_NN is_VBZ pitching_VVG in_IN real_JJ sea_NN conditions_NNS ,_, the_DT wind_NN turbine_NN rotor_NN interacts_VVZ with_IN its_PP$ own_JJ wake_NN (_( Tran_NP et_NP al_NP ._SENT 
+2014_CD )_) ._SENT 
+Sebastian_NP and_CC Lackner_NP (_( 2012_CD )_) showed_VVD that_IN BEMT_NP is_VBZ not_RB valid_JJ for_IN those_DT complex_JJ conditions_NNS neither_RB ._SENT 
+Viscous-flow_NN solvers_NNS based_VVN on_IN Reynolds-Averaged_JJ Navier–Stokes_NNS (_( RANS_NP )_) equations_NNS can_MD be_VB used_VVN to_TO overcome_VV this_DT problem_NN ._SENT 
+These_DT solvers_NNS have_VHP also_RB the_DT advantage_NN of_IN scrutinising_VVG the_DT flow_NN characteristics_NNS around_IN floating_JJ objects_NNS ._SENT 
+This_DT was_VBD also_RB proved_VVN by_IN Tran_NP and_CC Kim_NP (_( 2016_CD )_) and_CC Liu_NP et_NP al_NP ._SENT 
+(_( 2017_CD )_) ._SENT 
+They_PP used_VVD a_DT RANS_NNS solver_NN to_TO simulate_VV the_DT whole_JJ floating_JJ wind_NN turbine_NN consisting_VVG of_IN a_DT moving_VVG floater_NN and_CC a_DT spinning_JJ rotor_NN at_IN full_JJ scale_NN ._SENT 
+The_DT scope_NN of_IN work_NN for_IN both_DT papers_NNS involved_VVD wind_NN ,_, wave_NN and_CC wind–wave_JJ combined_JJ simulations_NNS ._SENT 
+Many_JJ simulations_NNS of_IN floating_JJ wind_NN turbine_NN support_NN structures_NNS have_VHP been_VBN carried_VVN out_RP in_IN the_DT past_JJ five_CD years_NNS ._SENT 
+Initially_RB ,_, these_DT simulations_NNS were_VBD performed_VVN with_IN simple_JJ cylindrical_JJ floaters_NNS to_TO investigate_VV the_DT usage_NN of_IN these_DT more_RBR expensive_JJ but_CC also_RB more_RBR sophisticated_JJ solvers_NNS ,_, see_VVP e.g._FW Beyer_NP et_FW al_NP ._SENT 
+(_( 2013_CD )_) ,_, Quallen_NP et_CC al_NP ._SENT 
+(_( 2014_CD )_) ,_, Bozonnet_NP and_CC Emery_NP (_( 2015_CD )_) and_CC Benitz_NP et_NP al_NP ._SENT 
+(_( 2015_CD )_) ._SENT 
+Tran_NP and_CC Kim_NP (_( 2015_CD )_) carried_VVD out_RP more_RBR complex_JJ simulations_NNS and_CC compared_VVN the_DT results_NNS to_TO well-known_JJ potential-flow-based_JJ solvers_NNS to_TO show_VV their_PP$ capabilities_NNS ._SENT 
+The_DT restoring_VVG forces_NNS of_IN the_DT semi-submersible_JJ were_VBD computed_VVN by_IN a_DT quasi-static_JJ catenary_NN mooring_NN model_NN ._SENT 
+Then_RB ,_, decay_NN tests_NNS and_CC several_JJ regular_JJ wave_NN conditions_NNS were_VBD investigated_VVN ._SENT 
+The_DT same_JJ complex_JJ semi-submersible_JJ floater_NN geometry_NN was_VBD then_RB used_VVN as_RB in_IN the_DT present_JJ work_NN ._SENT 
+Borisade_NP et_NP al_NP ._SENT 
+(_( 2016_CD )_) applied_VVN RANS_NNS also_RB for_IN detailed_JJ design_NN considerations_NNS of_IN the_DT IDEOL_NN Floatgen_NN floater_NN ._SENT 
+These_DT authors_NNS also_RB investigated_VVD scaling_VVG effects_NNS ,_, which_WDT is_VBZ another_DT advantage_NN of_IN using_VVG RANS-based_JJ codes_NNS ._SENT 
+In_IN all_DT papers_NNS named_VVN above_IN ,_, hydrodynamic_JJ damping_VVG estimation_NN and_CC a_DT thorough_JJ verification_NN study_NN to_TO estimate_VV numerical_JJ errors_NNS and_CC uncertainties_NNS were_VBD not_RB done_VVN ._SENT 
+However_RB ,_, both_DT estimations_NNS are_VBP important_JJ to_TO quantify_VV the_DT accuracy_NN and_CC to_TO gain_VV confidence_NN in_IN the_DT numerical_JJ simulations_NNS ._SENT 
+In_IN particular_JJ ,_, the_DT latter_NN is_VBZ of_IN increasing_VVG interest_NN for_IN numerical_JJ simulations_NNS of_IN fluid_JJ flow_NN (_( Eça_NP and_CC Hoekstra_NP 2014_CD )_) ._SENT 
+Wang_NP et_NP al_NP ._SENT 
+(_( 2018_CD )_) showed_VVD the_DT application_NN of_IN such_PDT a_DT thorough_JJ uncertainty_NN estimation_NN for_IN the_DT engineering_NN case_NN of_IN a_DT wave_NN energy_NN converter_NN ._SENT 
+The_DT procedure_NN by_IN Eça_NP and_CC Hoekstra_NP (_( 2014_CD )_) was_VBD used_VVN for_IN this_DT purpose_NN and_CC was_VBD also_RB applied_VVN within_IN the_DT present_JJ work_NN ._SENT 
+In_IN the_DT work_NN of_IN this_DT paper_NN ,_, the_DT OC5_JJ DeepCwind_JJ semi-submersible_JJ floating_JJ offshore_JJ wind_NN turbine_NN was_VBD investigated_VVN ._SENT 
+The_DT work_NN was_VBD focused_VVN on_IN a_DT detailed_JJ investigation_NN of_IN the_DT flow_NN characteristics_NNS around_IN the_DT floater_NN in_IN surge_NN decay_NN and_CC the_DT hydrodynamic_JJ damping_VVG estimation_NN ._SENT 
+The_DT hydrodynamic_JJ damping_VVG was_VBD assumed_VVN to_TO consist_VV of_IN wave_NN radiation_NN and_CC viscous_JJ damping_VVG ._SENT 
+As_IN the_DT flow_NN characteristics_NNS cannot_MD be_VB inspected_VVN and_CC the_DT viscous_JJ damping_VVG cannot_MD be_VB predicted_VVN by_IN potential-flow-based_JJ methods_NNS ,_, a_DT RANS-based_JJ viscous-flow_NN solver_NN was_VBD used_VVN to_TO simulate_VV the_DT surge_NN decay_NN test_NN of_IN a_DT semi-submersible_JJ FOWT_NN ._SENT 
+An_DT extensive_JJ verification_NN study_NN was_VBD performed_VVN to_TO improve_VV the_DT confidence_NN and_CC reliability_NN of_IN the_DT numerical_JJ simulations_NNS by_IN the_DT estimation_NN of_IN numerical_JJ errors_NNS and_CC uncertainties_NNS ._SENT 
+The_DT results_NNS of_IN the_DT numerical_JJ simulations_NNS were_VBD compared_VVN to_TO model_VV test_NN data_NNS for_IN validation_NN ._SENT 
+PQ_NP analysis_NN was_VBD used_VVN to_TO quantify_VV the_DT numerical_JJ and_CC experimental_JJ damping_VVG results_NNS ._SENT 
+These_DT damping_VVG coefficients_NNS can_MD also_RB be_VB used_VVN as_IN an_DT improved_VVN input_NN for_IN simulations_NNS with_IN potential-flow-based_JJ solvers_NNS ._SENT 
+In_IN this_DT work_NN ,_, several_JJ surge_NN decay_NN simulations_NNS were_VBD performed_VVN to_TO understand_VV the_DT influence_NN of_IN wave_NN radiation_NN ,_, coupled_VVN motions_NNS and_CC mooring_VVG modelling_VVG on_IN the_DT hydrodynamic_JJ damping_VVG and_CC the_DT flow_NN field_NN around_IN the_DT semi-submersible_JJ floater_NN ._SENT 
+The_DT paper_NN starts_VVZ with_IN the_DT description_NN of_IN the_DT model_NN tests_NNS used_VVN for_IN comparing_VVG the_DT numerical_JJ simulations_NNS ._SENT 
+Then_RB ,_, the_DT method_NN to_TO determine_VV the_DT hydrodynamic_JJ damping_VVG is_VBZ described_VVN ._SENT 
+The_DT following_VVG sections_NNS explain_VV the_DT numerical_JJ methods_NNS and_CC settings_NNS as_RB well_RB as_IN the_DT numerical_JJ sensitivity_NN study_NN ._SENT 
+Thereafter_RB ,_, the_DT results_NNS of_IN the_DT surge_NN decay_NN computations_NNS are_VBP presented_VVN and_CC discussed_VVN ._SENT 
+Finally_RB ,_, the_DT conclusions_NNS drawn_VVN from_IN this_DT work_NN are_VBP presented_VVN and_CC an_DT outlook_NN is_VBZ given_VVN for_IN further_JJR work_NN ._SENT 
+<Section> 2._CD Test_NN case_NN description_NN </Section> The_DT experiments_NNS were_VBD conducted_VVN at_IN 1/50th_JJ scale_NN using_VVG Froude_NNS 's_POS scaling_NN law_NN ._SENT 
+The_DT semi-submersible_JJ floater_NN used_VVN was_VBD originally_RB developed_VVN within_IN the_DT DeepCwind_JJ consortium_NN (_( Robertson_NP et_NP al_NP ._SENT 
+2017_CD )_) ._SENT 
+In_IN the_DT model_NN tests_NNS ,_, a_DT performance-matched_JJ wind_NN turbine_NN ,_, the_DT so-called_JJ MARIN_NP Stock_NP Wind_NP Turbine_NN (_( MSWT_NP )_) ,_, was_VBD mounted_VVN on_IN top_NN of_IN the_DT floater_NN ._SENT 
+More_JJR details_NNS about_IN this_DT turbine_NN may_MD be_VB found_VVN in_IN de_NP Ridder_NP et_CC al_NP ._SENT 
+(_( 2014_CD )_) ,_, Martin_NP (_( 2011_CD )_) and_CC Make_NP and_CC Vaz_NP (_( 2015_CD )_) ._SENT 
+Since_IN the_DT rotor_NN was_VBD not_RB rotating_VVG during_IN the_DT surge_NN decay_NN tests_NNS ,_, solely_RB the_DT floater_NN geometry_NN is_VBZ presented_VVN in_IN Figure_NP 1_CD and_CC used_VVN throughout_IN this_DT paper_NN ._SENT 
+Figure_NN 1._CD Geometry_NN of_IN the_DT semi-submersible_JJ ,_, adopted_VVN from_IN Gueydon_NP (_( 2015_CD )_) ._SENT 
+A_DT right-handed_JJ coordinate_VV system_NN was_VBD used_VVN in_IN this_DT work_NN :_: the_DT x_NN coordinate_VV pointed_VVN in_IN forward_RB (_( surge_NN )_) direction_NN ,_, the_DT y_NN coordinate_VV in_IN transverse_JJ (_( sway_NN )_) direction_NN and_CC the_DT z_NN coordinate_VV vertically_RB upwards_RB (_( heave_NN )_) ._SENT 
+The_DT system_NN 's_POS origin_NN was_VBD set_VVN to_TO the_DT centre_NN of_IN gravity_NN (_( COG_NN )_) of_IN the_DT floating_JJ structure_NN (_( Table_NN 1_CD )_) ._SENT 
+The_DT semi-submersible_JJ consists_VVZ of_IN three_CD vertical_JJ columns_NNS placed_VVN in_IN a_DT triangular_JJ arrangement_NN around_IN the_DT main_JJ column_NN in_IN the_DT middle_NN ._SENT 
+These_DT three_CD columns_NNS possess_VVP heave_NN damping_VVG plates_NNS at_IN the_DT bottom_NN ._SENT 
+The_DT vertical_JJ elements_NNS are_VBP connected_VVN horizontally_RB with_IN pontoons_NNS and_CC diagonally_RB with_IN cross_NN braces_NNS ._SENT 
+Table_NN 1._CD Main_JJ particulars_NNS of_IN the_DT floating_JJ wind_NN turbine_NN system_NN ._SENT 
+The_DT properties_NNS of_IN the_DT investigated_VVN system_NN (_( floater_NN ,_, tower_NN and_CC rotor_NN )_) are_VBP summarised_VVN in_IN Table_NN 1._CD The_DT diagonal_NN values_VVZ of_IN the_DT linear_JJ mooring_NN restoring_VVG matrix_NN were_VBD applied_VVN as_IN listed_VVN in_IN Table_NN 2._CD These_DT values_NNS were_VBD used_VVN for_IN the_DT numerical_JJ simulations_NNS ._SENT 
+More_JJR details_NNS can_MD be_VB found_VVN in_IN Robertson_NP et_CC al_NP ._SENT 
+(_( 2017_CD )_) and_CC in_IN Robertson_NP et_CC al_NP ._SENT 
+(_( 2014_CD )_) ._SENT 
+No_DT error_NN and_CC uncertainty_NN estimation_NN was_VBD done_VVN for_IN the_DT experiments_NNS ._SENT 
+Table_NN 2._CD Stiffness_NN properties_NNS of_IN the_DT mooring_NN system_NN ;_: the_DT values_NNS are_VBP given_VVN with_IN respect_NN to_TO the_DT COG_NN ._SENT 
+<Section> 3._CD Procedure_NN for_IN hydrodynamic_JJ damping_VVG estimation_NN </Section> The_DT equation_NN of_IN motion_NN for_IN a_DT single_JJ degree-of-freedom_NN system_NN can_MD be_VB written_VVN as_IN @(1_JJ )_) Here_RB ,_, the_DT mass_NN is_VBZ denoted_VVN by_IN M_NP ,_, the_DT damping_VVG by_IN B_NP and_CC the_DT stiffness_NN by_IN C._NP x_SYM ,_, x˙_NP and_CC x¨_NP are_VBP the_DT motion_NN ,_, velocity_NN and_CC acceleration_NN of_IN the_DT system_NN ,_, respectively_RB ._SENT 
+In_IN hydrodynamics_NN ,_, the_DT mass_JJ M_NP consists_VVZ of_IN structural_JJ and_CC added_JJ mass_NN ._SENT 
+The_DT stiffness_NN is_VBZ a_DT result_NN of_IN the_DT hydrostatic_JJ and_CC mooring_VVG restoring_VVG ._SENT 
+The_DT external_JJ forces_NNS ∑F_NN are_VBP ‘zero’_JJ for_IN decay_NN tests_NNS in_IN calm_JJ water_NN ._SENT 
+The_DT hydrodynamic_JJ damping_VVG function_NN expressed_VVN as_IN B(x˙_NN )_) in_IN the_DT equation_NN above_RB depends_VVZ on_IN the_DT velocity_NN ._SENT 
+Based_VVN on_IN the_DT assumption_NN that_IN the_DT hydrodynamic_JJ damping_VVG of_IN the_DT semi-submersible_JJ can_MD be_VB reproduced_VVD sufficiently_RB accurate_JJ with_IN linear_JJ B1_JJ and_CC quadratic_JJ B2_NN damping_VVG terms_NNS ,_, the_DT following_VVG equation_NN for_IN the_DT damping_VVG function_NN is_VBZ valid_JJ :_: @(2_NP )_) The_DT classical_JJ PQ-method_NN of_IN van_NP der_NP Vegt_NP (_( 1984_CD )_) may_MD be_VB applied_VVN for_IN the_DT hydrodynamic_JJ damping_VVG analysis_NN ._SENT 
+This_DT method_NN uses_VVZ successive_JJ amplitudes_NNS to_TO determine_VV the_DT relative_JJ motion_NN decrement_NN of_IN the_DT decay_NN test_NN ._SENT 
+A_DT line_NN can_MD be_VB fitted_VVN through_IN these_DT data_NN points_VVZ to_TO obtain_VV an_DT intercept_NN with_IN the_DT ordinate_NN and_CC slope_NN ._SENT 
+The_DT intercept_NN corresponds_VVZ to_TO a_DT p-value_NN and_CC the_DT slope_NN to_TO a_DT q-value_NN (_( see_VV Equation_NN (_( 3_LS )_) )_) ._SENT 
+In_IN Figure_NP 2_CD ,_, the_DT decrement_NN of_IN motion_NN amplitude_NN divided_VVN by_IN the_DT mean_JJ motion_NN amplitude_NN as_IN a_DT function_NN of_IN the_DT mean_JJ motion_NN amplitude_NN is_VBZ plotted_VVN for_IN the_DT model_NN tests_NNS ._SENT 
+In_IN this_DT figure_NN ,_, Φi_NP denotes_VVZ the_DT current_JJ motion_NN amplitude_NN ._SENT 
+More_JJR details_NNS on_IN this_DT procedure_NN may_MD be_VB found_VVN also_RB in_IN Weller_NP (_( 2012_CD )_) ._SENT 
+Figure_NN 2._CD Example_NN of_IN the_DT classical_JJ peak-to-peak_NN analysis_NN using_VVG numerical_JJ results_NNS of_IN a_DT 1DOF_JJ simulation_NN with_IN free_JJ surface_NN ._SENT 
+The_DT peaks_NNS of_IN the_DT time_NN history_NN Φ_NN are_VBP taken_VVN to_TO create_VV a_DT new_JJ diagram_NN (_( on_IN the_DT right_NN )_) ._SENT 
+Lines_NNS are_VBP fitted_VVN through_IN these_DT new_JJ points_NNS to_TO obtain_VV p_NN and_CC q._NP Linear_NP and_CC quadratic_JJ damping_VVG terms_NNS are_VBP obtained_VVN as_RB follows_VVZ :_: @(3_NP )_) Here_RB ,_, the_DT natural_JJ period_NN is_VBZ denoted_VVN by_IN Tn_NP ._SENT 
+The_DT p_NN and_CC q_NN coefficients_NNS can_MD also_RB be_VB obtained_VVN by_IN using_VVG a_DT least-squares_NNS fit_VVP of_IN the_DT time_NN trace_VV of_IN a_DT decay_NN test_NN ._SENT 
+This_DT method_NN is_VBZ shown_VVN in_IN Figure_NP 3._CD The_DT least-squares_NP fit_NN allows_VVZ for_IN a_DT more_RBR robust_JJ estimation_NN ._SENT 
+Thus_RB ,_, the_DT latter_JJ method_NN was_VBD used_VVN to_TO compare_VV the_DT hydrodynamic_JJ damping_VVG obtained_VVN by_IN the_DT experiments_NNS and_CC numerical_JJ simulations_NNS ._SENT 
+Figure_NN 3._CD Example_NN of_IN a_DT least-squares_NNS fit_VVP modern_JJ analysis_NN ._SENT 
+A_DT function_NN is_VBZ fitted_VVN to_TO the_DT original_JJ time_NN history_NN to_TO obtain_VV p_NN and_CC q_NN coefficients_NNS ._SENT 
+The_DT numerical_JJ results_NNS presented_VVD using_VVG these_DT two_CD techniques_NNS (_( see_VV Figures_NNS 2_CD and_CC 3_LS )_) resulted_VVN into_IN the_DT natural_JJ period_NN and_CC damping_VVG coefficients_NNS as_IN listed_VVN in_IN Table_NN 3._CD Table_NN 3._CD PQ_NP analysis_NN comparison_NN between_IN the_DT classical_JJ peak-to-peak_NN analysis_NN and_CC the_DT least-squares_NP fit_NN based_VVN on_IN the_DT results_NNS shown_VVN in_IN Figures_NNS 2_CD and_CC 3._CD Differences_NNS of_IN 0.135_CD %_NN in_IN time_NN ,_, 5.038_CD %_NN in_IN linear_JJ and_CC 0.909_CD %_NN in_IN quadratic_NN damping_VVG were_VBD estimated_VVN for_IN this_DT numerical_JJ simulation_NN ._SENT 
+The_DT least-squares_NP fit_NN is_VBZ more_RBR accurate_JJ for_IN small_JJ coupling_NN with_IN other_JJ degrees-of-freedom_NP (_( DOF_NP )_) ._SENT 
+The_DT presented_VVN results_NNS were_VBD obtained_VVN with_IN a_DT 1DOF_JJ simulation_NN including_VVG free_JJ surface_NN modelling_VVG ._SENT 
+For_IN the_DT model_NN tests_NNS (_( 6DOF_NP )_) ,_, the_DT same_JJ two_CD techniques_NNS were_VBD used_VVN and_CC yielded_VVN the_DT following_VVG differences_NNS :_: 1.279_CD %_NN in_IN time_NN ,_, 9.737_CD %_NN in_IN linear_JJ and_CC 5.476_CD %_NN in_IN quadratic_JJ damping_VVG ._SENT 
+These_DT differences_NNS give_VVP an_DT indication_NN of_IN the_DT uncertainty_NN of_IN the_DT post-processed_JJ damping_VVG data_NNS ._SENT 
+<Section> 4._CD Numerical_JJ methods_NNS and_CC settings_NNS </Section> The_DT numerical_JJ simulations_NNS were_VBD performed_VVN with_IN community-based_JJ open-source_NN computational_JJ fluid_JJ dynamics_NNS (_( CFD_NN )_) code_NN ReFRESCO1_NN ._SENT 
+The_DT code_NN solves_VVZ multiphase_JJ (_( unsteady_JJ )_) incompressible_JJ viscous_JJ flows_NNS using_VVG the_DT Navier–Stokes_NN equations_NNS ,_, complemented_VVN with_IN turbulence_NN models_NNS and_CC volume-fraction_NN transport_NN equations_NNS for_IN different_JJ phases_NNS ,_, see_VVP Vaz_NP et_NP al_NP ._SENT 
+(_( 2009_CD )_) ._SENT 
+The_DT equations_NNS were_VBD discretised_VVN using_VVG a_DT finite-volume_JJ approach_NN with_IN cell-centered_JJ collocated_VVN variables_NNS ,_, in_IN strong-conservation_NN form_NN ,_, and_CC a_DT pressure-correction_NN equation_NN based_VVN on_IN the_DT SIMPLE_JJ algorithm_NN was_VBD used_VVN to_TO ensure_VV mass_JJ conservation_NN ,_, see_VVP Klaij_NP and_CC Vuik_NP (_( 2013_CD )_) ._SENT 
+Time_NN integration_NN was_VBD performed_VVN implicitly_RB with_IN a_DT second-order_NN backward_RB scheme_NN ._SENT 
+The_DT code_NN is_VBZ parallelised_VVN using_VVG MPI_NP (_( Message_NP Passing_NN Interface_NP )_) library_NN ._SENT 
+The_DT implementation_NN is_VBZ face-based_JJ ,_, which_WDT permits_VVZ grids_NNS with_IN elements_NNS consisting_VVG of_IN an_DT arbitrary_JJ number_NN of_IN faces_NNS ,_, and_CC if_IN needed_VVN h-refinement_NN (_( hanging_VVG nodes_NNS )_) ._SENT 
+CFD_NN features_NNS such_JJ as_IN moving_VVG ,_, sliding_VVG and_CC deforming_VVG grids_NNS ,_, and_CC automatic_JJ grid_NN adaption_NN are_VBP also_RB available_JJ ._SENT 
+Here_RB ,_, moving_VVG grids_NNS were_VBD used_VVN with_IN the_DT moving_VVG grid_NN formulation_NN ,_, i.e._FW the_DT unsteady_JJ RANS_NP equations_NNS were_VBD written_VVN and_CC solved_VVN in_IN the_DT earth-fixed_JJ reference_NN frame_NN ._SENT 
+Coupling_NN with_IN structural_JJ equations-of-motion_NN is_VBZ possible_JJ and_CC done_VVN for_IN this_DT work_NN ._SENT 
+The_DT free_JJ surface_NN was_VBD modelled_VVN with_IN the_DT volume_NN of_IN fluid_JJ (_( VOF_JJ )_) method_NN (_( Klaij_NP et_NP al_NP ._SENT 
+2018_CD )_) ._SENT 
+The_DT numerical_JJ settings_NNS used_VVN for_IN the_DT equations_NNS are_VBP shown_VVN in_IN Table_NN 4._CD The_DT applied_JJ turbulence_NN model_NN was_VBD the_DT KSKL_NP (_( k-k−−√L_NP )_) turbulence_NN model_NN as_IN described_VVN in_IN Menter_NP and_CC Egorov_NP (_( 2010_CD )_) ._SENT 
+This_DT model_NN showed_VVD advantage_NN in_IN convergence_NN of_IN the_DT residuals_NNS for_IN free_JJ surface_NN applications_NNS compared_VVN to_TO the_DT k-�_NP �_NP Shear_NP Stress_NN Transport_NP Turbulence_NN Model_NP (_( SST_NP 2003_CD )_) by_IN Menter_NP et_CC al_NP ._SENT 
+(_( 2003_CD )_) ._SENT 
+Table_NN 4._CD Numerical_JJ settings_NNS used_VVN for_IN all_DT numerical_JJ simulations_NNS within_IN this_DT paper_NN ._SENT 
+The_DT equations_NNS of_IN motion_NN for_IN a_DT rigid_JJ body_NN enable_VV the_DT description_NN of_IN this_DT body_NN 's_POS attitude_NN to_TO external_JJ loads_NNS ,_, see_VVP Rosetti_NP and_CC Vaz_NP (_( 2017_CD )_) ._SENT 
+The_DT considered_VVN external_JJ loads_NNS are_VBP the_DT hydrodynamic_JJ force_NN f→H_NP ,_, the_DT restoring_VVG force_NN f→C_NN and_CC the_DT linear_JJ viscous_JJ mechanical_JJ damping_VVG force_NN f→D_NNS ._SENT 
+With_IN a_DT state_NN vector_NN for_IN 3DOF_NP r→={XG,ZG,ΘG}T_NP the_DT dynamic_JJ equations_NNS are_VBP written_VVN as_RB :_: @(4_NP )_) In_IN this_DT equation_NN ,_, M_NP denotes_VVZ the_DT mass_NN ,_, D_NP the_DT damping_VVG and_CC C_NP the_DT stiffness_NN matrix_NN ._SENT 
+The_DT matrices_NNS are_VBP positive_JJ and_CC diagonal_JJ ._SENT 
+As_IN the_DT body_NN was_VBD assumed_VVN totally_RB rigid_JJ ,_, the_DT mechanical_JJ damping_VVG matrix_NN was_VBD set_VVN to_TO ‘zero’_NN ._SENT 
+Together_RB these_DT equations_NNS form_VVP a_DT second-order_NN non-linear_JJ initial_JJ value_NN problem_NN ._SENT 
+The_DT problem_NN is_VBZ non-linear_JJ because_IN the_DT hydrodynamic_JJ forces_NNS ,_, f→H_NP ,_, keep_VVP a_DT non-linear_JJ relation_NN with_IN r→˙_NN via_IN the_DT Navier–Stokes_NNS equations_NNS ._SENT 
+In_IN the_DT present_JJ work_NN ,_, a_DT strongly_RB coupled_VVN scheme_NN was_VBD applied_VVN to_TO avoid_VV numerical_JJ instabilities_NNS due_JJ to_TO low_JJ mass_NN ratios_NNS and_CC added-mass_NN constraints_NNS ._SENT 
+The_DT scheme_NN is_VBZ based_VVN on_IN the_DT predictor-corrector_NN second-order_NN Adams–Bashforth–Moulton_NP scheme_NN ,_, in_IN which_WDT the_DT communication_NN between_IN flow_NN solution_NN and_CC rigid_JJ body_NN system_NN is_VBZ done_VVN at_IN the_DT time_NN loop_NN level_NN with_IN the_DT predictor_NN and_CC at_IN the_DT outer_JJ loop_NN level_NN with_IN an_DT iterative_JJ corrector_NN step_NN at_IN each_DT 10th_JJ iteration_NN ._SENT 
+ReFRESCO_NP can_MD be_VB coupled_VVN with_IN MARIN_NP 's_POS in-house_JJ time_NN domain_NN solver_NN aNySIMxmf_NN ._SENT 
+This_DT solver_NN allows_VVZ to_TO model_VV the_DT moorings_NN of_IN a_DT floating_JJ foundation_NN ._SENT 
+The_DT forces_NNS obtained_VVN with_IN this_DT model_NN replace_VV the_DT stiffness_NN matrix_NN C_NP from_IN Equation_NN 4._CD According_VVG to_TO van_NP den_NN Berg_NP and_CC Pauw_NP (_( 2018_CD )_) ,_, two_CD mooring_NN modelling_VVG approaches_NNS are_VBP possible_JJ :_: quasi-static_JJ and_CC dynamic_JJ moorings_NNS ._SENT 
+Quasi-static_JJ moorings_NNS :_: In_IN this_DT approach_NN ,_, the_DT shape_NN and_CC tension_NN of_IN the_DT lines_NNS are_VBP derived_VVN from_IN the_DT catenary_NN equations_NNS ._SENT 
+These_DT equations_NNS account_VVP for_IN the_DT weight_NN and_CC axial_JJ stiffness_NN of_IN the_DT mooring_NN lines_NNS ._SENT 
+As_IN a_DT result_NN of_IN this_DT way_NN of_IN modelling_VVG the_DT mooring_NN system_NN ,_, the_DT mooring_NN stiffness_NN varies_VVZ with_IN the_DT position_NN of_IN the_DT semi-submersible_JJ ._SENT 
+Inertia_NN ,_, current_JJ and_CC wave_NN forces_NNS are_VBP not_RB considered_VVN and_CC the_DT lines_NNS are_VBP modelled_VVN in_IN 2D_NNS with_IN a_DT vertical_JJ plane_NN through_IN the_DT anchor_NN and_CC fairlead_NN position_NN ._SENT 
+Dynamic_JJ moorings_NNS :_: For_IN the_DT dynamic_JJ approach_NN ,_, each_DT mooring_NN line_NN is_VBZ modelled_VVN in_IN 3D_NNS with_IN a_DT chain_NN of_IN discrete_JJ masses_NNS connected_VVN by_IN springs_NNS ._SENT 
+This_DT is_VBZ called_VVN a_DT lumped_VVN mass_NN model_NN in_IN the_DT literature_NN (_( Davidson_NP and_CC Ringwood_NP 2017_CD )_) ._SENT 
+This_DT empirical_JJ model_NN accounts_NNS for_IN inertia_NN ,_, bending_VVG stiffness_NN ,_, drag_NN forces_NNS and_CC seabed_NN friction_NN ._SENT 
+Dynamic_JJ moorings_NNS contribute_VVP to_TO the_DT hydrodynamic_JJ damping_VVG of_IN a_DT floating_JJ structure_NN by_IN its_PP$ added_JJ drag_NN forces_NNS ._SENT 
+In_IN addition_NN ,_, the_DT natural_JJ period_NN is_VBZ influenced_VVN by_IN the_DT added_JJ inertia_NN of_IN the_DT mooring_NN lines_NNS ._SENT 
+For_IN the_DT present_JJ work_NN ,_, solely_RB the_DT quasi-static_JJ mooring_NN model_NN (_( QSM_NN )_) was_VBD used_VVN ,_, i.e._FW no_DT contribution_NN to_TO the_DT damping_VVG was_VBD expected_VVN ._SENT 
+The_DT coupling_NN with_IN the_DT lumped-mass_NN model_NN is_VBZ planned_VVN for_IN future_JJ work_NN ._SENT 
+More_JJR details_NNS on_IN aNySIMxmf_NP and_CC the_DT mooring_NN model_NN used_VVN may_MD be_VB found_VVN in_IN van_NP den_NN Berg_NP and_CC Pauw_NP (_( 2018_CD )_) and_CC Gueydon_NP et_NP al_NP ._SENT 
+(_( 2014_CD )_) ._SENT 
+<Section> 5._CD Numerical_JJ setup_NN </Section> The_DT computational_JJ domain_NN used_VVN in_IN the_DT numerical_JJ simulations_NNS was_VBD modelled_VVN as_IN a_DT semi-cylinder_NN in_IN such_PDT a_DT way_NN that_IN it_PP forms_VVZ a_DT symmetric_JJ half_NN with_IN respect_NN to_TO the_DT xz_NP plane_NN ._SENT 
+This_DT allows_VVZ to_TO reduce_VV computational_JJ costs_NNS compared_VVN to_TO a_DT full_JJ domain_NN simulation_NN ._SENT 
+The_DT domain_NN had_VHD a_DT total_JJ height_NN of_IN h=4.6m_NP ,_, a_DT water_NN depth_NN of_IN d=4.0m_NP and_CC a_DT radius_NN of_IN r=4.9m_NP ._SENT 
+The_DT radius_NN corresponds_VVZ to_TO six_CD times_NNS the_DT characteristic_JJ radius_NN of_IN the_DT semi-submersible_JJ rc=0.8174m_NN ._SENT 
+The_DT water_NN depth_NN was_VBD adopted_VVN from_IN the_DT experiments_NNS ._SENT 
+The_DT computational_JJ domain_NN is_VBZ shown_VVN in_IN Figure_NP 4._CD Figure_NN 4._CD Computational_JJ domain_NN including_VVG names_NNS for_IN the_DT boundaries_NNS ._SENT 
+At_IN the_DT bottom_NN and_CC top_NN of_IN the_DT domain_NN ,_, a_DT static_JJ pressure_NN was_VBD prescribed_VVN ._SENT 
+The_DT boundaries_NNS of_IN the_DT semi-submersible_JJ were_VBD represented_VVN with_IN no-slip_NN conditions_NNS ._SENT 
+For_IN the_DT xz_NP plane_NN ,_, a_DT symmetry_NN condition_NN was_VBD used_VVN ._SENT 
+The_DT curved_VVN surface_NN area_NN was_VBD modelled_VVN as_IN a_DT non-reflecting_VVG boundary_NN condition_NN of_IN Sommerfeld_NP type_NN ,_, see_VVP Sommerfeld_NP (_( 1949_CD )_) ._SENT 
+<Section> 6._CD Verification_NP study_NN </Section> The_DT numerical_JJ uncertainty_NN Unum_NP of_IN a_DT CFD_NN simulation_NN consists_VVZ of_IN the_DT discretisation_NN uncertainty_NN Udisc_NN ,_, the_DT iterative_JJ uncertainty_NN Uiter_NN and_CC the_DT statistical_JJ uncertainty_NN Ustat_NN :_: @(5_NP )_) The_DT iterative_JJ uncertainty_NN is_VBZ controlled_VVN by_IN the_DT residual_JJ level_NN obtained_VVD ._SENT 
+For_IN residual_JJ levels_NNS of_IN two_CD orders_NNS of_IN magnitude_NN below_IN the_DT discretisation_NN uncertainty_NN ,_, the_DT iterative_JJ uncertainty_NN can_MD be_VB neglected_VVN ,_, see_VVP Eça_NP and_CC Hoekstra_NP (_( 2009_CD )_) ._SENT 
+The_DT simulations_NNS were_VBD done_VVN for_IN decay_NN tests_NNS with_IN decreasing_VVG amplitude_NN over_IN time_NN ._SENT 
+This_DT means_VVZ that_IN the_DT simulations_NNS were_VBD time_NN accurate_JJ and_CC no_DT statistical_JJ uncertainty_NN can_MD be_VB obtained_VVN ._SENT 
+Therefore_RB ,_, the_DT work_NN of_IN this_DT paper_NN was_VBD focused_VVN on_IN the_DT discretisation_NN uncertainty_NN ._SENT 
+A_DT sensitivity_NN study_NN was_VBD performed_VVN using_VVG 3DOF_JJ surge_NN decay_NN simulations_NNS with_IN free_JJ surface_NN ._SENT 
+This_DT means_VVZ that_IN the_DT structure_NN was_VBD displaced_VVN initially_RB in_IN the_DT x_NN direction_NN and_CC was_VBD able_JJ to_TO move_VV freely_RB in_IN z_NN and_CC rotate_VV around_RP the_DT y_NN axis_NN ._SENT 
+The_DT computational_JJ domain_NN and_CC grids_NNS were_VBD generated_VVN using_VVG Hexpress_NN ,_, a_DT trimmed_VVN hexahedral_JJ unstructured_JJ grid_NN generator_NN software_NN ._SENT 
+An_DT example_NN of_IN the_DT grid_NN topology_NN is_VBZ shown_VVN in_IN Figures_NNS 5_CD and_CC 6._CD The_DT grids_NNS were_VBD refined_VVN towards_IN the_DT semi-submersible_JJ and_CC towards_IN the_DT free_JJ surface_NN ._SENT 
+To_TO reduce_VV the_DT amount_NN of_IN hanging_VVG nodes_NNS in_IN the_DT vertical_JJ direction_NN ,_, the_DT refinement_NN at_IN the_DT free_JJ surface_NN was_VBD kept_VVN constant_JJ in_IN this_DT direction_NN ._SENT 
+The_DT grid_NN was_VBD also_RB refined_VVN on_IN the_DT curves_NNS and_CC surfaces_VVZ of_IN the_DT semi-submersible_JJ ._SENT 
+The_DT structure_NN above_IN the_DT water_NN line_NN was_VBD refined_VVN as_IN much_RB as_RB needed_VVN for_IN snapping_VVG purposes_NNS ._SENT 
+At_IN critical_JJ geometrical_JJ points_NNS ,_, more_JJR refinement_NN was_VBD needed_VVN to_TO capture_VV the_DT contour_NN of_IN the_DT geometry_NN ,_, see_VVP Figure_NP 6._CD Figure_NN 5._CD Global_JJ grid_NN topology_NN with_IN increasing_VVG grid_NN refinement_NN towards_IN the_DT floater_NN and_CC the_DT free_JJ surface_NN ._SENT 
+Figure_NN 6._CD Grid_NN refinement_NN on_IN curves_NNS and_CC surfaces_VVZ of_IN the_DT semi-submersible_JJ floater_NN ._SENT 
+The_DT viscous_JJ layer_NN cells_NNS were_VBD generated_VVN to_TO guarantee_VV a_DT non-dimensional_JJ wall_NN distance_NN value_NN of_IN y+max<1.5_NP ._SENT 
+This_DT was_VBD achieved_VVN regardless_RB of_IN the_DT total_JJ grid_NN size_NN ._SENT 
+The_DT three_CD grids_NNS used_VVN for_IN the_DT verification_NN study_NN are_VBP summarised_VVN in_IN Table_NN 5._CD Table_NN 5._CD Grids_NNS for_IN the_DT verification_NN study_NN ._SENT 
+Moreover_RB ,_, three_CD time_NN steps_NNS were_VBD studied_VVN ._SENT 
+These_DT time_NN steps_NNS were_VBD defined_VVN in_IN ratio_NN of_IN the_DT oscillation_NN period_NN Tref≈15.556s_NNS :_: dt=Tref/3200_NP ,_, dt=Tref/6400_NP and_CC dt=Tref/12,800_NP ._SENT 
+The_DT results_NNS of_IN the_DT surge_NN motion_NN are_VBP shown_VVN in_IN Figure_NP 7(a_NP )_) ._SENT 
+For_IN each_DT simulation_NN ,_, the_DT maximum_JJ number_NN of_IN outer_JJ loop_NN iterations_NNS was_VBD fixed_VVN to_TO 60._CD This_DT number_NN led_VVN to_TO iterative_JJ convergence_NN of_IN <1×10−3_NN in_IN L2-norm_NN for_IN all_DT equations_NNS ._SENT 
+The_DT simulations_NNS with_IN G1_JJ and_CC coarser_JJR time_NN steps_NNS obtained_VVD slightly_RB larger_JJR residuals_NNS (_( <5×10−3_NP )_) ._SENT 
+The_DT large_JJ residuals_NNS were_VBD located_VVN at_IN the_DT free_JJ surface_NN and_CC in_IN the_DT refinement_NN regions_NNS shown_VVN in_IN Figure_NP 6_CD (_( b_LS )_) ._SENT 
+Figure_NN 7._CD Results_NNS of_IN the_DT numerical_JJ sensitivity_NN study_NN ._SENT 
+More_JJR details_NNS are_VBP given_VVN in_IN Tables_NP 6_CD and_CC 7._CD Table_NN 6._CD Results_NNS for_IN the_DT different_JJ grids_NNS and_CC time_NN steps_NNS ._SENT 
+Table_NN 7._CD Results_NNS of_IN uncertainty_NN and_CC error_NN estimation_NN using_VVG the_DT procedure_NN of_IN Eça_NP and_CC Hoekstra_NP (_( 2014_CD )_) ._SENT 
+Because_IN of_IN the_DT small_JJ differences_NNS noticeable_JJ in_IN the_DT time_NN history_NN plot_NN ,_, values_NNS for_IN each_DT simulation_NN of_IN the_DT first_JJ negative_JJ peak_NN are_VBP listed_VVN in_IN Table_NN 6._CD In_IN addition_NN ,_, a_DT difference_NN in_IN percentage_NN from_IN the_DT finest_JJS grid_NN and_CC time_NN step_NN for_IN each_DT simulation_NN is_VBZ presented_VVN in_IN the_DT last_JJ two_CD columns_NNS ._SENT 
+For_IN the_DT first_JJ negative_JJ peak_NN an_DT uncertainty_NN analysis_NN was_VBD performed_VVN according_VVG to_TO Eça_NP and_CC Hoekstra_NP (_( 2014_CD )_) (_( Figure_NP 7(b_NP )_) )_) ._SENT 
+The_DT method_NN of_IN Eça_NP and_CC Hoekstra_NP (_( 2014_CD )_) bases_NNS on_IN Richardson_NP 's_POS extrapolation_NN ._SENT 
+The_DT error_NN δRE_NN is_VBZ defined_VVN as_IN the_DT difference_NN between_IN the_DT given_VVN solution_NN for_IN a_DT specific_JJ grid_NN and_CC time_NN step_NN φi_NP and_CC the_DT exact_JJ solution_NN φ0_NN :_: @(6_NP )_) ph_NP and_CC p�_NP �_NP denote_VVP the_DT observed_JJ order_NN of_IN convergence_NN in_IN space_NN and_CC time_NN ,_, respectively_RB ._SENT 
+α_NP is_VBZ a_DT constant_JJ related_VVN to_TO the_DT error_NN level_NN ._SENT 
+hi_UH and_CC τi_NP are_VBP the_DT relative_JJ grid_NN cell_NN and_CC time_NN step_NN size_NN and_CC defined_VVN as_IN hi=Δxi/Δx1_JJ and_CC τi=Δti/Δt1_JJ ._SENT 
+Δxi_NP and_CC Δti_NP represent_VVP the_DT typical_JJ cell_NN size_NN of_IN a_DT given_VVN grid_NN and_CC the_DT typical_JJ time_NN step_NN ,_, respectively_RB ._SENT 
+The_DT finest_JJS solution_NN of_IN grid_NN and_CC time_NN step_NN is_VBZ given_VVN with_IN subscript_JJ 1._CD Scatter_NN in_IN the_DT data_NN is_VBZ expected_VVN for_IN most_JJS engineering_NN flow_NN problems_NNS ._SENT 
+Therefore_RB ,_, Eça_NP and_CC Hoekstra_NP (_( 2014_CD )_) recommend_VVP to_TO use_VV a_DT least-squares_NNS approach_VVP with_IN at_IN least_JJS one_CD data_NNS point_VVP more_JJR than_IN unknowns_NNS ._SENT 
+A_DT fitted_JJ plane_NN is_VBZ calculated_VVN based_VVN on_IN the_DT data_NNS provided_VVD ._SENT 
+The_DT error_NN of_IN one_CD point_NN towards_IN the_DT fitted_JJ plane_NN can_MD be_VB determined_VVN ._SENT 
+The_DT uncertainty_NN U�_NN �_NN provides_VVZ an_DT interval_NN around_IN the_DT exact_JJ solution_NN with_IN a_DT certain_JJ degree_NN of_IN confidence_NN :_: @(7_JJ )_) If_IN the_DT error_NN ϵφ≃δRE_NN is_VBZ known_VVN ,_, the_DT uncertainty_NN is_VBZ calculated_VVN as_RB :_: @(8_NP )_) Fs_NNS is_VBZ a_DT safety_NN factor_NN that_WDT ensures_VVZ the_DT degree_NN of_IN confidence_NN ._SENT 
+For_IN the_DT present_JJ approach_NN ,_, a_DT confidence_NN level_NN of_IN 95_CD %_NN was_VBD used_VVN ._SENT 
+More_JJR details_NNS on_IN the_DT approach_NN can_MD be_VB found_VVN in_IN Eça_NP and_CC Hoekstra_NP (_( 2014_CD )_) ._SENT 
+The_DT results_NNS of_IN the_DT uncertainty_NN estimation_NN are_VBP listed_VVN in_IN Table_NN 7._CD The_DT solution_NN of_IN the_DT finest_JJS grid_NN and_CC time_NN step_NN is_VBZ denoted_VVN with_IN φ1_JJ ._SENT 
+Inspecting_VVG the_DT data_NN points_NNS (_( Figure_NP 7_CD and_CC Table_NN 6_CD )_) ,_, it_PP can_MD be_VB seen_VVN that_IN the_DT coarsest_JJS grid_NN provided_VVD outliers_NNS ,_, whereas_IN the_DT medium_NN and_CC fine_NN grid_NN were_VBD very_RB close_JJ to_TO each_DT other_JJ and_CC almost_RB exactly_RB on_IN the_DT fitted_JJ plane_NN ._SENT 
+The_DT difference_NN between_IN the_DT finest_JJS and_CC the_DT medium_JJ grid_NN and_CC time_NN step_NN was_VBD of_IN 0.45_CD %_NN in_IN peak_NN height_NN and_CC 0.28_CD %_NN in_IN time_NN ._SENT 
+Therefore_RB ,_, the_DT medium_NN configuration_NN was_VBD used_VVN for_IN the_DT final_JJ computations_NNS to_TO save_VV computational_JJ costs_NNS ._SENT 
+<Section> 7._CD Results_NNS and_CC discussion_NN </Section> One_CD double-body_NN (_( DB_NP )_) simulation_NN and_CC a_DT simulation_NN with_IN free_JJ surface_NN (_( wFreeS_NNS )_) and_CC for_IN 1DOF_NP was_VBD performed_VVN to_TO study_VV the_DT influence_NN of_IN the_DT free_JJ surface_NN on_IN the_DT hydrodynamic_JJ damping_VVG ._SENT 
+A_DT simulation_NN with_IN free_JJ surface_NN and_CC for_IN 3DOF_NP was_VBD done_VVN to_TO analyse_VV the_DT influence_NN of_IN coupled_VVN motions_NNS on_IN the_DT damping_VVG ._SENT 
+Finally_RB ,_, a_DT simulation_NN with_IN free_JJ surface_NN ,_, for_IN 3DOF_NN and_CC with_IN the_DT quasi-static_JJ catenary_NN mooring_NN model_NN (_( QSM_NN )_) was_VBD computed_VVN to_TO show_VV the_DT influence_NN of_IN non-linear_JJ moorings_NNS on_IN the_DT decay_NN motion_NN ._SENT 
+The_DT linear_JJ restoring_VVG matrix_NN is_VBZ abbreviated_VVN as_IN linear_JJ mooring_NN matrix_NN (_( LM_NP )_) in_IN the_DT table_NN and_CC figures_NNS ._SENT 
+The_DT values_NNS of_IN Table_NN 2_CD were_VBD used_VVN here_RB ._SENT 
+At_IN first_JJ ,_, the_DT time_NN traces_NNS and_CC the_DT hydrodynamic_JJ damping_VVG are_VBP presented_VVN for_IN all_DT simulations_NNS ._SENT 
+Then_RB ,_, a_DT more_RBR detailed_JJ investigation_NN was_VBD performed_VVN on_IN the_DT differences_NNS of_IN the_DT two_CD 3DOF_JJ simulations_NNS ._SENT 
+At_IN last_JJ ,_, the_DT velocity_NN and_CC vorticity_NN field_NN for_IN each_DT of_IN these_DT simulations_NNS was_VBD analysed_VVN during_IN one_CD third_NN of_IN an_DT oscillation_NN cycle_NN ._SENT 
+In_IN this_DT ,_, third_JJ different_JJ time_NN instances_NNS are_VBP shown_VVN to_TO display_VV the_DT time-varying_VVG differences_NNS of_IN the_DT velocity_NN field_NN ._SENT 
+7.1_CD ._SENT 
+Effects_NNS on_IN the_DT hydrodynamic_JJ damping_VVG The_DT surge_NN decay_NN motion_NN presented_VVN in_IN Figure_NP 8_CD is_VBZ categorised_VVN as_IN 'under_NP damped_VVP '_POS oscillation_NN ._SENT 
+Figure_NN 8._CD Comparison_NN of_IN surge_NN decay_NN simulations_NNS with_IN experimental_JJ results_NNS ._SENT 
+The_DT numerical_JJ simulations_NNS presented_VVN are_VBP a_DT DB_NP 1DOF_JJ simulation_NN with_IN linear_JJ moorings_NNS (_( LM_NP )_) ,_, a_DT 1DOF_JJ simulation_NN including_VVG free_JJ surface_NN (_( wFreeS_NNS )_) and_CC two_CD 3DOF_JJ simulations_NNS :_: one_CD with_IN linear_JJ moorings_NNS and_CC one_CD with_IN non-linear_JJ quasi-static_JJ moorings_NNS (_( QSM_NN )_) ._SENT 
+The_DT difference_NN between_IN the_DT 1DOF_JJ wFreeS_NNS and_CC the_DT 1DOF_JJ DB_NP simulation_NN is_VBZ the_DT additional_JJ free_JJ surface_NN ._SENT 
+In_IN Figure_NP 8_CD ,_, the_DT difference_NN of_IN the_DT oscillation_NN amplitude_NN is_VBZ hardly_RB noticeable_JJ in_IN the_DT beginning_NN of_IN the_DT simulation_NN ._SENT 
+After_IN about_IN 30s_NNS ,_, this_DT difference_NN increases_NNS ._SENT 
+The_DT PQ_NP analysis_NN revealed_VVD a_DT significant_JJ increase_NN of_IN linear_JJ damping_VVG for_IN the_DT simulation_NN with_IN free_JJ surface_NN ._SENT 
+This_DT supports_VVZ the_DT hypotheses_NNS that_IN the_DT damping_VVG owing_VVG to_TO wave_NN radiation_NN is_VBZ a_DT linear_JJ damping_VVG ._SENT 
+Another_DT computation_NN was_VBD a_DT surge_NN decay_NN simulation_NN with_IN enabled_VVN heave_NN and_CC pitch_NN motion_NN ._SENT 
+This_DT 3DOF_JJ simulation_NN led_VVN to_TO slightly_RB increased_VVN linear_JJ and_CC quadratic_JJ damping_VVG as_RB well_RB as_IN natural_JJ period_NN ._SENT 
+However_RB ,_, the_DT advantage_NN of_IN 3DOF_JJ motion_NN compared_VVN to_TO 1DOF_VV was_VBD rather_RB small_JJ for_IN this_DT specific_JJ case_NN ._SENT 
+The_DT final_JJ CFD_NN simulation_NN of_IN this_DT work_NN used_VVD a_DT quasi-static_JJ non-linear_JJ mooring_NN model_NN instead_RB of_IN a_DT linear_JJ mooring_NN restoring_VVG matrix_NN ._SENT 
+The_DT influence_NN of_IN the_DT non-linearity_NN of_IN the_DT restoring_VVG force_NN is_VBZ visible_JJ just_RB at_IN the_DT first_JJ negative_JJ maximum_NN shown_VVN in_IN Figure_NP 8._CD The_DT difference_NN in_IN oscillation_NN became_VVD negligible_JJ over_IN time_NN as_IN the_DT restoring_VVG force_NN was_VBD rather_RB linear_JJ in_IN a_DT small_JJ region_NN around_IN the_DT equilibrium_NN position_NN ._SENT 
+Thus_RB ,_, the_DT differences_NNS in_IN linear_JJ and_CC quadratic_JJ damping_VVG were_VBD also_RB very_RB small_JJ ._SENT 
+Comparing_VVG the_DT 3DOF_JJ simulation_NN with_IN non-linear_JJ quasi-static_JJ moorings_NNS to_TO the_DT model_NN tests_NNS revealed_VVD a_DT difference_NN of_IN 13.8_CD %_NN in_IN linear_JJ damping_VVG ,_, of_IN 45.7_CD %_NN in_IN quadratic_NN damping_VVG and_CC of_IN 2.4_CD %_NN in_IN natural_JJ period_NN ._SENT 
+It_PP showed_VVD that_IN the_DT quadratic_NN damping_VVG is_VBZ more_RBR dominant_JJ for_IN the_DT model_NN tests_NNS than_IN for_IN the_DT numerical_JJ simulations_NNS ._SENT 
+The_DT comparison_NN of_IN the_DT hydrodynamic_JJ damping_VVG between_IN model_NN tests_NNS and_CC numerical_JJ simulations_NNS revealed_VVD large_JJ differences_NNS ._SENT 
+They_PP might_MD be_VB caused_VVN by_IN the_DT following_VVG reasons_NNS ._SENT 
+In_IN the_DT model_NN tests_NNS ,_, the_DT catenary_NN moorings_NN were_VBD towed_VVN with_IN the_DT motion_NN of_IN the_DT semi-submersible_JJ floater_NN ._SENT 
+Thus_RB ,_, additional_JJ drag_NN at_IN the_DT mooring_NN lines_NNS yielded_VVD increased_VVN damping_VVG of_IN the_DT motions_NNS ._SENT 
+The_DT drag_NN is_VBZ a_DT purely_RB quadratic_JJ term_NN and_CC increased_VVD the_DT quadratic_NN damping_VVG of_IN the_DT experimental_JJ floater_NN ._SENT 
+No_DT uncertainties_NNS were_VBD given_VVN for_IN the_DT experiments_NNS ._SENT 
+Repeat_NN tests_NNS would_MD also_RB yield_VV to_TO scatter_VV and_CC therefore_RB uncertainties_NNS ._SENT 
+Including_VVG errors_NNS and_CC uncertainties_NNS of_IN the_DT model_NN tests_NNS would_MD decrease_VV the_DT difference_NN to_TO the_DT numerical_JJ simulations_NNS ._SENT 
+Computations_NNS with_IN a_DT full_JJ domain_NN and_CC 6DOF_JJ motion_NN allow_VV for_IN more_JJR viscous_JJ effects_NNS around_IN the_DT columns_NNS and_CC induced_VVN crosswise_JJ motion_NN ._SENT 
+The_DT crosswise_JJ motion_NN and_CC the_DT more_JJR realistic_JJ viscous_JJ effects_NNS influenced_VVD the_DT surge_NN motion_NN and_CC damping_VVG of_IN the_DT floater_NN ._SENT 
+During_IN the_DT model_NN tests_NNS ,_, a_DT turbine_NN was_VBD mounted_VVN on_IN top_NN of_IN the_DT floater_NN ._SENT 
+The_DT additional_JJ area_NN led_VVD to_TO more_JJR wind_NN friction_NN and_CC therefore_RB to_TO an_DT increased_VVN damping_VVG ._SENT 
+In_IN the_DT model_NN tests_NNS ,_, a_DT power_NN cable_NN was_VBD connected_VVN to_TO the_DT floater_NN ._SENT 
+This_DT power_NN cable_NN is_VBZ expected_VVN to_TO influence_VV the_DT motion_NN of_IN the_DT floater_NN in_IN particular_JJ for_IN large_JJ oscillations_NNS ._SENT 
+The_DT interaction_NN between_IN floating_JJ body_NN and_CC cable_NN dampened_VVD the_DT motion_NN ._SENT 
+Post-processing_VVG the_DT data_NNS led_VVN to_TO increased_VVN uncertainties_NNS in_IN the_DT results_NNS ._SENT 
+An_DT estimation_NN was_VBD done_VVN in_IN Section_NP 3._CD The_NP uncertainties_NNS increased_VVD with_IN complexity_NN of_IN the_DT investigated_VVN decay_NN ._SENT 
+Differences_NNS of_IN up_RB to_TO ≈10_JJ %_NN in_IN linear_JJ and_CC ≈6_JJ %_NN in_IN quadratic_JJ damping_VVG might_MD be_VB in_IN an_DT acceptable_JJ range_NN with_IN the_DT post-processing_VVG techniques_NNS used_VVN ._SENT 
+The_DT small_JJ difference_NN in_IN natural_JJ period_NN can_MD be_VB explained_VVN by_IN the_DT following_VVG points_NNS ._SENT 
+No_DT uncertainties_NNS were_VBD given_VVN for_IN the_DT experiments_NNS ._SENT 
+The_DT experimental_JJ decay_NN tests_NNS were_VBD not_RB repeated_VVN neither_RB ._SENT 
+It_PP is_VBZ very_RB likely_JJ that_IN the_DT estimated_JJ natural_JJ period_NN possess_VVP larger_JJR uncertainties_NNS than_IN the_DT difference_NN between_IN the_DT numerical_JJ and_CC experimental_JJ data_NNS ._SENT 
+The_DT experimental_JJ floater_NN was_VBD moored_VVN with_IN catenary_NN moorings_NNS ._SENT 
+The_DT individual_JJ segments_NNS can_MD be_VB modelled_VVN with_IN the_DT dynamic_JJ lumped_VVN mass_NN mooring_VVG model_NN of_IN aNySIMxmf_NP ._SENT 
+Then_RB ,_, drag_NN and_CC inertia_NN properties_NNS are_VBP defined_VVN for_IN each_DT segment_NN ._SENT 
+In_IN particular_JJ ,_, the_DT inertia_NN properties_NNS are_VBP expected_VVN to_TO increase_VV the_DT natural_JJ period_NN in_IN surge_NN ._SENT 
+The_DT post-processing_NN has_VHZ also_RB an_DT influence_NN on_IN the_DT estimated_JJ natural_JJ period_NN ._SENT 
+Differences_NNS of_IN up_RB to_TO ≈1.3_JJ %_NN are_VBP expected_VVN with_IN the_DT techniques_NNS used_VVD ._SENT 
+A_DT finer_JJR grid_NN and_CC time_NN step_NN yielded_VVD a_DT closer_JJR match_NN of_IN the_DT simulations_NNS with_IN the_DT experiment_NN ._SENT 
+The_DT difference_NN was_VBD smaller_JJR than_IN the_DT estimated_JJ uncertainty_NN of_IN the_DT numerical_JJ simulation_NN (_( see_VV also_RB the_DT following_VVG paragraph_NN )_) ._SENT 
+The_DT numerical_JJ results_NNS shown_VVN in_IN Figure_NP 8_CD and_CC Table_NN 8_CD possessed_VVN uncertainties_NNS of_IN about_RB 10_CD %_NN ._SENT 
+No_DT uncertainty_NN estimation_NN was_VBD done_VVN for_IN the_DT model_NN test_NN data_NNS ._SENT 
+Therefore_RB ,_, no_DT formal_JJ validation_NN is_VBZ possible_JJ ._SENT 
+Table_NN 8._CD Results_NNS of_IN the_DT PQ-analysis_NN with_IN least-quares_NNS fitting_JJ for_IN the_DT simulations_NNS presented_VVN in_IN Figure_NP 8._CD 7.2_CD ._SENT 
+Mooring_VVG effects_NNS on_IN motion_NN In_IN Figure_NP 9_CD ,_, the_DT results_NNS of_IN the_DT surge_NN ,_, heave_NN and_CC pitch_NN motion_NN of_IN the_DT two_CD more_JJR complex_JJ 3DOF_JJ surge_NN decay_NN simulations_NNS are_VBP compared_VVN to_TO the_DT model_NN test_NN results_NNS ._SENT 
+The_DT heave_NN motion_NN was_VBD different_JJ between_IN the_DT model_NN test_NN and_CC the_DT numerical_JJ simulation_NN ._SENT 
+At_IN the_DT beginning_NN of_IN the_DT model_NN tests_NNS ,_, an_DT operator_NN pushed_VVD the_DT floater_NN to_TO a_DT certain_JJ location_NN ._SENT 
+Then_RB ,_, the_DT floater_NN was_VBD released_VVN to_TO oscillate_VV and_CC decay_NN over_IN time_NN ._SENT 
+This_DT action_NN by_IN the_DT operator_NN was_VBD not_RB idealised_VVN ._SENT 
+Therefore_RB ,_, initial_JJ displacement_NN in_IN heave_NN and_CC pitch_NN were_VBD observed_VVN ._SENT 
+This_DT may_MD explain_VV the_DT phase_NN shifts_NNS and_CC different_JJ amplitudes_NNS in_IN pitch_NN ,_, but_CC it_PP does_VVZ not_RB explain_VV the_DT higher_JJR frequent_JJ signal_NN oscillations_NNS in_IN heave_NN ._SENT 
+However_RB ,_, this_DT might_MD occur_VV because_IN of_IN noise_NN in_IN the_DT measured_VVN signal_NN ,_, remaining_VVG waves_NNS in_IN the_DT physical_JJ test_NN basin_NN that_WDT excite_VV the_DT floater_NN or_CC eigen_NN frequencies_NNS of_IN the_DT model_NN test_NN setup_NN ._SENT 
+Figure_NN 9._CD Comparison_NN of_IN 3DOF_JJ surge_NN decay_NN simulations_NNS with_IN experimental_JJ results_NNS ._SENT 
+The_DT difference_NN between_IN the_DT 3DOF_JJ simulations_NNS is_VBZ the_DT mooring_VVG models_NNS :_: One_CD simulation_NN included_VVD a_DT linear_JJ mooring_NN model_NN (_( LM_NP )_) with_IN a_DT vertical_JJ force_NN to_TO account_VV for_IN the_DT weight_NN of_IN the_DT moorings_NN and_CC the_DT other_JJ simulation_NN used_VVD a_DT non-linear_JJ quasi-static_JJ catenary_NN mooring_NN model_NN (_( QSM_NN )_) ._SENT 
+Differences_NNS were_VBD also_RB apparent_JJ between_IN the_DT numerical_JJ simulations_NNS ._SENT 
+The_DT difference_NN in_IN surge_NN was_VBD explained_VVN beforehand_RB ._SENT 
+The_DT simulation_NN with_IN linear_JJ moorings_NNS (_( linear_JJ restoring_VVG matrix_NN )_) missed_VVD the_DT weight_NN of_IN the_DT mooring_NN lines_NNS ._SENT 
+This_DT missing_JJ weight_NN was_VBD applied_VVN as_IN a_DT vertical_JJ force_NN acting_VVG on_IN the_DT centre_NN of_IN gravity_NN of_IN the_DT floater_NN ._SENT 
+Therefore_RB ,_, a_DT vertical_JJ force_NN was_VBD applied_VVN that_IN ensured_VVN the_DT floater_NN to_TO oscillate_VV around_RP its_PP$ equilibrium_NN position_NN ._SENT 
+The_DT numerical_JJ simulation_NN using_VVG the_DT quasi-static_JJ non-linear_JJ mooring_NN model_NN accounted_VVD intrinsically_RB for_IN the_DT weight_NN of_IN the_DT mooring_NN lines_NNS ._SENT 
+No_DT additional_JJ vertical_JJ correction_NN needed_VVN to_TO be_VB applied_VVN ._SENT 
+Therefore_RB ,_, the_DT actual_JJ discrepancy_NN between_IN the_DT physical_JJ model_NN in_IN the_DT basin_NN and_CC the_DT requested_VVN numerical_JJ model_NN becomes_VVZ visible_JJ ._SENT 
+In_IN Figure_NP 9_CD ,_, the_DT range_NN of_IN the_DT heave_NN axis_NN was_VBD chosen_VVN to_TO be_VB very_RB small_JJ to_TO visualise_VV this_DT difference_NN of_IN 0.1_CD %_NN in_IN draft_NN ._SENT 
+A_DT large_JJ draft_NN difference_NN influences_VVZ the_DT hydrodynamic_JJ damping_VVG ._SENT 
+The_DT reason_NN lies_VVZ in_IN the_DT changed_VVN wetted_VVN surface_NN area_NN and_CC displacement_NN ._SENT 
+The_DT viscous_JJ and_CC wave_NN radiation_NN damping_VVG are_VBP expected_VVN to_TO increase_VV with_IN increased_VVN draft_NN ._SENT 
+However_RB ,_, these_DT terms_NNS would_MD increase_VV marginally_RB for_IN a_DT 0.1_CD %_NN increase_NN of_IN the_DT draft_NN ._SENT 
+Compared_VVN to_TO the_DT model_NN tests_NNS ,_, this_DT 3DOF_JJ QSM_NN computation_NN missed_VVD the_DT 6DOF_JJ motion_NN combined_VVN with_IN a_DT full_JJ domain_NN ,_, the_DT drag_NN of_IN the_DT mooring_NN lines_NNS ,_, the_DT influence_NN of_IN the_DT connected_JJ electrical_JJ power_NN cable_NN and_CC the_DT possible_JJ aerodynamic_JJ damping_VVG effect_NN of_IN the_DT parked_VVN rotor_NN ._SENT 
+7.3_CD ._SENT 
+Flow_NN characteristics_NNS The_DT velocity_NN field_NN and_CC vorticity_NN around_IN the_DT floater_NN are_VBP important_JJ factors_NNS for_IN the_DT hydrodynamic_JJ damping_VVG ._SENT 
+Therefore_RB ,_, the_DT flow_NN solution_NN for_IN the_DT DB_NP simulations_NNS ,_, the_DT 1DOF_JJ free_JJ surface_NN simulation_NN and_CC the_DT 3DOF_JJ simulations_NNS is_VBZ presented_VVN in_IN the_DT Figures_NNS 11_CD and_CC 12._CD The_DT time_NN instances_NNS were_VBD chosen_VVN within_IN the_DT first_JJ oscillation_NN cycle_NN shortly_RB after_IN the_DT first_JJ negative_JJ peak_NN ,_, i.e._FW t=7.7782s_NP ,_, t=9.3338s_NP ,_, t=10.8894s_NP and_CC t=12.4451s_NP ._SENT 
+These_DT locations_NNS can_MD be_VB found_VVN in_IN Figure_NP 10_CD in_IN relation_NN to_TO the_DT surge_NN motion_NN ._SENT 
+Figure_NP 10(b_NP )_) shows_VVZ the_DT free_JJ surface_NN including_VVG small_JJ waves_NNS radiated_VVN from_IN the_DT floater_NN ._SENT 
+The_DT free_JJ surface_NN is_VBZ presented_VVN for_IN an_DT air_NN volume_NN fraction_NN of_IN α=0.5_NP ._SENT 
+Figure_NN 10._CD Time_NP instances_NNS chosen_VVN for_IN the_DT visualisation_NN of_IN velocity_NN and_CC vorticity_NN field_NN (_( a_DT )_) ,_, and_CC free_JJ surface_NN visualisation_NN for_IN the_DT 3dof_JJ simulation_NN with_IN free_JJ surface_NN and_CC non-linear_JJ quasi-static_JJ moorings_NNS (_( b_LS )_) ._SENT 
+Figure_NN 11._CD Velocity_NN magnitude_NN of_IN the_DT numerical_JJ simulation_NN for_IN different_JJ time_NN instances_NNS shown_VVN at_IN the_DT height_NN of_IN the_DT COG_NN ._SENT 
+The_DT 1DOF_JJ DB_NP simulation_NN is_VBZ presented_VVN in_IN the_DT top_JJ row_NN (_( a–d_NN )_) ,_, the_DT 1DOF_NN with_IN free_JJ surface_NN in_IN the_DT second_JJ row_NN (_( e–h_NP )_) ,_, the_DT 3DOF_JJ simulation_NN with_IN linear_JJ moorings_NNS in_IN the_DT third_JJ row_NN (_( i–l_NP )_) and_CC the_DT simulation_NN with_IN non-linear_JJ quasi-static_JJ moorings_NNS in_IN the_DT last_JJ row_NN (_( m–p_NN )_) ._SENT 
+Figure_NN 12._CD Vorticity_NN around_IN the_DT floater_NN at_IN the_DT vertical_JJ xz-plane_NN ._SENT 
+The_DT results_NNS are_VBP presented_VVN for_IN all_DT numerical_JJ simulations_NNS for_IN different_JJ time_NN instances_NNS :_: The_DT 1DOF_JJ DB_NP simulation_NN is_VBZ presented_VVN in_IN the_DT top_JJ row_NN (_( a–d_NN )_) ,_, the_DT 1DOF_NN with_IN free_JJ surface_NN in_IN the_DT second_JJ row_NN (_( e–h_NP )_) ,_, the_DT 3DOF_JJ simulation_NN with_IN linear_JJ moorings_NNS in_IN the_DT third_JJ row_NN (_( i–l_NP )_) and_CC the_DT simulation_NN with_IN non-linear_JJ quasi-static_JJ moorings_NNS in_IN the_DT last_JJ row_NN (_( m–p_NN )_) ._SENT 
+In_IN Figure_NP 11_CD ,_, the_DT magnitude_NN of_IN the_DT velocities_NNS is_VBZ shown_VVN at_IN the_DT vertical_JJ location_NN of_IN the_DT COG_NN in_IN a_DT horizontal_JJ plane_NN for_IN different_JJ time_NN instances_NNS ._SENT 
+The_DT colours_NNS represent_VVP the_DT velocity_NN range_NN of_IN 0≤vM≤0.1_JJ ._SENT 
+For_IN visualisation_NN purposes_NNS ,_, the_DT flow_NN solution_NN was_VBD mirrored_VVN at_IN the_DT symmetry_NN plane_NN ,_, y=0_NP ._SENT 
+Figure_NN 11_CD reveals_VVZ an_DT increase_NN of_IN velocity_NN regions_NNS with_IN time_NN from_IN t=7.7782s_NNS to_TO t=10.8894s_NNS ._SENT 
+Then_RB ,_, these_DT regions_NNS decreased_VVD again_RB ._SENT 
+This_DT corresponds_VVZ to_TO the_DT velocity_NN of_IN the_DT floater_NN ._SENT 
+The_DT largest_JJS velocity_NN values_NNS were_VBD present_JJ for_IN the_DT first_JJ two_CD instances_NNS ._SENT 
+The_DT DB_NP simulation_NN possessed_VVD the_DT largest_JJS velocities_NNS at_IN t=7.7782s_NNS and_CC the_DT simulations_NNS with_IN free_JJ surface_NN had_VHD equally_RB large_JJ velocities_NNS for_IN both_DT time_NN instances_NNS ._SENT 
+This_DT flow_NN observation_NN does_VVZ not_RB correspond_VV to_TO the_DT motion_NN velocities_NNS of_IN the_DT floater_NN ._SENT 
+The_DT largest_JJS motion_NN velocities_NNS of_IN the_DT floater_NN within_IN this_DT cycle_NN were_VBD present_JJ at_IN t=10.8894s_NP ._SENT 
+The_DT largest_JJS velocities_NNS of_IN all_DT results_NNS are_VBP shown_VVN for_IN the_DT DB_NP simulation_NN ._SENT 
+This_DT coincides_VVZ with_IN the_DT largest_JJS quadratic_NN damping_VVG estimated_VVN for_IN each_DT simulation_NN ._SENT 
+After_IN t=10.8894s_NP ,_, the_DT velocity_NN regions_NNS for_IN the_DT simulations_NNS with_IN free_JJ surface_NN were_VBD larger_JJR than_IN those_DT for_IN the_DT DB_NP simulation_NN ._SENT 
+In_IN particular_JJ ,_, the_DT velocity_NN regions_NNS around_IN the_DT front_JJ corner_NN column_NN increased_VVD ._SENT 
+The_DT increased_VVN regions_NNS of_IN flow_NN velocities_NNS around_IN the_DT floater_NN correlate_VVP with_IN an_DT increase_NN of_IN linear_JJ damping_VVG ._SENT 
+Motion_NN coupling_NN up_RB to_TO 3DOF_VV led_VVN to_TO changes_NNS in_IN the_DT details_NNS of_IN the_DT flow_NN around_IN the_DT floater_NN ._SENT 
+The_DT wake_NN velocity_NN regions_NNS increased_VVD slightly_RB ,_, but_CC the_DT maximum_JJ values_NNS did_VVD not_RB change_VV ._SENT 
+Overall_RB ,_, the_DT flow_NN between_IN the_DT 3DOF_JJ simulation_NN with_IN free_JJ surface_NN and_CC the_DT simulation_NN for_IN 1DOF_NN with_IN free_JJ surface_NN gave_VVD a_DT very_RB similar_JJ impression_NN ._SENT 
+Thus_RB ,_, the_DT free_JJ surface_NN effect_NN is_VBZ more_RBR important_JJ than_IN the_DT motion_NN coupling_NN effect_NN ._SENT 
+Non-linear_JJ moorings_NNS without_IN added_JJ drag_NN on_IN the_DT segments_NNS did_VVD not_RB visibly_RB alter_VV the_DT flow_NN compared_VVN to_TO a_DT simulation_NN with_IN linear_JJ moorings_NNS ._SENT 
+The_DT vorticity_NN field_NN close_NN to_TO the_DT floater_NN is_VBZ presented_VVN in_IN Figure_NP 12._CD A_DT slice_NN at_IN the_DT symmetry_NN plane_NN was_VBD chosen_VVN to_TO show_VV differences_NNS in_IN the_DT xz-plane_NN ._SENT 
+The_DT largest_JJS vorticity_NN is_VBZ exhibited_VVN for_IN large_JJ floater_NN velocities_NNS ,_, i.e._FW at_IN t=10.8894s_NNS ._SENT 
+The_DT vorticity_NN was_VBD generated_VVN at_IN the_DT heave_NN damping_VVG plates_NNS ,_, the_DT bottom_NN of_IN the_DT centre_NN column_NN and_CC for_IN simulations_NNS with_IN free_JJ surface_NN at_IN the_DT cross_NN braces_NNS ._SENT 
+A_DT more_RBR general_JJ disturbance_NN and_CC therefore_RB more_JJR vorticity_NN was_VBD present_JJ in_IN the_DT far_JJ field_NN for_IN simulations_NNS including_VVG a_DT free_JJ surface_NN ._SENT 
+More_JJR vorticity_NN was_VBD also_RB present_JJ at_IN the_DT upstream_JJ corner_NN column_NN ._SENT 
+This_DT vorticity_NN field_NN also_RB influenced_VVD the_DT velocities_NNS at_IN the_DT heave_NN damping_VVG plates_NNS ._SENT 
+No_DT differences_NNS of_IN vorticity_NN field_NN can_MD be_VB seen_VVN between_IN the_DT simulations_NNS including_VVG free_JJ surface_NN ._SENT 
+Thus_RB ,_, the_DT free_JJ surface_NN has_VHZ a_DT larger_JJR effect_NN on_IN the_DT generated_VVN vorticity_NN than_IN motion_NN coupling_NN and_CC non-linear_JJ moorings_NNS ._SENT 
+Flow_NN velocities_NNS were_VBD largest_JJS when_WRB structural_JJ velocities_NNS were_VBD smallest_JJS ,_, but_CC vorticity_NN increased_VVN with_IN the_DT velocity_NN of_IN the_DT floater_NN ._SENT 
+The_DT differences_NNS in_IN flow_NN solution_NN between_IN the_DT simulatins_NNS represented_VVD the_DT differences_NNS in_IN surge_NN oscillation_NN and_CC hydrodynamic_JJ damping_VVG ._SENT 
+The_DT largest_JJS flow_NN velocity_NN values_NNS were_VBD present_JJ when_WRB there_EX were_VBD large_JJ accelerations_NNS but_CC small_JJ motion_NN velocities_NNS of_IN the_DT floater_NN ._SENT 
+While_IN large_JJ velocity_NN values_NNS were_VBD present_JJ for_IN the_DT DB_NP simulation_NN ,_, the_DT simulations_NNS with_IN free_JJ surface_NN possessed_VVD larger_JJR vorticity_NN values_NNS ._SENT 
+<Section> 8._CD Conclusion_NN </Section> The_DT numerical_JJ simulations_NNS performed_VVN for_IN this_DT work_NN accounted_VVD for_IN viscous_JJ ,_, free_JJ surface_NN ,_, motion_NN coupling_NN effects_NNS up_RB to_TO 3DOF_JJ and_CC non-linear_JJ quasi-static_JJ mooring_NN restoring_VVG forces_NNS ._SENT 
+By_IN comparing_VVG these_DT simulations_NNS with_IN each_DT other_JJ and_CC the_DT physical_JJ tests_NNS ,_, following_VVG conclusions_NNS were_VBD drawn_VVN :_: Grid_NN generation_NN for_IN simulations_NNS with_IN the_DT DeepCwind_NN semi-submersible_JJ is_VBZ not_RB an_DT easy_JJ task_NN ._SENT 
+In_IN particular_JJ ,_, the_DT refined_JJ areas_NNS around_IN the_DT connection_NN points_NNS of_IN pontoons_NNS and_CC braces_NNS added_VVD a_DT huge_JJ amount_NN of_IN cells_NNS ._SENT 
+These_DT additional_JJ cells_NNS are_VBP not_RB expected_VVN to_TO improve_VV the_DT accuracy_NN of_IN the_DT simulations_NNS significantly_RB ._SENT 
+Therefore_RB ,_, a_DT simplification_NN of_IN these_DT connections_NNS is_VBZ recommended_VVN for_IN future_JJ investigations_NNS ._SENT 
+Numerical_JJ error_NN and_CC uncertainty_NN estimation_NN is_VBZ very_RB important_JJ to_TO improve_VV credibility_NN of_IN the_DT results_NNS ._SENT 
+This_DT estimation_NN was_VBD very_RB fast_JJ and_CC easy_JJ by_IN the_DT usage_NN of_IN prepared_JJ uncertainty_NN estimation_NN tools_NNS as_IN they_PP are_VBP available_JJ on_IN the_DT ReFRESCO_NP homepage_NN ._SENT 
+A_DT discretisation_NN uncertainty_NN of_IN 11.5_CD %_NN in_IN oscillation_NN peak_NN and_CC 19.5_CD %_NN in_IN time_NN was_VBD estimated_VVN by_IN applying_VVG the_DT method_NN of_IN Eça_NP and_CC Hoekstra_NP (_( 2014_CD )_) ._SENT 
+Model_NN test_NN data_NNS including_VVG uncertainties_NNS and_CC errors_NNS are_VBP needed_VVN for_IN formal_JJ validation_NN of_IN the_DT numerical_JJ results_NNS ._SENT 
+A_DT modern_JJ way_NN least-squares_NNS approach_VVP to_TO assess_VV the_DT linear_JJ and_CC quadratic_JJ damping_VVG was_VBD compared_VVN to_TO the_DT classical_JJ peak-to-peak_NN analysis_NN ._SENT 
+By_IN comparing_VVG the_DT two_CD techniques_NNS ,_, differences_NNS of_IN up_IN to_TO 9.8_CD %_NN can_MD occur_VV ._SENT 
+Thus_RB ,_, uncertainties_NNS lay_VVD in_IN the_DT post-processing_NN of_IN the_DT data_NNS ._SENT 
+Linear_JJ damping_VVG was_VBD largely_RB influenced_VVN by_IN the_DT free_JJ surface_NN ,_, but_CC also_RB viscous_JJ damping_VVG was_VBD partly_RB linear_JJ ._SENT 
+Moreover_RB ,_, coupled_VVN motions_NNS increased_VVD the_DT linear_JJ damping_VVG slightly_RB ._SENT 
+It_PP can_MD be_VB concluded_VVN that_IN wave_NN radiation_NN is_VBZ mainly_RB a_DT linear/potential_JJ damping_VVG ._SENT 
+The_DT largest_JJS quadratic_NN term_NN was_VBD the_DT viscous_JJ damping_VVG ._SENT 
+This_DT quadratic_JJ term_NN was_VBD also_RB slightly_RB increased_VVN owing_VVG to_TO coupled_VVN motions_NNS ._SENT 
+However_RB ,_, this_DT term_NN was_VBD significantly_RB more_RBR dominant_JJ for_IN the_DT experimental_JJ than_IN the_DT numerical_JJ results_NNS ._SENT 
+The_DT results_NNS of_IN the_DT simulation_NN with_IN quasi-static_JJ moorings_NNS matched_VVD better_RBR the_DT first_JJ oscillation_NN cycle_NN and_CC the_DT pitch_NN motion_NN ._SENT 
+Thus_RB ,_, using_VVG non-linear_JJ mooring_NN restoring_VVG forces_NNS increased_VVD the_DT trustworthiness_NN of_IN the_DT results_NNS ._SENT 
+However_RB ,_, the_DT damping_VVG as_RB well_RB as_IN the_DT oscillation_NN period_NN were_VBD not_RB affected_VVN ._SENT 
+The_DT damping_VVG coefficients_NNS obtained_VVN can_MD be_VB used_VVN as_IN an_DT improved_VVN input_NN for_IN calculations_NNS with_IN coupled_VVN aero-hydrodynamic_JJ simulation_NN tools_NNS (_( potential-flow-based_JJ solvers_NNS on_IN the_DT hydrodynamic_JJ and_CC BEMT_JJ on_IN the_DT aerodynamic_JJ side_NN )_) for_IN floating_VVG wind_NN turbines_NNS ._SENT 
+Then_RB ,_, new_JJ coupled_VVN simulations_NNS can_MD be_VB carried_VVN out_RP in_IN waves_NNS ,_, and_CC combined_JJ wave_NN and_CC wind_NN conditions_NNS ._SENT 
+However_RB ,_, more_JJR research_NN is_VBZ needed_VVN to_TO investigate_VV the_DT effect_NN of_IN waves_NNS on_IN the_DT hydrodynamic_JJ damping_VVG ._SENT 
+The_DT differences_NNS in_IN the_DT flow_NN velocities_NNS represented_VVD also_RB the_DT differences_NNS in_IN damping_VVG and_CC those_DT shown_VVN in_IN the_DT motion_NN time_NN history_NN plots_NNS ._SENT 
+However_RB ,_, the_DT largest_JJS flow_NN velocity_NN values_NNS were_VBD present_JJ for_IN small_JJ motion_NN velocities_NNS of_IN the_DT floater_NN ._SENT 
+Larger_JJR velocities_NNS and_CC vorticity_NN yielded_VVD to_TO larger_JJR damping_VVG ._SENT 
+While_IN the_DT largest_JJS maximum_JJ flow_NN velocities_NNS were_VBD present_JJ when_WRB larger_JJR quadratic_NN damping_VVG was_VBD estimated_VVN ,_, the_DT region_NN of_IN increased_VVN velocities_NNS and_CC the_DT vorticity_NN expanded_VVN for_IN simulations_NNS with_IN larger_JJR linear_JJ damping_VVG ._SENT 
+The_DT remaining_VVG differences_NNS in_IN the_DT hydrodynamic_JJ damping_VVG are_VBP expected_VVN to_TO decrease_VV for_IN simulations_NNS accounting_VVG for_IN the_DT drag_NN and_CC inertia_NN of_IN the_DT mooring_NN lines_NNS ,_, motion_NN coupling_NN of_IN more_JJR than_IN 3DOF_NP and_CC a_DT full_JJ computational_JJ domain_NN ._SENT 
+These_DT three_CD aspects_NNS are_VBP planned_VVN for_IN further_JJR studies_NNS ._SENT 
+<Section> Acknowledgements_NNS </Section> The_DT authors_NNS would_MD like_VV to_TO thank_VV Tim_NP Bunnik_NP and_CC Nicolas_NP Carette_NP from_IN MARIN_NP for_IN their_PP$ support_NN and_CC helpful_JJ discussions_NNS ._SENT 
+<Section> Disclosure_NN statement_NN </Section> No_DT potential_JJ conflict_NN of_IN interest_NN was_VBD reported_VVN by_IN the_DT authors_NNS ._SENT 
+<Section> Additional_JJ information_NN </Section> Funding_NP The_DT authors_NNS gratefully_RB acknowledge_VVP the_DT computing_NN time_NN granted_VVN by_IN the_DT Center_NP for_IN Computational_JJ Sciences_NPS and_CC Simulation_NP (_( CCSS_NP )_) of_IN the_DT University_NP of_IN Duisburg-Essen_NP and_CC provided_VVN on_IN the_DT supercomputer_NN magnitUDE_NN (_( DFG_NN grants_NNS INST_NP 20876/209-1_CD FUGG_NN ,_, INST_NP 20876/243-1_CD FUGG_NN )_) at_IN the_DT Zentrum_NP fuer_NN Informations-_NN und_NN Mediendienste_NP (_( ZIM_NP )_) ._SENT 
+This_DT research_NN is_VBZ partially_RB funded_VVN by_IN the_DT Dutch_JJ Ministry_NP of_IN Economic_NP Affairs_NPS ._SENT 
+The_DT research_NN leading_VVG to_TO these_DT results_NNS is_VBZ also_RB part_NN of_IN the_DT OceaNET_NN project_NN ,_, which_WDT has_VHZ received_VVN funding_NN from_IN the_DT European_NP Union_NP 's_POS Seventh_JJ Framework_NN Programme_NN for_IN research_NN -_: FP7_JJ People_NNS :_: Marie-Curie_NP Actions_NNS ,_, technological_JJ development_NN and_CC demonstration_NN under_IN grant_NN agreement_NN no_RB ._SENT 
+607656._CD <Section> References_NNS </Section> Benitz_NP M_NP ,_, Schmidt_NP DP_NP ,_, Lackner_NP MA_NN ,_, Stewart_NP GM_NP ,_, Jonkman_NP J_NP ,_, Robertson_NP A._NP 2015._CD Validation_NN of_IN hydrodynamic_JJ load_NN models_NNS using_VVG CFD_NN for_IN the_DT OC4-DeepCwind_JJ semisubmersible_NN ._SENT 
+Proceeding_VVG of_IN 34th_JJ International_NP Conference_NP on_IN Ocean_NP ,_, Offshore_NP &_CC Arctic_NP Engineering_NP ;_: St._NP John_NP 's_POS (_( NL_NP )_) ._SENT 
+Beyer_NP F_NP ,_, Arnold_NP M_NP ,_, Cheng_NP PW_NNS ._SENT 
+2013._CD Analysis_NN of_IN floating_VVG offshore_JJ wind_NN turbine_NN hydrodynamics_NNS using_VVG coupled_VVN CFD_NN and_CC multibody_NN methods_NNS ._SENT 
+Proceedings_NNS of_IN 23rd_JJ International_NP Offshore_NP and_CC Polar_JJ Engineering_NP Conference_NP ;_: Anchorage_NP (_( AK_NP )_) ._SENT 
+Borisade_NP F_NP ,_, Choisnet_NN T_NN ,_, Kretschmer_NP M_NP ,_, Cheng_NP PW_NNS ._SENT 
+2016._CD Design_NN study_NN and_CC full_JJ scale_NN MBS-CFD_NN simulation_NN of_IN the_DT IDEOL_NN Floating_VVG Offshore_NP Wind_NP Turbine_NN Foundation_NP ._SENT 
+J_NP Phys_NPS Conf_NP Ser_NP ._SENT 
+753:2016_CD ._SENT 
+Bozonnet_NN P_NN ,_, Emery_NP A._NP 2015._CD CFD_NN simulations_NNS for_IN the_DT design_NN of_IN offshore_JJ floating_JJ wind_NN platforms_NNS encompassing_VVG heave_NN plates_NNS ._SENT 
+Proceedings_NNS of_IN 25th_JJ International_NP Offshore_NP and_CC Polar_JJ Engineering_NP Conference_NP ;_: Kona_NP (_( HI_NP )_) ._SENT 
+Cordle_NP A_NP ,_, Jonkman_NP J._NP 2011._CD State_NN of_IN the_DT art_NN in_IN floating_JJ wind_NN turbine_NN design_NN tools_NNS ._SENT 
+Proceedings_NNS of_IN Twenty-First_NP International_NP Offshore_NP and_CC Polar_JJ Engineering_NP Conference_NP ;_: Maui_NP (_( HI_NP )_) ._SENT 
+Davidson_NP J_NP ,_, Ringwood_NP JV_NP ._SENT 
+2017._CD Mathematical_JJ modelling_VVG of_IN mooring_VVG systems_NNS for_IN wave_NN energy_NN converters_NNS -_: a_DT review_NN ._SENT 
+J_NP Energies_NNS ._SENT 
+2017(10):666_NP ._SENT 
+de_NP Ridder_NP EJ_NP ,_, Otto_NP W_NP ,_, Zondervan_NP GJ_NP ,_, Huijs_NP F_NP ,_, Vaz_NP G._NP 2014._CD Development_NP of_IN a_DT scaled-down_JJ floating_JJ wind_NN turbine_NN for_IN offshore_JJ basin_NN testing_NN ._SENT 
+Proceeding_VVG of_IN 33rd_NP International_NP Conference_NP on_IN Ocean_NP ,_, Offshore_NP &_CC Arctic_NP Engineering_NP ;_: San_NP Francisco_NP (_( CA_MD )_) ._SENT 
+Eça_NP L_NP ,_, Hoekstra_NP M._NP 2009._CD Evaluation_NN of_IN numerical_JJ error_NN estimation_NN based_VVN on_IN grid_NN refinement_NN studies_NNS with_IN the_DT method_NN of_IN the_DT manufactured_VVN solutions_NNS ._SENT 
+J_NP Comput_NN Fluids_NNS ._SENT 
+38:1580–1591_JJ ._SENT 
+Eça_NP L_NP ,_, Hoekstra_NP M._NP 2014._CD A_DT procedure_NN for_IN the_DT estimation_NN of_IN the_DT numerical_JJ uncertainty_NN of_IN CFD_NN calculations_NNS based_VVN on_IN grid_NN refinement_NN studies_NNS ._SENT 
+J_NP Comput_NP Phys_NPS ._SENT 
+262:104–130_NP ._SENT 
+doi:10.1016/j.jcp.2014.01.006_NP ._SENT 
+Gueydon_NP S._NP 2015._CD Numerical_JJ study_NN of_IN OC5_JJ semi-calibration_NN of_IN hydrodynamic_JJ properties_NNS ._SENT 
+Wageningen_NP ,_, The_DT Netherlands_NPS ._SENT 
+MARIN_NP Report_NP :_: 28503-MSG-1_JJ ._SENT 
+Gueydon_NP S_NP ,_, Duarte_NP T_NN ,_, Jonkman_NP J._NP 2014._CD Comparison_NN of_IN Second-Order_NN Loads_NNS on_IN a_DT Semisubmersible_JJ Floating_JJ Wind_NP Turbine_NN ._SENT 
+33rd_NP International_NP Conference_NP on_IN Ocean_NP ,_, Offshore_NP &_CC Arctic_NP Engineering_NP ;_: San_NP Francisco_NP (_( CA_MD )_) ._SENT 
+Klaij_NP CM_NP ,_, Hoekstra_NP M_NP ,_, Vaz_NP G._NP 2018._CD Design_NN ,_, analysis_NN and_CC verification_NN of_IN a_DT volume-of-fluid_JJ model_NN with_IN interface-capturing_VVG scheme_NN ._SENT 
+Comput_NN Fluids_NNS ._SENT 
+170:324–340_NP ._SENT 
+Klaij_NP CM_NP ,_, Vuik_NP C._NP 2013._CD Simple-type_NN preconditioners_NNS for_IN cell-centered_JJ ,_, colocated_JJ finite_JJ volume_NN discretization_NN of_IN Reynolds-Averaged_JJ Navier-Stokes_NNS equations_NNS ._SENT 
+Int_NP J_NP Numer_NP Methods_NNS Fluids_NNS ._SENT 
+17:830–849_NP ._SENT 
+doi:10.1002/fld.3686_NP ._SENT 
+Liu_NP Y_NP ,_, Xiao_NP Q_NP ,_, Incecik_NP A_NP ,_, Peyrard_NP C_NP ,_, Wan_NP D._NP 2017._CD Establishing_VVG a_DT fully_RB coupled_VVN CFD_NN analysis_NN tool_NN for_IN floating_VVG offshore_JJ wind_NN turbines_NNS ._SENT 
+Renew_VV Energ_NP ._SENT 
+112:280–301_JJ ._SENT 
+Make_VV M_NP ,_, Vaz_NP G._NP 2015._CD Analyzing_NN scaling_VVG effects_NNS on_IN offshore_JJ wind_NN turbines_NNS using_VVG CFD_NN ._SENT 
+Renew_VV Energ_NP ._SENT 
+83:1326–1340_NP ._SENT 
+Martin_NP H._NP 2011._CD Development_NP of_IN a_DT scale_NN model_NN wind_NN turbine_NN for_IN testing_NN of_IN offshore_JJ floating_JJ wind_NN turbine_NN systems_NNS [_SYM master_NN of_IN science_NN thesis_NN ]_SYM ._SENT 
+Orono_NP (_( ME_PP )_) :_: University_NP of_IN Maine_NP ._SENT 
+Menter_NP FR_NP ,_, Egorov_NP Y._NP 2010._CD The_DT scale-adaptive_JJ simulation_NN method_NN for_IN unsteady_JJ turbulent_JJ flow_NN predictions_NNS ._SENT 
+Part_NN 1_CD :_: theory_NN and_CC model_NN description_NN ._SENT 
+Flow_NN Turbul_NN Combust_JJ ._SENT 
+85(1):113–138_NP ._SENT 
+Menter_NP FR_NP ,_, Kuntz_NP M_NP ,_, Langtry_NP R._NP 2003._CD Ten_CD years_NNS of_IN industrial_JJ experience_NN with_IN the_DT SST_NP turbulence_NN model_NN ._SENT 
+Turbulence_NN Heat_NP Mass_NP Trans_NP ._SENT 
+4:625–632_NP ._SENT 
+Quallen_NP S_NP ,_, Xing_NP T_NN ,_, Carrica_NP P_NN ,_, Li_NP Y_NP ,_, Xu_NP J._NP 2014._CD CFD_NN simulation_NN of_IN floating_VVG offshore_JJ wind_NN turbine_NN system_NN using_VVG a_DT quasi-static_JJ crowfoot_NN mooring-line_NN model_NN ._SENT 
+J_NP Ocean_NP Wind_NP Energ_NP ._SENT 
+I-13-165_NP ._SENT 
+Remy_NP T_NN ,_, Mbistrova_NP A._NP 2018._CD Offshore_NP wind_NN in_IN Europe_NP -_: key_JJ trends_NNS and_CC statistics_NNS 2017._CD WindEurope_NN ._SENT 
+Technical_NP Report_NP ._SENT 
+Robertson_NP AN_DT ,_, Jonkman_NP JM_NP ,_, Masciola_NP M_NP ,_, Song_NP H_NP ,_, Goupee_NP A_NP ,_, Coulling_NP A_NP ,_, Luan_NP C._NP 2014._CD Definition_NN of_IN the_DT semisubmersible_JJ floating_JJ system_NN for_IN phase_NN II_NP of_IN OC4_NP ._SENT 
+NREL_NP Technical_NP Report_NP ._SENT 
+NREL/TP-5000-60601_JJ ._SENT 
+Robertson_NP AN_DT ,_, Wendt_NP F_NP ,_, Jonkman_NP JM_NP ,_, Popko_NP W_NP ,_, Dagher_NP H_NP ,_, Gueydon_NP S_NP ,_, Qvist_NP J_NP ,_, Vittori_NP F_NP ,_, Azcona_NP J_NP ,_, Uzunoglu_NP E_NP ,_, et_NP al_NP ._SENT 
+2017._CD OC5_JJ project_NN phase_NN II_NP :_: validation_NN of_IN global_JJ loads_NNS of_IN the_DT DeepCwind_JJ floating_JJ semisubmersible_JJ wind_NN turbine_NN ._SENT 
+Energy_NP Procedia_NP ._SENT 
+137:38–57_JJ ._SENT 
+Rosetti_NP G_NP ,_, Vaz_NP G._NP 2017._CD On_IN the_DT numerical_JJ simulations_NNS of_IN captive_NN ,_, driven_VVN and_CC freely_RB moving_VVG cylinder_NN ._SENT 
+J_NP Fluids_NNS Struct_VVP ._SENT 
+74:492–519_NP ._SENT 
+doi:10.1016/j.jfluidstructs.2017.06.013_NP ._SENT 
+Sebastian_NP T_NN ,_, Lackner_NP MA_NN ._SENT 
+2012._CD Development_NP of_IN a_DT free_JJ vortex_NN wake_NN method_NN code_NN for_IN offshore_JJ floating_JJ wind_NN turbines_NNS ._SENT 
+Renew_VV Energ_NP ._SENT 
+46:269–275_NP ._SENT 
+Sommerfeld_NP A._NP 1949._CD Partial_JJ differential_JJ equations_NNS in_IN physics_NN ._SENT 
+New_NP York_NP :_: Academic_NP Press_NP ._SENT 
+Tran_NP TT_NP ,_, Kim_NP DH_NP ._SENT 
+2015._CD The_DT coupled_VVN dynamic_JJ response_NN computation_NN for_IN a_DT semi-submersible_JJ platform_NN of_IN floating_VVG offshore_JJ wind_NN turbine_NN ._SENT 
+J_NP Wind_NP Eng_NP Ind_NP Aerodyn_NP ._SENT 
+147:104–119_NP ._SENT 
+Tran_NP TT_NP ,_, Kim_NP DH_NP ._SENT 
+2016._CD Fully_RB coupled_VVN aero-hydrodynamic_JJ analysis_NN of_IN a_DT semi-submersible_JJ FOWT_NN using_VVG a_DT dynamic_JJ fluid_JJ body_NN interaction_NN approach_NN ._SENT 
+Renew_VV Energ_NP ._SENT 
+92:244–261_JJ ._SENT 
+Tran_NP TT_NP ,_, Kim_NP DH_NP ,_, Song_NP J._NP 2014._CD Computational_JJ fluid_JJ dynamic_JJ analysis_NN of_IN floating_VVG offshore_JJ wind_NN turbine_NN experiencing_VVG platform_NN pitching_VVG motion_NN ._SENT 
+Energies_NNS ._SENT 
+7:5011–5026_NP ._SENT 
+van_NP den_NN Berg_NP J_NP ,_, Pauw_NP WH_NP (_( 2018_CD )_) ._SENT 
+aNySIM_NP theory_NN documentation_NN ._SENT 
+Wageningen_NP :_: Maritime_NP Research_NP Institute_NP Netherlands_NP (_( MARIN_NP )_) ._SENT 
+van_NP der_NP Vegt_NP JJ_NN ._SENT 
+1984._CD Slinger_NP gedrag_NP van_NP schepen_VVZ ._SENT 
+KIVI-Lecture_NN on_IN Seakeeping_VVG ._SENT 
+Vaz_NP G_NP ,_, Jaouen_NP F_NP ,_, Hoekstra_NP M._NP 2009._CD Free-surface_NN viscous_JJ flow_NN computation_NN -_: validation_NN of_IN uRANS_NP code_NN FRESCO_NN ._SENT 
+Proceeding_VVG of_IN 28th_JJ International_NP Conference_NP on_IN Ocean_NP ,_, Offshore_NP &_CC Arctic_NP Engineering_NP ;_: Honolulu_NP (_( HI_NP )_) ._SENT 
+Wang_NP W_NP ,_, Wu_NP M_NP ,_, Palm_NP J_NP ,_, Eskilsson_NP C._NP 2018._CD Estimation_NN of_IN numerical_JJ uncertainty_NN in_IN CFD_NN simulations_NNS of_IN a_DT passively_RB controlled_VVN wave_NN energy_NN converter_NN ._SENT 
+J_NP Eng_NP Maritime_NP Environ_VVP ._SENT 
+232(1):71–84_NP ._SENT 
+Weller_NP S._NP 2012._CD Analysis_NN of_IN the_DT DeepCwind_JJ model_NN tests_NNS and_CC a_DT first_JJ attempt_NN to_TO simulate_VV a_DT semi-submersible_JJ floating_JJ wind_NN platform_NN with_IN aNySIM_NP ._SENT 
+MARIN_NP ,_, Wageningen_NP ,_, The_DT Netherlands_NPS ._SENT 
+Technical_JJ Report_NP No._NN 24602-MSG-1_NN ._SENT 

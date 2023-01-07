@@ -1,0 +1,274 @@
+﻿_NP <title> Simulation_NP of_IN a_DT ship_NN operating_VVG in_IN an_DT open-water_NN ice_NN channel_NN </title> <author> 1_CD ,_, Luofeng_NP Huang_NP ,_, 2_CD ,_, Minghao_NP Li_NP ,_, 3_CD ,_, Tuomas_NP Romu_NP ,_, 4_CD ,_, Azam_NP Dolatshah_NP ,_, 1_CD ,_, Giles_NP Thomas_NP </author> <Affiliation> 1_CD ,_, Faculty_NN of_IN Mechcanical_JJ Engineering_NP and_CC Naval_NP Architecture_NP ,_, University_NP of_IN Zagreb_NP ,_, Zagreb_NP ,_, Croatia_NP ,_, 2_CD ,_, Institute_NP of_IN Fluid_JJ Dynamics_NPS and_CC Ship_NP Theory_NN ,_, Hamburg_NP University_NP of_IN Technology_NP ,_, Hamburg_NP ,_, Germany_NP </Affiliation> <year> 2019_CD </year> <Jounral> Ships_NNS and_CC offshore_JJ structure_NN </Journal> <Publishing_house> Taylor_NP &_CC Francis_NP </Publishing_house> <Text_Collector> Zhang_NP San，HEU_NP </Text_Collector> <DOI> https://doi.org/10.1080/17445302.2020.1729595_NP </DOI> <URL> https://www.tandfonline.com/doi/full/10.1080/17445302.2020.1729595_NP </URL> Simulation_NP of_IN a_DT ship_NN operating_VVG in_IN an_DT open-water_NN ice_NN channel_NN Luofeng_NP Huang_NP ,_, Minghao_NP Li_NP ,_, Tuomas_NP Romu_NP ,_, Azam_NP Dolatshah_NP ,_, Giles_NP Thomas_NP Department_NP of_IN Mechanical_NP Engineering_NP ,_, University_NP College_NP London_NP ,_, UK_NP Department_NP of_IN Mechanics_NNS and_CC Maritime_NP Science_NP ,_, Chalmers_NP University_NP of_IN Technology_NP ,_, Sweden_NP Aker_NP Arctic_NP Technology_NP Inc_NP ,_, Finland_NP Faculty_NN of_IN Science_NP ,_, Engineering_NP and_CC Technology_NP ,_, Swinburne_NP University_NP of_IN Technology_NP ,_, Australia_NP <Section> Abstract_JJ </Section> Modern_NP ice_NN breakers_NNS ,_, using_VVG new_JJ technology_NN ,_, are_VBP now_RB able_JJ to_TO create_VV channels_NNS through_IN level_NN ice_NN and_CC clean_VV out_RP the_DT ice_NN fragments_NNS ,_, resulting_VVG in_IN an_DT open-water_NN channel_NN between_IN two_CD large_JJ ice_NN sheets_NNS ._SENT 
+Whilst_IN this_DT negates_VVZ the_DT potential_JJ resistance_NN increase_NN on_IN a_DT following_VVG vessel_NN due_JJ to_TO interacting_VVG with_IN the_DT broken_VVN ice_NN pieces_NNS ,_, the_DT ship_NN performance_NN will_MD still_RB be_VB influenced_VVN by_IN the_DT two_CD large_JJ ice_NN sheets_NNS on_IN either_DT side_NN ._SENT 
+The_DT effect_NN of_IN such_JJ ice_NN sheets_NNS on_IN ships_NNS has_VHZ to_TO date_VV not_RB been_VBN studied_VVN in_IN detail_NN ,_, so_RB the_DT channel_NN effect_NN is_VBZ usually_RB ignored_VVN during_IN ship_NN design_NN processes_NNS and_CC power_NN estimates_NNS ._SENT 
+The_DT present_JJ paper_NN reports_NNS on_IN work_NN to_TO develop_VV a_DT computational_JJ model_NN to_TO simulate_VV a_DT ship_NN advancing_VVG in_IN an_DT open-water_NN ice_NN channel_NN and_CC investigate_VV the_DT associated_VVN ship-wave-ice_NN interaction_NN ._SENT 
+Based_VVN on_IN a_DT series_NN of_IN simulations_NNS ,_, this_DT work_NN how_WRB the_DT ship_NN resistance_NN and_CC wake_NN change_NN with_IN ship_NN speed_NN ,_, channel_NN width_NN and_CC ice_NN thickness_NN ._SENT 
+KEYWORDS_NNS :_: Ship_NP ,_, ice_NN channel_NN ,_, wake_NN ,_, resistance_NN ,_, Computational_JJ Fluid_JJ Dynamics_NP <Section> 1._CD Introduction_NN </Section> In_IN regions_NNS where_WRB sea_NN ice_NN develops_VVZ ,_, commercial_JJ ships_NNS usually_RB request_VVP icebreakers_NNS to_TO create_VV channels_NNS to_TO enable_VV them_PP to_TO safely_RB reach_VV their_PP$ destination_NN ._SENT 
+The_DT ice-breaking_JJ process_NN used_VVN to_TO result_VV in_IN a_DT channel_NN full_JJ of_IN ice_NN fragments_NNS ,_, known_VVN as_IN a_DT brash_JJ ice_NN channel_NN ,_, as_RB shown_VVN in_IN Figure_NP 1(a_NP )_) ._SENT 
+The_DT brash_JJ ice_NN channel_NN is_VBZ a_DT traditional_JJ scenario_NN of_IN Arctic_NP shipping_NN ,_, and_CC studies_NNS have_VHP been_VBN widely_RB conducted_VVN to_TO predict_VV the_DT ship_NN resistance_NN induced_VVN by_IN the_DT brash_JJ ice_NN (_( Kitazawa_NP and_CC Ettema_NP 1985_CD ;_: Konno_NP et_NP al_NP ._SENT 
+2011_CD ,_, 2013_CD ;_: Jeong_NP et_NP al_NP ._SENT 
+2017_CD ;_: Mucha_NP 2019_CD )_) ._SENT 
+The_DT total_JJ ship_NN resistance_NN in_IN a_DT brash_JJ ice_NN channel_NN is_VBZ normally_RB split_VVN between_IN the_DT larger_JJR component_NN for_IN moving_VVG against_IN the_DT ice_NN fragments_VVZ (_( Rice_NP )_) ,_, and_CC the_DT smaller_JJR calm_JJ water_NN ship_NN resistance_NN (_( Rwater_NN )_) ._SENT 
+Then_RB the_DT total_JJ resistance_NN of_IN the_DT ship_NN can_MD be_VB expressed_VVN as_IN Rtotal = Rice + Rwater_NP ._SENT 
+Kitazawa_NP and_CC Ettema_NP (_( 1985_CD )_) compared_VVN model_NN tests_NNS of_IN ships_NNS operating_VVG in_IN brash_JJ ice_NN channels_NNS with_IN in_IN open_JJ water_NN ,_, and_CC found_VVD that_IN Rice_NP can_MD be_VB several_JJ times_NNS greater_JJR than_IN Rwater_NN ,_, also_RB concluding_VVG that_IN Rice_NP is_VBZ almost_RB linearly_RB proportional_JJ to_TO the_DT thickness_NN of_IN the_DT brash-ice_JJ layer_NN ._SENT 
+Figure_VV 1._CD Icebreaker-created_JJ channels_NNS for_IN commercial_JJ ships_NNS to_TO navigate_VV ._SENT 
+(_( a_DT )_) Brash_NP ice_NN channel_NN (_( credit_NN :_: US_NP Coast_NP Guard_NP )_) (_( b_LS )_) Open-water_NN ice_NN channel_NN (_( credit_NN :_: Aker_NP Arctic_NP )_) ._SENT 
+(_( This_DT figure_NN is_VBZ available_JJ in_IN colour_NN online_JJ ._SENT 
+)_) Since_IN the_DT resistance_NN increment_NN induced_VVN on_IN ships_NNS operating_VVG in_IN ice_NN channels_NNS by_IN brash_JJ ice_NN is_VBZ significant_JJ ,_, various_JJ techniques_NNS have_VHP been_VBN developed_VVN for_IN modern_JJ icebreakers_NNS to_TO clean_VV the_DT broken_VVN ice_NN fragments_NNS produced_VVN during_IN the_DT ice-breaking_JJ process_NN ._SENT 
+One_CD such_JJ method_NN is_VBZ turning_VVG the_DT azimuth-propulsion_NN units_NNS inwards_RB by_IN 15∼30_JJ degrees_NNS ,_, called_VVD ‘toe-in’_JJ mode_NN ,_, with_IN which_WDT the_DT flushing_VVG effect_NN can_MD push_VV the_DT broken_VVN ice_NN pieces_NNS under_IN the_DT ice_NN sheets_NNS ,_, thus_RB cleaning_VVG the_DT channel_NN and_CC making_VVG it_PP slightly_RB wider_JJR ._SENT 
+Such_JJ technology_NN is_VBZ effective_JJ for_IN negating_VVG the_DT brash_JJ ice_NN resistance_NN component_NN ,_, as_RB well_RB as_IN reducing_VVG the_DT chance_NN of_IN blockages_NNS in_IN the_DT new_JJ channel_NN due_JJ to_TO freezing_NN of_IN the_DT broken_VVN ice_NN pieces_NNS (_( Koskinen_NP and_CC Savikurki_NP 1993_CD )_) ._SENT 
+This_DT approach_NN ,_, therefore_RB ,_, results_NNS in_IN an_DT open_JJ water_NN channel_NN between_IN two_CD large_JJ ice_NN sheets_NNS ,_, as_RB shown_VVN in_IN Figure_NP 1(b_NP )_) ,_, an_DT operational_JJ environment_NN for_IN shipping_VVG in_IN cold_JJ climates_NNS that_WDT will_MD increase_VV in_IN likelihood_NN ._SENT 
+Particularly_RB ,_, with_IN the_DT climate_NN change_NN in_IN the_DT Arctic_NP that_WDT involves_VVZ ice_NN reduction_NN in_IN both_DT extent_NN and_CC thickness_NN (_( Stroeve_NP et_NP al_NP ._SENT 
+2012_CD ;_: Laxon_NP et_NP al_NP ._SENT 
+2013_CD )_) ,_, new_JJ shipping_NN routes_NNS are_VBP opening_VVG and_CC vast_JJ quantities_NNS of_IN natural_JJ resources_NNS such_JJ as_IN oil_NN ,_, gas_NN and_CC minerals_NNS are_VBP becoming_VVG extractible_JJ (_( Smith_NP and_CC Stephenson_NP 2013_CD ;_: Wadhams_NP 2017_CD )_) ,_, and_CC yet_RB in_IN the_DT first_JJ half_NN of_IN twenty-first_JJ century_NN the_DT shipping_NN season_NN will_MD remain_VV variable_JJ and_CC unreliable_JJ ,_, continuing_VVG to_TO require_VV ice-breaker_NN assistance_NN (_( Melia_NP et_NP al_NP ._SENT 
+2017_CD )_) ._SENT 
+Large-scale_JJ ship_NN operations_NNS in_IN such_JJ ice_NN channels_NNS are_VBP expected_VVN ,_, with_IN which_WDT the_DT importance_NN of_IN studying_VVG this_DT case_NN is_VBZ raising_VVG ._SENT 
+To_TO date_NN ,_, limited_JJ research_NN into_IN ship_NN performance_NN in_IN open-water_NN ice_NN channels_NNS has_VHZ been_VBN conducted_VVN ,_, with_IN few_JJ experimental_JJ investigations_NNS found_VVN on_IN this_DT scenario_NN ._SENT 
+Leiviskä_NP et_NP al_NP ._SENT 
+(_( 2001_CD )_) conducted_VVN model_NN tests_NNS of_IN an_DT oil_NN tanker_NN with_IN a_DT range_NN of_IN open-water_NN ice_NN channels_NNS of_IN different_JJ ice_NN thicknesses_NNS and_CC channel_NN widths_NNS ._SENT 
+The_DT original_JJ purpose_NN of_IN their_PP$ work_NN was_VBD to_TO identify_VV the_DT effect_NN of_IN a_DT brash_JJ ice_NN channel_NN on_IN ship_NN resistance_NN ,_, as_IN the_DT authors_NNS proposed_VVD that_IN Rwater_NP would_MD be_VB influenced_VVN by_IN the_DT characteristics_NNS of_IN the_DT ice_NN channel_NN and_CC ,_, therefore_RB ,_, cannot_MD be_VB a_DT standalone_JJ term_NN in_IN the_DT resistance_NN expression_NN ,_, i.e._FW both_CC Rice_NP and_CC Rwater_NP should_MD change_VV with_IN channel_NN parameters_NNS ,_, rather_RB than_IN only_JJ Rice_NP ._SENT 
+In_IN their_PP$ results_NNS ,_, an_DT open-water_NP ice_NN channel_NN was_VBD seen_VVN to_TO induce_VV a_DT markedly_RB higher_JJR resistance_NN than_IN that_DT of_IN a_DT pure_JJ open-water_NN situation_NN without_IN any_DT ice_NN ,_, and_CC the_DT resistance_NN increment_NN was_VBD found_VVN to_TO be_VB influenced_VVN by_IN channel_NN width_NN and_CC ship_NN speed_NN ._SENT 
+Particularly_RB ,_, the_DT resistance_NN increments_NNS are_VBP evident_JJ when_WRB the_DT channel_NN width_NN is_VBZ less_JJR than_IN three_CD times_NNS of_IN the_DT ship_NN beam_NN ._SENT 
+Heinonen_NP (_( 2010_CD )_) reported_VVD on_IN model_NN tests_NNS for_IN an_DT icebreaker_NN in_IN open-water_NN ice_NN channels_NNS and_CC also_RB observed_VVD that_IN the_DT close_JJ proximity_NN of_IN the_DT ice_NN edge_NN to_TO the_DT ship_NN can_MD increase_VV the_DT resistance_NN ._SENT 
+However_RB ,_, both_DT Leiviskä_NP et_NP al_NP ._SENT 
+(_( 2001_CD )_) and_CC Heinonen_NP (_( 2010_CD )_) claimed_VVD that_IN more_JJR studies_NNS are_VBP required_VVN to_TO clarify_VV the_DT mechanism_NN behind_RB ._SENT 
+Since_IN conducting_VVG experiments_NNS for_IN this_DT operational_JJ scenario_NN in_IN ice_NN is_VBZ prohibitively_RB complex_JJ and_CC expensive_JJ ,_, there_EX is_VBZ a_DT need_NN to_TO have_VH an_DT accurate_JJ and_CC reliable_JJ approach_NN to_TO numerically_RB simulating_VVG the_DT situation_NN ._SENT 
+In_IN such_PDT a_DT context_NN ,_, this_DT work_NN intends_VVZ use_VV the_DT Computational_JJ Fluid_NN Dynamics_NP (_( CFD_NN )_) method_NN to_TO gain_VV insights_NNS into_IN the_DT proposed_VVN problem_NN ,_, since_IN this_DT method_NN has_VHZ been_VBN shown_VVN to_TO be_VB valid_JJ for_IN similar_JJ applications_NNS ,_, e.g._FW ship_NN operation_NN in_IN a_DT canal_NN (_( Mucha_NP et_NP al_NP ._SENT 
+2016_CD )_) ._SENT 
+CFD_NN is_VBZ able_JJ to_TO obtain_VV the_DT wave_NN patterns_NNS within_IN a_DT channel_NN and_CC break_VV down_RP the_DT ship_NN resistance_NN into_IN pressure_NN and_CC shear_NN components_NNS ,_, based_VVN on_IN which_WDT it_PP is_VBZ promising_VVG to_TO shed_VV light_NN on_IN why_WRB the_DT resistance_NN is_VBZ different_JJ in_IN an_DT ice_NN channel_NN ._SENT 
+In_IN the_DT remainder_NN of_IN this_DT paper_NN ,_, a_DT set_NN of_IN CFD_NN approach_NN will_MD be_VB introduced_VVN along_RP with_IN concomitant_JJ simulations_NNS considering_VVG different_JJ ship_NN speeds_NNS and_CC channel_NN dimensions_NNS ._SENT 
+Benefitting_VVG from_IN the_DT post-processing_VVG capability_NN of_IN CFD_NN ,_, the_DT ship-wave-ice_JJ interaction_NN is_VBZ presented_VVN in_IN detail_NN ,_, based_VVN on_IN which_WDT this_DT paper_NN demonstrates_VVZ why_WRB and_CC how_WRB the_DT ship_NN resistance_NN changes_NNS with_IN environmental_JJ parameters_NNS ._SENT 
+<Section> 2._CD Numerical_JJ approach_NN </Section> CFD_NN has_VHZ been_VBN successfully_RB applied_VVN to_TO predict_VV ship_NN performance_NN in_IN a_DT similar_JJ scenario_NN with_IN a_DT restricted_JJ waterway_NN ,_, i.e._FW when_WRB operating_VVG in_IN a_DT canal_NN ,_, with_IN good_JJ agreement_NN obtained_VVN with_IN experiments_NNS (_( Mucha_NP and_CC el_NN Moctar_NP 2014_CD ;_: Mucha_NP et_NP al_NP ._SENT 
+2016_CD ;_: Tezdogan_NP et_NP al_NP ._SENT 
+2016_CD ;_: Terziev_NP et_NP al_NP ._SENT 
+2018_CD )_) ._SENT 
+Even_RB so_RB ,_, despite_IN the_DT similarities_NNS between_IN a_DT canal_NN and_CC an_DT open-water_NN ice_NN channel_NN ,_, there_EX are_VBP certain_JJ important_JJ differences_NNS between_IN these_DT two_CD cases_NNS ._SENT 
+Figure_NN 2_CD provides_VVZ a_DT schematic_JJ comparison_NN of_IN a_DT ship_NN operating_VVG in_IN open_JJ water_NN ,_, a_DT canal_NN and_CC an_DT open-water_NN ice_NN channel_NN ._SENT 
+The_DT proposed_VVN problem_NN is_VBZ different_JJ from_IN a_DT canal_NN as_IN the_DT ice_NN has_VHZ a_DT limited_JJ thickness_NN and_CC is_VBZ floating_VVG on_IN the_DT water_NN surface_NN ._SENT 
+In_IN addition_NN ,_, the_DT water_NN depth_NN in_IN a_DT canal_NN is_VBZ usually_RB restricted_VVN ,_, thus_RB limiting_VVG underkeel_JJ clearance_NN ,_, while_IN an_DT ice_NN channel_NN tends_VVZ to_TO be_VB in_IN deep_JJ water_NN ._SENT 
+Considering_VVG these_DT differences_NNS ,_, this_DT work_NN employed_VVN similar_JJ theories_NNS that_WDT used_VVD for_IN the_DT canal_NN case_NN ,_, while_IN applying_VVG the_DT ice-channel_NP geometry_NN to_TO confine_VV the_DT ship_NN ._SENT 
+Figure_NN 2._CD Comparison_NN of_IN ship_NN operating_VVG in_IN three_CD different_JJ scenarios_NNS :_: open_JJ ocean_NN ,_, canal_NN and_CC open-water_NN ice_NN channel_NN ;_: W_NP is_VBZ the_DT width_NN of_IN the_DT channel_NN and_CC h_NN is_VBZ the_DT ice_NN thickness_NN ._SENT 
+(_( a_DT )_) Open_JJ ocean_NN (_( b_LS )_) Canal_NP (_( c_LS )_) Open-water_NN ice_NN channel_NN ._SENT 
+(_( This_DT figure_NN is_VBZ available_JJ in_IN colour_NN online_JJ ._SENT 
+)_) 2.1_CD ._SENT 
+Ship_NN model_NN and_CC fluid_JJ domain_NN The_DT KRISO_NP Container_NP Ship_NP (_( KCS_NP )_) ,_, was_VBD adopted_VVN as_IN the_DT ship_NN model_NN in_IN this_DT study_NN ._SENT 
+KCS_NP is_VBZ a_DT typical_JJ container_NN ship_NN model_NN applied_VVN to_TO computational_JJ simulations_NNS ,_, as_IN its_PP$ geometry_NN with_IN abundant_JJ measurement_NN data_NNS can_MD be_VB found_VVN in_IN the_DT public_JJ domain_NN (_( Kim_NP et_NP al_NP ._SENT 
+2001_CD )_) ._SENT 
+It_PP is_VBZ designed_VVN as_IN an_DT open-water_NN vessel_NN while_IN such_JJ ships_NNS regularly_RB operate_VVP in_IN ice_NN channels_NNS with_IN icebreaker_NN assistance_NN ._SENT 
+The_DT length_NN of_IN this_DT hull_NN is_VBZ 230 m_NN at_IN full-scale_JJ with_IN a_DT scale_NN ratio_NN of_IN 1:52.667_CD applied_VVN in_IN this_DT study_NN ,_, resulting_VVG in_IN a_DT model_NN length_NN Lpp = 4.367 m_NN ,_, breadth_NN B = 0.611_JJ m_NN and_CC draught_NN T = 0.205 m_NN ._SENT 
+The_DT hull_NN parameters_NNS are_VBP summarised_VVN in_IN Table_NN 1._CD Table_NN 1._CD Main_JJ dimensions_NNS of_IN the_DT KCS_NP hull_NN ._SENT 
+A_DT three-dimensional_JJ computational_JJ domain_NN was_VBD established_VVN using_VVG the_DT Star-CCM+_JJ software_NN ,_, as_RB illustrated_VVN in_IN Figure_NP 3_CD ,_, and_CC the_DT domain_NN size_NN is_VBZ sufficiently_RB large_JJ to_TO model_VV an_DT ocean_NN condition_NN (_( Huang_NP et_NP al_NP ._SENT 
+2019a_NP ,_, 2019b_NP )_) ._SENT 
+The_DT lower_JJR part_NN of_IN the_DT domain_NN is_VBZ filled_VVN with_IN water_NN and_CC the_DT remainder_NN is_VBZ filled_VVN with_IN air_NN ._SENT 
+The_DT hull_NN is_VBZ fixed_VVN across_IN the_DT waterline_NN according_VVG to_TO its_PP$ design_NN draught_NN ._SENT 
+On_IN each_DT side_NN of_IN the_DT ship_NN ,_, an_DT ice_NN sheet_NN is_VBZ placed_VVN at_IN a_DT distance_NN (_( 2/W_NN ,_, where_WRB W_NP denotes_VVZ the_DT channel_NN width_NN )_) from_IN the_DT ship_NN central_JJ line_NN ,_, with_IN 90_CD %_NN of_IN ice_NN thickness_NN (_( h_NN )_) immersed_VVN in_IN water_NN (_( assuming_VVG ice_NN density_NN equals_VVZ to_TO 900 kg/m3_NP )_) ._SENT 
+The_DT water_NN was_VBD initialised_VVN as_IN flowing_VVG with_IN a_DT uniform_JJ velocity_NN (_( Uwater_NN )_) against_IN the_DT bow_NN of_IN the_DT hull_NN ,_, and_CC a_DT constant_JJ velocity_NN condition_NN is_VBZ applied_VVN to_TO the_DT inlet_NN boundary_NN to_TO maintain_VV a_DT stable_JJ water_NN flow_NN entering_VVG the_DT domain_NN ._SENT 
+The_DT same_JJ initial_JJ and_CC boundary_NN velocity_NN was_VBD also_RB applied_VVN to_TO the_DT ice_NN surfaces_VVZ ._SENT 
+Thus_RB ,_, a_DT relative_JJ velocity_NN exists_VVZ between_IN the_DT ship_NN and_CC water/ice_NN ,_, where_WRB Uwater_NN indicates_VVZ the_DT advancing_VVG speed_NN of_IN the_DT ship_NN in_IN calm_JJ water_NN ._SENT 
+The_DT ship_NN speed_NN may_MD be_VB converted_VVN to_TO Froude_VV number_NN Fr=Uwater/g×Lpp−−−−−−√_NN ,_, where_WRB g_NN and_CC Lpp_NP are_VBP respectively_RB gravitational_JJ acceleration_NN and_CC ship_NN length_NN between_IN perpendiculars_NNS ._SENT 
+The_DT ship_NN surface_NN and_CC ice_NN surface_NN are_VBP defined_VVN as_IN non-slip_NN walls_NNS ,_, and_CC the_DT fixed-dynamic-pressure_JJ condition_NN is_VBZ applied_VVN to_TO the_DT outlet_NN ,_, with_IN the_DT zero-gradient_JJ condition_NN applied_VVN to_TO other_JJ boundaries_NNS ._SENT 
+Figure_NN 3._CD Sketch_NN of_IN the_DT computational_JJ domain_NN (_( a_DT )_) plan_NN view_NN (_( b_LS )_) section_NN view_NN ._SENT 
+2.2_CD ._SENT 
+Governing_VVG equations_NNS The_DT solution_NN of_IN the_DT fluid_JJ domain_NN was_VBD obtained_VVN by_IN solving_VVG the_DT Reynolds-Averaged_JJ Navier-Stokes_NNS (_( RANS_NP )_) equations_NNS for_IN an_DT incompressible_JJ Newtonian_JJ fluid_NN :_: @(1_JJ )_) @(2_NN )_) where_WRB v¯_NP is_VBZ the_DT time-averaged_JJ velocity_NN ,_, v′_NP is_VBZ the_DT velocity_NN fluctuations_NNS ,_, ρ_JJ stands_NNS for_IN the_DT fluid_JJ density_NN ,_, p¯denotes_VVZ the_DT time-averaged_JJ pressure_NN ,_, τ¯ = µ[∇v+_NP (_( ∇v)T_NP ]_SYM is_VBZ the_DT viscous_JJ stress_NN term_NN ,_, µ_NP is_VBZ the_DT dynamic_JJ viscosity_NN and_CC g_NN is_VBZ gravitational_JJ acceleration_NN set_VVN at_IN 9.81 m/s2_NP ._SENT 
+Since_IN the_DT RANS_NP equations_NNS have_VHP considered_VVN the_DT turbulent_JJ effect_NN ,_, the_DT Shear_NP Stress_NN Transport_NP (_( SST_NP )_) k_NN �_NN �_NP �_NP �_NP model_NN (_( Menter_NP 1993_CD )_) was_VBD adopted_VVN to_TO close_VV the_DT equations_NNS ._SENT 
+The_DT SST_NP k_NN �_NP �_NP �_NP �_NP model_NN has_VHZ been_VBN proposed_VVN to_TO be_VB the_DT most_RBS appropriate_JJ option_NN among_IN standard_JJ RANS_NNS turbulence_NN models_NNS for_IN predicting_VVG the_DT flow_NN field_NN around_IN a_DT ship_NN hull_NN (_( Zhang_NP et_NP al_NP ._SENT 
+2006_CD )_) ._SENT 
+The_DT free_JJ surface_NN between_IN the_DT air_NN and_CC water_NN was_VBD modelled_VVN by_IN the_DT Volume_NN of_IN Fluid_JJ (_( VOF_JJ )_) method_NN (_( Hirt_NP and_CC Nichols_NP 1981_CD )_) ._SENT 
+The_DT VOF_JJ method_NN introduces_VVZ a_DT passive_JJ scalar_JJ α_NN ,_, denoting_VVG the_DT fractional_JJ volume_NN of_IN a_DT cell_NN occupied_VVN by_IN a_DT specific_JJ phase_NN ._SENT 
+In_IN this_DT case_NN ,_, a_DT value_NN of_IN α = 1_NN corresponds_VVZ to_TO a_DT cell_NN full_JJ of_IN water_NN and_CC a_DT value_NN of_IN α = 0_NP indicates_VVZ a_DT cell_NN full_JJ of_IN air_NN ._SENT 
+Thus_RB ,_, the_DT free_JJ surface_NN ,_, which_WDT is_VBZ a_DT mix_NN of_IN these_DT two_CD phases_NNS ,_, is_VBZ formed_VVN by_IN the_DT cells_NNS with_IN 0 < α < 1_JJ ._SENT 
+The_DT elevation_NN of_IN the_DT free_JJ surface_NN along_IN time_NN is_VBZ obtained_VVN by_IN the_DT advection_NN equation_NN of_IN α_NP ,_, expressed_VVN as_IN Equation_NN (_( 3_CD )_) ._SENT 
+For_IN a_DT cell_NN containing_VVG both_DT air_NN and_CC water_NN ,_, its_PP$ density_NN and_CC viscosity_NN are_VBP determined_VVN by_IN Equations_NNS (_( 4_CD )_) and_CC (_( 5_LS )_) ._SENT 
+In_IN this_DT study_NN ,_, ρwater = 998.8 kg/m3_NP ,_, µwater = 8.90×10−4_NP N·s/m2_NP ;_: ρair = 1 kg/m3_NP ,_, µair = 1.48×10−5_NP N·s/m2_NP ._SENT 
+@(3_NP )_) @(4_NP )_) @(5_NN )_) 2.3_CD ._SENT 
+Computational_JJ method_NN The_DT governing_VVG equations_NNS of_IN the_DT fluid_JJ domain_NN were_VBD discretised_VVN and_CC solved_VVN using_VVG the_DT Finite_JJ Volume_NN method_NN (_( Versteeg_NP and_CC Malalasekera_NP 2007_CD )_) ._SENT 
+The_DT process_NN includes_VVZ two_CD types_NNS of_IN discretization_NN ,_, in_IN space_NN and_CC time_NN ,_, respectively_RB ._SENT 
+In_IN space_NN ,_, the_DT computational_JJ domain_NN is_VBZ divided_VVN into_IN a_DT set_NN of_IN non-overlapping_VVG cells_NNS ,_, known_VVN as_IN a_DT mesh_NN ;_: in_IN time_NN ,_, the_DT temporal_JJ dimension_NN is_VBZ split_VVN into_IN a_DT finite_JJ number_NN of_IN timesteps_NNS ._SENT 
+For_IN a_DT single_JJ timestep_NN ,_, the_DT solution_NN of_IN the_DT governing_VVG equations_NNS can_MD be_VB obtained_VVN in_IN each_DT cell_NN (_( e.g._FW v_NN ;_: P_NN ;_: a_DT )_) and_CC the_DT solution_NN of_IN the_DT whole_JJ domain_NN can_MD be_VB integrated_VVN by_IN the_DT solution_NN of_IN all_DT cells_NNS ._SENT 
+Subsequently_RB ,_, the_DT solution_NN over_IN a_DT certain_JJ time_NN duration_NN is_VBZ the_DT composition_NN of_IN the_DT solution_NN at_IN each_DT timestep_NN ._SENT 
+In_IN this_DT study_NN ,_, the_DT computational_JJ domain_NN was_VBD divided_VVN into_IN a_DT hexahedral_JJ mesh_NN ,_, and_CC local_JJ mesh_NN refinements_NNS were_VBD applied_VVN at_IN the_DT free-surface_JJ area_NN and_CC around_IN the_DT ship_NN and_CC ice_NN sheets_NNS ,_, as_RB shown_VVN in_IN Figure_NP 4_CD ,_, resulting_VVG in_IN a_DT cell_NN number_NN of_IN around_RB 10.8_CD million_CD ._SENT 
+Five_CD layers_NNS of_IN cells_NNS are_VBP applied_VVN at_IN the_DT ship_NN and_CC ice_NN surfaces_VVZ so_RB that_IN the_DT boundary_NN layer_NN can_MD be_VB properly_RB solved_VVN ,_, shown_VVN in_IN Figure_NP 4(b_NP )_) and_CC (_( c_LS )_) ._SENT 
+The_DT size_NN of_IN each_DT timestep_NN was_VBD determined_VVN by_IN a_DT prescribed_JJ value_NN ,_, Courant_NP number_NN (_( Co_NP )_) ,_, according_VVG to_TO Co=(uΔt/Δx)<1_NN ,_, where_WRB Δt_NP is_VBZ the_DT timestep_JJ size,u/Δx_NN is_VBZ its_PP$ normal_JJ velocity_NN divided_VVN by_IN the_DT distance_NN between_IN the_DT cell_NN centre_NN and_CC the_DT centre_NN of_IN the_DT neighbour_NN cell_NN ._SENT 
+Based_VVN on_IN Co_NP <_SYM 1_CD ,_, the_DT time-step_JJ size_NN is_VBZ set_VVN at_IN 0.01 s_NNS in_IN this_DT study_NN ._SENT 
+Both_CC the_DT mesh_NN and_CC timestep_NN resolutions_NNS were_VBD justified_VVN through_IN verification_NN studies_NNS presented_VVN in_IN the_DT next_JJ section_NN ._SENT 
+Figure_NN 4._CD Mesh_NN layout_NN of_IN the_DT model_NN ._SENT 
+(_( a_DT )_) Plan_NN view_NN of_IN half_DT channel_NN ._SENT 
+(_( b_LS )_) Section_NN view_NN (_( c_LS )_) Close-up_NN section_NN view_NN at_IN the_DT ice_NN edge_NN ._SENT 
+(_( This_DT figure_NN is_VBZ available_JJ in_IN colour_NN online_JJ ._SENT 
+)_) <Section> 3._CD Results_NNS and_CC discussion_NN </Section> When_WRB a_DT ship_NN is_VBZ advancing_VVG in_IN an_DT open-water_NN ice_NN channel_NN ,_, it_PP generates_VVZ waves_NNS which_WDT can_MD be_VB reflected_VVN due_RB to_TO the_DT presence_NN of_IN ice_NN ,_, as_RB shown_VVN in_IN Figure_NP 5_CD ;_: when_WRB the_DT channel_NN width_NN ,_, relative_JJ to_TO the_DT ship_NN beam_NN (_( W/B_NP )_) ,_, changes_NNS ,_, the_DT wave_NN pattern_NN evolves_VVZ accordingly_RB ._SENT 
+In_IN addition_NN ,_, certain_JJ wake_NN is_VBZ observed_VVN flowing_VVG on_IN top_NN of_IN the_DT ice_NN ,_, known_VVN as_IN overwash_NP (_( Skene_NP et_NP al_NP ._SENT 
+2015_CD ;_: Huang_NP and_CC Thomas_NP 2019_CD )_) ._SENT 
+The_DT changed_VVN flow_NN leads_VVZ to_TO different_JJ ship_NN hydrodynamics_NNS compared_VVN to_TO the_DT open-water_NN case_NN ._SENT 
+It_PP can_MD be_VB seen_VVN that_IN when_WRB W/B_NP >_SYM 2.5_CD ,_, the_DT channel_NN barely_RB influences_VVZ the_DT wave_NN pattern_NN ;_: in_IN such_PDT a_DT scenario_NN ,_, the_DT ship_NN resistance_NN is_VBZ very_RB close_JJ to_TO measured_VVN in_IN open_JJ water_NN ;_: these_DT resistance_NN values_NNS are_VBP aligned_VVN with_IN corresponding_JJ experimental_JJ data_NNS (_( Guo_NP et_NP al_NP ._SENT 
+2018_CD )_) ,_, compared_VVN in_IN Figure_NP 6_CD ,_, which_WDT indicates_VVZ the_DT applied_VVN approach_NN is_VBZ valid_JJ ._SENT 
+Whilst_IN similar_JJ CFD_NN methods_NNS have_VHP been_VBN validated_VVN for_IN the_DT canal_NN case_NN (_( Mucha_NP et_NP al_NP ._SENT 
+2016_CD )_) ,_, there_EX is_VBZ a_DT lack_NN of_IN experimental_JJ data_NNS for_IN the_DT exact_JJ ice_NN channel_NN scenario_NN ,_, therefore_RB ,_, extensive_JJ verification_NN is_VBZ essential_JJ to_TO justify_VV the_DT proposed_VVN approach_NN ._SENT 
+Figure_NN 5._CD Wave_NP patterns_NNS for_IN various_JJ channel_NN widths_NNS ,_, obtained_VVD when_WRB Fr = 0.12_JJ and_CC h/T = 0.1_JJ ._SENT 
+(_( a_DT )_) W/B = 1.2_NN (_( b_LS )_) W/B = 1.4_NN (_( c_LS )_) W/B = 1.6_NN (_( d_LS )_) W/B = 1.8_NN (_( e_NN )_) W/B = 2_NN (_( f_LS )_) W/B = 2.5_NN (_( g_NN )_) W/B = 3_NP ._SENT 
+(_( This_DT figure_NN is_VBZ available_JJ in_IN colour_NN online_JJ ._SENT 
+)_) Figure_NP 6._CD Experimental_JJ (_( Guo_NP et_NP al_NP ._SENT 
+2018_CD )_) and_CC computational_JJ resistance_NN of_IN the_DT KCS_NP hull_NN in_IN model-scale_NP ,_, in_IN open_JJ water_NN or_CC when_WRB W/B_NP >_SYM 2.5_CD ._SENT 
+(_( This_DT figure_NN is_VBZ available_JJ in_IN colour_NN online_JJ ._SENT 
+)_) 3.1_CD ._SENT 
+Verification_NN Numerical_JJ verifications_NNS in_IN hydrodynamics_NNS usually_RB only_RB examine_VV integral_JJ quantities_NNS (_( e.g._FW ship_NN resistance_NN )_) ,_, while_IN Phillips_NP and_CC Roy_NP (_( 2016_CD )_) proposed_VVD a_DT procedure_NN of_IN verifying_VVG local_JJ quantities_NNS (_( e.g._FW free_JJ surface_NN elevation_NN )_) ._SENT 
+This_DT has_VHZ inspired_VVN the_DT present_JJ work_NN to_TO include_VV a_DT verification_NN study_NN on_IN the_DT free_JJ surface_NN between_IN the_DT ice_NN sheets_NNS ,_, since_IN the_DT ice-affected_JJ wake_NN is_VBZ a_DT key_JJ feature_NN of_IN the_DT present_JJ problem_NN and_CC governs_VVZ the_DT associated_VVN hydrodynamics_NN ._SENT 
+According_VVG to_TO the_DT standard_JJ verification_NN procedure_NN of_IN the_DT International_NP Towing_VVG Tank_NP Conference_NP (_( ITTC_NP 2017_CD )_) ,_, a_DT representative_JJ case_NN is_VBZ first_RB adopted_VVN ,_, and_CC then_RB simulations_NNS are_VBP performed_VVN for_IN the_DT same_JJ case_NN with_IN different_JJ levels_NNS of_IN temporal_JJ and_CC spatial_JJ discretisation_NN ._SENT 
+The_DT representative_JJ case_NN selected_VVN in_IN the_DT current_JJ work_NN is_VBZ :_: W/B = 1.2_JJ ,_, h/T = 0.1_JJ ,_, and_CC Fr = 0.03_NP ._SENT 
+This_DT case_NN is_VBZ for_IN the_DT slowest_JJS speed_NN examined_VVD ,_, combined_VVN with_IN a_DT channel_NN whose_WP$ width_NN and_CC ice_NN thickness_NN are_VBP able_JJ to_TO produce_VV significant_JJ wave_NN reflections_NNS ._SENT 
+The_DT representative_NN case_NN is_VBZ found_VVN to_TO be_VB the_DT most_RBS challenging_JJ in_IN the_DT present_JJ study_NN ;_: in_IN other_JJ words_NNS ,_, this_DT case_NN requires_VVZ the_DT highest_JJS numerical_JJ accuracy_NN so_IN its_PP$ verification_NN can_MD be_VB reasonably_RB adapted_VVN to_TO other_JJ simulation_NN conditions_NNS ._SENT 
+Based_VVN on_IN the_DT representative_JJ case_NN ,_, the_DT timestep_NN and_CC mesh_NN sizes_NNS were_VBD systematically_RB varied_VVN ,_, resulting_VVG in_IN four_CD sets_NNS of_IN resolutions_NNS for_IN temporal_JJ and_CC spatial_JJ respectively_RB ,_, listed_VVN in_IN Table_NN 2_CD as_IN Tests_NNS 1–7_JJ ,_, alongside_IN their_PP$ corresponding_JJ resistance_NN results_NNS ._SENT 
+With_IN different_JJ timestep_JJ sizes_NNS ,_, the_DT resistance_NN is_VBZ shown_VVN to_TO be_VB insensitive_JJ despite_IN the_DT simulation_NN gets_VVZ divergent_JJ when_WRB the_DT timestep_JJ size_NN is_VBZ increased_VVN to_TO 0.028 s_NNS ._SENT 
+On_IN the_DT other_JJ hand_NN ,_, the_DT resistance_NN shows_VVZ a_DT monotonic_JJ convergence_NN (_( Celik_NP et_NP al_NP ._SENT 
+2008_CD )_) with_IN the_DT tested_VVN mesh_NN densities_NNS ;_: it_PP gradually_RB approaches_VVZ a_DT certain_JJ value_NN and_CC the_DT variance_NN is_VBZ not_RB significant_JJ when_WRB the_DT cell_NN number_NN is_VBZ larger_JJR than_IN 10.8_CD Million_NP ._SENT 
+Table_NN 2._CD Ship_NN resistance_NN with_IN varying_VVG discretisation_NN resolutions_NNS ._SENT 
+Another_DT verification_NN was_VBD performed_VVN for_IN the_DT free_JJ surface_NN in_IN the_DT channel_NN ._SENT 
+Figure_NN 7_CD presents_VVZ the_DT obtained_VVN free_JJ surface_NN of_IN the_DT tests_NNS in_IN Table_NN 2._CD Comparing_VVG Figure_NP 7(a)–(c_NP )_) ,_, it_PP is_VBZ worth_JJ noting_VVG that_IN the_DT larger_JJR timestep_NN sizes_NNS (_( Test_NP 2_CD and_CC 3_LS )_) produce_VV oscillating_VVG free_JJ surfaces_VVZ even_RB in_IN front_NN of_IN the_DT ship_NN ,_, which_WDT is_VBZ unrealistic_JJ and_CC suggests_VVZ the_DT boundary_NN conditions_NNS cannot_MD be_VB precisely_RB implemented_VVN with_IN the_DT applied_VVN resolutions_NNS ._SENT 
+However_RB ,_, the_DT resistance_NN values_NNS of_IN Test_NP 1–3_NP are_VBP similar_JJ ,_, as_RB reported_VVN in_IN Table_NN 2._CD This_DT confirms_VVZ the_DT importance_NN of_IN verifying_VVG free_JJ surface_NN ;_: even_RB if_IN integral_JJ quantities_NNS (_( resistance_NN )_) achieve_VV convergent_JJ ,_, localised_VVD divergences_NNS can_MD still_RB exist_VV ._SENT 
+In_IN this_DT channel_NN case_NN ,_, it_PP is_VBZ particularly_RB related_VVN to_TO the_DT demanding_VVG requirement_NN of_IN solving_VVG the_DT small_JJ clearance_NN between_IN the_DT ship_NN and_CC ice_NN ._SENT 
+Figure_NP 7(a_NP )_) ,_, (_( d_LS )_) and_CC (_( e_NN )_) reveal_VVP the_DT mesh_NN convergence_NN aligned_VVN with_IN the_DT resistance_NN results_NNS ,_, and_CC Figure_NP 7(f_NP )_) shows_VVZ inferior_JJ free_JJ surfaces_VVZ due_JJ to_TO the_DT bad_JJ mesh_NN quality_NN ._SENT 
+Based_VVN on_IN the_DT sensitivity_NN studies_NNS on_IN both_DT resistance_NN and_CC free_JJ surface_NN ,_, the_DT resolution_NN of_IN Test_NP 1_CD is_VBZ selected_VVN to_TO perform_VV further_JJR simulations_NNS ._SENT 
+Figure_NN 7._CD Free_NP surface_NN obtained_VVN with_IN varying_VVG discretisation_NN resolutions_NNS ._SENT 
+(_( a_DT )_) Test_NP 1_CD (_( b_LS )_) Test_NP 2_CD (_( c_LS )_) Test_NP 3_CD (_( d_LS )_) Test_NP 5_CD (_( e_NN )_) Test_NP 6_CD (_( f_LS )_) Test_NP 7._CD (_( This_DT figure_NN is_VBZ available_JJ in_IN colour_NN online_JJ ._SENT 
+)_) 3.2_CD ._SENT 
+Ship_NN resistance_NN A_DT series_NN of_IN simulations_NNS were_VBD conducted_VVN to_TO predict_VV the_DT ship_NN resistance_NN in_IN an_DT open-water_NN ice_NN channel_NN and_CC determine_VV how_WRB it_PP is_VBZ influenced_VVN by_IN ship_NN speed_NN ,_, channel_NN width_NN and_CC ice_NN thickness_NN ._SENT 
+Figure_NN 8_CD presents_NNS the_DT ship_NN resistance_NN in_IN channel_NN (_( Rchannel_NP )_) for_IN varying_VVG ship_NN speeds_NNS and_CC channel_NN widths_NNS ,_, which_WDT is_VBZ compared_VVN with_IN corresponding_JJ open_JJ water_NN resistance_NN measured_VVN at_IN same_JJ speed_NN without_IN any_DT ice_NN (_( Row_NP )_) to_TO distinguish_VV the_DT channel_NN effect_NN ,_, including_VVG two_CD subfigures_NNS respectively_RB showing_VVG the_DT absolute_JJ change_NN (_( Rchannel_NP �_NP �_NP Row_NP )_) and_CC relative_JJ change_NN (_( Rchannel/Row_NP )_) ._SENT 
+Overall_RB ,_, the_DT resistance_NN increases_VVZ with_IN a_DT decreased_VVN channel_NN width_NN ._SENT 
+In_IN accordance_NN with_IN the_DT changing_NN of_IN wave_NN pattern_NN ,_, the_DT presence_NN of_IN the_DT channel_NN starts_VVZ to_TO influence_VV the_DT ship_NN resistance_NN when_WRB W/B < 2.5_NP ,_, which_WDT is_VBZ in_IN line_NN with_IN practice_NN as_IN an_DT icebreaker_NN normally_RB cannot_MD create_VV a_DT channel_NN wider_JJR than_IN this_DT range_NN ._SENT 
+On_IN the_DT other_JJ hand_NN ,_, this_DT limit_NN is_VBZ much_RB lower_JJR than_IN that_DT of_IN a_DT canal_NN case_NN (_( Gourlay_NP et_NP al_NP ._SENT 
+2015_CD ;_: Mucha_NP et_NP al_NP ._SENT 
+2018_CD )_) ,_, as_IN the_DT ice_NN is_VBZ of_IN limited_JJ thickness_NN and_CC the_DT water_NN is_VBZ not_RB shallow_JJ ._SENT 
+Figure_NN 8._CD Ship_NN resistance_NN in_IN ice_NN channels_NNS of_IN varying_VVG widths_NNS ,_, obtained_VVD when_WRB h/T = 0.5_JJ ._SENT 
+(_( a_DT )_) Absolute_JJ increment_NN (_( b_LS )_) relative_JJ increment_NN ._SENT 
+Figure_NP 8(a_NP )_) shows_VVZ the_DT absolute_JJ resistance_NN increment_NN is_VBZ larger_JJR for_IN a_DT larger_JJR ship_NN velocity_NN ,_, which_WDT is_VBZ not_RB surprising_JJ as_IN larger_JJR wave_NN reflections_NNS occurring_VVG ._SENT 
+In_IN contrast_NN ,_, Figure_NP 8(b_NP )_) illustrates_VVZ that_IN the_DT relative_JJ resistance_NN increment_NN is_VBZ larger_JJR for_IN the_DT low-velocity_NN condition_NN (_( Fr = 0.03_NP )_) ,_, indicating_VVG the_DT channel_NN effect_NN is_VBZ more_RBR influential_JJ when_WRB the_DT ship_NN is_VBZ operating_VVG slowly_RB ,_, which_WDT agrees_VVZ with_IN the_DT experiments_NNS of_IN both_DT Leiviskä_NP et_NP al_NP ._SENT 
+(_( 2001_CD )_) and_CC Heinonen_NP (_( 2010_CD )_) ._SENT 
+It_PP means_VVZ that_IN ,_, with_IN increasing_VVG ship_NN speed_NN ,_, the_DT channel-added_JJ resistance_NN increases_NNS more_RBR slowly_RB than_IN the_DT basic_JJ open-water_NN resistance_NN ,_, thus_RB the_DT relative_JJ change_NN becomes_VVZ smaller_JJR ._SENT 
+This_DT characteristic_NN can_MD be_VB important_JJ as_IN ships_NNS usually_RB operate_VVP slowly_RB in_IN such_JJ ice_NN channels_NNS ._SENT 
+To_TO analyse_VV the_DT reason_NN for_IN such_JJ resistance_NN changes_NNS ,_, pressure_NN and_CC shear_NN components_NNS of_IN the_DT resistance_NN are_VBP shown_VVN in_IN Table_NN 3._CD It_PP shows_VVZ that_IN the_DT resistance_NN change_NN is_VBZ mainly_RB attributed_VVN to_TO the_DT pressure_NN component_NN ._SENT 
+Such_JJ significant_JJ increases_NNS of_IN pressure_NN resistance_NN correlate_VVP with_IN the_DT evidently_RB changed_VVN wave_NN patterns_NNS ,_, as_RB presented_VVN in_IN Figure_NP 5._CD In_IN contrast_NN ,_, the_DT shear_NN component_NN slightly_RB increases_VVZ only_RB when_WRB the_DT channel_NN is_VBZ very_RB narrow_JJ (_( W/B�_NP �_NP < 1.3), which is because the water speed increases when the channel space is sufficiently small, thus increasing the friction associated with the boundary layer effect. Although the pressure component can have a significant increment, at a low velocity it takes a smaller proportion compared with the shear one; therefore, the overall resistance increases by a smaller extent. Table 3. Ship resistance in ice channels of varying widths (W/B), alongside breakdown into pressure and shear components and increased percentage compared with open-water resistance, obtained when Fr = 0.03 and h/T = 0.5. The influence of ice thickness on Rchannel was studied by varying h while keeping the other parameters constant. Figure 9 shows Rchannel/Row with different ice thicknesses non-dimensionalised by the ship draught (h/T). It can be seen that as the ice thickness increases, so the ship resistance increases. This is due to the larger submerge of thicker ice reflecting deeper into the wave; also, as the ice thickness increases, there is less overwashing radiation so more surface waves are reflected, as shown in Figure 10. The results are almost the same when h/T >  0.15_NP ,_, suggesting_VVG that_IN the_DT ship-generated_JJ wave_NN is_VBZ sufficiently_RB reflected_VVN in_IN this_DT range_NN ,_, so_RB further_RBR increasing_VVG h_NN does_VVZ not_RB make_VV a_DT difference_NN ._SENT 
+Whereas_IN Rchannel/Row_NP is_VBZ close_JJ to_TO unity_NN when_WRB h/T < 0.05_NP ,_, which_WDT means_VVZ that_IN in_IN this_DT range_NN the_DT ice_NN is_VBZ too_RB thin_JJ to_TO influence_VV the_DT ship_NN resistance_NN ._SENT 
+Within_IN the_DT range_NN of_IN 0.05 < h/T < 0.15_NP ,_, the_DT resistance_NN increases_NNS with_IN increasing_VVG ice_NN thickness_NN ._SENT 
+In_IN practice_NN ,_, the_DT ice_NN thickness_NN of_IN ice_NN channels_NNS in_IN Baltic_NP Sea_NP is_VBZ usually_RB between_IN 0.6∼1 meter_NN (_( Juva_NP and_CC Riska_NP 2002_CD )_) ,_, corresponding_JJ to_TO h/T = 0.06∼0.1_JJ in_IN this_DT study_NN ,_, and_CC yet_RB in_IN the_DT Arctic_NP the_DT ice_NN is_VBZ usually_RB thicker_JJR ;_: therefore_RB ,_, in_IN a_DT real_JJ ice_NN channel_VV the_DT ice_NN will_MD likely_RB be_VB thick_JJ enough_RB to_TO induce_VV effective_JJ wave_NN reflections_NNS and_CC alter_VV the_DT ship_NN resistance_NN ,_, and_CC this_DT lays_VVZ in_IN a_DT range_NN where_WRB the_DT channel_NN effect_NN positively_RB correlates_VVZ with_IN ice_NN thickness_NN ._SENT 
+Figure_NN 9._CD Ship_NN resistance_NN in_IN ice_NN channels_NNS of_IN varying_VVG ice_NN thicknesses_NNS ,_, obtained_VVD when_WRB Fr = 0.03_JJ ._SENT 
+Figure_NN 10._CD Wave_NP patterns_NNS for_IN different_JJ ice_NN thicknesses_NNS ,_, obtained_VVD when_WRB Fr = 0.12_NP and_CC W/B = 1.8_NP ._SENT 
+(_( a_DT )_) h/T = 0.1_NN ,_, when_WRB ice_NN is_VBZ relatively_RB thin_JJ and_CC overwash_NN happens_VVZ (_( b_LS )_) h/T = 0.3_JJ ,_, thick_JJ ice_NN induces_VVZ no_DT overwash_NN and_CC wave_NN reflection_NN is_VBZ stronger_JJR than_IN in_IN the_DT above_JJ panel_NN ._SENT 
+(_( This_DT figure_NN is_VBZ available_JJ in_IN colour_NN online_JJ ._SENT 
+)_) <Section> 4._CD Conclusions_NNS </Section> This_DT paper_NN studies_VVZ the_DT performance_NN of_IN a_DT ship_NN operating_VVG in_IN an_DT open-water_NN ice_NN channel_NN ,_, usually_RB created_VVN by_IN an_DT icebreaker_NN equipped_VVN with_IN the_DT ice-cleaning_JJ technology_NN ._SENT 
+This_DT scenario_NN is_VBZ potentially_RB a_DT typical_JJ operational_JJ condition_NN for_IN ships_NNS escorted_VVN by_IN icebreakers_NNS ,_, especially_RB of_IN interest_NN in_IN future_JJ Arctic_NP shipping_NN ,_, but_CC has_VHZ barely_RB been_VBN addressed_VVN by_IN previous_JJ research_NN ._SENT 
+The_DT present_JJ work_NN applies_VVZ the_DT CFD_NN method_NN to_TO investigate_VV the_DT proposed_VVN problem_NN ;_: with_IN the_DT flexibility_NN of_IN the_DT simulation_NN approach_NN ,_, environmental_JJ parameters_NNS such_JJ as_IN ice_NN dimensions_NNS were_VBD subtlely_RB varied_VVN to_TO investigate_VV their_PP$ influences_NNS on_IN the_DT ship-wave-ice_JJ interactions_NNS ._SENT 
+Moreover_RB ,_, the_DT strong_JJ visualising_VVG capability_NN of_IN CFD_NN allows_VVZ the_DT breakdown_NN of_IN ship_NN resistance_NN into_IN pressure_NN and_CC shear_NN component_NN ,_, as_RB well_RB as_IN showing_VVG the_DT corresponding_JJ evolvement_NN of_IN wave_NN pattern_NN ._SENT 
+These_DT have_VHP allowed_VVN novel_JJ insights_NNS to_TO be_VB obtained_VVN into_IN the_DT proposed_VVN problem_NN ._SENT 
+Based_VVN on_IN a_DT series_NN of_IN simulations_NNS ,_, an_DT open-water_NP ice_NN channel_NN has_VHZ shown_VVN to_TO increase_VV the_DT ship_NN resistance_NN ,_, and_CC the_DT increment_NN is_VBZ mainly_RB attributed_VVN in_IN the_DT pressure_NN component_NN ,_, caused_VVN by_IN changes_NNS of_IN wave_NN pattern_NN due_JJ to_TO the_DT presence_NN of_IN the_DT ice_NN sheets_NNS ._SENT 
+The_DT channel_NN effect_NN was_VBD found_VVN evident_JJ when_WRB its_PP$ width_NN is_VBZ less_JJR than_IN 2.5_CD times_NNS of_IN the_DT ship_NN beam_NN and_CC when_WRB the_DT ice_NN thickness_NN is_VBZ larger_JJR than_IN 5_CD %_NN of_IN the_DT ship_NN draught_NN ;_: both_CC the_DT effective_JJ ranges_NNS are_VBP aligned_VVN to_TO a_DT practical_JJ ice_NN channel_NN ,_, which_WDT means_VVZ the_DT channel_NN effect_NN is_VBZ important_JJ for_IN such_JJ ship_NN operations_NNS ._SENT 
+Moreover_RB ,_, the_DT channel_NN effect_NN was_VBD found_VVN relatively_RB more_RBR influential_JJ when_WRB the_DT ship_NN is_VBZ operating_VVG at_IN a_DT low_JJ velocity_NN ._SENT 
+Nevertheless_RB ,_, this_DT paper_NN is_VBZ limited_VVN to_TO a_DT single_JJ vessel_NN type_NN ,_, i.e._FW container_NN ship_NN ;_: the_DT channel_NN influence_NN could_MD vary_VV with_IN other_JJ vessel_NN types_NNS ._SENT 
+Noting_VVG that_IN the_DT nature_NN of_IN CFD_NN does_VVZ not_RB solve_VV solid_JJ mechanics_NNS ,_, the_DT applied_VVN method_NN is_VBZ based_VVN on_IN the_DT assumption_NN that_IN the_DT ice_NN sheets_NNS do_VVP not_RB deform_VV with_IN the_DT ship_NN wake_NN ._SENT 
+Intended_VVN future_JJ work_NN is_VBZ to_TO apply_VV a_DT fluid-structure_NN interaction_NN approach_NN (_( Huang_NP et_NP al_NP ._SENT 
+2019c_NP )_) to_TO include_VV a_DT structural_JJ solution_NN (_( ice_NN deformation_NN )_) and_CC couple_NN it_PP with_IN the_DT fluid_JJ solution_NN ._SENT 
+In_IN addition_NN ,_, it_PP would_MD be_VB of_IN interest_NN to_TO investigate_VV to_TO what_WP extent_NN the_DT ice_NN channel_NN can_MD produce_VV the_DT ‘bank_NP effect’_NP ,_, where_WRB a_DT ship_NN tends_VVZ to_TO be_VB sucked_VVN towards_IN the_DT canal_NN wall_NN when_WRB operating_VVG asymmetrically_RB in_IN a_DT confined_VVN waterway_NN (_( Vantorre_NP et_NP al_NP ._SENT 
+2003_CD )_) ._SENT 
+<Section> Acknowledgements_NNS <Section> The_DT present_JJ paper_NN has_VHZ been_VBN facilitated_VVN by_IN valuable_JJ suggestions_NNS from_IN Professor_NP Guoxiong_NP Wu_NP at_IN University_NP College_NP London_NP (_( UCL_NP )_) ,_, Professor_NP Jukka_NP Tuhkuri_NP at_IN Aalto_NP University_NP and_CC Mr_NP Momchil_NP Terziev_NP at_IN University_NP of_IN Strathclyde_NP ._SENT 
+The_DT first_JJ author_NN is_VBZ grateful_JJ to_TO Lloyds_NP Register_NP Foundation_NP ,_, UCL_NN Faculty_NN of_IN Engineering_NP Science_NP and_CC China_NP Scholarship_NN Council_NP ,_, for_IN providing_VVG his_PP$ PhD_JJ scholarship_NN ._SENT 
+The_DT authors_NNS acknowledge_VVP the_DT use_NN of_IN the_DT UCL_NP Grace_NP High_NP Performance_NP Computing_NP Facility_NP (_( Grace@UCL_NP )_) ,_, and_CC associated_VVN support_NN services_NNS ,_, in_IN the_DT completion_NN of_IN this_DT work_NN ._SENT 
+<Section> Disclosure_NN statement_NN </Section> No_DT potential_JJ conflict_NN of_IN interest_NN was_VBD reported_VVN by_IN the_DT authors_NNS ._SENT 
+<Section> References_NNS </Section> •_JJ Celik_NP IB_NP ,_, Ghia_NP U_NP ,_, Roache_NP PJ_NP ,_, Freitas_NP CJ_NP ._SENT 
+2008._CD Procedure_NN for_IN estimation_NN and_CC reporting_VVG of_IN uncertainty_NN due_JJ to_TO discretization_NN in_IN CFD_NN applications_NNS ._SENT 
+J_NP Fluids_NNS Eng_NP ._SENT 
+130(7):078001_JJ ._SENT 
+doi_NP :_: 10.1115/1.2960953_CD •_NN Gourlay_NP TP_NP ,_, Ha_NP JH_NP ,_, Mucha_NP P_NN ,_, Uliczka_NP K._NP 2015._CD Sinkage_NN and_CC trim_VV of_IN modern_JJ container_NN ships_NNS in_IN shallow_JJ water_NN ._SENT 
+In_RB :_: Australasian_JJ Coasts_NNS &_CC Ports_NNS Conference_NP 2015_CD :_: 22nd_JJ Australasian_NP Coastal_NP and_CC Ocean_NP Engineering_NP Conference_NP and_CC the_DT 15th_JJ Australasian_NP Port_NP and_CC Harbour_NP Conference_NP ._SENT 
+:_: Engineers_NP Australia_NP and_CC IPENZ_NP ;_: p._NP 344._CD •_NP Guo_NP C_NP ,_, Xie_NP C_NP ,_, Zhang_NP J_NP ,_, Wang_NP S_NP ,_, Zhao_NP D._NP 2018._CD Experimental_JJ investigation_NN of_IN the_DT resistance_NN performance_NN and_CC heave_NN and_CC pitch_NN motions_NNS of_IN ice-going_VVG container_NN ship_NN under_IN pack_NN ice_NN conditions_NNS ._SENT 
+China_NP Ocean_NP Eng_NP ._SENT 
+32(2):169–178_NP ._SENT 
+doi_NP :_: 10.1007/s13344-018-0018-9_NP ,_, ,_, •_NP Heinonen_NP T._NP 2010._CD Kokeellinen_NP tutkimus_NP nopeuden_NP vaikutuksesta_NP laivan_NP jäävastukseen_NP [_SYM master_NN thesis_NN ]_SYM ._SENT 
+Helsinki_NP University_NP of_IN Technology_NP ._SENT 
+•_NP Hirt_NP CW_NP ,_, Nichols_NP BD_NNS ._SENT 
+1981._CD Volume_NN of_IN fluid_JJ (_( VOF_JJ )_) method_NN for_IN the_DT dynamics_NNS of_IN free_JJ boundaries_NNS ._SENT 
+J_NP Comput_NP Phys_NPS ._SENT 
+39(1):201–225_NP ._SENT 
+doi_NP :_: 10.1016/0021-9991(81)90145-5_NP •_NP Huang_NP L_NP ,_, Li_NP M_NP ,_, Igrec_NP B_NP ,_, Cardiff_NP P_NN ,_, Stagonas_NP D_NP ,_, Thomas_NP G._NP 2019a_NP ._SENT 
+Simulation_NN of_IN a_DT ship_NN advancing_VVG in_IN floating_VVG ice_NN floes_NNS ._SENT 
+In_RB :_: Proceedings_NNS of_IN the_DT International_NP Conference_NP on_IN Port_NP and_CC Ocean_NP Engineering_NP Under_IN Arctic_NP Conditions_NNS ._SENT 
+•_NP Huang_NP L_NP ,_, Ren_NP K_NP ,_, Li_NP M_NP ,_, Tukovi�_NP �_NP Ž_NP ,_, Cardiff_NP P_NN ,_, Thomas_NP G._NP 2019b_NP ._SENT 
+Fluid-structure_NN interaction_NN of_IN a_DT large_JJ ice_NN sheet_NN in_IN waves_NNS ._SENT 
+Ocean_NP Eng_NP ._SENT 
+182:102–111_JJ ._SENT 
+doi_NP :_: 10.1016/j.oceaneng.2019.04.015_NP •_NP Huang_NP L_NP ,_, Thomas_NP G._NP 2019._CD Simulation_NP of_IN wave_NN interaction_NN with_IN a_DT circular_JJ ice_NN floe_NN ._SENT 
+J_NP Offshore_NP Mech_NP Arct_NP Eng_NP ._SENT 
+141(4):041302_NP ._SENT 
+doi_NP :_: 10.1115/1.4042096_CD •_NN Huang_NP L_NP ,_, Tuhkuri_NP J_NP ,_, Igrec_NP B_NP ,_, Li_NP M_NP ,_, Stagonas_NP D_NP ,_, Toffoli_NP A_NP ,_, Cardiff_NP P_NN ,_, Thomas_NP G._NP 2019c_NP ._SENT 
+Ship_NN resistance_NN when_WRB operating_VVG in_IN floating_VVG ice_NN floes_NNS :_: a_DT combined_JJ CFD&DEM_NN approach_NN ._SENT 
+arXiv_NP preprint_NP arXiv:190910018_NP ._SENT 
+•_NP ITTC_NP ._SENT 
+2017._CD Uncertainty_NN Analysis_NN in_IN CFD_NP Verification_NP and_CC Validation_NN Methodology_NN and_CC Procedures_NNS ._SENT 
+Recommended_JJ Procedures_NNS and_CC Guidelines_NNS ._SENT 
+•_NP Jeong_NP S-Y_NP ,_, Jang_NP J_NP ,_, Kang_NP K-J_NP ,_, Kim_NP H-S_NP ._SENT 
+2017._CD Implementation_NN of_IN ship_NN performance_NN test_NN in_IN brash_JJ ice_NN channel_NN ._SENT 
+Ocean_NP Eng_NP ._SENT 
+140:57–65_NP ._SENT 
+doi_NP :_: 10.1016/j.oceaneng.2017.05.008_NP •_NP Juva_NP M_NP ,_, Riska_NP K._NP 2002._CD On_IN the_DT power_NN requirement_NN in_IN the_DT Finnish-Swedish_JJ ice_NN class_NN rules_NNS ._SENT 
+Winter_NN navigation_NN Research_NP Board_NP ,_, Res_NN Rpt_NNS ._SENT 
+53._CD •_NP Kim_NP WJ_NP ,_, Van_NP SH_NP ,_, Kim_NP DH_NP ._SENT 
+2001._CD Measurement_NN of_IN flows_NNS around_IN modern_JJ commercial_JJ ship_NN models_NNS ._SENT 
+Exp_NN Fluids_NNS ._SENT 
+31(5):567–578_NP ._SENT 
+doi_NP :_: 10.1007/s003480100332_NP •_NP Kitazawa_NP T_NN ,_, Ettema_NP R._NP 1985._CD Resistance_NN to_TO ship-hull_JJ motion_NN through_IN brash_JJ ice_NN ._SENT 
+Cold_NP Reg_NP Sci_NP Technol_NN ._SENT 
+10(3):219–234_NP ._SENT 
+doi_NP :_: 10.1016/0165-232X(85)90034-5_NP •_NP Konno_NP A_NP ,_, Nakane_NP A_NP ,_, Kanamori_NP S._NP 2013._CD Validation_NN of_IN numerical_JJ estimation_NN of_IN brash_JJ ice_NN channel_NN resistance_NN with_IN model_NN test_NN ._SENT 
+In_RB :_: Proceedings_NNS of_IN the_DT International_NP Conference_NP on_IN Port_NP and_CC Ocean_NP Engineering_NP Under_IN Arctic_NP Conditions_NNS ._SENT 
+•_NP Konno_NP A_NP ,_, Saitoh_NP O_NP ,_, Watanabe_NP Y._NP 2011._CD Numerical_JJ investigation_NN of_IN effect_NN of_IN channel_NN condition_NN against_IN ships_NNS resistance_NN in_IN brash_JJ ice_NN channels_NNS ._SENT 
+In_RB :_: Proceedings_NNS of_IN the_DT International_NP Conference_NP on_IN Port_NP and_CC Ocean_NP Engineering_NP Under_IN Arctic_NP Conditions_NNS ._SENT 
+•_NP Koskinen_NP P_NN ,_, Savikurki_NP J._NP 1993._CD A_DT propulsion_NN system_NN based_VVN on_IN azimuth_NN thrusters_NNS and_CC its_PP$ possibilities_NNS in_IN icebreaking_JJ technology_NN ._SENT 
+In_RB :_: Proceedings_NNS of_IN the_DT International_NP Conference_NP on_IN Port_NP and_CC Ocean_NP Engineering_NP Under_IN Arctic_NP Conditions_NNS ._SENT 
+•_NP Laxon_NP SW_NP ,_, Giles_NP KA_NP ,_, Ridout_NP AL_NP ,_, Wingham_NP DJ_NP ,_, Willatt_NP R_NP ,_, Cullen_NP R_NP ,_, Kwok_NP R_NP ,_, Schweiger_NP A_NP ,_, Zhang_NP J_NP ,_, Haas_NP C._NP 2013._CD CryoSat-2_JJ estimates_NNS of_IN Arctic_NP sea_NN ice_NN thickness_NN and_CC volume_NN ._SENT 
+Geophys_NPS Res_NN Lett_NP ._SENT 
+40(4):732–737_JJ ._SENT 
+doi_NP :_: 10.1002/grl.50193_NP ,_, ,_, •_JJ Leiviskä_JJ T_NN ,_, Tuhkuri_NP J_NP ,_, Riska_NP K._NP 2001._CD Model_NP test_NN on_IN resistance_NN in_IN ice-free_JJ ice_NN channels_NNS ._SENT 
+In_RB :_: Proceedings_NNS of_IN the_DT International_NP Conference_NP on_IN Port_NP and_CC Ocean_NP Engineering_NP Under_IN Arctic_NP Conditions_NNS ._SENT 
+•_NP Melia_NP N_NP ,_, Haines_NP K_NP ,_, Hawkins_NP E._NP 2017._CD Future_NP of_IN the_DT sea_NN :_: implications_NNS from_IN opening_VVG arctic_JJ sea_NN routes_NNS ._SENT 
+Foresight–Future_NN of_IN the_DT Sea_NP Evidence_NN Review_NP London_NP :_: Government_NP Office_NP of_IN Science_NP ._SENT 
+•_NP Menter_NP F._NP 1993._CD Zonal_JJ two_CD equation_NN kw_JJ turbulence_NN models_NNS for_IN aerodynamic_JJ flows_NNS ._SENT 
+In_RB :_: 23rd_JJ fluid_JJ dynamics_NNS ,_, plasmadynamics_NNS ,_, and_CC lasers_NNS conference_NN ._SENT 
+•_NP Mucha_NP P._NP 2019._CD Fully-Coupled_VVD CFD-DEM_NN for_IN simulations_NNS of_IN ships_NNS advancing_VVG through_IN brash_JJ ice_NN ._SENT 
+In_RB :_: SNAME_VVG Maritime_NP Convention_NP :_: The_DT Society_NP of_IN Naval_NP Architects_NPS and_CC Marine_NP Engineers_NPS ._SENT 
+•_NP Mucha_NP P_NN ,_, Deng_NP G_NP ,_, Gourlay_NP T_NN ,_, Moctar_NP E_NP ,_, Ould_NP B._NP 2016._CD Validation_NN studies_NNS on_IN numerical_JJ prediction_NN of_IN ship_NN squat_JJ and_CC resistance_NN in_IN shallow_JJ water_NN ._SENT 
+In_RB :_: 4th_JJ MASHCON-International_JJ Conference_NN on_IN Ship_NN Manoeuvring_VVG in_IN Shallow_NP and_CC Confined_VVN Water_NP with_IN Special_JJ Focus_NP on_IN Ship_NP Bottom_NP Interaction_NP ._SENT 
+•_NP Mucha_NP P_NN ,_, el_NN Moctar_NN O._NP 2014._CD Numerical_JJ prediction_NN of_IN resistance_NN and_CC squat_JJ for_IN a_DT containership_NN in_IN shallow_JJ water_NN ._SENT 
+In_RB :_: Proceedings_NNS of_IN the_DT 17th_JJ Numerical_JJ Towing_VVG Tank_NP Symposium_NN ._SENT 
+•_NP Mucha_NP P_NN ,_, el_NN Moctar_NP O_NP ,_, Dettmann_NP T_NN ,_, Tenzer_NP M._NP 2018._CD An_DT experimental_JJ study_NN on_IN the_DT effect_NN of_IN confined_VVN water_NN on_IN resistance_NN and_CC propulsion_NN of_IN an_DT inland_RB waterway_NN ship_NN ._SENT 
+Ocean_NP Eng_NP ._SENT 
+167:11–22_NP ._SENT 
+doi_NP :_: 10.1016/j.oceaneng.2018.08.009_NP •_NP Phillips_NP TS_NP ,_, Roy_NP CJ_NP ._SENT 
+2016._CD A_DT new_JJ extrapolation-based_JJ uncertainty_NN estimator_NN for_IN computational_JJ fluid_JJ dynamics_NNS ._SENT 
+J_NP Verif_NP Valid_JJ Uncertain_JJ Quantification_NN ._SENT 
+1(4):041006_NP ._SENT 
+doi_NP :_: 10.1115/1.4035666_CD ,_, •_NP Skene_NP DM_NP ,_, Bennetts_NP LG_NP ,_, Meylan_NP MH_NP ,_, Toffoli_NP A._NP 2015._CD Modelling_VVG water_NN wave_NN overwash_NN of_IN a_DT thin_JJ floating_JJ plate_NN ._SENT 
+J_NP Fluid_JJ Mech_NP ._SENT 
+777._CD doi:10.1017/jfm.2015.378_NN ._SENT 
+•_NP Smith_NP LC_NP ,_, Stephenson_NP SR_NN ._SENT 
+2013._CD New_NP trans-arctic_JJ shipping_NN routes_NNS navigable_JJ by_IN midcentury_NN ._SENT 
+In_RB :_: P_NN Natl_NP A_NP Sci_NP ._SENT 
+110(13_NP )_) ._SENT 
+[_SYM place_NN unknown_NN ]_SYM :_: E1191–E1195_JJ ._SENT 
+•_NP Stroeve_NP JC_NP ,_, Kattsov_NP V_NN ,_, Barrett_NP A_NP ,_, Serreze_NP M_NP ,_, Pavlova_NP T_NN ,_, Holland_NP M_NP ,_, Meier_NP WN_NNS ._SENT 
+2012._CD Trends_NNS in_IN arctic_JJ sea_NN ice_NN extent_NN from_IN CMIP5_NP ,_, CMIP3_NN and_CC observations_NNS ._SENT 
+Geophys_NPS Res_NN Lett_NP ._SENT 
+39(16_NP )_) ._SENT 
+doi:10.1029/2012GL052676_NP ._SENT 
+•_NP Terziev_NP M_NP ,_, Tezdogan_NP T_NN ,_, Oguz_NP E_NP ,_, Gourlay_NP T_NN ,_, Demirel_NP YK_NP ,_, Incecik_NP A._NP 2018._CD Numerical_JJ investigation_NN of_IN the_DT behaviour_NN and_CC performance_NN of_IN ships_NNS advancing_VVG through_IN restricted_JJ shallow_JJ waters_NNS ._SENT 
+J_NP Fluids_NNS Struct_VVP ._SENT 
+76:185–215_NP ._SENT 
+doi_NP :_: 10.1016/j.jfluidstructs.2017.10.003_NP •_NP Tezdogan_NP T_NN ,_, Incecik_NP A_NP ,_, Turan_NP O._NP 2016._CD A_DT numerical_JJ investigation_NN of_IN the_DT squat_JJ and_CC resistance_NN of_IN ships_NNS advancing_VVG through_IN a_DT canal_NN using_VVG CFD_NN ._SENT 
+J_NP Mar_NP Sci_NP Technol_NN ._SENT 
+21(1):86–101_JJ ._SENT 
+doi_NP :_: 10.1007/s00773-015-0334-1_JJ •_NP Vantorre_NP M_NP ,_, Delefortrie_NP G_NP ,_, Eloot_NP K_NP ,_, Laforce_NP E._NP 2003._CD Experimental_JJ investigation_NN of_IN ship-bank_NN interaction_NN forces_NNS ._SENT 
+In_RB :_: International_NP Conference_NP MARSIM_NP ._SENT 
+•_NP Versteeg_NP HK_NP ,_, Malalasekera_NP W._NP 2007._CD An_DT introduction_NN to_TO computational_JJ fluid_JJ dynamics_NNS :_: the_DT finite_JJ volume_NN method_NN ._SENT 
+London_NP :_: Pearson_NP Education_NP ._SENT 
+•_NP Wadhams_NP P._NP 2017._CD A_DT farewell_NN to_TO ice_NN :_: a_DT report_NN from_IN the_DT Arctic_NP ._SENT 
+Oxford_NP :_: Oxford_NP University_NP Press_NP ._SENT 
+•_NP Zhang_NP Z_NP ,_, Liu_NP H_NP ,_, Zhu_NP S_NP ,_, Zhao_NP F._NP 2006._CD Application_NN of_IN CFD_NN in_IN ship_NN engineering_NN design_NN practice_NN and_CC ship_NN hydrodynamics_NNS ._SENT 
+Journal_NP of_IN Hydrodynamics_NNS ._SENT 
+18(1):308–315_NP ._SENT 
+doi_NP :_: 10.1007/BF03400465_JJ <Section> Additional_JJ information_NN </Section> Funding_NP This_DT work_NN is_VBZ part_NN of_IN a_DT project_NN that_WDT has_VHZ received_VVN funding_NN from_IN the_DT European_NP Union_NP 's_POS Horizon_NN 2020_CD research_NN and_CC innovation_NN programme_NN under_IN grant_NN agreement_NN No_RB 723526_CD -_: SEDNA_NP :_: Safe_JJ maritime_JJ operations_NNS under_IN extreme_JJ conditions_NNS ;_: the_DT Arctic_NP case_NN ._SENT 

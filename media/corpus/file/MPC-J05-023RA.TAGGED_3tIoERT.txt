@@ -1,0 +1,323 @@
+<title> Blind_JJ deconvolution_NN based_VVN equalizer_NN for_IN underwater_JJ acoustic_JJ communications_NNS </title> <author> Siddiqui_NP ,_, SI_NP (_( Siddiqui_NP ,_, Salman_NP ,_, I)[_NP 1_CD ]_SYM ;_: Dong_NP ,_, HF_NP (_( Dong_NP ,_, Hefeng)[_NP 1_CD ]_SYM </author> <Affiliation> Norwegian_JJ Univ_NP Sci_NP &_CC Technol_NN NTNU_NN ,_, Dept_NP Elect_VVP Syst_NN ,_, NO-7491_JJ Trondheim_NP ,_, Norway_NP </Affiliation> <year> 2019_CD </year> <Jounral> Applied_NP Acoustics_NN </Journal> <Publishing_house> ELSEVIER_NP SCI_NP LTD_NP ,_, THE_DT BOULEVARD_NN ,_, LANGFORD_NP LANE_NN ,_, KIDLINGTON_NP ,_, OXFORD_NP OX5_NP 1GB_NP ,_, OXON_NP ,_, ENGLAND_NP </Publishing_house> <Text_Collector> Wang_NP Shuaiyin，HEU_NP </Text_Collector> <DOI> 10.1016/j_NP ._SENT 
+apacoust.2019.01.022_JJ </DOI> <URL> https_NNS :_: //www-sciencedirect-com-443_NN ._SENT 
+wvpn_NP ._SENT 
+hrbeu_NP ._SENT 
+edu_NP ._SENT 
+cn/science/article/pii/S0003682X18307291_JJ ?_SENT 
+via%3Dihub_NP </URL> <Section> ABSTRAC_NP </Section> Reliable_JJ and_CC efficient_JJ underwater_JJ acoustic_JJ communications_NNS are_VBP challenging_VVG problems_NNS because_IN of_IN complex_JJ underwater_JJ channel_NN properties_NNS ._SENT 
+With_IN the_DT recent_JJ advancements_NNS in_IN underwater_JJ technologies_NNS ,_, there_EX is_VBZ a_DT need_NN for_IN a_DT robust_JJ underwater_JJ communication_NN system_NN which_WDT can_MD endure_VV high_JJ data_NNS rate_NN and_CC optimize_VV the_DT use_NN of_IN resources_NNS like_IN bandwidth_NN and_CC time_NN ._SENT 
+In_IN this_DT work_NN ,_, a_DT blind_JJ deconvolution_NN based_VVN equalizer_NN is_VBZ proposed_VVN ,_, which_WDT uses_VVZ the_DT received_VVN signal_NN to_TO compute_VV the_DT channel_NN impulse_NN response_NN estimates_VVZ and_CC equalizes_VVZ the_DT received_VVN signal_NN using_VVG these_DT channel_NN impulse_NN response_NN estimates_NNS ._SENT 
+The_DT performance_NN of_IN the_DT proposed_VVN system_NN is_VBZ tested_VVN with_IN both_DT simulated_JJ and_CC real_JJ data_NNS ._SENT 
+The_DT real_JJ data_NNS were_VBD obtained_VVN during_IN an_DT experiment_NN in_IN September_NP 2017_CD in_IN TrondheimFjord_NN ._SENT 
+In_IN the_DT case_NN of_IN real_JJ data_NNS ,_, the_DT difference_NN in_IN performance_NN in_IN terms_NNS of_IN mean_JJ square_JJ error_NN between_IN the_DT proposed_VVN equalizer_NN and_CC the_DT probe-based_JJ channel_NN estimation_NN equalizer_NN is_VBZ only_RB 0.68_CD dB_NN ._SENT 
+This_DT suggests_VVZ that_IN the_DT proposed_VVN blind_JJ deconvolution_NN technique_NN can_MD provide_VV good_JJ channel_NN estimates_VVZ to_TO equalize_VV the_DT underwater_JJ channel_NN effects_NNS ._SENT 
+In_IN addition_NN to_TO that_WDT ,_, it_PP can_MD save_VV the_DT resources_NNS allocated_VVN for_IN the_DT probe_NN signal_NN estimation_NN ._SENT 
+(_( C_LS )_) 2019_CD Elsevier_NP Ltd._NP All_NP rights_NNS reserved_VVD ._SENT 
+<Section> 1._CD Introduction_NN </Section> The_DT underwater_JJ channel_NN is_VBZ a_DT bounded_VVN medium_NN and_CC poses_VVZ great_JJ challenges_NNS to_TO underwater_JJ acoustic_JJ communications_NNS ._SENT 
+The_DT underwater_JJ channel_NN is_VBZ characterized_VVN as_IN a_DT dually_RB spread_VVN channel_NN in_IN time_NN and_CC frequency_NN ._SENT 
+The_DT time_NN spreading_VVG of_IN the_DT channel_NN is_VBZ due_JJ to_TO multiple_JJ paths_NNS from_IN the_DT surface_NN and_CC the_DT bottom_NN ._SENT 
+The_DT frequency_NN spreading_VVG is_VBZ caused_VVN by_IN the_DT source_NN and/or_NN receiver_NN motion_NN and_CC the_DT surface_NN variations_NNS ._SENT 
+The_DT temporal_JJ and_CC frequency_NN spreading_VVG results_NNS in_IN intersymbolic_JJ interference_NN (_( ISI_NP )_) and_CC Doppler_NP effects_NNS at_IN the_DT received_VVN signal_NN respectively_RB ._SENT 
+To_TO combat_VV these_DT complex_JJ channel_NN variations_NNS ,_, there_EX is_VBZ a_DT need_NN for_IN a_DT robust_JJ equalization_NN system_NN ._SENT 
+Due_JJ to_TO recent_JJ developments_NNS in_IN underwater_JJ acoustic_JJ systems_NNS ,_, there_EX is_VBZ a_DT growing_VVG need_NN for_IN efficient_JJ equalization_NN techniques_NNS to_TO combat_VV the_DT channel_NN variations_NNS ._SENT 
+Both_DT coherent_JJ and_CC non-coherent_JJ modulation_NN schemes_NNS are_VBP used_VVN in_IN the_DT current_JJ underwater_JJ systems_NNS ._SENT 
+In_IN this_DT work_NN ,_, the_DT main_JJ focus_NN will_MD be_VB on_IN coherent_JJ schemes_NNS [_SYM 1_CD ]_SYM ._SENT 
+Coherent_JJ modulation_NN schemes_NNS ensure_VV high_JJ data_NNS rates_NNS but_CC they_PP are_VBP very_RB sensitive_JJ to_TO the_DT time_NN and_CC frequency_NN spreading_VVG of_IN the_DT underwater_JJ channel_NN [_SYM 2_CD ]_SYM ._SENT 
+Different_JJ equalization_NN techniques_NNS have_VHP been_VBN proposed_VVN in_IN the_DT literature_NN for_IN coherent_JJ schemes_NNS ,_, including_VVG linear_JJ equalizers_NNS [_SYM 3_CD ]_SYM ,_, [_SYM 4_CD ]_SYM and_CC direct_JJ sequence_NN spread_NN spectrum_NN techniques_NNS [_SYM 5_CD ]_SYM ,_, [_SYM 6_CD ]_SYM ._SENT 
+The_DT performance_NN of_IN the_DT underwater_JJ channel_NN equalizers_NNS can_MD be_VB improved_VVN by_IN using_VVG the_DT spatial_JJ diversity_NN which_WDT helps_VVZ in_IN reducing_VVG ISI_NP [_SYM 7_CD ]_SYM ._SENT 
+In_RB [_SYM 8_CD ]_SYM ,_, the_DT spatial_JJ diversity_NN gain_NN is_VBZ combined_VVN with_IN equalization_NN gain_NN to_TO improve_VV the_DT performance_NN of_IN the_DT underwater_JJ communication_NN system_NN ._SENT 
+The_DT equalization_NN gain_NN is_VBZ mainly_RB achieved_VVN by_IN channel_NN estimation_NN ._SENT 
+The_DT channel_NN estimate_NN based_VVN equalizers_NNS have_VHP gained_VVN a_DT lot_NN of_IN interest_NN and_CC different_JJ variants_NNS of_IN these_DT equalizers_NNS have_VHP been_VBN proposed_VVN ,_, including_VVG time_NN reversal_NN equalizer_NN [_SYM 9_CD ]_SYM ,_, [_SYM 10_CD ]_SYM and_CC reduced_VVN complexity_NN spatio-temporal_JJ equalizers_NNS [_SYM 11_CD ]_SYM ._SENT 
+One_CD of_IN the_DT main_JJ challenges_NNS in_IN the_DT channel_NN estimation_NN based_VVN equalizers_NNS is_VBZ the_DT accuracy_NN of_IN the_DT channel_NN estimates_NNS ._SENT 
+The_DT effects_NNS of_IN imperfect_JJ channel_NN estimates_NNS have_VHP been_VBN studied_VVN in_RB [_SYM 12_CD ]_SYM and_CC it_PP shows_VVZ that_IN the_DT performance_NN degrades_VVZ significantly_RB in_IN the_DT presence_NN of_IN channel_NN variations_NNS like_IN surface_NN motion_NN ._SENT 
+Some_DT improved_VVN versions_NNS of_IN these_DT equalizers_NNS have_VHP been_VBN proposed_VVN to_TO update_VV the_DT channel_NN impulse_NN response_NN (_( IR_NN )_) estimates_NNS [_SYM 12_CD ]_SYM ,_, [_SYM 13_CD ]_SYM ,_, [_SYM 14_CD ]_SYM ._SENT 
+In_IN addition_NN to_TO the_DT accuracy_NN of_IN the_DT channel_NN IR_NN ,_, the_DT underwater_JJ channel_NN varies_VVZ rapidly_RB with_IN time_NN ._SENT 
+To_TO estimate_VV these_DT temporal_JJ channel_NN variations_NNS ,_, probe_NN signals_NNS need_VVP to_TO be_VB transmitted_VVN frequently_RB which_WDT requires_VVZ significant_JJ additional_JJ resources_NNS like_IN bandwidth_NN and_CC time_NN ._SENT 
+In_IN some_DT cases_NNS of_IN offshore_JJ underwater_JJ applications_NNS ,_, it_PP is_VBZ impossible_JJ to_TO get_VV channel_NN IR_NN estimates_NNS ._SENT 
+For_IN all_PDT these_DT underwater_JJ applications_NNS ,_, there_EX is_VBZ a_DT need_NN for_IN a_DT blind_JJ channel_NN estimation_NN technique_NN which_WDT can_MD save_VV the_DT additional_JJ bandwidth_NN and_CC battery_NN time_NN and_CC also_RB provide_VV good_JJ channel_NN IR_NN estimates_NNS ._SENT 
+In_IN this_DT paper_NN ,_, a_DT blind_JJ deconvolution_NN based_VVN equalizer_NN is_VBZ proposed_VVN ._SENT 
+Blind_JJ deconvolution_NN refers_VVZ to_TO the_DT process_NN of_IN getting_VVG both_CC the_DT channel_NN estimates_NNS and_CC the_DT source_NN signal_NN from_IN the_DT array-recorded_JJ signal_NN ._SENT 
+Different_JJ techniques_NNS have_VHP been_VBN proposed_VVN in_IN the_DT literature_NN for_IN blind_JJ deconvolution_NN for_IN underwater_JJ applications_NNS including_VVG time–frequency_JJ analysis_NN [_SYM 15_CD ]_SYM ,_, least-square_JJ criterion_NN [_SYM 16_CD ]_SYM ,_, and_CC multiple_JJ convolutions_NNS [_SYM 17_CD ]_SYM ._SENT 
+In_IN this_DT work_NN ,_, artificial_JJ time_NN reversal_NN (_( ATR_NP )_) technique_NN proposed_VVN in_RB [_SYM 18_CD ]_SYM is_VBZ used_VVN for_IN blind_JJ deconvolution_NN ._SENT 
+ATR_NP is_VBZ based_VVN on_IN the_DT stable_JJ features_NNS of_IN the_DT lower_JJR order_NN acoustic_JJ normal_JJ modes_NNS and_CC on_IN a_DT receiving_VVG array_NN with_IN sufficient_JJ elements_NNS and_CC aperture_NN ._SENT 
+In_IN the_DT ATR-based_JJ system_NN ,_, the_DT channel_NN IR_NN estimates_NNS are_VBP obtained_VVN by_IN applying_VVG a_DT weighting_NN functions_NNS on_IN the_DT received_VVN data_NN signal_NN ._SENT 
+In_IN this_DT paper_NN ,_, the_DT ATR_NP technique_NN is_VBZ used_VVN for_IN designing_VVG an_DT equalizer_NN for_IN the_DT underwater_JJ communication_NN system_NN ._SENT 
+It_PP computes_VVZ the_DT channel_NN IR_NN estimate_NN from_IN the_DT received_VVN information_NN signal_NN and_CC uses_VVZ this_DT channel_NN IR_NNS estimate_VVP to_TO equalize_VV the_DT effects_NNS of_IN the_DT channel_NN ._SENT 
+The_DT quality_NN of_IN the_DT channel_NN IR_NN estimates_NNS varies_VVZ depending_VVG on_IN the_DT weighting_NN technique_NN and_CC it_PP also_RB affects_VVZ the_DT performance_NN of_IN the_DT communication_NN system_NN ._SENT 
+Three_CD weighting_NN functions_NNS are_VBP tested_VVN in_IN this_DT paper_NN ._SENT 
+These_DT weighting_NN functions_NNS are_VBP proposed_VVN in_RB [_SYM 18_CD ]_SYM ,_, [_SYM 19_CD ]_SYM ._SENT 
+In_RB [_SYM 19_CD ]_SYM ,_, the_DT ATR_NN based_VVN technique_NN is_VBZ used_VVN for_IN source_NN localization_NN ._SENT 
+The_DT performance_NN of_IN the_DT proposed_VVN system_NN is_VBZ compared_VVN with_IN a_DT known_VVN channel_NN case_NN in_IN terms_NNS of_IN the_DT mean_JJ square_JJ error_NN (_( MSE_NN )_) and_CC bit_NN error_NN rate_NN (_( BER_NP )_) ._SENT 
+The_DT known_VVN channel_NN case_NN refers_VVZ to_TO the_DT conventional_JJ time_NN reversal_NN system_NN in_IN which_WDT the_DT channel_NN IR_NN estimate_NN is_VBZ obtained_VVN from_IN the_DT probe_NN signal_NN ._SENT 
+The_DT proposed_VVN system_NN is_VBZ tested_VVN with_IN simulated_JJ as_RB well_RB as_IN real_JJ data_NNS ._SENT 
+The_DT real_JJ data_NNS were_VBD obtained_VVN during_IN the_DT experiment_NN in_IN TrondheimFjord_NN in_IN September_NP 2017._CD The_NP results_NNS have_VHP shown_VVN that_IN the_DT proposed_VVN system_NN provides_VVZ good_JJ performance_NN in_IN terms_NNS of_IN MSE_NP and_CC BER_NP ._SENT 
+In_IN addition_NN to_TO that_WDT ,_, the_DT ATR_NP system_NN only_RB requires_VVZ the_DT received_VVN signal_NN to_TO compute_VV the_DT channel_NN IR_NN estimate_NN ._SENT 
+Hence_RB ,_, it_PP saves_VVZ the_DT resources_NNS allocated_VVN for_IN channel_NN IR_NN estimation_NN ._SENT 
+The_DT main_JJ contributions_NNS of_IN this_DT work_NN are_VBP ;_: (_( 1_LS )_) To_TO design_VV a_DT communication_NN system_NN based_VVN on_IN blind_JJ deconvolution_NN technique_NN to_TO combat_VV the_DT channel_NN variations_NNS ,_, (_( 2_CD )_) To_TO study_VV the_DT performance_NN of_IN different_JJ ATR-based_JJ channel_NN estimation_NN techniques_NNS on_IN the_DT underwater_JJ communication_NN system_NN ._SENT 
+The_DT paper_NN is_VBZ organized_VVN as_RB follows_VVZ ._SENT 
+Section_NN 2_CD describes_VVZ the_DT theoretical_JJ background_NN ._SENT 
+Section_NN 3_CD discusses_VVZ the_DT receiver_NN structure_NN ._SENT 
+Section_NN 4_CD presents_VVZ the_DT results_NNS and_CC observations_NNS for_IN simulated_JJ as_RB well_RB as_IN the_DT real_JJ data_NN cases_NNS ._SENT 
+Section_NN 5_CD provides_VVZ the_DT conclusions_NNS ._SENT 
+<Section> 2._CD Theoretical_JJ background_NN </Section> This_DT section_NN presents_VVZ the_DT mathematical_JJ formulation_NN of_IN the_DT blind_JJ deconvolution_NN technique_NN ._SENT 
+The_DT blind_JJ deconvolution_NN is_VBZ based_VVN on_IN the_DT ATR_NP technique_NN ._SENT 
+Consider_VV a_DT point_NN source_NN emitting_VVG a_DT signal_NN s(t_NN )_) ._SENT 
+All_PDT the_DT formulation_NN is_VBZ done_VVN in_IN the_DT frequency_NN domain_NN so_IN the_DT Fourier_NN transformed_VVN S(ω_NP )_) is_VBZ given_VVN by_IN (_( 1)S(ω)=|S(ω)|eiθs(ω_JJ )_) where_WRB ω_NP is_VBZ the_DT angular_JJ frequency_NN and_CC θs(ω_NN )_) is_VBZ the_DT phase_NN of_IN the_DT transmitted_JJ signal_NN as_IN a_DT function_NN of_IN frequency_NN ._SENT 
+The_DT transmitted_JJ signal_NN passes_VVZ through_IN the_DT channel_NN and_CC reaches_VVZ the_DT receiver_NN array_NN having_VHG N_NP elements_NNS ._SENT 
+The_DT received_VVN signal_NN at_IN the_DT jth_JJ element_NN is_VBZ described_VVN by_IN Rj(ω_NP )_) (_( 2)Rj(ω)=G(rj_NP ,_, rs_NN ,_, ω)S(ω_NP )_) where_WRB G(rj_NP ,_, rs_NN ,_, ω_NP )_) is_VBZ the_DT channel_NN IR_NN between_IN the_DT source_NN position_NN rs_NNS and_CC receiver_NN position_NN rj_NP at_IN the_DT frequency_NN ω_NN ._SENT 
+The_DT main_JJ advantage_NN of_IN ATR_NN is_VBZ that_IN it_PP uses_VVZ only_RB the_DT received_VVN signal_NN at_IN each_DT array_NN element_NN to_TO estimate_VV the_DT channel_NN IR_NN ._SENT 
+These_DT channel_NN IR_NN estimates_NNS are_VBP combined_VVN with_IN the_DT received_VVN signal_NN in_IN a_DT maximum_JJ ratio_NN combiner_NN to_TO obtain_VV the_DT output_NN of_IN the_DT equalizer_NN ._SENT 
+The_DT performance_NN of_IN the_DT communication_NN system_NN relies_VVZ on_IN the_DT channel_NN IR_NN estimation_NN ._SENT 
+The_DT equalizer_NN output_NN Z(ω_NN )_) is_VBZ given_VVN by_IN (_( 3)Z(ω)=∑j=1NGˆ∗(rj_NP ,_, rs_NN ,_, ω)⋅G(rj_NP ,_, rs_NN ,_, ω)⋅S(ω_NP )_) where_WRB Z(ω_NP )_) is_VBZ the_DT output_NN of_IN the_DT maximal_JJ ratio_NN combiner_NN which_WDT selects_VVZ the_DT optimal_JJ value_NN based_VVN on_IN the_DT maximum_JJ power_NN ._SENT 
+Gˆ(rj_NP ,_, rs_NN ,_, ω_NP )_) is_VBZ the_DT channel_NN IR_NN estimate_NN and_CC “_NN *_SYM ”_NN denotes_VVZ the_DT conjugate_JJ operation_NN ._SENT 
+According_VVG to_TO ATR_NP technique_NN ,_, the_DT channel_NN IR_NN estimates_NNS are_VBP given_VVN by_RB [_SYM 18_CD ]_SYM (_( 4)Gˆ(rj_NP ,_, rs_NN ,_, ω)=Rj(ω)e−iα(ω)∑Nk=1|Rk(ω)|2√_NP where_WRB (_( 5)α(ω)=arg(∑j=1NWjRj(ω_JJ )_) )_) In_IN (_( 5_LS )_) ,_, Wj_NP is_VBZ the_DT weight_NN for_IN the_DT jth_JJ element_NN of_IN the_DT array_NN ._SENT 
+Different_JJ weighting_NN functions_NNS are_VBP used_VVN in_IN this_DT paper_NN ._SENT 
+Using_VVG the_DT value_NN of_IN Rj(ω_NN )_) from_IN (_( 2_LS )_) in_IN (_( 4_LS )_) ,_, the_DT estimated_JJ channel_NN IR_NN is_VBZ given_VVN by_IN (_( 6)Gˆ(rj_NP ,_, rs_NN ,_, ω)=G(rj_NP ,_, rs_NN ,_, ω)e−iα(ω)eiθs(ω)∑Nk=1|G(rk_NP ,_, rs_JJ ,_, ω)|2√_JJ The_DT optimal_JJ value_NN of_IN α(ω_NN )_) should_MD cancel_VV the_DT phase_NN term_NN θs(ω_NN )_) or_CC the_DT remainder_NN should_MD be_VB a_DT linear_JJ function_NN of_IN frequency_NN in_IN the_DT form_NN of_IN a+bω_NN which_WDT will_MD only_RB result_VV in_IN a_DT shift_NN in_IN time_NN ._SENT 
+In_IN order_NN to_TO explain_VV the_DT weight_NN functions_NNS ,_, the_DT expression_NN for_IN α(ω_NN )_) in_IN (_( 5_LS )_) is_VBZ studied_VVN in_IN more_JJR detail_NN ._SENT 
+Inserting_VVG (_( 2_LS )_) into_IN (_( 5_LS )_) ,_, α(ω_NP )_) becomes_VVZ (_( 7)α(ω)=arg(∑j=1NWjS(ω)G(rj_NP ,_, rs_NN ,_, ω)eiθs(ω_NP )_) )_) By_IN expanding_VVG G(rj_NP ,_, rs_NN ,_, ω_NP )_) using_VVG normal_JJ mode_NN model_NN [_SYM 20_CD ]_SYM ,_, (_( 8)α(ω)=arg(∑j=1NWjS(ω)eiθs(ω)e−iπ/4ρ(z)8π√∑mΦm(zs)Φm(zj)km(ω)rj√eikm(ω)rj_NP )_) where_WRB Φm_NP and_CC km_NP are_VBP the_DT mode_NN shape_NN and_CC wavenumber_NN for_IN the_DT mth_JJ mode_NN respectively_RB and_CC ρ(z_NP )_) is_VBZ the_DT density_NN at_IN depth_NN z._NP The_DT optimal_JJ weights_NNS Wj_NP should_MD be_VB such_JJ that_IN it_PP cancels_VVZ the_DT mode_NN shape_NN Φm(zj_NP )_) ,_, which_WDT will_MD simplify_VV (_( 8_CD )_) to_TO (_( 9)α(ω)≈kn(ω)R+θs(ω)−π/4_NN where_WRB R_NN is_VBZ the_DT distance_NN between_IN the_DT source_NN and_CC the_DT receiver_NN array_NN ._SENT 
+If_IN the_DT cutoff_NN frequency_NN of_IN the_DT nth_JJ mode_NN is_VBZ well_RB below_IN the_DT frequencies_NNS of_IN interest_NN ,_, the_DT phase_NN speed_NN cn_NN will_MD be_VB independent_JJ of_IN frequency_NN and_CC kn(ω)R=ωR/cn_NNS [_SYM 18_CD ]_SYM ._SENT 
+Using_VVG this_DT value_NN of_IN α(ω_NN )_) in_IN (_( 6_CD )_) ,_, the_DT channel_NN IR_NN estimate_NN is_VBZ obtained_VVN with_IN an_DT extra_JJ term_NN ωR/cn_NN which_WDT is_VBZ a_DT linear_JJ function_NN of_IN frequency_NN and_CC produces_VVZ a_DT shift_NN in_IN the_DT time_NN domain_NN ._SENT 
+These_DT time-shifted_JJ channel_NN IR_NN estimates_NNS are_VBP used_VVN to_TO equalize_VV the_DT channel_NN effects_NNS ._SENT 
+The_DT main_JJ objective_NN of_IN the_DT weighting_NN function_NN is_VBZ to_TO cancel_VV the_DT Φm(zj_NP )_) term_NN which_WDT is_VBZ achieved_VVN by_IN the_DT mode_NN orthogonality_NN principle_NN (_( 10)∑j=1NΦm(zj)Φn(zj)ρ(zj)≈δmn_NNS where_WRB Φn(zj_NP )_) corresponds_VVZ to_TO Wj_NP ._SENT 
+The_DT efficiency_NN of_IN the_DT ATR_NN based_VVN technique_NN relies_VVZ on_IN weighting_NN function_NN and_CC how_WRB it_PP satisfies_VVZ (_( 10_CD )_) ._SENT 
+The_DT limitation_NN of_IN a_DT densely_RB populated_JJ array_NN is_VBZ also_RB to_TO ensure_VV this_DT condition_NN ._SENT 
+In_IN this_DT paper_NN ,_, three_CD types_NNS of_IN weighting_NN functions_NNS are_VBP used_VVN ._SENT 
+In_IN the_DT first_JJ two_CD types_NNS of_IN weighting_NN functions_NNS ,_, constant_JJ weights_NNS are_VBP applied_VVN to_TO each_DT array_NN element_NN ._SENT 
+In_IN “_JJ array_NN weights_NNS 1_CD ”_JJ all_PDT the_DT weights_NNS of_IN the_DT array_NN elements_NNS are_VBP set_VVN to_TO +1_JJ ._SENT 
+In_IN “_JJ array_NN weights_NNS 2_CD ”_NN ,_, the_DT weights_NNS of_IN the_DT first_JJ half_NN of_IN the_DT array_NN elements_NNS are_VBP set_VVN to_TO +1_JJ while_IN the_DT weights_NNS for_IN the_DT rest_NN of_IN the_DT elements_NNS are_VBP set_VVN to_TO −1_JJ ._SENT 
+The_DT third_JJ type_NN of_IN weighting_NN function_NN is_VBZ based_VVN on_IN beamforming_NP (_( BF_NP )_) technique_NN ._SENT 
+In_IN the_DT BF-based_JJ technique_NN ,_, the_DT weight_NN of_IN each_DT array_NN element_NN is_VBZ computed_VVN by_IN (_( 11)Wj=exp{−iωτ(θk_NP ,_, zj_NP )_) }_) where_WRB τ(θk_NP ,_, zj_NP )_) is_VBZ the_DT delay_NN applied_VVD to_TO each_DT array_NN element_NN and_CC it_PP is_VBZ a_DT function_NN of_IN the_DT BF_NP angle_NN θk_NN and_CC k_NN is_VBZ the_DT index_NN for_IN the_DT BF_NP angle_NN ._SENT 
+In_IN this_DT case_NN ,_, plane_NN ray_NN beamforming_NN is_VBZ used_VVN (_( 12)τ(θk_NP ,_, zj)=(j−1)(d/c¯)sinθk_VVP where_WRB d_SYM is_VBZ the_DT spacing_NN between_IN the_DT array_NN elements_NNS and_CC c¯_NN is_VBZ the_DT mean_JJ sound_JJ speed_NN profile_NN (_( SSP_NP )_) ._SENT 
+The_DT optimal_JJ weight_NN is_VBZ obtained_VVN as_IN a_DT function_NN of_IN θk_NN based_VVN on_IN the_DT maximum_JJ output_NN power_NN Z(ω_NN )_) as_IN given_VVN in_IN (_( 3_LS )_) ._SENT 
+In_IN order_NN to_TO explain_VV the_DT concept_NN of_IN the_DT weighting_NN function_NN and_CC how_WRB the_DT weighting_NN functions_NNS help_VVP in_IN providing_VVG better_JJR channel_NN IR_NN estimates_NNS ,_, a_DT simulated_JJ example_NN is_VBZ presented_VVN ._SENT 
+In_IN this_DT simulation_NN scenario_NN ,_, a_DT waveguide_NN of_IN 200_CD m_NN depth_NN is_VBZ considered_VVN and_CC source_NN and_CC receiver_NN array_NN is_VBZ located_VVN at_IN 30_CD m_NN depth_NN ._SENT 
+The_DT receiver_NN array_NN contains_VVZ 8_CD elements_NNS from_IN 30_CD m_NN -_: 37_CD m_NN depth_NN with_IN 1_CD m_NN spacing_NN between_IN each_DT element_NN ._SENT 
+Using_VVG this_DT geometry_NN in_IN KRAKEN_NN [_SYM 21_CD ]_SYM ,_, the_DT modes_NNS shape_VVP functions_NNS of_IN first_JJ 26_CD modes_NNS are_VBP computed_VVN ._SENT 
+Using_VVG each_DT of_IN this_DT mode_NN shape_NN function_NN as_IN a_DT weight_NN function_NN Φn(z_NP )_) in_IN (_( 10_CD )_) ,_, the_DT performance_NN of_IN the_DT system_NN is_VBZ computed_VVN in_IN terms_NNS of_IN MSE_NNS and_CC shown_VVN in_IN Fig_NN ._SENT 
+1(a_NP )_) ._SENT 
+Fig_NN ._SENT 
+1(a_NP )_) shows_VVZ that_IN mode_NN number_NN 5_CD ,_, 11_CD ,_, 17_CD and_CC 23_CD give_VVP the_DT best_JJS performance_NN ._SENT 
+The_DT optimal_JJ weighting_NN function_NN should_MD enhance_VV these_DT modes_NNS and_CC suppress_VV the_DT rest_NN of_IN the_DT modes_NNS ._SENT 
+Download_NN :_: Download_NP high-res_NP image_NN (_( 338KB)Download_NP :_: Download_NP full-size_JJ image_NN Fig_NN ._SENT 
+1._CD Using_VVG the_DT simulated_JJ scenario_NN with_IN constant_JJ SSP_NP ,_, (_( a_DT )_) Performance_NN in_IN terms_NNS of_IN MSE_NNS for_IN each_DT mode_NN shape_NN function_NN used_VVN as_IN weight_NN function_NN Φn_NN in_IN (_( 10_CD )_) ,_, (_( b_LS )_) shows_VVZ how_WRB different_JJ weighting_NN techniques_NNS enhance_VV some_DT modes_NNS and_CC suppress_VV other_JJ modes_NNS ._SENT 
+The_DT continuous_JJ line_NN represents_VVZ “_JJ array_NN weights_NNS 1_CD ”_NN ,_, dashed_VVN line_NN represents_VVZ “_JJ array_NN weights_NNS 2_CD ”_NN and_CC the_DT dotted_JJ line_NN represents_VVZ “_NP BF_NP weights_NNS ”_NN ,_, (_( c_LS )_) Product_NN of_IN the_DT MSE_NN and_CC mode_NN weights_NNS for_IN different_JJ weight_NN functions_NNS ._SENT 
+Fig_NN ._SENT 
+1(b_NP )_) shows_VVZ the_DT sum_NN of_IN the_DT weighted-mode_NN shapes_VVZ along_IN the_DT depths_NNS which_WDT is_VBZ represented_VVN by_IN (_( 10_CD )_) ._SENT 
+For_IN comparison_NN ,_, the_DT best_JJS BF_NP weights_NNS are_VBP presented_VVN here_RB which_WDT gives_VVZ the_DT maximum_JJ output_NN power_NN in_IN (_( 3_LS )_) ._SENT 
+All_DT three_CD array_NN weighting_NN techniques_NNS give_VVP different_JJ weights_NNS to_TO each_DT mode_NN ._SENT 
+Fig_NN ._SENT 
+1(c_NP )_) shows_VVZ the_DT product_NN of_IN Fig_NN ._SENT 
+1(a_NP )_) and_CC (_( b_LS )_) ._SENT 
+The_DT “_JJ array_NN weights_NNS 2_CD ”_NN does_VVZ not_RB give_VV larger_JJR weights_NNS to_TO lower_VV order_NN modes_NNS but_CC enhances_VVZ the_DT higher_JJR order_NN modes_NNS by_IN giving_VVG them_PP bigger_JJR weights_NNS ._SENT 
+The_DT “_JJ array_NN weights_NNS 1_CD ”_NN and_CC “_JJ BF_NP weights_NNS ”_JJ have_VHP similar_JJ performance_NN for_IN lower_JJR order_NN modes_NNS but_CC the_DT “_JJ BF_NP weights_NNS ”_NN outperforms_VVZ the_DT “_JJ array_NN weights_NNS 1_CD ”_NN by_IN suppressing_VVG the_DT modes_NNS 13_CD ,_, 20_CD and_CC 26_CD ,_, which_WDT have_VHP worst_JJS performance_NN in_IN terms_NNS of_IN MSE_NNS ._SENT 
+Fig_NN ._SENT 
+2_CD shows_NNS the_DT channel_NN IR_NN estimates_NNS for_IN the_DT constant_JJ SSP_NP at_IN the_DT fourth_JJ array_NN element_NN at_IN 33_CD m_NN depth_NN ._SENT 
+These_DT channel_NN IRs_NNS are_VBP obtained_VVN from_IN the_DT received_VVN signal_NN by_IN applying_VVG different_JJ weighting_NN techniques_NNS according_VVG to_TO (_( 4_LS )_) ._SENT 
+For_IN comparison_NN ,_, the_DT actual_JJ channel_NN IR_NN is_VBZ presented_VVN in_IN Fig_NN ._SENT 
+2(d_NN )_) which_WDT is_VBZ obtained_VVN from_IN the_DT model_NN ._SENT 
+In_IN the_DT case_NN of_IN BF_NP weights_NNS ,_, only_RB the_DT optimal_JJ channel_NN IR_NN is_VBZ presented_VVN which_WDT gives_VVZ the_DT maximum_JJ output_NN power_NN ._SENT 
+There_EX are_VBP differences_NNS between_IN the_DT channel_NN IR_NN estimates_NNS obtained_VVN by_IN ATR_NP and_CC the_DT channel_NN IR_NN estimate_NN from_IN the_DT model_NN ._SENT 
+These_DT mismatches_NNS result_NN in_IN the_DT degradation_NN in_IN the_DT performance_NN of_IN the_DT system_NN ._SENT 
+Download_NN :_: Download_NP high-res_NP image_NN (_( 284KB)Download_NP :_: Download_NP full-size_JJ image_NN Fig_NN ._SENT 
+2._CD Channel_NP IR_NN estimates_NNS obtained_VVN for_IN the_DT simulation_NN case_NN of_IN constant_JJ SSP_NP at_IN the_DT fourth_JJ array_NN element_NN at_IN 33_CD m_NN depth_NN ._SENT 
+(_( a_DT )_) Channel_NP IR_NNS obtained_VVN by_IN “_JJ array_NN weights_NNS 1_CD ”_NN ,_, (_( b_LS )_) Channel_NP IR_NNS obtained_VVN by_IN “_JJ array_NN weights_NNS 2_CD ”_NN ,_, (_( c_LS )_) Channel_NP IR_NNS obtained_VVN by_IN “_NP BF_NP weights_NNS ”_NN ,_, (_( d_LS )_) Actual_JJ channel_NN IR_NNS obtained_VVN by_IN the_DT model_NN ._SENT 
+<Section> 3._CD Receiver_NN structure_NN </Section> This_DT section_NN explains_VVZ the_DT receiver_NN structure_NN of_IN the_DT proposed_VVN communication_NN system_NN ._SENT 
+Fig_NN ._SENT 
+3_CD shows_NNS the_DT block_NN diagram_NN of_IN the_DT proposed_VVN system_NN ._SENT 
+The_DT block_NN diagram_NN is_VBZ derived_VVN from_IN the_DT passive_JJ time_NN reversal_NN system_NN with_IN the_DT addition_NN of_IN the_DT weight_NN function_NN block_NN which_WDT is_VBZ represented_VVN by_IN e−iα(ω_NN )_) ._SENT 
+All_PDT the_DT operations_NNS are_VBP performed_VVN in_IN the_DT frequency_NN domain_NN ,_, therefore_RB ,_, a_DT Fourier_NP transform_VV is_VBZ applied_VVN to_TO the_DT received_VVN signal_NN r(t_NN )_) ._SENT 
+The_DT Fourier-transformed_JJ signal_NN is_VBZ fed_VVN to_TO the_DT weighting_NN function_NN block_NN which_WDT provides_VVZ the_DT channel_NN IR_NN estimate_NN ._SENT 
+The_DT PC_NN block_NN performs_VVZ the_DT phase_NN conjugation_NN ._SENT 
+The_DT phase-conjugated_JJ channel_NN IR_NN estimate_NN is_VBZ combined_VVN with_IN the_DT received_VVN signal_NN and_CC summed_VVD to_TO give_VV the_DT output_NN Z(ω_NN )_) as_IN given_VVN in_IN (_( 3_LS )_) ._SENT 
+Download_NN :_: Download_NP high-res_NP image_NN (_( 157KB)Download_NP :_: Download_NP full-size_JJ image_NN Fig_NN ._SENT 
+3._CD Block_NP diagram_NN of_IN the_DT proposed_VVN system_NN ._SENT 
+The_DT block_NN diagram_NN presented_VVN in_IN Fig_NN ._SENT 
+3_CD is_VBZ generalized_VVN for_IN different_JJ types_NNS of_IN weighting_NN functions_NNS ._SENT 
+In_IN the_DT case_NN of_IN constant_JJ weights_NNS for_IN each_DT array_NN element_NN ,_, the_DT output_NN Z(ω_NN )_) is_VBZ a_DT single_JJ vector_NN while_IN in_IN case_NN of_IN BF-based_JJ weighting_NN technique_NN the_DT output_NN Z(ω_NN )_) is_VBZ a_DT function_NN of_IN the_DT BF_NP angle_NN ._SENT 
+The_DT “_NN combining_VVG ”_JJ block_NN selects_VVZ the_DT optimal_JJ angle_NN based_VVN on_IN the_DT maximum_JJ output_NN power_NN ._SENT 
+During_IN data_NN processing_NN ,_, the_DT information_NN bits_NNS are_VBP divided_VVN into_IN blocks_NNS of_IN 0.25_CD s_NNS and_CC it_PP is_VBZ assumed_VVN that_IN the_DT channel_NN is_VBZ constant_JJ during_IN this_DT time_NN ._SENT 
+In_IN the_DT case_NN of_IN a_DT BF-based_JJ system_NN ,_, the_DT combining_VVG block_NN works_NNS in_IN two_CD steps_NNS ._SENT 
+In_IN the_DT first_JJ step_NN ,_, it_PP splits_VVZ the_DT output_NN into_IN blocks_NNS and_CC selects_VVZ the_DT optimum_JJ angle_NN based_VVN on_IN (_( 3_LS )_) for_IN each_DT block_NN ._SENT 
+In_IN the_DT next_JJ step_NN ,_, it_PP selects_VVZ the_DT maximum_JJ power_NN from_IN all_DT blocks_NNS and_CC the_DT corresponding_JJ BF_NP angle_NN ._SENT 
+This_DT BF_NP angle_NN is_VBZ used_VVN for_IN computing_VVG the_DT channel_NN IR_NN estimates_NNS ._SENT 
+The_DT output_NN of_IN the_DT combining_VVG block_NN goes_VVZ to_TO the_DT sync_NN block_NN ._SENT 
+The_DT sync_NN block_NN performs_VVZ two_CD operations_NNS ._SENT 
+Firstly_RB ,_, it_PP is_VBZ shown_VVN in_IN Section_NP 2_CD that_IN the_DT weighting_NN function_NN produces_VVZ a_DT time_NN shift_NN ._SENT 
+The_DT sync_NN block_NN synchronizes_VVZ the_DT output_NN with_IN the_DT known_VVN M-sequence_NN ,_, which_WDT is_VBZ inserted_VVN at_IN the_DT start_NN of_IN the_DT data_NNS signal_VVP ._SENT 
+Secondly_RB ,_, using_VVG the_DT same_JJ known_JJ M-sequence_NN the_DT phase_NN correction_NN is_VBZ also_RB performed_VVN ._SENT 
+After_IN sync_NN block_NN ,_, the_DT final_JJ output_NN Zoutput_NN is_VBZ obtained_VVN ._SENT 
+<Section> 4._CD Results_NNS and_CC observations_NNS </Section> In_IN this_DT section_NN ,_, the_DT results_NNS and_CC observations_NNS are_VBP presented_VVN ._SENT 
+The_DT performance_NN of_IN the_DT proposed_VVN algorithm_NN is_VBZ tested_VVN with_IN simulated_JJ as_RB well_RB as_IN real_JJ data_NNS ._SENT 
+The_DT simulated_JJ environment_NN is_VBZ obtained_VVN from_IN Time_NP Variable_JJ Acoustic_JJ Propagation_NN Model_NP (_( TVAPM_NP )_) [_SYM 22_CD ]_SYM ._SENT 
+The_DT specifications_NNS of_IN the_DT transmitted_JJ signals_NNS are_VBP shown_VVN in_IN Table_NN 1._CD During_IN the_DT experiment_NN ,_, linear_JJ frequency_NN modulated_VVN (_( LFM_NP )_) signals_NNS are_VBP transmitted_VVN as_IN probe_NN signal_NN for_IN channel_NN IR_NN estimation_NN and_CC data_NN signal_NN contains_VVZ information_NN bits_NNS ._SENT 
+The_DT same_JJ signal_NN specifications_NNS are_VBP used_VVN for_IN both_DT simulations_NNS and_CC experiment_NN ._SENT 
+Table_NN 1._CD Signal_NP Specifications_NNS ._SENT 
+Central_JJ Frequency_NN (_( Hz_NP )_) 8500_CD Sampling_NN Frequency_NN (_( Hz_NP )_) 44100_CD Frequency_NN band_NN Data_NP (_( Hz_NP )_) 7000–10000_NP Data_NP rate_NN (_( bits/s_NP )_) 2000_CD Modulation_NN BPSK_NN Frequency_NN band_NN LFM_NP (_( Hz_NP )_) 6320–10680_NP Time_NP one_CD LFM_NP (_( s_NN )_) 0.1_CD Silence_NN Time_NP (_( s_NN )_) 0.2_CD The_DT performance_NN comparison_NN is_VBZ presented_VVN between_IN three_CD weighting_NN techniques_NNS and_CC the_DT known_VVN channel_NN IR_NN case_NN ._SENT 
+In_IN the_DT “_JJ known_JJ channel_NN ”_NN case_NN ,_, the_DT exact_JJ channel_NN IR_NN estimates_NNS are_VBP used_VVN and_CC this_DT case_NN is_VBZ presented_VVN here_RB to_TO show_VV the_DT best_JJS performance_NN ._SENT 
+In_IN the_DT simulated_JJ case_NN ,_, the_DT channel_NN IR_NN estimates_NNS are_VBP obtained_VVN from_IN TVAPM_NP ._SENT 
+In_IN the_DT case_NN of_IN real_JJ data_NNS ,_, the_DT channel_NN IR_NN estimates_NNS are_VBP obtained_VVN from_IN the_DT probe_NN signal_NN ._SENT 
+The_DT “_JJ known_JJ channel_NN ”_NN case_NN is_VBZ equivalent_JJ to_TO the_DT conventional_JJ time_NN reversal_NN equalizer_NN ._SENT 
+4.1_CD ._SENT 
+Simulated_JJ case_NN In_IN the_DT simulated_JJ scenario_NN ,_, both_CC the_DT source_NN and_CC receiver_NN are_VBP considered_VVN static_JJ ._SENT 
+The_DT source_NN is_VBZ set_VVN at_IN 30_CD m_NN depth_NN and_CC 8-element_NN receiver_NN array_NN is_VBZ located_VVN between_IN 30_CD m_NN and_CC 37_CD m_NN depth_NN with_IN the_DT first_JJ element_NN at_IN 30_CD m_NN depth_NN and_CC the_DT spacing_NN of_IN 1_CD m_NN between_IN each_DT element_NN ._SENT 
+The_DT water_NN depth_NN is_VBZ 200_CD m_NN ,_, the_DT source-receiver_NN range_NN is_VBZ 100_CD m_NN and_CC the_DT flat_JJ bottom_NN is_VBZ considered_VVN ._SENT 
+Two_CD types_NNS of_IN sound_JJ speed_NN profiles_NNS (_( SSPs_NNS )_) are_VBP used_VVN ._SENT 
+One_PP is_VBZ a_DT constant_JJ SSP_NP along_IN depth_NN and_CC the_DT second_NN is_VBZ a_DT SSP_NP obtained_VVD during_IN the_DT experiment_NN in_IN Sept._NP 2017_CD which_WDT is_VBZ shown_VVN in_IN Fig_NN ._SENT 
+4._CD Fig_NN ._SENT 
+5_CD shows_NNS the_DT characteristics_NNS of_IN the_DT channel_NN for_IN the_DT case_NN of_IN constant_JJ SSP_NP ._SENT 
+Fig_NN ._SENT 
+5(a_NP )_) shows_VVZ the_DT arrival_NN pattern_NN at_IN each_DT element_NN of_IN the_DT receiver_NN array_NN ._SENT 
+The_DT first_JJ arrival_NN is_VBZ the_DT direct_JJ arrival_NN because_IN it_PP arrives_VVZ at_IN all_PDT the_DT receiver_NN elements_NNS at_IN the_DT same_JJ time_NN ._SENT 
+The_DT second_JJ arrival_NN is_VBZ the_DT surface_NN reflected_VVD arrival_NN because_IN it_PP arrives_VVZ first_JJ at_IN the_DT top_JJ element_NN of_IN the_DT receiver_NN ._SENT 
+Fig_NN ._SENT 
+5(b_NP )_) shows_VVZ the_DT beamforming_JJ results_NNS ._SENT 
+The_DT negative_JJ angles_NNS represent_VVP the_DT arrival_NN from_IN the_DT surface_NN while_IN the_DT positive_JJ angles_NNS represent_VVP the_DT arrival_NN from_IN the_DT bottom_NN ._SENT 
+The_DT first_JJ arrival_NN reaches_VVZ the_DT receiver_NN array_NN at_IN −2°_NP and_CC the_DT second_JJ arrival_NN reaches_VVZ the_DT receiver_NN array_NN at_IN −32°_NP ._SENT 
+Download_NP :_: Download_NP high-res_NP image_NN (_( 74KB)Download_NP :_: Download_NP full-size_JJ image_NN Fig_NN ._SENT 
+4._CD SSP_NP obtained_VVN during_IN an_DT experiment_NN in_IN the_DT TrondheimFjord_NN in_IN September_NP 2017._CD Download_NN :_: Download_NP high-res_NP image_NN (_( 174KB)Download_NP :_: Download_NP full-size_JJ image_NN Fig_NN ._SENT 
+5._CD Characteristics_NNS of_IN the_DT channel_NN for_IN the_DT case_NN of_IN constant_JJ SSP_NP ._SENT 
+(_( a_DT )_) The_DT channel_NN IR_NN estimates_NNS along_IN the_DT receiver_NN array_NN ,_, (_( b_LS )_) The_DT beamforming_JJ results_NNS showing_VVG the_DT angle_NN of_IN arrival_NN ._SENT 
+Fig_NN ._SENT 
+6(a_NP )_) shows_VVZ the_DT performance_NN comparison_NN in_IN terms_NNS of_IN MSE_NNS for_IN different_JJ weighting_NN techniques_NNS in_IN case_NN of_IN constant_JJ SSP_NP ._SENT 
+The_DT performances_NNS in_IN terms_NNS of_IN MSE_NNS of_IN the_DT constant_JJ array_NN weighting_NN techniques_NNS are_VBP −0.27_JJ dB_NN and_CC −1.09_JJ dB_NN respectively_RB ._SENT 
+The_DT better_JJR performance_NN for_IN the_DT “_JJ array_NN weights_NNS 2_CD ”_NN can_MD be_VB explained_VVN from_IN Fig_NN ._SENT 
+1_CD because_IN “_JJ array_NN weights_NNS 2_CD ”_NN gives_VVZ larger_JJR weights_NNS to_TO modes_NNS 17_CD and_CC 23_CD which_WDT give_VVP good_JJ performance_NN in_IN terms_NNS of_IN MSE_NNS ._SENT 
+The_DT BF-based_JJ weighting_NN technique_NN gives_VVZ 2.3_CD dB_NN and_CC 1.4_CD dB_NN gain_NN in_IN terms_NNS of_IN MSE_NNS as_IN compared_VVN to_TO “_JJ array_NN weights_NNS 1_CD ”_NN and_CC “_JJ array_NN weights_NNS 2_CD ”_NN respectively_RB ._SENT 
+The_DT optimal_JJ BF_NP weights_NNS are_VBP selected_VVN based_VVN on_IN the_DT maximum_JJ output_NN power_NN from_IN all_DT time_NN slots_NNS ._SENT 
+The_DT dotted_JJ line_NN with_IN squares_NNS shows_VVZ the_DT performance_NN of_IN the_DT system_NN in_IN the_DT case_NN of_IN perfect_JJ knowledge_NN of_IN the_DT channel_NN which_WDT is_VBZ the_DT ideal_JJ case_NN ._SENT 
+The_DT BF-based_JJ weighting_NN function_NN case_NN is_VBZ outperformed_VVN by_IN the_DT ideal_JJ case_NN by_IN only_RB 1.3_CD dB_NN ._SENT 
+This_DT degradation_NN in_IN the_DT performance_NN is_VBZ due_JJ to_TO channel_VV IR_JJ estimation_NN error_NN which_WDT can_MD be_VB seen_VVN from_IN Fig_NN ._SENT 
+2(c_NP )_) and_CC (_( d_LS )_) ._SENT 
+Fig_NN ._SENT 
+6(b_NP )_) shows_VVZ the_DT performance_NN comparison_NN in_IN terms_NNS of_IN BER_NP in_IN case_NN of_IN constant_JJ SSP_NP ._SENT 
+The_DT BER_NP is_VBZ calculated_VVN for_IN a_DT time_NN slot_NN of_IN 0.25_CD s_NN which_WDT contains_VVZ 500_CD information_NN bits_NNS ._SENT 
+The_DT “_JJ array_NN weights_NNS 1_CD ”_NN and_CC “_JJ array_NN weights_NNS 2_CD ”_NN give_VVP a_DT mean_JJ BER_NP of_IN 0.17_CD and_CC 0.14_CD ._SENT 
+The_DT BERs_NN for_IN “_NP BF_NP weights_NNS ”_JJ and_CC “_JJ known_JJ channel_NN ”_NN are_VBP 0.089_CD and_CC 0.104_CD where_WRB the_DT BF-based_JJ weighting_NN technique_NN gives_VVZ a_DT gain_NN of_IN 1.5_CD %_NN ._SENT 
+Download_NN :_: Download_NP high-res_NP image_NN (_( 334KB)Download_NP :_: Download_NP full-size_JJ image_NN Fig_NN ._SENT 
+6._CD Performance_NN comparison_NN of_IN different_JJ weighting_NN function_NN as_IN a_DT function_NN of_IN time_NN for_IN static_JJ source_NN and_CC receiver_NN and_CC constant_JJ SSP_NP ._SENT 
+(_( a_DT )_) Performance_NN in_IN terms_NNS of_IN MSE_NN ,_, (_( b_LS )_) Performance_NN in_IN terms_NNS of_IN BER_NP ._SENT 
+Fig_NN ._SENT 
+7(a_NP )_) shows_VVZ the_DT arrival_NN pattern_NN at_IN each_DT element_NN of_IN the_DT receiver_NN array_NN for_IN the_DT depth_NN varying_VVG SSP_NP ._SENT 
+Similar_JJ arrival_NN pattern_NN is_VBZ observed_VVN in_IN this_DT case_NN ._SENT 
+Two_CD arrivals_NNS reach_VVP the_DT receiver_NN array_NN ._SENT 
+The_DT first_JJ one_CD is_VBZ the_DT direct_JJ arrival_NN and_CC the_DT second_NN is_VBZ the_DT surface-reflected_JJ arrival_NN ._SENT 
+Fig_NN ._SENT 
+5(b_NP )_) shows_VVZ the_DT beamforming_JJ results_NNS ._SENT 
+The_DT first_JJ arrival_NN reaches_VVZ the_DT receiver_NN array_NN at_IN −2°_NP and_CC the_DT second_JJ arrival_NN reaches_VVZ the_DT receiver_NN array_NN at_IN −32°_NP ._SENT 
+Download_NP :_: Download_NP high-res_NP image_NN (_( 175KB)Download_NP :_: Download_NP full-size_JJ image_NN Fig_NN ._SENT 
+7._CD Characteristics_NNS of_IN the_DT channel_NN for_IN the_DT case_NN of_IN depth_NN varying_VVG SSP_NP ._SENT 
+(_( a_DT )_) The_DT channel_NN IR_NN estimates_NNS along_IN the_DT receiver_NN array_NN ,_, (_( b_LS )_) The_DT beamforming_JJ results_NNS showing_VVG the_DT angle_NN of_IN arrival_NN ._SENT 
+Fig_NN ._SENT 
+8(a_NP )_) shows_VVZ the_DT performance_NN comparison_NN when_WRB the_DT depth_NN varying_VVG SSP_NP is_VBZ used_VVN ._SENT 
+There_EX is_VBZ a_DT sharp_JJ gradient_NN between_IN 30_CD and_CC 37_CD m_NN depth_NN in_IN the_DT SSP_NP where_WRB the_DT array_NN elements_NNS are_VBP located_VVN ._SENT 
+The_DT performance_NN in_IN terms_NNS of_IN MSE_NNS of_IN the_DT two_CD array_NN weighting_NN techniques_NNS is_VBZ 0.7_CD dB_NN and_CC −0.04_JJ dB_NN ._SENT 
+The_DT BF-based_JJ weighting_NN technique_NN gives_VVZ a_DT gain_NN of_IN 3.809_CD dB_NN and_CC 3_CD dB_NN in_IN terms_NNS of_IN MSE_NNS as_IN compared_VVN to_TO “_JJ array_NN weights_NNS 1_CD ”_NN and_CC “_JJ array_NN weights_NNS 2_CD ”_NN respectively_RB ._SENT 
+Fig_NN ._SENT 
+8(b_NP )_) shows_VVZ the_DT performance_NN comparison_NN in_IN terms_NNS of_IN BER_NP in_IN the_DT case_NN of_IN depth_NN varying_VVG SSP_NP ._SENT 
+The_DT “_JJ array_NN weights_NNS 1_CD ”_NN and_CC “_JJ array_NN weights_NNS 2_CD ”_NN give_VVP a_DT mean_JJ BER_NP of_IN 0.47_CD and_CC 0.38_CD ._SENT 
+The_DT BER_NP for_IN “_NP BF_NP weights_NNS ”_JJ and_CC “_JJ known_JJ channel_NN ”_NN are_VBP 0.166_CD and_CC 0.107_CD where_WRB the_DT BF-based_JJ weighting_NN technique_NN is_VBZ outperformed_VVN by_IN “_JJ known_VVN channel_NN ”_JJ case_NN by_IN 5.9_CD %_NN ._SENT 
+Download_NN :_: Download_NP high-res_NP image_NN (_( 382KB)Download_NP :_: Download_NP full-size_JJ image_NN Fig_NN ._SENT 
+8._CD Performance_NN comparison_NN of_IN different_JJ weighting_NN function_NN as_IN a_DT function_NN of_IN time_NN for_IN static_JJ source_NN and_CC receiver_NN and_CC depth_NN varying_VVG SSP_NP ._SENT 
+(_( a_DT )_) Performance_NN in_IN terms_NNS of_IN MSE_NN ,_, (_( b_LS )_) Performance_NN in_IN terms_NNS of_IN BER_NP ._SENT 
+Comparing_VVG Figs_NNS ._SENT 
+6_CD and_CC 8_CD ,_, the_DT performance_NN of_IN constant_JJ weighting_NN techniques_NNS degrades_VVZ in_IN case_NN of_IN depth_NN varying_VVG SSP_NP ._SENT 
+In_IN the_DT case_NN of_IN “_JJ array_NN weights_NNS 1_CD ”_NN and_CC “_JJ array_NN weights_NNS 2_CD ’_NN ,_, the_DT performance_NN degradation_NN is_VBZ 0.97_CD dB_NN and_CC 1.05_CD dB_NN respectively_RB ,_, while_IN the_DT performance_NN of_IN BF-based_JJ weighting_NN technique_NN improves_VVZ by_IN 0.51_CD dB_NN ._SENT 
+The_DT degradation_NN in_IN the_DT performance_NN for_IN constant_JJ array_NN weights_NNS is_VBZ because_IN of_IN the_DT channel_NN IR_VVZ estimation_NN errors_NNS ._SENT 
+The_DT BF-based_JJ weighting_NN technique_NN performs_VVZ better_RBR as_IN compared_VVN to_TO constant_JJ weighting_NN technique_NN because_IN it_PP provides_VVZ better_JJR channel_NN IR_NN estimates_NNS ._SENT 
+4.2_CD ._SENT 
+Real_JJ data_NNS case_NN In_IN this_DT section_NN ,_, the_DT results_NNS for_IN the_DT real_JJ data_NNS are_VBP presented_VVN ._SENT 
+The_DT data_NNS were_VBD obtained_VVN from_IN an_DT experiment_NN in_IN the_DT TrondheimFjord_NN on_IN 29_CD September_NP 2017._CD Fig_NN ._SENT 
+9_CD shows_NNS the_DT bathymetry_NN of_IN the_DT area_NN of_IN experiment_NN and_CC the_DT source_NN and_CC receiver_NN positions_NNS ._SENT 
+The_DT water_NN depths_NNS at_IN the_DT source_NN and_CC receiver_NN positions_NNS were_VBD 150_CD m_NN and_CC 200_CD m_NN respectively_RB ._SENT 
+The_DT source-receiver_NP range_NN was_VBD 480_CD m._NPS The_DT receiver_NN array_NN was_VBD deployed_VVN at_IN 50_CD m_NN depth_NN ._SENT 
+The_DT receiver_NN array_NN consisted_VVN of_IN 8_CD elements_NNS with_IN the_DT spacing_NN of_IN 1_CD m_NN between_IN each_DT element_NN ._SENT 
+The_DT source_NN was_VBD deployed_VVN at_IN 50_CD m_NN depth_NN ._SENT 
+The_DT SSP_NP was_VBD obtained_VVN at_IN the_DT receiver_NN position_NN and_CC shown_VVN in_IN Fig_NN ._SENT 
+4._CD Download_NN :_: Download_NP high-res_NP image_NN (_( 137KB)Download_NP :_: Download_NP full-size_JJ image_NN Fig_NN ._SENT 
+9._CD Bathymetry_NN diagram_NN of_IN the_DT TrondheimFjord_NN region_NN with_IN source_NN and_CC receiver_NN position_NN ._SENT 
+The_DT source_NN is_VBZ shown_VVN by_IN the_DT circle_NN and_CC the_DT receiver_NN is_VBZ shown_VVN by_IN the_DT cross_NN ._SENT 
+The_DT depth_NN at_IN the_DT source_NN position_NN is_VBZ 150_CD m_NN and_CC depth_NN at_IN the_DT receiver_NN position_NN is_VBZ 200_CD m_NN respectively_RB ._SENT 
+The_DT source-receiver_NN range_NN is_VBZ 480_CD m._JJ Fig_NN ._SENT 
+10(a_NP )_) shows_VVZ the_DT channel_NN IR_NN estimates_NNS at_IN all_DT eight_CD hydrophones_NNS of_IN the_DT array_NN ._SENT 
+The_DT figure_NN is_VBZ zoomed_VVN to_TO show_VV the_DT first_JJ two_CD arrivals_NNS ._SENT 
+The_DT first_JJ arrival_NN reaches_VVZ all_PDT the_DT receiver_NN at_IN almost_RB the_DT same_JJ time_NN which_WDT shows_VVZ that_IN it_PP is_VBZ the_DT direct_JJ arrival_NN ._SENT 
+The_DT second_JJ arrival_NN reaches_VVZ the_DT bottom_JJ part_NN of_IN the_DT array_NN first_RB ._SENT 
+Fig_NN ._SENT 
+10(b_NP )_) shows_VVZ the_DT beamforming_JJ results_NNS obtained_VVN from_IN the_DT channel_NN IR_NN estimates_NNS ._SENT 
+The_DT two_CD arrivals_NNS reach_VVP the_DT array_NN at_IN 7.7°_NP and_CC 11.7°_NP ._SENT 
+Download_NP :_: Download_NP high-res_NP image_NN (_( 258KB)Download_NP :_: Download_NP full-size_JJ image_NN Fig_NN ._SENT 
+10._CD Characteristics_NNS of_IN the_DT channel_NN for_IN the_DT experimental_JJ data_NNS ._SENT 
+(_( a_DT )_) The_DT channel_NN IR_NN estimates_NNS along_IN the_DT receiver_NN array_NN ,_, (_( b_LS )_) The_DT beamforming_JJ results_NNS showing_VVG the_DT angle_NN of_IN arrival_NN ._SENT 
+Figs_NNS ._SENT 
+11_CD (_( a)-(c_NP )_) show_VVP the_DT channel_NN IR_NN computed_VVN by_IN “_JJ array_NN weights_NNS 1_CD ”_NN ,_, “_JJ array_NN weights_NNS 2_CD ”_NN and_CC “_JJ BF_NP weights_NNS ”_NN respectively_RB ._SENT 
+Fig_NN ._SENT 
+11(d_NN )_) shows_VVZ the_DT channel_NN IR_NN computed_VVN by_IN the_DT pulse_NN compression_NN using_VVG the_DT known_JJ LFM_NP signal_NN ._SENT 
+All_PDT the_DT channel_NN IR_NN estimates_NNS are_VBP computed_VVN at_IN the_DT fourth_JJ element_NN of_IN the_DT array_NN at_IN 53_CD m_NN depth_NN ._SENT 
+There_EX are_VBP multiple_JJ arrivals_NNS reaching_VVG the_DT receiver_NN ._SENT 
+In_IN case_NN of_IN “_JJ array_NN weights_NNS 1_CD ”_NN and_CC “_JJ array_NN weights_NNS 2_CD ”_NN there_RB is_VBZ extra_JJ arrival_NN in_IN the_DT channel_NN IR_NN at_IN 0.158_CD s._NN The_DT arrival_NN pattern_NN obtained_VVN by_IN the_DT BF_NP weights_NNS technique_NN matches_VVZ with_IN the_DT arrival_NN pattern_NN obtained_VVN by_IN pulse_NN compression_NN ._SENT 
+Download_NN :_: Download_NP high-res_NP image_NN (_( 281KB)Download_NP :_: Download_NP full-size_JJ image_NN Fig_NN ._SENT 
+11._CD Channel_NP IR_NN estimates_NNS obtained_VVN from_IN the_DT experimental_JJ data_NNS at_IN the_DT fourth_JJ element_NN of_IN the_DT array_NN at_IN 53_CD m_NN depth_NN ._SENT 
+(_( a_DT )_) Channel_NP IR_NNS obtained_VVN by_IN “_JJ array_NN weights_NNS 1_CD ”_NN ,_, (_( b_LS )_) Channel_NP IR_NNS obtained_VVN by_IN “_JJ array_NN weights_NNS 2_CD ”_NN ,_, (_( c_LS )_) Channel_NP IR_NNS obtained_VVN by_IN “_NP BF_NP weights_NNS ”_NN ,_, (_( d_LS )_) Channel_NP IR_NNS obtained_VVN by_IN the_DT pulse_NN compression_NN using_VVG the_DT known_JJ LFM_NP signal_NN ._SENT 
+Fig_NN ._SENT 
+12(a_NP )_) shows_VVZ the_DT performance_NN comparison_NN in_IN terms_NNS of_IN MSE_NNS for_IN different_JJ weighting_NN techniques_NNS and_CC the_DT “_JJ known_JJ channel_NN ”_NN case_NN ._SENT 
+Both_CC the_DT constant_JJ array_NN weighting_NN techniques_NNS ,_, “_JJ array_NN weights_NNS 1_CD ”_NN and_CC “_JJ array_NN weights_NNS 2_CD ”_NN ,_, provides_VVZ mean_JJ MSE_NNS of_IN 0.35_CD dB_NN and_CC 0.4_CD dB_NN respectively_RB ._SENT 
+The_DT BF-based_JJ weighting_NN technique_NN performs_VVZ better_RBR and_CC gives_VVZ a_DT mean_JJ MSE_NN of_IN −2.65_NP dB_NP ._SENT 
+The_DT performance_NN of_IN the_DT known_VVN channel_NN gives_VVZ mean_JJ MSE_NNS of_IN −3.18_JJ dB_NN ._SENT 
+There_EX is_VBZ a_DT difference_NN of_IN 0.53_CD dB_NN between_IN the_DT BF_NP weights_NNS and_CC known_VVN channel_NN case_NN and_CC the_DT BF_NP weighting_NN technique_NN outperforms_VVZ the_DT known_VVN channel_NN at_IN few_JJ instants_NNS ._SENT 
+This_DT is_VBZ because_IN the_DT channel_NN IR_NN estimates_NNS are_VBP obtained_VVN from_IN the_DT probe_NN signal_NN which_WDT is_VBZ transmitted_VVN before_IN the_DT data_NNS signal_NN and_CC the_DT underwater_JJ channel_NN varies_VVZ during_IN the_DT data_NNS transmission_NN ._SENT 
+Fig_NN ._SENT 
+12(b_NP )_) shows_VVZ the_DT performance_NN comparison_NN in_IN terms_NNS of_IN BER_NP for_IN different_JJ weighting_NN techniques_NNS and_CC the_DT “_JJ known_JJ channel_NN ”_NN case_NN ._SENT 
+The_DT mean_JJ BER_NP for_IN “_JJ array_NN weights_NNS 1_CD ”_NN and_CC “_JJ array_NN weights_NNS 2_CD ”_NN are_VBP 0.27_CD and_CC 0.31_CD respectively_RB ._SENT 
+The_DT performance_NN in_IN terms_NNS of_IN BER_NP for_IN BF-based_JJ weighting_NN technique_NN and_CC the_DT known_VVN channel_NN case_NN are_VBP 0.098_CD and_CC 0.099_CD respectively_RB ._SENT 
+Download_NN :_: Download_NP high-res_NP image_NN (_( 507KB)Download_NP :_: Download_NP full-size_JJ image_NN Fig_NN ._SENT 
+12._CD Performance_NN comparison_NN of_IN different_JJ weighting_NN function_NN as_IN a_DT function_NN of_IN time_NN for_IN real_JJ data_NNS obtained_VVN during_IN the_DT experiment_NN in_IN the_DT TrondheimFjord_NN in_IN Sept._NP 2017._CD Fig_NN ._SENT 
+13_CD shows_NNS the_DT constellation_NN diagram_NN for_IN different_JJ cases_NNS ._SENT 
+Figs_NNS ._SENT 
+13_CD (_( a_DT )_) and_CC (_( b_LS )_) show_VV the_DT constellation_NN diagram_NN in_IN the_DT case_NN of_IN “_JJ array_NN weights_NNS 1_CD ”_NN and_CC “_JJ array_NN weights_NNS 2_CD ”_NN ._SENT 
+The_DT performance_NN is_VBZ not_RB good_JJ as_IN the_DT constellation_NN appears_VVZ a_DT single_JJ cloud_NN ._SENT 
+Fig_NN ._SENT 
+13(c_NP )_) shows_VVZ the_DT constellation_NN diagram_NN for_IN the_DT case_NN of_IN “_NP BF_NP weights_NNS ”_JJ where_WRB the_DT performance_NN improves_VVZ ._SENT 
+Fig_NN ._SENT 
+13(d_NN )_) shows_VVZ the_DT constellation_NN diagram_NN for_IN the_DT “_JJ known_JJ channel_NN ”_NN case_NN ._SENT 
+For_IN all_PDT the_DT four_CD cases_NNS ,_, the_DT phase_NN rotation_NN is_VBZ compensated_VVN by_IN using_VVG a_DT known_VVN M-sequence_NN ._SENT 
+Download_NN :_: Download_NP high-res_NP image_NN (_( 627KB)Download_NP :_: Download_NP full-size_JJ image_NN Fig_NN ._SENT 
+13._CD Constellation_NN diagrams_NNS for_IN different_JJ cases_NNS ,_, (_( a_DT )_) Array_NN weights_NNS 1_CD ,_, (_( b_LS )_) Array_NN weights_NNS 2_CD ,_, (_( c_LS )_) BF_NP weights_NNS ,_, (_( d_LS )_) Known_VVN channel_NN ._SENT 
+<Section> 5._CD Conclusions_NNS </Section> In_IN this_DT work_NN ,_, a_DT blind_JJ deconvolution_NN based_VVN equalizer_NN is_VBZ proposed_VVN which_WDT uses_VVZ the_DT received_VVN array_NN signal_NN for_IN channel_NN IR_NN estimation_NN ._SENT 
+These_DT channel_NN IR_NN estimates_NNS are_VBP used_VVN for_IN equalizing_VVG the_DT effects_NNS of_IN the_DT channel_NN ._SENT 
+The_DT channel_NN estimation_NN is_VBZ done_VVN by_IN applying_VVG different_JJ weighting_NN functions_NNS to_TO the_DT received_VVN signal_NN ._SENT 
+The_DT performance_NN of_IN different_JJ weighting_NN functions_NNS is_VBZ studied_VVN in_IN terms_NNS of_IN MSE_NP and_CC BER_NP ._SENT 
+The_DT proposed_VVN equalizer_NN is_VBZ tested_VVN with_IN simulated_JJ as_RB well_RB as_IN real_JJ data_NNS ._SENT 
+In_IN both_DT simulations_NNS and_CC experimental_JJ results_NNS ,_, the_DT BF-based_JJ weights_NNS give_VVP better_JJR performance_NN than_IN the_DT constant_JJ array_NN weights_NNS ._SENT 
+In_IN addition_NN to_TO that_WDT ,_, the_DT performance_NN of_IN the_DT BF-based_JJ weights_NNS is_VBZ very_RB close_JJ to_TO the_DT ‘_JJ known_JJ channel_NN ”_NN case_NN which_WDT shows_VVZ that_DT BF-based_JJ technique_NN provides_VVZ good_JJ channel_NN estimates_NNS and_CC it_PP can_MD be_VB used_VVN for_IN blind_JJ channel_NN estimation_NN and_CC equalization_NN ._SENT 
+The_DT main_JJ advantage_NN of_IN the_DT proposed_VVN system_NN is_VBZ that_IN it_PP computes_VVZ the_DT channel_NN estimates_VVZ from_IN the_DT received_VVN array_NN signal_NN ._SENT 
+This_DT feature_NN is_VBZ very_RB important_JJ for_IN communications_NNS in_IN different_JJ underwater_JJ applications_NNS including_VVG sensor_NN networks_NNS and_CC underwater_JJ vehicles_NNS ._SENT 
+For_IN underwater_JJ sensor_NN networks_NNS ,_, it_PP can_MD save_VV the_DT resources_NNS allocated_VVN for_IN channel_NN estimation_NN which_WDT will_MD result_VV in_IN longer_JJR battery_NN time_NN ._SENT 
+For_IN underwater_JJ vehicles_NNS ,_, the_DT underwater_JJ channel_NN is_VBZ changing_VVG very_RB fast_RB and_CC in_IN such_JJ scenarios_NNS ,_, the_DT blind_JJ channel_NN estimation_NN techniques_NNS will_MD be_VB very_RB beneficial_JJ ._SENT 
+In_IN this_DT work_NN ,_, the_DT proposed_VVN method_NN is_VBZ tested_VVN for_IN a_DT static_JJ environment_NN and_CC future_JJ work_NN will_MD involve_VV testing_VVG it_PP in_IN a_DT time-varying_VVG environment_NN ._SENT 
+<Section> References_NNS </Section> [_SYM 1_CD ]_SYM D._NP Kilfoyle_NP ,_, A._NP Baggeroer_NP The_DT state_NN of_IN the_DT art_NN in_IN underwater_JJ acoustic_JJ telemetry_NN IEEE_NP J_NP Ocean_NP Eng_NP ,_, 25_CD (_( 1_LS )_) (_( 2000_CD )_) ,_, pp_NP ._SENT 
+4-27_CD View_NP Record_NP in_IN ScopusGoogle_JJ Scholar_NN [_SYM 2_CD ]_SYM M._NP Stojanovic_NP ,_, J._NP A._NP Catipovic_NP ,_, J._NP G._NP Proakis_NP Phase-coherent_JJ digital_JJ communications_NNS for_IN underwater_JJ acoustic_JJ channels_NNS IEEE_NP J_NP Oceanic_JJ Eng_NP ,_, 19_CD (_( 1_LS )_) (_( 1994_CD )_) ,_, pp_NP ._SENT 
+100-111_CD View_NP Record_NP in_IN ScopusGoogle_JJ Scholar_NN [_SYM 3_CD ]_SYM Hinton_NP O_NP ,_, Howe_NP G_NP ,_, Adams_NP A_NP ,_, An_DT adaptive_JJ high_JJ bit_NN rate_NN sub-sea_NN communications_NNS system_NN ._SENT 
+In_RB :_: Proceeding_VVG of_IN European_JJ Conference_NN on_IN Underwater_JJ Acoustics_NNS ,_, Bressels_NP ,_, Belgium_NP ;_: 1992_CD 75–79_NN ._SENT 
+Google_JJ Scholar_NN [_SYM 4_CD ]_SYM M._NP Suzuki_NP ,_, T._NP Sasaki_NP Digital_NP acoustic_JJ image_NN transmission_NN system_NN for_IN deep_JJ sea_NN research_NN submarsible_JJ Proceeding_NN of_IN Oceans_NNS ’_JJ 92_CD ,_, Newport_NP ,_, RI_NP (_( 1992_CD )_) ,_, pp_NP ._SENT 
+567-570_CD CrossRefView_NP Record_NP in_IN ScopusGoogle_JJ Scholar_NN [_SYM 5_CD ]_SYM J._NP Fischer_NP ,_, K._NP Bennet_NP ,_, S._NP Reible_NP ,_, J._NP Cafarella_NP ,_, I._NP Yao_NP A_DT high_JJ rate_NN underwater_JJ acoustic_JJ data_NNS communication_NN transceiver_NN Proceeding_NN of_IN Oceans_NNS ’_JJ 92_CD ,_, Newport_NP ,_, RI_NP (_( 1992_CD )_) ,_, pp_NP ._SENT 
+571-576_CD CrossRefView_NP Record_NP in_IN ScopusGoogle_JJ Scholar_NN [_SYM 6_CD ]_SYM G._NP Sandsmark_NP ,_, A._NP Torsvik_NP ,_, J._NP Hovem_NP Shallow_NP water_NN coherent_JJ acoustic_JJ data_NNS transmission_NN Proceeding_NN of_IN European_JJ Conference_NN on_IN Underwater_JJ Acoustics_NNS ,_, Bressels_NP ,_, Belgium_NP (_( 1992_CD )_) ,_, pp_NP ._SENT 
+88-91_CD View_NP Record_NP in_IN ScopusGoogle_JJ Scholar_NN [_SYM 7_CD ]_SYM J._NP Proakis_NP Digital_NP communications_NNS McGraw-Hill_NP ,_, New_NP York_NP (_( 1989_CD )_) Google_JJ Scholar_NN [_SYM 8_CD ]_SYM M._NP Stojanovic_NP ,_, J._NP Catipovic_NP ,_, J._NP Proakis_NP Coherent_JJ communications_NNS over_IN long_JJ range_NN acoustic_JJ telemetry_NN channels_NNS NATO_NP ASI_NP Series_NP Acoustic_JJ Signal_NP Process_NN Ocean_NP Exploration_NP (_( 1993_CD )_) ,_, pp_NP ._SENT 
+607-612_CD CrossRefView_NP Record_NP in_IN ScopusGoogle_JJ Scholar_NN [_SYM 9_CD ]_SYM W._NP A._NP Kuperman_NP ,_, W._NP S._NP Hodgkiss_NP ,_, H._NP C._NP Song_NP ,_, T._NP Akal_NP ,_, C._NP Ferla_NP ,_, D._NP R._NP Jackson_NP Phase_NN conjugation_NN in_IN the_DT ocean_NN :_: experimental_JJ demonstration_NN of_IN an_DT acoustic_JJ time-reversal_JJ mirror_NN J_NP Acoust_NP Soc_NP Am_NP ,_, 103_CD (_( 1_LS )_) (_( 1998_CD )_) ,_, pp_NP ._SENT 
+25-40_CD View_NP Record_NP in_IN ScopusGoogle_JJ Scholar_NN [_SYM 10_CD ]_SYM G._NP Edelmann_NP ,_, W._NP Hodgkiss_NP ,_, S._NP Kim_NP ,_, W._NP Kuperman_NP ,_, H._NP Song_NP ,_, T._NP Akal_NP Underwater_JJ acoustic_JJ communication_NN using_VVG time_NN reversal_NN OCEANS_NNS ,_, 2001._CD MTS/IEEE_NN Conference_NN and_CC Exhibition_NN ,_, vol_NP ._SENT 
+4_LS (_( 2001_CD )_) ,_, pp_NP ._SENT 
+2231-2235_CD CrossRefGoogle_JJ Scholar_NN [_SYM 11_CD ]_SYM M._NP Stojanovic_NP ,_, J._NP Catipovic_NP ,_, J._NP G._NP Proakis_NP Reduced-complexity_NN multi-channel_NN processing_NN of_IN underwater_JJ acoustic_JJ communication_NN signals_VVZ J_NP Acoust_NP Soc_NP Am_NP ,_, 98_CD (_( 1995_CD )_) ,_, pp_NP ._SENT 
+961-972_CD CrossRefView_NP Record_NP in_IN ScopusGoogle_JJ Scholar_NN [_SYM 12_CD ]_SYM J._NP C._NP Preisig_NP Performance_NP analysis_NN of_IN adaptive_JJ equalization_NN for_IN coherent_JJ acoustic_JJ communications_NNS in_IN the_DT time-varying_VVG ocean_NN environment_NN J_NP Acoust_NP Soc_NP Am_NP ,_, 118_CD (_( 1_LS )_) (_( 2005_CD )_) ,_, pp_NP ._SENT 
+263-278_CD CrossRefView_NP Record_NP in_IN ScopusGoogle_JJ Scholar_NN [_SYM 13_CD ]_SYM António_NP João_NP Silva_NP ,_, Environment_NP based_VVD underwater_JJ communications_NNS ,_, PHD_JJ Dissertation_NN University_NP of_IN Algarve_NP ._SENT 
+Google_JJ Scholar_NN [_SYM 14_CD ]_SYM U._NP Vilaipornsawai_NP ,_, A._NP J._NP Silva_NP ,_, S._NP M._NP Jesus_NP Underwater_JJ communications_NNS for_IN moving_VVG source_NN using_VVG geometry-adapted_JJ time_NN reversal_NN and_CC dfe_NN :_: Uan10_JJ data_NN OCEANS_NNS 2011_CD IEEE_NP Conference_NP ,_, Santandar_NP ,_, Spain_NP (_( 2011_CD )_) ,_, pp_NP ._SENT 
+1-7_CD CrossRefGoogle_JJ Scholar_NN [_SYM 15_CD ]_SYM N._NP E._NP Martins_NP ,_, S._NP M._NP Jesus_NP Blind_JJ estimation_NN of_IN the_DT ocean_NN acoustic_JJ channel_NN by_IN time_NN frequency_NN processing_VVG IEEE_NP J_NP Oceanic_JJ Eng_NP ,_, 31_CD (_( 3_LS )_) (_( 2006_CD )_) ,_, pp_NP ._SENT 
+646-656_CD CrossRefView_NP Record_NP in_IN ScopusGoogle_JJ Scholar_NN [_SYM 16_CD ]_SYM W._NP -J_NP ._SENT 
+Zeng_NP ,_, X._NP Jiang_NP ,_, X._NP -L_NP ._SENT 
+Li_NP ,_, X._NP -D_NNS ._SENT 
+Zhang_NP Deconvolution_NN of_IN sparse_JJ underwater_JJ acoustic_JJ multipath_NN channel_NN with_IN a_DT large_JJ time-delay_NN spread_VVN J_NP Acoust_NP Soc_NP Am_NP ,_, 127_CD (_( 2_LS )_) (_( 2010_CD )_) ,_, pp_NP ._SENT 
+909-919_CD CrossRefView_NP Record_NP in_IN ScopusGoogle_JJ Scholar_NN [_SYM 17_CD ]_SYM G._NP B._NP Smith_NP Multipath_NP compression_NN by_IN multiple_JJ convolutions_NNS J_NP Acoust_NP Soc_NP Am_NP ,_, 113_CD (_( 4_LS )_) (_( 2003_CD )_) 2213–2213_JJ Google_JJ Scholar_NN [_SYM 18_CD ]_SYM K._NP G._NP Sabra_NP ,_, D._NP R._NP Dowling_NP Blind_JJ deconvolution_NN in_IN ocean_NN waveguides_NNS using_VVG artificial_JJ time_NN reversal_NN J_NP Acoust_NP Soc_NP Am_NP ,_, 116_CD (_( 1_LS )_) (_( 2004_CD )_) ,_, pp_NP ._SENT 
+262-271_CD View_NP Record_NP in_IN ScopusGoogle_JJ Scholar_NN [_SYM 19_CD ]_SYM S._NP H._NP Abadi_NP ,_, D._NP Rouseff_NP ,_, D._NP R._NP Dowling_NP Blind_JJ deconvolution_NN for_IN robust_JJ signal_NN estimation_NN and_CC approximate_JJ source_NN localization_NN J_NP Acoust_NP Soc_NP Am_NP ,_, 131_CD (_( 4_LS )_) (_( 2012_CD )_) ,_, pp_NP ._SENT 
+2599-2610_CD CrossRefView_NP Record_NP in_IN ScopusGoogle_JJ Scholar_NN [_SYM 20_CD ]_SYM Jensen_NP Finn_NP B_NP ,_, Kuperman_NP William_NP A_NP ,_, Porter_NP Micheal_NP B_NP ,_, Schmidt_NP Henrik_NP ,_, Computational_JJ Ocean_NP Acoustics_NN ,_, American_NP Inst_NP ._SENT 
+of_IN Physics_NNS ;_: 2000._CD Google_JJ Scholar_NN [_SYM 21_CD ]_SYM M._NP Porter_NP ,_, E._NP L._NP Reiss_NP A_DT numerical_JJ method_NN for_IN ocean_NN acoustic_JJ normal_JJ modes_NNS J_NP Acoust_NP Soc_NP Am_NP ,_, 76_CD (_( 1_LS )_) (_( 1984_CD )_) ,_, pp_NP ._SENT 
+244-252_CD CrossRefView_NP Record_NP in_IN ScopusGoogle_JJ Scholar_NN [_SYM 22_CD ]_SYM A._NP Silva_NP ,_, O._NP Rodriguez_NP ,_, F._NP Zabel_NP ,_, J._NP Huilery_NP ,_, S._NP M._NP Jesus_NP Underwater_JJ acoustics_NN simulations_NNS with_IN time_NN variable_JJ acoustics_NN propagation_NN model_NN Proceeding_NN of_IN 10th_JJ European_JJ Conference_NN on_IN Underwater_JJ Acoustics_NNS ,_, vol_NP ._SENT 
+2_LS (_( 2010_CD )_) ,_, pp_NP ._SENT 
+989-996_CD View_NP Record_NP in_IN ScopusGoogle_NP Scholar_NN 

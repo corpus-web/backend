@@ -1,0 +1,490 @@
+﻿_JJ <title> Numerical_JJ investigations_NNS of_IN ship–ice_JJ interaction_NN and_CC maneuvering_NN performance_NN in_IN level_NN ice_NN </title> <author> Quan_NP Zhou_NP ,_, Heather_NP Peng_NP ,_, Wei_NP Qiu_NP </author> <Affiliation> Faculty_NN of_IN Engineering_NP and_CC Applied_NP Science_NP ,_, Memorial_NP University_NP of_IN Newfoundland_NP ,_, St._NP John_NP 's_POS ,_, Canada_NP </Affiliation> <year> 2016_CD </year> <Jounral> Cold_NP regions_NNS science_NN and_CC technology_NN </Journal> <Publishing_house> ELSEVIER_NP </Publishing_house> <Text_Collector> Zhang_NP San，HEU_NP </Text_Collector> <DOI> 10.1016/j.coldregions.2015.10.015_NP </DOI> <URL> https://www.sciencedirect.com/science/article/pii/S0165232X15002608_NP </URL> Numerical_JJ investigations_NNS of_IN ship–ice_JJ interaction_NN and_CC maneuvering_NN performance_NN in_IN level_NN ice_NN Quan_NP Zhou_NP ,_, Heather_NP Peng_NP ,_, Wei_NP Qiu_NP Faculty_NN of_IN Engineering_NP and_CC Applied_NP Science_NP ,_, Memorial_NP University_NP of_IN Newfoundland_NP ,_, St._NP John_NP 's_POS ,_, Canada_NP <Section> Highlights_VVZ </Section> A_DT numerical_JJ detection_NN algorithm_NN and_CC a_DT continuous_JJ process_NN are_VBP introduced_VVN for_IN simulating_VVG ship–ice_JJ interaction_NN ._SENT 
+A_DT flexural_JJ ice_NN plate_NN model_NN is_VBZ developed_VVN ._SENT 
+Effects_NNS of_IN buoyancy_NN and_CC clearing_NN on_IN sway_NN and_CC yaw_VVP motions_NNS are_VBP presented_VVN ,_, a_DT 3DOF_JJ ship_NN maneuvering_NN model_NN is_VBZ applied_VVN ._SENT 
+Validation_NN is_VBZ carried_VVN out_RP by_IN comparing_VVG to_TO model/full-scale_JJ data_NNS of_IN a_DT CCG_NP R-Class_JJ icebreaker_NN ._SENT 
+<Section> Abstract_JJ </Section> This_DT paper_NN presents_VVZ a_DT solution_NN to_TO the_DT ship–ice_JJ interaction_NN problem_NN solved_VVN in_IN the_DT time_NN domain_NN by_IN a_DT combined_JJ method_NN involving_VVG numerical_JJ simulations_NNS and_CC semi-empirical_JJ formula_NN ._SENT 
+The_DT breaking_VVG process_NN of_IN an_DT intact_JJ level_NN ice_NN by_IN an_DT advancing_VVG ice_NN breaker_NN has_VHZ been_VBN investigated_VVN by_IN a_DT 2D_JJ numerical_JJ method_NN ._SENT 
+An_DT interaction_NN detection_NN technique_NN has_VHZ been_VBN introduced_VVN ._SENT 
+In_IN order_NN to_TO compute_VV the_DT ice_NN load_NN ,_, a_DT pressure-area_NN relationship_NN for_IN the_DT ice_NN was_VBD applied_VVN ,_, and_CC a_DT flexural_JJ ice_NN plate_NN model_NN was_VBD developed_VVN ._SENT 
+A_DT 3-degree-of-freedom_NP (_( 3DOF_NP )_) model_NN was_VBD adopted_VVN to_TO simulate_VV ship_NN maneuvering_NN in_IN level_NN ice_NN ._SENT 
+The_DT proposed_VVN numerical_JJ method_NN has_VHZ been_VBN validated_VVN by_IN using_VVG the_DT experimental_JJ results_NNS of_IN an_DT 1:20_CD scaled_VVN CCG_NN R-Class_JJ icebreaker_NN model_NN and_CC the_DT full-scale_JJ turning_VVG circle_NN results_NNS ._SENT 
+Keywords_NNS :_: Ship–ice_JJ interaction_NN ;_: Ice_NP breaking_NN ;_: Contact_NN detection_NN ;_: Flexural_JJ ice_NN plate_NN ;_: Ice_NP loads_NNS in_IN 3DOF_NP ;_: PMM_NP tests_VVZ <Section> 1._CD Introduction_NN </Section> The_DT growing_VVG interests_NNS in_IN oil_NN and_CC gas_NN exploration_NN in_IN Arctic_NP and_CC sub-Arctic_JJ regions_NNS and_CC in_IN the_DT transportation_NN through_IN the_DT Northern_NP Sea_NP Route_NP have_VHP led_VVN to_TO extensive_JJ research_NN on_IN better_JJR understanding_NN of_IN ship–ice_JJ interaction_NN and_CC vessels_NNS '_POS maneuvering_NN performance_NN in_IN ice_NN covered_VVN water_NN ._SENT 
+For_IN a_DT ship_NN advancing_VVG and_CC turning_VVG in_IN level_NN ice_NN ,_, the_DT assessment_NN of_IN ship_NN maneuvering_NN performance_NN needs_VVZ to_TO be_VB addressed_VVN ._SENT 
+For_IN a_DT ship_NN advancing_VVG in_IN ice_NN ,_, the_DT primary_JJ interest_NN is_VBZ on_IN the_DT prediction_NN of_IN the_DT ice_NN resistance_NN ._SENT 
+For_IN maneuvering_NN studies_NNS ,_, the_DT transverse_JJ force_NN and_CC turning_VVG moment_NN are_VBP as_RB important_JJ as_IN the_DT resistance_NN when_WRB the_DT ship_NN is_VBZ in_IN turning_VVG ._SENT 
+It_PP is_VBZ challenging_VVG to_TO predict_VV the_DT resistance_NN that_IN a_DT ship_NN is_VBZ encountered_VVN in_IN the_DT intact_JJ ice_NN field_NN ._SENT 
+One_CD of_IN the_DT common_JJ assumptions_NNS ,_, the_DT principle_NN of_IN superposition_NN to_TO the_DT total_JJ resistance_NN is_VBZ widely_RB accepted_VVN by_IN many_JJ researchers_NNS when_WRB the_DT global_JJ ice_NN load_NN models_NNS were_VBD developed_VVN (_( for_IN example_NN ,_, Enkvist_NP ,_, 1972_CD ,_, Kashteljan_NP et_CC al_NP ._SENT 
+,_, 1969_CD ,_, Keinonen_NP ,_, 1996_CD ,_, Lewis_NP and_CC Edwards_NP ,_, 1970_CD ,_, Lindqvist_NP ,_, 1989_CD ,_, Milano_NP ,_, 1972_CD ,_, Riska_NP et_CC al_NP ._SENT 
+,_, 1997_CD ,_, Spencer_NP ,_, 1992_CD )_) ._SENT 
+In_IN the_DT past_JJ decades_NNS ,_, efforts_NNS have_VHP been_VBN made_VVN to_TO improve_VV these_DT models_NNS and_CC implement_VV them_PP in_IN numerical_JJ methods_NNS ._SENT 
+For_IN instance_NN ,_, Wang_NP (_( 2001_CD )_) adopted_VVD the_DT conceptual_JJ framework_NN of_IN the_DT nested_VVN hierarchy_NN of_IN discrete_JJ events_NNS ,_, proposed_VVN by_IN Daley_NP ,_, 1991_CD ,_, Daley_NP ,_, 1992_CD and_CC Daley_NP et_NP al_NP ._SENT 
+(_( 1998_CD )_) ,_, and_CC simplified_VVN the_DT method_NN by_IN considering_VVG three_CD continuum_NN processes_NNS of_IN crushing_VVG ,_, bending_VVG ,_, and_CC rubble_NN formation_NN ._SENT 
+A_DT geometric_JJ grid_NN method_NN ,_, which_WDT requires_VVZ the_DT discretization_NN of_IN the_DT entire_JJ computational_JJ domain_NN ,_, was_VBD proposed_VVN to_TO simulate_VV continuous_JJ contacts_NNS between_IN the_DT structure_NN and_CC the_DT level_NN ice_NN ._SENT 
+The_DT mechanics_NNS of_IN ice_NN crushing-bending_NN failure_NN was_VBD applied_VVN and_CC the_DT ice_NN loads_NNS were_VBD numerically_RB computed_VVN ._SENT 
+This_DT approach_NN has_VHZ been_VBN adopted_VVN and_CC modified_VVN by_IN many_JJ other_JJ researchers_NNS ,_, such_JJ as_IN Nguyen_NP et_CC al_NP ._SENT 
+(_( 2009_CD )_) ,_, Sawamura_NP et_CC al_NP ._SENT 
+(_( 2009_CD )_) ,_, Su_NP et_CC al_NP ._SENT 
+(_( 2010_CD )_) and_CC Zhou_NP and_CC Peng_NP (_( 2014_CD )_) ._SENT 
+Tan_NP et_NP al_NP ._SENT 
+(_( 2013_CD )_) proposed_VVD a_DT 6_CD degree-of-freedom_NN (_( DOF_JJ )_) ship–ice_JJ interaction_NN model_NN by_IN discretizing_VVG a_DT belt_NN area_NN around_IN the_DT ship_NN waterline_NN ._SENT 
+Their_PP$ work_NN provided_VVD a_DT possibility_NN to_TO include_VV ship_NN heave_NN ,_, roll_NN and_CC pitch_NN motions_NNS during_IN the_DT icebreaking_JJ process_NN ._SENT 
+A_DT further_JJR study_NN on_IN the_DT effect_NN of_IN dynamic_JJ bending_VVG of_IN level_NN ice_NN during_IN ship–ice_JJ interaction_NN was_VBD carried_VVN out_RP with_IN this_DT 6_CD DOF_JJ model_NN by_IN Tan_NP et_CC al_NP ._SENT 
+(_( 2014_CD )_) ._SENT 
+Although_IN the_DT fundamental_JJ mechanism_NN of_IN icebreaking_NN is_VBZ not_RB fully_RB understood_VVN ,_, many_JJ semi-empirical_JJ methods_NNS were_VBD proposed_VVN to_TO estimate_VV the_DT resistance_NN of_IN a_DT vessel_NN in_IN ice_NN ._SENT 
+However_RB ,_, limited_JJ effort_NN has_VHZ been_VBN made_VVN on_IN the_DT estimation_NN of_IN the_DT yaw_VVP moment_NN for_IN a_DT ship_NN maneuvering_NN in_IN level_NN ice_NN ._SENT 
+Lau_NP et_NP al_NP ._SENT 
+(_( 2004_CD )_) proposed_VVD a_DT method_NN to_TO estimate_VV the_DT total_NN yaw_VVP moment_NN that_WDT is_VBZ analogous_JJ to_TO that_DT of_IN ice_NN resistance_NN in_IN the_DT work_NN of_IN Spencer_NP (_( 1992_CD )_) ._SENT 
+The_DT total_NN yaw_VVP moment_NN was_VBD divided_VVN into_IN hydrodynamic_JJ ,_, breaking_NN ,_, submergence_NN ,_, and_CC ice_NN clearing_NN components_NNS ._SENT 
+The_DT formulas_NNS for_IN the_DT terms_NNS associated_VVN with_IN breaking_NN and_CC submergence_NN were_VBD presented_VVN ._SENT 
+In_IN their_PP$ work_NN ,_, the_DT ice-induced_JJ forces_NNS were_VBD considered_VVN as_IN three_CD concentrated_JJ loads_NNS among_IN which_WDT two_CD were_VBD acting_VVG at_IN the_DT bow_NN and_CC the_DT other_JJ was_VBD on_IN the_DT midship_JJ section_NN ._SENT 
+The_DT yaw_VVP moment_NN was_VBD obtained_VVN by_IN multiplying_VVG those_DT forces_NNS and_CC the_DT corresponding_JJ lever_NN arm_NN lengths_NNS ._SENT 
+Martio_NP (_( 2007_CD )_) developed_VVD a_DT numerical_JJ program_NN to_TO simulate_VV the_DT vessel_NN 's_POS maneuvering_NN performance_NN in_IN uniform_JJ level_NN ice_NN based_VVN on_IN Lindqvist_NP 's_POS ice_NN resistance_NN model_NN (_( Lindqvist_NP ,_, 1989_CD )_) ._SENT 
+The_DT major_JJ contribution_NN was_VBD to_TO extend_VV the_DT analytical_JJ formulas_NNS to_TO 3_CD DOF_NN ._SENT 
+The_DT effects_NNS of_IN bending_VVG and_CC submergence_NN forces_NNS on_IN sway_NN and_CC yaw_VV motions_NNS were_VBD taken_VVN into_IN account_NN ._SENT 
+A_DT relationship_NN between_IN the_DT resistance_NN and_CC the_DT yaw_VVP moment_NN ,_, as_RB well_RB as_IN the_DT transverse_JJ force_NN ,_, was_VBD developed_VVN ._SENT 
+Only_RB crushing_VVG was_VBD calculated_VVN numerically_RB ,_, and_CC the_DT other_JJ two_CD terms_NNS were_VBD obtained_VVN by_IN using_VVG analytical_JJ formulas_NNS ._SENT 
+Nguyen_NP et_NP al_NP ._SENT 
+(_( 2009_CD )_) and_CC Su_NP et_NP al_NP ._SENT 
+(_( 2010_CD )_) developed_VVD 3DOF_JJ ship–ice_JJ interaction_NN models_NNS ._SENT 
+In_IN their_PP$ work_NN ,_, it_PP was_VBD assumed_VVN that_IN only_RB the_DT term_NN associated_VVN with_IN breaking_NN had_VHD effect_NN on_IN sway_NN and_CC yaw_VV motions_NNS ._SENT 
+The_DT remaining_VVG components_NNS of_IN ice_NN loads_NNS were_VBD considered_VVN as_IN resistance_NN that_WDT only_RB affected_VVD the_DT surge_NN motion_NN ._SENT 
+When_WRB a_DT ship_NN is_VBZ maneuvred_VVN in_IN level_NN ice_NN ,_, the_DT ship–ice_JJ interaction_NN can_MD be_VB described_VVN as_IN a_DT continuous_JJ process_NN ._SENT 
+As_IN the_DT ship_NN moves_VVZ into_IN the_DT ice_NN sheet_NN ,_, local_JJ shear_NN fracture_NN ,_, crushing_VVG failure_NN ,_, and_CC vertical_JJ deflection_NN occur_VVP at_IN the_DT edge_NN ._SENT 
+These_DT ice_NN failure_NN modes_NNS manifest_VVP themselves_PP as_IN a_DT breaking_VVG force_NN on_IN the_DT hull_NN ._SENT 
+When_WRB the_DT stress_NN somewhere_RB inside_IN the_DT ice_NN sheet_NN exceeds_VVZ its_PP$ limit_NN ,_, a_DT bending_VVG failure_NN will_MD occur_VV which_WDT leads_VVZ to_TO the_DT breaking_NN of_IN ice_NN floes_NNS ._SENT 
+The_DT broken_VVN ice_NN pieces_NNS are_VBP further_RBR accelerated_VVN and_CC rotated_VVD by_IN the_DT ship_NN until_IN they_PP are_VBP parallel_JJ to_TO the_DT hull_NN ._SENT 
+Subsequently_RB ,_, the_DT broken_VVN pieces_NNS slide_NN along_IN the_DT hull_NN until_IN they_PP lose_VVP the_DT contact_NN with_IN the_DT ship_NN ._SENT 
+During_IN this_DT process_NN ,_, two_CD force_NN components_NNS are_VBP assumed_VVN :_: the_DT buoyancy_NN caused_VVN by_IN the_DT density_NN difference_NN between_IN the_DT ice_NN and_CC the_DT water_NN ,_, and_CC the_DT clearing_NN force_NN that_WDT is_VBZ attributed_VVN to_TO the_DT accelerating_VVG and_CC rotating_VVG ice_NN floes_NNS as_RB well_RB as_IN the_DT frictional_JJ force_NN during_IN ice_NN sliding_VVG ._SENT 
+The_DT total_JJ ice_NN resistance_NN therefore_RB consists_VVZ of_IN these_DT three_CD components_NNS discussed_VVN above_IN ._SENT 
+In_IN this_DT paper_NN ,_, the_DT breaking_NN process_NN was_VBD simulated_JJ by_IN a_DT 2D_JJ numerical_JJ method_NN involving_VVG the_DT discretization_NN of_IN ice_NN edges_NNS and_CC ship_NN 's_POS waterline_NN ._SENT 
+The_DT contact_NN loads_NNS were_VBD calculated_VVN ,_, compared_VVN with_IN the_DT bending_VVG capacity_NN of_IN the_DT ice_NN sheet_NN ,_, and_CC were_VBD used_VVN to_TO determine_VV the_DT possibility_NN of_IN ice_NN breaking_NN ._SENT 
+Equations_NNS of_IN ship_NN motions_NNS were_VBD then_RB solved_VVN ,_, and_CC the_DT ice_NN edges_NNS were_VBD updated_VVN ._SENT 
+The_DT clearing_NN and_CC buoyancy_NN forces_NNS were_VBD calculated_VVN using_VVG published_VVN empirical_JJ formulas_NNS ._SENT 
+The_DT effects_NNS on_IN sway_NN and_CC yaw_VV motions_NNS were_VBD taken_VVN into_IN account_NN in_IN this_DT paper_NN ._SENT 
+A_DT flexural_JJ ice_NN plate_NN model_NN was_VBD also_RB developed_VVN to_TO modify_VV ice_NN loads_NNS ._SENT 
+Experimental_JJ results_NNS of_IN the_DT PMM_NP tests_NNS of_IN an_DT 1:20_CD scale_NN R-Class_JJ icebreaker_NN ship_NN model_NN were_VBD used_VVN to_TO validate_VV the_DT numerical_JJ method_NN ._SENT 
+<Section> 2._CD Modeling_NN of_IN ship–ice_JJ interaction_NN </Section> 2.1_CD ._SENT 
+Coordinate_VV systems_NNS and_CC mathematical_JJ formulations_NNS As_IN shown_VVN in_IN Fig_NN ._SENT 
+1_CD ,_, three_CD coordinate_JJ systems_NNS are_VBP employed_VVN in_IN the_DT computations_NNS ._SENT 
+The_DT earth-fixed_VVD coordinate_VV system_NN is_VBZ denoted_VVN as_IN Oe–XeYeZe_NNS ._SENT 
+The_DT position_NN and_CC heading_VVG of_IN a_DT ship_NN is_VBZ described_VVN in_IN this_DT coordinate_VV system_NN ._SENT 
+The_DT ship-fixed_VVD coordinate_VV system_NN ,_, o–xyz_NP ,_, is_VBZ with_IN ox-axis_NN pointing_VVG to_TO the_DT bow_NN ,_, oy-axis_NN pointing_VVG starboard_NN and_CC oz-axis_NN positive_NN downward_RB ._SENT 
+The_DT origin_NN ,_, o_NN ,_, is_VBZ located_VVN at_IN the_DT interaction_NN point_NN of_IN the_DT longitudinal_JJ central_JJ plane_NN ,_, the_DT waterplane_NN and_CC the_DT midship_JJ section_NN ._SENT 
+Equations_NNS of_IN ship_NN motions_NNS are_VBP solved_VVN in_IN the_DT ship-fixed_JJ coordinate_VV system_NN ;_: The_DT ice-fixed_JJ coordinate_VV system_NN ,_, oi–xiyizi_NP ,_, is_VBZ on_IN the_DT ice_NN plate_NN and_CC parallel_NN to_TO Oe–XeYeZe_NNS ._SENT 
+The_DT coordinates_VVZ of_IN the_DT discretized_VVN points_NNS on_IN ice_NN edges_NNS are_VBP defined_VVN in_IN oi–xiyizi_NP ._SENT 
+Fig_NN ._SENT 
+1._CD Three_CD coordinate_VV systems_NNS ._SENT 
+The_DT equations_NNS of_IN motion_NN for_IN maneuvering_NN ,_, including_VVG surge_NN ,_, sway_VV and_CC yaw_VV ,_, are_VBP given_VVN below_IN :_: @(1_JJ )_) @(2_NN )_) where_WRB m_NN and_CC Iz_NP are_VBP the_DT mass_NN of_IN the_DT ship_NN and_CC the_DT mass_JJ moment_NN of_IN inertia_NN ,_, respectively_RB ;_: xG_NP is_VBZ the_DT center_NN of_IN gravity_NN defined_VVN in_IN the_DT ship-fixed_JJ coordinate_VV system_NN ;_: X_NP ,_, Y_NP and_CC N_NP denote_VVP the_DT forces_NNS and_CC moment_NN with_IN respect_NN to_TO ox_NN ,_, oy_NN and_CC oz-axis_NN ,_, respectively_RB ;_: x_SYM and_CC y_NP are_VBP the_DT coordinates_VVZ ;_: ψ_NP is_VBZ the_DT orientation_NN ;_: u_NN ,_, v_NN and_CC r_NN denote_VVP the_DT corresponding_JJ velocities_NNS in_IN the_DT ship-fixed_JJ coordinate_VV system_NN ;_: the_DT overhead_NN dot_VVP represents_VVZ the_DT time_NN derivative_JJ ;_: variables_NNS with_IN the_DT subscripts_NNS ,_, H_NP ,_, P_NN ,_, R_NN and_CC ice_NN ,_, represent_VVP forces_NNS and_CC moment_NN due_JJ to_TO hydrodynamic_JJ force_NN ,_, propeller_NN force_NN ,_, rudder_NN force_NN and_CC ice_NN load_NN ,_, respectively_RB ._SENT 
+2.2_CD ._SENT 
+Ice-induced_JJ forces_NNS The_DT following_VVG assumptions_NNS were_VBD made_VVN in_IN order_NN to_TO simplify_VV the_DT hull–ice_JJ interaction_NN problem_NN :_: •_NN The_DT intact_JJ ice_NN sheet_NN is_VBZ semi-infinite_NN with_IN uniform_JJ thickness_NN ._SENT 
+It_PP is_VBZ stationary_JJ with_IN respect_NN to_TO Oe–XeYeZe_NNS ;_: •_NN The_DT hull–ice_JJ interaction_NN is_VBZ a_DT continuous_JJ process_NN which_WDT involves_VVZ repeating_JJ cycles_NNS of_IN contacting_VVG ,_, crushing_VVG and_CC bending_VVG and_CC breaking_VVG ;_: •_JJ Superposition_NN principle_NN is_VBZ applied_VVN to_TO the_DT total_JJ ice_NN induced_VVN resistance_NN ;_: •_JJ Vertical_JJ displacement_NN of_IN the_DT ship_NN is_VBZ neglected_VVN ;_: •_JJ Contacting_VVG surfaces_VVZ remain_VV flat_JJ during_IN crushing_VVG ;_: •_NN The_DT shape_NN of_IN the_DT broken_VVN ice_NN floe_NN is_VBZ considered_VVN circular_JJ for_IN computing_VVG in_IN the_DT bending_VVG failure_NN ._SENT 
+The_DT total_JJ resistance_NN due_JJ to_TO ice_NN can_MD be_VB written_VVN as_RB :_: @(3_NP )_) The_DT breaking_VVG force_NN ,_, denoted_VVN as_IN Fbr_NP =_SYM [_SYM Xbr_NP ,_, Ybr_NP ,_, Nbr]T_NP ,_, exists_VVZ when_WRB the_DT ice_NN plate_NN is_VBZ crushed_VVN and_CC bent_NN downward_RB until_IN the_DT breaking_NN occurs_VVZ ._SENT 
+The_DT dynamic_JJ clearing_NN force_NN ,_, Fcl_NP ,_, acts_VVZ on_IN the_DT hull_NN as_IN the_DT broken_VVN ice_NN floes_NNS rotates_VVZ ,_, accelerates_VVZ ,_, submerges_VVZ and_CC slides_VVZ along_IN the_DT ship_NN ._SENT 
+The_DT static_JJ force_NN due_JJ to_TO the_DT buoyancy_NN of_IN ice_NN is_VBZ denoted_VVN as_IN Fbuoy_NP ._SENT 
+The_DT open-water_NN resistance_NN is_VBZ considered_VVN as_IN hydrodynamic_JJ force_NN and_CC is_VBZ not_RB part_NN of_IN ice_NN loads_NNS ._SENT 
+Each_DT term_NN in_IN the_DT equation_NN above_RB has_VHZ effect_NN on_IN surge_NN ,_, sway_VV and_CC yaw_VV motions_NNS ._SENT 
+The_DT breaking_NN term_NN is_VBZ calculated_VVN numerically_RB based_VVN on_IN the_DT detected_VVN contacts_NNS at_IN each_DT time_NN step_NN ._SENT 
+The_DT resistances_NNS due_JJ to_TO clearing_NN and_CC buoyancy_NN (_( Xcl_NN and_CC Xbuoy_NN )_) are_VBP calculated_VVN using_VVG published_VVN empirical_JJ formulas_NNS ._SENT 
+The_DT relationship_NN between_IN X_NP and_CC N_NP in_IN the_DT clearing_NN and_CC buoyancy_NN terms_NNS is_VBZ derived_VVN in_IN the_DT following_VVG sections_NNS ._SENT 
+2.2.1_CD ._SENT 
+Ice_NN breaking_NN force_NN In_IN the_DT work_NN of_IN Zhou_NP and_CC Peng_NP (_( 2014_CD )_) ,_, a_DT numerical_JJ method_NN was_VBD proposed_VVN to_TO study_VV ship_NN maneuvering_NN problems_NNS in_IN level_NN ice_NN ._SENT 
+A_DT 2D_JJ interaction_NN detection_NN technique_NN was_VBD introduced_VVN ,_, and_CC the_DT calculation_NN of_IN ice_NN breaking_NN force_NN was_VBD provided_VVN with_IN details_NNS ._SENT 
+This_DT study_NN is_VBZ a_DT continuation_NN of_IN the_DT previous_JJ work_NN and_CC the_DT same_JJ detection_NN technique_NN was_VBD applied_VVN ._SENT 
+A_DT brief_JJ summary_NN of_IN the_DT method_NN and_CC its_PP$ numerical_JJ implementation_NN are_VBP presented_VVN below_RB ._SENT 
+The_DT waterline_NN of_IN the_DT ship_NN is_VBZ discretized_VVN as_IN a_DT closed_JJ polygon_NN while_IN an_DT ice_NN edge_NN is_VBZ discretized_VVN as_IN broken_VVN lines_NNS (_( Fig_NN ._SENT 
+2_LS )_) ._SENT 
+Note_NN that_IN this_DT method_NN is_VBZ different_JJ from_IN those_DT proposed_VVN by_IN Nguyen_NP et_CC al_NP ._SENT 
+(_( 2009_CD )_) ,_, Sawamura_NP et_CC al_NP ._SENT 
+(_( 2009_CD )_) and_CC Wang_NP (_( 2001_CD )_) ._SENT 
+Instead_RB of_IN discretizing_VVG the_DT entire_JJ ice_NN sheet_NN ,_, the_DT present_JJ method_NN only_RB focuses_VVZ on_IN the_DT ice_NN edge_NN where_WRB the_DT ship–ice_JJ interaction_NN may_MD occur_VV ,_, which_WDT leads_VVZ to_TO improved_VVN computational_JJ efficiency_NN ._SENT 
+Fig_NN ._SENT 
+2._CD Discretization_NN of_IN ship_NN waterline_NN and_CC ice_NN edges_NNS ._SENT 
+Four_CD contact_NN detection_NN scenarios_NNS as_RB shown_VVN in_IN Fig_NN ._SENT 
+3_CD were_VBD considered_VVN ,_, including_VVG (_( 1_LS )_) no_DT ice_NN node_NN is_VBZ inside_RB the_DT ship_NN and_CC no_DT ship_NN node_NN is_VBZ inside_RB the_DT ice_NN ,_, (_( 2_LS )_) ice_NN nodes_NNS are_VBP inside_IN the_DT ship_NN and_CC ship_NN nodes_NNS are_VBP inside_IN the_DT ice_NN ,_, (_( 3_LS )_) ice_NN nodes_NNS are_VBP inside_IN the_DT ship_NN but_CC no_DT ship_NN node_NN is_VBZ inside_RB the_DT ice_NN ,_, (_( 4_LS )_) no_DT ice_NN node_NN is_VBZ inside_RB the_DT ship_NN but_CC ship_NN nodes_NNS are_VBP inside_IN the_DT ice_NN ._SENT 
+They_PP were_VBD distinguished_VVN by_IN the_DT Point-in-Polygon_NP method_NN which_WDT determines_VVZ the_DT relationship_NN between_IN a_DT point_NN and_CC a_DT closed_JJ polygon_NN ._SENT 
+For_IN example_NN ,_, if_IN an_DT arbitrary_JJ ice_NN node_NN is_VBZ inside_RB the_DT polygon_NN of_IN the_DT ship_NN waterline_NN ,_, Scenario_NP 2_CD or_CC 3_CD will_MD occur_VV ._SENT 
+Then_RB all_PDT the_DT nodes_NNS on_IN the_DT ship_NN waterline_NN need_VVP to_TO be_VB checked_VVN ._SENT 
+If_IN all_DT ship_NN nodes_NNS are_VBP inside_IN the_DT ice_NN sheet_NN ,_, Scenario_NN 2_CD needs_VVZ to_TO be_VB considered_VVN ;_: otherwise_RB ,_, Scenario_NN 3_CD occurs_VVZ ._SENT 
+Scenario_NN 4_CD could_MD be_VB identified_VVN similarly_RB if_IN no_DT ice_NN node_NN is_VBZ inside_RB the_DT ship_NN waterline_NN and_CC the_DT ship_NN nodes_NNS are_VBP inside_IN the_DT ice_NN sheet_NN ._SENT 
+As_IN the_DT high_JJ fidelity_NN and_CC the_DT computational_JJ efficiency_NN need_VVP to_TO be_VB satisfied_VVN ,_, it_PP is_VBZ crucial_JJ to_TO maintain_VV the_DT accuracy_NN for_IN Scenario_NP 4_CD while_IN using_VVG relatively_RB coarse_JJ mesh_NN to_TO discretize_VV the_DT ice_NN edge_NN ._SENT 
+Once_RB a_DT contact_NN scenario_NN was_VBD found_VVN ,_, interpolations_NNS were_VBD applied_VVN to_TO identify_VV the_DT intersections_NNS and_CC apexes_NNS of_IN the_DT ideal_JJ ice_NN wedge_NN ,_, which_WDT is_VBZ illustrated_VVN by_IN the_DT blue_JJ dash_NN lines_NNS in_IN Fig_NN ._SENT 
+3._CD The_DT open_JJ angle_NN of_IN the_DT ice_NN wedge_NN is_VBZ denoted_VVN as_IN θ_NP ._SENT 
+The_DT breaking_NN force_NN was_VBD calculated_VVN based_VVN on_IN the_DT interaction_NN area_NN and_CC the_DT ideal_JJ ice_NN wedge_NN ._SENT 
+If_IN the_DT force_NN exceeds_VVZ the_DT bending_VVG limit_NN of_IN the_DT ice_NN sheet_NN ,_, a_DT circumferential_JJ crack_NN will_MD occur_VV and_CC a_DT floe_NN will_MD be_VB broken_VVN off_RP the_DT ice_NN sheet_NN ._SENT 
+The_DT newly_RB formed_VVN ice_NN edge_NN will_MD be_VB discretized_VVN into_IN nodes_NNS and_CC used_VVN to_TO replace_VV the_DT nodes_NNS that_WDT are_VBP enclosed_VVN by_IN the_DT arc_NN ._SENT 
+This_DT process_NN is_VBZ known_VVN as_IN the_DT ice_NN edge_NN update_NN ._SENT 
+The_DT flow_NN chart_NN for_IN the_DT numerical_JJ implementation_NN of_IN the_DT algorithm_NN is_VBZ given_VVN in_IN Fig_NN ._SENT 
+4._CD Fig_NN ._SENT 
+3._CD Contact_NN detection_NN scenarios_NNS ._SENT 
+Fig_NN ._SENT 
+4._CD Flow_NP chart_NN ._SENT 
+As_IN the_DT hull_NN contacts_NNS with_IN ice_NN edge_NN ,_, ice_NN crushing_VVG starts_NNS at_IN the_DT contact_NN point_NN ._SENT 
+It_PP continues_VVZ until_IN the_DT ice_NN plate_NN is_VBZ broken_VVN by_IN bending_VVG moment_NN ._SENT 
+More_JJR than_IN one_CD contact_NN zone_NN could_MD exist_VV at_IN the_DT same_JJ time_NN ._SENT 
+In_IN each_DT contact_NN zone_NN there_RB will_MD be_VB a_DT crushing_VVG force_NN acting_VVG on_IN the_DT hull_NN ._SENT 
+To_TO determine_VV the_DT magnitude_NN of_IN the_DT crushing_VVG force_NN in_IN each_DT contact_NN zone_NN ,_, the_DT following_VVG equation_NN is_VBZ adopted_VVN :_: @(4_NP )_) where_WRB Fcr_NP is_VBZ the_DT crushing_VVG force_NN ,_, which_WDT is_VBZ normal_JJ to_TO the_DT contact_NN surface_NN and_CC pointing_VVG inward_RB to_TO the_DT ship_NN ;_: pave_VV is_VBZ the_DT average_JJ pressure_NN on_IN the_DT contact_NN surface_NN ;_: Acr_NP is_VBZ the_DT area_NN of_IN the_DT contact_NN surface_NN that_WDT is_VBZ obtained_VVN numerically_RB at_IN each_DT time_NN step_NN ,_, which_WDT is_VBZ calculated_VVN by_IN @(5_NN )_) where_WRB Lh_NP is_VBZ the_DT characteristic_JJ width_NN of_IN the_DT overlap_VVP area_NN ;_: Lc_NP is_VBZ the_DT indentation_NN ;_: hi_UH is_VBZ the_DT ice_NN thickness_NN ;_: Lh_NP and_CC Lc_NP are_VBP numerically_RB determined_VVN at_IN each_DT contact_NN point_NN when_WRB the_DT overlap_VVP area_NN has_VHZ been_VBN identified_VVN ;_: and_CC β′_NP is_VBZ the_DT normal_JJ frame_NN angle_NN of_IN the_DT ship_NN hull_NN that_WDT is_VBZ determined_VVN by_IN @(6_NN )_) where_WRB α_NP and_CC γ_NP are_VBP the_DT waterline_NN angle_NN and_CC the_DT buttock_NN angle_NN ,_, respectively_RB ,_, as_IN shown_VVN in_IN Fig_NN ._SENT 
+1_LS ;_: and_CC β′_NP is_VBZ the_DT normal_JJ section_NN angle_NN ._SENT 
+In_IN the_DT previous_JJ work_NN ,_, for_IN example_NN ,_, Lau_NP et_CC al_NP ._SENT 
+(_( 2004_CD )_) ,_, Martio_NP (_( 2007_CD )_) ,_, Nguyen_NP et_CC al_NP ._SENT 
+(_( 2009_CD )_) ,_, Sawamura_NP et_CC al_NP ._SENT 
+(_( 2009_CD )_) ,_, Su_NP et_CC al_NP ._SENT 
+(_( 2010_CD )_) and_CC Zhou_NP and_CC Peng_NP (_( 2014_CD )_) ,_, a_DT constant_JJ contact_NN pressure_NN (_( crushing_VVG strength_NN ,_, σcr_NP )_) was_VBD used_VVN when_WRB calculating_VVG the_DT crushing_VVG force_NN ._SENT 
+However_RB ,_, the_DT analysis_NN of_IN full-scale_JJ data_NNS shows_VVZ that_IN the_DT contact_NN pressure_NN varies_VVZ as_IN the_DT nominal_JJ contact_NN area_NN changes_NNS ._SENT 
+This_DT phenomenon_NN can_MD be_VB expressed_VVN by_IN the_DT pressure-area_NN relationship_NN (_( also_RB known_VVN as_IN the_DT P-A_NP curve_NN )_) and_CC a_DT form_NN of_IN power_NN relation_NN as_IN below_RB is_VBZ widely_RB accepted_VVN :_: @(7_JJ )_) where_WRB p0_NN is_VBZ assumed_VVN equal_JJ to_TO the_DT crushing_VVG strength_NN and_CC here_RB ex_JJ is_VBZ chosen_VVN as_IN �_JJ �_NP 0.5_CD ._SENT 
+Based_VVN on_IN the_DT work_NN of_IN Zhou_NP and_CC Peng_NP (_( 2014_CD )_) ,_, the_DT three_CD components_NNS of_IN ice_NN breaking_VVG force_NN are_VBP calculated_VVN by_IN :_: @(8_NP )_) @(9_NP )_) @(10_NP )_) where_WRB Xbr_NP and_CC Ybr_NP are_VBP the_DT force_NN components_NNS along_IN x-axis_NN and_CC y-axis_NN ,_, respectively_RB ;_: Zbr_NP is_VBZ the_DT vertical_JJ component_NN that_WDT is_VBZ further_RBR compared_VVN to_TO the_DT bearing_NN capacity_NN of_IN the_DT ice_NN plate_NN to_TO determine_VV if_IN the_DT breaking_JJ process_NN would_MD occur_VV ._SENT 
+The_DT yaw_VVP moment_NN is_VBZ obtained_VVN from_IN :_: @(11_JJ )_) where_WRB x_SYM and_CC y_NP are_VBP the_DT coordinates_VVZ of_IN the_DT contact_NN location_NN with_IN respect_NN to_TO o-xyz_NP ._SENT 
+It_PP should_MD be_VB pointed_VVN out_IN that_DT Eqs_NP ._SENT 
+(_( 8_CD )_) ,_, (_( 9_CD )_) ,_, (_( 10_CD )_) ,_, (_( 11_CD )_) give_VVP the_DT breaking_VVG force_NN at_IN one_CD contact_NN location_NN ._SENT 
+The_DT global_JJ breaking_NN force_NN can_MD be_VB calculated_VVN by_IN summing_VVG the_DT forces_NNS in_IN different_JJ locations_NNS ._SENT 
+2.2.2_CD ._SENT 
+Crushing_VVG force_NN adjustment_NN Valanto_NP (_( 1989_CD )_) reported_VVD that_IN a_DT rapid_JJ flexural_JJ failure_NN was_VBD observed_VVN in_IN the_DT experiment_NN when_WRB the_DT flexural_JJ strength_NN ratio_NN was_VBD large_JJ (_( E/σf_NN =_SYM 6400_CD )_) ,_, while_IN considerably_RB more_JJR time_NN was_VBD required_VVN for_IN flexural_JJ failure_NN in_IN the_DT low_JJ ratio_NN case_NN (_( E/σf_NN =_SYM 1400_CD )_) ._SENT 
+It_PP was_VBD also_RB pointed_VVN out_RP that_IN the_DT difference_NN in_IN two_CD cases_NNS was_VBD important_JJ since_IN it_PP would_MD significantly_RB affect_VV the_DT average_JJ ice_NN resistance_NN ._SENT 
+In_IN the_DT work_NN of_IN Nguyen_NP et_CC al_NP ._SENT 
+(_( 2009_CD )_) ,_, Su_NP et_CC al_NP ._SENT 
+(_( 2010_CD )_) and_CC Wang_NP (_( 2001_CD )_) ,_, rigid_JJ ice_NN plate_NN models_NNS were_VBD assumed_VVN and_CC the_DT vertical_JJ deflection_NN by_IN bending_VVG was_VBD not_RB considered_VVN ._SENT 
+Their_PP$ models_NNS were_VBD thus_RB unable_JJ to_TO simulate_VV what_WP was_VBD observed_VVN in_IN the_DT experiment_NN by_IN Valanto_NP (_( 1989_CD )_) ._SENT 
+In_IN this_DT study_NN ,_, the_DT ice_NN plate_NN flexural_JJ deflection_NN was_VBD taken_VVN into_IN consideration_NN ,_, and_CC an_DT adjustment_NN factor_NN of_IN contact_NN surface_NN was_VBD derived_VVN ._SENT 
+The_DT actual_JJ ship–ice_NN interaction_NN is_VBZ a_DT dynamic_JJ process_NN as_IN both_CC the_DT ship_NN and_CC the_DT ice_NN plate_NN have_VHP vertical_JJ motions_NNS ._SENT 
+However_RB ,_, the_DT process_NN was_VBD simplified_VVN in_IN this_DT work_NN by_IN assuming_VVG that_IN the_DT ship_NN does_VVZ not_RB move_VV vertically_RB ._SENT 
+As_IN the_DT ship_NN moves_VVZ forward_RB ,_, the_DT elastic_JJ ice_NN plate_NN will_MD be_VB bent_JJ ._SENT 
+Since_IN the_DT ice_NN deflection_NN is_VBZ small_JJ compared_VVN to_TO the_DT characteristic_JJ length_NN of_IN the_DT ice_NN ,_, a_DT parallel_JJ downward_JJ movement_NN of_IN the_DT ice_NN plate_NN was_VBD further_RBR assumed_VVN and_CC there_EX is_VBZ no_RB bending_VVG involved_VVN (_( see_VV Fig_NN ._SENT 
+6_CD )_) ._SENT 
+The_DT contact_NN force_NN ,_, Fcr_NP ,_, will_MD lead_VV to_TO ice_NN crushing_VVG and_CC bending_VVG simultaneously_RB ._SENT 
+The_DT water_NN support_NN was_VBD considered_VVN as_IN an_DT elastic_JJ foundation_NN ._SENT 
+Fig_NN ._SENT 
+5._CD Ideal_NP ice_NN wedge_NN and_CC contact_NN surface_NN ._SENT 
+Fig_NN ._SENT 
+6._CD Flexural_JJ deflection_NN of_IN ice_NN plate_NN ._SENT 
+As_IN shown_VVN in_IN Fig_NN ._SENT 
+6_CD ,_, from_IN the_DT initial_JJ contact_NN to_TO the_DT present_JJ time_NN step_NN ,_, the_DT ship_NN penetrated_VVN into_IN ice_NN by_IN δs_NP ,_, which_WDT was_VBD determined_VVN numerically_RB ,_, causing_VVG a_DT vertical_JJ elastic_JJ deflection_NN ,_, δe_NNS ,_, and_CC a_DT vertical_JJ crushing_VVG height_NN δc_NN ,_, which_WDT satisfy_VV the_DT following_VVG relationship_NN :_: @(12_NP )_) Both_CC δe_NP and_CC δc_NP are_VBP unknown_JJ ._SENT 
+Both_DT are_VBP induced_VVN by_IN the_DT same_JJ force_NN ,_, the_DT vertical_JJ component_NN of_IN the_DT contact_NN force_NN ,_, Fcr_NP ._SENT 
+The_DT relation_NN between_IN δe_NN and_CC Fcr_NN is_VBZ derived_VVN by_IN considering_VVG the_DT response_NN of_IN a_DT homogeneous_JJ and_CC isotropic_JJ elastic_JJ ice_NN plate_NN with_IN an_DT open_JJ angle_NN of_IN θ_NP ,_, which_WDT rests_VVZ on_IN a_DT liquid_NN and_CC is_VBZ subjected_VVN to_TO a_DT static_JJ vertical_JJ concentrated_JJ load_NN P_NN on_IN the_DT apex_NN ._SENT 
+Kerr_NP (_( 1976_CD )_) proposed_VVD the_DT following_VVG formula_NN to_TO calculate_VV the_DT deflection_NN at_IN the_DT apex_NN of_IN a_DT semi-infinite_NN plate_NN with_IN an_DT arbitrary_JJ open_JJ angle_NN :_: @(13_NP )_) where_WRB P_NN is_VBZ the_DT concentrated_JJ load_NN ;_: γ_NP =_SYM ρwg_NN is_VBZ the_DT weight_NN per_IN unit_NN volume_NN of_IN the_DT liquid_NN ;_: D_NP =_SYM Ehi3/(12(1_JJ �_JJ �_NN ν2_NN )_) )_) is_VBZ the_DT flexural_JJ rigidity_NN of_IN ice_NN plate_NN ;_: E_NP is_VBZ the_DT ice_NN Young_NP 's_POS modulus_NN ;_: v_NN is_VBZ Poisson_NP 's_POS ratio_NN ._SENT 
+Substituting_VVG P_NN =_SYM Fcr,v_NP and_CC w0_NP =_SYM δe_NN into_IN Eq_NP ._SENT 
+(_( 13_CD )_) ,_, the_DT following_VVG relationship_NN can_MD be_VB achieved_VVN @(14_JJ )_) The_DT relationship_NN between_IN Fcr,v_NP and_CC δc_NP is_VBZ implicitly_RB expressed_VVN by_IN Eqs_NP ._SENT 
+(_( 4_CD )_) ,_, (_( 5_CD )_) ,_, (_( 10_CD )_) ._SENT 
+The_DT binary_JJ search_NN method_NN was_VBD applied_VVN to_TO obtain_VV δc_NN ._SENT 
+Once_RB it_PP is_VBZ obtained_VVN ,_, the_DT contact_NN area_NN Acr_NN in_IN Eq_NP ._SENT 
+(_( 4_CD )_) can_MD be_VB modified_VVN by_IN multiplying_VVG (_( δc/δv)2_NP ,_, because_IN the_DT flexural_JJ deflection_NN of_IN ice_NN plate_NN will_MD reduce_VV the_DT contact_NN area_NN ._SENT 
+Therefore_RB ,_, the_DT adjusted_JJ crushing_VVG force_NN is_VBZ :_: @(15_NP )_) The_DT effect_NN of_IN the_DT flexural_JJ deflection_NN of_IN the_DT ice_NN sheet_NN can_MD be_VB considered_VVN by_IN replacing_VVG Fcr_NP with_IN Fcr⁎_NP in_IN Eqs_NP ._SENT 
+(_( 8_CD )_) ,_, (_( 9_CD )_) ,_, (_( 10_CD )_) ._SENT 
+2.2.3_CD ._SENT 
+Bending_VVG failure_NN criterion_NN The_DT vertical_JJ force_NN component_NN increases_NNS as_IN the_DT ship_NN penetrates_VVZ into_IN the_DT ice_NN plate_NN ._SENT 
+When_WRB it_PP exceeds_VVZ the_DT bearing_NN capacity_NN of_IN the_DT ice_NN sheet_NN ,_, the_DT bending_VVG failure_NN would_MD occur_VV and_CC a_DT circular_JJ ice_NN floe_NN would_MD be_VB broken_VVN off_RP the_DT plate_NN ._SENT 
+The_DT bearing_NN capacity_NN is_VBZ calculated_VVN by_IN Kashtelyan_NP 's_POS method_NN (_( Kerr_NP ,_, 1976_CD )_) ._SENT 
+@(16_NP )_) where_WRB θ_NP is_VBZ the_DT open_JJ angle_NN of_IN the_DT ideal_JJ wedge_NN ;_: σf_NP is_VBZ the_DT flexural_JJ strength_NN of_IN ice_NN plate_NN ;_: hi_UH is_VBZ the_DT ice_NN thickness_NN ;_: and_CC Cf_NP is_VBZ an_DT empirical_JJ coefficient_NN ._SENT 
+It_PP should_MD be_VB noted_VVN that_IN Eq_NP ._SENT 
+(_( 16_CD )_) is_VBZ derived_VVN from_IN a_DT quasi-static_JJ condition_NN ._SENT 
+It_PP does_VVZ not_RB consider_VV the_DT dynamic_JJ effect_NN due_JJ to_TO varying_VVG ship_NN velocities_NNS ._SENT 
+Kashtelyan_NP suggested_VVD a_DT small_JJ value_NN (_( around_IN 1.0_CD )_) for_IN Cf_NN ,_, while_IN Nguyen_NP et_CC al_NP ._SENT 
+(_( 2009_CD )_) used_VVD a_DT value_NN of_IN 4.5_CD with_IN no_DT explanation_NN ._SENT 
+In_IN the_DT work_NN of_IN Su_NP et_CC al_NP ._SENT 
+(_( 2010_CD )_) ,_, a_DT study_NN of_IN Cf_NP was_VBD carried_VVN out_RP and_CC a_DT value_NN of_IN 3.1_CD was_VBD finally_RB adopted_VVN ._SENT 
+The_DT value_NN of_IN Cf_NP is_VBZ adopted_VVN as_IN 2.2_CD in_IN this_DT work_NN and_CC detailed_JJ discussions_NNS can_MD be_VB found_VVN in_IN Section_NP 3.2_CD ._SENT 
+After_IN the_DT vertical_JJ force_NN ,_, Zbr_NP ,_, and_CC the_DT bearing_VVG capacity_NN of_IN ice_NN ,_, Pflex_NP ,_, are_VBP determined_VVN ,_, the_DT next_JJ step_NN is_VBZ to_TO investigate_VV whether_IN the_DT ice_NN wedge_NN will_MD be_VB broken_VVN from_IN the_DT ice_NN sheet_NN ._SENT 
+If_IN the_DT vertical_JJ force_NN exceeds_VVZ the_DT capacity_NN ,_, i.e._FW ,_, Zbr_NP ≥_NP Pflex_NP ,_, the_DT bending_VVG failure_NN will_MD occur_VV and_CC a_DT circular_JJ ice_NN floe_NN will_MD be_VB broken_VVN off_RP the_DT ice_NN plate_NN ;_: otherwise_RB the_DT ice_NN edge_NN will_MD only_RB be_VB crushed_VVN ._SENT 
+The_DT radius_NN of_IN the_DT broken_VVN ice_NN floe_NN is_VBZ determined_VVN by_IN using_VVG the_DT formula_NN in_IN the_DT work_NN of_IN Wang_NP (_( 2001_CD )_) :_: 2(17_JJ )_) where_WRB R_NP is_VBZ the_DT radius_NN of_IN circumferential_JJ crack_NN ;_: vn,2_NP is_VBZ the_DT velocity_NN component_NN normal_JJ to_TO the_DT contact_NN surface_NN ;_: Cl_NP is_VBZ the_DT parameter_NN that_WDT defines_VVZ the_DT broken_VVN ice_NN size_NN to_TO its_PP$ characteristic_JJ length_NN ;_: Cv_NP is_VBZ a_DT tunable_JJ coefficients_NNS ,_, and_CC both_DT are_VBP discussed_VVN in_IN Section_NP 3.2_CD ;_: and_CC l_NN is_VBZ the_DT characteristic_JJ length_NN of_IN ice_NN plate_NN given_VVN by_IN :_: @(18)where_RB E_NP is_VBZ Young_NP 's_POS modulus_NN of_IN ice_NN ;_: v_NN is_VBZ Poisson_NP 's_POS ratio_NN ;_: and_CC ρw_RB is_VBZ the_DT density_NN of_IN sea_NN water_NN ._SENT 
+2.2.4_CD ._SENT 
+Buoyancy_NN and_CC clearing_NN forces_NNS The_DT ice_NN resistances_NNS due_JJ to_TO buoyancy_NN and_CC ice_NN clearing_NN which_WDT includes_VVZ ice_NN rotating_VVG and_CC sliding_VVG are_VBP obtained_VVN using_VVG the_DT regression_NN model_NN proposed_VVN by_IN Spencer_NP and_CC Jones_NP (_( 2001_CD )_) :_: @(19_NP )_) @(20_NP )_) where_WRB Fh=u/ghi_NP is_VBZ the_DT Froude_JJ number_NN of_IN the_DT ice_NN ;_: u_NN is_VBZ the_DT advancing_VVG speed_NN ;_: B_NP and_CC T_NN are_VBP the_DT ship_NN breadth_NN and_CC draft_NN ,_, respectively_RB ;_: ρi_NP is_VBZ the_DT density_NN of_IN ice_NN ;_: Δρ_NP is_VBZ the_DT density_NN difference_NN between_IN ice_NN and_CC sea_NN water_NN ._SENT 
+To_TO calculate_VV the_DT y-component_NN of_IN buoyancy_NN and_CC clearing_NN forces_NNS ,_, it_PP is_VBZ assumed_VVN that_IN the_DT ice_NN forces_NNS are_VBP acting_VVG on_IN the_DT bow_NN part_NN of_IN the_DT ship_NN and_CC the_DT midship_JJ part_NN ._SENT 
+It_PP is_VBZ also_RB assumed_VVN the_DT ship_NN is_VBZ symmetric_JJ about_IN the_DT longitudinal_JJ centreplane_NN and_CC the_DT ice_NN force_NN acts_VVZ on_IN the_DT ship_NN symmetrically_RB when_WRB the_DT ship_NN moves_VVZ straight_RB ._SENT 
+It_PP is_VBZ further_RBR considered_VVN that_IN the_DT bow_NN is_VBZ formed_VVN of_IN two_CD flat_JJ planes_NNS ._SENT 
+Therefore_RB ,_, the_DT directions_NNS of_IN buoyancy_NN and_CC clearing_NN forces_NNS should_MD be_VB the_DT same_JJ as_RB that_IN of_IN the_DT breaking_JJ force_NN ,_, i.e._FW :_: @(21_JJ )_) where_WRB the_DT subscript_JJ i_NP is_VBZ either_RB “cl”_JJ or_CC “b”_JJ ,_, representing_VVG the_DT clearing_NN or_CC buoyancy_NN force_NN ,_, respectively_RB ._SENT 
+Note_NN that_IN the_DT force_NN is_VBZ divided_VVN by_IN 2_CD as_IN the_DT force_NN is_VBZ assumed_VVN to_TO act_VV on_IN either_DT side_NN of_IN the_DT bow_NN ._SENT 
+When_WRB a_DT vessel_NN starts_VVZ turning_VVG ,_, the_DT forces_NNS on_IN the_DT port_NN and_CC starboard_JJ sides_NNS are_VBP not_RB symmetrical_JJ anymore_RB ._SENT 
+A_DT net_JJ transverse_JJ bow_NN force_NN exists_VVZ ._SENT 
+The_DT net_JJ force_NN results_NNS from_IN the_DT yaw_VVP rate_NN of_IN the_DT vessel_NN ,_, i.e._FW ,_, the_DT vessel_NN will_MD encounter_VV larger_JJR transverse_JJ force_NN if_IN it_PP turns_VVZ rapidly_RB ._SENT 
+@(22_NP )_) where_WRB @(23_JJ )_) where_WRB LWL_NP is_VBZ the_DT ship_NN length_NN at_IN the_DT design_NN waterline_NN ,_, and_CC Lbow_NP is_VBZ the_DT length_NN of_IN the_DT bow_NN as_IN shown_VVN in_IN Fig_NN ._SENT 
+7._CD Fig_NN ._SENT 
+7._CD Arms_NP of_IN rotation_NN ._SENT 
+The_DT force_NN acting_VVG on_IN the_DT parallel_JJ midship_JJ section_NN is_VBZ determined_VVN by_IN assuming_VVG the_DT load_NN is_VBZ in_IN the_DT opposite_JJ direction_NN of_IN the_DT velocity_NN :_: @(24_NP )_) where_WRB u_NN and_CC v_NN are_VBP surge_NN and_CC sway_NN velocities_NNS ,_, respectively_RB ;_: and_CC Cmid_NP is_VBZ equal_JJ to_TO 2.0_CD ._SENT 
+After_IN the_DT transverse_JJ components_NNS of_IN buoyancy_NN and_CC clearing_NN forces_NNS ,_, ΔYi,bow_NP and_CC Yi,mid_NP ,_, are_VBP obtained_VVN ,_, the_DT yaw_VVP moment_NN can_MD be_VB obtained_VVN by_IN multiplying_VVG the_DT transverse_JJ force_NN by_IN the_DT corresponding_JJ lever_NN arm_NN :_: @(25_NP )_) where_WRB xm_NN is_VBZ calculated_VVN by_IN @(26_NN )_) where_WRB L1=12LWL−Lstern+x0L2=12LWL−Lbow−x0_NP and_CC Lstern_NP is_VBZ the_DT length_NN of_IN the_DT stern_JJ and_CC x0_NN =_SYM �_NP �_NP v/r_NP ._SENT 
+It_PP is_VBZ assumed_VVN that_IN ΔYi,bow_NP acts_VVZ on_IN the_DT middle_NN of_IN the_DT bow_NN ,_, i.e._FW ,_, @(27_JJ )_) At_IN each_DT time_NN step_NN ,_, the_DT contact_NN will_MD be_VB first_RB detected_VVN by_IN the_DT numerical_JJ method_NN ._SENT 
+If_IN a_DT contact_NN is_VBZ found_VVN ,_, the_DT pressure-area_NN relationship_NN will_MD be_VB applied_VVN to_TO determine_VV the_DT pressure_NN ._SENT 
+After_IN that_DT ,_, the_DT crushing_VVG force_NN is_VBZ calculated_VVN by_IN Eq_NP ._SENT 
+(_( 4_CD )_) ._SENT 
+The_DT breaking_NN force_NN can_MD be_VB obtained_VVN by_IN using_VVG Eqs_NNS ._SENT 
+(_( 8_CD )_) ,_, (_( 9_CD )_) ,_, (_( 10_CD )_) ,_, (_( 11_CD )_) and_CC further_RBR modified_VVN by_IN considering_VVG the_DT effect_NN of_IN flexural_JJ deflection_NN of_IN the_DT ice_NN plate_NN ._SENT 
+Finally_RB ,_, the_DT buoyancy_NN and_CC clearing_NN forces_NNS are_VBP determined_VVN by_IN using_VVG Eqs_NNS ._SENT 
+(_( 19_CD )_) ,_, (_( 20_CD )_) ,_, (_( 22_CD )_) ,_, (_( 24_CD )_) ,_, (_( 25_CD )_) ._SENT 
+2.3_CD ._SENT 
+Hydrodynamic_JJ forces_NNS The_DT hydrodynamic_JJ forces_NNS are_VBP determined_VVN as_RB follows_VVZ according_VVG to_TO the_DT work_NN of_IN Hirano_NP (_( 1981_CD )_) :_: @(28_NP )_) @(29_NP )_) @(30_NP )_) where_WRB @(31_JJ )_) @(32_NN )_) the_DT constant_JJ coefficients_NNS ,_, referred_VVD to_TO hydrodynamic_JJ derivatives_NNS ,_, are_VBP Xu˙=∂X∂u˙,Yv=∂Y∂v,Nvvr=∂N∂v2∂r,⋯_NP X(u_NP )_) represents_VVZ the_DT resistance_NN due_JJ to_TO water_NN and_CC is_VBZ calculated_VVN by_IN using_VVG the_DT prediction_NN method_NN proposed_VVN by_IN Holtrop_NP and_CC Mennen_NP (_( 1982_CD )_) ._SENT 
+In_IN this_DT paper_NN ,_, the_DT hydrodynamic_JJ derivatives_NNS were_VBD obtained_VVN from_IN the_DT PMM_NP tests_NNS with_IN a_DT 1:20_CD scale_NN ship_NN model_NN ._SENT 
+2.4_CD ._SENT 
+Operational_JJ forces_NNS The_DT operational_JJ forces_NNS consist_VVP of_IN two_CD parts_NNS :_: the_DT thrust_NN from_IN the_DT main_JJ propeller_NN and_CC the_DT lift_NN and_CC drag_NN forces_NNS due_JJ to_TO the_DT rudder_NN deflection_NN ._SENT 
+The_DT model_NN used_VVN by_IN Gong_NP (_( 1993_CD )_) was_VBD adopted_VVN in_IN this_DT work_NN ._SENT 
+@(33_NP )_) @(34_NP )_) @(35_NP )_) @(36_NP )_) where_WRB tP_NP and_CC tR_NP are_VBP the_DT wake_NN fractions_NNS due_JJ to_TO propeller_NN and_CC rudder_NN ,_, respectively_RB ;_: n_NN is_VBZ the_DT propeller_NN revolution_NN per_IN second_NN ,_, (_( rps_NP )_) ;_: DP_NP is_VBZ the_DT propeller_NN diameter_NN ;_: KT_NP is_VBZ the_DT thrust_NN coefficient_NN ;_: JP_NP =_SYM u/(nDP_NN )_) is_VBZ the_DT propeller_NN advance_NN ratio_NN ;_: αH_NP is_VBZ the_DT coefficient_NN of_IN hydrodynamic_JJ force_NN on_IN ship_NN hull_NN induced_VVN by_IN the_DT rudder_NN action_NN that_WDT can_MD be_VB estimated_VVN from_IN model_NN test_NN results_NNS ;_: xR_NP is_VBZ the_DT longitudinal_JJ location_NN of_IN the_DT rudder_NN ;_: δ_NP is_VBZ the_DT rudder_NN deflection_NN angle_NN ;_: and_CC FN_NP is_VBZ the_DT rudder_NN normal_JJ force_NN determined_VVN by_IN :_: @(37_JJ )_) where_WRB �_NP �_NP is_VBZ the_DT aspect_NN ratio_NN of_IN the_DT rudder_NN ;_: AR_NP is_VBZ the_DT projected_JJ rudder_NN area_NN ;_: UR_NP is_VBZ the_DT effective_JJ rudder_NN inflow_NN velocity_NN ;_: αR_NP is_VBZ the_DT effective_JJ rudder_NN inflow_NN angle_NN ._SENT 
+Different_JJ models_NNS are_VBP available_JJ for_IN the_DT calculation_NN of_IN the_DT effective_JJ rudder_NN inflow_NN velocity_NN and_CC angle_NN (_( Gong_NP ,_, 1993_CD ,_, Hirano_NP ,_, 1981_CD ,_, Kobayashi_NP et_CC al_NP ._SENT 
+,_, 2003_CD )_) ._SENT 
+The_DT one_CD proposed_VVN by_IN Hirano_NP (_( 1981_CD )_) was_VBD employed_VVN in_IN this_DT paper_NN ._SENT 
+2.5_CD ._SENT 
+Numerical_JJ implementation_NN At_IN each_DT time_NN step_NN ,_, the_DT external_JJ forces_NNS on_IN the_DT right_JJ hand_NN side_NN of_IN Eq_NP ._SENT 
+(_( 2_CD )_) are_VBP obtained_VVN by_IN the_DT numerical_JJ methods_NNS described_VVN above_IN ._SENT 
+Eq_NP ._SENT 
+(_( 2_CD )_) is_VBZ then_RB solved_VVN to_TO obtain_VV the_DT acceleration_NN in_IN the_DT o-xyz_NP frame_NN ._SENT 
+The_DT velocity_NN and_CC the_DT position_NN of_IN the_DT ship_NN are_VBP integrated_VVN by_IN using_VVG the_DT 4th-order_NP Runge–Kutta_NP method_NN according_VVG to_TO the_DT following_VVG vector_NN form_NN rewritten_VVN from_IN Eq_NP ._SENT 
+(_( 2_CD )_) :_: @(38_NP )_) where_WRB @_SYM @_SYM @_SYM @_SYM @_SYM where_WRB the_DT subscript_JJ k_NN and_CC k_NN +_SYM 1_LS represent_VV the_DT current_JJ and_CC the_DT subsequent_JJ time_NN steps_NNS ,_, respectively_RB ._SENT 
+The_DT position_NN and_CC the_DT orientation_NN of_IN the_DT ship_NN are_VBP calculated_VVN by_IN using_VVG Eq_NP ._SENT 
+(_( 38_CD )_) along_IN with_IN Eq_NP ._SENT 
+(_( 1_CD )_) ._SENT 
+Coordinates_VVZ of_IN the_DT nodes_NNS on_IN the_DT ice_NN edge_NN are_VBP then_RB updated_VVN based_VVN on_IN the_DT new_JJ position_NN and_CC orientation_NN ._SENT 
+<Section> 3._CD Simulation_NP results_NNS </Section> The_DT R-Class_JJ icebreaker_NN ,_, CCGS_VVZ Sir_NP John_NP Franklin_NP ,_, was_VBD used_VVN in_IN the_DT present_JJ studies_NNS ._SENT 
+It_PP has_VHZ a_DT relatively_RB simple_JJ underwater_JJ hull_NN form_NN ._SENT 
+The_DT vessel_NN is_VBZ one_CD of_IN most_JJS referred_VVD icebreaking_VVG hull_NN forms_NNS in_IN the_DT literature_NN since_IN it_PP was_VBD built_VVN in_IN 1979._CD Both_CC full-scale_JJ sea_NN trials_NNS and_CC ship_VV model_NN tests_NNS at_IN various_JJ scales_NNS of_IN the_DT ship_NN have_VHP been_VBN carried_VVN out_RP for_IN this_DT icebreaker_NN (_( Liu_NP ,_, 2009_CD )_) ._SENT 
+To_TO validate_VV the_DT proposed_VVN method_NN ,_, a_DT series_NN of_IN Planar_NP Motion_NP Mechanism_NN (_( PMM_NP )_) test_NN results_NNS were_VBD used_VVN ._SENT 
+The_DT numerical_JJ predictions_NNS were_VBD compared_VVN with_IN the_DT results_NNS of_IN full-scale_JJ sea_NN trials_NNS involving_VVG straight_JJ motion_NN and_CC turning_VVG ._SENT 
+The_DT principal_JJ dimensions_NNS of_IN the_DT ship_NN and_CC the_DT ice_NN properties_NNS at_IN model_NN scale_NN are_VBP listed_VVN in_IN Table_NN 1_CD ,_, Table_NN 2_CD ,_, respectively_RB ._SENT 
+The_DT waterline_NN profile_NN is_VBZ presented_VVN in_IN Fig_NN ._SENT 
+8._CD Fig_NN ._SENT 
+8._CD R-Class_JJ icebreaker_NN ship_NN model_NN (_( model_NN scale_NN ,_, unit_NN :_: m_NN )_) ._SENT 
+Table_NN 1._CD Principal_NN dimensions_NNS (_( model_NN scale_NN )_) ._SENT 
+Table_NN 2._CD Ice_NP mechanical_JJ properties_NNS (_( model_NN scale_NN )_) ._SENT 
+3.1_CD ._SENT 
+Convergence_NN studies_NNS Prior_RB to_TO simulating_VVG the_DT PMM_NP tests_NNS ,_, convergence_NN studies_NNS were_VBD carried_VVN out_RP to_TO investigate_VV the_DT effect_NN of_IN the_DT discrete_JJ length_NN (_( the_DT distance_NN between_IN two_CD adjacent_JJ points_NNS )_) and_CC the_DT time_NN step_NN on_IN the_DT mean_JJ ice_NN load_NN ._SENT 
+The_DT applicability_NN of_IN the_DT present_JJ method_NN to_TO ships_NNS at_IN different_JJ scales_NNS and_CC speeds_NNS were_VBD also_RB studied_VVN ._SENT 
+The_DT 1:20_CD scale_NN R-Class_JJ icebreaker_NN model_NN and_CC the_DT full-scale_JJ ship_NN were_VBD used_VVN ._SENT 
+In_IN the_DT simulation_NN of_IN the_DT straight_JJ tow_NN tests_NNS ,_, the_DT chosen_VVN velocities_NNS were_VBD 0.5_CD m/s_NNS and_CC 0.7_CD m/s_NNS in_IN model_NN scale_NN ._SENT 
+The_DT nondimensional_JJ discrete_JJ length_NN ,_, l′_NP ,_, and_CC the_DT nondimensional_JJ time_NN step_NN ,_, dt′_NP ,_, were_VBD defined_VVN as_RB follows_VVZ :_: @(39_NP )_) where_WRB l_NN is_VBZ the_DT discrete_JJ length_NN and_CC dt_NP is_VBZ the_DT time_NN step_NN used_VVN in_IN the_DT simulations_NNS ._SENT 
+Fig_NN ._SENT 
+9_CD presents_VVZ the_DT mean_JJ ice_NN resistances_NNS computed_VVN with_IN various_JJ discrete_JJ lengths_NNS ,_, and_CC Fig_NN ._SENT 
+10_CD shows_NNS the_DT resistances_NNS computed_VVD using_VVG different_JJ time_NN steps_NNS ._SENT 
+Good_JJ convergence_NN in_IN model_NN scale_NN is_VBZ observed_VVN ._SENT 
+The_DT corresponding_JJ speeds_NNS for_IN full_JJ scale_NN are_VBP 2.236_CD m/s_NNS (_( 4_CD knots_NNS )_) and_CC 3.13_CD m/s_NNS (_( 6_CD knots_NNS )_) ._SENT 
+Since_IN the_DT full-scale_JJ measurements_NNS are_VBP not_RB available_JJ at_IN these_DT speeds_NNS ,_, the_DT simulated_JJ results_NNS were_VBD compared_VVN to_TO the_DT empirical_JJ solution_NN based_VVN on_IN the_DT work_NN of_IN Spencer_NP and_CC Jones_NP (_( 2001_CD )_) ._SENT 
+The_DT resistance_NN in_IN full_JJ scale_NN was_VBD estimated_VVN to_TO be_VB 389.6_CD kN_NN and_CC 442.5_CD kN_NNS ,_, respectively_RB ._SENT 
+Good_JJ agreement_NN is_VBZ also_RB found_VVN for_IN full_JJ scale_NN cases_NNS ._SENT 
+Fig_NN ._SENT 
+9._CD Convergence_NN of_IN ice_NN resistance_NN with_IN respect_NN to_TO the_DT discrete_JJ length_NN ._SENT 
+Fig_NN ._SENT 
+10._CD Convergence_NN of_IN ice_NN resistance_NN with_IN respect_NN to_TO the_DT time_NN step_NN ._SENT 
+From_IN Fig_NN ._SENT 
+9_CD ,_, Fig_NN ._SENT 
+10_CD ,_, it_PP can_MD be_VB seen_VVN that_IN the_DT computations_NNS are_VBP converged_VVN in_IN all_PDT the_DT cases_NNS when_WRB the_DT nondimensional_JJ discrete_JJ length_NN is_VBZ smaller_JJR than_IN 0.01_CD and_CC the_DT nondimensional_JJ time_NN step_NN is_VBZ greater_JJR than_IN 5._CD This_DT indicates_VVZ that_IN the_DT scale_NN and_CC the_DT ship_NN speed_NN will_MD not_RB affect_VV the_DT accuracy_NN of_IN simulation_NN if_IN proper_JJ values_NNS of_IN nondimensional_JJ length_NN and_CC time_NN step_NN are_VBP selected_VVN ,_, i.e._FW ,_, the_DT proposed_VVN numerical_JJ method_NN is_VBZ suitable_JJ for_IN various_JJ scales_NNS and_CC ship_NN speeds_NNS ._SENT 
+This_DT conclusion_NN needs_VVZ to_TO be_VB further_RBR verified_VVN by_IN using_VVG experimental_JJ and/or_JJ numerical_JJ results_NNS in_IN different_JJ scales_NNS ._SENT 
+In_IN the_DT following_VVG simulations_NNS ,_, the_DT nondimensional_JJ discrete_JJ length_NN and_CC time_NN step_NN were_VBD chosen_VVN as_IN 0.005_CD and_CC 5_CD ,_, respectively_RB ._SENT 
+3.2_CD ._SENT 
+Study_NN of_IN empirical_JJ parameters_NNS The_DT parameters_NNS ,_, Cf_NP ,_, Cl_NP and_CC Cv_NP ,_, need_VVP to_TO be_VB determined_VVN for_IN different_JJ types_NNS of_IN ice_NN and_CC vessels_NNS ._SENT 
+Note_NN that_IN Cf_NP is_VBZ used_VVN to_TO determine_VV the_DT peak_NN force_NN of_IN a_DT single_JJ contact_NN and_CC Cl_NP and_CC Cv_NP are_VBP used_VVN to_TO determine_VV the_DT size_NN of_IN a_DT broken_VVN ice_NN piece_NN ._SENT 
+The_DT parameter_NN ,_, Cl_NP ,_, significantly_RB affects_VVZ the_DT time_NN history_NN of_IN ice_NN loads_NNS since_IN smaller_JJR ice_NN pieces_NNS will_MD be_VB broken_VVN off_RP if_IN a_DT ship_NN rapidly_RB collides_VVZ with_IN the_DT ice_NN sheet_NN ._SENT 
+The_DT first_JJ step_NN is_VBZ to_TO select_VV Cl_NP according_VVG to_TO physical_JJ observations_NNS ._SENT 
+Wang_NP (_( 2001_CD )_) used_VVD 0.32_CD in_IN her_PP$ study_NN ;_: Lau_NP et_NP al_NP ._SENT 
+(_( 2004_CD )_) used_VVD a_DT different_JJ model_NN but_CC the_DT crack_NN to_TO be_VB 0.2_CD of_IN the_DT characteristic_JJ length_NN ._SENT 
+According_VVG to_TO the_DT observation_NN from_IN Liu_NP et_CC al_NP ._SENT 
+(_( 2008_CD )_) ,_, Cl_NP is_VBZ selected_VVN to_TO be_VB 0.3_CD in_IN this_DT study_NN ._SENT 
+Once_RB Cl_NP is_VBZ determined_VVN ,_, the_DT values_NNS of_IN Cf_NP and_CC Cv_NP are_VBP tuned_VVN by_IN comparing_VVG the_DT average_JJ resistance_NN of_IN simulation_NN results_NNS against_IN experimental_JJ measurements_NNS ._SENT 
+Fig_NN ._SENT 
+11_CD presents_VVZ the_DT mean_JJ resistance_NN against_IN ship_NN velocity_NN with_IN different_JJ Cf_NN values_NNS ._SENT 
+Good_JJ agreement_NN is_VBZ observed_VVN between_IN measurements_NNS and_CC simulations_NNS when_WRB Cf_NN is_VBZ 2.2_CD ._SENT 
+The_DT parameter_NN ,_, Cv_NP ,_, is_VBZ used_VVN to_TO include_VV the_DT speed_NN effect_NN on_IN the_DT size_NN of_IN the_DT broken_VVN ice_NN floe_NN ._SENT 
+Wang_NP (_( 2001_CD )_) used_VVD �_JJ �_NP 0.14_CD for_IN Cv_NP in_IN her_PP$ study_NN ;_: Lau_NP et_NP al_NP ._SENT 
+(_( 2004_CD )_) does_VVZ not_RB include_VV the_DT velocity_NN effect_NN when_WRB determining_VVG the_DT size_NN of_IN the_DT crack_NN cusp_NN ._SENT 
+Cv_NP is_VBZ set_VVN as_IN �_JJ �_NP 0.5_CD in_IN model_NN scale_NN ._SENT 
+It_PP should_MD be_VB pointed_VVN out_RP that_IN Cv_NP has_VHZ unit_NN of_IN s/m_NN ,_, and_CC Froude_NNS 's_POS law_NN is_VBZ applied_VVN to_TO get_VV the_DT value_NN for_IN full_JJ scale_NN (_( Cv_NP =_SYM �_JJ �_JJ 0.11s/m_NN )_) ._SENT 
+Fig_NN ._SENT 
+11._CD Resistance_NN versus_IN velocity_NN with_IN different_JJ Cf_NN ._SENT 
+As_IN shown_VVN in_IN Fig_NN ._SENT 
+11_CD ,_, the_DT change_NN of_IN Cf_NP will_MD affect_VV the_DT relationship_NN between_IN the_DT speed_NN and_CC the_DT resistance_NN (_( e.g._FW ,_, larger_JJR values_NNS of_IN Cf_NN result_NN in_IN a_DT more_RBR steep_JJ increase_NN trend_NN of_IN resistance_NN )_) ._SENT 
+Once_RB the_DT value_NN is_VBZ determined_VVN ,_, it_PP can_MD be_VB used_VVN for_IN all_PDT the_DT simulations_NNS ._SENT 
+A_DT larger_JJR Cf_NN results_NNS in_IN a_DT larger_JJR peak_NN value_NN and_CC hence_RB a_DT larger_JJR mean_JJ resistance_NN ._SENT 
+Note_NN that_IN Cl_NP denotes_VVZ the_DT proportion_NN of_IN broken_VVN ice_NN radius_NN and_CC the_DT characteristic_JJ length_NN as_IN shown_VVN in_IN Eq_NP ._SENT 
+(_( 17_CD )_) ._SENT 
+With_IN a_DT smaller_JJR value_NN of_IN Cl_NP ,_, smaller_JJR ice_NN floe_NN will_MD be_VB generated_VVN ,_, which_WDT results_VVZ in_IN more_RBR frequent_JJ interaction_NN between_IN the_DT vessel_NN and_CC the_DT ice_NN ._SENT 
+This_DT manifests_NNS into_IN a_DT larger_JJR mean_JJ ice_NN resistance_NN which_WDT is_VBZ shown_VVN in_IN Fig_NN ._SENT 
+12._CD Fig_NN ._SENT 
+12._CD Resistance_NN versus_IN Cl_NP with_IN different_JJ velocities_NNS ._SENT 
+Cv_NP illustrates_VVZ the_DT size_NN of_IN ice_NN floe_NN varies_VVZ according_VVG to_TO normal_JJ velocity_NN of_IN collision_NN ._SENT 
+A_DT higher_JJR velocity_NN of_IN the_DT vessel_NN results_NNS in_IN a_DT higher_JJR normal_JJ velocity_NN of_IN collision_NN and_CC hence_RB a_DT smaller_JJR ice_NN floe_NN ._SENT 
+Fig_NN ._SENT 
+13_CD presents_NNS the_DT histogram_NN of_IN ratio_NN of_IN crack_NN radius_NN and_CC ice_NN thickness_NN at_IN varying_VVG velocities_NNS ._SENT 
+The_DT values_NNS of_IN radius_NN fall_NN within_IN a_DT limited_JJ range_NN ._SENT 
+There_EX is_VBZ no_DT obvious_JJ trend_NN that_IN radius_NN distribution_NN changes_NNS according_VVG to_TO vessel_NN velocities_NNS ._SENT 
+Fig_NN ._SENT 
+14_CD gives_VVZ the_DT relationship_NN between_IN mean_JJ resistance_NN and_CC velocity_NN with_IN different_JJ Cv_NP values_NNS ._SENT 
+Linear_JJ relationship_NN is_VBZ observed_VVN in_IN all_DT cases_NNS ,_, but_CC the_DT slopes_NNS are_VBP different_JJ ._SENT 
+Smaller_JJR value_NN of_IN Cv_NP results_NNS in_IN larger_JJR resistance_NN ._SENT 
+However_RB ,_, comparing_VVG to_TO Cf_NP and_CC Cl_NP ,_, the_DT effect_NN of_IN Cv_NP on_IN resistance_NN is_VBZ limited_VVN ._SENT 
+Fig_NN ._SENT 
+13._CD Ratio_NN of_IN crack_NN radius_NN and_CC ice_NN thickness_NN at_IN varying_VVG velocities_NNS ._SENT 
+Fig_NN ._SENT 
+14._CD Resistance_NN versus_IN velocities_NNS with_IN different_JJ Cv_NP ._SENT 
+All_DT three_CD parameters_NNS will_MD affect_VV the_DT mean_JJ resistance_NN ._SENT 
+Cf_NP determines_VVZ the_DT peak_NN value_NN of_IN the_DT breaking_VVG force_NN and_CC directly_RB affects_VVZ the_DT mean_JJ resistance_NN ;_: Cl_NP and_CC Cv_NP directly_RB determine_VV the_DT size_NN of_IN ice_NN floe_NN and_CC have_VHP indirect_JJ effects_NNS on_IN the_DT resistance_NN ._SENT 
+Further_JJR studies_NNS are_VBP recommended_VVN for_IN those_DT parameters_NNS if_IN the_DT measured_VVN peak_NN value_NN and_CC ice_NN floe_NN sizes_NNS are_VBP available_JJ from_IN field_NN or_CC model_NN test_NN data_NNS ._SENT 
+3.3_CD ._SENT 
+Effect_NN of_IN flexural_JJ ice_NN plate_NN model_NN A_DT flexural_JJ ice_NN plate_NN model_NN was_VBD introduced_VVN to_TO solve_VV the_DT ship-level_JJ ice_NN interaction_NN problem_NN ._SENT 
+The_DT effect_NN and_CC the_DT significance_NN of_IN the_DT model_NN were_VBD studied_VVN in_IN model_NN scale_NN ._SENT 
+A_DT single_JJ crushing-bending-_NN breaking_VVG event_NN was_VBD simulated_JJ ,_, which_WDT started_VVD from_IN the_DT ship_NN stem_NN contacting_VVG with_IN a_DT semi-infinite_JJ ice_NN plate_NN until_IN an_DT ice_NN floe_NN was_VBD broken_VVN off_RP the_DT plate_NN ._SENT 
+Three_CD different_JJ ice_NN plates_NNS were_VBD used_VVN :_: a_DT rigid_JJ ice_NN plate_NN ,_, a_DT flexural_JJ ice_NN plate_NN with_IN a_DT high_JJ flexural_JJ strength_NN ratio_NN (_( E/σf_NN =_SYM 6400_CD )_) ,_, and_CC an_DT ice_NN plate_NN with_IN a_DT low_JJ flexural_JJ strength_NN ratio_NN (_( E/σf_NN =_SYM 1400_CD )_) ._SENT 
+The_DT strength_NN ratios_NNS were_VBD determined_VVN based_VVN on_IN the_DT work_NN of_IN Valanto_NP (_( 1989_CD )_) ._SENT 
+Fig_NN ._SENT 
+15_CD presents_VVZ the_DT breaking_VVG force_NN versus_IN the_DT simulation_NN time_NN ._SENT 
+When_WRB the_DT ship_NN contacts_NNS with_IN the_DT ice_NN plate_NN ,_, the_DT breaking_VVG force_NN increases_NNS from_IN zero_CD to_TO a_DT maximum_JJ value_NN where_WRB the_DT breaking_VVG failure_NN occurs_VVZ ._SENT 
+After_IN that_DT ,_, the_DT ship_NN loses_VVZ contact_NN with_IN ice_NN and_CC the_DT breaking_VVG force_NN falls_VVZ back_RB to_TO zero_CD ._SENT 
+Fig_NN ._SENT 
+15._CD Breaking_VVG force_NN in_IN a_DT single_JJ crushing-breaking_NN event_NN (_( 0.5_CD m/s_NNS )_) ._SENT 
+It_PP is_VBZ clear_JJ that_IN the_DT maximum_JJ values_NNS of_IN breaking_VVG forces_NNS are_VBP identical_JJ (_( �_NP �_NP 20.90N_NP )_) in_IN the_DT three_CD cases_NNS ;_: however_RB ,_, the_DT interaction_NN durations_NNS and_CC the_DT mean_JJ forces_NNS vary_VVP during_IN the_DT interactions_NNS ._SENT 
+Fig_NN ._SENT 
+15_CD indicates_VVZ that_IN the_DT lower_JJR the_DT flexural_JJ strength_NN ratio_NN of_IN the_DT ice_NN sheet_NN is_VBZ ,_, the_DT longer_RBR the_DT duration_NN of_IN interaction_NN will_MD be_VB ._SENT 
+Table_NN 3_CD presents_NNS a_DT comparison_NN between_IN different_JJ types_NNS of_IN ice_NN sheets_NNS ._SENT 
+The_DT duration_NN and_CC the_DT maximum_JJ vertical_JJ deformation_NN increase_NN greatly_RB ,_, which_WDT indicates_VVZ bending_VVG is_VBZ an_DT component_NN of_IN this_DT single_JJ event_NN ._SENT 
+However_RB ,_, a_DT very_RB small_JJ difference_NN was_VBD observed_VVN in_IN the_DT mean_JJ breaking_NN forces_NNS ,_, especially_RB for_IN the_DT ice_NN floes_NNS with_IN different_JJ flexural_JJ strength_NN ratios_NNS ._SENT 
+Table_NN 3._CD Parameters_NNS for_IN a_DT single_JJ crushing-bending-breaking_NN event_NN ._SENT 
+The_DT deflection_NN ratios_NNS in_IN the_DT table_NN represent_VVP the_DT ratios_NNS between_IN the_DT flexural_JJ deflection_NN and_CC the_DT characteristic_JJ length_NN of_IN the_DT ice_NN plate_NN ._SENT 
+Those_DT values_NNS are_VBP smaller_JJR than_IN 0.1_CD ,_, which_WDT verifies_VVZ that_IN the_DT assumption_NN of_IN parallel_JJ downward_JJ movement_NN is_VBZ valid_JJ ._SENT 
+The_DT assumption_NN that_WDT neglects_VVZ the_DT ship_NN vertical_JJ movement_NN can_MD also_RB be_VB verified_VVN by_IN comparing_VVG the_DT maximum_JJ breaking_NN force_NN with_IN the_DT ship_NN displacement_NN ._SENT 
+3.4_CD ._SENT 
+Model-scale_NP PMM_NP tests_VVZ PMM_NP tests_NNS were_VBD simulated_JJ and_CC compared_VVN with_IN model_NN test_NN results_NNS to_TO validate_VV the_DT numerical_JJ predictions_NNS ._SENT 
+In_IN the_DT PMM_NP tests_NNS ,_, the_DT amplitude_NN of_IN the_DT lateral_JJ displacement_NN was_VBD 2.5_CD m_NN and_CC the_DT ice_NN loads_NNS in_IN surge_NN ,_, sway_VVP and_CC yaw_VVP were_VBD measured_VVN ._SENT 
+Average_JJ loads_NNS were_VBD recorded_VVN every_DT 2_CD seconds_NNS ._SENT 
+Each_DT test_NN lasted_VVD 50s_NNS ._SENT 
+In_IN order_NN to_TO compare_VV the_DT simulation_NN results_NNS with_IN the_DT measured_VVN data_NNS ,_, the_DT identical_JJ test_NN setup_NN and_CC data_NN processing_NN technique_NN were_VBD applied_VVN in_IN the_DT simulation_NN ._SENT 
+A_DT sample_NN of_IN ship_NN model_NN track_NN and_CC the_DT broken_VVN ice_NN channel_NN is_VBZ shown_VVN in_IN Fig_NN ._SENT 
+16._CD Fig_NN ._SENT 
+16._CD Broken_NP ice_NN channel_NN in_IN a_DT pure_JJ yaw_VVP model_NN test_NN (_( unit_NN :_: m_NN )_) ._SENT 
+Fig_NN ._SENT 
+17_CD ,_, Fig_NN ._SENT 
+18_CD ,_, Fig_NN ._SENT 
+19_CD present_NN the_DT time_NN histories_NNS of_IN surge_NN resistance_NN ,_, sway_NN force_NN ,_, and_CC yaw_VVP moment_NN ,_, respectively_RB ._SENT 
+The_DT red_JJ lines_NNS represent_VVP the_DT measured_VVN data_NNS and_CC the_DT blue_JJ scattered_JJ dots_NNS represent_VVP the_DT simulation_NN results_NNS ._SENT 
+From_IN Fig_NN ._SENT 
+17_CD ,_, it_PP can_MD be_VB observed_VVN that_IN the_DT measured_VVN surge_NN resistance_NN oscillates_VVZ with_IN a_DT constant_JJ period_NN (_( approximately_RB 25_CD s_NNS )_) which_WDT is_VBZ half_JJ of_IN the_DT set_VVN value_NN of_IN the_DT test_NN ._SENT 
+This_DT is_VBZ because_IN the_DT sway_NN velocity_NN was_VBD not_RB strictly_RB zero_CD in_IN the_DT model_NN tests_NNS ._SENT 
+The_DT average_JJ measured_JJ resistance_NN is_VBZ 73.680_CD N._NP A_DT consistent_JJ average_JJ resistance_NN (_( 73.677_CD N_NP )_) was_VBD obtained_VVN from_IN the_DT simulation_NN ._SENT 
+However_RB ,_, the_DT explicit_JJ periodicity_NN cannot_MD be_VB observed_VVN in_IN the_DT numerical_JJ results_NNS ._SENT 
+Fig_NN ._SENT 
+17._CD Time_NN history_NN of_IN surge_NN resistance_NN ._SENT 
+Fig_NN ._SENT 
+18._CD Time_NN history_NN of_IN sway_NN force_NN ._SENT 
+Fig_NN ._SENT 
+19._CD Time_NN history_NN of_IN yaw_VV moment_NN ._SENT 
+In_IN Fig_NN ._SENT 
+18_CD ,_, Fig_NN ._SENT 
+19_CD ,_, the_DT consistent_JJ and_CC explicit_JJ oscillatory_JJ motions_NNS can_MD be_VB seen_VVN in_IN both_CC the_DT measured_JJ and_CC numerical_JJ results_NNS ._SENT 
+It_PP is_VBZ also_RB clear_JJ that_IN the_DT amplitudes_NNS of_IN computed_VVN sway_NN force_NN and_CC yaw_VVP moment_NN are_VBP slightly_RB smaller_JJR than_IN the_DT measured_VVN data_NNS ._SENT 
+This_DT phenomenon_NN is_VBZ validated_VVN by_IN the_DT regression_NN relationship_NN as_IN shown_VVN in_IN Fig_NN ._SENT 
+20._CD One_CD possible_JJ factor_NN that_IN results_NNS in_IN this_DT phenomenon_NN is_VBZ the_DT non-zero_NP sway_NN velocity_NN ._SENT 
+Due_JJ to_TO the_DT existence_NN of_IN sway_NN velocity_NN in_IN the_DT pure_JJ yaw_VVP test_NN ,_, the_DT mean_JJ force_NN acting_VVG on_IN midship_JJ may_MD be_VB estimated_VVN incorrectly_RB so_RB that_IN the_DT predicted_VVN sway_NN force_NN and_CC yaw_VVP moment_NN are_VBP smaller_JJR than_IN measured_VVN values_NNS ._SENT 
+This_DT should_MD be_VB further_RBR investigated_VVN with_IN more_JJR experimental_JJ data_NNS ._SENT 
+Fig_NN ._SENT 
+20._CD Relationship_NN between_IN yaw_VV moment_NN and_CC yaw_VV rate_NN ._SENT 
+3.5_CD ._SENT 
+Full-scale_JJ straight_JJ running_VVG test_NN The_DT full-scale_JJ results_NNS of_IN free_JJ running_VVG tests_NNS were_VBD used_VVN to_TO validate_VV the_DT total_JJ resistance_NN and_CC the_DT propulsive_JJ performance_NN of_IN the_DT ship_NN ._SENT 
+The_DT full-scale_JJ free_JJ running_NN tests_NNS were_VBD simulated_JJ in_IN open_JJ water_NN and_CC in_IN level_NN ice_NN ._SENT 
+The_DT computed_VVN propeller_NN thrust_NN and_CC the_DT total_JJ resistance_NN were_VBD compared_VVN to_TO the_DT sea_NN trial_NN data_NNS from_IN Keinonen_NP (_( 1996_CD )_) and_CC the_DT analytical_JJ solutions_NNS using_VVG the_DT formulas_NNS from_IN Spencer_NP and_CC Jones_NP (_( 2001_CD )_) ._SENT 
+The_DT speed_NN range_NN of_IN the_DT tests_NNS in_IN open_JJ water_NN is_VBZ from_IN 6.34_CD m/s_NNS to_TO 8.35_CD m/s_NNS ,_, and_CC that_IN of_IN the_DT test_NN in_IN level_NN ice_NN is_VBZ from_IN 2.3_CD m/s_NNS to_TO 6.3_CD m/s_NNS ._SENT 
+The_DT ice_NN thicknesses_NNS vary_VVP from_IN 0.489_CD m_NN to_TO 0.592_CD m._NN The_DT simulations_NNS were_VBD conducted_VVN by_IN restricting_VVG sway_NN and_CC yaw_VV motions_NNS of_IN the_DT ship_NN ._SENT 
+Comparisons_NNS were_VBD made_VVN among_IN the_DT numerical_JJ results_NNS ,_, empirical_JJ solutions_NNS and_CC the_DT sea-trial_JJ data_NNS ._SENT 
+Fig_NN ._SENT 
+21_CD ,_, Fig_NN ._SENT 
+22_CD present_NN the_DT resistance_NN and_CC the_DT propeller_NN thrust_NN in_IN open_JJ water_NN ._SENT 
+It_PP can_MD be_VB observed_VVN that_IN the_DT computed_VVN open_JJ water_NN resistance_NN and_CC the_DT thrust_NN follow_VV the_DT same_JJ trend_NN of_IN the_DT sea_NN trial_NN results_NNS ,_, but_CC are_VBP slightly_RB smaller_JJR ._SENT 
+Fig_NN ._SENT 
+21._CD Resistance_NN in_IN open_JJ water_NN ._SENT 
+Fig_NN ._SENT 
+22._CD Thrust_NN in_IN open_JJ water_NN ._SENT 
+The_DT total_JJ resistance_NN and_CC the_DT thrust_NN in_IN ice_NN are_VBP presented_VVN in_IN Fig_NN ._SENT 
+23_CD ,_, Fig_NN ._SENT 
+24._CD The_DT numerical_JJ results_NNS by_IN the_DT present_JJ method_NN are_VBP compared_VVN with_IN the_DT sea-trial_JJ data_NNS and_CC the_DT empirical_JJ solutions_NNS ._SENT 
+The_DT computed_VVN resistances_NNS are_VBP in_IN good_JJ agreement_NN with_IN the_DT empirical_JJ results_NNS ,_, while_IN the_DT propeller_NN thrusts_NNS based_VVN on_IN numerical_JJ simulations_NNS and_CC empirical_JJ formulas_NNS are_VBP not_RB in_IN good_JJ agreement_NN ._SENT 
+Neither_CC the_DT empirical_JJ results_NNS of_IN the_DT thrust_NN nor_CC the_DT predicted_VVN thrusts_NNS show_VVP good_JJ agreement_NN with_IN the_DT sea-trial_JJ measurement_NN ._SENT 
+Fig_NN ._SENT 
+23._CD Resistance_NN in_IN level_NN ice_NN covered_VVN water_NN ._SENT 
+Fig_NN ._SENT 
+24._CD Thrust_NN in_IN level_NN ice_NN covered_VVN water_NN ._SENT 
+The_DT relatively_RB poor_JJ agreement_NN between_IN the_DT numerical_JJ prediction_NN and_CC the_DT measurement_NN is_VBZ not_RB necessarily_RB a_DT weakness_NN of_IN this_DT model_NN since_IN the_DT thrust_NN is_VBZ difficult_JJ to_TO measure_VV accurately_RB in_IN the_DT field_NN trials_NNS ._SENT 
+The_DT fluctuated_VVN nature_NN of_IN the_DT predicted_VVN ice_NN resistance_NN may_MD be_VB responsible_JJ for_IN the_DT discrepancy_NN between_IN the_DT predicted_VVN and_CC empirical_JJ thrusts_NNS ._SENT 
+From_IN an_DT energy_NN perspective_NN ,_, the_DT computed_VVN ice_NN load_NN oscillates_VVZ with_IN a_DT relatively_RB small_JJ mean_JJ value_NN and_CC high_JJ peaks_NNS ._SENT 
+This_DT may_MD result_VV in_IN more_JJR energy_NN consumption_NN in_IN order_NN to_TO maintain_VV the_DT speed_NN ._SENT 
+Therefore_RB ,_, a_DT larger_JJR mean_NN thrust_NN was_VBD obtained_VVN from_IN the_DT simulation_NN ._SENT 
+3.6_CD ._SENT 
+Full-scale_JJ turning_VVG test_NN The_DT turning_VVG performance_NN was_VBD also_RB investigated_VVN and_CC compared_VVN with_IN the_DT results_NNS of_IN sea_NN trials_NNS in_IN open_JJ water_NN and_CC in_IN level_NN ice_NN (_( Keinonen_NP ,_, 1996_CD )_) ._SENT 
+All_DT trials_NNS were_VBD conducted_VVN with_IN 35∘_JJ starboard_JJ rudder_NN ._SENT 
+The_DT comparison_NN of_IN the_DT steady_JJ speed_NN in_IN turn_NN and_CC the_DT turning_VVG diameter_NN between_IN sea_NN trials_NNS and_CC the_DT simulation_NN results_NNS is_VBZ presented_VVN in_IN Table_NN 4._CD The_DT turning_NN circles_NNS and_CC the_DT ice_NN breaking_VVG channel_NN are_VBP presented_VVN in_IN Fig_NN ._SENT 
+25._CD The_DT sample_NN time_NN histories_NNS of_IN ship_NN velocity_NN and_CC ice_NN load_NN in_IN surge_NN ,_, sway_NN ,_, and_CC yaw_VVP in_IN the_DT ice_NN field_NN are_VBP presented_VVN in_IN Fig_NN ._SENT 
+26_CD ,_, Fig_NN ._SENT 
+27._CD Table_NN 4._CD Full-scale_JJ turning_VVG performance_NN ,_, LWL_NN =_SYM 92.31_CD m._JJ Fig_NN ._SENT 
+25._CD Turning_VVG track_NN and_CC ice_NN channel_NN ._SENT 
+Fig_NN ._SENT 
+26._CD Time_NN history_NN of_IN velocities_NNS (_( full_JJ scale_NN )_) ._SENT 
+Fig_NN ._SENT 
+27._CD Time_NN history_NN of_IN ice_NN loads_NNS and_CC mean_JJ values_NNS (_( full_JJ scale_NN )_) ._SENT 
+In_IN the_DT simulations_NNS ,_, the_DT ship_NN was_VBD kept_VVN straight_RB for_IN 600_CD m_NN and_CC then_RB was_VBD turned_VVN using_VVG a_DT full_JJ rudder_NN angle_NN (_( 35∘_NP )_) ._SENT 
+The_DT initial_JJ speed_NN was_VBD 6.17_CD m/s_NNS (_( 12.0knots_NNS )_) ._SENT 
+The_DT shaft_NN speed_NN was_VBD 170_CD rpm_NN in_IN ice_NN and_CC 120_CD rpm_NN in_IN water_NN ._SENT 
+Good_JJ agreement_NN between_IN the_DT sea-trial_NN and_CC simulation_NN results_NNS indicates_VVZ that_IN the_DT numerical_JJ method_NN is_VBZ able_JJ to_TO simulate_VV the_DT turning_NN of_IN the_DT ship_NN ._SENT 
+The_DT turning_VVG circles_NNS are_VBP shown_VVN in_IN Fig_NN ._SENT 
+25._CD Fig_NN ._SENT 
+26_CD presents_VVZ the_DT 3DOF_JJ ship_NN velocities_NNS during_IN the_DT simulation_NN period_NN (_( 700_CD sec_NN )_) ._SENT 
+Fig_NN ._SENT 
+27_CD shows_NNS the_DT 3DOF_JJ ice_NN loads_NNS in_IN a_DT time_NN period_NN of_IN 40_CD s_NNS during_IN turning_VVG in_IN the_DT level_NN ice_NN ._SENT 
+The_DT ship_NN started_VVD turning_VVG at_IN 90.48_CD s_NNS and_CC obtained_VVD a_DT stable_JJ speed_NN (_( 5.14_CD m/s_NNS )_) at_IN 200_CD s._NN The_DT steady_JJ sway_NN speed_NN is_VBZ 0.58_CD m/s_NNS to_TO the_DT port_JJ side_NN and_CC the_DT yaw_VVP rate_NN is_VBZ 0.5_CD deg/s_NNS clockwise_RB ._SENT 
+The_DT mean_JJ resistance_NN during_IN the_DT steady_JJ turning_NN is_VBZ 0.566_CD MN_NNS ._SENT 
+The_DT mean_JJ value_NN of_IN yaw_VV moment_NN is_VBZ 11.93_CD MNm_NN ._SENT 
+The_DT velocities_NNS and_CC the_DT ice_NN loads_NNS in_IN sway_NN and_CC yaw_VV each_DT have_VHP non-zero_NP value_NN due_JJ to_TO the_DT turning_NN ._SENT 
+They_PP oscillate_VVP around_IN the_DT mean_JJ value_NN due_JJ to_TO the_DT ice_NN breaking_VVG process_NN ._SENT 
+<Section> 4._CD Conclusions_NNS </Section> A_DT numerical_JJ model_NN for_IN simulating_VVG ship_NN maneuvering_NN performance_NN in_IN level_NN ice_NN has_VHZ been_VBN developed_VVN and_CC verified_VVN by_IN comparing_VVG the_DT numerical_JJ results_NNS to_TO measured_JJ data_NNS and_CC empirical_JJ solutions_NNS of_IN the_DT R-Class_JJ icebreaker_NN ,_, CCG_NP Sir_NP John_NP Franklin_NP ._SENT 
+The_DT numerical_JJ model_NN has_VHZ been_VBN developed_VVN considering_VVG similar_JJ strategies_NNS and_CC assumptions_NNS made_VVN by_IN previous_JJ researchers_NNS ._SENT 
+It_PP has_VHZ been_VBN extended_VVN by_IN considering_VVG the_DT effect_NN of_IN buoyancy_NN and_CC clearing_NN terms_NNS on_IN sway_NN and_CC yaw_VV motions_NNS ._SENT 
+Moreover_RB ,_, the_DT effect_NN of_IN the_DT flexural_JJ deflection_NN of_IN ice_NN plate_NN is_VBZ considered_VVN in_IN the_DT model_NN ._SENT 
+The_DT water_NN support_NN of_IN the_DT ice_NN plate_NN is_VBZ treated_VVN as_IN an_DT elastic_JJ foundation_NN ._SENT 
+The_DT main_JJ conclusions_NNS can_MD be_VB drawn_VVN as_RB follows_VVZ :_: 1._CD A_DT contact_NN detecting_VVG method_NN (_( the_DT polygon-point_NN algorithm_NN )_) was_VBD proposed_VVN ._SENT 
+As_IN shown_VVN in_IN Fig_NN ._SENT 
+5_LS ,_, Fig_VV ._SENT 
+6_CD ,_, good_JJ convergence_NN was_VBD obtained_VVN in_IN a_DT wide_JJ range_NN of_IN discrete_JJ lengths_NNS and_CC time_NN steps_NNS ._SENT 
+By_IN using_VVG nondimensional_JJ length_NN and_CC time_NN step_NN ,_, the_DT effects_NNS of_IN scaling_NN and_CC velocity_NN were_VBD avoided_VVN ._SENT 
+This_DT indicates_VVZ that_IN the_DT identical_JJ values_NNS of_IN nondimensional_JJ discrete_JJ length_NN and_CC time_NN step_NN could_MD apply_VV to_TO different_JJ cases_NNS ._SENT 
+2._CD The_DT effect_NN of_IN the_DT elastic_JJ foundation_NN for_IN the_DT ice_NN plate_NN on_IN ship–ice_JJ interaction_NN process_NN was_VBD considered_VVN ._SENT 
+The_DT elastic_JJ foundation_NN tends_VVZ to_TO increase_VV the_DT mean_JJ ice_NN resistance_NN and_CC extends_VVZ the_DT duration_NN of_IN each_DT single_JJ contact-bending-breaking_NN process_NN ._SENT 
+3._CD A_DT method_NN was_VBD developed_VVN to_TO consider_VV the_DT effect_NN of_IN buoyancy_NN and_CC clearing_NN forces_NNS on_IN sway_NN and_CC yaw_VV motions_NNS ._SENT 
+It_PP is_VBZ based_VVN on_IN an_DT empirical_JJ calculation_NN of_IN resistance_NN and_CC takes_VVZ the_DT hull_NN geometry_NN and_CC the_DT ship_NN speed_NN into_IN account_NN ._SENT 
+It_PP is_VBZ validated_VVN by_IN using_VVG the_DT model_JJ PMM_NP tests_NNS and_CC the_DT full-scale_JJ sea_NN trial_NN results_NNS ._SENT 
+Therefore_RB ,_, the_DT proposed_VVN numerical_JJ method_NN is_VBZ suitable_JJ for_IN both_DT model-scale_JJ and_CC full-scale_JJ simulations_NNS ._SENT 
+<Section> Acknowledgement_NN </Section> The_DT financial_JJ support_NN from_IN the_DT NSERC_NN CREATE_VV Training_NP Program_NP for_IN Offshore_NP Technology_NP Research_NP (_( OTR_NP )_) is_VBZ highly_RB appreciated_VVN ._SENT 
+Mr._NP Don_NP Spencer_NP is_VBZ gratefully_RB acknowledged_VVN for_IN his_PP$ generous_JJ help_NN on_IN this_DT research_NN ._SENT 
+The_DT assistance_NN by_IN Dr._NP Claude_NP Daley_NP on_IN the_DT development_NN of_IN the_DT flexural_JJ ice_NN plate_NN model_NN is_VBZ also_RB acknowledged_VVN ._SENT 
+<Section> References_NNS </Section> C._NP Daley_NP Ice_NP Edge_NP Contact-A_NP Brittle_NP Failure_NN Process_NN Model_NP D.Sc_NP ._SENT 
+thesis_NN ,_, Acta_NP Polytechnica_NP Scandinavica_NP ,_, Mechanical_NP Engineering_NP Series_NP No._NN 100_CD ,_, Helsinki_NP (_( 1991_CD )_) C._NP Daley_NP Ice_NP edge_NN contact_NN and_CC failure_NN Cold_NP Reg_NP ._SENT 
+Sci_NP ._SENT 
+Technol_NN ._SENT 
+,_, 21_CD (_( 1992_CD )_) ,_, pp_NP ._SENT 
+1-23_CD C._NP Daley_NP ,_, J._NP Tuhkuri_NP ,_, K._NP Riska_NP The_DT role_NN of_IN discrete_JJ failures_NNS in_IN local_JJ ice_NN loads_NNS Cold_NP Reg_NP ._SENT 
+Sci_NP ._SENT 
+Technol_NN ._SENT 
+,_, 27_CD (_( 1998_CD )_) ,_, pp_NP ._SENT 
+197-211_CD E._NP Enkvist_NN On_IN the_DT ice_NN resistance_NN encountered_VVN by_IN ships_NNS operating_VVG in_IN the_DT continuous_JJ mode_NN of_IN icebreaking_VVG Technical_NP Report_NP 24_CD The_DT Swedish_NP Academy_NP of_IN Engineering_NP Science_NP in_IN Finland_NP (_( 1972_CD )_) I.-Y_NP ._SENT 
+Gong_NP Development_NP of_IN maneuvering_VVG simulation_NN program_NN ,_, part_NN I_PP :_: mathematical_JJ models_NNS for_IN maneuvering_VVG motions_NNS in_IN deep/shallow_JJ water_NN with_IN wind/current_JJ effects_NNS Technical_NP Report_NP IR-1993-09_NP ,_, Institute_NP of_IN Marine_NP Dynamics_NP ,_, NRC_NP (_( 1993_CD )_) M._NP Hirano_NP A_DT practical_JJ calculation_NN method_NN of_IN ship_NN maneuvering_NN motion_NN at_IN initial_JJ design_NN stage_NN Nav_NP ._SENT 
+Archit_NP ._SENT 
+Ocean_NP Eng_NP ._SENT 
+,_, 19_CD (_( 1981_CD )_) ,_, pp_NP ._SENT 
+68-80_CD J._NP Holtrop_NP ,_, G.G._NP Mennen_NP An_DT approximate_JJ power_NN prediction_NN method_NN Int_NP ._SENT 
+Shipbuild_NP ._SENT 
+Prog_NN ._SENT 
+,_, 29_CD (_( 1982_CD )_) ,_, pp_NP ._SENT 
+166-170_CD V.I._NP Kashteljan_NP ,_, I.I._NP Poznjak_NP ,_, A.J._NP Ryvlin_NP Ice_NP Resistance_NP To_TO Motion_NP Of_IN A_DT Ship_NP Marine_NP Computer_NP Application_NN Corporation_NP (_( 1969_CD )_) A._NP Keinonen_NP Icebreaker_NN characteristics_NNS synthesis_NN Technical_NP Report_NP TP_NP 12812E_NN ,_, AKAC_NP Inc_NP (_( 1996_CD )_) A.D._NP Kerr_NP The_DT bearing_NN capacity_NN of_IN floating_VVG ice_NN plates_NNS subjected_VVN to_TO static_JJ or_CC quasi-static_JJ loads_NNS J._NP Glaciol_NN ._SENT 
+,_, 17_CD (_( 1976_CD )_) ,_, pp_NP ._SENT 
+229-268_CD H._NP Kobayashi_NP ,_, J._NP Blok_NP ,_, R._NP Barr_NP ,_, Y._NP Kim_NP ,_, J._NP Nowicki_NP Specialist_NN committee_NN on_IN Esso_NP Osaka_NP :_: final_JJ report_NN and_CC recommendations_NNS to_TO the_DT 23rd_JJ ITTC_NN Proceedings_NNS of_IN the_DT 23rd_JJ International_NP Towing_VVG Tank_NP Conference_NP (_( 2003_CD )_) ,_, pp_NP ._SENT 
+8-14_CD M._NP Lau_NP ,_, J.C._NP Liu_NP ,_, A._NP Derradji-Aouat_NP ,_, F.M._NP Williams_NP Preliminary_JJ results_NNS of_IN ship_NN maneuvering_NN in_IN ice_NN experiments_NNS using_VVG a_DT planar_JJ motion_NN mechanism_NN Proceedings_NNS of_IN the_DT 17th_JJ International_NP IAHR_NP Symposium_NN on_IN Ice_NP (_( 2004_CD )_) ,_, pp_NP ._SENT 
+479-487_CD J.W._NP Lewis_NP ,_, R.Y._NP Edwards_NP Jr._NP Methods_NNS For_IN Predicting_VVG Icebreaking_NP And_CC Ice_NP Resistance_NP Characteristics_NNS Of_IN Icebreakers_NNS Transactions_NNS of_IN Society_NP of_IN Naval_NP Architects_NPS and_CC Marine_NP Engineers_NPS (_( SNAME_NP )_) (_( 1970_CD )_) ,_, pp_NP ._SENT 
+213-249_CD G._NP Lindqvist_NP A_DT straightforward_JJ method_NN for_IN calculation_NN of_IN ice_NN resistance_NN of_IN ships_NNS Proceedings_NNS of_IN 10th_JJ International_NP Conference_NP on_IN Port_NP and_CC Ocean_NP Engineering_NP under_IN Arctic_NP Conditions_NNS (_( POAC_NP )_) (_( 1989_CD )_) ,_, pp_NP ._SENT 
+722-735_CD J._NP Liu_NP Mathematical_JJ Modeling_NN Ice-Hull_NP Interaction_NP For_IN Real_NP Time_NP Simulations_NNS Of_IN Ship_NN Manoeuvring_VVG In_IN Level_NP Ice_NP (_( Ph.D_NN ._SENT 
+thesis_NN )_) Memorial_NP University_NP of_IN Newfoundland_NP (_( 2009_CD )_) J._NP Liu_NP ,_, M._NP Lau_NP ,_, F._NP Williams_NP Numerical_JJ Implementation_NN And_CC Benchmark_NN Of_IN Ice-Hull_NP Interaction_NP Model_NP For_IN Ship_NP Manoeuvring_VVG Simulations_NNS (_( 2008_CD )_) J._NP Martio_NP Numerical_JJ simulation_NN of_IN vessel_NN 's_POS maneuvering_NN performance_NN in_IN uniform_JJ ice_NN Technical_NP Report_NP Ship_NP Laboratory_NP ,_, Helsinki_NP University_NP of_IN Technology_NP ,_, Espoo_NP ,_, Finland_NP (_( 2007_CD )_) V.R._NP Milano_NP Ship_NP Resistance_NP To_TO Continuous_JJ Motion_NP In_IN Ice_NP (_( Ph.D_NN ._SENT 
+thesis_NN )_) Stevens_NP Institute_NP of_IN Technology_NP (_( 1972_CD )_) D.T._NP Nguyen_NP ,_, A.H._NP Sørbø_NP ,_, A.J._NP Sørensen_NP Modelling_VVG and_CC control_NN for_IN dynamic_JJ positioned_VVN vessels_NNS in_IN level_NN ice_NN Proceedings_NNS of_IN 8th_JJ Conference_NN of_IN Manoeuvring_VVG and_CC Control_NP of_IN Marine_NP Craft_NP (_( MCMC'2009_NP )_) (_( 2009_CD )_) ,_, pp_NP ._SENT 
+16-18_CD K._NP Riska_NP ,_, M._NP Wilhelmson_NP ,_, K._NP Englund_NP ,_, T._NP Leiviska_NP Performance_NP of_IN merchant_NN vessels_NNS in_IN ice_NN in_IN the_DT Baltic_NP Technical_NP Report_NP 52_CD ,_, Helsinki_NP University_NP of_IN Technology_NP -_: Ship_NP Laboratory_NP (_( 1997_CD )_) J._NP Sawamura_NP ,_, K._NP Riska_NP ,_, T._NP Moan_NP Numerical_JJ simulation_NN of_IN breaking_VVG patterns_NNS in_IN level_NN ice_NN at_IN ship_NN 's_POS bow_NN Proceedings_NNS of_IN 19th_JJ International_NP Offshore_NP and_CC Polar_JJ Engineering_NP Conference_NP (_( ISOPE_NP )_) (_( 2009_CD )_) ,_, pp_NP ._SENT 
+600-607_CD D._NP Spencer_NP A_DT standard_JJ method_NN for_IN the_DT conduct_NN and_CC analysis_NN of_IN ice_NN resistance_NN model_NN tests_VVZ Technical_NP Report_NP IR-1992-12_NP ,_, Institute_NP for_IN Ocean_NP Technology_NP (_( IOT_NP )_) ,_, NRC_NP (_( 1992_CD )_) D._NP Spencer_NP ,_, S.J._NP Jones_NP Model-scale/full-scale_NP correlation_NN in_IN open_JJ water_NN and_CC ice_NN for_IN Canadian_JJ coast_NN guard_NN “r-class”_NN :_: icebreakers_NNS J._NP Ship_NP Res_NNS ._SENT 
+,_, 45_CD (_( 2001_CD )_) ,_, pp_NP ._SENT 
+249-261_CD B._NP Su_NP ,_, K._NP Riska_NP ,_, T._NP Moan_NP A_DT numerical_JJ method_NN for_IN the_DT prediction_NN of_IN ship_NN performance_NN in_IN level_NN ice_NN Cold_NP Reg_NP ._SENT 
+Sci_NP ._SENT 
+Technol_NN ._SENT 
+,_, 60_CD (_( 2010_CD )_) ,_, pp_NP ._SENT 
+177-188_CD X._NP Tan_NP ,_, B._NP Su_NP ,_, K._NP Riska_NP ,_, T._NP Moan_NP A_NP six-degrees-of-freedom_NP numerical_JJ model_NN for_IN level_NN ice–ship_NN interaction_NN Cold_NP Reg_NP ._SENT 
+Sci_NP ._SENT 
+Technol_NN ._SENT 
+,_, 92_CD (_( 2013_CD )_) ,_, pp_NP ._SENT 
+1-16_CD X._NP Tan_NP ,_, K._NP Riska_NP ,_, T._NP Moan_NP Effect_NN of_IN dynamic_JJ bending_VVG of_IN level_NN ice_NN on_IN ship_NN 's_POS continuous-mode_NN icebreaking_VVG Cold_NP Reg_NP ._SENT 
+Sci_NP ._SENT 
+Technol_NN ._SENT 
+,_, 106_CD (_( 2014_CD )_) ,_, pp_NP ._SENT 
+82-95_CD P._NP Valanto_NP Experimental_JJ study_NN of_IN the_DT icebreaking_JJ cycle_NN in_IN 2-d_JJ Proceedings_NNS of_IN the_DT 8th_JJ International_NP Conference_NP on_IN Ocean_NP ,_, Offshore_NP and_CC Arctic_NP Engineering_NP (_( OMAE_NP )_) (_( 1989_CD )_) S._NP Wang_NP A_DT dynamic_JJ model_NN for_IN breaking_VVG pattern_NN of_IN level_NN ice_NN by_IN conical_JJ structures_NNS Acta_NP Polytechnica_NP Scandinavica_NP Mechanical_NP Engineering_NP Me_PP ,_, 156_CD (_( 2001_CD )_) Q._NP Zhou_NP ,_, H._NP Peng_NP Numerical_JJ simulation_NN of_IN a_DT dynamically_RB controlled_VVN ship_NN in_IN level_NN ice_NN Int_NP ._SENT 
+J._NP Offshore_NP Polar_JJ Eng_NP ._SENT 
+,_, 24_CD (_( 2014_CD )_) ,_, pp_NP ._SENT 
+184-191_CD 

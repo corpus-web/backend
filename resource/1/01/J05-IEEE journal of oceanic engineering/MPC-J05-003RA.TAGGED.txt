@@ -1,0 +1,416 @@
+﻿_NP <title> An_NP Optical_NP Image_NN Transmission_NP System_NP for_IN Deep_NP Sea_NP Creature_NN Sampling_NN Missions_NNS Using_VVG Autonomous_JJ Underwater_JJ Vehicle_NN </title> <author> 1_CD ,_, Jonghyun_NP Ahn_NP ,_, 2_CD ,_, Shinsuke_NP Yasukawa_NP ,_, 3_CD ,_, Takashi_NP Sonoda_NP ,_, 2_CD ,_, Yuya_NP Nishida_NP ,_, 2_CD ,_, Kazuo_NP Ishii_NP ,_, 4_CD ,_, Tamaki_NP Ura_NP </author> <Affiliation> 1_CD ,_, Department_NP of_IN Human_NP Intelligence_NP Systems_NP ,_, Graduate_NP School_NP of_IN Life_NP Science_NP and_CC Systems_NP Engineering_NP ,_, Kyushu_NP Institute_NP of_IN Technology_NP ,_, Kitakyushu_NP ,_, Japan_NP ,_, 2_CD ,_, Graduate_NP School_NP of_IN Life_NP Science_NP and_CC Systems_NP Engineering_NP ,_, Kyushu_NP Institute_NP of_IN Technology_NP ,_, Kitakyushu_NP ,_, Japan_NP ,_, 3_CD ,_, Department_NP of_IN Integrated_NP System_NP Engineering_NP ,_, Nishinippon_NP Institute_NP of_IN Technology_NP ,_, Miyako-gun_NN ,_, Japan_NP ,_, 4_CD ,_, Center_NP for_IN Socio-Robotic_JJ Synthesis_NN ,_, Kyushu_NP Institute_NP of_IN Technology_NP ,_, Kitakyushu_NP ,_, Japan_NP </Affiliation> <year> 2018_CD </year> <Jounral> IEEE_NN journal_NN of_IN oceanic_JJ engineering_NN </Journal> <Publishing_house> Institute_NP of_IN Electrical_NP and_CC Electronics_NP Engineers_NPS </Publishing_house> <Text_Collector> Zhang_NP San，HEU_NP </Text_Collector> <DOI> 10.1109/JOE.2018.2872500_NP </DOI> <URL> https://ieeexplore.ieee.org/document/8516295_NP </URL> An_DT Optical_NP Image_NN Transmission_NP System_NP for_IN Deep_NP Sea_NP Creature_NN Sampling_NN Missions_NNS Using_VVG Autonomous_JJ Underwater_JJ Vehicle_NN Jonghyun_NP Ahn_NP ,_, Shinsuke_NP Yasukawa_NP ,_, Takashi_NP Sonoda_NP ,_, Yuya_NP Nishida_NP ,_, Kazuo_NP Ishii_NP ,_, Tamaki_NP Ura_NP Department_NP of_IN Human_NP Intelligence_NP Systems_NP ,_, Graduate_NP School_NP of_IN Life_NP Science_NP and_CC Systems_NP Engineering_NP ,_, Kyushu_NP Institute_NP of_IN Technology_NP ,_, Kitakyushu_NP ,_, Japan_NP Graduate_NP School_NP of_IN Life_NP Science_NP and_CC Systems_NP Engineering_NP ,_, Kyushu_NP Institute_NP of_IN Technology_NP ,_, Kitakyushu_NP ,_, Japan_NP Department_NP of_IN Integrated_NP System_NP Engineering_NP ,_, Nishinippon_NP Institute_NP of_IN Technology_NP ,_, Miyako-gun_NN ,_, Japan_NP Center_NP for_IN Socio-Robotic_JJ Synthesis_NN ,_, Kyushu_NP Institute_NP of_IN Technology_NP ,_, Kitakyushu_NP ,_, Japan_NP <Section> Abstract_JJ </Section> The_DT exploration_NN of_IN oceans_NNS using_VVG autonomous_JJ underwater_JJ vehicles_NNS (_( AUVs_NP )_) is_VBZ necessary_JJ for_IN activities_NNS ,_, such_JJ as_IN the_DT sustainable_JJ management_NN of_IN fishery_NN resources_NNS ,_, extraction_NN of_IN seafloor_NN minerals_NNS and_CC energy_NN resources_NNS ,_, and_CC inspection_NN of_IN underwater_JJ infrastructure_NN ._SENT 
+As_IN the_DT next_JJ step_NN in_IN ocean_NN exploration_NN ,_, AUVs_NNS are_VBP expected_VVN to_TO employ_VV end-effectors_NNS to_TO make_VV physical_JJ contact_NN with_IN seafloor_NN creatures_NNS and_CC materials_NNS ._SENT 
+We_PP propose_VVP a_DT scenario_NN for_IN realizing_VVG a_DT sampling_VVG mission_NN using_VVG an_DT AUV_NN that_WDT is_VBZ equipped_VVN to_TO sample_NN marine_JJ life_NN ._SENT 
+In_IN this_DT scenario_NN ,_, the_DT sampling_NN AUV_NP observes_VVZ the_DT seafloor_NN while_IN concurrently_RB transmitting_VVG the_DT observed_JJ images_NNS to_TO a_DT surface_NN vessel_NN for_IN inspection_NN by_IN the_DT AUV_NP operators_NNS ._SENT 
+If_IN the_DT received_VVN images_NNS show_VVP an_DT object_NN of_IN interest_NN ,_, the_DT object_NN is_VBZ selected_VVN as_IN a_DT candidate_NN of_IN sampling_VVG target_NN by_IN the_DT operators_NNS ,_, who_WP send_VVP a_DT sampling_VVG command_NN to_TO the_DT AUV_NP ._SENT 
+After_IN receiving_VVG the_DT command_NN ,_, the_DT AUV_NP returns_NNS to_TO the_DT target_NN area_NN and_CC attempts_NNS to_TO sample_NN it_PP ._SENT 
+In_IN this_DT paper_NN ,_, we_PP propose_VVP a_DT system_NN for_IN transmitting_VVG images_NNS of_IN the_DT seafloor_NN as_IN part_NN of_IN the_DT sampling-mission_NN scenario_NN ._SENT 
+The_DT proposed_VVN image_NN transmission_NN system_NN includes_VVZ a_DT process_NN for_IN enhancing_VVG images_NNS of_IN the_DT deep_JJ seafloor_NN ,_, a_DT process_NN for_IN selecting_VVG interesting_JJ images_NNS ,_, and_CC processes_VVZ for_IN compressing_VVG and_CC reconstructing_VVG images_NNS ._SENT 
+The_DT image_NN enhancement_NN process_NN resolves_VVZ imaging_NN problems_NNS resulting_VVG from_IN light_JJ attenuation_NN ,_, such_JJ as_IN color_NN attenuation_NN and_CC uneven_JJ illumination_NN ._SENT 
+The_DT process_NN for_IN selecting_VVG interesting_JJ images_NNS selects_VVZ those_DT that_WDT contain_VVP interesting_JJ objects_NNS ,_, such_JJ as_IN marine_JJ life_NN ._SENT 
+The_DT selection_NN process_NN prevents_VVZ the_DT transmission_NN of_IN meaningless_JJ images_NNS that_WDT contain_VVP only_RB flat_JJ sand_NN on_IN the_DT seafloor_NN ._SENT 
+The_DT proposed_VVN image_NN compression_NN method_NN ,_, which_WDT is_VBZ based_VVN on_IN color_NN depth_NN compression_NN ,_, reduces_VVZ the_DT amount_NN of_IN data_NNS ._SENT 
+The_DT combined_JJ process_NN of_IN selecting_VVG an_DT interesting_JJ image_NN and_CC compressing_VVG it_PP reduces_VVZ various_JJ problems_NNS in_IN acoustic_JJ communication_NN ,_, such_JJ as_IN low_JJ information_NN density_NN and_CC data_NN loss_NN ._SENT 
+Instead_RB of_IN an_DT overall_JJ image_NN ,_, part_NN of_IN an_DT overall_JJ image_NN is_VBZ transmitted_VVN by_IN a_DT set_NN of_IN data_NN packet_NN ,_, and_CC each_DT received_VVN data_NN packet_NN is_VBZ reconstructed_VVN onboard_JJ the_DT vessel_NN ._SENT 
+Because_IN of_IN image_NN compression_NN ,_, the_DT colors_NNS of_IN a_DT reconstructed_JJ image_NN differ_VVP from_IN those_DT of_IN an_DT enhanced_JJ image_NN ._SENT 
+However_RB ,_, the_DT reconstructed_JJ image_NN contains_VVZ similar_JJ colors_NNS ,_, and_CC the_DT structural_JJ similarity_NN index_NN was_VBD found_VVN to_TO be_VB 91.4_CD %_NN by_IN evaluating_VVG images_NNS that_WDT were_VBD subjected_VVN to_TO a_DT 4-b_NN color_NN compression_NN ._SENT 
+The_DT proposed_VVN image_NN transmission_NN system_NN was_VBD tested_VVN in_IN the_DT Sea_NP of_IN Okhotsk_NP ,_, and_CC these_DT tests_NNS were_VBD performed_VVN four_CD times_NNS in_IN different_JJ sea_NN areas_NNS (_( minimum_JJ depth_NN 380_CD m_NN ,_, maximum_JJ depth_NN 590_CD m_NN )_) ._SENT 
+The_DT results_NNS show_VVP that_IN the_DT size_NN of_IN the_DT data_NNS for_IN a_DT single_JJ image_NN was_VBD reduced_VVN by_IN a_DT factor_NN of_IN 18_CD using_VVG the_DT proposed_VVN image_NN compression_NN process_NN ,_, with_IN each_DT image_NN taking_VVG 3.7_CD s_NN to_TO be_VB transmitted_VVN via_IN an_DT acoustic_JJ modem_NN (_( 20_CD kb/s_NNS )_) ._SENT 
+Of_IN the_DT automatically_RB selected_VVN images_NNS ,_, 63_CD %_NN contained_VVD marine_JJ life_NN ,_, and_CC the_DT total_JJ transmission_NN success_NN rate_NN was_VBD 22_CD %_NN ._SENT 
+<Section> 1._CD Introduction_NN </Section> The_DT many_JJ discoveries_NNS of_IN minerals_NNS ,_, energy_NN resources_NNS ,_, and_CC marine_JJ species_NNS in_IN the_DT deep_JJ sea_NN have_VHP attracted_VVN considerable_JJ interest_NN from_IN researchers_NNS in_IN various_JJ fields_NNS ._SENT 
+Underwater_JJ robotics_NNS is_VBZ an_DT important_JJ method_NN of_IN observing_VVG the_DT deep_JJ sea_NN ecosystem_NN ,_, with_IN autonomous_JJ underwater_JJ vehicles_NNS (_( AUVs_NP )_) having_VHG become_VVN useful_JJ tools_NNS for_IN ocean_NN exploration_NN ._SENT 
+An_DT objective_NN of_IN most_JJS AUV_NP missions_NNS is_VBZ the_DT optical_JJ imaging_NN of_IN parts_NNS of_IN the_DT seafloor_NN that_WDT contain_VVP marine_JJ biotic_JJ communities_NNS ._SENT 
+Such_JJ seafloor_NN images_NNS contribute_VVP to_TO research_VV on_IN deep_JJ sea_NN ecosystems_NNS [_SYM 1]–[2][3][4][5_NP ]_SYM ._SENT 
+As_IN the_DT next_JJ step_NN in_IN ocean_NN exploration_NN ,_, AUVs_NNS are_VBP expected_VVN to_TO employ_VV end-effectors_NNS to_TO make_VV physical_JJ contact_NN with_IN deep_JJ sea_NN creatures_NNS and_CC materials_NNS on_IN the_DT seafloor_NN to_TO sample_NN them_PP ._SENT 
+Conventional_JJ missions_NNS to_TO sample_NN deep_JJ sea_NN creatures_NNS using_VVG underwater_JJ robotics_NNS have_VHP employed_VVN either_DT human_JJ occupied_JJ vehicles_NNS (_( HOVs_NP )_) or_CC remotely_RB operated_VVN vehicles_NNS (_( ROVs_NNS )_) [_SYM 6_CD ]_SYM ._SENT 
+However_RB ,_, using_VVG an_DT HOV_NP introduces_VVZ the_DT necessity_NN of_IN securing_VVG the_DT safety_NN of_IN the_DT crew_NN ,_, limiting_VVG the_DT mission_NN duration_NN ,_, and_CC making_VVG it_PP difficult_JJ to_TO explore_VV a_DT wide_JJ area_NN ._SENT 
+ROVs_NNS also_RB have_VHP a_DT limited_JJ exploration_NN range_NN ,_, owing_VVG to_TO the_DT umbilical_JJ cable_NN that_WDT is_VBZ necessary_JJ for_IN communication_NN ,_, control_NN ,_, and_CC the_DT supply_NN of_IN electric_JJ power_NN ._SENT 
+Therefore_RB ,_, to_TO sample_NN deep_JJ sea_NN creatures_NNS over_IN a_DT wide_JJ area_NN for_IN a_DT long_JJ time_NN ,_, AUVs_NNS are_VBP required_VVN ._SENT 
+Such_JJ AUV_NP sampling_NN missions_NNS are_VBP expected_VVN to_TO contribute_VV to_TO marine_JJ research_NN ._SENT 
+We_PP refer_VVP to_TO an_DT AUV_NN that_WDT is_VBZ suitably_RB equipped_VVN to_TO perform_VV sampling_VVG missions_NNS as_IN a_DT sampling-AUV_NP (_( SAUV_NP )_) [_SYM 7_CD ]_SYM ,_, and_CC we_PP propose_VVP the_DT SAUV_NP mission_NN scenario_NN illustrated_VVN in_IN Fig_NN ._SENT 
+1_LS ,_, comprising_VVG the_DT following_VVG steps_NNS ._SENT 
+The_DT SAUV_NP captures_VVZ optical_JJ seafloor_NN images_NNS chronologically_RB along_IN a_DT preprogrammed_JJ observation_NN path_NN ._SENT 
+If_IN the_DT present_JJ obtained_VVN image_NN “Image(n0)”_NN contains_VVZ an_DT interesting_JJ object_NN ,_, then_RB the_DT SAUV_NP transmits_VVZ it_PP ._SENT 
+The_DT operator_NN on_IN the_DT vessel_NN checks_VVZ the_DT received_VVN image_NN ._SENT 
+If_IN the_DT received_VVN image_NN shows_VVZ valuable_JJ marine_JJ life_NN ,_, then_RB the_DT operator_NN sends_VVZ sampling_VVG commands_NNS to_TO the_DT SAUV_NP ._SENT 
+Finally_RB ,_, the_DT SAUV_NP returns_NNS to_TO the_DT specified_JJ area_NN and_CC attempts_NNS to_TO sample_NN the_DT marine_JJ life_NN there_RB ._SENT 
+Fig_NN ._SENT 
+1._CD Overview_NN of_IN the_DT proposed_VVN sampling_NN mission_NN scenario_NN ._SENT 
+In_IN this_DT paper_NN ,_, we_PP focus_VVP on_IN steps_NNS i)–iii_NP )_) in_IN Fig_NN ._SENT 
+1_CD ,_, and_CC present_VV a_DT transmission_NN system_NN to_TO realize_VV the_DT proposed_VVN mission_NN scenario_NN ._SENT 
+We_PP also_RB present_JJ results_NNS from_IN experiments_NNS in_IN which_WDT the_DT proposed_VVN transmission_NN system_NN was_VBD tested_VVN four_CD times_NNS in_IN different_JJ areas_NNS (_( minimum_JJ depth_NN 380_CD m_NN ,_, maximum_JJ depth_NN 590_CD m_NN )_) in_IN the_DT Sea_NP of_IN Okhotsk_NP to_TO the_DT north_NN of_IN Japan_NP ._SENT 
+<Section> 2._CD Proposed_VVN Image_NN Transmission_NP System_NP </Section> To_TO realize_VV a_DT transmission_NN system_NN ,_, we_PP must_MD resolve_VV certain_JJ problems_NNS relating_VVG to_TO imaging_NN and_CC acoustic_JJ communication_NN ._SENT 
+The_DT imaging_NN problems_NNS are_VBP a_DT result_NN of_IN light_JJ attenuation_NN (_( specifically_RB ,_, different_JJ attenuation_NN rates_NNS for_IN each_DT color_NN )_) and_CC uneven_JJ illumination_NN ._SENT 
+Meanwhile_RB ,_, acoustic_JJ communication_NN has_VHZ a_DT low_JJ information_NN density_NN ,_, and_CC data_NNS are_VBP lost_VVN during_IN communication_NN because_IN of_IN the_DT positional_JJ relationship_NN between_IN the_DT SAUV_NP and_CC the_DT vessel_NN ,_, thruster_NN noise_NN ,_, and_CC other_JJ acoustic_JJ signals_NNS ._SENT 
+The_DT process_NN of_IN the_DT proposed_VVN image_NN transmission_NN system_NN is_VBZ illustrated_VVN in_IN Fig_NN ._SENT 
+2._CD The_NP SAUV_NP acquires_VVZ optical_JJ images_NNS of_IN the_DT seafloor_NN ,_, enhances_VVZ them_PP ,_, selects_VVZ interesting_JJ ones_NNS ,_, compresses_VVZ these_DT ,_, and_CC transmits_VVZ them_PP to_TO the_DT vessel_NN ._SENT 
+On_IN the_DT vessel_NN ,_, the_DT received_VVN data_NNS are_VBP reconstructed_VVN as_IN images_NNS and_CC are_VBP checked_VVN by_IN researchers_NNS ._SENT 
+Fig_NN ._SENT 
+2._CD Process_NN of_IN the_DT proposed_VVN image_NN transmission_NN system_NN ._SENT 
+We_PP resolve_VV the_DT imaging_NN problems_NNS using_VVG image_NN enhancement_NN and_CC the_DT acoustic_JJ communication_NN problems_NNS by_IN only_RB selecting_VVG interesting_JJ images_NNS and_CC then_RB compressing_VVG them_PP ._SENT 
+A._NP Image_NN Enhancement_NN Because_IN of_IN light_JJ attenuation_NN ,_, the_DT properties_NNS of_IN images_NNS of_IN the_DT deep_JJ seafloor_NN differ_VVP from_IN those_DT of_IN ground_NN images_NNS taken_VVN in_IN air_NN [_SYM 8_CD ]_SYM ._SENT 
+Each_DT color_NN has_VHZ a_DT different_JJ attenuation_NN rate_NN ,_, and_CC images_NNS of_IN the_DT deep_JJ seafloor_NN captured_VVN by_IN an_DT AUV_NP suffer_VVP from_IN varying_VVG and_CC uneven_JJ illumination_NN ._SENT 
+Recently_RB ,_, Retinex_NP theory_NN [_SYM 9_CD ]_SYM ,_, [_SYM 10_CD ]_SYM has_VHZ been_VBN applied_VVN to_TO solve_VV such_JJ underwater_JJ imaging_NN problems_NNS [_SYM 11]–[12][13_NP ]_SYM ._SENT 
+Retinex_NP is_VBZ a_DT popular_JJ method_NN for_IN improving_VVG the_DT visibility_NN of_IN an_DT image_NN using_VVG color_NN constancy_NN ._SENT 
+In_IN Retinex_NP theory_NN ,_, an_DT image_NN comprises_VVZ an_DT illumination_NN that_WDT comes_VVZ from_IN a_DT light_JJ source_NN and_CC a_DT reflectance_NN ,_, which_WDT is_VBZ the_DT color_NN of_IN object_NN without_IN influence_NN of_IN illumination_NN ._SENT 
+The_DT relationship_NN between_IN the_DT illumination_NN and_CC the_DT reflectance_NN in_IN an_DT image_NN is_VBZ supposed_VVN to_TO be_VB @(1_JJ )_) where_WRB I_PP represents_VVZ the_DT obtained_VVN image_NN ,_, (_( x,y_NP )_) is_VBZ pixel_JJ location_NN in_IN Cartesian_JJ coordinates_VVZ ,_, L_NP is_VBZ the_DT illumination_NN ,_, and_CC R_NP is_VBZ the_DT reflectance_NN ._SENT 
+In_IN the_DT Retinex_NP model_NN ,_, the_DT illumination_NN is_VBZ assumed_VVN to_TO change_VV smoothly_RB in_IN the_DT image_NN ,_, that_WDT is_VBZ ,_, changes_NNS smoothly_RB both_CC across_IN the_DT physical_JJ dimension_NN and_CC the_DT depth_NN direction_NN in_IN the_DT air_NN ._SENT 
+In_IN water_NN ,_, light_NN attenuates_VVZ exponentially_RB as_IN a_DT function_NN of_IN distance_NN propagated_VVD ._SENT 
+Therefore_RB ,_, the_DT illumination_NN in_IN deep_JJ seafloor_NN image_NN changes_NNS smoothly_RB on_IN the_DT image_NN plane_NN like_IN strong_JJ lowpass_NN filtered_VVN images_NNS ._SENT 
+In_IN typical_JJ deep_JJ seafloor_NN images_NNS ,_, the_DT center_NN area_NN in_IN images_NNS has_VHZ high_JJ illumination_NN values_NNS ,_, and_CC the_DT surrounding_VVG area_NN has_VHZ low_JJ illumination_NN values_NNS ._SENT 
+Consequently_RB ,_, the_DT illumination_NN values_VVZ smoothly_RB change_VV approaching_VVG the_DT center_NN on_IN the_DT image_NN plane_NN ._SENT 
+Although_IN the_DT illumination_NN in_IN deep_JJ seafloor_NN images_NNS experiences_VVZ higher_JJR attenuation_NN than_IN in-air_NN images_NNS ,_, Retinex_NP processing_NN is_VBZ still_RB effective_JJ for_IN enhancing_VVG images_NNS of_IN the_DT deep_JJ sea_NN floor_NN ._SENT 
+For_IN the_DT image_NN enhancement_NN ,_, we_PP employ_VVP Retinex_NP processing_NN as_RB follows_VVZ :_: @(2_NP )_) The_DT symbol_NN “∗”_NN represents_VVZ convolution_NN ,_, G_NP is_VBZ a_DT Gaussian_JJ filter_NN ,_, α_NP is_VBZ a_DT scaling_VVG gain_NN parameter_NN ,_, β_NP is_VBZ a_DT scaling_VVG offset_VVN parameter_NN ,_, and_CC eI_NP denotes_VVZ the_DT enhanced_JJ image_NN based_VVN on_IN reflectance_NN R._NP A_DT Gaussian_JJ filter_NN can_MD be_VB defined_VVN as_RB follows_VVZ :_: @(3_NP )_) where_WRB σ_NP is_VBZ the_DT standard_JJ deviation_NN of_IN the_DT distribution_NN ._SENT 
+The_DT image_NN enhancement_NN process_NN and_CC a_DT result_NN of_IN Retinex_NP processing_NN are_VBP illustrated_VVN in_IN Fig_NN ._SENT 
+3._CD The_DT image_NN obtained_VVN by_IN the_DT AUV_NP ,_, which_WDT shows_VVZ red_JJ snow_NN crabs_NNS ,_, contains_VVZ attenuated_JJ colors_NNS and_CC uneven_JJ illumination_NN (_( the_DT left-hand_JJ side_NN contains_VVZ low_JJ color_NN intensities_NNS ,_, owing_VVG to_TO factors_NNS such_JJ as_IN the_DT altitude_NN of_IN the_DT AUV_NP and_CC the_DT positional_JJ relationship_NN between_IN the_DT imaging_NN system_NN and_CC the_DT seafloor_NN )_) ._SENT 
+The_DT approximated_VVN illumination_NN is_VBZ generated_VVN by_IN applying_VVG a_DT Gaussian_JJ filter_NN to_TO the_DT image_NN obtained_VVN by_IN the_DT AUV_NN [_SYM image_NN size_NN (_( niw_NP ,_, nih_NP )_) =_SYM (_( 640_CD ,_, 480_CD )_) ;_: σ_NP =_SYM 128_CD ]_SYM ._SENT 
+We_PP log_VVP transform_VV both_CC the_DT obtained_VVN image_NN and_CC the_DT approximated_VVN illumination_NN ,_, and_CC then_RB we_PP subtract_VV the_DT log-transformed_JJ illumination_NN from_IN the_DT log-transformed_JJ image_NN ._SENT 
+Finally_RB ,_, scaling_VVG by_IN α_NP and_CC β_NP is_VBZ necessary_JJ to_TO enhance_VV visibility_NN for_IN human_JJ recognition_NN ._SENT 
+The_DT enhanced_JJ image_NN presented_VVN in_IN Fig_NN ._SENT 
+3_LS shows_VVZ an_DT improved_VVN visibility_NN :_: The_DT red_JJ snow_NN crabs_NNS located_VVN on_IN the_DT left-hand_JJ side_NN can_MD be_VB seen_VVN far_RB more_RBR easily_RB than_IN in_IN the_DT image_NN obtained_VVN by_IN the_DT AUV_NP ._SENT 
+In_IN the_DT image_NN enhancement_NN process_NN ,_, we_PP employed_VVN a_DT fixed_VVN set_NN of_IN parameters_NNS (_( σ_NP ,_, α_NP ,_, and_CC β_NP )_) ,_, which_WDT were_VBD decided_VVN through_IN the_DT numerical_JJ simulations_NNS for_IN 640×480_JJ pixels_NNS images_NNS ,_, such_JJ as_IN shown_VVN in_IN Fig_NN ._SENT 
+3_LS (_( obtained_VVN seafloor_NN image_NN by_IN AUV_NP ,_, altitudes_NNS 1.5∼2.5_JJ m_NN )_) ._SENT 
+We_PP set_VVD σ_NN =_SYM 128_CD and_CC α_NP =_SYM 512_CD heuristically_RB considering_VVG the_DT calculation_NN speed_NN ,_, the_DT target_NN resolution_NN and_CC the_DT contrast_NN of_IN images_NNS ._SENT 
+We_PP set_VVD β_NN =_SYM 127_CD ,_, the_DT median_JJ value_NN in_IN 8-b_NN format_NN ._SENT 
+Although_IN this_DT fixed_VVN set_NN of_IN parameters_NNS would_MD not_RB work_VV effectively_RB in_IN all_DT environments_NNS ,_, they_PP are_VBP effective_JJ in_IN enhancing_VVG the_DT obtained_VVN images_NNS ,_, which_WDT were_VBD photographed_VVN by_IN AUV_NP at_IN altitudes_NNS between_IN 1.5_CD and_CC 2.5_CD m._JJ Fig_NN ._SENT 
+3._CD Process_NN of_IN image_NN enhancement_NN using_VVG Retinex_NP and_CC the_DT processed_JJ result_NN ._SENT 
+I_PP :_: Obtained_VVN image_NN by_IN AUV_NP ._SENT 
+L_NP :_: Approximated_VVN illumination_NN using_VVG a_DT Gaussian_JJ filter_NN ._SENT 
+eI_NP :_: Enhanced_JJ image_NN ._SENT 
+σ_NN :_: Standard_JJ deviation_NN of_IN the_DT distribution_NN for_IN a_DT Gaussian_JJ filter_NN ._SENT 
+α_NN :_: Scaling_VVG gain_NN parameter_NN ._SENT 
+β_NN :_: Scaling_VVG offset_VVN parameter_NN ._SENT 
+B._NP Interesting_JJ Image_NN Selection_NN While_IN observing_VVG the_DT deep_JJ seafloor_NN ,_, an_DT AUV_NP captures_VVZ many_JJ seafloor_NN images_NNS ;_: however_RB ,_, images_NNS without_IN creatures_NNS or_CC objects_NNS are_VBP low_JJ priority_NN for_IN a_DT sampling_NN mission_NN ._SENT 
+To_TO carry_VV out_RP an_DT efficient_JJ sampling_NN mission_NN ,_, the_DT AUV_NP should_MD select_VV only_RB interesting_JJ or_CC important_JJ images_NNS ._SENT 
+For_IN interesting_JJ image_NN selection_NN ,_, automatic_JJ recognition_NN of_IN marine_JJ life_NN is_VBZ the_DT first_JJ subject_NN ,_, and_CC the_DT methods_NNS for_IN recognizing_VVG marine_JJ life_NN have_VHP been_VBN presented_VVN [_SYM 11_CD ]_SYM ,_, [_SYM 14_CD ]_SYM based_VVN on_IN scale_NN and_CC rotationally_RB invariant_JJ features_NNS [_SYM 15_CD ]_SYM ,_, as_RB has_VHZ a_DT highly_RB accurate_JJ method_NN for_IN detecting_VVG fish_NN based_VVN on_IN deep_JJ learning_NN [_SYM 16_CD ]_SYM ,_, [_SYM 17_CD ]_SYM ._SENT 
+These_DT methods_NNS require_VVP many_JJ marine_JJ life_NN data_NNS sets_VVZ for_IN learning_VVG ,_, whereas_IN the_DT methods_NNS are_VBP hard_JJ to_TO apply_VV especially_RB in_IN the_DT first_JJ mission_NN ,_, because_IN it_PP is_VBZ difficult_JJ to_TO prepare_VV a_DT lot_NN of_IN marine_JJ life_NN images_NNS taken_VVN by_IN the_DT similar_JJ color_NN property_NN camera_NN with_IN a_DT certain_JJ distance_NN to_TO the_DT target_NN marine_JJ life_NN under_IN the_DT similar_JJ lighting_NN condition_NN in_IN the_DT target_NN observation_NN area_NN ._SENT 
+In_IN this_DT research_NN ,_, the_DT saliency_NN map_NN [_SYM 18_CD ]_SYM ,_, [_SYM 19_CD ]_SYM is_VBZ employed_VVN to_TO select_VV interesting_JJ images_NNS as_IN the_DT recognition_NN of_IN marine_JJ life_NN is_VBZ not_RB needed_VVN ._SENT 
+The_DT saliency_NN map_NN is_VBZ a_DT model_NN of_IN human_JJ visual_JJ attention_NN proposed_VVN by_IN Itti_NP et_CC al_NP ._SENT 
+[_SYM 18_CD ]_SYM ,_, and_CC encodes_VVZ the_DT saliency_NN or_CC conspicuity_NN of_IN objects_NNS in_IN a_DT two-dimensional_JJ map_NN based_VVN on_IN the_DT simple_JJ features_NNS of_IN color_NN ,_, intensity_NN ,_, and_CC orientation_NN (_( see_VV Fig_NN ._SENT 
+4_LS )_) ._SENT 
+The_DT “eI”_NN is_VBZ an_DT enhanced_JJ image_NN by_IN Retinex_NP processing_NN ,_, and_CC the_DT three_CD features_NNS :_: “Color,”_NP “Intensity,”_NP and_CC “Orientation”_NP compose_VVP the_DT Saliency_NN map_NN “SM”_NN ,_, and_CC the_DT “Saliency_NN areas_NNS in_IN the_DT image”_NN indicates_VVZ the_DT high_JJ saliency_NN areas_NNS ._SENT 
+The_DT individual_JJ pixel_NN values_NNS in_IN “SM”_NP represent_VVP the_DT saliency_NN intensity_NN ._SENT 
+The_DT light_JJ circles_NNS indicate_VVP areas_NNS of_IN high_JJ saliency_NN ,_, and_CC mostly_RB coincide_VV with_IN the_DT locations_NNS of_IN crabs_NNS ._SENT 
+The_DT seafloor_NN ,_, for_IN which_WDT the_DT changes_NNS in_IN pixels_NNS within_IN an_DT area_NN are_VBP small_JJ ,_, has_VHZ lower_JJR saliency_NN values_NNS compared_VVN with_IN objects_NNS such_JJ as_IN crabs_NNS or_CC stones_NNS ._SENT 
+The_DT interesting_JJ image_NN selection_NN based_VVN on_IN the_DT saliency_NN map_NN is_VBZ shown_VVN in_IN Fig_NN ._SENT 
+5._CD Fig_NN ._SENT 
+4._CD Example_NN of_IN a_DT Saliency_NN map_NN and_CC the_DT result_NN ._SENT 
+eI_NP :_: Enhanced_JJ image_NN ._SENT 
+SM_NN :_: Saliency_NN map_NN ._SENT 
+Fig_NN ._SENT 
+5._CD Flow_NP chart_NN of_IN proposed_VVN interesting_JJ image_NN selection_NN method_NN ._SENT 
+k_NN :_: Running_VVG index_NN ._SENT 
+ns_NN :_: Interesting_JJ image_NN number_NN ._SENT 
+ni_NP :_: Number_NN of_IN images_NNS for_IN comparison_NN to_TO select_VV interesting_JJ image_NN ._SENT 
+th_NN :_: Seafloor_NN threshold_NN ._SENT 
+IoI_NP :_: Interesting_JJ image_NN ._SENT 
+Here_RB ,_, k_NN is_VBZ a_DT running_VVG index_NN and_CC ns_NN is_VBZ an_DT interesting_JJ image_NN number_NN ._SENT 
+The_DT acquired_VVN raw_JJ image_NN ,_, I(k_NP )_) ,_, is_VBZ obtained_VVN by_IN the_DT AUV_NP ,_, eI(k_NP )_) represents_VVZ the_DT enhanced_JJ image_NN by_IN Retinex_NP process_NN using_VVG I(k_NN )_) ,_, SV(k_NP )_) is_VBZ the_DT maximum_JJ saliency_NN value_NN from_IN the_DT saliency_NN map_NN created_VVD using_VVG eI(k_NN )_) ,_, and_CC the_DT number_NN of_IN images_NNS for_IN comparison_NN is_VBZ ni_NP ._SENT 
+“k_NP ≥_NP ni”_NP performs_VVZ to_TO collect_VV number_NN of_IN images_NNS more_JJR than_IN ni_NP before_IN running_VVG the_DT image_NN selection_NN algorithm_NN ._SENT 
+For_IN example_NN ,_, if_IN ni_NP is_VBZ 4_CD then_RB the_DT image_NN selection_NN process_NN begins_VVZ when_WRB k_NN is_VBZ 4_CD ,_, and_CC SV(1_JJ )_) ,_, SV(2_NP )_) ,_, SV(3_NP )_) ,_, and_CC SV(4_JJ )_) are_VBP compared_VVN to_TO select_VV interesting_JJ images_NNS ._SENT 
+An_DT image_NN obtained_VVN by_IN the_DT AUV_NP is_VBZ selected_VVN as_RB interesting_JJ when_WRB certain_JJ conditions_NNS are_VBP satisfied_JJ ,_, such_JJ as_IN k_NN ≥_NP ni_NP ,_, SV(k_NP )_) is_VBZ greater_JJR than_IN th_NN ,_, which_WDT is_VBZ the_DT seafloor_NN threshold_NN ,_, and_CC SV(k_NN )_) is_VBZ the_DT largest_JJS saliency_NN value_NN ._SENT 
+When_WRB these_DT conditions_NNS are_VBP met_VVN ,_, eI(k_NP )_) is_VBZ selected_VVN as_IN an_DT interesting_JJ image_NN which_WDT named_VVD IoI(ns_NNS )_) ._SENT 
+Then_RB ,_, IoI_NP (_( ns_NN )_) is_VBZ transferred_VVN to_TO the_DT next_JJ process_NN for_IN image_NN compression_NN ._SENT 
+The_DT loop_NN in_IN the_DT interesting_JJ image_NN selection_NN process_NN is_VBZ repeated_VVN as_RB long_RB as_IN the_DT imaging_NN by_IN AUV_NP is_VBZ continued_VVN ._SENT 
+C._NP Image_NN Color_NN Compression_NN and_CC Reconstruction_NN In_IN an_DT underwater_JJ environment_NN ,_, acoustic_JJ communication_NN is_VBZ employed_VVN for_IN the_DT interaction_NN between_IN the_DT AUV_NP and_CC the_DT surface_NN vessel_NN during_IN exploration_NN ._SENT 
+Acoustic_JJ communication_NN has_VHZ a_DT lower_JJR information_NN density_NN than_IN radio_NN communication_NN ,_, and_CC sometimes_RB ,_, data_NNS are_VBP lost_VVN during_IN communication_NN ._SENT 
+The_DT well-known_JJ JPEG_NN format_NN image_NN [_SYM 20_CD ]_SYM ,_, which_WDT has_VHZ a_DT high_JJ data_NN compression_NN rate_NN ,_, is_VBZ not_RB suitable_JJ to_TO transmit_VV acoustically_RB ,_, because_IN data_NNS cannot_MD be_VB restored_VVN if_IN data_NN loss_NN occurs_VVZ ._SENT 
+In_IN addition_NN ,_, other_JJ data_NNS formats_NNS cannot_MD be_VB reconstructed_VVN if_IN some_DT of_IN the_DT format_NN header_NN data_NNS are_VBP missed_VVN ._SENT 
+Hoag_NP et_NP al_NP ._SENT 
+[_SYM 21_CD ]_SYM presented_VVD a_DT method_NN for_IN video_JJ transmission_NN by_IN AUVs_NNS using_VVG wavelet_NN compression_NN ._SENT 
+Wavelet_NN compression_NN is_VBZ a_DT solution_NN when_WRB the_DT loss_NN of_IN data_NNS is_VBZ small_JJ ._SENT 
+However_RB ,_, the_DT AUV_NP will_MD move_VV continually_RB in_IN our_PP$ sampling_NN mission_NN ,_, resulting_VVG in_IN a_DT large_JJ loss_NN of_IN data_NNS during_IN communication_NN ._SENT 
+If_IN data_NN loss_NN occurs_VVZ often_RB ,_, then_RB the_DT operator_NN cannot_MD check_VV the_DT marine_JJ life_NN in_IN detail_NN ._SENT 
+Therefore_RB ,_, for_IN our_PP$ sampling_NN strategy_NN we_PP strongly_RB require_VVP an_DT image_NN compression_NN method_NN that_WDT is_VBZ robust_JJ against_IN data_NN loss_NN ._SENT 
+In_IN this_DT paper_NN ,_, we_PP present_VVP a_DT method_NN for_IN compression_NN and_CC reconstruction_NN to_TO check_VV for_IN marine_JJ life_NN in_IN a_DT received_VVN image_NN ._SENT 
+The_DT proposed_VVN method_NN is_VBZ based_VVN on_IN color_NN depth_NN compression_NN ,_, which_WDT maintains_VVZ pixel_NN position_NN information_NN ._SENT 
+The_DT concept_NN of_IN the_DT proposed_VVN method_NN is_VBZ presented_VVN in_IN Fig_NN ._SENT 
+6._CD Fig_NN ._SENT 
+6._CD Concept_NN of_IN proposed_VVN image_NN color_NN compression_NN and_CC reconstruction_NN process_NN ._SENT 
+nc_NN :_: Total_JJ color_NN number_NN of_IN color_NN palettes_NNS ._SENT 
+np_NN :_: Total_JJ palette_NN number_NN in_IN a_DT set_NN of_IN color_NN palette_NN ._SENT 
+(_( xtp,ytp_NP )_) :_: Center_NN point_NN of_IN area_NN image_NN of_IN maximum_JJ saliency_NN ._SENT 
+Circle_NN in_IN Reconstructed_JJ image_NN :_: Circle_NN is_VBZ drawn_VVN using_VVG (_( xtp,ytp_NN )_) to_TO represent_VV maximum_JJ saliency_NN area_NN ._SENT 
+The_DT left-hand_JJ side_NN part_NN within_IN the_DT red_JJ line_NN represents_VVZ the_DT steps_NNS for_IN the_DT AUV_NP ,_, and_CC the_DT part_NN on_IN the_DT right-hand_JJ side_NN within_IN the_DT blue_JJ line_NN represents_VVZ the_DT steps_NNS for_IN the_DT vessel_NN ._SENT 
+In_IN the_DT “Input_NN image_NN (_( 24_CD b)”_NN ,_, the_DT area_NN with_IN the_DT largest_JJS saliency_NN values_NNS is_VBZ selected_VVN as_IN an_DT “Area_NN image_NN of_IN Maximum_JJ Saliency”_NN ._SENT 
+The_DT “Set_NN of_IN color_NN palettes”_NN was_VBD prepared_VVN before_IN the_DT mission_NN ,_, and_CC comprises_VVZ several_JJ colors_NNS extracted_VVN from_IN a_DT seafloor_NN image_NN data_NNS set_VVD ._SENT 
+Then_RB ,_, AUV_NP and_CC vessel_NN have_VHP the_DT same_JJ “Set_NN of_IN color_NN palettes”_NN in_IN the_DT compression_NN and_CC reconstruction_NN process_NN ._SENT 
+The_DT horizontal_JJ direction_NN represents_VVZ each_DT color_NN of_IN a_DT palette_NN and_CC vertical_JJ direction_NN represents_VVZ each_DT palette_NN ._SENT 
+We_PP present_VVP the_DT details_NNS of_IN this_DT color_NN palette_NN composition_NN in_IN Section_NP III_NP ._SENT 
+The_DT color_NN palette_NN that_WDT is_VBZ most_RBS similar_JJ to_TO that_DT of_IN the_DT interesting_JJ object_NN is_VBZ selected_VVN using_VVG the_DT Euclidean_JJ distance_NN as_RB follows_VVZ :_: @(4_NP )_) where_WRB wI_NP is_VBZ the_DT image_NN of_IN an_DT “Area_NN image_NN of_IN Maximum_JJ Saliency”_NN in_IN Fig_NN ._SENT 
+6_CD ,_, (_( u_NN ,_, v_NN )_) is_VBZ pixel_JJ location_NN of_IN wI_NP in_IN Cartesian_JJ coordinates_NNS ,_, P_NN is_VBZ a_DT “Set_NN of_IN color_NN palettes,”_NP i_NP is_VBZ a_DT palette_NN number_NN in_IN a_DT “Set_NN of_IN color_JJ palettes,”_JJ j_NN is_VBZ a_DT color_JJ number_NN in_IN that_DT palette_NN ,_, nc_NP is_VBZ the_DT total_JJ color_NN number_NN in_IN that_DT palette_NN ,_, (_( nww_NP ,_, nwh_NP )_) denotes_VVZ pixel_NN numbers_NNS of_IN width_NN and_CC height_NN of_IN wI_NP ._SENT 
+np_NP and_CC nsp_NP are_VBP the_DT numbers_NNS of_IN total_JJ palettes_NNS and_CC the_DT selected_JJ palette_NN ,_, respectively_RB ._SENT 
+The_DT “Area_NN for_IN transmission”_NN in_IN Fig_NN ._SENT 
+6_CD consists_VVZ of_IN horizontal_JJ lines_NNS with_IN the_DT interesting_JJ object(s_NNS )_) ,_, and_CC pixels_NNS in_IN “Area_NN for_IN transmission”_NN are_VBP replaced_VVN using_VVG the_DT most_RBS close_JJ color_NN numbers_NNS in_IN the_DT selected_JJ color_NN palette_NN ._SENT 
+The_DT “Transmission_NN data”_NN comprises_VVZ “Image_NN information_NN part”_NN and_CC “Image_NN data_NNS part.”_NN The_DT “Image_NN information_NN part”_NN contains_VVZ the_DT numbers_NNS of_IN the_DT packet_NN and_CC the_DT selected_JJ palette_NN ,_, and_CC the_DT position_NN (_( xtp,ytp_NP )_) which_WDT is_VBZ the_DT center_NN point_NN of_IN “area_NN image_NN of_IN maximum_JJ saliency”_JJ image_NN ._SENT 
+One_CD line_NN of_IN “data_NP part”_NP is_VBZ the_DT corresponding_JJ line_NN of_IN “Area_NN for_IN transmission”_NP ,_, which_WDT is_VBZ transmitted_VVN to_TO the_DT vessel_NN by_IN one_CD packet_NN using_VVG the_DT acoustic_JJ transmitter_NN ._SENT 
+In_IN the_DT vessel_NN ,_, an_DT image_NN is_VBZ reconstructed_VVN from_IN a_DT set_NN of_IN received_VVN data_NNS using_VVG the_DT “set_NN of_IN color_NN palettes_NNS ;_: however_RB ,_, some_DT of_IN packets_NNS are_VBP lost_VVN so_RB that_IN the_DT lost_VVN area_NN is_VBZ colored_VVN by_IN black_JJ ._SENT 
+Finally_RB ,_, the_DT operator_NN checks_VVZ the_DT “reconstructed_JJ image”_NN with_IN circle_NN whose_WP$ center_NN is_VBZ the_DT position_NN (_( xtp,ytp_NN )_) ._SENT 
+D._NP Color_NP Palettes_NNS Composition_NN Method_NN The_DT color_NN palettes_NNS are_VBP the_DT most_RBS important_JJ factor_NN in_IN determining_VVG the_DT similarities_NNS of_IN colors_NNS between_IN the_DT transmitted_JJ area_NN and_CC the_DT reconstructed_JJ image_NN ._SENT 
+The_DT proposed_VVN method_NN for_IN composing_VVG a_DT set_NN of_IN color_NN palette_NN is_VBZ illustrated_VVN in_IN Fig_NN ._SENT 
+7._CD Fig_NN ._SENT 
+7._CD Flowchart_NN of_IN color_NN palette_NN composition_NN ._SENT 
+k_NN and_CC i_NP :_: Running_VVG indexes_NNS ._SENT 
+IG_NP :_: Image_NN group_NN ._SENT 
+ng_NN :_: Total_JJ number_NN of_IN image_NN groups_NNS ._SENT 
+In_IN the_DT flow_NN chart_NN shown_VVN in_IN Fig_NN ._SENT 
+7_CD ,_, a_DT data_NNS set_VVN of_IN enhanced_JJ seafloor_NN images_NNS pD_NN is_VBZ employed_VVN to_TO compose_VV a_DT set_NN of_IN color_NN palettes_NNS ,_, the_DT saliency_NN maps_NNS pSM_NN are_VBP made_VVN from_IN pD_NNS ,_, and_CC k_NN and_CC i_NP are_VBP running_VVG indexes_NNS ._SENT 
+The_DT area_NN image_NN of_IN maximum_JJ saliency_NN wI(k_NN )_) ,_, which_WDT have_VHP the_DT maximum_JJ saliency_NN values_NNS in_IN images_NNS ,_, are_VBP classified_VVN into_IN groups_NNS IG(1_NN )_) ,_, IG(2),…_NP ,_, IG(ng_NP )_) ,_, such_JJ as_IN fish_NN ,_, crab_NN manually_RB ._SENT 
+ng_NN is_VBZ total_JJ number_NN of_IN the_DT image_NN groups_NNS ._SENT 
+All_DT pixels_NNS in_IN IG(i_NP )_) are_VBP expressed_VVN in_IN a_DT RGB-color_JJ space_NN ,_, and_CC then_RB representative_JJ colors_NNS are_VBP selected_VVN using_VVG a_DT color_NN quantization_NN method_NN ._SENT 
+A_DT palette_NN P(i_NN )_) is_VBZ composed_VVN by_IN the_DT representative_JJ colors_NNS ,_, and_CC a_DT set_NN of_IN color_NN palettes_NNS P_NN is_VBZ composed_VVN by_IN several_JJ palettes_NNS ._SENT 
+For_IN the_DT selection_NN of_IN representative_JJ colors_NNS in_IN IG(i_NP )_) ,_, minimum_JJ variance_NN quantization_NN [_SYM 22]–[23][24][25_NP ]_SYM is_VBZ employed_VVN ,_, and_CC an_DT example_NN of_IN minimum_JJ variance_NN quantization_NN in_IN the_DT RGB_NN space_NN is_VBZ presented_VVN in_IN Fig_NN ._SENT 
+8._CD Fig_NN ._SENT 
+8._CD Example_NN of_IN minimum_JJ variance_NN quantization_NN (_( 4-b_NN color_NN compression_NN )_) ._SENT 
+In_IN Fig_NN ._SENT 
+8_CD ,_, dot_VVP circles_NNS represent_VVP pixel_NN in_IN a_DT 24-b_NN image_NN and_CC big_JJ circles_NNS indicate_VVP the_DT representative_JJ colors_NNS in_IN a_DT palette_NN ._SENT 
+The_DT 4-b_NN image_NN in_IN the_DT left_NN consists_VVZ of_IN the_DT 16_CD representative_NN colors_NNS and_CC the_DT data_NNS size_NN is_VBZ 1/6_CD of_IN the_DT raw_JJ image_NN ,_, and_CC it_PP can_MD be_VB seen_VVN that_IN the_DT main_JJ features_NNS still_RB remain_VVP ._SENT 
+The_DT evaluation_NN of_IN the_DT process_NN is_VBZ given_VVN in_IN Section_NP III_NP ._SENT 
+<Section> 3._CD Evaluations_NNS of_IN Compression_NN Rate_NN and_CC Similarities_NNS of_IN Color_NP Compressed_VVN Image_NN </Section> The_DT relationship_NN between_IN the_DT image_NN color_NN quality_NN and_CC the_DT compression_NN rate_NN is_VBZ evaluated_VVN by_IN changing_VVG bit-size_JJ of_IN the_DT color_NN palettes_NNS ,_, and_CC the_DT minimum_JJ bit-size_NN is_VBZ selected_VVN for_IN the_DT deep_JJ sea_NN experiments_NNS using_VVG the_DT similarities_NNS of_IN images_NNS ._SENT 
+A._NP Evaluation_NN of_IN Compression_NN Bits_NNS for_IN Color_NP Palettes_NNS In_IN the_DT image_NN compression_NN method_NN ,_, the_DT color_NN bit-size_JJ of_IN a_DT color_NN palette_NN and_CC the_DT image_NN color_NN quality_NN exhibit_NN a_DT tradeoff_NN relationship_NN ._SENT 
+To_TO evaluate_VV the_DT balance_NN between_IN color_NN quality_NN and_CC the_DT color_NN bit-size_NN ,_, the_DT peak_NN signal-to-noise_NN ratio_NN (_( PSNR_NP )_) [_SYM 26]–[27][28_NP ]_SYM ,_, ePSNR_NP ,_, is_VBZ employed_VVN ,_, which_WDT is_VBZ used_VVN to_TO measure_VV the_DT quality_NN of_IN reconstruction_NN in_IN lossy_JJ compression_NN ._SENT 
+The_DT PSNR_NN is_VBZ defined_VVN as_RB follows_VVZ :_: @(5_NP )_) where_WRB IA_NP and_CC IB_NP are_VBP images_NNS to_TO compare_VV ,_, and_CC mse_RB denotes_VVZ the_DT mean_NN squared_VVD error_NN as_RB follows_VVZ :_: @(6_NP )_) where_WRB (_( niw_NP ,_, nih_NP )_) is_VBZ image_NN size_NN ._SENT 
+The_DT proposed_VVN evaluation_NN method_NN compares_VVZ enhanced_JJ image_NN and_CC compressed_VVN images_NNS which_WDT is_VBZ used_VVN by_IN different_JJ color_NN bits_NNS palette_NN ._SENT 
+The_DT k-bit_JJ color_NN palette_NN composed_VVN using_VVG pD_NN is_VBZ denoted_VVN as_IN P(k_NN )_) ._SENT 
+The_DT compressed_VVN image_NN cI(k_NN )_) made_VVN from_IN P(k_NN )_) is_VBZ compared_VVN with_IN the_DT original_JJ enhanced_JJ image_NN eI_NN using_VVG (_( 5_LS )_) with_IN changing_VVG k_NN from_IN 1_CD to_TO 23_CD b._NN The_DT results_NNS of_IN k-bit_JJ compression_NN are_VBP shown_VVN in_IN Fig_NN ._SENT 
+9._CD Fig_NN ._SENT 
+9._CD Example_NN of_IN images_NNS compressed_VVN by_IN different_JJ color_NN bit_NN palettes_NNS ._SENT 
+eI_NP :_: Enhanced_JJ seafloor_NN image_NN (_( 24_CD b_SYM )_) ._SENT 
+cI(k_NP )_) :_: Compressed_VVN image_NN by_IN k-bit_JJ color_NN palette_NN ._SENT 
+In_IN Fig_NN ._SENT 
+9_CD ,_, it_PP can_MD be_VB seen_VVN that_IN higher_JJR image_NN qualities_NNS correspond_VV to_TO higher_JJR numbers_NNS of_IN color_JJ palette_NN bits_NNS until_IN 6_CD b._NN For_IN further_JJR details_NNS concerning_VVG the_DT image_NN color_NN quality_NN and_CC compression_NN bits_NNS ,_, the_DT rate-distortion_NN curve_NN of_IN compressed_VVN seafloor_NN images_NNS is_VBZ shown_VVN in_IN Fig_NN ._SENT 
+10._CD Fig_NN ._SENT 
+10._CD Rate-distortion_NN curve_NN of_IN compressed_VVN seafloor_NN images_NNS ._SENT 
+In_IN Fig_NN ._SENT 
+10_CD ,_, the_DT images_NNS of_IN different_JJ species_NNS ,_, such_JJ as_IN the_DT right_JJ eye_NN flounder_VV ,_, channel_NN rockfish_NNS ,_, ray_NN ,_, and_CC red_JJ snow_NN crab_NN ,_, are_VBP selected_VVN ._SENT 
+Then_RB ,_, the_DT images_NNS are_VBP processed_VVN using_VVG proposed_VVN evaluation_NN method_NN ._SENT 
+The_DT x-axis_NN represents_VVZ the_DT rate_NN [_SYM bits/pixel_NP ]_SYM ,_, which_WDT corresponds_VVZ to_TO the_DT color_NN palette_NN bit_NN number_NN ,_, and_CC the_DT y-axis_NN represents_VVZ the_DT ePSNR[dB_NN ]_SYM ._SENT 
+In_IN the_DT result_NN of_IN Fig_NN ._SENT 
+10_CD ,_, ePSNR_NP is_VBZ increase_NN until_IN 10_CD b_SYM ,_, then_RB converges_VVZ if_IN it_PP is_VBZ larger_JJR than_IN 10_CD b._NN In_IN the_DT PSNR_NP ,_, 30_CD dB_NN commonly_RB represents_VVZ a_DT good_JJ image_NN quality_NN ,_, and_CC 4-b_NN compression_NN yields_VVZ a_DT value_NN of_IN over_RB 30_CD dB_NN for_IN all_DT images_NNS ._SENT 
+Therefore_RB ,_, we_PP select_VVP the_DT 4-b_NN compression_NN for_IN evaluation_NN of_IN similarity_NN between_IN 24-b_NN image_NN and_CC compressed_VVN 4-b_NN image_NN ._SENT 
+B._NP Evaluation_NN of_IN Structural_JJ Similarity_NN of_IN Compressed_VVN Images_NNS For_IN the_DT evaluation_NN of_IN 4-b_NN color_NN compressed_VVN images_NNS using_VVG the_DT proposed_VVN compression_NN method_NN ,_, the_DT Structural_JJ SIMilarity_NN (_( SSIM_NP )_) [_SYM 29_CD ]_SYM is_VBZ employed_VVN ._SENT 
+The_DT SSIM_NP index_NN is_VBZ a_DT method_NN used_VVN to_TO evaluate_VV the_DT similarity_NN between_IN two_CD images_NNS ._SENT 
+The_DT luminance_NN ,_, contrast_NN ,_, and_CC structure_NN are_VBP the_DT three_CD factors_NNS considered_VVN in_IN the_DT SSIM_NN ,_, which_WDT is_VBZ calculated_VVN as_RB follows_VVZ :_: @(7_JJ )_) where_WRB A_NP and_CC B_NP are_VBP the_DT windows_NNS to_TO measure_VV the_DT input_NN and_CC compressed_VVN images_NNS ,_, respectively_RB ._SENT 
+The_DT parameters_NNS μA_NP and_CC μB_NP represent_VVP the_DT averages_NNS of_IN A_NP and_CC B_NP ,_, respectively_RB ,_, s2A_NP and_CC s2B_NP are_VBP the_DT variances_NNS of_IN A_NP and_CC B_NP ,_, respectively_RB ,_, and_CC sAB_NP is_VBZ the_DT covariance_NN between_IN A_NP and_CC B._NP The_DT variables_NNS c1and_NN c2_NN are_VBP employed_VVN to_TO stabilize_VV the_DT division_NN with_IN the_DT weak_JJ denominator_NN ,_, and_CC SSIM(A,B_NP )_) represents_VVZ the_DT structural_JJ similarity_NN between_IN A_NP and_CC B._NP A_NP set_VVD of_IN color_NN palettes_NNS P_NN ,_, which_WDT is_VBZ consisted_VVN of_IN four_CD palettes_NNS ,_, is_VBZ employed_VVN for_IN the_DT evaluation_NN process_NN based_VVN on_IN the_DT SSIM_NN ._SENT 
+The_DT used_VVN P_NN is_VBZ shown_VVN in_IN Fig_NN ._SENT 
+11._CD P_NN is_VBZ composed_VVN using_VVG a_DT seafloor_NN image_NN data_NNS set_NN which_WDT contains_VVZ ten_CD right_NN eye_NN flounder_VV images_NNS ,_, ten_CD channel_NN rockfish_NN images_NNS ,_, ten_CD ray_NN images_NNS and_CC ten_CD red_JJ snow_NN crab_NN images_NNS ._SENT 
+five_CD images_NNS of_IN each_DT species_NN ,_, which_WDT are_VBP randomly_RB selected_VVN for_IN evaluation_NN ,_, are_VBP compressed_VVN by_IN P_NN ,_, then_RB the_DT similarity_NN between_IN enhanced_JJ image_NN (_( 24_CD b_SYM )_) and_CC compressed_VVN image_NN (_( 4_CD b_SYM )_) is_VBZ calculated_VVN by_IN (_( 7_CD )_) ._SENT 
+The_DT evaluation_NN result_NN is_VBZ presented_VVN in_IN Table_NN I._NN In_IN Table_NN I_PP ,_, the_DT numbers_NNS “1–5”_NN label_VVP the_DT images_NNS for_IN each_DT species_NN ,_, “SSIM”_NP is_VBZ the_DT structural_JJ similarity_NN between_IN the_DT enhanced_JJ image_NN (_( 24_CD b_SYM )_) and_CC compressed_VVN image_NN (_( 4_CD b_SYM )_) ,_, and_CC “Selected_JJ palette”_NN indicates_VVZ the_DT palette_NN selected_VVN from_IN Fig_NN ._SENT 
+11_CD using_VVG the_DT proposed_VVN color_NN palette_NN selection_NN method_NN ._SENT 
+The_DT average_JJ SSIM_NN value_NN for_IN the_DT evaluation_NN is_VBZ 91.4_CD %_NN ,_, with_IN a_DT maximum_NN of_IN 93.8_CD %_NN and_CC a_DT minimum_NN of_IN 88.0_CD %_NN ._SENT 
+The_DT examples_NNS of_IN the_DT images_NNS are_VBP shown_VVN in_IN Fig_NN ._SENT 
+12_CD in_IN the_DT form_NN of_IN enhanced_JJ and_CC color-compressed_JJ images_NNS ._SENT 
+The_DT example_NN images_NNS in_IN Fig_NN ._SENT 
+12_CD illustrate_VVP the_DT differences_NNS between_IN enhanced_VVN and_CC compressed_VVN images_NNS ._SENT 
+Although_IN all_DT of_IN the_DT compressed_VVN images_NNS are_VBP composed_VVN of_IN different_JJ colors_NNS ,_, the_DT colors_NNS are_VBP similar_JJ ,_, and_CC the_DT operator_NN can_MD recognize_VV species_NNS ._SENT 
+The_DT SSIM_NP evaluation_NN proved_VVD that_IN 4-b_NN compression_NN is_VBZ available_JJ ._SENT 
+The_DT deep_JJ sea_NN experiment_NN based_VVN on_IN 4-b_NN color_NN palettes_NNS is_VBZ given_VVN in_IN Section_NP IV_NP ._SENT 
+Fig_NN ._SENT 
+11._CD Set_NN of_IN color_NN palettes_NNS P_NN for_IN the_DT evaluation_NN using_VVG SSIM_NP ._SENT 
+a_DT palette_NN :_: Composed_VVN palette_NN using_VVG ten_CD right_NN eye_NN flounder_VV images_NNS ._SENT 
+b_SYM palette_NN :_: Composed_VVN palette_NN using_VVG ten_CD channel_NN rockfish_NN images_NNS ._SENT 
+c_SYM palette_NN :_: Composed_VVN palette_NN using_VVG ten_CD ray_NN images_NNS ._SENT 
+d_SYM palette_NN :_: Composed_VVN palette_NN using_VVG ten_CD red_JJ snow_NN crab_NN images_NNS ._SENT 
+Table_NN I_NN Evaluation_NN of_IN the_DT Compression_NN Method_NN Using_VVG SSIM_NP Fig_NN ._SENT 
+12._CD Examples_NNS of_IN enhanced_VVN and_CC compressed_VVN images_NNS for_IN evaluation_NN ._SENT 
+eI_NP :_: Enhanced_JJ image_NN (_( 24_CD b_SYM )_) ._SENT 
+cI(4_NP )_) :_: Compressed_VVN image_NN by_IN 4-b_NN color_NN palette_NN ._SENT 
+<Section> 4._CD Deep_JJ Sea_NP Experiment_NN and_CC Result_NN </Section> We_PP tested_VVD the_DT proposed_VVN image_NN transmission_NN method_NN using_VVG the_DT SAUV_NP :_: TUNA-SAND2_NP [_SYM 30_CD ]_SYM ,_, which_WDT was_VBD developed_VVN by_IN our_PP$ research_NN group_NN for_IN a_DT sampling_VVG mission_NN in_IN the_DT Sea_NP of_IN Okhotsk_NP ._SENT 
+The_DT appearance_NN of_IN TUNA-SAND2_NN is_VBZ shown_VVN in_IN Fig_NN ._SENT 
+13._CD The_NP dimensions_NNS of_IN TUNA-SAND2_NP are_VBP 1.4_CD m_NN �_JJ �_NP 1.2_CD m_NN �_JJ �_NP 1.3_CD m_NN ,_, the_DT weight_NN is_VBZ 380_CD kg_NN ,_, and_CC six_CD thrusters_NNS were_VBD mounted_VVN ._SENT 
+In_IN addition_NN ,_, a_DT manipulator_NN for_IN sampling_NN and_CC acoustic_JJ transmitter_NN for_IN image_NN transmission_NN was_VBD mounted_VVN on_IN TUNA-SAND2_NP ._SENT 
+Fig_NN ._SENT 
+13._CD Appearance_NN of_IN the_DT SAUV:TUNA-SAND2_NN ._SENT 
+In_IN the_DT experiments_NNS ,_, we_PP employed_VVN an_DT acoustic_JJ transmitter_NN with_IN a_DT data_NNS transmission_NN speed_NN of_IN 20_CD kb/s_NNS ._SENT 
+Details_NNS of_IN the_DT acoustic_JJ transmitter_NN and_CC receiver_NN are_VBP provided_VVN in_IN Table_NN II_NP ,_, and_CC the_DT experimental_JJ setup_NN of_IN the_DT seafloor_NN image_NN transmission_NN system_NN is_VBZ described_VVN in_IN Table_NN III_NP ._SENT 
+In_IN Table_NN III_NP ,_, “Compression_NP bit”_NP represents_VVZ the_DT number_NN of_IN color_NN bits_NNS of_IN the_DT compressed_VVN images_NNS ,_, with_IN 4_CD b_SYM being_VBG used_VVN ,_, as_RB selected_VVN in_IN the_DT evaluation_NN ._SENT 
+The_DT “Image_NN size”_NN is_VBZ that_IN of_IN the_DT image_NN resized_VVN for_IN faster_JJR compression_NN and_CC transmission_NN ._SENT 
+The_DT “Area_NN size_NN for_IN transmission”_NP represents_VVZ the_DT part_NN of_IN the_DT image_NN that_WDT contains_VVZ the_DT object_NN of_IN most_JJS interest_NN ,_, and_CC the_DT “ni”_NN represents_VVZ a_DT number_NN of_IN images_NNS for_IN comparison_NN to_TO select_VV the_DT interesting_JJ image_NN which_WDT is_VBZ presented_VVN in_IN Fig_NN ._SENT 
+5._CD The_DT camera_NN frame_NN rate_NN is_VBZ 1/5_CD ,_, theoretical_JJ required_JJ time_NN for_IN one_CD transmission_NN is_VBZ 3.7_CD s_NNS ,_, and_CC the_DT AUV_NP traveling_VVG speed_NN for_IN seafloor_NN observation_NN is_VBZ 0.1_CD m/s_NNS ._SENT 
+The_DT AUV_NP altitude_NN was_VBD set_VVN as_IN either_DT 10_CD or_CC 2_CD m._NN We_PP used_VVD employed_VVN 10_CD m_NN altitude_NN for_IN fast_RB cruising_VVG toward_IN the_DT starting_VVG point_NN for_IN observations_NNS ,_, to_TO prevent_VV a_DT collision_NN with_IN the_DT seafloor_NN ,_, whereas_IN we_PP used_VVD the_DT 2_CD m_NN altitude_NN for_IN the_DT observations_NNS ._SENT 
+Table_NN II_CD Specifications_NNS of_IN the_DT Acoustic_JJ Transmitter_NN and_CC Receiver_NN in_IN the_DT Experiment_NN Table_NN III_NP Details_NP of_IN Parameters_NNS in_IN Experiment_NN In_IN the_DT experiment_NN ,_, TUNA-SAND2_NP undertook_VVD transmission_NN missions_NNS in_IN various_JJ sea_NN areas_NNS and_CC at_IN different_JJ depths_NNS ,_, and_CC the_DT “compressed_JJ data_NNS (_( z_SYM bit),”_NN which_WDT is_VBZ explained_VVN in_IN Fig_NN ._SENT 
+6_CD ,_, is_VBZ composed_VVN of_IN 60_CD packets_NNS (_( 4_CD b_SYM )_) ._SENT 
+Each_DT packet_NN consists_VVZ of_IN a_DT 24-B_NN header_NN part_NN and_CC 128-B_NN data_NNS part_NN ._SENT 
+The_DT 24-B_NN header_NN part_NN is_VBZ automatically_RB assigned_VVN packet_NN information_NN by_IN the_DT transmitter_NN ._SENT 
+The_DT 128-B_NN data_NN part_NN is_VBZ sorted_VVN into_IN an_DT 8-B_NN image_NN information_NN part_NN ,_, which_WDT contains_VVZ a_DT 1-B_NN packet_NN number_NN ,_, 1-B_JJ selected_JJ palette_NN number_NN ,_, 2-B_NN image_NN number_NN ,_, 2-B_NN target_NN position_NN (_( coordinates_VVZ of_IN the_DT center_NN point_NN )_) ,_, and_CC 2-B_NN position_NN of_IN area_NN for_IN transmission_NN (_( coordinates_VVZ of_IN starting_VVG point_NN )_) ;_: and_CC a_DT 120-B_NN image_NN data_NNS part_NN ._SENT 
+1-B_NN of_IN image_NN data_NNS contains_VVZ the_DT data_NNS for_IN two_CD pixels_NNS compressed_VVN into_IN a_DT 4-b_NN format_NN ._SENT 
+Fig_NN ._SENT 
+14_CD presents_VVZ examples_NNS of_IN images_NNS that_WDT were_VBD selected_VVN and_CC received_VVN as_IN part_NN of_IN the_DT transmission_NN experiments_NNS ,_, during_IN which_WDT various_JJ creatures_NNS were_VBD photographed_VVN ,_, such_JJ as_IN octopuses_NNS ,_, starfish_NNS ,_, sea_NN cucumbers_NNS ,_, and_CC channel_NN rockfish_NNS ._SENT 
+The_DT photographs_NNS taken_VVN by_IN TUNA-SAND2_NN from_IN the_DT 2_CD m_NN altitude_NN show_VVP a_DT rectangular_JJ area_NN of_IN the_DT seafloor_NN of_IN size_NN 1.1_CD m_NN by_IN 1.5_CD m._NN If_IN the_DT transmission_NN success_NN rate_NN was_VBD more_JJR than_IN 50_CD %_NN ,_, we_PP could_MD easily_RB identify_VV the_DT species_NN ,_, such_JJ as_IN starfish_NN and_CC octopus_NN ,_, from_IN most_RBS received_VVN images_NNS ._SENT 
+The_DT results_NNS of_IN the_DT transmission_NN experiments_NNS are_VBP summarized_VVN in_IN Table_NN IV_NP ._SENT 
+Fig_NN ._SENT 
+14._CD Examples_NNS of_IN selected_VVN and_CC received_VVN images_NNS during_IN the_DT image_NN transmission_NN experiments_NNS in_IN the_DT Sea_NP of_IN Okhotsk_NP ._SENT 
+Table_NN IV_NP Results_NNS of_IN Transmission_NP Experiments_NNS in_IN the_DT Sea_NP of_IN Okhotsk_NP In_IN Table_NN IV_NP ,_, “Mission_NN Dive_NN number,”_JJ “Mission_NN Depth,”_NN and_CC “Mission_NN Date”_NN provide_VVP information_NN about_IN the_DT transmission_NN mission_NN ._SENT 
+“No_NP ._SENT 
+of_IN Obtained_VVN images”_NN is_VBZ the_DT total_JJ number_NN of_IN images_NNS obtained_VVN by_IN the_DT AUV_NP during_IN one_CD mission_NN ._SENT 
+“No_NP ._SENT 
+of_IN Selected_JJ images”_NN is_VBZ the_DT number_NN of_IN images_NNS selected_VVN by_IN the_DT proposed_VVN method_NN as_IN interesting_JJ images_NNS ._SENT 
+“No_NP ._SENT 
+of_IN Selected_VVN images_NNS when_WRB moving_VVG to_TO start_VV point”_NN is_VBZ the_DT number_NN of_IN images_NNS taken_VVN from_IN the_DT 10_CD m_NN altitude_NN ,_, and_CC “No_NP ._SENT 
+of_IN Selected_VVN images_NNS during_IN observation”_NP is_VBZ the_DT number_NN captured_VVN from_IN the_DT 2_CD m_NN altitude_NN ._SENT 
+“No_NP ._SENT 
+of_IN Selected_JJ marine_JJ life_NN images_NNS during_IN observation”_NP is_VBZ the_DT number_NN of_IN images_NNS that_WDT included_VVD marine_JJ life_NN ._SENT 
+“No_NP ._SENT 
+of_IN Received_VVN images”_NN is_VBZ the_DT number_NN of_IN received_VVN images_NNS ,_, “No_NP ._SENT 
+of_IN Transmitted_JJ packets”_NN is_VBZ the_DT number_NN of_IN packets_NNS sent_VVN from_IN the_DT AUV_NP ,_, and_CC “No_NP ._SENT 
+of_IN Received_VVN packets”_NN is_VBZ the_DT number_NN of_IN packets_NNS that_WDT reached_VVD the_DT surface_NN vessel_NN ._SENT 
+In_IN these_DT experiments_NNS ,_, the_DT total_JJ rate_NN of_IN selected_JJ marine_JJ life_NN images_NNS was_VBD 63.3_CD %_NN ,_, and_CC the_DT total_JJ transmission_NN success_NN rate_NN was_VBD 21.8_CD %_NN ._SENT 
+<Section> 5._CD Discussion_NN </Section> In_IN this_DT paper_NN ,_, we_PP proposed_VVD an_DT image_NN transmission_NN system_NN to_TO be_VB employed_VVN in_IN SAUV_NP missions_NNS ,_, and_CC we_PP presented_VVD the_DT results_NNS of_IN experiments_NNS in_IN which_WDT an_DT AUV_NP transmitted_VVD images_NNS of_IN a_DT deep_JJ sea_NN environment_NN ._SENT 
+Raw_JJ images_NNS of_IN the_DT deep_JJ seafloor_NN ,_, which_WDT suffer_VVP from_IN attenuated_JJ colors_NNS and_CC uneven_JJ illumination_NN ,_, are_VBP enhanced_VVN using_VVG the_DT Retinex_NP process_NN ._SENT 
+The_DT colors_NNS in_IN the_DT enhanced_JJ images_NNS are_VBP not_RB the_DT same_JJ as_IN those_DT of_IN the_DT same_JJ object_NN in_IN air_NN ,_, because_IN the_DT Retinex_NP approach_NN does_VVZ not_RB consider_VV light_JJ attenuation_NN under_IN water_NN ._SENT 
+The_DT approximated_VVN illumination_NN in_IN a_DT deep_JJ seafloor_NN image_NN contains_VVZ high_JJ green_JJ and_CC blue_JJ values_NNS ,_, because_IN red_JJ values_NNS are_VBP highly_RB attenuated_VVN ._SENT 
+Therefore_RB ,_, the_DT enhanced_JJ images_NNS contain_VVP high_JJ red_JJ values_NNS ._SENT 
+Thus_RB ,_, the_DT use_NN of_IN Retinex_NP with_IN a_DT hue_NN adjustment_NN has_VHZ been_VBN proposed_VVN for_IN restoring_VVG the_DT colors_NNS in_IN underwater_JJ images_NNS [_SYM 11_CD ]_SYM ._SENT 
+However_RB ,_, we_PP employed_VVN basic_JJ Retinex_NN in_IN our_PP$ system_NN ,_, because_IN the_DT entire_JJ image_NN transmission_NN process_NN must_MD be_VB completed_VVN within_IN the_DT imaging_NN interval_NN (_( 5_CD s_NNS )_) ._SENT 
+Furthermore_RB ,_, because_IN the_DT received_VVN images_NNS are_VBP checked_VVN by_IN a_DT human_JJ ,_, some_DT color_NN changes_NNS can_MD be_VB accommodated_VVN ._SENT 
+The_DT proposed_VVN process_NN for_IN selecting_VVG interesting_JJ images_NNS ,_, which_WDT is_VBZ based_VVN on_IN a_DT saliency_NN map_NN ,_, selects_VVZ the_DT enhanced_JJ images_NNS that_WDT contain_VVP marine_JJ life_NN ,_, and_CC exhibited_VVN an_DT average_JJ accuracy_NN of_IN 63.3_CD %_NN in_IN the_DT experiments_NNS ._SENT 
+The_DT minimum_JJ accuracy_NN was_VBD 37.2_CD %_NN on_IN dive_NN 2_CD ,_, and_CC the_DT maximum_JJ accuracy_NN was_VBD 100_CD %_NN on_IN dives_VVZ 3_CD and_CC 4._CD This_DT differing_VVG accuracy_NN was_VBD a_DT result_NN of_IN the_DT sea_NN area_NN ._SENT 
+The_DT accuracy_NN is_VBZ higher_RBR when_WRB more_JJR creatures_NNS are_VBP present_JJ in_IN a_DT sea_NN area_NN ._SENT 
+This_DT is_VBZ because_IN the_DT saliency_NN map_NN ,_, which_WDT is_VBZ a_DT model_NN of_IN human_JJ visual_JJ attention_NN ,_, is_VBZ employed_VVN in_IN the_DT selection_NN of_IN interesting_JJ images_NNS ._SENT 
+Although_IN this_DT process_NN is_VBZ prone_JJ to_TO large_JJ differences_NNS in_IN accuracy_NN ,_, it_PP remains_VVZ suitable_JJ for_IN sampling_VVG missions_NNS ,_, because_IN sampling_NN targets_NNS are_VBP ultimately_RB determined_VVN by_IN the_DT operator_NN on_IN the_DT surface_NN vessel_NN ._SENT 
+The_DT proposed_VVN image_NN compression_NN and_CC reconstruction_NN method_NN based_VVN on_IN color_NN depth_NN compression_NN exhibited_VVN a_DT 91.4_CD %_NN similarity_NN in_IN terms_NNS of_IN the_DT SSIM_NN ,_, and_CC the_DT size_NN if_IN the_DT data_NNS required_VVN for_IN information_NN delivery_NN was_VBD decreased_VVN by_IN a_DT factor_NN of_IN 18_CD (_( Only_RB 1/3_CD of_IN the_DT image_NN ,_, which_WDT contains_VVZ the_DT target_NN ,_, is_VBZ selected_VVN as_IN the_DT area_NN for_IN transmission_NN ,_, and_CC the_DT data_NNS size_NN is_VBZ reduced_VVN by_IN a_DT factor_NN of_IN 6_CD using_VVG color_NN compression_NN )_) ._SENT 
+The_DT compression_NN data_NNS was_VBD received_VVN by_IN the_DT vessel_NN within_IN 3.7_CD s_NNS (_( Theoretical_JJ required_JJ time_NN )_) ,_, and_CC the_DT transmission_NN success_NN rate_NN was_VBD 21.8_CD %_NN during_IN the_DT four_CD missions_NNS ._SENT 
+This_DT 21.8_CD %_NN transmission_NN success_NN rate_NN reflects_VVZ the_DT difficulty_NN of_IN using_VVG acoustic_JJ transmission_NN for_IN AUVs_NNS in_IN a_DT deep_JJ sea_NN environment_NN ._SENT 
+The_DT fact_NN that_IN many_JJ packets_NNS did_VVD not_RB reach_VV their_PP$ intended_VVN destination_NN only_RB because_IN of_IN the_DT positional_JJ relationship_NN and_CC signal_NN attenuation_NN shows_VVZ that_IN the_DT proposed_VVN color_NN compression_NN method_NN ,_, which_WDT allows_VVZ reconstruction_NN even_RB if_IN data_NN loss_NN occurs_VVZ ,_, is_VBZ feasible_JJ for_IN real-time_JJ deep_JJ sea_NN image_NN transmission_NN missions_NNS ._SENT 
+<Section> 6._CD Conclusion_NN </Section> The_DT use_NN of_IN AUVs_NNS on_IN missions_NNS to_TO sample_NN deep_JJ sea_NN creatures_NNS is_VBZ expected_VVN to_TO constitute_VV the_DT next_JJ step_NN in_IN ocean_NN exploration_NN ._SENT 
+Therefore_RB ,_, SAUVs_NNS are_VBP being_VBG developed_VVN according_VVG to_TO such_JJ requirements_NNS [_SYM 7_CD ]_SYM ,_, [_SYM 30_CD ]_SYM ._SENT 
+In_IN this_DT paper_NN ,_, we_PP presented_VVD an_DT image_NN transmission_NN system_NN as_IN part_NN of_IN an_DT SAUV_NP sampling_NN system_NN ,_, and_CC we_PP demonstrated_VVD the_DT effectiveness_NN of_IN this_DT transmission_NN system_NN in_IN deep_JJ sea_NN experiments_NNS ._SENT 
+In_IN conventional_JJ AUV_NP observations_NNS of_IN the_DT deep_JJ seafloor_NN ,_, the_DT AUV_NP cruises_VVZ a_DT set_VVN observation_NN area_NN while_IN imaging_NN [_SYM 1_CD ]_SYM ,_, even_RB if_IN photographing_VVG rare_JJ creatures_NNS or_CC interesting_JJ scenes_NNS that_WDT are_VBP worthy_JJ of_IN observation_NN ._SENT 
+This_DT is_VBZ a_DT major_JJ disadvantage_NN in_IN the_DT field_NN of_IN marine_JJ biology_NN ._SENT 
+If_IN researchers_NNS could_MD check_VV the_DT images_NNS obtained_VVN by_IN the_DT AUV_NP in_IN real_JJ time_NN and_CC concurrently_RB command_VV it_PP to_TO track_VV by_IN recording_VVG video_NN or_CC taking_VVG samples_NNS ,_, they_PP could_MD collect_VV more_RBR biological_JJ information_NN ._SENT 
+We_PP expect_VVP the_DT proposed_VVN system_NN to_TO facilitate_VV the_DT aforementioned_JJ type_NN of_IN deep_JJ sea_NN exploration_NN ._SENT 
+<Section> References_NNS </Section> 1._CD T._NP Ura_NP ,_, "_`` Observation_NN of_IN deep_JJ seafloor_NN by_IN autonomous_JJ underwater_JJ vehicle_NN "_'' ,_, Indian_NP J._NP Geo-Mar_NP ._SENT 
+Sci_NNS ._SENT 
+,_, vol_NP ._SENT 
+42_CD ,_, pp_NP ._SENT 
+1028-1033_CD ,_, 2013._CD 2._CD T._NP Maki_NP ,_, A._NP Kume_NP and_CC T._NP Ura_NP ,_, "_`` Volumetric_JJ mapping_NN of_IN tubeworm_NN colonies_NNS in_IN Kagoshima_NP Bay_NP through_IN autonomous_JJ robotic_JJ surveys_NNS "_'' ,_, Deep_JJ Sea_NP Res_NNS ._SENT 
+Part_NP I_NP Oceanogr_NP ._SENT 
+Res_NNS ._SENT 
+Papers_NNS ,_, vol_NP ._SENT 
+58_CD ,_, no_RB ._SENT 
+7_CD ,_, pp_NP ._SENT 
+757-767_CD ,_, 2011._CD 3._CD T._NP Maki_NP ,_, Y._NP Sato_NP ,_, T._NP Matsuda_NP ,_, R.-T_NP ._SENT 
+Shiroku_NP and_CC T._NP Sakamaki_NP ,_, "_'' AUV_NP Tri-TON_NP 2_CD :_: An_DT intelligent_JJ platform_NN for_IN detailed_JJ survey_NN of_IN hydrothermal_JJ vent_VV fields_NNS "_'' ,_, Proc_NP ._SENT 
+IEEE/OES_NP Auton_NP ._SENT 
+Underwater_JJ Vehicles_NNS ,_, pp_NP ._SENT 
+1-5_CD ,_, 2014._CD 4._CD Y._NP Nishida_NP et_CC al_NP ._SENT 
+,_, "_'' Development_NP of_IN an_DT autonomous_JJ underwater_JJ vehicle_NN for_IN survey_NN of_IN cobalt-rich_JJ manganese_NN crust_NN "_'' ,_, Proc_NP ._SENT 
+MTS/IEEE_NP OCEANS_NNS Conf_NN ._SENT 
+,_, pp_NP ._SENT 
+1-5_CD ,_, 2015._CD 5._CD T._NP Nakatani_NP et_CC al_NP ._SENT 
+,_, "_'' AUV_NP TUNA-SAND_NP and_CC its_PP$ exploration_NN of_IN hydrothermal_JJ vents_NNS at_IN Kagoshima_NP Bay_NP "_'' ,_, Proc_NP ._SENT 
+MTS/IEEE_NP OCEANS_NNS Conf_NN ._SENT 
+,_, pp_NP ._SENT 
+1-5_CD ,_, 2008._CD 6._CD M._NP R._NP Clark_NP ,_, M._NP Consalvey_NP and_CC A._NP A._NP Rowden_NP ,_, Biological_JJ Sampling_NN in_IN the_DT Deep_NP Sea_NP ,_, Hoboken_NP ,_, NJ_NP ,_, USA:Wiley_NP ,_, pp_NP ._SENT 
+285-305_CD ,_, 2016._CD 7._CD K._NP Ishii_NP ,_, T._NP Sonoda_NP ,_, Y._NP Nishida_NP ,_, S._NP Yasukawa_NP ,_, T._NP Ura_NP and_CC K._NP Watanabe_NP ,_, "_'' A_DT new_JJ tool_NN to_TO access_VV deep-sea_NN floor_NN “Sampling-AUV”_NN "_'' ,_, Proc_NP ._SENT 
+Int_NP ._SENT 
+Conf_NP ._SENT 
+Artif_NP ._SENT 
+Life_NN Robot_NN ._SENT 
+Conf_NN ._SENT 
+,_, pp_NP ._SENT 
+301-303_CD ,_, 2017._CD 8._CD H._NP R._NP Gorden_NP ,_, "_`` Can_MD the_DT Lambert-Beer_NN law_NN be_VB applied_VVN to_TO the_DT diffuse_JJ attenuation_NN coefficient_NN of_IN ocean_NN water_NN ?_SENT 
+"_'' ,_, Limnol_NP ._SENT 
+Oceanogr_NN ._SENT 
+,_, vol_NP ._SENT 
+34_CD ,_, no_RB ._SENT 
+8_CD ,_, pp_NP ._SENT 
+1389-1409_CD ,_, 1989._CD 9._CD E._NP H._NP Land_NP and_CC J._NP J._NP McCann_NP ,_, "_`` Lightness_NN and_CC Retinex_NN theory_NN "_'' ,_, J._NP Opt_VVP ._SENT 
+Soc_NP ._SENT 
+Amer_NN ._SENT 
+,_, vol_NP ._SENT 
+61_CD ,_, pp_NP ._SENT 
+1-11_CD ,_, 1971._CD 10._CD Z._NP Rahman_NP ,_, D._NP J._NP Jobson_NP and_CC G._NP A._NP Woodell_NP ,_, "_'' Retinex_NP processing_NN for_IN automatic_JJ image_NN enhancement_NN "_'' ,_, Proc_NP ._SENT 
+Int_NP ._SENT 
+Soc.Opt_NNS ._SENT 
+Photon_NN ._SENT 
+,_, pp_NP ._SENT 
+390-401_CD ,_, 2002._CD 11._CD J._NP Ahn_NP ,_, S._NP ,_, Yasukawa_NP ,_, T._NP ,_, Sonoda_NP ,_, T._NP ,_, et_NP al_NP ._SENT 
+,_, "_'' Enhancement_NN of_IN deep-sea_NN floor_NN images_NNS obtained_VVN by_IN an_DT underwater_JJ vehicle_NN and_CC its_PP$ evaluation_NN by_IN crab_NN recognition_NN "_'' ,_, J._NP Mar_NP ._SENT 
+Sci_NP ._SENT 
+Technol_NN ._SENT 
+,_, vol_NP ._SENT 
+22_CD ,_, no_RB ._SENT 
+4_LS ,_, pp_NP ._SENT 
+758-770_CD ,_, 2017._CD 12._CD X._NP Fu_NP ,_, P._NP Zhuang_NP ,_, Y._NP Huang_NP ,_, Y._NP Liao_NP ,_, X.-P_NP ._SENT 
+Zhang_NP and_CC X._NP Ding_NP ,_, "_'' A_DT Retinex-based_JJ enhancing_VVG approach_NN for_IN single_JJ underwater_JJ image_NN "_'' ,_, Proc_NP ._SENT 
+IEEE_NP Int_NP ._SENT 
+Conf_NP ._SENT 
+Image_NN Process_NN ._SENT 
+,_, pp_NP ._SENT 
+4572-4576_CD ,_, 2014._CD 13._CD S._NP M._NP Alex_NP Raj_NP and_CC M._NP H._NP Supriya_NP ,_, "_`` Underwater_JJ image_NN enhancement_NN using_VVG single_JJ scale_NN Retinex_NN on_IN a_DT reconfigurable_JJ hardware_NN "_'' ,_, Proc_NP ._SENT 
+Int_NP ._SENT 
+Symp_NP ._SENT 
+Ocean_NP Electron_NP ._SENT 
+,_, pp_NP ._SENT 
+1-5_CD ,_, 2015._CD 14._CD Y._NP Nishida_NP ,_, T._NP Ura_NP ,_, T._NP Hamatsu_NP ,_, K._NP Nagahashi_NP ,_, S._NP Inaba_NP and_CC T._NP Nakatani_NP ,_, "_'' Resource_NP investigation_NN for_IN Kichiji_NP rockfish_NNS by_IN autonomous_JJ underwater_JJ vehicle_NN in_IN Kitami-Yamato_JJ bank_NN off_IN Northern_NP Japan_NP "_'' ,_, ROBOMECH_NP J._NP ,_, vol_NP ._SENT 
+1_LS ,_, no_UH ._SENT 
+2_LS ,_, pp_NP ._SENT 
+1-6_CD ,_, 2014._CD 15._CD D._NP G._NP Lowe_NP ,_, "_`` Object_NN recognition_NN from_IN local_JJ scale-invariant_JJ features_NNS "_'' ,_, Proc_NP ._SENT 
+Comput_NN ._SENT 
+Vis_FW ._SENT 
+Conf_NN ._SENT 
+,_, pp_NP ._SENT 
+1-8_CD ,_, 1999._CD 16._CD H._NP Qin_NP ,_, X._NP Li_NP ,_, J._NP Liang_NP ,_, Y._NP Peng_NP and_CC C._NP Zhang_NP ,_, "_'' DeepFish_NNS :_: Accurate_JJ underwater_JJ live_JJ fish_NN recognition_NN with_IN a_DT deep_JJ architecture_NN "_'' ,_, Neurocomputing_NP ,_, vol_NP ._SENT 
+187_CD ,_, pp_NP ._SENT 
+49-58_CD ,_, 2016._CD 17._CD M._NP Sung_NP ,_, S.-C_NP ._SENT 
+Yu_NP and_CC Y._NP Girdhar_NP ,_, "_'' Vision_NP based_VVN real-time_JJ fish_NN detection_NN using_VVG convolutional_JJ neural_JJ network_NN "_'' ,_, Proc_NP ._SENT 
+MTS/IEEE_NP OCEANS_NNS Conf_NN ._SENT 
+,_, pp_NP ._SENT 
+1-6_CD ,_, 2017._CD 18._CD L._NP Itti_NP ,_, C._NP Koch_NP and_CC E._NP Niebur_NP ,_, "_'' A_DT model_NN of_IN saliency-based_JJ visual_JJ attention_NN for_IN rapid_JJ scene_NN analysis_NN "_'' ,_, IEEE_NP Trans_NP ._SENT 
+Pattern_NN Anal_JJ ._SENT 
+Mach_NP ._SENT 
+Intell_NN ._SENT 
+,_, vol_NP ._SENT 
+20_CD ,_, no_RB ._SENT 
+11_CD ,_, pp_NP ._SENT 
+1254-1259_CD ,_, Nov._NP 1998._CD 19._CD D._NP Walther_NP and_CC C._NP Koch_NP ,_, "_'' Modeling_VVG attention_NN to_TO salient_JJ proto-objects_NNS "_'' ,_, Neural_JJ Netw_NNS ._SENT 
+,_, vol_NP ._SENT 
+19_CD ,_, no_RB ._SENT 
+9_CD ,_, pp_NP ._SENT 
+1395-1407_CD ,_, 2006._CD 20._CD G._NP K._NP Wallace_NP ,_, "_'' The_DT JPEG_NN still_RB picture_NN compression_NN standard_NN "_'' ,_, IEEE_NP Trans_NP ._SENT 
+Consum_NP ._SENT 
+Electron_NP ._SENT 
+,_, vol_NP ._SENT 
+38_CD ,_, no_RB ._SENT 
+1_LS ,_, pp_NP ._SENT 
+18-34_CD ,_, Feb._NP 1992._CD 21._CD D._NP F._NP Hoag_NP ,_, V._NP K._NP Ingle_NP and_CC R._NP J._NP Gaudette_NP ,_, "_'' Low-bit-rate_NN coding_VVG of_IN underwater_JJ video_NN using_VVG wavelet-based_JJ compression_NN algorithms_NNS "_'' ,_, IEEE_NP J._NP Ocean_NP ._SENT 
+Eng_NN ._SENT 
+,_, vol_NP ._SENT 
+22_CD ,_, no_RB ._SENT 
+2_LS ,_, pp_NP ._SENT 
+393-400_CD ,_, Apr_NP ._SENT 
+1997._CD 22._CD S._NP J._NP Wan_NP ,_, P._NP Prusinkiewicz_NP and_CC S._NP K._NP M._NP Wong_NP ,_, "_`` Variance-based_JJ color_NN image_NN quantization_NN for_IN frame_NN buffer_NN display_NN "_'' ,_, Color_NP Res_NNS ._SENT 
+Appl_NN ._SENT 
+,_, vol_NP ._SENT 
+15_CD ,_, no_RB ._SENT 
+1_LS ,_, pp_NP ._SENT 
+52-58_CD ,_, 1990._CD 23._CD T._NP W._NP Spencer_NP ,_, "_`` Efficient_JJ inverse_JJ color_NN map_NN computation_NN "_'' in_IN Graphics_NP Gems_NNS II_NP ,_, Boston_NP ,_, MA_NN ,_, USA:Academic_NP ,_, pp_NP ._SENT 
+116-125_CD ,_, 1991._CD 24._CD Z._NP Xiang_NP ,_, "_'' Color_NP image_NN quantization_NN by_IN minimizing_VVG the_DT maximum_JJ intercluster_NN distance_NN "_'' ,_, ACM_NP Trans_NP ._SENT 
+Graph_NN ._SENT 
+,_, vol_NP ._SENT 
+16_CD ,_, no_RB ._SENT 
+3_LS ,_, pp_NP ._SENT 
+260-276_CD ,_, 1997._CD 25._CD C._NP Ozturk_NP ,_, E._NP Hancer_NP and_CC D._NP Karaboga_NP ,_, "_'' Color_NP image_NN quantization_NN :_: A_DT short_JJ review_NN and_CC an_DT application_NN with_IN artificial_JJ bee_NN colony_NN algorithm_NN "_'' ,_, Informatica_NP ,_, vol_NP ._SENT 
+25_CD ,_, no_RB ._SENT 
+3_LS ,_, pp_NP ._SENT 
+485-503_CD ,_, 2014._CD 26._CD B._NP Girod_NP ,_, "_`` What_WP 's_VBZ wrong_JJ with_IN mean-squared_JJ error_NN "_'' in_IN Digital_NP Images_NNS and_CC Human_NP Vision_NP ,_, Cambridge_NP ,_, MA_NN ,_, USA:MIT_NP Press_NP ,_, pp_NP ._SENT 
+207-220_CD ,_, 1993._CD 27._CD M._NP P._NP Eckert_NP and_CC A._NP P._NP Bradley_NP ,_, "_`` Perceptual_JJ quality_NN metrics_NNS applied_VVN to_TO still_RB image_NN compression_NN "_'' ,_, Signal_NP Process_NN ._SENT 
+,_, vol_NP ._SENT 
+70_CD ,_, pp_NP ._SENT 
+177-200_CD ,_, 1998._CD 28._CD A._NP Hore_NP and_CC D._NP Ziou_NP ,_, "_`` Image_NN quality_NN metrics_NNS :_: PSNR_NP vs._CC SSIM_NP "_'' ,_, Proc_NP ._SENT 
+20th_JJ Int_NP ._SENT 
+Conf_NP ._SENT 
+Pattern_NN Recognit_NN ._SENT 
+,_, pp_NP ._SENT 
+2366-2369_CD ,_, 2010._CD 29._CD Z._NP Wang_NP ,_, A._NP C._NP Bovik_NP ,_, H._NP R._NP Sheikh_NP and_CC E._NP P._NP Simoncelli_NP ,_, "_`` Image_NN quality_NN assessment_NN :_: from_IN error_NN visibility_NN to_TO structural_JJ similarity_NN "_'' ,_, IEEE_NP Trans_NP ._SENT 
+Image_NN Process_NN ._SENT 
+,_, vol_NP ._SENT 
+13_CD ,_, no_RB ._SENT 
+4_LS ,_, pp_NP ._SENT 
+600-612_CD ,_, Apr_NP ._SENT 
+2004._CD 30._CD Y._NP Nishida_NP et_CC al_NP ._SENT 
+,_, "_'' Development_NP of_IN an_DT autonomous_JJ underwater_JJ vehicle_NN with_IN human-aware_JJ robot_NN navigation_NN "_'' ,_, Proc_NP ._SENT 
+MTS/IEEE_NP OCEANS_NNS Conf_NN ._SENT 
+,_, pp_NP ._SENT 
+1-4_CD ,_, 2016._CD 

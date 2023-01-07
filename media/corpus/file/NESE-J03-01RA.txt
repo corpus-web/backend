@@ -1,0 +1,123 @@
+<title>Validation study of turbulence models for thermal-hydraulic simulation of helium cooled DONES high flux test module</title>
+<author>1,SergejGordeev, 2, FrederikArbeiter</author>
+<Affiliation>1，Karlsruhe Institute of Technology, Karlsruhe, Germany</Affiliation>
+<year>2020</year>
+<Jounral>Fusion Engineering and Design</Journal>
+<Publishing_house>ELSEVIER</Publishing_house>
+<Text_Collector>XiaFan，HEU</Text_Collector>
+<DOI>10.1016/j.fusengdes.2020.111881</DOI>
+<URL>https://www.sciencedirect.com/science/article/abs/pii/S0920379620304294</URL>
+Validation study of turbulence models for thermal-hydraulic simulation of helium cooled DONES high flux test module
+SergejGordeev,  FrederikArbeiter
+Karlsruhe Institute of Technology, Karlsruhe, Germany
+<Section>Highlights</Section>
+Helium flow within a heated mini-channels has been analysed using Helium experiments conducted in KIT.
+Numerical simulations have been performed for low Reynolds number (Re=4000-10000) helium flows.
+Four turbulence models, RSM, k-ε, k-ω SST and V2F were tested.
+RSM and SST models are appropriate numerical tools for the heat transfer analysis of HFTM of the IFMIF-DONES.
+<Section>Abstract</Section>
+Helium flow at low pressure (0.3 MPa) is used to cool the specimen capsules and the structure of the neutron irradiated High Flux Test Module (HFTM) of the IFMIF-DONES (International Fusion Materials Irradiation Facility- DEMO Oriented NEutron Source). The flow path includes mini-channels with gap-widths less than 1 mm where a high velocity low Reynolds number helium flow is used as cooling medium. The large span of Reynolds numbers from laminar to fully turbulent is a significant challenge for the simulation of the complete HFTM. Four turbulence models, the Reynolds Stress transport (RSM); the k-ε (KE) model; the k-ω Shear-Stress-Transport (SST) model and the V2F model were tested using experiments conducted in Karlsruhe Institute of Technology (KIT). Numerical simulations have been performed for low Reynolds number (Re = 4000–10000) helium flows in a heated mini-channels. The RSM model provides the best heat transfer prediction for the full range of Reynolds numbers. KE and V2F models are not suitable for the simulation of the transitional flows. The accuracy of the SST model can be increased by variation of the time scale limiter coefficient. RSM and SST turbulence models can be considered as appropriate numerical tools for the heat transfer analysis of HFTM.
+Keywords：DONES，HFTM，CFD，Heat transferTurbulence
+<Section>1. Introduction</Section>
+IFMIF-DONES (International Fusion Materials Irradiation Facility- DEMO Oriented NEutron Source) [1,2] is a IFMIF-based neutron irradiation facility which aims at providing the irradiation data required for the construction of a DEMOnstration fusion power plant (DEMO). DONES consists of only one of the IFMIF accelerators (40 MeV and 125 mA), and utilizes only the High Flux Test Module (HFTM) [3] for the irradiation of material specimens. The HFTM is the key component to provide the material irradiation data which fulfil the mission of DONES. The irradiation is planned at several blanket-relevant irradiation temperatures and shall accumulate structural damage of up to 50 displacements per atom (dpa) per campaign. The irradiation region, of HFTM is into 8 compartments. Each compartment contains 4 capsules with specimens. Mini-cooling-channels are integrated in the container walls and stiffening plates. The capsules and the container are cooled by a low pressure (0.35 MPa abs., 50 °C at inlet) high speed helium gas flow. At the entrance section of the narrow channels, the flow is not fully developed both thermally and hydraulically. Due to these complex features, extensive tests of the CFD codes with various turbulence models are needed in order to obtain a reliable simulation result. The Reynolds (Re) number of the flow in HFTM cooling channels varies from 1000 to 10000. A number of thermo-hydraulic simulations have been carried out by Chen [4] with the commercial CFD codes Star-CD and Ansys-CFX. For the purpose of CFD code verification, the in-house ITHEX (IFMIF thermal–hydraulic experiment) experimental facility was constructed [5]. In the integrated test section helium flows through the heated narrow annular channel. It was found that, for the Re number equal or less than 4500, the flow is essentially laminar. For Re numbers between 4500 and 6000, the flow has a transitional character. For Re of about 10,000, the flow is turbulent. The simulation results have shown that no turbulence model is suitable for the entire Re number range. Overall for Re of about 9000, the k–ε or SST models of both codes agree well with the experiments. The Star-CD V2F and CFX Theta-Gamma transition models provide the best predictions under low Re number of about 4500. Obviously not only different turbulence models can lead to different results; this is also true for different codes with different implementation variants of turbulence models. Currently, the commercial code Star−CCM + [6] is used for the simulation of the heat transfer in HFTM, and therefore the aim of the present work is to find an appropriate turbulence model offered in this code.
+Two experimental data have been used for the validation of turbulence models. The first is obtained from ITHEX experiments with the heated annular mini-channel. The second is based on experiments with the 1:1 Single Rig HFTM (SR-HFTM) also integrated in the ITHEX facility.
+<Section>2. ITHEX Annular channel experiments</Section>
+2.1. Experimental set-up
+The photograph of the ITHEX facility with annular channel test section is shown in Fig. 1. The current facility has four side-channel compressors in a serie. Five plate heat exchangers are used to remove the heat generation. The mass flow is measured by a coriolis flow meter. The annulus is formed by two concentric cylindrical bodies fabricated from stainless steel (see Fig. 1 right side). The main annular channel section has a length of about 95 mm with a gap size of 0.61 mm (Dh = 1.22 mm), formed by two wall surfaces with a radius of 15.39 mm and 16.00 mm, respectively. Electrical heater wires are embedded in both channel walls. Between the channel surfaces and the heater layers, 18 thermocouples are mounted on 6 axial positions. Experiments were carried out with helium as working fluid. The experimental conditions are shown in Table 1.
+Fig. 1
+Fig. 1. ITHEX annular channel test section and computational domains.
+Table 1. ITHEX annular channel. Experimental conditions.
+2.2. Turbulence models
+Four turbulence models have been considered in the validation study: the Reynolds Stress transport (RSM) model known as second-moment closure model; the two equation k-ε (KE) model; the k-ω Shear-Stress-Transport (SST) model and the four equation V2F model.
+The KE two-equation model uses the gradient diffusion hypothesis to relate the Reynolds stresses to the mean velocity gradients and the turbulent viscosity. The turbulent viscosity is modelled as the product of a turbulent velocity and turbulence length scale. The SST model combines the advantages of the k-ε and k-ω models by a blending function. The k-ω model is activated in the near-wall region and the k-ε model is used in the remaining region. In the SST model the turbulent time scale is calculated using Durbin's realizability constraint, implemented into the eddy viscosity formulation. The V2F approach was designed to handle wall effects in turbulent boundary layers and to accommodate non-local effects. It treats the near-wall turbulence without the use of exponential damping or wall functions. In this model, three transport equations for turbulence quantities, k, ε, and v2 are solved. In addition, an elliptic equation for f22, the redistribution term in the equation, is needed to account for near-wall and non-local effects. In order to improve predictive performance of the eddy viscosity models, Durbins realizability constraint [7] is implemented into the eddy viscosity formulation. The function of this limiter is to provide the proper time scale and to supress the overproduction of the eddy viscosity close to the wall. Initially the realizability coefficient C of the time scale limiter in all eddy viscosity models is set to 0.6
+In the RSM, the eddy-viscosity hypothesis is avoided and the individual components of the Reynolds stress tensor are directly computed. These models use the exact Reynolds stress transport equation for their formulation. They account for the directional effects of the Reynolds stresses and the complex interactions in turbulent flows. RSM provides significantly better accuracy than eddy-viscosity based turbulence models but is more time consuming.
+Only low-Reynolds number turbulence models can potentially predict the features of transitional flows. The turbulence models were applied with automatic wall (All y+) treatment which allows for a smooth shift from a low-Re number form to a wall function formulation based on the near wall mesh spacing. More detailed discussion of all four models can be found in [6]. Within the main channel, the maximal y+ value for the near-wall cell ranges from 0.2 to 1.0.
+As shown in Fig. 1 the modelling area is divided into two computational domains, the inlet pipe and the test section. The outflow parameters such as static pressure, velocity components and turbulence intensity calculated in the first modelling part provide realistic flow conditions at the inlet in the test section. The gas flow is simulated as compressible turbulent flow with variable fluid properties. The relationship between pressure, density, and temperature follows the ideal gas low.
+2.3. Simulation results
+Fig. 2 shows the comparisons of the experiments and simulations for the inner and outer cylinder wall temperatures measured at six thermocouple positions (results shown for 3 Reynolds numbers). For the “laminar” case with Re of 4500, the RSM and KE models show exactly the same predictions as the laminar model. The SST model with the initial realizability coefficient C = 0.6 shows significant deviation from measured data (SST C = 0.6 in the diagram). For high-speed flows in order to further limit the eddy viscosity a stronger limit up to 0.3 is recommended [8]. In fact, reducing the realizability coefficient from 0.6 to 0.45 increases the accuracy of the model (SST C = 0.45 in the diagram). V2F model also under predicts the wall temperatures.
+Fig. 2
+Fig. 2. Comparison for experiments and simulations for the inner and outer cylinder walls measured at six thermocouple positions respectively.
+In the “transitional” case with Re of 6000 SST with C = 0.6, V2f and KE models over predict the transition to fully turbulent flow. The SST model with the realizability coefficient of 0.45 shows good agreement with measurements. The RSM model with a slight under prediction of the wall temperature provides the second best results.
+For the “turbulent” case with Re of about 10,000, the eddy viscosity models slightly over predict the wall temperatures. The best agreement with the measurements show the SST with C = 0.6 and RSM models.
+Activation of the time scale limiter in the KE model (results are not presented) suppresses excessively the production of turbulent kinetic energy. In the KE model with the low-Reynolds number approach the turbulent viscosity formulation contains the damping function, which major role is to reduce turbulent viscosity in the wall region. Very probably the activation of the time scale limiter in the model provokes the double limitation of the eddy viscosity and thus induces unrealistic results. The SST and V2F models do not contain any damping functions. But in contrast to the SST model the realizability coefficient in the V2F model is implemented as a constant and cannot be changed.
+<Section>3. ITHEX SR-HFTM Experiments</Section>
+3.1. Experimental set-up
+The single-rig test section and helium inlet and outlet are shown Fig. 3a. The flow channel can be divided into coolant inlet section, bottom reflector (nozzle), center heated section, top reflector and outlet section. The cross-section areas of the cooling channels inside the test rig vary greatly along the flow direction. The flow inlet nozzle converges to 8 flat rectangular channels at the middle section (the gap size is 0.6 mm on the short-side and 1 mm on the long side), thereafter the channels expand to a common large outlet.
+Fig. 3
+Fig. 3. ITHEX SR-HFTM: schematical view (a) and computational domain (b).
+The experimental conditions are listed in Table 2. The applied helium mass flow rates are 6, 8 and 10 g/s, respectively. The both dummy heaters were regulated so that the temperatures at two chosen positions on the center of the left and right heater surfaces are about 80 °C. The wall temperatures were measured near both sides of the test rig. Two sets of thermocouples locate horizontally on the left-side (along y-direction) at x = 39 and 77 mm, respectively (x = 0 is the start point of heater section). Two sets of thermocouples locate vertically on the right-side (along x-direction) at y = 11 and -11 mm, respectively (y = 0 is at the rig center point).
+Table 2. ITHEX SR-HFTM. Experimental conditions.
+3.2. Turbulence models and computational domain
+Based on previous conclusions in the section 2.3 two RSM and SST turbulence models were used for simulations In order to provide reasonable accuracy for the whole range of Reynolds numbers, the SST model was tested with two values of the realizability coefficient C, initial of 0.6 and reduced of 0.48. Compared to the annular the rectangular channels exhibit secondary flows in the near corner regions. Secondary flows are induced by two effects, turbulent shear stress gradients in the main flow and anisotropy of normal Reynolds shear stress in the cross-sectional plane. While the magnitude of these secondary flows may be around 5–10 % of the primary flow velocity, they can influence mixing processes and heat transfer. In order to account the turbulence anisotropy the SST model with cubic constitutive relation derived from a Reynolds stress transport model is applied.
+Computational domain is shown in Fig. 3b. Only a quarter of the test section with symmetrical conditions was modelled. The maximal y+ for the near-wall cell ranges from 0.5 to 1.0.
+3.3. Simulation results
+Fig. 4 shows the wall temperature along y-direction at two vertical positions (x = 38.75 and 76.75 mm) for different flow conditions. The wall temperatures have two peaks, at y=-11 and 11 mm, respectively. The temperature is about 10 °C lower than the maximum value at y = 0 mm. This is due to the ribs separating the two long-side channels, which are better cooled. The predicted temperatures show a similar tendency as the experimental values. In order to illustrate the accuracy of turbulence models the 10 % error bars have been added to the graphs "SST C = 0.48″ and "RSM" for x = 38.75 mm
+Fig. 4
+Fig. 4. Comparison of simulated and measured wall temperatures in y-direction.
+The SST model with coefficient C = 0.6 reproduce in all cases the excessive production of turbulent kinetic energy and thereby under predict the wall temperature. The RSM and SST with C = 0.48 have a reasonable agreement with measurements. The temperature profiles calculated by SST model are generally more flattened. For 6 g/s the temperature is slightly under predicted and for 8 and 10 g/s over predicted. The location of peak values calculated by RSM model for 8 and 10 g/s is shifted from 11 mm to 13−14 mm.
+The differences in the temperature profiles show that the turbulence models differently simulate the development of the flow at the channel periphery. Fig. 5 displays the large scale vortex structures in the flow near the separation ribs for 10 g/s. The vortices are visualised using the λ2 vortex identification criterion with iso-surface value λ2= -10−7 coupled with colour map of the turbulent viscosity ratio. These vortices are formed by flowing around the ribs at the inlet in the small channels and subsequent separation of the flow. The turbulence degree of the vortex structures and thus the cooling intensity predicted by RSM-model is higher than that of SST. Additionally both turbulence models reproduce the evolution of the secondary flows of second kind in the channel corners. Also here the intensity of secondary flows predicted by RSM model with maximum value of about 5% from the bulk velocity is higher compared to the SST calculation where the peak value is less than 3%.
+Fig. 5
+Fig. 5. Vortex structures visualised using the iso-surface of λ2 vortex identification criterion with λ2=-10−7 and coupled with colour map of the turbulent viscosity ratio.
+Fig. 6, Fig. 7 show the comparisons of measured and calculated wall temperature and local Nusselt number along x-direction for different flow conditions. The Nusselt number is given by:
+@(1)
+where, dh is the hydraulic diameter (1.9 mm at the heated section). Two sets of thermocouples are located at y = 11 and -11 mm, respectively. For the flow rate of 6 g/s, the temperature increases along the flow direction, due to the increasing fluid temperature. The relatively high at the entrance Nusselt number (Fig. 7) decreases and remains nearly constant. This behaviour is well predicted by the RSM model. The calculation results of the SST model with C = 0.48 are also close to the measurements. At the x position of about 60 mm the SST model detect the start of transition from laminar to turbulent flow conditions.
+Fig. 6
+Fig. 6. Comparison of measured and calculated wall temperatures in the vertical (x) direction.
+Fig. 7
+Fig. 7. Local Nusselt number in the vertical (x) direction.
+For the mass flow rate of 10 g/s (Re ∼ 7300), the wall temperature first increases to a maximum value at x of about 35 mm, then it decreases to a local minimum, thereafter it increases slowly as the flow approaching the outlet of mini-channels. This is an indication of the flow transition. At the inlet of the mini-channels, the flow is laminar, the heat transfer coefficient is low thus the wall temperature increases quickly. At certain position (x ∼ 35 mm), the flow becomes turbulent, thus the increased heat transfer rate leads to a decrease of wall temperature. Thereafter the wall temperature increases slightly as a result of increasing fluid temperature along the channel. This transition feature can be partially observed for the flow rate of 8 g/s (Re ∼5800). While the temperature profile on the one side shows the transitional character on the other side the flow is rather laminar. Turbulence models predict slightly different the flow behaviour. While the temperature profile of the RSM model tends to laminar case the SST model (C = 0.48) reproduces the transitional developing of the wall temperature.
+Fig. 8 Shows the pressure drop along the channel. The reference pressure is the inlet pressure (2.5 bar). The pressure drop increases linearly in the flow direction, and it is higher for the higher flow rates. The heating power also has a small impact on the pressure drop, since with increasing heating power both the flow velocity and viscosity increase. The predicted pressure loss of the SST model with C = 0.6 is higher than the experiments for the flow rates of 6 and 8 g/s. With increasing of turbulence intensity the pressure loss predicted by the model becomes closer to the measurements. On the contrary the SST model with C = 0.48 increasingly under predicts the pressure loss with growing mass flow rate. The RSM model shows a good agreement with experiments.
+Fig. 8
+Fig. 8. Comparison of measured and calculated pressure drop in cooling channels.
+<Section>4. Conclusions</Section>
+The validation of turbulence models offered in Star−CCM + code was done by comparing the simulations with experiments conducted in the ITEX facility. In the first experiment helium flows through the heated narrow annular channel. Three cases with Reynolds numbers of 4500, 6000 and 10,000 were used for comparison calculations with measured wall temperatures. Four turbulence models: RSM, KE, V2F and SST were tested. The second validation case is based on experiments with the 1:1 single rig SR-HFTM test section. The test section consists of 8 heated flat rectangular channels. Reynolds numbers vary from 4400 to 7300. The number of tested turbulence models was reduced to RSM and SST
+It was found that, among the several turbulence models tested, the RSM model provides the best predictions for the entire range of Reynolds numbers. For Reynolds numbers of about 10000 the SST model with realizability coefficient C = 0.6 agrees with experiments. The SST model with C = 0.45 is more suitable for laminar and transitional flow regimes. The KE model shows a good agreement with measurements for the laminar flow conditions. In transitional case with Re of 6000 the KE model under predicts the wall temperatures and for Re of about 10000 slightly over predicts. Activation of time scale limiter in the KE model suppresses excessively the turbulent kinetic energy production and hinders the transition from laminar to turbulent flow independent of realizability coefficient value. The V2F model underestimates the wall temperatures for laminar and transitional cases and is not appropriate for Re less than 10000.
+<Section>CRediT authorship contribution statement</Section>
+Sergej Gordeev: Validation, Investigation, Formal analysis, Visualization, Writing - review & editing. Frederik Arbeiter: Data curation, Investigation, Writing - review & editing.
+<Section>Declaration of Competing Interest</Section>
+The authors declare that they have no known competing financial interests or personal relationships that could have appeared to influence the work reported in this paper.
+<Section>Acknowledgments</Section>
+This work has been carried out within the framework of the EUROfusion Consortium and has received funding from the Euratom research and training programme 2014-2018 and 2019-2020 under grant agreement No 633053. The views and opinions expressed herein do not necessarily reflect those of the European Commission, Fusion for Energy, or of the authors' home institutions or research funders.
+<Section>References</Section>
+[1]
+J. Knaster, et al.
+Overview of the IFMIF/EVEDA project
+Nucl. Fusion, 57 (2017)
+Nr. 10P
+Google Scholar
+[2]
+Ibarra, et al.
+The European approach to the fusion-like neutron source: the IFMIF-DONES project
+Nucl. Eng., 59 (2019), p. 21
+065002
+Google Scholar
+[3]
+F. Arbeiter, et al.
+Design description and validation results for the IFMIF high flux test module as outcome of the EVEDA phase
+Nucl. Mater. Energy, 9 (2016), pp. 59-65
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+[4]
+Y. Chen, F. Arbeiter, G. Schlindwein
+A comparative study of turbulence models for conjugate heat transfer to gas flow in a heated mini-channel
+Numer. Heat Transf. Part A Appl., 61 (2012), pp. 38-60
+CrossRefView Record in ScopusGoogle Scholar
+[5]
+F. Arbeiter
+Experimental and numerical investigations on minichannel cooling gas thermal–hydraulics
+Proc. of Int. Conf. on Nuclear Engr., Nagoya, Japan (2007)
+Google Scholar
+[6]
+Simcenter STAR-CCM+
+Documentation, version
+Siemens PLM Software (2019), p. 2
+View Record in ScopusGoogle Scholar
+[7]
+P.A. Durbin
+On the k-ε stagnation point anomaly
+Int. J. Heat Fluid Flow, 17 (1996), pp. 89-90
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+[8]
+U. Goldberg
+A realizable version of the k-ω turbulence model
+Stud. Eng. Technol., 4 (August 1) (2017)
+Google Scholar

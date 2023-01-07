@@ -1,0 +1,262 @@
+<title>Simulation and optimization design of fuel rod in pressurized water fuel assemblies</title>
+<author>1,ZeXua,2,YulanLiua,3,BiaoWang</author>
+<Affiliation>1,School of Aeronautics and Astronautics, Sun Yat-Sen University, Guangzhou 510000, China;2,Sino-French Institute of Nuclear Engineering and Technology, Sun Yat-Sen University, Zhuhai 519082, China</Affiliation>
+<year>2020</year>
+<Jounral>Nuclear Engineering and Design</Journal>
+<Publishing_house>ELSEVIER</Publishing_house>
+<Text_Collector>XiaFan，HEU</Text_Collector>
+<DOI>10.1016/j.nucengdes.2020.110856</DOI>
+<URL>https://www.sciencedirect.com/science/article/pii/S0029549320303502</URL>
+Simulation and optimization design of fuel rod in pressurized water fuel assemblies
+ZeXu,YulanLiu,BiaoWang
+School of Aeronautics and Astronautics, Sun Yat-Sen University, Guangzhou 510000, China
+Sino-French Institute of Nuclear Engineering and Technology, Sun Yat-Sen University, Zhuhai 519082, China
+<Section>Highlights</Section>
+Simulation for three types nuclear fuel elements.
+Study on the mechanics behavior of the nuclear fuel cladding.
+Find out the optimal design of the dual-cooled annular fuel element.
+<Section>Abstract</Section>
+Since the working environment of the pressurized water reactor (PWR) fuel element is complex, the analysis and optimization of its performance involve many physical phenomena, such as thermic, mechanics and so on. In order to analyze and optimize the performance of PWR fuel element, the column fuel element (CFE), singular-cooled annular fuel element (SCAFE) and dual-cooled annular fuel element (DCAFE) are simulated based on the finite element analysis software called ABAQUS. For the DCAFE, the inner diameter is modified, and the concept of “normalized volume parameter” is proposed to eliminate the influence of volume change on the performance of the fuel element, and to accurately describe the thermodynamic performance of the fuel element under different inner and outer diameters. The results show that: The DCAFE has advantages of low von Mises stress, small radial displacement and low temperature. When the ratio of inner and outer diameters is about 0.67, thermodynamic properties are the best and the optimal size is achieved.
+<Section>1. Introduction</Section>
+At present, PWR type nuclear power units are widely used in the world running nuclear power units. The nuclear energy is mainly supplied by PWR nuclear power units and this trend is not expected to change significantly when considering the new projects planned (Huang and Zhang, 2012). Since the working environment of PWR nuclear fuel elements is complex, a variety of physical phenomena, such as thermal mechanical coupling, nuclear-force coupling, irradiation swelling, damage of fuel pellets and cladding due to defects in manufacturing process need to be comprehensively analyzed and considered. Therefore, investigation of PWR fuel elements has important engineering significance.
+The commonly used PWR fuel element is composed of fuel pellets and cladding. There is a certain gap between pellets and cladding to prevent the cladding damage caused by excessive expansion of pellets. In recent years, a lot of investigations have simulated the CFE and summarized the trends in some important parameters (such as temperature, stress, etc.) during the working process of fuel elements. Considering the axisymmetric characteristics of the fuel element (Williamson, 2011), used a 2D axisymmetric model to simulate the fuel rod behavior under steady and transient conditions. In order to obtain more accurate results, (Goldberg et al., 2019, Newman et al., 2009, Williamson et al., 2012) built a three dimensional model to investigate the fuel behavior under the coupling of multiple physical fields. (Spencer et al., 2016) investigated the effect of pellet surface defects in fuel on the thermal and mechanical response of the cladding. These investigations showed that the CFE had a uneven stress and displacement distribution in the pellet and cladding. Even more, severe stress concentration occurred at the contact of two pellets. In the working process, because of the excessive central temperature of fuel pellets and the excessive displacement of the cladding due to the interaction with the cladding, it is necessary to replace the fuel element regularly (Zohuri, 2017).
+In order to improve fuel efficiency, MIT proposed the idea of DCAFE and started related researches (Kazimi, 2006, Kazimi, 2007, MORRA, 2004). In recent years, the feasibility and properties investigation of annular fuel element application in the PWR nuclear power station has been carried out successively. (Hejzlar and Kazimi, 2007, Yang and Bo, 2011) analyzed the feasibility of DCAFE in practical engineering application. They found a significant reduction of the cost of power plants and increase in safety margins by using this fuel element. (Kim et al., 2011) investigated the mechanical design issues and resolutions of DCAFE in real nuclear power units and proposed a fuel element design and assembly scheme. (Rhee et al., 2013) investigated the rod-inserted sintering of annular pellets and verified the feasibility of fuel element preparation. (Shin et al., 2012, Zaidabadi et al., 2017) assessed the thermal hydraulic performance of DCAFE. These investigations indicated that the annular fuel increased the thermal margin up to a point. (Deng et al., 2016b, Xia et al., 2019) developed analysis code for annular fuel element to investigate the thermal–mechanical behavior in DCAFE. (Deng et al., 2016a, Yang et al., 2009) investigated the mechanism on heat split phenomenon in DCAFE and analyzed the influence on fuel elements due to the heat split. (Ansarifar and Ebrahimian, 2016, Ebrahimian and Ansarifar, 2016) used nano fluid as coolant and investigated its effects on heat transfer characteristics. These investigations indicated that the nano fluid could decrease the temperature of the fuel center and the safety margins increased accordingly. However, most analyses of annular fuel elements focus on the feasibility and thermal mechanical behaviors of DCAFE. There is little investigation on the optimization design of annular fuel elements.
+In this paper, the finite element simulation method is used to establish the calculation model of column fuel, singular-cooled annular fuel and dual-cooled annular fuel. The effect of multiple physical phenomena, such as irradiation swelling, heat conduction on the thermal mechanical behaviors of the fuel elements has been considered. The distribution of von Mises stress, radial displacement and temperature of three types of fuel elements have been investigated. In order to eliminate the influence of DCAFE volume effect, the normalized von Mises stress, radial displacement and temperature have been obtained by using “normalized volume parameter”. Furthermore, by finding out the optimal design size of DCAFE, this paper provides a reference for improving the thermodynamic performance of fuel elements in practical engineering application.
+<Section>2. Computational models</Section>
+2.1. Basic equations
+In this paper, the thermal mechanical behavior of the fuel element is analyzed by solving three basic equations: energy conservation equation, mechanical equilibrium equation and constitutive equation. The expressions are as follow:
+Fuel pellets will release a large amount of heat under operation condition. The heat will be carried away by the coolant through the cladding and the gas between pellets and cladding. The energy conservation equation can be expressed as:
+@(1)
+@(2)
+Where@ is density (kg⋅m−3),@ is constant-pressure specific heat (J⋅kg−1K−1),@ is temperature (K),@ is time (s), @is density of heat flow rate (J⋅m−2s−1), is body heat source (J⋅m−3s−1) and is thermal conductivity (J⋅m−1K−1s−1).
+There will be initial fill gas pressure between pellets and cladding. Also, a coolant pressure will be applied to the outside of the cladding. The mechanical equilibrium equation can be expressed as:
+@(3)
+Where@ is stress tensor and@ is volume force vector.
+The constitutive equation can be expressed as:
+@(4)
+Where @is strain tensor,@ is flexibility matrix, @is coefficient of thermal expansion (K−1) and @is a diagonal matrix.
+2.2. Fuel pellets model
+In the process of fuel element operation, the fuel swelling caused by fission products increases with the increase of fuel burnup.
+The fuel swelling caused by the solid fission products can be regarded as a linear function of burnup and density, which can be obtained by experimental observation. In this paper, the following formula is used to calculate (Williamson, 2011):
+@(5)
+Where @is the fuel swelling increment caused by solid fission products, @is density (kg⋅m−3) and@ is burnup increment (GWd⋅ton−1).
+The fuel swelling caused by gas fission products is more important and complicated than solid fission products. However, there is still no accurate model to calculate it until now. By comparing a variety of computational models, the half-empirical model (Williamson, 2011) is used to calculate:
+@(6)
+Where@ is the fuel swelling increment caused by gas fission products and is temperature (K). The burnup, pellets density and temperature have been considered in this semi-empirical model. And the formula is consistent with the experimental data.
+2.3. Cladding heat conduction model
+The heat transfer from fuel pellets to the cladding is not instantaneous during the reaction, so the heat conduction model in the cladding can be considered as a heat conduction model without heat generation. We can get the analytical solution by solving the temperature distribution of thin-walled cylinder without heat generation:
+@(7)
+Where@ is the axial inner surface temperature distribution function of cladding (K), @is the axial outer surface temperature distribution function of cladding (K), @is the density of heat flow rate function (J⋅m−2s−1), @is cladding thermal conductivity (J⋅m−1K−1s−1), is cladding inner diameter and is cladding outer diameter (m).
+2.4. Gap heat transfer model
+In the design of the fuel element, there is a gap between the fuel pellets and the cladding to prevent the damage of the cladding due to the excessive thermal expansion of pellets. Therefore, the heat transfer in gaps should be taken into account in calculation, mainly including three parts, which can be calculated by the following formula:
+@(8)
+Where@ is total heat conduction between fuel pellets and cladding, @is radiation heat conduction, @is gas heat conduction in gap and is contact heat conduction between pellets and cladding.
+The radiation heat conduction term in formula (8) can be directly determined by defining emissivity.
+The gas heat conduction in gap can be calculated using the currently accepted more accurate Ross-Stoute model assuming non temperature jump (Ross and Stoute, 1962):
+@(9)
+Where @is gas thermal conductivity (J⋅m−1K−1s−1),@ is the gap width between fuel pellets and cladding (m), and are surface roughness of fuel pellets and cladding (m).
+When the fuel pellets are in contact with the cladding, heat conduction at the contact point should also be considered. The contact heat conduction is related to the two materials properties, such as surface roughness, Meyer hardness. The usual used calculation method is the Olander empirical model (Williamson et al., 2012):
+@(10)
+Where@ is a constant, usually 1.0, and are thermal conductivity of fuel pellets and cladding (J⋅m−1K−1s−1), is contact pressure (Pa), is average gas film thickness (m), and is Meyer hardness of the softer material.
+<Section>3. ABAQUS simulation</Section>
+In this paper, the finite element analysis software ABAQUS is used to simulate (Hibbett, 2014). ABAQUS is one of the commonly used finite element analysis software in simulation, which has powerful modeling and analysis ability, especially in dealing with nonlinear problems. This paper deals with thermodynamics, contact, material properties with temperature, and has strong nonlinear characteristics. Therefore, ABAQUS is used for analysis and calculation. The CFE and annular fuel element are all axisymmetric structures, so the axisymmetric model is used to reduce the calculation cost. To couple models mentioned in 2.2–2.4, importing them into ABAQUS by linear interpolation. Newton iteration method was used to solve the problem. The initial increment and maximum increment were controlled to ensure the convergence of results. The simulation was restricted to the normal operation condition of the PWR. In this paper, the difference of the thermodynamic performance among different fuel cycles is not the focus. Therefore, just the first fuel cycle was simulated in the investigation.
+3.1. Material parameters
+Common materials in PWR are selected for the simulation. Fuel pellets are made of UO2, and cladding of M5 alloy which can maintain the structural integrity of the fuel rod and safe operation of the reactor under both steady and transient conditions (Liu, 2010). In this paper, thermodynamic properties of three kinds of fuel elements with different shapes are compared. In order to reduce the calculation cost and improve the calculation speed, only two UO2 pellets are modeled. Since the fuel element of PWR consists of several pellets stacked along the axial direction, its axial dimension is much larger than the other two directions. Hence, it can be seen as a plane strain problem, which just considering a few mm in the axial direction after the beginning of the first pellet is enough. The second UO2 pellet is expected to represent accurately the thermodynamic behavior of any pellet of a very long fuel rod far from the stack ends. Most of material parameters involved in this paper are related to temperature, so it is impossible to list them in detail. Among them, the elastic modulus, Poisson's ratio and thermal expansion coefficient of fuel pellets and cladding are detailed in references (China Nuclear Power Engineering Co., 2017, Martin, 1988, Newman et al., 2009).
+3.2. Model size and boundary conditions
+In order to serve the engineering practice, geometric dimensions and materials of fuel elements selected in this paper are consistent with the commonly used data of PWR, as shown in Fig. 1.
+Fig. 1. Constitutive materials and geometry of the three fuel rod designs.
+Working parameters of the fuel element are similar to those of the actual operation, as shown in Table 1.
+Table 1. Input parameters of fuel rod (Olander, 1976).
+<Section>4. Results analyses</Section>
+4.1. Thermodynamic performance analysis of three fuel elements
+Corresponding finite element results are obtained by ABAQUS calculation and analysis. The fuel cycle is a long-time process (at least six months). It is not meaningful and realistic to compare the thermal mechanical performance of CFE, SCAFE and DCAFE in the whole fuel cycle. Therefore, in this paper, we select the moment when the cladding and pellets come into contact with each other. Using ABAQUS finite element simulation, the contact is evidenced by an abrupt change in the von Mises stress at the cladding inner surface. The contact between the cladding and pellets is established first at the inter-pellet region and afterwards at the mid-pellet location. We set the hard contact between pellets and cladding in order to simulate the real contact. Also, material properties of the cladding and pellets are not affected by the contact. At this moment, because of the contact of the pellets and the cladding, the local von Mises stress and radial displacement are maximized. And the pellets temperature remains at a high level. After this moment, the temperature decreases because the efficiency of contact conduction is higher than that of radiation heat conduction. Fig. 2, Fig. 3, Fig. 4 show the von Mises stress, radial displacement and temperature distribution plots of the three types of fuel elements at the above discussed moment.
+Fig. 2. Von Mises stress distribution within fuel elements (MPa).
+Fig. 3. Radial displacement field within fuel elements (×10−3mm).
+Fig. 4. Temperature distribution within fuel elements (℃).
+It can be seen from diagrams that there are von Mises stress and temperature gradients in fuel pellets, but there are almost no gradients in the cladding. This is due to the fact that fuel pellets produce a large heat and the thermal conductivity of fuel pellets is smaller than that of the cladding. Meanwhile, the coolant convection heat transfer coefficient is large enough to transfer the heat from the cladding to the outside rapidly.
+The magnitude of maximum von Mises stress in CFE and SCAFE achieves GPa, which is higher than the ultimate strength of UO2. The reason is that the diagram reflects the moment that fuel pellets contact with the cladding. At this time, the instantaneous von Mises stress is higher than the ultimate strength. However, the cladding and pellets creep can relax stresses fast (compared with the duration of a fuel cycle). The excessive stress does not destroy fuel pellets immediately. However, it can lead to cracks and defects in pellets (Lee and Kazimi, 2015). Increasing the maximum von Mises stress promotes the crack and damage nucleation. The cracks and defects can reduce the efficiency and service life of pellets. This might limit the operational life of fuel pellets, which can result in higher operating costs. Therefore, decreasing the level of von Mises stress, radial displacement and temperature is important.
+Compared with the CFE, the DCAFE can significantly reduce the maximum von Mises stress, radial displacement and temperature of fuel pellets. It should be noted that, for the SCAFE, the temperature of fuel pellets has an obvious decrease, but the maximum von Mises stress and radial displacement are significantly higher than those of the CFE. The reason is that pellets of SCAFE are annular, and there is no supporting structure inside. So the radial displacement cannot be limited, which leads to the increase of displacement value. But from the overall point of view, the safety of SCAFE is still better than that of CFE.
+In order to analyze the interaction between fuel pellets and cladding, the surfaces of fuel pellets which may be in contact with the cladding are selected. And the relation between von Mises stress, radial displacement and axial height is drawn, as shown in Fig. 5, Fig. 6.
+Fig. 5. Outer or inner diameter stress along the fuel pellets column.
+Fig. 6. Outer or inner diameter radial displacement along the fuel pellets column.
+It can be seen from the Fig. 5, Fig. 6 that the von Mises stress and radial displacement distribution of the CFE at the possible contact part between fuel pellets and cladding are not uniform. That is, the maximum value appears at inter-pellet location, and the minimum value appears at mid-pellet height. This phenomenon will lead to uneven von Mises stress distribution in the cladding under the normal operation condition, which will result in the cladding shape of “bamboo section”. However, the von Mises stress and radial displacement of annular fuel elements are uniform, which reduces the possibility of cladding failure.
+The complex von Mises stress and radial displacement evolutions between 20 and 25 mm in Fig. 5, Fig. 6 result from the edge effect. But it has little impact on the whole conclusion in our investigation. The stress and displacement distribution between 0 and 20 mm accurately represents fuel pellets along the axial direction away from the ends.
+In order to investigate the variation of temperature gradient in fuel pellets more clearly, the relation between temperature and radius is drawn, as shown in Fig. 7.
+Fig.7. Radial temperature profile across the fuel pellets.
+Due to the high thermal conductivity, the cladding has a small variation. Hence, the temperature of cladding is set to a constant. Only the temperature variation in fuel pellets is considered in this paper. Because pellets of SCAFE are annular structures, the temperature curve at the hollowed out is not drawn in the diagram. For DCAFE, coolant flows through the annular fuel element and the change of coolant temperature is small. Therefore, in the part filled with inner coolant, the temperature is defaulted to the coolant temperature.
+It can be seen from the Fig. 7 that temperatures of CFE and SCAFE decrease with the increase of radius, and the temperature gradient is large. The DCAFE has a smaller temperature in the part near the coolant and a larger temperature away from the coolant, which accords with the law of heat conduction. However, the maximum temperature of DCAFE is obviously lower than that of the other two fuel elements. All of three kinds of fuel elements have a large temperature gradient. It is caused by the accumulation of heat in pellets. Because of the low thermal conductivity of fuel pellets and the high thermal conductivity of cladding, the heat in pellets cannot be discharged in time.
+Considering the von Mises stress, radial displacement and temperature, it can be concluded that the DCAFE has the best thermodynamic performance among three fuel elements.
+4.2. Effect of the ratio of inner and outer diameters on the performance of DCAFE
+Advantages of DCAFE over the other two fuel elements have been demonstrated. Next, the effect of different inner and outer diameters on their thermodynamic properties will be discussed.
+In practical engineering, the outer diameter of fuel pellets is difficult to change because of the limitation of space. Therefore, changing the inner diameter is generally adopted to change the ratio of inner and outer diameters of fuel pellets. Since only the inner diameter is changed, other parameters of fuel elements involved in this paper will remain the same.
+The inner diameter of fuel pellets can be computed by the following formula:
+@(11)
+Where @and @are inner and outer diameters of fuel pellets,@ is the ratio of inner and outer diameters. In this paper, ranges from 0.3 to 0.8. If is less than 0.3, the pellet will be difficult to manufacture because the hollowed part is too small. Oppositely, if is more than 0.8, the pellet efficiency will be low because the hollowed part is too large.
+The von Mises stress, radial displacement and temperature curves of dual-cooled annular fuel pellets with different inner and outer diameters are obtained by ABAQUS, as shown in Fig. 8, Fig. 9, Fig. 10.
+Fig. 8. Inner and outer diameter stress plots along the axial direction.
+Fig. 9. Inner and outer diameter radial displacement along the axial direction.
+Fig. 10. Radial temperature profile at the mid-pellet height.
+It can be seen from diagrams that with the increase of of fuel pellets, the von Mises stress, radial displacement and temperature decrease gradually. At the same time, the difference between the inner and outer surfaces of fuel pellets becomes smaller. It shows that, with the increase of , numerical gradients of inner and outer surfaces decrease, and the safety is improved accordingly. Because of the influence of the edge effect mentioned in 4.1, the numerical value of Figs. 8 and 9 has an abrupt change at the top of pellets. But this abrupt change will not affect the overall conclusion. The reason has been illustrated in 4.1 of this paper.
+If just looking from Figs. 8 to 10, maybe we can say that the thermodynamic performance can be optimized with the increase of and the optimal fuel element occurred when is 0.8. However, it is important to note that with the volume of fuel pellets decreases, the energy released during operation decreases accordingly. Therefore, we cannot ignore the effect of the reduced volume. We need to find the “balance point” between the volume and thermodynamic properties.
+In order to determine the optimal size which eliminates the effect of volume change of annular fuel pellets, the concept of “normalized volume parameter” is used in this paper. It means the ratio of the true volume of a hollow fuel pellet to that of a fuel pellet with an inner diameter of zero, which can be calculated by the following formula:
+@(12)
+Where @is normalized volume parameter. @,@ are volumes of annular fuel pellets and column fuel pellets.
+By using@ , the thermodynamic performance can be described without the effect of fuel pellets volume:
+@(13)
+Where @, @, @are “normalized von Mises stress”@, @“normalized radial displacement” and “normalized temperature”, respectively (MPa, m, ℃).
+Now, we can obtain a result that doesn’t depend on fuel pellets volume. However, it is difficult to find a clear relation between thermodynamic parameters and from these relational diagrams. Fig. 11 can be used to illustrate this statement.
+Fig. 11. Normalized temperature profile at the mid-pellet height.
+The maximum normalized temperature shows a downtrend when is less than 0.6. But if is greater than 0.7, there will be a clear uptrend. It means that when is greater than some number, such as 0.7, the improvement of thermodynamic performance cannot make up for the total energy loss caused by the decrease of fuel pellets volume. However, it is difficult to ensure the optimum size because values are closely when and . The same phenomenon can also be found in diagrams of von Mises stress and radial displacement. To solve this problem, we choose maximum values of three normalized thermodynamic parameters of fuel pellets and obtain the relation between these parameters and , as shown in Fig. 12, Fig. 13, Fig. 14.
+Fig. 12. Maximum Normalized von Mises stress in different .
+Fig. 13. Maximum normalized radial displacement in different .
+Fig. 14. Maximum normalized temperature in different .
+It can be seen from diagrams that the relation of normalized parameters and is roughly parabolic. Curves of three normalized parameters take the minimum value when is 0.7. Therefore, the optimum of annular fuel pellets can be considered to between 0.6 and 0.8. This phenomenon occurs because normalized parameters vary roughly linearly with the volume. However, the volume varies with to the second power. That is, when is small, the von Mises stress, radial displacement and temperature of fuel pellets will be significantly reduced by changing the size of the inner diameter but the reduction in pellets volume is relatively small. With the increase of , the volume of pellets decreases rapidly and dominates normalized parameters, which leads to the increase of normalized parameters.
+In order to get the optimum size of pellets, the subdivision is carried out in the range of 0.6 to 0.8, and different inner diameters are calculated. Results are shown in enlarged partial drawings in Fig. 12, Fig. 13, Fig. 14. It can be seen from diagrams that by subdividing between 0.6 and 0.8, we can obtain optimal dimensions of annular fuel pellets. The optimal ratio of von Mises stress is 0.7 and the ratio of radial displacement and temperature is 0.67. Also, chosen by MIT is 0.7 (Kazimi, 2006, MORRA, 2004). We can see from Fig. 8 that the maximum von Mises stress of DCAFE is lower than the ultimate strength when is 0.67. However, at the same conditions, the maximum real temperature of DCAFE in Fig. 10 is still at a relatively high level (about 330 °C). Therefore, the temperature should be considered as the most dangerous parameter under the normal operation condition. So we can draw the conclusion that when is 0.67, the annular fuel element reaches the optimum size.
+<Section>5. Conclusions</Section>
+In this paper, three types of fuel element have been simulated and investigated in ABAQUS. Considering the coupling of multi-physical phenomena, such as thermodynamic, fuel swelling, the von Mises stress, radial displacement and temperature distribution under normal operation condition are obtained. The results indicate that among three fuel elements, the DCAFE has the best thermodynamic performance. The SCAFE and CFE have relatively poor thermodynamic performance. The DCAFE has a low level in von Mises stress, radial displacement and temperature. Also, it can reduce the temperature gradient in fuel pellets. Compared with DCAFE, the other two types of fuel elements have obvious deficiency. The maximum von Mises stress in CFE will reach a high level at the time that fuel pellets contact with the cladding. This phenomenon may result in crack initiation in fuel pellets. The temperature distribution in SCAFE can decrease but the von Mises stress and radial displacement levels are even higher than the CFE. Therefore, the SCAFE has little real application in practical engineering.
+To obtain the optimal size of DCAFE, models which have different inner diameters are simulated. The results indicate that with the ratio of inner and outer diameters of DCAFE increases, values of von Mises stress, radial displacement and temperature decrease. Also, gradients of three parameters decrease. In order to eliminate the effect of volume change in different ratio of inner and outer diameters, “normalized volume parameter” has been used to calculate normalized von Mises stress, radial displacement and temperature. When the ratio of inner and outer diameters is 0.67, the pellets size of DCAFE is optimal, and the thermodynamic performance is relatively good. This geometry could be interestingly evaluated in nuclear power plants using dual-cooled annular fuel elements.
+In this paper, we assume that two fuel pellets are “perfectly” stacked, that is, there is no error in the assembly process. But errors will inevitably occur in practical engineering, resulting in assembly stress. The working environment of the fuel element in PWR is complex, which can easily lead to the fracture of pellets or cladding. Due to the limitation of calculation conditions, it is not possible to simulate the fracture and failure of the fuel element at present. During the operation of the nuclear power plant, a power ramping may occur in the abnormal condition. The investigation on the influence of this power ramping is also meaningful. In the following research work, the fracture model of fuel pellets will be deeply studied to simulate the fracture failure of fuel pellets. Furthermore, the thermodynamic performance of DCAFE under the abnormal condition will be investigated.
+<Section>Funding</Section>
+This work was supported by the National Natural Science Foundation of China [11232015, 11572355].
+<Section>CRediT authorship contribution statement</Section>
+Ze Xu: Conceptualization, Data curation, Formal analysis, Investigation, Methodology, Software, Writing - original draft. Yulan Liu: Funding acquisition, Investigation, Methodology, Project administration. Biao Wang: Funding acquisition, Investigation, Project administration.
+<Section>Declaration of Competing Interest</Section>
+The authors declare that they have no known competing financial interests or personal relationships that could have appeared to influence the work reported in this paper.
+<Section>References</Section>
+Ansarifar and Ebrahimian, 2016
+G.R. Ansarifar, M. Ebrahimian
+Design and neutronic investigation of the Nano fluids application to VVER-1000 nuclear reactor with dual cooled annular fuel
+Ann. Nucl. Energy, 87 (2016), pp. 39-47
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+China Nuclear Power Engineering Co., 2017
+China Nuclear Power Engineering Co., L., Suzhou Nuclear Power Research Institute
+Nuclear Power Plant Metal Materials Manual
+China Electric Power Press, Beijing (2017)
+Google Scholar
+Deng et al., 2016a
+Y.B. Deng, Y.W. Wu, Y.M. Li, D.L. Zhang, W.X. Tian, G.H. Su, S.Z. Qiu
+Mechanism study and theoretical simulation on heat split phenomenon in dual-cooled annular fuel element
+Ann. Nucl. Energy, 94 (2016), pp. 44-54
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+Deng et al., 2016b
+Y.B. Deng, Y.W. Wu, D.L. Zhang, W.X. Tian, S.Z. Qiu, G.H. Su
+Development of a thermal-mechanical behavior coupling analysis code for a dual-cooled annular fuel element in PWRs
+Nucl. Eng. Des., 301 (2016), pp. 353-365
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+Ebrahimian and Ansarifar, 2016
+M. Ebrahimian, G.R. Ansarifar
+Investigation of the nano fluid effects on heat transfer characteristics in nuclear reactors with dual cooled annular fuel using CFD (Computational Fluid Dynamics) modeling
+Energy, 98 (2016), pp. 1-14
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+Goldberg et al., 2019
+E. Goldberg, M.E.L. Peralta, A. Soba
+DIONISIO 3.0: Comprehensive 3D nuclear fuel simulation through PCMI cohesive and PLENUM models
+J. Nucl. Mater., 523 (2019), pp. 121-134
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+Hejzlar and Kazimi, 2007
+P. Hejzlar, M.S. Kazimi
+Annular fuel for high-power-density pressurized water reactors: motivation and overview
+Nucl. Technol., 160 (2007), pp. 2-15
+CrossRefView Record in ScopusGoogle Scholar
+Hibbett, 2014
+Hibbett, K., 2014. ABAQUS/standard user’s manual, Version 6.14. Dassault Systemes Simulia Corp, Providence, Rl, USA.
+Google Scholar
+Huang and Zhang, 2012
+Y.C. Huang, J.Z. Zhang
+Modern Materials Corrosion and Protection
+Profile of Shanghai Jiao Tong University Press, Shanghai (2012)
+Google Scholar
+Kazimi, 2006
+Kazimi, M.S., Hejzlar, P., 2006. High performance fuel design for next generation PWRs: Final report. Massachusetts Institute of Technology, US.
+Google Scholar
+Kazimi, 2007
+Kazimi, M.S., 2007. Introduction to the annular fuel - special issue. Nucl. Technol. 160, 1.
+Google Scholar
+Kim et al., 2011
+H.K. Kim, J.Y. Kim, K.H. Yoon
+Mechanical design issues and resolutions of a dual cooled fuel for the OPR-1000
+Nucl. Eng. Des., 241 (2011), pp. 2119-2127
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+Lee and Kazimi, 2015
+Y. Lee, M.S. Kazimi
+A structural model for multi-layered ceramic cylinders and its application to silicon carbide cladding of light water reactor fuel
+J. Nucl. Mater., 458 (2015), pp. 87-105
+ArticleDownload PDFCrossRefView Record in ScopusGoogle Scholar
+Liu, 2010
+J. Liu
+Steady and transient performance analysis of M5 fuel rods at high burnup
+Nucl. Tech., 33 (2010), pp. 112-116
+View Record in ScopusGoogle Scholar
+Martin, 1988
+D.G. Martin
+The thermal expansion of solid UO2 and (U, Pu) mixed oxides-a review and recommendations
+J. Nucl. Mater., 152 (1988), pp. 94-101
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+MORRA, 2004
+MORRA, P., 2004. Design of annular fuel for high power density BWRs. Massachusetts Institute of Technology, US.
+Google Scholar
+Newman et al., 2009
+C. Newman, G. Hansen, D. Gaston
+Three dimensional coupled simulation of thermomechanics, heat, and oxygen diffusion in UO2 nuclear fuel rods
+J. Nucl. Mater., 392 (2009), pp. 6-15
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+Olander, 1976
+D.R. Olander
+Fundamental Aspects of Nuclear Reactor Fuel Element
+Department of Nuclear Engineering, California University, Berkeley, USA (1976)
+Google Scholar
+Rhee et al., 2013
+Y.W. Rhee, D.J. Kim, J.H. Kim, J.H. Yang, K.S. Kim
+Rod-inserted sintering of annular pellets for dual-cooled annular fuel
+Nucl. Technol., 184 (2013), pp. 54-62
+View Record in ScopusGoogle Scholar
+Ross and Stoute, 1962
+A.M. Ross, R.L. Stoute
+Heat transfer coefficient between UO2 and Zircaloty-2
+Atomic Energy of Canada Technical Report, Canada (1962)
+Google Scholar
+Shin et al., 2012
+C.H. Shin, T.H. Chun, D.S. Oh, W.K. In
+Thermal hydraulic performance assessment of dual-cooled annular nuclear fuel for OPR-1000
+Nucl. Eng. Des., 243 (2012), pp. 291-300
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+Spencer et al., 2016
+B.W. Spencer, R.L. Williamson, D.S. Stafford, S.R. Novascone, J.D. Hales, G. Pastore
+3D modeling of missing pellet surface defects in BWR fuel
+Nucl. Eng. Des., 307 (2016), pp. 155-171
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+Williamson, 2011
+R.L. Williamson
+Enhancing the ABAQUS thermomechanics code to simulate multipellet steady and transient LWR fuel rod behavior
+J. Nucl. Mater., 415 (2011), pp. 74-83
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+Williamson et al., 2012
+R.L. Williamson, J.D. Hales, S.R. Novascone, M.R. Tonks, D.R. Gaston, C.J. Permann, D. Andrs, R.C. Martineau
+Multidimensional multiphysics simulation of nuclear fuel behavior
+J. Nucl. Mater., 423 (2012), pp. 149-163
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+Xia et al., 2019
+H. Xia, C. Lu, Y.W. Wu, Z.X. Wu, W.X. Tian, G.H. Su, S.Z. Qiu
+Development of a subchannel analysis code and its application to annular fuel assemblies
+Ann. Nucl. Energy, 129 (2019), pp. 428-436
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+Yang and Bo, 2011
+W.B. Yang, M.F. Bo
+Nuclear Power Plant USES Circular Fuel Economy Analysis Report
+China Nuclear Power Engineering Co., Ltd, Beijing (2011)
+Google Scholar
+Yang et al., 2009
+Y.S. Yang, C.H. Shin, T.H. Chun, K.W. Song
+Evaluation of a dual-cooled annular fuel heat split and temperature distribution
+J. Nucl. Sci. Technol., 46 (2009), pp. 836-845
+CrossRefView Record in ScopusGoogle Scholar
+Zaidabadi et al., 2017
+M. Zaidabadi, G.R. Ansarifar, M.H. Esteki
+Thermal hydraulic analysis of VVER-1000 nuclear reactor with dual-cooled annular fuel using K-omega SST Turbulence model
+Ann. Nucl. Energy, 101 (2017), pp. 118-127
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+Zohuri, 2017
+B. Zohuri
+Thermal-Hydraulic Analysis of Nuclear Reactors
+Springer, Switzerland (2017)
+Google Scholar

@@ -1,0 +1,429 @@
+<title> Modeling_NN and_CC Analysis_NN of_IN Nonlinear_JJ Wave_NP Propagation_NN in_IN One-Dimensional_JJ Phononic_JJ Structures_NNS </title> <author> Liu_NP ,_, M._NP ;_: Zhu_NP ,_, W._NP D._NP </author> <Affiliation> 1_CD Department_NP of_IN Mechanical_NP Engineering_NP and_CC Aeronautics_NP ,_, University_NP of_IN Patras_NP ,_, Rion-Patras_NP ;_: GR-26500_NP ,_, Greece_NP </Affiliation> <year> 2018_CD </year> <Jounral> Journal_NP of_IN Vibration_NN and_CC Acoustics_NNS ,_, Transactions_NNS of_IN the_DT ASME_NN </Journal> <Publishing_house> American_NP Society_NP of_IN Mechanical_NP Engineers_NPS (_( ASME_NN )_) </Publishing_house> <Text_Collector> Liu_NP Kai，HEU_NP </Text_Collector> <DOI> 10.1115/1.4039570_CD </DOI> <URL> https_NNS :_: //asmedigitalcollection-asme-org-443_NN ._SENT 
+wvpn_NP ._SENT 
+hrbeu_NP ._SENT 
+edu_NP ._SENT 
+cn/vibrationacoustics/article/140/6/061010/449576/Modeling-and-Analysis-of-Nonlinear-Wave_NN </URL> <Section> Abstract_JJ </Section> Different_NP from_IN elastic_JJ waves_NNS in_IN linear_JJ periodic_JJ structures_NNS ,_, those_DT in_IN phononic_JJ crystals_NNS (_( PCs_NNS )_) with_IN nonlinear_JJ properties_NNS can_MD exhibit_VV more_JJR interesting_JJ phenomena_NNS ._SENT 
+Linear_JJ dispersion_NN relations_NNS cannot_MD accurately_RB predict_VV band-gap_NN variations_NNS under_IN finite-amplitude_NN wave_NN motions_NNS ;_: creating_VVG nonlinear_JJ PCs_NNS remains_VVZ challenging_JJ and_CC few_JJ examples_NNS have_VHP been_VBN studied_VVN ._SENT 
+Recent_JJ studies_NNS in_IN the_DT literature_NN mainly_RB focus_VV on_IN discrete_JJ chain-like_JJ systems_NNS ;_: most_JJS studies_NNS only_RB consider_VVP weakly_JJ nonlinear_JJ regimes_NNS and_CC cannot_MD accurately_RB obtain_VV some_DT relations_NNS between_IN wave_NN propagation_NN characteristics_NNS and_CC general_JJ nonlinearities_NNS ._SENT 
+This_DT paper_NN presents_VVZ propagation_NN characteristics_NNS of_IN longitudinal_JJ elastic_JJ waves_NNS in_IN a_DT thin_JJ rod_NN and_CC coupled_VVN longitudinal_JJ and_CC transverse_JJ waves_NNS in_IN an_DT Euler–Bernoulli_NP beam_NN using_VVG their_PP$ exact_JJ Green–Lagrange_NN strain_NN relations_NNS ._SENT 
+We_PP derive_VV band_NN structure_NN relations_NNS for_IN a_DT periodic_JJ rod_NN and_CC beam_NN and_CC predict_VV their_PP$ nonlinear_JJ wave_NN propagation_NN characteristics_NNS using_VVG the_DT B-spline_JJ wavelet_NN on_IN the_DT interval_NN (_( BSWI_NP )_) finite_JJ element_NN method_NN ._SENT 
+Influences_NNS of_IN nonlinearities_NNS on_IN wave_NN propagation_NN characteristics_NNS are_VBP discussed_VVN ._SENT 
+Numerical_JJ examples_NNS show_VVP that_IN the_DT proposed_VVN method_NN is_VBZ more_RBR effective_JJ for_IN nonlinear_JJ static_JJ and_CC band_NN structure_NN problems_NNS than_IN the_DT traditional_JJ finite_JJ element_NN method_NN and_CC illustrate_VVP that_IN nonlinearities_NNS can_MD cause_VV band-gap_NN width_NN and_CC location_NN changes_NNS ,_, which_WDT is_VBZ similar_JJ to_TO results_NNS reported_VVN in_IN the_DT literature_NN for_IN discrete_JJ systems_NNS ._SENT 
+The_DT proposed_VVN methodology_NN is_VBZ not_RB restricted_VVN to_TO weakly_JJ nonlinear_JJ systems_NNS and_CC can_MD be_VB used_VVN to_TO accurately_RB predict_VV wave_NN propagation_NN characteristics_NNS of_IN nonlinear_JJ structures_NNS ._SENT 
+This_DT study_NN can_MD provide_VV good_JJ support_NN for_IN engineering_NN applications_NNS ,_, such_JJ as_IN sound_NN and_CC vibration_NN control_NN using_VVG tunable_JJ band_NN gaps_NNS of_IN nonlinear_JJ PCs_NNS ._SENT 
+Keywords_NNS :_: Non-linear_JJ vibration_NN ,_, Structural_JJ dynamics_NNS ,_, Control_NP <Section> 1._CD Introduction_NN </Section> Structures_NNS with_IN periodically_RB varying_VVG geometry_NN and_CC material_NN properties_NNS are_VBP known_VVN to_TO exhibit_VV advantageous_JJ wave_NN propagation_NN characteristics_NNS ._SENT 
+Periodic_JJ compositions_NNS of_IN small-scale_JJ structures_NNS with_IN different_JJ material_NN properties_NNS are_VBP termed_VVN phononic_JJ crystals_NNS (_( PCs_NNS )_) ._SENT 
+Existence_NN of_IN sonic_JJ band_NN gaps_NNS where_WRB propagation_NN of_IN acoustic_JJ or_CC elastic_JJ waves_NNS is_VBZ forbidden_VVN has_VHZ many_JJ potential_JJ engineering_NN applications_NNS ,_, such_JJ as_IN noise_NN reduction_NN ,_, waveguides_NNS ,_, acoustic_JJ filters_NNS ,_, and_CC tuning_VVG of_IN band_NN gaps_NNS ._SENT 
+Hussein_NP et_NP al_NP ._SENT 
+provided_VVN a_DT broad_JJ review_NN of_IN PCs_NNS that_WDT includes_VVZ historical_JJ achievement_NN and_CC recent_JJ progress_NN as_RB well_RB as_IN an_DT outlook_NN on_IN future_JJ research_NN directions_NNS ._SENT 
+Elastic_JJ wave_NN control_NN in_IN solids_NNS using_VVG tunable_JJ band_NN structures_NNS has_VHZ been_VBN studied_VVN in_IN PCs_NNS mainly_RB based_VVN on_IN linear_JJ approximation_NN ._SENT 
+Wave_NN propagation_NN in_IN PCs_NNS exhibits_VVZ excellent_JJ tunable_JJ band-gap_NN characteristics_NNS when_WRB nonlinearities_NNS are_VBP considered_VVN ._SENT 
+However_RB ,_, it_PP is_VBZ difficult_JJ to_TO obtain_VV some_DT accurate_JJ relations_NNS between_IN wave_NN propagation_NN characteristics_NNS and_CC general_JJ nonlinearities_NNS ._SENT 
+Therefore_RB ,_, the_DT mechanism_NN for_IN tuning_VVG band_NN gaps_NNS of_IN nonlinear_JJ PCs_NNS and_CC effects_NNS of_IN nonlinearities_NNS on_IN wave_NN propagation_NN become_VVN major_JJ topics_NNS of_IN current_JJ and_CC future_JJ theoretical_JJ studies_NNS ._SENT 
+Dispersion_NN relations_NNS provide_VVP a_DT fundamental_JJ characterization_NN of_IN the_DT nature_NN of_IN wave_NN propagation_NN in_IN an_DT elastic_NN solid_JJ ._SENT 
+Cauchy_NP revealed_VVD that_IN longitudinal_JJ and_CC transverse_JJ waves_NNS can_MD propagate_VV in_IN solids_NNS ._SENT 
+Many_JJ classical_JJ studies_NNS focused_VVN on_IN the_DT dispersive_JJ nature_NN of_IN these_DT waves_NNS in_IN different_JJ types_NNS of_IN structures_NNS ._SENT 
+Graff_NP proposed_VVD an_DT elastic_JJ wave_NN propagation_NN theorem_NN and_CC experimental_JJ verification_NN was_VBD given_VVN by_IN Thurston_NP ._SENT 
+These_DT early_JJ studies_NNS and_CC extensive_JJ investigation_NN on_IN wave_NN propagation_NN in_IN PCs_NNS were_VBD mainly_RB based_VVN on_IN linear_JJ approximation_NN where_WRB linear_JJ constitutive_JJ laws_NNS and_CC linear_JJ strain–displacements_NNS relations_NNS were_VBD assumed_VVN ._SENT 
+Most_JJS studies_NNS searched_VVD for_IN excellent_JJ band-gap_NN structures_NNS and_CC applied_VVD these_DT structures_NNS to_TO sound_VV and_CC vibration_NN control_NN and_CC thermal_JJ conductance_NN ._SENT 
+For_IN example_NN ,_, Nouri_NP and_CC Moradi_NP constructed_VVN new_JJ linear_JJ two-dimensional_JJ PCs_NNS composed_VVN of_IN heterostructures_NNS and_CC obtained_VVD an_DT extended_JJ band-gap_NN structure_NN ._SENT 
+Anufriev_NP and_CC Normura_NP studied_VVD reduction_NN of_IN thermal_JJ conductance_NN in_IN coherent_JJ linear_JJ two-dimensional_JJ PCs_NNS with_IN different_JJ lattice_NN structures_NNS and_CC found_VVD that_IN different_JJ lattice_NN types_NNS have_VHP similar_JJ values_NNS and_CC trends_NNS of_IN reduction_NN of_IN thermal_JJ conductance_NN ._SENT 
+However_RB ,_, inherent_JJ nonlinear_JJ wave_NN propagation_NN characteristics_NNS in_IN such_JJ phononic_JJ structures_NNS are_VBP largely_RB unexplored_VVN ._SENT 
+Nonlinear_JJ periodic_JJ structures_NNS that_IN exhibit_NN wave_NN transmission_NN properties_NNS have_VHP potential_JJ engineering_NN applications_NNS ,_, such_JJ as_IN tuning_VVG the_DT direction_NN of_IN wave_NN propagation_NN and_CC amplitude-dependent_JJ band-gap_NN application_NN ._SENT 
+From_IN an_DT engineering_NN perspective_NN ,_, effects_NNS of_IN nonlinearities_NNS on_IN wave_NN propagation_NN in_IN solids_NNS can_MD be_VB used_VVN to_TO enrich_VV design_NN of_IN materials_NNS and_CC structural_JJ components_NNS ._SENT 
+A_DT number_NN of_IN investigations_NNS carried_VVN out_RP on_IN nonlinear_JJ PCs_NNS mainly_RB contribute_VVP to_TO discrete_JJ chain-like_JJ systems_NNS ._SENT 
+Vakakis_NP and_CC King_NP studied_VVD a_DT chain_NN that_WDT consisted_VVD of_IN monocoupled_JJ subsystems_NNS with_IN cubic_JJ nonlinearities_NNS and_CC developed_VVN amplitude-dependent_JJ nonlinear_JJ dispersion_NN relations_NNS ._SENT 
+Narisetti_NP et_NP al_NP ._SENT 
+used_VVN a_DT perturbation_NN approach_NN to_TO predict_VV wave_NN propagation_NN in_IN a_DT discrete_JJ nonlinear_JJ periodic_JJ system_NN that_IN exhibited_VVN amplitude-dependent_JJ characteristics_NNS ._SENT 
+Narisetti_NP et_NP al_NP ._SENT 
+studied_VVN dispersion_NN curves_NNS and_CC group_NN velocities_NNS of_IN a_DT discrete_JJ nonlinear_JJ periodic_JJ lattice_NN with_IN a_DT perturbation_NN approach_NN ._SENT 
+Sreelatha_NP and_CC Joseph_NP derived_VVD wave_NN solutions_NNS of_IN a_DT discrete_JJ nonlinear_JJ lattice_NN with_IN weak_JJ quadratic_NN and_CC cubic_JJ nonlinearities_NNS ._SENT 
+Lazarov_NP and_CC Jensen_NP analyzed_VVD a_DT chain_NN of_IN nonlinear_JJ oscillators_NNS and_CC uncovered_VVN amplitude-dependent_JJ dispersion_NN ._SENT 
+Building_NN on_IN Lazarov_NP 's_POS and_CC Jensen_NP 's_POS work_NN ,_, Duan_NP et_CC al_NP ._SENT 
+studied_VVN coupled_VVN nonlinear_JJ waves_NNS in_IN lattices_NNS ._SENT 
+Feng_NP and_CC Kawahara_NP used_VVD discrete_JJ breathers_NNS to_TO study_VV nonlinear_JJ lattices_NNS ._SENT 
+Narisetti_NP et_NP al_NP ._SENT 
+used_VVN a_DT harmonic_JJ balance_NN method_NN to_TO analyze_VV wave_NN propagation_NN characteristics_NNS in_IN nonlinear_JJ periodic_JJ lattices_NNS ._SENT 
+Spadoni_NP et_NP al_NP ._SENT 
+studied_VVN nonlinear_JJ PCs_NNS with_IN hexagonal_JJ chiral_JJ lattices_NNS and_CC illustrated_VVD their_PP$ unique_JJ nonlinear_JJ dynamic_JJ characteristics_NNS ._SENT 
+An_DT overview_NN of_IN the_DT above_JJ references_NNS and_CC other_JJ studies_NNS of_IN nonlinear_JJ PCs_NNS in_IN the_DT literature_NN indicated_VVD that_IN temporal_JJ solutions_NNS were_VBD generally_RB obtained_VVN via_IN certain_JJ physical_JJ limits_NNS ,_, rather_RB than_IN complete_JJ dispersion_NN relations_NNS ._SENT 
+An_DT intuitive_JJ way_NN to_TO study_VV nonlinear_JJ structural_JJ wave_NN dynamics_NNS is_VBZ to_TO omit_VV some_DT high-order_NN terms_NNS in_IN the_DT strain_NN tensor_NN at_IN the_DT beginning_NN for_IN simplicity_NN ._SENT 
+Finite-amplitude_NN wave_NN propagation_NN in_IN elastic_JJ solids_NNS is_VBZ a_DT subset_NN of_IN a_DT broader_JJR class_NN of_IN nonlinear_JJ wave_NN propagation_NN problems_NNS ._SENT 
+The_DT literature_NN on_IN exploring_VVG effects_NNS of_IN nonlinearities_NNS on_IN wave_NN propagation_NN characteristics_NNS of_IN PCs_NNS is_VBZ limited_VVN in_IN comparison_NN with_IN that_DT on_RB associated_VVN linear_JJ systems_NNS ._SENT 
+Analysis_NN methods_NNS for_IN nonlinear_JJ PCs_NNS are_VBP sparser_JJR than_IN those_DT for_IN nonlinear_JJ photonic_JJ crystals_NNS ._SENT 
+Manktelow_NP et_NP al_NP ._SENT 
+evaluated_VVN amplitude-dependent_JJ dispersion_NN in_IN nonlinear_JJ photonic_JJ crystals_NNS and_CC PCs_NNS using_VVG a_DT transfer_NN matrix_NN approach_NN ._SENT 
+Abedinnasab_NP and_CC Hussein_NP focused_VVD on_IN wave_NN dispersion_NN under_IN finite_JJ deformation_NN and_CC studied_VVN dispersion_NN characteristics_NNS of_IN nonlinear_JJ elastic_JJ metamaterials_NNS ._SENT 
+Packo_NP et_NP al_NP ._SENT 
+studied_VVN amplitude-dependent_JJ Lamb_NP wave_NN dispersion_NN in_IN nonlinear_JJ plates_NNS using_VVG a_DT perturbation_NN approach_NN ._SENT 
+These_DT studies_NNS predicted_VVD effects_NNS of_IN nonlinearities_NNS on_IN locations_NNS ,_, sizes_NNS ,_, and_CC characteristics_NNS of_IN band_NN gaps_NNS ._SENT 
+However_RB ,_, accuracy_NN of_IN results_NNS in_IN these_DT studies_NNS can_MD decrease_VV as_IN the_DT wave_NN amplitude_NN increases_NNS ._SENT 
+A_DT wavelet-based_JJ finite_JJ element_NN method_NN using_VVG a_DT scale_NN function_NN and/or_NN a_DT wavelet_NN function_NN is_VBZ a_DT good_JJ numerical_JJ approach_NN to_TO replace_VV a_DT traditional_JJ polynomial_JJ interpolation_NN function_NN to_TO analyze_VV dynamic_JJ problems_NNS ._SENT 
+We_PP can_MD obtain_VV desired_VVN wavelet-based_JJ elements_NNS to_TO solve_VV partial_JJ differential_JJ equations_NNS in_IN engineering_NN by_IN use_NN of_IN multiresolution_NN characteristics_NNS ._SENT 
+Since_IN B-spline_JJ wavelet_NN on_IN the_DT interval_NN (_( BSWI_NP )_) scale_NN functions_NNS have_VHP analytical_JJ expressions_NNS at_IN all_DT levels_NNS ,_, elemental_JJ stiffness_NN and_CC mass_NN matrices_NNS can_MD be_VB conveniently_RB calculated_VVN ._SENT 
+Cubic_JJ B-spline_NN interpolating_VVG functions_NNS have_VHP sufficient_JJ continuity_NN compared_VVN with_IN piecewise_JJ continuous_JJ polynomials_NNS of_IN the_DT traditional_JJ finite_JJ element_NN method_NN ._SENT 
+Thus_RB ,_, the_DT wavelet-based_JJ finite_JJ element_NN method_NN can_MD yield_VV higher-precision_NN solutions_NNS than_IN the_DT traditional_JJ finite_JJ element_NN method_NN ._SENT 
+Liu_NP et_NP al_NP ._SENT 
+studied_VVN band_NN structures_NNS of_IN linear_JJ one-dimensional_JJ (_( 1D_NN )_) PCs_NNS using_VVG a_DT wavelet-based_JJ finite_JJ element_NN method_NN based_VVN on_IN their_PP$ linear_JJ strain–displacement_NN relations_NNS and_CC verified_VVN a_DT band-gap_NN performance_NN calculation_NN method_NN ._SENT 
+However_RB ,_, this_DT approach_NN based_VVN on_IN linear_JJ approximation_NN cannot_MD obtain_VV accurate_JJ results_NNS in_IN analysis_NN of_IN finite_JJ deformation_NN problems_NNS ._SENT 
+Thus_RB ,_, developing_VVG a_DT new_JJ element_NN based_VVN on_IN nonlinear_JJ strain–displacement_NN relations_NNS is_VBZ important_JJ ._SENT 
+The_DT goal_NN of_IN this_DT study_NN is_VBZ to_TO predict_VV effects_NNS of_IN nonlinearities_NNS on_IN wave_NN propagation_NN characteristics_NNS of_IN a_DT thin_JJ rod_NN and_CC an_DT Euler–Bernoulli_NP beam_NN composed_VVN of_IN periodic_JJ elastic_JJ materials_NNS ._SENT 
+Exact_JJ finite-strain_JJ wavelet-based_JJ elements_NNS are_VBP developed_VVN in_IN the_DT current_JJ formulation_NN to_TO investigate_VV their_PP$ nonlinear_JJ band-gap_NN characteristics_NNS ._SENT 
+This_DT paper_NN is_VBZ organized_VVN as_RB follows_VVZ :_: After_IN a_DT brief_JJ introduction_NN ,_, structural_JJ governing_VVG equations_NNS of_IN a_DT thin_JJ rod_NN and_CC an_DT Euler–Bernoulli_NP beam_NN are_VBP given_VVN based_VVN on_IN exact_JJ Green–Lagrange_JJ strain_NN relations_NNS and_CC spatial_JJ discretization_NN is_VBZ carried_VVN out_RP by_IN a_DT wavelet-based_JJ finite_JJ element_NN method_NN in_IN Sec_NN ._SENT 
+2._CD Approaches_NNS to_TO calculate_VV static_JJ deflections_NNS and_CC wave_NN propagation_NN characteristics_NNS are_VBP proposed_VVN and_CC used_VVN in_IN Sec_NN ._SENT 
+3._CD Accuracy_NN and_CC effectiveness_NN of_IN the_DT current_JJ method_NN to_TO calculate_VV static_JJ and_CC wave_NN propagation_NN problems_NNS are_VBP verified_VVN in_IN Sec_NN ._SENT 
+4_CD in_IN comparison_NN with_IN those_DT of_IN the_DT traditional_JJ finite_JJ element_NN method_NN ._SENT 
+Band_NN structures_NNS of_IN a_DT nonlinear_JJ PC_NN rod_NN and_CC beam_NN are_VBP calculated_VVN and_CC influences_NNS of_IN nonlinearities_NNS on_IN wave_NN propagation_NN characteristics_NNS in_IN these_DT nonlinear_JJ PC_NN structures_NNS are_VBP discussed_VVN in_IN Sec_NN ._SENT 
+4._CD Finally_RB ,_, some_DT conclusions_NNS are_VBP presented_VVN in_IN Sec_NN ._SENT 
+5._CD <Section> 2._CD Wavelet-Based_JJ Structural_JJ Models_NNS </Section> In_IN this_DT section_NN ,_, the_DT kinematics_NNS and_CC mechanics_NNS that_WDT describe_VVP wave_NN motions_NNS of_IN a_DT thin_JJ rod_NN and_CC an_DT Euler–Bernoulli_NP beam_NN are_VBP summarized_VVN ._SENT 
+We_PP derive_VV equations_NNS of_IN wave_NN motions_NNS using_VVG our_PP$ wavelet-based_JJ finite_JJ element_NN models_NNS based_VVN on_IN exact_JJ Green–Lagrange_JJ strain_NN relations_NNS ._SENT 
+2.1_CD Nonlinear_JJ Rod_NP Model_NP ._SENT 
+The_DT Lagrange_NP description_NN of_IN motion_NN is_VBZ adopted_VVN ._SENT 
+Due_JJ to_TO its_PP$ sufficient_JJ slenderness_NN ,_, a_DT thin_JJ rod_NN with_IN a_DT closed_JJ cross_NN section_NN and_CC no_DT transverse_JJ motion_NN is_VBZ considered_VVN ._SENT 
+A_DT general_JJ nonlinear_JJ strain–displacement_NN relation_NN with_IN a_DT high-order_NP strain_NN term_NN has_VHZ been_VBN adopted_VVN in_IN Ref_NN ._SENT 
+[_SYM 27_CD ]_SYM ._SENT 
+The_DT Green–Lagrange_JJ strain_NN field_NN of_IN the_DT rod_NN with_IN a_DT second-order_NN term_NN is_VBZ given_VVN by_IN @（1）_NP where_WRB u_NN is_VBZ the_DT axial_JJ displacement_NN field_NN of_IN the_DT rod_NN with_IN respect_NN to_TO the_DT Lagrange_NP spatial_JJ coordinate_NN x_SYM along_IN the_DT rod_NN length_NN ;_: the_DT first_JJ and_CC second_JJ terms_NNS on_IN the_DT right-hand_JJ side_NN represent_VVP linear_JJ and_CC nonlinear_JJ parts_NNS ,_, respectively_RB ._SENT 
+A_DT wavelet-based_JJ finite_JJ element_NN method_NN has_VHZ been_VBN successful_JJ in_IN numerical_JJ analysis_NN of_IN structures_NNS with_IN linear_JJ strain–displacement_NN relations_NNS ._SENT 
+In_IN the_DT present_JJ study_NN ,_, the_DT domain_NN of_IN the_DT rod_NN is_VBZ discretized_VVN using_VVG a_DT wavelet-based_JJ finite_JJ element_NN formulation_NN ._SENT 
+The_DT displacement_NN field_NN of_IN the_DT rod_NN is_VBZ expressed_VVN as_IN @（2）_NP where_WRB Tr_NP is_VBZ the_DT transformation_NN matrix_NN of_IN the_DT rod_NN ,_, ue_NN is_VBZ the_DT displacement_NN vector_NN of_IN elemental_JJ nodes_NNS ,_, and_CC φ_NP is_VBZ the_DT scaling_VVG function_NN vector_NN with_IN the_DT j-scale_NP mth-order_NP BSWI_NP ,_, denoted_VVN by_IN BSWI_NP mj_NP ._SENT 
+The_DT number_NN of_IN degrees-of-freedom_NP (_( DOFs_NP )_) of_IN the_DT wavelet-based_JJ rod_NN element_NN is_VBZ ne=2j+m−1_JJ ._SENT 
+Arrangement_NN of_IN wavelet-based_JJ elemental_JJ nodes_NNS is_VBZ {_( x1_JJ ,_, x2_NP ,_, …_NP ,_, xne+1}⁠_NP ._SENT 
+The_DT length_NN of_IN the_DT rod_NN element_NN is_VBZ le=xne+1−x1_JJ ._SENT 
+Physical_JJ functions_NNS on_IN the_DT interval_NN [_SYM x1_JJ ,_, xne+1_NN ]_SYM can_MD be_VB transformed_VVN to_TO those_DT on_IN the_DT normalized_VVN interval_NN [_SYM 0_CD ,_, 1_CD ]_SYM by_IN the_DT transformation_NN @（3）_NN so_IN that_DT ξ_JJ ∈_NN [_SYM 0,1_CD ]_SYM ._SENT 
+The_DT wavelet_NN scaling_VVG function_NN vector_NN on_IN the_DT interval_NN [_SYM 0_CD 1_CD ]_SYM can_MD be_VB written_VVN as_IN @（4）_NP where_WRB wavelet_NN scaling_NN functions_NNS on_IN the_DT interval_NN [_SYM 0_CD ,_, 1_CD ]_SYM consist_VVP of_IN three_CD types_NNS :_: 0_CD boundary_NN scaling_NN functions_NNS (_( ϕjm_NP ,_, −m+1(ξ_NP )_) ,_, …_NP ,_, ϕjm_NP ,_, −1(ξ_NP )_) )_) ,_, inner_JJ scaling_NN functions_NNS (_( ϕjm,0_NP (_( ξ_NP )_) ,_, …_NP ,_, ϕjm,2j−m(ξ_NP )_) )_) ,_, and_CC 1_CD boundary_NN scaling_NN functions_NNS (_( ϕjm,2j−m+1(ξ_NP )_) ,_, …_NP ,_, ϕm,2j+m−1(ξ_NP )_) )_) ._SENT 
+The_DT scaling_NN functions_NNS ϕjm_NN ,_, −m+1(ξ_NP )_) ,_, ϕjm_NP ,_, −m+2(ξ_NP )_) ,_, …_NP ,_, ϕjm,2j−1(ξ_NP )_) can_MD be_VB calculated_VVN from_IN :_: @（5）_NP and_CC the_DT transformation_NN matrix_NN of_IN the_DT rod_NN is_VBZ @（6）_JJ where_WRB the_DT superscript_JJ T_NN denotes_VVZ the_DT transpose_NN of_IN a_DT matrix_NN or_CC vector_NN ,_, and_CC @（7）_NN so_IN that_DT 0≤ξh≤1_NN ._SENT 
+Equation_NN (_( 1_CD )_) can_MD be_VB further_RBR written_VVN in_IN the_DT notation_NN of_IN linear_JJ and_CC nonlinear_JJ strains_NNS :_: @（8）_NN With_IN relations_NNS between_IN displacements_NNS and_CC strains_NNS ,_, the_DT strain_NN vector_NN of_IN the_DT rod_NN element_NN εe_NNS can_MD be_VB written_VVN in_IN the_DT matrix_NN form_NN @（9）_NN where_WRB CL=∂/∂x⁠_NN ,_, in_IN which_WDT x_SYM =_SYM {_( x1_JJ ,_, x2_NP ,_, …_NP ,_, xne+1}T_NP ,_, and_CC CNL=1/2(∂u/∂x)Ine×ne∂u/∂x_NP is_VBZ the_DT product_NN form_NN of_IN differential_JJ operators_NNS ,_, in_IN which_WDT Ine×ne_NP is_VBZ the_DT ne×ne_JJ identity_NN matrix_NN ._SENT 
+Taking_VVG variations_NNS on_IN both_DT sides_NNS of_IN Eq_NP ._SENT 
+(_( 9_CD )_) yields_NNS @（10）_JJ Since_IN CNLδue=δCNLue⁠_NP ,_, Eq_NP ._SENT 
+(_( 10_CD )_) can_MD be_VB rewritten_VVN as_IN @（11）_NN Substituting_VVG Eq_NP ._SENT 
+(_( 11_CD )_) into_IN the_DT following_VVG virtual_JJ work_NN expression_NN that_WDT involves_VVZ Green_NN strains_NNS and_CC axial_JJ Kirchhoff_NP stresses_NNS :_: @（12）_NN where_WRB a_DT volume_NN integral_JJ is_VBZ used_VVN ,_, and_CC S_NP and_CC Pe_NN are_VBP the_DT axial_JJ Kirchhoff_NP stress_NN vector_NN and_CC the_DT external_JJ force_NN vector_NN of_IN the_DT rod_NN element_NN ,_, respectively_RB ._SENT 
+Since_IN δue_NN is_VBZ arbitrary_JJ ,_, the_DT static_JJ equilibrium_NN equation_NN of_IN the_DT rod_NN is_VBZ obtained_VVN :_: @（13）_NN The_DT linear_JJ constitutive_JJ relation_NN of_IN the_DT rod_NN material_NN is_VBZ @（14）_JJ where_WRB E_NP is_VBZ the_DT Young_NP 's_POS modulus_NN of_IN the_DT rod_NN material_NN ._SENT 
+Substituting_VVG Eqs_NNS ._SENT 
+(_( 9_CD )_) and_CC (_( 14_CD )_) into_IN Eq_NP ._SENT 
+(_( 13_CD )_) yields_NNS @（15）_JJ where_WRB KerD(ue_NP )_) is_VBZ the_DT secant_NN stiffness_NN matrix_NN of_IN the_DT rod_NN and_CC its_PP$ expression_NN is_VBZ @（16）_JJ In_IN order_NN to_TO adopt_VV the_DT Newton–Raphson_NP method_NN to_TO calculate_VV Eq_NP ._SENT 
+(_( 16_CD )_) ,_, its_PP$ incremental_JJ form_NN must_MD be_VB derived_VVN ._SENT 
+The_DT incremental_JJ constitutive_JJ relation_NN of_IN the_DT rod_NN can_MD be_VB expressed_VVN as_IN @（17）_NN The_DT total_JJ differential_NN form_NN of_IN Eq_NP ._SENT 
+(_( 13_CD )_) is_VBZ @（18）_JJ Substituting_VVG Eq_NP ._SENT 
+(_( 17_CD )_) into_IN the_DT first_JJ term_NN on_IN the_DT right-hand_JJ side_NN of_IN Eq_NP ._SENT 
+(_( 18_CD )_) and_CC using_VVG Eqs_NNS ._SENT 
+(_( 17_CD )_) and_CC (_( 9_CD )_) yield_NN @（19）_NN where_WRB @（20）_NN in_IN which_WDT @（21）_JJ @（22）_JJ Note_NN that_IN KeD(ue_NN )_) ,_, KerL_NP ,_, and_CC KerNL_NP in_IN Eq_NP ._SENT 
+(_( 20_CD )_) are_VBP the_DT tangential_JJ stiffness_NN matrix_NN of_IN the_DT rod_NN element_NN associated_VVN with_IN the_DT constitutive_JJ relation_NN ,_, the_DT elemental_JJ linear_JJ stiffness_NN matrix_NN ,_, and_CC the_DT elemental_JJ finite_JJ deformation_NN stiffness_NN matrix_NN ,_, respectively_RB ._SENT 
+The_DT second_JJ term_NN on_IN the_DT right-hand_JJ side_NN of_IN Eq_NP ._SENT 
+(_( 18_CD )_) is_VBZ given_VVN by_IN @（23）_NP where_WRB KerS_NP is_VBZ the_DT elemental_JJ geometric_JJ stiffness_NN matrix_NN ._SENT 
+In_IN this_DT case_NN ,_, only_RB the_DT axial_JJ Kirchhoff_NP stress_NN S11_NN is_VBZ considered_VVN ,_, i._NP e._NP ,_, S_NP =_SYM {_( S11_JJ }_) ,_, which_WDT yields_VVZ @（24）_NN With_IN use_NN of_IN the_DT wavelet_NN scaling_VVG functions_NNS in_IN Eq_NP ._SENT 
+(_( 4_CD )_) and_CC the_DT transformation_NN matrix_NN in_IN Eq_NP ._SENT 
+(_( 6_CD )_) ,_, CL_NP and_CC CNL_NP can_MD be_VB expressed_VVN as_IN @（25）_JJ @（26）_NN Substituting_VVG Eqs_NP ._SENT 
+(_( 25_CD )_) and_CC (_( 26_CD )_) into_IN Eqs_NP ._SENT 
+(_( 21_CD )_) ,_, (_( 22_CD )_) ,_, and_CC (_( 24_CD )_) ,_, we_PP can_MD calculate_VV the_DT above_JJ stiffness_NN matrices_NNS by_IN the_DT following_VVG expressions_NNS :_: @（27）_NP @（28）_NP @（29）_NP @（30）_NP @（31）_NP where_WRB A_DT is_VBZ the_DT cross-sectional_JJ area_NN of_IN the_DT rod_NN ._SENT 
+Consequently_RB ,_, the_DT tangential_JJ stiffness_NN matrix_NN of_IN the_DT rod_NN element_NN is_VBZ @（32）_NP Distributed_NP and_CC concentrated_JJ axial_JJ forces_NNS of_IN the_DT rod_NN element_NN are_VBP @（33）_JJ @（34）_NN respectively_RB ,_, where_WRB f_SYM is_VBZ the_DT distributed_VVN axial_JJ force_NN ,_, and_CC qj_NP and_CC ξj_NP are_VBP the_DT concentrated_JJ axial_JJ force_NN and_CC its_PP$ coordinate_JJ value_NN on_IN the_DT normalized_VVN interval_NN [_SYM 0_CD ,_, 1_CD ]_SYM ,_, respectively_RB ._SENT 
+The_DT internal_JJ equivalent_JJ nodal_JJ force_NN vector_NN of_IN the_DT rod_NN at_IN the_DT kth_JJ iteration_NN step_NN is_VBZ @（35）_JJ where_WRB S(k)11_NN is_VBZ the_DT axial_JJ Kirchhoff_NP stress_NN at_IN the_DT kth_JJ iteration_NN step_NN ._SENT 
+The_DT spatially_RB discretized_VVN nonlinear_JJ static_JJ equilibrium_NN equation_NN of_IN the_DT rod_NN can_MD be_VB assembled_VVN from_IN the_DT above_JJ stiffness_NN matrices_NNS ,_, which_WDT yields_VVZ @（36）_JJ where_WRB Δ(k)u=u(k+1)−u(k_NP )_) is_VBZ the_DT incremental_JJ displacement_NN vector_NN ,_, K(k)rT_NN is_VBZ the_DT global_JJ tangential_JJ stiffness_NN matrix_NN at_IN the_DT kth_JJ iteration_NN step_NN ,_, and_CC P_NN and_CC P(k)r_NN are_VBP the_DT original_JJ global_JJ external_JJ force_NN vector_NN and_CC the_DT equivalent_JJ nodal_JJ force_NN vector_NN ,_, respectively_RB ._SENT 
+Equation_NN (_( 36_CD )_) is_VBZ nonlinear_JJ ;_: an_DT iterative_JJ approach_NN based_VVN on_IN the_DT Newton–Raphson_NP method_NN can_MD yield_VV solutions_NNS of_IN static_JJ equilibria_NNS ._SENT 
+2.2_CD Nonlinear_JJ Euler–Bernoulli_NP Beam_NP Model_NP ._SENT 
+A_DT wavelet-based_JJ Euler–Bernoulli_NP beam_NN model_NN with_IN geometric_JJ nonlinearity_NN is_VBZ considered_VVN here_RB ._SENT 
+There_EX are_VBP many_JJ theories_NNS that_WDT can_MD represent_VV the_DT kinematics_NN of_IN deflections_NNS of_IN beams_VVZ ._SENT 
+The_DT most_RBS commonly_RB used_VVN theory_NN is_VBZ based_VVN on_IN the_DT displacement_NN field_NN @（37）_JJ @（38）_NN where_WRB the_DT x_NN coordinate_VV is_VBZ taken_VVN along_IN the_DT beam_NN length_NN and_CC the_DT y_NN coordinate_VV along_IN the_DT beam_NN thickness_NN direction_NN with_IN the_DT origin_NN located_VVN at_IN the_DT midplane_NN of_IN the_DT beam_NN ;_: u_NN is_VBZ the_DT axial_JJ displacement_NN of_IN the_DT midplane_NN (_( x_SYM ,_, 0_CD )_) of_IN the_DT beam_NN at_IN the_DT coordinate_NN x_SYM ;_: and_CC v_NN is_VBZ the_DT transverse_JJ deflection_NN of_IN the_DT midplane_NN at_IN the_DT coordinate_VV x._NP The_DT bending_VVG deformation_NN of_IN a_DT beam_NN is_VBZ assumed_VVN to_TO be_VB much_RB larger_JJR than_IN its_PP$ axial_JJ deformation_NN ._SENT 
+Hence_RB ,_, we_PP neglect_VVP the_DT high-order_NN axial_JJ term_NN (_( ∂u/∂x)2_JJ in_IN this_DT study_NN ._SENT 
+Strains_NNS are_VBP assumed_VVN to_TO be_VB small_JJ and_CC rotations_NNS are_VBP expected_VVN to_TO be_VB moderately_RB large_JJ ._SENT 
+Analogous_JJ to_TO Eq_NP ._SENT 
+(_( 1_CD )_) ,_, use_NN of_IN Eqs_NP ._SENT 
+(_( 37_CD )_) and_CC (_( 38_CD )_) yields_VVZ the_DT Green–Lagrange_JJ strain_NN field_NN of_IN a_DT beam_NN on_IN its_PP$ midplane_NN @（39）_NN where_WRB u_NN and_CC v_NN are_VBP axial_JJ and_CC transverse_JJ displacement_NN vectors_NNS with_IN respect_NN to_TO the_DT spatial_JJ Lagrange_NP coordinate_VV x._NP The_DT first_JJ and_CC second_JJ terms_NNS on_IN the_DT right-hand_JJ side_NN of_IN Eq_NP ._SENT 
+(_( 39_CD )_) are_VBP infinitesimal_JJ linear_JJ parts_NNS ,_, and_CC the_DT last_JJ term_NN is_VBZ the_DT nonlinear_JJ part_NN ._SENT 
+The_DT total_JJ strain_NN energy_NN of_IN the_DT beam_NN can_MD be_VB expressed_VVN as_IN @（40）_NP where_WRB σ=Eε0_NP is_VBZ the_DT linear_JJ constitutive_JJ relation_NN ._SENT 
+Substituting_VVG Eq_NP ._SENT 
+(_( 39_CD )_) into_IN Eq_NP ._SENT 
+(_( 40_CD )_) and_CC integrating_VVG the_DT resulting_VVG equation_NN by_IN parts_NNS yield_NN @（41）_NN where_WRB @（42）_NN in_IN which_WDT I_PP is_VBZ the_DT cross-sectional_JJ area_NN moment_NN of_IN inertia_NN defined_VVN by_IN I=∫Ay2dA⁠_NN ,_, and_CC E_NP and_CC A_DT are_VBP the_DT same_JJ as_IN those_DT for_IN the_DT rod_NN model_NN ;_: and_CC @（43）_NP @（44）_NP The_DT kinetic_JJ energy_NN of_IN the_DT beam_NN can_MD be_VB expressed_VVN as_IN @（45）_NP where_WRB δ={u_NP ,_, v_NN ,_, ϑ}T_NP is_VBZ the_DT nodal_JJ displacement_NN vector_NN of_IN the_DT beam_NN and_CC an_DT overdot_NN denotes_VVZ time_NN differentiation_NN ._SENT 
+In_IN this_DT study_NN ,_, arrangement_NN of_IN the_DT nodal_JJ DOF_JJ vector_NN of_IN the_DT beam_NN shown_VVN in_IN Fig_NN ._SENT 
+1_CD is_VBZ used_VVN ._SENT 
+In_IN the_DT wavelet-based_JJ finite_JJ element_NN formulation_NN ,_, BSWI23_JJ and_CC BSWI43_JJ scaling_VVG functions_NNS are_VBP used_VVN to_TO interpolate_VV the_DT axial_JJ and_CC transverse_JJ displacements_NNS ,_, respectively_RB ._SENT 
+The_DT elemental_JJ displacement_NN vector_NN of_IN the_DT beam_NN is_VBZ defined_VVN as_IN @（46）_NP where_WRB ϑ1=(1/le)(dδ(ξ)/dξ)|ξ=ξ1_JJ and_CC ϑ2=(1/le)(dδ(ξ)/dξ)|ξ=ξ20_JJ are_VBP rotation_NN angles_NNS of_IN elemental_JJ boundary_NN nodes_NNS ,_, and_CC le_FW and_CC ξ_JJ are_VBP the_DT same_JJ as_IN those_DT for_IN the_DT rod_NN model_NN ._SENT 
+The_DT total_JJ number_NN of_IN DOFs_NNS of_IN the_DT wavelet-based_JJ beam_NN element_NN is_VBZ nb=20_JJ ._SENT 
+Transformation_NN matrices_NNS of_IN the_DT axial_JJ and_CC transverse_JJ displacements_NNS are_VBP Tbr_NP and_CC Tbb_NP ,_, respectively_RB ,_, which_WDT are_VBP expressed_VVN as_IN @（47）_JJ @（48）_NN where_WRB numbers_NNS of_IN elemental_JJ nodes_NNS are_VBP nine_CD for_IN both_DT the_DT BSWI23_JJ axial_JJ element_NN and_CC the_DT BSWI43_JJ transverse_JJ element_NN ._SENT 
+Values_NNS of_IN ξh_NP (_( h=1,2_NP ,_, …,9_NP )_) can_MD be_VB calculated_VVN using_VVG Eq_NP ._SENT 
+(_( 7_CD )_) ._SENT 
+The_DT corresponding_JJ scaling_NN functions_NNS are_VBP @（49）_JJ @（50）_JJ Fig_NN ._SENT 
+1_CD Arrangement_NN of_IN the_DT nodal_JJ DOF_JJ vector_NN of_IN the_DT beam_NN Define_VV @（51）_JJ @（52）_NN where_WRB Hr_NP and_CC Hb_NP are_VBP nine-_JJ and_CC 11-dimensional_JJ row_NN vectors_NNS ,_, respectively_RB ._SENT 
+The_DT axial_JJ and_CC transverse_JJ displacements_NNS and_CC the_DT rotation_NN angles_NNS of_IN the_DT beam_NN are_VBP @（53）_JJ respectively_RB ,_, where_WRB @（54）_JJ @（55）_JJ @（56）_NN in_IN which_WDT {_( Hr}i_NP with_IN i_NP =_SYM 1,2_CD ,_, …,9_NP and_CC {_( Hb}i_NP with_IN i_NP =_SYM 1,2_CD ,_, …,11_JJ are_VBP the_DT ith_JJ elements_NNS of_IN {_( Hr_NP }_) and_CC {_( Hb}⁠_NP ,_, respectively_RB ._SENT 
+By_IN using_VVG the_DT Hamilton_NP 's_POS principle_NN ,_, the_DT elemental_JJ wave_NN motion_NN equation_NN can_MD be_VB obtained_VVN ._SENT 
+Linear_JJ stiffness_NN and_CC mass_NN matrices_NNS of_IN the_DT BSWI23_JJ axial_JJ element_NN and_CC the_DT BSWI43_JJ transverse_JJ element_NN are_VBP @（57）_JJ @（58）_JJ @（59）_NN @（60）_NN respectively_RB ._SENT 
+Distributed_VVN and_CC concentrated_VVN axial_JJ forces_NNS of_IN the_DT BSWI23_JJ axial_JJ element_NN can_MD be_VB calculated_VVN from_IN Eqs_NP ._SENT 
+(_( 33_CD )_) and_CC (_( 34_CD )_) ,_, respectively_RB ._SENT 
+Elemental_JJ distributed_VVN and_CC concentrated_VVN force_NN vectors_NNS of_IN the_DT BSWI43_JJ transverse_JJ element_NN are_VBP @（61）_JJ @（62）_NN respectively_RB ,_, where_WRB f_SYM is_VBZ the_DT distributed_VVN transverse_NN force_NN ,_, and_CC qj_NP and_CC ξj_NP are_VBP the_DT concentrated_JJ transverse_JJ force_NN and_CC its_PP$ coordinate_JJ value_NN on_IN the_DT normalized_VVN interval_NN [_SYM 0_CD ,_, 1_CD ]_SYM ,_, respectively_RB ._SENT 
+Rearranging_VVG the_DT BSWI23_JJ axial_JJ elemental_JJ and_CC BSWI43_JJ transverse_JJ elemental_JJ stiffness_NN and_CC mass_NN matrices_NNS and_CC force_NN vectors_NNS according_VVG to_TO physical_JJ DOFs_NNS (_( see_VV Fig_NN ._SENT 
+1_LS )_) ,_, we_PP can_MD obtain_VV the_DT elemental_JJ linear_JJ stiffness_NN matrix_NN KebL⁠_NN ,_, the_DT mass_JJ matrix_NN Meb⁠_NN ,_, and_CC the_DT force_NN vector_NN Peb⁠_NN ._SENT 
+The_DT tangential_JJ stiffness_NN matrix_NN of_IN the_DT beam_NN element_NN is_VBZ @（63）_JJ where_WRB KebNi(i=1,2,3_JJ )_) are_VBP large_JJ displacement_NN stiffness_NN matrices_NNS ,_, and_CC KebS_NP is_VBZ the_DT geometric_JJ stiffness_NN matrix_NN ._SENT 
+Components_NNS of_IN the_DT above_JJ stiffness_NN matrices_NNS are_VBP @（64）_JJ @（65）_JJ @（66）_JJ @（67）_NN The_DT internal_JJ equivalent_JJ nodal_JJ force_NN of_IN the_DT beam_NN at_IN the_DT kth_JJ iteration_NN step_NN is_VBZ @（68）_JJ where_WRB @（69）_NP and_CC S(k)b_NP is_VBZ the_DT Kirchhoff_NP stress_NN vector_NN at_IN the_DT kth_JJ iteration_NN step_NN ._SENT 
+The_DT spatially_RB discretized_VVN nonlinear_JJ static_JJ equilibrium_NN equation_NN of_IN the_DT beam_NN can_MD be_VB assembled_VVN from_IN the_DT above_JJ elemental_JJ matrices_NNS ,_, which_WDT yields_VVZ @（70）_JJ where_WRB K(k)rT_NN is_VBZ the_DT global_JJ tangential_JJ stiffness_NN matrix_NN at_IN the_DT kth_JJ iteration_NN step_NN ,_, and_CC Pb_NP and_CC P(k)b_NP are_VBP the_DT original_JJ global_JJ external_JJ force_NN vector_NN and_CC the_DT equivalent_JJ nodal_JJ force_NN ,_, respectively_RB ._SENT 
+Equation_NN (_( 70_CD )_) is_VBZ nonlinear_JJ ;_: an_DT iterative_JJ approach_NN based_VVN on_IN the_DT Newton–Raphson_NP method_NN can_MD yield_VV solutions_NNS of_IN static_JJ equilibria_NNS ._SENT 
+<Section> 3._CD Wave_NP Propagation_NN in_IN Nonlinear_JJ Phononic_JJ Crystal_NP Structures_NNS </Section> A_DT linear_JJ one-dimensional_JJ PC_NN structure_NN is_VBZ one_CD of_IN the_DT simplest_JJS examples_NNS of_IN continuous_JJ periodic_JJ structures_NNS that_IN exhibit_NN dispersive_JJ wave_NN propagation_NN ._SENT 
+Amplitude_NN dependence_NN of_IN dispersion_NN relations_NNS can_MD arise_VV if_IN the_DT structure_NN is_VBZ governed_VVN by_IN a_DT nonlinear_JJ strain–displacement_NN relation_NN ._SENT 
+Band_NN structures_NNS of_IN a_DT periodic_JJ structure_NN are_VBP usually_RB calculated_VVN in_IN the_DT frequency_NN domain_NN by_IN utilizing_VVG adjacent_JJ cells_NNS and_CC periodic_JJ boundary_NN conditions_NNS ._SENT 
+The_DT same_JJ approach_NN is_VBZ followed_VVN in_IN this_DT work_NN to_TO investigate_VV nonlinear_JJ one-dimensional_JJ PC_NN thin_JJ rod_NN and_CC Euler–Bernoulli_NP beam_NN dispersion_NN relations_NNS using_VVG the_DT wavelet-based_JJ finite_JJ element_NN method_NN ._SENT 
+A_DT schematic_NN of_IN a_DT one-dimensional_JJ PC_NN structure_NN whose_WP$ unit_NN cell_NN consists_VVZ of_IN two_CD materials_NNS A_NP and_CC B_NP with_IN the_DT same_JJ cross_NN section_NN and_CC thicknesses_NNS l1_JJ and_CC l2_JJ ,_, respectively_RB ,_, which_WDT repeat_NN in_IN periodical_JJ arrangement_NN ,_, is_VBZ shown_VVN in_IN Fig_NN ._SENT 
+2._CD Material_NN A_DT whose_WP$ stiffness_NN is_VBZ larger_JJR than_IN that_IN of_IN material_NN B_NN is_VBZ referred_VVN to_TO as_IN a_DT resonator_NN ._SENT 
+The_DT thickness_NN of_IN the_DT unit_NN cell_NN is_VBZ lc=l1+l2_JJ ,_, which_WDT is_VBZ referred_VVN to_TO as_IN the_DT lattice_NN constant_JJ ._SENT 
+Fig_NN ._SENT 
+2_CD Schematic_NN of_IN a_DT one-dimensional_JJ PC_NN structure_NN whose_WP$ unit_NN cell_NN consists_VVZ of_IN two_CD materials_NNS A_NP and_CC B_NP with_IN the_DT same_JJ cross_NN section_NN and_CC thicknesses_NNS l1_JJ and_CC l2_JJ ,_, respectively_RB ._SENT 
+When_WRB the_DT PC_NN rod_NN and_CC beam_NN harmonically_RB vibrate_VVP with_IN the_DT angular_JJ frequency_NN ω⁠_NN ,_, to_TO analyze_VV dispersion_NN relations_NNS in_IN these_DT periodic_JJ structures_NNS ,_, use_NN of_IN the_DT wave_NN equation_NN of_IN a_DT unit_NN cell_NN is_VBZ sufficient_JJ to_TO obtain_VV wave_NN propagation_NN characteristics_NNS of_IN the_DT whole_JJ structure_NN ._SENT 
+Since_IN we_PP seek_VVP dispersion_NN characteristics_NNS of_IN free_JJ wave_NN propagation_NN ,_, no_DT external_JJ forces_NNS are_VBP applied_VVN on_IN the_DT structures_NNS ._SENT 
+Applying_VVG the_DT Hamilton_NP 's_POS principle_NN ,_, we_PP obtain_VVP geometrically_RB nonlinear_JJ homogeneous_JJ wave_NN equations_NNS of_IN the_DT PC_NN rod_NN and_CC beam_NN @（71）_NN @（72）_JJ @（73）_NN where_WRB a_DT prime_JJ denotes_VVZ differentiation_NN with_IN respect_NN to_TO x._NP By_IN using_VVG the_DT wavelet-based_JJ finite_JJ element_NN method_NN developed_VVN in_IN Sec_NN ._SENT 
+2_LS ,_, the_DT spatially_RB discretized_VVN governing_VVG equation_NN of_IN the_DT PC_NN rod_NN and_CC beam_NN is_VBZ obtained_VVN as_IN @（74）_NP where_WRB Δ_NP is_VBZ the_DT Bloch_NP wave_NN mode_NN ,_, and_CC KG(Δ_JJ )_) and_CC MG_NP are_VBP global_JJ stiffness_NN and_CC mass_NN matrices_NNS of_IN a_DT unit_NN cell_NN ,_, respectively_RB ._SENT 
+Elemental_JJ stiffness_NN matrices_NNS of_IN the_DT rod_NN and_CC beam_NN are_VBP given_VVN in_IN Sec_NN ._SENT 
+2._CD The_DT elemental_JJ mass_NN matrix_NN of_IN the_DT rod_NN is_VBZ @（75）_JJ Wave_NP propagation_NN characteristics_NNS of_IN the_DT bimaterial_JJ PC_NN rod_NN and_CC beam_NN are_VBP determined_VVN by_IN evaluating_VVG band-gap_NN characteristics_NNS of_IN these_DT structures_NNS ._SENT 
+For_IN a_DT PC_NN structure_NN of_IN infinite_JJ extent_NN ,_, material-to-material_JJ interfaces_NNS are_VBP assumed_VVN to_TO be_VB ideal_JJ and_CC we_PP assume_VVP a_DT plane_NN wave_NN solution_NN of_IN the_DT form_NN @（76）_NN where_WRB κ_NN is_VBZ the_DT wave_NN vector_NN ,_, ω_NP is_VBZ the_DT propagating_VVG wave_NN frequency_NN ,_, B_NP is_VBZ the_DT wave_NN amplitude_NN ,_, and_CC i=√−1_JJ ._SENT 
+When_WRB Δ=0_NP in_IN KG(Δ_NP )_) ,_, Eq_NP ._SENT 
+(_( 74_CD )_) becomes_VVZ the_DT linear_JJ Bloch_NP wave_NN mode_NN problem_NN ,_, and_CC the_DT Bloch_NP 's_POS theorem_NN can_MD be_VB applied_VVN to_TO these_DT linear_JJ PC_NN structures_NNS :_: @（77）_NN where_WRB X_NP is_VBZ the_DT x_SYM coordinate_VV of_IN a_DT node_NN of_IN the_DT beam_NN ,_, and_CC Δ¯¯¯_NP and_CC Δ˜_NP are_VBP time-dependent_JJ and_CC time-independent_JJ displacement_NN Bloch_NP functions_NNS ,_, respectively_RB ._SENT 
+To_TO simplify_VV calculation_NN ,_, the_DT matrices_NNS KG(Δ_NN )_) and_CC MG_NP can_MD be_VB written_VVN as_IN block_NN matrices_NNS with_IN nine_CD submatrices_NNS that_WDT are_VBP associated_VVN with_IN three_CD types_NNS of_IN nodes_NNS :_: the_DT left_JJ end_NN ,_, an_DT internal_JJ node_NN ,_, and_CC the_DT right_JJ end_NN ._SENT 
+The_DT global_JJ stiffness_NN and_CC mass_NN matrices_NNS can_MD be_VB rewritten_VVN as_IN @（78）_JJ @（79）_NN respectively_RB ._SENT 
+Substituting_VVG Eqs_NNS ._SENT 
+(_( 76)–(79_NP )_) into_IN Eq_NP ._SENT 
+(_( 74_CD )_) ,_, we_PP can_MD rewrite_VV the_DT equation_NN of_IN wave_NN motion_NN as_IN @（80）_NN Separating_VVG real_JJ and_CC imaginary_JJ parts_NNS of_IN Eq_NP ._SENT 
+(_( 80_CD )_) and_CC letting_VVG K=Kre+iKim_NNS and_CC M=Mre+iMim_NNS yield_VVP @（81）_JJ Equation_NN (_( 81_CD )_) represents_VVZ a_DT standard_JJ symmetric_JJ eigenvalue_NN problem_NN that_WDT relates_VVZ κ_NN and_CC the_DT Bloch_NP wave_NN mode_NN Δ_NN for_IN the_DT spatially_RB discretized_VVN structures_NNS ._SENT 
+Let_VV @（82）_NN For_IN a_DT nontrivial_JJ solution_NN of_IN Eq_NP ._SENT 
+(_( 81_CD )_) to_TO exist_VV ,_, we_PP have_VHP @（83）_JJ Estimates_NNS of_IN dispersion_NN relations_NNS of_IN the_DT PC_NN rod_NN and_CC beam_NN are_VBP obtained_VVN by_IN using_VVG the_DT wavelet-based_JJ finite_JJ element_NN method_NN ._SENT 
+For_IN each_DT value_NN of_IN κ_NP in_IN Eq_NP ._SENT 
+(_( 83_CD )_) ,_, there_EX corresponds_VVZ a_DT discrete_JJ set_NN of_IN frequencies_NNS ._SENT 
+There_EX is_VBZ an_DT eigenvector_NN associated_VVN with_IN each_DT frequency_NN ,_, which_WDT defines_VVZ wave_NN motion_NN in_IN a_DT periodic_JJ structure_NN at_IN this_DT frequency_NN ._SENT 
+Approximate_JJ band_NN structures_NNS of_IN a_DT nonlinear_JJ structure_NN are_VBP calculated_VVN here_RB by_IN using_VVG an_DT iterative_JJ response_NN analysis_NN method_NN in_IN combination_NN with_IN the_DT wavelet-based_JJ finite_JJ element_NN method_NN ._SENT 
+A_DT detailed_JJ procedure_NN is_VBZ outlined_VVN below_IN :_: a._NPS Obtain_VV global_JJ stiffness_NN and_CC mass_NN matrices_NNS of_IN the_DT PC_NN thin_JJ rod_NN and_CC Euler–Bernoulli_NN beam_NN by_IN assembling_VVG their_PP$ elemental_JJ matrices_NNS ._SENT 
+b._NP Frequencies_NNS and_CC Bloch_NP wave_NN modes_NNS of_IN the_DT linear_JJ structure_NN are_VBP solved_VVN by_IN neglecting_VVG nonlinear_JJ terms_NNS in_IN the_DT eigenvalue_NN problem_NN equation_NN @（84）_NP c._NP Specify_VV the_DT wave_NN amplitude_NN B_NN and_CC components_NNS of_IN the_DT wave_NN vector_NN κ_NN inside_IN the_DT first_JJ Brillouin_NN zone_NN that_WDT stems_VVZ from_IN the_DT Bloch_NP wave_NN description_NN of_IN waves_NNS in_IN a_DT periodic_JJ medium_NN ;_: solutions_NNS of_IN the_DT wave_NN vector_NN can_MD be_VB calculated_VVN using_VVG the_DT Brillouin_NN zone_NN on_IN the_DT interval_NN [_SYM −lc/2π_NP ,_, lc/2π_NN ]_SYM for_IN a_DT one-dimensional_JJ PC_NN structure_NN and_CC the_DT normalized_VVN eigenvector_NN Y._NP One_CD can_MD obtain_VV the_DT nonlinear_JJ stiffness_NN matrices_NNS by_IN substituting_VVG values_NNS of_IN the_DT normalized_VVN eigenvector_NN Y_NN into_IN KG(Δ)⁠_NN ,_, and_CC then_RB using_VVG numerical_JJ integration_NN ._SENT 
+Solve_VV the_DT following_VVG eigenvalue_NN problem_NN by_IN iterations_NNS to_TO obtain_VV approximate_JJ nonlinear_JJ frequencies_NNS :_: @（85）_NN where_WRB Y˜(N)κ_NN is_VBZ the_DT eigenvector_NN at_IN the_DT Nth_JJ iteration_NN step_NN ._SENT 
+We_PP adopt_VVP the_DT Newmark_NP method_NN to_TO solve_VV the_DT above_JJ eigenvalue_NN problem_NN by_IN using_VVG the_DT convergence_NN criterion_NN @⁠_NN ,_, where_WRB χ_NP is_VBZ the_DT convergence_NN tolerance_NN that_WDT is_VBZ set_VVN to_TO 0.0001_CD in_IN this_DT study_NN ._SENT 
+d._NP By_IN varying_VVG the_DT amplitude_NN of_IN the_DT wave_NN vector_NN κ⁠_NN ,_, desired_VVN nonlinear_JJ wave_NN dispersion_NN can_MD be_VB obtained_VVN by_IN repeating_VVG the_DT steps_NNS (_( a)–(d_NN )_) ._SENT 
+<Section> 4._CD Static_JJ Analysis_NP and_CC Wave_NP Propagation_NN Characteristics_NNS of_IN Nonlinear_JJ Phononic_JJ Crystals_NNS </Section> Static_JJ deflections_NNS of_IN a_DT homogeneous_JJ nonlinear_JJ rod_NN and_CC beam_NN are_VBP investigated_VVN in_IN Sec_NN ._SENT 
+4.1_CD by_IN using_VVG both_CC the_DT traditional_JJ finite_JJ element_NN method_NN and_CC the_DT wavelet-based_JJ finite_JJ element_NN method_NN ._SENT 
+In_IN Secs_NNS ._SENT 
+4.2_CD and_CC 4.3_CD ,_, band_NN structures_NNS of_IN the_DT geometrically_RB nonlinear_JJ PC_NN thin_JJ rod_NN and_CC Euler–Bernoulli_NP beam_NN are_VBP calculated_VVN by_IN using_VVG both_CC the_DT traditional_JJ finite_JJ element_NN method_NN and_CC the_DT wavelet-based_JJ finite_JJ element_NN method_NN ._SENT 
+Derivation_NN processes_NNS of_IN the_DT traditional_JJ finite_JJ element_NN method_NN to_TO calculate_VV static_JJ and_CC wave_NN propagation_NN problems_NNS are_VBP similar_JJ to_TO those_DT of_IN the_DT wavelet-based_JJ finite_JJ element_NN method_NN ._SENT 
+The_DT goal_NN of_IN these_DT subsections_NNS is_VBZ to_TO demonstrate_VV advantages_NNS of_IN the_DT wavelet-based_JJ finite_JJ element_NN method_NN in_IN fidelity_NN and_CC computational_JJ effectiveness_NN as_IN compared_VVN with_IN the_DT traditional_JJ finite_JJ element_NN method_NN ._SENT 
+We_PP obtain_VVP accurate_JJ amplitude-dependent_JJ dispersion_NN relations_NNS of_IN elastic_JJ wave_NN propagation_NN in_IN the_DT nonlinear_JJ PC_NN rod_NN and_CC beam_NN with_IN finite_JJ deformations_NNS ._SENT 
+Influences_NNS of_IN the_DT length_NN fraction_NN ,_, material_NN properties_NNS ,_, and_CC wave_NN amplitude_NN ratios_NNS on_IN wave_NN propagation_NN characteristics_NNS of_IN these_DT structures_NNS are_VBP considered_VVN ._SENT 
+4.1_CD Static_JJ Analysis_NN ._SENT 
+In_IN order_NN to_TO verify_VV reliability_NN of_IN the_DT wavelet-based_JJ finite_JJ element_NN method_NN ,_, two_CD numerical_JJ examples_NNS are_VBP studied_VVN ._SENT 
+For_IN a_DT thin_JJ rod_NN model_NN ,_, a_DT finite_JJ deformation_NN clamped-clamped_VVD homogeneous_JJ thin_JJ rod_NN subjected_VVN to_TO a_DT distributed_VVN axial_JJ force_NN (_( ⁠6×106N/m⁠_NP )_) is_VBZ calculated_VVN ._SENT 
+Material_NN parameters_NNS of_IN the_DT rod_NN are_VBP :_: the_DT Young_NP 's_POS modulus_NN E=16.46×1010_NP Pa_NP and_CC the_DT density_NN ρ=8950kg/m3⁠_NN ;_: geometric_JJ parameters_NNS of_IN the_DT rod_NN are_VBP :_: the_DT length_NN l=1_JJ m⁠_NN ,_, and_CC the_DT cross_NN section_NN is_VBZ a_DT square_NN with_IN the_DT width_NN and_CC thickness_NN b=hc=0.01_JJ m⁠_NN ,_, respectively_RB ._SENT 
+We_PP employ_VVP two_CD BSWI43_JJ nonlinear_JJ rod_NN elements_NNS with_IN 21_CD DOFs_NNS and_CC 90_CD traditional_JJ nonlinear_JJ rod_NN elements_NNS with_IN 91_CD DOFs_NNS to_TO study_VV the_DT static_JJ deflection_NN problem_NN of_IN the_DT rod_NN ._SENT 
+As_IN shown_VVN in_IN Fig_NN ._SENT 
+3_LS ,_, results_NNS from_IN the_DT wavelet-based_JJ finite_JJ element_NN method_NN are_VBP in_IN excellent_JJ agreement_NN with_IN those_DT from_IN the_DT traditional_JJ finite_JJ element_NN method_NN ,_, and_CC two_CD BSWI43_JJ elements_NNS can_MD achieve_VV the_DT same_JJ accuracy_NN as_IN that_DT of_IN the_DT traditional_JJ finite_JJ element_NN method_NN with_IN much_RB fewer_JJR numbers_NNS of_IN elements_NNS and_CC DOFs_NNS ._SENT 
+The_DT static_JJ deflection_NN of_IN the_DT linear_JJ thin_JJ rod_NN is_VBZ also_RB shown_VVN in_IN Fig_NN ._SENT 
+3_CD for_IN comparison_NN purposes_NNS ._SENT 
+Fig_NN ._SENT 
+3_CD Static_JJ deflection_NN of_IN the_DT clamped-clamped_JJ thin_JJ rod_NN ._SENT 
+For_IN an_DT Euler–Bernoulli_NP beam_NN model_NN ,_, we_PP consider_VVP a_DT cantilever_NN beam_NN with_IN a_DT length_NN l=1m⁠_NN ,_, subjected_VVN to_TO a_DT vertical_JJ concentrated_JJ force_NN at_IN its_PP$ free_JJ end_NN ._SENT 
+Static_JJ tip_NN deflections_NNS of_IN the_DT beam_NN obtained_VVN by_IN the_DT current_JJ simulation_NN and_CC the_DT analytical_JJ solution_NN are_VBP shown_VVN in_IN Fig_NN ._SENT 
+4._CD Tip_NP deflections_NNS based_VVN on_IN linear_JJ approximation_NN are_VBP also_RB shown_VVN in_IN Fig_NN ._SENT 
+4_CD for_IN comparison_NN purposes_NNS ._SENT 
+Results_NNS from_IN two_CD BSWI43_JJ nonlinear_JJ beam_NN elements_NNS with_IN 20_CD DOFs_NNS are_VBP in_IN excellent_JJ agreement_NN with_IN those_DT from_IN the_DT analytical_JJ solution_NN ._SENT 
+Thus_RB ,_, the_DT wavelet-based_JJ finite_JJ element_NN method_NN can_MD be_VB effectively_RB used_VVN to_TO calculate_VV the_DT nonlinear_JJ static_JJ equilibrium_NN of_IN the_DT beam_NN with_IN finite_JJ deformation_NN ._SENT 
+Fig_NN ._SENT 
+4_CD Static_JJ deflections_NNS of_IN the_DT cantilever_NN Euler–Bernoulli_NP beam_NN subjected_VVN to_TO a_DT vertical_JJ concentrated_JJ force_NN at_IN its_PP$ free_JJ end_NN for_IN different_JJ values_NNS of_IN the_DT force_NN ._SENT 
+4.2_CD Wave_NP Propagation_NN Characteristics_NNS of_IN a_DT Nonlinear_JJ Phononic_JJ Crystal_NP Rod_NP ._SENT 
+As_IN mentioned_VVN in_IN Sec_NN ._SENT 
+3_LS ,_, wave_NN propagation_NN characteristics_NNS of_IN PC_NN rods_NNS with_IN and_CC without_IN nonlinearity_NN are_VBP calculated_VVN using_VVG the_DT wavelet-based_JJ finite_JJ element_NN method_NN ._SENT 
+A_DT schematic_NN of_IN a_DT bi-layer_NP PC-rod_NP unit_NN cell_NN is_VBZ illustrated_VVN in_IN Fig_NN ._SENT 
+2._CD Material_NN properties_NNS of_IN the_DT unit_NN cell_NN are_VBP as_RB follows_VVZ :_: material_NN A_DT is_VBZ copper_NN with_IN the_DT Young_NP 's_POS modulus_NN Ea=16.46×1010_NN N/m2_NN and_CC the_DT mass_JJ density_NN ρa=8950_NN kg/m3_NN ,_, and_CC material_NN B_NN is_VBZ epoxy_JJ with_IN the_DT Young_NP 's_POS modulus_NN Eb=0.435×1010_NN N/m2_NN and_CC the_DT mass_JJ density_NN ρb=1180_NN kg/m3_NN ._SENT 
+The_DT lattice_NN constant_JJ lc=0.15_JJ m_NN and_CC the_DT width_NN and_CC thickness_NN of_IN the_DT rods_NNS are_VBP b=hc=0.01_JJ m_NN ,_, respectively_RB ._SENT 
+The_DT length_NN fraction_NN of_IN the_DT rods_NNS is_VBZ denoted_VVN by_IN γ=l1/lc⁠_NP ._SENT 
+First_RB ,_, in_IN order_NN to_TO demonstrate_VV accuracy_NN of_IN the_DT current_JJ formulation_NN for_IN wave_NN propagation_NN problems_NNS ,_, two_CD numerical_JJ examples_NNS are_VBP simulated_JJ ._SENT 
+Two_CD frequency_NN dispersion_NN curves_VVZ of_IN a_DT homogeneous_JJ rod_NN with_IN the_DT wave_NN amplitude_NN B=0.1and0.2_NN obtained_VVN by_IN the_DT current_JJ simulation_NN and_CC corresponding_JJ solutions_NNS calculated_VVN in_IN Ref_NN ._SENT 
+[_SYM 21_CD ]_SYM are_VBP shown_VVN in_IN Fig_NN ._SENT 
+5_CD ,_, where_WRB material_NN properties_NNS of_IN the_DT rod_NN are_VBP the_DT same_JJ as_IN those_DT in_IN Ref_NN ._SENT 
+[_SYM 21_CD ]_SYM :_: ρa=ρb=1_JJ kg/m3_NN and_CC Ea=Eb=2_JJ N/m2_NN ,_, and_CC other_JJ structural_JJ parameters_NNS of_IN the_DT rod_NN remain_VVP the_DT same_JJ as_IN those_DT above_JJ ._SENT 
+The_DT dispersion_NN curve_NN with_IN linear_JJ approximation_NN is_VBZ also_RB shown_VVN in_IN Fig_NN ._SENT 
+5_CD for_IN comparison_NN purposes_NNS ._SENT 
+As_IN shown_VVN in_IN Fig_NN ._SENT 
+5_LS ,_, results_NNS from_IN the_DT wavelet-based_JJ finite_JJ element_NN method_NN are_VBP in_IN excellent_JJ agreement_NN with_IN those_DT from_IN Ref_NN ._SENT 
+[_SYM 21_CD ]_SYM ._SENT 
+Thus_RB ,_, the_DT wavelet-based_JJ finite_JJ element_NN method_NN can_MD be_VB effectively_RB used_VVN to_TO calculate_VV nonlinear_JJ dispersion_NN curves_NNS of_IN the_DT rod_NN with_IN finite_JJ deformation_NN ._SENT 
+We_PP then_RB employ_VVP two_CD BSWI43_JJ rod_NN elements_NNS ,_, and_CC 20_CD ,_, 80_CD ,_, and_CC 120_CD traditional_JJ rod_NN elements_NNS to_TO calculate_VV band_NN structures_NNS of_IN the_DT linear_JJ PC_NN rod_NN with_IN the_DT length_NN fraction_NN γ=0.5⁠_NN ,_, respectively_RB ._SENT 
+As_IN shown_VVN in_IN Fig_NN ._SENT 
+6_CD ,_, two_CD BSWI43_JJ rod_NN elements_NNS can_MD achieve_VV the_DT same_JJ accuracy_NN as_IN that_DT of_IN 120_CD traditional_JJ rod_NN elements_NNS with_IN much_RB fewer_JJR numbers_NNS of_IN elements_NNS and_CC DOFs_NNS ._SENT 
+Band_NN structures_NNS of_IN the_DT nonlinear_JJ PC_NN rod_NN are_VBP then_RB calculated_VVN using_VVG two_CD nonlinear_JJ BSWI43_JJ rod_NN elements_NNS ,_, and_CC 20_CD and_CC 120_CD nonlinear_JJ traditional_JJ rod_NN elements_NNS ,_, respectively_RB ,_, as_IN shown_VVN in_IN Fig_NN ._SENT 
+7._CD Structural_JJ parameters_NNS of_IN the_DT rods_NNS are_VBP :_: the_DT length_NN fraction_NN γ=0.5_NN and_CC the_DT wave_NN amplitude_NN B=0.006⁠_NN ._SENT 
+Figure_NN 7_CD shows_VVZ that_IN two_CD nonlinear_JJ BSWI43_JJ rod_NN elements_NNS can_MD achieve_VV the_DT same_JJ accuracy_NN as_IN that_DT of_IN 120_CD nonlinear_JJ traditional_JJ rod_NN elements_NNS with_IN much_RB fewer_JJR numbers_NNS of_IN elements_NNS and_CC DOFs_NNS ._SENT 
+Thus_RB ,_, the_DT wavelet-based_JJ finite_JJ element_NN method_NN can_MD be_VB effectively_RB used_VVN to_TO calculate_VV band_NN structures_NNS of_IN nonlinear_JJ PCs_NNS and_CC two_CD BSWI43_JJ rod_NN elements_NNS are_VBP used_VVN in_IN remaining_VVG studies_NNS ._SENT 
+Band_NN structures_NNS based_VVN on_IN linear_JJ approximation_NN are_VBP also_RB shown_VVN in_IN Fig_NN ._SENT 
+7_CD for_IN comparison_NN purposes_NNS ._SENT 
+We_PP find_VVP that_IN band-gap_NN curves_NNS of_IN both_DT linear_JJ and_CC nonlinear_JJ PC_NN rods_NNS have_VHP properties_NNS of_IN frequency_NN pass_VV and_CC stop_VV bands_NNS ._SENT 
+Comparing_VVG the_DT first_JJ band_NN frequencies_NNS of_IN linear_JJ and_CC nonlinear_JJ PC_NN rods_NNS ,_, we_PP find_VVP that_IN they_PP are_VBP almost_RB the_DT same_JJ ._SENT 
+However_RB ,_, results_NNS show_VVP that_IN there_EX are_VBP major_JJ differences_NNS between_IN the_DT second_JJ and_CC third_JJ band_NN frequencies_NNS of_IN linear_JJ and_CC nonlinear_JJ PC_NN rods_NNS ,_, which_WDT lead_VVP to_TO a_DT wider_JJR first_JJ band-gap_NN width_NN of_IN a_DT nonlinear_JJ PC_NN rod_NN ._SENT 
+Taking_VVG nonlinearity_NN into_IN consideration_NN ,_, we_PP find_VVP that_IN starting_VVG frequencies_NNS of_IN the_DT second_JJ band-gaps_NNS of_IN linear_JJ and_CC nonlinear_JJ PC_NN rods_NNS have_VHP no_DT major_JJ differences_NNS ,_, while_IN their_PP$ cut-off_NN frequencies_NNS have_VHP significant_JJ differences_NNS ._SENT 
+These_DT amplitude-dependent_JJ band-gap_NN characteristics_NNS can_MD be_VB used_VVN to_TO achieve_VV tunability_NN and_CC manufacture_NN of_IN tunable_JJ resonators_NNS ,_, filters_NNS ,_, and_CC waveguides_NNS to_TO control_VV wave_NN propagation_NN ._SENT 
+Fig_NN ._SENT 
+5_CD Frequency_NN dispersion_NN curves_VVZ for_IN a_DT homogeneous_JJ infinite_JJ rod_NN ._SENT 
+Fig_NN ._SENT 
+6_CD Band_NP structures_NNS of_IN the_DT linear_JJ PC_NN rod_NN using_VVG BSWI-based_JJ rod_NN elements_NNS and_CC traditional_JJ rod_NN elements_NNS :_: (_( a_DT )_) first_JJ bands_NNS ,_, (_( b)second_JJ bands_NNS ,_, and_CC (_( c_LS )_) third_JJ bands_NNS ._SENT 
+Fig_NN ._SENT 
+7_CD Band_NP structures_NNS of_IN linear_JJ (_( dashed_VVN lines_NNS )_) and_CC nonlinear_JJ PC_NN rods_NNS using_VVG two_CD nonlinear_JJ BSWI-based_JJ elements_NNS (_( solid_JJ lines_NNS )_) ,_, and_CC 20_CD and_CC 120_CD nonlinear_JJ traditional_JJ rod_NN elements_NNS ._SENT 
+Fig_NN ._SENT 
+8_CD Effects_NNS of_IN the_DT length_NN fraction_NN on_IN the_DT nonlinear_JJ PC-rod_NN band-gap_NN width_NN with_IN B=0.006⁠_JJ :_: (_( a_DT )_) the_DT first_JJ band-gap_NN width_NN and_CC (_( b_LS )_) the_DT second_JJ band-gap_NN width_NN ._SENT 
+Second_RB ,_, wave_NN propagation_NN characteristics_NNS of_IN nonlinear_JJ PC_NN rods_NNS with_IN different_JJ length_NN fractions_NNS are_VBP investigated_VVN with_IN results_NNS shown_VVN in_IN Fig_NN ._SENT 
+8_CD ;_: the_DT wave_NN amplitude_NN is_VBZ maintained_VVN at_IN B=0.006_JJ and_CC other_JJ parameters_NNS of_IN the_DT rod_NN remain_VVP the_DT same_JJ as_IN those_DT above_JJ ._SENT 
+Figure_NN 8_CD shows_VVZ that_IN when_WRB the_DT length_NN fraction_NN increases_NNS ,_, the_DT first_JJ band-gap_NN width_NN first_JJ increases_NNS and_CC then_RB decreases_NNS ._SENT 
+The_DT maximum_JJ width_NN of_IN the_DT first_JJ band-gap_NN occurs_VVZ at_IN γ=0.72_NN ._SENT 
+Furthermore_RB ,_, the_DT second_JJ band-gap_NN width_NN exhibits_VVZ two_CD peaks_NNS at_IN approximately_RB γ=0.46and0.86⁠_JJ ,_, which_WDT indicates_VVZ remarkable_JJ wave_NN propagation_NN attenuation_NN in_IN the_DT nonlinear_JJ PC_NN rod_NN ._SENT 
+Results_NNS demonstrate_VVP that_IN one_PP can_MD change_VV band-gap_NN widths_NNS by_IN varying_VVG the_DT length_NN fraction_NN ._SENT 
+Such_PDT a_DT phenomenon_NN can_MD be_VB utilized_VVN to_TO control_VV wave_NN propagation_NN in_IN a_DT nonlinear_JJ PC_NN rod_NN ._SENT 
+Fig_NN ._SENT 
+9_CD Reduced_VVN PC_NN band-gap_NN structures_NNS with_IN different_JJ wave_NN amplitudes_NNS :_: dashed_VVN lines_NNS correspond_VV to_TO B_NP =_SYM 0.004_CD ,_, star_NN lines_NNS B_NP =_SYM 0.006_CD ,_, and_CC solid_JJ lines_NNS B_NP =_SYM 0.008_CD ;_: f_SYM is_VBZ the_DT dimensional_JJ frequency_NN of_IN the_DT PC_NN rod_NN band_NN structure_NN ._SENT 
+Fig_NN ._SENT 
+10_CD Reduced_VVN PC_NN band_NN structures_NNS with_IN different_JJ elastic_JJ moduli_NNS :_: solid_JJ lines_NNS correspond_VV to_TO Ea=4_NP N/m2_NP ,_, circle_NN lines_NNS Ea=6_JJ N/m2_NN ,_, and_CC dashed_VVN lines_NNS Ea=8_JJ N/m2_NN ._SENT 
+Fig_NN ._SENT 
+11_CD Reduced_VVN PC_NN band_NN structures_NNS with_IN different_JJ mass_NN densities_NNS :_: dashed_VVN lines_NNS correspond_VV to_TO ρa=2_NP kg/m3_NP ,_, square_JJ lines_NNS ρa=3_JJ kg/m3_NN ,_, and_CC solid_JJ lines_NNS ρa=4_JJ kg/m3_NN ._SENT 
+Based_VVN on_IN the_DT above_JJ work_NN ,_, we_PP further_RBR studied_VVN influences_NNS of_IN wave_NN intensities_NNS and_CC the_DT resonator_NN stiffness_NN and_CC mass_NN on_IN wave_NN propagation_NN characteristics_NNS ._SENT 
+Results_NNS of_IN these_DT three_CD types_NNS of_IN influences_NNS are_VBP shown_VVN in_IN Figs_NNS ._SENT 
+9–11_JJ ._SENT 
+Figure_NN 9_CD shows_VVZ that_IN when_WRB the_DT wave_NN amplitude_NN increases_NNS ,_, with_IN resonator_NN parameters_NNS remaining_VVG unchanged_JJ ,_, the_DT first_JJ band_NN frequencies_NNS slowly_RB increase_VVP and_CC the_DT second_JJ and_CC third_JJ band_NN frequencies_NNS sharply_RB increase_VV ,_, so_IN that_WDT both_CC the_DT resulting_VVG first_JJ and_CC second_JJ band-gap_NN widths_NNS become_VVP wider_JJR ,_, which_WDT indicates_VVZ remarkable_JJ attenuation_NN of_IN a_DT propagating_VVG wave_NN in_IN a_DT nonlinear_JJ PC_NN rod_NN ._SENT 
+Meanwhile_RB ,_, the_DT position_NN of_IN the_DT second_JJ band-gap_NN gradually_RB moves_VVZ to_TO a_DT higher_JJR frequency_NN ,_, which_WDT indicates_VVZ that_IN a_DT high-frequency_NN wave_NN can_MD be_VB attenuated_VVN in_IN a_DT nonlinear_JJ PC_NN rod_NN ._SENT 
+Wave_NN propagation_NN characteristics_NNS of_IN nonlinear_JJ PC_NN rods_NNS with_IN different_JJ resonator_NN stiffnesses_NNS are_VBP investigated_VVN with_IN results_NNS shown_VVN in_IN Fig_NN ._SENT 
+10_CD ,_, where_WRB material_NN properties_NNS of_IN the_DT rods_NNS are_VBP ρa=4_JJ kg/m3_NN ,_, ρb=1_JJ kg/m3_NN ,_, and_CC Eb=1_JJ N/m2_NN ,_, and_CC structural_JJ parameters_NNS of_IN the_DT rods_NNS are_VBP γ=0.8_JJ and_CC B_NP =_SYM 0.006_CD ._SENT 
+As_IN Ea_NP increases_NNS in_IN Fig_NN ._SENT 
+11_CD ,_, the_DT first_JJ and_CC second_JJ band_NN frequencies_NNS slowly_RB increase_VVP and_CC the_DT third_JJ band_NN frequency_NN sharply_RB increase_VV ._SENT 
+However_RB ,_, we_PP find_VVP in_IN Fig_NN ._SENT 
+11_CD that_DT band_NN frequencies_NNS drop_NN as_IN ρa_NP increases_NNS ,_, where_WRB material_NN properties_NNS are_VBP ρb=1_JJ kg/m3_NN ,_, Ea=4_NP N/m2_NP ,_, and_CC Eb=1_JJ N/m2_NN ,_, and_CC structural_JJ parameters_NNS remain_VVP the_DT same_JJ as_IN those_DT above_JJ ._SENT 
+As_IN a_DT result_NN ,_, we_PP have_VHP the_DT ability_NN of_IN tuning_VVG wave_NN propagation_NN attenuation_NN in_IN the_DT nonlinear_JJ PC_NN rods_NNS based_VVN on_IN different_JJ wave_NN amplitudes_NNS ,_, which_WDT is_VBZ similar_JJ to_TO that_DT in_IN Ref_NN ._SENT 
+[_SYM 13_CD ]_SYM for_IN discrete_JJ systems_NNS ;_: such_JJ behavior_NN cannot_MD be_VB observed_VVN in_IN a_DT linear_JJ PC_NN rod_NN ._SENT 
+Presence_NN of_IN nonlinearity_NN causes_VVZ rich_JJ wave_NN propagation_NN characteristics_NNS ,_, which_WDT can_MD be_VB used_VVN to_TO achieve_VV vibration_NN control_NN and_CC wave_NN filtering_VVG tunability_NN ._SENT 
+4.3_CD Wave_NP Propagation_NN Characteristics_NNS of_IN a_DT Nonlinear_JJ Phononic_JJ Crystal_NP Beam_NP ._SENT 
+Results_NNS in_IN Sec_NN ._SENT 
+4.2_CD demonstrate_VVP that_IN a_DT nonlinear_JJ PC_NN rod_NN can_MD exhibit_VV different_JJ wave_NN propagation_NN characteristics_NNS and_CC tunable_JJ band-gap_NN characteristics_NNS compared_VVN with_IN a_DT linear_JJ PC_NN rod_NN ._SENT 
+In_IN this_DT subsection_NN ,_, we_PP study_VVP effects_NNS of_IN nonlinearity_NN on_IN wave_NN propagation_NN characteristics_NNS of_IN a_DT nonlinear_JJ PC_NN beam_NN ._SENT 
+Fig_NN ._SENT 
+12._CD Band_NP structures_NNS of_IN linear_JJ (_( dashed_VVN lines_NNS )_) and_CC nonlinear_JJ PC_NN beams_VVZ using_VVG two_CD nonlinear_JJ BSWI-based_JJ elements_NNS (_( solid_JJ lines_NNS )_) ,_, and_CC 20_CD and_CC 160_CD nonlinear_JJ traditional_JJ beam_NN elements_NNS ._SENT 
+First_RB ,_, in_IN order_NN to_TO demonstrate_VV accuracy_NN of_IN the_DT current_JJ formulation_NN for_IN wave_NN propagation_NN problems_NNS in_IN a_DT nonlinear_JJ PC_NN beam_NN ,_, a_DT numerical_JJ example_NN is_VBZ simulated_JJ ._SENT 
+We_PP employ_VVP two_CD BSWI43_JJ beam_NN elements_NNS ,_, and_CC 20_CD and_CC 160_CD traditional_JJ beam_NN elements_NNS to_TO calculate_VV band_NN structures_NNS of_IN the_DT nonlinear_JJ PC_NN beam_NN ._SENT 
+Material_NN properties_NNS of_IN a_DT unit_NN cell_NN are_VBP as_RB follows_VVZ :_: material_NN A_DT is_VBZ copper_NN with_IN the_DT Young_NP 's_POS modulus_NN Ea=16.46×1010_NN N/m2_NN and_CC the_DT mass_JJ density_NN ρa=8950_NN kg/m3_NN ,_, and_CC material_NN B_NN is_VBZ epoxy_JJ with_IN the_DT Young_NP 's_POS modulus_NN Eb=0.435×1010_NN N/m2_NN and_CC the_DT mass_JJ density_NN ρb=1180_NN kg/m3_NN ._SENT 
+The_DT lattice_NN constant_JJ lc=0.15m_NN ,_, and_CC the_DT width_NN and_CC thickness_NN of_IN the_DT beam_NN are_VBP b=0.01mandhc=0.005m_NP ,_, respectively_RB ._SENT 
+Structural_JJ parameters_NNS of_IN the_DT beam_NN are_VBP :_: the_DT length_NN fraction_NN γ=0.5_NN and_CC the_DT wave_NN amplitude_NN B=0.006_NN ._SENT 
+As_IN shown_VVN in_IN Fig_NN ._SENT 
+12_CD ,_, two_CD BSWI43_JJ beam_NN elements_NNS can_MD achieve_VV the_DT same_JJ accuracy_NN as_IN that_DT of_IN 160_CD traditional_JJ rod_NN elements_NNS with_IN much_RB fewer_JJR numbers_NNS of_IN elements_NNS and_CC DOFs_NNS ._SENT 
+We_PP also_RB find_VVP that_IN the_DT first_JJ and_CC second_JJ band_NN frequencies_NNS of_IN linear_JJ and_CC nonlinear_JJ PC_NN beams_NNS are_VBP almost_RB the_DT same_JJ ._SENT 
+However_RB ,_, there_EX are_VBP major_JJ differences_NNS between_IN the_DT third_JJ band_NN frequencies_NNS of_IN linear_JJ and_CC nonlinear_JJ PC_NN beams_VVZ ,_, which_WDT leads_VVZ to_TO a_DT wider_JJR second_JJ band-gap_NN width_NN of_IN the_DT nonlinear_JJ PC_NN beam_NN ._SENT 
+These_DT wave_NN propagation_NN characteristics_NNS provide_VVP accurate_JJ prediction_NN of_IN elastic_JJ wave_NN propagation_NN in_IN an_DT infinite_JJ PC_NN beam_NN with_IN finite_JJ deformation_NN ._SENT 
+Fig_NN ._SENT 
+13._CD PC_NN beam_NN band_NN structures_NNS with_IN different_JJ wave_NN amplitudes_NNS :_: solid_JJ lines_NNS correspond_VV to_TO B=0.004⁠_JJ ,_, square_JJ lines_NNS B=0.006⁠_NN ,_, circle_NN lines_NNS B=0.008⁠_JJ ,_, and_CC solid_JJ lines_NNS B=0.01_JJ ._SENT 
+Fig_NN ._SENT 
+14._CD Reduced_VVN PC_NN band_NN structures_NNS with_IN different_JJ values_NNS of_IN the_DT Young_NP 's_POS modulus_NN :_: square_JJ lines_NNS correspond_VV to_TO Ea=4_JJ N/m2_NN ,_, dashed_VVN lines_NNS Ea=6_JJ N/m2_NN ,_, and_CC solid_JJ lines_NNS Ea=8_JJ N/m2_NN ._SENT 
+Fig_NN ._SENT 
+15._CD Reduced_VVN PC_NN band_NN structures_NNS with_IN different_JJ mass_NN densities_NNS :_: solid_JJ lines_NNS correspond_VV to_TO ρa=4_JJ kg/m3_NN ,_, dashed_VVN lines_NNS ρa=6_JJ kg/m3_NN ,_, and_CC star_NN lines_NNS ρa=8_JJ kg/m3_NN ._SENT 
+Second_RB ,_, we_PP study_VVP influences_NNS of_IN wave_NN intensities_NNS and_CC the_DT resonator_NN stiffness_NN and_CC mass_NN on_IN wave_NN propagation_NN characteristics_NNS ._SENT 
+Results_NNS of_IN these_DT three_CD types_NNS of_IN influences_NNS are_VBP shown_VVN in_IN Figs_NNS ._SENT 
+13–15_NP ._SENT 
+Figure_NN 13_CD shows_NNS calculated_VVN band_NN structures_NNS of_IN PC_NN beams_VVZ with_IN different_JJ wave_NN amplitudes_NNS ._SENT 
+Material_NN and_CC structural_JJ parameters_NNS of_IN the_DT PC_NN beams_VVZ remain_VV the_DT same_JJ as_IN those_DT above_JJ ._SENT 
+Figure_NN 13_CD shows_VVZ that_IN band_NN frequencies_NNS of_IN the_DT nonlinear_JJ PC_NN beam_NN increase_NN with_IN the_DT wave_NN amplitude_NN ,_, which_WDT is_VBZ similar_JJ to_TO the_DT result_NN for_IN the_DT nonlinear_JJ PC_NN rod_NN ._SENT 
+Band_NN structures_NNS of_IN nonlinear_JJ PC_NN beams_VVZ with_IN different_JJ resonator_NN stiffnesses_NNS are_VBP shown_VVN in_IN Fig_NN ._SENT 
+14_CD ;_: material_NN and_CC structural_JJ parameters_NNS of_IN the_DT PC_NN beams_VVZ are_NN :_: ρa=4_NP kg/m3_NP ,_, ρb=1_JJ kg/m3_NN ,_, Eb=1_JJ N/m2_NN ,_, γ=0.5_NP ,_, and_CC the_DT wave_NN amplitude_NN is_VBZ maintained_VVN at_IN B=0.006⁠_NP ._SENT 
+As_IN shown_VVN in_IN Fig_NN ._SENT 
+14_CD ,_, band-gap_NN frequencies_NNS of_IN the_DT beams_VVZ increase_NN with_IN Ea_NP ;_: Fig_NN ._SENT 
+15_CD shows_VVZ that_IN increasing_VVG ρa_NN generates_VVZ the_DT opposite_JJ effect_NN ._SENT 
+These_DT nonlinear_JJ behaviors_NNS are_VBP similar_JJ to_TO those_DT for_IN discrete_JJ systems_NNS ._SENT 
+Note_NN that_IN shifts_NNS of_IN band_NN frequencies_NNS in_IN nonlinear_JJ structures_NNS in_IN Refs_NNS ._SENT 
+[_SYM 12_CD ]_SYM and_CC [_SYM 23_CD ]_SYM are_VBP found_VVN to_TO be_VB close_JJ to_TO those_DT in_IN corresponding_JJ linear_JJ structures_NNS ,_, while_IN results_NNS calculated_VVN by_IN the_DT current_JJ methodology_NN show_VVP that_IN there_EX are_VBP significant_JJ changes_NNS of_IN wave_NN propagation_NN characteristics_NNS between_IN linear_JJ and_CC nonlinear_JJ structures_NNS ,_, which_WDT indicates_VVZ that_IN there_EX are_VBP strong_JJ nonlinearities_NNS in_IN the_DT nonlinear_JJ structures_NNS studied_VVN here_RB ._SENT 
+<Section> 5._CD Conclusions_NNS </Section> Exact_JJ formulations_NNS for_IN static_JJ and_CC wave_NN propagation_NN analyses_NNS of_IN homogeneous_JJ rod_NN and_CC beam_NN structures_NNS with_IN finite_JJ deformations_NNS are_VBP developed_VVN ._SENT 
+Numerical_JJ simulations_NNS are_VBP conducted_VVN to_TO verify_VV accuracy_NN and_CC effectiveness_NN of_IN the_DT wavelet-based_JJ finite_JJ element_NN method_NN in_IN these_DT nonlinear_JJ static_JJ and_CC dynamic_JJ problems_NNS ._SENT 
+The_DT wavelet-based_JJ finite_JJ element_NN method_NN can_MD achieve_VV the_DT same_JJ accuracy_NN as_IN the_DT traditional_JJ finite_JJ element_NN method_NN with_IN much_RB fewer_JJR numbers_NNS of_IN elements_NNS and_CC DOFs_NNS ._SENT 
+Results_NNS show_VVP that_IN nonlinearities_NNS can_MD cause_VV changes_NNS of_IN wave_NN propagation_NN characteristics_NNS for_IN both_DT axial_JJ and_CC transverse_JJ waves_NNS as_IN compared_VVN with_IN associated_VVN linear_JJ cases_NNS ._SENT 
+We_PP found_VVD that_IN band-gap_NN frequencies_NNS and_CC locations_NNS rise_VVP as_IN the_DT wave_NN amplitude_NN increases_NNS ._SENT 
+A_DT possibility_NN of_IN amplitude-dependent_JJ frequency_NN isolation_NN is_VBZ shown_VVN ,_, which_WDT presents_VVZ tunable_JJ band-gap_NN characteristics_NNS with_IN certain_JJ wave_NN amplitudes_NNS ;_: this_DT is_VBZ similar_JJ to_TO the_DT result_NN of_IN discrete_JJ nonlinear_JJ periodic_JJ systems_NNS ._SENT 
+As_IN the_DT length_NN fraction_NN increases_NNS ,_, locations_NNS of_IN stop_NN bands_NNS tend_VVP to_TO move_VV upward_RB ._SENT 
+This_DT study_NN also_RB indicates_VVZ that_IN different_JJ resonator_NN stiffnesses_NNS and_CC mass_NN densities_NNS can_MD affect_VV changes_NNS of_IN wave_NN propagation_NN characteristics_NNS in_IN the_DT nonlinear_JJ PC_NN rod_NN and_CC beam_NN ,_, as_RB reported_VVN in_IN Ref_NN ._SENT 
+[_SYM 13_CD ]_SYM for_IN discrete_JJ systems_NNS ._SENT 
+The_DT proposed_VVN methodology_NN is_VBZ not_RB restricted_VVN to_TO weakly_JJ nonlinear_JJ systems_NNS and_CC can_MD be_VB used_VVN to_TO accurately_RB predict_VV wave_NN propagation_NN characteristics_NNS of_IN general_JJ nonlinear_JJ structures_NNS ._SENT 
+Results_NNS in_IN this_DT study_NN can_MD provide_VV guidelines_NNS to_TO design_VV PC_NN structures_NNS to_TO achieve_VV desired_VVN wave_NN filtering_VVG characteristics_NNS ._SENT 
+Our_PP$ work_NN provides_VVZ a_DT means_NN for_IN calculating_VVG displacements_NNS of_IN nonlinear_JJ rods_NNS and_CC beams_VVZ and_CC enriches_VVZ studies_NNS of_IN wave_NN propagation_NN problems_NNS in_IN elastic_JJ solids_NNS with_IN finite_JJ deformations_NNS ._SENT 
+More_RBR complex_JJ one-dimensional_JJ models_NNS and_CC multidimensional_JJ models_NNS can_MD be_VB investigated_VVN in_IN future_JJ studies_NNS ._SENT 
+<Section> Funding_NP Data_NP </Section> The_DT National_NP Science_NP Foundation_NP (_( Grant_NP No._NN CMMI-1335397_JJ )_) ._SENT 
+The_DT National_NP Natural_NP Science_NP Foundation_NP of_IN China_NP (_( Grant_NP No._NN 11772100_CD )_) ._SENT 
+<Section> References_NNS </Section> Joannopoulos_NP ,_, J._NP D._NP ,_, Villeneuve_NP ,_, P._NP R._NP ,_, and_CC Fan_NP ,_, S._NP H._NP ,_, 1997_CD ,_, “_JJ Photonic_JJ Crystals_NNS ,_, ”_NP Solid_NP State_NP Commun_NN ._SENT 
+,_, 102(2–3_NP )_) ,_, pp_NP ._SENT 
+165–173_NP ._SENT 
+Google_NP ScholarCrossref_NP Kushwaha_NP ,_, M._NP S._NP ,_, Halevi_NP ,_, P._NP ,_, Dobrzynski_NP ,_, L._NP ,_, and_CC Djafari-Rouhani_NP ,_, B._NP ,_, 1993_CD ,_, “_JJ Acoustic_JJ Band_NP Structure_NN of_IN Periodic_JJ Elastic_JJ Composites_NNS ,_, ”_NP Phys_NPS ._SENT 
+Rev._NP Lett_NP ._SENT 
+,_, 71(13_NP )_) ,_, pp_NP ._SENT 
+2022–2025_NP ._SENT 
+Hussein_NP ,_, M._NP I._NP ,_, Leamy_NP ,_, M._NP J._NP ,_, and_CC Ruzzene_NP ,_, M._NP ,_, 2014_CD ,_, “_NP Dynamics_NPS of_IN Phononic_JJ Materials_NNS and_CC Structures_NNS :_: Historical_JJ Origins_NNS ,_, Recent_JJ Progress_NN ,_, and_CC Future_JJ Outlook_NN ,_, ”_JJ ASME_NN Appl_NN ._SENT 
+Mech_NP ._SENT 
+Rev._NP ,_, 66(4_NP )_) ,_, p._NP 040802._CD Wang_NP ,_, K._NP ,_, Liu_NP ,_, Y._NP ,_, and_CC Yang_NP ,_, Q._NP S._NP ,_, 2015_CD ,_, “_NP Tuning_NP of_IN Band_NP Structures_NNS in_IN Porous_JJ Phononic_JJ Crystals_NNS by_IN Grading_NP Design_NP of_IN Cells_NNS ,_, ”_NP Ultrasonics_NP ,_, 61_CD ,_, pp_NP ._SENT 
+25–32_NP ._SENT 
+Ganesh_NP ,_, R._NP ,_, and_CC Gonella_NP ,_, S._NP ,_, 2015_CD ,_, “_NN From_IN Modal_JJ Mixing_VVG to_TO Tunable_JJ Functional_JJ Switches_NNS in_IN Nonlinear_JJ Phononic_JJ Crystals_NNS ,_, ”_NP Phys_NPS ._SENT 
+Rev._NP Lett_NP ._SENT 
+,_, 115(4_NP )_) ,_, p._NP 054302._CD Cauchy_NN ,_, A._NP L._NP ,_, 1830_CD ,_, Exercises_VVZ De_NP Mathematiques_NP ,_, Mathematics_NN Exercises_NNS ,_, Paris_NP ,_, France_NP ._SENT 
+Graff_NP ,_, K._NP F._NP ,_, 1991_CD ,_, Wave_NP Motion_NP in_IN Elastic_JJ Solids_NNS ,_, Dover_NP Publications_NPS ,_, Mineola_NP ,_, NY_NP ._SENT 
+Thurston_NP ,_, R._NP N._NP ,_, 1984_CD ,_, Waves_NNS in_IN Solids_NNS ,_, Mechanics_NNS of_IN Solids_NNS ,_, Vol_NP ._SENT 
+4_LS ,_, Springer-Verlag_NP ,_, Berlin_NP ,_, pp_NP ._SENT 
+109–308_NP ._SENT 
+Nouri_NP ,_, M._NP B._NP ,_, and_CC Moradi_NP ,_, M._NP ,_, 2016_CD ,_, “_NP Presentation_NP and_CC Investigation_NP of_IN a_DT New_NP Two_CD Dimensional_JJ Heterostructure_NN Phononic_JJ Crystal_NP to_TO Obtain_VV Extended_JJ Band_NP Gap_NP ,_, ”_NP Physica_NP B_NP ,_, 489_CD ,_, pp_NP ._SENT 
+28–32_NP ._SENT 
+Anufriev_NP ,_, R._NP ,_, and_CC Nomura_NP ,_, M._NP ,_, 2016_CD ,_, “_JJ Reduction_NN of_IN Thermal_JJ Conductance_NN by_IN Coherent_JJ Phonon_NN Scattering_NN in_IN Two-Dimensional_JJ Phononic_JJ Crystals_NNS of_IN Different_JJ Lattice_NN Types_NNS ,_, ”_NP Phys_NPS ._SENT 
+Rev._NP B_NP ,_, 93(4_NP )_) ,_, p._NP 045410._CD Vakakis_NP ,_, A._NP F._NP ,_, and_CC King_NP ,_, M._NP E._NP ,_, 1995_CD ,_, “_JJ Nonlinear_JJ Wave_NP Transmission_NP in_IN a_DT Monocoupled_JJ Elastic_NN Periodic_JJ System_NP ,_, ”_NP J._NP Acoust_NP ._SENT 
+Soc_NP ._SENT 
+Am_RB ._SENT 
+,_, 98(3_NP )_) ,_, pp_NP ._SENT 
+1534–1546_NP ._SENT 
+Narisetti_NP ,_, R._NP K._NP ,_, Leamy_NP ,_, M._NP J._NP ,_, and_CC Ruzzene_NP ,_, M._NP ,_, 2010_CD ,_, “_NP A_NP Perturbation_NN Approach_NN for_IN Predicting_VVG Wave_NP Propagation_NN in_IN One-Dimensional_JJ Nonlinear_JJ Periodic_JJ Structures_NNS ,_, ”_JJ ASME_NN J._NP Vib_NP ._SENT 
+Acoust_NN ._SENT 
+,_, 132(3_NP )_) ,_, p._NP 031001._CD Narisetti_NP ,_, R._NP K._NP ,_, Ruzzene_NP ,_, M._NP ,_, and_CC Leamy_NP ,_, M._NP J._NP ,_, 2011_CD ,_, “_NP A_NP Perturbation_NN Approach_NN for_IN Analyzing_VVG Dispersion_NN and_CC Group_NP Velocities_NNS in_IN Two-Dimensional_JJ Nonlinear_JJ Periodic_JJ Lattices_NNS ,_, ”_JJ ASME_NN J._NP Vib_NP ._SENT 
+Acoust_NN ._SENT 
+,_, 133(6_NP )_) ,_, p._NP 061020._CD Sreelatha_NP ,_, K._NP S._NP ,_, and_CC Joseph_NP ,_, K._NP B._NP ,_, 2000_CD ,_, “_NP Wave_NP Propagation_NN Through_IN a_DT 2D_JJ Lattice_NN ,_, ”_JJ Chaos_NN Solitons_NNS Fractals_NNS ,_, 11(5_NP )_) ,_, pp_NP ._SENT 
+711–719_NP ._SENT 
+Lazarov_NP ,_, B._NP S._NP ,_, and_CC Jensen_NP ,_, J._NP S._NP ,_, 2007_CD ,_, “_JJ Low-Frequency_NN Band_NP Gaps_NNS in_IN Chains_NNS With_IN Attached_VVN Non-Linear_JJ Oscillators_NNS ,_, ”_NP Int_NP ._SENT 
+J._NP Non-Linear_NP Mech_NP ._SENT 
+,_, 42(10_NP )_) ,_, pp_NP ._SENT 
+1186–1193_NP ._SENT 
+Duan_NP ,_, W._NP S._NP ,_, Shi_NP ,_, Y._NP ,_, Zhang_NP ,_, L._NP ,_, Lin_NP ,_, M._NP M._NP ,_, and_CC Lv_NP ,_, K._NP ,_, 2005_CD ,_, “_NN Coupled_VVN Nonlinear_JJ Waves_NNS in_IN Two-Dimensional_JJ Lattice_NN ,_, ”_JJ Chaos_NN Solitons_NNS Fractals_NNS ,_, 23(3_NP )_) ,_, pp_NP ._SENT 
+957–962_NP ._SENT 
+Feng_NP ,_, B._NP ,_, and_CC Kawahara_NP ,_, T._NP ,_, 2007_CD ,_, “_JJ Discrete_JJ Breathers_NNS in_IN Two-Dimensional_JJ Nonlinear_JJ Lattices_NNS ,_, ”_NP Wave_NP Motion_NP ,_, 45(1–2_NP )_) ,_, pp_NP ._SENT 
+68–82_NP ._SENT 
+Narisetti_NP ,_, R._NP K._NP ,_, Ruzzene_NP ,_, M._NP ,_, and_CC Leamy_NP ,_, M._NP J._NP ,_, 2012_CD ,_, “_NP Study_NP of_IN Wave_NP Propagation_NN in_IN Strongly_RB Nonlinear_JJ Periodic_JJ Lattices_NNS Using_VVG a_DT Harmonic_JJ Balance_NN Approach_NN ,_, ”_NP Wave_NP Motion_NP ,_, 49(2_NP )_) ,_, pp_NP ._SENT 
+394–410_NP ._SENT 
+Spadoni_NP ,_, A._NP ,_, Ruzzene_NP ,_, M._NP ,_, Gonella_NP ,_, S._NP ,_, and_CC Scarpa_NP ,_, F._NP ,_, 2009_CD ,_, “_NP Phononic_NP Properties_NPS of_IN Hexagonal_JJ Chiral_NP Lattices_NNS ,_, ”_NP Wave_NP Motion_NP ,_, 46(7_JJ )_) ,_, pp_NP ._SENT 
+435–450_NP ._SENT 
+Manktelow_NP ,_, K._NP ,_, Leamy_NP ,_, M._NP J._NP ,_, and_CC Ruzzene_NP ,_, M._NP ,_, 2013_CD ,_, “_JJ Comparison_NN of_IN Asymptotic_JJ and_CC Transfer_VV Matrix_NN Approaches_NNS for_IN Evaluating_VVG Intensity-Dependent_JJ Dispersion_NN in_IN Nonlinear_JJ Photonic_JJ and_CC Phononic_JJ Crystals_NNS ,_, ”_NP Wave_NP Motion_NP ,_, 50(3_NP )_) ,_, pp_NP ._SENT 
+494–508_NP ._SENT 
+Abedinnasab_NP ,_, M._NP A._NP ,_, and_CC Hussein_NP ,_, M._NP I._NP ,_, 2013_CD ,_, “_NP Wave_NP Dispersion_NN Under_IN Finite_JJ Deformation_NN ,_, ”_NP Wave_NP Motion_NP ,_, 50(3_NP )_) ,_, pp_NP ._SENT 
+374–388_NP ._SENT 
+Khajehtourian_NP ,_, R._NP ,_, and_CC Hussein_NP ,_, M._NP I._NP ,_, 2014_CD ,_, “_JJ Dispersion_NN Characteristics_NNS of_IN a_DT Nonlinear_JJ Elastic_JJ Metamaterial_NN ,_, ”_NP AIP_NP Adv_NP ._SENT 
+,_, 4(12_NP )_) ,_, p._NP 124308._CD Packo_NP ,_, P._NP ,_, Uhl_NP ,_, T._NP ,_, Staszewski_NP ,_, W._NP J._NP ,_, and_CC Leamy_NP ,_, M._NP J._NP ,_, 2016_CD ,_, “_NP Amplitude-Dependent_NP Lamb_NP Wave_NP Dispersion_NN in_IN Nonlinear_JJ Plates_NNS ,_, ”_NP J._NP Acoust_NP ._SENT 
+Soc_NP ._SENT 
+Am_RB ._SENT 
+,_, 140(2_NP )_) ,_, pp_NP ._SENT 
+1319–1331_JJ ._SENT 
+Xiang_NP ,_, J._NP W._NP ,_, Matsumoto_NP ,_, T._NP ,_, Wang_NP ,_, Y._NP X._NP ,_, and_CC Jiang_NP ,_, Z._NP S._NP ,_, 2013_CD ,_, “_JJ Detect_VVP Damages_NNS in_IN Conical_JJ Shells_NP Using_VVG Curvature_NN Mode_NP Shape_NP and_CC Wavelet_NN Finite_JJ Element_NN Method_NN ,_, ”_NP Int_NP ._SENT 
+J._NP Mech_NP ._SENT 
+Sci_NNS ._SENT 
+,_, 66_CD ,_, pp_NP ._SENT 
+83–93_NP ._SENT 
+Xiang_NP ,_, J._NP W._NP ,_, Chen_NP ,_, X._NP F._NP ,_, He_PP ,_, Y._NP M._NP ,_, and_CC He_PP ,_, Z._NP J._NP ,_, 2006_CD ,_, “_NP The_DT Construction_NN of_IN Plane_NP Elastomechanics_NP and_CC Mindlin_NP Plate_NP Elements_NNS of_IN B-Spline_JJ Wavelet_NN on_IN the_DT Interval_NN ,_, ”_JJ Finite_JJ Elem_NP ._SENT 
+Anal_JJ ._SENT 
+Des_FW ._SENT 
+,_, 42(14–15_NP )_) ,_, pp_NP ._SENT 
+1269–1280_NP ._SENT 
+Liu_NP ,_, M._NP ,_, Xiang_NP ,_, J._NP W._NP ,_, Gao_NP ,_, H._NP F._NP ,_, Jiang_NP ,_, Y._NP Y._NP ,_, Zhou_NP ,_, Y._NP Q._NP ,_, and_CC Li_NP ,_, F._NP P._NP ,_, 2014_CD ,_, “_NP Research_NP on_IN Band_NP Structure_NN of_IN One-Dimensional_JJ Phononic_JJ Crystals_NNS Based_VVN on_IN Wavelet_NN Finite_JJ Element_NN Method_NN ,_, ”_JJ Comput_NN ._SENT 
+Model_NN ._SENT 
+Eng_NP ._SENT 
+Sci_NNS ._SENT 
+,_, 97(5_NP )_) ,_, pp_NP ._SENT 
+425–436_NP ._SENT 
+http_NN :_: //www_NNS ._SENT 
+techscience_NN ._SENT 
+com/doi/10.3970/cmes.2014.097.425_NP ._SENT 
+pdf_NP Li_NP ,_, J._NP ,_, and_CC Zhang_NP ,_, Y._NP ,_, 2008_CD ,_, “_JJ Exact_JJ Travelling_VVG Wave_NP Solutions_NNS in_IN a_DT Nonlinear_JJ Elastic_JJ Rod_NP Equation_NN ,_, ”_NP Appl_NP ._SENT 
+Math_NN ._SENT 
+Comput_NN ._SENT 
+,_, 202(2_NP )_) ,_, pp_NP ._SENT 
+504–510_NP ._SENT 
+Goswami_NP ,_, J._NP C._NP ,_, Chen_NP ,_, A._NP K._NP ,_, and_CC Chui_NP ,_, C._NP K._NP ,_, 1995_CD ,_, “_JJ On_IN Solving_VVG First-Kind_NP Integral_NP Equations_NNS Using_VVG Wavelets_NNS on_IN a_DT Bounded_VVN Interval_NN ,_, ”_NP IEEE_NP Trans_NP ._SENT 
+Antennas_NNS Propag_VVP ._SENT 
+,_, 43(6_NP )_) ,_, pp_NP ._SENT 
+614–622_NP ._SENT 
+Kelley_NP ,_, C._NP T._NP ,_, 2003_CD ,_, Solving_VVG Nonlinear_JJ Equations_NNS With_IN Newton_NP 's_POS Method_NN ,_, SIAM_NP ,_, Philadelphia_NP ,_, PA_NN ._SENT 
+Reddy_NP ,_, J._NP N._NP ,_, 1997_CD ,_, “_NN On_IN Locking-Free_JJ Shear_NP Deformable_JJ Beam_NP Finite_JJ Elements_NNS ,_, ”_JJ Comput_NN ._SENT 
+Methods_NNS Appl_VVP ._SENT 
+Mech_NP ._SENT 
+Eng_NN ._SENT 
+,_, 149(1–4_NP )_) ,_, pp_NP ._SENT 
+113–132_NP ._SENT 
+Google_NP ScholarCrossref_NP Wiebe_NP ,_, R._NP ,_, and_CC Stanciulescu_NP ,_, I._NP ,_, 2015_CD ,_, “_JJ Inconsistent_JJ Stability_NP of_IN Newmark_NP 's_POS Method_NN in_IN Structural_NP Dynamics_NPS Applications_NP ,_, ”_NP J._NP Comput_NN ._SENT 
+Nonlinear_JJ Dyn_NN ._SENT 
+,_, 10(5_NP )_) ,_, p._NP 051006._CD Timoshenko_NP ,_, S._NP P._NP ,_, and_CC Gere_NP ,_, J._NP M._NP ,_, 1961_CD ,_, Theory_NN of_IN Elastic_JJ Stability_NP ,_, McGraw-Hill_NP ,_, New_NP York_NP ._SENT 

@@ -1,0 +1,80 @@
+<title>Veriﬁcation of ARES transport code system with TAKEDA benchmarks</title>
+<Affiliation>School of Nuclear Science and Engineering, North China Electric Power University, Beijing 102206, China</Affiliation>
+<author>Liang Zhang, Bin Zhang, Penghe Zhang, Mengteng Chen, Jingchang Zhao, Shun Zhang, Yixue Chen n</author>
+<year>2015</year>
+<Jounral>Nuclear Instruments and Methods in Physics Research A</Journal>
+<Publishing_house> Elsevier </Publishing_house>
+<Text_Collector>田苗，BFSU</Text_Collector>
+<DOI>10.1016/j.nima.2015.07.014</DOI>
+<URL>http://dx.doi.org/10.1016/j.nima.2015.07.014</URL>
+a b s t r a c t
+Neutron transport modeling and simulation are central to many areas of nuclear technology, including reactor core analysis, radiation shielding and radiation detection. In this paper the series of TAKEDA benchmarks are modeled to verify the critical calculation capability of ARES, a discrete ordinates neutral particle transport code system. SALOME platform is coupled with ARES to provide  geometry modeling  and mesh generation function. The Koch–Baker–Alcouffe parallel sweep  algorithm  is  applied  to accelerate the traditional transport calculation process. The  results  show that  the  eigenvalues  calculated by ARES are in excellent agreement with the reference values presented in NEACRP-L-330, with a difference less than 30 pcm except for the ﬁrst case of model 3.  Additionally, ARES  provides  accurate ﬂuxes distribution compared to reference values, with a  deviation  less  than  2%  for  region-averaged ﬂuxes in all cases. All of these conﬁrms the feasibility of ARES–SALOME coupling and demonstrate that ARES has a good performance in critical calculation.
+Keywords:
+ARES
+Critical calculation   Discrete ordinates    Neutron transport    TAKEDA benchmarks
+1.Introduction
+In the nuclear science and engineering ﬁeld, neutron transport calculations play a key-role in the design and optimization of nuclear systems. The steady-state linear Boltzmann equation [1] describes the angular, energy and spatial variation of the neutron ﬂux distribution. In order to develop nuclear systems accurately, solutions to the transport equation are needed  in  high-ﬁdelity in all parts of phase space.
+ARES [2], developed by School of Nuclear Science and Engi- neering in North China Electric Power University, is a multi-group neutral particle transport code system based on discrete ordinates method with arbitrary order anisotropic scattering. It is primarily designed for the nuclear system's transport calculation and ana- lysis. ARES allows multiple spatial discretization schemes includ- ing diamond-difference with linear zero ﬂux ﬁx-up, theta-  weighted diamond-difference and linear-discontinuous ﬁnite ele- ment method. Various boundaries including vacuum, reﬂecting  and boundary source can be treated. First collision source method is used to eliminate ray effects. The traditional source  iteration with diffusion synthetic acceleration is employed to obtain accu- rate solutions to the Boltzmann transport equation. The Koch–Baker–Alcouffe parallel sweep algorithm [3] is applied to obtain high computation efﬁciency.
+In this paper, the criticality calculation capacity of ARES was veriﬁed on the series of TAKEDA benchmark problems [4]. The remainder of this paper is organized as follows. A description of deterministic criticality calculation methodology is given  in  Section 2, followed by an introduction of coupling calculation process between ARES and SALOME platform in Section 3. TAKEDA benchmark problems conﬁguration and results analysis are pre- sented in Section 4. Concluding remarks are in Section 5.
+2.Criticality calculation methodology
+A nuclear system is called “critical” if the chain reaction is self- sustaining and time-independent. In order to capture this beha- vior, the number of neutrons released per ﬁssion,ν, is adjusted and replaced by ν=k, where k is the effective multiplying factor expressing the deviation from critical. The steady-state Boltzmann transport equation solved in ARES for problems with multiplying media is
+@1
+Where ψð!r  ; Ω^ ; EÞ is angular neutron ﬂux, and the independent  variables  are  energy  E,  spatial  variables  !r x; y; z   and  angular nk variables Ω^	θ; φ . To solve Eq. (1), it is discretized in space, angle and energy. Energy discretization is accomplished via the multi-group  approximation.   The  spherical   harmonics   expansions are introduced to represent the angular dependence of the scattering source term. And discrete ordinates are used to treat direction ofcan be found in reference [1]. Applying these approximations and suppressing spatial dependence, Eq. (1) becomes
+@2
+Where ϕg are angular ﬂux moments. Angular ﬂux moments are related to discrete angular ﬂux through the quadrature integration rules as follows:
+@3
+As shown in Fig.1, the most traditional iteration procedure is implemented in ARES to calculate eigenvalue. The standard way to calculate eigenvalue is power iteration [5]. Traditionally, Gauss- Seidel is adopted within power iteration to treat multi-group problems. And source iteration is employed to solve  within-  group equations.
+Let l denote power iteration index, m denote source iteration index, the overall iteration procedure can be expressed as follows:
+@4
+@5
+@6
+KBA algorithm, an industry-standard method to parallelizing space-angle transport sweeps in within-group calculation, is implemented in ARES to accelerate transport calculation and partition memory for large-scale problems. In this algorithm, the vertical are assigned to the same processor. The angular ﬂux coupling between blocks allows the diagonal plane sweep in the directions of neutron travel. The sweep begins at the block in the
+corner with three incoming boundary conditions. And then, the three adjacent blocks can be calculated simultaneously. As soon as the previous direction is ﬁnished, the next direction in the octant   is started. This process is repeated until all blocks are swept along all discrete directions.
+3.SALOME platform
+As a transport calculation system, ARES is designed with concept of modularization and can be integrated to the open- source SALOME platform [7,8]. The SALOME platform, developed by CEA and EDF, is a generic development platform for pre/post- processing and code coupling for numerical simulation. In our current implementation, the SALOME platform provides the required geometry modeling, mesh generation, supervision and data visualization capabilities.
+Fig. 2 shows the whole calculation process, starting from a CAD-oriented  geometry  description  and  up  to  a visualization of ﬂux distribution. The Geometry module in the SALOME platform provides a rich set of commands to create, edit, import and modify Module. The MED data exchange model [9] is employed to transfer mesh information to ARES transport solvers, which is integrated
+Fig. 1. Solvers within ARES transport code system: overview in (a) and inner structure in (b).
+Fig. 2.  Overview of ARES transport calculation  system.
+and managed by YACS module. The HDF ﬁle is used to exchange data among ARES modules.
+4.Benchmarks veriﬁcation
+Three reactor physics benchmark problems are chosen from the NEACRP document proposed by Takeda and Ikeda [4]. The purpose of these problems is to verify the accuracy of present transport codes for critical calculation. For all cases, the geometrical models are constructed in the Geometry  module and meshes are created in the Mesh module of SALOME platform. The eigenvalues and region-averaged ﬂuxes are calculated by DONTRAN3D, the three dimension Discrete Ordinates Neutral particle TRANsport module in ARES code system. This calculation process conﬁrms the feasibility of coupling between SALOME and ARES modules.
+4.1.Problems description
+The full benchmark speciﬁcations consisting of geometrical details, materials and group-wise cross sections are presented in NEACRP-L-330. Note that the anisotropic scattering effect has been considered by using the transport cross section in place of the total cross section. These benchmarks are executed using S8 quadrature sets, which is available in NEACRP-L-330. Boundary conditions and mesh dimensions are listed in Table 1. In all cases, the linear diamond-difference with zero ﬁx-up [1] is employed as the spatial discretization scheme.
+4.1.1.Benchmark problem 1
+The ﬁrst model represents one-eighth of a Light Water Reactor model, which is based on the Kyoto University Critical Assembly. As shown in Fig. 3, this model consists of a fuel region with dimensions of 15 cm ~ 15 cm ~ 15 cm, a void region(in place of control rod) of 5 cm 5 cm 25 cm and a re ector region, which surrounds the other two regions. The overall dimensions are
+Table 1
+Boundary conditions and Mesh dimensions of TAKEDA benchmarks.
+25 cm 25 cm 25 cm. The calculation  is  performed  with  two  energy groups representing the fast and thermal groups. We have considered two cases with different conﬁgurations of the control rod. In the ﬁrst case, the control rod is fully withdrawn and the control rod region is left empty. In the second case, the control rod is fully inserted into the system.
+4.1.2.Benchmark problem 2
+The second model represents a quarter symmetric part of a FBR model with dimensions of 140 cm  140 cm  150 cm. As shown in   Fig. 3, this model is composed of a core region, radial blanket, axial blanket and a control rod region. For this problem, the cross sections are modeled in four energy groups and the following two cases are considered. In the ﬁrst case, the control rod is fully withdrawn and the control rod region is ﬁlled with sodium. In the second case, the control rod is half inserted and the other half region is ﬁlled with sodium.
+4.1.3.Benchmark problem 3
+The third model represents one-eighth symmetric part of an axially   heterogeneous   FBR   model   with    dimensions    of 320 cm ~ 320 cm ~ 180 cm. As shown in Fig. 4, this model is composed of a core region, internal blanket, radial blanket, axial blanket, radial reﬂector, axial reﬂector, control rod region and
+Fig. 3. Conﬁgure of TAKEDA benchmarks: model 1 in (a) and model 2 in (b).
+Fig. 4. Conﬁgure of TAKEDA benchmark model 3.
+empty matrix. This calculation is performed in four energy groups and the following three cases are considered. In the ﬁrst case, both center and off-center control rods are inserted; in the second case, all control rods are withdrawn and the space is ﬁlled with coolant, sodium. And in the third case, control rods are withdrawn and the space is replaced by core/blanket region.
+4.2.Results and analysis
+ARES solutions for these three benchmark problems are pre-sented in this paper and compared with solutions presented in reference [4]. The main parameters calculated are: eigenvalue, region-averaged ﬂuxes, control rod worth (CR) and control rod position worth (CRP).
+In Table 2, we show the criticality eigenvalues and the differ- ences with reference values, which are published in NEACRP-L- 330 for all cases. As can be seen from Table 2, these eigenvalues
+Table 2
+Comparison of eigenvalue results for TAKEDA benchmark problems.
+generated by ARES are in good agreement with reference values. Except for the ﬁrst case of model 3, all differences between ARES- calculated values and reference values lie within 30 pcm, which indicates that ARES has a good performance in critical calculation for homogeneous core models.
+The scalar ﬂuxes are calculated and normalized as follows:
+@7
+The region-averaged scalar ﬂuxes are calculated and compared with SN reference value presented in NEACRP-L-330 for all cases. Figs. 5–7 show the relative differences between ARES-calculated value and reference value for benchmark problems 1, 2 and 3, respectively.
+As can be seen from Fig. 5, the relative differences are less than 0.03% in the core region, 0.07% in the reﬂector region and 0.27% in
+Fig. 5. Comparison of region-averaged scalar ﬂux from ARES and SN reference values for TAKEDA benchmark problem 1: case 1 in (a) and case 2 in (b).
+the void/control rod region respectively, which indicates that ARES can yield a very high accuracy ﬂux distribution in critical calcula- tion for a small core model.
+In Fig. 6, we can observe that the relative differences are less than 0.05% in the core region, 0.75% in the radial blanket, 0.75% in the axial blanket, 0.8% in the sodium region and 1.25% in the control rod region. For the small model of FBR, the maximum difference lies in the thermal group of control rod region, mainly because the strong absorptive control rod produces steep thermal ﬂux gradients. The utilized diamond-difference signiﬁes the linear changed ﬂux in the 2.5 cm mesh, therefore, introducing inaccuracy in representing the nonlinear sharp decrease of ﬂux. Overall, the agreement between ARES-calculated value and reference value are satisfactory.
+In Fig. 7, we can know that the relative differences are less than 0.2% in the core region, 1.25% in the internal blanket, 1.4% in the radial blanket, 0.9% in the axial blanket, 0.5% in the sodium region and 1.6% in the control rod region. Generally, for this axially heterogeneous FBR model, the agreement between ARES- calculated value and reference value are satisfactory with a slightly large difference in control rod region and internal blanket region, especially for thermal group.
+In Fig. 8, we show normalized thermal group scalar ﬂux distribution of problems 3 case 1. And Fig. 8(b) shows the scalar ﬂux distribution at z ¼ 5 cm which is marked with black line  in  Fig. 8(a). Considering the Z direction, a notable change of thermal
+Fig. 6. Comparison of region-averaged scalar ﬂux from ARES and SN reference values for TAKEDA benchmark problem 2: case 1 in (a) and case 2 in (b).
+group scalar ﬂux appears in the thin internal blanket. And from Fig. 8(b), we can observe steep ﬂux gradients in the internal  blanket and a sharp decrease of ﬂux in control rod region. By recording the position where negative angular ﬂux occurs in the calculation process, we ﬁnd that meshes with  negative  angular ﬂux clusters in control rods region and regions near vacuum boundaries. The linear zero ﬂux ﬁx-up, which is employed to treat negative angular ﬂux, causes unphysical solutions and degrades the accuracy of ﬂux distribution. Therefore, a slightly large difference in eigenvalue calculation appears along with the strong absorptive material distributed in a narrow region.
+5.Conclusion
+ARES transport system is under constant development. In this paper, we brieﬂy represent a “snapshot in time” of ARES, and introduce the coupling calculation process between ARES and SALOME platform.
+The 3-D critical calculation capacity of ARES is veriﬁed based on the series of TAKEDA benchmark problems. The eigenvalues calculated by ARES agree well with reference eigenvalues pre- sented in NEACRP-L-330. And the region-averaged scalar ﬂuxes are in agreement within 2%.
+We conclude that ARES has a good performance in critical calculation for small homogeneous core models. But the mesh size
+Fig. 7. Comparison of region-averaged scalar ﬂux from ARES and SN reference values for TAKEDA benchmark problem 3: case 1 in (a), case 2 in (b) and case 3 in (c).
+Fig. 8. Normalized thermal group scalar ﬂux distribution of TAKEDA benchmark problem 3 case 1.
+and spatial difference schemes must be treated cautiously when expressing the sharply changed ﬂuxes. In the  following  work, more complex pin-homogenized models will be used to verify ARES transport code system.
+Acknowledgments
+This work is performed under the auspices of the National Natural Science Foundation of China, China (11275070) and the Fundamental Research Funds for the Central Universities (13QN34).

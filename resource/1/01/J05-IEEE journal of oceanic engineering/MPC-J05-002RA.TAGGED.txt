@@ -1,0 +1,589 @@
+﻿_JJ <title> Differential_JJ Pressure_NN Sensor_NN Speedometer_NN for_IN Autonomous_JJ Underwater_JJ Vehicle_NN Velocity_NN Estimation_NN </title> <author> 1_CD ,_, Christian_NP Meurer_NP ,_, 1_CD ,_, Juan_NP Francisco_NP Fuentes-Pérez_NP ,_, 2_CD ,_, Narcís_NP Palomeras_NNS ,_, 2_CD ,_, Marc_NP Carreras_NP ,_, 1_CD ,_, Maarja_NP Kruus_NP </author> <Affiliation> 1_CD ,_, Centre_NP for_IN Biorobotics_NP ,_, Tallinn_NP University_NP of_IN Technology_NP ,_, Tallinn_NP ,_, Estonia_NP ,_, 2_CD ,_, Computer_NP Vision_NP and_CC Robotics_NP Institute_NP Universitat_NP de_NP Girona_NP Girona_NP ,_, Spain_NP </Affiliation> <year> 2020_CD </year> <Jounral> IEEE_NN journal_NN of_IN oceanic_JJ engineering_NN </Journal> <Publishing_house> Institute_NP of_IN Electrical_NP and_CC Electronics_NP Engineers_NPS </Publishing_house> <Text_Collector> Zhang_NP San，HEU_NP </Text_Collector> <DOI> 10.1109/JOE.2019.2907822_NP </DOI> <URL> https://ieeexplore.ieee.org/document/8704939_NP </URL> Differential_JJ Pressure_NN Sensor_NN Speedometer_NN for_IN Autonomous_JJ Underwater_JJ Vehicle_NN Velocity_NN Estimation_NN Christian_NP Meurer_NP ,_, Juan_NP Francisco_NP Fuentes-Pérez_NP ,_, Narcís_NP Palomeras_NNS ,_, Marc_NP Carreras_NP ,_, Maarja_NP Kruus_NP Centre_NP for_IN Biorobotics_NP ,_, Tallinn_NP University_NP of_IN Technology_NP ,_, Tallinn_NP ,_, Estonia_NP Computer_NP Vision_NP and_CC Robotics_NP Institute_NP Universitat_NP de_NP Girona_NP Girona_NP ,_, Spain_NP <Section> Abstract_JJ </Section> Velocity_NN estimation_NN is_VBZ central_JJ for_IN the_DT reliable_JJ navigation_NN of_IN autonomous_JJ underwater_JJ vehicles_NNS (_( AUVs_NP )_) ._SENT 
+Doppler_NP velocity_NN logs_VVZ (_( DVLs_NNS )_) ,_, currently_RB the_DT leading_VVG technology_NN for_IN underwater_JJ velocity_NN estimation_NN ,_, can_MD be_VB too_RB big_JJ ,_, expensive_JJ ,_, and_CC energy_NN consuming_NN to_TO be_VB used_VVN on_IN low-cost_JJ and_CC small_JJ AUVs_NNS or_CC for_IN long_JJ missions_NNS ._SENT 
+In_IN our_PP$ previous_JJ work_NN ,_, a_DT system_NN based_VVN on_IN differential_JJ pressure_NN sensors_NNS was_VBD developed_VVN for_IN estimating_VVG surge_NN velocity_NN ._SENT 
+In_IN this_DT paper_NN ,_, we_PP combine_VVP this_DT system_NN with_IN an_DT inertial_JJ measurement_NN unit_NN to_TO compensate_VV for_IN orientation_NN errors_NNS and_CC create_VV a_DT differential_JJ pressure_NN sensor_NN speedometer_NN (_( DPSS_NP )_) ._SENT 
+We_PP propose_VVP and_CC demonstrate_VVP the_DT DPSS_NP prototype_NN as_IN an_DT important_JJ step_NN toward_IN a_DT small_JJ ,_, inexpensive_JJ ,_, and_CC energy-efficient_JJ alternative_NN or_CC complement_VV to_TO a_DT DVL_NN in_IN certain_JJ applications_NNS ._SENT 
+This_DT paper_NN presents_VVZ the_DT first_JJ underwater_JJ field_NN tests_NNS of_IN a_DT sensor_NN using_VVG differential_JJ pressure_NN for_IN velocity_NN estimation_NN ._SENT 
+Tests_NNS were_VBD conducted_VVN with_IN a_DT SPARUS_NP II_NP AUV_NP (_( IQUA_NP Robotics_NP ,_, Girona_NP ,_, Spain_NP )_) ._SENT 
+To_TO demonstrate_VV the_DT efficacy_NN of_IN our_PP$ proposed_VVN solution_NN ,_, we_PP compare_VVP the_DT surge_NN velocity_NN estimation_NN of_IN the_DT DPSS_NP and_CC the_DT vehicle_NN 's_POS DVL_NN in_IN bottom_NN and_CC water_NN locks_NNS ._SENT 
+Trials_NNS were_VBD conducted_VVN by_IN varying_VVG the_DT trajectory_NN and_CC velocity_NN of_IN the_DT vehicle_NN in_IN three_CD different_JJ environments_NNS ._SENT 
+We_PP show_VVP that_IN the_DT DPSS_NP displayed_VVD a_DT superior_JJ performance_NN with_IN respect_NN to_TO the_DT DVL_NN water_NN lock_NN for_IN velocities_NNS above_IN 0.6_CD m/s_NNS ._SENT 
+The_DT differences_NNS in_IN the_DT velocity_NN estimations_NNS of_IN the_DT DVL_NN in_IN bottom_JJ lock_NN for_IN high_JJ velocities_NNS were_VBD as_RB small_JJ as_IN 0.013_CD m/s_NNS ._SENT 
+These_DT results_NNS encourage_VVP further_JJR development_NN of_IN the_DT presented_VVN technology_NN ._SENT 
+<Section> 1._CD Introduction_NN </Section> For_IN THE_DT successful_JJ operation_NN and_CC recovery_NN of_IN autonomous_JJ underwater_JJ vehicles_NNS (_( AUVs_NP )_) ,_, robust_JJ navigation_NN and_CC localization_NN are_VBP crucial_JJ [_SYM 1_CD ]_SYM ,_, [_SYM 2_CD ]_SYM ._SENT 
+However_RB ,_, the_DT availability_NN of_IN sophisticated_JJ sensor_NN systems_NNS for_IN navigation_NN and_CC localization_NN is_VBZ restricted_VVN by_IN the_DT size_NN ,_, energy_NN requirements_NNS ,_, budget_NN ,_, and_CC operation_NN conditions_NNS of_IN the_DT particular_JJ vehicle_NN ._SENT 
+Especially_RB with_IN the_DT increasing_VVG use_NN of_IN low-cost_JJ and_CC small_JJ vehicles_NNS ,_, there_EX is_VBZ a_DT need_NN for_IN alternative_JJ sensor_NN solutions_NNS ._SENT 
+This_DT paper_NN describes_VVZ field_NN tests_NNS to_TO validate_VV a_DT small_JJ ,_, low-cost_JJ ,_, and_CC energy-efficient_JJ sensor_NN system_NN for_IN surge_NN velocity_NN estimation_NN that_WDT uses_VVZ differential_JJ pressure_NN sensors_NNS ._SENT 
+Unlike_IN terrestrial_JJ or_CC aerial_JJ environments_NNS ,_, autonomous_JJ underwater_JJ navigation_NN is_VBZ impeded_VVN by_IN the_DT rapid_JJ high-frequency_NN attenuation_NN of_IN sensor_NN signals_NNS or_CC by_IN the_DT lack_NN of_IN salient_JJ features_NNS in_IN mostly_RB unstructured_JJ environments_NNS ._SENT 
+Common_JJ navigation_NN methods_NNS ,_, such_JJ as_IN satellite-based_JJ global_JJ positioning_NN units_NNS ,_, are_VBP not_RB directly_RB implementable_JJ ._SENT 
+Existing_VVG underwater_JJ navigation_NN solutions_NNS can_MD be_VB divided_VVN into_IN three_CD main_JJ categories_NNS [_SYM 3_CD ]_SYM :_: acoustic_JJ navigation_NN ,_, geophysical_JJ navigation_NN ,_, and_CC inertial_JJ navigation_NN ._SENT 
+Acoustic_JJ navigation_NN requires_VVZ additional_JJ hardware_NN to_TO be_VB deployed_VVN ,_, which_WDT creates_VVZ a_DT local_JJ coordinate_VV system_NN ._SENT 
+Therefore_RB ,_, this_DT solution_NN is_VBZ limited_VVN to_TO environments_NNS where_WRB hardware_NN deployment_NN is_VBZ feasible_JJ ._SENT 
+Though_IN geophysical_JJ navigation_NN uses_VVZ the_DT features_NNS near_IN the_DT AUV_NP to_TO track_VV location_NN within_IN an_DT environment_NN ,_, it_PP is_VBZ not_RB extensible_JJ to_TO unstructured_JJ or_CC open_JJ water_NN environments_NNS ._SENT 
+Inertial_JJ navigation_NN ,_, the_DT most_RBS basic_JJ navigation_NN method_NN ,_, uses_VVZ dead_JJ reckoning_NN techniques_NNS to_TO estimate_VV the_DT position_NN of_IN the_DT vehicle_NN ._SENT 
+Inertial_JJ navigation_NN is_VBZ insensitive_JJ to_TO environmental_JJ characteristics_NNS ,_, making_VVG it_PP suitable_JJ for_IN operations_NNS in_IN either_DT featureless_JJ or_CC complex_JJ environments_NNS ._SENT 
+Further_RBR ,_, this_DT method_NN removes_VVZ the_DT need_NN for_IN a_DT costly_JJ and_CC complex_JJ infrastructure_NN ,_, decreasing_VVG the_DT expenses_NNS for_IN AUV_NP missions_NNS ._SENT 
+Though_IN current_JJ inertial_JJ navigation_NN systems_NNS (_( INS_NP )_) provide_VVP increasingly_RB accurate_JJ heading_VVG and_CC acceleration_NN measurements_NNS that_WDT can_MD improve_VV overall_JJ position_NN estimates_NNS [_SYM 1_CD ]_SYM ,_, this_DT method_NN suffers_VVZ from_IN unbounded_JJ errors_NNS [_SYM 4_CD ]_SYM ._SENT 
+In_IN best_JJS practice_NN ,_, the_DT methods_NNS mentioned_VVN above_IN are_VBP combined_VVN using_VVG sensor_NN fusion_NN and_CC state_NN estimation_NN [_SYM 4_CD ]_SYM ,_, [_SYM 5_CD ]_SYM to_TO increase_VV the_DT overall_JJ robustness_NN and_CC accuracy_NN of_IN the_DT navigation_NN system_NN ._SENT 
+Methods_NNS for_IN sensor_NN fusion_NN and_CC state_NN estimation_NN include_VVP Kalman_NP filters_NNS ,_, particle_NN filters_NNS ,_, and_CC simultaneous_JJ localization_NN and_CC mapping_NN [_SYM 5_CD ]_SYM ._SENT 
+The_DT most_RBS commonly_RB adopted_VVN method_NN for_IN state_NN estimation_NN is_VBZ the_DT extended_JJ Kalman_NP filter_NN (_( EKF_NP )_) that_WDT can_MD handle_VV nonlinear_JJ processes_NNS with_IN Gaussian_JJ error_NN distributions_NNS at_IN a_DT moderate_JJ computational_JJ load_NN ._SENT 
+Due_JJ to_TO its_PP$ global_JJ applicability_NN ,_, inertial_JJ navigation_NN is_VBZ the_DT core_JJ technique_NN for_IN most_JJS navigation_NN solutions_NNS ._SENT 
+Measuring_VVG velocity_NN directly_RB is_VBZ a_DT particularly_RB compelling_JJ way_NN to_TO complement_VV measurements_NNS from_IN INSs_NP ._SENT 
+Doppler_NP velocity_NN logs_VVZ (_( DVLs_NNS )_) are_VBP the_DT most_RBS widely_RB applied_VVN class_NN of_IN velocity_NN sensors_NNS used_VVN to_TO aid_VV the_DT INS_NP [_SYM 6]–[7][8][9_NP ]_SYM ,_, providing_VVG velocity_NN estimation_NN with_IN a_DT sufficiently_RB narrow_JJ error_NN margin_NN [_SYM 4_CD ]_SYM ._SENT 
+DVLs_NNS are_VBP preferably_RB used_VVN in_IN bottom_JJ lock_NN (_( BL_NP )_) mode_NN that_WDT relies_VVZ on_IN a_DT smooth_JJ surface_NN where_WRB the_DT scattering_NN of_IN hydroacoustic_JJ signals_NNS can_MD be_VB avoided_VVN ._SENT 
+In_IN regions_NNS with_IN uneven_JJ or_CC absent_JJ surfaces_NNS ,_, DVLs_NNS can_MD employ_VV a_DT water_NN lock_NN (_( WL_NP )_) mode_NN to_TO estimate_VV velocity_NN ._SENT 
+However_RB ,_, DVL_NP WL_NP has_VHZ certain_JJ limitations_NNS as_IN it_PP cannot_MD provide_VV the_DT same_JJ accuracy_NN as_IN the_DT BL_NP and_CC relies_VVZ on_IN the_DT presence_NN of_IN particles_NNS that_WDT can_MD reflect_VV the_DT hydroacoustic_JJ signals_NNS in_IN water_NN ._SENT 
+As_IN recent_JJ work_NN suggests_VVZ ,_, using_VVG acoustic_JJ Doppler_NP current_JJ profilers_NNS (_( ADCP_NP )_) can_MD solve_VV some_DT of_IN these_DT problems_NNS [_SYM 10_CD ]_SYM ,_, [_SYM 11_CD ]_SYM ._SENT 
+However_RB ,_, despite_IN recent_JJ efforts_NNS to_TO reduce_VV their_PP$ size_NN [_SYM 12]–[13][14_NP ]_SYM ,_, DVLs_NNS and_CC ADCPs_NNS are_VBP difficult_JJ to_TO integrate_VV in_IN small_JJ vehicles_NNS with_IN a_DT limited_JJ payload_NN capacity_NN [_SYM 15_CD ]_SYM ._SENT 
+Further_RBR ,_, as_IN active_JJ sensing_VVG devices_NNS ,_, DVLs_NNS have_VHP a_DT high_JJ energy_NN consumption_NN ,_, which_WDT impedes_VVZ their_PP$ application_NN in_IN vehicles_NNS on_IN long-term_JJ missions_NNS [_SYM 16_CD ]_SYM ._SENT 
+Additionally_RB ,_, low-cost_JJ vehicles_NNS used_VVN in_IN areas_NNS such_JJ as_IN high-risk_JJ applications_NNS [_SYM 17_CD ]_SYM ,_, swarm_NN operations_NNS [_SYM 18_CD ]_SYM ,_, or_CC consumer_NN robots_NNS [_SYM 19_CD ]_SYM could_MD benefit_VV from_IN an_DT inexpensive_JJ alternative_NN for_IN velocity_NN estimation_NN ._SENT 
+In_IN this_DT paper_NN ,_, we_PP propose_VVP a_DT low-cost_JJ ,_, small-sized_JJ ,_, and_CC energy-efficient_JJ technology_NN for_IN estimating_VVG surge_NN velocity_NN based_VVN on_IN differential_JJ pressure_NN sensors_NNS ._SENT 
+The_DT proposed_VVN solution_NN builds_VVZ upon_IN our_PP$ previous_JJ work_NN ,_, which_WDT was_VBD originally_RB bioinspired_VVN by_IN fish_NN lateral_JJ line_NN sensing_VVG [_SYM 20_CD ]_SYM ._SENT 
+Several_JJ artificial_JJ lateral_JJ line_NN systems_NNS have_VHP been_VBN proposed_VVN earlier_RBR [_SYM 21_CD ]_SYM ,_, [_SYM 22_CD ]_SYM ,_, but_CC none_NN of_IN them_PP has_VHZ been_VBN combined_VVN with_IN a_DT fully_RB autonomous_JJ AUV_NP and_CC ,_, to_TO the_DT best_JJS of_IN the_DT authors’_JJ knowledge_NN ,_, none_NN have_VHP been_VBN tested_VVN outside_IN of_IN the_DT carefully_RB controlled_VVN laboratory_NN environment_NN ._SENT 
+The_DT artificial_JJ lateral_JJ line_NN systems_NNS proposed_VVD earlier_RBR have_VHP been_VBN based_VVN on_IN various_JJ technological_JJ approaches_NNS ,_, such_JJ as_IN micromachined_JJ piezoresistive_NN cantilevered_VVD beams_NNS [_SYM 23_CD ]_SYM ,_, [_SYM 24_CD ]_SYM ,_, optical_JJ flow_NN sensors_NNS [_SYM 25_CD ]_SYM ,_, or_CC commercially_RB available_JJ absolute_JJ or_CC gauge_VV pressure_NN sensors_NNS [_SYM 26]–[27][28][29][30][31][32_NP ]_SYM ._SENT 
+In_IN contrast_NN ,_, our_PP$ system_NN is_VBZ built_VVN with_IN commercially_RB available_JJ ,_, inexpensive_JJ and_CC robust_JJ pressure_NN sensors_NNS ,_, which_WDT are_VBP most_RBS suitable_JJ for_IN field_NN conditions_NNS ._SENT 
+Flow_NN estimation_NN based_VVN on_IN pressure_NN sensors_NNS can_MD be_VB achieved_VVN by_IN applying_VVG Bernoulli_NP 's_POS law_NN ,_, which_WDT establishes_VVZ a_DT quadratic_JJ relation_NN between_IN flow_NN velocity_NN and_CC pressure_NN [_SYM 33_CD ]_SYM ,_, [_SYM 34_CD ]_SYM ._SENT 
+However_RB ,_, the_DT quadratic_JJ relation_NN implies_VVZ that_IN a_DT high_JJ sensitivity_NN for_IN pressure_NN is_VBZ required_VVN for_IN low_JJ velocity_NN estimations_NNS ._SENT 
+Absolute_JJ and_CC gauge_VV pressure_NN sensors_NNS measure_NN pressure_NN relative_JJ to_TO a_DT fixed_VVN reference_NN ,_, which_WDT increases_VVZ the_DT pressure_NN ranges_VVZ and_CC reduces_VVZ the_DT pressure_NN sensitivity_NN proportionally_RB to_TO the_DT operation_NN depth_NN ._SENT 
+To_TO overcome_VV this_DT problem_NN ,_, differential_JJ pressure_NN sensors_NNS can_MD be_VB used_VVN ._SENT 
+These_DT sensors_NNS can_MD measure_VV a_DT pressure_NN difference_NN across_IN two_CD points_NNS in_IN the_DT same_JJ plane_NN ._SENT 
+Thus_RB ,_, the_DT static_JJ component_NN of_IN the_DT pressure_NN is_VBZ mechanically_RB filtered_VVN out_RP ,_, which_WDT decreases_VVZ the_DT necessary_JJ pressure_NN range_NN to_TO be_VB measured_VVN ,_, increasing_VVG the_DT sensitivity_NN of_IN the_DT sensor_NN [_SYM 22_CD ]_SYM ,_, [_SYM 35_CD ]_SYM ._SENT 
+In_IN our_PP$ previous_JJ publication_NN ,_, we_PP described_VVD a_DT prototype_NN to_TO estimate_VV the_DT surge_NN velocity_NN for_IN torpedo-shaped_JJ AUVs_NNS based_VVN on_IN differential_JJ pressure_NN sensors_NNS [_SYM 36_CD ]_SYM ._SENT 
+The_DT prototype_NN was_VBD calibrated_VVN and_CC tested_VVN in_IN laboratory_NN conditions_NNS and_CC able_JJ to_TO estimate_VV velocity_NN with_IN an_DT accuracy_NN of_IN 0.012_CD m/s_NNS ._SENT 
+Given_VVN the_DT envisioned_VVN applications_NNS where_WRB it_PP may_MD be_VB difficult_JJ to_TO use_VV DVLs_NNS in_IN BL_NP or_CC where_WRB no_DT velocity_NN aiding_VVG is_VBZ available_JJ at_IN present_JJ ,_, this_DT accuracy_NN is_VBZ sufficiently_RB close_JJ to_TO those_DT achieved_VVN by_IN DVLs_NP [_SYM 37_CD ]_SYM ,_, which_WDT motivated_VVN the_DT field_NN tests_NNS presented_VVN in_IN this_DT paper_NN ._SENT 
+By_IN testing_NN in_IN field_NN ,_, self-motion_NN effects_NNS induced_VVN by_IN environmental_JJ dynamics_NNS had_VHD to_TO be_VB considered_VVN ._SENT 
+In_IN this_DT paper_NN ,_, we_PP enhance_VV the_DT proposed_VVN prototype_NN with_IN an_DT inertial_JJ measurement_NN unit_NN (_( IMU_NP )_) to_TO compensate_VV for_IN such_JJ self-motion_NN effects_NNS ._SENT 
+We_PP will_MD refer_VV to_TO the_DT resulting_VVG sensor_NN system_NN as_IN differential_JJ pressure_NN sensor_NN speedometer_NN (_( DPSS_NP )_) and_CC present_VV its_PP$ performance_NN in_IN field_NN tests_NNS ._SENT 
+The_DT DPSS_NP was_VBD integrated_VVN into_IN a_DT commercial_JJ AUV_NP (_( SPARUS_NP II_NP ,_, IQUA_NP Robotics_NP )_) and_CC tested_VVN in_IN different_JJ environmental_JJ conditions_NNS including_VVG several_JJ depths_NNS in_IN protected_JJ and_CC open_JJ waters_NNS ._SENT 
+SPARUS_NP II_NP followed_VVD three_CD types_NNS of_IN trajectories_NNS (_( linear_JJ ,_, lawn_NN mower_NN ,_, and_CC loop_NN )_) at_IN surge_NN velocities_NNS ranging_VVG between_IN 0.1_CD and_CC 1.5_CD m/s_NNS ._SENT 
+For_IN tests_NNS in_IN the_DT protected_VVN environment_NN with_IN target_NN velocities_NNS greater_JJR than_IN 1_CD m/s_NNS ,_, the_DT differences_NNS in_IN the_DT velocity_NN estimations_NNS of_IN DPSS_NP and_CC DVL_NP ,_, expressed_VVN as_IN root-mean-square_JJ error_NN (_( RMSE_NN )_) ,_, did_VVD not_RB exceed_VV 0.032_CD m/s_NNS ._SENT 
+Furthermore_RB ,_, minimum_JJ errors_NNS of_IN 0.013_CD m/s_NNS could_MD be_VB achieved_VVN ,_, which_WDT were_VBD very_RB close_JJ to_TO the_DT ideal_JJ accuracy_NN of_IN the_DT DPSS_NP ._SENT 
+This_DT paper_NN is_VBZ organized_VVN as_RB follows_VVZ :_: In_IN Section_NP II_NP ,_, we_PP provide_VVP the_DT theoretical_JJ background_NN and_CC design_NN of_IN the_DT DPSS_NP ._SENT 
+Section_NP III_NP describes_VVZ the_DT experimental_JJ platform_NN ,_, the_DT SPARUS_NP II_NP AUV_NP ,_, used_VVN for_IN field_NN tests_NNS ._SENT 
+The_DT experimental_JJ setup_NN and_CC data_NN analysis_NN for_IN the_DT field_NN tests_NNS are_VBP explained_VVN in_IN Section_NP IV_NP ._SENT 
+In_IN Section_NN V_NN ,_, we_PP present_VVP the_DT results_NNS from_IN our_PP$ field_NN tests_NNS and_CC discuss_VV them_PP ._SENT 
+Finally_RB ,_, we_PP conclude_VVP this_DT paper_NN in_IN Section_NP VI_NP and_CC provide_VV some_DT remarks_NNS about_IN lessons_NNS learned_VVN during_IN the_DT field_NN trials_NNS and_CC potential_JJ for_IN future_JJ work_NN ._SENT 
+<Section> 2._CD Differential_JJ Pressure_NN Sensor_NN Speedometer_NN </Section> In_IN this_DT section_NN ,_, we_PP present_VVP the_DT theoretical_JJ background_NN and_CC the_DT physical_JJ implementation_NN of_IN the_DT DPSS_NP ._SENT 
+We_PP start_VVP by_IN deriving_VVG the_DT velocity_NN model_NN relating_VVG the_DT pressure_NN measurements_NNS of_IN the_DT DPSS_NP with_IN the_DT surge_NN velocity_NN ._SENT 
+We_PP then_RB describe_VVP the_DT design_NN and_CC physical_JJ setup_NN of_IN the_DT DPSS_NP ,_, which_WDT ensures_VVZ accurate_JJ and_CC stable_JJ measurements_NNS ._SENT 
+A._NP Velocity_NN Model_NP Based_VVN on_IN the_DT conservation_NN of_IN energy_NN within_IN a_DT fixed_VVN fluid_JJ volume_NN assuming_VVG an_DT inviscid_JJ and_CC incompressible_JJ flow_NN and_CC neglecting_VVG elevation_NN effects_NNS ,_, Bernoulli_NP 's_POS law_NN describes_VVZ the_DT fundamental_JJ relation_NN between_IN pressure_NN p_NN and_CC velocity_NN v_NN as_IN @(1_JJ )_) where_WRB ρ_NP is_VBZ the_DT density_NN of_IN the_DT fluid_NN ._SENT 
+Bernoulli_NP 's_POS law_NN can_MD be_VB used_VVN to_TO estimate_VV flow_NN velocity_NN around_IN an_DT immersed_VVN rigid_JJ body_NN ._SENT 
+The_DT fluid_JJ motion_NN over_IN spherical_JJ shapes_NNS has_VHZ been_VBN especially_RB used_VVN for_IN flow_NN speed_NN estimation_NN in_IN aeronautics_NNS [_SYM 38_CD ]_SYM ,_, [_SYM 39_CD ]_SYM ._SENT 
+As_IN explained_VVN in_IN Fig_NN ._SENT 
+1_LS ,_, a_DT spherical_JJ body_NN with_IN two_CD specific_JJ measurement_NN points_NNS for_IN pressure_NN on_IN its_PP$ surface_NN can_MD be_VB utilized_VVN to_TO estimate_VV the_DT flow_NN speed_NN ._SENT 
+Fig_NN ._SENT 
+1._CD Irrotational_JJ inviscid_NN and_CC incompressible_JJ flow_NN over_IN a_DT sphere_NN ._SENT 
+The_DT stagnation_NN point_NN on_IN the_DT spheres_NNS surface_NN is_VBZ indicated_VVN by_IN A._NP (_( a_DT )_) We_PP introduce_VV the_DT static_JJ point_NN B_NP ,_, respective_JJ velocities_NNS vA_NP and_CC vBand_NP the_DT enclosing_VVG angle_NN φST_NN ._SENT 
+(_( b_LS )_) We_PP introduce_VV an_DT arbitrary_JJ surface_NN point_NN C_NP ,_, respective_JJ velocities_NNS vA_NP and_CC vC_NP and_CC the_DT enclosing_VVG angle_NN �_NN �_NN ._SENT 
+In_IN both_DT cases_NNS ,_, v∞_NP denotes_VVZ the_DT free_JJ stream_NN velocity_NN ._SENT 
+In_IN Fig_NN ._SENT 
+1(a_NP )_) ,_, point_NN A_NP is_VBZ defined_VVN as_IN the_DT stagnation_NN point_NN ,_, where_WRB the_DT velocity_NN vA_NN equals_VVZ zero_CD ,_, whereas_IN point_NN B_NN represents_VVZ a_DT static_JJ point_NN ,_, where_WRB the_DT velocity_NN vB_NN is_VBZ equal_JJ to_TO the_DT free_JJ stream_NN velocity_NN v∞_NN ._SENT 
+Under_IN the_DT assumption_NN of_IN an_DT irrotational_JJ and_CC steady_JJ flow_NN ,_, points_VVZ A_NP and_CC B_NP can_MD be_VB used_VVN together_RB with_IN (_( 1_LS )_) to_TO derive_VV a_DT general_JJ equation_NN for_IN flow_NN velocity_NN ,_, which_WDT is_VBZ commonly_RB known_VVN as_IN the_DT Pitot_NP equation_NN @(2_NN )_) @(3_NP )_) Equation_NN (_( 3_LS )_) assumes_VVZ that_IN the_DT measurement_NN point_NN B_NP is_VBZ a_DT static_JJ point_NN of_IN a_DT specific_JJ body_NN ._SENT 
+To_TO relax_VV this_DT constraint_NN ,_, the_DT relation_NN between_IN the_DT velocity_NN vc_NN at_IN an_DT arbitrary_JJ position_NN C_NP on_IN the_DT spherical_JJ body_NN and_CC the_DT free_JJ stream_NN velocity_NN needs_VVZ to_TO be_VB established_VVN ._SENT 
+For_IN a_DT high_JJ Reynolds_NP number_NN flow_NN regime_NN past_IN a_DT sphere_NN ,_, this_DT relation_NN can_MD be_VB described_VVN with_IN [_SYM 33_CD ]_SYM @(4_JJ )_) where_WRB �_JJ �_NN is_VBZ defined_VVN as_IN the_DT angle_NN between_IN stagnation_NN point_NN A_DT and_CC measurement_NN point_NN C_NP [_SYM see_VV Fig_NN ._SENT 
+1(b_NP )_) ]_SYM ._SENT 
+Equation_NN (_( 3_CD )_) can_MD be_VB rewritten_VVN for_IN arbitrary_JJ locations_NNS of_IN measurement_NN points_NNS by_IN replacing_VVG vB_NN with_IN (_( 4_LS )_) as_RB follows_VVZ :_: @(5_NP )_) Equation_NN (_( 3_CD )_) and_CC subsequently_RB (_( 5_LS )_) only_RB allow_VV accurate_JJ flow_NN velocity_NN estimation_NN if_IN the_DT stagnation_NN point_NN faces_VVZ the_DT flow_NN ,_, which_WDT cannot_MD always_RB be_VB guaranteed_VVN in_IN dynamic_JJ applications_NNS underwater_JJ ._SENT 
+This_DT problem_NN can_MD be_VB solved_VVN by_IN introducing_VVG a_DT second_JJ measurement_NN point_NN C*_NN at_IN a_DT mirrored_VVD position_NN from_IN point_NN C._NP Equation_NN (_( 5_CD )_) can_MD be_VB used_VVN to_TO utilize_VV two_CD pressure_NN differences_NNS Δp1=pA_NP −pC_NP and_CC �_NP �_NP p2=pA_NP −pC∗between_NP the_DT stagnation_NN point_NN and_CC the_DT two_CD additional_JJ measurement_NN points_NNS ._SENT 
+First_RB ,_, we_PP take_VVP the_DT quadratic_JJ average_NN of_IN the_DT pressure_NN differences_NNS and_CC express_VV them_PP in_IN terms_NNS of_IN free_JJ stream_NN velocity_NN using_VVG (_( 2_LS )_) and_CC (_( 4_LS )_) as_RB follows_VVZ :_: @(6_NP )_) with_IN φ1and_NP φ2_NP describing_VVG the_DT angles_NNS between_IN stagnation_NN point_NN A_NP and_CC the_DT additional_JJ measurement_NN points_NNS C_NP and_CC C*_NP ._SENT 
+In_IN our_PP$ case_NN ,_, point_NN C*_NN is_VBZ mirrored_VVN from_IN C_NP and_CC thus_RB φ1=φ2=�_JJ �_NN ._SENT 
+We_PP can_MD then_RB further_RBR simplify_VV (_( 6_CD )_) and_CC calculate_VV v∞_NN as_RB follows_VVZ :_: @(7_JJ )_) with_IN @(8_NN )_) Equation_NN (_( 7_CD )_) agrees_VVZ well_RB with_IN the_DT relation_NN found_VVN through_IN computational_JJ fluid_JJ dynamics_NNS (_( CFD_NN )_) analysis_NN and_CC laboratory_NN experiments_NNS in_RB [_SYM 35_CD ]_SYM ,_, which_WDT provided_VVD satisfactory_JJ performance_NN for_IN deviations_NNS from_IN the_DT yaw_VVP axis_NN of_IN up_RB to_TO 45°_NN with_IN an_DT accuracy_NN of_IN 0.009_CD m/s_NNS [_SYM 36_CD ]_SYM ._SENT 
+Additionally_RB ,_, the_DT derivation_NN in_IN this_DT paper_NN provides_VVZ an_DT explanation_NN ,_, based_VVN on_IN first_JJ principles_NNS ,_, for_IN the_DT empirical_JJ coefficient_NN α(�_NN �_NN )_) used_VVN in_RB [_SYM 35_CD ]_SYM and_CC [_SYM 36_CD ]_SYM ._SENT 
+In_IN real-world_NN conditions_NNS ,_, disturbances_NNS induced_VVN by_IN the_DT dynamic_JJ environment_NN are_VBP not_RB restricted_VVN to_TO a_DT single_JJ dimension_NN ._SENT 
+The_DT motion_NN of_IN a_DT vehicle_NN may_MD cause_VV movements_NNS in_IN roll_NN and_CC pitch_NN directions_NNS ,_, which_WDT invalidate_VVP the_DT no–elevation_NN assumption_NN of_IN the_DT above_JJ derivation_NN ._SENT 
+To_TO compensate_VV for_IN those_DT effects_NNS ,_, additional_JJ hydrostatic_JJ pressure_NN components_NNS need_VVP to_TO be_VB introduced_VVN ._SENT 
+Fig_NN ._SENT 
+2_CD shows_NNS a_DT simplified_VVN example_NN of_IN the_DT expected_VVN effects_NNS ._SENT 
+Fig_NN ._SENT 
+2._CD Effect_NN of_IN roll_NN and_CC pitch_NN distortions_NNS on_IN the_DT position_NN of_IN the_DT pressure_NN measurement_NN points_NNS in_IN the_DT yz_NP plane_NN ._SENT 
+zR2_NP and_CC zR3_NP represent_VVP the_DT z_NN components_NNS of_IN the_DT two_CD measurement_NN points_NNS with_IN an_DT angular_JJ distortion_NN ._SENT 
+A_DT correction_NN algorithm_NN based_VVN on_IN measurements_NNS of_IN roll_NN (_( �_NP �_NP )_) and_CC pitch_NN (_( θ_NP )_) motions_VVZ is_VBZ applied_VVN ._SENT 
+We_PP define_VV the_DT initial_JJ Cartesian_JJ coordinates_VVZ of_IN the_DT pressure_NN measurement_NN points_NNS relative_JJ to_TO the_DT center_NN of_IN the_DT sphere_NN with_IN @_SYM @(9_JJ )_) where_WRB R(ϕ,θ_NP )_) is_VBZ a_DT direction_NN cosine_NN matrix_NN based_VVN on_IN roll_NN and_CC pitch_NN measurements_NNS while_IN yaw_VVP is_VBZ neglected_VVN ,_, which_WDT is_VBZ given_VVN as_RB follows_VVZ :_: @_SYM The_DT additional_JJ hydrostatic_JJ components_NNS are_VBP then_RB calculated_VVN based_VVN on_IN the_DT vertical_JJ distance_NN between_IN the_DT stagnation_NN and_CC the_DT two_CD additional_JJ measurement_NN points_NNS (_( see_VV Fig_NN ._SENT 
+2_LS )_) ._SENT 
+The_DT corrected_VVN pressure_NN differences_NNS are_VBP as_RB follows_VVZ :_: @(10_NP )_) with_IN ρ_NN representing_VVG the_DT density_NN of_IN water_NN and_CC g_NN defined_VVN as_IN the_DT gravitational_JJ constant_JJ ._SENT 
+This_DT results_NNS in_IN a_DT compensated_VVN equation_NN (_( 6_CD )_) given_VVN as_RB follows_VVZ :_: @(11_JJ )_) Throughout_IN the_DT above_JJ derivation_NN ,_, an_DT idealized_VVN flow_NN field_NN is_VBZ assumed_VVN and_CC ,_, thus_RB ,_, the_DT velocity_NN estimation_NN based_VVN on_IN (_( 11_CD )_) will_MD be_VB sensitive_JJ to_TO disturbances_NNS ._SENT 
+Such_JJ disturbances_NNS can_MD include_VV near_IN surface_NN ,_, near_IN bottom_NN ,_, and_CC near_IN structure_NN effects_NNS ._SENT 
+In_IN laboratory_NN conditions_NNS ,_, it_PP was_VBD shown_VVN that_IN the_DT velocity_NN estimation_NN was_VBD insensitive_JJ toward_IN wall_NN effects_NNS at_IN a_DT distance_NN of_IN 0.25_CD m_NN [_SYM 35_CD ]_SYM and_CC water_NN surface_NN at_IN a_DT distance_NN of_IN 0.5_CD m_NN [_SYM 36_CD ]_SYM ._SENT 
+The_DT experiments_NNS described_VVN in_IN this_DT paper_NN were_VBD well_RB within_IN those_DT limits_NNS ._SENT 
+A_DT more_RBR extensive_JJ characterization_NN of_IN those_DT boundaries_NNS including_VVG objects_NNS with_IN complex_JJ geometries_NNS and_CC dynamic_JJ water_NN surfaces_VVZ in_IN field_NN conditions_NNS may_MD be_VB part_NN of_IN future_JJ research_NN ._SENT 
+B._NP DPSS_NP Design_NP The_NP DPSS_NP utilizes_VVZ two_CD differential_NN pressure_NN sensors_NNS to_TO measure_VV pressure_NN across_IN three_CD points_NNS on_IN its_PP$ surface_NN ,_, and_CC an_DT IMU_NP is_VBZ used_VVN to_TO detect_VV angular_JJ disturbances_NNS ._SENT 
+A_DT microcontroller_NN embedded_VVN in_IN the_DT DPSS_NP uses_VVZ the_DT velocity_NN model_NN (_( 11_CD )_) to_TO relate_VV the_DT pressure_NN measurements_NNS of_IN the_DT differential_JJ pressure_NN sensors_NNS with_IN the_DT surge_NN velocity_NN ._SENT 
+The_DT pressure_NN on_IN the_DT surface_NN of_IN the_DT DPSS_NP is_VBZ measured_VVN using_VVG three_CD flush_JJ holes_NNS normal_JJ to_TO its_PP$ surface_NN ,_, which_WDT we_PP call_VVP pressure_NN taps_NNS ._SENT 
+Fig_NN ._SENT 
+3_LS illustrates_VVZ the_DT location_NN of_IN the_DT pressure_NN taps_NNS on_IN the_DT surface_NN of_IN the_DT DPSS_NP at_IN 0∘(stagnation_NN point_NN )_) and_CC ±_NP 35∘_NP ._SENT 
+The_DT pressure_NN differences_NNS are_VBP measured_VVN using_VVG two_CD analog_JJ differential_JJ pressure_NN sensors_NNS (_( NXP_NN Semiconductors_NNS MPXV7002_NN )_) ._SENT 
+As_IN already_RB mentioned_VVN in_IN Section_NP I_NP ,_, differential_JJ pressure_NN sensors_NNS are_VBP not_RB sensitive_JJ to_TO depth_NN changes_NNS ,_, contrary_JJ to_TO absolute_JJ pressure_NN sensors_NNS ,_, which_WDT enables_VVZ the_DT DPSS_NP to_TO measure_VV with_IN a_DT higher_JJR sensitivity_NN ._SENT 
+The_DT analog_JJ signal_NN is_VBZ converted_VVN using_VVG a_DT 16-b_NN analog-to-digital_JJ converter_NN (_( Linear_NP Technology_NP ,_, Milpitas_NP ,_, CA_MD ,_, USA_NP ,_, LTC1867_JJ )_) ,_, and_CC the_DT temperature_NN is_VBZ monitored_VVN with_IN a_DT 13-b_NN sensor_NN (_( Analog_NP Devices_NPS ,_, Norwood_NP ,_, MA_NN ,_, USA_NP ,_, ADT7301_JJ )_) ._SENT 
+Furthermore_RB ,_, a_DT six-degree-of-freedom_NP IMU_NP (_( InvenSense_NP ,_, San_NP Jose_NP ,_, CA_MD ,_, USA_NP ,_, MPU-6050_NP )_) provides_VVZ input_NN for_IN the_DT correction_NN algorithm_NN ._SENT 
+An_DT Arduino_NP Micro_NP is_VBZ used_VVN as_IN the_DT processing_NN unit_NN for_IN the_DT sensor_NN information_NN ._SENT 
+Finally_RB ,_, the_DT information_NN from_IN the_DT DPSS_NP is_VBZ transmitted_VVN to_TO the_DT AUV_NP using_VVG a_DT serial_JJ connection_NN with_IN a_DT transmission_NN rate_NN of_IN 100_CD Hz_NP ._SENT 
+All_DT electronic_JJ components_NNS have_VHP a_DT total_JJ power_NN consumption_NN of_IN 243.5_CD mW_NNS and_CC are_VBP integrated_VVN into_IN a_DT three-dimenisonal_JJ printed_JJ water-tight_NN housing_NN (_( see_VV Fig_NN ._SENT 
+3_LS )_) ._SENT 
+Table_NN I_PP compares_VVZ the_DT DPSS_NP with_IN three_CD small-scale_JJ DVLs_NNS regarding_VVG size_NN ,_, weight_NN ,_, and_CC energy_NN consumption_NN ._SENT 
+The_DT DPSS_NP is_VBZ smaller_JJR and_CC more_JJR energy_NN efficient_JJ in_IN comparison_NN to_TO all_PDT the_DT three_CD DVLs_NNS ,_, whereas_IN there_EX is_VBZ still_RB potential_JJ to_TO decrease_VV the_DT dimensions_NNS and_CC weight_NN of_IN our_PP$ sensor_NN system_NN ._SENT 
+A_DT one-to-one_JJ price_NN comparison_NN is_VBZ difficult_JJ because_IN the_DT DVLs_NNS are_VBP fully_RB developed_VVN products_NNS ,_, whereas_IN the_DT DPSS_NP is_VBZ still_RB in_IN a_DT prototype_NN stage_NN ._SENT 
+However_RB ,_, based_VVN on_IN a_DT rough_JJ comparison_NN ,_, the_DT price_NN range_NN for_IN the_DT DPSS_NP should_MD be_VB around_RB one_CD order_NN of_IN magnitude_NN lower_RBR ._SENT 
+Fig_NN ._SENT 
+3._CD DPSS_NP housing_NN shown_VVN in_IN (_( a_DT )_) isometric_JJ view_NN and_CC (_( b_LS )_) top_JJ view_NN ._SENT 
+Both_DT views_NNS indicate_VVP the_DT location_NN of_IN the_DT pressure_NN taps_NNS at_IN the_DT stagnation_NN point_NN (_( 0°_NP )_) and_CC the_DT additional_JJ measurement_NN points_NNS (_( ±35°_NP )_) ._SENT 
+TABLE_NN I_NN Comparison_NN of_IN DPSS_NP With_IN Three_CD Small-Scale_JJ DVLs_NNS Regarding_VVG Size_NN ,_, Weight_NP ,_, and_CC Power_NP Consumption_NN In_IN underwater_JJ applications_NNS ,_, stiff_JJ membranes_NNS are_VBP used_VVN to_TO ensure_VV water_NN tightness_NN of_IN pressure_NN sensors_NNS ,_, which_WDT limits_VVZ the_DT sensitivity_NN for_IN low-pressure_JJ ranges_NNS ._SENT 
+However_RB ,_, due_JJ to_TO the_DT quadratic_JJ relation_NN of_IN pressure_NN and_CC velocity_NN ,_, high_JJ sensitivities_NNS and_CC a_DT small_JJ pressure_NN range_NN (_( <_SYM ±2000_NP Pa_NP )_) are_VBP necessary_JJ to_TO measure_VV low_JJ velocities_NNS ._SENT 
+To_TO overcome_VV those_DT limitations_NNS ,_, we_PP selected_VVD an_DT air_NN pressure_NN sensor_NN able_JJ to_TO operate_VV in_IN high_JJ humidity_NN environments_NNS and_CC included_VVD an_DT internal_JJ tubing_NN system_NN within_IN the_DT housing_NN of_IN the_DT DPSS_NP ,_, which_WDT always_RB maintains_VVZ a_DT layer_NN of_IN air_NN between_IN the_DT sensors_NNS and_CC the_DT environment_NN (_( see_VV Fig_NN ._SENT 
+4_LS )_) ._SENT 
+The_DT geometry_NN of_IN the_DT tubing_NN enables_VVZ to_TO trap_NN a_DT single_JJ volume_NN of_IN air_NN and_CC is_VBZ designed_VVN to_TO prevent_VV the_DT formation_NN of_IN several_JJ air_NN pockets_NNS ,_, which_WDT would_MD increase_VV measurement_NN noise_NN ._SENT 
+However_RB ,_, the_DT volume_NN of_IN the_DT trapped_JJ air_NN is_VBZ variable_JJ and_CC is_VBZ expected_VVN to_TO depend_VV on_IN environmental_JJ conditions_NNS ,_, such_JJ as_IN angle_NN of_IN deployment_NN of_IN the_DT sensor_NN into_IN the_DT water_NN ,_, depth_NN ,_, and_CC temperature_NN ._SENT 
+This_DT variability_NN affects_VVZ the_DT sensor_NN readings_NNS and_CC must_MD be_VB accounted_VVN for_IN ._SENT 
+Fig_NN ._SENT 
+4._CD Cross-sectional_JJ view_NN of_IN the_DT DPSS_NP showing_VVG the_DT internal_JJ tubing_NN and_CC the_DT air–water_NN interface_NN ._SENT 
+The_DT DPSS_NP prototype_NN used_VVN during_IN this_DT study_NN was_VBD specifically_RB designed_VVN to_TO be_VB integrated_VVN with_IN a_DT SPARUS_NP II_NP AUV_NP ,_, which_WDT has_VHZ an_DT interchangeable_JJ head_JJ section_NN [_SYM 40_CD ]_SYM ._SENT 
+Fig_NN ._SENT 
+5_CD shows_NNS the_DT computer-aided_JJ design_NN (_( CAD_NN )_) drawing_NN of_IN the_DT prototype_NN ,_, with_IN the_DT DPSS_NP as_IN its_PP$ main_JJ component_NN ,_, a_DT supporting_VVG frame_NN ,_, and_CC covers_VVZ forming_VVG the_DT payload_NN area_NN of_IN SPARUS_NP II_NP ._SENT 
+When_WRB assembled_VVN ,_, the_DT covers_NNS of_IN SPARUS_NP II_NP and_CC the_DT exposed_VVN face_NN of_IN the_DT DPSS_NP form_NN a_DT hemisphere_NN ,_, which_WDT allows_VVZ the_DT use_NN of_IN (_( 11_CD )_) ._SENT 
+Fig_NN ._SENT 
+5._CD Exploded_VVD view_NN of_IN the_DT DPSS_NP together_RB with_IN a_DT frame_NN and_CC covers_VVZ reproducing_VVG a_DT payload_NN section_NN for_IN a_DT torpedo-shaped_JJ robot_NN ._SENT 
+C._NP DPSS_NP Performance_NP Characterization_NN DPSS_NP performance_NN for_IN surge_NN velocity_NN estimation_NN was_VBD characterized_VVN by_IN experiments_NNS in_IN a_DT tow_NN tank_NN ,_, which_WDT are_VBP described_VVN in_RB [_SYM 36_CD ]_SYM ._SENT 
+As_RB discussed_VVN before_RB ,_, the_DT relation_NN between_IN pressure_NN and_CC velocity_NN (_( 3_CD )_) is_VBZ quadratic_JJ ;_: therefore_RB ,_, similar_JJ pressure_NN deviations_NNS cause_VVP higher_JJR velocity_NN variations_NNS for_IN lower_JJR velocities_NNS ._SENT 
+We_PP thus_RB expected_VVD higher_JJR errors_NNS of_IN the_DT DPSS_NP for_IN low_JJ velocities_NNS in_IN a_DT dynamic_JJ environment_NN ._SENT 
+In_IN addition_NN ,_, the_DT number_NN of_IN pressure_NN samples_NNS considered_VVN in_IN calculating_VVG velocity_NN influenced_VVD the_DT accuracy_NN of_IN the_DT DPSS_NP ._SENT 
+It_PP was_VBD shown_VVN in_RB [_SYM 36_CD ]_SYM that_IN a_DT stable_JJ optimum_JJ accuracy_NN was_VBD obtained_VVN for_IN sampling_VVG rates_NNS from_IN 5_CD to_TO 13_CD Hz_NP ._SENT 
+To_TO establish_VV an_DT error_NN model_NN for_IN the_DT DPSS_NP ,_, it_PP would_MD be_VB possible_JJ to_TO propagate_VV the_DT nominal_JJ error_NN of_IN the_DT commercial_JJ pressure_NN sensors_NNS through_IN (_( 11_CD )_) ._SENT 
+However_RB ,_, the_DT error_NN estimates_NNS provided_VVN by_IN the_DT manufacturer_NN are_VBP conservative_JJ ,_, which_WDT makes_VVZ it_PP difficult_JJ to_TO establish_VV an_DT accurate_JJ error_NN model_NN ._SENT 
+Instead_RB ,_, we_PP developed_VVD the_DT error_NN model_NN based_VVN on_IN empirical_JJ data_NNS and_CC lumped_VVN possible_JJ errors_NNS together_RB in_IN a_DT probabilistic_JJ error_NN term_NN “err''assuming_VVG a_DT normal_JJ distribution_NN where_WRB the_DT mean_JJ μ_NN represents_VVZ the_DT sensor_NN accuracy_NN v∞=2α(φ)ρ2_NP @(12_NP )_) Fig_NN ._SENT 
+6_CD shows_NNS the_DT PDF_NN of_IN the_DT velocity_NN errors_NNS from_IN the_DT performance_NN experiments_NNS described_VVN in_RB [_SYM 36_CD ]_SYM ._SENT 
+The_DT velocity_NN error_NN follows_VVZ a_DT Gaussian_JJ distribution_NN N(μ,σ2_NN )_) ,_, resulting_VVG in_IN an_DT accuracy_NN of_IN the_DT DPSS_NP of_IN μ=0.012_NP m/s_NPS and_CC a_DT standard_JJ deviation_NN of_IN σ=0.009_JJ m/s_NNS ._SENT 
+However_RB ,_, the_DT accuracy_NN of_IN the_DT tow_NN tank_NN used_VVN in_RB [_SYM 36_CD ]_SYM was_VBD limited_VVN to_TO 0.01_CD m/s_NNS ._SENT 
+Therefore_RB ,_, we_PP assumed_VVD a_DT standard_JJ deviation_NN of_IN σ=0.01_JJ m/s_NNS ._SENT 
+Under_IN field_NN conditions_NNS ,_, other_JJ possible_JJ pressure_NN sources_NNS or_CC flow_NN field_NN distortions_NNS may_MD modify_VV the_DT described_VVN performance_NN ;_: for_IN instance_NN ,_, the_DT influence_NN of_IN waves_NNS or_CC currents_NNS and_CC attitude_NN dynamics_NNS of_IN the_DT AUV_NP ._SENT 
+Fig_NN ._SENT 
+6._CD Probability_NN density_NN function_NN (_( PDF_NP )_) of_IN the_DT DPSS_NP velocity_NN error_NN obtained_VVN during_IN tow_NN tank_NN experiments_NNS [_SYM 36_CD ]_SYM (_( red_JJ )_) and_CC fitted_JJ Gaussian_JJ distribution_NN (_( dashed_VVN )_) with_IN estimated_JJ mean_JJ μ_NN and_CC standard_JJ deviation_NN σ_NP <Section> 3._CD Experimental_JJ Platform—SPARUS_NP II_NP </Section> A._NP SPARUS_NP II_NP System_NP Overview_NN SPARUS_NP II_NP is_VBZ a_DT lightweight_JJ surveillance_NN AUV_NN for_IN long-term_JJ missions_NNS with_IN a_DT classical_JJ torpedo-shaped_JJ hull_NN ._SENT 
+The_DT general_JJ specifications_NNS and_CC the_DT specific_JJ test_NN configuration_NN of_IN the_DT robot_NN are_VBP presented_VVN in_IN Fig_NN ._SENT 
+7._CD Fig_NN ._SENT 
+7._CD SPARUS_NP II_NP AUV_NP in_IN an_DT indoor_JJ pool_NN at_IN Underwater_JJ Robotics_NP Research_NP Centre_NP (_( CIRS_NP )_) ,_, University_NP of_IN Girona_NP ,_, Girona_NP ,_, Spain_NP ,_, with_IN the_DT integrated_JJ DPSS_NP ._SENT 
+General_JJ specifications_NNS (_( adapted_VVN from_IN [_SYM 40_CD ]_SYM )_) and_CC sensor_NN suite_NN specifications_NNS used_VVN during_IN the_DT experiments_NNS can_MD be_VB seen_VVN on_IN the_DT right_NN ._SENT 
+The_DT vehicle_NN has_VHZ two_CD horizontal_JJ thrusters_NNS ,_, a_DT vertical_JJ thruster_NN ,_, and_CC fins_NNS at_IN the_DT stern_JJ that_WDT enable_VVP actuation_NN in_IN surge_NN ,_, heave_NN ,_, pitch_NN ,_, and_CC yaw_VV direction_NN ._SENT 
+The_DT bow_NN of_IN the_DT robot_NN is_VBZ a_DT customizable_JJ payload_NN area_NN with_IN a_DT volume_NN of_IN 8_CD L_NP supporting_VVG a_DT maximum_JJ weight_NN of_IN 7_CD kg_NN ._SENT 
+The_DT DPSS_NP was_VBD integrated_VVN into_IN the_DT front_JJ part_NN of_IN the_DT payload_NN area_NN ._SENT 
+For_IN this_DT work_NN ,_, the_DT covers_VVZ of_IN the_DT payload_NN area_NN were_VBD changed_VVN to_TO create_VV a_DT spherical_JJ head_NN (_( see_VV Figs_NNS ._SENT 
+5_CD and_CC 7_CD )_) ._SENT 
+The_DT software_NN architecture_NN of_IN SPARUS_NP II_NP is_VBZ based_VVN on_IN the_DT open_JJ source_NN Robot_NN Operating_VVG System_NP (_( ROS_NP )_) [_SYM 41_CD ]_SYM ._SENT 
+The_DT basic_JJ sensor_NN suite_NN of_IN SPARUS_NP II_NP used_VVD during_IN the_DT experiments_NNS consists_VVZ of_IN a_DT pressure_NN sensor_NN ,_, IMU_NP ,_, DVL_NP ,_, and_CC a_DT GPS_NNS (_( see_VV Fig_NN ._SENT 
+7_CD )_) ._SENT 
+The_DT information_NN of_IN all_DT sensors_NNS was_VBD forwarded_VVN to_TO an_DT EKF_NN for_IN sensor_NN fusion_NN and_CC state_NN estimation_NN [_SYM 42_CD ]_SYM ._SENT 
+The_DT data_NNS provided_VVN by_IN the_DT sensors_NNS ,_, including_VVG the_DT DPSS_NP and_CC the_DT EKF_NP state_NN estimation_NN ,_, were_VBD stored_VVN in_IN separate_JJ datalog_NN files_NNS ._SENT 
+The_DT DVL_NP (_( Teledyne_NP RD_NP Instruments_NP ,_, Inc._NP ,_, Poway_NP ,_, CA_MD ,_, USA_NP ,_, Explorer_NN 600_CD )_) ,_, integrated_VVN at_IN the_DT rear_JJ conical_JJ part_NN of_IN SPARUS_NP II_NP ,_, was_VBD used_VVN in_IN this_DT study_NN as_IN the_DT reference_NN for_IN velocity_NN estimation_NN ._SENT 
+Using_VVG the_DT frequency_NN shift_NN of_IN backscattered_JJ acoustic_JJ signals_NNS ,_, it_PP estimates_VVZ the_DT velocity_NN of_IN SPARUS_NP II_NP in_IN three_CD degrees_NNS of_IN freedom_NN with_IN an_DT accuracy_NN of_IN 1.15_CD %_NN of_IN distance_NN traveled_VVN [_SYM 37_CD ]_SYM ._SENT 
+Velocity_NN can_MD be_VB measured_VVN relative_JJ to_TO a_DT solid_JJ surface_NN (_( BL_NP )_) or_CC particles_NNS in_IN the_DT water_NN (_( WL_NN )_) ._SENT 
+The_DT navigation_NN framework_NN of_IN SPARUS_NP II_NP favored_VVD velocity_NN information_NN from_IN BL_NP ,_, if_IN available_JJ ,_, because_IN it_PP usually_RB is_VBZ more_RBR accurate_JJ ._SENT 
+Subsequently_RB ,_, the_DT BL_NP mode_NN was_VBD used_VVN to_TO create_VV the_DT reference_NN velocity_NN estimation_NN for_IN the_DT WL_NN and_CC the_DT DPSS_NP ._SENT 
+<Section> 4._CD Experimental_JJ Configuration_NN </Section> Field_NN trials_NNS were_VBD conducted_VVN in_IN the_DT harbor_NN area_NN of_IN Sant_NP Feliu_NP de_NP Guíxols_NP ,_, Catalonia_NP ,_, Spain_NP (_( see_VV Fig_NN ._SENT 
+8_CD )_) ._SENT 
+SPARUS_NP II_NP was_VBD in_IN autonomous_JJ mode_NN throughout_IN each_DT trial_NN ._SENT 
+However_RB ,_, for_IN safety_NN reasons_NNS and_CC monitoring_VVG and_CC recording_VVG real-time_JJ telemetry_NN data_NNS ,_, the_DT vehicle_NN was_VBD connected_VVN to_TO a_DT wireless_NN access_NN point_NN buoy_VV ._SENT 
+Fig_NN ._SENT 
+8._CD Location_NP of_IN the_DT test_NN site_NN for_IN field_NN trials_NNS :_: harbor_NN area_NN of_IN Sant_NP Feliu_NP de_NP Guíxols_NP (_( Catalonia_NP ,_, Spain_NP )_) ._SENT 
+WGS84_NP (_( km)—41.7775°_NP N_NP ,_, 3.0325°_NP E._NP A._NP Test_NP Conditions_NNS and_CC Trajectories_NNS The_DT DPSS_NP was_VBD tested_VVN in_IN three_CD different_JJ sets_NNS of_IN conditions_NNS ,_, which_WDT we_PP will_MD define_VV as_IN test_NN settings_NNS A_NP ,_, B_NP ,_, and_CC C._NP As_RB can_MD be_VB seen_VVN in_IN Fig_NN ._SENT 
+8_CD ,_, the_DT tests_NNS in_IN setting_VVG A_NP and_CC B_NP were_VBD conducted_VVN in_IN the_DT same_JJ area_NN protected_VVN by_IN harbor_NN walls_NNS ,_, whereas_IN the_DT tests_NNS in_IN setting_VVG C_NP were_VBD conducted_VVN in_IN open_JJ water_NN with_IN larger_JJR environmental_JJ disturbances_NNS ._SENT 
+Based_VVN upon_IN observable_JJ conditions_NNS at_IN the_DT time_NN of_IN testing_NN ,_, setting_VVG A_DT was_VBD assumed_VVN to_TO represent_VV the_DT most_RBS stable_JJ environment_NN ,_, with_IN settings_NNS B_NP and_CC C_NP representing_VVG higher_JJR and_CC highest_JJS waves_NNS ,_, respectively_RB (_( see_VV Table_NN II_NP )_) ._SENT 
+The_DT potential_JJ effect_NN of_IN surface_NN waves_NNS on_IN the_DT recorded_VVN pressure_NN data_NNS [_SYM 43_CD ]_SYM was_VBD further_RBR decreased_VVN for_IN setting_VVG A_DT by_IN using_VVG a_DT target_NN depth_NN of_IN 4_CD m_NN ,_, as_RB opposed_VVN to_TO the_DT target_NN depth_NN of_IN 3_CD m_NN for_IN settings_NNS B_NP and_CC C._NP Table_NN II_NP summarizes_VVZ the_DT experimental_JJ conditions_NNS of_IN the_DT three_CD test_NN settings_NNS ._SENT 
+TABLE_NN II_NP Test_NP Settings_NNS for_IN Field_NP Trials_NNS Including_VVG Weather_NP Conditions_NNS ,_, Depth_NN ,_, and_CC Test_NN Site_NN For_IN each_DT of_IN these_DT settings_NNS ,_, three_CD types_NNS of_IN trajectories_NNS were_VBD executed_VVN :_: linear_JJ ,_, lawn_NN mower_NN ,_, and_CC loop_NN (_( see_VV Fig_NN ._SENT 
+9_CD )_) ._SENT 
+We_PP will_MD refer_VV to_TO a_DT single_JJ successful_JJ trial_NN of_IN a_DT trajectory_NN as_IN a_DT “run.”_NN Every_DT run_NN was_VBD conducted_VVN twice_RB for_IN each_DT velocity_NN in_IN each_DT setting_NN ,_, and_CC we_PP subsequently_RB divided_VVN such_PDT a_DT pair_NN of_IN runs_NNS in_IN repetition_NN 1_CD and_CC repetition_NN 2._CD Due_JJ to_TO the_DT dynamics_NNS of_IN the_DT testing_NN environment_NN ,_, a_DT one-to-one_JJ comparison_NN between_IN those_DT repetitions_NNS was_VBD not_RB feasible_JJ ._SENT 
+However_RB ,_, it_PP is_VBZ possible_JJ to_TO infer_VV some_DT information_NN about_IN reproducibility_NN by_IN comparing_VVG the_DT distributions_NNS of_IN the_DT whole_JJ data_NNS set_VVN of_IN the_DT repetition_NN 1_CD runs_NNS versus_IN the_DT repetition_NN 2_CD runs_NNS ._SENT 
+Fig_NN ._SENT 
+9._CD Trajectories_NNS used_VVN during_IN field_NN trials_NNS (_( the_DT segments_NNS at_IN which_WDT the_DT velocities_NNS were_VBD measured_VVN are_VBP colored_VVN in_IN red_NN )_) ._SENT 
+(_( a_DT )_) Linear—After_NN receiving_VVG a_DT stable_JJ GPS_NNS signal_VVP at_IN the_DT starting_VVG point_NN ,_, the_DT robot_NN dived_VVD to_TO its_PP$ target_NN depth_NN (_( 1_CD )_) and_CC started_VVD moving_VVG forward_RB along_IN the_DT first_JJ linear_JJ track_NN with_IN the_DT first_JJ target_NN velocity_NN (_( 2_CD )_) ._SENT 
+Once_IN the_DT first_JJ endpoint_NN was_VBD reached_VVN ,_, the_DT robot_NN stopped_VVD and_CC surfaced_VVD (_( 3_LS )_) ._SENT 
+After_IN the_DT robot_NN received_VVD a_DT stable_JJ GPS_NNS signal_NN and_CC the_DT dead_JJ reckoning_NN position_NN estimation_NN was_VBD corrected_VVN ,_, the_DT AUV_NP moved_VVD to_TO the_DT second_JJ starting_VVG point_NN (_( 4_CD )_) and_CC dived_VVD to_TO target_NN depth_NN (_( 5_CD )_) ._SENT 
+Once_IN target_NN depth_NN was_VBD reached_VVN the_DT robot_NN moved_VVD forward_RB on_IN the_DT second_JJ linear_JJ track_NN with_IN the_DT second_JJ target_NN velocity_NN (_( 6_CD )_) ,_, the_DT robot_NN stopped_VVN upon_IN reaching_VVG the_DT second_JJ endpoint_NN and_CC surfaced_VVD (_( 7_CD )_) ._SENT 
+The_DT run_NN was_VBD completed_VVN once_IN the_DT robot_NN got_VVD a_DT stable_JJ GPS_NNS signal_VVP at_IN the_DT final_JJ endpoint_NN ._SENT 
+(_( b_LS )_) Lawn_NP mower_NN and_CC (_( c_LS )_) loop—After_NN receiving_VVG a_DT stable_JJ GPS_NNS signal_VVP at_IN the_DT starting_VVG point_NN ,_, the_DT robot_NN dived_VVD to_TO its_PP$ target_NN depth_NN (_( 1_CD )_) and_CC started_VVD to_TO follow_VV a_DT lawn_NN mower_NN or_CC loop_NN trajectory_NN and_CC maintained_VVD a_DT constant_JJ velocity_NN (_( 2_CD )_) ._SENT 
+When_WRB the_DT endpoint_NN was_VBD reached_VVN ,_, the_DT robot_NN surfaced_VVD and_CC got_VVD the_DT final_JJ GPS_NNS signal_NN (_( 3_CD )_) ._SENT 
+The_DT linear_JJ trajectory_NN [_SYM see_VV Fig_NN ._SENT 
+9(a_NP )_) ]_SYM was_VBD designed_VVN to_TO verify_VV the_DT laboratory_NN calibration_NN in_RB [_SYM 36_CD ]_SYM for_IN field_NN conditions_NNS ._SENT 
+The_DT vehicle_NN initially_RB dived_VVD to_TO target_VV depth_NN and_CC then_RB performed_VVD the_DT first_JJ of_IN two_CD linear_JJ “tracks.”_NN At_IN a_DT predefined_JJ length_NN ,_, the_DT vehicle_NN surfaced_VVD ,_, performed_VVD a_DT maneuver_NN to_TO reorient_VV back_RB toward_IN the_DT initial_JJ starting_VVG direction_NN ,_, dived_VVD ,_, and_CC performed_VVD the_DT second_NN of_IN the_DT linear_JJ tracks_NNS ._SENT 
+Only_RB the_DT parts_NNS of_IN the_DT trajectory_NN that_WDT were_VBD at_IN the_DT target_NN depth_NN were_VBD used_VVN in_IN the_DT data_NNS set_VVD ._SENT 
+On_IN each_DT linear_JJ track_NN ,_, SPARUS_NP II_NP was_VBD moving_VVG with_IN a_DT different_JJ target_NN velocity_NN ._SENT 
+In_IN total_NN ,_, four_CD pairs_NNS of_IN different_JJ target_NN velocities_NNS were_VBD tested_VVN (_( see_VV Table_NN III_NP )_) ._SENT 
+Due_JJ to_TO an_DT error_NN in_IN setting_VVG the_DT target_NN depth_NN ,_, the_DT second_JJ repetitions_NNS for_IN the_DT target_NN velocity_NN pairs_NNS of_IN 0.4–0.5_JJ m/s_NNS and_CC 0.75–1.0_JJ m/s_NNS in_IN setting_VVG B_NP were_VBD conducted_VVN at_IN a_DT target_NN depth_NN of_IN 4_CD m._NP TABLE_NN III_NP Pairs_NNS of_IN Target_NP Velocities_NNS for_IN the_DT Linear_NP Trajectory_NN and_CC Their_PP$ Target_NP Depth_NN Depending_VVG on_IN Repetition_NN (_( “Rep”_NP )_) and_CC Setting_NP The_DT lawn_NN mower_NN [_SYM see_VV Fig_NN ._SENT 
+9(b_NP )_) ]_SYM and_CC loop_NN [_SYM see_VV Fig_NN ._SENT 
+9(c_NP )_) ]_SYM trajectories_NNS were_VBD used_VVN to_TO assess_VV the_DT robustness_NN of_IN the_DT DPSS_NP during_IN turns_NNS and_CC check_VV its_PP$ performance_NN for_IN standard_JJ trajectories_NNS commonly_RB used_VVN in_IN underwater_JJ robotics_NNS ._SENT 
+For_IN those_DT trajectories_NNS ,_, we_PP chose_VVD two_CD target_NN velocities_NNS ,_, 0.5_CD m/s_NNS and_CC 1.0_CD m/s_NNS ,_, which_WDT are_VBP on_IN the_DT lower_JJR bound_VVN of_IN the_DT operational_JJ speeds_NNS for_IN torpedo-shaped_JJ AUVs_NNS [_SYM 44_CD ]_SYM ._SENT 
+These_DT velocities_NNS were_VBD chosen_VVN to_TO test_VV the_DT lower_JJR limits_NNS of_IN the_DT DPSS_NP since_IN the_DT quality_NN of_IN the_DT velocity_NN estimation_NN was_VBD expected_VVN to_TO increase_VV with_IN velocity_NN ._SENT 
+After_IN getting_VVG a_DT stable_JJ GPS_NNS signal_VVP at_IN its_PP$ starting_VVG position_NN ,_, SPARUS_NP II_NP executed_VVD a_DT vertical_JJ dive_NN to_TO the_DT target_NN depth_NN and_CC then_RB performed_VVN either_CC a_DT lawn_NN mower_NN or_CC loop_NN trajectory_NN with_IN constant_JJ velocity_NN ._SENT 
+After_IN SPARUS_NP II_NP reached_VVD the_DT final_JJ location_NN ,_, it_PP surfaced_VVD and_CC waited_VVD for_IN a_DT stable_JJ GPS_NNS signal_VVP ._SENT 
+A_DT complete_JJ description_NN of_IN the_DT test_NN parameters_NNS for_IN all_DT trajectories_NNS can_MD be_VB found_VVN in_IN Appendix_NN A._NP B._NP Data_NP Analysis_NP The_DT current_JJ design_NN of_IN the_DT DPSS_NP estimates_VVZ velocity_NN in_IN surge_NN direction_NN up_RB to_TO a_DT minimum_JJ depth_NN of_IN 0.5_CD m_NN in_IN the_DT absence_NN of_IN significant_JJ deviations_NNS in_IN depth_NN ._SENT 
+Additionally_RB ,_, waves_NNS had_VHD distorting_VVG effects_NNS on_IN the_DT velocity_NN estimation_NN close_NN to_TO the_DT surface_NN ._SENT 
+We_PP thus_RB restricted_VVD the_DT performance_NN comparison_NN of_IN DVL_NP and_CC DPSS_NP to_TO velocity_NN estimation_NN in_IN surge_NN direction_NN at_IN target_NN depth_NN (_( red_JJ segments_NNS in_IN Fig_NN ._SENT 
+9_CD )_) ._SENT 
+For_IN the_DT work_NN described_VVN in_IN this_DT paper_NN ,_, the_DT surge_NN velocity_NN estimation_NN was_VBD sufficient_JJ ,_, because_IN the_DT sway_NN velocity_NN was_VBD close_JJ to_TO 0_CD m/s_NNS for_IN all_DT tests_NNS (_( see_VV Appendix_NN B_NN )_) ._SENT 
+During_IN the_DT trials_NNS ,_, the_DT raw_JJ data_NNS from_IN all_DT sensors_NNS ,_, in_IN addition_NN to_TO the_DT state_NN estimates_NNS produced_VVN by_IN the_DT EKF_NN ,_, were_VBD recorded_VVN automatically_RB within_IN the_DT ROS_NP framework_NN ._SENT 
+The_DT raw_JJ pressure_NN measurements_NNS of_IN the_DT differential_JJ pressure_NN sensors_NNS were_VBD sampled_VVN at_IN a_DT rate_NN of_IN 100_CD Hz_NP and_CC averaged_VVD over_IN 20_CD samples_NNS to_TO achieve_VV optimum_JJ accuracy_NN ._SENT 
+Thus_RB ,_, the_DT DPSS_NP provided_VVD velocity_NN estimations_NNS with_IN an_DT effective_JJ sampling_NN rate_NN of_IN 5_CD Hz_NP ,_, which_WDT was_VBD comparable_JJ to_TO the_DT sampling_VVG rate_NN of_IN the_DT DVL_NN (_( 6_CD Hz_NP )_) ._SENT 
+An_DT important_JJ factor_NN regarding_VVG the_DT DPSS_NP velocity_NN calculation_NN is_VBZ the_DT volume_NN of_IN air_NN inside_IN the_DT internal_JJ tubes_NNS of_IN the_DT housing_NN ._SENT 
+This_DT volume_NN was_VBD expected_VVN to_TO depend_VV on_IN the_DT angle_NN at_IN which_WDT the_DT sensor_NN is_VBZ deployed_VVN in_IN the_DT water_NN ,_, the_DT depth_NN of_IN the_DT sensor_NN ,_, and_CC the_DT temperature_NN of_IN the_DT surrounding_VVG environment_NN ._SENT 
+Therefore_RB ,_, for_IN each_DT deployment_NN ,_, different_JJ reference_NN offsets_NNS Θ1and_NN Θ2were_NN created_VVN for_IN each_DT pressure_NN differential_NN (_( Δphc_NP )_) ._SENT 
+Thus_RB ,_, (_( 11_CD )_) must_MD be_VB corrected_VVN for_IN those_DT offsets_NNS and_CC becomes_VVZ v∞_NP @(13_NP )_) A_DT single_JJ pair_NN of_IN offsets_NNS was_VBD computed_VVN offline_NN for_IN each_DT day_NN of_IN deployment_NN ._SENT 
+As_IN the_DT air_NN in_IN the_DT tubing_NN is_VBZ compressible_JJ ,_, the_DT offsets_NNS are_VBP depth_NN dependent_JJ and_CC an_DT additional_JJ pair_NN of_IN offsets_NNS had_VHD to_TO be_VB computed_VVN for_IN the_DT two_CD trials_NNS in_IN test_NN setting_VVG B_NP ,_, which_WDT were_VBD conducted_VVN at_IN a_DT target_NN depth_NN of_IN 4_CD m._NN The_DT offsets_NNS were_VBD calculated_VVN by_IN three_CD independent_JJ regression_NN fits_VVZ taking_VVG the_DT respective_JJ DVL_NP BL_NP velocities_NNS at_IN target_NN depth_NN as_IN a_DT reference_NN and_CC are_VBP shown_VVN in_IN Table_NN IV_NP ._SENT 
+TABLE_NN IV_NP Offsets_NNS Used_VVD to_TO Compensate_VV the_DT Volume_NN Change_NP of_IN Air_NP in_IN the_DT DPSS_NP Tubing_NN for_IN Different_JJ Deployments_NNS As_IN it_PP is_VBZ very_RB difficult_JJ to_TO establish_VV a_DT reliable_JJ ground_NN truth_NN for_IN velocity_NN estimation_NN under_IN field_NN conditions_NNS ,_, we_PP restricted_VVD the_DT analysis_NN of_IN the_DT DPSS_NP velocity_NN estimation_NN to_TO a_DT comparison_NN between_IN DPSS_NP and_CC DVL_NP ._SENT 
+It_PP is_VBZ important_JJ to_TO note_VV that_DT DVL_NN in_IN BL_NP and_CC DPSS_NP do_VVP not_RB measure_VV the_DT same_JJ type_NN of_IN velocity_NN ._SENT 
+The_DT DVL_NN measures_VVZ the_DT velocity_NN of_IN the_DT vehicle_NN relative_JJ to_TO the_DT ground_NN ,_, whereas_IN the_DT DPSS_NP measures_VVZ the_DT vehicle_NN 's_POS velocity_NN with_IN respect_NN to_TO the_DT fluid_JJ stream_NN ._SENT 
+Thus_RB ,_, waves_NNS ,_, currents_NNS ,_, and_CC other_JJ related_JJ disturbances_NNS were_VBD expected_VVN to_TO have_VH a_DT stronger_JJR effect_NN on_IN the_DT DPSS_NP velocity_NN estimation_NN ._SENT 
+The_DT DVL_NP velocity_NN estimation_NN in_IN WL_NP provided_VVD a_DT comparison_NN with_IN a_DT similar_JJ sensing_VVG principle_NN ._SENT 
+Therefore_RB ,_, both_CC the_DT DPSS_NP velocity_NN estimation_NN and_CC the_DT DVL_NN estimation_NN in_IN WL_NN in_IN reference_NN to_TO the_DT DVL_NP BL_NP are_VBP presented_VVN ._SENT 
+For_IN the_DT following_VVG comparisons_NNS ,_, it_PP is_VBZ further_RBR important_JJ to_TO consider_VV that_IN all_DT tests_NNS were_VBD conducted_VVN in_IN conditions_NNS where_WRB environmental_JJ disturbances_NNS could_MD not_RB be_VB neglected_VVN ._SENT 
+Those_DT disturbances_NNS introduced_VVD attitude_NN dynamics_NNS to_TO the_DT AUV_NP that_WDT affected_VVD both_DT velocity_NN sensors_NNS ._SENT 
+In_IN the_DT case_NN of_IN the_DT DPSS_NP ,_, the_DT hydrostatic_JJ correction_NN algorithm_NN (_( 9_CD )_) was_VBD used_VVN to_TO partially_RB compensate_VV for_IN those_DT dynamics_NNS ._SENT 
+For_IN the_DT velocity_NN estimation_NN of_IN the_DT DVL_NN ,_, a_DT compensation_NN of_IN attitude_NN dynamics_NNS as_RB suggested_VVD by_IN Liu_NP et_CC al_NP ._SENT 
+[_SYM 45_CD ]_SYM was_VBD not_RB considered_VVN ._SENT 
+We_PP thus_RB did_VVD expect_VV a_DT decrease_NN in_IN accuracy_NN for_IN both_DT sensors_NNS compared_VVN to_TO their_PP$ nominal_JJ values_NNS of_IN 0.3_CD %_NN of_IN measured_VVN velocity_NN and_CC 0.012_CD m/s_NNS ._SENT 
+The_DT general_JJ performances_NNS of_IN velocity_NN estimations_NNS were_VBD compared_VVN using_VVG the_DT correlation_NN between_IN the_DT DPSS_NP and_CC DVL_NP data_NNS ._SENT 
+Assuming_VVG the_DT velocity_NN estimations_NNS of_IN DPSS_NP and_CC DVL_NP to_TO be_VB equal_JJ ,_, we_PP defined_VVD a_DT fit_NN of_IN vDVLx_NP =vDPSSx_NP and_CC evaluated_VVD it_PP with_IN the_DT coefficient_NN of_IN determination_NN R2_NN ._SENT 
+Furthermore_RB ,_, the_DT RMSE_NN between_IN DPSS_NP and_CC DVL_NP was_VBD used_VVN to_TO compare_VV both_DT velocity_NN estimations_NNS ._SENT 
+In_IN the_DT context_NN of_IN this_DT paper_NN ,_, and_CC due_JJ to_TO the_DT environmental_JJ disturbances_NNS ,_, the_DT RMSE_NN should_MD be_VB considered_VVN as_IN a_DT difference_NN between_IN the_DT two_CD devices_NNS rather_RB than_IN an_DT absolute_JJ error_NN from_IN a_DT device_NN to_TO a_DT ground_NN truth_NN ._SENT 
+To_TO reduce_VV the_DT effect_NN of_IN those_DT influences_NNS ,_, the_DT RMSEs_NNS are_VBP computed_VVN based_VVN on_IN the_DT filtered_VVN velocity_NN estimations_NNS produced_VVN by_IN the_DT EKF_NN of_IN SPARUS_NP II_NP [_SYM 42_CD ]_SYM ._SENT 
+The_DT dynamic_JJ environment_NN affecting_VVG DVL_NP and_CC DPSS_NP ,_, the_DT early_JJ development_NN stage_NN of_IN a_DT “field-ready”_NP DPSS_NP ,_, opposed_VVD to_TO the_DT well-established_JJ DVL_NN ,_, and_CC the_DT DPSS_NP 's_POS intended_VVN application_NN as_IN a_DT supplement_NN to_TO existing_VVG technologies_NNS or_CC as_IN a_DT solution_NN in_IN situations_NNS where_WRB the_DT use_NN of_IN other_JJ velocity_NN sensors_NNS is_VBZ not_RB feasible_JJ ,_, will_MD be_VB considered_VVN during_IN the_DT performance_NN evaluation_NN ._SENT 
+To_TO assess_VV the_DT repeatability_NN of_IN the_DT experiments_NNS ,_, we_PP divided_VVD the_DT RMSEs_NNS of_IN DPSS_NP and_CC DVL_NP velocity_NN estimates_NNS for_IN all_DT trials_NNS into_IN two_CD groups_NNS based_VVN on_IN repetitions_NNS ._SENT 
+We_PP used_VVD the_DT Student_NN 's_POS t-test_NN to_TO check_VV the_DT null_JJ hypothesis_NN stating_VVG that_IN there_EX is_VBZ no_DT significant_JJ difference_NN of_IN RMSEs_NNS between_IN the_DT two_CD groups_NNS ,_, based_VVN on_IN a_DT cutoff_NN value_NN for_IN statistical_JJ significance_NN of_IN 0.05_CD ._SENT 
+A_DT direct_JJ comparison_NN of_IN the_DT DPSS_NP time_NN series_NN of_IN two_CD runs_NNS with_IN identical_JJ parameters_NNS was_VBD not_RB feasible_JJ due_RB to_TO the_DT highly_RB dynamic_JJ environment_NN ._SENT 
+However_RB ,_, since_IN DPSS_NP and_CC DVL_NP were_VBD affected_VVN by_IN the_DT same_JJ environmental_JJ disturbances_NNS ,_, the_DT RMSEs_NNS between_IN their_PP$ velocity_NN estimations_NNS were_VBD expected_VVN to_TO be_VB comparable_JJ ._SENT 
+The_DT RMSEs_NNS between_IN DPSS_NP and_CC DVL_NP were_VBD further_RBR used_VVN in_IN the_DT linear_JJ trajectory_NN trials_NNS to_TO validate_VV the_DT laboratory_NN calibration_NN of_IN [_SYM 36_CD ]_SYM for_IN field_NN conditions_NNS and_CC to_TO check_VV the_DT performance_NN of_IN the_DT DPSS_NP across_IN a_DT wide_JJ range_NN of_IN velocities_NNS (_( from_IN 0.2_CD to_TO 2_CD m/s_NNS )_) ._SENT 
+It_PP is_VBZ important_JJ to_TO note_VV that_IN those_DT velocities_NNS represented_VVD the_DT target_NN velocities_NNS which_WDT were_VBD ,_, if_IN at_IN all_DT ,_, only_RB reached_VVN at_IN the_DT end_NN of_IN a_DT run_NN ._SENT 
+The_DT deviations_NNS from_IN the_DT desired_VVN velocities_NNS were_VBD caused_VVN by_IN the_DT limited_JJ space_NN for_IN the_DT linear_JJ trajectory_NN trials_NNS and_CC by_IN inherent_JJ mechanisms_NNS of_IN the_DT controller_NN provided_VVN by_IN the_DT AUV_NP ._SENT 
+The_DT RMSEs_NNS in_IN the_DT results_NNS section_NN are_VBP therefore_RB presented_VVN in_IN relation_NN to_TO the_DT velocity_NN range_VVP the_DT AUV_NP achieved_VVD during_IN each_DT test_NN ._SENT 
+The_DT RMSEs_NNS were_VBD further_RBR computed_VVN for_IN the_DT lawn_NN mower_NN and_CC loop_NN trajectories_NNS to_TO assess_VV the_DT velocity_NN estimation_NN for_IN common_JJ AUV_NP trajectories_NNS with_IN a_DT special_JJ focus_NN on_IN turns_NNS ._SENT 
+<Section> 5._CD Results_NNS and_CC Discussion_NN </Section> A._NP General_NP Performance_NP of_IN DPSS_NP Velocity_NN Estimation_NN The_DT effect_NN of_IN the_DT hydrostatic_JJ correction_NN algorithm_NN [_SYM see_VV Fig_NN ._SENT 
+2_LS and_CC (_( 10_CD )_) ]_SYM in_IN relation_NN to_TO the_DT pitch_NN and_CC roll_NN of_IN the_DT robot_NN is_VBZ shown_VVN in_IN Fig_NN ._SENT 
+10._CD The_DT shaded_JJ regions_NNS indicate_VVP intervals_NNS where_WRB the_DT correction_NN had_VHD the_DT highest_JJS impact_NN on_IN the_DT velocity_NN estimation_NN ._SENT 
+Fig_NN ._SENT 
+10._CD DPSS_NP velocity_NN estimation_NN with_IN (_( red_JJ )_) and_CC without_IN (_( blue_JJ )_) hydrostatic_JJ compensation_NN ._SENT 
+Further_RBR shown_VVN are_VBP pitch_NN and_CC roll_NN estimates_NNS of_IN the_DT AUV_NP (_( lower_JJR part_NN )_) ._SENT 
+The_DT DVL_NP BL_NP velocity_NN estimation_NN is_VBZ given_VVN in_IN gray_JJ for_IN comparison_NN ._SENT 
+The_DT dashed_VVN lines_NNS mark_VVP the_DT beginning_NN and_CC end_NN of_IN the_DT movement_NN of_IN SPARUS_NP II_NP at_IN target_NN depth_NN ._SENT 
+The_DT movements_NNS of_IN the_DT vehicle_NN toward/on_NN the_DT surface_NN are_VBP irrelevant_JJ for_IN the_DT analysis_NN and_CC are_VBP not_RB shown_VVN ._SENT 
+The_DT light_JJ shaded_JJ regions_NNS highlight_VV intervals_NNS where_WRB the_DT hydrostatic_JJ compensation_NN had_VHD a_DT high_JJ impact_NN ._SENT 
+The_DT hydrostatic_JJ compensation_NN effectively_RB reduced_VVD the_DT peaks_NNS ,_, caused_VVN by_IN pitch_NN and_CC roll_NN deviations_NNS due_JJ to_TO a_DT simultaneous_JJ heave_NN and_CC surge_NN motion_NN ,_, at_IN the_DT start_NN of_IN the_DT trials_NNS ._SENT 
+This_DT could_MD be_VB especially_RB beneficial_JJ for_IN the_DT accuracy_NN of_IN DPSS-aided_JJ position_NN estimation_NN ._SENT 
+Fig_NN ._SENT 
+10_CD also_RB illustrates_VVZ the_DT presence_NN of_IN permanent_JJ pitch_NN and_CC roll_NN deviations_NNS during_IN some_DT of_IN the_DT trials_NNS ,_, which_WDT could_MD have_VH been_VBN caused_VVN by_IN the_DT surface_NN buoy_VV attached_VVN to_TO SPARUS_NP II_NP or_CC small_JJ inaccuracies_NNS of_IN the_DT robot_NN 's_VBZ trim_JJ ._SENT 
+The_DT compensation_NN of_IN these_DT permanent_JJ deviations_NNS caused_VVD the_DT DPSS_NP estimates_VVZ to_TO differ_VV more_JJR from_IN the_DT DVL_NN reference_NN for_IN the_DT first_JJ linear_JJ track_NN ,_, but_CC for_IN the_DT second_JJ linear_JJ track_NN ,_, the_DT difference_NN between_IN the_DT estimates_NNS decreased_VVD ._SENT 
+As_IN the_DT DVL_NN was_VBD also_RB susceptible_JJ to_TO roll_VV and_CC pitch_VV disturbances_NNS [_SYM 45_CD ]_SYM ,_, a_DT definitive_JJ conclusion_NN regarding_VVG the_DT performance_NN of_IN the_DT correction_NN algorithm_NN ,_, beyond_IN the_DT peak_NN reduction_NN ,_, cannot_MD be_VB drawn_VVN ._SENT 
+This_DT highlights_VVZ the_DT need_NN for_IN further_JJR investigation_NN on_IN the_DT effects_NNS of_IN roll_NN and_CC pitch_NN deviations_NNS on_IN the_DT DPSS_NP velocity_NN estimation_NN to_TO improve_VV the_DT correction_NN algorithm_NN and_CC expand_VV it_PP beyond_IN hydrostatic_JJ effects_NNS ._SENT 
+Fig_NN ._SENT 
+11_CD shows_NNS a_DT logarithmic_JJ density_NN plot_NN of_IN the_DT correlation_NN between_IN velocity_NN estimations_NNS of_IN DPSS_NP and_CC DVL_NP with_IN associated_VVN R2_JJ values_NNS ._SENT 
+While_IN Fig_NN ._SENT 
+11(a_NP )_) shows_VVZ the_DT correlation_NN for_IN all_DT runs_NNS ,_, Fig_NN ._SENT 
+11(b)–(d_NN )_) visualizes_VVZ the_DT individual_JJ velocity_NN correlations_NNS for_IN the_DT three_CD test_NN settings_NNS ._SENT 
+Fig_NN ._SENT 
+11._CD Logarithmic_JJ density_NN plot_NN showing_VVG the_DT correlation_NN of_IN surge_NN velocity_NN estimates_NNS of_IN the_DT DVL_NN in_IN BL_NP and_CC DPSS_NP ._SENT 
+(_( a_DT )_) Correlation_NN plot_NN for_IN all_DT experiments_NNS ._SENT 
+(_( b)–(d_NN )_) Correlation_NN plots_NNS for_IN settings_NNS A–C_NN ._SENT 
+For_IN all_DT plots_NNS ,_, R2_JJ value_NN ,_, based_VVN on_IN an_DT assumed_VVN fit_NN of_IN vDVL=vDPSS_NP (_( red_JJ dotted_JJ line_NN )_) ,_, is_VBZ provided_VVN to_TO assess_VV the_DT quality_NN of_IN the_DT correlation_NN ._SENT 
+R2_JJ value_NN of_IN 0.95_CD for_IN the_DT data_NNS set_VVN of_IN all_DT runs_NNS shows_VVZ a_DT high_JJ correlation_NN between_IN velocity_NN estimations_NNS of_IN DVL_NP and_CC DPSS_NP ._SENT 
+Therefore_RB ,_, it_PP is_VBZ possible_JJ to_TO assume_VV that_IN the_DT DPSS_NP had_VHD comparable_JJ average_JJ performance_NN ._SENT 
+The_DT variation_NN in_IN correlation_NN is_VBZ dependent_JJ on_IN the_DT target_NN velocity_NN ,_, which_WDT can_MD be_VB seen_VVN in_IN the_DT higher_JJR variability_NN of_IN the_DT correlation_NN for_IN smaller_JJR target_NN velocities_NNS in_IN all_DT plots_NNS ._SENT 
+This_DT was_VBD expected_VVN due_JJ to_TO the_DT quadratic_JJ relationship_NN between_IN pressure_NN and_CC velocity_NN ._SENT 
+Pressure_NN sensors_NNS need_VVP to_TO have_VH high_JJ sensitivities_NNS to_TO accurately_RB measure_VV at_IN low_JJ velocities_NNS ._SENT 
+At_IN the_DT same_JJ time_NN ,_, the_DT sensitivity_NN to_TO environmental_JJ disturbances_NNS is_VBZ concurrently_RB increased_VVN ,_, causing_VVG a_DT higher_JJR variability_NN in_IN the_DT estimations_NNS of_IN the_DT DPSS_NP for_IN low_JJ velocities_NNS ._SENT 
+Fig_NN ._SENT 
+11_CD further_JJR shows_NNS the_DT general_JJ effect_NN of_IN the_DT environmental_JJ conditions_NNS for_IN different_JJ settings_NNS ._SENT 
+The_DT density_NN distributions_NNS for_IN settings_NNS A_NP and_CC B_NP [_SYM see_VV Fig_NN ._SENT 
+11(b_NP )_) and_CC (_( c_LS )_) ]_SYM are_VBP equally_RB narrow_JJ ,_, whereas_IN the_DT distribution_NN for_IN setting_VVG C_NP [_SYM see_VV Fig_NN ._SENT 
+11(d_VVN )_) ]_SYM is_VBZ wider_JJR ._SENT 
+This_DT is_VBZ also_RB reflected_VVN in_IN R2_JJ values_NNS ,_, which_WDT is_VBZ 0.96_CD for_IN settings_NNS A_NP and_CC B_NP and_CC 0.92_CD for_IN setting_VVG C._NP First_NP ,_, this_DT suggests_VVZ that_IN the_DT environmental_JJ influences_NNS between_IN settings_NNS A_NP and_CC B_NP (_( difference_NN in_IN depth_NN of_IN 1_CD m_NN and_CC smaller_JJR surface_NN waves_NNS )_) were_VBD negligible_JJ regarding_VVG the_DT correlation_NN between_IN velocity_NN estimations_NNS ._SENT 
+Second_RB ,_, it_PP shows_VVZ that_IN there_EX were_VBD stronger_JJR environmental_JJ influences_NNS in_IN the_DT open_JJ sea_NN ._SENT 
+In_IN setting_VVG C_NP ,_, both_DT sensors_NNS have_VHP a_DT higher_JJR variance_NN in_IN their_PP$ velocity_NN estimation_NN ,_, possibly_RB due_JJ to_TO stronger_JJR sea_NN currents_NNS and_CC wave_NN actions_NNS affecting_VVG the_DT movement_NN of_IN the_DT robot_NN ._SENT 
+However_RB ,_, R2_JJ value_NN remains_VVZ above_IN 0.9_CD ,_, showing_VVG that_IN the_DT DPSS_NP mean_JJ velocity_NN estimation_NN is_VBZ robust_JJ enough_RB to_TO be_VB used_VVN in_IN dynamic_JJ field_NN conditions_NNS ._SENT 
+Fig_NN ._SENT 
+12_CD shows_NNS the_DT mean_NN and_CC distribution_NN of_IN RMSEs_NNS grouped_VVN by_IN repetitions_NNS ._SENT 
+The_DT test_NN statistic_NN and_CC p-value_NN of_IN the_DT Student_NN 's_POS t-test_NN are_VBP shown_VVN as_IN well_RB ._SENT 
+The_DT p-value_NN of_IN 0.08_CD supports_VVZ the_DT null_JJ hypothesis_NN that_IN no_DT significant_JJ difference_NN exists_VVZ between_IN the_DT RMSEs_NNS for_IN both_DT repetition_NN groups_NNS ._SENT 
+This_DT indicates_VVZ that_IN a_DT certain_JJ repeatability_NN of_IN the_DT results_NNS exists_VVZ for_IN comparable_JJ test_NN conditions_NNS ._SENT 
+Fig_NN ._SENT 
+12._CD Distribution_NN of_IN RMSEs_NNS between_IN velocity_NN estimations_NNS of_IN the_DT DPSS_NP and_CC the_DT DVL_NN in_IN BL_NP for_IN all_DT experiments_NNS grouped_VVN by_IN repetitions_NNS ._SENT 
+Further_RBR shown_VVN are_VBP the_DT p-value_NN and_CC t-statistic_JJ for_IN the_DT Student_NN 's_POS t-test_NN assuming_VVG the_DT null_JJ hypothesis_NN that_IN no_DT significant_JJ difference_NN exists_VVZ between_IN the_DT two_CD groups_NNS ._SENT 
+B._NP Linear_NP Trajectories_NNS The_DT dynamic_JJ nature_NN of_IN the_DT testing_NN environment_NN required_VVD an_DT analysis_NN of_IN the_DT variability_NN of_IN the_DT velocity_NN estimations_NNS of_IN DVL_NP and_CC DPSS_NP to_TO provide_VV a_DT better_JJR basis_NN for_IN the_DT comparison_NN of_IN both_DT sensors_NNS and_CC the_DT evaluation_NN of_IN the_DT DPSS_NP 's_POS performance_NN ._SENT 
+Fig_NN ._SENT 
+13_CD shows_NNS the_DT variability_NN of_IN both_DT velocity_NN sensors_NNS for_IN the_DT range_NN of_IN tested_VVN velocities_NNS and_CC indicates_VVZ that_IN the_DT variability_NN was_VBD similar_JJ for_IN both_DT sensors_NNS ._SENT 
+It_PP is_VBZ also_RB clearly_RB shown_VVN that_IN the_DT increased_VVN environmental_JJ dynamics_NNS in_IN setting_VVG C_NP caused_VVD a_DT higher_JJR variability_NN in_IN the_DT velocity_NN estimation_NN of_IN both_DT sensors_NNS ._SENT 
+The_DT observed_JJ variability_NN indicated_VVD ,_, while_IN being_VBG only_RB a_DT rough_JJ estimate_NN of_IN the_DT true_JJ variance_NN ,_, that_IN the_DT dynamic_JJ environment_NN decreased_VVD the_DT ideal_JJ accuracies_NNS of_IN both_DT DVL_NN [_SYM 37_CD ]_SYM and_CC DPSS_NP [_SYM 36_CD ]_SYM ._SENT 
+This_DT was_VBD considered_VVN during_IN the_DT performance_NN evaluation_NN of_IN the_DT DPSS_NP velocity_NN estimation_NN ._SENT 
+Fig_NN ._SENT 
+13._CD Variability_NN plot_NN of_IN velocity_NN estimations_NNS in_IN three_CD different_JJ environmental_JJ settings_NNS for_IN (_( a_DT )_) DPSS_NP and_CC (_( b_LS )_) DVL_NN in_IN BL_NP ._SENT 
+Fig_NN ._SENT 
+14(a_NP )_) visualizes_VVZ the_DT RMSEs_NNS between_IN DPSS_NP and_CC DVL_NP BL_NP velocity_NN estimations_NNS for_IN the_DT linear_JJ trajectories_NNS grouped_VVN by_IN setting_VVG and_CC repetition_NN ._SENT 
+The_DT RMSEs_NNS are_VBP generally_RB higher_JJR for_IN low_JJ velocities_NNS and_CC decrease_NN with_IN increasing_VVG velocity_NN in_IN all_DT settings_NNS ._SENT 
+Fig_NN ._SENT 
+14._CD RMSEs_NNS of_IN velocity_NN estimations_NNS for_IN (_( a_DT )_) DPSS_NP versus_CC DVL_NP in_IN BL_NP and_CC (_( b_LS )_) DVL_NN in_IN BL_NP versus_CC DVL_NP in_IN WL_NN at_IN different_JJ target_NN velocities_NNS ._SENT 
+Repetitions_NNS are_VBP distinguished_VVN by_IN color_NN and_CC settings_NNS are_VBP distinguished_VVN by_IN line_NN type_NN ._SENT 
+For_IN velocities_NNS greater_JJR than_IN 1_CD m/s_NNS ,_, a_DT reasonable_JJ operation_NN range_NN for_IN torpedo-shaped_JJ AUVs_NNS ,_, the_DT RMSEs_NNS for_IN settings_NNS A_NP and_CC B_NP lie_VVP below_IN 0.04_CD m/s_NNS and_CC decrease_NN toward_IN 0.02_CD m/s_NNS for_IN higher_JJR velocities_NNS ,_, approaching_VVG the_DT nominal_JJ DPSS_NP accuracy_NN of_IN 0.012_CD m/s_NNS ._SENT 
+The_DT RMSEs_NNS for_IN setting_VVG C_NP lie_VV below_IN 0.06_CD m/s_NNS for_IN velocities_NNS greater_JJR than_IN 0.8_CD m/s_NNS ._SENT 
+Given_VVN the_DT dynamic_JJ environment_NN ,_, the_DT early_JJ development_NN stage_NN of_IN the_DT DPSS_NP and_CC envisioned_VVN applications_NNS for_IN vehicles_NNS are_VBP unable_JJ to_TO equip_VV other_JJ velocity_NN aiding_VVG technologies_NNS ;_: those_DT results_NNS do_VVP encourage_VV further_JJR development_NN of_IN the_DT technology_NN ._SENT 
+The_DT difference_NN between_IN repetitions_NNS was_VBD generally_RB low_JJ ,_, but_CC a_DT significant_JJ deviation_NN can_MD be_VB observed_VVN for_IN velocities_NNS between_IN 0.6_CD and_CC 1_CD m/s_NNS in_IN setting_VVG A._NP A_DT possible_JJ explanation_NN for_IN those_DT differences_NNS could_MD be_VB the_DT calculation_NN of_IN the_DT offsets_NNS ._SENT 
+Only_RB one_CD pair_NN of_IN offsets_NNS for_IN each_DT day_NN of_IN deployment_NN was_VBD calculated_VVN ._SENT 
+Therefore_RB ,_, changes_NNS in_IN the_DT air_NN volume_NN inside_IN the_DT DPSS_NP 's_POS connection_NN tubes_NNS due_JJ to_TO repeated_JJ surfacing_VVG and_CC submerging_VVG between_IN runs_NNS could_MD not_RB be_VB fully_RB corrected_VVN ._SENT 
+This_DT hypothesis_NN is_VBZ supported_VVN by_IN the_DT big_JJ difference_NN of_IN the_DT RMSEs_NNS for_IN both_DT replicates_VVZ of_IN setting_VVG B_NN at_IN velocities_NNS between_IN 0.3_CD and_CC 0.6_CD m/s_NNS ._SENT 
+As_IN explained_VVN in_IN Section_NP IV-B_NP ,_, a_DT new_JJ pair_NN of_IN offsets_NNS was_VBD calculated_VVN for_IN the_DT second_JJ replicate_VV ._SENT 
+Those_DT new_JJ offsets_NNS corrected_VVN for_IN most_JJS of_IN the_DT mentioned_VVN variability_NN significantly_RB improved_VVD the_DT velocity_NN estimation_NN ._SENT 
+This_DT supports_VVZ the_DT suggestion_NN in_RB [_SYM 36_CD ]_SYM that_IN computing_VVG new_JJ offsets_NNS by_IN an_DT autocalibration_NN process_NN before_IN the_DT start_NN of_IN each_DT run_NN could_MD enhance_VV the_DT DPSS_NP velocity_NN estimation_NN ,_, especially_RB for_IN lower_JJR velocities_NNS ._SENT 
+Such_PDT an_DT autocalibration_NN could_MD be_VB achieved_VVN by_IN commanding_VVG the_DT vehicle_NN to_TO wait_VV at_IN its_PP$ starting_VVG position_NN at_IN target_NN depth_NN and_CC letting_VVG the_DT DPSS_NP sample_NN for_IN a_DT specified_JJ amount_NN of_IN time_NN at_IN zero_CD velocity_NN ._SENT 
+Aside_RB from_IN the_DT expected_VVN improvement_NN in_IN accuracy_NN ,_, the_DT autocalibration_NN procedure_NN would_MD make_VV the_DT offset_VVN calculation_NN fully_RB independent_JJ from_IN any_DT external_JJ sensors_NNS ._SENT 
+Future_JJ tests_NNS utilizing_VVG this_DT autocalibration_NN procedure_NN are_VBP necessary_JJ to_TO fully_RB verify_VV the_DT positive_JJ effect_NN on_IN the_DT accuracy_NN of_IN the_DT velocity_NN estimation_NN ._SENT 
+However_RB ,_, such_PDT a_DT procedure_NN necessitates_VVZ a_DT vehicle_NN capable_JJ of_IN hovering_VVG ,_, which_WDT limits_VVZ the_DT applicability_NN of_IN the_DT calibration_NN ._SENT 
+In_IN the_DT future_NN ,_, we_PP will_MD try_VV to_TO establish_VV a_DT model_NN relating_VVG external_JJ factors_NNS ,_, such_JJ as_IN depth_NN and_CC temperature_NN ,_, to_TO the_DT offset_VVN based_VVN on_IN first_JJ principles_NNS and_CC experimental_JJ data_NNS ._SENT 
+With_IN such_PDT a_DT model_NN ,_, the_DT autocalibration_NN would_MD be_VB only_RB necessary_JJ at_IN the_DT start_NN of_IN a_DT new_JJ deployment_NN on_IN the_DT surface_NN ._SENT 
+Furthermore_RB ,_, Fig_VVP ._SENT 
+14(a_NP )_) illustrates_VVZ that_IN the_DT differences_NNS in_IN velocity_NN estimation_NN decreased_VVN with_IN increasing_VVG target_NN velocity_NN ._SENT 
+This_DT indicates_VVZ that_IN environmental_JJ disturbances,such_NN as_IN turbulence_NN and_CC currents_NNS ,_, had_VHD a_DT larger_JJR effect_NN on_IN the_DT pressure_NN signals_VVZ for_IN lower_JJR velocities_NNS ,_, which_WDT can_MD be_VB explained_VVN by_IN the_DT quadratic_JJ relationship_NN between_IN pressure_NN and_CC velocity_NN (_( 12_CD )_) ._SENT 
+Ocean_NP current_JJ disturbances_NNS ,_, for_IN instance_NN ,_, could_MD be_VB compensated_VVN by_IN using_VVG an_DT ocean_NN current_JJ observer_NN or_CC a_DT complementary_JJ velocity_NN sensor_NN with_IN different_JJ error_NN characteristics_NNS [_SYM 46_CD ]_SYM ,_, [_SYM 47_CD ]_SYM ._SENT 
+Fig_NN ._SENT 
+14(b_NP )_) shows_VVZ the_DT RMSEs_NNS between_IN the_DT DVL_NN velocity_NN estimates_NNS in_IN BL_NP and_CC WL_NP ._SENT 
+The_DT error_NN increases_NNS with_IN increasing_VVG velocity_NN from_IN below_RB 0.05_CD to_TO around_RB 0.25_CD m/s_NNS ._SENT 
+There_EX is_VBZ no_DT clear_JJ distinction_NN between_IN settings_NNS ._SENT 
+Compared_VVN to_TO the_DT DPSS_NP ,_, the_DT DVL_NP WL_NN estimation_NN seems_VVZ to_TO show_VV better_JJR performance_NN for_IN low_JJ velocities_NNS up_RB to_TO 0.6_CD m/s_NNS ._SENT 
+However_RB ,_, for_IN velocities_NNS greater_JJR than_IN 0.6_CD m/s_NNS ,_, the_DT WL_NN error_NN steadily_RB increases_VVZ ,_, whereas_IN the_DT DPSS_NP error_NN decreases_NNS ,_, resulting_VVG in_IN a_DT significant_JJ difference_NN for_IN the_DT highest_JJS velocities_NNS ._SENT 
+This_DT shows_VVZ the_DT potential_JJ advantage_NN of_IN DPSS_NP velocity_NN estimation_NN in_IN situations_NNS where_WRB the_DT DVL_NN cannot_MD utilize_VV the_DT BL_NP mode_NN ._SENT 
+C._NP Lawn_NP Mower_NP and_CC Loop_NP Trajectories_NNS The_DT comparison_NN between_IN DVL_NN in_IN BL_NP and_CC DPSS_NP for_IN the_DT lawn_NN mower_NN and_CC loop_NN trajectories_NNS across_IN all_DT settings_NNS (_( see_VV Fig_NN ._SENT 
+15_CD )_) shows_VVZ satisfying_JJ results_NNS as_IN the_DT RMSEs_NNS are_VBP well_RB below_RB or_CC equal_VV to_TO their_PP$ counterparts_NNS in_IN the_DT linear_JJ experiments_NNS ._SENT 
+The_DT RMSEs_NNS are_VBP similar_JJ for_IN settings_NNS A_NP and_CC B_NP ,_, mostly_RB in_IN a_DT range_NN between_IN 0.03_CD and_CC 0.02_CD m/s_NNS ,_, whereas_IN the_DT RMSEs_NNS for_IN setting_VVG C_NP are_VBP between_IN 0.058_CD and_CC 0.04_CD m/s_NNS ._SENT 
+The_DT improvement_NN compared_VVN to_TO the_DT linear_JJ experiments_NNS could_MD be_VB caused_VVN by_IN a_DT longer_JJR period_NN of_IN constant_JJ velocity_NN ._SENT 
+The_DT error_NN between_IN DVL_NN in_IN BL_NP and_CC WL_NP shown_VVN in_IN the_DT same_JJ figure_NN exceeds_VVZ the_DT error_NN for_IN the_DT DPSS_NP in_IN all_DT cases_NNS ._SENT 
+The_DT difference_NN is_VBZ especially_RB apparent_JJ for_IN the_DT target_NN velocity_NN of_IN 1_CD m/s_NNS ,_, which_WDT indicates_VVZ that_IN the_DT DPSS_NP velocity_NN estimation_NN in_IN the_DT tested_VVN conditions_NNS seems_VVZ to_TO be_VB superior_JJ to_TO the_DT DVL_NN in_IN WL_NN ._SENT 
+Furthermore_RB ,_, the_DT results_NNS show_VVP that_IN the_DT quality_NN of_IN DPSS_NP velocity_NN estimation_NN does_VVZ not_RB degrade_VV for_IN longer_JJR distances_NNS ._SENT 
+However_RB ,_, experiments_NNS on_IN bigger_JJR scales_NNS will_MD be_VB necessary_JJ to_TO characterize_VV the_DT long-term_JJ performance_NN of_IN the_DT DPSS_NP ._SENT 
+The_DT results_NNS further_RBR indicate_VV that_IN the_DT DPSS_NP is_VBZ capable_JJ of_IN reliable_JJ surge_NN velocity_NN estimation_NN for_IN common_JJ mission_NN trajectories_NNS of_IN AUVs_NNS at_IN the_DT lower_JJR end_NN of_IN typical_JJ target_NN velocities_NNS ._SENT 
+The_DT estimation_NN for_IN the_DT higher_JJR target_NN velocity_NN of_IN 1_CD m/s_NNS seems_VVZ to_TO be_VB generally_RB better_JJR ._SENT 
+This_DT suggests_VVZ ,_, together_RB with_IN the_DT results_NNS of_IN the_DT linear_JJ trajectory_NN experiments_NNS ,_, that_IN a_DT further_JJR increase_NN in_IN accuracy_NN and_CC robustness_NN can_MD be_VB expected_VVN for_IN typical_JJ cruising_VVG speeds_NNS of_IN AUVs_NNS around_IN 2_CD m/s_NNS ._SENT 
+Fig_NN ._SENT 
+15._CD RMSEs_NNS for_IN velocity_NN estimations_NNS of_IN DPSS_NP versus_CC DVL_NP in_IN BL_NP and_CC BL_NP versus_CC DVL_NP in_IN WL_NP for_IN (_( a_DT )_) lawn_NN mower_NN and_CC (_( b_LS )_) loop_NN trajectories_NNS at_IN target_NN velocities_NNS of_IN 0.5_CD and_CC 1.0_CD m/s_NNS in_IN settings_NNS A_NP ,_, B_NP ,_, and_CC C._NP A_DT second_JJ incentive_NN for_IN the_DT lawn_NN mower_NN and_CC loop_NN trajectory_NN experiments_NNS was_VBD to_TO test_VV the_DT robustness_NN of_IN the_DT velocity_NN estimation_NN during_IN turns_NNS ._SENT 
+Fig_NN ._SENT 
+16_CD shows_VVZ one_CD example_NN for_IN each_DT tested_VVN trajectory_NN and_CC indicates_VVZ the_DT regions_NNS of_IN turning_VVG ._SENT 
+The_DT DPSS_NP velocity_NN estimations_NNS closely_RB follow_VVP the_DT DVL_NN estimations_NNS in_IN both_DT cases_NNS and_CC no_DT significant_JJ deviations_NNS during_IN the_DT turning_VVG events_NNS could_MD be_VB observed_VVN ._SENT 
+Fig_NN ._SENT 
+16._CD Two_CD examples_NNS of_IN EKF_NN velocity_NN estimates_NNS (_( left_VVN )_) and_CC EKF_NN position_NN estimates_VVZ (_( right_NN )_) based_VVN on_IN BL_NP DVL_NP and_CC DPSS_NP data_NNS ,_, respectively_RB ,_, for_IN (_( a_DT )_) lawn_NN mower_NN trajectory_NN and_CC (_( b_LS )_) loop_NN trajectory_NN ._SENT 
+The_DT black_JJ dashed_VVN line_NN indicating_VVG the_DT northing_NN position_NN of_IN the_DT AUV_NP illustrates_VVZ the_DT turning_VVG points_NNS of_IN the_DT curved_VVN trajectories_NNS ._SENT 
+Furthermore_RB ,_, peaks_NNS toward_IN a_DT lower_JJR velocity_NN in_IN the_DT DVL_NP velocity_NN estimation_NN during_IN the_DT second_JJ turn_NN and_CC after_IN the_DT third_JJ turn_NN in_IN Fig_NN ._SENT 
+16(a_NP )_) highlight_VV a_DT general_JJ limitation_NN of_IN the_DT DVL_NP velocity_NN estimation_NN in_IN BL_NP ._SENT 
+To_TO produce_VV reliable_JJ velocity_NN estimates_NNS ,_, the_DT DVL_NN requires_VVZ a_DT smooth_JJ reference_NN surface_NN ._SENT 
+Fig_NN ._SENT 
+17_CD illustrates_VVZ this_DT by_IN showing_VVG that_IN the_DT readings_NNS of_IN the_DT DVL_NN are_VBP severely_RB corrupted_VVN when_WRB SPARUS_NP II_NP is_VBZ moving_VVG close_RB to_TO the_DT harbor_NN wall_NN (_( at_IN approximately_RB 90_CD s_NNS )_) where_WRB the_DT bottom_NN gets_VVZ rougher_JJR ._SENT 
+The_DT DPSS_NP does_VVZ not_RB have_VH such_JJ problems_NNS and_CC exhibits_VVZ a_DT superior_JJ accuracy_NN compared_VVN to_TO the_DT velocity_NN measurements_NNS of_IN the_DT DVL_NN in_IN WL_NP ._SENT 
+The_DT DPSS_NP could_MD ,_, therefore_RB ,_, be_VB used_VVN as_IN a_DT complementary_JJ sensor_NN for_IN AUVs_NNS equipped_VVN with_IN a_DT DVL_NN ,_, which_WDT need_VVP to_TO move_VV through_IN highly_RB unstructured_JJ or_CC featureless_JJ areas_NNS ._SENT 
+A_DT combination_NN of_IN DVL_NP and_CC DPSS_NP could_MD be_VB further_RBR used_VVN to_TO increase_VV the_DT robustness_NN of_IN autonomous_JJ navigation_NN against_IN ocean_NN currents_NNS ._SENT 
+As_IN navigation_NN based_VVN on_IN DVL_NP or_CC DPSS_NP input_NN relies_VVZ on_IN dead_JJ reckoning_NN ,_, estimation_NN errors_NNS are_VBP unbounded_JJ in_IN both_DT cases_NNS ._SENT 
+Low-cost_JJ and_CC small-package_NN navigation_NN solutions_NNS with_IN bounded_VVN error_NN estimates_NNS are_VBP the_DT subject_NN of_IN recent_JJ work_NN [_SYM 48_CD ]_SYM ,_, [_SYM 49_CD ]_SYM ._SENT 
+A_DT combination_NN of_IN the_DT DPSS_NP with_IN such_JJ solutions_NNS could_MD lead_VV to_TO an_DT accurate_JJ self-sustainable_JJ navigation_NN suite_NN completely_RB independent_JJ from_IN large_JJ and_CC costly_JJ sensors_NNS ._SENT 
+Fig_NN ._SENT 
+17._CD Example_NN of_IN the_DT raw_JJ velocity_NN readings_NNS for_IN DPSS_NP and_CC DVL_NP in_IN BL_NP for_IN a_DT lawn_NN mower_NN trajectory_NN ._SENT 
+The_DT robot_NN got_VVD close_RB to_TO the_DT harbor_NN wall_NN and_CC thus_RB moved_VVN over_IN an_DT unstructured_JJ and_CC nonsmooth_JJ ground_NN at_IN around_RB 90_CD s._NN <Section> 6._CD Summary_NN and_CC Conclusion_NN </Section> In_IN this_DT paper_NN ,_, we_PP present_VVP the_DT DPSS_NP for_IN underwater_JJ vehicle_NN velocity_NN estimation_NN as_IN an_DT extension_NN of_IN previous_JJ work_NN [_SYM 36_CD ]_SYM by_IN combining_VVG velocity_NN estimation_NN based_VVN on_IN differential_JJ pressure_NN with_IN IMU-based_JJ orientation_NN corrections_NNS ._SENT 
+We_PP integrated_VVN the_DT DPSS_NP into_IN the_DT SPARUS_NP II_NP AUV_NP and_CC conducted_VVD the_DT first_JJ field_NN tests_NNS of_IN a_DT sensor_NN using_VVG differential_JJ pressure_NN for_IN velocity_NN estimation_NN on_IN an_DT autonomous_JJ underwater_JJ robot_NN ._SENT 
+The_DT field_NN tests_NNS validated_VVD the_DT surge_NN velocity_NN estimation_NN of_IN the_DT DPSS_NP against_IN the_DT state-of-the-art_JJ technology_NN (_( DVL_NN )_) ._SENT 
+For_IN a_DT range_NN of_IN target_NN velocities_NNS between_IN 0.2_CD and_CC 2_CD m/s_NNS ,_, SPARUS_NP II_NP followed_VVD three_CD different_JJ trajectories_NNS in_IN three_CD different_JJ test_NN settings_NNS ,_, and_CC the_DT surge_NN velocity_NN estimations_NNS of_IN the_DT DPSS_NP and_CC a_DT DVL_NN in_IN BL_NP and_CC WL_NP were_VBD compared_VVN ._SENT 
+The_DT quality_NN of_IN the_DT DPSS_NP velocity_NN estimations_NNS increased_VVN with_IN increasing_VVG velocity_NN and_CC subsequently_RB decreasing_VVG impact_NN of_IN environmental_JJ influences_NNS the_DT pressure_NN readings_NNS ,_, whereas_IN the_DT quality_NN of_IN the_DT DVL_NP WL_NN estimation_NN decreased_VVN with_IN increasing_VVG velocity_NN ._SENT 
+The_DT difference_NN between_IN DPSS_NP and_CC DVL_NP in_IN BL_NP was_VBD further_RBR dependent_JJ on_IN the_DT strength_NN of_IN the_DT environmental_JJ dynamics_NNS ._SENT 
+For_IN linear_JJ trajectories_NNS at_IN higher_JJR velocities_NNS (_( >1_JJ m/s_NNS )_) ,_, the_DT differences_NNS between_IN the_DT velocity_NN estimates_NNS did_VVD not_RB exceed_VV 0.032_CD m/s_NNS in_IN less_JJR dynamic_JJ environments_NNS and_CC 0.063_CD m/s_NNS in_IN highly_RB dynamic_JJ environments_NNS ._SENT 
+Results_NNS for_IN lawn_NN mower_NN and_CC loop_NN trajectories_NNS were_VBD even_RB more_RBR encouraging_JJ ._SENT 
+Here_RB ,_, the_DT differences_NNS for_IN the_DT target_NN velocity_NN of_IN 0.5_CD m/s_NNS did_VVD not_RB exceed_VV 0.039_CD m/s_NNS in_IN less_JJR dynamic_JJ environments_NNS and_CC 0.058_CD m/s_NNS in_IN highly_RB dynamic_JJ environments_NNS ._SENT 
+This_DT contrasts_VVZ the_DT results_NNS of_IN the_DT linear_JJ trajectory_NN experiments_NNS and_CC indicates_VVZ the_DT potential_NN of_IN the_DT DPSS_NP to_TO reliably_RB estimate_VV lower_JJR velocities_NNS down_RB to_TO 0.5_CD m/s_NNS as_RB well_RB ._SENT 
+Furthermore_RB ,_, the_DT difference_NN between_IN DVLs_NNS in_IN BL_NP and_CC WL_NP always_RB exceeded_VVD the_DT differences_NNS between_IN DVLs_NNS in_IN BL_NP and_CC DPSS_NP ,_, indicating_VVG that_IN the_DT DPSS_NP surge_NN velocity_NN estimation_NN was_VBD superior_JJ for_IN the_DT DVL_NN WL_NN measurements_NNS for_IN the_DT given_VVN test_NN conditions_NNS ._SENT 
+Deviations_NNS within_IN the_DT linear_JJ trajectory_NN experiments_NNS and_CC the_DT differences_NNS to_TO the_DT lawn_NN mower_NN and_CC loop_NN trajectories_NNS highlight_VV the_DT need_NN for_IN an_DT improved_VVN offset_VVN calculation_NN ._SENT 
+Identification_NN and_CC quantitative_JJ analysis_NN of_IN the_DT influencing_VVG factors_NNS on_IN the_DT offset_VVN will_MD be_VB a_DT future_JJ research_NN topic_NN ._SENT 
+This_DT research_NN could_MD lead_VV to_TO an_DT autocalibration_NN procedure_NN for_IN the_DT DPSS_NP ,_, utilizing_VVG measurements_NNS at_IN zero_CD velocity_NN and_CC a_DT model_NN relating_VVG the_DT volume_NN of_IN air_NN inside_IN the_DT tubing_NN to_TO external_JJ conditions_NNS ,_, such_JJ as_IN pressure_NN and_CC temperature_NN ._SENT 
+Such_PDT a_DT procedure_NN combined_VVN with_IN further_JJR disturbance_NN correction_NN methods_NNS ,_, such_JJ as_IN a_DT hydrodynamic_JJ correction_NN of_IN the_DT pressure_NN readings_NNS ,_, will_MD be_VB implemented_VVN and_CC tested_VVN in_IN the_DT future_JJ work_NN to_TO increase_VV the_DT accuracy_NN of_IN the_DT DPSS_NP ,_, especially_RB for_IN lower_JJR velocities_NNS ._SENT 
+A_DT comparison_NN of_IN the_DT DPSS_NP performance_NN with_IN a_DT propeller_NN turns_VVZ to_TO speed_VV model_NN will_MD be_VB another_DT possible_JJ focus_NN of_IN the_DT future_JJ research_NN ._SENT 
+Aside_RB from_IN the_DT validation_NN of_IN the_DT DPSS_NP in_IN field_NN conditions_NNS ,_, several_JJ additional_JJ lessons_NNS have_VHP been_VBN learned_VVN during_IN the_DT field_NN tests_NNS ._SENT 
+1._CD Both_CC DPSS_NP and_CC DVL_NP were_VBD similarly_RB affected_VVN by_IN environmental_JJ disturbances_NNS ,_, illustrated_VVN by_IN the_DT differences_NNS of_IN test_NN settings_NNS A_NP and_CC B_NP compared_VVN to_TO setting_VVG C._NP This_NP highlights_VVZ the_DT need_NN for_IN a_DT reliable_JJ test_NN setup_NN with_IN a_DT suitable_JJ ground_NN truth_NN for_IN velocity_NN estimation_NN in_IN field_NN conditions_NNS ._SENT 
+2._CD The_NP DPSS_NP showed_VVD a_DT robust_JJ performance_NN even_RB in_IN the_DT open_JJ sea_NN setting_VVG with_IN higher_JJR environmental_JJ disturbances_NNS ._SENT 
+However_RB ,_, for_IN low_JJ velocities_NNS ,_, the_DT impact_NN of_IN disturbances_NNS was_VBD higher_JJR for_IN the_DT DPSS_NP compared_VVN to_TO that_DT of_IN the_DT DVL_NN ._SENT 
+Future_JJ investigations_NNS in_IN those_DT low_JJ velocity_NN regions_NNS are_VBP necessary_JJ ._SENT 
+3._CD The_DT hydrostatic_JJ correction_NN algorithm_NN successfully_RB contributed_VVD to_TO a_DT more_RBR accurate_JJ velocity_NN estimation_NN of_IN the_DT DPSS_NP ,_, especially_RB at_IN the_DT beginning_NN of_IN trials_NNS ._SENT 
+However_RB ,_, further_JJR investigations_NNS regarding_VVG the_DT hydrodynamic_JJ effects_NNS of_IN roll_NN and_CC pitch_NN distortions_NNS are_VBP necessary_JJ ._SENT 
+4._CD The_NP results_NNS with_IN the_DT two_CD trials_NNS conducted_VVN at_IN a_DT different_JJ target_NN depth_NN suggest_VVP that_IN an_DT autocalibration_NN procedure_NN to_TO compute_VV individual_JJ offsets_NNS before_IN each_DT trial_NN would_MD significantly_RB enhance_VV the_DT velocity_NN estimation_NN of_IN the_DT DPSS_NP ._SENT 
+5._CD The_NP DPSS_NP has_VHZ an_DT improved_VVN performance_NN over_IN the_DT DVL_NN in_IN BL_NP in_IN terrains_NNS with_IN rough_JJ or_CC unstructured_JJ surfaces_NNS ._SENT 
+Considering_VVG all_PDT this_DT ,_, we_PP conclude_VVP that_IN the_DT successful_JJ field_NN tests_NNS of_IN the_DT DPSS_NP prototype_NN mark_NN an_DT important_JJ step_NN in_IN developing_VVG a_DT useful_JJ sensor_NN for_IN a_DT variety_NN of_IN underwater_JJ vehicles_NNS ._SENT 
+Due_JJ to_TO its_PP$ low_JJ energy_NN requirements_NNS ,_, a_DT power_NN consumption_NN of_IN 243.5_CD mW_NNS ,_, the_DT DPSS_NP could_MD be_VB used_VVN for_IN vehicles_NNS on_IN long-term_JJ deployments_NNS ,_, such_JJ as_IN underwater_JJ gliders_NNS or_CC long-range_JJ AUVs_NNS ._SENT 
+Further_RBR ,_, low-cost_JJ and/or_JJ small_JJ AUVs_NNS ,_, which_WDT do_VVP not_RB have_VH the_DT budget_NN or_CC space_NN to_TO carry_VV sophisticated_JJ sensor_NN systems_NNS ,_, could_MD also_RB benefit_VV from_IN a_DT small_JJ and_CC inexpensive_JJ velocity_NN sensor_NN to_TO improve_VV the_DT accuracy_NN of_IN their_PP$ navigation_NN ._SENT 
+The_DT DPSS_NP has_VHZ further_RBR potential_JJ as_IN a_DT viable_JJ complement_VV for_IN DVL-aided_JJ navigation_NN systems_NNS by_IN increasing_VVG redundancy_NN and_CC enabling_VVG more_RBR precise_JJ navigation_NN during_IN midwater_NN column_NN travels_NNS or_CC missions_NNS with_IN highly_RB unstructured_JJ environments_NNS ._SENT 
+In_IN addition_NN to_TO the_DT suggested_VVN topics_NNS in_IN the_DT learned_VVN lessons_NNS ,_, the_DT velocity_NN estimation_NN for_IN sway_NN and_CC heave_NN and_CC the_DT influence_NN of_IN both_DT on_IN the_DT surge_NN velocity_NN estimation_NN is_VBZ a_DT topic_NN for_IN the_DT future_JJ research_NN ._SENT 
+<Section> ACKNOWLEDGMENT_NN <Section> The_DT authors_NNS would_MD like_VV to_TO thank_VV C._NP Candela_NP ,_, L._NP Magí_NP ,_, J._NP D._NP Hernández_NP ,_, and_CC È_NP ._SENT 
+Pairet_NN for_IN their_PP$ valuable_JJ help_NN during_IN field_NN trials_NNS ._SENT 
+Furthermore_RB ,_, the_DT authors_NNS would_MD also_RB like_VV to_TO their_PP$ colleagues_NNS at_IN the_DT Centre_NP for_IN Biorobotics_NNS for_IN fruitful_JJ and_CC inspiring_JJ discussions_NNS throughout_IN the_DT creation_NN of_IN this_DT paper_NN ._SENT 
+<Section> References_NNS </Section> 1._CD L._NP Paull_NP ,_, S._NP Saeedi_NP ,_, M._NP Seto_NP and_CC H._NP Li_NP ,_, "_'' AUV_NP navigation_NN and_CC localization_NN :_: A_DT review_NN "_'' ,_, IEEE_NP J._NP Ocean_NP ._SENT 
+Eng_NN ._SENT 
+,_, vol_NP ._SENT 
+39_CD ,_, no_RB ._SENT 
+1_LS ,_, pp_NP ._SENT 
+131-149_CD ,_, Jan._NP 2014._CD 2._CD P._NP E._NP Hagen_NP ,_, O._NP Midtgaard_NP and_CC O._NP Hasvold_NP ,_, "_'' Making_VVG AUVs_NNS truly_RB autonomous_JJ "_'' ,_, Proc_NP ._SENT 
+OCEANS_NNS Conf_NN ._SENT 
+,_, pp_NP ._SENT 
+1-4_CD ,_, 2007._CD 3._CD J._NP Melo_NP and_CC A._NP Matos_NP ,_, "_`` Survey_NN on_IN advances_NNS on_IN terrain_NN based_VVN navigation_NN for_IN autonomous_JJ underwater_JJ vehicles_NNS "_'' ,_, Ocean_NP Eng_NP ._SENT 
+,_, vol_NP ._SENT 
+139_CD ,_, pp_NP ._SENT 
+250-264_CD ,_, 2017._CD 4._CD J._NP C._NP Kinsey_NP ,_, R._NP M._NP Eustice_NP and_CC L._NP L._NP Whitcomb_NP ,_, "_'' A_DT survey_NN of_IN underwater_JJ vehicle_NN navigation_NN :_: Recent_JJ advances_NNS and_CC new_JJ challenges_NNS "_'' ,_, IFAC_NP Conf_NP ._SENT 
+Maneuvring_NP Control_NP Mar_NP ._SENT 
+Craft_NN ,_, vol_NP ._SENT 
+88_CD ,_, pp_NP ._SENT 
+1-12_CD ,_, Apr_NP ._SENT 
+2006._CD 5._CD L._NP Stutters_NNS ,_, H._NP Liu_NP ,_, C._NP Tiltman_NP and_CC D._NP J._NP Brown_NP ,_, "_'' Navigation_NP technologies_NNS for_IN autonomous_JJ underwater_JJ vehicles_NNS "_'' ,_, IEEE_NP Trans_NP ._SENT 
+Syst_NN ._SENT 
+Man_NP Cybern_NP ._SENT 
+C_NP Appl_NP ._SENT 
+Rev._NP ,_, vol_NP ._SENT 
+38_CD ,_, no_RB ._SENT 
+4_LS ,_, pp_NP ._SENT 
+581-589_CD ,_, Jul_NP ._SENT 
+2008._CD 6._CD L._NP Whitcomb_NP ,_, D._NP Yoerger_NP ,_, H._NP Singh_NP and_CC D._NP Mindell_NP ,_, "_'' Towards_IN precision_NN robotic_JJ maneuvering_NN survey_NN and_CC manipulation_NN in_IN unstructured_JJ undersea_JJ environments—1_NN ._SENT 
+Introduction_NN "_'' ,_, Robotics_NP Research_NP :_: The_DT Eighth_JJ International_NP Symposium_NN ,_, vol_NP ._SENT 
+8_CD ,_, pp_NP ._SENT 
+45-54_CD ,_, 1998._CD 7._CD G._NP Grenon_NP ,_, P._NP E._NP An_NP ,_, S._NP M._NP Smith_NP and_CC A._NP J._NP Healey_NP ,_, "_`` Enhancement_NN of_IN the_DT inertial_JJ navigation_NN system_NN for_IN the_DT Morpheus_NP autonomous_JJ underwater_JJ vehicles_NNS "_'' ,_, IEEE_NP J._NP Ocean_NP ._SENT 
+Eng_NN ._SENT 
+,_, vol_NP ._SENT 
+26_CD ,_, no_RB ._SENT 
+4_LS ,_, pp_NP ._SENT 
+548-560_CD ,_, Oct._NP 2001._CD 8._CD B._NP Jalving_NP ,_, K._NP Gade_NP ,_, K._NP Svartveit_NP ,_, A._NP Willumsen_NP and_CC R._NP Sørhagen_NP ,_, "_`` DVL_NN velocity_NN aiding_VVG in_IN the_DT HUGIN_NP 1000_CD integrated_JJ inertial_JJ navigation_NN system_NN "_'' ,_, Model_NP ._SENT 
+Identification_NN Control_NP ,_, vol_NP ._SENT 
+25_CD ,_, no_RB ._SENT 
+4_LS ,_, pp_NP ._SENT 
+223-235_CD ,_, 2004._CD 9._CD Ø_NN ._SENT 
+Hegrenæs_NP ,_, A._NP Ramstad_NP ,_, T._NP Pedersen_NP and_CC D._NP Velasco_NP ,_, "_`` Validation_NN of_IN a_DT new_JJ generation_NN DVL_NN for_IN underwater_JJ vehicle_NN navigation_NN "_'' ,_, Proc_NP ._SENT 
+IEEE/OES_NP Auton_NP ._SENT 
+Underwater_JJ Vehicles_NNS ,_, pp_NP ._SENT 
+342-348_CD ,_, 2016._CD 10._CD L._NP Medagoda_NP ,_, J._NP C._NP Kinsey_NP and_CC M._NP Eilders_VVZ ,_, "_`` Autonomous_JJ underwater_JJ vehicle_NN localization_NN in_IN a_DT spatiotemporally_RB varying_VVG water_NN current_JJ field_NN "_'' ,_, Proc_NP ._SENT 
+IEEE_NP Int_NP ._SENT 
+Conf_NP ._SENT 
+Robot_NN ._SENT 
+Autom_NN ._SENT 
+,_, pp_NP ._SENT 
+565-572_CD ,_, 2015._CD 11._CD M._NP J._NP Stanway_NP ,_, "_'' Water_NP profile_NN navigation_NN with_IN an_DT Acoustic_JJ Doppler_NP Current_JJ Profiler_NN "_'' ,_, Proc_NP ._SENT 
+Ocean_NP ._SENT 
+IEEE_NP Sydney_NP ,_, pp_NP ._SENT 
+1-5_CD ,_, 2010._CD 12._CD "_`` Datasheet_JJ pathfinder_NN DVL_NN "_'' ,_, 2017_CD ,_, [_SYM online_JJ ]_SYM Available_JJ :_: http://www.teledynemarine.com/Pathfinder_DVL_NN ._SENT 
+13._CD "_`` Datasheet_NP Nortek_NP DVL1000/DVL500_NP "_'' ,_, 2017_CD ,_, [_SYM online_JJ ]_SYM Available_JJ :_: http://www.nortek-com/lib/data-sheets/nortek-dv_NP ._SENT 
+14._CD "_`` Datasheet_NP NavQuest_NP 600_CD Micro_NP "_'' ,_, 2009_CD ,_, [_SYM online_JJ ]_SYM Available_JJ :_: http://www.link-quest.com/html/NavQuest600M.pdf_NN ._SENT 
+15._CD T._NP Salumäe_NP et_CC al_NP ._SENT 
+,_, "_'' Design_NP principle_NN of_IN a_DT biomimetic_JJ underwater_JJ robot_NN U-CAT_NN "_'' ,_, Proc_NP ._SENT 
+Oceans_NNS St._NP John_NP 's_POS ,_, pp_NP ._SENT 
+1-5_CD ,_, 2014._CD 16._CD D._NP L._NP Rudnick_NP ,_, R._NP E._NP Davis_NP ,_, C._NP C._NP Eriksen_NP ,_, D._NP M._NP Fratantoni_NP and_CC M._NP J._NP Perry_NP ,_, "_`` Underwater_JJ gliders_NNS for_IN ocean_NN research_NN "_'' ,_, Mar_NP ._SENT 
+Technol_NN ._SENT 
+Soc_NP ._SENT 
+J._NP ,_, vol_NP ._SENT 
+38_CD ,_, no_RB ._SENT 
+2_LS ,_, pp_NP ._SENT 
+73-84_CD ,_, 2004._CD 17._CD B._NP Allotta_NP et_CC al_NP ._SENT 
+,_, "_'' The_DT ARROWS_NNS project_NN :_: Adapting_VVG and_CC developing_VVG robotics_NNS technologies_NNS for_IN underwater_JJ archaeology_NN "_'' ,_, IFAC-PapersOnLine_NP ,_, vol_NP ._SENT 
+48_CD ,_, no_RB ._SENT 
+2_LS ,_, pp_NP ._SENT 
+194-199_CD ,_, 2015._CD 18._CD C._NP Osterloh_NP ,_, T._NP Pionteck_NP and_CC E._NP Maehle_NP ,_, "_'' MONSUN_NP II_NP :_: A_DT small_JJ and_CC inexpensive_JJ AUV_NN for_IN underwater_JJ swarms_NNS "_'' ,_, Proc_NP ._SENT 
+7th_JJ German_JJ Conf_NN ._SENT 
+Robot_NN ._SENT 
+,_, pp_NP ._SENT 
+1-6_CD ,_, 2012._CD 19._CD "_`` OpenROV/products/trident_NP "_'' ,_, Feb._NP 2017_CD ,_, [_SYM online_JJ ]_SYM Available_JJ :_: https://www.openrov.com/products/trident/_NN ._SENT 
+20._CD M._NP Kruusmaa_NP ,_, G._NP Toming_NP ,_, T._NP Salumäe_NP ,_, J._NP Ježov_NP and_CC A._NP Ernits_VVZ ,_, "_`` Swimming_NN speed_NN control_NN and_CC on-board_NN flow_NN sensing_VVG of_IN an_DT artificial_JJ trout_NN "_'' ,_, Proc_NP ._SENT 
+IEEE_NP Int_NP ._SENT 
+Conf_NP ._SENT 
+Robot_NN ._SENT 
+Autom_NN ._SENT 
+,_, pp_NP ._SENT 
+1791-1796_CD ,_, 2011._CD 21._CD J._NP Mogdans_NP and_CC H._NP Bleckmann_NP ,_, "_'' Coping_VVG with_IN flow_NN :_: Behavior_NN neurophysiology_NN and_CC modeling_NN of_IN the_DT fish_NN lateral_JJ line_NN system_NN "_'' ,_, Biol_NP ._SENT 
+Cybern_NN ._SENT 
+,_, vol_NP ._SENT 
+106_CD ,_, no_RB ._SENT 
+11/12_CD ,_, pp_NP ._SENT 
+627-642_CD ,_, 2012._CD 22._CD Y._NP Xu_NP and_CC K._NP Mohseni_NP ,_, "_'' A_DT pressure_NN sensory_JJ system_NN inspired_VVN by_IN the_DT fish_NN lateral_NN line_NN :_: Hydrodynamic_JJ force_NN estimation_NN and_CC wall_NN detection_NN "_'' ,_, IEEE_NP J._NP Ocean_NP ._SENT 
+Eng_NN ._SENT 
+,_, vol_NP ._SENT 
+42_CD ,_, no_RB ._SENT 
+3_LS ,_, pp_NP ._SENT 
+532-543_CD ,_, Jul_NP ._SENT 
+2017._CD 23._CD C._NP Abels_NP ,_, A._NP Qualtieri_NP ,_, M._NP De_NP Vittorio_NP ,_, W._NP M._NP Megill_NP and_CC F._NP Rizzi_NP ,_, "_'' A_DT bio-inspired_JJ real-time_JJ capable_JJ artificial_JJ lateral_JJ line_NN system_NN for_IN freestream_NP flow_NN measurements_NNS "_'' ,_, Bioinspiration_NN Biomimetics_NNS ,_, vol_NP ._SENT 
+11_CD ,_, no_RB ._SENT 
+3_CD ,_, 2016._CD 24._CD M._NP Asadnia_NP et_CC al_NP ._SENT 
+,_, "_`` MEMS_NNS sensors_NNS for_IN assessing_VVG flow-related_JJ control_NN of_IN an_DT underwater_JJ biomimetic_JJ robotic_JJ stingray_NN "_'' ,_, Bioinspiration_NN Biomimetics_NNS ,_, vol_NP ._SENT 
+10_CD ,_, no_RB ._SENT 
+3_LS ,_, pp_NP ._SENT 
+1-15_CD ,_, 2015._CD 25._CD A._NP Klein_NP and_CC H._NP Bleckmann_NP ,_, "_`` Determination_NN of_IN object_NN position_NN vortex_NN shedding_VVG frequency_NN and_CC flow_NN velocity_NN using_VVG artificial_JJ lateral_JJ line_NN canals_NNS "_'' ,_, Beilstein_NP J._NP Nanotechnol_NN ._SENT 
+,_, vol_NP ._SENT 
+2_LS ,_, no_UH ._SENT 
+1_LS ,_, pp_NP ._SENT 
+276-283_CD ,_, 2011._CD 26._CD V._NP I._NP Fernandez_NP ,_, "_'' Performance_NP analysis_NN for_IN lateral-line-inspired_JJ sensor_NN arrays_NNS "_'' ,_, 2011._CD 27._CD A._NP Gao_NP and_CC M._NP Triantafyllou_NP ,_, "_'' Bio-inspired_VVD pressure_NN sensing_VVG for_IN active_JJ yaw_VVP control_NN of_IN underwater_JJ vehicles_NNS "_'' ,_, Proc_NP ._SENT 
+OCEANS_NNS Conf_NN ._SENT 
+,_, pp_NP ._SENT 
+1-7_CD ,_, 2012._CD 28._CD R._NP Venturelli_NP et_CC al_NP ._SENT 
+,_, "_`` Hydrodynamic_JJ pressure_NN sensing_VVG with_IN an_DT artificial_JJ lateral_JJ line_NN in_IN steady_JJ and_CC unsteady_JJ flows_NNS "_'' ,_, Bioinspiration_NN Biomimetics_NNS ,_, vol_NP ._SENT 
+7_CD ,_, no_RB ._SENT 
+3_CD ,_, 2012._CD 29._CD T._NP Salumäe_NP and_CC M._NP Kruusmaa_NP ,_, "_`` Flow-relative_JJ control_NN of_IN an_DT underwater_JJ robot_NN "_'' ,_, Proc_NP ._SENT 
+Roy_NP ._SENT 
+Soc_NP ._SENT 
+A_DT Math_NP ._SENT 
+Phys_NPS ._SENT 
+Eng_NP ._SENT 
+Sci_NNS ._SENT 
+,_, vol_NP ._SENT 
+469_CD ,_, no_RB ._SENT 
+2153_CD ,_, 2013._CD 30._CD F._NP Zhang_NP ,_, F._NP D._NP Lagor_NP ,_, D._NP Yeo_NP ,_, P._NP Washington_NP and_CC D._NP A._NP Paley_NP ,_, "_'' Distributed_NP flow_NN sensing_VVG for_IN closed-loop_NN speed_NN control_NN of_IN a_DT flexible_JJ fish_NN robot_NN "_'' ,_, Bioinspiration_NN Biomimetics_NNS ,_, vol_NP ._SENT 
+10_CD ,_, no_RB ._SENT 
+6_CD ,_, 2015._CD 31._CD C._NP Wang_NP ,_, W._NP Wang_NP and_CC G._NP Xie_NP ,_, "_`` Speed_VV estimation_NN for_IN robotic_JJ fish_NN using_VVG onboard_JJ artificial_JJ lateral_JJ line_NN and_CC inertial_JJ measurement_NN unit_NN "_'' ,_, Proc_NP ._SENT 
+IEEE_NP Int_NP ._SENT 
+Conf_NP ._SENT 
+Robot_NN ._SENT 
+Biomimetics_NP ,_, pp_NP ._SENT 
+285-290_CD ,_, 2015._CD 32._CD W._NP Wang_NP ,_, Y._NP Li_NP ,_, X._NP Zhang_NP ,_, C._NP Wang_NP ,_, S._NP Chen_NP and_CC G._NP Xie_NP ,_, "_`` Speed_VV evaluation_NN of_IN a_DT freely_RB swimming_VVG robotic_JJ fish_NN with_IN an_DT artificial_JJ lateral_JJ line_NN "_'' ,_, Proc_NP ._SENT 
+IEEE_NP Int_NP ._SENT 
+Conf_NP ._SENT 
+Robot_NN ._SENT 
+Autom_NN ._SENT 
+,_, pp_NP ._SENT 
+4737-4742_CD ,_, 2016._CD 33._CD J._NP Anderson_NP ,_, Jr_NP ,_, Fundamentals_NNS of_IN Aerodynamics_NN ,_, New_NP York_NP ,_, NY_NP ,_, USA:McGraw-Hill_NP ,_, 1985._CD 34._CD J._NP F._NP Fuentes-Pérez_NP et_CC al_NP ._SENT 
+,_, "_`` Current_JJ velocity_NN estimation_NN using_VVG a_DT lateral_JJ line_NN probe_NN "_'' ,_, Ecol_NP ._SENT 
+Eng_NN ._SENT 
+,_, vol_NP ._SENT 
+85_CD ,_, pp_NP ._SENT 
+296-300_CD ,_, 2015._CD 35._CD J._NP F._NP Fuentes-Pérez_NP ,_, K._NP Kalev_NP ,_, J._NP A._NP Tuhtan_NP and_CC M._NP Kruusmaa_NP ,_, "_`` Underwater_JJ vehicle_NN speedometry_NN using_VVG differential_JJ pressure_NN sensors_NNS :_: Preliminary_JJ results_NNS "_'' ,_, Proc_NP ._SENT 
+IEEE/OES_NP Auton_NP ._SENT 
+Underwater_JJ Vehicles_NNS ,_, pp_NP ._SENT 
+156-160_CD ,_, 2016._CD 36._CD J._NP F._NP Fuentes-Pérez_NP ,_, C._NP Meurer_NP ,_, J._NP A._NP Tuhtan_NP and_CC M._NP Kruusmaaa_NP ,_, "_`` Differential_JJ pressure_NN sensors_NNS for_IN underwater_JJ speedometry_NN in_IN variable_JJ velocity_NN and_CC acceleration_NN conditions_NNS "_'' ,_, IEEE_NP J._NP Ocean_NP ._SENT 
+Eng_NN ._SENT 
+,_, vol_NP ._SENT 
+43_CD ,_, no_RB ._SENT 
+2_LS ,_, pp_NP ._SENT 
+418-426_CD ,_, Apr_NP ._SENT 
+2018._CD 37._CD "_`` Datasheet_NP Teledyne_NP explorer_NN DVL_NN "_'' ,_, 2017_CD ,_, [_SYM online_JJ ]_SYM Available_JJ :_: http://www.teledynemarine.com/explorer-doppler-vel_NN ._SENT 
+38._CD E._NP Ower_NP and_CC R._NP C._NP Pankhurst_NP ,_, The_DT Measurement_NN of_IN Air_NP Flow_NP ,_, Amsterdam_NP ,_, The_DT Netherlands:Elsevier_NP ,_, 2014._CD 39._CD K._NP H._NP Beij_NP ,_, "_'' Aircraft_NP speed_NN instruments_NNS "_'' ,_, 1932._CD 40._CD M._NP Carreras_NP et_CC al_NP ._SENT 
+,_, "_'' Sparus_NP II_NP design_NN of_IN a_DT lightweight_JJ hovering_VVG AUV_NP "_'' ,_, Proc_NP ._SENT 
+5th_JJ MARTECH_NP Int_NP ._SENT 
+Workshop_NN Mar_NP ._SENT 
+Technol_NN ._SENT 
+,_, pp_NP ._SENT 
+152-155_CD ,_, 2013._CD 41._CD M._NP Quigley_NP et_CC al_NP ._SENT 
+,_, "_'' ROS_NP :_: An_DT open-source_NN Robot_NN Operating_VVG System_NP "_'' ,_, Proc_NP ._SENT 
+ICRA_NP Workshop_NN Open_JJ Source_NN Softw_NNS ._SENT 
+,_, vol_NP ._SENT 
+3_LS ,_, no_UH ._SENT 
+3.2_CD ,_, pp_NP ._SENT 
+5-11_CD ,_, 2009._CD 42._CD N._NP Palomeras_NNS ,_, S._NP Nagappa_NP ,_, D._NP Ribas_NP ,_, N._NP Gracias_NPS and_CC M._NP Carreras_NP ,_, "_`` Vision-based_JJ localization_NN and_CC mapping_NN system_NN for_IN AUV_NP intervention_NN "_'' ,_, Proc_NP ._SENT 
+MTS/IEEE_NP OCEANS_NNS Conf_NN ._SENT 
+,_, pp_NP ._SENT 
+1-7_CD ,_, 2013._CD 43._CD R._NP M._NP Sorensen_NP ,_, Basic_NP Coastal_NP Engineering_NP ,_, Boston_NP ,_, MA_NN ,_, USA:Springer_NP ,_, 2006._CD 44._CD M._NP R._NP Dhanak_NP and_CC N._NP I._NP Xiros_NP ,_, Springer_NP Handbook_NN of_IN Ocean_NP Engineering_NP ,_, New_NP York_NP ,_, NY_NP ,_, USA:Springer_NP ,_, 2016._CD 45._CD P._NP Liu_NP ,_, B._NP Wang_NP ,_, Z._NP Deng_NP and_CC M._NP Fu_NP ,_, "_'' A_DT correction_NN method_NN for_IN DVL_NN measurement_NN errors_NNS by_IN attitude_NN dynamics_NNS "_'' ,_, IEEE_NP Sens._NP J._NP ,_, vol_NP ._SENT 
+17_CD ,_, no_RB ._SENT 
+14_CD ,_, pp_NP ._SENT 
+4628-4638_CD ,_, Jul_NP ._SENT 
+2017._CD 46._CD O._NP Hegrenaes_NP ,_, E._NP Berglund_NP ,_, Ø_NP ._SENT 
+Hegrenæs_NP and_CC E._NP Berglund_NP ,_, "_'' Doppler_NP water-track_NP aided_VVD inertial_JJ navigation_NN for_IN autonomous_JJ underwater_JJ vehicle_NN "_'' ,_, Proc_NP ._SENT 
+OCEANS_NNS Conf_NN ._SENT 
+Eur_NN ._SENT 
+,_, pp_NP ._SENT 
+1-10_CD ,_, 2009._CD 47._CD D._NP Chang_NP ,_, W._NP Wu_NP ,_, C._NP R._NP Edwards_NP and_CC F._NP Zhang_NP ,_, "_'' Motion_NP tomography_NN :_: Mapping_VVG flow_NN fields_NNS using_VVG autonomous_JJ underwater_JJ vehicles_NNS "_'' ,_, Int_NP ._SENT 
+J._NP Robot_NN ._SENT 
+Res_NNS ._SENT 
+,_, vol_NP ._SENT 
+36_CD ,_, no_RB ._SENT 
+3_LS ,_, pp_NP ._SENT 
+320-336_CD ,_, Mar_NP ._SENT 
+2017._CD 48._CD B._NP Claus_NP ,_, J._NP H._NP Kepper_NP ,_, S._NP Suman_NP and_CC J._NP C._NP Kinsey_NP ,_, "_'' Closed-loop_NP one-way-travel-time_JJ navigation_NN using_VVG low-grade_NN odometry_NN for_IN autonomous_JJ underwater_JJ vehicles_NNS "_'' ,_, J._NP Field_NP Robot_NN ._SENT 
+,_, vol_NP ._SENT 
+35_CD ,_, no_RB ._SENT 
+4_LS ,_, pp_NP ._SENT 
+421-434_CD ,_, Jun_NP ._SENT 
+2018._CD 49._CD Y._NP T._NP Tan_NP ,_, M._NP Chitre_NP and_CC F._NP S._NP Hover_NP ,_, "_`` Cooperative_JJ bathymetry-based_JJ localization_NN using_VVG low-cost_JJ autonomous_JJ underwater_JJ vehicles_NNS "_'' ,_, Auton_NP ._SENT 
+Robots_NNS ,_, vol_NP ._SENT 
+40_CD ,_, no_RB ._SENT 
+7_CD ,_, pp_NP ._SENT 
+1187-1205_CD ,_, Oct._NP 2016._CD 

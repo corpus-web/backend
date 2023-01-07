@@ -1,0 +1,343 @@
+<title> Day-ahead_NP spatio-temporal_JJ forecasting_NN of_IN solar_JJ irradiation_NN along_IN a_DT navigation_NN route_NN </title> <author> Lan_NP ,_, Hai_NP ;_: Yin_NP ,_, He_PP ;_: Hong_NP ,_, Ying-Yi_NP ;_: Wen_NP ,_, Shuli_NP ;_: Yu_NP ,_, David_NP C._NP ;_: Cheng_NP ,_, Peng_NP </author> <Affiliation> 1_CD College_NP of_IN Automation_NN ,_, Harbin_NP Engineering_NP University_NP ,_, Harbin_NP ;_: 150001_CD ,_, China_NP 2_CD Department_NP of_IN Electrical_NP Engineering_NP ,_, Chung_NP Yuan_NP Christian_NP University_NP ,_, Chung_NP Li_NP District_NP 320_CD ,_, Taoyuan_NP City_NP ,_, Taiwan_NP 3_CD Department_NP of_IN Electrical_NP Engineering_NP and_CC Computer_NP Science_NP ,_, University_NP of_IN Wisconsin-Milwaukee_NP ,_, Milwaukee_NP ;_: 53211_CD ,_, United_NP States_NPS </Affiliation> <year> 2018_CD </year> <Jounral> Applied_NP Energy_NP ,_, </Journal> <Publishing_house> Elsevier_NP Ltd_NP </Publishing_house> <Text_Collector> Liu_NP Kai，HEU_NP </Text_Collector> <DOI> 10.1016/j_NP ._SENT 
+apenergy.2017.11.014_JJ </DOI> <URL> https_NNS :_: //www-sciencedirect-com-443_NN ._SENT 
+wvpn_NP ._SENT 
+hrbeu_NP ._SENT 
+edu_NP ._SENT 
+cn/science/article/pii/S0306261917308620_NP ?_SENT 
+via%3Dihub_NP </URL> <Section> Highlights_VVZ </Section> •_JJ It_PP solves_VVZ the_DT problem_NN of_IN maritime_JJ spatio-temporal_JJ forecasting_NN for_IN the_DT first_JJ time_NN ._SENT 
+•_NP A_DT new_JJ method_NN EEMD-SOM-BP_NN is_VBZ proposed_VVN for_IN maritime_JJ forecasting_NN of_IN solar_JJ irradiation_NN ._SENT 
+•_NP An_DT asymmetric_JJ four-parallel_NN structure_NN of_IN SOM_NP is_VBZ proposed_VVN to_TO mine_JJ data_NNS features_NNS ._SENT 
+•_NP Three_NP experiments_NNS are_VBP performed_VVN to_TO determine_VV the_DT optimal_JJ settings_NNS of_IN EEMD-SOM-BP_NN ._SENT 
+<Section> Abstract_JJ </Section> Owing_VVG to_TO a_DT shortage_NN of_IN fossil_JJ fuels_NNS and_CC environmental_JJ pollution_NN ,_, renewable_JJ energy_NN is_VBZ gradually_RB replacing_VVG fossil_JJ fuels_NNS in_IN the_DT power_NN systems_NNS of_IN hybrid_JJ ships_NNS ._SENT 
+To_TO exploit_VV fully_RB solar_JJ energy_NN by_IN the_DT successful_JJ day-ahead_NN scheduling_NN of_IN ships_NNS ,_, this_DT work_NN proposes_VVZ a_DT new_JJ day-ahead_NN spatio-temporal_JJ forecasting_NN method_NN ._SENT 
+Ensemble_NN empirical_JJ mode_NN decomposition_NN (_( EEMD_NN )_) is_VBZ used_VVN to_TO extract_VV data_NN features_NNS and_CC decompose_VV original_JJ historical_JJ data_NNS into_IN several_JJ frequency_NN bands_NNS ._SENT 
+After_IN the_DT original_JJ data_NNS are_VBP processed_VVN ,_, data_NNS from_IN the_DT four_CD land_NN weather_NN stations_NNS that_WDT are_VBP closest_JJS to_TO the_DT ship_NN and_CC self-organizing_VVG map-back_NN propagation_NN (_( SOM-BP_NP )_) hybrid_JJ neural_JJ networks_NNS are_VBP used_VVN to_TO forecast_VV the_DT solar_JJ radiation_NN received_VVN by_IN the_DT ship_NN in_IN the_DT next_JJ 24_CD h._JJ Multiple_JJ comparative_JJ experiments_NNS are_VBP implemented_VVN ._SENT 
+The_DT results_NNS show_VVP that_IN the_DT EEMD-SOM-BP_JJ spatio-temporal_JJ forecasting_NN method_NN can_MD accurately_RB forecast_VV the_DT solar_JJ radiation_NN on_IN a_DT ship_NN that_WDT is_VBZ sailing_VVG along_IN a_DT navigation_NN route_NN ._SENT 
+Keywords：Renewable_JJ energy；Spatio-temporal_JJ forecasting；Empirical_JJ mode_NN decomposition；Self-organizing_VVG maps；Artificial_JJ neural_JJ network；Navigation_NN route_NN <Section> 1._CD Introduction_NN </Section> With_IN the_DT depletion_NN of_IN fossil_JJ energy_NN and_CC severe_JJ environmental_JJ pollution_NN ,_, renewable_JJ energy_NN generation_NN technologies_NNS have_VHP been_VBN developed_VVN rapidly_RB in_IN recent_JJ years_NNS ._SENT 
+A_DT considerable_JJ number_NN of_IN ships_NNS that_WDT run_VVP on_IN renewable_JJ energy_NN have_VHP been_VBN constructed_VVN and_CC most_RBS use_VV a_DT hybrid_JJ power_NN system_NN that_WDT combines_VVZ solar_JJ energy_NN with_IN fossil_JJ fuel_NN [_SYM 1_CD ]_SYM ._SENT 
+Solar_JJ irradiation_NN forecasting_NN plays_VVZ a_DT very_RB significant_JJ role_NN in_IN the_DT operation_NN and_CC scheduling_NN of_IN ships_NNS that_WDT use_VVP solar_JJ energy_NN ._SENT 
+Recently_RB ,_, interest_NN in_IN the_DT development_NN of_IN renewable_JJ energy_NN forecasting_NN has_VHZ been_VBN increasing_VVG [_SYM 2_CD ]_SYM ,_, [_SYM 3_CD ]_SYM ,_, [_SYM 4_CD ]_SYM ,_, [_SYM 5_CD ]_SYM ,_, [_SYM 6_CD ]_SYM ._SENT 
+1._CD The_DT numerical_JJ weather_NN prediction_NN (_( NWP_NP )_) model_NN ,_, which_WDT is_VBZ established_VVN from_IN many_JJ historical_JJ data_NNS and_CC experiences_NNS of_IN meteorological_JJ experts_NNS ,_, is_VBZ suitable_JJ for_IN forecasting_VVG solar_JJ irradiation_NN over_IN a_DT time_NN horizon_NN of_IN more_JJR than_IN 6_CD h._NP 2._CD For_IN shorter_JJR time_NN scales_NNS of_IN seconds_NNS to_TO minutes_NNS ,_, meteorological_JJ satellites_NNS and_CC whole_JJ sky_NN imagers_NNS can_MD be_VB efficiently_RB used_VVN [_SYM 7_CD ]_SYM ._SENT 
+3._CD Data-driven_JJ statistical_JJ models_NNS are_VBP the_DT most_RBS widely_RB used_VVN and_CC are_VBP undergoing_VVG rapid_JJ development_NN [_SYM 8_CD ]_SYM ,_, [_SYM 9_CD ]_SYM ,_, [_SYM 10_CD ]_SYM ._SENT 
+Nowadays_RB the_DT construction_NN of_IN renewable_JJ distributed_VVN power_NN sources_NNS has_VHZ motivated_VVN a_DT rapid_JJ increase_NN in_IN research_NN into_IN the_DT spatio-temporal_JJ forecasting_NN of_IN renewable_JJ energy_NN ._SENT 
+Spatio-temporal_JJ forecasting_NN is_VBZ the_DT use_NN of_IN historical_JJ data_NNS from_IN multiple_JJ locations_NNS close_JJ to_TO a_DT target_NN location_NN or_CC the_DT relationship_NN among_IN meteorological_JJ parameters_NNS within_IN a_DT region_NN to_TO forecast_VV the_DT future_JJ state_NN at_IN the_DT target_NN location_NN ._SENT 
+The_DT fundamental_JJ basis_NN of_IN the_DT spatio-temporal_JJ prediction_NN of_IN solar/wind_JJ energy_NN is_VBZ that_IN the_DT solar_JJ radiation/wind_NN speed_NN at_IN multiple_JJ locations_NNS are_VBP always_RB interrelated_VVN through_IN the_DT cloud/wind_JJ cluster_NN in_IN the_DT region_NN [_SYM 11_CD ]_SYM ._SENT 
+Currently_RB ,_, many_JJ spatio-temporal_JJ prediction_NN methods_NNS are_VBP used_VVN in_IN the_DT field_NN of_IN solar_JJ irradiation/PV_NP power_NN prediction_NN [_SYM 12_CD ]_SYM ,_, [_SYM 13_CD ]_SYM ,_, [_SYM 14_CD ]_SYM ,_, [_SYM 15_CD ]_SYM ._SENT 
+These_DT methods_NNS fall_VVP into_IN three_CD categories_NNS ,_, which_WDT are_VBP spatio-temporal_JJ statistical_JJ methods_NNS ,_, pure_JJ data_NNS analysis_NN methods_NNS and_CC image_NN processing_NN methods_NNS ._SENT 
+In_IN spatio-temporal_JJ statistical_JJ methods_NNS ,_, traditional_JJ statistical_JJ methods_NNS are_VBP used_VVN to_TO model_VV environmental_JJ processes_NNS in_IN a_DT region_NN ._SENT 
+After_IN removing_VVG the_DT diurnal_JJ trend_NN of_IN solar_JJ irradiation_NN and_CC deforming_VVG the_DT geographical_JJ coordinates_VVZ to_TO establish_VV spatial_JJ stationarity_NN ,_, Yang_NP [_SYM 16_CD ]_SYM used_VVN a_DT time-forward_JJ kriging_VVG method_NN to_TO forecast_VV hourly_JJ spatio-temporal_JJ solar_JJ irradiance_NN data_NNS from_IN ten_CD weather_NN stations_NNS in_IN Singapore_NP ._SENT 
+Some_DT regression_NN models_NNS ,_, such_JJ as_IN the_DT functional_JJ coefficient_NN autoregressive_JJ model_NN [_SYM 17_CD ]_SYM ,_, the_DT spatio-temporal_NP ARMA_NP (_( STARMA_NP )_) model_NN [_SYM 18_CD ]_SYM and_CC the_DT spatio-temporal_JJ vector_NN autoregressive_NN (_( VAR_NN )_) model_NN [_SYM 19_CD ]_SYM ,_, use_VV separable/non-separable_JJ covariance_NN structures_NNS or_CC clearness_NN index_NN analysis_NN to_TO describe_VV the_DT spatio-temporal_JJ relationships_NNS among_IN sites_NNS ._SENT 
+Pure_JJ data_NNS analysis_NN methods_NNS mine_VVP historical_JJ data_NNS and_CC then_RB fit_VV spatio-temporal_JJ relationships_NNS among_IN meteorological_JJ parameters_NNS within_IN a_DT region_NN ._SENT 
+Federica_NN [_SYM 20_CD ]_SYM transformed_VVN daily_JJ data_NNS over_IN an_DT eight-year_JJ period_NN into_IN uncorrelated_JJ data_NNS using_VVG Principal_NN Component_NN Analysis_NP (_( PCA_NP )_) ,_, revealing_VVG the_DT effectiveness_NN of_IN the_DT method_NN ._SENT 
+Dong_NN [_SYM 21_CD ]_SYM used_VVN a_DT self-organizing_VVG map_NN (_( SOM_NP )_) ANN_NP to_TO divide_VV the_DT input_NN space_NN into_IN regions_NNS based_VVN on_IN the_DT characteristics_NNS of_IN the_DT data_NNS ._SENT 
+For_IN image_NN processing_NN method_NN ,_, Chow_NP [_SYM 22_CD ]_SYM used_VVN the_DT variational_JJ optical_JJ flow_NN (_( VOF_JJ )_) method_NN to_TO analyze_VV the_DT motion_NN of_IN clouds_NNS using_VVG data_NNS that_WDT were_VBD obtained_VVN using_VVG a_DT ground-based_JJ sky_NN imaging_NN system_NN ._SENT 
+However_RB ,_, to_TO solve_VV more_RBR complex_JJ and_CC difficult_JJ spatio-temporal_JJ prediction_NN problems_NNS ,_, these_DT methods_NNS should_MD be_VB combined_VVN with_IN each_DT other_JJ ._SENT 
+Although_IN accurate_JJ solar_JJ energy_NN forecasting_NN has_VHZ repeatedly_RB been_VBN proved_VVN to_TO improve_VV the_DT penetration_NN of_IN photovoltaic_JJ power_NN ,_, and_CC to_TO reduce_VV system_NN operating_VVG risks_NNS and_CC costs_NNS [_SYM 23_CD ]_SYM ,_, [_SYM 24_CD ]_SYM ,_, no_DT solar_JJ forecasting_NN method_NN for_IN hybrid_JJ ships_NNS yet_RB exists_VVZ ._SENT 
+Researchers_NNS can_MD only_RB use_VV land-based_JJ solar_JJ energy_NN prediction_NN methods_NNS to_TO forecast_VV maritime_JJ solar_JJ irradiation_NN ._SENT 
+Clearly_RB ,_, doing_VVG so_RB yields_VVZ inaccurate_JJ predictions_NNS ,_, which_WDT are_VBP useless_JJ for_IN subsequent_JJ research_NN into_IN marine_JJ power_NN systems_NNS ._SENT 
+Unlike_IN in_IN a_DT land-based_JJ spatio-temporal_JJ forecasting_NN problem_NN ,_, in_IN a_DT maritime_JJ problem_NN ,_, the_DT predicted_VVN target_NN location_NN (_( vessel_NN )_) is_VBZ always_RB moving_VVG ._SENT 
+The_DT problem_NN is_VBZ therefore_RB more_RBR complex_JJ than_IN a_DT land-based_JJ renewable_JJ energy_NN prediction_NN problem_NN with_IN fixed_VVN locations/stations_NNS ._SENT 
+Obviously_RB ,_, spatio-temporal_JJ statistical_JJ methods_NNS can_MD only_RB profile_VV topological_JJ relationships_NNS among_IN fixed_VVN points_NNS [_SYM 25_CD ]_SYM ,_, [_SYM 26_CD ]_SYM ._SENT 
+And_CC Pure_JJ data_NNS analysis_NN methods_NNS ,_, which_WDT are_VBP used_VVN mainly_RB to_TO mine_JJ relationships_NNS within_IN a_DT region_NN ,_, are_VBP also_RB unable_JJ to_TO solve_VV maritime_JJ forecasting_NN problems_NNS independently_RB [_SYM 27_CD ]_SYM ._SENT 
+Thus_RB in_IN this_DT paper_NN ,_, SOM_NP networks_NNS ,_, a_DT pure_JJ data_NN analysis_NN method_NN ,_, are_VBP used_VVN to_TO split_VV the_DT route_NN into_IN multiple_JJ regions_NNS ._SENT 
+Then_RB BP_NP networks_NNS ,_, a_DT statistical_JJ method_NN ,_, are_VBP utilized_VVN to_TO fit_VV spatio-temporal_JJ relationships_NNS among_IN fixed_VVN points_NNS in_IN each_DT region_NN ._SENT 
+Moreover_RB ,_, access_NN to_TO maritime_JJ meteorological_JJ data_NNS is_VBZ limited_VVN for_IN reasons_NNS of_IN national_JJ security_NN ._SENT 
+Most_JJS weather_NN stations_NNS are_VBP in_IN cities_NNS rather_RB than_IN at_IN sea_NN ,_, and_CC whole_JJ sky_NN imagers_NNS cannot_MD be_VB used_VVN at_IN sea_NN ,_, too_RB [_SYM 28_CD ]_SYM ._SENT 
+The_DT lack_NN of_IN meteorological_JJ data_NNS at_IN sea_NN makes_VVZ the_DT problem_NN of_IN maritime_JJ renewable_JJ energy_NN forecasting_VVG challenging_JJ ._SENT 
+Therefore_RB ,_, limited_JJ data_NNS must_MD be_VB reconstructed_VVN by_IN EEMD_JJ method_NN to_TO simplify_VV the_DT problem_NN ._SENT 
+This_DT work_NN proposes_VVZ a_DT new_JJ combined_JJ EEMD-SOM-BP_NN method_NN for_IN solving_VVG maritime_JJ spatio-temporal_JJ solar_JJ irradiation_NN forecasting_NN problems_NNS ._SENT 
+Previous_JJ research_NN has_VHZ demonstrated_VVN that_IN artificial_JJ neural_JJ networks_NNS (_( ANN_NP )_) are_VBP the_DT most_RBS effective_JJ means_NNS for_IN solving_VVG such_JJ complex_JJ hourly_JJ solar_JJ irradiation/PV_NP power_NN forecasting_VVG problems_NNS [_SYM 29_CD ]_SYM ,_, [_SYM 30_CD ]_SYM ,_, [_SYM 31_CD ]_SYM ,_, [_SYM 32_CD ]_SYM ._SENT 
+However_RB ,_, owing_VVG to_TO their_PP$ finite_JJ convergence_NN ability_NN ,_, the_DT primary_JJ data_NNS must_MD be_VB decomposed_VVN by_IN EEMD_NNS into_IN several_JJ subsequences_NNS with_IN various_JJ frequencies_NNS [_SYM 33_CD ]_SYM ._SENT 
+These_DT subsequences_NNS are_VBP then_RB used_VVN as_IN inputs_NNS to_TO train_VV different_JJ SOM-BP_NN networks_NNS ._SENT 
+SOM_NP networks_NNS are_VBP used_VVN to_TO mine_NN and_CC model_JJ spatio-temporal_JJ relationships_NNS between_IN inputs_NNS and_CC outputs_NNS along_IN a_DT navigation_NN route_NN ._SENT 
+The_DT ultimately_RB predicted_VVN solar_JJ irradiation_NN is_VBZ the_DT sum_NN of_IN outputs_NNS of_IN all_DT sub_NN SOM-BP_NN networks_NNS ._SENT 
+The_DT rest_NN of_IN this_DT paper_NN is_VBZ organized_VVN as_RB follows_VVZ :_: Section_NN 2_CD describes_VVZ the_DT problem_NN and_CC the_DT available_JJ data_NNS ._SENT 
+Section_NN 3_CD introduces_VVZ the_DT method_NN for_IN solving_VVG the_DT problem_NN ._SENT 
+Section_NN 4_CD presents_VVZ the_DT predicted_VVN results_NNS ._SENT 
+Section_NN 5_CD draws_VVZ conclusions_NNS ._SENT 
+<Section> 2._CD Description_NN of_IN problem_NN </Section> 2.1_CD ._SENT 
+Navigation_NP routem_NP Under_IN normal_JJ circumstances_NNS ,_, a_DT mammoth_JJ tanker_NN which_WDT has_VHZ been_VBN equipped_VVN with_IN almost_RB 2000_CD m2_NN of_IN photovoltaic_JJ (_( PV_NP )_) panels_NNS can_MD use_VV at_IN least_JJS one_CD fewer_JJR diesel_NN engine_NN than_IN can_NN a_DT traditional_JJ tanker_NN ._SENT 
+Hence_RB ,_, the_DT solar_JJ irradiation_NN that_WDT is_VBZ received_VVN by_IN the_DT hybrid_JJ energy_NN tanker_NN must_MD be_VB predicted_VVN accurately_RB to_TO dispatch_VV start-stops_NNS of_IN diesel_JJ engines_NNS ._SENT 
+The_DT navigation_NN route_NN of_IN such_PDT a_DT mammoth_JJ tanker_NN that_WDT runs_VVZ on_IN solar_JJ and_CC diesel_JJ energy_NN along_IN a_DT route_NN from_IN Dalian_NP to_TO Shanghai_NP in_IN the_DT eastern_JJ China_NP Sea_NP is_VBZ determined_VVN ._SENT 
+The_DT length_NN of_IN the_DT route_NN is_VBZ 1050_CD km_NN ._SENT 
+The_DT full_JJ voyage_NN time_NN is_VBZ 42_CD h_NN ,_, based_VVN on_IN an_DT assumed_JJ uniform_JJ sailing_NN speed_NN of_IN 25_CD km/h_NN ._SENT 
+Along_IN the_DT route_NN are_VBP nine_CD land-based_JJ weather_NN stations_NNS ._SENT 
+The_DT ship_NN sails_NNS past_JJ five_CD weather_NN stations_NNS and_CC other_JJ four_CD sites_NNS are_VBP close_JJ to_TO the_DT starting_VVG point_NN (_( Dalian_NP )_) and_CC the_DT destination_NN (_( Shanghai_NP )_) ._SENT 
+The_DT longest_JJS distance_NN between_IN stations_NNS is_VBZ 304.7_CD km_NN (_( Qingdao_NP to_TO Dafeng_NP )_) and_CC the_DT shortest_JJS is_VBZ 152.2_CD km_NN (_( Dalian_NP to_TO Weihai_NP )_) ._SENT 
+The_DT locations_NNS of_IN the_DT nine_CD stations_NNS are_VBP shown_VVN in_IN Fig_NN ._SENT 
+1._CD Fig_NN ._SENT 
+1._CD Nine_CD weather_NN stations_NNS and_CC navigation_NN route_NN ._SENT 
+2.2_CD ._SENT 
+Data_NP All_NP hourly_JJ data_NNS in_IN this_DT paper_NN are_VBP obtained_VVN from_IN the_DT solarGIS_NP data_NNS base_NN [_SYM 34_CD ]_SYM ,_, which_WDT contains_VVZ data_NNS that_WDT were_VBD obtained_VVN by_IN MTSAT_NP and_CC HIMAWARI_NP satellites_NNS ._SENT 
+According_VVG to_TO Hoff_NP and_CC Perez_NP [_SYM 35_CD ]_SYM ,_, [_SYM 36_CD ]_SYM ,_, [_SYM 37_CD ]_SYM ,_, in_IN a_DT spatio-temporal_JJ problem_NN ,_, the_DT distance_NN between_IN sites_NNS and_CC the_DT time_NN resolution_NN should_MD match_VV each_DT other_JJ ._SENT 
+Nine_CD land-based_JJ weather_NN stations_NNS in_IN Fig_NN ._SENT 
+1_LS are_VBP used_VVN to_TO provide_VV historical_JJ data_NNS that_WDT are_VBP utilized_VVN to_TO solve_VV the_DT hourly_JJ forecasting_NN problem_NN ._SENT 
+The_DT input_NN dataset_NN comprises_VVZ a_DT whole_JJ year_NN of_IN historical_JJ meteorological_JJ data_NNS from_IN the_DT nine_CD sites_NNS ._SENT 
+The_DT expected_VVN and_CC test_NN datasets_NNS contain_VVP data_NNS on_IN the_DT solar_JJ irradiation_NN that_WDT is_VBZ received_VVN by_IN the_DT ship_NN when_WRB it_PP sails_NNS along_IN the_DT navigation_NN route_NN without_IN stopping_VVG ._SENT 
+Half_NN of_IN the_DT data_NNS are_VBP used_VVN to_TO train_VV the_DT network_NN ;_: 20_CD %_NN are_VBP cross_NN validation_NN (_( CV_NP )_) data_NNS and_CC 30_CD %_NN are_VBP used_VVN to_TO test_VV the_DT performance_NN of_IN the_DT network_NN ._SENT 
+The_DT experiments_NNS are_VBP separated_VVN by_IN season_NN ._SENT 
+Table_NN 1_CD presents_VVZ the_DT data_NNS used_VVD ._SENT 
+Table_NN 1._CD Hourly_JJ data_NNS used_VVN in_IN EEMD-SOM-BP_NN method_NN ._SENT 
+<Section> 3._CD Method_NN </Section> 3.1_CD ._SENT 
+Empirical_JJ mode_NN decomposition_NN (_( EMD_NN )_) and_CC ensemble_NN empirical_JJ mode_NN decomposition_NN (_( EEMD_NN )_) The_DT forecast_NN meteorological_JJ parameter_NN is_VBZ solar_JJ irradiation_NN ,_, which_WDT exhibits_VVZ multi_NP frequency_NN characteristics_NNS ._SENT 
+The_DT low-frequency_NN component_NN of_IN the_DT irradiation_NN corresponds_VVZ to_TO the_DT diurnal_JJ variation_NN that_WDT is_VBZ caused_VVN by_IN the_DT periodic_JJ motion_NN of_IN the_DT sun_NN and_CC the_DT earth_NN ._SENT 
+The_DT high-frequency_NN component_NN corresponds_VVZ to_TO irregular_JJ disturbances_NNS that_WDT are_VBP caused_VVN by_IN moving_VVG clouds_NNS ._SENT 
+The_DT correlation_NN between_IN the_DT components_NNS with_IN different_JJ frequencies_NNS is_VBZ weak_JJ ._SENT 
+Solar_JJ irradiation_NN is_VBZ decomposed_VVN into_IN its_PP$ components_NNS with_IN different_JJ frequencies_NNS ,_, which_WDT are_VBP separately_RB forecast_VVN using_VVG input_NN data_NNS components_NNS of_IN the_DT same_JJ frequencies_NNS ._SENT 
+This_DT approach_NN is_VBZ much_RB more_RBR effective_JJ than_IN directly_RB predicting_VVG the_DT full-band_NP solar_JJ irradiation_NN ._SENT 
+Additionally_RB ,_, the_DT decomposed_VVN data_NNS with_IN simple_JJ frequency_NN characteristics_NNS are_VBP more_RBR favorable_JJ to_TO function-fitting_VVG and_CC subsequent_JJ ANN_NP convergence_NN ._SENT 
+Empirical_JJ mode_NN decomposition_NN (_( EMD_NN )_) is_VBZ an_DT adaptive_JJ time_NN series_NN decomposition_NN technique_NN that_WDT was_VBD originally_RB proposed_VVN by_IN Huang_NP in_IN 1998_CD [_SYM 38_CD ]_SYM ._SENT 
+Unlike_IN transcendental_JJ Fast_JJ Fourier_NN Transformation_NN (_( FFT_NP )_) and_CC wavelet_NN transformation_NN (_( WA_NP )_) ,_, EMD_RB directly_RB transforms_VVZ the_DT signal_NN in_IN the_DT time_NN domain_NN ._SENT 
+It_PP makes_VVZ the_DT non-stationary_JJ time_NN series_NN data_NNS stationary_JJ using_VVG the_DT Hilbert-Huang_NP Transform_VV (_( HHT_NN )_) and_CC decomposes_VVZ the_DT signal_NN into_IN several_JJ sub-signals_NNS with_IN different_JJ intrinsic_JJ mode_NN functions_NNS (_( IMFs_NNS )_) ._SENT 
+An_DT IMF_NP is_VBZ a_DT function_NN that_WDT has_VHZ the_DT following_VVG characteristics_NNS [_SYM 39_CD ]_SYM ,_, [_SYM 40_CD ]_SYM ._SENT 
+1._CD The_DT number_NN of_IN extrema_NP must_MD equal_VV the_DT number_NN of_IN zero-crossings_NNS or_CC differ_VVP from_IN it_PP by_IN one_CD ._SENT 
+2._CD The_DT mean_JJ value_NN of_IN the_DT upper_JJ envelope_NN that_WDT is_VBZ formed_VVN from_IN the_DT local_JJ maxima_NN and_CC the_DT lower_JJR envelope_NN that_WDT is_VBZ formed_VVN from_IN the_DT local_JJ minima_NN is_VBZ zero_CD at_IN all_DT times_NNS ._SENT 
+With_IN IMFs_NNS defined_VVN ,_, the_DT process_NN of_IN EMD_NNS can_MD be_VB elucidated_VVN as_RB follows_VVZ ._SENT 
+Fig_NN ._SENT 
+2_LS presents_VVZ its_PP$ flowchart_NP ._SENT 
+(_( 1_LS )_) Assume_VV that_IN the_DT original_JJ solar_JJ irradiation_NN time_NN series_NN is_VBZ x(t_NP )_) ;_: identify_VV all_DT local_JJ extreme_JJ points_NNS of_IN x(t_NP )_) ._SENT 
+Now_RB ,_, construct_VV the_DT upper_JJ envelope_NN eup(t_NN )_) from_IN the_DT maxima_NN and_CC the_DT lower_JJR envelope_NN elow(t_NN )_) from_IN the_DT minima_NN using_VVG the_DT three-spline_JJ interpolation_NN algorithm_NN ._SENT 
+(_( 2_LS )_) Calculate_VV the_DT median_JJ value_NN m1(t_NN )_) ,_, as_RB follows_VVZ ._SENT 
+@（1）_JJ Fig_NN ._SENT 
+2._CD EMD_JJ flow_NN chart_NN ._SENT 
+Obtain_VV the_DT difference_NN ,_, @（2）_NP (_( 3_LS )_) Determine_VV whether_IN the_DT difference_NN h1(t_NN )_) is_VBZ an_DT IMF_NP ._SENT 
+If_IN h1(t_NP )_) exhibits_VVZ the_DT two_CD aforementioned_JJ mentioned_VVN two_CD characteristics_NNS ,_, then_RB it_PP is_VBZ an_DT IMF_NP that_WDT can_MD be_VB defined_VVN as_IN Imf1(t_NP )_) ._SENT 
+If_IN it_PP does_VVZ not_RB ,_, treat_VV h1(t_NP )_) as_IN an_DT original_JJ signal_NN and_CC repeat_VV the_DT previous_JJ steps_NNS k-1_JJ times_NNS until_IN hk(t_NP )_) is_VBZ an_DT IMF_NP ._SENT 
+Hence_RB ,_, the_DT first_JJ IMF_NP Imf1(t_NP )_) and_CC the_DT first_JJ residual_JJ r1(t_NN )_) of_IN the_DT decomposed_VVN solar_JJ irradiation_NN are_VBP as_RB follows_VVZ ._SENT 
+@（3）_NP @（4）_NP (_( 4_CD )_) Treat_NP r1(t_NP )_) as_IN a_DT new_JJ original_JJ signal_NN to_TO derive_VV the_DT next_JJ IMF_NP following_VVG the_DT above_JJ steps_NNS ._SENT 
+Finally_RB ,_, terminate_VV the_DT decomposition_NN process_NN when_WRB the_DT residual_JJ rn(t_NN )_) is_VBZ a_DT monotonic_JJ function_NN or_CC has_VHZ no_RB more_JJR than_IN two_CD extreme_JJ points_NNS ._SENT 
+Accordingly_RB ,_, the_DT original_JJ solar_JJ irradiation_NN data_NNS x(t_NN )_) has_VHZ been_VBN decomposed_VVN into_IN the_DT sum_NN of_IN n_NN −_JJ 1_CD IMFs_NNS and_CC the_DT residual_JJ rn(t_NN )_) ._SENT 
+Fig_NN ._SENT 
+2_CD presents_NNS the_DT flow_NN chart_NN of_IN EMD_NNS ._SENT 
+@（5）_NP Mode_NP mixing_VVG is_VBZ a_DT major_JJ problem_NN in_IN EMD_NNS ._SENT 
+Fig_NN ._SENT 
+3_LS indicates_VVZ that_IN an_DT IMF_NP always_RB oscillates_VVZ with_IN various_JJ frequencies_NNS ._SENT 
+Therefore_RB ,_, in_IN 2011_CD ,_, an_DT improved_VVN EMD_NN ,_, with_IN a_DT noise_NN auxiliary_JJ method_NN ,_, called_VVD Ensemble_NN Empirical_JJ Mode_NP Decomposition_NN (_( EEMD_NN )_) ,_, was_VBD developed_VVN to_TO improve_VV mixing_VVG [_SYM 41_CD ]_SYM ._SENT 
+The_DT principle_NN of_IN EEMD_NN is_VBZ that_IN the_DT time-frequency_NN space_NN is_VBZ divided_VVN into_IN components_NNS with_IN various_JJ scales_NNS using_VVG filter_NN banks_NNS when_WRB the_DT additive_JJ white_JJ noise_NN is_VBZ uniformly_RB distributed_VVN throughout_IN time-frequency_JJ space_NN [_SYM 42_CD ]_SYM ._SENT 
+Unlike_IN in_IN EMD_NN ,_, a_DT random_JJ white_JJ noise_NN time_NN series_NN wi(t_NN )_) is_VBZ added_VVN to_TO the_DT original_JJ data_NN x(t_NN )_) before_IN the_DT signal_NN is_VBZ decomposed_VVN ._SENT 
+Then_RB ,_, EMD_NN is_VBZ used_VVN to_TO decompose_VV these_DT new_JJ data_NN xi(t_NN )_) ._SENT 
+xi(t_NP )_) is_VBZ decomposed_VVN N_NP times_NNS with_IN a_DT different_JJ white_JJ noise_NN series_NN every_DT time_NN ._SENT 
+Finally_RB ,_, the_DT mean_JJ value_NN Imfj(t)of_VVP the_DT above_JJ IMFs_NNS is_VBZ obtained_VVN ._SENT 
+Formulas_NNS (_( 6_CD )_) ,_, (_( 7_CD )_) capture_VV the_DT above_JJ steps_NNS ._SENT 
+@（6）_JJ @（7）_JJ Fig_NN ._SENT 
+3._CD Decomposition_NN example_NN ._SENT 
+3.2_CD ._SENT 
+Self-organizing_VVG map_NN (_( SOM_NP )_) The_DT fundamental_JJ difficulty_NN of_IN the_DT maritime_JJ forecasting_NN problem_NN is_VBZ the_DT fitting_NN of_IN the_DT spatio-temporal_JJ coupling_NN relationship_NN within_IN a_DT region_NN ._SENT 
+An_DT SOM_NP can_MD extract_VV features_NNS from_IN the_DT input_NN space_NN to_TO generate_VV a_DT topological_JJ network_NN that_WDT represents_VVZ this_DT relationship_NN ._SENT 
+The_DT input_NN space_NN is_VBZ compressed_VVN and_CC the_DT computational_JJ burden_NN is_VBZ greatly_RB reduced_VVN ._SENT 
+An_DT SOM_NP network_NN is_VBZ an_DT unsupervised_JJ competitive_JJ neural_JJ network_NN ,_, and_CC was_VBD originally_RB developed_VVN by_IN Kohonen_NP in_IN 1990_CD [_SYM 43_CD ]_SYM ._SENT 
+SOMs_NNS are_VBP used_VVN mostly_RB in_IN cluster_NN analysis_NN ,_, data_NNS dimension_NN reduction_NN and_CC feature_NN extraction_NN ._SENT 
+Their_PP$ fundamental_JJ process_NN is_VBZ the_DT mapping_NN of_IN a_DT high-dimensional_JJ input_NN space_NN to_TO a_DT one/two-dimensional_JJ (_( rarely_RB more_JJR )_) topological_JJ plane_NN based_VVN on_IN the_DT inherent_JJ characteristics_NNS of_IN the_DT data_NNS ._SENT 
+The_DT training_NN process_NN of_IN an_DT SOM_NP network_NN is_VBZ as_RB follows_VVZ [_SYM 44_CD ]_SYM ,_, [_SYM 45_CD ]_SYM ._SENT 
+1._CD Randomly_RB generate_VV the_DT initial_JJ weight_NN matrix_NN ωji¯¯¯¯_NN of_IN the_DT network_NN where_WRB j_NN specifies_VVZ the_DT neuron_NN and_CC i_NP specifies_VVZ the_DT component_NN of_IN the_DT input_NN vector_NN xki¯¯¯¯_NN ._SENT 
+2._CD By_IN identifying_VVG the_DT minimum_JJ Euclidean_JJ distance_NN between_IN the_DT input_NN vector_NN and_CC the_DT weight_NN vector_NN ,_, determine_VV the_DT winning_JJ neuron_NN c_SYM whose_WP$ weight_NN vector_NN is_VBZ ωc¯¯¯¯_JJ :_: @（8）_NN 3._CD The_DT weight_NN vectors_VVZ of_IN the_DT winning_VVG neuron_NN and_CC its_PP$ neigh-boring_NN neurons_NNS are_VBP modified_VVN in_IN each_DT generation_NN of_IN the_DT network_NN training_NN process_NN :_: @（9）_JJ @（10）_NN where_WRB Nd_NN is_VBZ the_DT neighborhood_NN set_VVN of_IN the_DT winning_JJ neuron_NN ;_: μi(t_NP )_) is_VBZ the_DT neighborhood_NN function_NN ;_: α(t_NP )_) is_VBZ the_DT learning_VVG rate_NN ,_, and_CC rc_NP and_CC rj_NP are_VBP the_DT positions_NNS of_IN the_DT winning_VVG neurons_NNS and_CC the_DT jth_JJ neurons_NNS ,_, respectively_RB ._SENT 
+σ(t_NP )_) is_VBZ the_DT neighborhood_NN size_NN parameter_NN ,_, whose_WP$ value_NN decreases_VVZ as_IN the_DT number_NN of_IN training_NN iterations_NNS increases_NNS ._SENT 
+4._CD Repeat_NN steps_VVZ 2_CD and_CC 3_CD using_VVG the_DT input_NN vectors_VVZ until_IN the_DT expected_VVN number_NN of_IN iterations_NNS is_VBZ reached_VVN ._SENT 
+Fig_NN ._SENT 
+4_CD displays_NNS the_DT structure_NN and_CC convergence_NN of_IN the_DT SOM_NP ._SENT 
+Fig_NN ._SENT 
+4._CD SOM_NP structure_NN diagram_NN ._SENT 
+In_IN this_DT paper_NN ,_, the_DT input_NN of_IN the_DT SOM_NP is_VBZ a_DT 96-dimensional_JJ decomposed_VVN input_NN time_NN series_NN Imfij(t_NN )_) ._SENT 
+Imfij(t_NP )_) is_VBZ the_DT jth_JJ column_NN of_IN data_NNS of_IN the_DT ith_JJ component_NN of_IN the_DT input_NN time_NN series_NN ,_, which_WDT is_VBZ decomposed_VVN by_IN EEMD_NNS ._SENT 
+Imfi1(t)…Imfi24(t_NP )_) ,_, Imfi25(t_NP )_) …_NP Imfi48(t_NP )_) ,_, Imfi49(t_NP )_) …Imfi72(t_NP )_) ,_, Imfi73(t_NP )_) …Imfi96(t_NP )_) correspond_VV to_TO the_DT last_JJ 24_CD h_NN of_IN data_NNS from_IN four_CD weather_NN stations_NNS ,_, respectively_RB ._SENT 
+The_DT output_NN of_IN the_DT SOM_NP ,_, which_WDT is_VBZ used_VVN as_IN the_DT input_NN of_IN BP_NP networks_NNS ,_, is_VBZ no_RB more_JJR than_IN 36-dimensional_JJ ._SENT 
+Two_CD SOM_NP network_NN structures_NNS are_VBP used_VVN herein_RB ;_: they_PP are_VBP the_DT single_JJ SOM_NP structure_NN and_CC the_DT asymmetrical_JJ four-parallel_NP SOM_NP structure_NN ._SENT 
+The_DT former_JJ comprises_VVZ a_DT single_JJ SOM_NP of_IN size_NN 6_CD ×_NN 6_CD ,_, and_CC is_VBZ used_VVN to_TO process_VV the_DT 96-dimensional_JJ input_NN data_NNS that_WDT have_VHP been_VBN decomposed_VVN by_IN EEMD_NNS ._SENT 
+The_DT latter_NN uses_VVZ four-parallel_NN SOMs_NNS to_TO process_VV the_DT input_NN data_NNS simultaneously_RB ,_, such_JJ that_IN each_DT SOM_NP network_NN handles_VVZ only_RB 24-dimensional_JJ data_NNS ._SENT 
+Fig_NN ._SENT 
+5_CD presents_VVZ the_DT optimum_JJ setting_NN of_IN four-parallel_NN SOMs_NNS ;_: Section_NN 4.4_CD provides_VVZ related_JJ details_NNS ._SENT 
+Fig_NN ._SENT 
+5._CD Asymmetrical_JJ 4-parallel_NP SOM-BPi_NP structure_NN diagram_NN ._SENT 
+3.3_CD ._SENT 
+EEMD-SOM-BP_NN method_NN This_DT work_NN proposes_VVZ a_DT new_JJ combined_JJ method_NN ,_, EEMD-SOM-BP_NP ,_, for_IN solving_VVG the_DT marine_JJ renewable_JJ energy_NN forecasting_NN problem_NN (_( Fig_NN ._SENT 
+5_LS ,_, Fig_VV ._SENT 
+6_CD )_) ._SENT 
+This_DT prediction_NN problem_NN involves_VVZ spatio-temporal_JJ coupling_NN and_CC a_DT target_NN that_WDT is_VBZ continuously_RB been_VBN moving_VVG at_IN sea_NN ._SENT 
+Therefore_RB ,_, the_DT relationship_NN between_IN input_NN and_CC output_NN variables_NNS is_VBZ much_RB more_RBR complicated_JJ than_IN in_IN a_DT land-based_JJ prediction_NN problem_NN ._SENT 
+EEMD_NN is_VBZ used_VVN to_TO decompose_VV the_DT original_JJ data_NNS into_IN sequences_NNS with_IN various_JJ frequencies_NNS and_CC to_TO reduce_VV the_DT difficulty_NN of_IN convergence_NN of_IN the_DT neural_JJ network_NN ._SENT 
+Since_IN the_DT input_NN series_NN involves_VVZ multiple_JJ weather_NN stations_NNS and_CC the_DT output_NN series_NN varies_VVZ in_IN time_NN and_CC space_NN ,_, another_DT challenge_NN in_IN predicting_VVG marine_JJ renewable_JJ energy_NN is_VBZ the_DT extraction_NN of_IN the_DT main_JJ features_NNS of_IN the_DT data_NNS without_IN interference_NN by_IN random_JJ events_NNS and_CC noise_NN ._SENT 
+SOM_NP networks_NNS are_VBP suitable_JJ for_IN solving_VVG this_DT problem_NN ._SENT 
+Moreover_RB ,_, SOMs_NNS can_MD reduce_VV the_DT number_NN of_IN dimensions_NNS of_IN the_DT input_NN space_NN and_CC the_DT computational_JJ burden_NN ._SENT 
+Finally_RB ,_, the_DT distance_NN vector_NN space_NN of_IN the_DT SOM_NP is_VBZ used_VVN as_IN the_DT input_NN space_NN of_IN a_DT back-propagation_NN neural_JJ network_NN (_( BPNN_NP )_) ._SENT 
+Accurate_JJ predictions_NNS can_MD be_VB obtained_VVN using_VVG the_DT BP_NP network_NN owing_VVG to_TO the_DT EEMD_NN and_CC SOM_NP ._SENT 
+Fig_NN ._SENT 
+6._CD EEMDi-SOM-BP_NP flowchart_NP ._SENT 
+Fig_NN ._SENT 
+6_CD presents_NNS the_DT EEMDi-SOM-BP_NN flow_NN ._SENT 
+1._CD Use_NP EEMD_NNS to_TO decompose_VV the_DT original_JJ solar_JJ irradiation_NN data_NNS from_IN nine_CD land_NN weather_NN stations_NNS into_IN n_NN IMFs_NNS and_CC a_DT residual_JJ ._SENT 
+Calculate_VV the_DT new_JJ Imfi(t)N_NN as_IN the_DT sum_NN of_IN Imfi(t_NP )_) ,_, Imfi+1(t_NP )_) …_NP Imfn(t_NP )_) and_CC residual_JJ r(t_NN )_) ._SENT 
+These_DT i_NP IMF_NP data_NNS are_VBP the_DT 96-dimensional_JJ (_( D_NP )_) input_NN data_NNS of_IN the_DT SOM-BP_NN networks_NNS ._SENT 
+Do_VV the_DT same_JJ to_TO the_DT ship_NN solar_JJ irradiation_NN data_NNS to_TO obtain_VV the_DT 24_CD dimensional_JJ output_NN data_NNS of_IN SOM-BP_NN ._SENT 
+2._CD Each_DT Imfi(t_NN )_) datum_NN is_VBZ used_VVN to_TO train_VV an_DT SOM-BP_JJ hybrid_JJ network_NN (_( Fig_NN ._SENT 
+5_LS )_) ._SENT 
+In_IN an_DT SOM-BPi_NP network_NN ,_, 96-dimensional_JJ input_NN data_NNS are_VBP compressed_VVN into_IN a_DT 38-dimensional_JJ distance_NN vector_NN Ii(t_NN )_) using_VVG asymmetrical_JJ 4-parallel_NN SOMs_NNS ._SENT 
+3._CD The_DT 38-dimensional_JJ distance_NN vector_NN is_VBZ input_NN to_TO the_DT three-layer_NP BP_NP network_NN ._SENT 
+The_DT ith_NP BPNN_NP output_NN Oi(t_NN )_) is_VBZ calculated_VVN by_IN the_DT supervised_JJ BP_NP network_NN ._SENT 
+Meanwhile_RB ,_, the_DT hidden_JJ layer_NN of_IN the_DT BP_NP has_VHZ 30_CD neurons_NNS and_CC the_DT output_NN layer_NN has_VHZ 24_CD neurons_NNS ,_, corresponding_JJ to_TO 24_CD h_NN of_IN predictions_NNS ,_, Oi(t_NP )_) ._SENT 
+4._CD Calculate_VVP the_DT sum_NN of_IN all_DT Oi(t_NN )_) that_WDT are_VBP calculated_VVN by_IN i_NP SOM-BP_NP networks_NNS ._SENT 
+Obtain_VV the_DT final_JJ day-ahead_NN predictions_NNS ,_, F(t_NP )_) ._SENT 
+The_DT EEMD-SOM-BP_NN method_NN combines_VVZ the_DT advantages_NNS of_IN these_DT three_CD algorithms_NNS ._SENT 
+It_PP is_VBZ applied_VVN to_TO solve_VV the_DT maritime_JJ renewable_JJ energy_NN forecasting_NN problem_NN ,_, which_WDT differs_VVZ markedly_RB from_IN the_DT problem_NN of_IN energy_NN forecasting_NN on_IN land_NN ._SENT 
+Since_IN EEMD-SOM-BP_NP is_VBZ a_DT combined_JJ method_NN ,_, it_PP has_VHZ various_JJ parameter_NN settings_NNS and_CC is_VBZ highly_RB flexible_JJ ._SENT 
+The_DT local_JJ settings_NNS of_IN EEMD-SOM-BP_NN can_MD be_VB set_VVN to_TO enable_VV it_PP to_TO be_VB applied_VVN to_TO the_DT spatio-temporal_JJ prediction_NN of_IN other_JJ meteorological_JJ parameters_NNS ._SENT 
+<Section> 4._CD Simulation_NP results_NNS and_CC discussion_NN </Section> The_DT proposed_VVN combined_JJ method_NN is_VBZ used_VVN to_TO forecast_VV day-ahead_NP ship_VV global_JJ horizontal_JJ irradiance_NN (_( GHI_NP )_) along_IN the_DT navigation_NN route_NN from_IN Dalian_NP to_TO Shanghai_NP ._SENT 
+Assume_VV that_IN the_DT hybrid_JJ ship_NN is_VBZ sailing_VVG at_IN a_DT constant_JJ speed_NN throughout_IN the_DT year_NN ._SENT 
+The_DT last_JJ 24-h_NN of_IN data_NNS from_IN the_DT nearest_JJS four_CD weather_NN stations_NNS to_TO the_DT ship_NN are_VBP used_VVN as_IN inputs_NNS at_IN all_DT times_NNS ._SENT 
+As_IN the_DT ship_NN moves_NNS ,_, data_NNS from_IN different_JJ stations_NNS are_VBP used_VVN ._SENT 
+The_DT time_NN resolution_NN of_IN the_DT historical_JJ data_NN is_VBZ one_CD hour_NN and_CC the_DT input_NN meteorological_JJ parameters_NNS are_VBP GHI_NP ,_, wind_NN speed_NN ,_, wind_NN direction_NN and_CC temperature_NN ._SENT 
+To_TO use_VV the_DT proposed_VVN method_NN effectively_RB ,_, three_CD contrastive_JJ experiments_NNS are_VBP conducted_VVN ._SENT 
+Mean_JJ absolute_JJ error_NN (_( MAE_NP )_) ,_, root_NN mean_VVP square_JJ error_NN (_( RMSE_NN )_) and_CC correlation_NN coefficient_NN (_( R_NN )_) are_VBP the_DT evaluated_VVN indices_NN in_IN this_DT paper_NN ._SENT 
+MAE_NP is_VBZ the_DT mean_JJ absolute_JJ value_NN of_IN the_DT deviations_NNS :_: @（11）_NN where_WRB xt_NN and_CC x′t_NN are_VBP the_DT actual_JJ and_CC predicted_VVN values_NNS ,_, respectively_RB ,_, of_IN the_DT variable_NN of_IN interest_NN at_IN time_NN t._NP N_NP is_VBZ the_DT number_NN of_IN samples_NNS ._SENT 
+RMSE_NN is_VBZ the_DT square_JJ root_NN of_IN the_DT mean_NN of_IN the_DT squares_NNS of_IN the_DT deviations_NNS :_: @（12）_NN The_DT correlation_NN coefficient_NN is_VBZ a_DT normalized_VVN measurement_NN of_IN how_WRB the_DT two_CD sets_NNS of_IN samples_NNS are_VBP linearly_RB related_VVN :_: @（13）_NN Some_DT essential_JJ characteristics_NNS of_IN the_DT ship_NN renewable_JJ energy_NN forecasting_NN problem_NN and_CC the_DT advantages_NNS of_IN the_DT proposed_VVN method_NN are_VBP elucidated_VVN with_IN reference_NN to_TO these_DT experimental_JJ results_NNS ._SENT 
+4.1_CD ._SENT 
+One_CD Hour-ahead_NN prediction_NN To_TO explicate_VV the_DT accuracy_NN and_CC effectiveness_NN of_IN EEMD-SOM-BP_NP ,_, one_CD hour-ahead_NP GHI_NP prediction_NN is_VBZ firstly_RB conducted_VVN ._SENT 
+One_CD hour_NN of_IN data_NNS from_IN four_CD weather_NN stations_NNS on_IN land_NN are_VBP used_VVN to_TO forecast_VV the_DT GHI_NN of_IN the_DT ship’s_NP solar_JJ panel_NN in_IN the_DT next_JJ hour_NN ._SENT 
+Fig_NN ._SENT 
+7_CD plots_NNS the_DT real_JJ GHI_NP values_NNS (_( blue_JJ curve_NN )_) and_CC the_DT predicted_VVN GHI_NP values_NNS (_( red_JJ curve_NN )_) along_IN the_DT navigation_NN route_NN for_IN each_DT of_IN the_DT four_CD seasons_NNS ._SENT 
+Fig_NN ._SENT 
+7._CD One_CD hour-ahead_NN prediction_NN results_NNS in_IN four_CD seasons_NNS ._SENT 
+The_DT figure_NN indicates_VVZ that_IN the_DT variation_NN of_IN GHI_NP is_VBZ closely_RB fitted_VVN using_VVG the_DT proposed_VVN method_NN ._SENT 
+Table_NN 2_CD shows_NNS the_DT values_NNS of_IN evaluated_VVN indices_NN ._SENT 
+The_DT correlation_NN coefficients_NNS for_IN the_DT four_CD seasons_NNS all_RB exceed_VVP 0.90_CD and_CC all_DT error_NN values_NNS are_VBP reasonable_JJ ._SENT 
+Although_IN the_DT problem_NN in_IN this_DT paper_NN is_VBZ more_RBR complex_JJ than_IN the_DT spatio-temporal_JJ forecasting_NN problem_NN on_IN land_NN ,_, the_DT achieved_VVN predictive_JJ accuracy_NN is_VBZ as_RB good_JJ as_RB that_IN on_IN land_NN ._SENT 
+Clearly_RB ,_, EEMD-SOM-BP_NP is_VBZ effective_JJ for_IN solving_VVG the_DT marine_JJ spatio-temporal_JJ forecasting_NN problem_NN ._SENT 
+Table_NN 2._CD Evaluating_VVG indicator_NN values_NNS of_IN one_CD hour_NN ahead_RB ._SENT 
+Fig_NN ._SENT 
+7_CD also_RB demonstrates_VVZ that_IN the_DT error_NN is_VBZ greatest_JJS at_IN noon_NN because_IN random_JJ fluctuations_NNS of_IN GHI_NP are_VBP dominated_VVN by_IN cloud_NN cover_NN ._SENT 
+Furthermore_RB ,_, more_JJR intense_JJ irradiation_NN corresponds_VVZ to_TO a_DT greater_JJR fluctuation_NN as_IN a_DT result_NN of_IN cloud_NN cover_NN ._SENT 
+GHI_NP is_VBZ always_RB highest_JJS at_IN noon_NN so_IN random_JJ disturbances_NNS at_IN that_DT time_NN cause_NN very_RB large_JJ numerical_JJ changes_NNS ._SENT 
+Interestingly_RB ,_, predictions_NNS are_VBP quite_RB poor_JJ on_IN some_DT days_NNS because_IN of_IN abnormal_JJ fluctuations_NNS of_IN GHI_NP relative_JJ to_TO yesterday_NN ._SENT 
+Fig_NN ._SENT 
+8_CD clearly_RB demonstrates_VVZ that_IN the_DT deviation_NN of_IN the_DT prediction_NN is_VBZ often_RB large_JJ when_WRB GHI_NP is_VBZ much_RB greater_JJR or_CC smaller_JJR than_IN the_DT GHI_NP value_NN at_IN the_DT same_JJ time_NN on_IN the_DT previous_JJ day_NN ._SENT 
+Fig_NN ._SENT 
+8._CD Maximum_JJ forecast_NN deviation_NN in_IN four_CD seasons_NNS ._SENT 
+4.2_CD ._SENT 
+Input_NN parameter_NN analysis_NN Many_JJ meteorological_JJ parameters_NNS are_VBP related_VVN to_TO solar_JJ irradiance_NN and_CC they_PP can_MD be_VB used_VVN to_TO predict_VV solar_JJ irradiance_NN accurately_RB ,_, but_CC the_DT use_NN of_IN more_JJR meteorological_JJ parameters_NNS as_IN inputs_NNS does_VVZ not_RB necessarily_RB yield_VV better_JJR results_NNS ._SENT 
+Therefore_RB ,_, the_DT first_JJ issue_NN in_IN the_DT accurate_JJ prediction_NN of_IN solar_JJ irradiance_NN is_VBZ the_DT choice_NN of_IN meteorological_JJ parameters_NNS as_IN inputs_NNS ._SENT 
+An_DT input_NN parameter_NN contrast_NN experiment_NN is_VBZ performed_VVN in_IN the_DT following_VVG three_CD cases_NNS ._SENT 
+Case_NN 1_CD :_: GHI_NP (_( G_NP )_) ,_, wind_NN speed_NN (_( S_NP )_) ,_, wind_NN direction_NN (_( D_NP )_) and_CC temperature_NN (_( T_NN )_) data_NNS from_IN four_CD weather_NN stations_NNS on_IN land_NN are_VBP used_VVN as_IN inputs_NNS in_IN forecasting_VVG the_DT GHI_NN of_IN the_DT ship_NN over_IN the_DT following_VVG 24_CD h._JJ Case_NP 2_CD :_: The_DT GHI_NP and_CC wind_VV speed_NN data_NNS from_IN four_CD stations_NNS are_VBP used_VVN as_IN inputs_NNS ._SENT 
+Case_NN 3_CD :_: Only_RB GHI_NP data_NNS from_IN four_CD stations_NNS are_VBP used_VVN to_TO forecast_VV GHI_NP ._SENT 
+Table_NN 3_CD presents_VVZ the_DT predictions_NNS made_VVN in_IN the_DT above_JJ three_CD cases_NNS ._SENT 
+Clearly_RB ,_, the_DT prediction_NN is_VBZ best_JJS in_IN case_NN 3_CD and_CC worst_JJS case_NN 1_CD for_IN all_DT four_CD seasons_NNS ._SENT 
+As_IN the_DT number_NN of_IN input_NN variables_NNS decrease_VVP ,_, the_DT accuracy_NN of_IN prediction_NN and_CC the_DT degree_NN of_IN coupling_NN both_CC increase_NN because_IN the_DT historical_JJ dataset_NN includes_VVZ bad_JJ data_NNS as_RB well_RB as_IN good_JJ information_NN ._SENT 
+Additionally_RB ,_, this_DT problem_NN involves_VVZ many_JJ space-time_NN coupling_NN relationships_NNS along_IN the_DT route_NN and_CC the_DT convergence_NN ability_NN of_IN the_DT artificial_JJ neural_JJ network_NN (_( ANN_NP )_) is_VBZ limited_VVN ._SENT 
+An_DT excess_NN of_IN information_NN only_RB interferes_VVZ with_IN itself_PP ,_, increasing_VVG the_DT burden_NN of_IN network_NN convergence_NN ._SENT 
+This_DT result_NN shows_VVZ that_IN the_DT use_NN of_IN only_JJ GHI_NP data_NNS from_IN the_DT nearest_JJS four_CD weather_NN stations_NNS yields_VVZ the_DT best_JJS day-ahead_NN marine_JJ GHI_NP predictions_NNS ._SENT 
+Table_NN 3._CD Prediction_NN results_NNS using_VVG different_JJ input_NN space_NN ._SENT 
+4.3_CD ._SENT 
+Models_NNS comparison_NN Fig_NN ._SENT 
+3_LS reveals_VVZ that_IN GHI_NP can_MD be_VB decomposed_VVN into_IN multiple_JJ sub-sequences_NNS and_CC that_DT -_: the_DT frequency_NN characteristics_NNS of_IN the_DT last_JJ few_JJ Imf(t_NN )_) series_NN are_VBP quite_RB simple_JJ ._SENT 
+An_DT SOM-BP_NN network_NN does_VVZ not_RB have_VH to_TO be_VB established_VVN for_IN each_DT Imf(t_NN )_) ._SENT 
+Hence_RB ,_, a_DT new_JJ Imf(t)′_NN ,_, which_WDT is_VBZ the_DT sum_NN of_IN those_DT Imf(t_NN )_) and_CC the_DT residual_JJ is_VBZ generated_VVN and_CC input_NN to_TO the_DT SOM-BPi_NP network_NN ._SENT 
+A_DT contrast_NN experiment_NN is_VBZ conducted_VVN to_TO determine_VV how_WRB many_JJ SOM-BP_NN networks_NNS should_MD be_VB used_VVN to_TO solve_VV the_DT spatio-temporal_JJ problem_NN and_CC to_TO identify_VV the_DT best_JJS prediction_NN model_NN ._SENT 
+Based_VVN on_IN the_DT results_NNS of_IN the_DT experiment_NN in_IN Section_NP 4.2_CD ,_, only_RB GHI_NP is_VBZ used_VVN as_IN the_DT input_NN parameter_NN in_IN the_DT following_VVG four_CD cases_NNS ._SENT 
+Case_NN 4_CD :_: Only_RB one_CD SOM-BP_NN hybrid_JJ network_NN is_VBZ used_VVN for_IN forecasting_NN and_CC the_DT original_JJ data_NNS are_VBP not_RB decomposed_VVN ._SENT 
+Case_NN 5_CD :_: The_DT EEMD3-SOM-BP_NN model_NN is_VBZ used_VVN in_IN forecasting_NN ;_: it_PP decomposes_VVZ the_DT original_JJ data_NNS into_IN three_CD parts_NNS ,_, Imf1(t_NP )_) ,_, Imf2(t_NP )_) ,_, Imf(t)′_NP (_( the_DT sum_NN of_IN Imf3(t_NP )_) ,_, …_NP ,_, Imf10(t_NP )_) and_CC residual_JJ )_) ,_, each_DT of_IN which_WDT is_VBZ connected_VVN to_TO an_DT SOM-BP_NN network_NN ._SENT 
+Case_NN 6_CD :_: The_DT EEMD4-SOM-BP_NN model_NN ,_, which_WDT decomposes_VVZ the_DT original_JJ data_NNS into_IN four_CD parts_NNS ,_, is_VBZ used_VVN in_IN forecasting_NN ._SENT 
+Case_NN 7_CD :_: The_DT EEMD5-SOM-BP_NN model_NN is_VBZ used_VVN in_IN forecasting_NN ._SENT 
+Table_NN 4_CD presents_VVZ the_DT predictions_NNS made_VVN in_IN the_DT above_JJ four_CD cases_NNS ._SENT 
+Fig_NN ._SENT 
+9_CD displays_NNS the_DT forecast_NN in_IN the_DT 24_CD th_NN hour_NN of_IN each_DT day-ahead_NN ._SENT 
+Table_NN 4._CD Prediction_NN results_NNS using_VVG different_JJ models_NNS ._SENT 
+Fig_NN ._SENT 
+9._CD The_DT 24th_JJ hour_NN prediction_NN result_NN in_IN four_CD seasons_NNS ._SENT 
+The_DT results_NNS in_IN the_DT Fig_NN ._SENT 
+9_CD reveal_VVP that_IN the_DT EEMD5-SOM-BP_NN model_NN has_VHZ the_DT highest_JJS forecast_NN accuracy_NN ._SENT 
+Therefore_RB ,_, the_DT decomposition_NN of_IN the_DT original_JJ data_NN helps_VVZ SOM-BP_NN networks_NNS to_TO fit_VV spatio-temporal_JJ relations_NNS ._SENT 
+Although_IN the_DT improvement_NN in_IN accuracy_NN is_VBZ not_RB obvious_JJ ,_, the_DT decomposition_NN of_IN data_NNS is_VBZ not_RB redundant_JJ ._SENT 
+In_IN fact_NN ,_, the_DT extent_NN to_TO which_WDT decomposition_NN improves_VVZ the_DT accuracy_NN of_IN the_DT final_JJ prediction_NN depends_VVZ on_IN the_DT complexity_NN of_IN the_DT predicted_VVN meteorological_JJ data_NNS in_IN the_DT frequency_NN domain_NN ._SENT 
+A_DT more_JJR complex_NN predicted_VVD parameter_NN is_VBZ associated_VVN with_IN greater_JJR effectiveness_NN of_IN decomposition_NN of_IN the_DT original_JJ data_NNS ._SENT 
+In_IN all_DT cases_NNS ,_, the_DT prediction_NN is_VBZ more_RBR accurate_JJ in_IN autumn_NN because_IN the_DT average_JJ solar_JJ radiation_NN is_VBZ least_JJS in_IN that_DT season_NN ._SENT 
+4.4_CD ._SENT 
+SOM_NP settings_NNS Researchers_NNS normally_RB use_VVP only_RB one_CD SOM_NP network_NN with_IN a_DT set_NN of_IN effectively_RB classified_JJ data_NNS ._SENT 
+However_RB ,_, a_DT single_JJ SOM_NP does_VVZ not_RB easily_RB converge_VV if_IN the_DT problem_NN is_VBZ very_RB sophisticated_JJ ._SENT 
+A_DT contrast_NN experiment_NN in_IN which_WDT multiple_JJ parallel_JJ SOMs_NNS are_VBP used_VVN to_TO process_VV a_DT set_NN of_IN data_NNS is_VBZ conducted_VVN ._SENT 
+Table_NN 5_CD presents_NNS the_DT importance_NN of_IN the_DT rational_JJ use_NN of_IN parallel_JJ networks_NNS ._SENT 
+Based_VVN on_IN the_DT results_NNS in_IN Sections_NNS 4.2_CD Input_NN parameter_NN analysis_NN ,_, 4.3_CD Models_NNS comparison_NN ,_, the_DT only_RB required_VVN parameter_NN is_VBZ GHI_NP and_CC the_DT EEMD5-SOM-BP_NN model_NN is_VBZ used_VVN to_TO forecast_VV it_PP in_IN all_DT four_CD cases_NNS ._SENT 
+Case_NN 8_CD :_: Only_RB a_DT 6_CD ×_NN 6_CD size_NN SOM_NP is_VBZ used_VVN to_TO process_NN 96_CD (_( 4_LS ×_JJ 24)-dimensional_JJ input_NN data_NNS Case_NP 9_CD :_: Four_CD parallel_NN 3_CD ×_NN 3_CD SOM_NP networks_NNS are_VBP used_VVN ._SENT 
+Each_DT SOM_NP processes_VVZ 24_CD h_NN of_IN data_NNS from_IN a_DT weather_NN station_NN (_( 24_CD ×_NN 1_CD ,_, 24-dimensional_NP )_) ._SENT 
+Case_NN 10_CD :_: Four_CD parallel_NN 3_CD ×_NN 3_CD SOM_NP networks_NNS are_VBP used_VVN ._SENT 
+Each_DT SOM_NP processes_VVZ data_NNS from_IN the_DT four_CD weather_NN stations_NNS every_DT six_CD hours_NNS (_( 4_CD ×_NN 6_CD ,_, 24-dimensional_NP )_) ._SENT 
+Case_NN 11_CD :_: As_IN Case_NP 10_CD ,_, but_CC with_IN a_DT variable_JJ network_NN size_NN (_( Fig_NN ._SENT 
+5_LS )_) ._SENT 
+Table_NN 5._CD Prediction_NN results_NNS with_IN different_JJ SOM_NP networks_NNS setting_VVG ._SENT 
+Table_NN 5_CD demonstrates_VVZ that_IN the_DT predictions_NNS in_IN all_DT seasons_NNS are_VBP best_RBS in_IN case_NN 11._CD A_DT parallel_JJ SOM_NP architecture_NN is_VBZ better_JJR than_IN a_DT single_JJ SOM_NP ._SENT 
+The_DT main_JJ function_NN of_IN the_DT SOM_NP is_VBZ to_TO reduce_VV the_DT dimensionality_NN of_IN the_DT input_NN space_NN ._SENT 
+Interestingly_RB ,_, it_PP reduces_VVZ the_DT prediction_NN error_NN in_IN case_NN 11_CD by_IN greatly_RB reducing_VVG the_DT dimensionality_NN of_IN the_DT data_NNS associated_VVN with_IN times_NNS that_WDT are_VBP far_RB from_IN the_DT current_JJ moment_NN while_IN retaining_VVG to_TO the_DT greatest_JJS extent_NN possible_JJ the_DT dimensionality_NN of_IN the_DT data_NNS that_WDT are_VBP close_JJ to_TO the_DT current_JJ moment_NN ._SENT 
+Based_VVN on_IN the_DT above_JJ findings_NNS ,_, the_DT EEMD5-SOM-BP_NN model_NN with_IN an_DT asymmetrical_JJ four-parallel_NP SOM_NP structure_NN is_VBZ used_VVN to_TO perform_VV the_DT day-ahead_NN spatio-temporal_JJ forecasting_NN of_IN solar_JJ irradiation_NN with_IN GHI_NP as_IN the_DT only_JJ input_NN parameter_NN ._SENT 
+Four_CD moments_NNS in_IN each_DT season_NN are_VBP randomly_RB selected_VVN ;_: Fig_VV ._SENT 
+10_CD displays_NNS the_DT complete_JJ day-ahead_NN predictions_NNS for_IN these_DT 16_CD moments_NNS ._SENT 
+In_IN Fig_NN ._SENT 
+10_CD ,_, the_DT blue_JJ curve_NN plots_NNS actual_JJ values_NNS and_CC red_JJ curve_NN plots_NNS predicted_VVD values_NNS ._SENT 
+Fig_NN ._SENT 
+10._CD Day-ahead_NN forecasting_NN results_NNS in_IN four_CD seasons_NNS ._SENT 
+The_DT above_JJ results_NNS demonstrate_VVP that_IN prediction_NN error_NN is_VBZ dominated_VVN by_IN the_DT error_NN at_IN noon_NN because_IN random_JJ fluctuations_NNS of_IN GHI_NP are_VBP highest_RBS at_IN noon_NN ._SENT 
+Maritime_JJ renewable_JJ energy_NN forecasting_NN is_VBZ not_RB local_JJ forecasting_NN and_CC connections_NNS between_IN inputs_NNS and_CC outputs_NNS are_VBP quite_RB complex_JJ ._SENT 
+Thus_RB ,_, sudden_JJ fluctuations_NNS cause_VVP considerable_JJ prediction_NN errors_NNS ._SENT 
+Table_NN 6_CD compares_VVZ results_NNS obtained_VVD using_VVG different_JJ methods_NNS ._SENT 
+The_DT forecasts_NNS prove_VVP that_IN ,_, the_DT proposed_VVN method_NN that_WDT is_VBZ based_VVN on_IN the_DT ideas_NNS of_IN EEMD_NP and_CC SOM_NP has_VHZ better_RBR predictive_JJ ability_NN than_IN the_DT method_NN that_WDT uses_VVZ only_RB a_DT BP_NP network_NN ._SENT 
+Table_NN 6_CD also_RB indicates_VVZ that_IN the_DT EEMD-SOM-BP_JJ prediction_NN model_NN outperforms_VVZ the_DT radial_JJ basis_NN function_NN (_( RBF_NP )_) forecasting_NN model_NN based_VVN on_IN any_DT proposed_VVN evaluation_NN index_NN ._SENT 
+However_RB ,_, all_DT of_IN the_DT figures_NNS clearly_RB reveal_VVP that_IN the_DT proposed_VVN method_NN can_MD accurately_RB forecast_VV solar_JJ irradiation_NN and_CC track_NN variations_NNS of_IN actual_JJ GHI_NNS ._SENT 
+Table_NN 6._CD Prediction_NN results_NNS comparison_NN ._SENT 
+<Section> 5._CD Conclusion_NN </Section> Owing_VVG to_TO the_DT development_NN of_IN ships_NNS that_WDT use_VVP renewable_JJ energy_NN ,_, maritime_JJ renewable_JJ energy_NN forecasting_NN is_VBZ becoming_VVG increasingly_RB particularly_RB important_JJ for_IN the_DT day-ahead_NN scheduling_NN and_CC path_NN planning_NN of_IN ships_NNS ._SENT 
+The_DT major_JJ contributions_NNS of_IN the_DT paper_NN are_VBP as_RB follows_VVZ ._SENT 
+1._CD It_PP solves_VVZ the_DT problem_NN of_IN maritime_JJ spatio-temporal_JJ forecasting_NN of_IN solar_JJ irradiation_NN for_IN the_DT first_JJ time_NN ._SENT 
+2._CD A_DT new_JJ combined_JJ prediction_NN method_NN (_( EEMD-SOM-BP_NN )_) for_IN the_DT particular_JJ purpose_NN of_IN solving_VVG the_DT marine_JJ forecasting_NN problem_NN is_VBZ proposed_VVN ._SENT 
+3._CD An_DT asymmetric_JJ four-parallel_NP SOM_NP network_NN structure_NN is_VBZ proposed_VVN to_TO improve_VV the_DT prediction_NN accuracy_NN of_IN the_DT method_NN ._SENT 
+4._CD The_DT optimal_JJ settings_NNS and_CC structure_NN of_IN EEMD-SOM-BP_NN for_IN forecasting_VVG maritime_JJ solar_JJ irradiation_NN are_VBP determined_VVN by_IN performing_VVG three_CD contrastive_JJ experiments_NNS ._SENT 
+In_IN the_DT EEMD-SOM-BP_NN method_NN ,_, EEMD_NN is_VBZ used_VVN to_TO separate_VV original_JJ data_NNS associated_VVN with_IN different_JJ frequencies_NNS and_CC reduce_VV the_DT burden_NN of_IN ANN_NP convergence_NN ._SENT 
+Then_RB SOM_NP network_NN is_VBZ utilized_VVN to_TO identify_VV the_DT spatio-temporal_JJ coupling_NN relationship_NN within_IN a_DT region_NN ._SENT 
+The_DT results_NNS of_IN the_DT contrastive_JJ experiments_NNS demonstrate_VVP that_IN the_DT EEMD5-SOM-BP_JJ model_NN with_IN the_DT asymmetric_JJ four-parallel_NP SOM_NP structure_NN provides_VVZ the_DT highest_JJS prediction_NN accuracy_NN when_WRB GHI_NP is_VBZ the_DT only_JJ input_NN parameter_NN ._SENT 
+Changing_VVG the_DT size_NN of_IN SOM_NP networks_NNS in_IN a_DT parallel_JJ structure_NN can_MD greatly_RB improve_VV the_DT final_JJ predictions_NNS ._SENT 
+The_DT results_NNS herein_RB demonstrate_VVP that_IN the_DT proposed_VVN method_NN can_MD solve_VV the_DT day-ahead_NN maritime_JJ forecasting_NN problem_NN effectively_RB and_CC accurately_RB ._SENT 
+<Section> Acknowledgments_NNS </Section> This_DT study_NN was_VBD financially_RB supported_VVN by_IN Fundamental_NP Research_NP Funds_NPS for_IN the_DT Central_JJ Universities_NNS under_IN HEUCFJ170403_NN and_CC the_DT Ministry_NP of_IN Industry_NP and_CC Information_NP Technology_NP in_IN cooperation_NN with_IN the_DT Ministry_NP of_IN Finance_NP under_IN grant_NN GK110900004_NN ._SENT 
+<Section> References_NNS </Section> [_SYM 1_CD ]_SYM K._NP J._NP Lee_NP ,_, D._NP Shin_NP ,_, D._NP W._NP Yoo_NP Hybrid_JJ photovoltaic/diesel_NP green_JJ ship_NN operating_VVG in_IN standalone_JJ and_CC grid-connected_JJ mode_NN –_NN experimental_JJ investigation_NN Energy_NP ,_, 49_CD (_( 1_LS )_) (_( 2013_CD )_) ,_, pp_NP ._SENT 
+475-483_CD ArticleDownload_NP PDFCrossRefView_NP Record_NP in_IN ScopusGoogle_JJ Scholar_NN [_SYM 2_CD ]_SYM A._NP M._NP Foley_NP ,_, P._NP G._NP Leahy_NP ,_, A._NP Marvuglia_NP Current_JJ methods_NNS and_CC advances_NNS in_IN forecasting_VVG of_IN wind_NN power_NN generation_NN Renew_VV Energy_NP ,_, 37_CD (_( 1_LS )_) (_( 2012_CD )_) ,_, pp_NP ._SENT 
+1-8_CD ArticleDownload_NP PDFView_NP Record_NP in_IN ScopusGoogle_JJ Scholar_NN [_SYM 3_CD ]_SYM S._NP L._NP Sun_NP ,_, H._NP Qiao_NP ,_, Y._NP J._NP Wei_NP ,_, S._NP Y._NP Wang_NP A_DT new_JJ dynamic_JJ integrated_JJ approach_NN for_IN wind_NN speed_NN forecasting_VVG Appl_NP Energy_NP ,_, 197_CD (_( 2017_CD )_) ,_, pp_NP ._SENT 
+151-162_CD ArticleDownload_NP PDFView_NP Record_NP in_IN ScopusGoogle_JJ Scholar_NN [_SYM 4_CD ]_SYM R._NP H._NP Inman_NP ,_, H._NP T._NP C._NP Pedro_NP ,_, C._NP F._NP M._NP Coimbra_NP Solar_NP forecasting_NN methods_NNS for_IN renewable_JJ energy_NN integration_NN Prog_NP Energy_NP Combust_JJ Sci_NP ,_, 39_CD (_( 6_CD )_) (_( 2013_CD )_) ,_, pp_NP ._SENT 
+535-576_CD ArticleDownload_NP PDFView_NP Record_NP in_IN ScopusGoogle_JJ Scholar_NN [_SYM 5_CD ]_SYM J._NP Shi_NP ,_, W._NP J._NP Lee_NP ,_, Y._NP Liu_NP Forecasting_NP power_NN output_NN of_IN photovoltaic_JJ systems_NNS based_VVN on_IN weather_NN classification_NN and_CC support_NN vector_NN machines_NNS IEEE_NP Trans_NP Ind_NP Appl_NP ,_, 48_CD (_( 3_LS )_) (_( 2011_CD )_) ,_, pp_NP ._SENT 
+1064-1069_CD View_NP Record_NP in_IN ScopusGoogle_JJ Scholar_NN [_SYM 6_CD ]_SYM M._NP Diagne_NP ,_, M._NP David_NP ,_, P._NP Lauret_NP Review_NP of_IN solar_JJ irradiance_NN forecasting_NN methods_NNS and_CC a_DT proposition_NN for_IN small-scale_JJ insular_JJ grids_NNS Renew_VV Sustain_VV Energy_NP Rev_NP ,_, 27_CD (_( 6_CD )_) (_( 2013_CD )_) ,_, pp_NP ._SENT 
+65-76_CD ArticleDownload_NP PDFView_NP Record_NP in_IN ScopusGoogle_JJ Scholar_NN [_SYM 7_CD ]_SYM R._NP Dambreville_NP ,_, P._NP Blanc_NP ,_, J._NP Chanussot_NP Very_JJ short_JJ term_NN forecasting_NN of_IN the_DT global_JJ horizontal_JJ irradiance_NN using_VVG a_DT spatio-temporal_JJ autoregressive_JJ model_NN Renew_VV Energy_NP ,_, 72_CD (_( 4_LS )_) (_( 2014_CD )_) ,_, pp_NP ._SENT 
+291-300_CD ArticleDownload_NP PDFView_NP Record_NP in_IN ScopusGoogle_JJ Scholar_NN [_SYM 8_CD ]_SYM G._NP Li_NP ,_, J._NP Shi_NP On_IN comparing_VVG three_CD artificial_JJ neural_JJ networks_NNS for_IN wind_NN speed_NN forecasting_VVG Appl_NP Energy_NP ,_, 87_CD (_( 7_CD )_) (_( 2010_CD )_) ,_, pp_NP ._SENT 
+2313-2320_CD ArticleDownload_NP PDFView_NP Record_NP in_IN ScopusGoogle_JJ Scholar_NN [_SYM 9_CD ]_SYM Y._NP Ren_NP ,_, P._NP N._NP Suganthan_NP ,_, N._NP Srikanth_NP Ensemble_NN methods_NNS for_IN wind_NN and_CC solar_JJ power_NN forecasting—a_NP state-of-the-art_JJ review_NN Renew_VV Sustain_VV Energy_NP Rev_NP ,_, 50_CD (_( 2015_CD )_) ,_, pp_NP ._SENT 
+82-91_CD ArticleDownload_NP PDFView_NP Record_NP in_IN ScopusGoogle_JJ Scholar_NN [_SYM 10_CD ]_SYM C._NP Feng_NP ,_, M._NP Cui_NP ,_, B._NP M._NP Hodge_NP A_NP data-driven_NP multi-model_NP methodology_NN with_IN deep_JJ feature_NN selection_NN for_IN short-term_JJ wind_NN forecasting_VVG Appl_NP Energy_NP ,_, 190_CD (_( 2017_CD )_) ,_, pp_NP ._SENT 
+1245-1257_CD ArticleDownload_NP PDFView_NP Record_NP in_IN ScopusGoogle_JJ Scholar_NN [_SYM 11_CD ]_SYM A._NP Tascikaraoglu_NP ,_, B._NP M._NP Sanandaji_NP ,_, G._NP Chicco_NP Compressive_JJ spatio-temporal_JJ forecasting_NN of_IN meteorological_JJ quantities_NNS and_CC photovoltaic_JJ power_NN IEEE_NP Trans_NP Sustain_VV Energy_NP ,_, 7_CD (_( 3_LS )_) (_( 2016_CD )_) ,_, pp_NP ._SENT 
+1295-1305_CD CrossRefView_NP Record_NP in_IN ScopusGoogle_JJ Scholar_NN [_SYM 12_CD ]_SYM M._NP Journée_NP ,_, C._NP Bertrand_NP Improving_VVG the_DT spatio-temporal_JJ distribution_NN of_IN surface_NN solar_JJ radiation_NN data_NNS by_IN merging_VVG ground_NN and_CC satellite_NN measurements_NNS Remote_JJ Sens_NP Environ_VVP ,_, 114_CD (_( 11_CD )_) (_( 2010_CD )_) ,_, pp_NP ._SENT 
+2692-2704_CD ArticleDownload_NP PDFView_NP Record_NP in_IN ScopusGoogle_JJ Scholar_NN [_SYM 13_CD ]_SYM C._NP Yang_NP ,_, A._NP A._NP Thatte_NP ,_, L._NP Xie_NP Multitime-scale_NP data-driven_NP spatio-temporal_JJ forecast_NN of_IN photovoltaic_JJ generation_NN IEEE_NP Trans_NP Sustain_VV Energy_NP ,_, 6_CD (_( 1_LS )_) (_( 2015_CD )_) ,_, pp_NP ._SENT 
+104-112_CD CrossRefView_NP Record_NP in_IN ScopusGoogle_JJ Scholar_NN [_SYM 14_CD ]_SYM C._NP Voyant_NP ,_, G._NP Notton_NP ,_, S._NP Kalogirou_NP Machine_NN learning_VVG methods_NNS for_IN solar_JJ radiation_NN forecasting_NN :_: a_DT review_NN Renew_VV Energy_NP ,_, 105_CD (_( 2017_CD )_) ,_, pp_NP ._SENT 
+569-582_CD ArticleDownload_NP PDFView_NP Record_NP in_IN ScopusGoogle_JJ Scholar_NN [_SYM 15_CD ]_SYM A._NP Zagouras_NP ,_, H._NP T._NP C._NP Pedro_NP ,_, C._NP F._NP M._NP Coimbra_NP On_IN the_DT role_NN of_IN lagged_VVN exogenous_JJ variables_NNS and_CC spatio–temporal_JJ correlations_NNS in_IN improving_VVG the_DT accuracy_NN of_IN solar_JJ forecasting_NN methods_NNS Renew_VV Energy_NP ,_, 78_CD (_( 2015_CD )_) ,_, pp_NP ._SENT 
+203-218_CD ArticleDownload_NP PDFView_NP Record_NP in_IN ScopusGoogle_JJ Scholar_NN [_SYM 16_CD ]_SYM D._NP Yang_NP ,_, C._NP Gu_NP ,_, Z._NP Dong_NP Solar_NP irradiance_NN forecasting_NN using_VVG spatial-temporal_JJ covariance_NN structures_NNS and_CC time-forward_RB kriging_VVG Renew_VV Energy_NP ,_, 60_CD (_( 4_LS )_) (_( 2013_CD )_) ,_, pp_NP ._SENT 
+235-245_CD ArticleDownload_NP PDFView_NP Record_NP in_IN ScopusGoogle_JJ Scholar_NN [_SYM 17_CD ]_SYM J._NP Patrick_NP ,_, J._NP Harvill_NP ,_, C._NP Hansen_NP A_DT semiparametric_JJ spatio-temporal_JJ model_NN for_IN solar_JJ irradiance_NN data_NNS Renew_VV Energy_NP ,_, 87_CD (_( 1_LS )_) (_( 2015_CD )_) ,_, pp_NP ._SENT 
+15-30_CD CrossRefView_NP Record_NP in_IN ScopusGoogle_JJ Scholar_NN [_SYM 18_CD ]_SYM C._NP A._NP Glasbey_NP ,_, D._NP J._NP Allcroft_NP A_DT spatio-temporal_JJ auto-regressive_NN moving_VVG average_JJ model_NN for_IN solar_JJ radiation_NN Appl_NP Stat_NP ,_, 57_CD (_( 3_LS )_) (_( 2008_CD )_) ,_, pp_NP ._SENT 
+343-355_CD CrossRefView_NP Record_NP in_IN ScopusGoogle_JJ Scholar_NN [_SYM 19_CD ]_SYM M._NP André_NP ,_, S._NP Dabo-Niang_NP ,_, T._NP Soubdhan_NP Predictive_JJ spatio-temporal_JJ model_NN for_IN spatially_RB sparse_JJ global_JJ solar_JJ radiation_NN data_NNS Energy_NP ,_, 111_CD (_( 2016_CD )_) ,_, pp_NP ._SENT 
+599-608_CD ArticleDownload_NP PDFView_NP Record_NP in_IN ScopusGoogle_JJ Scholar_NN [_SYM 20_CD ]_SYM F._NP Davò_NP ,_, S._NP Alessandrini_NP ,_, S._NP Sperati_NP Post-processing_VVG techniques_NNS and_CC principal_JJ component_NN analysis_NN for_IN regional_JJ wind_NN power_NN and_CC solar_JJ irradiance_NN forecasting_VVG Sol_NP Energy_NP ,_, 134_CD (_( 2016_CD )_) ,_, pp_NP ._SENT 
+327-338_CD ArticleDownload_NP PDFView_NP Record_NP in_IN ScopusGoogle_JJ Scholar_NN [_SYM 21_CD ]_SYM Z._NP Dong_NP ,_, D._NP Yang_NP ,_, T._NP Reindl_NP A_DT novel_JJ hybrid_JJ approach_NN based_VVN on_IN self-organizing_VVG maps_NNS ,_, support_NN vector_NN regression_NN and_CC particle_NN swarm_NN optimization_NN to_TO forecast_VV solar_JJ irradiance_NN Energy_NP ,_, 82_CD (_( 2015_CD )_) ,_, pp_NP ._SENT 
+570-577_CD ArticleDownload_NP PDFView_NP Record_NP in_IN ScopusGoogle_JJ Scholar_NN [_SYM 22_CD ]_SYM W._NP C._NP Chi_NP ,_, S._NP Belongie_NP ,_, J._NP Kleissl_NP Cloud_NP motion_NN and_CC stability_NN estimation_NN for_IN intra-hour_JJ solar_JJ forecasting_NN Sol_NP Energy_NP ,_, 115_CD (_( 2015_CD )_) ,_, pp_NP ._SENT 
+645-655_CD View_NP Record_NP in_IN ScopusGoogle_JJ Scholar_NN [_SYM 23_CD ]_SYM V._NP Sharma_NP ,_, D._NP Yang_NP ,_, W._NP Walsh_NP Short_JJ term_NN solar_JJ irradiance_NN forecasting_NN using_VVG a_DT mixed_JJ wavelet_NN neural_JJ network_NN Renew_VV Energy_NP ,_, 90_CD (_( 2016_CD )_) ,_, pp_NP ._SENT 
+481-492_CD ArticleDownload_NP PDFView_NP Record_NP in_IN ScopusGoogle_JJ Scholar_NN [_SYM 24_CD ]_SYM J._NP Heng_NP ,_, J._NP Wang_NP ,_, L._NP Xiao_NP Research_NP and_CC application_NN of_IN a_DT combined_JJ model_NN based_VVN on_IN frequent_JJ pattern_NN growth_NN algorithm_NN and_CC multi-objective_JJ optimization_NN for_IN solar_JJ radiation_NN forecasting_VVG Appl_NP Energy_NP ,_, 208_CD (_( 2017_CD )_) ,_, pp_NP ._SENT 
+845-866_CD ArticleDownload_NP PDFView_NP Record_NP in_IN ScopusGoogle_JJ Scholar_NN [_SYM 25_CD ]_SYM S._NP Ferlito_NP ,_, G._NP Adinolfi_NP ,_, G._NP Graditi_NP Comparative_JJ analysis_NN of_IN data-driven_JJ methods_NNS online_JJ and_CC offline_NN trained_VVN to_TO the_DT forecasting_NN of_IN grid-connected_JJ photovoltaic_JJ plant_NN production_NN Appl_NP Energy_NP ,_, 205_CD (_( 2017_CD )_) ,_, pp_NP ._SENT 
+116-129_CD ArticleDownload_NP PDFView_NP Record_NP in_IN ScopusGoogle_JJ Scholar_NN [_SYM 26_CD ]_SYM Y._NP Li_NP ,_, Y._NP He_PP ,_, Y._NP Su_NP ,_, L._NP Shu_NP Forecasting_NP the_DT daily_JJ power_NN output_NN of_IN a_DT grid-connected_JJ photovoltaic_JJ system_NN based_VVN on_IN multivariate_JJ adaptive_JJ regression_NN splines_VVZ Appl_NP Energy_NP ,_, 180_CD (_( 2016_CD )_) ,_, pp_NP ._SENT 
+392-401_CD ArticleDownload_NP PDFView_NP Record_NP in_IN ScopusGoogle_JJ Scholar_NN [_SYM 27_CD ]_SYM R._NP C._NP Deo_NP ,_, X._NP Wen_NP ,_, F._NP Qi_NP A_DT wavelet-coupled_JJ support_NN vector_NN machine_NN model_NN for_IN forecasting_VVG global_JJ incident_NN solar_JJ radiation_NN using_VVG limited_JJ meteorological_JJ dataset_NN Appl_NP Energy_NP ,_, 168_CD (_( 168_CD )_) (_( 2016_CD )_) ,_, pp_NP ._SENT 
+568-593_CD ArticleDownload_NP PDFView_NP Record_NP in_IN ScopusGoogle_JJ Scholar_NN [_SYM 28_CD ]_SYM M._NP Diagne_NP ,_, M._NP David_NP ,_, P._NP Lauret_NP ,_, J._NP Boland_NP ,_, N._NP Schmutz_NP Review_NP of_IN solar_JJ irradiance_NN forecasting_NN methods_NNS and_CC a_DT proposition_NN for_IN small-scale_JJ insular_JJ grids_NNS Renew_VV Sustain_VV Energy_NP Rev_NP ,_, 27_CD (_( 27_CD )_) (_( 2013_CD )_) ,_, pp_NP ._SENT 
+65-76_CD ArticleDownload_NP PDFView_NP Record_NP in_IN ScopusGoogle_JJ Scholar_NN [_SYM 29_CD ]_SYM C._NP Voyant_NP ,_, M._NP Muselli_NP ,_, C._NP Paoli_NP Hybrid_JJ methodology_NN for_IN hourly_JJ global_JJ radiation_NN forecasting_NN in_IN Mediterranean_NP area_NN Renew_VV Energy_NP ,_, 53_CD (_( 3_LS )_) (_( 2012_CD )_) ,_, pp_NP ._SENT 
+1-11_CD Google_JJ Scholar_NN [_SYM 30_CD ]_SYM Z._NP Dong_NP ,_, D._NP Yang_NP ,_, T._NP Reindl_NP Satellite_NP image_NN analysis_NN and_CC a_DT hybrid_JJ ESSS/ANN_NP model_NN to_TO forecast_VV solar_JJ irradiance_NN in_IN the_DT tropics_NNS Energy_NP Convers_NNS Manage_VVP ,_, 79_CD (_( 3_LS )_) (_( 2014_CD )_) ,_, pp_NP ._SENT 
+66-73_CD ArticleDownload_NP PDFView_NP Record_NP in_IN ScopusGoogle_JJ Scholar_NN [_SYM 31_CD ]_SYM H._NP T._NP Yang_NP ,_, C._NP M._NP Huang_NP ,_, Y._NP C._NP Huang_NP A_DT Weather-Based_JJ Hybrid_JJ Method_NN for_IN 1-Day_NN Ahead_RB Hourly_JJ Forecasting_NP of_IN PV_NP Power_NP Output_NN IEEE_NP Trans_NP Sustain_VV Energy_NP ,_, 5_CD (_( 3_LS )_) (_( 2014_CD )_) ,_, pp_NP ._SENT 
+917-926_CD CrossRefView_NP Record_NP in_IN ScopusGoogle_JJ Scholar_NN [_SYM 32_CD ]_SYM A._NP Ahmad_NP ,_, T._NP N._NP Anderson_NP ,_, T._NP T._NP Lie_NP Hourly_JJ global_JJ solar_JJ irradiation_NN forecasting_NN for_IN New_NP Zealand_NP Sol_NP Energy_NP ,_, 122_CD (_( 2015_CD )_) ,_, pp_NP ._SENT 
+1398-1408_CD ArticleDownload_NP PDFView_NP Record_NP in_IN ScopusGoogle_JJ Scholar_NN [_SYM 33_CD ]_SYM Torres_NP ME_PP ,_, Colominas_NNS MA_NN ,_, Schlotthauer_NP G._NP A_DT complete_JJ ensemble_NN empirical_JJ mode_NN decomposition_NN with_IN adaptive_JJ noise_NN ._SENT 
+In_RB :_: IEEE_NP international_JJ conference_NN on_IN acoustics_NNS ,_, speech_NN and_CC signal_NN processing_NN ._SENT 
+IEEE_NP ;_: 2011._CD p._NN 4144–7_JJ ._SENT 
+Google_JJ Scholar_NN [_SYM 34_CD ]_SYM GeoModel_NP Solar_NP Company_NP ._SENT 
+<http://solargis.info/doc/solar-and-pv-data> ._SENT 
+Google_JJ Scholar_NN [_SYM 35_CD ]_SYM T._NP E._NP Hoff_NP ,_, R._NP Perez_NP Quantifying_VVG PV_NP power_NN output_NN variability_NN Sol_NP Energy_NP ,_, 84_CD (_( 10_CD )_) (_( 2010_CD )_) ,_, pp_NP ._SENT 
+1782-1793_CD ArticleDownload_NP PDFView_NP Record_NP in_IN ScopusGoogle_JJ Scholar_NN [_SYM 36_CD ]_SYM T._NP E._NP Hoff_NP ,_, R._NP Perez_NP Modeling_NN PV_NP fleet_NN output_NN variability_NN Sol_NP Energy_NP ,_, 86_CD (_( 8_CD )_) (_( 2012_CD )_) ,_, pp_NP ._SENT 
+2177-2189_CD ArticleDownload_NP PDFView_NP Record_NP in_IN ScopusGoogle_JJ Scholar_NN [_SYM 37_CD ]_SYM M._NP J._NP R._NP Perez_NP ,_, V._NP M._NP Fthenakis_NP On_IN the_DT spatial_JJ decorrelation_NN of_IN stochastic_JJ solar_JJ resource_NN variability_NN at_IN long_JJ timescales_NP Sol_NP Energy_NP ,_, 117_CD (_( 2015_CD )_) ,_, pp_NP ._SENT 
+46-58_CD ArticleDownload_NP PDFView_NP Record_NP in_IN ScopusGoogle_JJ Scholar_NN [_SYM 38_CD ]_SYM Y._NP Bao_NP ,_, H._NP Wang_NP ,_, B._NP Wang_NP Short-term_JJ wind_NN power_NN prediction_NN using_VVG differential_JJ EMD_NNS and_CC relevance_NN vector_NN machine_NN Neural_JJ Comput_NN Appl_NN ,_, 25_CD (_( 2_LS )_) (_( 2014_CD )_) ,_, pp_NP ._SENT 
+283-289_CD CrossRefView_NP Record_NP in_IN ScopusGoogle_JJ Scholar_NN [_SYM 39_CD ]_SYM Z._NP Guo_NP ,_, W._NP Zhao_NP ,_, H._NP Lu_NP Multi-step_JJ forecasting_NN for_IN wind_NN speed_NN using_VVG a_DT modified_JJ EMD-based_JJ artificial_JJ neural_JJ network_NN model_NN Renew_VV Energy_NP ,_, 37_CD (_( 1_LS )_) (_( 2012_CD )_) ,_, pp_NP ._SENT 
+241-249_CD ArticleDownload_NP PDFView_NP Record_NP in_IN ScopusGoogle_JJ Scholar_NN [_SYM 40_CD ]_SYM B._NP L._NP Barnhart_NP ,_, W._NP E._NP Eichinger_NP Empirical_JJ mode_NN decomposition_NN applied_VVN to_TO solar_JJ irradiance_NN ,_, global_JJ temperature_NN ,_, sunspot_NN number_NN ,_, and_CC CO_NP concentration_NN data_NN J_NP Atmos_NP Solar_NP Terr_NP Phys_NP ,_, 73_CD (_( 13_CD )_) (_( 2011_CD )_) ,_, pp_NP ._SENT 
+1771-1779_CD ArticleDownload_NP PDFView_NP Record_NP in_IN ScopusGoogle_JJ Scholar_NN [_SYM 41_CD ]_SYM W._NP Zhaohua_NP ,_, E._NP Norden_NP Huang_NP ._SENT 
+Ensemble_NN empirical_JJ mode_NN decomposition_NN :_: a_DT noise-assisted_JJ data_NN analysis_NN method_NN Adv_NP Adaptive_JJ Data_NP Anal_JJ ,_, 1_CD (_( 01_CD )_) (_( 2011_CD )_) ,_, pp_NP ._SENT 
+1-41_CD Google_JJ Scholar_NN [_SYM 42_CD ]_SYM S._NP Monjoly_NP ,_, M._NP André_NP ,_, R._NP Calif_NP Hourly_JJ forecasting_NN of_IN global_JJ solar_JJ radiation_NN based_VVN on_IN multiscale_JJ decomposition_NN methods_NNS :_: a_DT hybrid_JJ approach_NN Energy_NP ,_, 119_CD (_( 2017_CD )_) ,_, pp_NP ._SENT 
+288-298_CD ArticleDownload_NP PDFView_NP Record_NP in_IN ScopusGoogle_JJ Scholar_NN [_SYM 43_CD ]_SYM Paper_NP I_NP ,_, Introduction_NN I_NN ,_, Models_NNS N_NP ,_, Maps_NNS S._NP The_DT self-organizing_VVG map_NN 1990_CD ;_: 78(9):1464–80_NN ._SENT 
+Google_JJ Scholar_NN [_SYM 44_CD ]_SYM M._NP Ghayekhloo_NP ,_, M._NP Ghofrani_NP ,_, M._NP B._NP Menhaj_NP A_DT novel_NN clustering_VVG approach_NN for_IN short-term_JJ solar_JJ radiation_NN forecasting_VVG Sol_NP Energy_NP ,_, 122_CD (_( 2015_CD )_) ,_, pp_NP ._SENT 
+1371-1383_CD ArticleDownload_NP PDFView_NP Record_NP in_IN ScopusGoogle_JJ Scholar_NN [_SYM 45_CD ]_SYM J._NP Llanos_NP ,_, R._NP Morales_NP ,_, A._NP Núñez_NP Load_NN estimation_NN for_IN microgrid_JJ planning_NN based_VVN on_IN a_DT self-organizing_VVG map_NN methodology_NN Appl_NN Soft_JJ Comput_NN ,_, 53_CD (_( 2017_CD )_) ,_, pp_NP ._SENT 
+323-335_CD 

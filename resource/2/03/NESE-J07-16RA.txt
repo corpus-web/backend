@@ -1,0 +1,260 @@
+<title>Evaluation of correlations for prediction of onset of heat transfer deterioration for vertically upward flow of supercritical water in pipe</title>
+<author>1,SureshSahu,2,Abhijeet M.Vaidya</author>
+<Affiliation>1,Engineering Sciences Discipline, Homi Bhabha National Institute, Mumbai, India;2,Reactor Engineering Division, Bhabha Atomic Research Centre, Mumbai, India</Affiliation>
+<year>2021</year>
+<Jounral>Nuclear Engineering and Technology</Journal>
+<Publishing_house>Elsevier</Publishing_house>
+<Text_Collector>XiaFan，HEU</Text_Collector>
+<DOI>10.1016/j.net.2020.09.017</DOI>
+<URL>https://www.sciencedirect.com/science/article/pii/S1738573320308792</URL>
+Evaluation of correlations for prediction of onset of heat transfer deterioration for vertically upward flow of supercritical water in pipe
+SureshSahu,Abhijeet M.Vaidya
+Engineering Sciences Discipline, Homi Bhabha National Institute, Mumbai, India
+Reactor Engineering Division, Bhabha Atomic Research Centre, Mumbai, India
+<Section>Abstract</Section>
+Supercritical water has great potential as a coolant for nuclear reactor. Its use will lead to higher thermal efficiency of Rankine cycle. However, in certain conditions heat transfer may get deteriorated which may lead to undesirable high clad surface temperature. It is necessary to estimate the operating conditions in which heat transfer deterioration (HTD) will take place, so as to establish thermal margins for safe reactor operation. In the present work, the heat flux corresponding to onset of HTD for vertically upward flow of supercritical water in a pipe is obtained over a wide range of system parameters, namely pressure, mass flux, and pipe diameter. This is done by performing large number of simulations using an in-house CFD code, which is especially developed and validated for this purpose. The identification of HTD is based on observance of one or more peak/s in the computed wall temperature profile. The existing correlations for predicting the onset of HTD are compared against the results obtained by present simulations as well as available sets of experimental data. It is found that the prediction accuracy of the correlation proposed by Dongliang et al. is best among the existing correlations.
+Keywords:Supercritical water;Heat transfer deterioration;Numerical analysis;Evaluation of correlations
+<Section>1. Introduction</Section>
+Supercritical (SC) fluids find applications in various areas like fossil-fired power plants, nuclear power generation, refrigeration and air conditioning, rocket engines, etc. [1]. Supercritical Water Cooled Reactor (SCWR) is considered as one of the next generation advanced nuclear reactor concepts by Generation-IV international forum [2]. Higher temperature of heat addition leads to higher thermal efficiency of the Rankine cycle. The predicted thermal efficiency of SCWR is about 44% which is significantly higher than that of the conventional nuclear reactor, which is 33–35% [2]. However, for the design of such a system, it is important to understand SC heat transfer characteristics which are affected by thermo-physical properties of SC water.
+Variation of various thermo-physical properties of water near pseudo-critical region at different pressures (p) is shown in Fig. 1 [3]. It can be seen from Fig. 1 that all thermo-physical properties change significantly near pseudo-critical region which leads to the unique heat transfer behavior in SC water. Density@and dynamic viscosity@reduce drastically within a small temperature range close to pseudo-critical temperature (Tpc). On the other hand, in the same temperature range, enthalpy (h) experiences a sharp increase. Specific heat , volume expansivity , and thermal conductivity@have a peak close to pseudo-critical temperature. With increase in pressure, the change in thermo-physical properties around pseudo-critical temperature reduces. The peak value of ,@and@decreases with increase in pressure. The peak in@almost vanishes at higher pressure and the profile becomes smoother. It can be seen that these properties are strongly dependent on pressure and temperature and strongly affect the buoyancy and acceleration effects and hence, affect the flow and heat transfer characteristics [4].
+Fig. 1. Variation of various properties of water with respect to temperature at different pressures [3].
+For flow of such SC water through a pipe, depending upon the flow parameters like heat flux , mass flux (G), operating pressure, flow geometry and flow direction, different heat transfer regimes namely normal, enhanced and deteriorated heat transfer are observed. Among these regimes, understanding of deteriorated heat transfer is very crucial. This regime signifies a significant reduction in heat transfer from heated surface (wall) to the bulk fluid which in turn results in increase of wall temperature (Tw). From the nuclear reactor application point of view, this heat transfer deterioration (HTD) may lead to increased fuel-clad temperature which is highly undesirable. It has been observed that, under SC conditions, for a given mass flux and heat flux, a peak value of heat transfer coefficient (HTC) is observed at pseudo-critical temperature for small heat flux compared to mass flux. The HTC is much higher than that predicted by Dittus Boelter correlation. High HTC is another benefit of using SC water. But this peak value decreases as heat flux increases [5]. At a certain value of heat flux, HTC approaches to very low value (or wall temperature approaches to very high value). This heat flux is known as critical heat flux [6] or heat flux corresponding to the onset of HTD@which represents transition from normal to deteriorated heat transfer.
+Various researchers have been studying the heat transfer of SC fluids since 1950s. Some authors have reviewed the existing experimental work on heat transfer to SC water [7,8]. Yamagata et al. [5] performed experimental studies on heat transfer to SC water in vertical as well as horizontal tubes. They found HTD at high@condition. They have proposed a correlation for onset of HTD based on experimental results. Mokry et al. [9] also performed experiments in a tube of 10 mm diameter using water as working fluid at pressure of 24 MPa. They proposed a linear relationship between@and G.
+Apart from experimental studies, a significant amount of computational work has been carried out in this field and has been reviewed by some authors [6]. Koshizuka et al. [10] analyzed the HTD phenomena in SC water flowing in a vertical pipe. They performed the analysis using 2-D axi-symmetric solver which is based on standard@turbulence model. They reported the limiting criterion for the onset of HTD on the basis of heat transfer coefficient ratio (HTCR). Urbano et al. [11] investigated HTD for SC methane flow in channels. Based on the numerical studies, they reported a new definition of HTD as well as a new correlation for@prediction. Various turbulence models are tried to improve prediction accuracy over wide range of conditions. These are, apart from those mentioned above, low Re@models,@and SST@models. DNS and LES studies are very limited.
+In the open literature, there are large number of papers on HTD reporting experimental evidence of the same, the processes and conditions leading to HTD, etc. Hence, in this manuscript, the focus is on correlations proposed by various researchers for prediction of onset of HTD and accuracy assessment of the same.
+Various correlations are available for prediction of@which has been reviewed in the present work. Accurate prediction of@is one of the important requirements in SCWR design for its safe and stable operation. For SC flow of water in vertical pipe, heat transfer as well as onset of HTD is affected by various system parameters e.g. pipe diameter (d), pressure, mass flux. Hence, in the present work, the@data are obtained by varying these parameters over a wide range. These data have been obtained by numerical simulations using an in-house CFD code named NAFA (Numerical Analysis of Flows in Axi-symmetric geometries). Based on these data, the effect of operating parameters on@has been studied. Various existing correlations have been evaluated based on these data.
+1.1. Definitions of onset of HTD
+As mentioned earlier, in SC condition, wall temperature increases (or HTC reduces) with rise in heat flux, but this effect is very gradual. Unlike boiling crisis in sub-critical flows, which is easily identified by sudden drop in HTC and rise in wall temperature, the identification of HTD in SC flow is itself a difficult task. To provide the quantitative definition of onset of HTD, exact definition for the same has to be established. However, in the past, researchers have reported several definitions. It is important to review these and decide a scientifically acceptable definition.
+The onset of HTD is usually defined on the basis of HTCR , where@is computed HTC ,@is the reference HTC computed by some suitable empirical correlation and Tb is the bulk mean temperature of fluid. Koshizuka et al. [10] proposed to use the Dittus-Boelter correlation (Eq. (1)) with properties evaluated at bulk mean temperature for estimating . They have defined the onset of HTD for water when@reduces to 30% of@i.e.
+@(1)
+In this definition, since properties of SC water change with temperature/enthalpy, hence,@changes with temperature/enthalpy. The choice of 0.3 as limiting criterion for deciding HTD is however, not scientifically explained. Rather it is intuitively decided.
+Similarly, Lokshin et al. [12] defined the HTD if , where@is computed by Eq. (1) using property data of SC water at bulk mean enthalpy of 840 kJ/kg. So, unlike the previous definition, here,@is constant for the entire enthalpy range.
+There are some definitions which are based on wall temperature profile. Urbano et al. [11] proposed that, HTD phenomenon occurs when the minimum value of axial derivative of Tw approaches zero i.e.. This is one way of identifying peak in wall temperature profile. As per the definition proposed by Styrikovich et al. [13], heat transfer in SC water (for pressure of 22–24 MPa) can be considered as deteriorated if Tw exceeds
+. Lee et al. [14] considered the heat transfer to be deteriorated when the difference between measured wall temperature and predicted wall temperature is more than 27.8 K , wherein@is the wall temperature predicted by the Dittus-Boelter correlation.
+In the available experimental and computational studies, it is found that the definition proposed by Koshizuka et al. [10] has been used by many researchers [15,16]. However, this definition might wrongly recognize non-HTD case as HTD case. For example, Fig. 2 shows variation of Tw, Tb and HTCR with respect to bulk mean enthalpy (hb) for the test case of Yamagata et al. [5] for p = 22.6 MPa, d = 10 mm G = 1183 kg/m2s, and@= 698 kW/m2. HTCR profile shows strong reduction and approaches to 0.3. Hence, Koshizuka’s definition will declare it as HTD case. However, wall temperature profile shows smooth variation with respect to bulk mean enthalpy and no wall temperature peak has been observed.
+Fig. 2. An HTD case as per Koshizuka’s definition: wall temperature and HTCR profile for the test case of Yamagata et al. [5].
+The simplest and most reliable way to identify the onset of HTD is observation of appearance of peak in wall temperature profiles and same has been used by some researchers [17,18]. Hence, this definition is used in the present work for numerically computing . The estimation of@by this method is done for a wide range of pipe diameters, operating pressures and mass fluxes. This gives rise to a numerically generated data set which is eventually used for evaluation of various correlations proposed by various researchers.
+1.2. Existing correlations for the prediction of onset of HTD
+Heat transfer to SC fluids depends on a number of parameters which makes it a very complex phenomenon. Because of this, it is very difficult to propose a correlation that can accurately predict the@for onset of HTD. However, researchers have proposed some correlations which are summarized in Table 1. It can be seen that the first five correlations [[5], [9], [12], [13], [19]] given in the table follow a simple relationship between@and G. The correlations by Deev et al. [20] and Li et al. [21] contain the effect of pipe diameter in addition to mass flux. In order to account for the effect of pressure, some correlations incorporate the ratio of specific heat to thermal expansion coefficient at pseudo-critical temperature@[16,22]. The correlation proposed by Dongliang et al. [15], Schatte et al. [16] and Kong et al. [17] incorporate the effect of all three parameters (p, d, G). Apart from these three parameters, Dongliang et al. [15] introduced the inlet temperature (Tin) as an additional parameter in their correlation.
+Table 1. Various correlations for onset of HTD for supercritical water. The variables are having the following units: (kW/m2), (kg/m2s), (kJ/kgK), (1/K),
+<Section>2. Description of numerical method</Section>
+2.1. Solution procedure
+The heat transfer problem considered in the present work is forced convection heat transfer problem in which heating is done through pipe wall and it is subjected to one inlet and one outlet boundary. The flow is vertically upward. Due to axi-symmetric nature of geometry and boundary conditions, 2D axi-symmetric CFD simulation is appropriate for this problem [23]. NAFA is based on fully variable property, Reynolds Averaged forms of continuity, momentum, and energy equations. Two turbulence models have been implemented in the solver. The first one is high Re standard@turbulence model with standard wall functions [24] and the other one is SST@model [25]. It is observed that standard@turbulence model (wall function based) is not able to capture the HTD phenomenon. Similar observation was made by Wen et al. [23] as well. In the present work, SST@model has been used. This model has been recommended by many authors [23,26] especially for the study of HTD. The details of governing equations and the standard@turbulence model are reported in earlier article [27,28] and are not repeated here for brevity. The details of SST@model by Menter are also available in open literature [25].
+The SST@was proposed by Menter et al. [25]. The standard@model [29] computes the near-wall region very well, however, it is very sensitive to the assumed values in the free stream. On the other hand, the performance of the@model is not satisfactory at the vicinity of the wall due to use of wall functions, however, the model exhibits excellent accuracy in core region i.e. away from wall. Hence, Menter et al. [25] proposed a hybrid type model in which@model is activated in turbulent core region and@model is applied in the near-wall region. They incorporated blending functions to switch between both the models. The details of transport equations of turbulent kinetic energy@and specific dissipation rate , blending functions, model constants, etc. are available in open literature [25].
+In NAFA, the governing equations which are conservation of mass, momentum, energy and transport equations of turbulence are discretized by Finite Volume Method [30]. Combined convection and diffusion terms of governing equations have been discretized by Power-law scheme. Staggered grid arrangement has been used in which velocity components are stored at faces and other dependent variables are stored at cell center. SIMPLE algorithm [30] has been used to solve coupled set of governing conservation equations. The variation of thermo-physical properties with respect to temperature are given in a tabular form in the solver for each considered pressure. The tabular data is obtained from NIST property data-base [3]. For the properties at intermediate temperatures, piecewise linear interpolation has been used.
+2.2. Boundary conditions
+Four boundary conditions have been implemented in NAFA, viz. Inlet, Outlet, Axis and Wall. At the axis boundary, radial gradient of a scalar variable is set to zero. At outlet boundary, only pressure is specified and for all other dependent variables, axial gradient is set to zero. At the inlet boundary, appropriate values of velocity components, temperature, turbulent kinetic energy, specific dissipation rate are specified. Axial velocity at inlet boundary is computed as , where G is mass flux and@is the fluid density at inlet temperature. Turbulent kinetic energy at inlet is then computed as , where turbulent intensity (TI) is assumed to be 10%. It is ensured that the results are not sensitive to assumed TI value at inlet. Specific dissipation rate is computed as follows: , where@Pressure at inlet is calculated by mass conservation. At the wall boundary, no-slip condition has been applied for velocities and radial gradient of turbulent kinetic energy and pressure is set to be zero. Specific dissipation rate at the wall is calculated by the relation proposed by Menter [25] , where . For energy equation, constant heat flux is specified at the wall boundary.
+2.3. Code validation
+NAFA is validated with the help of experimental data of Shitsman [31] (p = 23.3 MPa, d = 8 mm, G = 430 kg/m2s,@= 387.33 kW/m2) and Yamagata et al. [5] (p = 24.5 MPa, d = 7.5 mm, G = 1260 kg/m2s,@= 233 kW/m2). Simulations have been performed using NAFA code for the above mentioned operating conditions. The wall temperature profiles obtained from the experiments and NAFA code are shown in Fig. 3. For Yamagata’s test case in which heat transfer enhancement (HTE) occurs, there is excellent agreement between the experimental data and code results. For Shitsman’s test case in which very strong HTD is observed, the code results are matching qualitatively with experimental data. However, quantitatively, marginal deviation has been observed. Hence, it can be concluded that NAFA code can predict the HTE as well as HTD in supercritical water with good accuracy and can be used to generate reference data for evaluation of correlations.
+Fig. 3. Code validation: Comparison of wall temperature profiles obtained by NAFA code with the same reported in experimental work.
+2.4. Range of operating parameters
+Using NAFA, 2D velocity, temperature, and turbulence fields are computed for the vertically upward flow of SC water in pipe, under varied conditions of operating pressure, mass flux and pipe diameter. The ranges of operating parameters considered in the present work are shown in Table 2. Nearly 200 simulations have been performed for 36 different operating conditions. Based on these data,@is estimated and various correlations are verified.
+Table 2. Range of operating parameters considered in the present work.
+In the present work, 2-D structured mesh has been generated. In radial direction, mesh is refined towards the pipe wall and in axial direction, nodes are uniformly spaced. In order to avoid the influence of grid size on the numerical results, grid-independent test has been performed for each case and it is ensured that the value of@is less than 0.2 [23]. It was found that 120 nodes in radial direction and the spacing of 5 mm in axial direction is sufficient for getting grid-independent results.
+<Section>3. Results and discussion</Section>
+3.1. Calculation of heat flux corresponding to onset of HTD
+As mentioned earlier, in the present work@has been calculated by observation of appearance of peak in wall temperature profiles. In order to find the , simulations have been performed for different heat flux for each case (i.e. for given p, d and G). In order to illustrate the method of estimating , computation of the same for pressure of 24.5 MPa, pipe diameter of 10 mm, and mass flux of 1000 kg/m2s is shown in Fig. 4. Heat flux is varied from a low value and gradually increased. For each heat flux, Tw is plotted against hb. From Fig. 4, it is clear that entire profile of Tw increases with increase in heat flux. Heat flux is increased till a peak in wall temperature is observed. This heat flux corresponding to peak wall temperature profile is considered as@for given p, d, G conditions. It is clear from Fig. 4 that for the considered operating conditions@is 900 kW/m2. The approach of@finding mentioned above has been applied to 36 different operating conditions (Table 2). Based on these results, further analysis has been carried out.
+Fig. 4. Prediction of the heat flux corresponding to onset of HTD.
+3.2. Effect of operating parameters on heat flux corresponding to onset of HTD
+Fig. 5 shows the effect of pipe diameter, pressure, and mass flux on heat flux corresponding to onset of HTD. It can be seen that, for given mass flux and pressure, in general@decreases as pipe diameter increases. However, this effect is more pronounced at high mass flux cases. With reduction in mass flux, the effect of diameter on@significantly reduces. For high mass flux (G > 1000 kg/m2s) cases, there is continuous reduction in@with increase in pipe diameter. However, for mass flux of 1000 kg/m2s,@reduces as pipe diameter is increased from 5 mm to 15 mm but beyond that, with increase in pipe diameter up to 20 mm,@does not change. For mass flux of 600 kg/m2s, the effect of pipe diameter is very low. Increase in pipe diameter (keeping mass flux and pressure constant) leads to reduced mean velocity of the flow. Hence, the velocity gradients are reduced and turbulent kinetic energy reduces. This results into reduced HTC. From Dittus-Boelter correlation (Eq. (1)) also, it is clear that HTC is inversely related to pipe diameter . Hence, with increase in pipe diameter, HTC reduces and even at lower heat flux, HTD is obtained. Thus, it can be seen that pipe diameter has a complex role to play in determining@and hence, it must be considered as an independent parameter in the correlation for@and a simple form involving only mass flux and@will not be accurate.
+Fig. 5. Effect of pipe diameter, pressure and mass flux on the heat flux corresponding to onset of HTD.
+From Fig. 5 it can be seen that, for given pipe diameter and pressure,@increases with increase in mass flux. In high mass flux cases, turbulence increases due to higher velocity. Hence, HTC will be higher. For this reason, higher@is obtained for higher mass flux. However, this effect is more pronounced at small pipe diameter (i.e. 5 mm) compared to large pipe diameter (i.e. 20 mm) as shown in Fig. 5. Increase in mass flux increases velocity gradients. At smaller diameters, the velocity gradients are more compared to those at larger diameter for same mass flux. Hence, the increase of mass flux at small pipe diameters lead to increase in . Also the rise in@with mass flux is more pronounced at higher pressure.
+As pressure decreases, the effect of diameter and mass flux becomes less pronounced. This is because the extent of property variation around pseudo-critical point increases and buoyancy and acceleration effects play major role than other system parameters (like d or G etc.)
+From Fig. 5, it can be observed that for given pipe diameter and mass flux,@increases with pressure. As discussed earlier, with rise in pressure, the sharp variation in thermo-physical properties around pseudo-critical temperature decreases (see Fig. 1). For this reason, at high pressure, the probability of HTD is less, and hence, high@is obtained. However, this effect (i.e. increase in@with increase in pressure) is more pronounced at lower pipe diameter compared to larger pipe diameter as shown in Fig. 5.
+The way@depends on mass flux, pipe diameter and pressure in a complicated manner, as shown in this section, a good correlation should also be able to replicate the same.
+3.3. Assessment of existing correlations for predicting onset of HTD
+The prediction accuracy of existing correlations (Table 1) has been assessed on the basis of present numerical results given in Fig. 5. The comparison of@computed by various correlations with present numerical results is shown in Fig. 6(a–k). In each graph, the x-axis represents the@obtained by present numerical method and the y-axis represents the same computed by a correlation.
+Fig. 6. Evaluation of existing correlations of the heat flux corresponding to onset of HTD : Comparison of@computed by various correlations with the present numerical results.
+For quantitative assessment of each correlation, deviation of correlation results with simulation data is computed. The mean deviation is statistically the Root Mean Square Relative Deviation (RMSRD) which is computed by following expression.
+@(2)
+where RD is relative deviation for total n number of data set, defined as
+@(3)
+RMSRD is henceforth referred to as mean deviation.
+From Fig. 6(a), the correlation proposed by Vikhrev et al. [19] (i.e. ) severely under-predicts the@compared to simulation data. The mean deviation of the correlation’s predictions from simulation data is 57%. The correlation proposed by Styrikovich et al. [13] increases the multiplier of G from 0.4 in Vikhrev et al. correlation to 0.58 and its predictions are improved compared to Vikhrev et al. correlation (Fig. 6b). The mean deviation of the correlation’s predictions from simulation data is 38% which is better than Vikhrev et al. correlation but still very high. Lokshin correlation [12] increases the multiplier of G to 0.7 and improves the prediction compared to Vikhrev and Styrikovich correlations, with mean deviation being 26%. The correlation proposed by Mokry et al. [9] i.e.@is almost similar to Lokshin correlation. The multiplier of G is slightly increased from 0.7 to 0.745. The first term is not significant. Hence, its predictions are almost same as Lokshin correlation as can be seen from Fig. 6(c and d). Mean deviation from simulation data is 28%. The proposed correlation by Yamagata et al. [5] has a different form. The correlations mentioned above consider a linear form of correlation whereas Yamagata proposed exponential form. It can be seen from Fig. 6(e) that most of the predicted values are within@deviation line. The correlation has only one independent parameter (i.e. G), in spite of this, it has good prediction accuracy with mean deviation of only 20%.
+The correlations of the form@use too simple form to be accurate. The incompleteness of these correlations, to capture the effect of pressure and pipe diameter, is clearly visible in Fig. 6(a–e) in the form of three horizontal strips of data.
+Deev et al. correlation [20] incorporates the effect of diameter explicitly in their correlation. However, the deviation from reference data is high. There is high degree of scatter as seen in Fig. 6(f) resulting in mean deviation of 45%, which is very high. Li et al. correlation [21] also incorporates the effect of diameter but as per its form,@reduces with increase in diameter. This is contrary to Deev et al. correlation and matches with present numerical results. Hence, the Li et al. correlation is found to be better than Deev et al. correlation and it is clearly observed in Fig. 6(f and g). Mean deviation from reference simulation data for Li et al. correlation is 26%. But this correlation does not contain pressure or a term related to pressure and hence, cannot properly predict effect of pressure on onset of HTD.
+The correlation proposed by Cheng et al. [22] considers the effect of pressure by incorporating@but it does not consider the effect of diameter. From Fig. 6(h) it can be observed that its predictions are relatively good especially for large pipe diameter (mm). However, for small pipe diameter, it is found to have tendency to under-predict the heat flux corresponding to onset of HTD. Mean deviation of this correlation is 17%.
+Dongliang et al. correlation [15] considers all the parameters in correlation. Comparing with simulation data, this correlation predicts the critical heat flux of onset of HTD within@deviation line (see Fig. 6i). This correlation has relatively good prediction accuracy and has mean deviation of 24%.
+From Fig. 6(j), it can be observed that, Schatte et al. [16] correlation has tendency to under predict the onset of HTD. For high pressure cases (p = 29.4 MPa), it has good prediction accuracy compared to low pressure cases. Mean deviation for this correlation is 30%.
+As discussed earlier, the correlation proposed by Kong et al. [17] is based on the observation of appearance of peak in wall temperature profile. The same method has been used in the present work to obtain the critical heat flux data. Hence, good prediction accuracy is expected for Kong et al. correlation. From Fig. 6(k) it can be observed that the correlation predicts the critical heat flux within 0 to −25% deviation line for low pressure (p@24.5 MPa). However, for high pressure, the prediction accuracy is relatively poor. Mean deviation for this correlation is 20%.
+3.4. Assessment with experimental data
+Above analysis shows that correlations proposed by Yamagata et al. [5], Cheng et al. [22], Dongliang et al. [15] and Kong et al. [17] perform better than the other correlations. For these correlations mean deviations are relatively low. Hence, these have been further assessed using experimental data of Mokry et al. [32], Yamagata et al. [5], and Zhu et al. [33]. These experimental works cover a wide range of operating conditions i.e. pressure 22.6–26 MPa, pipe diameter 10–26 mm and mass flux 500–1500 kg/m2s. The experimental data from these studies are in the form of axial variation of wall temperature or HTC. From this profile, cases for which peak in wall temperature exist, are labeled as HTD cases. The correlations proposed by Yamagata et al. and Cheng et al. have relatively poor accuracy due to incompleteness of their form. It has been observed that both correlations have poor prediction accuracy for the HTD cases of large pipe diameter. (Zhu’s experimental data). Cheng et al. correlation declares non-HTD case as HTD case for experimental data of Yamagata et al. (low pressure and high mass flux case). Kong et al. correlation is not able to identify the HTD cases of Zhu’s experimental data. The prediction accuracy of Dongliang’s correlation for selected experimental data is shown in Fig. 7. In this figure, the lines of@predicted by Dongliang’s correlation are shown. These lines separate the deteriorated and normal/enhanced heat transfer regimes. From figure it can be observed that for all the cases the correlation identifies the HTD and non-HTD cases very well. It also confirms the applicability of the correlation for wide range of operating parameters.
+Fig. 7. Assessment of correlation proposed by Dongliang et al. [15] on the basis of selected experimental data sets.
+From this analysis it can be concluded that the correlation proposed by Dongliang et al. has better accuracy compared to other correlations.
+<Section>4. Conclusions</Section>
+Heat transfer deterioration is a matter of concern in the design and operation of supercritical systems. At low heat flux, enhanced heat transfer is obtained. With an increase in heat flux, at a certain value, called heat flux corresponding to the onset of HTD , heat transfer deterioration is observed. This results in high wall temperatures which is undesirable. The value of@depends on mass flux, operating pressure and pipe diameter.
+In the present work,@data is obtained over a wide range of pressures, mass fluxes and pipe diameters using the in-house CFD code named NAFA. The@data obtained from NAFA code are then used to assess the accuracy of various correlations reported earlier in the literature. It is found that the correlations which consider that@depends only on mass flux, exhibit poor accuracy and not able to catch the effect of pressure and pipe diameter. The correlations which incorporate the pipe diameter and operating pressure, apart from mass flux in their form, are found to be relatively better.
+The prediction accuracy of the correlation proposed by Dongliang et al. [16] is found to be more accurate than other ones evaluated in present work. This correlation has an appropriate form that considers the effect of pipe diameter, pressure, mass flux and inlet temperature on@This correlation is further evaluated using available experimental data. It is found that Dongliang’s correlation predicts HTD and non-HTD cases in good agreement with four experimental data sets.
+<Section>Declaration of competing interest</Section>
+The authors declare that they have no known competing financial interests or personal relationships that could have appeared to influence the work reported in this paper.
+<Section>Appendix A. Supplementary data</Section>
+The following is the Supplementary data to this article:
+Multimedia component 1.
+<Section>Research data for this article</Section>
+Data not available / No data was used for the research described in the article
+<Section>References</Section>
+[1]
+I.L. Pioro, H.F. Khartabil, R.B. Duffey
+Heat transfer to supercritical fluids flowing in channels—empirical correlations (survey)
+Nucl. Eng. Des., 230 (2004), pp. 69-91
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+[2]
+U.S. DOE
+Nuclear Energy Research Advisory Committee and the Generation IV International Forum, A Technology Roadmap for Generation IV Nuclear Energy Systems
+(2002)
+Google Scholar
+[3]
+E.W. Lemmon, M.L. Huber, M.O. McLinden
+NIST Standard Reference Database 23: Reference Fluid Thermodynamic and Transport Properties-REFPROP
+(2007)
+Google Scholar
+[4]
+J. Jackson, J. Jd, H. Wb
+Influences of Buoyancy on Heat Transfer to Fluids Flowing in Vertical Tubes under Turbulent Conditions
+(1979)
+Google Scholar
+[5]
+K. Yamagata, K. Nishikawa, S. Hasegawa, T. Fujii, S. Yoshida
+Forced convective heat transfer to supercritical water flowing in tubes
+Int. J. Heat Mass Tran., 15 (1972), pp. 2575-2593
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+[6]
+H. Wang, L.K.H. Leung, W. Wang, Q. Bi
+A review on recent heat transfer studies to supercritical pressure water in channels
+Appl. Therm. Eng., 142 (2018), pp. 573-596
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+[7]
+I.L. Pioro, R.B. Duffey
+Experimental heat transfer in supercritical water flowing inside channels (survey)
+Nucl. Eng. Des., 235 (2005), pp. 2407-2430
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+[8]
+X. Cheng, T. Schulenberg
+Heat Transfer at Supercritical Pressures: Literature Review and Application to an HPLWR
+(2001)
+Google Scholar
+[9]
+S. Mokry, I. Pioro, A. Farah, K. King, S. Gupta, W. Peiman, P. Kirillov
+Development of supercritical water heat-transfer correlation for vertical bare tubes
+Nucl. Eng. Des., 241 (2011), pp. 1126-1136
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+[10]
+S. Koshizuka, N. Takano, Y. Oka
+Numerical analysis of deterioration phenomena in heat transfer to supercritical water
+Int. J. Heat Mass Tran., 38 (1995), pp. 3077-3084
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+[11]
+A. Urbano, F. Nasuti
+Onset of heat transfer deterioration in supercritical methane flow channels
+J. Thermophys. Heat Tran., 27 (2013), pp. 298-308
+CrossRefView Record in ScopusGoogle Scholar
+[12]
+V.A. Lokshin, S.I. E, Y.V. Vikhrev
+Calculating temperature conditions of radiant heating surfaces in supercritical boilers
+Therm. Eng., 15 (1968), pp. 34-39
+View Record in ScopusGoogle Scholar
+[13]
+M. Styrikovich, T.K. Margulova, Z. Miropol’Skii
+Problems in the development of designs of supercritical boilers
+Teploenergetika, 14 (1967), pp. 4-7
+View Record in ScopusGoogle Scholar
+[14]
+R.A. Lee, K.H. Haller
+Supercritical water heat transfer developments and applications
+International Heat Transfer Conference Digital Library, Begel House Inc. (1974)
+Google Scholar
+[15]
+M. Dongliang, Z. Tao, L. Bing, M. Ali Shahzad, H. Yanping
+An improved correlation on the onset of heat transfer deterioration in supercritical water
+Nucl. Eng. Des., 326 (2018), pp. 290-300
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+[16]
+G.A. Schatte, A. Kohlhepp, C. Wieland, H. Spliethoff
+Development of a new empirical correlation for the prediction of the onset of the deterioration of heat transfer to supercritical water in vertical tubes
+Int. J. Heat Mass Tran., 102 (2016), pp. 133-141
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+[17]
+X. Kong, H. Li, Q. Zhang, K. Guo, Q. Luo, X. Lei
+A new criterion for the onset of heat transfer deterioration to supercritical water in vertically-upward smooth tubes
+Appl. Therm. Eng., 151 (2019), pp. 66-76
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+[18]
+N. Kline, F. Feuerstein, S. Tavoularis
+Onset of heat transfer deterioration in vertical pipe flows of CO2 at supercritical pressures
+Int. J. Heat Mass Tran., 118 (2018), pp. 1056-1068
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+[19]
+Y.V. Vikhrev, Y.D. Barulin, A. Kon’Kov
+A study of heat transfer in vertical tubes at supercritical pressures
+Therm. Eng., 14 (1967), pp. 116-119
+Google Scholar
+[20]
+V.I. Deev, V.S. Kharitonov, A.N. Churkin
+Analysis and generalization of experimental data on heat transfer to supercritical pressure water flow in annular channels and rod bundles
+Therm. Eng., 64 (2017), pp. 142-150
+CrossRefView Record in ScopusGoogle Scholar
+[21]
+Z. Li, D. Zhang, Y. Wu, J. Lu, Q. Liu
+A new criterion for predicting deterioration of heat transfer to supercritical water in smooth tubes
+Proc. CSEE, 34 (2014), pp. 6304-6310
+View Record in ScopusGoogle Scholar
+[22]
+X. Cheng, Y.H. Yang, S.F. Huang
+A simplified method for heat transfer prediction of supercritical fluids in circular tubes
+Ann. Nucl. Energy, 36 (2009), pp. 1120-1128
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+[23]
+Q.L. Wen, H.Y. Gu
+Numerical simulation of heat transfer deterioration phenomenon in supercritical water through vertical tube
+Ann. Nucl. Energy, 37 (2010), pp. 1272-1280
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+[24]
+B.E. Launder, D.B. Spalding
+The numerical computation of turbulent flows
+Comput. Methods Appl. Mech. Eng., 3 (1974), pp. 269-289
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+[25]
+F. Menter
+Zonal two equation k-w turbulence models for aerodynamic flows
+24th Fluid Dynamics Conference (1993)
+Google Scholar
+[26]
+Z. Shen, D. Yang, S. Wang, W. Wang, Y. Li
+Experimental and numerical analysis of heat transfer to water at supercritical pressures
+Int. J. Heat Mass Tran., 108 (2017), pp. 1676-1688
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+[27]
+S. Sahu, A.M. Vaidya
+Numerical study of enhanced and deteriorated heat transfer phenomenon in supercritical pipe flow
+Ann. Nucl. Energy, 135 (2020), Article 106966
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+[28]
+A.K. Srivastava, A.M. Vaidya, N.K. Maheshwari, P.K. Vijayan
+Heat transfer and pressure drop characteristics of molten fluoride salt in circular pipe
+Appl. Therm. Eng., 61 (2013), pp. 198-205
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+[29]
+D.C. Wilcox
+Turbulence Modeling for CFD
+DCW industries La Canada, CA (1998)
+Google Scholar
+[30]
+S.V. Patankar
+Numerical Heat Transfer and Fluid Flow
+Hemisphere, Washington DC (1980)
+Google Scholar
+[31]
+M. Shitsman
+Impairment of the heat transmission at supercritical pressures
+High Temp., 1 (1963), pp. 237-244
+View Record in ScopusGoogle Scholar
+[32]
+S. Mokry, I. Pioro, P. Kirillov, Y. Gospodinov
+Supercritical-water heat transfer in a vertical bare tube
+Nucl. Eng. Des., 240 (2010), pp. 568-576
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+[33]
+X. Zhu, Q. Bi, D. Yang, T. Chen
+An investigation on heat transfer characteristics of different pressure steam-water in vertical upward tube
+Nucl. Eng. Des., 239 (2009), pp. 381-388
+ArticleDownload PDFView Record in ScopusGoogle Scholar

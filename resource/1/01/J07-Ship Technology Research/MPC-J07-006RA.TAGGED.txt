@@ -1,0 +1,459 @@
+﻿_NP <title> A_NP partitioned_VVD solution_NN approach_NN for_IN the_DT simulation_NN of_IN the_DT dynamic_JJ behaviour_NN of_IN flexible_JJ marine_JJ propellers_NNS </title> <author> 1_CD ,_, L._NP Radtke_NP ,_, 2_CD ,_, T._NP Lampe_NP ,_, 2_CD ,_, M._NP Abdel-Maksoud_NP ,_, 1_CD ,_, A._NP Düster_NP </author> <Affiliation> 1_CD ,_, Ship_NP Structural_NP Design_NP and_CC Analysis_NP ,_, Hamburg_NP University_NP of_IN Technology_NP ,_, Hamburg_NP ,_, Germany_NP ,_, 2_CD ,_, Fluid_JJ Dynamics_NPS and_CC Ship_NP Theory_NN ,_, Hamburg_NP University_NP of_IN Technology_NP ,_, Hamburg_NP ,_, Germany_NP </Affiliation> <year> 2020_CD </year> <Jounral> Ship_NP Technology_NP Research_NP </Journal> <Publishing_house> Taylor_NP and_CC Francis_NP Online_JJ </Publishing_house> <Text_Collector> Zhang_NP San，HEU_NP </Text_Collector> <DOI> https://doi.org/10.1080/09377255.2018.1542782_NP </DOI> <URL> https://www-tandfonline-com/doi/full/10.1080/09377255.2018.1542782_NP </URL> A_NP partitioned_VVD solution_NN approach_NN for_IN the_DT simulation_NN of_IN the_DT dynamic_JJ behaviour_NN of_IN flexible_JJ marine_JJ propellers_NNS L._NP Radtke_NP ,_, T._NP Lampe_NP ,_, M._NP Abdel-Maksoud_NP ,_, A._NP Düster_NP Ship_NP Structural_NP Design_NP and_CC Analysis_NP ,_, Hamburg_NP University_NP of_IN Technology_NP ,_, Hamburg_NP ,_, Germany_NP Fluid_JJ Dynamics_NPS and_CC Ship_NP Theory_NN ,_, Hamburg_NP University_NP of_IN Technology_NP ,_, Hamburg_NP ,_, Germany_NP <Section> Abstract_JJ </Section> Modern_NP designs_NNS of_IN ship-propellers_NNS make_VVP use_NN of_IN novel_NN materials_NNS such_JJ as_IN composites_NNS ,_, which_WDT may_MD show_VV a_DT much_RB lower_JJR stiffness_NN than_IN classical_JJ material_NN ._SENT 
+In_IN order_NN to_TO accurately_RB predict_VV the_DT hydrodynamic_JJ characteristics_NNS of_IN these_DT propellers_NNS in_IN real_JJ operating_VVG conditions_NNS ,_, the_DT structural_JJ deformation_NN must_MD be_VB accounted_VVN for_IN ,_, which_WDT leads_VVZ to_TO a_DT fluid-structure_NN interaction_NN problem_NN ._SENT 
+In_IN the_DT present_JJ paper_NN ,_, a_DT partitioned_VVN solution_NN approach_NN for_IN such_PDT a_DT strongly_RB coupled_VVN two-field_NP problem_NN is_VBZ presented_VVN ._SENT 
+Owing_VVG to_TO the_DT separate_JJ modelling_VVG of_IN the_DT fluid_NN and_CC the_DT structural_JJ problem_NN in_IN such_JJ approaches_NNS ,_, specialised_VVD numerical_JJ methods_NNS can_MD be_VB applied_VVN on_IN either_DT side_NN ._SENT 
+Thanks_NNS to_TO their_PP$ superior_JJ convergence_NN properties_NNS ,_, we_PP use_VVP high-order_JJ finite_JJ elements_NNS to_TO discretise_VV the_DT structural_JJ problem_NN ._SENT 
+On_IN the_DT fluid_JJ side_NN ,_, a_DT boundary_NN element_NN method_NN ,_, which_WDT is_VBZ specifically_RB designed_VVN to_TO simulate_VV the_DT hydrodynamic_JJ behaviour_NN of_IN ship_NN propellers_NNS is_VBZ employed_VVN ._SENT 
+In_IN order_NN to_TO stabilise_VV the_DT solution_NN procedure_NN ,_, different_JJ coupling_NN algorithms_NNS and_CC convergence_NN acceleration_NN methods_NNS are_VBP investigated_VVN ._SENT 
+Keywords_NNS :_: Ship-propellers_NNS ,_, fluid-structure_NN interaction_NN ,_, partitioned_VVN coupling_NN ,_, finite_JJ element_NN method_NN ,_, boundary_NN element_NN method_NN <Section> 1._CD Introduction_NN </Section> In_IN conventional_JJ propeller_NN design_NN procedures_NNS ,_, mainly_RB methods_NNS based_VVN on_IN lifting_VVG line_NN ,_, lifting_VVG surface_NN ,_, vortex_NN lattice_NN theory_NN or_CC the_DT boundary_NN element_NN method_NN (_( BEM_NP )_) are_VBP utilised_VVN to_TO calculate_VV the_DT hydrodynamic_JJ behaviour_NN of_IN investigated_VVN geometries_NNS ._SENT 
+These_DT methods_NNS have_VHP the_DT advantage_NN of_IN a_DT moderate_JJ computational_JJ effort_NN required_VVN for_IN the_DT calculation_NN of_IN a_DT propeller_NN 's_POS open_JJ water_NN characteristics_NNS ._SENT 
+Reynolds-averaged_JJ Navier-Stokes_NNS Equation_NN (_( RANSE_NN )_) based_VVN methods_NNS are_VBP applied_VVN to_TO evaluate_VV the_DT hydrodynamic_JJ behaviour_NN of_IN the_DT final_JJ design_NN geometry_NN ._SENT 
+Considering_VVG the_DT current_JJ state_NN of_IN computational_JJ power_NN available_JJ in_IN typical_JJ workstations_NNS ,_, the_DT BEM_NP offers_VVZ a_DT balance_NN between_IN accuracy_NN and_CC efficiency_NN most_RBS suitable_JJ for_IN design_NN purposes_NNS (_( Katz_NP and_CC Plotkin_NP 2001_CD )_) ._SENT 
+Marine_JJ propellers_NNS usually_RB operate_VVP in_IN inhomogeneous_JJ wake_NN conditions_NNS due_JJ to_TO ship_VV hull_NN geometry_NN ,_, shaft_NN inclination_NN ,_, motion_NN in_IN waves_NNS or_CC ship_NN manoeuvres_NNS ._SENT 
+Thus_RB ,_, the_DT hydrodynamic_JJ blade_NN load_NN as_RB well_RB as_IN the_DT resulting_VVG blade_NN strains_NNS and_CC stresses_NNS vary_VVP with_IN the_DT blade_NN rotation_NN angle_NN ._SENT 
+Still_RB ,_, in_IN most_JJS design_NN procedures_NNS ,_, the_DT blades_NNS are_VBP considered_VVN rigid_JJ or_CC highly_RB simplified_VVN methods_NNS involving_VVG mean_JJ blade_NN loads_NNS and/or_NN cantilever_NN beam_NN theory_NN (_( Carlton_NP 2007_CD )_) are_VBP utilised_VVN to_TO account_VV for_IN elastic_JJ effects_NNS ._SENT 
+Historically_RB ,_, this_DT approach_NN has_VHZ been_VBN widely_RB successful_JJ since_IN the_DT utilised_VVN geometries_NNS as_RB well_RB as_IN materials_NNS were_VBD not_RB prone_JJ to_TO induce_VV large_JJ deformations_NNS or_CC vibrations_NNS ._SENT 
+Modern_JJ propeller_NN designs_NNS ,_, however_RB ,_, involving_VVG highly_RB skewed_JJ geometries_NNS and_CC composite_JJ materials_NNS ,_, may_MD experience_VV severe_JJ deformations_NNS and_CC vibrations_NNS ,_, which_WDT can_MD not_RB be_VB ignored_VVN and_CC must_MD be_VB treated_VVN in_IN a_DT wholesome_JJ manner_NN ._SENT 
+It_PP is_VBZ therefore_RB mandatory_JJ to_TO develop_VV simulation_NN techniques_NNS which_WDT are_VBP able_JJ to_TO simulate_VV the_DT dynamic_JJ behaviour_NN of_IN flexible_JJ marine_JJ propellers_NNS in_IN inhomogeneous_JJ wake_NN conditions_NNS under_IN consideration_NN of_IN fluid-structure_NN interaction_NN (_( FSI_NP )_) ._SENT 
+The_DT focus_NN of_IN this_DT work_NN lies_VVZ on_IN the_DT investigation_NN of_IN coupling_NN algorithms_NNS and_CC convergence_NN acceleration_NN methods_NNS ,_, respectively_RB their_PP$ effectiveness_NN in_IN stabilising_VVG partitioned_VVN simulations_NNS of_IN strongly_RB coupled_VVN problems_NNS ._SENT 
+With_IN coupling_NN algorithms_NNS ,_, we_PP denote_VVP the_DT way_NN in_IN which_WDT data_NN is_VBZ exchanged_VVN between_IN the_DT subproblems_NNS ._SENT 
+Three_CD different_JJ algorithms_NNS are_VBP considered_VVN in_IN this_DT work_NN ,_, namely_RB ,_, a_DT classical_JJ staggered_JJ algorithm_NN as_IN applied_VVN ,_, e.g._FW in_IN Degroote_NP et_CC al_NP ._SENT 
+(_( 2009_CD )_) ,_, a_DT parallel_JJ algorithm_NN as_IN investigated_VVN in_IN Uekermann_NP et_CC al_NP ._SENT 
+(_( 2013_CD )_) and_CC a_DT mixed_JJ algorithm_NN ,_, which_WDT constitutes_VVZ a_DT combination_NN of_IN the_DT staggered_JJ and_CC the_DT parallel_JJ one_CD ._SENT 
+With_IN convergence_NN acceleration_NN method_NN ,_, we_PP denote_VVP the_DT way_NN in_IN which_WDT the_DT iterative_JJ procedure_NN underlying_VVG all_DT coupling_NN algorithms_NNS is_VBZ stabilised_VVN and_CC accelerated_VVN ._SENT 
+In_IN general_NN ,_, the_DT convergence_NN acceleration_NN methods_NNS manipulate_VVP the_DT coupling_NN quantities_NNS before_IN they_PP are_VBP exchanged_VVN ._SENT 
+This_DT may_MD stabilise_VV the_DT underlying_VVG fixed-point_NN iteration_NN and_CC reduce_VV the_DT number_NN of_IN iterations_NNS needed_VVN in_IN order_NN to_TO reach_VV a_DT global_JJ equilibrium_NN ._SENT 
+Among_IN others_NNS ,_, the_DT well_RB known_VVN relaxation_NN methods_NNS from_IN Aitken_NP (_( 1950_CD )_) ,_, Irons_NP and_CC Tuck_NP (_( 1969_CD )_) are_VBP compared_VVN to_TO different_JJ variants_NNS of_IN the_DT more_RBR recently_RB developed_JJ quasi-Newton_NN least_JJS squares_NNS (_( QNLS_NP )_) method_NN from_IN Degroote_NP et_CC al_NP ._SENT 
+(_( 2009_CD )_) ._SENT 
+Similar_JJ investigations_NNS have_VHP been_VBN performed_VVN in_IN previous_JJ works_NNS (_( see_VV e.g._FW Küttler_NP and_CC Wall_NP 2008_CD ;_: Minami_NP and_CC Yoshimura_NP 2010_CD ;_: Uekermann_NP et_NP al_NP ._SENT 
+2013_CD ;_: Radtke_NP et_NP al_NP ._SENT 
+2016_CD )_) ,_, the_DT different_JJ combination_NN of_IN convergence_NN acceleration_NN methods_NNS and_CC coupling_NN algorithms_NNS are_VBP not_RB considered_VVN therein_RB ._SENT 
+To_TO the_DT best_JJS of_IN our_PP$ knowledge_NN ,_, novel_NN variants_NNS of_IN the_DT QNLS_NNS methods_NNS such_JJ as_IN the_DT filtering_VVG technique_NN from_IN Haelterman_NP et_CC al_NP ._SENT 
+(_( 2016_CD )_) have_VHP neither_RB been_VBN studied_VVN in_IN this_DT fashion_NN ._SENT 
+The_DT remainder_NN of_IN this_DT paper_NN is_VBZ structured_VVN as_RB follows_VVZ ._SENT 
+In_IN the_DT next_JJ section_NN ,_, the_DT governing_VVG equations_NNS for_IN fluid_JJ and_CC structural_JJ mechanics_NNS are_VBP summarised_VVN and_CC the_DT initial_JJ boundary_NN value_NN problem_NN underlying_VVG the_DT FSI_NP simulation_NN is_VBZ introduced_VVN ._SENT 
+The_DT focus_NN of_IN Section_NP 3_CD lies_VVZ on_IN the_DT introduction_NN of_IN the_DT partitioned_VVN solution_NN approach_NN including_VVG the_DT coupling_NN algorithms_NNS and_CC convergence_NN acceleration_NN methods_NNS ._SENT 
+In_IN the_DT following_VVG two_CD sections_NNS ,_, numerical_JJ results_NNS are_VBP presented_VVN ._SENT 
+To_TO begin_VV with_IN ,_, a_DT simple_JJ test_NN case_NN is_VBZ considered_VVN in_IN Section_NP 4_CD in_IN order_NN to_TO investigate_VV the_DT performance_NN of_IN different_JJ coupling_NN strategies_NNS ._SENT 
+In_IN Section_NP 5_CD ,_, FSI_NP simulations_NNS of_IN an_DT exemplary_JJ marine_JJ propeller_NN are_VBP presented_VVN ._SENT 
+Finally_RB ,_, the_DT results_NNS are_VBP summarised_VVN and_CC a_DT conclusion_NN is_VBZ drawn_VVN in_IN Section_NP 6._CD <Section> 2._CD Fluid-structure_NN interaction_NN </Section> In_IN accordance_NN with_IN the_DT partitioned_VVN solution_NN approach_NN ,_, the_DT governing_VVG equations_NNS for_IN fluid_JJ and_CC structural_JJ mechanics_NNS are_VBP introduced_VVN here_RB separately_RB ._SENT 
+Afterwards_RB ,_, the_DT interaction_NN between_IN the_DT two_CD fields_NNS is_VBZ formulated_VVN using_VVG coupling_NN conditions_NNS ,_, which_WDT in_IN each_DT subproblem_NN can_MD be_VB represented_VVN by_IN standard_JJ boundary_NN conditions_NNS ._SENT 
+2.1_CD ._SENT 
+Fluid_JJ subproblem_NN The_DT method_NN utilised_VVN for_IN the_DT simulation_NN of_IN the_DT hydrodynamic_JJ effects_NNS is_VBZ the_DT potential_JJ theory_NN based_VVN approach_NN panMARE_NN (_( see_VV e.g._FW Berger_NP et_FW al_NP ._SENT 
+2014_CD ;_: Netzband_NP et_NP al_NP ._SENT 
+2017_CD )_) ._SENT 
+Accordingly_RB ,_, the_DT fluid_NN is_VBZ assumed_VVN as_IN incompressible_JJ ,_, irrotational_JJ and_CC non-viscous_JJ ._SENT 
+The_DT potential_JJ flow_NN can_MD ,_, therefore_RB ,_, be_VB computed_VVN by_IN solving_VVG the_DT Laplace_NP equation_NN @(1_NN )_) for_IN the_DT total_JJ velocity_NN potential_JJ Φ_NN ._SENT 
+The_DT unsteady_JJ Bernoulli_NP equation_NN is_VBZ used_VVN to_TO obtain_VV the_DT total_JJ pressure_NN @(2_NN )_) Therein_RB �_NP �_NP and_CC Φ∞_NP denote_VVP the_DT disturbed_JJ and_CC the_DT free_JJ stream_NN potential_NN ,_, respectively_RB ,_, such_PDT that_DT Φ=Φ∞+�_JJ �_NN ._SENT 
+The_DT constants_NNS p∞_NN and_CC z∞_NN refer_VVP to_TO the_DT (_( atmospheric_JJ )_) reference_NN pressure_NN and_CC the_DT reference_NN height_NN (_( where_WRB p∞_NP prevails_VVZ ,_, here_RB it_PP denotes_VVZ the_DT position_NN of_IN the_DT free_JJ water_NN surface_NN )_) ,_, respectively_RB ._SENT 
+The_DT fluid_JJ density_NN is_VBZ denoted_VVN by_IN ρ_NP ,_, g_NN is_VBZ the_DT gravitational_JJ constant_JJ ._SENT 
+A_DT general_JJ solution_NN to_TO the_DT described_VVN continuity_NN equation_NN is_VBZ given_VVN in_IN terms_NNS of_IN distributed_VVN sources_NNS σ_NN and_CC doublets_NNS μ_JJ on_IN the_DT boundary_NN Γf=Γf,b∪Γf,w_NN ,_, see_VVP e.g._FW Katz_NP and_CC Plotkin_NP (_( 2001_CD )_) ,_, by_IN @(3_NN )_) As_IN illustrated_VVN in_IN Figure_NP 1_CD ,_, the_DT boundaries_NNS Γf,b_VVP and_CC Γf,w_VVP correspond_VV to_TO the_DT surface_NN of_IN immersed_VVN bodies_NNS and_CC the_DT corresponding_JJ wake_NN surfaces_VVZ ,_, respectively_RB ._SENT 
+The_DT vector_NN n_NN is_VBZ the_DT unit_NN outward_RB normal_JJ vector_NN of_IN the_DT respective_JJ surface_NN while_IN r_NN is_VBZ the_DT distance_NN between_IN x_NN and_CC a_DT point_NN on_IN the_DT surface_NN integrated_VVN over_RP ._SENT 
+A_DT simulation_NN of_IN a_DT moving_VVG body_NN is_VBZ realised_VVN by_IN prescribing_VVG the_DT position_NN x�_NN �_NN of_IN the_DT boundary_NN Γf,b_NN in_IN terms_NNS of_IN the_DT displacement_NN d�_NN �_NN ._SENT 
+Figure_NN 1._CD Illustration_NN of_IN the_DT initial_JJ boundary_NN value_NN problems_NNS for_IN structural_JJ dynamics_NNS (_( left_VVN )_) and_CC fluid_JJ dynamics_NNS (_( right_NN )_) ._SENT 
+2.2_CD ._SENT 
+Structural_JJ subproblem_NN The_DT structural_JJ subproblem_NN is_VBZ governed_VVN by_IN the_DT balance_NN of_IN linear_JJ momentum_NN ._SENT 
+As_IN described_VVN in_IN many_JJ text_NN books_NNS (_( see_VV e.g._FW Bonet_NP and_CC Wood_NP 2008_CD ;_: Wriggers_NP 2008_CD )_) ,_, the_DT balance_NN equations_NNS can_MD be_VB written_VVN in_IN the_DT undeformed_JJ reference_NN configuration_NN as_IN @(4_NN )_) and_CC d˙_NP denote_VVP the_DT acceleration_NN and_CC velocity_NN ,_, respectively_RB ._SENT 
+ρ0_NP is_VBZ the_DT density_NN in_IN the_DT undeformed_JJ configuration_NN and_CC b_LS denotes_VVZ a_DT volume_NN load_NN ._SENT 
+d_SYM is_VBZ the_DT unknown_JJ displacement_NN field_NN ._SENT 
+F=∂x/∂X_NP denotes_VVZ the_DT deformation_NN gradient_NN and_CC S_NP is_VBZ the_DT second_JJ Piola–Kirchhoff_NP stress_NN tensor_NN ._SENT 
+We_PP employ_VVP the_DT St._NP Venant–Kirchhoff_NP model_NN to_TO relate_VV S_NP with_IN the_DT Green–Lagrange_JJ strain_NN E=12(FTF−1_NN )_) by_IN @(5_NN )_) In_IN addition_NN to_TO Equation_NN (_( 4_CD )_) ,_, Dirichlet_NP (_( displacement_NN )_) and_CC Neumann_NP (_( traction_NN )_) boundary_NN conditions_NNS @(6_NN )_) @(7_JJ )_) and_CC homogeneous_JJ initial_JJ conditions_NNS are_VBP prescribed_VVN ._SENT 
+Here_RB ,_, N_NP represents_VVZ the_DT unit_NN outward_RB normal_JJ vector_NN on_IN the_DT boundary_NN of_IN Ω0s_NP ._SENT 
+t¯_NP and_CC d¯_NP are_VBP given_VVN surface_NN tractions_NNS and_CC displacements_NNS ,_, respectively_RB ._SENT 
+2.3_CD ._SENT 
+Coupling_NN conditions_NNS Having_VHG at_IN hand_NN the_DT initial_JJ boundary_NN value_NN problem_NN that_WDT governs_VVZ the_DT motion_NN of_IN an_DT elastic_JJ solid_JJ and_CC the_DT fluid_JJ flow_NN around_IN a_DT moving_VVG body_NN ,_, an_DT FSI_NP problem_NN can_MD be_VB formulated_VVN by_IN additional_JJ coupling_NN constraints_NNS ._SENT 
+They_PP must_MD hold_VV on_IN the_DT common_JJ boundary_NN of_IN the_DT fluid_NN and_CC the_DT structural_JJ domain_NN ,_, which_WDT is_VBZ denoted_VVN as_IN ΓFSI_NP in_IN the_DT following_NN for_IN both_DT subproblems_NNS ._SENT 
+An_DT obvious_JJ condition_NN is_VBZ ,_, that_IN the_DT motion_NN of_IN the_DT fluid_JJ boundary_NN Γtf,b_NN must_MD follow_VV that_IN of_IN the_DT structure_NN ._SENT 
+This_DT is_VBZ achieved_VVN by_IN prescribing_VVG the_DT position_NN of_IN the_DT nodes_NNS of_IN the_DT fluid_JJ mesh_NN ,_, which_WDT serves_VVZ as_IN a_DT basis_NN for_IN the_DT BEM_NP introduced_VVD in_IN Section_NP 3.1_CD ._SENT 
+From_IN a_DT continuous_JJ point_NN of_IN view_NN and_CC letting_VVG dˆ(X_NN ,_, t_NN )_) describe_VVP the_DT displacement_NN of_IN Γtf,b_NN from_IN its_PP$ initial_JJ position_NN at_IN t = 0_NP ,_, @(8_NP )_) must_MD hold_VV ._SENT 
+Note_NN that_IN this_DT constraint_NN is_VBZ very_RB strict_JJ and_CC for_IN physical_JJ consistency_NN ,_, only_RB the_DT displacement_NN in_IN the_DT normal_JJ direction_NN of_IN ΓFSI_NP must_MD be_VB the_DT same_JJ on_IN the_DT fluid_JJ domain_NN and_CC the_DT structure_NN ._SENT 
+However_RB ,_, Equation_NN (_( 8_CD )_) eases_VVZ the_DT imposition_NN of_IN the_DT second_JJ constraint_NN ,_, namely_RB a_DT no-slip_NN boundary_NN condition_NN for_IN the_DT fluid_JJ velocity_NN v_NN at_IN the_DT moving_VVG interface_NN ,_, which_WDT reads_VVZ @(9_JJ )_) Finally_RB ,_, an_DT equilibrium_NN of_IN the_DT tractions_NNS must_MD be_VB enforced_VVN such_JJ that_IN @(10_NN )_) Therein_RB ,_, τw_RB denotes_VVZ the_DT wall_NN shear_NN stress_NN ._SENT 
+In_IN view_NN of_IN the_DT potential_JJ theory_NN ,_, which_WDT does_VVZ not_RB account_VV for_IN viscous_JJ effects_NNS ,_, τw_NN is_VBZ approximated_VVN on_IN a_DT per_FW element_NN basis_NN within_IN the_DT BEM_NP using_VVG an_DT empirical_JJ friction_NN coefficient_NN ._SENT 
+While_IN Equations_NNS (_( 8_CD )_) and_CC (_( 9_CD )_) constitute_VVP boundary_NN conditions_NNS on_IN the_DT fluid_JJ side_NN ,_, where_WRB ΓFSI=Γf,b_NP ,_, Equation_NN (_( 10_CD )_) is_VBZ enforced_VVN on_IN the_DT structural_JJ side_NN ,_, where_WRB ΓFSI⊂Γs,t_NP ._SENT 
+<Section> 3._CD Numerical_JJ methods_NNS </Section> The_DT solution_NN approach_NN followed_VVN in_IN this_DT work_NN is_VBZ partitioned_VVN in_IN the_DT sense_NN that_IN the_DT subproblems_NNS are_VBP not_RB only_RB discretised_VVN by_IN different_JJ numerical_JJ methods_NNS but_CC also_RB solved_VVD using_VVG individual_JJ simulation_NN softwares_NNS ._SENT 
+These_DT are_VBP denoted_VVN as_IN field_NN solvers_NNS in_IN the_DT following_NN ._SENT 
+In_IN order_NN to_TO establish_VV a_DT communication_NN between_IN the_DT field_NN solvers_NNS ,_, the_DT in-house_JJ coupling_NN software_NN comana_NN is_VBZ used_VVN ,_, see_VVP König_NP et_NP al_NP ._SENT 
+(_( 2016_CD )_) ._SENT 
+As_IN illustrated_VVN in_IN Figure_NP 2_CD ,_, it_PP allows_VVZ to_TO control_VV the_DT two_CD separate_JJ simulations_NNS using_VVG a_DT set_NN of_IN commands_NNS ,_, with_IN the_DT most_RBS important_JJ ones_NNS being_VBG set_VVN input_NN :_: Sends_VVZ a_DT specific_JJ coupling_NN quantity_NN to_TO the_DT field_NN solver_NN ._SENT 
+For_IN the_DT fluid_JJ solver_NN ,_, this_DT is_VBZ the_DT displacement_NN ,_, for_IN the_DT structural_JJ solver_NN ,_, it_PP is_VBZ the_DT traction_NN ._SENT 
+get_VV output_NN :_: Requests_NNS a_DT specific_JJ coupling_NN quantity_NN from_IN the_DT field_NN solver_NN ._SENT 
+The_DT correspondence_NN between_IN solver_NN and_CC quantity_NN is_VBZ flipped_VVD compared_VVN to_TO set_VV input_NN ._SENT 
+march_NN forward_RB in_IN time_NN :_: According_VVG to_TO the_DT dynamic_JJ nature_NN of_IN the_DT coupled_VVN problem_NN ,_, the_DT field_NN solvers_NNS apply_VVP time_NN stepping_VVG schemes_NNS ._SENT 
+For_IN the_DT coupling_NN constraints_NNS to_TO be_VB enforced_VVN implicitly_RB ,_, the_DT same_JJ time_NN step_NN has_VHZ to_TO be_VB solved_VVN repeatedly_RB ._SENT 
+The_DT state_NN of_IN the_DT subproblem_NN must_MD only_RB be_VB updated_VVN when_WRB this_DT command_NN is_VBZ issued_VVN ._SENT 
+Figure_NN 2._CD Left_VVN :_: Commands_NNS issued_VVN by_IN the_DT coupling_NN manager_NN and_CC executed_VVN by_IN the_DT field_NN solvers_NNS ._SENT 
+Right_NN :_: Software_NN design_NN for_IN a_DT modified_JJ field_NN solver_NN and_CC the_DT master_NN application_NN in_IN the_DT context_NN of_IN comana_NP ._SENT 
+In_IN order_NN to_TO participate_VV in_IN a_DT coupled_VVN simulation_NN ,_, the_DT field_NN solvers_NNS have_VHP to_TO be_VB modified_VVN ._SENT 
+However_RB ,_, this_DT is_VBZ done_VVN minimal_JJ invasively_RB as_RB shown_VVN in_IN Figure_NP 2._CD The_DT only_JJ change_NN that_WDT has_VHZ to_TO be_VB applied_VVN to_TO the_DT source_NN code_NN is_VBZ to_TO add_VV an_DT implicit_JJ coupling_NN iteration_NN within_IN the_DT time_NN stepping_VVG scheme_NN ._SENT 
+A_DT communication_NN function_NN ,_, returning_VVG whether_IN to_TO march_VV forward_RB in_IN time_NN or_CC to_TO stay_VV within_IN the_DT coupling_NN iteration_NN is_VBZ called_VVN before_IN and_CC after_IN solving_VVG the_DT current_JJ time_NN step_NN ._SENT 
+For_IN clarity_NN ,_, the_DT communication_NN function_NN was_VBD given_VVN two_CD different_JJ names_NNS in_IN Figure_NP 2_CD ,_, in_IN order_NN to_TO indicate_VV the_DT command_NN typically_RB processed_VVN during_IN the_DT call_NN ._SENT 
+The_DT function_NN as_RB well_RB as_IN anything_NN else_RB needed_VVD to_TO execute_VV the_DT commands_NNS is_VBZ implemented_VVN in_IN an_DT adapter_NN library_NN ,_, which_WDT has_VHZ to_TO be_VB provided_VVN for_IN each_DT field_NN solver_NN ._SENT 
+The_DT coupling_NN manager_NN comana_NP provides_VVZ the_DT main_JJ library_NN ,_, which_WDT implements_VVZ many_JJ data_NNS structures_NNS and_CC algorithms_NNS for_IN this_DT purpose_NN ._SENT 
+Further_RBR ,_, building_VVG blocks_NNS for_IN the_DT flexible_JJ implementation_NN of_IN arbitrary_JJ coupling_NN algorithms_NNS are_VBP provided_VVN by_IN the_DT main_JJ library_NN ._SENT 
+This_DT includes_VVZ predictors_NNS ,_, interpolation_NN schemes_NNS ,_, convergence_NN acceleration_NN methods_NNS and_CC convergence_NN criteria_NNS ,_, all_DT of_IN which_WDT are_VBP introduced_VVN at_IN the_DT end_NN of_IN this_DT section_NN ._SENT 
+They_PP are_VBP used_VVN to_TO implement_VV a_DT study_NN dependent_JJ master_NN application_NN ,_, which_WDT controls_VVZ the_DT field_NN solvers_NNS ._SENT 
+In_IN the_DT following_NN ,_, the_DT discretisation_NN methods_NNS for_IN the_DT fluid_NN and_CC the_DT structural_JJ subproblem_NN are_VBP summarised_VVN in_IN order_NN to_TO introduce_VV the_DT discretised_VVN quantities_NNS that_IN the_DT building_NN blocks_NNS work_VVP on_IN ._SENT 
+3.1_CD ._SENT 
+Boundary_NN element_NN method_NN The_DT fluid_JJ domain_NN is_VBZ simulated_JJ by_IN means_NNS of_IN the_DT boundary_NN element_NN software_NN panMARE_NN ._SENT 
+It_PP was_VBD successfully_RB used_VVN before_IN in_IN simulations_NNS of_IN the_DT interaction_NN of_IN rigid_JJ bodies_NNS and_CC fluids_NNS (_( see_VV Netzband_NP et_CC al_NP ._SENT 
+2017_CD )_) ._SENT 
+The_DT theory_NN behind_IN the_DT discretisation_NN method_NN can_MD be_VB found_VVN in_IN Katz_NP and_CC Plotkin_NP (_( 2001_CD )_) ._SENT 
+According_VVG to_TO Figure_NP 1_CD ,_, the_DT input_NN to_TO the_DT fluid_JJ solver_NN are_VBP the_DT displacements_NNS at_IN the_DT nodes_NNS of_IN the_DT boundary_NN mesh_NN ._SENT 
+The_DT output_NN is_VBZ the_DT tractions_NNS ,_, evaluated_VVN at_IN the_DT quadrature_NN points_NNS of_IN the_DT structural_JJ discretisation_NN ,_, which_WDT does_VVZ not_RB match_VV the_DT one_CD on_IN the_DT fluid_JJ side_NN ._SENT 
+In_IN order_NN to_TO obtain_VV a_DT solution_NN to_TO Equation_NN (_( 3_CD )_) ,_, the_DT discretised_VVN formulation_NN of_IN the_DT problem_NN is_VBZ considered_VVN :_: @(11_JJ )_) The_DT doublet_NN strength_NN in_IN the_DT wake_NN is_VBZ known_VVN due_RB to_TO the_DT application_NN of_IN the_DT Kutta_NP condition_NN (_( Katz_NP and_CC Plotkin_NP 2001_CD )_) ._SENT 
+In_IN order_NN to_TO consider_VV rigid_JJ motions_NNS as_RB well_RB as_IN structural_JJ deformations_NNS ,_, the_DT body_NN panel_NN source_NN strength_NN is_VBZ found_VVN to_TO be_VB @(12_JJ )_) with_IN v_NN as_IN total_JJ body_NN velocity_NN ._SENT 
+Thus_RB ,_, the_DT equation_NN system_NN resulting_VVG from_IN specifying_VVG Equation_NN (_( 11_CD )_) at_IN each_DT collocation_NN point_NN on_IN Γf,b_NP can_MD be_VB solved_VVN ._SENT 
+3.2_CD ._SENT 
+Finite_JJ element_NN method_NN In_IN the_DT scope_NN of_IN the_DT FEM_NN ,_, the_DT structural_JJ domain_NN Ωs0_NN is_VBZ partitioned_VVN into_IN elements_NNS Ωse_NNS ._SENT 
+Within_IN each_DT element_NN ,_, the_DT unknown_JJ displacement_NN field_NN is_VBZ represented_VVN as_IN a_DT weighted_JJ sum_NN of_IN shape_NN functions_NNS @(13_NN )_) where_WRB ξ_NP ,_, η_NP and_CC ζ_NP denote_VVP the_DT local_JJ element_NN coordinates_VVZ ._SENT 
+In_IN classical_JJ h-FEMs_NNS ,_, di_FW corresponds_VVZ to_TO the_DT displacement_NN of_IN node_NN i._NN For_IN the_DT hexahedral_JJ element_NN topology_NN (_( the_DT only_JJ one_CD used_VVN in_IN this_DT study_NN )_) there_EX are_VBP then_RB 8_CD shape_NN functions_NNS and_CC 24_CD degrees_NNS of_IN freedom_NN per_IN element_NN ._SENT 
+In_IN the_DT p-FEM_NN considered_VVN here_RB ,_, elements_NNS with_IN shape_NN functions_NNS from_IN a_DT hierarchical_JJ basis_NN are_VBP used_VVN ._SENT 
+To_TO the_DT 8_CD nodal_JJ modes_NNS ,_, higher_JJR order_NN shape_NN functions_NNS are_VBP added_VVN ._SENT 
+They_PP are_VBP partly_RB constructed_VVN from_IN tensor_NN products_NNS of_IN integrated_JJ Legendre_NP polynomials_NNS (_( ILPs_NP )_) ,_, yielding_VVG so_RB called_VVN bubble_NN modes_NNS ._SENT 
+Multiplications_NNS of_IN nodal_JJ shape_NN functions_NNS and_CC the_DT ILPs_NNS ,_, yield_VV higher_JJR order_NN shape_NN functions_NNS ,_, which_WDT are_VBP nonzero_NP only_RB at_IN one_CD face_NN or_CC one_CD edge_NN of_IN the_DT element_NN ._SENT 
+They_PP are_VBP correspondingly_RB denoted_VVN as_IN face_NN modes_NNS and_CC edge_NN modes_NNS ._SENT 
+In_IN general_NN ,_, @(14_NP )_) holds_VVZ for_IN the_DT shape_NN functions_NNS ,_, where_WRB L0_JJ and_CC L1_JJ denote_VVP the_DT one-dimensional_JJ nodal_JJ shape_NN functions_NNS and_CC Lp_NN for_IN p>1_NN denotes_VVZ the_DT ILP_NN of_IN order_NN p._NN As_IN detailed_JJ in_IN (_( Szabó_NP and_CC Babuška_NP 1991_CD )_) ,_, different_JJ sets_NNS of_IN shape_NN functions_NNS or_CC ansatz_NN spaces_NNS can_MD be_VB constructed_VVN by_IN eliminating_VVG some_DT of_IN the_DT functions_NNS contained_VVN in_IN the_DT full_JJ tensor_NN product_NN space_NN (_( TPS_NP )_) ._SENT 
+The_DT TPS_NP results_NNS from_IN taking_VVG all_DT possible_JJ combinations_NNS in_IN Equation_NN (_( 14_CD )_) ._SENT 
+A_DT restriction_NN of_IN the_DT maximum_JJ polynomial_JJ degree_NN of_IN a_DT shape_NN function_NN results_NNS in_IN the_DT trunk_NN space_NN (_( TS_NP )_) ._SENT 
+It_PP is_VBZ characterised_VVN by_IN a_DT slower_JJR increasing_JJ number_NN of_IN bubble_NN and_CC face_NN modes_NNS for_IN increasing_VVG p_NN as_IN opposed_VVN to_TO the_DT TPS_NP ._SENT 
+Owing_VVG to_TO the_DT coarse_JJ meshes_NNS that_WDT usually_RB arise_VVP from_IN p-FEM_NN discretisations_NNS ,_, a_DT good_JJ approximation_NN of_IN the_DT domain_NN may_MD demand_VV for_IN curved_VVN element_NN geometries_NNS ._SENT 
+We_PP employ_VVP the_DT blending_VVG function_NN method_NN in_IN combination_NN with_IN Lagrange_NP polynomials_NNS to_TO define_VV a_DT mapping_NN @(15_NN )_) as_RB explained_VVD in_IN Düster_NP et_CC al_NP ._SENT 
+(_( 2001_CD )_) ._SENT 
+The_DT mapping_NN function_NN Qe_NN is_VBZ constructed_VVN from_IN a_DT weighted_JJ sum_NN of_IN basis_NN functions_NNS like_IN the_DT displacement_NN approximation_NN in_IN Equation_NN (_( 13_CD )_) ._SENT 
+These_DT basis_NN functions_NNS are_VBP constructed_VVN like_IN the_DT shape_NN functions_NNS in_IN Equation_NN (_( 14_CD )_) ,_, however_RB ,_, using_VVG Lagrange_NP polynomials_NNS instead_RB of_IN ILPs_NNS ._SENT 
+The_DT mapping_NN interpolates_VVZ the_DT given_VVN geometry_NN at_IN sampling_VVG points_NNS with_IN optimised_VVN locations_NNS according_VVG to_TO Chen_NP and_CC Babuška_NP (_( 1995_CD )_) ._SENT 
+Depending_VVG on_IN the_DT geometry_NN order_NN pg_NN chosen_VVN for_IN the_DT Lagrange_NP polynomials_NNS and_CC the_DT ansatz_NP order_NN p_NN chosen_VVN for_IN the_DT shape_NN functions_NNS ,_, subparametric_JJ ,_, isoparametric_JJ or_CC superparametric_JJ element_NN formulations_NNS are_VBP obtained_VVN ._SENT 
+The_DT above_JJ descriptions_NNS for_IN the_DT unknown_NN and_CC the_DT geometry_NN ,_, are_VBP then_RB used_VVN to_TO discretise_VV a_DT weak_JJ form_NN (_( see_VV e.g._FW Bonet_NP and_CC Wood_NP 2008_CD ;_: Wriggers_NP 2008_CD )_) ._SENT 
+In_IN the_DT resulting_VVG system_NN of_IN ordinary_JJ differential_JJ equations_NNS ,_, a_DT damping_VVG matrix_NN C=10−4M_NN (_( M_NP is_VBZ the_DT mass_JJ matrix_NN )_) is_VBZ introduced_VVN ._SENT 
+We_PP use_VVP the_DT generalised-α_JJ method_NN with_IN a_DT spectral_JJ radius_NN of_IN ρ∞=1_JJ (_( see_VV e.g._FW Kuhl_NP and_CC Crisfield_NP 1999_CD )_) as_IN the_DT preferred_JJ time_NN integration_NN method_NN ._SENT 
+The_DT resulting_VVG nonlinear_JJ system_NN is_VBZ then_RB solved_VVN using_VVG the_DT Newton–Raphson_NP method_NN ._SENT 
+3.3_CD ._SENT 
+Coupling_NN algorithms_NNS Recalling_VVG the_DT structural_JJ mechanics_NNS subproblem_NN and_CC the_DT FEM_NN used_VVN for_IN its_PP$ solution_NN ,_, the_DT computation_NN of_IN the_DT discretised_VVN displacement_NN in_IN time_NN step_NN k_NN can_MD be_VB stated_VVN as_IN @(16_NP )_) Therein_RB ,_, dk_NP denotes_VVZ a_DT vector_NN collecting_VVG displacements_NNS at_IN certain_JJ points_NNS on_IN the_DT boundary_NN of_IN the_DT structure_NN ._SENT 
+More_RBR precisely_RB ,_, the_DT points_NNS are_VBP the_DT vertices_NN of_IN the_DT fluid_JJ mesh_NN ,_, where_WRB the_DT displacement_NN is_VBZ needed_VVN within_IN the_DT coupling_NN procedure_NN ._SENT 
+The_DT structural_JJ solve_VV operator_NN S_NP includes_VVZ the_DT computation_NN of_IN the_DT displacement_NN field_NN d(X_NP ,_, tk_NP )_) as_RB well_RB as_IN the_DT evaluation_NN at_IN these_DT points_NNS using_VVG the_DT shape_NN functions_NNS of_IN the_DT FEM_NN ._SENT 
+The_DT input_NN to_TO S_NP is_VBZ the_DT tractions_NNS ._SENT 
+The_DT vector_NN t¯k_NN collects_VVZ the_DT local_JJ traction_NN at_IN the_DT structural_JJ mesh_NN 's_POS quadrature_NN points_NNS ._SENT 
+In_IN a_DT similar_JJ manner_NN ,_, an_DT operator_NN formulation_NN for_IN the_DT fluid_JJ subproblem_NN is_VBZ established_VVN and_CC reads_VVZ @(17_JJ )_) While_IN in_IN Equation_NN (_( 17_CD )_) ,_, the_DT discretised_JJ displacement_NN is_VBZ marked_VVN with_IN an_DT overbar_NN indicating_VVG that_IN it_PP is_VBZ a_DT prescribed_JJ quantity_NN within_IN the_DT fluid_JJ subproblem_NN ,_, it_PP holds_VVZ that_DT d¯¯k=dk_NN ._SENT 
+However_RB ,_, this_DT does_VVZ not_RB hold_VV for_IN the_DT tractions_NNS ._SENT 
+While_IN tk_NP denotes_VVZ the_DT tractions_NNS at_IN the_DT face_NN centres_VVZ of_IN the_DT boundary_NN elements_NNS ,_, t¯k_NP denotes_VVZ the_DT traction_NN at_IN the_DT quadrature_NN points_NNS of_IN the_DT finite_JJ elements_NNS ._SENT 
+An_DT operator_NN I_PP is_VBZ introduced_VVN to_TO denote_VV the_DT interpolation_NN of_IN the_DT tractions_NNS in_IN tk_NN by_IN a_DT mesh_NN based_VVN inverse_JJ distance_NN weighting_NN such_PDT that_DT @(18_NN )_) The_DT inverse_JJ distance_NN weighting_NN is_VBZ mesh_NN based_VVN in_IN the_DT sense_NN that_IN only_RB the_DT fluid_JJ element_NN that_IN a_DT structural_JJ integration_NN point_NN is_VBZ associated_VVN with_IN (_( element_NN e_NN )_) and_CC its_PP$ neighbouring_VVG elements_NNS are_VBP used_VVN to_TO construct_VV the_DT interpolation_NN ._SENT 
+Further_RBR ,_, neighbouring_VVG elements_NNS ,_, which_WDT are_VBP separated_VVN from_IN element_NN e_NN by_IN sharp_JJ edges_NNS are_VBP excluded_VVN ._SENT 
+An_DT edge_NN is_VBZ considered_VVN sharp_JJ ,_, if_IN the_DT angle_NN between_IN the_DT normal_JJ vectors_NNS of_IN the_DT adjacent_JJ elements_NNS is_VBZ larger_JJR than_IN π/2_NP ._SENT 
+The_DT above_JJ formulation_NN is_VBZ chosen_VVN in_IN order_NN to_TO emphasise_VV that_IN the_DT FEM_NN naturally_RB includes_VVZ an_DT interpolation_NN method_NN ,_, while_IN for_IN the_DT considered_VVN BEM_NP and_CC finite_JJ volume_NN methods_NNS ,_, the_DT interpolation_NN is_VBZ usually_RB performed_VVN independently_RB of_IN the_DT discretisation_NN and_CC outside_JJ of_IN the_DT field_NN solver_NN ._SENT 
+In_IN any_DT case_NN ,_, target_NN points_NNS (_( structural_JJ quadrature_NN points_NNS or_CC fluid_JJ vertices_NN )_) are_VBP projected_VVN onto_IN the_DT source_NN mesh_NN (_( the_DT fluid_JJ mesh_NN or_CC the_DT structural_JJ mesh_NN ,_, respectively_RB )_) ._SENT 
+The_DT interpolation_NN is_VBZ then_RB evaluated_VVN at_IN the_DT projected_JJ point_NN ._SENT 
+While_IN tractions_NNS at_IN a_DT projected_VVN quadrature_NN point_NN are_VBP used_VVN without_IN modification_NN within_IN the_DT structural_JJ solver_NN ,_, displacements_NNS at_IN projected_JJ fluid_JJ vertices_NN are_VBP modified_VVN as_IN explained_VVN in_IN Section_NP 3.5_CD ._SENT 
+Figure_NN 3._CD Data_NP flow_NN within_IN on_IN time_NN step_NN in_IN the_DT staggered_JJ coupling_NN algorithm_NN ._SENT 
+Coupling_NN algorithms_NNS can_MD now_RB be_VB based_VVN on_IN fixed-point_JJ iterations_NNS (_( FPI_NP )_) involving_VVG the_DT introduced_VVN operators_NNS ._SENT 
+In_IN the_DT present_JJ work_NN ,_, three_CD different_JJ algorithms_NNS are_VBP considered_VVN ._SENT 
+The_DT well_RB known_VVN staggered_JJ algorithm_NN is_VBZ based_VVN on_IN the_DT FPI_NP @(19_NP )_) Figure_NN 3_CD shows_NNS the_DT data_NN flow_NN between_IN the_DT introduced_VVN operators_NNS for_IN this_DT algorithm_NN ._SENT 
+The_DT operator_NN Aik_NN denotes_VVZ a_DT convergence_NN acceleration_NN method_NN ,_, which_WDT manipulates_VVZ the_DT solution_NN obtained_VVN from_IN the_DT field_NN solver_NN in_IN order_NN to_TO reduce_VV the_DT number_NN of_IN iterations_NNS ._SENT 
+In_IN the_DT simulation_NN ,_, one_CD solver_NN is_VBZ called_VVN after_IN the_DT other_JJ ,_, hence_RB the_DT name_NN staggered_VVD ._SENT 
+In_IN what_WP is_VBZ denoted_VVN here_RB as_IN a_DT parallel_JJ coupling_NN algorithm_NN ,_, both_DT solver_NN are_VBP called_VVN at_IN the_DT same_JJ time_NN ._SENT 
+It_PP is_VBZ based_VVN on_IN the_DT FPI_NP @(20_NP )_) In_IN addition_NN ,_, a_DT mixed_JJ variant_NN is_VBZ considered_VVN ,_, which_WDT is_VBZ based_VVN on_IN the_DT FPI_NP @(21_NN )_) All_DT algorithms_NNS are_VBP suitable_JJ for_IN the_DT operator_NN formulation_NN @(22_NN )_) where_WRB ,_, ski=dki_NP in_IN the_DT staggered_JJ case_NN and_CC ski=[dkit¯ki]T_NN otherwise_RB ._SENT 
+The_DT solve_VV operators_NNS of_IN the_DT individual_JJ subproblems_NNS are_VBP combined_VVN in_IN the_DT operator_NN Pk_NP ._SENT 
+Accordingly_RB ,_, s~ki+1_JJ denotes_VVZ the_DT (_( unmodified_JJ )_) solution_NN obtained_VVN from_IN the_DT solver_NN ._SENT 
+The_DT residual_JJ is_VBZ introduced_VVN on_IN the_DT basis_NN of_IN this_DT as_RB @(23_JJ )_) 3.4_CD ._SENT 
+Convergence_NN acceleration_NN In_IN this_DT section_NN ,_, several_JJ alternatives_NNS for_IN the_DT acceleration_NN operator_NN A_DT are_VBP introduced_VVN ._SENT 
+In_IN any_DT case_NN ,_, A_DT provides_VVZ an_DT improved_VVN solution_NN ski+1_JJ for_IN the_DT next_JJ iteration_NN ,_, which_WDT may_MD generally_RB be_VB computed_VVN as_IN @(24_NN )_) 3.4.1_CD ._SENT 
+Relaxation_NN methods_NNS Many_JJ convergence_NN acceleration_NN methods_NNS are_VBP based_VVN on_IN relaxation_NN ,_, which_WDT yields_VVZ @(25_JJ )_) Note_VV that_IN for_IN ωi=1_JJ ,_, a_DT standard_JJ FPI_NP is_VBZ retained_VVN ._SENT 
+Here_RB ,_, the_DT following_VVG adaptive_JJ relaxation_NN methods_NNS are_VBP applied_VVN :_: AR_NNS :_: Aitken_NP relaxation_NN ,_, originally_RB proposed_VVN in_IN Aitken_NP (_( 1950_CD )_) ,_, modified_VVN for_IN vector_NN sequences_NNS in_IN Macleod_NP (_( 1986_CD )_) ,_, applied_VVN for_IN FSI_NP in_IN Küttler_NP and_CC Wall_NP (_( 2009_CD )_) ._SENT 
+Can_MD only_RB be_VB applied_VVN every_DT third_JJ coupling_NN iteration_NN ._SENT 
+BT_NP :_: Backtrack_VVP relaxation_NN ,_, see_VVP Minami_NP and_CC Yoshimura_NP (_( 2010_CD )_) ._SENT 
+ITR_NP :_: Irons-Tuck_JJ relaxation_NN from_IN Irons_NP and_CC Tuck_NP (_( 1969_CD )_) ._SENT 
+Constitutes_VVZ modified_JJ version_NN of_IN the_DT Aitken_NP relaxation_NN ,_, which_WDT can_MD be_VB applied_VVN in_IN every_DT coupling_NN iteration_NN ._SENT 
+CR_NN :_: Constant_JJ relaxation_NN with_IN ωi=const_NP ._SENT 
+For_IN a_DT detailed_JJ description_NN as_IN well_RB as_RB update_VV rules_NNS for_IN the_DT relaxation_NN factor_NN ,_, we_PP refer_VVP to_TO the_DT given_VVN references_NNS ._SENT 
+3.4.2_CD ._SENT 
+Advanced_JJ methods_NNS In_IN general_NN ,_, convergence_NN acceleration_NN methods_NNS may_MD provide_VV an_DT arbitrary_JJ solution_NN increment_NN Δski_NP ,_, which_WDT is_VBZ not_RB a_DT scalar_JJ multiple_NN of_IN the_DT residual_JJ ._SENT 
+In_IN previous_JJ investigations_NNS of_IN different_JJ FSI_NP problems_NNS ,_, the_DT most_RBS promising_JJ method_NN was_VBD found_VVN to_TO be_VB the_DT Quasi-Newton_NN least_JJS squares_NNS (_( QNLS_NP )_) method_NN proposed_VVN in_IN Degroote_NP et_CC al_NP ._SENT 
+(_( 2009_CD )_) and_CC further_RBR developed_VVN in_IN many_JJ works_NNS (_( see_VV e.g._FW Degroote_NP et_FW al_NP ._SENT 
+2010_CD ;_: Haelterman_NP et_NP al_NP ._SENT 
+2016_CD )_) ._SENT 
+Within_IN the_DT QNLS_NNS method_NN ,_, the_DT new_JJ displacement_NN increment_NN is_VBZ computed_VVN from_IN a_DT linear_JJ combination_NN of_IN known_VVN solution_NN differences_NNS Δs~ki=s~ki+1−s~ki_NP from_IN previous_JJ iterations_NNS :_: @(26_NP )_) The_DT computation_NN of_IN the_DT coefficients_NNS αj_NP is_VBZ based_VVN on_IN a_DT minimisation_NN problem_NN :_: @(27_JJ )_) The_DT unknown_JJ residual_JJ rki+1=rki+Δrki_NP is_VBZ approximated_VVN using_VVG a_DT linear_JJ combination_NN of_IN residual_JJ differences_NNS from_IN previous_JJ iterations_NNS ,_, i.e._FW @(28_NP )_) Owing_VVG to_TO the_DT relation_NN between_IN Δrki_NP and_CC Δs~kj_NP ,_, Equation_NN (_( 26_CD )_) can_MD be_VB interpreted_VVN as_IN a_DT quasi-Newton_NP step_NN ._SENT 
+For_IN a_DT detailed_JJ explanation_NN of_IN the_DT minimisation_NN procedure_NN ,_, the_DT reader_NN is_VBZ referred_VVN to_TO Degroote_NP et_CC al_NP ._SENT 
+(_( 2009_CD )_) ._SENT 
+We_PP denote_VVP the_DT standard_JJ variant_NN outlined_VVN above_IN by_IN QNLS_NNS ._SENT 
+An_DT improved_VVN variant_NN of_IN the_DT method_NN uses_VVZ not_RB only_JJ data_NNS from_IN the_DT current_JJ time_NN step_NN k_NN in_IN Equations_NNS (_( 26_CD )_) and_CC (_( 28_CD )_) but_CC also_RB data_NNS from_IN the_DT nts_JJ previous_JJ time_NN steps_NNS ._SENT 
+This_DT variant_NN is_VBZ denoted_VVN here_RB as_RB QNLSMT_JJ (_( QNLS_NNS with_IN multiple_JJ time_NN steps_NNS )_) ._SENT 
+Besides_IN these_DT classical_JJ variants_NNS proposed_VVN in_IN Degroote_NP et_CC al_NP ._SENT 
+(_( 2009_CD )_) ,_, the_DT filtering_VVG technique_NN from_IN Haelterman_NP et_CC al_NP ._SENT 
+(_( 2016_CD )_) as_IN well_RB as_IN the_DT resetting_VVG technique_NN from_IN Radtke_NP et_CC al_NP ._SENT 
+(_( 2016_CD )_) are_VBP applied_VVN here_RB ._SENT 
+The_DT resulting_VVG convergence_NN acceleration_NN methods_NNS are_VBP termed_VVN FQNLS_NNS (_( filtered_VVN QNLS_NNS )_) and_CC QNLSR_NP (_( QNLS_NNS with_IN resetting_VVG )_) ._SENT 
+They_PP introduce_VV two_CD additional_JJ parameters_NNS ,_, namely_RB a_DT filtering_VVG tolerance_NN and_CC the_DT number_NN of_IN iterations_NNS until_IN a_DT resetting_VVG is_VBZ performed_VVN ._SENT 
+For_IN details_NNS on_IN the_DT techniques_NNS ,_, we_PP again_RB refer_VVP to_TO the_DT provided_VVN references_NNS ._SENT 
+Combinations_NNS of_IN the_DT different_JJ QNLS_NNS methods_NNS are_VBP also_RB considered_VVN and_CC termed_VVN FQNLSMT_NP ,_, QNLSMTR_NP ,_, FQNLSMTR_NP and_CC FQNLSR_NP ,_, respectively_RB ._SENT 
+In_IN addition_NN to_TO the_DT relaxation_NN methods_NNS and_CC the_DT variants_NNS of_IN the_DT QNLS_NNS method_NN ,_, the_DT following_VVG convergence_NN acceleration_NN methods_NNS are_VBP used_VVN ._SENT 
+BM_NP :_: Broyden_NP method_NN ,_, originally_RB proposed_VVN in_IN Broyden_NP (_( 1965_CD )_) ._SENT 
+Here_RB ,_, the_DT variant_NN from_IN Minami_NP and_CC Yoshimura_NP (_( 2010_CD )_) is_VBZ used_VVN ._SENT 
+See_NP Kelley_NP (_( 2003_CD )_) for_IN several_JJ alternatives_NNS ._SENT 
+LE_FW :_: Line_NN extrapolation_NN ,_, as_RB proposed_VVN in_IN Yamada_NP and_CC Yoshimura_NP (_( 2008_CD )_) ._SENT 
+3.5_CD ._SENT 
+Special_JJ techniques_NNS In_IN this_DT section_NN ,_, some_DT simple_JJ techniques_NNS that_WDT proved_VVD to_TO be_VB useful_JJ for_IN the_DT propeller_NN simulations_NNS and_CC are_VBP assumed_VVN to_TO be_VB valuable_JJ in_IN FSI_NP simulations_NNS in_IN general_NN are_VBP introduced_VVN ._SENT 
+3.5.1_CD ._SENT 
+Displacement_NN correction_NN As_IN mentioned_VVN above_IN ,_, the_DT displacement_NN has_VHZ to_TO be_VB prescribed_VVN at_IN the_DT nodes_NNS of_IN the_DT fluid_JJ mesh_NN in_IN order_NN to_TO realise_VV the_DT coupled_VVN simulation_NN ._SENT 
+Owing_VVG to_TO non-matching_JJ discretisations_NNS ,_, a_DT fluid_JJ node_NN with_IN position_NN p_NN has_VHZ to_TO be_VB projected_VVN onto_IN the_DT structural_JJ mesh_NN ._SENT 
+The_DT projection_NN yields_VVZ local_JJ element_NN coordinates_VVZ ξp=[ξp_NN ,_, ηp_NP ,_, ζp]T_NP ,_, for_IN which_WDT @(29_NP )_) with_IN pp_NP being_VBG the_DT point_NN on_IN the_DT finite_JJ element_NN mesh_NN ,_, which_WDT is_VBZ closest_JJS to_TO p._NP The_DT displacement_NN at_IN this_DT point_NN dpp_NP can_MD then_RB be_VB computed_VVN according_VVG to_TO Equation_NN (_( 13_CD )_) ._SENT 
+However_RB ,_, the_DT question_NN arises_VVZ ,_, if_IN dpp_NP should_MD likewise_RB be_VB assumed_VVN for_IN dp_NP ,_, the_DT displacement_NN at_IN point_NN p._NN We_PP have_VHP found_VVN that_IN especially_RB for_IN FSI_NP simulation_NN that_WDT involve_VVP large_JJ rotations_NNS ,_, a_DT simple_JJ correction_NN of_IN dpp_NP improves_VVZ the_DT results_NNS significantly_RB ._SENT 
+As_IN illustrated_VVN in_IN Figure_NP 4_CD ,_, we_PP propose_VVP to_TO compute_VV the_DT displacement_NN as_IN if_IN point_NN p_NN was_VBD attached_VVN to_TO the_DT structural_JJ mesh_NN such_JJ that_IN it_PP rotates_VVZ with_IN it_PP and_CC keeps_VVZ the_DT same_JJ distance_NN ._SENT 
+This_DT leads_VVZ to_TO @(30_NP )_) where_WRB ep=p−pp_NP denotes_VVZ the_DT projection_NN error_NN and_CC Rp_NN denotes_VVZ the_DT rotation_NN matrix_NN associated_VVN with_IN the_DT current_JJ displacement_NN of_IN pp_NP and_CC its_PP$ surrounding_VVG ._SENT 
+It_PP may_MD be_VB computed_VVN from_IN a_DT decomposition_NN of_IN the_DT deformation_NN gradient_NN at_IN this_DT point_NN (_( see_VV Wriggers_NP 2008_CD )_) or_CC using_VVG the_DT element_NN 's_POS Jacobian_JJ matrix_NN in_IN the_DT current_JJ configuration_NN j_NN ,_, with_IN @(31_JJ )_) Depending_VVG on_IN the_DT specific_JJ face_NN of_IN the_DT element_NN that_IN p_NN was_VBD projected_VVN to_TO ,_, rp=±1_JJ ,_, sp=±1_JJ or_CC tp=±1_JJ ._SENT 
+The_DT cross_NN product_NN of_IN the_DT columns_NNS of_IN j_NN associated_VVN with_IN the_DT other_JJ local_JJ coordinates_VVZ yields_NNS the_DT current_JJ normal_JJ vector_NN ntpp_NP at_IN pp_NP ._SENT 
+From_IN ntpp_NP and_CC the_DT initial_JJ normal_JJ vector_NN at_IN t=0_NP ,_, the_DT current_JJ rotation_NN matrix_NN can_MD be_VB determined_VVN without_IN a_DT decomposition_NN of_IN the_DT deformation_NN gradient_NN ._SENT 
+Figure_NN 4._CD Correction_NN of_IN the_DT displacement_NN in_IN the_DT case_NN of_IN non-matching_VVG discretisations_NNS ._SENT 
+3.5.2_CD ._SENT 
+Displacement_NN prediction_NN In_IN many_JJ solution_NN approaches_NNS for_IN coupled_VVN multifield_NN problems_NNS ,_, each_DT time_NN step_NN starts_VVZ with_IN a_DT prediction_NN of_IN the_DT coupling_NN quantities_NNS based_VVN on_IN their_PP$ evolution_NN in_IN previous_JJ time_NN steps_NNS ._SENT 
+Different_JJ methods_NNS exist_VVP in_IN order_NN to_TO predict_VV a_DT suitable_JJ initial_JJ guess_NN for_IN the_DT next_JJ time_NN step_NN ._SENT 
+An_DT overview_NN can_MD be_VB found_VVN in_IN Gallinger_NP (_( 2010_CD )_) ._SENT 
+This_DT includes_VVZ the_DT well_RB known_VVN predictors_NNS based_VVN on_IN polynomial_JJ extrapolation_NN as_RB well_RB as_IN adaptive_JJ predictors_NNS ._SENT 
+For_IN the_DT present_JJ study_NN ,_, an_DT extrapolation_NN method_NN used_VVN in_IN Degroote_NP et_CC al_NP ._SENT 
+(_( 2009_CD )_) is_VBZ used_VVN ._SENT 
+It_PP is_VBZ based_VVN on_IN a_DT polynomial_JJ interpolation_NN of_IN the_DT last_JJ three_CD known_VVN solutions_NNS (_( from_IN time_NN steps_NNS k_NN ,_, k−1_JJ and_CC k−2_JJ )_) and_CC an_DT extrapolation_NN of_IN the_DT tangent_NN of_IN this_DT polynomial_NN at_IN tk_NN to_TO tk+1_JJ ._SENT 
+A_DT closed_JJ form_NN solution_NN is_VBZ easily_RB obtained_VVN and_CC reads_VVZ @(32_JJ )_) 3.5.3_CD ._SENT 
+Convergence_NN criteria_NNS As_IN emphasised_VVN in_IN Radtke_NP et_CC al_NP ._SENT 
+(_( 2017_CD )_) ,_, we_PP usually_RB favour_VVP a_DT relative_JJ convergence_NN criterion_NN based_VVN on_IN the_DT current_JJ solution_NN as_IN used_VVN in_IN Uekermann_NP et_CC al_NP ._SENT 
+(_( 2013_CD )_) ._SENT 
+Accordingly_RB ,_, a_DT coupling_NN iteration_NN is_VBZ considered_VVN converged_VVD if_IN @(33_NN )_) where_WRB erel_NP denotes_VVZ a_DT prescribed_JJ convergence_NN tolerance_NN ._SENT 
+However_RB ,_, for_IN the_DT case_NN at_IN hand_NN ,_, this_DT convergence_NN criterion_NN is_VBZ not_RB appropriate_JJ ._SENT 
+During_IN the_DT simulations_NNS ,_, ∥s∥_NP shows_VVZ an_DT oscillating_VVG behaviour_NN due_JJ to_TO the_DT prescribed_JJ rotation_NN ._SENT 
+Further_RBR ,_, the_DT axial_JJ translation_NN of_IN the_DT propeller_NN lets_VVZ ∥s∥_JJ increase_NN over_IN time_NN ,_, making_VVG it_PP infeasible_JJ as_IN a_DT reference_NN of_IN a_DT convergence_NN criterion_NN ._SENT 
+We_PP therefore_RB employ_VVP an_DT alternative_JJ convergence_NN criterion_NN ,_, which_WDT is_VBZ likewise_RB found_VVN frequently_RB in_IN partitioned_VVN FSI_NP simulations_NNS ,_, see_VVP e.g._FW Degroote_NP et_FW al_NP ._SENT 
+(_( 2009_CD )_) ._SENT 
+According_VVG to_TO a_DT prescribed_JJ relative_JJ convergence_NN tolerance_NN erel_NN and_CC an_DT absolute_JJ tolerance_NN erel_NN ,_, a_DT coupling_NN iteration_NN is_VBZ considered_VVN converged_VVD if_IN @(34_NN )_) However_RB ,_, Equation_NN (_( 33_CD )_) is_VBZ used_VVN for_IN the_DT test_NN case_NN studied_VVD first_JJ in_IN order_NN to_TO investigate_VV the_DT performance_NN of_IN the_DT convergence_NN acceleration_NN methods_NNS and_CC coupling_NN algorithms_NNS ._SENT 
+<Section> 4._CD Coupled_VVN benchmark_JJ problem_NN </Section> In_IN order_NN to_TO investigate_VV the_DT efficiency_NN of_IN the_DT mentioned_VVN convergence_NN acceleration_NN methods_NNS and_CC coupling_NN algorithms_NNS ,_, a_DT simple_JJ benchmark_NN problem_NN was_VBD designed_VVN ._SENT 
+As_IN shown_VVN in_IN Figure_NP 5_CD ,_, the_DT problem_NN consists_VVZ of_IN a_DT chain_NN like_IN structure_NN ,_, which_WDT is_VBZ composed_VVN of_IN point_NN masses_NNS and_CC truss_NN elements_NNS ._SENT 
+It_PP can_MD be_VB solved_VVN in_IN a_DT partitioned_VVN manner_NN by_IN considering_VVG the_DT motion_NN of_IN the_DT point_NN masses_NNS and_CC the_DT forces_NNS within_IN the_DT truss_NN elements_NNS as_IN separate_JJ sub_NN problems_NNS ._SENT 
+Figure_NN 5._CD Multibody_NN system_NN used_VVN for_IN the_DT investigation_NN of_IN the_DT coupling_NN algorithms_NNS and_CC convergence_NN acceleration_NN methods_NNS ._SENT 
+Left_VVN :_: System_NN behaviour_NN over_IN time_NN ._SENT 
+Middle_NN :_: Indexing_NN of_IN the_DT point_NN masses_NNS and_CC truss_NN elements_NNS ._SENT 
+Right_NN :_: Stability_NN analysis_NN ._SENT 
+The_DT mass_NN problem_NN then_RB reads_VVZ @(35_JJ )_) where_WRB m_NN and_CC c_LS denote_VV the_DT point_NN 's_POS mass_NN and_CC damping_VVG coefficient_NN ,_, respectively_RB ._SENT 
+It_PP is_VBZ discretised_VVN using_VVG the_DT Newmark-β_JJ method_NN and_CC treated_VVN like_IN the_DT structural_JJ subproblem_NN in_IN the_DT scope_NN of_IN the_DT introduced_VVN coupling_NN algorithms_NNS ._SENT 
+The_DT force_NN problem_NN reads_VVZ @(36_JJ )_) where_WRB c_SYM and_CC L0_NP denote_VVP the_DT stiffness_NN and_CC the_DT initial_JJ length_NN common_JJ to_TO all_DT trusses_NNS ,_, respectively_RB ._SENT 
+L(i_NP )_) denotes_VVZ the_DT current_JJ lengths_NNS of_IN truss_NN i._NN It_PP is_VBZ treated_VVN like_IN the_DT fluid_JJ subproblem_NN in_IN the_DT scope_NN of_IN introduced_VVN coupling_NN algorithms_NNS ._SENT 
+In_IN order_NN to_TO perform_VV the_DT investigations_NNS for_IN a_DT time_NN step_NN size_NN ,_, where_WRB the_DT system_NN can_MD be_VB regarded_VVN as_IN strongly_RB coupled_VVN ,_, a_DT convergence_NN study_NN was_VBD done_VVN ._SENT 
+The_DT system_NN was_VBD solved_VVN monolithically_RB using_VVG an_DT explicit_JJ (_( central_JJ differences_NNS )_) and_CC an_DT implicit_JJ (_( Newmark-β_JJ method_NN )_) time_NN stepping_VVG scheme_NN ._SENT 
+Figure_NN 5_CD shows_NNS the_DT simulation_NN error_NN in_IN relation_NN to_TO the_DT time_NN step_NN size_NN ._SENT 
+In_IN accordance_NN ,_, we_PP select_VVP Δt=0.2s_NNS for_IN our_PP$ investigations_NNS ,_, which_WDT is_VBZ too_RB large_JJ to_TO be_VB solved_VVN using_VVG an_DT explicit_JJ scheme_NN and_CC demands_NNS for_IN an_DT implicit_JJ solution_NN approach_NN ._SENT 
+We_PP would_MD like_VV to_TO compare_VV the_DT introduced_VVN convergence_NN acceleration_NN methods_NNS in_IN terms_NNS of_IN efficiency_NN ._SENT 
+As_IN a_DT measure_NN ,_, we_PP introduce_VV the_DT mean_JJ number_NN of_IN consecutive_JJ solver_NN calls_NNS per_IN time_NN step_NN n¯_NN ._SENT 
+It_PP is_VBZ equal_JJ to_TO the_DT mean_JJ number_NN of_IN coupling_NN iterations_NNS for_IN the_DT staggered_JJ and_CC the_DT mixed_JJ coupling_NN algorithms_NNS ._SENT 
+For_IN the_DT parallel_JJ algorithm_NN ,_, it_PP is_VBZ half_PDT the_DT number_NN of_IN coupling_NN iterations_NNS due_JJ to_TO the_DT fact_NN that_IN both_DT solvers_NNS are_VBP called_VVN at_IN the_DT same_JJ time_NN and_CC only_RB once_RB ._SENT 
+Of_IN course_NN ,_, this_DT measure_NN is_VBZ only_RB objective_JJ if_IN both_DT subproblems_NNS require_VVP the_DT same_JJ amount_NN of_IN time_NN for_IN their_PP$ solution_NN ._SENT 
+For_IN all_DT convergence_NN acceleration_NN methods_NNS ,_, parameters_NNS need_VVP to_TO be_VB specified_VVN ,_, e.g_VVP an_DT initial_JJ relaxation_NN factor_NN ωi_NP or_CC the_DT number_NN of_IN previous_JJ time_NN steps_NNS to_TO be_VB taken_VVN into_IN account_NN nts_NNS ._SENT 
+Based_VVN on_IN experiences_NNS gained_VVN during_IN testing_VVG and_CC implementing_VVG the_DT methods_NNS ,_, suitable_JJ ranges_NNS for_IN all_DT parameters_NNS were_VBD defined_VVN ._SENT 
+The_DT ranges_NNS were_VBD chosen_VVN much_RB larger_JJR than_IN the_DT expected_VVN range_NN of_IN optimal_JJ values_NNS in_IN order_NN not_RB to_TO miss_VV outliers_NNS ._SENT 
+Then_RB ,_, 105_CD simulations_NNS were_VBD performed_VVN for_IN each_DT coupling_NN algorithm_NN ,_, where_WRB the_DT convergence_NN acceleration_NN method_NN as_RB well_RB as_IN its_PP$ parameter_NN were_VBD chosen_VVN randomly_RB ._SENT 
+Further_RBR ,_, a_DT convergence_NN tolerance_NN erel_NN was_VBD chosen_VVN randomly_RB from_IN {_( 10−10_NP ,_, 10−8_NP ,_, 10−6_NP ,_, 10−4_NP }_) ._SENT 
+To_TO access_VV the_DT accuracy_NN of_IN the_DT partitioned_VVN simulations_NNS ,_, the_DT displacement_NN of_IN the_DT point_NN at_IN the_DT end_NN of_IN the_DT chain_NN x8tk_NN is_VBZ compared_VVN to_TO a_DT reference_NN solution_NN xreftk_NN that_WDT was_VBD obtained_VVN using_VVG an_DT (_( implicit_JJ )_) monolithic_JJ approach_NN with_IN the_DT same_JJ time_NN step_NN size_NN Δt=0.2s_NNS ._SENT 
+A_DT simulation_NN is_VBZ considered_VVN failed_VVN ,_, if_IN the_DT error_NN @(37_JJ )_) is_VBZ larger_JJR then_RB the_DT prescribed_JJ convergence_NN tolerance_NN erel_NN ._SENT 
+If_IN the_DT number_NN of_IN iteration_NN within_IN one_CD time_NN step_NN reached_VVD 100_CD ,_, the_DT simulations_NNS were_VBD also_RB considered_VVN failed_VVN ._SENT 
+All_DT such_JJ simulations_NNS were_VBD excluded_VVN from_IN the_DT study_NN ._SENT 
+4.1_CD ._SENT 
+Results_NNS In_IN Figure_NP 6_CD ,_, the_DT mean_JJ number_NN of_IN consecutive_JJ solver_NN calls_VVZ n¯_NN is_VBZ plotted_VVN over_IN the_DT mean_JJ relative_JJ error_NN esim_NNS for_IN a_DT subset_NN of_IN the_DT 105_CD staggered_JJ simulations_NNS to_TO give_VV an_DT overview_NN of_IN the_DT study_NN ._SENT 
+As_RB can_MD be_VB seen_VVN ,_, the_DT data_NNS points_NNS cluster_NN according_VVG to_TO convergence_NN tolerance_NN prescribed_VVN in_IN the_DT coupling_NN algorithm_NN ._SENT 
+Further_JJR statements_NNS can_MD be_VB observed_VVN from_IN Figure_NP 6_CD :_: The_DT data_NN points_NNS representing_VVG variants_NNS of_IN the_DT QNLS_NNS method_NN are_VBP not_RB spread_VVN out_RP as_RB much_RB as_IN the_DT ones_NNS for_IN the_DT other_JJ convergence_NN acceleration_NN methods_NNS ._SENT 
+This_DT means_VVZ ,_, that_IN the_DT QNLS_NNS methods_NNS are_VBP not_RB as_RB sensitive_JJ to_TO changes_NNS in_IN their_PP$ parameters_NNS ._SENT 
+Excluding_VVG the_DT improved_VVN variants_NNS of_IN the_DT QNLS_NNS method_NN ,_, the_DT backtrack_VVP relaxation_NN performs_VVZ best_JJS for_IN high_JJ tolerances_NNS ._SENT 
+For_IN low_JJ tolerances_NNS ,_, the_DT Broyden_NP method_NN and_CC the_DT QNLS_NNS method_NN are_VBP more_RBR efficient_JJ ._SENT 
+Figure_VV 6._CD Average_JJ number_NN of_IN coupling_NN iterations_NNS per_IN time_NN step_NN in_IN relation_NN to_TO the_DT simulation_NN error_NN esim_NNS ._SENT 
+Each_DT data_NNS point_NN corresponds_VVZ to_TO one_CD simulation_NN of_IN the_DT multibody_NN system_NN ._SENT 
+These_DT observations_NNS were_VBD similarly_RB made_VVN for_IN the_DT parallel_NN and_CC the_DT mixed_JJ coupling_NN algorithm_NN ._SENT 
+They_PP give_VVP valuable_JJ hints_NNS about_IN which_WDT methods_NNS are_VBP likely_JJ to_TO be_VB efficient_JJ and_CC reveal_VV the_DT influence_NN of_IN factors_NNS like_IN the_DT convergence_NN tolerance_NN on_IN the_DT answer_NN to_TO such_JJ questions_NNS ._SENT 
+In_IN Figure_NP 7_CD ,_, the_DT mean_JJ and_CC minimum_JJ n¯_NN for_IN all_DT simulations_NNS performed_VVN with_IN a_DT particular_JJ convergence_NN acceleration_NN method_NN are_VBP shown_VVN ._SENT 
+Again_RB ,_, the_DT smaller_JJR spread_NN is_VBZ observed_VVN for_IN the_DT QNLS_NNS methods_NNS ,_, this_DT time_NN in_IN terms_NNS of_IN a_DT smaller_JJR difference_NN between_IN minimum_NN and_CC mean_VV ._SENT 
+In_IN general_JJ ,_, staggered_JJ and_CC mixed_JJ algorithm_NN show_VVP less_JJR variations_NNS in_IN n¯_NN than_IN the_DT parallel_JJ one_CD ._SENT 
+Further_RBR ,_, two_CD interesting_JJ pitfalls_NNS can_MD be_VB observed_VVN :_: All_DT simulations_NNS applying_VVG the_DT Irons-Tuck_JJ relaxation_NN in_IN combination_NN with_IN a_DT parallel_JJ coupling_NN algorithm_NN failed_VVD ._SENT 
+We_PP ,_, therefore_RB ,_, assume_VVP that_IN this_DT combination_NN cannot_MD be_VB used_VVN in_IN the_DT way_NN we_PP have_VHP introduced_VVN here_RB ._SENT 
+Almost_RB all_DT simulations_NNS applying_VVG the_DT QNLSMT_NP (_( multi_NP time_NN step_NN without_IN filtering_VVG or_CC resetting_VVG )_) failed_VVN ._SENT 
+Only_RB four_CD simulations_NNS with_IN the_DT mixed_JJ algorithm_NN and_CC two_CD simulations_NNS with_IN the_DT staggered_JJ algorithm_NN did_VVD not_RB fail_VV ._SENT 
+We_PP therefore_RB recommend_VVP not_RB to_TO use_VV QNLSMT_JJ method_NN without_IN resetting_VVG or_CC filtering_VVG ._SENT 
+In_IN view_NN of_IN the_DT fact_NN that_IN the_DT differences_NNS in_IN n¯_NN between_IN all_DT variants_NNS of_IN the_DT QNLS_NNS method_NN employing_VVG filtering_VVG or_CC resetting_VVG (_( or_CC both_CC )_) is_VBZ only_RB marginal_JJ ,_, we_PP recommend_VVP to_TO use_VV both_DT techniques_NNS ._SENT 
+Figure_NN 7._CD Mean_NP and_CC minimum_JJ values_NNS for_IN the_DT mean_JJ number_NN of_IN coupling_NN iteration_NN per_IN time_NN step_NN n¯_NN ._SENT 
+<Section> 5._CD Ship-propellers_NNS </Section> The_DT propeller_NN investigated_VVN in_IN this_DT work_NN is_VBZ the_DT Marintek_NP P1374_NN propeller_NN (_( see_VV e.g._FW Figure_NP 8_CD )_) ._SENT 
+It_PP was_VBD originally_RB designed_VVN by_IN SINTEF_NN OCEAN_NN (_( former_JJ Marintek_NP )_) in_IN order_NN to_TO provide_VV an_DT open-source_NN geometry_NN for_IN experiments_NNS and_CC validation_NN of_IN numerical_JJ methods_NNS with_IN regard_NN to_TO ship_VV thrusters_NNS ._SENT 
+The_DT P1374_JJ propeller_NN has_VHZ since_RB then_RB been_VBN used_VVN in_IN the_DT work_NN of_IN numerous_JJ research_NN groups_NNS (_( Martio_NP et_NP al_NP ._SENT 
+2015_CD ;_: Savio_NP 2015_CD ;_: Kozlowska_NP and_CC Steen_NP 2017_CD )_) and_CC its_PP$ hydrodynamic_JJ behaviour_NN is_VBZ thus_RB thoroughly_RB known_VVN ._SENT 
+An_DT overview_NN of_IN the_DT propeller_NN specification_NN is_VBZ given_VVN in_IN Table_NN 1._CD In_IN static_JJ structural_JJ as_RB well_RB as_IN coupled_VVN simulations_NNS ,_, the_DT given_VVN material_NN parameters_NNS are_VBP used_VVN if_IN not_RB specified_VVN otherwise_RB ._SENT 
+Figure_VV 8._CD Exemplary_JJ discretisations_NNS of_IN the_DT fluid_JJ domain_NN boundary_NN ,_, wake_NN field_NN and_CC the_DT structural_JJ mesh_NN ._SENT 
+(_( a_DT )_) Coarse_JJ discretisation_NN of_IN the_DT fluid_JJ domain_NN boundary_NN and_CC the_DT wake_NN field_NN and_CC (_( b_LS )_) Meshes_NNS used_VVN in_IN the_DT convergence_NN study_NN for_IN the_DT structural_JJ subproblem_NN (_( top_JJ )_) and_CC the_DT fluid_JJ problem_NN (_( bottom_NN )_) ._SENT 
+Table_NN 1._CD Propeller_NN P1374_JJ specification_NN ._SENT 
+Before_IN any_DT coupled_VVN simulation_NN is_VBZ considered_VVN ,_, the_DT accuracy_NN and_CC stability_NN of_IN the_DT solvers_NNS and_CC discretisations_NNS used_VVN for_IN fluid_NN and_CC structure_NN domain_NN are_VBP investigated_VVN ._SENT 
+In_IN the_DT following_NN ,_, results_NNS with_IN regard_NN to_TO preliminary_JJ investigations_NNS and_CC the_DT coupled_VVN simulations_NNS will_MD be_VB presented_VVN ._SENT 
+5.1_CD ._SENT 
+Preliminary_JJ investigations_NNS 5.1.1_CD ._SENT 
+Convergence_NN study_NN In_IN order_NN to_TO ensure_VV a_DT proper_JJ solution_NN of_IN the_DT fluid_NN and_CC the_DT structural_JJ mechanics_NNS subproblem_NN ,_, convergence_NN studies_NNS are_VBP conducted_VVN ._SENT 
+For_IN the_DT fluid_JJ subproblem_NN ,_, hydrodynamic_JJ simulations_NNS are_VBP performed_VVN with_IN the_DT assumption_NN of_IN a_DT rigid_JJ structure_NN ._SENT 
+Regarding_VVG the_DT structural_JJ subproblem_NN ,_, a_DT static_JJ test_NN case_NN is_VBZ considered_VVN ,_, where_WRB a_DT large_JJ deformation_NN of_IN the_DT propeller_NN blade_NN is_VBZ enforced_VVN by_IN prescribing_VVG a_DT volume_NN load_NN ._SENT 
+In_IN Figure_NP 8_CD ,_, the_DT displacement_NN scenario_NN as_RB well_RB as_IN the_DT considered_VVN discretisations_NNS are_VBP shown_VVN ._SENT 
+Figure_NN 9_CD shows_NNS the_DT convergence_NN of_IN the_DT relative_JJ error_NN in_IN the_DT computed_VVN strain_NN energy_NN (_( E−Eref)/Eref_NN for_IN different_JJ refinement_NN strategies_NNS ._SENT 
+The_DT reference_NN solution_NN is_VBZ obtained_VVN using_VVG the_DT finest_JJS structural_JJ mesh_NN from_IN Figure_NP 8_CD in_IN combination_NN with_IN elements_NNS of_IN order_NN p=pg=10_NN and_CC the_DT tensor_NN product_NN space_NN ._SENT 
+The_DT expected_VVN superior_JJ convergence_NN behaviour_NN of_IN the_DT p-FEM_NN over_IN classical_JJ h-FEM_NN can_MD clearly_RB be_VB observed_VVN from_IN Figure_NP 9._CD However_RB ,_, only_RB for_IN discretisations_NNS with_IN p≥pg_NN ,_, i.e._FW for_IN isoparametric_JJ or_CC subparametric_JJ element_NN formulations_NNS ,_, meaningful_JJ results_NNS are_VBP obtained_VVN ._SENT 
+This_DT is_VBZ attributed_VVN to_TO the_DT fact_NN that_IN rigid_JJ body_NN motions_NNS cannot_MD be_VB described_VVN consistently_RB using_VVG superparametric_JJ formulations_NNS ._SENT 
+It_PP is_VBZ further_RBR observed_VVD that_IN for_IN high_JJ accuracy_NN ,_, the_DT finer_JJR mesh_NN consisting_VVG of_IN 108_CD elements_NNS must_MD be_VB used_VVN ._SENT 
+In_IN order_NN to_TO assess_VV the_DT convergence_NN behaviour_NN of_IN the_DT fluid_JJ mesh_NN ,_, different_JJ discretisations_NNS were_VBD compared_VVN to_TO a_DT reference_NN solution_NN by_IN means_NNS of_IN thrust_NN and_CC torque_NN coefficient_NN ._SENT 
+In_IN the_DT reference_NN solution_NN ,_, 60_CD elements_NNS were_VBD used_VVN in_IN chord-_NN and_CC spanwise_JJ direction_NN and_CC the_DT wake_NN was_VBD extended_VVN for_IN six_CD rotations_NNS behind_IN the_DT propeller_NN ._SENT 
+Table_NN 2_CD presents_VVZ the_DT obtained_VVN results_NNS ._SENT 
+Figure_NN 9._CD Convergence_NN behaviour_NN of_IN the_DT p-FEM_NN for_IN the_DT static_JJ test_NN case_NN ._SENT 
+Even_RB the_DT case_NN with_IN the_DT lowest_JJS mesh_NN refinement_NN at_IN the_DT very_JJ bottom_NN of_IN the_DT table_NN delivers_VVZ satisfactory_JJ results_NNS ._SENT 
+In_IN order_NN to_TO keep_VV the_DT required_JJ computational_JJ effort_NN as_IN low_JJ as_IN possible_JJ ,_, this_DT mesh_NN (_( 20_CD panels_NNS in_IN chord-_NN and_CC spanwise_JJ direction_NN ,_, 1_CD wake_NN rotation_NN behind_IN propeller_NN )_) is_VBZ used_VVN in_IN the_DT coupled_VVN simulations_NNS ._SENT 
+Table_NN 2._CD J = 0.5_NN ,_, comparison_NN of_IN reference_NN solution_NN and_CC different_JJ fluid_JJ meshes_NNS ._SENT 
+5.1.2_CD ._SENT 
+Coupling_NN strategy_NN To_TO see_VV whether_IN the_DT findings_NNS from_IN Section_NP 4_CD apply_VV also_RB for_IN the_DT propeller_NN simulations_NNS ,_, another_DT comparison_NN is_VBZ carried_VVN out_RP ._SENT 
+The_DT most_RBS promising_JJ convergence_NN acceleration_NN method_NN for_IN the_DT multibody_NN system_NN was_VBD found_VVN to_TO be_VB the_DT QNLS_NNS method_NN with_IN filtering_VVG and_CC resetting_VVG (_( FQNLSMTR_NP )_) ._SENT 
+In_IN Table_NN 3_CD ,_, it_PP is_VBZ compared_VVN to_TO its_PP$ original_JJ variant_NN (_( QNLS_NNS )_) and_CC the_DT less_JJR complex_JJ Irons-Tuck_JJ relaxation_NN in_IN terms_NNS of_IN n¯¯¯_NP ._SENT 
+The_DT results_NNS confirm_VVP the_DT assumption_NN that_IN the_DT Irons-Tuck_JJ relaxation_NN is_VBZ not_RB applicable_JJ in_IN combination_NN with_IN the_DT parallel_JJ coupling_NN algorithm_NN ._SENT 
+For_IN the_DT QNLS_NNS methods_NNS and_CC in_IN contrast_NN to_TO the_DT simple_JJ benchmark_NN case_NN ,_, the_DT parallel_JJ coupling_NN algorithm_NN yields_VVZ the_DT lowest_JJS n¯_NN ._SENT 
+Another_DT difference_NN to_TO the_DT benchmark_JJ problem_NN is_VBZ found_VVN for_IN the_DT backtrack_VVP relaxation_NN ,_, which_WDT does_VVZ not_RB yield_VV stable_JJ simulations_NNS in_IN the_DT FSI_NP case_NN ._SENT 
+Table_NN 3._CD Number_NP of_IN consecutive_JJ solver_NN calls_NNS n¯_JJ for_IN selected_JJ convergence_NN acceleration_NN methods_NNS and_CC coupling_NN algorithms_NNS in_IN propeller_NN simulations_NNS ._SENT 
+5.1.3_CD ._SENT 
+Hydrodynamics_NNS The_DT quality_NN of_IN the_DT hydrodynamic_JJ solution_NN is_VBZ evaluated_VVN by_IN means_NNS of_IN comparison_NN with_IN experiments_NNS and_CC high_JJ fidelity_NN simulations_NNS ._SENT 
+Figure_NP 10(a_NP )_) presents_VVZ an_DT open_JJ water_NN diagram_NN for_IN the_DT P1374_JJ propeller_NN obtained_VVN by_IN panMARE_JJ simulations_NNS and_CC experiments_NNS by_IN (_( Savio_NP 2015_CD )_) ._SENT 
+While_IN there_EX is_VBZ good_JJ agreement_NN in_IN thrust_NN coefficient_NN over_IN all_DT advance_NN coefficients_NNS ,_, torque_NN coefficient_NN and_CC hence_RB efficiency_NN show_VVP some_DT differences_NNS ,_, especially_RB at_IN lower_JJR advance_NN coefficients_NNS ._SENT 
+With_IN regard_NN to_TO FSI_NP simulations_NNS ,_, it_PP is_VBZ not_RB sufficient_JJ to_TO evaluate_VV integral_JJ parameters_NNS like_IN torque_NN and_CC thrust_NN coefficient_NN ._SENT 
+The_DT actual_JJ pressure_NN distribution_NN on_IN the_DT blades_NNS should_MD be_VB subject_JJ of_IN investigation_NN ._SENT 
+As_IN no_DT pressure_NN measurements_NNS were_VBD performed_VVN in_IN the_DT experiments_NNS ,_, the_DT pressure_NN distribution_NN on_IN the_DT blade_NN resulting_VVG from_IN the_DT panMARE_JJ simulation_NN is_VBZ compared_VVN to_TO a_DT RANSE-based_JJ simulation_NN in_IN ANSYS_NP CFX_NP ._SENT 
+Figure_NP 10(b_NP )_) presents_VVZ the_DT results_NNS ._SENT 
+A_DT good_JJ agreement_NN between_IN both_DT codes_NNS can_MD be_VB observed_VVN ,_, although_IN there_EX are_VBP slight_JJ differences_NNS towards_IN the_DT blade_NN trailing_VVG edge_NN and_CC the_DT pressure_NN peak_NN at_IN the_DT leading_VVG edge_NN is_VBZ underestimated_VVN in_IN the_DT panMARE_JJ simulation_NN ._SENT 
+Figure_VV 10._CD Hydrodynamic_JJ results_NNS of_IN rigid_JJ simulation_NN ._SENT 
+(_( a_DT )_) Openwater_NN diagram_NN for_IN P1374_JJ propeller_NN ._SENT 
+panMARE_JJ simulation_NN and_CC experiments_NNS (_( Savio_NP 2015_CD )_) and_CC (_( b_LS )_) P1374_JJ pressure_NN coefficient_NN at_IN J = 0.7_JJ ,_, panMARE_JJ simulation_NN and_CC Ansys_NP CFX_NP ._SENT 
+5.2_CD ._SENT 
+Coupled_VVN simulations_NNS Having_VHG established_VVN confidence_NN in_IN the_DT modelling_VVG of_IN fluid_JJ and_CC structural_JJ domain_NN as_RB well_RB as_IN the_DT utilised_VVN coupling_NN approach_NN ,_, coupled_VVN simulations_NNS of_IN the_DT described_VVN propeller_NN setup_NN are_VBP performed_VVN ._SENT 
+Next_RB ,_, the_DT hydrodynamic_JJ and_CC structural-dynamic_JJ behaviour_NN of_IN the_DT flexible_JJ propeller_NN is_VBZ investigated_VVN in_IN steady_JJ as_RB well_RB as_IN unsteady_JJ inflow_NN conditions_NNS ._SENT 
+All_DT simulations_NNS are_VBP performed_VVN with_IN a_DT time_NN step_NN size_NN of_IN Δt=0.0476s_NNS for_IN the_DT fluid_NN and_CC the_DT structural_JJ solver_NN ._SENT 
+For_IN seven_CD rotations_NNS per_IN minute_NN ,_, this_DT corresponds_VVZ to_TO a_DT rotation_NN of_IN 2_CD degrees_NNS per_IN time_NN step_NN ._SENT 
+5.2.1_CD ._SENT 
+Steady_JJ inflow_NN Initially_RB ,_, the_DT propeller_NN is_VBZ simulated_JJ in_IN steady_JJ inflow_NN conditions_NNS which_WDT result_VVP in_IN a_DT steady_JJ behaviour_NN of_IN thrust_NN ,_, torque_NN and_CC resulting_VVG deformations_NNS ._SENT 
+Figure_NP 11(a_NP )_) presents_VVZ an_DT openwater_NN diagram_NN of_IN the_DT P1374_JJ propeller_NN for_IN rigid_JJ and_CC elastic_JJ conditions_NNS ._SENT 
+Over_IN the_DT entire_JJ range_NN of_IN advance_NN coefficients_NNS ,_, an_DT increase_NN in_IN thrust_NN and_CC torque_NN coefficient_NN is_VBZ observed_VVN for_IN the_DT elastic_JJ propeller_NN ._SENT 
+The_DT effect_NN is_VBZ amplified_VVN for_IN low_JJ advance_NN coefficients_NNS ,_, which_WDT infer_VVP high_JJ blade_NN loads_NNS ,_, and_CC weakens_VVZ with_IN decreasing_VVG advance_NN coefficient_NN ._SENT 
+As_IN the_DT rate_NN of_IN change_NN is_VBZ similar_JJ for_IN both_DT coefficients_NNS ,_, the_DT propeller_NN efficiency_NN is_VBZ almost_RB unaffected_JJ ._SENT 
+The_DT observed_JJ increase_NN of_IN thrust_NN and_CC torque_NN originates_VVZ in_IN the_DT deformations_NNS experienced_VVN by_IN the_DT blade_NN ._SENT 
+An_DT overview_NN of_IN the_DT blade_NN deformation_NN with_IN regard_NN to_TO the_DT rigid_JJ state_NN is_VBZ given_VVN in_IN Figure_NP 11(b_NP )_) ,_, which_WDT shows_VVZ the_DT local_JJ x-wise_JJ (_( shaft_NN direction_NN )_) deformation_NN dx_NN of_IN the_DT blade_NN over_IN the_DT relative_JJ chord_NN length_NN at_IN two_CD given_VVN relative_JJ radii_NNS and_CC stiffness_NN parameters_NNS ._SENT 
+Besides_IN the_DT results_NNS for_IN the_DT original_JJ Young_NP 's_POS modulus_NN of_IN E = 1500 MPa_NP ,_, data_NN is_VBZ given_VVN for_IN a_DT propeller_NN specimen_NN with_IN E=3000 MPa_NP ._SENT 
+Since_IN for_IN both_DT cases_NNS ,_, trailing_VVG edge_NN and_CC leading_VVG edge_NN experience_NN different_JJ deformation_NN magnitudes_NNS ,_, the_DT blade_NN pitch_NN is_VBZ increased_VVN due_RB to_TO the_DT elasticity_NN and_CC thus_RB also_RB thrust_NN and_CC torque_NN ._SENT 
+Similar_JJ to_TO the_DT magnitude_NN of_IN deformation_NN ,_, the_DT effect_NN is_VBZ more_RBR pronounced_VVN for_IN the_DT blade_NN with_IN less_JJR stiffness_NN ._SENT 
+Figure_NN 11._CD Comparison_NN of_IN hydrodynamic_JJ performance_NN for_IN rigid_JJ and_CC elastic_JJ propeller_NN ._SENT 
+Corresponding_JJ blade_NN deformation_NN for_IN elastic_JJ propeller_NN ._SENT 
+(_( a_DT )_) Openwater_NN diagram_NN for_IN rigid_JJ and_CC elastic_JJ (_( E = 1500 MPa_NP )_) P1374_JJ propeller_NN and_CC (_( b_LS )_) P1374_JJ propeller_NN ,_, J = 0.5_NP ,_, x-wise_JJ deformation_NN for_IN different_JJ stiffness_NN at_IN different_JJ relative_JJ radii_NNS ._SENT 
+5.2.2_CD ._SENT 
+Unsteady_JJ inflow_NN In_IN order_NN to_TO assess_VV the_DT capabilities_NNS of_IN the_DT devised_VVN simulation_NN method_NN with_IN regard_NN to_TO unsteady_JJ inflow_NN conditions_NNS ,_, the_DT propeller_NN is_VBZ subjected_VVN to_TO a_DT harmonically_RB varying_VVG inflow_NN field_NN given_VVN by_IN :_: @(38_NP )_) Therein_RB ,_, θ_NP denotes_VVZ the_DT rotation_NN angle_NN in_IN the_DT velocity_NN map_NN plane_NN ,_, which_WDT is_VBZ situated_VVN in_IN front_NN of_IN the_DT propeller_NN ._SENT 
+The_DT propeller_NN plane_NN normal_JJ vector_NN coincides_VVZ with_IN the_DT propeller_NN shaft_NN axis_NN ._SENT 
+In_IN radial_JJ direction_NN ,_, the_DT velocity_NN is_VBZ constant_JJ at_IN each_DT angle_NN ._SENT 
+Figure_NN 12_CD presents_NNS the_DT progression_NN of_IN the_DT thrust_NN coefficient_NN over_IN one_CD rotation_NN period_NN for_IN the_DT elastic_JJ propeller_NN in_IN unsteady_JJ and_CC steady_JJ inflow_NN conditions_NNS ._SENT 
+In_IN the_DT simulation_NN with_IN unsteady_JJ inflow_NN ,_, the_DT mean_JJ thrust_NN is_VBZ increased_VVN due_RB to_TO the_DT prescribed_JJ velocity_NN field_NN ._SENT 
+The_DT behaviour_NN of_IN the_DT thrust_NN coefficient_NN resembles_VVZ the_DT given_VVN velocity_NN field_NN in_IN a_DT physically_RB consistent_JJ manner_NN ._SENT 
+The_DT phase_NN shift_NN between_IN input_NN velocity_NN and_CC the_DT resulting_VVG thrust_NN originates_VVZ from_IN the_DT bent_NN leading_VVG edge_NN of_IN the_DT propeller_NN ;_: the_DT blade_NN enters_VVZ each_DT area_NN of_IN the_DT velocity_NN field_NN not_RB as_IN a_DT whole_JJ but_CC gradually_RB ,_, leading_VVG to_TO the_DT described_VVN phase_NN shift_NN ._SENT 
+Figure_NN 12._CD Thrust_NN coefficient_NN for_IN elastic_JJ and_CC rigid_JJ propeller_NN in_IN unsteady_JJ and_CC steady_JJ wake_NN conditions_NNS ,_, respectively_RB ._SENT 
+<Section> 6._CD Conclusion_NN </Section> We_PP have_VHP presented_VVN a_DT partitioned_VVN solution_NN approach_NN to_TO FSI_NP problems_NNS arising_VVG from_IN the_DT modelling_VVG of_IN the_DT mechanical_JJ behaviour_NN of_IN flexible_JJ marine_JJ propellers_NNS ._SENT 
+The_DT approach_NN allows_VVZ for_IN a_DT flexible_JJ coupling_NN of_IN the_DT FEM_NN and_CC the_DT BEM_NP ,_, which_WDT is_VBZ preferable_JJ over_IN volume_NN methods_NNS with_IN regard_NN to_TO computational_JJ effort_NN and_CC meshing_VVG issues_NNS ._SENT 
+Different_JJ coupling_NN algorithms_NNS and_CC convergence_NN acceleration_NN methods_NNS were_VBD compared_VVN for_IN a_DT simple_JJ benchmark_NN problem_NN ._SENT 
+The_DT investigations_NNS show_VVP a_DT superior_JJ convergence_NN behaviour_NN of_IN improved_VVN variants_NNS of_IN the_DT QNLS_NNS method_NN ._SENT 
+The_DT well_RB known_VVN staggered_JJ coupling_NN algorithm_NN as_RB well_RB as_IN a_DT parallel_JJ algorithm_NN are_VBP both_DT applicable_JJ and_CC may_MD be_VB chosen_VVN in_IN accordance_NN with_IN the_DT current_JJ workload_NN of_IN the_DT computer_NN ._SENT 
+A_DT comparison_NN of_IN the_DT most_RBS attractive_JJ coupling_NN strategy_NN in_IN the_DT context_NN of_IN propeller_NN simulations_NNS shows_VVZ that_IN the_DT methods_NNS yield_VVP efficient_JJ simulations_NNS for_IN this_DT more_RBR involved_JJ problem_NN as_IN well_RB ._SENT 
+Based_VVN on_IN the_DT comparison_NN ,_, unsuitable_JJ combinations_NNS of_IN coupling_NN algorithms_NNS and_CC convergence_NN acceleration_NN methods_NNS are_VBP identified_VVN ,_, too_RB ._SENT 
+We_PP assume_VVP that_IN these_DT findings_NNS apply_VVP to_TO coupled_VVN problems_NNS ,_, in_IN general_NN ,_, while_IN further_JJR simulations_NNS of_IN different_JJ problems_NNS need_VVP to_TO be_VB performed_VVN to_TO confirm_VV this_DT ._SENT 
+First_JJ results_NNS show_VVP that_IN the_DT applied_VVN BEM_NP is_VBZ capable_JJ of_IN predicting_VVG the_DT hydrodynamics_NN around_IN the_DT propeller_NN with_IN an_DT accuracy_NN that_WDT is_VBZ comparable_JJ to_TO RANSE_VV methods_NNS ._SENT 
+The_DT consideration_NN of_IN structural_JJ deformations_NNS yields_NNS physically_RB consistent_JJ results_NNS ._SENT 
+A_DT validation_NN of_IN the_DT partitioned_VVN solution_NN approach_NN is_VBZ planned_VVN in_IN the_DT near_JJ future_NN ._SENT 
+The_DT approach_NN shall_MD then_RB be_VB used_VVN in_IN order_NN to_TO asses_NNS the_DT acoustic_JJ characteristic_NN of_IN marine_JJ propellers_NNS ._SENT 
+The_DT noise_NN in_IN the_DT far-field_NN will_MD be_VB simulated_JJ based_VVN on_IN the_DT Ffowcs_NP Williams-Hawking_NN equation_NN ._SENT 
+For_IN a_DT realistic_JJ assessment_NN of_IN the_DT propeller_NN 's_POS acoustic_JJ signature_NN ,_, cavitation_NN must_MD be_VB accounted_VVN for_IN ._SENT 
+Thanks_NNS to_TO the_DT partitioned_VVN solution_NN approach_NN ,_, we_PP can_MD draw_VV on_IN established_VVN modelling_VVG approaches_NNS that_WDT have_VHP successfully_RB been_VBN used_VVN in_IN simulations_NNS of_IN rigid_JJ propellers_NNS before_RB ._SENT 
+<Section> Disclosure_NN statement_NN </Section> No_DT potential_JJ conflict_NN of_IN interest_NN was_VBD reported_VVN by_IN the_DT authors_NNS ._SENT 
+<Section> Additional_JJ information_NN </Section> Funding_NP The_DT authors_NNS gratefully_RB acknowledge_VVP the_DT support_NN provided_VVN by_IN the_DT DFG_NP (_( German_NP Science_NP Foundation_NP �_NP �_NP Deutsche_NP Forschungsgesellschaft_NP )_) [_SYM grant_NN numbers_NNS AB_NP 112/12-1_CD and_CC DU_NP 405/13-1_CD ]_SYM ._SENT 
+<Section> References_NNS </Section> Aitken_NP AC_NP ._SENT 
+1950._CD Studies_NNS in_IN practical_JJ mathematics_NNS on_IN the_DT iterative_JJ solution_NN of_IN a_DT system_NN of_IN linear_JJ equations_NNS ._SENT 
+Proc_NP R_NP Soc_NP Edinb_NP Sect_NN A_DT Math_NP Phys_NPS Sci_NP ._SENT 
+63(1):52–60_NP ._SENT 
+Berger_NP S_NP ,_, Druckenbrod_NP M_NP ,_, Pergande_NP M_NP ,_, Abdel-Maksoud_NP M._NP 2014._CD A_DT two-stage_NN optimization_NN method_NN for_IN full-scale_JJ marine_JJ propellers_NNS working_VVG behind_IN a_DT ship_NN ._SENT 
+Ship_NN Technol_NN Res_NNS ._SENT 
+61(2):64–79_NP ._SENT 
+Bonet_NP J_NP ,_, Wood_NP R_NP (_( 2008_CD )_) ._SENT 
+Nonlinear_JJ continuum_NN mechanics_NNS for_IN finite_JJ element_NN analysis_NN ._SENT 
+New_NP York_NP :_: Cambridge_NP University_NP Press_NP ._SENT 
+Broyden_NP CG_NP ._SENT 
+1965._CD A_DT class_NN of_IN methods_NNS for_IN solving_VVG nonlinear_JJ simultaneous_JJ equations_NNS ._SENT 
+Math_NN Comput_NN ._SENT 
+19:577–593_NP ._SENT 
+Carlton_NP J._NP 2007._CD 19_CD �_JJ �_JJ propeller_NN blade_NN strength_NN ._SENT 
+Oxford_NP :_: Butterworth-Heinemann_NP ;_: p._NP 396–415_NP ._SENT 
+Chen_NP Q_NP ,_, Babuška_NP I._NP 1995._CD Approximate_JJ optimal_JJ points_NNS for_IN polynomial_JJ interpolation_NN of_IN real_JJ functions_NNS in_IN an_DT interval_NN and_CC in_IN a_DT triangle_NN ._SENT 
+Comput_NN Methods_NNS Appl_VVP Mech_NP Eng_NP ._SENT 
+128:405–417_JJ ._SENT 
+Degroote_NP J_NP ,_, Bathe_NP KJ_NP ,_, Vierendeels_NP J._NP 2009._CD Performance_NN of_IN a_DT new_JJ partitioned_VVN procedure_NN versus_IN a_DT monolithic_JJ procedure_NN in_IN fluid-structure_NN interaction_NN ._SENT 
+Comput_NN Struct_NN ._SENT 
+87(11):793–801_JJ ._SENT 
+Degroote_NP J_NP ,_, Haelterman_NP R_NP ,_, Annerel_NP S_NP ,_, Bruggeman_NP P_NN ,_, Vierendeels_VVZ J._NP 2010._CD Performance_NN of_IN partitioned_VVN procedures_NNS in_IN fluid-structure_NN interaction_NN ._SENT 
+Comput_NN Struct_NN ._SENT 
+88(7–8):446–457_JJ ._SENT 
+Düster_NP A_NP ,_, Bröker_NP H_NP ,_, Rank_NP E._NP 2001._CD The_DT p-version_NN of_IN the_DT finite_JJ element_NN method_NN for_IN three-dimensional_JJ curved_VVN thin_JJ walled_JJ structures_NNS ._SENT 
+Int_NP J_NP Numer_NP Methods_NNS Eng_NP ._SENT 
+52(7):673–703_NP ._SENT 
+Gallinger_NP TG_NP ._SENT 
+2010._CD Effiziente_NP algorithmen_NP zur_NP partitionierten_NP lösung_NP stark_JJ gekoppelter_NP probleme_NP der_NP fluid-struktur-wechselwirkung_NP ._SENT 
+Haelterman_NP R_NP ,_, Bogaers_NP A_NP ,_, Scheufele_NP K_NP ,_, Uekermann_NP B_NP ,_, Mehl_NP M._NP 2016._CD Improving_NN the_DT performance_NN of_IN the_DT partitioned_VVN qn-ils_NNS procedure_NN for_IN fluid-structure_NN interaction_NN problems_NNS :_: filtering_VVG ._SENT 
+Comput_NN Struct_NN ._SENT 
+171(Supplement_NN C):9–17_JJ ._SENT 
+Irons_NP B_NP ,_, Tuck_NP RC_NP ._SENT 
+1969._CD A_DT version_NN of_IN the_DT Aitken_NP Accelerator_NN for_IN Computer_NP implementation_NN ._SENT 
+Int_NP J_NP Numer_NP Methods_NNS Eng_NP ._SENT 
+1:275–277_JJ ._SENT 
+Katz_NP J_NP ,_, Plotkin_NP A._NP 2001._CD Low-speed_NN aerodynamics_NN ._SENT 
+2nd_JJ ed_NNS ._SENT 
+New_NP York_NP :_: Cambridge_NP University_NP Press_NP ._SENT 
+Cambridge_NP Aerospace_NP Series_NP ._SENT 
+Kelley_NP CT_NP ._SENT 
+2003._CD Solving_VVG nonlinear_JJ equations_NNS with_IN Newton_NP 's_POS method_NN ._SENT 
+Raleigh_NP :_: Society_NN for_IN Industrial_NP and_CC Applied_NP Mathematics_NNS ._SENT 
+König_NP M_NP ,_, Radtke_NP L_NP ,_, Düster_NP A._NP 2016._CD A_DT flexible_JJ C++_JJ framework_NN for_IN the_DT partitioned_VVN solution_NN of_IN strongly_RB coupled_VVN multifield_JJ problems_NNS ._SENT 
+Comput_NP Math_NP Appl_NP ._SENT 
+72(7):1764–1789_NP ._SENT 
+Kozlowska_NP A_NP ,_, Steen_NP S._NP 2017._CD Experimental_JJ analysis_NN on_IN the_DT risk_NN of_IN vortex_NN ventilation_NN and_CC the_DT free_JJ surface_NN ventilation_NN of_IN marine_JJ propellers_NNS ._SENT 
+Appl_NP Ocean_NP Res_NNS ._SENT 
+67:201–212_NP ._SENT 
+Kuhl_NP D_NP ,_, Crisfield_NP MA_NN ._SENT 
+1999._CD Energy-conserving_VVG and_CC decaying_VVG algorithms_NNS in_IN non-linear_JJ structural_JJ dynamics_NNS ._SENT 
+Int_NP J_NP Numer_NP Methods_NNS Eng_NP ._SENT 
+45(5):569–599_NP ._SENT 
+Küttler_NP U_NP ,_, Wall_NP W._NP 2008._CD Fixed-point_NN fluid-structure_NN interaction_NN solvers_NNS with_IN dynamic_JJ relaxation_NN ._SENT 
+Comput_NP Mech_NP ._SENT 
+43(1):61–72_NP ._SENT 
+Küttler_NP U_NP ,_, Wall_NP WA_NP ._SENT 
+2009._CD Vector_NP extrapolation_NN for_IN strong_JJ coupling_NN fluid-structure_NN interaction_NN solvers_NNS ._SENT 
+J_NP Appl_NP Mech_NP ._SENT 
+76(2):021205–021205–7_JJ ._SENT 
+Macleod_NP AJ_NP ._SENT 
+1986._CD Acceleration_NN of_IN vector_NN sequences_NNS by_IN multi-dimensional_JJ δ2_JJ methods_NNS ._SENT 
+Commun_NP Appl_NP Numer_NP Methods_NNS ._SENT 
+2(4):385–392_NP ._SENT 
+Martio_NP J_NP ,_, Sanchez-Caja_NP A_NP ,_, Siikonen_NP T._NP 2015._CD Evaluation_NN of_IN propeller_NN virtual_JJ mass_NN and_CC damping_VVG coefficients_NNS by_IN urans-method_NN ._SENT 
+In_RB :_: Fourth_JJ international_JJ symposium_NN on_IN marine_JJ propulsors_NNS smp'15_JJ ._SENT 
+Minami_NP S_NP ,_, Yoshimura_NP S._NP 2010._CD Performance_NN evaluation_NN of_IN nonlinear_JJ algorithms_NNS with_IN line-search_NN for_IN partitioned_VVN coupling_NN techniques_NNS for_IN fluid-structure_NN interactions_NNS ._SENT 
+Int_NP J_NP Numer_NP Methods_NNS Fluids_NNS ._SENT 
+64:1129–1147_JJ ._SENT 
+Netzband_NP S_NP ,_, Schulz_NP S_NP ,_, Abdel-Maksoud_NP M._NP 2017._CD A_DT fully_RB coupled_VVN simulation_NN method_NN for_IN floating_VVG offshore_JJ wind_NN turbine_NN dynamics_NNS using_VVG a_DT boundary_NN element_NN method_NN in_IN time_NN domain_NN ._SENT 
+In_RB :_: 10th_JJ International_NP workshop_NN on_IN ship_NN and_CC marine_JJ hydrodynamics_NNS IWSH2017_JJ ._SENT 
+Radtke_NP L_NP ,_, König_NP M_NP ,_, Düster_NP A._NP 2017._CD The_DT influence_NN of_IN geometric_JJ imperfections_NNS in_IN cardiovascular_JJ fsi_NP simulations_NNS ._SENT 
+Comput_NP Math_NP Appl_NP ._SENT 
+74(7):1675–1689_NP ._SENT 
+Radtke_NP L_NP ,_, Larena-Avellaneda_NP A_NP ,_, Debus_NP E_NP ,_, Düster_NP A._NP 2016._CD Convergence_NN acceleration_NN for_IN partitioned_VVN simulations_NNS of_IN the_DT fluid-structure_NN interaction_NN in_IN arteries_NNS ._SENT 
+Comput_NP Mech_NP ._SENT 
+57(6):901–920_NP ._SENT 
+Savio_NP L._NP 2015._CD Measurements_NNS of_IN the_DT deflection_NN of_IN a_DT flexible_JJ propeller_NN blade_NN by_IN means_NNS of_IN stereo_JJ imaging_NN ._SENT 
+In_RB :_: Fourth_JJ international_JJ symposium_NN on_IN marine_JJ propulsors_NNS smp'15_JJ ._SENT 
+Szabó_NP B_NP ,_, Babuška_NP I_NP (_( 1991_CD )_) ._SENT 
+Finite_JJ element_NN analysis_NN ._SENT 
+Chichester_NP :_: John_NP Wiley_NP &_CC Sons_NP ._SENT 
+Uekermann_NP B_NP ,_, Bungartz_NP HJ_NP ,_, Gatzhammer_NP B_NP ,_, Mehl_NP M._NP 2013._CD A_DT parallel_NN ,_, black-box_NN coupling_NN algorithm_NN for_IN fluid-structure_NN interaction_NN ._SENT 
+In_RB :_: Idelsohn_NP S_NP ,_, Papadrakakis_NP M_NP ,_, Schrefler_NP B_NP ,_, editors_NNS ._SENT 
+Proceedings_NNS of_IN the_DT V_NN international_JJ conference_NN on_IN computational_JJ methods_NNS for_IN coupled_VVN problems_NNS in_IN science_NN and_CC engineering_NN ;_: Ibiza_NP ._SENT 
+p._NP 1–12_NP ._SENT 
+Wriggers_NNS P_NN (_( 2008_CD )_) ._SENT 
+Nonlinear_JJ finite-element-methods_NNS ._SENT 
+Berlin_NP :_: Springer-Verlag_NP ._SENT 
+Yamada_NP T_NN ,_, Yoshimura_NP S._NP 2008._CD Line_NP search_NN partitioned_VVD approach_NN for_IN fluid-structure_NN interaction_NN analysis_NN of_IN flapping_VVG wing_NN ._SENT 
+Comput_NP Model_NP Eng_NP Sci_NP ._SENT 
+24(1):51–60_NP ._SENT 

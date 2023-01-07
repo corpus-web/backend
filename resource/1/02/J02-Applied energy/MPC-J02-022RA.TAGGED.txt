@@ -1,0 +1,447 @@
+<title> A_DT distributed_VVN energy_NN management_NN strategy_NN for_IN resilient_JJ shipboard_NN power_NN system_NN </title> <author> Lai_NP ,_, Kexing_NP ;_: Illindala_NP ,_, Mahesh_NP S._NP </author> <Affiliation> 1_CD Department_NP of_IN Electrical_NP and_CC Computer_NP Engineering_NP ,_, The_DT Ohio_NP State_NP University_NP ,_, Columbus_NP ;_: OH_UH ;_: 43210_CD ,_, United_NP States_NPS </Affiliation> <year> 2018_CD </year> <Jounral> Applied_NP Energy_NP ,_, </Journal> <Publishing_house> Elsevier_NP Ltd_NP </Publishing_house> <Text_Collector> Liu_NP Kai，HEU_NP </Text_Collector> <DOI> 10.1016/j_NP ._SENT 
+apenergy.2018.06.111_JJ </DOI> <URL> https_NNS :_: //www_NNS ._SENT 
+sciencedirect_NNS ._SENT 
+com/science/article/pii/S0306261918309802_NP ?_SENT 
+via%3Dihub_NP </URL> <Section> Highlights_VVZ </Section> •_NN Proposes_VVZ a_DT decentralized_JJ energy_NN management_NN strategy_NN for_IN enhancing_VVG the_DT system_NN resilience_NN ._SENT 
+•_NP Applies_VVZ the_DT concept_NN of_IN cloud_NN energy_NN storage_NN system_NN to_TO a_DT shipboard_NN power_NN system_NN ._SENT 
+•_NP Achieves_VVZ cost_NN reduction_NN and_CC privacy_NN preservation_NN in_IN addition_NN to_TO enhanced_JJ resilience_NN ._SENT 
+<Section> Abstract_JJ </Section> The_DT shipboard_NN power_NN system_NN of_IN an_DT all-electric_JJ ship_NN can_MD be_VB characterized_VVN as_IN an_DT isolated_JJ microgrid_JJ system_NN ._SENT 
+To_TO achieve_VV resilient_JJ ,_, cost-effective_JJ and_CC privacy-preserved_JJ operation_NN of_IN the_DT shipboard_NN power_NN system_NN ,_, a_DT novel_JJ energy_NN management_NN strategy_NN is_VBZ proposed_VVN in_IN this_DT paper_NN ._SENT 
+Currently_RB ,_, a_DT master_NN controller_NN is_VBZ required_VVN for_IN energy_NN management_NN ._SENT 
+However_RB ,_, such_PDT a_DT centralized_JJ energy_NN management_NN strategy_NN suffers_VVZ from_IN numerous_JJ disadvantages_NNS ._SENT 
+Therefore_RB ,_, a_DT modified_JJ nested_VVN energy_NN management_NN method_NN is_VBZ proposed_VVN to_TO preserve_VV privacy_NN and_CC run_VV the_DT microgrid_JJ system_NN in_IN a_DT distributed_VVN manner_NN for_IN plug-and-play_NN operation_NN ._SENT 
+Furthermore_RB ,_, the_DT system_NN resilience_NN is_VBZ enhanced_VVN against_IN energy_NN deficiency_NN by_IN reserving_VVG more_JJR in_IN the_DT energy_NN storage_NN system_NN ._SENT 
+This_DT is_VBZ achieved_VVN by_IN a_DT distributed_VVN algorithm_NN ,_, known_VVN as_IN alternating_VVG direction_NN method_NN of_IN multipliers_NNS (_( ADMM_NP )_) ,_, to_TO obtain_VV the_DT solution_NN of_IN an_DT optimization_NN problem_NN with_IN contradicting_VVG objectives_NNS ._SENT 
+Simulation_NN results_NNS are_VBP presented_VVN to_TO demonstrate_VV the_DT benefits_NNS of_IN proposed_VVN energy_NN management_NN system_NN ._SENT 
+Keywords：Alternating_VVG direction_NN method_NN of_IN multipliers；All-electric_JJ ship；Energy_JJ storage_NN system；Energy_NN management；Resilience_NN <Section> Nomenclature_NN </Section> Indices_NN and_CC sets_VVZ T_NN the_DT set_NN of_IN time_NN periods_NNS indexed_VVN by_IN t_NN from_IN t1_JJ ∼_NP t48_NP L_NP the_DT set_NN of_IN zones_NNS indexed_VVN by_IN l_NN from_IN l1_JJ ∼_JJ l6_NN Variables_NNS Pl_NP ,_, t_NN output_NN power_NN of_IN the_DT distributed_VVN generator_NN in_IN the_DT zone_NN l_NN at_IN time_NN t_NN Pdl_NP ,_, t_NN discharging_VVG power_NN of_IN the_DT virtual_JJ energy_NN storage_NN system_NN in_IN the_DT zone_NN l_NN at_IN time_NN t_NN Pcl_NN ,_, t_NN charging_VVG power_NN of_IN the_DT virtual_JJ energy_NN storage_NN system_NN in_IN the_DT zone_NN l_NN at_IN time_NN t_NN Pdl_NP ,_, tˆ_JJ discharging_VVG power_NN of_IN the_DT virtual_JJ energy_NN storage_NN system_NN in_IN the_DT zone_NN l_NN at_IN time_NN t_NN recommended_VVN by_IN cloud_NN energy_NN storage_NN operator_NN Pcl_NN ,_, tˆ_JJ charging_VVG power_NN of_IN the_DT virtual_JJ energy_NN storage_NN system_NN in_IN the_DT zone_NN l_NN at_IN time_NN t_NN recommended_VVN by_IN cloud_NN energy_NN storage_NN operator_NN RCl_NN ,_, t_NN remaining_VVG capacity_NN of_IN the_DT virtual_JJ energy_NN storage_NN system_NN in_IN the_DT zone_NN l_NN at_IN time_NN t_NN Rl_NP ,_, t_NN reimbursement_NN from_IN cloud_NN energy_NN storage_NN system_NN operator_NN to_TO zone_NN l_NN at_IN time_NN t_NN Ptul_NN ,_, t_NN power_NN exchange_NN with_IN the_DT zonal_JJ operator_NN of_IN the_DT upper_JJ level_NN energy_NN management_NN system_NN of_IN the_DT zone_NN l_NN at_IN time_NN t_NN ,_, positive_JJ means_NNS importing_VVG power_NN ,_, negative_JJ means_NNS exporting_VVG power_NN ._SENT 
+ru_NP normalized_VVD remaining_VVG network_NN utilization_NN Parameters_NNS and_CC constants_NNS al/bl_VVP marginal_JJ cost/no_NP load_NN cost_NN for_IN the_DT distributed_VVN generator_NN in_IN the_DT zone_NN l_NN Pri_NP reward_NN of_IN energy_NN exchanges_NNS between_IN zonal_JJ operators_NNS Plmax_VVP maximum_JJ output_NN power_NN of_IN the_DT distributed_VVN generator_NN in_IN the_DT zone_NN l_NN Ptll_NN ,_, t_NN power_NN exchange_NN with_IN the_DT zonal_JJ operator_NN of_IN the_DT lower-level_JJ energy_NN management_NN system_NN running_VVG the_DT zone_NN l_NN at_IN time_NN t_NN ,_, positive_JJ means_NNS importing_VVG power_NN ,_, negative_JJ means_NNS exporting_VVG power_NN ._SENT 
+η_JJ efficiency_NN of_IN the_DT energy_NN storage_NN system_NN PBlmax_NN power_NN rating_NN of_IN the_DT virtual_JJ energy_NN storage_NN system_NN in_IN the_DT zone_NN l_NN EBlmax_NN energy_NN rating_NN of_IN the_DT virtual_JJ energy_NN storage_NN system_NN in_IN the_DT zone_NN l_NN SoCmax_NN maximum_JJ state-of-charge_NN SoCmin_NN minimum_NN state-of-charge_NNS Ptblmax_VVP maximum_JJ energy_NN imported_VVN from_IN the_DT upper_JJ level_NN energy_NN management_NN system_NN of_IN the_DT zone_NN l_NN Ptslmax_NN maximum_NN energy_NN exported_VVN to_TO the_DT upper_JJ level_NN energy_NN management_NN system_NN of_IN the_DT zone_NN l_NN w_NN cost_NN of_IN charging_VVG and_CC discharging_VVG energy_NN storage_NN system_NN k_NN weighting_NN factor_NN of_IN resilience_NN enhancement_NN Lol_NN ,_, t_NN load_NN level_NN of_IN the_DT zone_NN l_NN at_IN the_DT time_NN t_NN CT_NP converge_VVP tolerance_NN <Section> 1._CD Introduction_NN </Section> 1.1_CD ._SENT 
+Background_NN and_CC motivation_NN The_DT shipbuilding_NN industry_NN has_VHZ redoubled_VVN its_PP$ efforts_NNS on_IN the_DT development_NN of_IN an_DT all-electric_JJ ship_NN (_( AES_NP )_) in_IN recent_JJ years_NNS ._SENT 
+In_IN 2013_CD ,_, the_DT US_NP Navy_NP introduced_VVD its_PP$ first_JJ AES_NP ,_, USS_NP Zumwalt_NP DDG-1000_NP [_SYM 1_CD ]_SYM ._SENT 
+Later_RBR ,_, the_DT AES_NP deployment_NN expanded_VVN beyond_IN the_DT military_NN to_TO commercial_JJ ships_NNS ._SENT 
+For_IN instance_NN ,_, in_IN 2013_CD ,_, a_DT project_NN titled_VVD “_JJ Study_NN on_IN the_DT Application_NN of_IN Photovoltaic_JJ Technology_NN in_IN the_DT Oil_NP Tanker_NP Ship_NP ”_NP was_VBD launched_VVN in_IN China_NP [_SYM 2_CD ]_SYM ._SENT 
+The_DT successful_JJ operation_NN of_IN AES_NP is_VBZ heavily_RB dependent_JJ on_IN the_DT shipboard_NN power_NN system_NN (_( SPS_NP )_) ._SENT 
+The_DT state-of-the-art_JJ energy_NN management_NN system_NN (_( EMS_NP )_) for_IN SPS_NP relies_VVZ on_IN a_DT central_JJ controller_NN ._SENT 
+However_RB ,_, a_DT centralized_JJ EMS_NP has_VHZ less_JJR flexibility_NN and_CC fails_VVZ to_TO preserve_VV privacy_NN ._SENT 
+Moreover_RB ,_, it_PP also_RB requires_VVZ larger_JJR communication_NN infrastructure_NN and_CC computation_NN effort_NN ,_, among_IN others_NNS ._SENT 
+Therefore_RB ,_, managing_VVG a_DT SPS_NP in_IN a_DT distributed_VVN manner_NN is_VBZ gaining_VVG increased_VVN interest_NN nowadays_RB ._SENT 
+In_IN this_DT paper_NN ,_, a_DT distributed_VVN EMS_NP is_VBZ proposed_VVN for_IN achieving_VVG a_DT resilient_JJ ,_, cost-effective_JJ ,_, and_CC privacy-preserved_NP SPS_NP ._SENT 
+1.2_CD ._SENT 
+Literature_NN review_NN In_IN the_DT last_JJ decade_NN ,_, many_JJ existing_JJ and_CC potential_JJ problems_NNS faced_VVN in_IN the_DT EMS_NP of_IN SPS_NP were_VBD investigated_VVN in_IN the_DT literature_NN ._SENT 
+Vu_NP et_NP al_NP ._SENT 
+introduced_VVN a_DT method_NN to_TO supply_VV high-power_NN ramp_NN rate_NN loads_NNS by_IN coordinating_VVG generators_NNS and_CC an_DT energy_NN storage_NN system_NN (_( ESS_VVN )_) [_SYM 3_CD ]_SYM ._SENT 
+Security-constrained_JJ optimal_JJ power_NN flow_NN method_NN was_VBD applied_VVN in_RB [_SYM 4_CD ]_SYM to_TO minimize_VV the_DT operational_JJ cost_NN of_IN an_DT AES_NP subject_NN to_TO security_NN constraints_NNS ._SENT 
+The_DT authors_NNS ’_JJ previous_JJ works_NNS proposed_VVD centralized_JJ EMS_NP to_TO reduce_VV cost_NN while_IN enhance_VV resilience_NN against_IN zonal_JJ islanding_VVG [_SYM 5_CD ]_SYM and_CC loss_NN of_IN generators_NNS [_SYM 6_CD ]_SYM ._SENT 
+Kanellos_NP proposed_VVD an_DT EMS_NP to_TO lower_VV the_DT ship’s_JJ operational_JJ cost_NN and_CC limit_VV its_PP$ greenhouse_NN gas_NN emissions_NNS simultaneously_RB [_SYM 7_CD ]_SYM ._SENT 
+The_DT voyage_NN and_CC generation_NN scheduling_NN were_VBD combined_VVN in_RB [_SYM 8_CD ]_SYM to_TO reduce_VV the_DT cost_NN and_CC emissions_NNS of_IN commercial_JJ ships_NNS using_VVG non-dominated_JJ sorting_VVG genetic_JJ algorithm_NN II_NP ._SENT 
+In_RB [_SYM 9_CD ]_SYM ,_, step_VV modulation_NN strategy_NN of_IN power_NN management_NN system_NN was_VBD developed_VVN to_TO lower_JJR thrust_NN loss_NN and_CC improve_VV fuel_NN efficiency_NN ._SENT 
+Demand_NN response_NN was_VBD applied_VVN in_RB [_SYM 10_CD ]_SYM for_IN economic_JJ and_CC environmental_JJ benefits_NNS of_IN AES_NP ._SENT 
+A_DT reduction_NN in_IN the_DT fuel_NN consumption_NN was_VBD achieved_VVN by_IN using_VVG a_DT stochastic_JJ EMS_NP in_RB [_SYM 11_CD ]_SYM ._SENT 
+All_PDT the_DT aforementioned_JJ literature_NN was_VBD based_VVN on_IN a_DT centralized_JJ EMS_NP framework_NN ,_, which_WDT requires_VVZ a_DT powerful_JJ and_CC reliable_JJ master_NN controller_NN ._SENT 
+Moreover_RB ,_, the_DT flexibility_NN ,_, scalability_NN ,_, and_CC privacy_NN may_MD be_VB impaired_VVN ._SENT 
+Hence_RB ,_, a_DT few_JJ researchers_NNS have_VHP published_VVN studies_NNS on_IN decentralized_JJ EMS_NP for_IN SPS_NP ._SENT 
+For_IN instance_NN ,_, Feng_NP et_CC al_NP ._SENT 
+addressed_VVN the_DT issue_NN of_IN managing_VVG the_DT pulsed_VVN loads_NNS and_CC propulsion_NN loads_NNS of_IN AES_NP microgrid_NP using_VVG multi-agent_JJ technology_NN [_SYM 12_CD ]_SYM ._SENT 
+A_DT multi-agent_NN based_VVN EMS_NP was_VBD developed_VVN in_RB [_SYM 13_CD ]_SYM to_TO organize_VV the_DT load_NN response_NN in_IN real-time_JJ ._SENT 
+The_DT overall_JJ objective_NN of_IN this_DT paper_NN is_VBZ to_TO develop_VV a_DT novel_NN distributed_VVN EMS_NP for_IN SPS_NP that_WDT is_VBZ optimized_VVN for_IN resilience_NN ,_, privacy_NN ,_, and_CC cost_NN ._SENT 
+For_IN this_DT study_NN ,_, the_DT network_NN configuration_NN chosen_VVN was_VBD the_DT zonal_JJ DC_NP distribution_NN system_NN [_SYM 14_CD ]_SYM ,_, shown_VVN in_IN Fig_NN ._SENT 
+1_LS ,_, which_WDT aims_VVZ at_IN maximizing_VVG the_DT survivability_NN [_SYM 15_CD ]_SYM ._SENT 
+The_DT zonal_JJ architecture_NN ensures_VVZ the_DT fault_NN does_VVZ not_RB propagate_VV outside_IN the_DT faulted_VVN zone_NN ._SENT 
+Moreover_RB ,_, the_DT restoration_NN efforts_NNS on_IN the_DT damaged_JJ zone_NN are_VBP streamlined_JJ since_IN the_DT ship’s_NP crew_NN is_VBZ able_JJ to_TO maintain_VV situational_JJ awareness_NN with_IN such_PDT a_DT configuration_NN ._SENT 
+Apart_RB from_IN the_DT topology_NN design_NN ,_, the_DT deployment_NN of_IN SPS_NP components_NNS was_VBD also_RB studied_VVN in_IN published_VVN literature_NN ._SENT 
+Many_JJ publications_NNS highlighted_VVD the_DT benefits_NNS of_IN installing_VVG ESS_NNS on_IN the_DT SPS_NP ,_, particularly_RB due_JJ to_TO the_DT numerous_JJ advantages_NNS offered_VVN by_IN ESS_NNS ._SENT 
+For_IN instance_NN ,_, Jin_NP et_CC al_NP ._SENT 
+established_VVN that_IN an_DT ESS_NN can_MD increase_VV the_DT fuel_NN efficiency_NN by_IN means_NNS of_IN bidirectional_JJ and_CC controllable_JJ power_NN flow_NN to_TO the_DT SPS_NP [_SYM 14_CD ]_SYM ._SENT 
+Hou_NP et_NP al_NP ._SENT 
+proposed_VVN using_VVG a_DT combined_JJ battery_NN and_CC flywheel_NN hybrid_NN ESS_NNS as_IN a_DT buffer_NN to_TO decouple_VV the_DT shipboard_NN network_NN and_CC load_NN fluctuation_NN [_SYM 16_CD ]_SYM ._SENT 
+Wen_NP et_NP al_NP ._SENT 
+explored_VVN the_DT sizing_VVG strategy_NN of_IN ESS_NNS to_TO tackle_VV the_DT variation_NN in_IN onboard_JJ photovoltaic_JJ generation_NN caused_VVN by_IN the_DT rolling_VVG effects_NNS of_IN ship_NN [_SYM 17_CD ]_SYM ._SENT 
+However_RB ,_, high_JJ capital_NN cost_NN of_IN ESS_NN is_VBZ a_DT huge_JJ drawback_NN to_TO deploying_VVG them_PP ._SENT 
+Therefore_RB ,_, to_TO reduce_VV their_PP$ capital_NN cost_NN ,_, the_DT concept_NN of_IN cloud_NN energy_NN storage_NN system_NN (_( CESS_NN )_) [_SYM 18_CD ]_SYM is_VBZ adopted_VVN here_RB ._SENT 
+Specifically_RB ,_, the_DT ESS_NN is_VBZ shared_VVN by_IN all_DT zones_NNS to_TO satisfy_VV their_PP$ demands_NNS for_IN the_DT energy_NN storage_NN applications_NNS instead_RB of_IN deploying_VVG a_DT distributed_VVN ESS_NNS (_( DESS_NP )_) in_IN every_DT zone_NN ._SENT 
+The_DT total_JJ energy_NN storage_NN capacity_NN is_VBZ apportioned_VVN among_IN the_DT different_JJ zones_NNS of_IN the_DT SPS_NP based_VVN on_IN the_DT zonal_JJ energy_NN needs_VVZ by_IN the_DT corresponding_JJ ZO_NN ._SENT 
+Thus_RB ,_, each_DT zone_NN is_VBZ allocated_VVN a_DT portion_NN of_IN the_DT total_JJ energy_NN storage_NN ,_, known_VVN as_IN virtual_JJ energy_NN storage_NN system_NN (_( VESS_NP )_) ._SENT 
+The_DT sharing_NN of_IN the_DT ESS_NN among_IN ZOs_NNS would_MD aid_VV in_IN balancing_VVG the_DT diversity_NN of_IN users_NNS ’_JJ energy_NN demands_NNS by_IN leveraging_VVG its_PP$ shared_VVN energy_NN storage_NN resources_NNS ._SENT 
+By_IN this_DT way_NN ,_, the_DT oversizing_VVG of_IN overall_JJ energy_NN storage_NN is_VBZ avoided_VVN ._SENT 
+Additionally_RB ,_, the_DT energy_NN storage_NN scheduling_NN is_VBZ improved_VVN when_WRB the_DT ESS_NN is_VBZ regulated_VVN by_IN a_DT single_JJ operator_NN ,_, labeled_VVN here_RB as_IN cloud_NN ESS_NNS operator_NN (_( CESSO_NP )_) ._SENT 
+The_DT applications_NNS of_IN CESS_NN in_IN onshore_JJ power_NN systems_NNS have_VHP been_VBN studied_VVN in_IN recent_JJ literature_NN ._SENT 
+For_IN instance_NN ,_, Liu_NP et_CC al_NP ._SENT 
+assessed_VVN the_DT economic_JJ effects_NNS of_IN CESS_NN for_IN both_DT ideal_JJ and_CC practical_JJ conditions_NNS [_SYM 19_CD ]_SYM ._SENT 
+They_PP showed_VVD the_DT profitability_NN of_IN CESS_NN for_IN a_DT residential_JJ community_NN in_IN Ireland_NP ._SENT 
+Rappaport_NP et_NP al_NP ._SENT 
+assessed_VVN the_DT economic_JJ value_NN of_IN applying_VVG CESS_NN that_IN aggregates_NNS domestic_JJ batteries_NNS for_IN grid-scale_JJ application_NN in_IN the_DT United_NP Kingdom_NP [_SYM 20_CD ]_SYM ._SENT 
+They_PP found_VVD that_IN large_JJ electricity_NN suppliers_NNS would_MD benefit_VV from_IN ESS_JJ aggregation_NN ,_, assuming_VVG they_PP can_MD participate_VV in_IN grid-scale_JJ markets_NNS and_CC provide_VV shared_VVN services_NNS to_TO the_DT existing_JJ customer_NN base_NN ._SENT 
+In_RB [_SYM 21_CD ]_SYM ,_, Broering_VVG et_NP al_NP ._SENT 
+showed_VVD that_IN in_IN Germany_NP ,_, the_DT CESS_NN can_MD be_VB profitable_JJ when_WRB the_DT feed-in_NN tariff_NN is_VBZ restricted_VVN below_IN a_DT threshold_NN value_NN ._SENT 
+To_TO the_DT authors_NNS ’_JJ best_JJS knowledge_NN ,_, there_EX is_VBZ no_DT prior_JJ publication_NN on_IN CESS_NN for_IN a_DT SPS_NP ,_, which_WDT can_MD be_VB viewed_VVN as_IN an_DT isolated_JJ microgrid_NN ._SENT 
+This_DT paper_NN studies_VVZ the_DT deployment_NN of_IN CESS_NN on_IN a_DT SPS_NP ._SENT 
+Various_JJ aspects_NNS are_VBP investigated_VVN for_IN assessing_VVG the_DT numerous_JJ benefits_NNS ._SENT 
+Fig_NN ._SENT 
+1._CD Medium_NN voltage_NN DC_NP shipboard_NN power_NN system_NN with_IN six_CD zones_NNS ._SENT 
+One_CD of_IN the_DT key_JJ requirements_NNS for_IN an_DT EMS_NP is_VBZ to_TO achieve_VV an_DT efficient_JJ coordination_NN between_IN ZOs_NNS and_CC the_DT CESSO_NP ._SENT 
+Therefore_RB ,_, a_DT decentralized_JJ EMS_NP structure_NN called_VVD modified_JJ nested_VVD EMS_NP [_SYM 22_CD ]_SYM is_VBZ adopted_VVN in_IN this_DT paper_NN ._SENT 
+Prior_JJ work_NN on_IN decentralized_JJ EMS_NP was_VBD primarily_RB motivated_VVN to_TO avoid_VV the_DT disadvantages_NNS of_IN a_DT centralized_JJ energy_NN management_NN ._SENT 
+For_IN instance_NN ,_, Yuan_NP et_CC al_NP ._SENT 
+used_VVN modified_JJ Benders_NNS decomposition_NN method_NN to_TO coordinate_VV power_NN synergy_NN hubs_NNS for_IN operation_NN of_IN the_DT super_JJ grid_NN in_RB [_SYM 23_CD ]_SYM ._SENT 
+In_RB [_SYM 24_CD ]_SYM ,_, a_DT decentralized_JJ energy_NN trading_NN algorithm_NN was_VBD proposed_VVN considering_VVG uncertainties_NNS of_IN renewable_JJ generation_NN ._SENT 
+In_RB [_SYM 25_CD ]_SYM ,_, Zhou_NP et_CC al_NP ._SENT 
+proposed_VVN a_DT peer-to-peer_NN energy_NN sharing_VVG mechanism_NN for_IN the_DT power_NN system_NN in_IN Great_NP Britain_NP ._SENT 
+The_DT peer-to-peer_NP mechanism_NN was_VBD further_RBR compared_VVN with_IN a_DT centralized_JJ bidding_NN strategy_NN for_IN achieving_VVG similar_JJ performance_NN ._SENT 
+In_RB [_SYM 26_CD ]_SYM ,_, a_DT game_NN theory-based_JJ demand_NN response_NN strategy_NN was_VBD proposed_VVN to_TO achieve_VV minimal_JJ costs_NNS in_IN a_DT fully_RB decentralized_JJ EMS_NP ._SENT 
+Moreover_RB ,_, the_DT decentralized_JJ strategy_NN is_VBZ more_RBR robust_JJ against_IN imperfections_NNS in_IN communication_NN ._SENT 
+A_DT distributed_VVN self-healing_JJ strategy_NN of_IN a_DT networked_VVN microgrid_NN system_NN was_VBD presented_VVN in_RB [_SYM 27_CD ]_SYM ,_, involving_VVG communication_NN among_IN individual_JJ microgrid_NP EMS_NP ._SENT 
+However_RB ,_, among_IN the_DT distributed_VVN algorithms_NNS ,_, the_DT alternating_VVG direction_NN method_NN of_IN multipliers_NNS (_( ADMM_NP )_) is_VBZ widely_RB used_VVN as_IN it_PP can_MD break_VV convex_JJ optimization_NN problems_NNS into_IN smaller_JJR pieces_NNS [_SYM 28_CD ]_SYM ._SENT 
+ADMM_NP has_VHZ been_VBN earlier_RBR employed_VVN in_IN power_NN systems_NNS applications_NNS like_IN peak_JJ ramp_NN reduction_NN [_SYM 29_CD ]_SYM ,_, DC_NP optimal_JJ power_NN flow_NN [_SYM 30_CD ]_SYM ,_, peak_JJ demand_NN shaving_NN [_SYM 31_CD ]_SYM ,_, distribution_NN loss_NN reduction_NN [_SYM 32_CD ]_SYM ,_, generation_NN and_CC tie_NN line_NN scheduling_NN [_SYM 33_CD ]_SYM ,_, demand-side_JJ management_NN [_SYM 34_CD ]_SYM ,_, economic_JJ dispatch_NN in_IN a_DT microgrid_NN [_SYM 35_CD ]_SYM ,_, among_IN other_JJ things_NNS ._SENT 
+In_IN this_DT paper_NN ,_, an_DT ADMM-based_JJ algorithm_NN has_VHZ been_VBN used_VVN to_TO aid_VV the_DT ZOs_NNS and_CC the_DT CESSO_NP in_IN reaching_VVG an_DT agreement_NN on_IN the_DT VESS_NP scheduling_NN ._SENT 
+1.3_CD ._SENT 
+Contribution_NN The_DT major_JJ contributions_NNS of_IN this_DT work_NN can_MD be_VB classified_VVN into_IN three_CD categories_NNS :_: 1._CD Several_JJ advantages_NNS of_IN applying_VVG CESS_NN in_IN a_DT SPS_NP are_VBP demonstrated_VVN ._SENT 
+In_RB [_SYM 18_CD ]_SYM ,_, [_SYM 19_CD ]_SYM ,_, [_SYM 20_CD ]_SYM ,_, [_SYM 21_CD ]_SYM ,_, the_DT merits_NNS of_IN CESS_NN for_IN onshore_JJ power_NN systems_NNS were_VBD shown_VVN in_IN terms_NNS of_IN reduced_VVN cost_NN considering_VVG electricity_NN market_NN engagement_NN ._SENT 
+However_RB ,_, the_DT ESS_JJ deployment_NN must_MD be_VB weight_NN and_CC space_NN efficient_JJ according_VVG to_TO the_DT SPS_NP network_NN topology_NN ._SENT 
+The_DT ESS_JJ interface_NN with_IN all_DT zones_NNS provides_VVZ alternative_JJ paths_NNS between_IN the_DT zones_NNS and_CC enhances_VVZ the_DT network_NN connectivity_NN ._SENT 
+This_DT paper_NN presents_VVZ the_DT quantitative_JJ advantages_NNS of_IN the_DT CESS_NN in_IN contrast_NN to_TO a_DT DESS_NP ._SENT 
+2._CD The_DT decentralization_NN of_IN SPS_NP is_VBZ extended_VVN beyond_IN the_DT physical_JJ layer_NN to_TO the_DT cyber_NN layer_NN ._SENT 
+It_PP would_MD not_RB require_VV a_DT master_NN controller_NN such_JJ as_IN that_DT used_VVN in_RB [_SYM 3_CD ]_SYM ,_, [_SYM 4_CD ]_SYM ,_, [_SYM 5_CD ]_SYM ,_, [_SYM 6_CD ]_SYM ,_, [_SYM 7_CD ]_SYM ,_, [_SYM 8_CD ]_SYM ,_, [_SYM 9_CD ]_SYM ,_, [_SYM 10_CD ]_SYM ,_, [_SYM 11_CD ]_SYM ._SENT 
+In_IN contrast_NN to_TO [_SYM 12_CD ]_SYM ,_, [_SYM 13_CD ]_SYM ,_, where_WRB the_DT load_NN management_NN alone_RB was_VBD considered_VVN ,_, a_DT comprehensive_JJ EMS_NP that_WDT is_VBZ decentralized_JJ using_VVG nested_VVN EMS_NP structure_NN and_CC ADMM_NP is_VBZ proposed_VVN in_IN this_DT paper_NN ._SENT 
+3._CD The_DT proposed_VVN method_NN offers_VVZ a_DT low-cost_JJ and_CC privacy-preserving_JJ resilience_NN enhancement_NN solution_NN for_IN SPS_NP ._SENT 
+Any_DT disadvantages_NNS of_IN limited_JJ communication_NN are_VBP offset_VVN by_IN adoption_NN of_IN the_DT modified_VVN nested_VVD EMS_NP ,_, which_WDT was_VBD originally_RB proposed_VVN in_RB [_SYM 22_CD ]_SYM for_IN networked_VVN microgrids_NNS ._SENT 
+The_DT proposed_VVN EMS_NP prevents_VVZ any_DT possibility_NN of_IN energy_NN oversupply_NN caused_VVN by_IN absence_NN of_IN the_DT utility_NN grid_NN in_IN an_DT isolated_JJ microgrid_NN such_JJ as_IN the_DT SPS_NP ._SENT 
+Resilience_NN against_IN energy_NN deficiency_NN is_VBZ also_RB addressed_VVN which_WDT has_VHZ not_RB been_VBN covered_VVN in_RB [_SYM 23_CD ]_SYM ,_, [_SYM 24_CD ]_SYM ,_, [_SYM 25_CD ]_SYM ,_, [_SYM 26_CD ]_SYM ,_, [_SYM 27_CD ]_SYM ._SENT 
+The_DT resiliency_NN enhancement_NN is_VBZ demonstrated_VVN by_IN higher_RBR normalized_VVN remaining_VVG network_NN utilization_NN and_CC lower_JJR unserved_JJ energy_NN with_IN loss_NN of_IN the_DT largest_JJS generator_NN ._SENT 
+Furthermore_RB ,_, the_DT privacy_NN is_VBZ better_RBR protected_VVN due_JJ to_TO inclusion_NN of_IN data_NNS from_IN inner_JJ level_NN zones_NNS ._SENT 
+The_DT rest_NN of_IN this_DT paper_NN is_VBZ organized_VVN as_RB follows_VVZ ._SENT 
+Section_NN 2_CD gives_VVZ the_DT details_NNS of_IN medium_NN voltage_NN direct_JJ current_JJ (_( MVDC_NP )_) microgrid_NN for_IN SPS_NP including_VVG both_CC the_DT physical_JJ and_CC cyber_JJ layers_NNS ._SENT 
+A_DT detailed_JJ description_NN of_IN the_DT modified_VVN nested_VVD EMS_NP on_IN SPS_NP is_VBZ provided_VVN in_IN Section_NP 3._CD Section_NN 4_CD presents_VVZ the_DT interactions_NNS between_IN the_DT CESSO_NP and_CC ZOs_NNS through_IN ADMM_NP algorithm_NN ._SENT 
+The_DT simulation_NN results_NNS from_IN case_NN studies_NNS are_VBP shown_VVN in_IN Section_NP 5_CD ,_, and_CC the_DT conclusion_NN is_VBZ presented_VVN in_IN Section_NP 6._CD <Section> 2._CD System_NP description_NN </Section> 2.1_CD ._SENT 
+Physical_JJ layer_NN Fig_NN ._SENT 
+1_CD depicts_VVZ the_DT schematic_NN of_IN an_DT SPS_NP with_IN MVDC_NP microgrid_NP architecture_NN adapted_VVD from_IN [_SYM 14_CD ]_SYM ._SENT 
+The_DT system_NN is_VBZ primarily_RB a_DT DC_NP zonal_JJ electrical_JJ distribution_NN system_NN that_WDT can_MD be_VB divided_VVN into_IN six_CD zones_NNS ._SENT 
+Each_DT zone_NN has_VHZ a_DT distributed_VVN generator_NN (_( DG_NP )_) adequately_RB sized_VVD to_TO supply_VV its_PP$ critical_JJ loads_NNS when_WRB isolated_VVN from_IN the_DT rest_NN of_IN the_DT system_NN under_IN fault_NN conditions_NNS ._SENT 
+Table_NN 1_CD ,_, Table_NN 2_CD list_NN the_DT parameters_NNS of_IN DGs_NNS and_CC the_DT ESS_NN ._SENT 
+The_DT AES_NP has_VHZ six_CD operating_VVG modes—idling_NN ,_, anchoring_VVG ,_, load/unloading_NP ,_, regular_JJ cruising_VVG ,_, docking_VVG ,_, and_CC full-speed_NN sailing—adapted_VVN from_IN [_SYM 2_CD ]_SYM ._SENT 
+Table_NN 1._CD Parameters_NNS of_IN distributed_VVN generators_NNS ._SENT 
+Table_NN 2._CD Parameters_NNS of_IN energy_NN storage_NN system_NN ._SENT 
+The_DT physical_JJ layer_NN of_IN SPS_NP shown_VVN in_IN Fig_NN ._SENT 
+1_CD can_MD be_VB visualized_VVN as_IN a_DT graph_NN displayed_VVN in_IN Fig_NN ._SENT 
+2._CD A_DT graph_NN G_NP =_SYM {_( V_NN ,_, E_NP }_) consists_VVZ of_IN a_DT vertex_NN set_VVD V_NN and_CC edge_NN set_VVN E._NP The_DT buses_NNS in_IN SPS_NP are_VBP represented_VVN as_IN vertices_NN and_CC its_PP$ lines_NNS are_VBP the_DT edges_NNS ._SENT 
+As_IN seen_VVN in_IN Fig_NN ._SENT 
+2_LS ,_, there_EX are_VBP 25_CD nodes_NNS and_CC 36_CD edges_NNS within_IN the_DT SPS_NP graph_NN ._SENT 
+According_VVG to_TO the_DT graph_NN theory_NN ,_, the_DT algebraic_JJ connectivity_NN of_IN the_DT graph_NN G_NP is_VBZ the_DT second-smallest_JJS eigenvalue_NN λ2_NN of_IN the_DT Laplacian_JJ matrix_NN L_NP [_SYM 36_CD ]_SYM ._SENT 
+A_DT higher_JJR magnitude_NN of_IN λ2_NP indicates_VVZ that_IN the_DT graph_NN is_VBZ well-connected_JJ ._SENT 
+Therefore_RB ,_, λ2_NP is_VBZ an_DT important_JJ element_NN of_IN the_DT resilience_NN matrix_NN defined_VVN in_RB [_SYM 37_CD ]_SYM ._SENT 
+Fig_NN ._SENT 
+2._CD A_DT graph_NN representative_NN of_IN the_DT SPS_NP ._SENT 
+2.2_CD ._SENT 
+Cyber_NP layer_NN Fig_NN ._SENT 
+1_CD displays_NNS the_DT cyber_NN layer_NN configuration_NN above_IN the_DT SPS_NP physical_JJ layer_NN ._SENT 
+As_IN seen_VVN in_IN this_DT figure_NN ,_, the_DT ZO_NN of_IN each_DT zone_NN gets_VVZ the_DT load_NN demand_NN and_CC generation_NN in_IN that_DT zone_NN ._SENT 
+Each_DT ZO_NN also_RB operates_VVZ a_DT portion_NN of_IN the_DT ESS_NN ,_, labeled_VVN as_IN virtual_JJ energy_NN storage_NN system_NN (_( VESS_NP )_) in_IN this_DT paper_NN ._SENT 
+The_DT ZO_NN has_VHZ access_NN to_TO the_DT corresponding_JJ VESS_NP and_CC controls_VVZ it_PP in_IN coordination_NN with_IN the_DT CESSO_NP ._SENT 
+In_IN particular_JJ ,_, each_DT ZO_NN interacts_VVZ with_IN its_PP$ neighboring_JJ ZO_NN alone_RB ._SENT 
+At_IN the_DT higher_JJR level_NN ,_, the_DT CESSO_NP gets_VVZ status_NN of_IN the_DT ESS_NNS and_CC dispatches_NNS it_PP for_IN achieving_VVG power_NN balance_NN in_IN all_PDT the_DT zones_NNS ._SENT 
+The_DT capacities_NNS of_IN VESSs_NP assigned_VVN to_TO the_DT six_CD zones_NNS ZO1_JJ –_NP ZO6_NP are_VBP 70_CD kWh_NP ,_, 100_CD kWh_NP ,_, 150_CD kWh_NP ,_, 150_CD kWh_NP ,_, 150_CD kWh_NN ,_, and_CC 130_CD kWh_NN ,_, respectively_RB ._SENT 
+It_PP should_MD be_VB noted_VVN that_IN the_DT sum_NN of_IN capacities_NNS of_IN all_DT VESSs_NP is_VBZ not_RB necessarily_RB equal_JJ to_TO the_DT ESS_JJ capacity_NN ._SENT 
+This_DT is_VBZ because_IN the_DT CESSO_NP takes_VVZ advantage_NN by_IN leveraging_VVG the_DT diversity_NN in_IN energy_NN demands_NNS of_IN different_JJ zones_NNS ._SENT 
+By_IN this_DT way_NN ,_, the_DT utilization_NN of_IN ESS_NN is_VBZ greatly_RB improved_VVN such_JJ that_IN a_DT smaller_JJR storage_NN capacity_NN is_VBZ adequate_JJ to_TO satisfy_VV the_DT demands_NNS of_IN the_DT system_NN ._SENT 
+2.3_CD ._SENT 
+Framework_NN of_IN shipboard_NN power_NN system_NN automation_NN system_NN Fig_NN ._SENT 
+3_LS presents_VVZ the_DT general_JJ framework_NN of_IN automation_NN pyramid_NN [_SYM 38_CD ]_SYM for_IN industrial_JJ applications_NNS ._SENT 
+The_DT same_JJ can_MD be_VB applied_VVN for_IN SPS_NP automation_NN system_NN with_IN the_DT functions_NNS of_IN each_DT layer_NN as_IN listed_VVN below_IN :_: Sensors_NNS and_CC Actuators_NNS :_: Performs_VVZ operations_NNS such_JJ as_IN movements_NNS ,_, measurements_NNS ,_, etc._FW Programmable_JJ Logic_NN Controller_NN (_( PLC_NP )_) :_: Acquires_VVZ measurement_NN data_NNS and_CC controls_NNS actuators_NNS ._SENT 
+Human_NP Machine_NP Interface/Supervisory_NP Control_NP and_CC Data_NP Acquisition_NP (_( HMI/SCADA_NP )_) :_: Monitors_VVZ and_CC operates_VVZ machines_NNS from_IN the_DT human_JJ end_NN and_CC acquires_VVZ data_NNS from_IN machines_NNS ,_, processes_VVZ high-level_JJ supervisory_JJ management_NN ._SENT 
+Manufacturing_NP Execution_NP System_NP (_( MES_FW )_) :_: Data_NP maintenance_NN ,_, process_NN monitoring_NN and_CC optimization_NN ._SENT 
+Enterprise_NP Resource_NP Planning_NP (_( ERP_NP )_) :_: Scheduling_NN maintenance_NN ,_, managing_VVG inventory_NN ,_, etc._FW Fig_NN ._SENT 
+3._CD Automation_NN pyramid_NN framework_NN [_SYM 38_CD ]_SYM The_DT proposed_VVN energy_NN management_NN strategy_NN can_MD be_VB implemented_VVN in_IN the_DT HMI/SCADA_NP layer_NN to_TO carry_VV out_RP the_DT high-level_JJ supervisory_JJ management_NN ._SENT 
+Specifically_RB ,_, the_DT proposed_VVN strategy_NN involves_VVZ peripheral_JJ devices_NNS such_JJ as_IN PLC_NP to_TO monitor_VV status_NN and_CC issue_NN commands_NNS to_TO actuators_NNS ._SENT 
+<Section> 3._CD Modified_JJ nested_VVN EMS_NP for_IN a_DT shipboard_NN power_NN system_NN </Section> 3.1_CD ._SENT 
+Proposed_VVN EMS_NP configuration_NN Fig_NN ._SENT 
+4_LS illustrates_VVZ the_DT configuration_NN of_IN the_DT proposed_VVN modified_JJ nested_VVN EMS_NP ._SENT 
+Each_DT ZO_NN is_VBZ assigned_VVN a_DT communication_NN hierarchy_NN level_NN based_VVN on_IN the_DT DG_NP cost_NN ,_, load_NN priority_NN ,_, voltage_NN level_NN ,_, privacy_NN importance_NN ,_, etc._FW For_IN this_DT study_NN ,_, the_DT DG_NP cost_NN is_VBZ considered_VVN in_IN the_DT nesting_VVG criterion_NN during_IN normal_JJ operation_NN to_TO take_VV advantage_NN of_IN the_DT economic_JJ benefits_NNS ._SENT 
+As_IN tabulated_VVN in_IN Table_NN 1_CD ,_, the_DT marginal_JJ cost_NN of_IN the_DT DG1_NN in_IN zone_NN 1_CD is_VBZ the_DT lowest_JJS ,_, and_CC it_PP increases_VVZ further_JJR from_IN DG2_NN to_TO DG6_NN in_IN corresponding_JJ zones_NNS 2_CD to_TO 6._CD The_DT ZOs_NNS communicate_VV with_IN the_DT CESSO_NP to_TO control_VV their_PP$ assigned_VVN VESSs_NP ._SENT 
+Fig_NN ._SENT 
+4._CD The_DT nested_VVN EMS_NP configuration_NN for_IN SPS_NP ._SENT 
+The_DT sequence_NN of_IN execution_NN and_CC information_NN flow_NN between_IN the_DT ZOs_NNS is_VBZ from_IN a_DT lower-level_JJ ZO_NN to_TO the_DT higher-level_JJ ZO_NN as_IN shown_VVN in_IN Fig_NN ._SENT 
+4._CD Accordingly_RB ,_, ZO1_JJ performs_VVZ local_JJ optimization_NN and_CC informs_VVZ ZO2_NN about_IN their_PP$ energy_NN exchange_NN ._SENT 
+Next_RB ,_, the_DT energy_NN exchange_NN with_IN ZO1_NN is_VBZ considered_VVN as_IN the_DT generation_NN resource_NN or_CC load_NN demand_NN for_IN ZO2_NP ._SENT 
+Then_RB ,_, ZO2_NP solves_VVZ its_PP$ local_JJ optimization_NN problem_NN considering_VVG the_DT energy_NN exchange_NN with_IN ZO1_JJ and_CC decides_VVZ on_IN the_DT energy_NN exchange_NN with_IN ZO3_NP ._SENT 
+This_DT sequence_NN is_VBZ continued_VVN until_IN ZO6_NP completes_VVZ the_DT power_NN scheduling_NN ._SENT 
+Thus_RB ,_, the_DT proposed_VVN EMS_NP method_NN protects_VVZ the_DT privacy_NN of_IN ZOs_NNS and_CC it_PP is_VBZ therefore_RB beneficial_JJ to_TO cyber_VV security_NN ._SENT 
+In_IN a_DT nested_VVN EMS_NP ,_, the_DT hackers_NNS cannot_MD get_VV the_DT load_NN profile_NN by_IN hacking_VVG into_IN the_DT communication_NN channels_NNS ,_, since_IN only_JJ energy_NN exchange_NN information_NN or_CC control_NN signals_NNS for_IN VESSs_NP are_VBP loaded_VVN in_IN these_DT channels_NNS ._SENT 
+A_DT nested_VVN EMS_NP ,_, unlike_IN the_DT centralized_JJ EMS_NP ,_, facilitates_VVZ plug-and-play_NN operation_NN to_TO make_VV it_PP more_RBR flexible_JJ and_CC resilient_JJ ._SENT 
+In_IN contrast_NN to_TO the_DT algorithm_NN proposed_VVN in_RB [_SYM 27_CD ]_SYM ,_, where_WRB importing_VVG energy_NN into_IN a_DT zone_NN was_VBD not_RB considered_VVN by_IN its_PP$ ZO_NN unless_IN the_DT internal_JJ DG_NP cannot_MD meet_VV the_DT local_JJ load_NN demand_NN ,_, the_DT nested_VVN EMS_NP can_MD offer_VV many_JJ economic_JJ benefits_NNS ._SENT 
+This_DT is_VBZ because_IN cheaper_JJR DGs_NNS could_MD be_VB utilized_VVN before_IN the_DT more_JJR expensive_JJ DGs_NNS ._SENT 
+Moreover_RB ,_, the_DT privacy_NN is_VBZ better_RBR preserved_VVN by_IN the_DT nested_VVN EMS_NP as_IN the_DT higher-level_JJ ZOs_NNS do_VVP not_RB have_VH the_DT power_NN surplus/deficit_NN information_NN of_IN the_DT lower-level_JJ ZOs_NNS ._SENT 
+For_IN instance_NN ,_, ZO3_NP cannot_MD get_VV the_DT power_NN surplus/deficit_NN information_NN of_IN ZO1_JJ since_IN it_PP is_VBZ combined_VVN with_IN that_DT of_IN ZO2_NP ._SENT 
+A_DT detailed_JJ comparison_NN between_IN nested_VVN EMS_NP ,_, centralized_JJ EMS_NP ,_, and_CC decentralized_JJ EMS_NP can_MD be_VB found_VVN in_RB [_SYM 22_CD ]_SYM ._SENT 
+3.2_CD ._SENT 
+Model_NN formulation_NN The_DT optimization_NN model_NN of_IN the_DT ZO_NN for_IN the_DT zone_NN l_NN is_VBZ formulated_VVN as_RB follows_VVZ :_: @（1）_NP @（2）_NP @（3）_NP @（4）_NP @（5）_NP @（6）_NP @（7）_NP @（8）_NP @（9）_NP In_IN (_( 1_LS )_) ,_, the_DT terms_NNS ,_, al∗pl_NP ,_, t+bl∗Pmaxl_NP ,_, represent_VVP the_DT fuel_NN cost_NN of_IN the_DT DG_NP in_IN zone_NN l_NN at_IN time_NN t._NP The_DT terms_NNS ,_, w∗(pcl_NP ,_, t+pdl_NP ,_, t_NN )_) denote_VVP the_DT operational_JJ cost_NN of_IN the_DT VESS_NP for_IN zone_NN l_NN at_IN time_NN t._NP The_DT term_NN ,_, Pri∗Ptul_NP ,_, t_NN ,_, calculates_VVZ the_DT reward_NN of_IN energy_NN exchange_NN with_IN the_DT higher-level_JJ ZO_NN ._SENT 
+Since_IN it_PP is_VBZ desirable_JJ to_TO export_VV the_DT energy_NN to_TO the_DT zone_NN managed_VVN by_IN higher-level_JJ ZO_NN ,_, the_DT value_NN of_IN Pri_NP is_VBZ set_VVN sufficiently_RB higher_JJR than_IN the_DT marginal_JJ cost_NN ._SENT 
+When_WRB a_DT lower-level_JJ ZO_NN imports_NNS energy_NN from_IN the_DT higher-level_JJ ZO_NN ,_, Ptul_NP ,_, t_NN is_VBZ positive_JJ ;_: otherwise_RB ,_, it_PP is_VBZ negative_JJ ._SENT 
+Constraint_NN (_( 2_LS )_) corresponds_VVZ to_TO the_DT output_NN power_NN limits_NNS of_IN each_DT DG_NP ,_, and_CC constraint_NN (_( 3_LS )_) represents_VVZ the_DT power_NN balance_NN of_IN the_DT zone_NN ._SENT 
+The_DT value_NN of_IN Ptll_NP ,_, t_NN is_VBZ the_DT power_NN exchange_NN between_IN zone_NN l_NN and_CC the_DT zone_NN managed_VVN by_IN lower-level_JJ ZO_NN ,_, and_CC this_DT is_VBZ a_DT constant_JJ decided_VVN by_IN the_DT lower-level_JJ ZO_NN ._SENT 
+The_DT charging_VVG and_CC discharging_VVG power_NN limits_NNS of_IN each_DT VESS_NP are_VBP denoted_VVN by_IN constraints_NNS (_( 4_CD )_) ,_, (_( 5_CD )_) ,_, respectively_RB ._SENT 
+Constraint_NN (_( 6_CD )_) imposes_VVZ the_DT upper_JJ and_CC lower_JJR limits_NNS on_IN remaining_VVG capacity_NN of_IN the_DT VESS_NP ._SENT 
+The_DT initial_JJ value_NN of_IN remaining_VVG capacity_NN of_IN the_DT VESS_NP is_VBZ shown_VVN in_IN the_DT constraint_NN (_( 7_CD )_) ._SENT 
+Equation_NN (_( 8_CD )_) represents_VVZ the_DT energy_NN balance_NN equation_NN of_IN the_DT VESS_NP ,_, and_CC (_( 9_CD )_) imposes_VVZ the_DT constraints_NNS on_IN energy_NN exchanges_NNS with_IN higher-level_JJ ZOs_NNS ._SENT 
+The_DT value_NN of_IN Pri_NP is_VBZ set_VVN higher_JJR than_IN al_NP to_TO encourage_VV the_DT lower-level_JJ ZOs_NNS to_TO export_VV the_DT surplus_NN power_NN to_TO the_DT higher-level_JJ ZOs_NNS ._SENT 
+This_DT is_VBZ because_IN of_IN lower_JJR marginal_JJ cost_NN of_IN the_DT DG_NP managed_VVD by_IN the_DT lower-level_JJ ZO_NN ._SENT 
+By_IN this_DT method_NN ,_, the_DT total_JJ fuel_NN cost_NN of_IN all_DT DGs_NNS in_IN the_DT system_NN is_VBZ reduced_VVN ._SENT 
+On_IN the_DT other_JJ hand_NN ,_, the_DT values_NNS of_IN Ptblmax_NP and_CC Ptslmax_NP need_VVP to_TO be_VB planned_VVN carefully_RB ._SENT 
+If_IN the_DT limits_NNS on_IN power_NN exchange_NN are_VBP too_RB tight_JJ ,_, the_DT cheaper_JJR DGs_NNS are_VBP not_RB fully_RB exploited_VVN ._SENT 
+However_RB ,_, the_DT power_NN imported_VVN from_IN the_DT zone_NN managed_VVN by_IN a_DT lower-level_JJ ZO_NN must_MD be_VB limited_VVN to_TO make_VV sure_JJ there_EX is_VBZ no_DT oversupply_NN ._SENT 
+<Section> 4._CD ADMM_NP for_IN coordination_NN between_IN the_DT CESSO_NP and_CC ZOs_NNS </Section> 4.1_CD ._SENT 
+Motivation_NN and_CC purpose_NN The_DT proposed_VVN modified_JJ nested_VVN EMS_NP protects_VVZ the_DT privacy_NN of_IN ZOs_NNS and_CC reduces_VVZ the_DT operational_JJ cost_NN in_IN a_DT distributed_VVN fashion_NN ._SENT 
+Moreover_RB ,_, it_PP also_RB enhances_VVZ the_DT system’s_JJ resilience_NN against_IN energy_NN shortage_NN ._SENT 
+Reference_NN [_SYM 37_CD ]_SYM proposed_VVN a_DT resilience_NN matrix_NN for_IN the_DT ship_NN automation_NN system_NN ._SENT 
+Apart_RB from_IN connectivity_NN ,_, another_DT key_JJ assessment_NN index_NN included_VVD in_IN the_DT resilience_NN matrix_NN is_VBZ normalized_VVN remaining_VVG network_NN utilization_NN (_( labeled_VVN here_RB as_IN ru_NP )_) ._SENT 
+This_DT index_NN is_VBZ measured_VVN by_IN the_DT following_VVG equation_NN in_IN (_( 10_CD )_) ,_, @（10）_NN where_WRB p1_NN denotes_VVZ the_DT remaining_VVG capacity_NN after_IN meeting_VVG current_JJ load_NN demand_NN ,_, and_CC p2_NP is_VBZ the_DT total_JJ network_NN capacity_NN ._SENT 
+Unlike_IN the_DT ZOs_NNS ,_, which_WDT only_RB have_VHP access_NN to_TO the_DT specific_JJ data_NNS on_IN their_PP$ individual_JJ VESSs_NP alone_RB ,_, the_DT CESSO_NP has_VHZ access_NN to_TO the_DT status_NN of_IN the_DT overall_JJ ESS_NN ._SENT 
+Therefore_RB ,_, to_TO increase_VV the_DT remaining_VVG network_NN utilization_NN ,_, the_DT CESSO_NP should_MD incentivize_VV the_DT ZOs_NNS to_TO store_VV more_JJR energy_NN in_IN corresponding_JJ VESSs_NP ._SENT 
+This_DT is_VBZ achieved_VVN by_IN ADMM_NP algorithm_NN ,_, which_WDT solves_VVZ convex_JJ optimization_NN problems_NNS in_IN a_DT distributed_VVN manner_NN [_SYM 28_CD ]_SYM ._SENT 
+4.2_CD ._SENT 
+ADMM_NP algorithm_NN An_DT overview_NN of_IN the_DT ADMM_NP algorithm_NN is_VBZ presented_VVN by_IN using_VVG a_DT convex_JJ optimization_NN problem_NN as_IN following_VVG :_: @（11）_NP @（12）_NP The_DT augmented_JJ Lagrangian_JJ function_NN of_IN the_DT problem_NN above_RB is_VBZ shown_VVN in_IN (_( 13_CD )_) ._SENT 
+@（13）_NN where_WRB λ_NN is_VBZ the_DT Lagrangian_JJ multiplier_NN and_CC ρ_NN is_VBZ the_DT coefficient_NN for_IN the_DT penalty_NN term_NN ._SENT 
+To_TO obtain_VV the_DT optimal_JJ solution_NN of_IN x_NN and_CC z_NN ,_, the_DT problem_NN is_VBZ solved_VVN iteratively_RB (_( with_IN n_NN as_IN the_DT iteration_NN index_NN )_) as_RB follows_VVZ :_: @（14）_NP @（15）_NP @（16）_NP 4.3_CD ._SENT 
+Optimization_NN model_NN of_IN CESSO_NP The_DT aim_NN of_IN CESSO_NP is_VBZ to_TO store_VV more_JJR energy_NN in_IN the_DT ESS_NN by_IN encouraging_VVG the_DT ZOs_NNS to_TO store_VV more_JJR energy_NN in_IN corresponding_JJ VESSs_NP ._SENT 
+However_RB ,_, such_PDT an_DT operation_NN would_MD deviate_VV from_IN achieving_VVG cost-optimal_JJ solution_NN ._SENT 
+Therefore_RB ,_, any_DT cost_NN increase_NN needs_VVZ to_TO be_VB compensated_VVN by_IN the_DT CESSO_NP ._SENT 
+Accordingly_RB ,_, the_DT optimization_NN model_NN for_IN CESSO_NP is_VBZ shown_VVN as_RB follows_VVZ :_: @（17）_NP @（18）_NP @（19）_NP @（20）_NP @（21）_NP @（22）_NP The_DT objective_JJ function_NN shown_VVN in_IN (_( 17_CD )_) maximizes_VVZ the_DT stored_VVN energy_NN in_IN the_DT ESS_NN ._SENT 
+In_IN (_( 17_CD )_) ,_, the_DT coefficient_NN k_NN is_VBZ the_DT weighting_NN factor_NN of_IN resilience_NN enhancement_NN ._SENT 
+The_DT energy_NN balance_NN equation_NN for_IN the_DT ESS_NN is_VBZ represented_VVN by_IN (_( 18_CD )_) ._SENT 
+The_DT variables_NNS pcl_NN ,_, tˆ_NP and_CC pdl_NP ,_, tˆ_NP can_MD be_VB interpreted_VVN as_IN recommended_VVN charging_VVG and_CC discharging_VVG powers_NNS of_IN VESSs_NP ._SENT 
+They_PP are_VBP used_VVN to_TO bridge_VV the_DT optimization_NN models_NNS of_IN ZOs_NNS and_CC the_DT CESSO_NN during_IN iteration_NN process_NN of_IN ADMM_NP algorithm_NN ._SENT 
+Constraint_NN (_( 19_CD )_) denotes_VVZ the_DT initial_JJ stored_VVN energy_NN for_IN the_DT ESS_NN ._SENT 
+The_DT limits_NNS of_IN recommended_VVN charging_VVG and_CC discharging_VVG power_NN are_VBP imposed_VVN by_IN constraints_NNS (_( 20_CD )_) ,_, (_( 21_CD )_) ,_, respectively_RB ._SENT 
+Constraint_NN (_( 22_CD )_) indicates_VVZ the_DT upper_JJ and_CC lower_JJR bounds_NNS of_IN stored_VVN energy_NN of_IN the_DT ESS_NN ._SENT 
+4.4_CD ._SENT 
+Social_JJ welfare_NN maximization_NN The_DT utility_NN of_IN CESSO_NP (_( UCESSO_NP )_) ,_, which_WDT increases_VVZ with_IN higher_RBR stored_VVN energy_NN of_IN the_DT ESS_NN and_CC lower_JJR cost_NN of_IN reimbursement_NN ,_, is_VBZ shown_VVN in_IN (_( 23_CD )_) ._SENT 
+Alternatively_RB ,_, the_DT utility_NN of_IN ZO_NN running_VVG the_DT zone_NN l_NN (_( UZOl_NN )_) is_VBZ calculated_VVN by_IN (_( 24_CD )_) ;_: it_PP is_VBZ equal_JJ to_TO the_DT reimbursement_NN from_IN CESSO_NP deducted_VVN by_IN the_DT operational_JJ cost_NN ._SENT 
+@（23）_NP @（24）_NP Social_NP welfare_NN (_( SW_NP )_) is_VBZ defined_VVN as_IN the_DT aggregation_NN of_IN the_DT utilities_NNS of_IN CESSO_NP and_CC ZOs_NNS ,_, as_RB shown_VVN in_IN (_( 25_CD )_) ._SENT 
+The_DT reimbursement_NN cost_NN gets_VVZ canceled_VVN after_IN adding_VVG the_DT utilities_NNS of_IN ZOs_NNS and_CC CESSO_NP ,_, and_CC therefore_RB SW_NP is_VBZ independent_JJ of_IN reimbursement_NN ._SENT 
+@（25）_NP The_DT optimization_NN model_NN to_TO maximize_VV the_DT SW_NP is_VBZ formulated_VVN as_RB follows_VVZ :_: @（26）_NP @（27）_NP @（28）_NP The_DT constraints_NNS (_( 27_CD )_) ,_, (_( 28_CD )_) indicate_VVP that_IN actual_JJ charging_VVG and_CC discharging_VVG powers_NNS of_IN VESSs_NP are_VBP determined_VVN based_VVN on_IN the_DT recommendations_NNS of_IN the_DT CESSO_NP ._SENT 
+In_IN other_JJ words_NNS ,_, the_DT CESSO_NP and_CC ZOs_NNS must_MD reach_VV an_DT agreement_NN on_IN the_DT dispatch_NN of_IN VESSs_NP ._SENT 
+This_DT problem_NN is_VBZ solved_VVN by_IN ADMM_NP since_IN there_EX is_VBZ no_DT master_NN controller_NN ._SENT 
+Accordingly_RB ,_, the_DT block_NN variables_NNS of_IN [_SYM pcl_NP ,_, tˆpdl_NP ,_, tˆ_NN ]_SYM and_CC [_SYM pcl_NP ,_, tpdl_NP ,_, t_NN ]_SYM are_VBP corresponding_JJ to_TO x_SYM and_CC z_SYM in_IN (_( 13_CD )_) ,_, respectively_RB ._SENT 
+The_DT augmented_JJ Lagrangian_JJ function_NN of_IN the_DT optimization_NN problem_NN is_VBZ given_VVN by_IN :_: @（29）_NN where_WRB λcl_NP ,_, t_NN and_CC λdl_NP ,_, t_NN are_VBP the_DT Lagrangian_JJ multipliers_NNS ._SENT 
+The_DT right-hand_JJ side_NN of_IN (_( 29_CD )_) can_MD be_VB decomposed_VVN into_IN the_DT problems_NNS for_IN CESSO_NP and_CC ZOs_NNS ._SENT 
+Specifically_RB ,_, the_DT optimization_NN problem_NN for_IN the_DT ZO_NN managing_VVG the_DT zone_NN l_NN is_VBZ given_VVN as_RB follows_VVZ :_: @（30）_NN The_DT optimization_NN problem_NN for_IN the_DT CESSO_NP is_VBZ shown_VVN as_RB follows_VVZ :_: @（31）_JJ Moreover_RB ,_, the_DT CESSO_NP updates_NNS the_DT Lagrangian_JJ multiplier_NN according_VVG to_TO (_( 32_CD )_) ,_, (_( 33_CD )_) ._SENT 
+@（32）_NP @（33）_NP 4.5_CD ._SENT 
+Algorithm_NN implementation_NN The_DT optimization_NN problem_NN is_VBZ solved_VVN iteratively_RB by_IN ADMM_NP algorithm_NN according_VVG to_TO the_DT procedure_NN illustrated_VVN in_IN Fig_NN ._SENT 
+5._CD As_RB seen_VVN in_IN this_DT figure_NN ,_, to_TO begin_VV with_IN ,_, the_DT ZOs_NNS manage_VVP the_DT respective_JJ zones_NNS by_IN solving_VVG the_DT optimization_NN problem_NN (_( 1_CD )_) ._SENT 
+The_DT initial_JJ values_NNS of_IN Lagrangian_JJ multipliers_NNS are_VBP set_VVN to_TO zero_VV ._SENT 
+Then_RB ,_, ZOs_NNS send_VVP the_DT control_NN signals_VVZ of_IN VESSs_NP to_TO CESSO_NP ._SENT 
+The_DT CESSO_NP determines_VVZ charging/discharging_VVG powers_NNS of_IN VESSs_NP by_IN solving_VVG (_( 31_CD )_) and_CC updates_NNS the_DT Lagrangian_JJ multipliers_NNS based_VVN on_IN (_( 32_CD )_) ,_, (_( 33_CD )_) ._SENT 
+The_DT results_NNS are_VBP then_RB sent_VVN to_TO the_DT ZOs_NNS ._SENT 
+Subsequently_RB ,_, the_DT values_NNS of_IN Pdl_NP ,_, t_NN and_CC Pcl_NN ,_, t_NN of_IN ZOs_NNS are_VBP obtained_VVN by_IN solving_VVG (_( 30_CD )_) ,_, and_CC compared_VVN with_IN the_DT received_VVN values_NNS of_IN pcl_NP ,_, tˆ_NP and_CC pdl_NP ,_, tˆ_NP ._SENT 
+The_DT programming_NN ends_VVZ when_WRB stopping_VVG criteria_NNS is_VBZ met_VVN ._SENT 
+Otherwise_RB ,_, the_DT ZOs_NNS send_VVP the_DT results_NNS of_IN Pdl_NP ,_, t_NN and_CC Pcl_NN ,_, t_NN to_TO CESSO_NP and_CC the_DT procedure_NN is_VBZ repeated_VVN until_IN the_DT solution_NN converges_VVZ ._SENT 
+Fig_NN ._SENT 
+6_CD illustrates_VVZ the_DT complete_JJ information_NN exchange_NN taking_VVG place_NN in_IN the_DT proposed_VVN EMS_NP ._SENT 
+Fig_NN ._SENT 
+5._CD Iterative_JJ procedure_NN of_IN ADMM_NP algorithm_NN to_TO reach_VV the_DT agreement_NN between_IN CESSO_NP and_CC ZOs_NNS ._SENT 
+Fig_NN ._SENT 
+6._CD The_DT information_NN exchange_NN among_IN ZOs_NNS and_CC the_DT CESSO_NP ._SENT 
+<Section> 5._CD Case_NN studies_NNS </Section> For_IN the_DT case_NN studies_NNS ,_, the_DT SPS_NP described_VVD in_IN Section_NP 2_CD is_VBZ used_VVN as_IN the_DT test_NN system_NN ._SENT 
+Parameters_NNS of_IN DGs_NNS and_CC ESS_NNS are_VBP tabulated_VVN in_IN Table_NN 1_CD ,_, Table_NN 2._CD Table_NN 3_CD lists_NNS the_DT energy_NN and_CC power_NN capacities_NNS of_IN VESSs_NP ._SENT 
+The_DT convergence_NN tolerance_NN is_VBZ set_VVN to_TO 0.1_CD and_CC the_DT value_NN of_IN Pri_NP is_VBZ equal_JJ to_TO 1_CD ,_, which_WDT is_VBZ high_JJ enough_RB to_TO motivate_VV exporting_VVG energy_NN from_IN zone_NN run_VVN by_IN the_DT lower-level_JJ ZO_NN to_TO the_DT zone_NN managed_VVN by_IN the_DT higher-level_JJ ZO_NN ._SENT 
+The_DT time_NN interval_NN of_IN microgrid_NP EMS_NP is_VBZ generally_RB 15_CD min_NN ,_, 30_CD min_NN ,_, or_CC 1_CD h_NN [_SYM 39_CD ]_SYM ;_: however_RB ,_, in_IN this_DT study_NN ,_, it_PP is_VBZ set_VVN to_TO 30_CD min_NN ._SENT 
+The_DT model_NN is_VBZ implemented_VVN in_IN General_NP Algebraic_JJ Modeling_NN System_NN (_( GAMS_NNS )_) using_VVG a_DT laptop_NN with_IN an_DT Intel_NP Core_NP i7_JJ CPU_NN and_CC 16_CD GB_NN RAM_NN ._SENT 
+Optimization_NN problems_NNS in_IN this_DT paper_NN are_VBP quadratic_JJ programming_NN which_WDT is_VBZ a_DT particular_JJ case_NN of_IN convex_JJ optimization_NN ;_: therefore_RB ,_, the_DT global_JJ optimality_NN can_MD be_VB ensured_VVN by_IN using_VVG IPOPT_NNS as_IN the_DT solver_NN ._SENT 
+The_DT simulations_NNS are_VBP conducted_VVN based_VVN on_IN two_CD operating_VVG modes_NNS :_: loading/unloading_JJ and_CC regular_JJ cruising_VVG ._SENT 
+Studies_NNS are_VBP carried_VVN out_RP on_IN the_DT benefits_NNS of_IN deploying_VVG CESS_NN and_CC proposed_VVN model_NN for_IN improving_VVG both_DT resilience_NN and_CC cost_NN ._SENT 
+Furthermore_RB ,_, the_DT impact_NN of_IN model_NN parameters_NNS on_IN the_DT outcomes_NNS is_VBZ also_RB discussed_VVN ._SENT 
+Table_NN 3._CD Parameters_NNS of_IN virtual_JJ energy_NN storage_NN systems_NNS ._SENT 
+5.1_CD ._SENT 
+Loading/unloading_VVG mode_NN The_DT load_NN profiles_NNS for_IN all_DT zones_NNS for_IN loading/unloading_VVG operating_VVG mode_NN are_VBP shown_VVN in_IN Fig_NN ._SENT 
+7._CD Fig_NN ._SENT 
+8_CD depicts_VVZ the_DT state-of-charge_NN (_( SoC_NP )_) of_IN each_DT VESS_NP for_IN the_DT loading/unloading_NN operating_VVG mode_NN ._SENT 
+At_IN first_JJ ,_, the_DT resilience_NN enhancement_NN is_VBZ not_RB considered_JJ (_( i._NP e._NP ,_, k_NN =_SYM 0_CD )_) ._SENT 
+As_IN seen_VVN in_IN Fig_NN ._SENT 
+8_CD ,_, the_DT usage_NN of_IN VESSs_NP varies_VVZ for_IN different_JJ zones_NNS ._SENT 
+If_IN the_DT storage_NN sharing_NN is_VBZ enabled_VVN by_IN CESSO_NP ,_, the_DT ESS_NN with_IN the_DT energy_NN capacity_NN of_IN 599_CD kWh_NN can_MD satisfy_VV the_DT storage_NN demands_NNS of_IN loading/unloading_VVG operating_VVG mode_NN ._SENT 
+By_IN contrast_NN ,_, the_DT total_JJ energy_NN capacity_NN of_IN all_DT VESSs_NP is_VBZ 750_CD kWh_NN ;_: this_DT implies_VVZ that_IN if_IN the_DT distributed_VVN ESSs_NP do_VVP not_RB participate_VV in_IN the_DT CESS_NN ,_, the_DT total_JJ capacity_NN of_IN energy_NN storage_NN required_VVN is_VBZ 750_CD kWh_NN ._SENT 
+Based_VVN on_IN the_DT parameters_NNS in_RB [_SYM 40_CD ]_SYM ,_, a_DT comparison_NN of_IN capital_NN cost_NN ,_, weight_NN and_CC volume_NN is_VBZ presented_VVN in_IN Table_NN 4._CD Incidentally_RB ,_, it_PP is_VBZ clearly_RB observed_VVN in_IN Fig_NN ._SENT 
+8_CD that_IN the_DT VESS_NP controlled_VVN by_IN ZO6_NN is_VBZ charged/discharged_VVN most_RBS frequently_RB than_IN the_DT rest_NN ._SENT 
+This_DT is_VBZ because_IN ZO6_NP cannot_MD exchange_VV energy_NN with_IN a_DT ZO_NN in_IN higher-level_JJ EMS_NP ,_, and_CC therefore_RB VESS6_NP needs_VVZ to_TO be_VB charged/discharged_VVN frequently_RB for_IN power_NN balance_NN ._SENT 
+Fig_NN ._SENT 
+7._CD Load_NN profiles_NNS of_IN each_DT zone_NN during_IN loading/unloading_VVG operating_VVG mode_NN ._SENT 
+Fig_NN ._SENT 
+8._CD State-of-charge_NN of_IN each_DT VESS_NP of_IN each_DT zone_NN for_IN various_JJ times_NNS during_IN loading/unloading_VVG operating_VVG mode_NN ._SENT 
+Table_NN 4._CD Comparison_NN of_IN capital_NN cost_NN ,_, weight_NN and_CC volume_NN with_IN cloud_NN ESS_NNS and_CC distributed_VVN ESS_NNS for_IN loading/unloading_VVG mode_NN ._SENT 
+Besides_IN the_DT reduced_VVN cost_NN and_CC size_NN ,_, the_DT CESS_NN can_MD also_RB improve_VV the_DT resilience_NN of_IN SPS_NP ._SENT 
+Specifically_RB ,_, the_DT second-smallest_JJS eigenvalue_NN (_( λ2_NP )_) of_IN the_DT Laplacian_JJ matrix_NN of_IN SPS_NP graph_NN increases_NNS from_IN 0.0961_CD to_TO 0.3342_CD because_IN of_IN the_DT alternative_JJ paths_NNS provided_VVN by_IN the_DT additional_JJ links_NNS between_IN zones_NNS and_CC ESS_NNS ._SENT 
+An_DT increased_VVN value_NN of_IN λ2_NP implies_VVZ the_DT graph_NN is_VBZ better_RBR connected_VVN ,_, and_CC therefore_RB provides_VVZ higher_JJR resilience_NN [_SYM 37_CD ]_SYM ._SENT 
+To_TO further_RBR investigate_VV the_DT system_NN resilience_NN against_IN faults_NNS ,_, the_DT values_NNS of_IN unserved_JJ energy_NN for_IN various_JJ contingencies_NNS are_VBP determined_VVN ._SENT 
+When_WRB a_DT fault_NN occurs_VVZ in_IN any_DT DG_NP or_CC feeder_NN of_IN the_DT SPS_NP ,_, the_DT network_NN zones_NNS are_VBP islanded_VVN to_TO prevent_VV fault_NN propagation_NN [_SYM 15_CD ]_SYM ._SENT 
+Since_IN the_DT CESS_NN is_VBZ connected_VVN to_TO all_PDT the_DT zones_NNS ,_, it_PP provides_VVZ alternative_JJ power_NN flow_NN paths_NNS between_IN the_DT zones_NNS ._SENT 
+Thus_RB ,_, the_DT energy_NN sharing_NN between_IN the_DT zones_NNS is_VBZ partly_RB enabled_VVN during_IN the_DT zonal_JJ islanding_VVG ._SENT 
+The_DT unserved_JJ energy_NN during_IN zonal_JJ islanding_VVG condition_NN is_VBZ compared_VVN between_IN the_DT DESS_NP and_CC the_DT CESS_NN in_IN Fig_NN ._SENT 
+9._CD For_IN different_JJ starting_VVG times_NNS and_CC durations_NNS (_( D_NP )_) of_IN such_PDT a_DT contingency_NN ,_, the_DT unserved_JJ energy_NN is_VBZ eliminated_VVN by_IN applying_VVG CESS_NN for_IN loading/unloading_VVG mode_NN ._SENT 
+This_DT demonstrates_VVZ that_IN the_DT system_NN resilience_NN has_VHZ been_VBN enhanced_VVN against_IN network_NN contingency_NN by_IN the_DT deployment_NN of_IN CESS_NN ._SENT 
+Furthermore_RB ,_, the_DT unserved_JJ energy_NN is_VBZ higher_JJR with_IN longer_JJR duration_NN and_CC if_IN the_DT islanding_VVG scenario_NN occurs_VVZ around_IN peak_NN hours_NNS ._SENT 
+Fig_NN ._SENT 
+9._CD Unserved_JJ energy_NN with_IN DESS_NP or_CC CESS_NN for_IN different_JJ starting_JJ times_NNS (_( ST_NP )_) and_CC durations_NNS (_( D_NP )_) during_IN zonal_JJ islanding_VVG contingency_NN (_( loading/unloading_JJ mode_NN )_) ,_, (_( a_DT )_) D_NP =_SYM 1_CD h_NN ,_, (_( b_LS )_) D_NP =_SYM 2_CD h_NN ,_, (_( c_LS )_) D_NP =_SYM 3_CD h_NN ,_, (_( d_LS )_) D_NP =_SYM 4_CD h._NP Having_VHG witnessed_VVN the_DT advantages_NNS of_IN CESS_NN ,_, the_DT proposed_VVN model_NN is_VBZ evaluated_VVN for_IN operational_JJ cost_NN and_CC resilience_NN with_IN different_JJ system_NN parameters_NNS ._SENT 
+Table_NN 5_CD shows_NNS the_DT limits_NNS of_IN energy_NN exchanges_NNS for_IN loading/unloading_VVG operation_NN mode_NN ._SENT 
+The_DT numbers_NNS shown_VVN guarantee_VVP that_IN the_DT energy_NN exchange_NN does_VVZ not_RB violate_VV power_NN balance_NN by_IN excessive_JJ power_NN injection_NN ._SENT 
+At_IN the_DT same_JJ time_NN ,_, some_DT flexibility_NN is_VBZ allowed_VVN to_TO fully_RB utilize_VV the_DT cheaper_JJR DGs_NNS ._SENT 
+Firstly_RB ,_, the_DT operational_JJ costs_NNS of_IN SPS_NP during_IN loading/unloading_VVG mode_NN are_VBP analyzed_VVN for_IN different_JJ EMS_NP strategies_NNS ._SENT 
+For_IN this_DT case_NN ,_, the_DT resilience_NN is_VBZ not_RB considered_JJ (_( i._NP e._NP ,_, k_NN =_SYM 0_CD )_) ._SENT 
+Table_NN 6_CD shows_NNS the_DT operational_JJ costs_NNS of_IN SPS_NP ._SENT 
+From_IN the_DT results_NNS ,_, it_PP can_MD be_VB seen_VVN that_IN the_DT proposed_VVN nested_VVD EMS_NP decreases_VVZ the_DT operational_JJ cost_NN as_IN compared_VVN with_IN the_DT decentralized_JJ EMS_NP given_VVN in_RB [_SYM 27_CD ]_SYM ._SENT 
+This_DT is_VBZ because_IN the_DT power_NN generation_NN from_IN cheaper_JJR DGs_NNS is_VBZ increased_VVN by_IN the_DT proposed_VVN nested_VVD EMS_NP ._SENT 
+Moreover_RB ,_, the_DT centralized_JJ EMS_NP gives_VVZ the_DT lowest_JJS operational_JJ cost_NN since_IN global_JJ information_NN is_VBZ available_JJ ._SENT 
+Table_NN 5._CD Energy_NP exchanges_NNS limits_NNS for_IN loading/unloading_VVG mode_NN ._SENT 
+Table_NN 6._CD Operational_JJ cost_NN comparison_NN between_IN different_JJ EMS_NP strategies_NNS for_IN loading/unloading_VVG mode_NN ._SENT 
+Next_RB ,_, the_DT studies_NNS are_VBP conducted_VVN with_IN different_JJ weighting_NN factors_NNS of_IN resilience_NN enhancement_NN (_( k_NN )_) ._SENT 
+The_DT results_NNS obtained_VVN are_VBP shown_VVN in_IN Fig_NN ._SENT 
+10._CD As_RB seen_VVN in_IN this_DT figure_NN ,_, the_DT values_NNS of_IN SoC_NN are_VBP higher_JJR confirming_VVG that_IN the_DT resilience_NN is_VBZ enhanced_VVN for_IN higher_JJR weighting_NN factors_NNS (_( k_NN )_) ._SENT 
+If_IN only_RB economic_JJ benefit_NN is_VBZ considered_VVN (_( i._NP e._NP ,_, k_NN =_SYM 0_CD )_) ,_, the_DT stored_VVN energy_NN in_IN the_DT ESS_NN is_VBZ limited_VVN to_TO achieve_VV optimal_JJ operational_JJ cost_NN ._SENT 
+However_RB ,_, this_DT solution_NN may_MD impair_VV the_DT capability_NN of_IN the_DT ESS_NN from_IN providing_VVG aid_NN when_WRB the_DT system_NN undergoes_VVZ fault_NN or_CC attack_NN ,_, among_IN other_JJ things_NNS ._SENT 
+Enforcing_VVG a_DT higher_JJR weight_NN to_TO the_DT resilience_NN enhancement_NN would_MD increase_VV the_DT remaining_VVG capacity_NN ._SENT 
+The_DT average_JJ remaining_VVG network_NN utilization_NN (_( aru_NP )_) is_VBZ defined_VVN in_IN (_( 34_CD )_) ,_, which_WDT represents_VVZ the_DT average_JJ resilience_NN level_NN throughout_IN 24-h_NP horizon_NN ._SENT 
+Fig_NN ._SENT 
+11_CD illustrates_VVZ the_DT relationship_NN between_IN the_DT aru_NP and_CC k._NP As_IN shown_VVN in_IN this_DT figure_NN ,_, the_DT resilience_NN is_VBZ enhanced_VVN by_IN imposing_VVG a_DT higher_JJR value_NN of_IN k._NP @（34）_NP Fig_NN ._SENT 
+10._CD State-of-charge_NNS of_IN ESS_NNS at_IN various_JJ times_NNS and_CC weighting_NN factors_NNS of_IN resilience_NN enhancement_NN for_IN load/unloading_VVG mode_NN ._SENT 
+Fig_NN ._SENT 
+11._CD Average_JJ remaining_VVG network_NN utilization_NN of_IN SPS_NP for_IN various_JJ values_NNS of_IN k_NN for_IN loading/unloading_VVG mode_NN ._SENT 
+To_TO further_RBR illustrate_VV the_DT enhanced_JJ resilience_NN of_IN system_NN with_IN the_DT weighting_NN factor_NN k_NN ,_, the_DT values_NNS of_IN unserved_JJ energy_NN with_IN disabled_JJ DG6_NN for_IN k_NN =_SYM 0_CD and_CC k_NN =_SYM 1_CD are_VBP determined_VVN ._SENT 
+Fig_NN ._SENT 
+12_CD shows_NNS the_DT values_NNS of_IN unserved_JJ energy_NN for_IN different_JJ starting_VVG times_NNS and_CC durations_NNS (_( D_NP )_) ._SENT 
+As_IN seen_VVN in_IN this_DT figure_NN ,_, with_IN k_NN =_SYM 1_CD ,_, the_DT unserved_JJ energy_NN is_VBZ reduced_VVN significantly_RB ._SENT 
+Furthermore_RB ,_, the_DT unserved_JJ energy_NN is_VBZ higher_RBR when_WRB the_DT duration_NN of_IN disabled_JJ DG6_NN is_VBZ longer_RBR as_RB well_RB as_IN when_WRB such_JJ event_NN occurs_VVZ in_IN the_DT peak_NN hours_NNS ._SENT 
+Fig_NN ._SENT 
+13_CD shows_NNS the_DT convergence_NN performance_NN for_IN selected_JJ values_NNS of_IN k._NP As_IN shown_VVN in_IN the_DT figure_NN ,_, the_DT convergence_NN is_VBZ achieved_VVN generally_RB in_IN less_JJR than_IN 15_CD iterations_NNS ._SENT 
+Fig_NN ._SENT 
+12._CD Unserved_JJ energy_NN with_IN or_CC without_IN weighting_NN factor_NN k_NN for_IN different_JJ starting_JJ times_NNS (_( ST_NP )_) and_CC durations_NNS (_( D_NP )_) with_IN the_DT disabled_JJ DG6_NN (_( loading/unloading_JJ mode_NN )_) ,_, (_( a_DT )_) D_NP =_SYM 1_CD h_NN ,_, (_( b_LS )_) D_NP =_SYM 2_CD h_NN ,_, (_( c_LS )_) D_NP =_SYM 3_CD h_NN ,_, (_( d_LS )_) D_NP =_SYM 4_CD h._JJ Fig_NN ._SENT 
+13._CD The_DT convergence_NN of_IN the_DT proposed_VVN algorithm_NN for_IN loading/unloading_VVG mode_NN ._SENT 
+5.2_CD ._SENT 
+Regular_JJ cruising_VVG mode_NN To_TO demonstrate_VV the_DT scalability_NN of_IN the_DT proposed_VVN algorithm_NN ,_, its_PP$ performance_NN during_IN regular_JJ cruising_VVG mode_NN is_VBZ evaluated_VVN ._SENT 
+Table_NN 7_CD lists_NNS the_DT energy_NN exchange_NN limits_NNS for_IN the_DT cruising_VVG mode_NN ._SENT 
+Table_NN 7._CD Energy_NP exchanges_NNS limits_NNS for_IN regular_JJ cruising_VVG mode_NN ._SENT 
+Fig_NN ._SENT 
+14_CD shows_NNS the_DT load_NN profiles_NNS for_IN each_DT zone_NN during_IN regular_JJ cruising_VVG mode_NN ._SENT 
+Fig_NN ._SENT 
+15_CD illustrates_VVZ the_DT SoC_NN values_VVZ of_IN the_DT VESSs_NP without_IN resilience_NN enhancement_NN for_IN the_DT cruising_VVG mode_NN ._SENT 
+A_DT significant_JJ diversity_NN is_VBZ observed_VVN on_IN demands_NNS of_IN storage_NN ,_, thus_RB indicating_VVG the_DT importance_NN of_IN energy_NN storage_NN sharing_NN among_IN different_JJ zones_NNS of_IN the_DT SPS_NP ._SENT 
+The_DT regular_JJ cruising_VVG mode_NN would_MD need_VV an_DT energy_NN storage_NN capacity_NN of_IN 552_CD kWh_NN for_IN a_DT single_JJ large_JJ ESS_NN bank_NN in_IN contrast_NN to_TO 750_CD kWh_NN if_IN the_DT ESS_NN is_VBZ distributed_VVN in_IN different_JJ zones_NNS ._SENT 
+Based_VVN on_IN the_DT parameters_NNS in_RB [_SYM 40_CD ]_SYM ,_, a_DT comparison_NN of_IN the_DT capital_NN cost_NN ,_, weight_NN and_CC volume_NN is_VBZ presented_VVN in_IN Table_NN 8._CD From_IN Fig_NN ._SENT 
+15_CD ,_, it_PP is_VBZ apparent_JJ that_IN similar_JJ to_TO the_DT loading/unloading_JJ mode_NN ,_, VESS6_NP is_VBZ dispatched_VVN most_RBS frequently_RB since_IN ZO6_NP cannot_MD exchange_VV energy_NN with_IN higher-level_JJ EMS_NP ,_, and_CC VESS6_NP is_VBZ charged/discharged_VVN repeatedly_RB for_IN power_NN balance_NN ._SENT 
+Fig_NN ._SENT 
+14._CD Load_NN profiles_NNS of_IN each_DT zone_NN during_IN regular_JJ cruising_VVG operating_VVG mode_NN ._SENT 
+Fig_NN ._SENT 
+15._CD State-of-charge_NN of_IN each_DT VESS_NP of_IN each_DT zone_NN for_IN various_JJ times_NNS during_IN regular_JJ cruising_VVG mode_NN ._SENT 
+Table_NN 8._CD Comparison_NN of_IN capital_NN cost_NN ,_, weight_NN and_CC volume_NN with_IN cloud_NN ESS_NNS and_CC distributed_VVN ESS_NNS for_IN regular_JJ cruising_VVG mode_NN ._SENT 
+Fig_NN ._SENT 
+16_CD shows_VVZ that_IN the_DT system_NN achieved_VVD enhanced_JJ resilience_NN against_IN zonal_JJ islanding_VVG caused_VVN by_IN faults_NNS when_WRB the_DT CESS_NN was_VBD deployed_VVN ._SENT 
+Also_RB shown_VVN in_IN this_DT figure_NN are_VBP the_DT values_NNS of_IN unserved_JJ energy_NN for_IN different_JJ starting_VVG times_NNS and_CC durations_NNS ._SENT 
+The_DT unserved_JJ energy_NN is_VBZ reduced_VVN significantly_RB by_IN deploying_VVG CESS_NN ;_: however_RB ,_, slight_JJ load_NN shedding_NN could_MD incur_VV when_WRB duration_NN is_VBZ over_IN 2_CD h_NN due_JJ to_TO the_DT CESS_NN reaching_VVG capacity_NN limits_NNS ._SENT 
+These_DT results_NNS are_VBP similar_JJ as_IN those_DT obtained_VVN from_IN the_DT tests_NNS for_IN loading/unloading_VVG operating_VVG mode_NN ._SENT 
+Table_NN 9_CD gives_VVZ the_DT daily_JJ operational_JJ costs_NNS by_IN implementing_VVG centralized_JJ ,_, decentralized_JJ ,_, and_CC proposed_VVD nested_VVN EMS_NP ._SENT 
+It_PP should_MD be_VB noted_VVN that_IN even_RB for_IN the_DT SPS_NP operation_NN in_IN cruising_VVG mode_NN ,_, the_DT proposed_VVN nested_VVD EMS_NP method_NN reduces_VVZ operational_JJ cost_NN as_IN compared_VVN to_TO the_DT decentralized_JJ EMS_NP ,_, just_RB as_RB with_IN the_DT loading/unloading_JJ mode_NN presented_VVN earlier_RBR ._SENT 
+Fig_NN ._SENT 
+16._CD Unserved_JJ energy_NN with_IN DESS_NP or_CC CESS_NN for_IN different_JJ starting_JJ times_NNS (_( ST_NP )_) and_CC durations_NNS (_( D_NP )_) during_IN zonal_JJ islanding_VVG contingency_NN (_( regular_JJ cruising_VVG mode_NN )_) ,_, (_( a_DT )_) D_NP =_SYM 1_CD h_NN ,_, (_( b_LS )_) D_NP =_SYM 2_CD h_NN ,_, (_( c_LS )_) D_NP =_SYM 3_CD h_NN ,_, (_( d_LS )_) D_NP =_SYM 4_CD h._NP Table_NN 9._CD Operational_JJ cost_NN comparison_NN between_IN different_JJ EMS_NP strategies_NNS for_IN regular_JJ cruising_VVG mode_NN ._SENT 
+Figs_NNS ._SENT 
+17_CD and_CC 18_CD illustrate_VVP the_DT values_NNS of_IN SoC_NN of_IN the_DT ESS_NN and_CC average_JJ remaining_VVG network_NN utilization_NN for_IN different_JJ values_NNS of_IN k_NN ,_, for_IN the_DT regular_JJ cruising_VVG mode_NN ._SENT 
+It_PP can_MD be_VB seen_VVN that_IN a_DT higher_JJR value_NN of_IN k_NN leads_VVZ to_TO higher_JJR remaining_VVG network_NN utilization_NN ,_, which_WDT denotes_VVZ greater_JJR resilience_NN ._SENT 
+Fig_NN ._SENT 
+19_CD presents_VVZ the_DT values_NNS of_IN unserved_JJ energy_NN with_IN disabled_JJ DG6_NN for_IN k_NN =_SYM 0_CD and_CC k_NN =_SYM 1._CD For_IN different_JJ starting_VVG times_NNS and_CC durations_NNS of_IN DG6_JJ failure_NN ,_, the_DT unserved_JJ energy_NN can_MD be_VB alleviated_VVN with_IN k_NN =_SYM 1._CD This_NP proves_VVZ the_DT value_NN of_IN storing_VVG more_JJR energy_NN in_IN the_DT ESS_NN for_IN enhancement_NN of_IN system_NN resilience_NN against_IN energy_NN deficiency_NN ._SENT 
+The_DT convergence_NN performance_NN for_IN regular_JJ cruising_VVG mode_NN is_VBZ shown_VVN in_IN Fig_NN ._SENT 
+20._CD Convergence_NN was_VBD achieved_VVN within_IN 25_CD iterations_NNS ,_, thus_RB confirming_VVG the_DT scalability_NN of_IN the_DT proposed_VVN EMS_NP method_NN Fig_NN ._SENT 
+17._CD State-of-charge_NNS of_IN ESS_NNS for_IN various_JJ times_NNS and_CC weighting_NN factors_NNS of_IN resilience_NN enhancement_NN for_IN regular_JJ cruising_VVG mode_NN ._SENT 
+Fig_NN ._SENT 
+18._CD Average_JJ remaining_VVG network_NN utilization_NN of_IN SPS_NP for_IN various_JJ values_NNS of_IN k_NN for_IN regular_JJ cruising_VVG mode_NN ._SENT 
+Fig_NN ._SENT 
+19._CD Unserved_JJ energy_NN with_IN or_CC without_IN weighting_NN factor_NN k_NN for_IN different_JJ starting_JJ times_NNS (_( ST_NP )_) and_CC durations_NNS (_( D_NP )_) with_IN the_DT disabled_JJ DG6_NN (_( regular_JJ cruising_VVG mode_NN )_) ,_, (_( a_DT )_) D_NP =_SYM 1_CD h_NN ,_, (_( b_LS )_) D_NP =_SYM 2_CD h_NN ,_, (_( c_LS )_) D_NP =_SYM 3_CD h_NN ,_, (_( d_LS )_) D_NP =_SYM 4_CD h._JJ Fig_NN ._SENT 
+20._CD The_DT convergence_NN performance_NN of_IN the_DT proposed_VVN algorithm_NN for_IN regular_JJ cruising_VVG mode_NN ._SENT 
+<Section> 6._CD Conclusion_NN </Section> This_DT paper_NN presented_VVD a_DT novel_JJ energy_NN management_NN system_NN (_( EMS_NP )_) for_IN the_DT shipboard_NN power_NN system_NN (_( SPS_NP )_) with_IN zonal_JJ configuration_NN ._SENT 
+The_DT proposed_VVN EMS_NP achieved_VVD the_DT energy_NN management_NN in_IN a_DT distributed_VVN manner_NN ._SENT 
+A_DT zonal_JJ operator_NN (_( ZO_NN )_) is_VBZ assigned_VVN for_IN each_DT zone_NN and_CC cloud_NN ESS_NNS operator_NN (_( CESSO_NP )_) for_IN the_DT energy_NN storage_NN system_NN (_( ESS_NN )_) allocation_NN among_IN the_DT zones_NNS ._SENT 
+Each_DT ZO_NN coordinates_VVZ with_IN its_PP$ neighboring_JJ ZOs_NNS based_VVN on_IN a_DT modified_VVN nested_VVD EMS_NP ,_, proposed_VVN in_IN this_DT paper_NN ._SENT 
+The_DT modified_VVN nested_VVD EMS_NP leads_VVZ to_TO reduced_VVN operational_JJ cost_NN compared_VVN with_IN a_DT fully_RB decentralized_JJ EMS_NP ._SENT 
+In_IN addition_NN ,_, the_DT ESS_NN is_VBZ operated_VVN as_IN a_DT cloud_NN ESS_VVZ to_TO enable_VV sharing_NN among_IN the_DT zones_NNS and_CC increased_VVN utilization_NN ._SENT 
+The_DT advantages_NNS of_IN deploying_VVG the_DT cloud_NN ESS_NNS are_VBP quantified_VVN in_IN terms_NNS of_IN reduced_VVN energy_NN storage_NN capacity_NN ,_, better_JJR system_NN connectivity_NN and_CC less_JJR load_NN shedding_VVG with_IN islanding_VVG contingency_NN ._SENT 
+Furthermore_RB ,_, the_DT resilience_NN of_IN SPS_NP against_IN energy_NN deficiency_NN is_VBZ enhanced_VVN by_IN the_DT proposed_VVN alternating_VVG direction_NN method_NN of_IN multipliers_NNS (_( ADMM_NP )_) based_VVD distributed_VVN algorithm_NN ._SENT 
+The_DT resilience_NN enhancement_NN was_VBD proved_VVN by_IN increased_VVN remaining_VVG network_NN utilization_NN and_CC less_JJR load_NN shedding_VVG with_IN loss_NN of_IN generators_NNS ._SENT 
+Numerical_JJ studies_NNS were_VBD presented_VVN to_TO show_VV the_DT feasibility_NN and_CC scalability_NN of_IN proposed_VVN EMS_NP ._SENT 
+Further_JJR research_NN on_IN the_DT application_NN of_IN cloud_NN ESS_NNS for_IN a_DT SPS_NP is_VBZ planned_VVN for_IN future_JJ works_NNS ._SENT 
+An_DT innovative_JJ interface_NN to_TO integrate_VV the_DT distributed_VVN ESSs_NP located_VVN in_IN various_JJ zones_NNS by_IN connecting_VVG them_PP through_IN a_DT common_JJ bus_NN will_MD be_VB evaluated_VVN ._SENT 
+In_IN addition_NN ,_, a_DT comprehensive_JJ analysis_NN and_CC design_NN shall_MD be_VB carried_VVN out_RP on_IN sizing_VVG of_IN the_DT cloud_NN ESS_NN for_IN SPS_NP ._SENT 
+The_DT proposed_VVN energy_NN management_NN strategy_NN shall_MD be_VB implemented_VVN in_IN a_DT laboratory-scale_JJ testbed_NN to_TO demonstrate_VV its_PP$ feasibility_NN in_IN real_JJ world_NN applications_NNS ._SENT 
+<Section> Acknowledgment_NN </Section> This_DT work_NN is_VBZ supported_VVN by_IN the_DT Office_NP of_IN Naval_NP Research_NP under_IN award_NN N00014-16-1-2753_NN ._SENT 
+<Section> References_NNS </Section> [_SYM 1_CD ]_SYM Projectiles_NNS LLA_NNS ,_, Missiles_NNS S_NP ,_, Anti-submarine_JJ VL_NN ,_, Missiles_NNS ES_NP ,_, Support_NN SF_NP ,_, Computing_NP TS_NP et_CC al_NP ._SENT 
+DDG_NP 1000_CD Zumwalt_NP Class_NP Destroyer_NN ._SENT 
+Navy_NP Programs_NP 2017:0–1_NN ._SENT 
+Google_JJ Scholar_NN [_SYM 2_CD ]_SYM F._NP Diab_NP ,_, H._NP Lan_NP ,_, S._NP Ali_NP Novel_NP comparison_NN study_NN between_IN the_DT hybrid_JJ renewable_JJ energy_NN systems_NNS on_IN land_NN and_CC on_IN ship_NN Renew_VV Sustain_VV Energy_NP Rev_NP ,_, 63_CD (_( 2016_CD )_) ,_, pp_NP ._SENT 
+452-463_CD ,_, 10.1016/j_NP ._SENT 
+rser.2016.05.053_NP ArticleDownload_NP PDFView_NP Record_NP in_IN ScopusGoogle_JJ Scholar_NN [_SYM 3_CD ]_SYM Vu_NP ._SENT 
+T._NP Van_NP ,_, D._NP Gonsoulin_NP ,_, F._NP Diaz_NP ,_, C._NP S._NP Edrington_NP ,_, T._NP El-Mezyani_NP Predictive_JJ control_NN for_IN energy_NN management_NN in_IN ship_NN power_NN systems_NNS under_IN high-power_NN ramp_NN rate_NN loads_NNS IEEE_NP Trans_NP Energy_NP Convers_NP ,_, 32_CD (_( 2017_CD )_) ,_, pp_NP ._SENT 
+788-797_CD ,_, 10.1109/TEC.2017.2692058_JJ Google_JJ Scholar_NN [_SYM 4_CD ]_SYM S._NP Mashayekh_NP An_DT integrated_JJ security-constrained_JJ model-based_JJ dynamic_JJ power_NN management_NN approach_NN for_IN all-electric_JJ ships_NNS IEEE_NP Trans_NP Power_NP Sys_NP ,_, 30_CD (_( 2015_CD )_) ,_, pp_NP ._SENT 
+2934-2945_CD ,_, 10.1109/TPWRS.2014.2377741_JJ View_NP Record_NP in_IN ScopusGoogle_JJ Scholar_NN [_SYM 5_CD ]_SYM Lai_NP K_NP ,_, Illindala_NP MS_NN ._SENT 
+Design_NN and_CC planning_NN strategy_NN for_IN energy_NN storage_NN system_NN in_IN a_DT shipboard_NN dc_NN hybrid_JJ power_NN system_NN ._SENT 
+In_RB :_: 2017_CD IEEE/IAS_NPS 53rd_NP Ind._NP Commer_NP ._SENT 
+Power_NN Syst_NN ._SENT 
+Tech_NP ._SENT 
+Conf_NP ._SENT 
+I_PP &CPS_VVZ 2017_CD ;_: 2017._CD http_NN :_: //doi_NP ._SENT 
+org/10.1109/ICPS.2017.7945094_NP ._SENT 
+Google_JJ Scholar_NN [_SYM 6_CD ]_SYM Lai_NP K_NP ,_, Illindala_NP MS_NN ._SENT 
+Enhancing_VVG the_DT robustness_NN of_IN shipboard_NN dc_NN hybrid_JJ power_NN system_NN against_IN generator_NN failures_NNS ._SENT 
+In_RB :_: 2017_CD IEEE_NN Electr_NN ._SENT 
+Sh_NNS ._SENT 
+Technol_NN ._SENT 
+Symp_NN ._SENT 
+ESTS_RB 2017_CD ;_: 2017._CD http_NN :_: //doi_NP ._SENT 
+org/10.1109/ESTS.2017.8069304_NP ._SENT 
+Google_JJ Scholar_NN [_SYM 7_CD ]_SYM F._NP D._NP Kanellos_NP Optimal_JJ power_NN management_NN with_IN GHG_NN emissions_NNS limitation_NN in_IN all-electric_JJ ship_NN power_NN systems_NNS comprising_VVG energy_NN storage_NN systems_NNS IEEE_NP Trans_NP Power_NP Syst_NP ,_, 29_CD (_( 2014_CD )_) ,_, pp_NP ._SENT 
+330-339_CD ,_, 10.1109/TPWRS.2013.2280064_NP CrossRefView_NP Record_NP in_IN ScopusGoogle_JJ Scholar_NN [_SYM 8_CD ]_SYM C._NP Shang_NP ,_, D._NP Srinivasan_NP ,_, S._NP Member_NP ,_, T._NP Reindl_NP Economic_NP and_CC environmental_JJ generation_NN and_CC voyage_NN scheduling_NN of_IN all-electric_JJ ships_NNS IEEE_NP Trans_NP Power_NP Sys_NP ,_, 31_CD (_( 2015_CD )_) ,_, pp_NP ._SENT 
+1-10_CD View_NP Record_NP in_IN ScopusGoogle_JJ Scholar_NN [_SYM 9_CD ]_SYM F._NP Zhao_NP ,_, W._NP Yang_NP ,_, W._NP W._NP Tan_NP ,_, W._NP Yu_NP ,_, J._NP Yang_NP ,_, S._NP K._NP Chou_NP Power_NP management_NN of_IN vessel_NN propulsion_NN system_NN for_IN thrust_NN efficiency_NN and_CC emissions_NNS mitigation_NN Appl_NP Energy_NP ,_, 161_CD (_( 2016_CD )_) ,_, pp_NP ._SENT 
+124-132_CD ,_, 10.1016/j_NP ._SENT 
+apenergy.2015.10.022_NP ArticleDownload_NP PDFView_NP Record_NP in_IN ScopusGoogle_JJ Scholar_NN [_SYM 10_CD ]_SYM F._NP D._NP Kanellos_NP ,_, G._NP J._NP Tsekouras_NP ,_, N._NP D._NP Hatziargyriou_NP Optimal_JJ demand-side_JJ management_NN and_CC power_NN generation_NN scheduling_NN in_IN an_DT all-electric_JJ ship_NN IEEE_NP Trans_NP Sustain_VV Energy_NP ,_, 5_CD (_( 2014_CD )_) ,_, pp_NP ._SENT 
+1166-1175_CD ,_, 10.1109/TSTE.2014.2336973_NP CrossRefView_NP Record_NP in_IN ScopusGoogle_JJ Scholar_NN [_SYM 11_CD ]_SYM E._NP A._NP Sciberras_NP ,_, B._NP S._NP A._NP Zahawi_NP ,_, Electrification_NN SI_NP on_IN MS_NN ,_, S._NP Member_NP ,_, D._NP J._NP Atkinson_NP ,_, A._NP Breijs_NP ,_, et_NP al_NP ._SENT 
+Managing_VVG shipboard_NN energy_NN :_: a_DT stochastic_JJ approach_NN special_JJ issue_NN on_IN marine_JJ systems_NNS electrification_NN IEEE_NP Trans_NP Transp_NP Electrif_NP ,_, 2_CD (_( 2016_CD )_) ,_, pp_NP ._SENT 
+538-546_CD View_NP Record_NP in_IN ScopusGoogle_JJ Scholar_NN [_SYM 12_CD ]_SYM X._NP Feng_NP ,_, K._NP L._NP Butler-purry_NP ,_, S._NP Member_NP A_DT multi-agent_JJ system_NN framework_NN for_IN real-time_JJ electric_JJ load_NN management_NN in_IN MVAC_NP all-electric_JJ ship_NN power_NN systems_NNS IEEE_NP Trans_NP Power_NP Syst_NP ,_, 30_CD (_( 2015_CD )_) ,_, pp_NP ._SENT 
+1327-1336_CD CrossRefView_NP Record_NP in_IN ScopusGoogle_JJ Scholar_NN [_SYM 13_CD ]_SYM X._NP Feng_NP ,_, K._NP L._NP Butler-Purry_NP ,_, T._NP Zourntos_NP Multi-agent_NP system-based_JJ real-time_JJ load_NN management_NN for_IN all-electric_JJ ship_NN power_NN systems_NNS in_IN DC_NP zone_NN level_NN IEEE_NP Trans_NP Power_NP Syst_NP ,_, 27_CD (_( 2012_CD )_) ,_, pp_NP ._SENT 
+1719-1728_CD ,_, 10.1109/TPWRS.2012.2194314_NP CrossRefView_NP Record_NP in_IN ScopusGoogle_JJ Scholar_NN [_SYM 14_CD ]_SYM Z._NP Jin_NP ,_, G._NP Sulligoi_NP ,_, R._NP Cuzner_NP ,_, L._NP Meng_NP ,_, J._NP C._NP Vasquez_NP ,_, J._NP M._NP Guerrero_NP Next-generation_NN shipboard_NN DC_NP power_NN system_NN :_: introduction_NN smart_JJ grid_NN and_CC dc_NN microgrid_NN technologies_NNS into_IN maritime_JJ electrical_JJ networks_NNS IEEE_NP Electrif_NP Mag_NP ,_, 4_CD (_( 2016_CD )_) ,_, pp_NP ._SENT 
+45-57_CD ,_, 10.1109/MELE.2016.2544203_NP CrossRefView_NP Record_NP in_IN ScopusGoogle_JJ Scholar_NN [_SYM 15_CD ]_SYM N._NP Doerry_NP Zonal_JJ ship_NN design_NN Nav_NP Eng_NP J_NP ,_, 118_CD (_( 2006_CD )_) ,_, pp_NP ._SENT 
+39-53_CD ,_, 10.1111/j.1559-3584.2006_NP ._SENT 
+tb00407_JJ ._SENT 
+x_SYM CrossRefView_NP Record_NP in_IN ScopusGoogle_JJ Scholar_NN [_SYM 16_CD ]_SYM J._NP Hou_NP ,_, J._NP Sun_NP ,_, H._NP Hofmann_NP Control_NP development_NN and_CC performance_NN evaluation_NN for_IN battery/flywheel_NN hybrid_JJ energy_NN storage_NN solutions_NNS to_TO mitigate_VV load_NN fluctuations_NNS in_IN all-electric_JJ ship_NN propulsion_NN systems_NNS Appl_NP Energy_NP ,_, 212_CD (_( 2018_CD )_) ,_, pp_NP ._SENT 
+919-930_CD ,_, 10.1016/j_NP ._SENT 
+apenergy.2017.12.098_NP ArticleDownload_NP PDFView_NP Record_NP in_IN ScopusGoogle_JJ Scholar_NN [_SYM 17_CD ]_SYM S._NP Wen_NP ,_, H._NP Lan_NP ,_, Y._NP Y._NP Hong_NP ,_, D._NP C._NP Yu_NP ,_, L._NP Zhang_NP ,_, P._NP Cheng_NP Allocation_NN of_IN ESS_NNS by_IN interval_NN optimization_NN method_NN considering_VVG impact_NN of_IN ship_NN swinging_VVG on_IN hybrid_JJ PV/diesel_NP ship_NN power_NN system_NN Appl_NP Energy_NP ,_, 175_CD (_( 2016_CD )_) ,_, pp_NP ._SENT 
+158-167_CD ,_, 10.1016/j_NP ._SENT 
+apenergy.2016.05.003_NP ArticleDownload_NP PDFView_NP Record_NP in_IN ScopusGoogle_JJ Scholar_NN [_SYM 18_CD ]_SYM J._NP Liu_NP ,_, N._NP Zhang_NP ,_, C._NP Kang_NP ,_, D._NP Kirschen_NP ,_, Q._NP Xia_NP Cloud_NP energy_NN storage_NN for_IN residential_JJ and_CC small_JJ commercial_JJ consumers_NNS :_: a_DT business_NN case_NN study_NN Appl_NP Energy_NP ,_, 188_CD (_( 2017_CD )_) ,_, pp_NP ._SENT 
+226-236_CD ,_, 10.1016/j_NP ._SENT 
+apenergy.2016.11.120_NP ArticleDownload_NP PDFView_NP Record_NP in_IN ScopusGoogle_JJ Scholar_NN [_SYM 19_CD ]_SYM J._NP Liu_NP ,_, N._NP Zhang_NP ,_, C._NP Kang_NP ,_, D._NP S._NP Kirschen_NP ,_, Q._NP Xia_NP Decision-making_NN models_NNS for_IN the_DT participants_NNS in_IN cloud_NN energy_NN storage_NN IEEE_NP Trans_NP Smart_NP Grid_NN ,_, 3053_CD (_( 2017_CD )_) ,_, 10.1109/TSG.2017.2689239_NP 1-1_CD Google_JJ Scholar_NN [_SYM 20_CD ]_SYM R._NP D._NP Rappaport_NP ,_, J._NP Miles_NP Cloud_NP energy_NN storage_NN for_IN grid_NN scale_NN applications_NNS in_IN the_DT UK_NP Energy_NP Policy_NP ,_, 109_CD (_( 2017_CD )_) ,_, pp_NP ._SENT 
+609-622_CD ,_, 10.1016/j_NP ._SENT 
+enpol.2017.07.044_NP ArticleDownload_NP PDFView_NP Record_NP in_IN ScopusGoogle_JJ Scholar_NN [_SYM 21_CD ]_SYM H._NP Broering_NP ,_, R._NP Madlener_NP Simulation_NP and_CC evaluation_NN of_IN the_DT economic_JJ merit_NN of_IN cloud_NN energy_NN storage_NN for_IN prosumers_NNS :_: the_DT case_NN of_IN Germany_NP Energy_NP Procedia_NP ,_, 105_CD (_( 2017_CD )_) ,_, pp_NP ._SENT 
+3507-3514_CD ,_, 10.1016/j_NP ._SENT 
+egypro.2017.03.804_NP ArticleDownload_NP PDFView_NP Record_NP in_IN ScopusGoogle_JJ Scholar_NN [_SYM 22_CD ]_SYM A._NP Hussain_NP ,_, V._NP -H_NP ._SENT 
+Bui_NP ,_, H._NP -M_NP ._SENT 
+Kim_NP A_NP Resilient_JJ and_CC privacy-preserving_JJ energy_NN management_NN strategy_NN for_IN networked_VVN microgrids_NNS IEEE_NP Trans_NP Smart_NP Grid_NN ,_, 3053_CD (_( 2016_CD )_) ,_, 10.1109/TSG.2016.2607422_NP 1-1_CD Google_JJ Scholar_NN [_SYM 23_CD ]_SYM Z._NP Yuan_NP ,_, S._NP Wogrin_NP ,_, M._NP R._NP Hesamzadeh_NP Towards_IN the_DT Power_NP Synergy_NN Hub_NP (_( PSHub_NP )_) :_: coordinating_VVG the_DT energy_NN dispatch_NN of_IN super_JJ grid_NN by_IN modified_JJ benders_NNS decomposition_NN Appl_NP Energy_NP ,_, 205_CD (_( 2017_CD )_) ,_, pp_NP ._SENT 
+1419-1434_CD ,_, 10.1016/j_NP ._SENT 
+apenergy.2017.09.086_NP ArticleDownload_NP PDFView_NP Record_NP in_IN ScopusGoogle_JJ Scholar_NN [_SYM 24_CD ]_SYM S._NP Bahrami_NP ,_, M._NP H._NP Amini_NP A_DT decentralized_JJ trading_NN algorithm_NN for_IN an_DT electricity_NN market_NN with_IN generation_NN uncertainty_NN Appl_NP Energy_NP ,_, 218_CD (_( 2018_CD )_) ,_, pp_NP ._SENT 
+520-532_CD ,_, 10.1016/j_NP ._SENT 
+apenergy.2018.02.157_JJ ArticleDownload_NP PDFView_NP Record_NP in_IN ScopusGoogle_JJ Scholar_NN [_SYM 25_CD ]_SYM Y._NP Zhou_NP ,_, J._NP Wu_NP ,_, C._NP Long_NP Evaluation_NN of_IN peer-to-peer_NN energy_NN sharing_VVG mechanisms_NNS based_VVN on_IN a_DT multiagent_JJ simulation_NN framework_NN Appl_NP Energy_NP ,_, 222_CD (_( 2018_CD )_) ,_, pp_NP ._SENT 
+993-1022_CD ,_, 10.1016/j_NP ._SENT 
+apenergy.2018.02.089_NP ArticleDownload_NP PDFView_NP Record_NP in_IN ScopusGoogle_JJ Scholar_NN [_SYM 26_CD ]_SYM Y._NP Liang_NP ,_, F._NP Liu_NP ,_, C._NP Wang_NP ,_, S._NP Mei_NP Distributed_NP demand-side_JJ energy_NN management_NN scheme_NN in_IN residential_JJ smart_JJ grids_NNS :_: An_DT ordinal_JJ state-based_JJ potential_JJ game_NN approach_NN Appl_NP Energy_NP ,_, 206_CD (_( 2017_CD )_) ,_, pp_NP ._SENT 
+991-1008_CD ,_, 10.1016/j_NP ._SENT 
+apenergy.2017.08.123_NP ArticleDownload_NP PDFView_NP Record_NP in_IN ScopusGoogle_JJ Scholar_NN [_SYM 27_CD ]_SYM Z._NP Wang_NP ,_, B._NP Chen_NP ,_, J._NP Wang_NP ,_, C._NP Chen_NP Networked_VVD microgrids_NNS for_IN self-healing_JJ power_NN systems_NNS IEEE_NP Trans_NP Smart_NP Grid_NN ,_, 7_CD (_( 2016_CD )_) ,_, pp_NP ._SENT 
+310-319_CD ,_, 10.1109/TSG.2015.2427513_NP CrossRefView_NP Record_NP in_IN ScopusGoogle_JJ Scholar_NN [_SYM 28_CD ]_SYM Stephen_NP P._NP Boyd_NP ._SENT 
+ADMM_NP n._NP d._NP https_NP :_: //web_NP ._SENT 
+stanford_NP ._SENT 
+edu/~boyd/admm_NP ._SENT 
+html_NP ._SENT 
+Google_JJ Scholar_NN [_SYM 29_CD ]_SYM H._NP K._NP Nguyen_NP ,_, A._NP Khodaei_NP ,_, Z._NP Han_NP Incentive_NN mechanism_NN design_NN for_IN integrated_JJ microgrids_NNS in_IN peak_JJ ramp_NN minimization_NN problem_NN IEEE_NP Trans_NP Smart_NP Grid_NN ,_, 3053_CD (_( 2017_CD )_) ,_, 10.1109/TSG.2017.2696903_NP 1-1_CD Google_JJ Scholar_NN [_SYM 30_CD ]_SYM Y._NP Wang_NP ,_, L._NP Wu_NP ,_, S._NP Wang_NP A_NP fully-decentralized_VVD consensus-based_JJ ADMM_NP approach_NN for_IN DC-OPF_NP with_IN demand_NN response_NN IEEE_NP Trans_NP Smart_NP Grid_NN ,_, 8_CD (_( 2017_CD )_) ,_, pp_NP ._SENT 
+2637-2647_CD ,_, 10.1109/TSG.2016.2532467_JJ View_NP Record_NP in_IN ScopusGoogle_JJ Scholar_NN [_SYM 31_CD ]_SYM M._NP Diekerhof_NP ,_, F._NP Peterssen_NP ,_, A._NP Monti_NP Hierarchical_JJ distributed_VVN robust_JJ optimization_NN for_IN demand_NN response_NN services_NNS IEEE_NP Trans_NP Smart_NP Grid_NN ,_, 3053_CD (_( 2017_CD )_) ,_, 10.1109/TSG.2017.2701821_JJ 1-1_CD Google_JJ Scholar_NN [_SYM 32_CD ]_SYM M._NP Juelsgaard_NP ,_, P._NP Andersen_NP ,_, R._NP Wisniewski_NP Distribution_NN loss_NN reduction_NN by_IN household_NN consumption_NN coordination_NN in_IN smart_JJ grids_NNS IEEE_NP Trans_NP Smart_NP Grid_NN ,_, 5_CD (_( 2014_CD )_) ,_, pp_NP ._SENT 
+2133-2144_CD ,_, 10.1109/TSG.2014.2312428_NP CrossRefView_NP Record_NP in_IN ScopusGoogle_JJ Scholar_NN [_SYM 33_CD ]_SYM Z._NP Li_NP ,_, M._NP Shahidehpour_NP ,_, W._NP Wu_NP ,_, B._NP Zeng_NP ,_, B._NP Zhang_NP ,_, W._NP Zheng_NP Decentralized_JJ multiarea_NN robust_JJ generation_NN unit_NN and_CC tie-line_NN scheduling_NN under_IN wind_NN power_NN uncertainty_NN IEEE_NP Trans_NP Sustain_VV Energy_NP ,_, 6_CD (_( 2015_CD )_) ,_, pp_NP ._SENT 
+1377-1388_CD ,_, 10.1109/TSTE.2015.2437273_NP CrossRefView_NP Record_NP in_IN ScopusGoogle_JJ Scholar_NN [_SYM 34_CD ]_SYM Y._NP Wang_NP ,_, W._NP Shi_NP ,_, B._NP Wang_NP ,_, C._NP Chu_NP ,_, R._NP Gadh_NP Optimal_JJ operation_NN of_IN stationary_JJ and_CC mobile_JJ batteries_NNS in_IN distribution_NN grids_NNS Appl_NP Energy_NP ,_, 190_CD (_( 2017_CD )_) ,_, pp_NP ._SENT 
+1289-1301_CD ,_, 10.1016/j_NP ._SENT 
+apenergy.2016.12.139_NP ArticleDownload_NP PDFView_NP Record_NP in_IN ScopusGoogle_JJ Scholar_NN [_SYM 35_CD ]_SYM V._NP Bhattacharjee_NP ,_, I._NP Khan_NP A_DT non-linear_JJ convex_JJ cost_NN model_NN for_IN economic_JJ dispatch_NN in_IN microgrids_NP Appl_NP Energy_NP ,_, 222_CD (_( 2018_CD )_) ,_, pp_NP ._SENT 
+637-648_CD ,_, 10.1016/j_NP ._SENT 
+apenergy.2018.04.001_JJ ArticleDownload_NP PDFView_NP Record_NP in_IN ScopusGoogle_JJ Scholar_NN [_SYM 36_CD ]_SYM M._NP Fiedler_NP Algebraic_JJ connectivity_NN of_IN graphs_NNS Czech_JJ Math_NP J_NP ,_, 23_CD (_( 1973_CD )_) ,_, pp_NP ._SENT 
+298-305_CD CrossRefGoogle_JJ Scholar_NN [_SYM 37_CD ]_SYM Song_NP Z_NP ,_, Ren_NP GS_NP ,_, Mirabella_NP L_NP ,_, Srivastava_NP S._NP A_DT resilience_NN metric_NN and_CC its_PP$ calculation_NN for_IN ship_NN automation_NN systems_NNS 2016:1–6_JJ ._SENT 
+Google_JJ Scholar_NN [_SYM 38_CD ]_SYM Ragunathan_NP K_NP ,_, Ravindranathan_NP S_NP ,_, Ssm_NP Naveen_NP ._SENT 
+Statistical_NP KPIs_NP in_IN HMI_NP panels_NNS ._SENT 
+In_RB :_: Proc_NP 2015_CD Int_NP Conf_NP Green_NP Comput_NN Internet_NN Things_NNS ,_, ICGCIoT_NP 2015_CD ;_: 2016._CD p._NN 838–843_NN ._SENT 
+http_NN :_: //doi_NP ._SENT 
+org/10.1109/ICGCIoT.2015.7380579_NP ._SENT 
+Google_JJ Scholar_NN [_SYM 39_CD ]_SYM Z._NP Zhao_NP Optimal_JJ energy_NN management_NN for_IN microgrids_NP [_SYM PhD_JJ Thesis_NN ]_SYM Clemson_NP University_NP ,_, USA_NP (_( 2012_CD )_) Google_JJ Scholar_NN [_SYM 40_CD ]_SYM M._NP Farhadi_NP ,_, O._NP Mohammed_NP Energy_NP storage_NN technologies_NNS for_IN high-power_NN applications_NNS IEEE_NP Trans_NP Ind_NP Appl_NP ,_, 52_CD (_( 2016_CD )_) ,_, pp_NP ._SENT 
+1953-1962_CD ,_, 10.1109/TIA.2015.2511096_NP 

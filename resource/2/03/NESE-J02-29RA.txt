@@ -1,0 +1,176 @@
+<title>Effectiveness analysis of hydrogen control system in AP1000 nuclear power plant under LB-LOCA</title>
+<author>1,XuefengLyu,2,JianCheng,3,YangFeng,4,TianfangLiu,5,XiongHuang</author>
+<Affiliation>1,School of Nuclear Science and Engineering, North China Electric Power University, Beijing 102206, China</Affiliation>
+<year>2020</year>
+<Jounral>Annals of Nuclear Energy</Journal>
+<Publishing_house>ELSEVIER</Publishing_house>
+<Text_Collector>XiaFan，HEU</Text_Collector>
+<DOI>10.1016/j.anucene.2020.107695</DOI>
+<URL>https://www.sciencedirect.com/science/article/pii/S0306454920303935</URL>
+Effectiveness analysis of hydrogen control system in AP1000 nuclear power plant under LB-LOCA
+XuefengLyu,JianCheng,YangFeng,TianfangLiu,XiongHuang
+School of Nuclear Science and Engineering, North China Electric Power University, Beijing 102206, China
+<Section>Highlights</Section>
+Obvious layered distribution is formed in containment.
+Hydrogen control system can effectively reduce the hydrogen risk in most areas.
+There is a DDT risk in the source term compartment.
+<Section>Abstract</Section>
+The operational data and experience of AP1000 under accidents is insufficiency, it is necessary to conduct an effective analysis of the hydrogen control system to improve the safety of nuclear power plants. Three-dimensional computational fluid dynamics code Gasflow is used to study the severe accident caused by the cold leg LB-LOCA in the 1# steam generation compartment, and gravity injection failed. The hydrogen diffusion process, hydrogen distribution, and hydrogen risk in containment of the AP1000 nuclear power plant is analyzed. According to analysis results, hydrogen diffuse from source term compartment to containment dome space, and then to the bottom, obvious layered distribution is formed in containment. AP1000 hydrogen control system can effectively reduce the hydrogen concentration, eliminate the risk of flame acceleration in containment and deflagration to detonation transition in most compartments, but deflagration to detonation transition may occur in the source term compartment.
+Keywords：LB-LOCA；Hydrogen control system；Hydrogen behavior；Hydrogen risk
+<Section>1. Introduction</Section>
+When the core of PWR is melted due to a serious accident, zirconium and other metallic components are oxidized to produce a large amount of hydrogen, which is released into the containment through the breach (Sehgal, 2001). Hydrogen is mixed with steam and air and transmitted in containment, resulting in the increase of hydrogen concentration in the whole or partial location of the containment. Under certain conditions, rapid turbulent combustion and even explosion may occur and seriously affect the integrity of the containment. Just as Fukushima accident, because of invalid of hydrogen control system, hydrogen detonation is occurred, which result in severe consequence (IAEA Expert Mission to Japan, 2011). Due to that, reliability evaluation of hydrogen control system is very necessary for NPPs.
+Sümer Şahin analyzed the gas concentration in containment and the effect of combustible gas control system in CHASHMA nuclear power plant by using combustible gas analysis program COGAP (Şahin and Sarwar, 2013). Gaofeng Huang investigated hydrogen concentration and hydrogen risk of CANDU6 in severe accidents and improved hydrogen control system (Huang and Fang, 2013). Kweonha Park studied hydrogen behavior and hydrogen risk of APR1400 in the case of small break (Park and Khor, 2015). L. L. Tong studied hydrogen source term, hydrogen distribution, and hydrogen risk under severe accidents induced by DVI line break (Tong, 2016). Zhi'ao Huang analyzed hydrogen risk and its mitigation systems in CPR1000 during shutdown conditions (Huang et al., 2019). We have studied the hydrogen risk in AP1000 containment under small break loss of coolant accident (Lyu et al., 2018), and various factors influencing hydrogen risk mitigation effect (Lyu et al., 2017, Lyu et al., 2019, Lyu et al., 2020, Meng et al., 2020). All the researches above are centered on hydrogen behavior, hydrogen risk and hydrogen control system.
+Advanced passive PWR AP1000 is one of the main nuclear power plants in China. Its hydrogen control system is mainly designed with hydrogen igniters and passive hydrogen recombiners. These two kinds of equipment are used to eliminate the hydrogen released to the containment in case of severe accidents to improve the safety of nuclear power plant. Due to the lack of operation data and experience in AP1000, the analysis of the effectiveness of the hydrogen control system has certain guiding value for the safety management and optimal design of AP1000 nuclear power plants.
+The three-dimensional computational fluid dynamics code Gasflow (Travis et al., 2011, Travis et al., 2011) is developed to characterize local phenomena within a flow field. It has been widely applied in the prediction of hydrogen turbulent dispersion and heat transfer inside the containment (Zhang et al., 2018, Zhang et al., 2017, Li et al., 2018), and validation of dynamic film model to provide predictions for both heat and mass transfer between film and gas (Li et al., 2019).
+In order to verify the effectiveness of AP1000 hydrogen control system under large break loss of coolant accident (LB-LOCA), we will use Gasflow code to analyze the hydrogen behavior and explosion risk of AP1000 nuclear power plant under LB-LOCA.
+<Section>2. Model and hydrogen risk criteria</Section>
+2.1. Igniter model
+Gas mixture is combustible under the following conditions: the concentration of steam is lower than 30% and the concentration of hydrogen must be greater than 4%, the concentration of steam is between 30% and 60%, and the concentration of hydrogen is between 4% and 12%. Once the concentration of steam is greater than 60%, it can be considered that the mixed gas is non-combustible (Travis et al., 2011). The igniter model can be simply expressed as follows:
+@(1)
+@(2)
+where @, @ are the volume fraction of steam and hydrogen in the mixed gas respectively. If the two conditions above are satisfied, the hydrogen is in an ignitable state.
+The chemical kinetic equation for the hydrogen reaction is:
+@(3)
+The chemical reaction rate constant  is calculated by the following formula, and the temperature  is usually taken as 2000 K.
+@(4)
+where Cf is the frequency factor, R is the universal constant, 8.314 k J/(mol K), and E is activation energy.
+2.2. Passive hydrogen recombiner model
+The Gasflow program includes NIS hydrogen recombiner, Siemens hydrogen recombiner, siemens-fr-90/1 hydrogen recombiner and GRS hydrogen recombiner models. The Gasflow program includes NIS hydrogen recombiner, Siemens hydrogen recombiner, siemens-fr-90/1 hydrogen recombiner and GRS hydrogen recombiner models. The siemens-fr-90/1 type hydrogen recombiner is used in the simulation process in this paper, so which will be mainly introduced.
+The hydrogen recombination rate of siemens-fr-90/1 hydrogen recombiner is (Travis et al., 2011):
+@(5)
+@(6)
+where K1 and K2 are experimental coefficients,  and  are the volume concentration of hydrogen and oxygen at the inlet of recombiner respectively. P is the pressure.
+As this kind of hydrogen recombiner is a passive device, natural convection is formed by reaction heat release, and the gas is pumped into the recombiner from the inlet, so as to maintain the continuous reaction. The research results show that natural convection can be formed only when the volume fraction of hydrogen in the inlet is higher than 2%. Therefore, we set the start-up condition of the recombiner to be that the volume fraction of hydrogen at the inlet is higher than 2% (Travis et al., 2011).
+2.3. Hydrogen risk criteria
+In Gasflow code, Flame Acceleration (FA) factor is used to assess the possibility of flame acceleration. Deflagration to detonation transition (DDT) factor is used to evaluate the transition possibility from deflagration to detonation. If FA factor is less than 1, hydrogen flame acceleration will not happen, Conversely, flame acceleration may occur (Travis et al., 2011). If DDT factor is less than 1, deflagration to detonation transition will not happen, otherwise, deflagration to detonation transition will occur (Travis et al., 2011).
+2.4. AP1000 containment model
+The diameter of AP1000 steel containment is about 40 m and the height is about 66 m. As shown in Fig. 1, there are two steam generator compartments, one pressure vessel compartment, one pressurizer compartment, one IRWST compartment, upper space, and so on (Lin, 2008. Based on the containment structure of AP1000 nuclear power plant and the arrangement of internal equipments, the geometric model of containment is established in cylindrical coordinate system and shown in Fig. 2.
+Fig. 1. AP1000 containment model.
+Fig. 2. Three-dimensional modeling diagram inside containment.
+<Section>3. Hydrogen and steam source terms</Section>
+The hypothetical accident happens due to a LB-LOCA of cold leg in 1# Steam Generation (SG) compartment with gravity injection failure, and the equivalent diameter of break is 300 mm, which is the same as the reference (Lyu et al., 2019), so we can use the same hydrogen source term and steam source term in this paper. After the accident happens, the hydrogen igniters and the passive hydrogen recombiners operate normally, the RPV bottom head remains intact.
+According to the simulation results in reference (Lyu et al., 2019), the hydrogen generation time is mainly concentrated in 5700 s to 6700 s, the total mass of hydrogen is 305.8 kg. In order to save computing resources, we only analyze the hydrogen behavior from 5700 s to 6700 s. In other words, 5700 s is set as zero calculation time, and stops calculation at 6700 s, and the total calculation time is 1000 s in the Gasflow code. At the beginning of the calculation process, the average temperature is 382 K, and the pressure is 0.253 MPa in containment.
+If hydrogen is ignited at a lower concentration and eliminated in a slower diffusion combustion mode, the risk of flame acceleration and deflagration to detonation transition of hydrogen is actually reduced. In order to maximize the risk of hydrogen, we conservatively assume that diffusion combustion will not occur at a lower concentration when hydrogen enters the containment.
+<Section>4. Results and discussion</Section>
+4.1. Hydrogen behavior in containment
+Fig. 3 shows the volume fraction of hydrogen in the AP1000 containment at various times. As can be seen from Fig. 3. Hydrogen is released from the break to the 1#SG compartment. It first diffuses in the 1# SG compartment, then rapidly rises to the containment dome space in the vertical direction under the action of buoyancy, and finally diffuses to the lower space of containment. It can be concluded that when the gas source terms are located in 1# SG compartment, the main path of hydrogen flow is “1# SG compartment → containment dome space → bottom compartment”. Moreover, obvious hydrogen stratiform is formed in the upper part of the containment, and the volume fraction of hydrogen decreases with the decrease of height. With the passage of time, the layered distribution moves to the lower part of the containment.
+Fig. 3. The volume fraction of hydrogen at various times.
+In order to further understand the concentration distribution of hydrogen in the compartment that the break located, three monitoring points are set in 1# SG compartment shown in Fig. 1 to monitor the local hydrogen concentration change, where monitoring point 1 is located at the corner of the source term compartment, directly above the break, monitoring point 2 is located near the upper outlet of the source term compartment, and monitoring point 3 is located at the channel between the source term compartment and the pressure vessel compartment.
+Fig. 4 shows the change of hydrogen concentration at these three monitoring points. It can be seen from Fig. 4 that in the initial period, hydrogen flow is small and diffusion speed is slow, and hydrogen is detected at monitoring point 1 at 300 s. With the increase of hydrogen flow rate, hydrogen diffuses along the inner wall of the compartment and accumulates at the corner. Over time, hydrogen diffuses toward to around and above the compartment. At 450 s, a large amount of hydrogen diffuses to the upper compartment of containment through monitoring point 2. Due to the large volume in the upper space, the diffusion rate of hydrogen is accelerated, and the volume fraction of hydrogen in monitoring point 1 appeared a sharp decline stage. After 550 s, the volume fraction of hydrogen at monitoring point 2 is larger than that at monitoring point 1. A large amount of hydrogen accumulates between the channel of 1# SG source term compartment and the upper space, and a part remains in the source terms compartment, and a small amount diffuses to the pressure vessel compartment through the channel, which further confirms the main path of hydrogen flow and diffusion.
+Fig. 4. The volume fraction of hydrogen in different monitoring points.
+The average hydrogen concentration in different compartments is shown in Fig. 5. We can find that the volume fraction of hydrogen in pressure vessel compartment, pressurizer compartment, 2# SG compartment and the upper space in containment is not more than 10% during the whole calculation time range, the average hydrogen concentration is effectively controlled. However, the average volume fraction of hydrogen in 1# SG compartment exceeds 10% in the period of 450 s–550 s, which is because that 1# SG compartment is the source term compartment, a large amount of hydrogen in the compartment has not been effectively eliminated.
+Fig. 5. The volume fraction of hydrogen in different compartments.
+4.2. Hydrogen risk
+It can be seen from Fig. 5 that the volume fraction of hydrogen in 1# SG compartment is far greater than the flammability limit of 4%, even more than 10% in a quite long period of time. There are large openings between 1# SG compartment and the containment dome, and the mixed gas is easy to enter the containment dome area, resulting in the hydrogen concentration in the containment dome area slightly higher than 4%, but not more than 10%. Therefore, the source term compartment and containment dome area are the areas to be focused.
+Fig. 6 shows the FA factors in different compartments in containment. It can be seen from the figure that the FA factors of reactor pressure vessel (RPV) compartment, 1# SG compartment, pressurizer compartment, 2# SG compartment and the upper space of containment do not exceed 1.0, which can eliminate the possibility of large-scale hydrogen flame acceleration in containment.
+Fig. 6. The FA factors in different compartments.
+Fig. 7 gives the DDT factors in different compartments. It can be seen from the figure that the DDT factors of RPV compartment, pressurizer compartment, 2# SG compartment and the upper space of containment are all kept at 0.1, which can basically exclude the possibility of deflagration to detonation transition in these areas. However, the DDT factor in 1# SG compartment exceeds 1.0 from 460 s to 550 s, which indicates that the source term compartment is likely to undergo a deflagration to detonation transition. Therefore, we should pay attention to the hydrogen risk of source term compartment in research and design.
+Fig. 7. The DDT factors in different compartments.
+<Section>5. Conclusion</Section>
+In this paper, the computational fluid dynamics program Gasflow is used to study the hydrogen diffusion process, the hydrogen distribution and the hydrogen risk of the AP1000 nuclear power plant in case of LB-LOCA of the main pipeline in 1# SG compartment, and superposing gravity injection failure. The conclusions are as follows:
+1.
+The diffusion path of hydrogen in containment is “source term compartment → containment dome space → bottom compartment”, and the obvious layered distribution is formed in containment.
+2.
+The AP1000 hydrogen control system can effectively reduce the hydrogen concentration of each compartment in the containment. The risk of flame acceleration in each compartment can be basically eliminated, but the source term compartment still has the risk of deflagration to detonation transition.
+3.
+When we improve the hydrogen control system, it is necessary to strengthen the hydrogen risk mitigation measures in the source item compartment, such as post-inerting.
+<Section>CRediT authorship contribution statement</Section>
+Xuefeng Lyu: Conceptualization, Methodology, Resources, Writing - original draft. Jian Cheng: Software, Investigation, Writing - original draft. Yang Feng: Software, Investigation, Writing - review & editing. Tianfang Liu: Formal analysis, Visualization, Validation. Xiong Huang: Methodology, Formal analysis, Investigation.
+<Section>Declaration of Competing Interest</Section>
+The authors declare that they have no known competing financial interests or personal relationships that could have appeared to influence the work reported in this paper.
+<Section>Acknowledgements</Section>
+This research is supported by National Natural Science Foundation of China (No. 51306057, 11805068), Fundamental Research Funds for the Central Universities (No. 2018ZD10, 2018MS041).
+<Section>A. Supplementary </Section>
+The following are the Supplementary data to this article:
+Supplementary data 1.
+<Section>References</Section>
+Huang and Fang, 2013
+Gaofeng Huang, Likai Fang
+Analysis of hydrogen control in severe accidents of CANDU6
+Ann. Nucl. Energy, 60 (2013), pp. 301-307
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+Huang et al., 2019
+Zhi'ao Huang, Huifang Miao, Ning Li
+Analysis of hydrogen risk and its mitigation systems in CPR1000 during shutdown conditions
+Prog. Nucl. Energy, 115 (2019), pp. 194-207
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+IAEA Expert Mission to Japan, 2011
+IAEA Expert Mission to Japan. Mission report of IAEA international fact finding expert mission of the Fukushima Dai-ichi NPP accident following the great East Japan earthquake and tsunami. 2011. 6. http://www.iaea.org/newscenter/focus/fukushima/.
+Google Scholar
+Li et al., 2018
+Yabing Li, Han Zhang, Jianjun Xiao, et al.
+Numerical investigation of natural convection inside the containment with recovering passive containment cooling system using GASFLOW-MPI
+Ann. Nucl. Energy, 114 (2018), pp. 1-10
+ArticleDownload PDFCrossRefView Record in ScopusGoogle Scholar
+Li et al., 2019
+Yabing Li, Han Zhang, Jianjun Xiao, et al.
+Numerical study of thermal hydraulics behavior on the integral test facility for passive containment cooling system using GASFLOW-MPI
+Ann. Nucl. Energy, 123 (2019), pp. 86-96
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+Lin, 2008
+Chengge Lin
+An advanced passive plant AP1000
+Atomic Energy Press, Beijing (2008)
+Google Scholar
+Lyu et al., 2017
+Xuefeng Lyu, Xiaobo Lee, Ke Ji
+Impact of inert gas injection rate on reducing hydrogen risk during AP1000 post-inerting
+Ann. Nucl. Energy, 110 (2017), pp. 230-233
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+Lyu et al., 2018
+Xuefeng Lyu, Zeyun Xun, Ke Ji, et al.
+Analysis on hydrogen control system in AP1000 NPP
+Ann. Nucl. Energy, 113 (2018), pp. 279-285
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+Lyu et al., 2019
+Xuefeng Lyu, Xiangyuan Meng, Boxue Wang, et al.
+Analysis of different inert gas injection point's influence on hydrogen risk during post-inerting in nuclear power plant
+Ann. Nucl. Energy, 129 (2019), pp. 249-252
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+Lyu et al., 2020
+Xuefeng Lyu, Boxue Wang, Shuai Liu, et al.
+Effect on hydrogen risk of total amount of inert gas during post-inerting in AP1000 NPP
+Ann. Nucl. Energy, 140 (2020), p. (online)
+Google Scholar
+Meng et al., 2020
+Xiangyuan Meng, Xuefeng Lyu, Boxue Wang, et al.
+The measure on mitigating hydrogen risk during LOCA accident in nuclear power plant
+Ann. Nucl. Energy, 136 (2020)
+(online)
+Google Scholar
+Park and Khor, 2015
+Kweonha Park, Chong Lee Khor
+Consideration on hydrogen explosion scenario in APR 1400 containment building during small breakup loss of coolant accident
+Nucl. Eng. Des., 293 (2015), pp. 458-467
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+Şahin and Sarwar, 2013
+Sümer Şahin, Mohammad Sohail Sarwar
+Hydrogen hazard and mitigation analysis in PWR containment
+Ann. Nucl. Energy, 58 (2013), pp. 132-140
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+Sehgal, 2001
+B.R. Sehgal
+Accomplishments and challenges of the severe accident research
+Nucl. Eng. Des., 210 (2001), pp. 79-94
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+Tong, 2016
+L.L. Tong
+Hydrogen risk for advanced PWR under typical severe accidents induced by DVI line break
+Ann. Nucl. Energy, 94 (2016), pp. 325-331
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+Travis et al., 2011
+Travis, J.R., Royl, P., Necker, G.A., et al., 2011. GASFLOW: A Computational Fluid Dynamics Code for Gases, Aerosols and Combustion. Volume 1: Theory and Computational Model. Karlsruhe: FzK.
+Google Scholar
+Travis et al., 2011
+Travis, J.R., Royl, P., Necker, G.A., et al., 2011. GASFLOW: A Computational Fluid Dynamics Code for Gases, Aerosols and Combustion. Volume 2: User’s Manual. Karlsruhe: FzK.
+Google Scholar
+Zhang et al., 2017
+Han Zhang, Yabing Li, Jianjun Xiao, et al.
+Large eddy simulation of turbulent flow using the parallel computational fluid dynamics code GASFLOW-MPI
+Nucl. Eng. Technol., 49 (2017), pp. 1310-1317
+ArticleDownload PDFView Record in ScopusGoogle Scholar
+Zhang et al., 2018
+Han Zhang, Yabing Li, Jianjun Xiao, et al.
+Uncertainty analysis of condensation heat transfer benchmark using CFD code GASFLOW-MPI
+Nucl. Eng. Des., 340 (2018), pp. 308-317
+ArticleDownload PDFView Record in ScopusGoogle Scholar

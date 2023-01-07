@@ -1,0 +1,67 @@
+<title>Development of Data Acquisition and Protection System of Infrared Thermometer for EAST NBI</title>
+<Affiliation>a.Chinese Academy of Sciences, Institute of Plasma Physics, Hefei 230031, China
+b.Graduate School, University of Science and Technology of China, Hefei 230026, China</Affiliation>
+<author>C. D. Hu, W. Liu, C. C. Jiang, L. Z. Liang, S. Liu, S. H. Song, J. X. Wang & L. Tao</author>
+<year>2016</year>
+<Jounral>FUSION SCIENCE AND TECHNOLOGY</Journal>
+<Publishing_house>American Nuclear Society </Publishing_house>
+<Text_Collector>田苗，BFSU</Text_Collector>
+<DOI>10.1080/15361055.2017.1372681</DOI>
+<URL> http://dx.doi.org/10.1080/15361055.2017.1372681</URL>
+Abstract — Neutral beam injection (NBI) is one of the heating methods in tokamaks. In the process of injection, the neutral particles will not be absolutely absorbed by plasma. The unabsorbed  neutral  particles penetrate plasma and are shot at inner wall tiles. It will cause the temperature increases of   armor tiles that are placed opposite the NBI injection windows. In order to ensure that the armor tiles work during a safe interval, the data acquisition and protection system of infrared thermometer has been developed. The system achieves the functions of isolated transmission, remote monitoring, and fast protection. The response time of data acquisition and protection system is less than 5 μ, and the transmission rate of the system is 5 kHz. The quick response and stability of the data acquisition and protection system have been confirmed in practice.
+Keywords — Data acquisition, protection system, armor tiles.
+Note — Some figures may be in color only in the electronic version.
+I.INTRODUCTION
+Nowadays, neutral beam injection (NBI) is the most obvious and ideal heating method. The construction of NBI is so as to support the physical research of Experimental Advanced Superconducting Tokamak (EAST), and two beam lines have been developed.1 EAST is designed for long-pulse mode, so NBI must work in long-pulse injection mode.2 The temperature of inner wall tiles located opposite NBI injection windows will increase the process of long-pulse and high-power injection. If the temperature increase is above 600°C, the armor tiles may be damaged or displaced.3 In order to monitor temperature increases and transfer data dynami- cally, the data acquisition and protection system of infra- red thermometer has been developed.
+The data acquisition and protection system will send an alarm signal to the interlock protection system when temperature increases are above the threshold voltage. Then the process of injection will be shut down by the interlock protection system. The temperature data are transmitted to the PXI-2022 sampling card dynamically.4 Voltage-to-frequency (V/F) and frequency-to-voltage (F/V) technologies are adopted in data transmission, which achieve the isolated transmission of the system.  Operators can communicate with the data acquisition and protection system by RS485. The galvanic isolation is guaranteed by two fiber optic modules, which act as elec- trical barriers between the communication parts of the RS485, thus isolating the receiver and transmitter of the system. At the end of injection, the temperature data of one shot are shown in NBWave, which is the graphical display software for EAST NBI. The system schematic is shown in Fig. 1.
+Fig. 1.  Schematic diagram of data acquisition and protection system.
+II.SYSTEM HARDWARE DESIGN
+The individual components of the data acquisition and protection system are shown in Fig. 2. The system contains various modules, such as current-to-voltage (I/V) converter, V/F converter, voltage comparator, RS485 communication, optical fiber annunciator, and microcontroller unit (MCU). The isolated power supply chosen for the system provides galvanic isolation. The IRCON infrared thermometer is used as the thermometer sensor in this system.
+II.A.Microcontroller Unit
+The control chip ATmega16 contained in the system has various advantages, including 16 kbyte flash, 1 kbyte
+static random access memory, and 10-bit analog-to-digital (A/D) converter with 10 channels. Processing speeds of ATmega16 reach 16 MHz with 5 V power supply. The LC filter added into the power supply of the A/D converter reduces the electromagnetic interference of the digit circuit.
+II.B.I/V Conversion
+The temperature data of armor tiles is converted into a 4 ~ 20 mA current signal by infrared thermometer. The current signal is converted into 2.5 ~ 12.5 V voltage signal through 625 Ω resistance. The voltage signal is converted to 0 ~ 10 V by differential amplifier circuit and loaded into voltage comparator and V/F circuit. The OP07 operational amplifier selected for differential amplifier circuit contains
+Fig. 2. The individual components of the system.
+the advantages of lower noise and offset current. The OP07 has no need for zero because of the low offset voltage. These operation amplifiers have internal unity- gain frequency compensation. This considerably simplifies their application because no external components are necessary for operation. Figure 3 shows the structure of the differential amplification circuit.5 The value of input resistances is calculated by Eq. (1):
+@1
+It is shown that the circuit is used as a subtraction circuit when R4/R2 = R3/R1 = 1. If the selected value of input resistances is too large, the offset voltage of the amplifier is not ideal. At the same time, the impedance matching is under consideration, so the resistances are set with 10 k ohm.
+II.C.Voltage Comparator
+If the voltage generated by I/V converter is above protection value, the comparator will send TTL logical signal that is selected as the trigger of the optical fiber  annunciator.6
+The LM393 comparator is adopted as voltage com- parator, and it consists of two independent voltage com- parators that are designed to operate from a single power supply over a wide range of voltage.7 The outputs are connected to other open-collector outputs of SN75452 to achieve wired-AND relationships.
+II.D.Optical Fiber Annunciator
+If the optical fiber annunciator receives a trigger signal from the voltage comparator, it  will  send  an alarm signal to interlock protection by fiber. Then the process of injection will be shut down.3
+The optical fiber annunciator consists of SN75452 and HFBR1414. The SN75452B are dual peripheral NAND drivers, with the output of the logic gates internally connected to the bases of the npn output transistors. The HFBR1414 component is designed to provide cost-effective, high-performance fiber optic communication links for information systems and industrial applications. In  Fig.  4,  the  one  input  pin  of SN75452 is connected  to  +5  V, and  the  other  input pin is connected to TTL signal, which is gener- ated by voltage comparator.  The  transistor  of SN75452 will under the condition  of  breakover, which is caused by a  high-level  TTL  signal.  The diode of HFBR1414 will turn on, when SN75452 is under the condition of breakover. The  alarm  signal will be sent to interlock protection.
+If the maximum distance required is 400 m, the drive current should be 15 mA. The voltage of HFBR1414 is
+1.5 V. R1 is calculated by the following in Eq. (2):
+@2
+II.E.RS485 Communication
+During the experiments, operators need to send com- mands to the infrared thermometer. Meanwhile, the voltage signal generated by I/V converter needs to be sampled and transmitted to a computer by ATmega16 dynamically. RS485 is selected as the communication protocol between ATmega16 and the computer. The chip MAX485 is chosen for RS485 communication, which is operated by a sign 5-V supply. Half-duplex application is designed in MAX485 that contains both driver and receiver. RO is the output pin of the driver, and DI is the input pin of the receiver. RXD and TXD of MCU are connected with DI and RO by photoelectric isolation circuit.
+In order to reduce the interference from the communi- cation, the pins of ATmega16 are connected to MAX485 by photoelectric isolation 6N137 and PC817. In order to avoid damage from sudden surge, transient voltage suppressor
+Fig. 3. I/V and differential amplifier circuit.
+Fig. 4. Optical fiber annunciator circuit.
+SMBJ6.0CA is added to the input port. In order to reduce the effect of power supply noise, a 0.1-μF ceramic bypass capacitor is connected to VCC of chips and to ground. The RS485 communication circuit is shown in Fig. 5.
+II.F.V/F Converter
+The voltage generated from I/V is converted to an optical frequency signal by V/F converter circuit. The optical frequency signal is received and converted to voltage by F/V converter circuit, and then the voltage is loaded to PXI platform. At the end of one shot, the temperature data are shown in NBWave absolutely.
+The AD650 used in V/F and F/V circuit contains advantages of high-frequency operation and low
+Fig. 5. Schematic diagram of RS485 communication circuit.
+nonlinearity previously unavailable in monolithic form.8 A wide range of input voltage used by a flexible input  configuration and simple interfacing to either standard logic families or optocouplers is allowed by open- collector output with separate digital ground.
+If the AD650 is used at or near its maximum frequency, 1 MHz, proper reduction factor techniques should be con- sidered. Lead lengths should be kept as short as possible, especially on the power supply and the one shot.9 If max- imum output frequencies are above 500 kHz, a 3.6 kΩ pull- down resistor from Vout to –Vs is needed. The integration capacitor Cin can be calculated using Eq. (3):
+@3
+where fMAX is the maximum output frequency of AD650 and s is the time unit. The minimum of Cin is 1000 pF. The 1-MHz V/F connection diagram is shown in Fig. 6.
+III.EXPERIMENTAL RESULT
+In order to ensure the fast response character of a system, the response time of a monitor protection sys- tem must be less than 1 ms during the procession of injection. The experimental result of the monitor pro- tection system is shown in Fig. 7. CH1 represents protection value, CH2 represents the output of the infrared thermometer, and the output signal of voltage comparer is shown by CH3. If  the  voltage  out  from  I/V converter is above the protection value, the voltage comparator will send a high-level TTL to trigger the
+Fig. 6. Diagram of V/F circuit.
+Fig. 7. Response time of data acquisition and protection system.
+optical fiber annunciator. As shown in Fig. 7, the response time of the monitor protection system is less than 5 μ, which is much less than 1 ms.
+In Fig. 8, the temperature rise of  armor  tiles  is under 50 kV at 4 s.  The injection power, pulse width,  and plasma density are the important factors of the temperature rise of armor tiles.10 Figure 9 shows the temperature  rise  of  modulation  mode  that  is  under  50 kV at 3.5 s.
+As shown in Fig. 10, the beam extraction is shut down when the temperature rise of inner wall tiles is above 600°C. The inner wall tiles will avoid being damaged by overheat load.
+IV.CONCLUSION
+The data acquisition and protection system of the infrared thermometer is proved to have stability and
+Fig. 8.  The temperature rise of armor tiles is under the injection condition of continuous mode.
+Fig. 9.  The temperature rise of armor tiles is under the modulation mode.
+Fig. 10.  The data acquisition and protection system provides the protection when the temperature rise is above 600°C.
+fast protection during the process of injection. If the frequency of voltage signal is not above 5 kHz, the acquisition signal is transmitted by V/F/V converter without distortion. The linearity error of V/F/V conver- sion is typically 1% at 1 MHz full scale. The response time of system is less than 5 μ. The experimental results show that the data acquisition and protection system of
+the inner wall tiles provides protection for the EAST against excessive neutral beam shinethrough.11
+Acknowledgments
+We acknowledge the Key Program of Research and Development	of	Hefei	Science	Center,	CAS	(grant 2016HSC-KPRD002), the National Natural Science Foundation of China (grant 11575240), and the Foundation of ASIPP (grant DSJJ-15-GC03 and DSJJ-15-GC02).
