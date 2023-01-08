@@ -1,6 +1,6 @@
 from rest_framework import serializers
 
-from .models import ArticlePost, Picture
+from .models import ArticlePost, Picture, Category, File
 
 from config import addr
 
@@ -37,4 +37,27 @@ class PictureSerializer(serializers.ModelSerializer):
         return f"http://{addr.baseURL}/media/{obj.img}"
 
     def get_pid(self, obj):
+        return obj.id
+
+
+class CategorySerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Category
+        fields = (
+            'name',
+        )
+
+
+class FileSerializer(serializers.ModelSerializer):
+    category = CategorySerializer()
+    fid = serializers.SerializerMethodField()
+    create_time = serializers.DateTimeField(format="%Y-%m-%d %H:%M:%S")
+
+    class Meta:
+        model = File
+        fields = (
+            'fid', 'name', 'sub_name', 'category', 'create_time'
+        )
+
+    def get_fid(self, obj):
         return obj.id

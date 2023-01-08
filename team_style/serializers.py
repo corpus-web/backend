@@ -7,13 +7,13 @@ from config import addr
 
 class MultiSerializer(serializers.ModelSerializer):
     pictureurl = serializers.SerializerMethodField()
-    create_time = serializers.DateTimeField(format="%Y-%m-%d")
+    prize_time = serializers.DateTimeField(format="%Y-%m-%d")
     pid = serializers.SerializerMethodField()
 
     class Meta:
         model = Prize
         fields = (
-            'pid', 'pictureurl', 'create_time', 'text',
+            'pid', 'pictureurl', 'prize_time', 'text',
         )
 
     def get_pictureurl(self, obj):
