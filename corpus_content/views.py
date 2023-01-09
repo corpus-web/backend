@@ -7,8 +7,8 @@ from rest_framework.response import Response
 from corpus_web.settings import BASE_DIR
 from pkg.auth import require_login
 from .utils import simpleSearch
-from .models import ArticlePost, Picture
-from .serializers import ArticlePostSerializer, PictureSerializer
+from .models import ArticlePost, Picture, Category, File
+from .serializers import ArticlePostSerializer, PictureSerializer, FileSerializer
 
 
 class TestView(APIView):
@@ -101,3 +101,29 @@ class PictureView(APIView):
             return Response({"detail": "未指定要删除的数据"}, status=status.HTTP_400_BAD_REQUEST)
         Picture.objects.filter(id=pid).delete()
         return Response({"detail": "ok"}, status=status.HTTP_200_OK)
+
+
+class FileViews(APIView):
+    def get(self, request):
+        # reg = request.GET.get('reg')
+        reg = r'\b(It_PP|it_PP)\s(is_VBZ|was_VBD)\s\w+_JJ\sthat'
+        print(type(reg))
+        print(reg[0:2])
+        # file_obj = File.objects.filter(text__icontains='The_DT water_NN spray_NN')[0:10]
+        file_obj = File.objects.filter(text__iregex=r'{}'.format(reg))[0:10]
+        return Response(FileSerializer(file_obj, many=True).data)
+
+    def post(self, request):
+        file = request.FILES.get('file')
+        name = file.name
+        text = file.read()
+        category_id = request.data.get('category') or 1
+        _category = Category.objects.get(id=category_id)
+        sub_name = request.data.get('sub_name')
+        File.objects.create(
+            name=name,
+            sub_name=sub_name,
+            category=_category,
+            text=text
+        )
+        return Response({"detail": "ok"}, status=status.HTTP_201_CREATED)
