@@ -1,37 +1,37 @@
 import os
 import re
 
-from corpus_content.models import ArticlePost
+# from corpus_content.models import ArticlePost
 from corpus_web.settings import BASE_DIR
 
 from random import shuffle
 
 
-def search(word_str: str, window_size: int, current_page: int, max_num: int, category: int, limitcase=False,
-           randomcase=False):
-    if int(category) == 0:
-        query_set = ArticlePost.objects.all()
-    else:
-        query_set = ArticlePost.objects.filter(category=category)
-    res_list: list = []
-    total = 0
-    for essay in query_set:
-        essay_path = r"{}".format(str(BASE_DIR) + "/media/{}".format(str(essay.file)))
-        with open(essay_path, 'r', encoding='latin-1') as f:
-            essay_text = f.read()
-        if limitcase:
-            position_list = [m.start() for m in re.finditer(" " + word_str, essay_text)]
-        else:
-            position_list = [m.start() for m in re.finditer(" " + word_str, essay_text, re.I)]
-        for i in position_list:
-            fid = essay.id
-            fname = os.path.basename(str(essay.file))
-            fline = get_line(essay_text, word_str, window_size, i)
-            res_list.append({"id": fid, "fname": fname, "fline": fline})
-            total += 1
-    if randomcase:
-        shuffle(res_list)
-    return {"total": total, "data": res_list[(int(current_page) - 1) * int(max_num):int(current_page) * int(max_num)]}
+# def search(word_str: str, window_size: int, current_page: int, max_num: int, category: int, limitcase=False,
+#            randomcase=False):
+#     if int(category) == 0:
+#         query_set = ArticlePost.objects.all()
+#     else:
+#         query_set = ArticlePost.objects.filter(category=category)
+#     res_list: list = []
+#     total = 0
+#     for essay in query_set:
+#         essay_path = r"{}".format(str(BASE_DIR) + "/media/{}".format(str(essay.file)))
+#         with open(essay_path, 'r', encoding='latin-1') as f:
+#             essay_text = f.read()
+#         if limitcase:
+#             position_list = [m.start() for m in re.finditer(" " + word_str, essay_text)]
+#         else:
+#             position_list = [m.start() for m in re.finditer(" " + word_str, essay_text, re.I)]
+#         for i in position_list:
+#             fid = essay.id
+#             fname = os.path.basename(str(essay.file))
+#             fline = get_line(essay_text, word_str, window_size, i)
+#             res_list.append({"id": fid, "fname": fname, "fline": fline})
+#             total += 1
+#     if randomcase:
+#         shuffle(res_list)
+#     return {"total": total, "data": res_list[(int(current_page) - 1) * int(max_num):int(current_page) * int(max_num)]}
 
 
 def get_line(text_str: str, word_str: str, window_size: int, word_index: int):
