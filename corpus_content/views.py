@@ -7,7 +7,7 @@ from rest_framework.response import Response
 
 from corpus_web.settings import BASE_DIR
 from pkg.auth import require_login
-from .utils import simpleSearch
+from .utils import simpleSearch, dbSearch
 from .models import ArticlePost, Picture, Category, File
 from .serializers import ArticlePostSerializer, PictureSerializer, FileSerializer
 
@@ -106,14 +106,30 @@ class PictureView(APIView):
 
 class FileViews(APIView):
     def get(self, request):
-        _reg = request.GET.get('reg')
-        # reg = r'\b(It_PP|it_PP)\s(is_VBZ|was_VBD)\s\w+_JJ\sthat'
-        reg = re.compile(_reg)
-        print(reg)
-        print(type(reg))
-        # file_obj = File.objects.filter(text__icontains='The_DT water_NN spray_NN')[0:10]
-        file_obj = File.objects.filter(text__regex=reg)[0:10]
-        return Response(FileSerializer(file_obj, many=True).data)
+        word = request.GET.get('word')
+        regex = request.GET.get('regex')
+        limitcase = request.GET.get('limitcase') or False
+        randomcase = request.GET.get('randomcase') or False
+        category = request.GET.get('category') or 0
+        page = request.GET.get('page') or 1
+        per_page = request.GET.get('per_page') or 10
+        window_size = request.GET.get('window_size') or 50
+        if word:
+            a = dbSearch.get_essay_list_by_word(
+                word=word,
+                limitcase=limitcase,
+                randomcase=randomcase,
+                category=category,
+                page=page,
+                per_page=per_page,
+                window_size=window_size
+            )
+            return Response(a, status=status.HTTP_200_OK)
+        elif regex:
+            file_obj = File.objects.filter(text__regex=regex)[0:10]
+            return Response(FileSerializer(file_obj, many=True).data)
+        else:
+            return Response({"detail": "未输入要查询的单词"}, status=status.HTTP_400_BAD_REQUEST)
 
     def post(self, request):
         file = request.FILES.get('file')
