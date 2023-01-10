@@ -1,4 +1,5 @@
 import os
+import re
 
 from rest_framework import status
 from rest_framework.views import APIView
@@ -105,12 +106,13 @@ class PictureView(APIView):
 
 class FileViews(APIView):
     def get(self, request):
-        # reg = request.GET.get('reg')
-        reg = r'\b(It_PP|it_PP)\s(is_VBZ|was_VBD)\s\w+_JJ\sthat'
+        _reg = request.GET.get('reg')
+        # reg = r'\b(It_PP|it_PP)\s(is_VBZ|was_VBD)\s\w+_JJ\sthat'
+        reg = re.compile(_reg)
+        print(reg)
         print(type(reg))
-        print(reg[0:2])
         # file_obj = File.objects.filter(text__icontains='The_DT water_NN spray_NN')[0:10]
-        file_obj = File.objects.filter(text__iregex=r'{}'.format(reg))[0:10]
+        file_obj = File.objects.filter(text__regex=reg)[0:10]
         return Response(FileSerializer(file_obj, many=True).data)
 
     def post(self, request):
