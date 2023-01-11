@@ -80,8 +80,8 @@ def get_frequency_list(word_or_regex, limit_case=False, category=1, query_method
             pattern = re.compile(reg)
         else:
             pattern = re.compile(reg, re.I)
-        match_list = []
         for essay in query_set:
+            match_list = []
             m = pattern.finditer(essay.text)
             for finditer in m:
                 match_list.append(finditer.group())
@@ -111,6 +111,12 @@ def format_str(text):
         text = text.replace(i, " ")
     text = text.replace("_,", "")
     text = text.replace(" ,", ",")
+    text = text.replace("\\xce", "")
+    text = text.replace("\\x94", "")
+    text = text.replace("  ", " ")
+    text = text.replace(" ", " ")
+    text = text.replace(" )_", "")
+    text = text.replace(" .", ".")
     if text[-1] == " ":
         text = text[:-1]
     if text[-1] == "_":
