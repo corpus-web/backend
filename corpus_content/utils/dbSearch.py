@@ -113,10 +113,17 @@ def format_str(text):
     text = text.replace(" ,", ",")
     text = text.replace("\\xce", "")
     text = text.replace("\\x94", "")
+    text = text.replace("\\xe2", "")
+    text = text.replace("\\xaf", "")
+    text = text.replace("\\x93", "")
+    text = text.replace("\\x80", "")
+    text = text.replace("\\xb2", "")
     text = text.replace("  ", " ")
     text = text.replace(" ", " ")
     text = text.replace(" )_", "")
+    text = text.replace(" (_", "")
     text = text.replace(" .", ".")
+    text = text.replace(" ;_:", ":")
     if text[-1] == " ":
         text = text[:-1]
     if text[-1] == "_":
