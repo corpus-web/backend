@@ -106,33 +106,43 @@ class PictureView(APIView):
         return Response({"detail": "ok"}, status=status.HTTP_200_OK)
 
 
+class FormatView(APIView):
+    def get(self, request):
+        word_or_regex = request.GET.get('word_or_regex')
+        limit_case = request.GET.get('limit_case') or False
+        category = request.GET.get('category') or 0
+        query_method = request.GET.get('query_method') or 0
+        return Response(
+            dbSearch.get_frequency_list(
+                word_or_regex=word_or_regex,
+                limit_case=limit_case,
+                category=category,
+                query_method=query_method
+            ),
+            status=status.HTTP_200_OK
+        )
+
+
 class FileViews(APIView):
     def get(self, request):
-        word = request.GET.get('word')
-        regex = request.GET.get('regex')
-        limitcase = request.GET.get('limitcase') or False
-        randomcase = request.GET.get('randomcase') or False
+        word_or_regex = request.GET.get('word_or_regex')
+        limit_case = request.GET.get('limit_case') or False
+        random_case = request.GET.get('random_case') or False
         category = request.GET.get('category') or 0
         page = request.GET.get('page') or 1
         per_page = request.GET.get('per_page') or 10
         window_size = request.GET.get('window_size') or 50
-        if word:
-            a = dbSearch.get_essay_list_by_word(
-                word=word,
-                limitcase=limitcase,
-                randomcase=randomcase,
+        if word_or_regex:
+            res_list = dbSearch.get_essay_list_by_word(
+                word=word_or_regex,
+                limit_case=limit_case,
+                random_case=random_case,
                 category=category,
                 page=page,
                 per_page=per_page,
                 window_size=window_size
             )
-            return Response(a, status=status.HTTP_200_OK)
-        elif regex:
-            reg = r"(It_PP|it_PP)\s(is_VBZ|was_VBD)\s\w+_JJ\sthat"
-            reg_text = "(It_PP|it_PP)\s(is_VBZ|was_VBD)\s\w+_JJ\sthat"
-            reg1 = r"{}".format(reg_text)
-            file_obj = File.objects.filter(text__regex=regex)
-            return Response(FileSerializer(file_obj, many=True).data)
+            return Response(res_list, status=status.HTTP_200_OK)
         else:
             return Response({"detail": "未输入要查询的单词"}, status=status.HTTP_400_BAD_REQUEST)
 

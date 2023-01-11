@@ -64,29 +64,29 @@ def get_words(essay, text_str: str, word_list: list, words_all_dict: dict, words
     return word
 
 
-def search_new(old_word_str: str, category: int = 0, limitcase=False):
-    word_str = ' ' + old_word_str
-    if int(category) == 0:
-        query_set = ArticlePost.objects.all()
-    else:
-        query_set = ArticlePost.objects.filter(category=category)
-    words_all_dict: dict = {}
-    words_all_list: list = []
-    res_list = []
-    for essay in query_set:
-        words_dict = {}
-        essay_path = r"{}".format(str(BASE_DIR) + "/media/{}".format(str(essay.file)))
-        with open(essay_path, 'r', encoding='latin-1') as f:
-            essay_text = f.read()
-        if limitcase:
-            position_list = [m.start() for m in re.finditer(word_str, essay_text)]
-        else:
-            position_list = [m.start() for m in re.finditer(word_str, essay_text, re.I)]
-        if len(position_list) > 0:
-            word_list = []
-            for i in position_list:
-                get_words(essay, essay_text, word_list, words_all_dict, words_dict, int(i))
-            res_list.append(words_dict)
-    for k in words_all_dict:
-        words_all_list.append({'name': k, 'num': words_all_dict[k]})
-    return res_list, words_all_list
+# def search_new(old_word_str: str, category: int = 0, limitcase=False):
+#     word_str = ' ' + old_word_str
+#     if int(category) == 0:
+#         query_set = ArticlePost.objects.all()
+#     else:
+#         query_set = ArticlePost.objects.filter(category=category)
+#     words_all_dict: dict = {}
+#     words_all_list: list = []
+#     res_list = []
+#     for essay in query_set:
+#         words_dict = {}
+#         essay_path = r"{}".format(str(BASE_DIR) + "/media/{}".format(str(essay.file)))
+#         with open(essay_path, 'r', encoding='latin-1') as f:
+#             essay_text = f.read()
+#         if limitcase:
+#             position_list = [m.start() for m in re.finditer(word_str, essay_text)]
+#         else:
+#             position_list = [m.start() for m in re.finditer(word_str, essay_text, re.I)]
+#         if len(position_list) > 0:
+#             word_list = []
+#             for i in position_list:
+#                 get_words(essay, essay_text, word_list, words_all_dict, words_dict, int(i))
+#             res_list.append(words_dict)
+#     for k in words_all_dict:
+#         words_all_list.append({'name': k, 'num': words_all_dict[k]})
+#     return res_list, words_all_list
