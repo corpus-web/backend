@@ -47,7 +47,7 @@ class UserCreateView(APIView):
     def get(self, request):
         return Response(UserSerializer(User.objects.all(), many=True).data, status=status.HTTP_200_OK)
 
-    @require_login
+    # @require_login
     def post(self, request):
         username = request.data.get('username')
         password = request.data.get('password')

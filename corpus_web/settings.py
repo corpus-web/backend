@@ -93,7 +93,9 @@ CACHES = {
         "BACKEND": "django_redis.cache.RedisCache",
         "LOCATION": "redis://127.0.0.1:6379",
         "OPTIONS": {
-            "CLIENT_CLASS": "django_redis.client.DefaultClient"
+            "db": "1",
+            "parser_class": "redis.connection.HiredisParser",
+            "pool_class": "redis.ConnectionPool",
         }
     }
 }
