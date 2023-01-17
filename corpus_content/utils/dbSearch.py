@@ -1,3 +1,4 @@
+import random
 import re
 from random import shuffle
 
@@ -31,6 +32,7 @@ def get_essay_list_by_word(word, limit_case=False, random_case=False, category=1
             total += 1
         if random_case:
             shuffle(res_list)
+            # sorted(res_list, key=lambda _: random.random())
     return {
         "total": total,
         "data": res_list[(int(page) - 1) * int(per_page):int(page) * int(per_page)]
@@ -72,7 +74,7 @@ def get_frequency_list(word_or_regex, limit_case=False, category=1, query_method
                 query_set = File.objects.filter(category_id=int(category), text__icontains=word_or_regex)
                 for essay in query_set:
                     total += essay.text.count(word_or_regex)
-        return [{"name": word_or_regex, "s_name": word_or_regex, "num": total}]
+        return [{"name": word_or_regex, "s_name": word_or_regex[:len(word_or_regex)-1], "num": total}]
     else:
         reg = r"{}".format(word_or_regex)
         if int(category) == 0:
@@ -119,7 +121,8 @@ def format_str(text):
     rep_list = ["\\xce", "\\x94", "\\xe2", "\\xaf", "\\x93", "\\x80", "\\xb2", "\\xef", "\\xac", "\\x02", "\\x81",
                 "\\x9c", "\\x9d", "\\x82", "\\x84", "\\xcf", "\\x89", "\\xbc", "\\x8b", "\\x85", "\\x88", "\\x92",
                 "\\xa5", "\\xa6", "\\x91", "\\x9b", "\\xbd", "\\xf0", "\\x96", "\\x8f", "\\x86", "\\xb1", "\\x9d",
-                "\\xa1", "\\x83", "\\x90", "\\rb7", "\\x99", "\\xb7", "\\xc3", "\\xa8", "\\x97", "\\xc5", "\\x98"]
+                "\\xa1", "\\x83", "\\x90", "\\rb7", "\\x99", "\\xb7", "\\xc3", "\\xa8", "\\x97", "\\xc5", "\\x98",
+                "\\xb4", "\\x87", "\\xcb", "\\xa2", "\\x8a", "\\xa4", "\\xcc", "\\xc2", "\\xb0"]
     for i in rep_list:
         if i in text:
             text = text.replace(i, "")

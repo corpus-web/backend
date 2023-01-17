@@ -40,6 +40,8 @@ class FormatView(APIView):
         limit_case = request.GET.get('limit_case') or False
         category = request.GET.get('category') or 0
         query_method = request.GET.get('query_method') or 0
+        if int(query_method) == 0:
+            word_or_regex = word_or_regex + "_"
         return Response(
             dbSearch.get_frequency_list(
                 word_or_regex=word_or_regex,
@@ -56,21 +58,34 @@ class FileView(APIView):
         category = request.GET.get('category') or 0
         page = request.GET.get('page') or 1
         per_page = request.GET.get('per_page') or 50
-        page_start = int(page) - 1
+        page_start = (int(page) - 1) * int(per_page)
         page_end = int(page) * int(per_page)
         if int(category) == 0:
+            query_set = File.objects.all()
+            total = query_set.count()
             return Response(
-                FileSerializer(File.objects.all()[page_start:page_end], many=True).data, status=status.HTTP_200_OK
+                {
+                    "total": total,
+                    "data": FileSerializer(query_set[page_start:page_end], many=True).data
+                }, status=status.HTTP_200_OK
             )
         elif int(category) == 1:
+            query_set = File.objects.filter(category_id=1)
+            total = query_set.count()
             return Response(
-                FileSerializer(
-                    File.objects.filter(category_id=1)[page_start:page_end], many=True).data, status=status.HTTP_200_OK
+                {
+                    "total": total,
+                    "data": FileSerializer(query_set[page_start:page_end], many=True).data
+                }, status=status.HTTP_200_OK
             )
         elif int(category) == 2:
+            query_set = File.objects.filter(category_id=2)
+            total = query_set.count()
             return Response(
-                FileSerializer(
-                    File.objects.filter(category_id=2)[page_start:page_end], many=True).data, status=status.HTTP_200_OK
+                {
+                    "total": total,
+                    "data": FileSerializer(query_set[page_start:page_end], many=True).data
+                }, status=status.HTTP_200_OK
             )
         return Response({"detail": "未选择分类"}, status=status.HTTP_400_BAD_REQUEST)
 
@@ -112,3 +127,13 @@ class FileViews(APIView):
             text=text
         )
         return Response({"detail": "ok"}, status=status.HTTP_201_CREATED)
+
+    def delete(self, request):
+        fid = request.data.get('fid')
+        if not fid:
+            return Response({"detail": "未获取到文章编号"}, status=status.HTTP_400_BAD_REQUEST)
+        file = File.objects.filter(id=fid)
+        if not file.count():
+            return Response({"detail": "文章不存在"}, status=status.HTTP_400_BAD_REQUEST)
+        file.delete()
+        return Response({"detail": "ok"}, status=status.HTTP_200_OK)

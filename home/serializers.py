@@ -16,7 +16,7 @@ class HomeSerializer(serializers.ModelSerializer):
         )
 
     def get_pictureurl(self, obj):
-        return f"https://{addr.baseURL}/media/{obj.img}"
+        return f"http://{addr.baseURL}/media/{obj.img}"
 
     def get_pid(self, obj):
         return obj.id
