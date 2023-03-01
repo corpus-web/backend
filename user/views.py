@@ -55,3 +55,17 @@ class UserCreateView(APIView):
             return Response({"detail": "请输入用户名和密码"}, status=status.HTTP_400_BAD_REQUEST)
         User.objects.create_user(username=username, password=password)
         return Response({"detail": "success"}, status=status.HTTP_200_OK)
+
+
+class PasswordChangeView(APIView):
+    @require_login
+    def post(self, request):
+        username = request.data.get('username')
+        new_password = request.data.get('new_password')
+        try:
+            user = User.objects.get(username=username)
+            user.set_password(new_password)
+            user.save()
+            return Response({"detail": "ok"}, status=status.HTTP_200_OK)
+        except Exception as e:
+            return Response({"detail": e}, status=status.HTTP_400_BAD_REQUEST)
