@@ -37,11 +37,9 @@ class PictureView(APIView):
 class FormatView(APIView):
     def get(self, request):
         word_or_regex = request.GET.get('word_or_regex')
-        limit_case = request.GET.get('limit_case') or False
+        limit_case = request.GET.get('limit_case') or 0
         category = request.GET.get('category') or 0
         query_method = request.GET.get('query_method') or 0
-        if int(query_method) == 0:
-            word_or_regex = word_or_regex + "_"
         return Response(
             dbSearch.get_frequency_list(
                 word_or_regex=word_or_regex,
@@ -93,8 +91,8 @@ class FileView(APIView):
 class FileViews(APIView):
     def get(self, request):
         word_or_regex = request.GET.get('word_or_regex')
-        limit_case = request.GET.get('limit_case') or False
-        random_case = request.GET.get('random_case') or False
+        limit_case = request.GET.get('limit_case') or 0
+        random_case = request.GET.get('random_case') or 0
         category = request.GET.get('category') or 0
         page = request.GET.get('page') or 1
         per_page = request.GET.get('per_page') or 10

@@ -1,11 +1,12 @@
-import random
 import re
 from random import shuffle
 
 from ..models import File
 
 
-def get_essay_list_by_word(word, limit_case=False, random_case=False, category=1, page=1, per_page=10, window_size=50):
+def get_essay_list_by_word(word, limit_case="false", random_case="false", category=1, page=1, per_page=10,
+                           window_size=50):
+    reg = r"\W{}[^a-zA-Z]".format(word)
     if int(category) == 0:
         query_set = File.objects.all()
     elif int(category) == 1:
@@ -18,10 +19,10 @@ def get_essay_list_by_word(word, limit_case=False, random_case=False, category=1
         return False
     for essay in query_set:
         essay_text = essay.text
-        if limit_case:
-            position_list = [m.start() for m in re.finditer(" " + word, essay_text)]
+        if limit_case == "true":
+            position_list = [m.start() for m in re.finditer(reg, essay_text)]
         else:
-            position_list = [m.start() for m in re.finditer(" " + word, essay_text, re.I)]
+            position_list = [m.start() for m in re.finditer(reg, essay_text, re.I)]
         for item in position_list:
             fid = essay.id
             fname = essay.name
@@ -30,9 +31,8 @@ def get_essay_list_by_word(word, limit_case=False, random_case=False, category=1
             s_name = format_str(fline)
             res_list.append({"fid": fid, "fname": fname, "fline": fline, "s_name": s_name})
             total += 1
-        if random_case:
+        if random_case == "true":
             shuffle(res_list)
-            # sorted(res_list, key=lambda _: random.random())
     return {
         "total": total,
         "data": res_list[(int(page) - 1) * int(per_page):int(page) * int(per_page)]
@@ -53,28 +53,33 @@ def get_line(text_str, word, window_size, word_index, category):
     return text_str[index_l:index_r].replace("\\n", " ").replace("\\r", " ")
 
 
-def get_frequency_list(word_or_regex, limit_case=False, category=1, query_method=0):
+def get_frequency_list(word_or_regex, limit_case="false", category=1, query_method=0):
     total = 0
+    reg = r"\W{}[^a-zA-Z]".format(word_or_regex)
     if int(query_method) == 0:
         if int(category) == 0:
-            if limit_case:
-                query_set = File.objects.filter(text__contains=word_or_regex)
+            if limit_case == "true":
+                query_set = File.objects.filter(text__regex=reg)
                 for essay in query_set:
-                    total += essay.text.count(word_or_regex)
+                    lst = re.findall(reg, essay.text)
+                    total += len(lst)
             else:
-                query_set = File.objects.filter(text__icontains=word_or_regex)
+                query_set = File.objects.filter(text__iregex=reg)
                 for essay in query_set:
-                    total += essay.text.count(word_or_regex)
+                    lst = re.findall(reg, essay.text)
+                    total += len(lst)
         else:
-            if limit_case:
-                query_set = File.objects.filter(category_id=int(category), text__contains=word_or_regex)
+            if limit_case == "true":
+                query_set = File.objects.filter(category_id=int(category), text__regex=reg)
                 for essay in query_set:
-                    total += essay.text.count(word_or_regex)
+                    lst = re.findall(reg, essay.text)
+                    total += len(lst)
             else:
-                query_set = File.objects.filter(category_id=int(category), text__icontains=word_or_regex)
+                query_set = File.objects.filter(category_id=int(category), text__iregex=reg)
                 for essay in query_set:
-                    total += essay.text.count(word_or_regex)
-        return [{"name": word_or_regex, "s_name": word_or_regex[:len(word_or_regex)-1], "num": total}]
+                    lst = re.findall(reg, essay.text)
+                    total += len(lst)
+        return [{"name": word_or_regex, "s_name": word_or_regex, "num": total}]
     else:
         reg = r"{}".format(word_or_regex)
         if int(category) == 0:
@@ -85,7 +90,7 @@ def get_frequency_list(word_or_regex, limit_case=False, category=1, query_method
             query_set = File.objects.filter(category_id=2, text__iregex=reg)
         form_list = []
         form_count_dict = {}
-        if limit_case:
+        if limit_case == "true":
             pattern = re.compile(reg)
         else:
             pattern = re.compile(reg, re.I)
@@ -122,7 +127,7 @@ def format_str(text):
                 "\\x9c", "\\x9d", "\\x82", "\\x84", "\\xcf", "\\x89", "\\xbc", "\\x8b", "\\x85", "\\x88", "\\x92",
                 "\\xa5", "\\xa6", "\\x91", "\\x9b", "\\xbd", "\\xf0", "\\x96", "\\x8f", "\\x86", "\\xb1", "\\x9d",
                 "\\xa1", "\\x83", "\\x90", "\\rb7", "\\x99", "\\xb7", "\\xc3", "\\xa8", "\\x97", "\\xc5", "\\x98",
-                "\\xb4", "\\x87", "\\xcb", "\\xa2", "\\x8a", "\\xa4", "\\xcc", "\\xc2", "\\xb0"]
+                "\\xb4", "\\x87", "\\xcb", "\\xa2", "\\x8a", "\\xa4", "\\xcc", "\\xc2", "\\xb0", "\\x9a"]
     for i in rep_list:
         if i in text:
             text = text.replace(i, "")
