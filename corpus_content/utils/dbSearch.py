@@ -6,7 +6,7 @@ from ..models import File
 
 def get_essay_list_by_word(word, limit_case="false", random_case="false", category=1, page=1, per_page=10,
                            window_size=50):
-    reg = r"\W{}[^a-zA-Z]".format(word)
+    reg = r"\W{}[^a-zA-Z\\]".format(word)
     if int(category) == 0:
         query_set = File.objects.all()
     elif int(category) == 1:
@@ -33,6 +33,7 @@ def get_essay_list_by_word(word, limit_case="false", random_case="false", catego
             total += 1
         if random_case == "true":
             shuffle(res_list)
+    # print(res_list)
     return {
         "total": total,
         "data": res_list[(int(page) - 1) * int(per_page):int(page) * int(per_page)]
@@ -55,7 +56,7 @@ def get_line(text_str, word, window_size, word_index, category):
 
 def get_frequency_list(word_or_regex, limit_case="false", category=1, query_method=0):
     total = 0
-    reg = r"\W{}[^a-zA-Z]".format(word_or_regex)
+    reg = r"\W{}[^a-zA-Z\\]".format(word_or_regex)
     if int(query_method) == 0:
         if int(category) == 0:
             if limit_case == "true":
@@ -66,7 +67,7 @@ def get_frequency_list(word_or_regex, limit_case="false", category=1, query_meth
             else:
                 query_set = File.objects.filter(text__iregex=reg)
                 for essay in query_set:
-                    lst = re.findall(reg, essay.text)
+                    lst = re.findall(reg, essay.text, re.I)
                     total += len(lst)
         else:
             if limit_case == "true":
@@ -77,7 +78,7 @@ def get_frequency_list(word_or_regex, limit_case="false", category=1, query_meth
             else:
                 query_set = File.objects.filter(category_id=int(category), text__iregex=reg)
                 for essay in query_set:
-                    lst = re.findall(reg, essay.text)
+                    lst = re.findall(reg, essay.text, re.I)
                     total += len(lst)
         return [{"name": word_or_regex, "s_name": word_or_regex, "num": total}]
     else:
