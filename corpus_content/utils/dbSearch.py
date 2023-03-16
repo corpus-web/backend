@@ -56,7 +56,7 @@ def get_line(text_str, word, window_size, word_index, category):
 
 def get_frequency_list(word_or_regex, limit_case="false", category=1, query_method=0):
     total = 0
-    reg = r"\W{}[^a-zA-Z\\]".format(word_or_regex)
+    reg = r"\W{}[^a-zA-Z]".format(word_or_regex)
     if int(query_method) == 0:
         if int(category) == 0:
             if limit_case == "true":
@@ -128,7 +128,7 @@ def format_str(text):
                 "\\x9c", "\\x9d", "\\x82", "\\x84", "\\xcf", "\\x89", "\\xbc", "\\x8b", "\\x85", "\\x88", "\\x92",
                 "\\xa5", "\\xa6", "\\x91", "\\x9b", "\\xbd", "\\xf0", "\\x96", "\\x8f", "\\x86", "\\xb1", "\\x9d",
                 "\\xa1", "\\x83", "\\x90", "\\rb7", "\\x99", "\\xb7", "\\xc3", "\\xa8", "\\x97", "\\xc5", "\\x98",
-                "\\xb4", "\\x87", "\\xcb", "\\xa2", "\\x8a", "\\xa4", "\\xcc", "\\xc2", "\\xb0", "\\x9a"]
+                "\\xb4", "\\x87", "\\xcb", "\\xa2", "\\x8a", "\\xa4", "\\xcc", "\\xc2", "\\xb0", "\\x9a", "\\xb8"]
     for i in rep_list:
         if i in text:
             text = text.replace(i, "")

@@ -13,7 +13,7 @@ def require_login(func):
     def inner(self, request, *args, **kwargs):
         token = get_token_from_request(request)
         if not check_token(token):
-            return Response({"detail": "未登录"}, status=status.HTTP_401_UNAUTHORIZED)
+            return Response({"detail": "未登录"}, status=status.HTTP_402_PAYMENT_REQUIRED)
         return func(self, request, *args, **kwargs)
 
     return inner
@@ -34,4 +34,13 @@ def check_token(token):
         res = jwt.decode(token, SALT, True, algorithm='HS256')
         return res
     except:
+        return False
+
+
+def read_token(token):
+    try:
+        res = jwt.decode(token, SALT, True, algorithm='HS256')
+        username = res.get('username')
+        return username
+    except Exception as e:
         return False
