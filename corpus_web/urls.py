@@ -1,10 +1,10 @@
 from django.urls import path, include, re_path
 from django.views.static import serve
 from corpus_web import settings
-from rest_framework.documentation import include_docs_urls
+# from rest_framework.documentation import include_docs_urls
 
 urlpatterns = [
-    path("api/docs/", include_docs_urls(title="corpus_web")),
+    # path("api/docs/", include_docs_urls(title="corpus_web")),
     path("api/user/", include("user.urls")),
     path("api/home/", include("home.urls")),
     path("api/course/", include("course_construction.urls")),

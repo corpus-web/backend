@@ -13,7 +13,7 @@ redis_conn = redis.Redis(database.REDIS_HOST, database.REDIS_PORT)
 
 
 def cache_code(md5_str, code):
-    redis_conn.set(md5_str, code, ex=300)
+    redis_conn.set(md5_str, code, ex=60)
 
 
 def check_code(md5_str, code):
@@ -25,6 +25,7 @@ def check_code(md5_str, code):
     if not redis_code:
         return False
     res = bool(str(redis_conn.get(md5_str).decode('utf-8')) == code)
+    redis_conn.delete(md5_str)
     return res
 
 

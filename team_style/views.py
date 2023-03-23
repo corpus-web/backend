@@ -5,6 +5,7 @@ from rest_framework.response import Response
 from django.utils import timezone
 
 from pkg.auth import require_login
+from pkg.check_file import check_file_suffix
 from .models import Prize
 from .serializers import MultiSerializer
 from .utils import order
@@ -21,6 +22,8 @@ class PrizeView(APIView):
         text = request.data.get('text')
         if not img:
             return Response({"detail": "请选择要上传的图片"}, status=status.HTTP_400_BAD_REQUEST)
+        if not check_file_suffix(img, ["jpg", "jpeg", "png"]):
+            return Response({"detail": "文件格式不支持"}, status=status.HTTP_400_BAD_REQUEST)
         if not text:
             return Response({"detail": "请输入该证书的详细描述"}, status=status.HTTP_400_BAD_REQUEST)
         Prize.objects.create(prize_time=prize_time, img=img, text=text)

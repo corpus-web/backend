@@ -6,6 +6,7 @@ from .models import Home
 from .serializers import HomeSerializer
 
 from pkg.auth import require_login
+from pkg.check_file import check_file_suffix
 
 
 class PictureView(APIView):
@@ -18,6 +19,8 @@ class PictureView(APIView):
         img = request.FILES.get('img') or request.FILES.get('file')
         if not img:
             return Response({"detail": "请选择要上传的文件"}, status=status.HTTP_400_BAD_REQUEST)
+        if not check_file_suffix(img, ["jpg", "jpeg", "png"]):
+            return Response({"detail": "不支持的文件格式"}, status=status.HTTP_400_BAD_REQUEST)
         Home.objects.create(img=img)
         return Response({"detail": "ok"}, status=status.HTTP_200_OK)
 

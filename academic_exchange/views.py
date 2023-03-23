@@ -5,6 +5,7 @@ from rest_framework.response import Response
 from django.utils import timezone
 
 from pkg.auth import require_login
+from pkg.check_file import check_file_suffix
 from .models import Meeting
 from .serializers import MeetingTitleSerializer, MeetingContentSerializer, PictureSerializer
 
@@ -35,9 +36,10 @@ class ListView(APIView):
         abstract = request.data.get('abstract')
         text = request.data.get('text')
         create_time = request.data.get('create_time') or timezone.now()
-        print(create_time)
         if not title or not img or not abstract or not text:
             return Response({"detail": "请完整填写信息"}, status=status.HTTP_400_BAD_REQUEST)
+        if not check_file_suffix(img, ["jpg", "jpeg", "png"]):
+            return Response({"detail": "文件格式不支持"}, status=status.HTTP_400_BAD_REQUEST)
         Meeting.objects.create(title=title, img=img,
                                abstract=abstract, text=text, create_time=create_time)
         return Response({"detail": "ok"}, status=status.HTTP_200_OK)

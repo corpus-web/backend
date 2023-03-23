@@ -96,11 +96,14 @@ CACHES = {
         "LOCATION": "redis://127.0.0.1:6379",
         "OPTIONS": {
             "db": "1",
+            "CLIENT_CLASS": "django_redis.client.DefaultClient",
             "parser_class": "redis.connection.HiredisParser",
             "pool_class": "redis.ConnectionPool",
         }
     }
 }
+SESSION_ENGINE = "django.contrib.sessions.backends.signed_cookies"
+SESSION_CACHE_ALIAS = "default"
 
 # Password validation
 # https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators

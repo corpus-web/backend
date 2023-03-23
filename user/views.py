@@ -13,6 +13,10 @@ from .serializers import UserSerializer
 import xml.etree.ElementTree as ET
 from .utils.xml_process import element_to_dict
 
+from Crypto.PublicKey import RSA
+from Crypto import Random
+from Crypto.Cipher import PKCS1_v1_5
+
 
 class LoginView(APIView):
 
@@ -26,6 +30,7 @@ class LoginView(APIView):
         return Response({"img": img_str}, status=status.HTTP_200_OK)
 
     def post(self, request):
+        print(request.data)
         username = request.data.get('username')
         pwd = request.data.get('password')
         img_str = request.data.get('img')
@@ -35,8 +40,17 @@ class LoginView(APIView):
         md5_str = enctypt.md5(img_str, 2)
         res = bool(code.check_code(md5_str, str(code_str).upper()))
         if not res:
-            return Response({"detail": "验证码错误"}, status=status.HTTP_400_BAD_REQUEST)
-        if not User.objects.filter(username=username):
+            return Response({"detail": "验证码错误或已失效"}, status=status.HTTP_400_BAD_REQUEST)
+        if not username or not pwd:
+            return Response({"detail": "请输入用户名和密码"}, status=status.HTTP_400_BAD_REQUEST)
+        try:
+            private_key_str = request.session.get('private_key').encode()
+        except Exception:
+            return Response({"detail": "鉴权失败"}, status=status.HTTP_400_BAD_REQUEST)
+        private_key = RSA.importKey(private_key_str)
+        cipher = PKCS1_v1_5.new(private_key)
+        pwd = cipher.decrypt(base64.b64decode(pwd.encode()), 'error').decode()
+        if not User.objects.filter(username=username).count():
             return Response({"detail": "账号或密码错误"}, status=status.HTTP_402_PAYMENT_REQUIRED)
         user = User.objects.get(username=username)
         if user.check_password(pwd):
@@ -64,9 +78,16 @@ class PasswordChangeView(APIView):
     @require_login
     def post(self, request):
         new_password = request.data.get('new_password')
+        try:
+            private_key_str = request.session.get('private_key')
+        except Exception:
+            return Response({"detail": "鉴权失败"}, status=status.HTTP_400_BAD_REQUEST)
+        private_key = RSA.importKey(private_key_str)
+        cipher = PKCS1_v1_5.new(private_key)
+        new_password = cipher.decrypt(base64.b64decode(new_password.encode()), 'error').decode()
         token = request.data.get("token") or request.META.get('HTTP_TOKEN')
         if not new_password:
-            return Response({"detail": "请填写完整"}, status=status.HTTP_400_BAD_REQUEST)
+            return Response({"detail": "未获取到密码"}, status=status.HTTP_400_BAD_REQUEST)
         try:
             username = read_token(token)
             if not username:
@@ -80,6 +101,15 @@ class PasswordChangeView(APIView):
 
 
 class CasLoginView(APIView):
+
+    def get(self, request):
+        random_generator = Random.new().read
+        rsa = RSA.generate(1024, random_generator)
+        rsa_private_key = rsa.exportKey()
+        rsa_public_key = rsa.publickey().exportKey()
+        request.session['private_key'] = rsa_private_key.decode()
+        return Response({"public_key": rsa_public_key}, status=status.HTTP_200_OK)
+
     def post(self, request):
         service = request.data.get('service')
         ticket = request.data.get('ticket')

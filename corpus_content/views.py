@@ -3,6 +3,7 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 
 from pkg.auth import require_login
+from pkg.check_file import check_file_suffix
 from .utils import dbSearch
 from .models import Picture, Category, File
 from .serializers import PictureSerializer, FileSerializer
@@ -22,6 +23,8 @@ class PictureView(APIView):
         img = request.FILES.get('img') or request.FILES.get('file')
         if not img:
             return Response({"detail": "请选择要上传的文件"}, status=status.HTTP_400_BAD_REQUEST)
+        if not check_file_suffix(img, ["jpg", "jpeg", "png"]):
+            return Response({"detail": "文件格式不支持"}, status=status.HTTP_400_BAD_REQUEST)
         Picture.objects.create(img=img)
         return Response({"detail": "ok"}, status=status.HTTP_200_OK)
 
@@ -111,21 +114,28 @@ class FileViews(APIView):
         else:
             return Response({"detail": "未输入要查询的单词"}, status=status.HTTP_400_BAD_REQUEST)
 
+    @require_login
     def post(self, request):
         file = request.FILES.get('file')
+        if not check_file_suffix(file, ["txt"]):
+            return Response({"detail": "文件格式不支持"}, status=status.HTTP_400_BAD_REQUEST)
         name = file.name
         text = file.read()
         category_id = request.data.get('category') or 1
         _category = Category.objects.get(id=category_id)
         sub_name = request.data.get('sub_name')
-        File.objects.create(
-            name=name,
-            sub_name=sub_name,
-            category=_category,
-            text=text
-        )
+        try:
+            File.objects.create(
+                name=name,
+                sub_name=sub_name,
+                category=_category,
+                text=text
+            )
+        except Exception:
+            return Response({"detail": "参数不全"}, status=status.HTTP_400_BAD_REQUEST)
         return Response({"detail": "ok"}, status=status.HTTP_201_CREATED)
 
+    @require_login
     def delete(self, request):
         fid = request.data.get('fid')
         if not fid:
