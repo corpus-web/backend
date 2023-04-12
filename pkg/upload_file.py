@@ -1,15 +1,16 @@
 import requests
 import os
 
-category = 2
-url = "http://127.0.0.1:8000/api/corpus/files"
-# sub_sub_name = "J07-Ultrasonics"
-# file_path = "K:\\项目\\语料库\\船舶与海洋工程学术英语语料库\\船舶与海洋工程学术英语语料库\\水声工程学术英语语料库\\不含语步标注版\\词性赋码\\" + sub_sub_name
+sub_category_name = "核燃料循环与材料学术"
+folder_name = ""
+url = "http://192.168.31.200:8000/api/query/file/file"
 datas = {
-    # 'sub_name': "船舶与海洋结构物设计制造学术," + sub_sub_name
-    'sub_name': "核燃料循环与材料学术"
+    'sub_name': f"{sub_category_name}",
+    # 'sub_name': f"{sub_category_name},{folder_name}",
+    'category': 2
 }
-file_path = "K:\\项目\\语料库\\核学科学术英语语料库\\核学科学术英语语料库\\核燃料循环与材料学术英语语料库"
+# file_path = f"D:\\web428\\corpus-antconc\\2\\1\\{folder_name}"
+file_path = f"D:\\web428\\corpus-antconc\\2\\4"
 
 if __name__ == '__main__':
     tot = 0

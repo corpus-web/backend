@@ -30,11 +30,11 @@ class LoginView(APIView):
         return Response({"img": img_str}, status=status.HTTP_200_OK)
 
     def post(self, request):
-        print(request.data)
         username = request.data.get('username')
         pwd = request.data.get('password')
         img_str = request.data.get('img')
         code_str = request.data.get('code')
+        public_key = request.data.get('public_key')
         if not code_str or not img_str:
             return Response({"detail": "请输入验证码"}, status=status.HTTP_402_PAYMENT_REQUIRED)
         md5_str = enctypt.md5(img_str, 2)
@@ -45,6 +45,8 @@ class LoginView(APIView):
             return Response({"detail": "请输入用户名和密码"}, status=status.HTTP_400_BAD_REQUEST)
         try:
             private_key_str = request.session.get('private_key').encode()
+            # redis_conn = redis.Redis(REDIS_HOST, REDIS_PORT)
+            # private_key_str = redis_conn.get(public_key).encode()
         except Exception:
             return Response({"detail": "鉴权失败"}, status=status.HTTP_400_BAD_REQUEST)
         private_key = RSA.importKey(private_key_str)
@@ -78,8 +80,11 @@ class PasswordChangeView(APIView):
     @require_login
     def post(self, request):
         new_password = request.data.get('new_password')
+        public_key = request.data.get('public_key')
         try:
             private_key_str = request.session.get('private_key')
+            # redis_conn = redis.Redis(REDIS_HOST, REDIS_PORT)
+            # private_key_str = redis_conn.get(public_key).encode()
         except Exception:
             return Response({"detail": "鉴权失败"}, status=status.HTTP_400_BAD_REQUEST)
         private_key = RSA.importKey(private_key_str)
@@ -108,6 +113,8 @@ class CasLoginView(APIView):
         rsa_private_key = rsa.exportKey()
         rsa_public_key = rsa.publickey().exportKey()
         request.session['private_key'] = rsa_private_key.decode()
+        # redis_conn = redis.Redis(REDIS_HOST, REDIS_PORT)
+        # redis_conn.set(rsa_public_key, rsa_private_key.decode(), ex=24 * 3600)
         return Response({"public_key": rsa_public_key}, status=status.HTTP_200_OK)
 
     def post(self, request):
@@ -118,7 +125,6 @@ class CasLoginView(APIView):
         cas_url = "https://cas.hrbeu.edu.cn/cas/serviceValidate"
         param_dict = {"service": service, "ticket": ticket}
         res = requests.get(url=cas_url, params=param_dict)
-        # print(res.text)
         xml_str = str(res.text)
         xml_root = ET.fromstring(xml_str)
         xml_data = element_to_dict(xml_root)

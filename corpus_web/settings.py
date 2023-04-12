@@ -35,7 +35,7 @@ INSTALLED_APPS = [
     'team_style.apps.TeamStyleConfig',
     'academic_exchange.apps.AcademicExchangeConfig',
     'corpus_content.apps.CorpusContentConfig',
-    'message.apps.MessageConfig',
+    'message.apps.MessageConfig'
 ]
 
 MIDDLEWARE = [

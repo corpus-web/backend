@@ -1,5 +1,3 @@
-import base64
-import io
 import random
 
 import redis
@@ -7,7 +5,6 @@ from PIL import ImageFilter, ImageFont, ImageDraw, Image
 
 from corpus_web.settings import BASE_DIR
 from config import database
-from pkg import enctypt
 
 redis_conn = redis.Redis(database.REDIS_HOST, database.REDIS_PORT)
 

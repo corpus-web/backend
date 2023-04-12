@@ -1,6 +1,7 @@
 from django.urls import path, include, re_path
 from django.views.static import serve
 from corpus_web import settings
+
 # from rest_framework.documentation import include_docs_urls
 
 urlpatterns = [

@@ -24,11 +24,16 @@ class PictureSerializer(serializers.ModelSerializer):
 
 
 class CategorySerializer(serializers.ModelSerializer):
+    cid=serializers.SerializerMethodField()
+
     class Meta:
         model = Category
         fields = (
-            'name',
+            'cid','name',
         )
+
+    def get_cid(self,obj):
+        return obj.id
 
 
 class FileSerializer(serializers.ModelSerializer):

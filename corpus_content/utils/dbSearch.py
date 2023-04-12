@@ -1,18 +1,14 @@
 import re
-from random import shuffle
 
 from ..models import File
 
 
-def get_essay_list_by_word(word, limit_case="false", random_case="false", category=1, page=1, per_page=10,
-                           window_size=50):
-    reg = r"\W{}[^a-zA-Z\\]".format(word)
+def get_essay_list_by_word(word, limit_case="false", category=0, page=1, per_page=10, window_size=50):
+    reg = r"{}".format(word)
     if int(category) == 0:
         query_set = File.objects.all()
     elif int(category) == 1:
-        query_set = File.objects.filter(category_id=1)
-    else:
-        query_set = File.objects.filter(category_id=2)
+        query_set = File.objects.filter(category_id=int(category))
     res_list = []
     total = 0
     if not query_set:
@@ -31,9 +27,6 @@ def get_essay_list_by_word(word, limit_case="false", random_case="false", catego
             s_name = format_str(fline)
             res_list.append({"fid": fid, "fname": fname, "fline": fline, "s_name": s_name})
             total += 1
-        if random_case == "true":
-            shuffle(res_list)
-    # print(res_list)
     return {
         "total": total,
         "data": res_list[(int(page) - 1) * int(per_page):int(page) * int(per_page)]
@@ -43,7 +36,7 @@ def get_essay_list_by_word(word, limit_case="false", random_case="false", catego
 def get_line(text_str, word, window_size, word_index, category):
     if word_index <= 0:
         return False
-    if int(category) == 1:
+    if int(category) != 0:
         window_size = int(window_size) + 10
     index_l = int(word_index)
     index_r = int(word_index) + len(word)
@@ -54,9 +47,9 @@ def get_line(text_str, word, window_size, word_index, category):
     return text_str[index_l:index_r].replace("\\n", " ").replace("\\r", " ")
 
 
-def get_frequency_list(word_or_regex, limit_case="false", category=1, query_method=0):
+def get_frequency_list(word_or_regex, limit_case="false", category=0, query_method=0):
     total = 0
-    reg = r"\W{}[^a-zA-Z]".format(word_or_regex)
+    reg = r"(?<![a-zA-Z0-9\\r\\n]){}(?![a-zA-Z])".format(word_or_regex)
     if int(query_method) == 0:
         if int(category) == 0:
             if limit_case == "true":
@@ -115,23 +108,14 @@ def get_frequency_list(word_or_regex, limit_case="false", category=1, query_meth
 
 def format_str(text):
     text = str(text)
-    if text[-1] != " ":
+    if len(text) > 1 and text[-1] != " ":
         text += " "
-    pattern = re.compile(r"_\w+\s")
-    m = pattern.finditer(text)
-    content = []
-    for finditer in m:
-        content.append(finditer.group())
-    for i in content:
-        text = text.replace(i, " ")
-    rep_list = ["\\xce", "\\x94", "\\xe2", "\\xaf", "\\x93", "\\x80", "\\xb2", "\\xef", "\\xac", "\\x02", "\\x81",
-                "\\x9c", "\\x9d", "\\x82", "\\x84", "\\xcf", "\\x89", "\\xbc", "\\x8b", "\\x85", "\\x88", "\\x92",
-                "\\xa5", "\\xa6", "\\x91", "\\x9b", "\\xbd", "\\xf0", "\\x96", "\\x8f", "\\x86", "\\xb1", "\\x9d",
-                "\\xa1", "\\x83", "\\x90", "\\rb7", "\\x99", "\\xb7", "\\xc3", "\\xa8", "\\x97", "\\xc5", "\\x98",
-                "\\xb4", "\\x87", "\\xcb", "\\xa2", "\\x8a", "\\xa4", "\\xcc", "\\xc2", "\\xb0", "\\x9a", "\\xb8"]
-    for i in rep_list:
-        if i in text:
-            text = text.replace(i, "")
+    pattern1 = re.compile(r"_\w+\s")
+    text = re.sub(pattern1, " ", text)
+
+    pattern2 = re.compile(r"\\x..|\\x.|\\x")
+    text = re.sub(pattern2, "", text)
+
     text = text.replace("_,", "")
     text = text.replace(" ,", ",")
     text = text.replace("  ", " ")
@@ -142,8 +126,9 @@ def format_str(text):
     text = text.replace(" .", ".")
     text = text.replace(" ;_:", ":")
     text = text.replace("_:", "")
-    if text[-1] == " ":
+
+    if len(text) > 1 and text[-1] == " ":
         text = text[:-1]
-    if text[-1] == "_":
+    if len(text) > 1 and text[-1] == "_":
         text = text[:-1]
     return text
