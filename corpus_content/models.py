@@ -4,6 +4,7 @@ from django.utils import timezone
 
 class Category(models.Model):
     name = models.CharField(max_length=255)
+    name_en = models.CharField(max_length=255)
 
 
 class File(models.Model):

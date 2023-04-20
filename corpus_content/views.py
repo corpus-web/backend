@@ -1,3 +1,4 @@
+from django.db.models import Q
 from rest_framework import status
 from rest_framework.views import APIView
 from rest_framework.response import Response
@@ -6,7 +7,7 @@ from pkg.auth import require_login
 from pkg.check_file import check_file_suffix
 from .utils import dbSearch
 from .models import Picture, Category, File
-from .serializers import PictureSerializer, FileSerializer,CategorySerializer
+from .serializers import PictureSerializer, FileSerializer, CategorySerializer
 
 
 class TestView(APIView):
@@ -52,34 +53,43 @@ class FormatView(APIView):
             ),
             status=status.HTTP_200_OK
         )
-    
-class CategoryView(APIView):
-    def get(self,request):
-        return Response(CategorySerializer(Category.objects.all(),many=True).data,status=status.HTTP_200_OK)
 
-    def post(self,request):
-        category_name = request.data.get('name')
-        if not category_name:
-            return Response({"detail":"未上传类别名称"},status=status.HTTP_400_BAD_REQUEST)
-        if Category.objects.filter(name=category_name).count():
-            return Response({"detail":"该类别已存在"},status=status.HTTP_400_BAD_REQUEST)
+
+class CategoryView(APIView):
+    def get(self, request):
+        ret_list = CategorySerializer(Category.objects.all(), many=True).data
+        # normal_list = [{
+        #     "cid": 0,
+        #     "name": "全部",
+        #     "name_en": "ALL"
+        # }]
+        # ret_list_1 = normal_list + ret_list
+        return Response({"a": ret_list}, status=status.HTTP_200_OK)
+
+    def post(self, request):
+        category_cn = request.data.get('name')
+        category_en = request.data.get('name_en')
+        if not category_en or not category_cn:
+            return Response({"detail": "类别名称填写不完整"}, status=status.HTTP_400_BAD_REQUEST)
+        if Category.objects.filter(Q(name=category_cn) | Q(name_en=category_en)).count():
+            return Response({"detail": "该类别已存在"}, status=status.HTTP_400_BAD_REQUEST)
         try:
-            Category.objects.create(name=category_name)
+            Category.objects.create(name=category_cn, name_en=category_en)
         except Exception as e:
-            return Response({"detail":"类别创建失败","error":str(e)},status=status.HTTP_400_BAD_REQUEST)
-        return Response({"detail":"ok"},status=status.HTTP_201_CREATED)
-    
-    def delete(self,request):
+            return Response({"detail": "类别创建失败", "error": str(e)}, status=status.HTTP_400_BAD_REQUEST)
+        return Response({"detail": "ok"}, status=status.HTTP_201_CREATED)
+
+    def delete(self, request):
         cid = request.data.get('cid')
         if not cid:
-            return Response({"detail":"未获取类别编号"},status=status.HTTP_400_BAD_REQUEST)
+            return Response({"detail": "未获取类别编号"}, status=status.HTTP_400_BAD_REQUEST)
         if not Category.objects.filter(id=cid).count():
-            return Response({"detail":"该类别不存在"},status=status.HTTP_400_BAD_REQUEST)
+            return Response({"detail": "该类别不存在"}, status=status.HTTP_400_BAD_REQUEST)
         try:
             Category.objects.filter(id=cid).delete()
         except Exception as e:
-            return Response({"detail":"该类别下有未删除的文章","error":str(e)},status=status.HTTP_400_BAD_REQUEST)
-        return Response({"detail":"ok"},status=status.HTTP_200_OK)
+            return Response({"detail": "该类别下有未删除的文章", "error": str(e)}, status=status.HTTP_400_BAD_REQUEST)
+        return Response({"detail": "ok"}, status=status.HTTP_200_OK)
 
 
 class FileView(APIView):
@@ -89,41 +99,33 @@ class FileView(APIView):
         per_page = request.GET.get('per_page') or 50
         page_start = (int(page) - 1) * int(per_page)
         page_end = int(page) * int(per_page)
-        if int(category) == 0:
-            query_set = File.objects.all()
-            total = query_set.count()
-            return Response(
-                {
-                    "total": total,
-                    "data": FileSerializer(query_set[page_start:page_end], many=True).data
-                }, status=status.HTTP_200_OK
-            )
-        elif int(category) == 1:
-            query_set = File.objects.filter(category_id=1)
-            total = query_set.count()
-            return Response(
-                {
-                    "total": total,
-                    "data": FileSerializer(query_set[page_start:page_end], many=True).data
-                }, status=status.HTTP_200_OK
-            )
-        elif int(category) == 2:
-            query_set = File.objects.filter(category_id=2)
-            total = query_set.count()
-            return Response(
-                {
-                    "total": total,
-                    "data": FileSerializer(query_set[page_start:page_end], many=True).data
-                }, status=status.HTTP_200_OK
-            )
-        return Response({"detail": "未选择分类"}, status=status.HTTP_400_BAD_REQUEST)
+        try:
+            if int(category) == 0:
+                query_set = File.objects.all()
+                total = query_set.count()
+                return Response(
+                    {
+                        "total": total,
+                        "data": FileSerializer(query_set[page_start:page_end], many=True).data
+                    }, status=status.HTTP_200_OK
+                )
+            else:
+                query_set = File.objects.filter(category_id=category)
+                total = query_set.count()
+                return Response(
+                    {
+                        "total": total,
+                        "data": FileSerializer(query_set[page_start:page_end], many=True).data
+                    }, status=status.HTTP_200_OK
+                )
+        except Exception as e:
+            return Response({"detail": "未选择分类", "error": str(e)}, status=status.HTTP_400_BAD_REQUEST)
 
 
 class FileViews(APIView):
     def get(self, request):
         word_or_regex = request.GET.get('word_or_regex')
         limit_case = request.GET.get('limit_case') or 0
-        random_case = request.GET.get('random_case') or 0
         category = request.GET.get('category') or 0
         page = request.GET.get('page') or 1
         per_page = request.GET.get('per_page') or 10
@@ -132,7 +134,6 @@ class FileViews(APIView):
             res_list = dbSearch.get_essay_list_by_word(
                 word=word_or_regex,
                 limit_case=limit_case,
-                random_case=random_case,
                 category=category,
                 page=page,
                 per_page=per_page,

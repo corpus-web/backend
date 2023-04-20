@@ -24,15 +24,15 @@ class PictureSerializer(serializers.ModelSerializer):
 
 
 class CategorySerializer(serializers.ModelSerializer):
-    cid=serializers.SerializerMethodField()
+    cid = serializers.SerializerMethodField()
 
     class Meta:
         model = Category
         fields = (
-            'cid','name',
+            'cid', 'name', 'name_en'
         )
 
-    def get_cid(self,obj):
+    def get_cid(self, obj):
         return obj.id
 
 

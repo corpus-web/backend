@@ -4,7 +4,7 @@ from ..models import File
 
 
 def get_essay_list_by_word(word, limit_case="false", category=0, page=1, per_page=10, window_size=50):
-    reg = r"{}".format(word)
+    reg = r'(?<![a-zA-Z0-9])(' + word + r')(?![a-zA-Z])'
     if int(category) == 0:
         query_set = File.objects.all()
     elif int(category) == 1:
@@ -49,7 +49,7 @@ def get_line(text_str, word, window_size, word_index, category):
 
 def get_frequency_list(word_or_regex, limit_case="false", category=0, query_method=0):
     total = 0
-    reg = r"(?<![a-zA-Z0-9\\r\\n]){}(?![a-zA-Z])".format(word_or_regex)
+    reg = r'(?<![a-zA-Z0-9])(' + word_or_regex + r')(?![a-zA-Z])'
     if int(query_method) == 0:
         if int(category) == 0:
             if limit_case == "true":
