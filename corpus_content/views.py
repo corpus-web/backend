@@ -44,6 +44,8 @@ class FormatView(APIView):
         limit_case = request.GET.get('limit_case') or 0
         category = request.GET.get('category') or 0
         query_method = request.GET.get('query_method') or 0
+        if not word_or_regex:
+            return Response({"detail": "请输入有效的信息"}, status=status.HTTP_400_BAD_REQUEST)
         return Response(
             dbSearch.get_frequency_list(
                 word_or_regex=word_or_regex,

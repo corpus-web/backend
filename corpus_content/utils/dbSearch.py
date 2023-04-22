@@ -49,8 +49,8 @@ def get_line(text_str, word, window_size, word_index, category):
 
 def get_frequency_list(word_or_regex, limit_case="false", category=0, query_method=0):
     total = 0
-    reg = r'(?<![a-zA-Z0-9])(' + word_or_regex + r')(?![a-zA-Z])'
     if int(query_method) == 0:
+        reg = r'(?<![a-zA-Z0-9])(' + word_or_regex + r')(?![a-zA-Z])'
         if int(category) == 0:
             if limit_case == "true":
                 query_set = File.objects.filter(text__regex=reg)
@@ -63,6 +63,7 @@ def get_frequency_list(word_or_regex, limit_case="false", category=0, query_meth
                     lst = re.findall(reg, essay.text, re.I)
                     total += len(lst)
         else:
+            reg = r'{}'.format(word_or_regex)
             if limit_case == "true":
                 query_set = File.objects.filter(category_id=int(category), text__regex=reg)
                 for essay in query_set:
