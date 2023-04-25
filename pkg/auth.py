@@ -12,6 +12,7 @@ def get_token_from_request(request):
 def require_login(func):
     def inner(self, request, *args, **kwargs):
         token = get_token_from_request(request)
+        print(token)
         if not check_token(token):
             return Response({"detail": "未登录"}, status=status.HTTP_402_PAYMENT_REQUIRED)
         return func(self, request, *args, **kwargs)
@@ -32,8 +33,10 @@ def gene_token(username):
 def check_token(token):
     try:
         res = jwt.decode(token, SALT, True, algorithm='HS256')
+        print(res)
         return res
-    except:
+    except Exception as e:
+        print(e)
         return False
 
 

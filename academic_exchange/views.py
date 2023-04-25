@@ -44,14 +44,6 @@ class ListView(APIView):
                                abstract=abstract, text=text, create_time=create_time)
         return Response({"detail": "ok"}, status=status.HTTP_200_OK)
 
-    @require_login
-    def delete(self, request):
-        aid = request.data.get('aid')
-        if not aid:
-            return Response({"detail": "未指定要删除的数据"}, status=status.HTTP_400_BAD_REQUEST)
-        Meeting.objects.filter(id=aid).delete()
-        return Response({"detail": "ok"}, status=status.HTTP_200_OK)
-
 
 class ContentView(APIView):
     def get(self, request):
@@ -66,3 +58,13 @@ class ContentView(APIView):
 class PictureView(APIView):
     def get(self, request):
         return Response(PictureSerializer(Meeting.objects.all(), many=True).data)
+
+
+class DeleteView(APIView):
+    @require_login
+    def post(self, request):
+        aid = request.data.get('aid')
+        if not aid:
+            return Response({"detail": "未指定要删除的数据"}, status=status.HTTP_400_BAD_REQUEST)
+        Meeting.objects.filter(id=aid).delete()
+        return Response({"detail": "ok"}, status=status.HTTP_200_OK)
