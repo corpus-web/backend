@@ -32,14 +32,6 @@ class MessageTitleView(APIView):
         Message.objects.create(title=title, text=text, create_time=create_time, category=category)
         return Response({"detail": "ok"}, status=status.HTTP_200_OK)
 
-    @require_login
-    def delete(self, request):
-        aid = request.data.get('aid') or request.GET.get('aid')
-        if not aid:
-            return Response({"detail": "未指定文章编号"}, status=status.HTTP_400_BAD_REQUEST)
-        Message.objects.filter(id=aid).delete()
-        return Response({"detail": "ok"}, status=status.HTTP_200_OK)
-
 
 class MessageContextView(APIView):
     def get(self, request):
@@ -47,3 +39,13 @@ class MessageContextView(APIView):
         if not aid:
             return Response({"detail": "未指定文章编号"}, status=status.HTTP_400_BAD_REQUEST)
         return Response(MessageContextSerializer(Message.objects.filter(id=aid), many=True).data)
+
+
+class DeleteView(APIView):
+    @require_login
+    def post(self, request):
+        aid = request.data.get('aid')
+        if not aid:
+            return Response({"detail": "未指定文章编号"}, status=status.HTTP_400_BAD_REQUEST)
+        Message.objects.filter(id=aid).delete()
+        return Response({"detail": "ok"}, status=status.HTTP_200_OK)

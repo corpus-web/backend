@@ -8,6 +8,7 @@ from pkg.check_file import check_file_suffix
 from .utils import dbSearch
 from .models import Picture, Category, File
 from .serializers import PictureSerializer, FileSerializer, CategorySerializer
+import pprint
 
 
 class TestView(APIView):
@@ -27,14 +28,6 @@ class PictureView(APIView):
         if not check_file_suffix(img, ["jpg", "jpeg", "png"]):
             return Response({"detail": "文件格式不支持"}, status=status.HTTP_400_BAD_REQUEST)
         Picture.objects.create(img=img)
-        return Response({"detail": "ok"}, status=status.HTTP_200_OK)
-
-    @require_login
-    def delete(self, request):
-        pid = request.data.get('pid')
-        if not pid:
-            return Response({"detail": "未指定要删除的数据"}, status=status.HTTP_400_BAD_REQUEST)
-        Picture.objects.filter(id=pid).delete()
         return Response({"detail": "ok"}, status=status.HTTP_200_OK)
 
 
@@ -80,18 +73,6 @@ class CategoryView(APIView):
         except Exception as e:
             return Response({"detail": "类别创建失败", "error": str(e)}, status=status.HTTP_400_BAD_REQUEST)
         return Response({"detail": "ok"}, status=status.HTTP_201_CREATED)
-
-    def delete(self, request):
-        cid = request.data.get('cid')
-        if not cid:
-            return Response({"detail": "未获取类别编号"}, status=status.HTTP_400_BAD_REQUEST)
-        if not Category.objects.filter(id=cid).count():
-            return Response({"detail": "该类别不存在"}, status=status.HTTP_400_BAD_REQUEST)
-        try:
-            Category.objects.filter(id=cid).delete()
-        except Exception as e:
-            return Response({"detail": "该类别下有未删除的文章", "error": str(e)}, status=status.HTTP_400_BAD_REQUEST)
-        return Response({"detail": "ok"}, status=status.HTTP_200_OK)
 
 
 class FileView(APIView):
@@ -168,13 +149,37 @@ class FileViews(APIView):
             return Response({"detail": "参数不全"}, status=status.HTTP_400_BAD_REQUEST)
         return Response({"detail": "ok"}, status=status.HTTP_201_CREATED)
 
+
+class DeleteView(APIView):
     @require_login
-    def delete(self, request):
-        fid = request.data.get('fid')
-        if not fid:
-            return Response({"detail": "未获取到文章编号"}, status=status.HTTP_400_BAD_REQUEST)
-        file = File.objects.filter(id=fid)
-        if not file.count():
-            return Response({"detail": "文章不存在"}, status=status.HTTP_400_BAD_REQUEST)
-        file.delete()
-        return Response({"detail": "ok"}, status=status.HTTP_200_OK)
+    def post(self, request, nid):
+        if nid == 1:
+            fid = request.data.get('fid')
+
+            if not fid:
+                return Response({"detail": "未获取到文章编号"}, status=status.HTTP_400_BAD_REQUEST)
+            file = File.objects.filter(id=fid)
+            if not file.count():
+                return Response({"detail": "文章不存在"}, status=status.HTTP_400_BAD_REQUEST)
+            file.delete()
+            return Response({"detail": "ok"}, status=status.HTTP_200_OK)
+        elif nid == 2:
+            cid = request.data.get('cid')
+            if not cid:
+                return Response({"detail": "未获取类别编号"}, status=status.HTTP_400_BAD_REQUEST)
+            if not Category.objects.filter(id=cid).count():
+                return Response({"detail": "该类别不存在"}, status=status.HTTP_400_BAD_REQUEST)
+            try:
+                Category.objects.filter(id=cid).delete()
+            except Exception as e:
+                return Response({"detail": "该类别下有未删除的文章", "error": str(e)},
+                                status=status.HTTP_400_BAD_REQUEST)
+            return Response({"detail": "ok"}, status=status.HTTP_200_OK)
+        elif nid == 3:
+            pid = request.data.get('pid')
+            if not pid:
+                return Response({"detail": "未指定要删除的数据"}, status=status.HTTP_400_BAD_REQUEST)
+            Picture.objects.filter(id=pid).delete()
+            return Response({"detail": "ok"}, status=status.HTTP_200_OK)
+        else:
+            return Response({"detail": "无效的操作"}, status=status.HTTP_400_BAD_REQUEST)

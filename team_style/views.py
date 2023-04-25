@@ -29,8 +29,10 @@ class PrizeView(APIView):
         Prize.objects.create(prize_time=prize_time, img=img, text=text)
         return Response({"detail": "ok"}, status=status.HTTP_200_OK)
 
+
+class DeleteView(APIView):
     @require_login
-    def delete(self, request):
+    def post(self, request):
         pid = request.data.get('pid')
         if not pid:
             return Response({"detail": "未指定要删除的数据"}, status=status.HTTP_400_BAD_REQUEST)
