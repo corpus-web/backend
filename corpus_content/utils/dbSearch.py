@@ -3,8 +3,11 @@ import re
 from ..models import File
 
 
-def get_essay_list_by_word(word, limit_case="false", category=0, page=1, per_page=10, window_size=50):
-    reg = r'(?<![a-zA-Z0-9])(' + word + r')(?![a-zA-Z])'
+def get_essay_list_by_word(word, limit_case="false", category=0, page=1, per_page=10, window_size=50, query_method=0):
+    if int(query_method) == 0:
+        reg = r'(?<![a-zA-Z0-9])(' + word + r')(?![a-zA-Z])'
+    else:
+        reg = r'{}'.format(word)
     if int(category) == 0:
         query_set = File.objects.all()
     elif int(category) == 1:

@@ -132,6 +132,7 @@ class FileViews(APIView):
         page = request.GET.get('page') or 1
         per_page = request.GET.get('per_page') or 10
         window_size = request.GET.get('window_size') or 50
+        query_method = request.GET.get('query_method') or 0
         if word_or_regex:
             res_list = dbSearch.get_essay_list_by_word(
                 word=word_or_regex,
@@ -139,7 +140,8 @@ class FileViews(APIView):
                 category=category,
                 page=page,
                 per_page=per_page,
-                window_size=window_size
+                window_size=window_size,
+                query_method=query_method
             )
             return Response(res_list, status=status.HTTP_200_OK)
         else:
