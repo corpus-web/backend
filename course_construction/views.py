@@ -7,11 +7,6 @@ from .models import Course
 from .serializers import CourseSerializer
 
 
-class TestView(APIView):
-    def get(self, request):
-        return Response({"detail": "ok"})
-
-
 class MainView(APIView):
     def get(self, request):
         return Response(CourseSerializer(Course.objects.all(), many=True).data)

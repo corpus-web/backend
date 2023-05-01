@@ -8,12 +8,7 @@ from pkg.check_file import check_file_suffix
 from .utils import dbSearch
 from .models import Picture, Category, File
 from .serializers import PictureSerializer, FileSerializer, CategorySerializer
-import pprint
-
-
-class TestView(APIView):
-    def get(self, request):
-        return Response({"detail": "ok"})
+import chardet
 
 
 class PictureView(APIView):
@@ -135,6 +130,13 @@ class FileViews(APIView):
             return Response({"detail": "文件格式不支持"}, status=status.HTTP_400_BAD_REQUEST)
         name = file.name
         text = file.read()
+        try:
+            encoding = chardet.detect(text)['encoding'] or 'utf-8'
+            text_decode = text.decode(encoding, errors='ignore')
+            text_encode = text_decode.encode('utf-8')
+            text_format = str(text_encode).replace("\\r", " ").replace("\\n", " ")
+        except Exception as e:
+            return Response({"detail": "文件解析失败", "error": str(e)}, status=status.HTTP_400_BAD_REQUEST)
         category_id = request.data.get('category') or 1
         _category = Category.objects.get(id=category_id)
         sub_name = request.data.get('sub_name')
@@ -143,7 +145,7 @@ class FileViews(APIView):
                 name=name,
                 sub_name=sub_name,
                 category=_category,
-                text=text
+                text=text_format
             )
         except Exception:
             return Response({"detail": "参数不全"}, status=status.HTTP_400_BAD_REQUEST)

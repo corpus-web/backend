@@ -10,11 +10,6 @@ from .models import Meeting
 from .serializers import MeetingTitleSerializer, MeetingContentSerializer, PictureSerializer
 
 
-class TestView(APIView):
-    def get(self, request):
-        return Response({"detail": "ok"})
-
-
 class ListView(APIView):
     def get(self, request):
         current_page = request.data.get('current_page') or request.GET.get('current_page') or 1
