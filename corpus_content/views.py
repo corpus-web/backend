@@ -133,8 +133,8 @@ class FileViews(APIView):
         try:
             encoding = chardet.detect(text)['encoding'] or 'utf-8'
             text_decode = text.decode(encoding, errors='ignore')
-            text_encode = text_decode.encode('utf-8')
-            text_format = str(text_encode).replace("\\r", " ").replace("\\n", " ")
+            # text_encode = text_decode.encode('utf-8')
+            text_format = str(text_decode).replace("\r", " ").replace("\n", " ")
         except Exception as e:
             return Response({"detail": "文件解析失败", "error": str(e)}, status=status.HTTP_400_BAD_REQUEST)
         category_id = request.data.get('category') or 1

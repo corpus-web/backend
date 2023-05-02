@@ -8,6 +8,8 @@ from pkg.auth import require_login
 from .models import Message
 from .serializers import MessageTitleSerializer, MessageContextSerializer
 
+import pprint
+
 
 class MessageTitleView(APIView):
     def get(self, request):

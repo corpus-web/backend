@@ -47,7 +47,7 @@ def get_line(text_str, word, window_size, word_index, category):
         index_l -= 1
     while index_r < len(text_str) and index_r - word_index - len(word) <= int(window_size):
         index_r += 1
-    return text_str[index_l:index_r].replace("\\n", " ").replace("\\r", " ")
+    return text_str[index_l:index_r].replace("\n", " ").replace("\r", " ")
 
 
 def get_frequency_list(word_or_regex, limit_case="false", category=0, query_method=0):
