@@ -10,7 +10,7 @@ def get_essay_list_by_word(word, limit_case="false", category=0, page=1, per_pag
         reg = r'{}'.format(word)
     if int(category) == 0:
         query_set = File.objects.all()
-    elif int(category) == 1:
+    else:
         query_set = File.objects.filter(category_id=int(category))
     res_list = []
     total = 0
@@ -82,16 +82,13 @@ def get_frequency_list(word_or_regex, limit_case="false", category=0, query_meth
         reg = r"{}".format(word_or_regex)
         if int(category) == 0:
             query_set = File.objects.filter(text__iregex=reg)
-        elif int(category) == 1:
-            query_set = File.objects.filter(category_id=1, text__iregex=reg)
+            # query_set = File.objects.all()
         else:
-            query_set = File.objects.filter(category_id=2, text__iregex=reg)
+            query_set = File.objects.filter(category_id=int(category), text__iregex=reg)
+            # query_set = File.objects.filter(category_id=int(category))
         form_list = []
         form_count_dict = {}
-        if limit_case == "true":
-            pattern = re.compile(reg)
-        else:
-            pattern = re.compile(reg, re.I)
+        pattern = re.compile(reg)
         for essay in query_set:
             match_list = []
             m = pattern.finditer(essay.text)
@@ -117,8 +114,8 @@ def format_str(text):
     pattern1 = re.compile(r"_\w+\s")
     text = re.sub(pattern1, " ", text)
 
-    pattern2 = re.compile(r"\\x..|\\x.|\\x")
-    text = re.sub(pattern2, "", text)
+    # pattern2 = re.compile(r"\\x..|\\x.|\\x")
+    # text = re.sub(pattern2, "", text)
 
     text = text.replace("_,", "")
     text = text.replace(" ,", ",")
