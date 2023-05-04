@@ -61,5 +61,8 @@ class DeleteView(APIView):
         aid = request.data.get('aid')
         if not aid:
             return Response({"detail": "未指定要删除的数据"}, status=status.HTTP_400_BAD_REQUEST)
-        Meeting.objects.filter(id=aid).delete()
+        try:
+            Meeting.objects.get(id=aid).delete()
+        except Exception as e:
+            return Response({"detail": "数据不存在", "error": str(e)}, status=status.HTTP_400_BAD_REQUEST)
         return Response({"detail": "ok"}, status=status.HTTP_200_OK)

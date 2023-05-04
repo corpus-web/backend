@@ -181,7 +181,10 @@ class DeleteView(APIView):
             pid = request.data.get('pid')
             if not pid:
                 return Response({"detail": "未指定要删除的数据"}, status=status.HTTP_400_BAD_REQUEST)
-            Picture.objects.filter(id=pid).delete()
+            try:
+                Picture.objects.get(id=pid).delete()
+            except Exception as e:
+                return Response({"detail": "数据不存在", "error": str(e)}, status=status.HTTP_400_BAD_REQUEST)
             return Response({"detail": "ok"}, status=status.HTTP_200_OK)
         else:
-            return Response({"detail": "无效的操作"}, status=status.HTTP_400_BAD_REQUEST)
+            return Response({"detail": "无效的操作"}, status=status.HTTP_404_NOT_FOUND)

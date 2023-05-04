@@ -31,5 +31,8 @@ class DeleteView(APIView):
         pid = request.data.get('pid')
         if not pid:
             return Response({"detail": "未指定要删除的数据"}, status=status.HTTP_400_BAD_REQUEST)
-        Home.objects.filter(id=pid).delete()
+        try:
+            Home.objects.get(id=pid).delete()
+        except Exception as e:
+            return Response({"detail": "数据不存在", "error": str(e)}, status=status.HTTP_400_BAD_REQUEST)
         return Response({"detail": "ok"}, status=status.HTTP_200_OK)
