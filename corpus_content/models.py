@@ -18,6 +18,7 @@ class File(models.Model):
 
 class Picture(models.Model):
     img = models.FileField(max_length=255, upload_to='corpus/img/')
+
     def delete(self, *args, **kwargs):
         # 删除文件
         if self.img:
@@ -27,4 +28,3 @@ class Picture(models.Model):
 
         # 调用父类的 delete() 方法
         super().delete(*args, **kwargs)
-

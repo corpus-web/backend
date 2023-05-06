@@ -10,7 +10,7 @@ datas = {
     'category': 2
 }
 # file_path = f"D:\\web428\\corpus-antconc\\1\\3\\{folder_name}"
-file_path = f"D:\\web428\\corpus-antconc\\2\\4"
+file_path = f"C:\\Users\\xhd0728\\Desktop\\语料库资料\\核学科学术英语语料库\\{sub_category_name}英语语料库\\含词性赋码"
 
 if __name__ == '__main__':
     tot_201 = 0

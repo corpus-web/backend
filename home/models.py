@@ -1,11 +1,13 @@
 from django.db import models
-import  os
+import os
+
 
 # Create your models here.
 
 
 class Home(models.Model):
     img = models.FileField(max_length=255, upload_to='home/')
+
     def delete(self, *args, **kwargs):
         # 删除文件
         if self.img:
